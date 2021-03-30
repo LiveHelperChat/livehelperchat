@@ -128,7 +128,7 @@
 		    <div class="row">				
 				<div class="col-md-6">
 				    <select name="timeto_hours" class="form-control form-control-sm">
-				        <option value="">Select hour</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 				        <?php endfor;?>
@@ -136,7 +136,7 @@
 				</div>
 				<div class="col-md-6">
 				    <select name="timeto_minutes" class="form-control form-control-sm">
-				        <option value="">Select minute</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
 				        <?php endfor;?>
@@ -343,27 +343,7 @@
             </div>
         </div>
         <div class="col-md-2">
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
-                <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
-            </div>
-        </div>
-		<div class="col-md-2">
-    		<div class="form-group">
-        	   <label class="col-form-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
-        	</div>
-		</div>
-        <div class="col-md-2">
-    		<div class="form-group">
-        	   <label class="col-form-label"><input type="checkbox" name="una" <?php $input->una == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Unanswered chat')?></label>
-        	</div>
-		</div>
-        <div class="col-md-2">
-    		<div class="form-group">
-        	   <label class="col-form-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
-        	</div>
-		</div>
-        <div class="col-md-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot');?></label>
             <div class="form-group">
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
                     'input_name'     => 'bot_ids[]',
@@ -376,14 +356,55 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-3"><label><input type="checkbox" name="no_operator" value="1" <?php $input->no_operator == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats without an operator')?></label></div>
-                <div class="col-3"><label><input type="checkbox" name="has_operator" value="1" <?php $input->has_operator == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with an operator')?></label></div>
-                <div class="col-3"><label><input type="checkbox" name="with_bot" value="1" <?php $input->with_bot == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which had a bot')?></label></div>
-                <div class="col-3"><label><input type="checkbox" name="without_bot" value="1" <?php $input->without_bot == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which did not had a bot')?></label></div>
+        <div class="col-md-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visitor status on chat close');?></label>
+            <div class="form-group">
+                <select name="cls_us" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                    <option value="1" <?php $input->cls_us === 1 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Online');?></option>
+                    <option value="2" <?php $input->cls_us === 2 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Offline');?></option>
+                    <option value="0" <?php $input->cls_us === 0 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undetermined');?></option>
+                </select>
             </div>
         </div>
+
+        <div class="col-md-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread operator messages');?></label>
+            <div class="form-group">
+                <select name="has_unread_op_messages" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                    <option value="1" <?php $input->has_unread_op_messages === 1 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Yes');?></option>
+                    <option value="0" <?php $input->has_unread_op_messages === 0 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','No');?></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
+                <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
+            </div>
+        </div>
+		<div class="col-md-2">
+    		<div class="form-group">
+        	   <label class="col-form-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
+        	</div>
+		</div>
+        <div class="col-md-2">
+    		<div class="form-group">
+        	   <label class="col-form-label"><input type="checkbox" name="una" <?php $input->una == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Unanswered chat')?></label>
+        	</div>
+		</div>
+        <div class="col-md-2">
+    		<div class="form-group">
+        	   <label class="col-form-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
+        	</div>
+		</div>
+
+        <div class="col-2"><label class="col-form-label"><input type="checkbox" name="no_operator" value="1" <?php $input->no_operator == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats without an operator')?></label></div>
+        <div class="col-2"><label class="col-form-label"><input type="checkbox" name="has_operator" value="1" <?php $input->has_operator == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with an operator')?></label></div>
+        <div class="col-2"><label class="col-form-label"><input type="checkbox" name="with_bot" value="1" <?php $input->with_bot == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which had a bot')?></label></div>
+        <div class="col-2"><label class="col-form-label"><input type="checkbox" name="without_bot" value="1" <?php $input->without_bot == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which did not had a bot')?></label></div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_multiinclude.tpl.php'));?>
 

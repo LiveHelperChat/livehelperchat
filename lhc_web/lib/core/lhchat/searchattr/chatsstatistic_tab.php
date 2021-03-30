@@ -26,6 +26,18 @@ $fieldsSearch['group_field'] = array (
     )
 );
 
+$fieldsSearch['has_unread_op_messages'] = array (
+    'type' => 'text',
+    'trans' => 'Has unread operator messages',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'has_unread_op_messages',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
 $fieldsSearch['bot_ids'] = array (
     'type' => 'text',
     'trans' => 'Bot ID',
@@ -35,6 +47,18 @@ $fieldsSearch['bot_ids'] = array (
     'filter_table_field' => 'gbot_id',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['cls_us'] = array (
+    'type' => 'text',
+    'trans' => 'Visitor status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'cls_us',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
     )
 );
 

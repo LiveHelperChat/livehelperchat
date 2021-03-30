@@ -17,6 +17,7 @@ class erLhcoreClassChat {
 			'user_typing_txt',
 			'hash',
 			'ip',
+			'cls_us',
 			//'user_status',
 			'email',
 			'support_informed',
@@ -1729,241 +1730,7 @@ class erLhcoreClassChat {
            }
        }
    }
-   
-   /**
-    * Sets chats status directly
-    * */
-   public static function setOnlineStatusDirectly($chatLists)
-   {
-       $onlineUserId = array();
-        
-       foreach ($chatLists as $chat) {
-           if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
-               $onlineUserId[] = (int)$chat->online_user_id;
-           }
-       }
-        
-       if (!empty($onlineUserId)) {
-           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus_directly',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
-            
-           // Event listener has done it's job
-           if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-               return ;
-           }
-   
-           $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
-               'sort' => false,
-               'filterin' => array (
-                   'id' => $onlineUserId
-               )
-           ), array (
-               'vid',
-               'current_page',
-               'invitation_seen_count',
-               'page_title',
-               'chat_id',
-               'last_visit',
-               'first_visit',
-               'user_agent',
-               'user_country_name',
-               'user_country_code',
-               'operator_message',
-               'operator_user_id',
-               'operator_user_proactive',
-               'message_seen',
-               'message_seen_ts',
-               'pages_count',
-               'tt_pages_count',
-               'lat',
-               'lon',
-               'city',
-               'identifier',
-               'time_on_site',
-               'tt_time_on_site',
-               'referrer',
-               'invitation_id',
-               'total_visits',
-               'invitation_count',
-               'requires_email',
-               'requires_username',
-               'requires_phone',
-               'dep_id',
-               'reopen_chat',
-               'operation',
-               'operation_chat',
-               'screenshot_id',
-               'online_attr',
-               'online_attr_system',
-               'visitor_tz',
-               'notes'
-           ));
-   
-           foreach ($chatLists as & $chat) {
-               if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                   $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
-               } else {
-                   $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
-               }
-           }
-       }
-   }
 
-    /**
-     * Sets chat's status by online visitors records in efficient way
-     * */
-    public static function setOnlineStatus($chatLists, $chatListOriginal) {
-        $onlineUserId = array();
-        foreach ($chatLists as $chatList) {
-            foreach ($chatList as $chat) {
-                if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
-                    $onlineUserId[] = (int)$chat->online_user_id;
-                }
-            }
-        }
-
-        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
-
-        // Event listener has done it's job
-        if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-            return ;
-        }
-
-        $onlineVisitors = array();
-
-        if (!empty($onlineUserId)) {
-            $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList(array(
-                'sort' => false,
-                'filterin' => array(
-                    'id' => $onlineUserId
-                )
-            ), array(
-                'vid',
-                'current_page',
-                'invitation_seen_count',
-                'page_title',
-                'chat_id',
-                'last_visit',
-                'first_visit',
-                'user_agent',
-                'user_country_name',
-                'user_country_code',
-                'operator_message',
-                'operator_user_id',
-                'operator_user_proactive',
-                'message_seen',
-                'message_seen_ts',
-                'pages_count',
-                'tt_pages_count',
-                'lat',
-                'lon',
-                'city',
-                'identifier',
-                'time_on_site',
-                'tt_time_on_site',
-                'referrer',
-                'invitation_id',
-                'total_visits',
-                'invitation_count',
-                'requires_email',
-                'requires_username',
-                'requires_phone',
-                'dep_id',
-                'reopen_chat',
-                'operation',
-                'operation_chat',
-                'screenshot_id',
-                'online_attr',
-                'online_attr_system',
-                'visitor_tz',
-                'notes'
-            ));
-        }
-
-        foreach ($chatLists as & $chatList) {
-            foreach ($chatList as & $chat) {
-                if (isset($chatListOriginal[$chat->id]) && $chatListOriginal[$chat->id]->lsync > 0) {
-
-                    // Because mobile devices freezes background tabs we need to have bigger timeout
-                    $timeout = 60;
-
-                    if ($chatListOriginal[$chat->id]->device_type != 0 && (strpos($chatListOriginal[$chat->id]->uagent,'iPhone') !== false || strpos($chatListOriginal[$chat->id]->uagent,'iPad') !== false)) {
-                        $timeout = 240;
-                    }
-
-                    $chat->user_status_front =  (time() - $timeout > $chatListOriginal[$chat->id]->lsync || in_array($chatListOriginal[$chat->id]->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
-
-                    unset($chat->lsync);
-
-                } elseif (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                    $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
-                } else {
-                    $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
-                }
-
-                if (isset($chat->online_user_id)){
-                    unset($chat->online_user_id);
-                }
-
-                if (isset($chat->uagent)){
-                    unset($chat->uagent);
-                }
-
-                if (isset($chat->user_status)){
-                    unset($chat->user_status);
-                }
-
-                if (isset($chat->last_user_msg_time)){
-                    unset($chat->last_user_msg_time);
-                }
-            }
-        }
-    }
-   
-   /**
-    * @desc Returns user status based on the following logic
-    * 1. Green - if widget is not closed
-    * 2. Green - if widget is closed and user activity tracking enabled and user still on site and he is active
-    * 3. Green - if widget is closed and user activity tracking is disabled, but we still receive pings and from last user message has not passed 5 minutes
-    *
-    * 4. Yellow - if widget is closed and user activity tracking enabled, but user is not active but he is still on site
-    * 5. Yellow - from last user message has passed 5 minutes but user still on site
-    *
-    * 6. Widget is closed and we could not determine online user || None of above conditions are met.
-    *
-    * If user activity tracking is enabled but status checking not we default to 10 seconds status checks timeout
-    *
-    * @param array $params
-    *
-    * 1 GREEN user has activity in last 5 minutes and ping respond
-    * 2 ORANGE user has no activity in last 5 minutes and ping respond
-    * 3 GREY Offline user fails to respond pings for X number of times in a row
-    *
-    * @return int
-    */
-   public static function setActivityByChatAndOnlineUser($chat, erLhcoreClassModelChatOnlineUser $onlineUser)
-   {
-        $user_status_front = (!isset($chat->user_status) || $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT) ? 0 : 1;
-        
-        if (($user_status_front == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) || (erLhcoreClassChat::$onlineCondition == 1)) {
-           $timeout = (int)erLhcoreClassChat::$trackTimeout || 10;
-           if (erLhcoreClassChat::$trackActivity == true) {
-               if ($onlineUser->last_check_time_ago < ($timeout+10) && isset($onlineUser->user_active) && $onlineUser->user_active == 1) { //User still on site, it does not matter that he have closed widget.
-                   $user_status_front = 0;
-               } elseif ((!isset($onlineUser->user_active) || $onlineUser->user_active == 0) && $onlineUser->last_check_time_ago < ($timeout+10)) {
-                   $user_status_front = 2;
-               }
-           } else {
-               if ($onlineUser->last_check_time_ago < ($timeout+10) && time()-$chat->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
-                   $user_status_front = 0;
-               } elseif (isset($chat->last_user_msg_time) && time()-$chat->last_user_msg_time >= 300 && $onlineUser->last_check_time_ago < ($timeout+10)) {
-                   $user_status_front = 2;                 
-               }
-           }
-        }
-        
-        return $user_status_front;
-   }
-   
    public static function updateActiveChats($user_id, $ignoreEvent = false)
    {
        if ($user_id == 0) {
@@ -2272,7 +2039,20 @@ class erLhcoreClassChat {
 
         return $result;
     }
-   
+
+    public static function cleanForDashboard($chatLists) {
+       $attrsClean = array('online_user_id','uagent','user_status','last_user_msg_time','last_op_msg_time','lsync','dep_id','gbot_id');
+        foreach ($chatLists as & $chatList) {
+            foreach ($chatList as & $chat) {
+                foreach ($attrsClean as $attrClean) {
+                    if (isset($chat->{$attrClean})) {
+                        unset($chat->{$attrClean});
+                    }
+                }
+            }
+        }
+    }
+
    // Static attribute for class
    public static $trackActivity = false;
    public static $trackTimeout = 0;

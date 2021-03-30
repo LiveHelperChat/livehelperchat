@@ -232,8 +232,12 @@ class erLhcoreClassChatWorkflow {
             // Close normal chats
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) as $chat) {
-                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
@@ -267,6 +271,11 @@ class erLhcoreClassChatWorkflow {
 
             // Close pending chats where the only message is user initial message
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)),'filter' => array('last_user_msg_time' => 0))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -304,6 +313,10 @@ class erLhcoreClassChatWorkflow {
 
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -340,6 +353,11 @@ class erLhcoreClassChatWorkflow {
         if ($timeout > 0) {
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -376,6 +394,11 @@ class erLhcoreClassChatWorkflow {
         if ($timeout > 0) {
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'customfilter' => array('((last_user_msg_time = 0 AND time < ' . $delay . ') OR (last_user_msg_time > 0 AND last_user_msg_time < ' . $delay . '))'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_BOT_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -416,6 +439,11 @@ class erLhcoreClassChatWorkflow {
             (last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ') OR 
             (last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ') 
             ) AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < '.$delay.')'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -461,6 +489,10 @@ class erLhcoreClassChatWorkflow {
                 erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM . ') OR (`lsync` > 0 AND ((`lsync` < '. $delay .' AND `device_type` = 0) OR  (`lsync` < '. $delayMobile .' AND `device_type` IN (1,2)))))'),
                 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
 
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+                
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();

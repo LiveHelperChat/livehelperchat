@@ -3869,6 +3869,14 @@
         "extra": ""
       },
       {
+        "field": "cls_us",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "usaccept",
         "type": "int(11)",
         "null": "NO",
