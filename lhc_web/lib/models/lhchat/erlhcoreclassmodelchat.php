@@ -551,7 +551,6 @@ class erLhcoreClassModelChat {
        	            $this->chat_variables_array = array();
        	        }
        			return $this->chat_variables_array;
-       		break;
 
        	case 'user_status_front':
 
@@ -560,25 +559,16 @@ class erLhcoreClassModelChat {
                 return $this->user_status_front;
             }
 
-       	    if ($this->lsync > 0) {
+            // Because mobile devices freezes background tabs we need to have bigger timeout
+            $timeout = 60;
 
-       	        // Because mobile devices freezes background tabs we need to have bigger timeout
-       	        $timeout = 60;
+            if ($this->device_type != 0 && (strpos($this->uagent,'iPhone') !== false || strpos($this->uagent,'iPad') !== false)) {
+                $timeout = 240;
+            }
 
-       	        if ($this->device_type != 0 && (strpos($this->uagent,'iPhone') !== false || strpos($this->uagent,'iPad') !== false)) {
-                    $timeout = 240;
-                }
-
-       	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) ? 1 : 0;
-
-       	    } elseif ($this->online_user !== false) {
-       		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
-       		} else {
-       		    $this->user_status_front = $this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
-       		}
+            $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) ? 1 : 0;
 
        		return $this->user_status_front;
-       	break;
 
        	case 'bot':
             $chatVariables = $this->chat_variables_array;
@@ -592,7 +582,6 @@ class erLhcoreClassModelChat {
 
             $this->bot = $bot;
             return $this->bot;
-       	break;
 
        case 'incoming_chat':
            $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
