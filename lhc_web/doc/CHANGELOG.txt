@@ -9,6 +9,8 @@ https://doc.livehelperchat.com/docs/bot/collecting-information-two-tries
 5. Style fixes in case bot sends HTML style message.
 6. If operator disables all fields we still should show department dropdown if there is more than one department to choose from
 7. https://github.com/LiveHelperChat/livehelperchat/issues/1642
+8. Optimised how online status is calculated. Performance improvement.
+9. Some servers were caching GET request of URL it should not. Workaround for servers misconfigurations.
 
 execute doc/update_db/update_243.sql for update
 
