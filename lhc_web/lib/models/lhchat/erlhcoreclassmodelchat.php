@@ -121,6 +121,7 @@ class erLhcoreClassModelChat {
                // Anonymized
                'anonymized'    	        => $this->anonymized,
                'gbot_id'    	        => $this->gbot_id,
+               'cls_us'    	            => $this->cls_us,
        );
    }
 
@@ -554,6 +555,11 @@ class erLhcoreClassModelChat {
 
        	case 'user_status_front':
 
+       	    if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
+                $this->user_status_front = $this->cls_us - 1;
+                return $this->user_status_front;
+            }
+
        	    if ($this->lsync > 0) {
 
        	        // Because mobile devices freezes background tabs we need to have bigger timeout
@@ -826,6 +832,12 @@ class erLhcoreClassModelChat {
 
    // Bot ID assigned to the chat
    public $gbot_id = 0;
+
+   // User status on close event
+
+   // 0 - online
+   // 1 - offline
+   public $cls_us = 0;
 
    public $updateIgnoreColumns = array();
 }

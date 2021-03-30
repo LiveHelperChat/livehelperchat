@@ -27,6 +27,18 @@ $fieldsSearch['subject_ids'] = array (
     )
 );
 
+$fieldsSearch['cls_us'] = array (
+    'type' => 'text',
+    'trans' => 'Visitor status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'cls_us',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
 $fieldsSearch['timeto'] = array (
     'type' => 'text',
     'trans' => 'Timeto',

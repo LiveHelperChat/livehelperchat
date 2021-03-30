@@ -30,7 +30,11 @@ class erLhcoreClassChatHelper
         
         $params['chat']->support_informed = 1;
         $params['chat']->has_unread_messages = 0;
-        
+
+        if ($params['chat']->cls_us == 0) {
+            $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+        }
+
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
         $params['chat']->updateThis();        
     }
@@ -84,7 +88,11 @@ class erLhcoreClassChatHelper
             
             $params['chat']->status_sub_arg = json_encode($argStore);            
         }
-        
+
+        if ($params['chat']->cls_us == 0) {
+            $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+        }
+
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
         $params['chat']->saveThis();
 
@@ -150,6 +158,10 @@ class erLhcoreClassChatHelper
             
             $db = ezcDbInstance::get();
             $db->beginTransaction();
+
+                if ($params['chat']->cls_us == 0) {
+                    $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+                }
 
                 if ($params['chat']->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $params['chat']->user_id > 0 && $params['chat']->auto_responder !== false) {
                     $params['chat']->auto_responder->processClose();

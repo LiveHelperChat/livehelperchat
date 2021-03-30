@@ -128,7 +128,7 @@
 		    <div class="row">				
 				<div class="col-md-6">
 				    <select name="timeto_hours" class="form-control form-control-sm">
-				        <option value="">Select hour</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
 				        <?php for ($i = 0; $i <= 23; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 				        <?php endfor;?>
@@ -136,7 +136,7 @@
 				</div>
 				<div class="col-md-6">
 				    <select name="timeto_minutes" class="form-control form-control-sm">
-				        <option value="">Select minute</option>
+				        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
 				        <?php for ($i = 0; $i <= 59; $i++) : ?>
 				            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
 				        <?php endfor;?>
@@ -343,6 +343,31 @@
             </div>
         </div>
         <div class="col-md-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot');?></label>
+            <div class="form-group">
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'bot_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select bot'),
+                    'selected_id'    => $input->bot_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => [],
+                    'list_function'  => 'erLhcoreClassModelGenericBotBot::getList'
+                )); ?>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visitor status on chat close');?></label>
+            <div class="form-group">
+                <select name="cls_us" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                    <option value="1" <?php $input->cls_us === 1 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Online');?></option>
+                    <option value="2" <?php $input->cls_us === 2 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Offline');?></option>
+                    <option value="0" <?php $input->cls_us === 0 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undetermined');?></option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','IP');?></label>
                 <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
@@ -363,19 +388,6 @@
         	   <label class="col-form-label"><input type="checkbox" name="anonymized" <?php $input->anonymized == 1 ? print ' checked="checked" ' : ''?> value="on" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Anonymised')?></label>
         	</div>
 		</div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
-                    'input_name'     => 'bot_ids[]',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select bot'),
-                    'selected_id'    => $input->bot_ids,
-                    'css_class'      => 'form-control',
-                    'display_name'   => 'name',
-                    'list_function_params' => [],
-                    'list_function'  => 'erLhcoreClassModelGenericBotBot::getList'
-                )); ?>
-            </div>
-        </div>
         <div class="col-md-10">
             <div class="row">
                 <div class="col-3"><label><input type="checkbox" name="no_operator" value="1" <?php $input->no_operator == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats without an operator')?></label></div>

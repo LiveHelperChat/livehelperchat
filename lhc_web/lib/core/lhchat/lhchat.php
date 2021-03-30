@@ -17,6 +17,7 @@ class erLhcoreClassChat {
 			'user_typing_txt',
 			'hash',
 			'ip',
+			'cls_us',
 			//'user_status',
 			'email',
 			'support_informed',
@@ -1799,6 +1800,11 @@ class erLhcoreClassChat {
            ));
    
            foreach ($chatLists as & $chat) {
+
+               if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                   continue;
+               }
+
                if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
                    $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
                } else {

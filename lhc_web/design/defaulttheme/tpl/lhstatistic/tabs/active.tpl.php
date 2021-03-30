@@ -98,6 +98,18 @@
             )); ?>
         </div>
     </div>
+    <div class="col-md-2">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visitor status on chat close');?></label>
+        <div class="form-group">
+            <select name="cls_us" class="form-control form-control-sm">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                <option value="1" <?php $input->cls_us === 1 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Online');?></option>
+                <option value="2" <?php $input->cls_us === 2 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Offline');?></option>
+                <option value="0" <?php $input->cls_us === 0 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undetermined');?></option>
+            </select>
+        </div>
+    </div>
+
 
 	<div class="col-md-2">
 	  <div class="form-group">
@@ -134,7 +146,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-3">
+	<div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
 			<div class="row">
@@ -145,7 +157,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-3">
+	<div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
 	    <div class="row">				
