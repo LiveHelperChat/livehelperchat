@@ -110,6 +110,18 @@
         </div>
     </div>
 
+    <div class="col-md-2">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread operator messages');?></label>
+        <div class="form-group">
+            <select name="has_unread_op_messages" class="form-control form-control-sm">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                <option value="1" <?php $input->has_unread_op_messages === 1 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Yes');?></option>
+                <option value="0" <?php $input->has_unread_op_messages === 0 ? print 'selected="selected"' : '' ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','No');?></option>
+            </select>
+        </div>
+    </div>
+
+
 
 	<div class="col-md-2">
 	  <div class="form-group">
