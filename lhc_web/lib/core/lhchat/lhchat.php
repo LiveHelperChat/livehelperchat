@@ -2039,7 +2039,20 @@ class erLhcoreClassChat {
 
         return $result;
     }
-   
+
+    public static function cleanForDashboard($chatLists) {
+       $attrsClean = array('online_user_id','uagent','user_status','last_user_msg_time','last_op_msg_time','lsync','dep_id','gbot_id');
+        foreach ($chatLists as & $chatList) {
+            foreach ($chatList as & $chat) {
+                foreach ($attrsClean as $attrClean) {
+                    if (isset($chat->{$attrClean})) {
+                        unset($chat->{$attrClean});
+                    }
+                }
+            }
+        }
+    }
+
    // Static attribute for class
    public static $trackActivity = false;
    public static $trackTimeout = 0;

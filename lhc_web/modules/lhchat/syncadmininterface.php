@@ -593,6 +593,10 @@ if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['
 	$chatsList[] = & $ReturnMessages['unread_chats']['list'];
 }
 
+if (!empty($chatsList)) {
+    erLhcoreClassChat::cleanForDashboard($chatsList);
+}
+
 $my_active_chats = array();
 
 if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['topen']) && $Params['user_parameters_unordered']['topen'] == 'true') {
