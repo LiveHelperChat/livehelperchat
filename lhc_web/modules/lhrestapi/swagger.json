@@ -2900,6 +2900,11 @@
           "description": "   const USER_STATUS_JOINED_CHAT = 0;\n   const USER_STATUS_CLOSED_CHAT = 1;\n   const USER_STATUS_PENDING_REOPEN = 2;",
           "example": null
         },
+        "cls_us": {
+          "type": "integer",
+          "description": "User status on chat close event. 0 - undetermined, 1 - visitor was online, 2 - visitor was offline",
+          "example": null
+        },
         "country_code": {
           "type": "string",
           "description": "Two letter country code",
