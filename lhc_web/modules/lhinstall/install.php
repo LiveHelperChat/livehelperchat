@@ -305,7 +305,7 @@ try {
 				  `country_code` varchar(100) NOT NULL,
 				  `country_name` varchar(100) NOT NULL,
 				  `unanswered_chat` int(11) NOT NULL,
-				  `cls_us` tinyint(1) NOT NULL,
+				  `cls_us` tinyint(1) NOT NULL DEFAULT '0',
 				  `anonymized` tinyint(1) NOT NULL,
 				  `user_typing` int(11) NOT NULL,
 				  `gbot_id` int(11) NOT NULL DEFAULT '0',
