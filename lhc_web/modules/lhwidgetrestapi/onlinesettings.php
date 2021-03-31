@@ -788,8 +788,9 @@ foreach ($fields as $field) {
     }
 }
 
-if ($messageFieldVisible === false) {
-    $visibleCount = 0;
+// We have to increase count to show normal form
+if ($messageFieldVisible === false && $visibleCount == 1) {
+    $visibleCount = 2;
 }
 
 $chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
