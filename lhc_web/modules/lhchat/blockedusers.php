@@ -70,7 +70,7 @@ $pages->paginate();
 $items = array();
 
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelChatBlockedUser::getList(array_merge_recursive($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page, 'sort' => 'id ASC')));
+    $items = erLhcoreClassModelChatBlockedUser::getList(array_merge_recursive($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page)));
 }
 
 $tpl->set('items',$items);

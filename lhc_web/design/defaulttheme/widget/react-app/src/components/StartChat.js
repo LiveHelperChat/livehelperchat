@@ -10,7 +10,7 @@ import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatInvitationMessage from './ChatInvitationMessage';
 import ChatBotIntroMessage from './ChatBotIntroMessage';
-import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
+import { initOnlineForm, submitOnlineForm, minimizeWidget } from "../actions/chatActions"
 
 @connect((store) => {
     return {
@@ -390,6 +390,17 @@ class StartChat extends Component {
                     <React.Fragment>
 
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
+
+                        {this.props.chatwidget.hasIn(['validationErrors','blocked_user']) && <React.Fragment><div className="fade modal-backdrop show"></div>
+                            <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block p-2" tabIndex="-1">
+                            <div className="modal-content p-2">
+                                <p>{this.props.chatwidget.getIn(['validationErrors','blocked_user'])}</p>
+                                <div className="modal-footer">
+                                    <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.dispatch(minimizeWidget())} type="button">{this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat')}</button>
+                                </div>
+                            </div>
+                            </div></React.Fragment>}
+
 
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)

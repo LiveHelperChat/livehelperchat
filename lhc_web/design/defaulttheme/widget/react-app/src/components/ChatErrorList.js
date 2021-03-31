@@ -10,7 +10,7 @@ class ChatErrorList extends Component {
     render() {
 
         var mappedFields = this.props.errors.mapEntries(([k, v]) => {
-            if (k == 'captcha' || !isNaN(k)) {
+            if (k == 'captcha' || k == 'blocked_user' || !isNaN(k)) {
                 return [<li>{v}</li>]
             }
         });
