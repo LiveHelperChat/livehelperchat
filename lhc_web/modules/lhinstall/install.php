@@ -1477,7 +1477,7 @@ try {
                 ('disable_print','0',0,'Disable chat print', '0'),
                 ('hide_disabled_department','1',0,'Hide disabled department widget', '0'),
                 ('disable_send','0',0,'Disable chat transcript send', '0'),
-                ('autoclose_abandon_pending','0,0','0','Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>','0'),
+                ('autoclose_abandon_pending','0,0','0','Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>,<status chat>','0'),
                 ('ignore_user_status','0',0,'Ignore users online statuses and use departments online hours', '0'),
                 ('bbc_button_visible','1',0,'Show BB Code button', '0'),
                 ('password_data','','0','Password requirements','1'),
