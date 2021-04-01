@@ -683,7 +683,6 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_OFFLINE_REQUEST = 7;
    const STATUS_SUB_ON_HOLD = 8;
    const STATUS_SUB_SURVEY_COMPLETED = 9;
-   const STATUS_SUB_BLOCKED = 10;
 
    const STATUS_SUB_SUB_DEFAULT = 0;
    const STATUS_SUB_SUB_TRANSFERED = 1;
