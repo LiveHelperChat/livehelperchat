@@ -1197,7 +1197,7 @@ class erLhcoreClassBBCode
            '/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms',
            '/\[quote\]/ms',
            '/\[\/quote\]/ms',
-           '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
+           '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
            '/\n/ms',
        );
 
