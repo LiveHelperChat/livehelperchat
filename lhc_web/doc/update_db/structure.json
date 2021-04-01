@@ -8629,7 +8629,7 @@
         "identifier": "autoclose_abandon_pending",
         "value": "0,0",
         "type": "0",
-        "explain": "Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>.",
+        "explain": "Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>,<status chat>.",
         "hidden": "0"
       },
       {

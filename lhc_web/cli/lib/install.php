@@ -1249,7 +1249,7 @@ class Install
                 ('customer_site_url',	'http://livehelperchat.com',	0,	'Your site URL address',	0),
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
-                ('autoclose_abandon_pending','0,0','0','Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>.','0'),
+                ('autoclose_abandon_pending','0,0','0','Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor <desktop timeout>,<mobile timeout>,<status chat>.','0'),
                 ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('list_closed','0','0','List closed chats','0'),
                 ('autoclose_activity_timeout','0','0','Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes','0'),
