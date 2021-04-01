@@ -573,8 +573,8 @@
 
                 // Clear chat cookies if there is any
                 // Then popup finishes loading it calls this to clean up chat cookies. So visitor can start new chat.
-                attributesWidget.eventEmitter.addListener('endChatCookies', function () {
-                    if (attributesWidget.kcw === false) {
+                attributesWidget.eventEmitter.addListener('endChatCookies', function (params) {
+                    if (attributesWidget.kcw === false || (params && params['force'] == true)) {
                         attributesWidget.userSession.setChatInformation({'id': null, 'hash': null});
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                         attributesWidget.proactive = {};

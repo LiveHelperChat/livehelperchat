@@ -30,6 +30,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/video.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message.tpl.php'));?>
+        <?php elseif ($type == 'chat_operation') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/chat_operation.tpl.php'));?>
         <?php elseif ($type == 'text_conditional') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/text_conditional.tpl.php'));?>
         <?php elseif ($type == 'attr_options' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>

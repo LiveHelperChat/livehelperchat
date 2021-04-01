@@ -57,6 +57,8 @@ if (!$form->hasValidData('expires')) {
 
 $params['chat'] = $chat;
 
+$params['user'] =  $currentUser->getUserData(true);
+
 if (empty($Errors)){
     erLhcoreClassModelChatBlockedUser::blockChat($params);
     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');

@@ -16,6 +16,9 @@
                 <div class="col">
                     <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
                 </div>
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?>" />
+                </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
                 </div>

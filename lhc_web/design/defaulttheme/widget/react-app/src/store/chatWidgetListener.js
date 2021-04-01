@@ -46,6 +46,12 @@ export default function (dispatch, getState) {
                 window.close();
             }
         }},
+        {id : 'endCookies', cb : (data) => {
+                helperFunctions.sendMessageParent('endChatCookies', [{force: true}]);
+                if (window.lhcChat['mode'] == 'popup') {
+                    helperFunctions.removeSessionStorage('_chat');
+                }
+        }},
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
         {id : 'subcribedEvent', cb : (e) => {dispatch(storeSubscriber(e.payload))}},
         {id : 'attr_set', cb : (data) => {dispatch({type: 'attr_set', attr : data.attr, data : data.data})}},

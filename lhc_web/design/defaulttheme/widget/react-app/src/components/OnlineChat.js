@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -10,6 +10,7 @@ import ChatSync from './ChatSync';
 import ChatOptions from './ChatOptions';
 import ChatStatus from './ChatStatus';
 import ChatIntroStatus from './ChatIntroStatus';
+import ChatAbort from './ChatAbort';
 
 import { helperFunctions } from "../lib/helperFunctions";
 import { withTranslation } from 'react-i18next';
@@ -832,6 +833,8 @@ class OnlineChat extends Component {
 
             return (
                 <React.Fragment>
+
+                    {this.props.chatwidget.getIn(['chatLiveData','abort']) && <ChatAbort closeText={t('button.close')} close={(e) => this.props.dispatch(minimizeWidget(true))} text={this.props.chatwidget.getIn(['chatLiveData','abort'])} />}
 
                     {preloadSurvey && <iframe allowtransparency="true" src={location} frameBorder="0" className={classSurvey} />}
 

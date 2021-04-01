@@ -39,13 +39,17 @@ export function hideInvitation() {
     }
 }
 
-export function minimizeWidget() {
+export function minimizeWidget(forceClose) {
     return function(dispatch, getState) {
         const state = getState();
         if (state.chatwidget.getIn(['proactive','has']) === true) {
             hideInvitation()(dispatch, getState);
         } else {
             helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
+        }
+        if (forceClose && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed')) {
+            helperFunctions.removeSessionStorage('_chat');
+            window.close();
         }
     }
 }
