@@ -74,6 +74,15 @@ if (isset($restAPI['collect_all']) && $restAPI['collect_all'] === true) {
 
 if (!isset($Errors)) {
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
+    // Check is visitor blocked based on previous data if present chat does not have a nick
+    if (empty($Errors) &&
+        erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 &&
+        ($chat->nick == 'Visitor' || empty($chat->nick)) && isset($inputData->vid) && !empty($inputData->vid) &&
+        ($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($inputData->vid)) instanceof erLhcoreClassModelChatOnlineUser && $onlineUser->nick &&
+        $onlineUser->has_nick && erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $onlineUser->nick))
+    ) {
+        $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
+    }
 }
 
 if (empty($Errors)) {
@@ -136,9 +145,6 @@ if (empty($Errors)) {
                 'open_closed_chat_timeout' => erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value,
                 'reopen_closed' => erLhcoreClassModelChatConfig::fetch('allow_reopen_closed')->current_value
             ));
-            if (is_numeric($chat->old_last_msg_id)){
-
-            }
         }
 
         $chat->saveThis();

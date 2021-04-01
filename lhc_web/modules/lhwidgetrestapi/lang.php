@@ -27,7 +27,8 @@ $translations = array(
         "scroll_bottom" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom'),
         "new_msg" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message!'),
         "new_msgm" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New messages!'),
-        "new" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New')
+        "new" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New'),
+        "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Close')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),

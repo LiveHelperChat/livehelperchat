@@ -22,11 +22,11 @@
         } else if (isset($metaMessageData)) {
             unset($metaMessageData);
         }
-
-
+        
         // We skip render only if message is empty and it's not one of the supported admin meta messages
         if ($msg['msg'] == '' &&
             (!isset($metaMessageData['content']['text_conditional'])) &&
+            (!isset($metaMessageData['content']['chat_operation'])) &&
             (!isset($metaMessageData['content']['html']['content'])) &&
             (!isset($metaMessageData['content']['button_message']))) {
             continue;

@@ -105,6 +105,32 @@ class erLhcoreClassModelChatBlockedUser
             $block->btype = $params['btype'];
             $block->expires = isset($params['expires']) ? (int)$params['expires'] : 0;
             $block->saveThis();
+
+            $msg = new erLhcoreClassModelmsg();
+            $msg->time = time();
+            $msg->user_id = $params['user']->id;
+            $msg->chat_id = $params['chat']->id;
+            $msg->msg = '';
+            $msg->nick = $params['user']->name_support;
+            $msg->meta_msg = json_encode([
+                'content' => [
+                    'chat_operation' => [
+                        'operation' => 'chat_abort',
+                        'ext_args' => json_encode([
+                            'attr' => ['chatLiveData','abort'],
+                            'data' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.')
+                        ], JSON_HEX_APOS),
+                        'intro_op' => '[' . $params['user']->id . '] ' .(string)$params['user']->name_support,
+                    ]
+                ]
+            ]);
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat'], 'user_id' => $params['user']->id));
+            $msg->saveThis();
+
+            $params['chat']->last_msg_id = $msg->id;
+            $params['chat']->last_op_msg_time = time();
+            $params['chat']->saveThis();
         }
     }
 

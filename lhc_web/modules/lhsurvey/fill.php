@@ -38,6 +38,10 @@ try {
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
+    if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.'));
+    }
+
     if ($chat->hash == $hash)
     {
         $survey = erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']);
@@ -69,7 +73,6 @@ try {
     }
 
 } catch(Exception $e) {
-	print_r($e);
     $tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
 }
 
