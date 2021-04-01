@@ -1102,7 +1102,7 @@ class erLhcoreClassBBCode
             $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);
         } else if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
             $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
-                return '<code class="rounded mx170">'.trim($matches[1]).'</code>';
+                return '<code class="rounded mx170 text-white">'.trim($matches[1]).'</code>';
             }, $ret);
         }
 
