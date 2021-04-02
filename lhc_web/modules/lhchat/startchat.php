@@ -158,6 +158,7 @@ if (is_array($Params['user_parameters_unordered']['prod'])) {
 
 $inputData->accept_tos = false;
 $inputData->operator = (int)$Params['user_parameters_unordered']['operator'];
+$inputData->question = isset($_GET['prefill']['question']) ? (string)$_GET['prefill']['question'] : (isset($_GET['prefillMsg']) ? (string)$_GET['prefillMsg'] : '');
 
 // Perhaps user was redirected to leave a message form because chat was not acceptend in some time interval
 if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
@@ -172,6 +173,11 @@ if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
 			$inputData->email = $chatPrefill->email;			
 			$inputData->phone = $chatPrefill->phone;	
 			$inputData->accept_tos = true;
+
+            if (!(isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['dont_prefill_offline']) && $theme->bot_configuration_array['dont_prefill_offline'] == true)) {
+                $inputData->question = erLhcoreClassChat::getFirstUserMessage($chatPrefill->id);
+            }
+
 		} else {
 			unset($chatPrefill);
 		}
@@ -182,7 +188,7 @@ if ((string)$Params['user_parameters_unordered']['chatprefill'] != '') {
 
 // Input fields holder
 $inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : $inputData->username;
-$inputData->question = isset($_GET['prefill']['question']) ? (string)$_GET['prefill']['question'] : (isset($_GET['prefillMsg']) ? (string)$_GET['prefillMsg'] : '');
+
 $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill']['email'] : $inputData->email;
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : $inputData->phone;
 $inputData->priority = is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false;
