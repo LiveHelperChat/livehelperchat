@@ -252,6 +252,10 @@ if (empty($Errors)) {
                 $userInstance->message_seen = 1;
                 $userInstance->message_seen_ts = time();
 
+                if ($userInstance->visitor_tz == '') {
+                    $userInstance->visitor_tz = $chat->user_tz_identifier;
+                }
+
                 if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
                     if ($chat->nick != 'Visitor') {
                         $onlineAttr = $userInstance->online_attr_system_array;

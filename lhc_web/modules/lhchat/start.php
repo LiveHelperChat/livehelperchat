@@ -93,12 +93,25 @@ $online = erLhcoreClassChat::isOnline($dep, false, array(
 $leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
 $tpl->set('leaveamessage',$leaveamessage);
 $tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
 $tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');
 $tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : null);
-$tpl->set('vid',$Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null);
+
+$vid = $Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null;
+
+if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)) {
+    if (isset($_COOKIE['lhc_vid'])) {
+        $vid = $_COOKIE['lhc_vid'];
+    } else {
+        $vid = substr(sha1(mt_rand() . microtime()),0,20);
+    }
+    setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
+    erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
+}
+
+$tpl->set('vid',$vid);
+
 $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' ? $Params['user_parameters_unordered']['identifier'] : null);
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
 $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Params['user_parameters_unordered']['survey'] : null);

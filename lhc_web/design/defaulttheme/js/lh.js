@@ -963,6 +963,7 @@ function lh(){
     	} else {
 	    	window.open('','_self','');
 	    	window.close();
+            parent.postMessage("lhc_chat_closed_explicit", '*');
     	}
     };
 

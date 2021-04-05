@@ -62,7 +62,12 @@ export function endChat(obj, action) {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
                     helperFunctions.removeSessionStorage('_chat');
+
+                    // We try to close window at first place
                     window.close();
+
+                    // If it's direct chat window we have to show start chat form
+                    helperFunctions.eventEmitter.emitEvent('endedChat', [{'chat_id':obj['chat']['id'], 'hash': obj['chat']['hash']}]);
                 } else {
                     helperFunctions.sendMessageParent('endChat', [{show_start: obj['show_start'], 'sender' : 'endButton'}]);
                 }
