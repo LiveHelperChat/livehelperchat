@@ -89,20 +89,28 @@ class erLhcoreClassLHCBotWorker
                     // Let's check has user checked any trigger to execute.
                     if (isset($response['id'])) {
                         if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
-                            self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], array('args' => array(
+                            $argsDefault = array('args' => array(
                                 'meta_msg' => $response['meta'],
                                 'replace_array' => array(
-                                '{content_1}' => $response['content'],
-                                '{content_2}' => $response['content_2'],
-                                '{content_3}' => $response['content_3'],
-                                '{content_4}' => $response['content_4'],
-                                '{content_5}' => $response['content_5'],
-                                '{content_6}' => $response['content_6'],
-                                '{http_code}' => $response['http_code'],
-                                '{http_error}' => $response['http_error'],
-                                '{content_raw}' => $response['content_raw'],
-                                '{http_data}' => $response['http_data']
-                            ))));
+                                    '{content_1}' => $response['content'],
+                                    '{content_2}' => $response['content_2'],
+                                    '{content_3}' => $response['content_3'],
+                                    '{content_4}' => $response['content_4'],
+                                    '{content_5}' => $response['content_5'],
+                                    '{content_6}' => $response['content_6'],
+                                    '{http_code}' => $response['http_code'],
+                                    '{http_error}' => $response['http_error'],
+                                    '{content_raw}' => $response['content_raw'],
+                                    '{http_data}' => $response['http_data']
+                                )));
+
+                            if (isset($params['msg'])) {
+                                $argsDefault['args']['msg'] = $params['msg'];
+                            } else {
+                                $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
+                            }
+
+                            self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], $argsDefault);
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
                                 erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
@@ -114,23 +122,32 @@ class erLhcoreClassLHCBotWorker
                             // Do nothing as user did not chose any trigger to execute
                         }
                     } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
-                        self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], array(
-                            'args' => array(
-                             'meta_msg' => $response['meta'],
-                             'replace_array' => array(
-                            '{content_1}' => $response['content'],
-                            '{content_2}' => $response['content_2'],
-                            '{content_3}' => $response['content_3'],
-                            '{content_4}' => $response['content_4'],
-                            '{content_5}' => $response['content_5'],
-                            '{content_6}' => $response['content_6'],
-                            '{http_code}' => $response['http_code'],
-                            '{http_error}' => $response['http_error'],
-                            '{content_raw}' => $response['content_raw'],
-                            '{http_data}' => $response['http_data']
-                        ))));
 
-                        if (class_exists('erLhcoreClassNodeJSRedis')){
+                        $argsDefault = array(
+                            'args' => array(
+                                'meta_msg' => $response['meta'],
+                                'replace_array' => array(
+                                    '{content_1}' => $response['content'],
+                                    '{content_2}' => $response['content_2'],
+                                    '{content_3}' => $response['content_3'],
+                                    '{content_4}' => $response['content_4'],
+                                    '{content_5}' => $response['content_5'],
+                                    '{content_6}' => $response['content_6'],
+                                    '{http_code}' => $response['http_code'],
+                                    '{http_error}' => $response['http_error'],
+                                    '{content_raw}' => $response['content_raw'],
+                                    '{http_data}' => $response['http_data']
+                                )));
+
+                        if (isset($params['msg'])) {
+                            $argsDefault['args']['msg'] = $params['msg'];
+                        } else {
+                            $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
+                        }
+
+                        self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], $argsDefault);
+
+                        if (class_exists('erLhcoreClassNodeJSRedis')) {
                             erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
                         }
 

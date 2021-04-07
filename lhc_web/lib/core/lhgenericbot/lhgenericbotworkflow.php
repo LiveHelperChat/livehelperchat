@@ -540,6 +540,8 @@ class erLhcoreClassGenericBotWorkflow {
 
         if (isset($params['msg'])) {
             $payload = $params['msg']->msg;
+        } elseif (isset($params['msg_text']) && !empty($params['msg_text'])) {
+            $payload = $params['msg_text'];
         } else {
             $payload = $params['payload'];
         }
@@ -723,6 +725,22 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
                             }
                         }
+                    } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'rest_api_next_msg') {
+
+                        $args = array();
+                        $args['args']['msg_text'] = $payload;
+                        if (isset($params['msg'])) {
+                            $args['args']['msg'] = $params['msg'];
+                        }
+
+                        // Build a fake trigger and set actions
+                        $trigger = new erLhcoreClassModelGenericBotTrigger();
+                        $trigger->bot_id = $chat->gbot_id;
+                        $trigger->group_id = 0;
+                        $trigger->actions_front = array(array('type' => 'restapi', 'content' => $eventData['content']['content']));
+
+                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+
                     } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'default_actions') {
 
                         $args = array();
@@ -855,7 +873,7 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
-                        if (!empty($chat->additional_data)){
+                        if (!empty($chat->additional_data)) {
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
                         } else {
                             $chatAttributes = array();
