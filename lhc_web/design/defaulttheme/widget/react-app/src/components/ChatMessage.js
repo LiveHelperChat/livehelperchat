@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
-import { updateTriggerClicked, subscribeNotifications } from "../actions/chatActions";
+import { updateTriggerClicked, subscribeNotifications, parseScript } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
 
@@ -12,7 +12,6 @@ class ChatMessage extends PureComponent {
         this.abstractClick = this.abstractClick.bind(this);
         this.imageLoaded = this.imageLoaded.bind(this);
         this.updateTriggerClicked = this.updateTriggerClicked.bind(this);
-        this.processBotAction = this.processBotAction.bind(this);
         this.disableEditor = false;
         this.delayData = [];
     }
@@ -169,41 +168,6 @@ class ChatMessage extends PureComponent {
         }
     }
 
-    processBotAction(domNode) {
-        const attr = domNode.attribs;
-        if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
-            this.disableEditor = true;
-        } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
-            this.delayData.push(JSON.parse(attr['data-bot-args']));
-        } else if (attr['data-bot-action'] == 'execute-js') {
-            if (attr['data-bot-extension']) {
-                var args = {};
-                if (typeof attr['data-bot-args'] !== 'undefined') {
-                    args = JSON.parse(attr['data-bot-args']);
-                }
-                helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
-            } else if (attr['data-bot-emit']) {
-                var args = {};
-                if (typeof attr['data-bot-args'] !== 'undefined') {
-                    args = JSON.parse(attr['data-bot-args']);
-                }
-                helperFunctions.emitEvent(attr['data-bot-emit'],[args]);
-            } else if (attr['data-bot-event']) {
-                this.props[attr['data-bot-event']]();
-            } else {
-                if (attr.src) {
-                    var th = document.getElementsByTagName('head')[0];
-                    var s = document.createElement('script');
-                    s.setAttribute('type','text/javascript');
-                    s.setAttribute('src', attr.src);
-                    th.appendChild(s);
-                } else if (typeof domNode.children[0] !== 'undefined' && typeof domNode.children[0]['data'] !== 'undefined') {
-                    eval(domNode.children[0]['data']);
-                }
-            }
-        }
-    }
-
     formatStringToCamelCase(str) {
         const splitted = str.split("-");
         if (splitted.length === 1) return splitted[0];
@@ -310,7 +274,7 @@ class ChatMessage extends PureComponent {
                         }
 
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
-                        this.processBotAction(domNode);
+                        parseScript(domNode, this);
                     }
                 }
             }

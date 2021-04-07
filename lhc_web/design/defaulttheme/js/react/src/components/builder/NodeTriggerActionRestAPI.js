@@ -161,11 +161,21 @@ class NodeTriggerActionRestAPI extends Component {
                     <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger'])} />
                 </div>
 
-                <div className="form-group">
-                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process'])} /> Send Rest API Call in the background.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
-                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','no_body'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','no_body'])} /> Do not save response.</label>
-                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save response as system message</label>
+                <div className="row">
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','background_process'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','background_process'])} /> Send Rest API Call in the background.</label> <i className="material-icons" title="You have to be using lhc-php-resque extension.">info</i>
+                    </div>
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','no_body'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','no_body'])} /> Do not save response.</label>
+                    </div>
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save response as system message</label>
+                    </div>
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_next_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_next_msg'])} /> Process on next visitor message</label>
+                    </div>
                 </div>
+
 
                 <hr className="hr-big" />
 

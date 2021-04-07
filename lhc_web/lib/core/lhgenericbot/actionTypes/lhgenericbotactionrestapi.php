@@ -11,6 +11,27 @@ class erLhcoreClassGenericBotActionRestapi
             $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);
 
             if ($restAPI instanceof erLhcoreClassModelGenericBotRestAPI) {
+
+                // Within next user message we will process this event
+                if (isset($action['content']['attr_options']['on_next_msg']) && $action['content']['attr_options']['on_next_msg'] == true) {
+                    unset($action['content']['attr_options']['on_next_msg']);
+                    $event = new erLhcoreClassModelGenericBotChatEvent();
+                    $event->chat_id = $chat->id;
+                    $event->ctime = time();
+                    $event->content = json_encode(array('callback_list' => array(
+                        array(
+                            'content' => array(
+                                'type' => 'rest_api_next_msg',
+                                'content' => $action['content']
+                            )
+                        )
+                    )));
+                    if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
+                        $event->saveThis();
+                    }
+                    return;
+                }
+
                 $method = false;
                 foreach ($restAPI->configuration_array['parameters'] as $parameter) {
                     if ($action['content']['rest_api_method'] == $parameter['id']) {
@@ -18,7 +39,7 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
-                // Within next user message we will validate his username or anything else
+                // Callback should be executed as background task
                 if ((isset($action['content']['attr_options']['background_process']) && $action['content']['attr_options']['background_process'] == true)) {
 
                     $event = new erLhcoreClassModelGenericBotChatEvent();
@@ -56,7 +77,8 @@ class erLhcoreClassGenericBotActionRestapi
                 // Let's check has user checked any trigger to execute.
                 if (isset($response['id'])) {
                     if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
-                        return array(
+
+                        $argsDefault = array(
                             'status' => 'continue_all',
                             'replace_array' => array(
                                 '{content_1}' => $response['content'],
@@ -73,11 +95,21 @@ class erLhcoreClassGenericBotActionRestapi
                             'meta_msg' => $response['meta'],
                             'trigger_id' => $action['content']['rest_api_method_output'][$response['id']]
                         );
+
+                        if (isset($params['msg'])) {
+                            $argsDefault['msg'] = $params['msg'];
+                        } elseif (isset($params['msg_text'])) {
+                            $argsDefault['msg_text'] = $params['msg_text'];
+                        }
+
+                        return $argsDefault;
+
                     } else {
                         // Do nothing as user did not chose any trigger to execute
                     }
                 } elseif (isset($action['content']['rest_api_method_output']['default_trigger']) && is_numeric($action['content']['rest_api_method_output']['default_trigger'])) {
-                    return array(
+
+                    $argsDefault = array(
                         'status' => 'continue_all',
                         'replace_array' => array(
                             '{content_1}' => $response['content'],
@@ -94,6 +126,14 @@ class erLhcoreClassGenericBotActionRestapi
                         'meta_msg' => $response['meta'],
                         'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
                     );
+
+                    if (isset($params['msg'])) {
+                        $argsDefault['msg'] = $params['msg'];
+                    } elseif (isset($params['msg_text'])) {
+                        $argsDefault['msg_text'] = $params['msg_text'];
+                    }
+
+                    return $argsDefault;
                 }
 
                 if ($response['content'] != '' || (isset($response['meta']) && !empty($response['meta']))){
@@ -495,10 +535,10 @@ class erLhcoreClassGenericBotActionRestapi
                         if ($successLocation['found'] === true) {
 
                             $responseValueSub = array();
-                            for ($i = 2; $i <= 6; $i++){
+                            for ($i = 2; $i <= 6; $i++) {
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
                                     $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
-                                    if ($successLocationNumbered['found'] === true) {
+                                    if ($successLocationNumbered['found'] === true && !is_array($successLocationNumbered['value'])) {
                                         $responseValueSub[$i] = $successLocationNumbered['value'];
                                     }
                                 }
@@ -507,7 +547,7 @@ class erLhcoreClassGenericBotActionRestapi
                             $responseValueCompare = $responseValue = $successLocation['value'];
                             if (isset($outputCombination['success_condition_val']) && !empty($outputCombination['success_condition_val'])) {
                                 $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val']);
-                                if ($responseValueCompareLocation['found'] === true) {
+                                if ($responseValueCompareLocation['found'] === true && !is_array($responseValueCompareLocation['value'])) {
                                     $responseValueCompare = $responseValueCompareLocation['value'];
                                 } else {
                                     // Attribute was not found
