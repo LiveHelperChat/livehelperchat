@@ -256,6 +256,10 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.setIn(['chat_ui','survey_id'],action.data.closed_arg.survey_id);
             }
 
+            if (action.data.disable_survey) {
+                state = state.removeIn(['chat_ui','survey_id']);
+            }
+
             if (action.data.extension) {
                 state = state.set('extension',state.get('extension').merge(fromJS(action.data.extension)));
             }

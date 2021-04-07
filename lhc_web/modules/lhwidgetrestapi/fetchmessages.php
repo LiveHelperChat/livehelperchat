@@ -188,6 +188,13 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 		    	$saveChat = true;
 		    }
 
+		    if (isset($responseArray['closed']) && $responseArray['closed'] == true) {
+                $chatVariables = $chat->chat_variables_array;
+                if (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0) {
+                    $responseArray['disable_survey'] = true;
+                }
+            }
+
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
 		    	$chat->updateThis(array('update' => array(

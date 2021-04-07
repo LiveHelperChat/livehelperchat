@@ -364,6 +364,9 @@ export function updateMessage(obj) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj, defaultHeaders)
         .then((response) => {
             let elm = document.getElementById('msg-'+response.data.id);
+            if (elm === null) {
+                return;
+            }
             const classNameRow = elm.className;
             elm.outerHTML = response.data.msg;
             elm.className = classNameRow;
@@ -374,10 +377,61 @@ export function updateMessage(obj) {
                 elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
             }
 
-        })
-        .catch((err) => {
+            let elmUpdated = document.getElementById('msg-'+response.data.id);
+            let collection = elmUpdated.getElementsByTagName('script');
+
+            for (let item of collection) {
+                var attribs = {};
+                if (item.hasAttributes()) {
+                    var attrs = item.attributes;
+                    for (var i = attrs.length - 1; i >= 0; i--) {
+                        attribs[attrs[i].name] = attrs[i].value;
+                    }
+                }
+                item.attribs = attribs;
+                parseScript(item, this);
+            }
 
         })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
+
+export function parseScript(domNode, inst) {
+    const attr = domNode.attribs;
+
+    if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
+        inst.disableEditor = true;
+    } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
+        inst.delayData.push(JSON.parse(attr['data-bot-args']));
+    } else if (attr['data-bot-action'] == 'execute-js') {
+        if (attr['data-bot-extension']) {
+            var args = {};
+            if (typeof attr['data-bot-args'] !== 'undefined') {
+                args = JSON.parse(attr['data-bot-args']);
+            }
+            helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
+        } else if (attr['data-bot-emit']) {
+            var args = {};
+            if (typeof attr['data-bot-args'] !== 'undefined') {
+                args = JSON.parse(attr['data-bot-args']);
+            }
+            helperFunctions.emitEvent(attr['data-bot-emit'],[args]);
+        } else if (attr['data-bot-event']) {
+            inst.props[attr['data-bot-event']]();
+        } else {
+            if (attr.src) {
+                var th = document.getElementsByTagName('head')[0];
+                var s = document.createElement('script');
+                s.setAttribute('type','text/javascript');
+                s.setAttribute('src', attr.src);
+                th.appendChild(s);
+            } else if (typeof domNode.children[0] !== 'undefined' && typeof domNode.children[0]['data'] !== 'undefined') {
+                eval(domNode.children[0]['data']);
+            }
+        }
     }
 }
 
@@ -409,7 +463,7 @@ export function fetchMessages(obj) {
                 axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
                 .then((response) => {
                     if (response.data.deleted) {
-                        //window.lhcChat.eventEmitter.emitEvent('endChat', [{'sender' : 'endButton'}]);
+                        helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
                     } else {
                         dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
                         helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
