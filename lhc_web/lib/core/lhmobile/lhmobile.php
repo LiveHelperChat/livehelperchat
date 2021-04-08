@@ -89,6 +89,12 @@ class erLhcoreClassLHCMobile {
             foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''),'filter' => array('error' => 0))) as $operator) {
                 if (is_object($operator->user) && $operator->user->hide_online == 0 && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0)) {
 
+                    $messageSoundEnabled = (int)erLhcoreClassModelUserSetting::getSetting('chat_message',1, $operator->user->id);
+
+                    if ($messageSoundEnabled == 0) {
+                        continue;
+                    }
+
                     // Do not notify if user is not assigned to department
                     // Do not notify if user has only read department permission
                     if ($operator->user->all_departments == 0 && $params['chat']->user_id != $operator->user->id) {
