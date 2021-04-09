@@ -158,8 +158,12 @@ class erLhcoreClassGenericBotActionCommand {
                         foreach ($variablesArray as $indexVariable => $variableData) {
                             if ($variableData['identifier'] == $value['identifier']) {
                                 if (isset($value['value'])) {
-                                    $valueItem = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
-                                    $variablesArray[$indexVariable]['value'] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                                    if (!is_numeric($value['value']) && !is_bool($value['value'])) {
+                                        $valueItem = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                        $variablesArray[$indexVariable]['value'] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                                    } else {
+                                        $variablesArray[$indexVariable]['value'] = $value['value'];
+                                    }
                                 } else {
                                     unset($variablesArray[$indexVariable]);
                                 }
@@ -171,11 +175,18 @@ class erLhcoreClassGenericBotActionCommand {
 
                 foreach ($variablesAppend as $value) {
                     if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && !in_array($value['identifier'],$updatedIdentifiers)) {
-                        $valueItem = (isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value']);
+
+                        if (!is_numeric($value['value']) && !is_bool($value['value'])) {
+                            $valueItem = (isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $value['value']) : $value['value']);
+                            $valueItem = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                        } else {
+                            $valueItem = $value['value'];
+                        }
+
                         $variablesArray[] = array(
                             'identifier' => $value['identifier'],
                             'key' => $value['key'],
-                            'value' => erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params))
+                            'value' => $valueItem
                         );
                     }
                 }
@@ -196,11 +207,19 @@ class erLhcoreClassGenericBotActionCommand {
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
                         if (isset($params['replace_array']) && isset($value)) {
-                            $valueItem = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
-                            $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                            if (!is_numeric($value) && !is_bool($value)) {
+                                $valueItem = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
+                                $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                            } else {
+                                $variablesArray[$key] = $value;
+                            }
                         } else {
                             if (isset($value)) {
-                                $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $chat, 'args' => $params));
+                                if (!is_numeric($value) && !is_bool($value)) {
+                                    $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $chat, 'args' => $params));
+                                } else {
+                                    $variablesArray[$key] = $value;
+                                }
                             } elseif (isset($variablesArray[$key])) {
                                 unset($variablesArray[$key]);
                             }

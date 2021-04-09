@@ -2066,6 +2066,11 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function translateMessage($message, $params = array())
     {
+
+        if (is_numeric($message) || is_bool($message)) {
+            return $message;
+        }
+
         $depId = 0;
         $locale = null;
         if (isset($params['chat'])) {
