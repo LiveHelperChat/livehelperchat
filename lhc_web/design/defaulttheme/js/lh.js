@@ -2283,8 +2283,11 @@ function lh(){
 	        	                      var typingIndicator = $('#user-is-typing-'+item.chat_id);
 
 	        	                      if (item.tp == 'true') {
+                                          if (lhinst.nodeJsMode == false) {
+                                                typingIndicator.html(item.tx);
+                                          }
 	        	                          if (typingIndicator.css('visibility') == 'hidden') {
-                                              typingIndicator.html(item.tx).css('visibility','visible');
+                                              typingIndicator.css('visibility','visible');
                                           }
 	        	                      } else {
                                           if (lhinst.nodeJsMode == false) {
