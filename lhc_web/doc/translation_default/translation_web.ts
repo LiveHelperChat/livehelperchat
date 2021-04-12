@@ -20,6 +20,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation type="unfinished"/>
     </message>
@@ -2609,6 +2617,38 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor status on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undetermined</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>IP</source>
       <translation type="unfinished"/>
     </message>
@@ -2758,10 +2798,6 @@
     </message>
     <message>
       <source>Group field</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3785,6 +3821,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor was blocked by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Confirm</source>
       <translation type="unfinished"/>
     </message>
@@ -4787,15 +4827,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Block type</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5564,7 +5604,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5708,6 +5748,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Fill in the form to start a chat</source>
       <translation type="unfinished"/>
     </message>
@@ -5777,6 +5821,10 @@
     </message>
     <message>
       <source>New messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14760,6 +14808,14 @@
     </message>
     <message>
       <source>has closed the chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has changed chat status to pending!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has changed chat status to bot!</source>
       <translation type="unfinished"/>
     </message>
     <message>

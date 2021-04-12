@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>چند روز بعد از آخرین نمایش، ابزارک رأی گیری باز نشود؟</translation>
     </message>
@@ -972,6 +980,10 @@
     <message>
       <source>Disabled</source>
       <translation>غیرفعال شده</translation>
+    </message>
+    <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5322,6 +5334,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation>گپ در حال حاضر در دسترس نیست</translation>
     </message>
@@ -5756,10 +5772,6 @@
     <message>
       <source>Start a chat with us!</source>
       <translation>شروع چت با ما!</translation>
-    </message>
-    <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages!</source>
