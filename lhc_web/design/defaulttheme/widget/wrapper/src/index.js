@@ -269,6 +269,12 @@
 
                     if (lhc.version !== data.wv && document.getElementById(attributesWidget.prefixLowercase+'-js-reload') === null) {
 
+                        if (data.terminate) {
+                            return;
+                        }
+
+                        attributesWidget.userSession.setVID(data.vid);
+
                         // Mark script as terminated
                         attributesWidget.terminated = true;
 
