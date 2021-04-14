@@ -7,6 +7,11 @@ class erLhcoreClassLHCMobile {
         $db = ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
 
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
         $chatId = $this->args['chat_id'];
 
         $chat = erLhcoreClassModelChat::fetch($chatId);
@@ -79,7 +84,8 @@ class erLhcoreClassLHCMobile {
         }
 
         if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('type' => 'message', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('inst_id' => $inst_id, 'type' => 'message', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
             return;
         }
 
@@ -142,7 +148,9 @@ class erLhcoreClassLHCMobile {
         }
 
         if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
             erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array(
+                'inst_id' => $inst_id,
                 'type' => 'started',
                 'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0),
                 'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),

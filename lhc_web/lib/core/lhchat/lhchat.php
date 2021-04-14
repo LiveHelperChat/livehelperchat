@@ -1368,7 +1368,8 @@ class erLhcoreClassChat {
        try {
 
            if (erLhcoreClassSystem::instance()->backgroundMode == false && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassChatStatsResque', array('type' => 'dep', 'id' => $dep->id));
+               $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassChatStatsResque', array('inst_id' => $inst_id,'type' => 'dep', 'id' => $dep->id));
                return;
            }
 
