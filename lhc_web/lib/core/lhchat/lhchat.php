@@ -1237,6 +1237,9 @@ class erLhcoreClassChat {
             }
 
             return false;
+
+       } elseif ($userData->all_departments != 0 && $chat->user_id != 0 && $chat->user_id != $currentUser->getUserID() && !$currentUser->hasAccessTo('lhchat','allowopenremotechat')) {
+           return false;
        }
 
        return true;
