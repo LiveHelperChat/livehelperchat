@@ -106,12 +106,9 @@ export default ({onChange, type}) => {
 
     return (
         <div className="row">
-            <div className="col-6">
-            Response type
-            </div>
-            <div className="col-6">
+            <div className="col-12">
                 <div className="form-group">
-                    <select onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
+                    <select title="Response type" onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
                         <optgroup label="Basic">
                             {list}
                         </optgroup>

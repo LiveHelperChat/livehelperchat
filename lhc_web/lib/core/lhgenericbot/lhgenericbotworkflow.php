@@ -1545,6 +1545,12 @@ class erLhcoreClassGenericBotWorkflow {
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
+
+            // Response needs to be skipped
+            if (isset($action['skip_resp']) && $action['skip_resp'] == true) {
+                continue;
+            }
+
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
