@@ -36,6 +36,33 @@ $ViewList['startchatformsettingsindex'] = array(
     'functions' => array( 'administrate' )
 );
 
-$FunctionList['administrate'] = array('explain' => 'General permission to use chat module');
+$ViewList['editeventsettings'] = array(
+    'params' => array('id'),
+    'functions' => array( 'events' )
+);
+
+$ViewList['eventlist'] = array(
+    'params' => array(),
+    'functions' => array( 'events' )
+);
+
+$ViewList['neweventsettings'] = array(
+    'params' => array(),
+    'functions' => array( 'events' )
+);
+
+$ViewList['eventindex'] = array(
+    'params' => array(),
+    'functions' => array( 'events' )
+);
+
+$ViewList['deleteevent'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'administrate' )
+);
+
+$FunctionList['administrate'] = array('explain' => 'Allow to configure chat start form');
+$FunctionList['events'] = array('explain' => 'Allow to configure events tracking');
 
 ?>

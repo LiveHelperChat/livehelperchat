@@ -77,7 +77,8 @@ return array_merge(array (
         'erLhcoreClassModelChatPaid'    => 'lib/models/lhchat/erlhcoreclassmodelchatpaid.php',
         'erLhcoreClassModelmsg'         => 'lib/models/lhchat/erlhcoreclassmodelmsg.php',
         'erLhcoreClassModelChatStartSettings'         => 'lib/models/lhchat/erlhcoreclassmodelchatstartsettings.php',
-    
+        'erLhcoreClassModelChatEventTrack'         => 'lib/models/lhchat/erlhcoreclassmodelchateventtrack.php',
+
         'erLhcoreClassModelCannedMsg'           => 'lib/models/lhchat/erlhcoreclassmodelcannedmsg.php',
         'erLhcoreClassModelCannedMsgTag'        => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtag.php',
         'erLhcoreClassModelCannedMsgTagLink'    => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtaglink.php',

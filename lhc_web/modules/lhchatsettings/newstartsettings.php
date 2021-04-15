@@ -16,13 +16,13 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
     $Errors = erLhcoreClassAdminChatValidatorHelper::validateStartChatForm($data);
 
     if (!isset($_POST['DepartmentID']) || !is_numeric($_POST['DepartmentID'])) {
-        $Errors[] = 'Please choose a department';
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Please choose a department');
     } else {
         $startSettings->department_id = (int)$_POST['DepartmentID'];
     }
 
     if (!isset($_POST['name']) || empty($_POST['name'])) {
-        $Errors[] = 'Please enter a name';
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Please enter a name');
     } else {
         $startSettings->name = $_POST['name'];
     }

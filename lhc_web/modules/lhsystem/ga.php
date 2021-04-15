@@ -124,10 +124,14 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array(
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'Settings')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'System configuration')
     ),
     array(
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events Tracking')
+        'url' => erLhcoreClassDesign::baseurl('chatsettings/eventindex'),
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events tracking')
+    ),
+    array(
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Default settings')
     )
 );
 
