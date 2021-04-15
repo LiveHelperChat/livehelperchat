@@ -36,7 +36,7 @@
 		
 		<div class="user-is-typing" id="user-is-typing-<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','User is typing now...')?></div>
 		
-		<div class="message-container-admin">
+		<div class="message-container-admin" >
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_tab_user_files_tab_pre.tpl.php'));?>
             <?php if ($information_tab_user_files_tab_enabled == true) : ?>
@@ -48,7 +48,7 @@
                 </script>
             <?php endif; endif;?>
 
-            <div class="d-flex flex-nowrap">
+            <div class="d-flex flex-nowrap" translate="no">
                 <div class="flex-shrink-1 ">
                     <button type="button" class="btn btn-sm btn-outline-primary" id="chat-write-button-<?php echo $chat->id?>"><i class="material-icons mr-0">create</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?></button>&nbsp;<button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>"><i class="material-icons mr-0">visibility</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?></button>
                 </div>
@@ -73,7 +73,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_text_area_block.tpl.php')); ?>
 
 	</div>
-	<div class="col-sm-4 chat-main-right-column" id="chat-right-column-<?php echo $chat->id;?>">
+	<div class="col-sm-4 chat-main-right-column" translate="no" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>

@@ -32,7 +32,7 @@
             $closedTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
             $mchatsTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
             $unreadTabEnabled = (int)erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1); ?>
-            <div class="columns col-xl-3 right-column-page-general" id="right-column-page" ng-cloak>
+            <div class="columns col-xl-3 right-column-page-general" translate="no" id="right-column-page" ng-cloak>
             	
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/transfer_panel_container_pre.tpl.php'));?>
                 

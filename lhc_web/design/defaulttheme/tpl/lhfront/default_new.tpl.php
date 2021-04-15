@@ -31,7 +31,7 @@
     <div ng-controller="OnlineCtrl as online" ng-init='online.forbiddenVisitors=<?php $currentUser->hasAccessTo('lhchat', 'use_onlineusers') != true ? print 'true' : print 'false'?>;groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows="<?php echo (int)$omaxRows ?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.country="<?php echo htmlspecialchars($oCountry)?>";online.updateTimeout="<?php echo (int)$oupdTimeout ?>";online.userTimeout = "<?php echo (int)$ouserTimeout ?>";online.department="<?php echo (int)$onlineDepartment ?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
 
         <div class="row">
-            <div class="col chats-column border-right pr-0 pl-0">
+            <div translate="no" class="col chats-column border-right pr-0 pl-0">
 
                 <div class="w-100 d-flex flex-column flex-grow-1">
                     <div class="clearfix bg-light">
@@ -140,7 +140,7 @@
             <div class="col">
 
                 <div role="tabpanel" id="tabs" ng-cloak class="<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' pt-0' : ''?>">
-                    <ul class="nav nav-pills<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' d-none' : ''?>" role="tablist">
+                    <ul translate="no" class="nav nav-pills<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' d-none' : ''?>" role="tablist">
                         <?php foreach ($frontTabsOrder as $frontTab) : ?>
                             <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_tab.tpl.php')); ?>
