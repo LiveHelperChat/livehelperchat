@@ -1,7 +1,23 @@
-<?php
-$gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;
-if (isset($gaOptions['ga_enabled']) && isset($gaOptions['js_static']) && $gaOptions['js_static'] != '' && $gaOptions['ga_enabled'] == true && (!isset($gaOptions['ga_dep']) || empty($gaOptions['ga_dep']) || (is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0)))  : ?>
-window.LHCEventTracker = function(key,params) {
+<?php $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value; ?>
+
+    <?php if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) :
+
+    $continueTrack = false;
+
+    if (isset($gaOptions['js_static']) && !empty($gaOptions['js_static']) && ((isset($gaOptions['ga_all']) && $gaOptions['ga_all'] == true) || (isset($gaOptions['ga_dep']) && isset($department) && is_array($department) && count(array_intersect($department, $gaOptions['ga_dep'])) > 0))) {
+        $continueTrack = true;
+    }
+
+    if (isset($dep_id) && $dep_id > 0) {
+        $gaByDep = erLhcoreClassModelChatEventTrack::findOne(array('filter' => array('department_id' => $dep_id)));
+        if ($gaByDep instanceof erLhcoreClassModelChatEventTrack) {
+            $gaOptions = $gaByDep->data_array;
+            $continueTrack = true;
+        }
+    }
+
+    if ($continueTrack == true) : ?>
+    window.LHCEventTracker = function(key,params) {
     if (typeof params !== 'undefined' && typeof params[0] !== 'undefined') {
         params = params[0];
     }
@@ -94,4 +110,5 @@ window.LHCEventTracker = function(key,params) {
         console.log(e);
     }
 };
-<?php endif; ?>
+<?php endif; endif; ?>
+

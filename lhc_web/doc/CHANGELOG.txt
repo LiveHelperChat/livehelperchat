@@ -1,3 +1,17 @@
+3.71v
+
+1. Duplicate online record was presented if old version JS files were cached.
+2. Option to have event tracking settings by department.
+3. Visitor typing text was not updating above text area
+4. Automated hosting extension now supports PHP-Resque
+5. Custom icons alerts will have a new sound
+6. Dark theme edit previous message background changed to more readable.
+7. Survey won't be shown to visitors who are blocked during conversation.
+8. We will remember nick if chat is started in popup directly.
+9. And various other small changes.
+
+execute doc/update_db/update_244.sql for update
+
 3.70v
 
 1. Validation failure trigger option instead of validation message.

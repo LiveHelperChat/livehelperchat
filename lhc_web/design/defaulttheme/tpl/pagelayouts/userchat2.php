@@ -32,10 +32,25 @@
     <?php endif; ?>
 
     <?php $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value; ?>
+    <?php if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
+        
+        $continueTrack = false;
 
-    <?php if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true && isset($gaOptions['js_static']) && $gaOptions['js_static'] != '') : ?>
-        <?php echo $gaOptions['js_static']?>
-    <?php endif; ?>
+        if (isset($gaOptions['js_static']) && !empty($gaOptions['js_static']) && ((isset($gaOptions['ga_all']) && $gaOptions['ga_all'] == true) || (isset($gaOptions['ga_dep']) && isset($Result['chat_args']['departments']) && is_array($Result['chat_args']['departments']) && count(array_intersect($Result['chat_args']['departments'], $gaOptions['ga_dep'])) > 0))) {
+            $continueTrack = true;
+        }
+
+        if (isset($Result['chat_args']['dep_id']) && $Result['chat_args']['dep_id'] > 0) {
+            $gaByDep = erLhcoreClassModelChatEventTrack::findOne(array('filter' => array('department_id' => $Result['chat_args']['dep_id'])));
+            if ($gaByDep instanceof erLhcoreClassModelChatEventTrack) {
+                $gaOptions = $gaByDep->data_array;
+                $continueTrack = true;
+            }
+        }
+        if ($continueTrack == true) {
+            echo $gaOptions['js_static'];
+        }
+    } ?>
 
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_header_widget2_extension_multiinclude.tpl.php'));?>
 
