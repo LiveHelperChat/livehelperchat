@@ -47,6 +47,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
 $tpl->set('start_chat_data',$data);
 $tpl->set('start_chat_item',$startSettings);
 
+
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.startchatformgenerator.js').'"></script>';
 $Result['path'] = array(

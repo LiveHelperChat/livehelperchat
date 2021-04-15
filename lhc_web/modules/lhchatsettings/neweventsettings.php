@@ -42,6 +42,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig']))
 
 $tpl->set('ga_options',$data);
 $tpl->set('event_item',$startSettings);
+$tpl->set('tab','');
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
