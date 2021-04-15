@@ -13,7 +13,12 @@
     </div>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Enable tracking only to selected departments.')?></label>
+        <label><input type="checkbox" value="on" name="ga_all" <?php isset($ga_options['ga_all']) && ($ga_options['ga_all'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track all departments')?></label>
+        <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','If you do not choose any department from below we will track all departments.')?></small></p>
+    </div>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Enable tracking only for selected departments.')?></label>
         <?php
         $params = array (
             'input_name'     => 'ga_dep[]',
