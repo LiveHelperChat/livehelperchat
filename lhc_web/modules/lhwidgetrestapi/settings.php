@@ -366,7 +366,7 @@ if (is_array($department) && !empty($department)) {
 
 $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;
 
-if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true && (!isset($gaOptions['ga_dep']) || empty($gaOptions['ga_dep']) || (is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0))) {
+if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
     $optionEvents = array(
         'showWidget',
         'closeWidget',
@@ -387,18 +387,34 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true && (!iss
         'botTrigger',
     );
 
-    foreach ($optionEvents as $optionEvent) {
-        if (isset($gaOptions[$optionEvent .'_on']) && $gaOptions[$optionEvent .'_on'] == 1) {
-            $outputResponse['ga']['events'][] = array(
-                'ev' => $optionEvent,
-                'ec' => $gaOptions[$optionEvent .'_category'],
-                'ea' => $gaOptions[$optionEvent .'_action'],
-                'el' => (isset($gaOptions[$optionEvent .'_label']) ? $gaOptions[$optionEvent .'_label'] : ''),
-            );
+    $continueTrack = false;
+
+    if ((isset($gaOptions['ga_all']) &&  $gaOptions['ga_all'] == true) || (isset($gaOptions['ga_dep']) && is_array($department) && count(array_intersect($department,$gaOptions['ga_dep'])) > 0)) {
+        $continueTrack = true;
+    }
+
+    if (isset($dep_id) && $dep_id > 0) {
+        $gaByDep = erLhcoreClassModelChatEventTrack::findOne(array('filter' => array('department_id' => $dep_id)));
+        if ($gaByDep instanceof erLhcoreClassModelChatEventTrack) {
+            $gaOptions = $gaByDep->data_array;
+            $continueTrack = true;
         }
     }
 
-    $outputResponse['ga']['js'] = $gaOptions['ga_js'];
+    if ($continueTrack == true) {
+        foreach ($optionEvents as $optionEvent) {
+            if (isset($gaOptions[$optionEvent .'_on']) && $gaOptions[$optionEvent .'_on'] == 1) {
+                $outputResponse['ga']['events'][] = array(
+                    'ev' => $optionEvent,
+                    'ec' => $gaOptions[$optionEvent .'_category'],
+                    'ea' => $gaOptions[$optionEvent .'_action'],
+                    'el' => (isset($gaOptions[$optionEvent .'_label']) ? $gaOptions[$optionEvent .'_label'] : ''),
+                );
+            }
+        }
+
+        $outputResponse['ga']['js'] = $gaOptions['ga_js'];
+    }
 }
 
 $outputResponse['static'] = array(

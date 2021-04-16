@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de votação não deve ser exibido após última exibição</translation>
     </message>
@@ -131,7 +139,7 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>Devemos lembrar do nome de usuário na próxima vez que o visitante iniciar um chat?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -454,7 +462,7 @@
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Fechar</translation>
     </message>
     <message>
       <source>Send</source>
@@ -502,7 +510,7 @@
     </message>
     <message>
       <source>Voice call</source>
-      <translation type="unfinished"/>
+      <translation>Chamada de voz</translation>
     </message>
   </context>
   <context>
@@ -675,7 +683,7 @@
     </message>
     <message>
       <source>New message separator style</source>
-      <translation type="unfinished"/>
+      <translation>Novo estilo de separador de mensagem</translation>
     </message>
     <message>
       <source>Scroll to the bottom style</source>
@@ -699,7 +707,7 @@
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
-      <translation>Se você quiser ficar nerd, você pode criar seu próprio olho mágico usando o template padrão como ponto de partida. Você pode ajustar as dimensões do widget que precisa de ajuda acima. Veja também quais marcadores de posição são suportados.</translation>
+      <translation>Se você quiser ficar nerd, você pode criar seu próprio olho mágico usando o template padrão como ponto de partida. Você pode ajustar as dimensões do widget de ajuda acima. Veja também quais marcadores de posição são suportados.</translation>
     </message>
     <message>
       <source>General settings</source>
@@ -972,6 +980,10 @@
     <message>
       <source>Disabled</source>
       <translation>Desativado</translation>
+    </message>
+    <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5322,6 +5334,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation>O bate-papo está indisponível no momento</translation>
     </message>
@@ -5756,10 +5772,6 @@
     <message>
       <source>Start a chat with us!</source>
       <translation>Comece um Bate-papo Conosco!</translation>
-    </message>
-    <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages!</source>

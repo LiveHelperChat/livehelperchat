@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Per quanti giorni il widget di voto non deve essere mostrato dopo l&apos;ultima visualizzazione</translation>
     </message>
@@ -974,6 +982,10 @@
       <translation>Disabilitato</translation>
     </message>
     <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -1518,7 +1530,7 @@ Messaggi in stile bolla</translation>
     </message>
     <message>
       <source>Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>Scorri alla fine</translation>
     </message>
     <message>
       <source>Scroll to the bottom background color</source>
@@ -5321,11 +5333,15 @@ Icona colonna, testo icone materiale</translation>
     <name>chat/startchat</name>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>↓ Scorri alla fine</translation>
+    </message>
+    <message>
+      <source>New message!</source>
+      <translation>Nuovo messaggio!</translation>
     </message>
     <message>
       <source>Chat is currently unavailable</source>
@@ -5764,12 +5780,8 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>New messages!</source>
-      <translation type="unfinished"/>
+      <translation>Nuovi messaggi!</translation>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -5992,7 +6004,7 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo</translation>
     </message>
     <message>
       <source>Last message</source>
@@ -6658,15 +6670,15 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>New message!</source>
-      <translation type="unfinished"/>
+      <translation>Nuovo messaggio!</translation>
     </message>
     <message>
       <source>New messages!</source>
-      <translation type="unfinished"/>
+      <translation>Nuovi messaggi!</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
-      <translation type="unfinished"/>
+      <translation>↓ Scorri alla fine</translation>
     </message>
     <message>
       <source>New</source>

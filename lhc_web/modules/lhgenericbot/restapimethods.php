@@ -19,7 +19,7 @@ if (isset($restAPI->configuration_array['parameters'])){
 
 echo json_encode(array(
     'methods' => $methods,
-    'id' => $restAPI->id
+    'id' => $restAPI instanceof erLhcoreClassModelGenericBotRestAPI ? $restAPI->id : 0
 ));
 
 exit();

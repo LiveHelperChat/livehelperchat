@@ -2283,8 +2283,11 @@ function lh(){
 	        	                      var typingIndicator = $('#user-is-typing-'+item.chat_id);
 
 	        	                      if (item.tp == 'true') {
+                                          if (lhinst.nodeJsMode == false) {
+                                                typingIndicator.html(item.tx);
+                                          }
 	        	                          if (typingIndicator.css('visibility') == 'hidden') {
-                                              typingIndicator.html(item.tx).css('visibility','visible');
+                                              typingIndicator.css('visibility','visible');
                                           }
 	        	                      } else {
                                           if (lhinst.nodeJsMode == false) {
@@ -2430,8 +2433,8 @@ function lh(){
 		this.soundPlayedTimes++;
 		if (Modernizr.audio && this.audio !== null) {
 
-			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.ogg?v=3' :
-                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.mp3?v=3' : WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.wav?v=3';
+			this.audio.src = Modernizr.audio.ogg ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.ogg?v=4' :
+                        Modernizr.audio.mp3 ? WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.mp3?v=4' : WWW_DIR_JAVASCRIPT_FILES + '/'+sound+'.wav?v=4';
 			this.audio.load();
 
             if (confLH.repeat_sound > this.soundPlayedTimes) {
@@ -2525,6 +2528,8 @@ function lh(){
 	    	this.soundPlayedTimes = 0;
 	        this.playNewChatAudio(identifier == 'active_chats' ? 'alert' : 'new_chat');
 	    };
+
+
 
 	    if(!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.startBlinking();

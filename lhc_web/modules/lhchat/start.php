@@ -13,6 +13,7 @@ $dep = false;
 if (is_array($Params['user_parameters_unordered']['department'])) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $dep = $Params['user_parameters_unordered']['department'];
+    $Result['chat_args']['departments'] = $dep;
 }
 
 $startDataDepartment = false;
@@ -23,6 +24,8 @@ if (is_array($dep) && !empty($dep) && count($dep) == 1) {
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }
+    $Result['chat_args']['dep_id'] = $dep_id;
+    $tpl->set('dep_id',$dep_id);
 }
 
 if ($startDataDepartment === false) {
@@ -111,7 +114,6 @@ if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassMo
 }
 
 $tpl->set('vid',$vid);
-
 $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' ? $Params['user_parameters_unordered']['identifier'] : null);
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
 $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Params['user_parameters_unordered']['survey'] : null);

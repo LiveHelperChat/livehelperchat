@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Son gösteriminden kaç gün sonra oy kullanma kutucuğu açılmamalı?</translation>
     </message>
@@ -972,6 +980,10 @@
     <message>
       <source>Disabled</source>
       <translation>Devredışı</translation>
+    </message>
+    <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5322,6 +5334,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation>Sohbet şu anda kullanılamıyor</translation>
     </message>
@@ -5756,10 +5772,6 @@
     <message>
       <source>Start a chat with us!</source>
       <translation>Bizimle konuşma başlat!</translation>
-    </message>
-    <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages!</source>

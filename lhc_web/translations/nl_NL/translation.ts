@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Hoeveel dagen moet de stemwidget verborgen blijven na de laatste weergave?</translation>
     </message>
@@ -972,6 +980,10 @@
     <message>
       <source>Disabled</source>
       <translation>Uitgeschakeld</translation>
+    </message>
+    <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5322,6 +5334,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation>Chat is op dit ogenblik niet beschikbaar</translation>
     </message>
@@ -5755,10 +5771,6 @@
     </message>
     <message>
       <source>Start a chat with us!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New message!</source>
       <translation type="unfinished"/>
     </message>
     <message>

@@ -20,7 +20,8 @@ class erLhcoreClassChatWebhookResque {
                     $worker = new erLhcoreClassChatWebhookHttp();
                     $worker->processEvent($event, $params);
                 } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-                     erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
+                     $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+                     erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'hook_id' => $hookId, 'params' => base64_encode(gzdeflate(serialize($params)))));
                 }
             }
         }
@@ -30,6 +31,11 @@ class erLhcoreClassChatWebhookResque {
     {
         $db = ezcDbInstance::get();
         $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
+
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
 
         $hookId = $this->args['hook_id'];
 

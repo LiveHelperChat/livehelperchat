@@ -11,6 +11,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'ga' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'ga_all' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'ga_js' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -58,25 +61,31 @@ if ( isset($_POST['StoreOptions']) ) {
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
-    if ( $form->hasValidData( 'ga' ) && $form->ga == true ) {
+    if ($form->hasValidData( 'ga' ) && $form->ga == true ) {
         $data['ga_enabled'] = 1;
     } else {
         $data['ga_enabled'] = 0;
     }
+
+    if ($form->hasValidData( 'ga_all' ) && $form->ga_all == true ) {
+        $data['ga_all'] = 1;
+    } else {
+        $data['ga_all'] = 0;
+    }
     
-    if ( $form->hasValidData( 'ga_js' )) {
+    if ($form->hasValidData( 'ga_js' )) {
         $data['ga_js'] = $form->ga_js;
     } else {
         $data['ga_js'] = '';
     }
 
-    if ( $form->hasValidData( 'js_static' )) {
+    if ($form->hasValidData( 'js_static' )) {
         $data['js_static'] = $form->js_static;
     } else {
         $data['js_static'] = '';
     }
 
-    if ( $form->hasValidData( 'ga_dep' )) {
+    if ($form->hasValidData( 'ga_dep' )) {
         $data['ga_dep'] = $form->ga_dep;
     } else {
         $data['ga_dep'] = [];
@@ -124,10 +133,14 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array(
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'Settings')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/settings', 'System configuration')
     ),
     array(
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events Tracking')
+        'url' => erLhcoreClassDesign::baseurl('chatsettings/eventindex'),
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Events tracking')
+    ),
+    array(
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Default settings')
     )
 );
 

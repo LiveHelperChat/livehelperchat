@@ -975,7 +975,7 @@ ul.user-settings-list li{
 }
 
 .edit-mode {
-    background-color:#E0F3FF !important;
+    background-color:#000000 !important;
     transition: background-color 1000ms linear;
 }
 

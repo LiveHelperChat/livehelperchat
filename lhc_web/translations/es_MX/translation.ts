@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por cuantos días el widget de votación no será expandido después de mostrarlo la última vez</translation>
     </message>
@@ -972,6 +980,10 @@
     <message>
       <source>Disabled</source>
       <translation>Desactivado</translation>
+    </message>
+    <message>
+      <source>Disable chat preview</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -5322,6 +5334,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat is currently unavailable</source>
       <translation>El chat no está disponible actualmente</translation>
     </message>
@@ -5756,10 +5772,6 @@
     <message>
       <source>Start a chat with us!</source>
       <translation>¡Inicia un chat con nosotros!</translation>
-    </message>
-    <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>New messages!</source>
