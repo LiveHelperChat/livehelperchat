@@ -2829,16 +2829,16 @@
         ],
         "parameters": [
           {
-            "name": "from",
+            "name": "timefrom",
             "in": "query",
-            "description": "From date.",
+            "description": "From datetime.",
             "required": false,
             "type": "string"
           },
           {
-            "name": "to",
+            "name": "timeto",
             "in": "query",
-            "description": "To date.",
+            "description": "To datetime.",
             "required": false,
             "type": "string"
           },

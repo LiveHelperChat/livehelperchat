@@ -127,11 +127,23 @@ $fieldsSearch['subject_ids'] = array (
 
 $fieldsSearch['department_group_ids'] = array (
     'type' => 'text',
-    'trans' => 'Group',
+    'trans' => 'User',
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'filterin',
     'filter_table_field' => 'department_group_ids',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['user_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'id',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
     )
