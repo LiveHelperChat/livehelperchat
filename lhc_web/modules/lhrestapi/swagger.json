@@ -32,6 +32,10 @@
     {
       "name": "online_user",
       "description": "API Related to online users"
+    },
+    {
+      "name": "statistic",
+      "description": "API Related to statistic"
     }
   ],
   "schemes": [
@@ -2799,6 +2803,99 @@
             "description": "Deletes specified bot",
             "schema": {
             }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/agentstatistic": {
+      "get": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Fetches agent statistic",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "From date.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "To date.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "Users groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_ids",
+            "in": "query",
+            "description": "Department ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_group_ids",
+            "in": "query",
+            "description": "Department groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "subject_ids",
+            "in": "query",
+            "description": "Subjects ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "description": "Users ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns agents statistic",
           },
           "400": {
             "description": "Error",
