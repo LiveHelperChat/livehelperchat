@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 159;
+            lhc.version = 160;
 
             var init = () => {
 
@@ -691,7 +691,10 @@
                 // Track widget status changes
                 attributesWidget.widgetStatus.subscribe((data) => {
                     if (attributesWidget.mode !== 'popup') {
-                        attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
+                        if (attributesWidget.mode !== 'embed') {
+                            // Do not store open status in local storage because embed is always open
+                            attributesWidget.storageHandler.setSessionStorage(prefixStorage + '_ws', data);
+                        }
                         chatEvents.sendChildEvent('widgetStatus', [data]);
                     }
                 });
