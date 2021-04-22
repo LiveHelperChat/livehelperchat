@@ -320,22 +320,33 @@
     				    </div>
 
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
-        		
-        		        <div class="form-group">
-        		        <label><?php echo $fields['header_background']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>		
-					    </div>
-					    
-					    <div class="form-group">				
-						<label><?php echo $fields['widget_border_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>		
-						</div>
+        		<div role="tabpanel" class="tab-pane pt-2" id="widgetcontainer">
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_border_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_icon_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
-						<label><?php echo $fields['header_icon_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
-						</div>
+                            <label><?php echo $fields['icons_order']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
+                        </div>
 
 						<div class="form-group">											
 						<label><?php echo $fields['widget_border_width']['trans'];?></label>

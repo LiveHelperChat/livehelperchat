@@ -25,6 +25,15 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                    'icons_order' => array(
+   						'type' => 'text',
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Header icons order. _print is optional and indicates we should also print a text after an icon'),
+                        'placeholder' => 'left_close<_print>,right_min,right_popup',
+   						'required' => false,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
    				'need_help_header' => array(
    						'type' => 'text',
                         'main_attr_lang' => 'bot_configuration_array',
@@ -71,7 +80,7 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'string'
                     )),
-                
+
                 'nh_height' => array(
                     'type' => 'text',
                     'placeholder' => '135',

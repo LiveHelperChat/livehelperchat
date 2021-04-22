@@ -95,6 +95,21 @@ try {
             $outputResponse['chat_ui']['bbc_btnh'] = true;
         }
 
+        $outputResponse['chat_ui']['header_buttons'] = array(
+            array(
+                'pos' => 'left',
+                'btn' => 'min'
+            ),
+            array(
+                'pos' => 'right',
+                'btn' => 'close',
+            ),
+            array(
+                'pos' => 'right',
+                'btn' => 'popup'
+            )
+        );
+
         if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
 
             $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
@@ -193,6 +208,19 @@ try {
                         }
                     }
                 }
+
+                if (isset($theme->bot_configuration_array['icons_order']) && $theme->bot_configuration_array['icons_order'] != '') {
+                    $icons = explode(',',str_replace(' ','',$theme->bot_configuration_array['icons_order']));
+                    $outputResponse['chat_ui']['header_buttons'] = array();
+                    foreach ($icons as $icon) {
+                        $paramsIcon = explode('_',$icon);
+                        $outputResponse['chat_ui']['header_buttons'][] = array(
+                            'pos' => $paramsIcon[0],
+                            'btn' => $paramsIcon[1],
+                            'print' => isset($paramsIcon[2]) && $paramsIcon[2] == 'print',
+                        );
+                    }
+                }
             }
         }
 
@@ -243,6 +271,9 @@ try {
         if ((int)erLhcoreClassModelChatConfig::fetch('hide_button_dropdown')->current_value == 0) {
             $outputResponse['chat_ui']['close_btn'] = true;
         }
+
+
+
 
         $outputResponse['chat_ui']['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
 
