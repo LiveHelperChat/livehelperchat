@@ -99,6 +99,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -125,7 +151,7 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
@@ -290,6 +316,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -316,7 +368,7 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
@@ -2978,7 +3030,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns agents statistic",
+            "description": "Returns agents statistic"
           },
           "400": {
             "description": "Error",
