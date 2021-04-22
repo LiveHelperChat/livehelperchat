@@ -1076,6 +1076,64 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "chat_nickname",
+            "in": "query",
+            "description": "Chat nickname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "surname",
+            "in": "query",
+            "description": "Surname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "default": null,
+            "description": "User status enabled/disabled. 0 - not disabled, 1 - disabled",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "User should be member of these group IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1598,11 +1656,36 @@
             "format": "int32"
           },
           {
+            "name": "include_offline",
+            "in": "query",
+            "description": "Include also offline operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude_invisible",
+            "in": "query",
+            "description": "Exclude invisible operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "include_disabled",
+            "in": "query",
+            "description": "Include disabled operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
             "name": "include_user",
             "in": "query",
-            "description": "Should we include a user also with online record?",
-            "required": false,
-            "type": "boolean"
+            "description": "Should we include a user object also with online record?",
+            "required": true,
+            "type": "boolean",
+            "default": false
           }
         ],
         "responses": {
