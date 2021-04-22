@@ -480,6 +480,14 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
+        if (isset($_GET['status_ids'])) {
+            $statusIds = explode(',',$_GET['status_ids']);
+            erLhcoreClassChat::validateFilterIn($statusIds);
+            if (!empty($statusIds)){
+                $filter['filterin']['status'] = $statusIds;
+            }
+        }
+
         if (isset($_GET['vid']) && !empty($_GET['vid'])) {
             $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($_GET['vid']);
             if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
