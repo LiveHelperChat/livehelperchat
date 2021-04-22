@@ -121,7 +121,14 @@ div.message-row {
     padding-left:0.5rem;
 }
 
-.header-link .material-icons{
+.header-link:hover,
+.header-link{
+    color:#343a40;
+    text-decoration: none;
+}
+
+.header-link .material-icons
+{
     font-size: 32px;
     color:#343a40;
 }

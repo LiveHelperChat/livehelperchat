@@ -63,7 +63,7 @@ class HeaderChat extends Component {
                     </a>;
                 } else if (btn.get('btn') == 'close' && showClose) {
                     const endText = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
-                    return <a title={endText} className={"text-muted header-link float-"+position} onClick={this.endChat}>
+                    return <a title={endText} className={"header-link float-"+position} onClick={this.endChat}>
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                         {btn.get('print') && <span className="end-chat-text">{endText}</span>}
                     </a>;
