@@ -132,7 +132,20 @@
         </div>
     </div>
 
-
+	<div class="col-md-2">
+	   <div class="form-group">
+        	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+               'input_name'     => 'user_ids[]',
+               'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
+               'selected_id'    => $input->user_ids,
+               'css_class'      => 'form-control',
+               'display_name'   => 'name_official',
+               'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(),
+               'list_function'  => 'erLhcoreClassModelUser::getUserList'
+            )); ?>
+        </div>
+    </div>
 
     <div class="col-md-12">
     	<div class="row">
