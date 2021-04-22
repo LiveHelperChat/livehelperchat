@@ -167,6 +167,14 @@
             }
           },
           {
+            "name": "include_survey",
+            "description": "Include filled survey if it exists",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Limit",

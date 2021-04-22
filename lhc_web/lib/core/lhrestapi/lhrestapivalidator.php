@@ -621,6 +621,13 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
+         if (isset($_GET['include_survey']) && $_GET['include_survey'] == 'true' && !empty($chats)) {
+             $filledSurveys = erLhAbstractModelSurveyItem::getList(array('limit' => 100000,'sort' => 'id ASC','filterin' => array('chat_id' => array_keys($chats))));
+             foreach ($filledSurveys as $filledSurvey) {
+                 $chats[$filledSurvey->chat_id]->survey = $filledSurvey;
+             }
+         }
+
         $prefillFields = array();
 
         if (isset($_GET['prefill_fields'])){
