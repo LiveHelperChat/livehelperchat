@@ -572,6 +572,10 @@
 						</div>
 
         		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('always_present_nh', $fields['always_present_nh'], $object)?><?php echo $fields['always_present_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
         		        <label><?php echo $fields['show_need_help_timeout']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('show_need_help_timeout', $fields['show_need_help_timeout'], $object)?>
 						</div>

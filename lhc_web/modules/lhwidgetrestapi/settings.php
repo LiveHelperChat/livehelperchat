@@ -262,12 +262,17 @@ $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetThe
 if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || ($userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
     $configInstance = erConfigClassLhConfig::getInstance();
+
+    if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['always_present_nh']) && $theme->bot_configuration_array['always_present_nh'] == true) {
+        $outputResponse['nh']['ap'] = true;
+    }
+
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+        ' . (isset($outputResponse['nh']['ap']) ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
-        </button>
+        </button>') . '
         <div class="d-flex">
           <div class="p-1"><img style="min-width: 50px;" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
           <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
@@ -352,7 +357,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 160;
+$outputResponse['wv'] = 161;
 
 // React APP versions
 $outputResponse['v'] = 184;

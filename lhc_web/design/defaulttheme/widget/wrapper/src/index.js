@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 160;
+            lhc.version = 161;
 
             var init = () => {
 
@@ -440,12 +440,12 @@
                         }
                     }
 
-                    if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api' && attributesWidget.userSession.id === null) {
+                    if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api') {
+                        attributesWidget.nh = data.nh;
                         if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                            showNeedHelp(data.nh);
-                        } else {
-                            // Store for later use
-                            attributesWidget.nh = data.nh;
+                            if (data.nh.ap || attributesWidget.userSession.id === null) {
+                                showNeedHelp(data.nh);
+                            }
                         }
                     }
 
@@ -663,7 +663,7 @@
                     attributesWidget.widgetDimesions.nextProperty('height_override', null);
 
                     if (mode !== 'popup' || attributesWidget.kcw === true) {
-                        attributesWidget.userSession.setChatInformation(data);
+                        attributesWidget.userSession.setChatInformation(data, attributesWidget.nh && attributesWidget.nh.ap);
                     }
 
                     if (mode == 'popup') {
