@@ -561,18 +561,22 @@
 
         		
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="needhelp">
+        		<div role="tabpanel" class="tab-pane pt-2" id="needhelp">
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?><?php echo $fields['show_need_help']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?> <?php echo $fields['show_need_help']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?><?php echo $fields['hide_mobile_nh']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?> <?php echo $fields['hide_mobile_nh']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('always_present_nh', $fields['always_present_nh'], $object)?><?php echo $fields['always_present_nh']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('always_present_nh', $fields['always_present_nh'], $object)?> <?php echo $fields['always_present_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_close_nh', $fields['hide_close_nh'], $object)?> <?php echo $fields['hide_close_nh']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">

@@ -263,14 +263,15 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
 {
     $configInstance = erConfigClassLhConfig::getInstance();
 
-    if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['always_present_nh']) && $theme->bot_configuration_array['always_present_nh'] == true) {
-        $outputResponse['nh']['ap'] = true;
+    $nhCloseVisible = true;
+    if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['hide_close_nh']) && $theme->bot_configuration_array['hide_close_nh'] == true) {
+        $nhCloseVisible = false;
     }
 
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        ' . (isset($outputResponse['nh']['ap']) ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>') . '
         <div class="d-flex">
@@ -290,6 +291,10 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
 
         if ($theme->show_need_help_delay > 0) {
             $outputResponse['nh']['delay'] = (int)$theme->show_need_help_delay * 1000;
+        }
+
+        if (isset($theme->bot_configuration_array['always_present_nh']) && $theme->bot_configuration_array['always_present_nh'] == true) {
+            $outputResponse['nh']['ap'] = true;
         }
 
         $theme->translate();
