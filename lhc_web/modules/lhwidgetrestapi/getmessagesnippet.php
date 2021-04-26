@@ -33,7 +33,14 @@ try {
 
             $msg_body = $tpl->fetch('lhchat/syncuser.tpl.php');
 
-            echo json_encode(array('msg_body' => $msg_body, 'msg' => $msg));
+            $onlineUser = $chat->online_user;
+            $outputResponse = array('msg_body' => $msg_body, 'msg' => $msg);
+
+            if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser && isset($onlineUser->online_attr_system_array['lhc_full_widget'])) {
+                $outputResponse['full_widget'] = 1;
+            }
+
+            echo json_encode($outputResponse);
             exit;
         } else {
             http_response_code(400);

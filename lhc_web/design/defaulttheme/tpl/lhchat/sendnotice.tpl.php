@@ -72,6 +72,10 @@ setTimeout(function() {
         </div>
         <div role="tabpanel" class="tab-pane" id="panel2">
 
+            <div class="row">
+                <div class="col-6"><label><input type="checkbox" name="FullWidgetChat" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label></div>
+            </div>
+
             <?php if ($visitor->chat instanceof erLhcoreClassModelChat) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Visitor have assigned chat with id');?>: <?php echo $visitor->chat_id?></p>
 

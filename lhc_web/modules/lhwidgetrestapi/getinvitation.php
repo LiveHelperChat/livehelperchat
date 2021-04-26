@@ -151,6 +151,14 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
 
+        if (isset($invitation->design_data_array['message_bottom']) && is_numeric($invitation->design_data_array['message_bottom']) && $invitation->design_data_array['message_bottom'] > 0) {
+            $outputResponse['message_bottom'] = (int)$invitation->design_data_array['message_bottom'];
+        }
+
+        if (isset($invitation->design_data_array['message_right']) && is_numeric($invitation->design_data_array['message_right']) && $invitation->design_data_array['message_right'] > 0) {
+            $outputResponse['message_right'] = (int)$invitation->design_data_array['message_right'];
+        }
+
         if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
             $outputResponse['std_header'] = true;
         }

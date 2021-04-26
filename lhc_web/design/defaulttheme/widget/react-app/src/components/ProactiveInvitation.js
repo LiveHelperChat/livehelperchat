@@ -36,7 +36,10 @@ class ProactiveInvitation extends Component {
                     if (document.getElementById('id-invitation-height')) {
                         helperFunctions.sendMessageParent('widgetHeight', [{
                             'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
+                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20,
+                            'force_bottom' : (this.props.chatwidget.hasIn(['proactive','data','message_bottom']) ? this.props.chatwidget.getIn(['proactive','data','message_bottom']) : 75),
+                            'force_right' : (this.props.chatwidget.hasIn(['proactive','data','message_right']) ? this.props.chatwidget.getIn(['proactive','data','message_right']) : 75),
+                        }]);
                         this.setState({shown : true});
                     }
                  }, 50);

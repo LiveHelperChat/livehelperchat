@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 162;
+            lhc.version = 163;
 
             var init = () => {
 
@@ -742,6 +742,12 @@
 
                 attributesWidget.eventEmitter.addListener('msgSnippet', (data) => {
                     if (attributesWidget.mode == 'widget' && attributesWidget.widgetStatus.value === false) {
+
+                        if (data.full_widget) {
+                            attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender': 'closeButton'}]);
+                            return;
+                        }
+
                         import('./lib/widgets/msgSnippetWidget').then((module) => {
                             if (!attributesWidget.msgSnippet) {
                                 attributesWidget.msgSnippet = new module.msgSnippetWidget(attributesWidget.prefixLowercase);
@@ -780,9 +786,11 @@
                         return;
                     }
 
-                    if (data.force_height || data.force_width) {
+                    if (data.force_height || data.force_width || data.force_bottom || data.force_right) {
                         data.force_height && attributesWidget.widgetDimesions.nextProperty('height_override', data.force_height);
                         data.force_width && attributesWidget.widgetDimesions.nextProperty('width_override', data.force_width);
+                        data.force_right && attributesWidget.widgetDimesions.nextProperty('right_override', data.force_right);
+                        data.force_bottom && attributesWidget.widgetDimesions.nextProperty('bottom_override', data.force_bottom);
                         return;
                     }
 
