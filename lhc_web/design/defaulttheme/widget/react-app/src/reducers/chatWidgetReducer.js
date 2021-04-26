@@ -101,6 +101,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             if (action.data == true && state.getIn(['proactive','pending']) === true) {
                 state = state.setIn(['proactive','pending'],false);
             }
+
             return state.set('shown',action.data);
         }
 

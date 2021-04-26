@@ -994,3 +994,12 @@ textarea[name=ChatMessage] {
     padding: 3px 10px;
     opacity: 0.85;
 }
+
+#msgsnippet div.message-admin div.msg-body{
+    max-width:100%;
+    background-color:transparent ;
+}
+
+#msgsnippet span.op-tit{
+    display: none;
+}

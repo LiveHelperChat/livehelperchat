@@ -29,6 +29,8 @@ class ChatSound extends PureComponent {
                  helperFunctions.setSessionStorage('_invs',1);
                  this.playSoundFile('new_invitation');
              }
+        } else if (e.type == 'new_chat' && e.sound_on === true) {
+            this.playSoundFile('new_invitation');
         }
 
         if (window.lhcChat['is_focused'] == false) {
