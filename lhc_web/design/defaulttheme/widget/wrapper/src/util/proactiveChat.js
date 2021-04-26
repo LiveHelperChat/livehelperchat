@@ -42,6 +42,10 @@ class _proactiveChat {
             this.initInvitation({init: 0});
         });
 
+        this.attributes.eventEmitter.addListener('endChat', () => {
+             this.initInvitation({init: 0});
+        });
+
         this.attributes.onlineStatus.subscribe((data) => {
             if (data == true) {
                 this.initInvitation({init: 0});

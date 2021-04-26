@@ -118,9 +118,14 @@ export class needhelpWidget{
                 this.invitationOpen = false;
                 this.show();
             });
+
+            attributes.msgsnippet_status.subscribe((data) => {
+                data == true && this.hide(true);
+            });
         }
 
         setTimeout(() => {
+
             attributes.widgetStatus.subscribe((data) => {
                 data == true ? (this.widgetOpen = true,this.hide()) : (this.widgetOpen = false,this.show());
             });
@@ -137,6 +142,8 @@ export class needhelpWidget{
                     this.show();
                 }
             });
+
+
 
         }, settings.delay);
 

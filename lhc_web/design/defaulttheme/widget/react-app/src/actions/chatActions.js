@@ -120,8 +120,32 @@ export function initProactive(data) {
         }
 
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/getinvitation", payload, defaultHeaders).then((response) => {
-            dispatch({type: "PROACTIVE", data: response.data})
+            if (response.data.chat_id && response.data.chat_hash) {
+                dispatch({type: "ONLINE_SUBMITTED", data: {
+                        success : true,
+                        chatData : {
+                            id : response.data.chat_id,
+                            hash : response.data.chat_hash
+                        }
+                }});
+                showMessageSnippet({'id' : response.data.chat_id, 'hash' : response.data.chat_hash})(dispatch, getState);
+            } else {
+                dispatch({type: "PROACTIVE", data: response.data})
+            }
         });
+    }
+}
+
+export function showMessageSnippet(obj) {
+    return function(dispatch, getState) {
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/getmessagesnippet", obj, defaultHeaders)
+        .then((response) => {
+            helperFunctions.sendMessageParent('msgSnippet',[response.data]);
+            const state = getState();
+            helperFunctions.emitEvent('play_sound', [{'type' : 'new_chat','sound_on' : (state.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : false}]);
+        })
+        .catch((err) => {
+        })
     }
 }
 

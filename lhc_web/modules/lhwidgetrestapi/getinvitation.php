@@ -157,6 +157,21 @@ if ($outputResponse['invitation_id'] > 0) {
 
         $outputResponse['invitation_name'] = $invitation->name;
     }
+
+} else if (isset($onlineUser->online_attr_system_array['lhc_start_chat']) && $onlineUser->chat_id > 0) {
+
+    $onlineAttrSystem = $onlineUser->online_attr_system_array;
+    unset($onlineAttrSystem['lhc_start_chat']);
+
+    $onlineUser->online_attr_system_array = $onlineAttrSystem;
+    $onlineUser->online_attr_system = json_encode($onlineAttrSystem);
+    $onlineUser->updateThis(array('update' => array('online_attr_system')));
+
+    $chat = $onlineUser->chat;
+    if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT))) {
+        $outputResponse['chat_id'] = $onlineUser->chat_id;
+        $outputResponse['chat_hash'] = $onlineUser->chat->hash;
+    }
 }
 
 // Show previous messages for invitation also

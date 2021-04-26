@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 161;
+            lhc.version = 162;
 
             var init = () => {
 
@@ -129,6 +129,7 @@
                     cookie_enabled: cookieEnabledUser,
                     LHC_API: LHC_API,
                     viewHandler: null,
+                    msgSnippet: null,
                     hide_status: LHC_API.args.hide_status || null,
                     mainWidget: new mainWidget(prefixLowercase),
                     popupWidget: new mainWidgetPopup(),
@@ -137,6 +138,7 @@
                     onlineStatus: new BehaviorSubject(true),
                     wloaded: new BehaviorSubject(false),
                     sload: new BehaviorSubject(false),
+                    msgsnippet_status: new BehaviorSubject(false),
                     widgetStatus: new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage + '_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                     eventEmitter: new EventEmitter(),
                     toggleSound: new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage + '_sound') === 'true', {'ignore_sub': true}),
@@ -735,6 +737,21 @@
                         attributesWidget.eventEmitter.emitEvent('fullInvitation', [data]);
                     } else {
                         attributesWidget.eventEmitter.emitEvent('cancelInvitation', []);
+                    }
+                });
+
+                attributesWidget.eventEmitter.addListener('msgSnippet', (data) => {
+                    if (attributesWidget.mode == 'widget' && attributesWidget.widgetStatus.value === false) {
+                        import('./lib/widgets/msgSnippetWidget').then((module) => {
+                            if (!attributesWidget.msgSnippet) {
+                                attributesWidget.msgSnippet = new module.msgSnippetWidget(attributesWidget.prefixLowercase);
+                                containerChatObj.cont.elmDom.appendChild(attributesWidget.msgSnippet.cont.constructUI(), !0);
+                                attributesWidget.msgSnippet.init(attributesWidget, data);
+                            } else {
+                                attributesWidget.msgSnippet.showSnippet(data, true);
+                            }
+                            attributesWidget.eventEmitter.emitEvent('unread_message');
+                        });
                     }
                 });
 

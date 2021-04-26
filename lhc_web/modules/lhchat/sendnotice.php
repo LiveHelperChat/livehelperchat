@@ -18,8 +18,6 @@ if ( isset($_POST['SendMessage']) ) {
     $validationFields['IgnoreAutoresponder'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['CampaignId'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1) );
 
-
-
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
     
@@ -114,6 +112,70 @@ if ( isset($_POST['SendMessage']) ) {
         $campaign->saveThis();
 
         $visitor->conversion_id = $campaign->id;
+
+        // Operator want's to start a chat
+        if (isset($_POST['SendMessage']) && $_POST['SendMessage'] == 2) {
+            $chatPast = erLhcoreClassModelChat::fetch($visitor->chat_id);
+            if (!($chatPast instanceof erLhcoreClassModelChat) || !in_array($chatPast->status,array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT)) || in_array($chatPast->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+
+                $chat = new erLhcoreClassModelChat();
+                $chat->hash = erLhcoreClassChat::generateHash();
+
+                if ($chatPast instanceof erLhcoreClassModelChat) {
+                    $chat->nick = $chatPast->nick;
+                }
+
+                if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
+                    if ($chat->nick == 'Visitor') {
+                        if ($visitor->nick && $visitor->has_nick) {
+                            $chat->nick = $visitor->nick;
+                            if (empty($chat->nick)) {
+                                $chat->nick = 'Visitor';
+                            }
+                        }
+                    }
+                }
+
+
+                $chat->time = $chat->pnd_time = time();
+                $chat->lsync = time();
+                $chat->ip = $visitor->ip;
+                $chat->online_user_id = $visitor->id;
+                $chat->user_tz_identifier = $visitor->visitor_tz;
+                $chat->device_type = $visitor->device_type - 1;
+                erLhcoreClassModelChat::detectLocation($chat, $visitor->vid);
+                $chat->saveThis();
+
+                $chatPast = $chat;
+                // Set new chat id
+                $visitor->chat_id = $chat->id;
+            }
+
+            $chatPast->user_id = $chatPast->user_id > 0 ? $chatPast->user_id : erLhcoreClassUser::instance()->getUserID();
+
+            // Save message as a chat message
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = $visitor->operator_message;
+            $msg->time = time();
+            $msg->chat_id = $chatPast->id;
+            $msg->user_id = $chatPast->user_id;
+            $msg->name_support = (string)$chatPast->plain_user_name;
+            $msg->saveThis();
+
+            $chatPast->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+            $chatPast->last_msg_id = $msg->id;
+            $chatPast->updateThis();
+
+            // During next check message from operator event fetch chat information
+            $onlineAttrSystem['lhc_start_chat'] = $chatPast->id;
+
+            $visitor->online_attr_system_array = $onlineAttrSystem;
+            $visitor->online_attr_system = json_encode($onlineAttrSystem);
+
+            $tpl->set('start_chat',true);
+            $tpl->set('chat',$chatPast);
+        }
+
         $visitor->saveThis();
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.proactive_send_invitation', array('ou' => & $visitor));
