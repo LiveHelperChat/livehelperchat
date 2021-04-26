@@ -998,6 +998,7 @@ textarea[name=ChatMessage] {
 #msgsnippet div.message-admin div.msg-body{
     max-width:100%;
     background-color:transparent ;
+    margin-left: 0!important;
 }
 
 #msgsnippet span.op-tit{
