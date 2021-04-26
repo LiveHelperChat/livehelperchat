@@ -5,10 +5,10 @@ import {helperFunctions} from '../helperFunctions';
 export class statusWidget{
     constructor(prefix) {
 
-       this.attributes = {};
-       this.controlMode = false;
+        this.attributes = {};
+        this.controlMode = false;
 
-       this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -43,8 +43,8 @@ export class statusWidget{
 
     checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
-             this.cont.getElementById('lhc_status_container').style.display = "";
-             this.attributes.sload.next(true);
+            this.cont.getElementById('lhc_status_container').style.display = "";
+            this.attributes.sload.next(true);
         }
     }
 
@@ -108,7 +108,7 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {
@@ -140,7 +140,7 @@ export class statusWidget{
         });
 
         if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
-            this.showUnreadIndicator();
+            attributes.eventEmitter.emitEvent('unread_message');
         }
 
         // Widget reload was called
@@ -180,14 +180,16 @@ export class statusWidget{
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
         if (this.attributes.storageHandler)
-        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
+            this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
-        if (this.attributes.storageHandler)
-        this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        if (this.attributes.storageHandler) {
+            this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        }
+        this.attributes.eventEmitter.emitEvent('remove_unread_indicator', []);
     }
 
     show () {
