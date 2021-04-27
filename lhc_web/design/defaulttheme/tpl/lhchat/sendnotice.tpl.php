@@ -26,8 +26,9 @@ setTimeout(function() {
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/sendnotice')?>/<?php echo $visitor->id?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
-
 	<textarea class="form-control form-group" name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php echo htmlspecialchars($visitor->operator_message) ?></textarea>
+
+    <label><input type="checkbox" name="FullWidget" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label>
 
     <ul class="nav nav-tabs mb-2" role="tablist">
         <li role="presentation" class="nav-item" ><a class="active nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Invitation')?></a></li>
@@ -38,7 +39,6 @@ setTimeout(function() {
         <div role="tabpanel" class="tab-pane active" id="panel1">
             <div class="row form-group">
                 <div class="col-6"><label><input type="checkbox" name="AssignToMe" value="on" <?php (isset($visitor->online_attr_system_array['lhc_assign_to_me']) && $visitor->online_attr_system_array['lhc_assign_to_me'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Assign the chat to me if the visitor replies')?></label></div>
-                <div class="col-6"><label><input type="checkbox" name="FullWidget" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label></div>
                 <div class="col-6"><label><input type="checkbox" name="IgnoreAutoresponder" value="on" <?php (isset($visitor->online_attr_system_array['lhc_ignore_autoresponder']) && $visitor->online_attr_system_array['lhc_ignore_autoresponder'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Do not send automated messages if the customer replies')?></label></div>
                 <div class="col-6"><label><input type="checkbox" name="RequiresEmail" value="on" <?php $visitor->requires_email == 1 ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Requires e-mail')?></label></div>
                 <div class="col-6"><label><input type="checkbox" name="RequiresUsername" value="on" <?php $visitor->requires_username == 1 ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Requires name')?></label></div>
@@ -91,10 +91,8 @@ setTimeout(function() {
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Visitor does not have any chat. We will initiate a new chat.');?></p>
             <?php endif; ?>
 
-            <hr>
-
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
                         <?php $params = array (
@@ -108,7 +106,6 @@ setTimeout(function() {
                         echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                     </div>
                 </div>
-                <div class="col-6"><label><input type="checkbox" name="FullWidgetChat" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label></div>
             </div>
 
 
