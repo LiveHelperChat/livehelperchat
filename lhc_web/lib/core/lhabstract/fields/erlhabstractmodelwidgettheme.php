@@ -1519,7 +1519,15 @@ $fields = array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-
+    'embed_closed' => array(
+        'type' => 'text',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close button position in embed mode'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     // New message indicator
     'cnew_msgh' => array(
         'type' => 'text',

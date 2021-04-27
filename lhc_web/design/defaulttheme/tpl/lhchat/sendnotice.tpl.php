@@ -68,13 +68,9 @@ setTimeout(function() {
 
             <input type="hidden" id="id_SendMessage" name="SendMessage" value="1" />
             <hr>
-            <input type="submit" class="btn btn-secondary" name="SendMessage" onclick="$('#id_SendMessage').val(1)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
+            <input type="submit" class="btn btn-secondary btn-sm" name="SendMessage" onclick="$('#id_SendMessage').val(1)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
         </div>
         <div role="tabpanel" class="tab-pane" id="panel2">
-
-            <div class="row">
-                <div class="col-6"><label><input type="checkbox" name="FullWidgetChat" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label></div>
-            </div>
 
             <?php if ($visitor->chat instanceof erLhcoreClassModelChat) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Visitor have assigned chat with id');?>: <?php echo $visitor->chat_id?></p>
@@ -95,8 +91,28 @@ setTimeout(function() {
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Visitor does not have any chat. We will initiate a new chat.');?></p>
             <?php endif; ?>
 
+            <hr>
 
-            <input type="submit" class="btn btn-secondary" name="SendMessageStart" onclick="$('#id_SendMessage').val(2)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message and start a chat');?>" />
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
+                        <?php $params = array (
+                            'input_name'     => 'DepartmentID',
+                            'display_name'   => 'name',
+                            'css_class'      => 'form-control form-control-sm',
+                            'selected_id'    => 0,
+                            'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                            'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments)
+                        );
+                        echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
+                    </div>
+                </div>
+                <div class="col-6"><label><input type="checkbox" name="FullWidgetChat" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label></div>
+            </div>
+
+
+            <input type="submit" class="btn btn-sm btn-secondary" name="SendMessageStart" onclick="$('#id_SendMessage').val(2)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message and start a chat');?>" />
         </div>
     </div>
 

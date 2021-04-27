@@ -831,6 +831,8 @@ class OnlineChat extends Component {
                 }
             }
 
+            const endTitle = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
+
             return (
                 <React.Fragment>
 
@@ -848,8 +850,8 @@ class OnlineChat extends Component {
 
                     {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
 
-                    {this.props.chatwidget.get('mode') == 'embed' && <div className="close-modal-btn position-absolute">
-                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat')} ><i className="material-icons settings text-muted">&#xf10a;</i><span className="embed-close-title">{this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat')}</span></a>}
+                    {this.props.chatwidget.get('mode') == 'embed' && this.props.chatwidget.hasIn(['chat_ui','embed_cls']) && this.props.chatwidget.getIn(['chat_ui','embed_cls']) == 1 && <div className="close-modal-btn position-absolute">
+                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons settings text-muted">&#xf10a;</i><span className="embed-close-title">{endTitle}</span></a>}
                     </div>}
 
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
@@ -865,8 +867,12 @@ class OnlineChat extends Component {
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_CONNECTION') || this.props.chatwidget.get('network_down')) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']).indexOf('SEND_') === -1 ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.'+this.props.chatwidget.getIn(['chatLiveData','error']).toLowerCase())) : (this.props.chatwidget.get('network_down') ? t('online_chat.send_connection') : this.props.chatwidget.getIn(['chatLiveData','ott']))}</div>}
 
+                        {this.props.chatwidget.get('mode') == 'embed' && this.props.chatwidget.hasIn(['chat_ui','embed_cls']) && this.props.chatwidget.getIn(['chat_ui','embed_cls']) == 2 && <div className="inline-cls-btn pt-1 pl-2">
+                            {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons settings text-muted mr-0">&#xf10a;</i></a>}
+                        </div>}
+
                         <ChatOptions elementId="chat-dropdown-options">
-                            <div className="btn-group dropup disable-select pl-2 pt-2">
+                            <div className="btn-group dropup disable-select pl-1 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</i>
                                 <div className={"dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1 "+(window.lhcChat['staticJS']['dir'] == 'rtl' ? "dropdown-menu-right" : "")}>
                                     <div className="d-flex flex-row pl-1">
@@ -876,7 +882,7 @@ class OnlineChat extends Component {
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && <a onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted">&#xf117;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted">&#xf11a;</i></a>}
-                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
                                     </div>
                                 </div>
                             </div>

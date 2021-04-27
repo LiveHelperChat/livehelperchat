@@ -491,6 +491,15 @@
         		        </div>
 
                         <div class="form-group">
+                            <label><?php echo $fields['embed_closed']['trans'];?></label>
+                            <select name="AbstractInput_embed_closed" class="form-control form-control-sm">
+                                <option value="" <?php !isset($object->bot_configuration_array['embed_closed']) || $object->bot_configuration_array['embed_closed'] == '' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Absent');?></option>
+                                <option value="1" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '1' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Top right');?></option>
+                                <option value="2" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '2' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left');?></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('switch_to_human', $fields['switch_to_human'], $object)?>
                         </div>

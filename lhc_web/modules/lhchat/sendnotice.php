@@ -4,7 +4,9 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendnotice.tpl.php');
 
 $visitor = erLhcoreClassModelChatOnlineUser::fetch((int)$Params['user_parameters']['online_id']);
 
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
 $tpl->set('visitor',$visitor);
+$tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 if ( isset($_POST['SendMessage']) ) {
     
@@ -153,6 +155,15 @@ if ( isset($_POST['SendMessage']) ) {
             }
 
             $chatPast->user_id = $chatPast->user_id > 0 ? $chatPast->user_id : erLhcoreClassUser::instance()->getUserID();
+
+            if ($chatPast->dep_id == 0) {
+                $chatPast->dep_id = (int)$_POST['DepartmentID'];
+            }
+
+            if (erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $chatPast->dep_id))) == 0) {
+                $department = erLhcoreClassModelDepartament::findOne(array('sort' => 'hidden ASC, priority ASC', 'limit' => 1,'filter' => array('disabled' => 0)));
+                $chatPast->dep_id = $department->id;
+            }
 
             // Save message as a chat message
             $msg = new erLhcoreClassModelmsg();
