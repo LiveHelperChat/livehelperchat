@@ -600,6 +600,11 @@
                         attributesWidget.widgetStatus.next(false);
                     }
 
+                    if (attributesWidget.viewHandler) {
+                        attributesWidget.viewHandler.removeUnreadIndicator();
+                        attributesWidget.eventEmitter.emitEvent('hide_msg_snippet');
+                    }
+
                     attributesWidget.widgetDimesions.nextProperty('height_override', null);
 
                     chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);

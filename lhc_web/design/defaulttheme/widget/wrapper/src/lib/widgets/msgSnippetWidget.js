@@ -86,6 +86,10 @@ export class msgSnippetWidget{
             }
         });
 
+        attributes.eventEmitter.addListener('hide_msg_snippet', () => {
+            this.hide(true);
+        });
+
         attributes.widgetStatus.subscribe((data) => {
             data == true ? (this.widgetOpen = true, this.hide(true)) : (this.widgetOpen = false, this.show());
         });

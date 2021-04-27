@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_ACTIVE_CHAT, STATUS_SUB_USER_CLOSED_CHAT, STATUS_SUB_OWNER_CHANGED, STATUS_SUB_CONTACT_FORM  } from "../constants/chat-status";
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatSync extends PureComponent {
 
@@ -50,6 +51,7 @@ class ChatSync extends PureComponent {
                 clearTimeout(this.state.intervalId);
                 this.state.intervalId = null;
             }
+            helperFunctions.sendMessageParent('chatClosed', []);
         } else if (!this.state.intervalId) {
             this.syncChat();
         }
