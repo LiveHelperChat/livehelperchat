@@ -1004,3 +1004,9 @@ textarea[name=ChatMessage] {
 #msgsnippet span.op-tit{
     display: none;
 }
+
+.close-modal-btn{
+    right: 0;
+    top:-5px;
+    z-index: 2;
+}
