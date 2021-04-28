@@ -267,12 +267,11 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             if (action.data.messages !== '') {
                 state = state.updateIn(['chatLiveData','messages'],list => list.push({
-                        'lmsop': (action.data.lmsop || state.getIn(['chatLiveData','msop'])),
-                        'msop': (action.data.lmsop || action.data.msop),
-                        'msg': action.data.messages
-                    }))
+                    'lmsop': state.getIn(['chatLiveData','msop']),
+                    'msop': action.data.msop,
+                    'msg': action.data.messages
+                }))
                     .setIn(['chatLiveData','uw'], action.data.uw && action.data.uw === true)
-                    .setIn(['chatLiveData','lmsop'],action.data.lmsop || state.getIn(['chatLiveData','msop'])) // Remember last message operator ID
                     .setIn(['chatLiveData','lmsgid'],action.data.message_id)
                     .setIn(['chatLiveData','msop'],action.data.lmsop || action.data.msop);
             }

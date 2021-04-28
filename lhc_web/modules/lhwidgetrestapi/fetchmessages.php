@@ -134,9 +134,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
                                 $operatorTotalMessages++;
                             }
 
-                            if ((int)$requestPayload['lmgsid'] == 0) {
-                                $operatorIdLast = (int)$msg['user_id'];
-                            }
+                            $operatorIdLast = (int)$msg['user_id'];
 
                             $LastMessageID = $msg['id'];
 				        }
@@ -224,7 +222,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 $responseArray['op'] = $operation;
 $responseArray['uw'] = $userOwner;
 $responseArray['msop'] = $operatorId;
-if (isset($operatorIdLast)) {
+if (isset($operatorIdLast) && $operatorIdLast != $operatorId) {
     $responseArray['lmsop'] = $operatorIdLast;
 }
 $responseArray['ott'] = $ott;
