@@ -116,10 +116,12 @@ body {
     background-color: red;
     border-radius: 37px;
     display: none;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: 7px;
     margin-top: -5px;
     margin-left: -4px;
+    text-align: center;
 }
 
 #lhc_status_container {

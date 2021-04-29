@@ -1002,7 +1002,7 @@ textarea[name=ChatMessage] {
 }
 
 #msgsnippet span.op-tit{
-    display: none;
+    display: none!important;
 }
 
 .close-modal-btn{

@@ -28,13 +28,15 @@ try {
             $tpl->set('react',true);
             $tpl->set('sync_mode','');
             $tpl->set('async_call',true);
-            $tpl->set('user', $chat->user);
-            $msg = trim($tpl->fetch());
+            $tpl->set('user', erLhcoreClassModelUser::fetch($msg->user_id));
+
+            $msgPlain = trim($tpl->fetch());
+
+            $operator_profile = $tpl->fetch('lhchat/getmessagesnippet/operator_profile.tpl.php');
 
             $msg_body = $tpl->fetch('lhchat/syncuser.tpl.php');
-
             $onlineUser = $chat->online_user;
-            $outputResponse = array('msg_body' => $msg_body, 'msg' => $msg);
+            $outputResponse = array('operator_profile' => $operator_profile, 'msg_body' => $msg_body, 'msg' => $msgPlain, 'msop' => $msg->user_id);
 
             if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser && isset($onlineUser->online_attr_system_array['lhc_full_widget'])) {
                 $outputResponse['full_widget'] = 1;

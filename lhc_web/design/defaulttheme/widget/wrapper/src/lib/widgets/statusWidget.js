@@ -22,6 +22,7 @@ export class statusWidget{
 
         this.loadStatus = {main : false, theme: false, font: true, widget : false};
         this.lload = false;
+        this.unread_counter = 0;
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -134,13 +135,22 @@ export class statusWidget{
         });
 
         this.attributes.mode === 'popup' && this.show();
+        let unreadMessagesNumber = attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr');
 
-        attributes.eventEmitter.addListener('unread_message', () => {
-            this.showUnreadIndicator();
+        attributes.eventEmitter.addListener('unread_message', (data) => {
+            var unreadTotal = (data && data.otm);
+            if (unreadTotal) {
+                unreadTotal = parseInt(unreadTotal);
+                unreadTotal += this.unread_counter;
+            }
+            this.showUnreadIndicator(unreadTotal);
         });
 
-        if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
-            attributes.eventEmitter.emitEvent('unread_message');
+        if (unreadMessagesNumber !== null) {
+            attributes.eventEmitter.emitEvent('unread_message',[{otm:unreadMessagesNumber, init: true}]);
+            if (unreadMessagesNumber !== null && !isNaN(unreadMessagesNumber)) {
+                this.unread_counter = parseInt(unreadMessagesNumber);
+            }
         }
 
         // Widget reload was called
@@ -176,11 +186,18 @@ export class statusWidget{
         this.cont.hide();
     }
 
-    showUnreadIndicator(){
+    showUnreadIndicator(number){
+        var iconText = number || '!';
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
+
+        var iconValue = this.cont.getElementById("unread-msg-number");
+        if (iconValue) {
+            iconValue.innerText = iconText;
+        }
+
         if (this.attributes.storageHandler)
-            this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
+            this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',iconText);
     }
 
     removeUnreadIndicator() {
@@ -190,6 +207,7 @@ export class statusWidget{
             this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
         }
         this.attributes.eventEmitter.emitEvent('remove_unread_indicator', []);
+        this.unread_counter = 0;
     }
 
     show () {
