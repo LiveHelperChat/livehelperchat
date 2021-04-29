@@ -80,7 +80,7 @@ export class msgSnippetWidget{
 
         this.attributes.eventEmitter.addListener('unread_message', (dataUnread) => {
             if (dataUnread.msop) {
-                if (dataUnread.msop == this.msop) {
+                if (dataUnread.msop == this.msop && dataUnread.msg_body) {
                     this.showSnippet(dataUnread, true);
                 } else {
                     this.msop = dataUnread.msop;
