@@ -496,7 +496,7 @@ class erLhcoreClassModelChat {
        		break;
 
        case 'msg_v':
-            $this->msg_v = 1;
+            $this->msg_v = 0;
             $chatVariables = $this->chat_variables_array;
             if (isset($chatVariables['msg_v'])) {
                 $this->msg_v = $chatVariables['msg_v'];

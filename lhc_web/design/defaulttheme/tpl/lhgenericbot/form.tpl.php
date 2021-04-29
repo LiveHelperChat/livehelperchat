@@ -46,11 +46,17 @@
 
     </div>
     <div role="tabpanel" class="tab-pane" id="interface">
+
         <div class="form-group">
             <label><input type="checkbox" <?php (isset($item->configuration_array['profile_hide']) && $item->configuration_array['profile_hide'] == true) ? print 'checked="checked"' : ''?> name="profile_hide" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Hide bot profile while chat is in bot mode')?></label>
         </div>
+
         <div class="form-group">
             <label><input type="checkbox" name="msg_hide" value="1" <?php (isset($item->configuration_array['msg_hide']) && $item->configuration_array['msg_hide'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Start chat with hidden message box')?></label>
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" name="ign_btn_clk" value="1" <?php (isset($item->configuration_array['ign_btn_clk']) && $item->configuration_array['ign_btn_clk'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not count button click as a visitor message')?></label>
         </div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_interface_multiinclude.tpl.php'));?>
