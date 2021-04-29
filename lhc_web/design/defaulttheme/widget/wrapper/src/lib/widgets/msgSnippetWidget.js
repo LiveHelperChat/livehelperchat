@@ -11,6 +11,9 @@ export class msgSnippetWidget{
         this.invitationOpen = false;
         this.nhOpen = false;
 
+        this.msop = null;   // Last operator ID who wrote a message
+        this.msg = null;    // Container of the message
+
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_msgsnippet_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483639",
             width: "300px",
@@ -29,13 +32,10 @@ export class msgSnippetWidget{
         }
     }
 
-    init(attributes, settings) {
+    renderBody() {
 
-        this.attributes = attributes;
+        this.cont.tmpl = this.msg.replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop')).replace('{msg_body}',this.settings['msg_body']).replace('{operator_profile}',this.settings['operator_profile']);
 
-        this.attributes = attributes;
-
-        this.cont.tmpl = settings['msg'].replace('{dev_type}',(this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop')).replace('{msg_body}',settings['msg_body']);
         this.cont.bodyId = 'msgsnippet';
 
         if (this.cont.constructUIIframe('', this.attributes.staticJS['dir']) === null){
@@ -47,15 +47,15 @@ export class msgSnippetWidget{
 
         this.cont.elmDom.className += this.attributes.isMobile === true ? ' lhc-mobile' : ' lhc-desktop';
 
-        this.cont.attachUserEventListener("click", function (e) {
-            attributes.eventEmitter.emitEvent('msgSnippetClicked', [{'event': e, 'sender' : 'closeButton'}]);
-            attributes.eventEmitter.emitEvent('showWidget', [{'event': e}]);
+        this.cont.attachUserEventListener("click",  (e) => {
+            this.attributes.eventEmitter.emitEvent('msgSnippetClicked', [{'event': e, 'sender' : 'closeButton'}]);
+            this.attributes.eventEmitter.emitEvent('showWidget', [{'event': e}]);
         }, "start-chat-btn",'msgsnippetstart');
 
         var _that = this;
 
-        this.cont.attachUserEventListener("click", function (a) {
-            attributes.eventEmitter.emitEvent('msgsnippetClosed', [{'sender' : 'closeButton'}]);
+        this.cont.attachUserEventListener("click",  (a) => {
+            this.attributes.eventEmitter.emitEvent('msgsnippetClosed', [{'sender' : 'closeButton'}]);
             a.stopPropagation();
             _that.hide(true);
         }, "close-need-help-btn",'msgsnippetclose');
@@ -74,29 +74,61 @@ export class msgSnippetWidget{
         }
 
         // Show need help only if status widget is loaded
-        attributes.sload.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
+        this.attributes.sload.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
 
-        attributes.eventEmitter.emitEvent('showMsgSnippet', [{'sender' : 'closeButton'}]);
+        this.attributes.eventEmitter.emitEvent('showMsgSnippet', [{'sender' : 'closeButton'}]);
 
-        attributes.eventEmitter.addListener('unread_message', () => {
-            if (this.hidden == false) {
-                helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/getmessagesnippet', {params: this.attributes['userSession'].getSessionAttributes()}, (data) => {
-                    this.showSnippet(data, false);
-                })
+        this.attributes.eventEmitter.addListener('unread_message', (dataUnread) => {
+            if (dataUnread.msop) {
+                if (dataUnread.msop == this.msop) {
+                    this.showSnippet(dataUnread, true);
+                } else {
+                    this.msop = dataUnread.msop;
+                    helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/getmessagesnippet', {params: this.attributes['userSession'].getSessionAttributes()}, (data) => {
+                        this.msop = data.msop;
+                        this.msg = data.msg;
+                        this.showSnippet(data, true);
+                    })
+                }
             }
         });
 
-        attributes.eventEmitter.addListener('hide_msg_snippet', () => {
+        this.attributes.eventEmitter.addListener('hide_msg_snippet', () => {
             this.hide(true);
         });
 
-        attributes.widgetStatus.subscribe((data) => {
+        this.attributes.widgetStatus.subscribe((data) => {
             data == true ? (this.widgetOpen = true, this.hide(true)) : (this.widgetOpen = false, this.show());
         });
 
-        attributes.eventEmitter.addListener('reloadWidget',() => {
+        this.attributes.eventEmitter.addListener('reloadWidget',() => {
             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, id : "lhc-theme-msgsnippet", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + Date.now()}, true);
         });
+    }
+
+    init(attributes, settings) {
+        this.attributes = attributes;
+        this.settings = settings;
+
+        if (this.settings['msg']) {
+            this.msg = this.settings['msg'];
+        }
+
+        if (this.settings['msop']) {
+            this.msop = this.settings['msop'];
+        }
+
+        if (!this.msg || (this.settings['msop'] && this.msop !== this.settings['msop'])) {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/getmessagesnippet', {params: this.attributes['userSession'].getSessionAttributes()}, (data) => {
+                this.msop = data.msop;
+                this.msg = data.msg;
+                this.settings['operator_profile'] = data.operator_profile;
+                this.renderBody();
+            })
+        } else {
+            this.renderBody();
+        }
+
     }
 
     hide (persistent) {
@@ -121,6 +153,11 @@ export class msgSnippetWidget{
             this.show();
         }
         this.cont.elmDomDoc.getElementById('messages-scroll').innerHTML = data.msg_body;
+
+        if (data.operator_profile) {
+            this.cont.elmDomDoc.getElementById('operator-profile-snippet').innerHTML = data.operator_profile;
+        }
+
         this.fitContent();
     }
 

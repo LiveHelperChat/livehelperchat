@@ -187,6 +187,10 @@ try {
                     $outputResponse['chat_ui']['clinst'] = true;
                 }
 
+                if (isset($theme->bot_configuration_array['msg_snippet']) && $theme->bot_configuration_array['msg_snippet'] == true) {
+                    $outputResponse['chat_ui']['msg_snippet'] = true;
+                }
+                
                 if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
                     $outputResponse['chat_ui']['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
                 }

@@ -434,7 +434,6 @@ class OnlineChat extends Component {
 
             if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
                 let widgetOpen = ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()));
-                helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : widgetOpen}]);
                 if (hasNewMessages == false) {
                     hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false;
                     oldId = hasNewMessages == true ? prevProps.chatwidget.getIn(['chatLiveData','messages']).size : 0;
@@ -442,6 +441,11 @@ class OnlineChat extends Component {
                 } else {
                     otm += this.props.chatwidget.getIn(['chatLiveData','otm']);
                 }
+
+                // Get last message
+                let msg = this.props.chatwidget.hasIn(['chat_ui','msg_snippet']) && this.props.chatwidget.getIn(['chatLiveData','messages',-1,'msg']);
+
+                helperFunctions.emitEvent('play_sound', [{msop: this.props.chatwidget.getIn(['chatLiveData','msop']), msg_body: msg, 'otm': otm, 'type' : 'new_message', 'sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : widgetOpen}]);
             } else {
                 hasNewMessages = false;
                 oldId = 0;

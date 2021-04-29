@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 164;
+            lhc.version = 165;
 
             var init = () => {
 
@@ -761,7 +761,19 @@
                             } else {
                                 attributesWidget.msgSnippet.showSnippet(data, true);
                             }
-                            attributesWidget.eventEmitter.emitEvent('unread_message');
+                            attributesWidget.eventEmitter.emitEvent('unread_message',[{otm: 1}]);
+                        });
+                    }
+                });
+
+                attributesWidget.eventEmitter.addListener('unread_message', (data) => {
+                    if (data && data.msg_body && !attributesWidget.msgSnippet) {
+                        import('./lib/widgets/msgSnippetWidget').then((module) => {
+                            if (!attributesWidget.msgSnippet) {
+                                attributesWidget.msgSnippet = new module.msgSnippetWidget(attributesWidget.prefixLowercase);
+                                containerChatObj.cont.elmDom.appendChild(attributesWidget.msgSnippet.cont.constructUI(), !0);
+                                attributesWidget.msgSnippet.init(attributesWidget, data);
+                            }
                         });
                     }
                 });
