@@ -76,6 +76,10 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(action.attr, action.data);
         }
 
+        case 'profile_pic': {
+            return state.set('profile_pic', (action.data.indexOf('http:') !== -1 || action.data.indexOf('https:') !== -1) ? action.data : window.lhcChat['base_url'] + 'widgetrestapi/avatar/' + action.data);
+        }
+
         case 'attr_rem': {
             return state.removeIn(action.attr);
         }

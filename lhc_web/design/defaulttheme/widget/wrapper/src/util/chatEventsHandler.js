@@ -81,6 +81,10 @@ class chatEventsHandler {
             attr['operator'] = this.attributes['operator'];
         }
 
+        if (this.attributes['profile_pic'] !== null) {
+            attr['profile_pic'] = this.attributes['profile_pic'];
+        }
+
         if (this.attributes['lang'] != '') {
             attr['lang'] = this.attributes['lang'];
         }

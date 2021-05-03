@@ -218,6 +218,8 @@ class ChatMessage extends PureComponent {
                                 domNode.attribs.className += ' operator-changes';
                                 operatorChanged = true;
                             }
+                        } else if (this.props.profilePic && domNode.attribs.className.indexOf('vis-icon-hld') !== -1) {
+                            return <img className="profile-msg-pic" onLoad={this.imageLoaded} src={this.props.profilePic} alt="" title="" />
                         }
 
                         delete domNode.attribs.class;

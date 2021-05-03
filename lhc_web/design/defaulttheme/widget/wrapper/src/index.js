@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 167;
+            lhc.version = 168;
 
             var init = () => {
 
@@ -156,6 +156,7 @@
                     theme_v: null,
                     domain: LHC_API.args.domain || null,
                     domain_lhc: null,
+                    profile_pic: LHC_API.args.profile_pic || null,
                     position: LHC_API.args.position || 'bottom_right',
                     position_placement: LHC_API.args.position_placement || 'bottom_right',
                     base_url: LHC_API.args.lhc_base_url,
