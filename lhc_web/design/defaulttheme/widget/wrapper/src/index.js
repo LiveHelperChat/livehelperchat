@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 166;
+            lhc.version = 167;
 
             var init = () => {
 
@@ -488,7 +488,7 @@
 
                     attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
 
-                    if ((attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
+                    if ((attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup' || attributesWidget.mode == 'embed') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
                         showProactive();
                     }
 

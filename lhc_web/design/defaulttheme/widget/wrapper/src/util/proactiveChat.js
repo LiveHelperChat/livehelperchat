@@ -67,7 +67,7 @@ class _proactiveChat {
         const chatParams = this.attributes['userSession'].getSessionAttributes();
 
         // Show invitation only if widget is not open
-        if ((init === 0 && this.attributes.widgetStatus.value === true) || chatParams['id']) {
+        if ((init === 0 && (this.attributes.widgetStatus.value === true && !this.attributes.mode == 'embed')) || chatParams['id']) {
             return;
         }
 
