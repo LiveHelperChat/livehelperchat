@@ -320,22 +320,33 @@
     				    </div>
 
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
-        		
-        		        <div class="form-group">
-        		        <label><?php echo $fields['header_background']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>		
-					    </div>
-					    
-					    <div class="form-group">				
-						<label><?php echo $fields['widget_border_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>		
-						</div>
+        		<div role="tabpanel" class="tab-pane pt-2" id="widgetcontainer">
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_border_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_icon_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
-						<label><?php echo $fields['header_icon_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
-						</div>
+                            <label><?php echo $fields['icons_order']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
+                        </div>
 
 						<div class="form-group">											
 						<label><?php echo $fields['widget_border_width']['trans'];?></label>
@@ -479,6 +490,19 @@
 						    <label><?php echo erLhcoreClassAbstract::renderInput('hide_bb_code', $fields['hide_bb_code'], $object)?> <?php echo $fields['hide_bb_code']['trans'];?></label>
         		        </div>
 
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('msg_snippet', $fields['msg_snippet'], $object)?> <?php echo $fields['msg_snippet']['trans'];?></label>
+        		        </div>
+
+                        <div class="form-group">
+                            <label><?php echo $fields['embed_closed']['trans'];?></label>
+                            <select name="AbstractInput_embed_closed" class="form-control form-control-sm">
+                                <option value="" <?php !isset($object->bot_configuration_array['embed_closed']) || $object->bot_configuration_array['embed_closed'] == '' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Absent');?></option>
+                                <option value="1" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '1' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Top right');?></option>
+                                <option value="2" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '2' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left');?></option>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('switch_to_human', $fields['switch_to_human'], $object)?>
@@ -550,14 +574,22 @@
 
         		
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="needhelp">
+        		<div role="tabpanel" class="tab-pane pt-2" id="needhelp">
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?><?php echo $fields['show_need_help']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?> <?php echo $fields['show_need_help']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?><?php echo $fields['hide_mobile_nh']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?> <?php echo $fields['hide_mobile_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('always_present_nh', $fields['always_present_nh'], $object)?> <?php echo $fields['always_present_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_close_nh', $fields['hide_close_nh'], $object)?> <?php echo $fields['hide_close_nh']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">

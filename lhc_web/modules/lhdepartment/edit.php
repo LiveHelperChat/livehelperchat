@@ -46,7 +46,9 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 		erLhcoreClassModule::redirect('department/departments');
 		exit;
 	}
-	
+
+    $previousState = $Departament->getState();
+
 	$Errors = erLhcoreClassDepartament::validateDepartment($Departament);
 	
     if (count($Errors) == 0)
@@ -58,7 +60,19 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         erLhcoreClassDepartament::validateDepartmentProducts($Departament);
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.modified',array('department' => $Departament));
-                
+
+        $currentState = $Departament->getState();
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $Departament,
+            'check_log' => true,
+            'msg' => array(
+                'prev' => $previousState,
+                'curr' => $currentState,
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/departments');
             exit;

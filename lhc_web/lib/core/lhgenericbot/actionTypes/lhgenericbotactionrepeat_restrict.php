@@ -38,7 +38,14 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
                 $restrict->{$filterId} = $filterValue;
             }
 
-            $restrict->counter++;
+            if (!isset($action['content']['do_not_inc']) || $action['content']['do_not_inc'] == false) {
+                $restrict->counter++;
+            }
+
+            if (isset($action['content']['value_man']) && is_numeric($action['content']['value_man'])) {
+                $restrict->counter = (int)$action['content']['value_man'];
+            }
+
             $restrict->saveThis();
 
             if ($restrict->counter <= $action['content']['repeat_count'])
@@ -48,7 +55,7 @@ class erLhcoreClassGenericBotActionRepeat_restrict {
 
             if (is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
                 return array(
-                    'status' => 'stop',
+                    'status' => ((isset($action['content']['continue_all']) && $action['content']['continue_all'] == true) ? 'continue_all' : 'stop'),
                     'trigger_id' => $action['content']['alternative_callback']
                 );
             } else {

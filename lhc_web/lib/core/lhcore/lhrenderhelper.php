@@ -172,7 +172,7 @@ class erLhcoreClassRenderHelper {
 
     public static function renderMultiDropdown($params) {
 
-        $template = '<div class="btn-block-department">
+        $template = '<div class="btn-block-department"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
                     <li class="dropdown">
                         <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">' .
@@ -189,7 +189,7 @@ class erLhcoreClassRenderHelper {
         $array = array();
 
         foreach ($items as $item) {
-            $template .= '<li data-stoppropagation="true"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="' .$params['input_name'] .'" value="'. $item->id .'">' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
+            $template .= '<li data-stoppropagation="true"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="' .$params['input_name'] .'" value="'. $item->id .'"> ' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
         }
 
         $template .= '</ul></li></ul></div>';

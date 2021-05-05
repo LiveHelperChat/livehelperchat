@@ -209,11 +209,16 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
+                        </div>
+                        <div className="col-6">
                             <div role="group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as a system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
                             </div>
                         </div>
-                        <div className="col-6 text-right">
+                        <div className="col-12 text-right">
                             <div className="btn-group" role="group">
                                 <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</button>
                                 <button onClick={this.addQuickReply} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</button>

@@ -768,6 +768,34 @@ if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
 }
 
+$chat_ui['header_buttons'] = array(
+    array(
+        'pos' => 'left',
+        'btn' => 'min'
+    ),
+    array(
+        'pos' => 'right',
+        'btn' => 'close'
+    ),
+    array(
+        'pos' => 'right',
+        'btn' => 'popup'
+    )
+);
+
+if ($theme !== false && isset($theme->bot_configuration_array['icons_order']) && $theme->bot_configuration_array['icons_order'] != '') {
+    $icons = explode(',',str_replace(' ','',$theme->bot_configuration_array['icons_order']));
+    $chat_ui['header_buttons'] = array();
+    foreach ($icons as $icon) {
+        $paramsIcon = explode('_',$icon);
+        $chat_ui['header_buttons'][] = array(
+            'pos' => $paramsIcon[0],
+            'btn' => $paramsIcon[1],
+            'print' => isset($paramsIcon[2]) && $paramsIcon[2] == 'print',
+        );
+    }
+}
+
 if ($theme !== false && $theme->hide_close == 1) {
     $chat_ui['hide_close'] = true;
 }

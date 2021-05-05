@@ -443,7 +443,7 @@ class erLhcoreClassDepartament{
 	   		$department->online_hours_active = 0;
 	   	}
 
-	   	$productsConfiguration = array();
+	   	$productsConfiguration = $department->product_configuration_array;
 	   	
 	   	if ( $form->hasValidData( 'products_enabled' ) && $form->products_enabled === true ) {
 	   		$productsConfiguration['products_enabled'] = 1;

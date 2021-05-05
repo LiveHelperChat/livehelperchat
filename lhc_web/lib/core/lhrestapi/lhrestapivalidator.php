@@ -412,6 +412,13 @@ class erLhcoreClassRestAPIHandler
                         'min_range' => 1
                     ))
                 ),
+                'online_user_id' => array(
+                    'type' => 'filter',
+                    'field' => 'online_user_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
                 'phone' => array(
                     'type' => 'filter',
                     'field' => 'phone',
@@ -462,6 +469,29 @@ class erLhcoreClassRestAPIHandler
             erLhcoreClassChat::validateFilterIn($idDep);
             if (!empty($idDep)){
                 $filter['filterin']['dep_id'] = $idDep;
+            }
+        }
+
+        if (isset($_GET['user_ids'])) {
+            $uidDep = explode(',',$_GET['user_ids']);
+            erLhcoreClassChat::validateFilterIn($uidDep);
+            if (!empty($uidDep)){
+                $filter['filterin']['user_id'] = $uidDep;
+            }
+        }
+
+        if (isset($_GET['status_ids'])) {
+            $statusIds = explode(',',$_GET['status_ids']);
+            erLhcoreClassChat::validateFilterIn($statusIds);
+            if (!empty($statusIds)){
+                $filter['filterin']['status'] = $statusIds;
+            }
+        }
+
+        if (isset($_GET['vid']) && !empty($_GET['vid'])) {
+            $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($_GET['vid']);
+            if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+                $filter['filter']['online_user_id'] = $onlineUser->id;
             }
         }
 
@@ -590,6 +620,13 @@ class erLhcoreClassRestAPIHandler
                 $chats[$message->chat_id]->messages[] = $message;
             }
         }
+
+         if (isset($_GET['include_survey']) && $_GET['include_survey'] == 'true' && !empty($chats)) {
+             $filledSurveys = erLhAbstractModelSurveyItem::getList(array('limit' => 100000,'sort' => 'id ASC','filterin' => array('chat_id' => array_keys($chats))));
+             foreach ($filledSurveys as $filledSurvey) {
+                 $chats[$filledSurvey->chat_id]->survey = $filledSurvey;
+             }
+         }
 
         $prefillFields = array();
 

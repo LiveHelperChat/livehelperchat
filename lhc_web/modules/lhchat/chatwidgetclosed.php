@@ -91,6 +91,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                     erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
                     $informVisitorLeft = false;
+                    $surveyRedirect = false;
 
                     if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
@@ -101,11 +102,12 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                     // In that case we set as it was closed as survey completed
                     if ($Params['user_parameters_unordered']['close'] == '1') {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                        $surveyRedirect = true;
                     }
 
                     if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
+                        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' ' . ($surveyRedirect == true ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Redirected to survey.') : ''), ENT_QUOTES);
                         $msg->chat_id = $chat->id;
                         $msg->user_id = -1;
                         $msg->time = time();
@@ -177,12 +179,14 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 // From now chat will be closed explicitly
                 $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
+                $surveyRedirect = false;
                 if ($Params['user_parameters_unordered']['close'] == '1') {
                     $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                    $surveyRedirect = true;
                 }
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);;
+                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' ' . ($surveyRedirect == true ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Redirected to survey.') : ''), ENT_QUOTES);
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
                 $msg->time = time();

@@ -5,10 +5,10 @@ import {helperFunctions} from '../helperFunctions';
 export class statusWidget{
     constructor(prefix) {
 
-       this.attributes = {};
-       this.controlMode = false;
+        this.attributes = {};
+        this.controlMode = false;
 
-       this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -22,6 +22,7 @@ export class statusWidget{
 
         this.loadStatus = {main : false, theme: false, font: true, widget : false};
         this.lload = false;
+        this.unread_counter = 0;
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -43,8 +44,8 @@ export class statusWidget{
 
     checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
-             this.cont.getElementById('lhc_status_container').style.display = "";
-             this.attributes.sload.next(true);
+            this.cont.getElementById('lhc_status_container').style.display = "";
+            this.attributes.sload.next(true);
         }
     }
 
@@ -108,7 +109,7 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {
@@ -134,13 +135,23 @@ export class statusWidget{
         });
 
         this.attributes.mode === 'popup' && this.show();
+        let unreadMessagesNumber = attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr');
 
-        attributes.eventEmitter.addListener('unread_message', () => {
-            this.showUnreadIndicator();
+        attributes.eventEmitter.addListener('unread_message', (data) => {
+            var unreadTotal = (data && data.otm);
+            if (unreadTotal) {
+                unreadTotal = parseInt(unreadTotal);
+                unreadTotal += this.unread_counter;
+            }
+            this.attributes.unread_counter.next(unreadTotal);
+            this.showUnreadIndicator(unreadTotal);
         });
 
-        if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
-            this.showUnreadIndicator();
+        if (unreadMessagesNumber !== null) {
+            attributes.eventEmitter.emitEvent('unread_message',[{otm:unreadMessagesNumber, init: true}]);
+            if (unreadMessagesNumber !== null && !isNaN(unreadMessagesNumber)) {
+                this.unread_counter = parseInt(unreadMessagesNumber);
+            }
         }
 
         // Widget reload was called
@@ -176,18 +187,29 @@ export class statusWidget{
         this.cont.hide();
     }
 
-    showUnreadIndicator(){
+    showUnreadIndicator(number){
+        var iconText = number || '!';
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
+
+        var iconValue = this.cont.getElementById("unread-msg-number");
+        if (iconValue) {
+            iconValue.innerText = iconText;
+        }
+
         if (this.attributes.storageHandler)
-        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
+            this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',iconText);
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
-        if (this.attributes.storageHandler)
-        this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        if (this.attributes.storageHandler) {
+            this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        }
+        this.attributes.eventEmitter.emitEvent('remove_unread_indicator', []);
+        this.attributes.unread_counter.next(0);
+        this.unread_counter = 0;
     }
 
     show () {

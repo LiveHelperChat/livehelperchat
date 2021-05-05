@@ -262,12 +262,18 @@ $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetThe
 if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || ($userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
     $configInstance = erConfigClassLhConfig::getInstance();
+
+    $nhCloseVisible = true;
+    if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['hide_close_nh']) && $theme->bot_configuration_array['hide_close_nh'] == true) {
+        $nhCloseVisible = false;
+    }
+
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        <button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
           <span class="px-1" aria-hidden="true">&times;</span>
-        </button>
+        </button>') . '
         <div class="d-flex">
           <div class="p-1"><img style="min-width: 50px;" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
           <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
@@ -285,6 +291,10 @@ if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme-
 
         if ($theme->show_need_help_delay > 0) {
             $outputResponse['nh']['delay'] = (int)$theme->show_need_help_delay * 1000;
+        }
+
+        if (isset($theme->bot_configuration_array['always_present_nh']) && $theme->bot_configuration_array['always_present_nh'] == true) {
+            $outputResponse['nh']['ap'] = true;
         }
 
         $theme->translate();
@@ -352,10 +362,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 158;
+$outputResponse['wv'] = 169;
 
 // React APP versions
-$outputResponse['v'] = 182;
+$outputResponse['v'] = 193;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -426,7 +436,7 @@ $outputResponse['static'] = array(
     'widget_mobile_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css;css/widgetv2/widget_mobile_override.css'),
     'embed_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css;css/widgetv2/embed_override.css'),
     'status_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::designCSS('css/widgetv2/status.css;css/widgetv2/status_override.css'),
-    'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v2.woff2'),
+    'font_status' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v3.woff2'),
     'chunk_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS,
     'ex_js' => [],

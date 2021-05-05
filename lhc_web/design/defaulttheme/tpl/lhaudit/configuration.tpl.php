@@ -22,12 +22,13 @@
         array('class' => 'AutoResponder' ,'name' => 'Auto Responder'),
         array('class' => 'CannedMsg' ,'name' => 'Canned Message'),
         array('class' => 'Subject' ,'name' => 'Subject'),
+        array('class' => 'Departament' ,'name' => 'Department'),
     );
     ?>
 
     <div class="row">
     <?php foreach ($objectsLog as $objectToLog) : ?>
-        <div class="col-3"><label><input <?php if (isset($audit_options['log_objects']) && in_array($objectToLog['class'],$audit_options['log_objects'])) :?>checked="checked"<?php endif;?> type="checkbox" name="log_objects[]" value="<?php echo $objectToLog['class']?>"><?php echo htmlspecialchars($objectToLog['name'])?></label></div>
+        <div class="col-3"><label><input <?php if (isset($audit_options['log_objects']) && in_array($objectToLog['class'],$audit_options['log_objects'])) :?>checked="checked"<?php endif;?> type="checkbox" name="log_objects[]" value="<?php echo $objectToLog['class']?>"> <?php echo htmlspecialchars($objectToLog['name'])?></label></div>
     <?php endforeach; ?>
     </div>
 

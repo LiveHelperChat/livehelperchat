@@ -61,7 +61,22 @@ class NodeTriggerActionRepeatRestrict extends Component {
                     </div>
 
                     <div className="col-12">
+                        <div className="form-group">
+                            <label>Set value manually. It wil not increment counter and will set value defined in this field</label>
+                            <input type="number" maxLength="20" title="You can set counter value manually" placeholder="You can set counter value manually" className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','value_man'])} onChange={(e) => this.onchangeAttr({'path' : ['value_man'], 'value' : e.target.value})}/>
+                        </div>
+                    </div>
+
+                    <div className="col-6">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['reset_counter'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','reset_counter'])} /> This is reset operation.</label>
+                    </div>
+
+                    <div className="col-6">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['do_not_inc'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','do_not_inc'])} /> Do not increment counter on check.</label>
+                    </div>
+
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['continue_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','continue_all'])} /> Continue executing responses. By default if limit is reached we do not execute any other response.</label>
                     </div>
 
                     <div className="col-12">

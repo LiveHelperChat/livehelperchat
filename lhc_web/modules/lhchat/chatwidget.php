@@ -703,21 +703,24 @@ if (isset($Params['user_parameters_unordered']['survey']) && is_numeric($Params[
     $modeAppendTheme .= '/(survey)/' . $Params['user_parameters_unordered']['survey'];
 }
 
-// Auto start chat
-$autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
-    'params' => $Params,
-    'inputData' => $inputData,
-    'chat' => $chat,
-    'startDataFields' => $startDataFields,
-    'modeAppend' => $modeAppend,
-    'modeAppendTheme' => $modeAppendTheme,
-    'bot_id' => $inputData->bot_id
-));
+if (!isset($additionalParams['offline'])) {
+    // Auto start chat
+    $autoStartResult = erLhcoreClassChatValidator::validateAutoStart(array(
+        'params' => $Params,
+        'inputData' => $inputData,
+        'chat' => $chat,
+        'startDataFields' => $startDataFields,
+        'modeAppend' => $modeAppend,
+        'modeAppendTheme' => $modeAppendTheme,
+        'bot_id' => $inputData->bot_id
+    ));
 
-if ($autoStartResult !== false) {
-    $Result = $autoStartResult;
-    return;
+    if ($autoStartResult !== false) {
+        $Result = $autoStartResult;
+        return;
+    }
 }
+
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget',array('result' => & $Result, 'tpl' => & $tpl, 'params' => & $Params, 'inputData' => & $inputData));
 

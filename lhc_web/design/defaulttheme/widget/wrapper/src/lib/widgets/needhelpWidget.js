@@ -99,26 +99,33 @@ export class needhelpWidget{
         // Show need help only if status widget is loaded
         attributes.sload.subscribe((data) => {if(data){this.loadStatus['status'] = true; this.checkLoadStatus()}});
 
-        attributes.eventEmitter.addListener('showInvitation',() => {
-            this.invitationOpen = true;
-            this.hide();
-        });
-        
-        attributes.eventEmitter.addListener('chatStarted',() => {
-            this.hide(true);
-        });
+        if (!settings['ap']) {
+            attributes.eventEmitter.addListener('showInvitation', () => {
+                this.invitationOpen = true;
+                this.hide();
+            });
 
-        attributes.eventEmitter.addListener('hideInvitation',() => {
-            this.invitationOpen = false;
-            this.show();
-        });
+            attributes.eventEmitter.addListener('chatStarted', () => {
+                this.hide(true);
+            });
 
-        attributes.eventEmitter.addListener('cancelInvitation',() => {
-            this.invitationOpen = false;
-            this.show();
-        });
+            attributes.eventEmitter.addListener('hideInvitation', () => {
+                this.invitationOpen = false;
+                this.show();
+            });
+
+            attributes.eventEmitter.addListener('cancelInvitation', () => {
+                this.invitationOpen = false;
+                this.show();
+            });
+
+            attributes.msgsnippet_status.subscribe((data) => {
+                data == true && this.hide(true);
+            });
+        }
 
         setTimeout(() => {
+
             attributes.widgetStatus.subscribe((data) => {
                 data == true ? (this.widgetOpen = true,this.hide()) : (this.widgetOpen = false,this.show());
             });
@@ -135,6 +142,8 @@ export class needhelpWidget{
                     this.show();
                 }
             });
+
+
 
         }, settings.delay);
 

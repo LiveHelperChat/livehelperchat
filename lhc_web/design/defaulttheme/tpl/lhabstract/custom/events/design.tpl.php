@@ -64,6 +64,22 @@ for ($i = 1; $i < 5; $i++) {
         </div>
     </div>
 
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo $fields['message_bottom']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('message_bottom', $fields['message_bottom'], $object)?>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo $fields['message_right']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('message_right', $fields['message_right'], $object)?>
+        </div>
+    </div>
+
+
+
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Old widget options');?></h5>
     <div class="col-12">
         <div class="form-group">

@@ -71,6 +71,11 @@ $ViewList['fetchmessages'] = array(
     'uparams' => array(),
 );
 
+$ViewList['getmessagesnippet'] = array(
+    'params' => array(),
+    'uparams' => array(),
+);
+
 $ViewList['fetchmessage'] = array(
     'params' => array(),
     'uparams' => array(),

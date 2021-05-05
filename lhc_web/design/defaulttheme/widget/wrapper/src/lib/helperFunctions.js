@@ -86,7 +86,7 @@ class _helperFunctions {
             "width                       : " + (params.width ? params.width : "auto") + " ; ",
             "height                      : " + (params.height ? params.height : "auto") + " ; ",
             "display                     : " + (params.display ? params.display : "block") + " !important; ",
-            "z-index                     : " + (params.zindex ? params.zindex : "none") + " !important; ",
+            "z-index                     : " + (params.zindex ? params.zindex : "none") + " ; ",
             "background-color            : " + (params.backgroundcolor ? params.backgroundcolor : "transparent") + " !important; ",
             "cursor                      : " + (params.cursor ? params.cursor : "auto") + " !important; ",
             "float                       : " + (params["float"] ? params["float"] : "none") + " !important; ",

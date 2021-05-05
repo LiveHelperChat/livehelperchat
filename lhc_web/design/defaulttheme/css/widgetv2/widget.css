@@ -6,12 +6,12 @@ body {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v2.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v3.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v2.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v2.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v2.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v3.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v3.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v3.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -121,7 +121,14 @@ div.message-row {
     padding-left:0.5rem;
 }
 
-.header-link .material-icons{
+.header-link:hover,
+.header-link{
+    color:#343a40;
+    text-decoration: none;
+}
+
+.header-link .material-icons
+{
     font-size: 32px;
     color:#343a40;
 }
@@ -986,4 +993,20 @@ textarea[name=ChatMessage] {
     border-radius:15px;
     padding: 3px 10px;
     opacity: 0.85;
+}
+
+#msgsnippet div.message-admin div.msg-body{
+    max-width:100%;
+    background-color:transparent ;
+    margin-left: 0!important;
+}
+
+#msgsnippet span.op-tit{
+    display: none!important;
+}
+
+.close-modal-btn{
+    right: 0;
+    top:-5px;
+    z-index: 2;
 }

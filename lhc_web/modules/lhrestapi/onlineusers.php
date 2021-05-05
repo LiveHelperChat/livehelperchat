@@ -10,7 +10,12 @@ try
     }
 
     $filter = array();
-    $filter['customfilter'][] = '(last_activity > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR always_on = 1)';
+
+    $timeoutValue = (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout'];
+
+    if (!isset($_GET['include_offline']) || $_GET['include_offline'] !== 'true') {
+        $filter['customfilter'][] = '((last_activity > ' . (int)(time() - $timeoutValue) . ' OR always_on = 1) AND hide_online = 0 AND ro = 0)';
+    }
 
     $filter['limit'] = false;
     $filter['sort'] = 'active_chats DESC, hide_online ASC';
@@ -20,6 +25,7 @@ try
     $filter['select_columns'] = '
         max(`id`) as `id`, 
         max(`dep_id`) as `dep_id`,
+        max(`ro`) as `ro`,
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
         max(`last_activity`) as `last_activity`, 
@@ -32,24 +38,40 @@ try
 
     $onlineOperators = erLhcoreClassModelUserDep::getList($filter);
 
-    if (isset($_GET['include_user']) && $_GET['include_user'] == 'true') {
-        $userIDs = array();
-        foreach ($onlineOperators as $onlineOperator) {
-            $userIDs[] = $onlineOperator->user_id;
+    foreach ($onlineOperators as $onlineOperatorIndex => $onlineOperator) {
+        $onlineOperators[$onlineOperatorIndex]->is_online = ($onlineOperator->last_activity > (time() - $timeoutValue) || $onlineOperator->always_on == 1) && $onlineOperator->hide_online == 0 && $onlineOperator->ro == 0;
+    }
+
+    $userIDs = array();
+    foreach ($onlineOperators as $onlineOperator) {
+        $userIDs[] = $onlineOperator->user_id;
+    }
+
+    if (!empty($userIDs)) {
+        $operators = erLhcoreClassModelUser::getList(array('filterin' => array('id' => $userIDs)));
+        foreach($operators as $index => $user)
+        {
+            // loose password
+            unset($user->password);
+            $operators[$index] = $user;
+        }
+    }
+
+    foreach ($onlineOperators as $index => $onlineOperator) {
+        if (isset($operators[$onlineOperator->user_id])) {
+            $onlineOperators[$index]->invisible_mode = $operators[$onlineOperator->user_id]->invisible_mode;
         }
 
-        if (!empty($userIDs)) {
-            $operators = erLhcoreClassModelUser::getList(array('filterin' => array('id' => $userIDs)));
-            foreach($operators as $index => $user)
-            {
-                // loose password
-                unset($user->password);
-                $operators[$index] = $user;
-            }
-        }
-
-        foreach ($onlineOperators as $index => $onlineOperator) {
+        if (isset($_GET['include_user']) && $_GET['include_user'] == 'true') {
             $onlineOperators[$index]->user = isset($operators[$onlineOperator->user_id]) ? $operators[$onlineOperator->user_id] : new stdClass();
+        }
+
+        if (
+            !isset($operators[$onlineOperator->user_id]) ||
+            ($onlineOperators[$index]->invisible_mode == 1 && isset($_GET['exclude_invisible']) && $_GET['exclude_invisible'] === 'true') ||
+            (((isset($_GET['include_disabled']) && $_GET['include_disabled'] === 'false') || !isset($_GET['include_disabled'])) && $operators[$onlineOperator->user_id]->disabled == 1)
+        ) {
+            unset($onlineOperators[$index]);
         }
     }
 

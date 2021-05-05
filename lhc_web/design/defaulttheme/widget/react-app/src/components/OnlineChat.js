@@ -434,7 +434,6 @@ class OnlineChat extends Component {
 
             if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
                 let widgetOpen = ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()));
-                helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : widgetOpen}]);
                 if (hasNewMessages == false) {
                     hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false;
                     oldId = hasNewMessages == true ? prevProps.chatwidget.getIn(['chatLiveData','messages']).size : 0;
@@ -442,6 +441,11 @@ class OnlineChat extends Component {
                 } else {
                     otm += this.props.chatwidget.getIn(['chatLiveData','otm']);
                 }
+
+                // Get last message
+                let msg = this.props.chatwidget.hasIn(['chat_ui','msg_snippet']) && this.props.chatwidget.getIn(['chatLiveData','messages',-1,'msg']);
+
+                helperFunctions.emitEvent('play_sound', [{msop: this.props.chatwidget.getIn(['chatLiveData','msop']), msg_body: msg, 'otm': otm, 'type' : 'new_message', 'sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : widgetOpen}]);
             } else {
                 hasNewMessages = false;
                 oldId = 0;
@@ -739,7 +743,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage profilePic={this.props.chatwidget.get('profile_pic')} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }
@@ -831,6 +835,8 @@ class OnlineChat extends Component {
                 }
             }
 
+            const endTitle = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
+
             return (
                 <React.Fragment>
 
@@ -848,6 +854,10 @@ class OnlineChat extends Component {
 
                     {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
 
+                    {this.props.chatwidget.get('mode') == 'embed' && this.props.chatwidget.hasIn(['chat_ui','embed_cls']) && this.props.chatwidget.getIn(['chat_ui','embed_cls']) == 1 && <div className="close-modal-btn position-absolute">
+                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons settings text-muted">&#xf10a;</i><span className="embed-close-title">{endTitle}</span></a>}
+                    </div>}
+
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock" onScroll={this.onScrollMessages}>
@@ -861,8 +871,12 @@ class OnlineChat extends Component {
                     <div className={(this.props.chatwidget.get('msgLoaded') === false || this.state.enabledEditor === false ? 'd-none ' : 'd-flex ') + "flex-row border-top position-relative message-send-area"} >
                         {(this.props.chatwidget.getIn(['chatLiveData','ott']) || (this.props.chatwidget.getIn(['chatLiveData','error']) && this.props.chatwidget.getIn(['chatLiveData','error']) != 'SEND_CONNECTION') || this.props.chatwidget.get('network_down')) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['chatLiveData','error']) ? (this.props.chatwidget.getIn(['chatLiveData','error']).indexOf('SEND_') === -1 ? this.props.chatwidget.getIn(['chatLiveData','error']) : t('online_chat.'+this.props.chatwidget.getIn(['chatLiveData','error']).toLowerCase())) : (this.props.chatwidget.get('network_down') ? t('online_chat.send_connection') : this.props.chatwidget.getIn(['chatLiveData','ott']))}</div>}
 
+                        {this.props.chatwidget.get('mode') == 'embed' && this.props.chatwidget.hasIn(['chat_ui','embed_cls']) && this.props.chatwidget.getIn(['chat_ui','embed_cls']) == 2 && <div className="inline-cls-btn pt-1 pl-2">
+                            {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons settings text-muted mr-0">&#xf10a;</i></a>}
+                        </div>}
+
                         <ChatOptions elementId="chat-dropdown-options">
-                            <div className="btn-group dropup disable-select pl-2 pt-2">
+                            <div className="btn-group dropup disable-select pl-1 pt-2">
                                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</i>
                                 <div className={"dropdown-menu shadow bg-white rounded lhc-dropdown-menu ml-1 "+(window.lhcChat['staticJS']['dir'] == 'rtl' ? "dropdown-menu-right" : "")}>
                                     <div className="d-flex flex-row pl-1">
@@ -872,7 +886,7 @@ class OnlineChat extends Component {
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && <a onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted">&#xf117;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted">&#xf11a;</i></a>}
-                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={t('button.end_chat')} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
                                     </div>
                                 </div>
                             </div>

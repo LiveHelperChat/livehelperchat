@@ -1594,7 +1594,15 @@ class erLhcoreClassChatStatistic {
         }
 
         if (!empty($userIdGroup)) {
-            $filterUsers['filterin']['id'] = $userIdGroup;
+            if (isset($filterUsers['filterin']['id']) && !empty($filterUsers['filterin']['id'])) {
+                $filterUsers['filterin']['id'] = array_unique(array_intersect($userIdGroup, $filterUsers['filterin']['id']));
+            } else {
+                $filterUsers['filterin']['id'] = $userIdGroup;
+            }
+        }
+
+        if (isset($filterUsers['filterin']['id'])) {
+            $userIdFilter = array_values($filterUsers['filterin']['id']);
         }
 
         $userList = erLhcoreClassModelUser::getUserList($filterUsers);

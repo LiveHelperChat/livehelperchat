@@ -161,6 +161,12 @@ class erLhcoreClassGenericBotActionText {
             $msg->user_id = -1;
         }
 
+        if (isset($action['content']['attr_options']['as_log_msg']) && $action['content']['attr_options']['as_log_msg'] == true)
+        {
+            $params['do_not_save'] = true;
+            erLhcoreClassLHCBotWorker::logIfRequiredPlain($chat, 'text_msg', $msg->msg);
+        }
+
         // Support for commands
         if (strpos($msg->msg, '!') === 0) {
             $bot = erLhcoreClassModelGenericBotBot::fetch($trigger->bot_id);

@@ -155,6 +155,10 @@ $ViewList['swagger'] = array(
     'params' => array()
 );
 
+$ViewList['agentstatistic'] = array(
+    'params' => array()
+);
+
 /**
  * Calls dedicated to users
  * */

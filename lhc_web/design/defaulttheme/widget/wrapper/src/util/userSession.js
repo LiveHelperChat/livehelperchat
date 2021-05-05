@@ -160,11 +160,11 @@ export class userSession {
         }
     }
 
-    setChatInformation(data) {
+    setChatInformation(data, alwaysPersistentNeedHelp) {
         this.id = data.id;
         this.hash = data.hash;
         // Hide only chat starts otherwise don't touch it.
-        if (this.id !== null) {
+        if (this.id !== null && !alwaysPersistentNeedHelp) {
             this.hnh = Math.round(Date.now() / 1000);
         }
     }

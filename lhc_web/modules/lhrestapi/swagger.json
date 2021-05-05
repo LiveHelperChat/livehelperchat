@@ -32,6 +32,10 @@
     {
       "name": "online_user",
       "description": "API Related to online users"
+    },
+    {
+      "name": "statistic",
+      "description": "API Related to statistic"
     }
   ],
   "schemes": [
@@ -95,6 +99,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -121,10 +151,28 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "status_ids",
+            "in": "query",
+            "description": "status_ids. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "include_survey",
+            "description": "Include filled survey if it exists",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           },
           {
             "name": "limit",
@@ -286,6 +334,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -312,10 +386,20 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "status_ids",
+            "in": "query",
+            "description": "status_ids. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
           },
           {
             "name": "delay",
@@ -1072,6 +1156,64 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "chat_nickname",
+            "in": "query",
+            "description": "Chat nickname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "surname",
+            "in": "query",
+            "description": "Surname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "default": null,
+            "description": "User status enabled/disabled. 0 - not disabled, 1 - disabled",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "User should be member of these group IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1594,11 +1736,36 @@
             "format": "int32"
           },
           {
+            "name": "include_offline",
+            "in": "query",
+            "description": "Include also offline operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude_invisible",
+            "in": "query",
+            "description": "Exclude invisible operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "include_disabled",
+            "in": "query",
+            "description": "Include disabled operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
             "name": "include_user",
             "in": "query",
-            "description": "Should we include a user also with online record?",
-            "required": false,
-            "type": "boolean"
+            "description": "Should we include a user object also with online record?",
+            "required": true,
+            "type": "boolean",
+            "default": false
           }
         ],
         "responses": {
@@ -2799,6 +2966,99 @@
             "description": "Deletes specified bot",
             "schema": {
             }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/agentstatistic": {
+      "get": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Fetches agent statistic",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "timefrom",
+            "in": "query",
+            "description": "From datetime.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timeto",
+            "in": "query",
+            "description": "To datetime.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "Users groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_ids",
+            "in": "query",
+            "description": "Department ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_group_ids",
+            "in": "query",
+            "description": "Department groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "subject_ids",
+            "in": "query",
+            "description": "Subjects ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "description": "Users ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns agents statistic"
           },
           "400": {
             "description": "Error",
