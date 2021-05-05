@@ -57,7 +57,6 @@ $ViewList['addmessage'] = array(
 $ViewList['sync'] = array(
     'params' => array(),
     'uparams' => array('opt'),
-    'functions' => array( 'use' ),
     'multiple_arguments' => array()
 );
 

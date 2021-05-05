@@ -87,6 +87,10 @@ $ViewList['onlineusers'] = array(
     'params' => array()
 );
 
+$ViewList['startchatwithoperator'] = array(
+    'params' => array('id','initiator_user_id')
+);
+
 $ViewList['groupsbyobject'] = array(
     'params' => array('object_id','type')
 );
