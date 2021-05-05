@@ -143,6 +143,7 @@ export class statusWidget{
                 unreadTotal = parseInt(unreadTotal);
                 unreadTotal += this.unread_counter;
             }
+            this.attributes.unread_counter.next(unreadTotal);
             this.showUnreadIndicator(unreadTotal);
         });
 
@@ -207,6 +208,7 @@ export class statusWidget{
             this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
         }
         this.attributes.eventEmitter.emitEvent('remove_unread_indicator', []);
+        this.attributes.unread_counter.next(0);
         this.unread_counter = 0;
     }
 

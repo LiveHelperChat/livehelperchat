@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 168;
+            lhc.version = 169;
 
             var init = () => {
 
@@ -139,6 +139,7 @@
                     wloaded: new BehaviorSubject(false),
                     sload: new BehaviorSubject(false),
                     msgsnippet_status: new BehaviorSubject(false),
+                    unread_counter: new BehaviorSubject(0),
                     widgetStatus: new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage + '_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
                     eventEmitter: new EventEmitter(),
                     toggleSound: new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage + '_sound') === 'true', {'ignore_sub': true}),
