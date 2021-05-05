@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 169;
+            lhc.version = 170;
 
             var init = () => {
 
@@ -754,6 +754,8 @@
                             attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender': 'closeButton'}]);
                             return;
                         }
+
+                        attributesWidget.position == 'api' && attributesWidget.viewHandler && attributesWidget.viewHandler.show();
 
                         import('./lib/widgets/msgSnippetWidget').then((module) => {
                             if (!attributesWidget.msgSnippet) {
