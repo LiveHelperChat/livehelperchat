@@ -43,7 +43,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
                     $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Page unload.'), ENT_QUOTES);;
+                    $msg->msg = '[level=system-warning exit-visitor]'.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Page unload.'), ENT_QUOTES).'[/level]';;
                     $msg->chat_id = $chat->id;
                     $msg->user_id = -1;
                     $msg->time = time();

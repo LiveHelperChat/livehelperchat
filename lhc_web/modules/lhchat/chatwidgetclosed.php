@@ -107,7 +107,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
+                        $msg->msg = '[level=system-warning exit-visitor]'.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES).'[/level]';
                         $msg->chat_id = $chat->id;
                         $msg->user_id = -1;
                         $msg->time = time();
@@ -186,7 +186,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 }
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
+                $msg->msg = '[level=system-warning exit-visitor]'.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES).'[/level]';
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
                 $msg->time = time();
