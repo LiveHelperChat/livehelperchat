@@ -1,7 +1,7 @@
 <tr>
     <td colspan="2">
 
-        <h6 class="font-weight-bold"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></h6>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/visitor_title.tpl.php'));?>
 
         <div class="row text-muted">
 

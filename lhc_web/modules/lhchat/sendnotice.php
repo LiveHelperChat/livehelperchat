@@ -145,6 +145,8 @@ if ( isset($_POST['SendMessage']) ) {
                 $chat->online_user_id = $visitor->id;
                 $chat->user_tz_identifier = $visitor->visitor_tz;
                 $chat->device_type = $visitor->device_type - 1;
+                $chat->uagent = $visitor->user_agent;
+                
                 erLhcoreClassModelChat::detectLocation($chat, $visitor->vid);
                 $chat->saveThis();
 
