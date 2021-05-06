@@ -107,7 +107,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' ' . ($surveyRedirect == true ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Redirected to survey.') : ''), ENT_QUOTES);
+                        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
                         $msg->chat_id = $chat->id;
                         $msg->user_id = -1;
                         $msg->time = time();
@@ -186,7 +186,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 }
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' ' . ($surveyRedirect == true ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Redirected to survey.') : ''), ENT_QUOTES);
+                $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!'), ENT_QUOTES);
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
                 $msg->time = time();
