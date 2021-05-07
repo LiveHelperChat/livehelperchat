@@ -620,7 +620,8 @@ class erLhcoreClassBBCodePlain
             '/\[list\](.*?)\[\/list\]/ms',
             '/\[\*\]\s?(.*?)\n/ms',
             '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
-            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms'
+            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms',
+            '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
         );
 
         // And replace them by...
@@ -632,6 +633,7 @@ class erLhcoreClassBBCodePlain
             '\2',
             '\1',
             '\1',
+            '\2',
             '\2',
             '\2'
         );

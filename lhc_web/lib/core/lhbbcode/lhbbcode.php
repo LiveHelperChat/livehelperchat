@@ -1200,6 +1200,7 @@ class erLhcoreClassBBCode
            '/\[quote\]/ms',
            '/\[\/quote\]/ms',
            '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
+           '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
            '/\n/ms',
        );
 
@@ -1214,6 +1215,7 @@ class erLhcoreClassBBCode
            '\2 \1',
            '',
            '',
+           '\2',
            '\2',
            ' ',
        );
