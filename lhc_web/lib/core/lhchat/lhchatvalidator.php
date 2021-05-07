@@ -2110,7 +2110,7 @@ class erLhcoreClassChatValidator {
 
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
 
-                            if ($responder->wait_message != '' && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                            if ($responder->wait_message != '' && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT) {
                                 $msg = new erLhcoreClassModelmsg();
                                 $msg->msg = trim($responder->wait_message);
                                 $msg->chat_id = $chat->id;
