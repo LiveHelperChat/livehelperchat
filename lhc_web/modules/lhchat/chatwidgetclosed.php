@@ -107,7 +107,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
-                        $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES).'[/level]';
+                        $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES).'[/level] [button_action=send_manual_message]'.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'invite to chat'), ENT_QUOTES).'[/button_action]';
                         $msg->chat_id = $chat->id;
                         $msg->user_id = -1;
                         $msg->time = time();
@@ -186,7 +186,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 }
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = '[level=system-warning exit-visitor]'.($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES).'[/level]';
+                $msg->msg = '[level=system-warning exit-visitor]'.($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES).'[/level] [button_action=send_manual_message]' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'invite to chat'), ENT_QUOTES) . '[/button_action]';
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
                 $msg->time = time();
