@@ -768,7 +768,7 @@ class OnlineChat extends Component {
             var message_send_style = "mx-auto pb-1 w-100";
 
             if (this.props.chatwidget.getIn(['chatLiveData','closed']) == true) {
-                message_send_style += " pt-1"+(this.props.chatwidget.get('mode') == 'embed' ? ' pr-2' : ' pr-1');
+                message_send_style += (this.props.chatwidget.get('mode') == 'embed' ? ' pr-2' : ' pr-1');
             }
 
             /**
