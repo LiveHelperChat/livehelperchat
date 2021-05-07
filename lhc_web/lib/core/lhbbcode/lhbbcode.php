@@ -1201,6 +1201,7 @@ class erLhcoreClassBBCode
            '/\[\/quote\]/ms',
            '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
            '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
+           '/\[button_action\=([A-Za-z0-9_\-\s]{2,60})\](.*?)\[\/button_action\]/ms',
            '/\n/ms',
        );
 
@@ -1217,6 +1218,7 @@ class erLhcoreClassBBCode
            '',
            '\2',
            '\2',
+           '',
            ' ',
        );
 

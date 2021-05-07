@@ -622,6 +622,7 @@ class erLhcoreClassBBCodePlain
             '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
             '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms',
             '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
+            '/\[button_action\=([A-Za-z0-9_\-\s]{2,60})\](.*?)\[\/button_action\]/ms',
         );
 
         // And replace them by...
@@ -635,7 +636,8 @@ class erLhcoreClassBBCodePlain
             '\1',
             '\2',
             '\2',
-            '\2'
+            '\2',
+            '',
         );
 
         $text = preg_replace($in, $out, $text);
@@ -1008,7 +1010,6 @@ class erLhcoreClassBBCodePlain
             return $html;
 
         }, $ret);
-
 
         if ($makeLinksClickable) {
             $ret = self::make_clickable_text($ret);
