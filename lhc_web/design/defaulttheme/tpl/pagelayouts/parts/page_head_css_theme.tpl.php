@@ -80,6 +80,8 @@
     float:right;
     margin-left: 3px!important;
     margin-top: 3px!important;
+    position: absolute!important;
+    right: 0;
 }
 
 .op-tit {
@@ -96,6 +98,14 @@ div.message-admin div.meta-message{
     margin-left:29px!important;
 }
 
+<?php if (!(isset($theme->bot_configuration_array['hide_visitor_profile']) && $theme->bot_configuration_array['hide_visitor_profile'] == 1)) : ?>
+div.response div.msg-body,
+div.response div.meta-message{
+    margin-right:29px!important;
+}
+<?php endif; ?>
+
+
 @media (min-width: 1024px) {
     .profile-msg-pic {
         width: 33px!important;
@@ -105,6 +115,18 @@ div.message-admin div.meta-message{
     div.message-admin div.meta-message{
         margin-left:42px!important;
     }
+
+    <?php if (!(isset($theme->bot_configuration_array['hide_visitor_profile']) && $theme->bot_configuration_array['hide_visitor_profile'] == 1)) : ?>
+    div.response div.msg-body,
+    div.response div.meta-message{
+        margin-right:42px!important;
+    }
+    .op-tit i.material-icons,
+    .vis-tit i.material-icons{
+        font-size: 34px!important;
+    }
+    <?php endif; ?>
+
 }
 <?php endif; ?>
 
