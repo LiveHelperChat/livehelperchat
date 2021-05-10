@@ -423,7 +423,7 @@ class StartChat extends Component {
 
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
                                 {!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <ChatStartOptions toggleModal={this.toggleModal} />}
-                                <div className="mx-auto pb-1 w-100">
+                                <div className="mx-auto w-100">
                                     <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
