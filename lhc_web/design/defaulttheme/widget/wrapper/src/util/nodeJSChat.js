@@ -47,15 +47,19 @@ class _nodeJSChat {
             sampleChannel.watch(function (op) {
                 if (op.op == 'check_message') {
                     attributes.eventEmitter.emitEvent('checkMessageOperator');
+                } else if (op.op == 'is_online') {
+                    socket.publish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
                 }
             });
         }
 
         var chanelName = 'uo_' + vid;
+        var instance_id = this.attributes.instance_id;
 
         socket.on('deauthenticate', function() {
             helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
-                socket.emit('login', {hash: data, chanelName: chanelName}, function (err) {
+                instance_id = data.instance_id;
+                socket.emit('login', {hash: data.hash, chanelName: chanelName, instance_id: data.instance_id}, function (err) {
                     if (err) {
                         console.log(err);
                     }
@@ -70,7 +74,8 @@ class _nodeJSChat {
                 attributes.LHC_API.args.check_messages = false;
             } else {
                 helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
-                    socket.emit('login', {hash: data, chanelName: chanelName}, function (err) {
+                    instance_id = data.instance_id;
+                    socket.emit('login', {hash: data.hash, chanelName: chanelName, instance_id: data.instance_id}, function (err) {
                         if (err) {
                             console.log(err);
                         } else {

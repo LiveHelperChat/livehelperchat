@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 170;
+            lhc.version = 171;
 
             var init = () => {
 
@@ -157,6 +157,7 @@
                     theme_v: null,
                     domain: LHC_API.args.domain || null,
                     domain_lhc: null,
+                    instance_id: 0,
                     profile_pic: LHC_API.args.profile_pic || null,
                     position: LHC_API.args.position || 'bottom_right',
                     position_placement: LHC_API.args.position_placement || 'bottom_right',
@@ -423,6 +424,10 @@
 
                         if (data.chat_ui.sound_enabled && storageHandler.getSessionStorage(prefixStorage + '_sound') === null) {
                             attributesWidget.toggleSound.next(true);
+                        }
+
+                        if (data.instance_id) {
+                            attributesWidget.instance_id = data.instance_id;
                         }
 
                         if (data.chat_ui.check_status) {
