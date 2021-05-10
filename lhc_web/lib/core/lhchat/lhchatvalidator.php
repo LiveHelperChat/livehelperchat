@@ -736,7 +736,7 @@ class erLhcoreClassChatValidator {
         if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
             $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
             // Never override to en
-            if (isset($siteAccessOptions['content_language']) && $siteAccessOptions['content_language'] != 'en') {
+            if (isset($siteAccessOptions['content_language'])) {
                 $chat->chat_locale = $siteAccessOptions['content_language'];
             }
         }
