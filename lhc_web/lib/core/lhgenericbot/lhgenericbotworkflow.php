@@ -2093,6 +2093,10 @@ class erLhcoreClassGenericBotWorkflow {
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
+            $matchesChild = array();
+            preg_match_all('~\{((?:[^\{\}]++|(?R)))\}~',$message,$matchesChild);
+            $matches[0] = array_merge($matches[0], $matchesChild[0]);
+            $matches[1] = array_merge($matches[1], $matchesChild[1]);
 
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
