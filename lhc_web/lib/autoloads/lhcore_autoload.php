@@ -296,6 +296,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionTbody'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontbody.php',
         'erLhcoreClassGenericBotActionText_conditional' => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext_conditional.php',
         'erLhcoreClassGenericBotActionAlert_icon'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionalert_icon.php',
+        'erLhcoreClassGenericBotActionMail'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmail.php',
         'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',

@@ -66,6 +66,10 @@ export default ({onChange, type}) => {
         {
             'value': 'alert_icon',
             'text' : 'Alert icon',
+        },
+        {
+            'value': 'mail',
+            'text' : 'Send mail',
         }
     ]);
 
