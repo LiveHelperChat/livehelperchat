@@ -10,10 +10,34 @@ class erLhcoreClassGenericBotActionCommand {
 
         if ($action['content']['command'] == 'stopchat') {
 
-            $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, array(
+            $filterOnline = array(
                 'exclude_bot' => true,
-                'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true)
-            ));
+                'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true),
+            );
+
+            $isOnlineUser = true;
+
+            if (
+                isset($action['content']['payload_attr']) &&
+                isset($action['content']['payload_val']) &&
+                isset($action['content']['payload_val']) &&
+                $action['content']['payload_val'] != '' &&
+                $action['content']['payload_attr'] != ''
+            ) {
+                $user = erLhcoreClassModelUser::findOne(array('filter' => array(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_attr'], array('chat' => $chat, 'args' => $params))  => erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_val'], array('chat' => $chat, 'args' => $params)))));
+
+                if ($user instanceof erLhcoreClassModelUser) {
+                    $filterOnline['user_id'] = $user->id;
+                } else {
+                    $isOnlineUser = false;
+                }
+            }
+
+            if ($isOnlineUser === true) {
+                $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, $filterOnline);
+            } else {
+                $isOnline = false;
+            }
 
             if ($isOnline == false && isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {
 
@@ -38,6 +62,11 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
                 $chat->pnd_time = time();
+
+                if (isset($filterOnline['user_id'])) {
+                    $chat->user_id = (int)$filterOnline['user_id'];
+                }
+
                 // We do not have to set this
                 // Because it triggers auto responder of not replying
                 // $chat->last_op_msg_time = time();
