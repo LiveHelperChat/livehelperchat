@@ -280,8 +280,7 @@ try {
             $outputResponse['chat_ui']['close_btn'] = true;
         }
 
-
-
+        $outputResponse['chat_ui']['open_timeout'] = (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value;
 
         $outputResponse['chat_ui']['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
 

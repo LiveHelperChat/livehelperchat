@@ -78,6 +78,21 @@ class NodeTriggerActionCommand extends Component {
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_status'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_status'])} /> Ignore department status and always transfer to operator.</label>
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_dep_hours'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_dep_hours'])} /> Ignore department online hours. This will force chat to be transfered to operator only if there is logged operators.</label>
 
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Search only for operators with this field</label>
+                                <input className="form-control form-control-sm" type="text" placeholder="email" onChange={(e) => this.onchangeAttr({'path':['payload_attr'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_attr'])} />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>equal to</label>
+                                <input className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_val'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_val'])} />
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="form-group">
                         <label>If there is no online operators send this trigger to user</label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />

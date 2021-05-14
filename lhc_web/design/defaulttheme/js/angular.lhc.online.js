@@ -110,8 +110,10 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 				} else {
 					$scope.onlineusersGrouped = [];
 					$scope.onlineusersGrouped.push({label:'',id:0,ou:that.onlineusers});
-				};	
-					
+				};
+
+                ee.emitEvent('chatAdminSyncOnlineVisitors', [data]);
+
 				if (that.notificationEnabled || that.soundEnabled) {
 					var hasNewVisitors = false;
 					var newVisitors = [];				

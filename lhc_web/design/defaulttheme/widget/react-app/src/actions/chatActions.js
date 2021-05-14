@@ -7,7 +7,8 @@ window.lhcAxios = axios;
 let syncStatus = {
     'msg' : false,
     'status' : false,
-    'error_counter' : 0
+    'error_counter' : 0,
+    'auto_close_timeout': null
 };
 
 const defaultHeaders = {headers : {'Content-Type': 'application/x-www-form-urlencoded'}};
@@ -57,6 +58,7 @@ export function minimizeWidget(forceClose) {
 export function endChat(obj, action) {
     action = action || "t";
     return function(dispatch, getState) {
+        clearTimeout(syncStatus.auto_close_timeout);
         axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(eclose)/"+action+"/(hash)/" + obj['chat']['id'] +'_'+ obj['chat']['hash'] + '/(vid)/' + obj['vid'] + '/(close)/' + (!obj.noClose ? '1' : '0'), null, defaultHeaders)
         .then((response) => {
             if (!obj.noClose) {
@@ -488,9 +490,13 @@ export function fetchMessages(obj) {
                 .then((response) => {
                     if (response.data.deleted) {
                         helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                        clearTimeout(syncStatus.auto_close_timeout);
                     } else {
                         dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
                         helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
+                    }
+                    if (response.data.closed && response.data.closed === true && !response.data.deleted) {
+                        setAutoClose(getState);
                     }
                 })
                 .catch((err) => {
@@ -523,15 +529,30 @@ export function checkChatStatus(obj) {
         .then((response) => {
             if (response.data.deleted) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                clearTimeout(syncStatus.auto_close_timeout);
             } else {
                 syncStatus.status = false;
                 dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
                 helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
             }
+            if (response.data.closed && response.data.closed === true && !response.data.deleted) {
+                setAutoClose(getState);
+            }
         })
         .catch((err) => {
             syncStatus.status = false;
         })
+    }
+}
+
+function setAutoClose(getState) {
+    const state = getState();
+    if (state.chatwidget.hasIn(['chat_ui','open_timeout'])) {
+        clearTimeout(syncStatus.auto_close_timeout);
+        syncStatus.auto_close_timeout = setTimeout(function(){
+            helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+            clearTimeout(syncStatus.auto_close_timeout);
+        },state.chatwidget.getIn(['chat_ui','open_timeout']) * 1000);
     }
 }
 

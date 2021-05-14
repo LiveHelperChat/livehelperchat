@@ -221,6 +221,14 @@ try {
             }
         }
 
+        if (isset($_GET['remove_bbcode']) && ($_GET['remove_bbcode'] == 'true' || $_GET['remove_bbcode'] == '1')) {
+            foreach ($messages as $key => $msg) {
+                if ($messages[$key]['msg'] != '') {
+                    $messages[$key]['msg'] = erLhcoreClassBBCodePlain::make_clickable($messages[$key]['msg'], array('sender' => $msg['user_id']));
+                }
+            }
+        }
+
         erLhcoreClassRestAPIHandler::outputResponse(array(
             'error' => false,
             'result' => array(

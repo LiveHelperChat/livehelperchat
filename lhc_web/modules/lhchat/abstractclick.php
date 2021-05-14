@@ -11,11 +11,20 @@ try {
     $chat = erLhcoreClassModelChat::fetch($msg->chat_id);
 
     if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat)) {
-        $workflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.abstract_click', array('payload' => $Params['user_parameters']['payload'], 'msg' => & $msg, 'chat' => & $chat));
-        if ($workflow === false) {
-            echo json_encode(['error' => 'There is no listener setup for ' . $Params['user_parameters']['payload'] . ' event']);
+
+        if ($Params['user_parameters']['payload'] == 'send_manual_message') {
+            if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) {
+                echo json_encode(['modal' => 'chat/sendnotice/'.$chat->online_user->id]);
+            } else {
+                echo json_encode(['error' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/abstractclick', 'Invitation can not be send because online visitor profile can not be found.')]);
+            }
         } else {
-            echo json_encode($workflow['response']);
+            $workflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.abstract_click', array('payload' => $Params['user_parameters']['payload'], 'msg' => & $msg, 'chat' => & $chat));
+            if ($workflow === false) {
+                echo json_encode(['error' => 'There is no listener setup for ' . $Params['user_parameters']['payload'] . ' event']);
+            } else {
+                echo json_encode($workflow['response']);
+            }
         }
     }
 

@@ -12,7 +12,7 @@ class erLhcoreClassChatWorkflow {
 
         if (trim($chat->auto_responder->auto_responder->timeout_message) != '') {
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message);
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($chat->auto_responder->auto_responder->timeout_message), array('chat' => $chat));
             $msg->chat_id = $chat->id;
             $msg->name_support = $name_support;
             $msg->user_id = -2;

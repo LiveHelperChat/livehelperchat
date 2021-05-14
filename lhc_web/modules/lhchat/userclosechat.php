@@ -21,7 +21,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    $chat->user_typing = time()-5;// Show for shorter period these status messages
 		    $chat->is_user_typing = 1;
 		    $chat->user_closed_ts = time();
-		    $chat->user_typing_txt = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','Visitor has left the chat!'),ENT_QUOTES);
+		    $chat->user_typing_txt = ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat','has left the chat!'),ENT_QUOTES);
 
 		    $explicitClosed = false;
 		    
@@ -43,7 +43,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
                     $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor has closed the chat explicitly!') . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Page unload.'), ENT_QUOTES);;
+                    $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!') . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Page unload.'), ENT_QUOTES).'[/level]';;
                     $msg->chat_id = $chat->id;
                     $msg->user_id = -1;
                     $msg->time = time();

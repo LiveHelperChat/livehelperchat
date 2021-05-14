@@ -1902,3 +1902,7 @@ html {
     padding: 3px 10px;
     opacity: 0.85;
 }
+
+.system-warning{
+    color: #dc3545;
+}

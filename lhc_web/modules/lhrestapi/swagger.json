@@ -785,6 +785,14 @@
             "type": "boolean"
           },
           {
+            "name": "remove_bbcode",
+            "in": "query",
+            "description": "Return messages as plain text messages.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
             "name": "remove_media",
             "in": "query",
             "description": "Remove bbcode tags from message if it's only file message?",

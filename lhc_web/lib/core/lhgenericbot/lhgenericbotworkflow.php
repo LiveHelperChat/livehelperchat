@@ -2088,11 +2088,34 @@ class erLhcoreClassGenericBotWorkflow {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_before_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
         }
 
+        // We have foreach cycle
+        if (strpos($message,'{foreach=content_') !== false) {
+            $matchesCycle = array();
+            preg_match_all('/{foreach=(content_[0-9])}(.*){\/foreach}/is', $message, $matchesCycle);
+            if (isset($matchesCycle[2]) && is_array($matchesCycle[2])) {
+                foreach ($matchesCycle[2] as $foreachCounter => $foreachCycle) {
+                    $output = '';
+                    if (isset($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}']) && is_array($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}'])) {
+                        foreach ($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}'] as $foreachItem) {
+                            $paramsForeach = $params;
+                            $paramsForeach['args']['item'] = $foreachItem;
+                            $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                        }
+                    }
+                    $message = str_replace($matchesCycle[0][$foreachCounter], $output, $message);
+                }
+            }
+        }
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
+            $matchesChild = array();
+            preg_match_all('~\{((?:[^\{\}]++|(?R)))\}~',$message,$matchesChild);
+            $matches[0] = array_merge($matches[0], $matchesChild[0]);
+            $matches[1] = array_merge($matches[1], $matchesChild[1]);
 
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {

@@ -366,7 +366,7 @@ if (empty($Errors)) {
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
 
-                if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT)
+                if ($chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT)
                 {
                     $messageText = '';
 

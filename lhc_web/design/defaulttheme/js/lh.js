@@ -786,6 +786,8 @@ function lh(){
                 $(data.replace_id).replaceWith(data.html);
                 lhinst.addQuateHandler(data.chat_id);
                 needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
+            } else if (data.modal) {
+                lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+data.modal});
             }
         });
     }

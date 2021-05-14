@@ -605,7 +605,8 @@ class ezcQueryExpression
             return "{$column} IN " . $values[0]->getQuery();
         }
 
-        $values = $this->getIdentifiers( $values );
+        // We do not need to convert values to columns as later they are escaped.
+        // $values = $this->getIdentifiers( $values );
 
         if ( count( $values ) == 0 )
         {
@@ -630,7 +631,7 @@ class ezcQueryExpression
                 }
             }
         }
-        
+
         return "{$column} IN ( " . join( ', ', $values ) . ' )';
     }
 
