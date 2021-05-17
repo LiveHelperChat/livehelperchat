@@ -133,7 +133,7 @@ class erLhcoreClassGenericBotActionText {
         }
 
         if (isset($params['replace_array'])) {
-            $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
+            $msg->msg = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
         }
 
         $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat, 'args' => $params));

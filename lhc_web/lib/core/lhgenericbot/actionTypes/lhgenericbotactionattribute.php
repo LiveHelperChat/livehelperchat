@@ -38,7 +38,7 @@ class erLhcoreClassGenericBotActionAttribute {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
                 $event->chat_id = $chat->id;
                 $event->ctime = time();
-                $event->content = json_encode(array('soft_event' => ($action['content']['soft_event'] && $action['content']['soft_event'] == true), 'callback_list' => array(array('content' => $actionEvent))));
+                $event->content = json_encode(array('soft_event' => (isset($action['content']['soft_event']) && $action['content']['soft_event'] == true), 'callback_list' => array(array('content' => $actionEvent))));
 
                 if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                     $event->saveThis();

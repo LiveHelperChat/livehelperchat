@@ -49,6 +49,10 @@ class erLhcoreClassGenericBotActionMail {
                 }
             }
 
+            if (isset($params['file']) && $params['file'] instanceof erLhcoreClassModelChatFile) {
+                $mail->AddAttachment($params['file']->file_path_server, 'file.'.$params['file']->extension);
+            }
+
             $mail->Send();
             $mail->ClearAddresses();
 

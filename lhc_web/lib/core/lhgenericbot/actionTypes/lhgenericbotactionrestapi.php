@@ -79,6 +79,7 @@ class erLhcoreClassGenericBotActionRestapi
                 if (isset($response['id'])) {
                     if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
 
+
                         $argsDefault = array(
                             'status' => 'continue_all',
                             'replace_array' => array(
@@ -549,7 +550,7 @@ class erLhcoreClassGenericBotActionRestapi
                             for ($i = 2; $i <= 6; $i++) {
                                 if (isset($outputCombination['success_location_' . $i]) && $outputCombination['success_location_' . $i] != '') {
                                     $successLocationNumbered = self::extractAttribute($contentJSON,$outputCombination['success_location_' . $i]);
-                                    if ($successLocationNumbered['found'] === true && !is_array($successLocationNumbered['value'])) {
+                                    if ($successLocationNumbered['found'] === true) {
                                         $responseValueSub[$i] = $successLocationNumbered['value'];
                                     }
                                 }

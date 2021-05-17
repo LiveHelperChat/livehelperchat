@@ -841,7 +841,9 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
                             }
 
-                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && !preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) { // Preg match validation
+                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && $eventData['content']['preg_match'] == 'validate_email' && !filter_var($payload, FILTER_VALIDATE_EMAIL)) { // E-mail validation
+                            $invalidMessage = true;
+                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && $eventData['content']['preg_match'] != 'validate_email' && !preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) { // Preg match validation
                             $invalidMessage = true;
                         }
 
@@ -937,6 +939,17 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                         $paramsTrigger = array();
+
+                        if (isset($params['msg'])) {
+                            $paramsTrigger['args']['msg'] = $params['msg'];
+                        }
+
+                        $paramsTrigger['args']['msg_text'] = $payload;
+
+                        if (isset($file) && $file instanceof erLhcoreClassModelChatFile) {
+                            $paramsTrigger['args']['file'] = $file;
+                        }
+
                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                     }
                 }
