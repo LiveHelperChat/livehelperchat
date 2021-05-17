@@ -11,10 +11,6 @@ if (isset($_GET['rest_api']) && $_GET['rest_api'] == 'true') {
         $payload = $payload['chats'];
     }
 
-    // Continu eher eand handle {"username":"admin","password":"admin1","chats":["171"]}
-    erLhcoreClassLog::write(print_r(file_get_contents('php://input'),true));
-    erLhcoreClassLog::write("HERE");
-
 } else {
     $restAPI = false;
     header ( 'content-type: application/json; charset=utf-8' );
@@ -67,6 +63,7 @@ if (is_array($payload) && count($payload) > 0)
                         $Messages[$messageIndex] = $message;
                         if ($restAPI == true) {
                             $message['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($message['msg'], array('sender' => $message['user_id'])));
+                            $message['is_owner'] = $message['user_id'] == $currentUserId ? 1 : 2;
                             $restAPIContent[] = $message;
                         }
                     }
@@ -160,6 +157,9 @@ if (is_array($payload) && count($payload) > 0)
             $content_status = $ReturnStatuses;
         }
 }
+
+
+
 
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;

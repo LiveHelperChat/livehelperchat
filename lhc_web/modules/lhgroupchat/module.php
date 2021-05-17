@@ -50,7 +50,6 @@ $ViewList['leave'] = array(
 $ViewList['addmessage'] = array(
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'use' ),
     'multiple_arguments' => array()
 );
 

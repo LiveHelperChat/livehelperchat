@@ -57,7 +57,7 @@ HAVING
         $groupChat = new erLhcoreClassModelGroupChat();
         $groupChat->name = implode(' ',$letterName);
         $groupChat->type = 1;
-        $groupChat->user_id = $userOwner->user_id;
+        $groupChat->user_id = $userOwner->id;
         $groupChat->time = time();
         $groupChat->tm = 2;
         $groupChat->saveThis();

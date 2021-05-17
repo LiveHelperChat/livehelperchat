@@ -1021,6 +1021,51 @@
         ]
       }
     },
+    "/groupchat/addmessage/{group_chat_id}?rest_api=true": {
+      "post": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Add message to a group chat",
+        "description": "Used by mobile app",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "group_chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/setchatstatus": {
       "post": {
         "tags": [
