@@ -2102,17 +2102,29 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         // We have foreach cycle
-        if (strpos($message,'{foreach=content_') !== false) {
+        if (strpos($message,'{foreach=content_') !== false || strpos($message,'{foreach=args[') !== false ) {
             $matchesCycle = array();
-            preg_match_all('/{foreach=(content_[0-9])}(.*){\/foreach}/is', $message, $matchesCycle);
-            if (isset($matchesCycle[2]) && is_array($matchesCycle[2])) {
-                foreach ($matchesCycle[2] as $foreachCounter => $foreachCycle) {
+            preg_match_all('/{foreach=((content_[0-9])|args\[([a-z\._]+)\])}(.*?){\/foreach}/is', $message, $matchesCycle);
+            if (isset($matchesCycle[4]) && is_array($matchesCycle[4])) {
+                foreach ($matchesCycle[4] as $foreachCounter => $foreachCycle) {
                     $output = '';
-                    if (isset($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}']) && is_array($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}'])) {
-                        foreach ($params['args']['replace_array']['{' . $matchesCycle[1][$foreachCounter] . '}'] as $foreachItem) {
+                    if (isset($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}']) && is_array($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'])) {
+                        foreach ($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'] as $foreachItem) {
                             $paramsForeach = $params;
                             $paramsForeach['args']['item'] = $foreachItem;
                             $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                        }
+                    } else if (isset($matchesCycle[3][$foreachCounter]) && !empty($matchesCycle[3][$foreachCounter])){
+                        if (isset($params['chat'])) {
+                            $params['args']['chat'] = $params['chat'];
+                        }
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'],$matchesCycle[3][$foreachCounter], '.');
+                        if ($valueAttribute['found'] == true && is_array($valueAttribute['value'])) {
+                            foreach ($valueAttribute['value'] as $foreachItem) {
+                                $paramsForeach = $params;
+                                $paramsForeach['args']['item'] = $foreachItem;
+                                $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                            }
                         }
                     }
                     $message = str_replace($matchesCycle[0][$foreachCounter], $output, $message);

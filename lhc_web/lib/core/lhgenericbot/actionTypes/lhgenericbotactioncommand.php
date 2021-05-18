@@ -231,27 +231,20 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $variablesArray = (array)$chat->chat_variables_array;
 
-                $variablesAppend = json_decode($action['content']['payload'],true);
+                if (is_array($params['replace_array'])) {
+                    $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
+                } else {
+                    $variablesAppend = $action['content']['payload'];
+                }
+
+                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('chat' => $chat, 'args' => $params)), true);
 
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
-                        if (isset($params['replace_array']) && isset($value)) {
-                            if (!is_numeric($value) && !is_bool($value)) {
-                                $valueItem = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
-                                $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
-                            } else {
-                                $variablesArray[$key] = $value;
-                            }
-                        } else {
-                            if (isset($value)) {
-                                if (!is_numeric($value) && !is_bool($value)) {
-                                    $variablesArray[$key] = erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $chat, 'args' => $params));
-                                } else {
-                                    $variablesArray[$key] = $value;
-                                }
-                            } elseif (isset($variablesArray[$key])) {
-                                unset($variablesArray[$key]);
-                            }
+                        if (isset($value)) {
+                            $variablesArray[$key] = $value;
+                        } elseif (isset($variablesArray[$key])) {
+                            unset($variablesArray[$key]);
                         }
                     }
                 }
@@ -263,7 +256,8 @@ class erLhcoreClassGenericBotActionCommand {
         } elseif ($action['content']['command'] == 'setchatattribute') {
 
                 // Replace variables if any
-                $action['content']['payload_arg'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
+                // Todo make sure object is not used during replacement
+                $action['content']['payload_arg'] = isset($params['replace_array']) ? @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
 
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
                 
