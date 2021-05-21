@@ -26,6 +26,22 @@
       "description": "API Related to user"
     },
     {
+      "name": "file",
+      "description": "API Related to working with a files"
+    },
+    {
+      "name": "bot",
+      "description": "API Related to working with a bot"
+    },
+    {
+      "name": "department",
+      "description": "API Related to department"
+    },
+    {
+      "name": "operators_chats",
+      "description": "API Related to operators chats"
+    },
+    {
       "name": "online",
       "description": "API Related to online status"
     },
@@ -990,6 +1006,51 @@
             "description": "Message added",
             "schema": {
                 "$ref": "#/definitions/addmsguser"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/groupchat/addmessage/{group_chat_id}?rest_api=true": {
+      "post": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Add message to a group chat",
+        "description": "Used by mobile app",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "group_chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
             }
           },
           "400": {
@@ -2410,6 +2471,93 @@
         "responses": {
           "200": {
             "description": "Returns list of bots",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/startchatwithoperator/{user_id}/{init_user_id}": {
+      "get": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Start a chat with an operator",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "With what operator you want to start a chat",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "init_user_id",
+            "in": "path",
+            "description": "User ID who is initializing a chat. If you ommit this, user who is executing Rest API call will be used.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns data of operators chats",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/groupchat/sync?rest_api=true": {
+      "post": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Sync for a new group chat messages",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Sync request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of messages for group chats",
             "schema": {
             }
           },

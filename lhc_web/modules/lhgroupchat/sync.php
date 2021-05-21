@@ -1,6 +1,26 @@
 <?php
 
-header ( 'content-type: application/json; charset=utf-8' );
+if (isset($_GET['rest_api']) && $_GET['rest_api'] == 'true') {
+    $restAPI = true;
+    erLhcoreClassRestAPIHandler::validateRequest();
+    $currentUserId = (int)erLhcoreClassRestAPIHandler::getUserId();
+
+    $payload = json_decode(file_get_contents('php://input'),true);
+
+    if (isset($payload['chats'])) {
+        $payload = $payload['chats'];
+    }
+
+} else {
+    $restAPI = false;
+    header ( 'content-type: application/json; charset=utf-8' );
+    $currentUser = erLhcoreClassUser::instance();
+    if (!$currentUser->hasAccessTo('lhgroupchat','use')) {
+        throw new Exception('You do not have permission to use group chats');
+    }
+    $currentUserId = $currentUser->getUserID();
+    $payload = json_decode(file_get_contents('php://input'),true);
+}
 
 $content = [];
 $content_status = [];
@@ -8,15 +28,12 @@ $userOwner = 'true';
 
 $hasAccessToReadArray = array();
 
-$payload = json_decode(file_get_contents('php://input'),true);
-
 if (is_array($payload) && count($payload) > 0)
 {
     $ReturnMessages = array();
     $ReturnStatuses = array();
 
     $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
-    $currentUser = erLhcoreClassUser::instance();
 
     // We do not need a session anymore
     session_write_close();
@@ -32,27 +49,35 @@ if (is_array($payload) && count($payload) > 0)
             $MessageID = (int)$MessageID;
 
             $Chat = erLhcoreClassModelGroupChat::fetch($chat_id);
+
             $Chat->updateIgnoreColumns = array('last_msg_id');
 
                 $hasAccessToReadArray[$chat_id] = true;
 
-                if ( ($Chat->last_msg_id > (int)$MessageID) && count($Messages = erLhcoreClassGroupChat::getChatMessages($chat_id, erLhcoreClassChat::$limitMessages, $MessageID)) > 0)
+                if ( ($Chat->last_msg_id > $MessageID) && count($Messages = erLhcoreClassGroupChat::getChatMessages($chat_id, erLhcoreClassChat::$limitMessages, $MessageID)) > 0)
                 {
+
+                    $restAPIContent = [];
 
                     foreach ($Messages as $messageIndex => $message) {
                         $Messages[$messageIndex] = $message;
+                        if ($restAPI == true) {
+                            $message['msg'] = str_replace('"//','"'. (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' ,erLhcoreClassBBCode::make_clickable($message['msg'], array('sender' => $message['user_id'])));
+                            $message['is_owner'] = $message['user_id'] == $currentUserId ? 1 : 2;
+                            $restAPIContent[] = $message;
+                        }
                     }
 
                     $newMessagesNumber = count($Messages);
 
                     $tpl->set('messages',$Messages);
                     $tpl->set('chat',$Chat);
-                    $tpl->set('current_user_id',$currentUser->getUserID());
+                    $tpl->set('current_user_id',$currentUserId);
 
                     $msgText = '';
                     if ($userOwner == 'true') {
                         foreach ($Messages as $msg) {
-                            if ($msg['user_id'] != $currentUser->getUserID()) {
+                            if ($msg['user_id'] != $currentUserId) {
                                 $userOwner = 'false';
                                 $msgText = $msg['msg'];
                                 break;
@@ -68,9 +93,11 @@ if (is_array($payload) && count($payload) > 0)
                     $LastMessageIDs = current($Messages);
 
                     // Fetch content
-                    $templateResult = $tpl->fetch();
+                    if (empty($restAPIContent)) {
+                        $templateResult = $tpl->fetch();
+                    }
 
-                    $response = array('chat_id' => $chat_id, 'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'lmsop' => $LastMessageIDs['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
+                    $response = array('chat_id' => $chat_id, 'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'lmsop' => $LastMessageIDs['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => (!empty($restAPIContent) ? $restAPIContent : $templateResult), 'message_id' => $LastMessageIDs['id']);
 
                     $ReturnMessages[] = $response;
                 }
@@ -82,7 +109,7 @@ if (is_array($payload) && count($payload) > 0)
                         ->set('last_activity',time())
                         ->set('last_msg_id',$Chat->last_msg_id)
                         ->where(
-                            $q->expr->eq( 'user_id', $currentUser->getUserID() ),
+                            $q->expr->eq( 'user_id', $currentUserId ),
                             $q->expr->eq( 'group_id', $chat_id )
                         );
                     $stmt = $q->prepare();
@@ -93,13 +120,13 @@ if (is_array($payload) && count($payload) > 0)
                     $resultStatusItem = array(
                         'chat_id' => $chat_id,
                         'lgsync' => time(),
-                        'operators' => erLhcoreClassGroupChat::getGroupChatMembers($Chat->id, $currentUser->getUserID())
+                        'operators' => erLhcoreClassGroupChat::getGroupChatMembers($Chat->id, $currentUserId)
                     );
 
-                    if ($Chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $Chat->user_id != $currentUser->getUserID()) {
+                    if ($Chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $Chat->user_id != $currentUserId) {
                         $validUser = false;
                         foreach ($resultStatusItem['operators'] as $operator) {
-                            if ($operator->user_id == $currentUser->getUserID()) {
+                            if ($operator->user_id == $currentUserId) {
                                 $validUser = true;
                                 break;
                             }
@@ -130,6 +157,9 @@ if (is_array($payload) && count($payload) > 0)
             $content_status = $ReturnStatuses;
         }
 }
+
+
+
 
 echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','uw' => $userOwner, 'result_status' => $content_status, 'result' => $content ));
 exit;

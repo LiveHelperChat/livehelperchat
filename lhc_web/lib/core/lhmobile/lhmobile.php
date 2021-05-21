@@ -61,7 +61,7 @@ class erLhcoreClassLHCMobile {
         }
     }
 
-    public static function sendPushNotification(erLhcoreClassModelUserSession $session, erLhcoreClassModelChat $chat, $params = array())
+    public static function sendPushNotification(erLhcoreClassModelUserSession $session, $chat, $params = array())
     {
         $paramsSend = $params;
 
@@ -72,6 +72,39 @@ class erLhcoreClassLHCMobile {
         // We use firebase in all cases to send a notification
         if ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID || $session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
             return self::sendAndoid($session, $chat, $paramsSend);
+        }
+    }
+
+    public static function newGroupMessage($params) {
+        $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+        if (isset($options['notifications']) && $options['notifications'] == true) {
+
+            $members = erLhcoreClassModelGroupChatMember::getList(array('limit' => false, 'filter' => array('group_id' => $params['chat']->id)));
+
+            $membersUserIds = array();
+            foreach ($members as $member) {
+                $membersUserIds[] = $member->user_id;
+            }
+
+            if (empty($membersUserIds)) {
+                return;
+            }
+
+            foreach (erLhcoreClassModelUserSession::getList(array('filterin' => array('user_id' => $membersUserIds),'filternot' => array('user_id' => $params['msg']->user_id, 'token' => ''),'filter' => array('error' => 0))) as $operator) {
+                if (is_object($operator->user)) {
+
+                    //Set custom attributes used for mobile app
+                    $params['chat']->user_id = $params['msg']->user_id;
+                    $params['chat']->chat_id = null;
+                    $params['chat']->name_official = $operator->user->name_official;
+
+                    self::sendPushNotification($operator, $params['chat'], array(
+                        'msg' => trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))),
+                        'chat_type' => 'new_group_msg',
+                        'title' => $params['chat']->name . ' - ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New group message'),
+                    ));
+                }
+            }
         }
     }
 
@@ -306,7 +339,7 @@ class erLhcoreClassLHCMobile {
         fclose($fp);
     }
 
-    public static function sendAndoid(erLhcoreClassModelUserSession $session, erLhcoreClassModelChat $chat, $params = array())
+    public static function sendAndoid(erLhcoreClassModelUserSession $session, $chat, $params = array())
     {
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
 
