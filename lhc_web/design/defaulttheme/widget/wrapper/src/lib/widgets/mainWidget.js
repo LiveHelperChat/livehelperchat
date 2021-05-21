@@ -34,12 +34,12 @@ export class mainWidget{
     resize() {
 
         let restyleStyle = {
-            height: this.height + this.units + " !important",
-            "min-height": this.height + this.units + " !important",
-            "max-height": this.height + this.units + " !important",
-            width: this.width + this.units + " !important",
-            "min-width": this.width + this.units + " !important",
-            "max-width": this.width + this.units +  " !important",
+            height: this.height + this.units,
+            "min-height": this.height + this.units,
+            "max-height": this.height + this.units,
+            width: this.width + this.units,
+            "min-width": this.width + this.units,
+            "max-width": this.width + this.units,
             bottom: (this.units == 'px' ? this.bottom + "px" : '0px')
         };
 
@@ -54,9 +54,9 @@ export class mainWidget{
         }
 
         if ((this.attributes.position_placement == 'full_height_right' || this.attributes.position_placement == 'full_height_left') && !this.bottom_override) {
-            restyleStyle['min-height'] = '100%!important';
-            restyleStyle['max-height'] = '100%!important';
-            restyleStyle['height'] = '100%!important';
+            restyleStyle['min-height'] = '100%';
+            restyleStyle['max-height'] = '100%';
+            restyleStyle['height'] = '100%';
             restyleStyle['bottom'] = '0px';
 
             if (this.attributes.position_placement == 'full_height_left') {
@@ -94,7 +94,7 @@ export class mainWidget{
             return null;
         }
 
-        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
+        this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile lhc-mode-'+this.attributes.mode : 'lhc-desktop lhc-mode-'+this.attributes.mode;
 
         if (this.attributes.cont_ss) {
             this.originalCSS = this.cont.elmDom.style.cssText;
@@ -164,6 +164,10 @@ export class mainWidget{
 
         if (this.attributes.mode == 'embed') {
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['embed_css'] });
+
+            if (this.attributes.staticJS['page_css']) {
+                helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
+            }
         }
 
         this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {

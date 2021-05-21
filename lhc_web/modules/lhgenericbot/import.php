@@ -28,11 +28,18 @@ if (ezcInputForm::hasPostData()) {
 
             $replaceTriggerIds = array();
             $triggersArray = array();
+            $pregMatchTemporary = array();
+
+
+            $replaceArraySearch = array();
+            $replaceArrayReplace = array();
 
             foreach ($data['groups'] as $group) {
                 $groupObj = new erLhcoreClassModelGenericBotGroup();
                 $groupObj->bot_id = $bot->id;
                 $groupObj->name = $group['group']['name'];
+                $groupObj->is_collapsed = isset($group['group']['is_collapsed']) && is_numeric($group['group']['is_collapsed']) ? $group['group']['is_collapsed'] : 0;
+                $groupObj->pos = isset($group['group']['pos']) && is_numeric($group['group']['pos']) ? (int)$group['group']['pos'] : 0;
                 $groupObj->saveThis();
 
                 foreach ($group['triggers'] as $trigger) {
@@ -44,8 +51,15 @@ if (ezcInputForm::hasPostData()) {
                     $triggerObj->default = $trigger['trigger']['default'];
                     $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
                     $triggerObj->actions = $trigger['trigger']['actions'];
-                    //$triggerObj->actions = preg_replace("/\"type\":\"predefined\",\"content\":\{(.*?)\"payload\":\"(.*?)\"/",'"type":"predefined","content":{"text":"","payload":"\2"', $trigger['trigger']['actions']);
                     $triggerObj->saveThis();
+
+                    $matchesTemp = array();
+                    preg_match_all('/"(temp[0-9]+)":"([0-9]+)"/is', $triggerObj->actions,$matchesTemp);
+                    if (isset($matchesTemp[0]) && !empty($matchesTemp[0])) {
+                        foreach ($matchesTemp[0] as $matchIndex => $matchValue) {
+                            $pregMatchTemporary[] = '"'.$matchesTemp[1][$matchIndex].'":"{replace_trigger_id}"';
+                        }
+                    }
 
                     $triggersArray[] = $triggerObj;
                     $replaceTriggerIds[$trigger['trigger']['id']] = $triggerObj->id;
@@ -84,8 +98,10 @@ if (ezcInputForm::hasPostData()) {
                 }
             }
 
-            $replaceArraySearch = array();
-            $replaceArrayReplace = array();
+
+
+            // Preg match all
+
             foreach ($replaceTriggerIds as $oldTriggerId => $newTriggerId){
 
                 $replaceArraySearch[] = '"payload":"' . $oldTriggerId . '"';
@@ -124,6 +140,13 @@ if (ezcInputForm::hasPostData()) {
                 $replaceArraySearch[] = '"trigger_id":"' . $oldTriggerId . '"';
                 $replaceArrayReplace[] = '"trigger_id":"' . $newTriggerId . '"';
 
+                $replaceArraySearch[] = '"default_trigger":"' . $oldTriggerId . '"';
+                $replaceArrayReplace[] = '"default_trigger":"' . $newTriggerId . '"';
+
+                foreach ($pregMatchTemporary as $tempReplace) {
+                    $replaceArraySearch[] = str_replace('{replace_trigger_id}', $oldTriggerId, $tempReplace);
+                    $replaceArrayReplace[] = str_replace('{replace_trigger_id}', $newTriggerId, $tempReplace);
+                }
             }
 
             foreach ($triggersArray as $trigger) {
