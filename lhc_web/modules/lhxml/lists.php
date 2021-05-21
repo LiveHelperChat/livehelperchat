@@ -59,6 +59,64 @@ foreach ($onlineOperators as $key => $value) {
     $onlineOperators[$key]->departments_names = erLhcoreClassDesign::shrt(implode(', ',$value->departments_names),10,'...',30,ENT_QUOTES);
 }
 
+
+
+// Append last message stuff
+
+$db = ezcDbInstance::get();
+$groupChats = array();
+foreach ($onlineOperators as $onlineOperator) {
+   $sql = "SELECT DISTINCT `lh_group_chat`.`id`,count(`lh_group_chat_member`.`id`) as `tm_live` FROM `lh_group_chat`
+    INNER JOIN lh_group_chat_member ON `lh_group_chat_member`.`group_id` = `lh_group_chat`.`id`
+    WHERE
+    `lh_group_chat_member`.`user_id` IN (". implode(',',[$currentUser->getUserID(), $onlineOperator->user_id]) . ") AND
+    `lh_group_chat`.`type` = 1 AND
+    `lh_group_chat`.`tm` = 2
+    GROUP BY `lh_group_chat`.`id`
+    HAVING
+    `tm_live` = 2";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $chatId = $stmt->fetch(PDO::FETCH_COLUMN);
+    if (is_numeric($chatId)) {
+        $groupChatsID[] = $chatId;
+    }
+}
+
+foreach ($onlineOperators as $index => $onlineOperator) {
+    $onlineOperators[$index]->last_msg_time = 0;
+    $onlineOperators[$index]->last_msg = "";
+    $onlineOperators[$index]->has_unread = 0;
+    if ($onlineOperator->user_id == $currentUser->getUserID()){
+        unset($onlineOperators[$index]);
+    }
+}
+
+if (!empty($groupChatsID)) {
+    $groupChats = erLhcoreClassModelGroupChat::getList(array('filterin' => array('id' => $groupChatsID)));
+    $myMembers = erLhcoreClassModelGroupChatMember::getList(array('filterin' => array('group_id' => $groupChatsID)));
+
+    $membersRegrouped = array();
+    $membersRegroupedMy = array();
+    foreach ($myMembers as $member) {
+        $membersRegrouped[$member->user_id] = $member;
+        $membersRegroupedMy[$member->group_id][$member->user_id] = $member;
+    }
+
+    foreach ($onlineOperators as $index => $onlineOperator) {
+        if (isset($membersRegrouped[$onlineOperator->user_id]) && isset($groupChats[$membersRegrouped[$onlineOperator->user_id]->group_id])) {
+            $onlineOperators[$index]->last_msg = $groupChats[$membersRegrouped[$onlineOperator->user_id]->group_id]->last_msg;
+            $onlineOperators[$index]->last_msg_time = $groupChats[$membersRegrouped[$onlineOperator->user_id]->group_id]->last_user_msg_time;
+            if (isset($membersRegroupedMy[$membersRegrouped[$onlineOperator->user_id]->group_id][$currentUser->getUserID()])) {
+                $onlineOperators[$index]->has_unread = $groupChats[$membersRegrouped[$onlineOperator->user_id]->group_id]->last_msg_id > $membersRegroupedMy[$membersRegrouped[$onlineOperator->user_id]->group_id][$currentUser->getUserID()]->last_msg_id ? 1 : 0;
+            }
+        }
+    }
+}
+
+
+
 $response = array(
     'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
