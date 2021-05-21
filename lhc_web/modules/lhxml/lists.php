@@ -69,9 +69,6 @@ $response = array(
     'operators_chats' => array('rows' => $onlineOperators, 'size' => count($onlineOperators), 'hidden_columns' => array(), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
 );
 
-erLhcoreClassLog::write(print_r($onlineOperators,true));
-
-
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.lists', array('list' => & $response));
 
 echo json_encode($response);
