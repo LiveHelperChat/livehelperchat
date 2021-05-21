@@ -45,7 +45,6 @@ class HeaderChat extends Component {
         const closeInst = (!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile'));
         const hasHeader = this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']);
         const className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
-        const classNameMenu = 'col-12 px-1' + (this.props.chatwidget.get('isChatting') === false && this.props.chatwidget.hasIn(['chat_ui','hide_popup']) ? ' d-none' : '');
         const hasPopup = !this.props.chatwidget.hasIn(['chat_ui','hide_popup']);
         const showClose = this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']);
         const headerIcons = this.props.chatwidget.hasIn(['chat_ui','header_buttons']) && this.props.chatwidget.getIn(['chat_ui','header_buttons']).map((btn, index) => {
@@ -73,7 +72,7 @@ class HeaderChat extends Component {
         return (
             <div id="widget-header-content" className={className}>
                 {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
-                <div className={classNameMenu}>
+                <div className="col-12 px-1">
                         {headerIcons}
                 </div>
             </div>

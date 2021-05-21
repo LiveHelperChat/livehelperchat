@@ -101,7 +101,7 @@ if (
     <?php endif; ?>
 <?php else : ?>
     <?php if (!isset($Result['voice_call'])) : ?>
-        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=197"></script>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=198"></script>
         <?php else : ?>
         <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/voice/voice.call.js')?>?t=2"></script>
     <?php endif; ?>
