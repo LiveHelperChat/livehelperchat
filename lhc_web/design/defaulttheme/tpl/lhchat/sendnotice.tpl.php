@@ -30,13 +30,20 @@ setTimeout(function() {
 
     <label><input type="checkbox" name="FullWidget" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/send_order.tpl.php'));?>
+
     <ul class="nav nav-tabs mb-2" role="tablist">
-        <li role="presentation" class="nav-item" ><a class="active nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Invitation')?></a></li>
-        <li role="presentation" class="nav-item" ><a class="nav-link" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?></a></li>
+        <?php foreach ($sendMessageOrder as $inviteType => $inviteOption) : ?>
+            <?php if ($inviteType == 'invite') : ?>
+                <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Invitation')?></a></li>
+            <?php elseif ($inviteType == 'chat') : ?>
+                <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?></a></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </ul>
 
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="panel1">
+        <div role="tabpanel" class="tab-pane<?php if ($sendMessageOrder['invite']['active'] == true) : ?> active<?php endif; ?>" id="panel1">
             <div class="row form-group">
                 <div class="col-6"><label><input type="checkbox" name="AssignToMe" value="on" <?php (isset($visitor->online_attr_system_array['lhc_assign_to_me']) && $visitor->online_attr_system_array['lhc_assign_to_me'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Assign the chat to me if the visitor replies')?></label></div>
                 <div class="col-6"><label><input type="checkbox" name="IgnoreAutoresponder" value="on" <?php (isset($visitor->online_attr_system_array['lhc_ignore_autoresponder']) && $visitor->online_attr_system_array['lhc_ignore_autoresponder'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Do not send automated messages if the customer replies')?></label></div>
@@ -70,7 +77,7 @@ setTimeout(function() {
             <hr>
             <input type="submit" class="btn btn-secondary btn-sm" name="SendMessage" onclick="$('#id_SendMessage').val(1)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
         </div>
-        <div role="tabpanel" class="tab-pane" id="panel2">
+        <div role="tabpanel" class="tab-pane<?php if ($sendMessageOrder['chat']['active'] == true) : ?> active<?php endif; ?>" id="panel2">
 
             <?php if ($visitor->chat instanceof erLhcoreClassModelChat) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Visitor have assigned chat with id');?>: <?php echo $visitor->chat_id?></p>
