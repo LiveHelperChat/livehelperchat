@@ -37,6 +37,9 @@ class erLhcoreClassModelChatBlockedUser
             case 'expires_front':
                 return $this->expires > 0 && $this->expires > time() ? erLhcoreClassChat::formatSeconds($this->expires - time()) : (($this->expires > 0) ? 'Exp.' : '∞');
 
+            case 'block_duration':
+                return $this->expires > 0 && $this->expires > time() ? erLhcoreClassChat::formatSeconds($this->expires - $this->datets) : erLhcoreClassChat::formatSeconds(time() - $this->datets);
+
             case 'user':
                 try {
                     $this->user = erLhcoreClassModelUser::fetch($this->user_id);

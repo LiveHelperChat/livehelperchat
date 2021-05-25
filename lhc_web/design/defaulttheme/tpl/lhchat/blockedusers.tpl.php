@@ -79,7 +79,7 @@
         </td>
         <td><?php echo htmlspecialchars($item->department)?></td>
         <td><?php echo htmlspecialchars($item->nick)?></td>
-        <td><?php echo htmlspecialchars($item->expires_front)?></td>
+        <td><?php echo htmlspecialchars($item->expires_front)?> [<?php echo $item->block_duration?>]</td>
         <td><?php echo htmlspecialchars($item->datets_front)?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>
