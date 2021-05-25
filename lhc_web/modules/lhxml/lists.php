@@ -59,10 +59,6 @@ foreach ($onlineOperators as $key => $value) {
     $onlineOperators[$key]->departments_names = erLhcoreClassDesign::shrt(implode(', ',$value->departments_names),10,'...',30,ENT_QUOTES);
 }
 
-
-
-// Append last message stuff
-
 $db = ezcDbInstance::get();
 $groupChats = array();
 foreach ($onlineOperators as $onlineOperator) {
@@ -114,8 +110,6 @@ if (!empty($groupChatsID)) {
         }
     }
 }
-
-
 
 $response = array(
     'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),

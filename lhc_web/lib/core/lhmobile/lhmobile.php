@@ -95,7 +95,7 @@ class erLhcoreClassLHCMobile {
 
                     //Set custom attributes used for mobile app
                     $params['chat']->user_id = $params['msg']->user_id;
-                    $params['chat']->chat_id = null;
+                    $params['chat']->chat_id = $params['msg']->chat_id;
                     $params['chat']->name_official = $operator->user->name_official;
 
                     self::sendPushNotification($operator, $params['chat'], array(
