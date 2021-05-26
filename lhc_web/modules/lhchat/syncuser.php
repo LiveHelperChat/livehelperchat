@@ -178,10 +178,13 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		        $responseArray['closed'] = true;
 		        $status = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You have closed this chat!');
 		    }
-		    
+
+		    $updateFields = array('lsync');
+
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 		    	$checkStatus = 't';
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                $updateFields[] = 'status_sub';
 		    	$saveChat = true;
 		    }
 		    		    		    
@@ -202,11 +205,13 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    if ($chat->operation != '') {	    	
 		    	$operation = explode("\n", trim($chat->operation));
 		    	$chat->operation = '';
+                $updateFields[] = 'operation';
 		    	$saveChat = true;
 		    }
 		    
 		    if ($chat->user_status != 0) {
 		    	$chat->user_status = 0;
+                $updateFields[] = 'user_status';
 		    	$saveChat = true;
 		    }
 		    
@@ -215,20 +220,15 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
 		    	$chat->unread_op_messages_informed = 0;
 		    	$chat->has_unread_op_messages = 0;
                 $chat->unanswered_chat = 0;
+                $updateFields[] = 'unread_op_messages_informed';
+                $updateFields[] = 'has_unread_op_messages';
+                $updateFields[] = 'unanswered_chat';
 		    	$saveChat = true;
 		    }
 		    
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
-		    	$chat->updateThis(array('update' => array(
-		    	    'unanswered_chat',
-		    	    'has_unread_op_messages',
-		    	    'unread_op_messages_informed',
-		    	    'user_status',
-		    	    'operation',
-		    	    'status_sub',
-		    	    'lsync',
-                )));
+                $chat->updateThis(array('update' => $updateFields));
 		    }
 		    
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
