@@ -13,6 +13,14 @@ try {
 
     $msgStatus = '';
 
+    if (in_array($chat->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
+        $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor has already left a chat. Hold can not be applied.'), 'time' => time()));
+        $msgStatus = $tpl->fetch();
+        echo json_encode(array('error' => false, 'hold' => false, 'msg' => $msgStatus));
+        exit;
+    }
+
     if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
 
         $hold = false;
