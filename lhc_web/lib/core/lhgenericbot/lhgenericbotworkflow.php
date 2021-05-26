@@ -819,7 +819,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $invalidMessage = true;
                             $fileAttributes = array();
 
-                            preg_match_all('/^\[file="?(.*?)"?\]$/is', $payload, $fileAttributes);
+                            preg_match_all('/\[file="?(.*?)"?\]/is', $payload, $fileAttributes);
 
                             if (isset($fileAttributes[0][0]) && isset($fileAttributes[1][0])) {
 
