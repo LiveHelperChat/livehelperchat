@@ -18,7 +18,7 @@
 <div class="container-fluid">
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer.tpl.php'));?>
 </div>
-<a href="https://google.com">google</a>
+
 <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
 		$debug = ezcDebug::getInstance();
 		echo $debug->generateOutput();
