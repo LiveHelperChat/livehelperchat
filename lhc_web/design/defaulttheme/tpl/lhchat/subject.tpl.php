@@ -4,9 +4,12 @@
     <div role="alert" class="alert alert-info alert-dismissible fade show">
         <div id="subject-message-<?php echo $chat->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Choose a subject')?></div>
     </div>
-
     <?php
-        $subjects = erLhAbstractModelSubjectDepartment::getList(array('customfilter' => array('(dep_id = ' . (int)$chat->dep_id . ' OR dep_id = 0)')));
+        $subjects = erLhAbstractModelSubjectDepartment::getList(array(
+                'customfilter' => array('(dep_id = ' . (int)$chat->dep_id . ' OR dep_id = 0)'),
+                'sort' => '`lh_abstract_subject`.`name` ASC',
+                'leftjoin' => array('lh_abstract_subject' => array('`lh_abstract_subject`.`id`','`lh_abstract_subject_dep`.`subject_id`'))
+        ));
         $subjectsChat = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id)));
         $selectedSubjects = array();
         foreach ($subjectsChat as $subject) {
