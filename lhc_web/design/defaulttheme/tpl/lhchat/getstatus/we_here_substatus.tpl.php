@@ -7,7 +7,7 @@ subStatus = '<div id="<?php echo $chatCSSPrefix?>_need_help_container" style="<?
 '<span id="<?php echo $chatCSSPrefix?>_need_help_triangle" style="<?php echo $currentPosition['nh_tr_pos']?>"></span>'+
 '<i id="<?php echo $chatCSSPrefix?>_need_help_close" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/getstatus','Close')?>" href="#">&#xd7;</i>';
 if (imageTooltip !== false) {
-subStatus += '<div id="<?php echo $chatCSSPrefix?>_need_help_image"><img width="60" alt="" height="60" src="' + imageTooltip + '"></div>';
+subStatus += '<div id="<?php echo $chatCSSPrefix?>_need_help_image"><img width="60" alt="Customer service" height="60" src="' + imageTooltip + '"></div>';
 };
 subStatus += '<div id="<?php echo $chatCSSPrefix?>_need_help_main_title">'+titleText+'</div>'+
 '<span id="<?php echo $chatCSSPrefix?>_need_help_sub_title">'+subTitleText+'</span>'+
