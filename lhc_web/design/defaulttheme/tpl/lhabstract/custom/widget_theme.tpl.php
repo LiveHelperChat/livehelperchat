@@ -1077,7 +1077,7 @@
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
-          <div class="p-1"><img style="min-width: 50px;" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
+          <div class="p-1"><img style="min-width: 50px;" alt="" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
           <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
             <p class="mb-1" style="font-size: 14px">{{need_help_body}}</p></div>
         </div>
