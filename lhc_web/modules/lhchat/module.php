@@ -161,11 +161,6 @@ $ViewList['setsubstatus'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['reopenchat'] = array(
-    'params' => array('chat_id'),
-    'functions' => array( 'use' )
-);
-
 $ViewList['notificationsettings'] = array(
     'params' => array(),
     'functions' => array( 'use' )

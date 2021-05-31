@@ -1000,19 +1000,6 @@ function lh(){
     	});
     };
 
-    this.reopenchat = function(inst){
-    	 $.postJSON(this.wwwDir + 'chat/reopenchat/' + inst.attr('data-id'), function(data){
-             if (data.error == 'true') {
-            	 alert(data.result);
-             } else {
-            	 $('#action-block-row-'+ inst.attr('data-id')).removeClass('hide');
-            	 $('#CSChatMessage-'+inst.attr('data-id')).removeAttr('readonly').focus();
-            	 $('#chat-status-text-'+inst.attr('data-id')).text(data.status);
-            	 inst.remove();
-             }
-         });
-    };
-
     this.initTypingMonitoringUser = function(chat_id) {
 
         var www_dir = this.wwwDir;

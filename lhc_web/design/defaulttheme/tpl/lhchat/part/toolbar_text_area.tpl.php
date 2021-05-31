@@ -72,12 +72,6 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_message_button.tpl.php')); ?>
     </div>
 
-    <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-        <div class="btn-group btn-group-sm mr-2">
-            <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Reopen chat')?>" class="btn btn-secondary" data-id="<?php echo $chat->id?>" onclick="lhinst.reopenchat($(this))" />
-        </div>
-    <?php endif;?>
-
     <?php endif;?>
 
 </div>

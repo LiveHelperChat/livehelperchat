@@ -158,7 +158,7 @@ class _nodeJSChat {
                     if (state.chatwidget.hasIn(['chatData','id'])) {
                         updateMessage({'msg_id' :  op.msid,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
                     }
-                } else if (op.op == 'schange') {
+                } else if (op.op == 'schange' || op.op == 'cclose') {
                     const state = getState();
                     if (state.chatwidget.hasIn(['chatData','id'])){
                         dispatch(checkChatStatus({
