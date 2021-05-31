@@ -101,6 +101,7 @@ return array (
                 'server' => array (
                     'host' => 'localhost',
                     'port' => 6379,
+                    'auth' => null,
                     'database' => 0
                 )
             ),
