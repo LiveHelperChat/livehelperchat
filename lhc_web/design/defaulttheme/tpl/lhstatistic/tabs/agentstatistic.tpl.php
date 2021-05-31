@@ -140,7 +140,8 @@
                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
                'selected_id'    => $input->user_ids,
                'css_class'      => 'form-control',
-               'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => false)),
+               'ajax'           => 'users',
+               'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
                'list_function'  => 'erLhcoreClassModelUser::getUserList'
             )); ?>
         </div>

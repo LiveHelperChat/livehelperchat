@@ -4333,51 +4333,34 @@ $.fn.makeDropdown = function() {
 
     _this.each(function () {
         var selectedItems = $(this).find('.selected-items-filter');
-        selectedItems.html('');
 
         $(this).find('.btn-department-dropdown').attr('data-text',$(this).find('.btn-department-dropdown').text());
 
-        var itemsSelectedCount = 0;
-        var defaultSelectedText = '';
-
-        $(this).find('li input:checked').each(function () {
-            if (limitMax == 0 || itemsSelectedCount < limitMax) {
-                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="'+$(this).val()+'"><i class="material-icons chat-unread">delete</i>' + $(this).parent().text() + "</a></div>");
-                defaultSelectedText = $(this).parent().text().trim();
-                itemsSelectedCount++;
-            }
-        })
+        var itemsSelectedCount = selectedItems.find('.delete-item').length;
 
         if (itemsSelectedCount > 0) {
+            var defaultSelectedText = itemsSelectedCount == 1 ? selectedItems.find('.delete-item').first().parent().text().trim().replace('delete','') : '';
             $(this).find('.btn-department-dropdown').text((itemsSelectedCount == 1 ? defaultSelectedText : '['+itemsSelectedCount+'] ') + (itemsSelectedCount != 1 ? $(this).find('.btn-department-dropdown').attr('data-text') : ''));
         }
 
         var _thisItem = $(this);
-        _thisItem.find('li input').change(function() {
 
+        _thisItem.on("change","li input:checkbox",function() {
             var itemsSelectedCount = 0;
             var singleSelectedText = '';
 
             // We want to keep presently checked item always
             var presentId = 0;
             if ($(this).is(':checked')) {
-                presentId = $(this).val();
-                itemsSelectedCount = 1;
+                if (selectedItems.find('.delete-item[data-value="'+$(this).val()+'"]').length == 0) {
+                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+'[]" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
+                }
+            } else {
+                selectedItems.find('.delete-item[data-value="'+$(this).val()+'"]').remove();
             }
 
-            selectedItems.html('');
-
-            _thisItem.find('li input:checked').each(function () {
-                if (limitMax == 0 || itemsSelectedCount < limitMax || presentId == $(this).val()) {
-                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><i class="material-icons chat-unread">delete</i>' + $(this).parent().text() + "</a></div>");
-                    singleSelectedText = $(this).parent().text().trim();
-                    if (presentId != $(this).val()) {
-                        itemsSelectedCount++;
-                    }
-                } else {
-                    $(this).prop('checked',false);
-                }
-            })
+            itemsSelectedCount = selectedItems.find('.delete-item').length;
+            singleSelectedText = itemsSelectedCount == 1 ? selectedItems.find('.delete-item').first().parent().text().trim().replace('delete','') : '';
 
             if (itemsSelectedCount > 0) {
                 _thisItem.find('.btn-department-dropdown').text((itemsSelectedCount == 1 ? singleSelectedText : '['+itemsSelectedCount+'] ')+ (itemsSelectedCount != 1 ? _thisItem.find('.btn-department-dropdown').attr('data-text') : ''));
@@ -4385,6 +4368,7 @@ $.fn.makeDropdown = function() {
                 _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
             }
         });
+
         $(this).on('click','.delete-item',function () {
             _thisItem.find('input[value='+$(this).attr('data-value')+']').prop('checked',false);
             $(this).parent().remove();
@@ -4399,18 +4383,31 @@ $.fn.makeDropdown = function() {
         });
     });
 
-
-    filterInput.keyup(function(){
-        var filter = $(this).val();
-        $(this).parent().parent().children('li').each(function(i) {
-            if (i > 0) {
-                if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
-                    $(this).hide();
-                } else {
-                    $(this).show();
+    filterInput.keyup(function() {
+        if ($(this).attr('ajax-provider')) {
+            var parent = $(this).parent().parent();
+            var parentHolder = $(this).parent();
+            $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + $(this).attr('ajax-provider') + '/?q=' + encodeURIComponent($(this).val()), function(data) {
+                var append = '';
+                data.items.forEach(function(item) {
+                    var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
+                    append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="checkbox" '+(isSelected ? ' checked="checked" ' : '')+' name="selector-'+data.props.list_id+'[]" value="'+item.id+'"> ' + item.name +'</label></li>';
+                });
+                parent.find('.search-option-item').remove();
+                parent.append(append);
+            })
+        } else {
+            var filter = $(this).val();
+            $(this).parent().parent().children('li').each(function(i) {
+                if (i > 0) {
+                    if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 };
 

@@ -104,10 +104,10 @@
                'selected_id'    => $input->user_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name_official',
-               'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => false)),
+               'ajax'           => 'users',
+               'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
                'list_function'  => 'erLhcoreClassModelUser::getUserList'
            )); ?>
-
        </div>
     </div>
 

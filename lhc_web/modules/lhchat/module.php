@@ -615,6 +615,11 @@ $ViewList['transferchatrefilter'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['searchprovider'] = array(
+    'params' => array('scope'),
+    'functions' => array( 'use' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use chat module');
 $FunctionList['open_all'] = array('explain' => 'Allow operator to open all chats, not only assigned to him');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change chat owner');

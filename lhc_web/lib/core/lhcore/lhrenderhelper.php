@@ -172,6 +172,19 @@ class erLhcoreClassRenderHelper {
 
     public static function renderMultiDropdown($params) {
 
+        $selectedOptions = '';
+        if (is_array($params['selected_id']) && !empty($params['selected_id'])) {
+            $filterSelected = isset($params['list_function_params']) ? $params['list_function_params'] : array();
+            $filterSelected['filter']['id'] = $params['selected_id'];
+            $filterSelected['limit'] = false;
+            $selectedIDS = call_user_func($params['list_function'],$filterSelected);
+            foreach ($selectedIDS as $selectedID) {
+                if (is_array($params['selected_id']) && in_array($selectedID->id,$params['selected_id'])){
+                    $selectedOptions .= '<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' . $selectedID->id . '"><input type="hidden" value="' . $selectedID->id . '" name="' . $params['input_name'] . '" /><i class="material-icons chat-unread">delete</i>' . htmlspecialchars($selectedID->{$params['display_name']}) . '</a></div>';
+                }
+            }
+        }
+
         $template = '<div class="btn-block-department"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
                     <li class="dropdown">
@@ -180,16 +193,15 @@ class erLhcoreClassRenderHelper {
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li class="btn-block-department-filter">
-                            <input type="text" class="form-control input-sm" value="" />
-                            <div class="selected-items-filter"></div>
+                            <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
+                            <div class="selected-items-filter">'.$selectedOptions.'</div>
                         </li>
                         ';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
-        $array = array();
 
         foreach ($items as $item) {
-            $template .= '<li data-stoppropagation="true"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="' .$params['input_name'] .'" value="'. $item->id .'"> ' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
+            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="selector-' .$params['input_name'] .'" value="'. $item->id .'"> ' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
         }
 
         $template .= '</ul></li></ul></div>';
