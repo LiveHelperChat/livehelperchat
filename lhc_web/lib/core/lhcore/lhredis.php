@@ -6,7 +6,6 @@ class erLhcoreClassLhRedis
 
     public function __construct()
     {
-		
 		try {
             $params = erConfigClassLhConfig::getInstance()->getSetting( 'redis', 'server');
             $this->redis = new Redis();
