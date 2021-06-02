@@ -30,6 +30,8 @@ class ChatMessage extends PureComponent {
 
         const { t } = this.props;
 
+
+
         if (typeof attrs.onchange !== 'undefined') {
 
             // Checkbox support
@@ -56,7 +58,7 @@ class ChatMessage extends PureComponent {
 
             if (optionSelected.getAttribute('payload-type') == 'trigger') {
                 this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrLoad , e.target);
-            } else if (optionSelected.getAttribute('payload-type') == 'button') {
+            } else if (optionSelected.getAttribute('payload-type') == 'button' || optionSelected.getAttribute('payload-type') == 'payload') {
                 this.updateTriggerClicked({type:''}, attrLoad, e.target);
             }
 
