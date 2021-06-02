@@ -1465,7 +1465,7 @@ class erLhcoreClassChatStatistic {
         return $stats;
     }
 
-    public static function getAgentStatistic ($days = 30, $filtergte) {
+    public static function getAgentStatistic ($days = 30, $filtergte = array()) {
         $filter = array();
     
         if (isset($filtergte['filtergte']['time'])) {
@@ -1719,7 +1719,7 @@ class erLhcoreClassChatStatistic {
         return erLhcoreClassChat::getCount(array_merge_recursive($filter,array('filtergt' => array('chat_duration' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),'lh_chat','SUM(chat_duration)');
     }
 
-    public static function getDepartmentsStatistic($days = 30, $filter = array(), $input)
+    public static function getDepartmentsStatistic($days = 30, $filter = array(), $input = null)
     {
         if (empty($filter)) {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
