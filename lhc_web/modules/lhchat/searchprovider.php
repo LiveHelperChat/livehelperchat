@@ -21,6 +21,15 @@ if ($Params['user_parameters']['scope'] == 'users') {
             $return[] = array('id' => $item->id, 'name' => $item->name_official);
         }
     }
+} else if ($Params['user_parameters']['scope'] != '') {
+
+    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.searchprovider', array('search' => $search, 'scope' => $Params['user_parameters']['scope']));
+
+    // There was no callbacks or file not found etc, we try to download from standard location
+    if ($response !== false) {
+        echo $response['data'];
+        exit;
+    }
 }
 
 echo json_encode(array('items' => $return, 'props' => array('list_id' => 'user_ids')));
