@@ -165,8 +165,7 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         });
         return deferred.promise;
     };
-
-    //$.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + $(this).attr('ajax-provider') + '/?q=' + encodeURIComponent($(this).val()), function(data) {
+    
 	this.truncate = function (text, length, end) {
         if (isNaN(length))
             length = 10;
