@@ -149,13 +149,6 @@ if (is_array($Params['user_parameters_unordered']['chatgopen']) && !empty($Param
     }
 }
 
-
-
-$userListParams = erLhcoreClassGroupUser::getConditionalUserFilter();
-$userListParams['sort'] = 'name ASC';
-$userList = erLhcoreClassModelUser::getUserList($userListParams);
-erLhcoreClassChat::prefillGetAttributes($userList,array('id','name_official'),array(),array('remove_all' => true));
-
 $columns = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','enabled','variable'), 'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1)));
 
 $columnsAdd = array();
@@ -191,7 +184,6 @@ $response = array(
     'ho' => $userData->hide_online == 1,
     'a_on' => ($userData->always_on == 1),
     'im' => ($userData->invisible_mode == 1),
-    'user_list' => array_values($userList),
     'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)),
     'track_activity' => $trackActivity,
     'cgdel' => $chatgDel,

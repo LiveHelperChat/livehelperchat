@@ -2,13 +2,24 @@
 header ( 'content-type: application/json; charset=utf-8' );
 
 $search = rawurldecode($_GET['q']);
+$return = array();
 
 if ($Params['user_parameters']['scope'] == 'users') {
     $db = ezcDbInstance::get();
-    $items = erLhcoreClassModelUser::getList(array('limit' => 50, 'customfilter' => array('`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').')')));
-    $return = array();
+    //$userListParams['sort'] = 'name ASC';
+    $items = erLhcoreClassModelUser::getList(array('sort' => 'name ASC', 'limit' => 50, 'customfilter' => array('`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').')')));
     foreach ($items as $item) {
         $return[] = array('id' => $item->id, 'name' => $item->name_official);
+    }
+} else if ($Params['user_parameters']['scope'] == 'users_ids') {
+    $db = ezcDbInstance::get();
+    $userIDS = explode(',',str_replace(',,',',',$search));
+    erLhcoreClassChat::validateFilterIn($userIDS);
+    if (!empty($userIDS)){
+        $items = erLhcoreClassModelUser::getList(array('sort' => 'name ASC', 'limit' => false, 'filterin' => array('id' => $userIDS)));
+        foreach ($items as $item) {
+            $return[] = array('id' => $item->id, 'name' => $item->name_official);
+        }
     }
 }
 

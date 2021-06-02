@@ -4383,6 +4383,9 @@ $.fn.makeDropdown = function() {
         });
     });
 
+    // @todo add timout funtion
+    var timeoutSearch = null;
+
     filterInput.keyup(function() {
         if ($(this).attr('ajax-provider')) {
             var parent = $(this).parent().parent();

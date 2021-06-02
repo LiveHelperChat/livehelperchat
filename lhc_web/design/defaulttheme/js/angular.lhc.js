@@ -155,7 +155,18 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         });
         return deferred.promise;
     };
-    
+
+    this.searchProvider = function(scope,keyword) {
+        var deferred = $q.defer();
+        $http.post(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/'+scope+"/?q="+keyword).then(function(data) {
+            deferred.resolve(data.data);
+        },function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+        });
+        return deferred.promise;
+    };
+
+    //$.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + $(this).attr('ajax-provider') + '/?q=' + encodeURIComponent($(this).val()), function(data) {
 	this.truncate = function (text, length, end) {
         if (isNaN(length))
             length = 10;
@@ -1463,10 +1474,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		var userList = [], userGroups = [], userDepartmentsGroups = [], userProductNames = [];
 
-        angular.forEach(_that.userList, function(value) {
-            userList.push(value.id);
-        });
-
         angular.forEach(_that.userGroups, function(value) {
             userGroups.push(value.id);
         });
@@ -1479,40 +1486,51 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             userProductNames.push(value.id);
         });
 
-		var verifyCombinations = {
-			'activeu' : userList,
-			'actived_products' : userProductNames,
-			'actived_ugroups' : userGroups,
-			'actived_dpgroups' : userDepartmentsGroups,
+        LiveHelperChatFactory.searchProvider('users_ids',_that.pendingu.join(',') +','+ _that.activeu.join(',')).then(function(data){
 
-            'pendingu' : userList,
-            'pendingd_ugroups' : userGroups,
-			'pendingd_dpgroups' : userDepartmentsGroups,
-			'pendingd_products' : userProductNames,
+            _that.userList = data.items;
 
-            'botd_dpgroups' : userDepartmentsGroups,
-            'botd_products' : userProductNames,
+            angular.forEach(_that.userList, function(value) {
+                userList.push(value.id);
+            });
 
-			'departmentd_dpgroups' : userDepartmentsGroups,
+            var verifyCombinations = {
+                'activeu' : userList,
+                'actived_products' : userProductNames,
+                'actived_ugroups' : userGroups,
+                'actived_dpgroups' : userDepartmentsGroups,
 
-			'closedd_products' : userProductNames,
-			'closedd_dpgroups' : userDepartmentsGroups,
+                'pendingu' : userList,
+                'pendingd_ugroups' : userGroups,
+                'pendingd_dpgroups' : userDepartmentsGroups,
+                'pendingd_products' : userProductNames,
 
-			'unreadd_dpgroups' : userDepartmentsGroups,
-			'unreadd_products' : userProductNames,
+                'botd_dpgroups' : userDepartmentsGroups,
+                'botd_products' : userProductNames,
 
-			'mcd_products' : userProductNames,
-			'mcd_dpgroups' : userDepartmentsGroups
-		};
+                'departmentd_dpgroups' : userDepartmentsGroups,
 
-        angular.forEach(verifyCombinations, function(list, index) {
-            angular.forEach(_that[index], function(value) {
-                if (list.indexOf(value) === -1) {
-                    _that[index].splice(_that[index].indexOf(value),1);
-                    _that.productChanged(index);
-                };
-			});
+                'closedd_products' : userProductNames,
+                'closedd_dpgroups' : userDepartmentsGroups,
+
+                'unreadd_dpgroups' : userDepartmentsGroups,
+                'unreadd_products' : userProductNames,
+
+                'mcd_products' : userProductNames,
+                'mcd_dpgroups' : userDepartmentsGroups
+            };
+
+            angular.forEach(verifyCombinations, function(list, index) {
+                var originalList = [..._that[index]];
+                angular.forEach(originalList, function(value) {
+                    if (list.indexOf(value) === -1) {
+                        _that[index].splice(_that[index].indexOf(value),1);
+                        _that.productChanged(index);
+                    };
+                });
+            });
         });
+
     };
 
 	this.rejectGroupChat = function (groupChatId) {
@@ -1529,6 +1547,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.new_group_type = "";
         })
     }
+
+    $scope.$watch('lhc.userFilterText', function(newVal,oldVal) {
+        if (newVal != oldVal) {
+            LiveHelperChatFactory.searchProvider('users',newVal).then(function(data){
+                _that.userList = data.items;
+            });
+        };
+    });
 
 	// Bootstraps initial attributes
 	this.initLHCData = function() {
@@ -1563,7 +1589,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			_that.userProductNames=data.pr_names;
 			_that.userDepartmentsGroups=data.dp_groups;
 			_that.userGroups = data.user_groups;
-			_that.userList = data.user_list;
             _that.hideInvisible = data.im;
             _that.hideOnline = data.ho;
             _that.lhcVersion = data.v;
