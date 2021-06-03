@@ -100,6 +100,10 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                     // Fetch content
                     $templateResult = $tpl->fetch();
 
+                    if ($msgText != '') {
+                        $msgText = erLhcoreClassBBCode::make_plain($msgText);
+                    }
+
                     $response = array('chat_id' => $chat_id,'nck' => $Chat->nick, 'msfrom' => $MessageID, 'msop' => $firstNewMessage['user_id'], 'mn' => $newMessagesNumber, 'msg' => $msgText, 'content' => $templateResult, 'message_id' => $LastMessageIDs['id']);
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmin',array('response' => & $response, 'messages' => $Messages, 'chat' => $Chat));
