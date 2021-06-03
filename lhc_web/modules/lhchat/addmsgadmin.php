@@ -13,7 +13,7 @@ if (trim($form->msg) != '')
 	$db = ezcDbInstance::get();
 	$db->beginTransaction();	
 	try {
-		$Chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
+		$Chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
 	    if ($Chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($Chat) && erLhcoreClassChat::hasAccessToWrite($Chat) && ($Chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT || $Chat->user_id == 0 || $Chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('lhchat','writeremotechat')))
 	    {
@@ -92,9 +92,12 @@ if (trim($form->msg) != '')
     	        // Set last message ID
     	        if ($Chat->last_msg_id < $msg->id) {
 
-    	            $statusSub = '';
+    	            $updateFields = array();
+
     	            if ($Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1) {
-                        $statusSub = ',status_sub = 0, last_user_msg_time = ' . (time() - 1);
+                        $updateFields[] = 'status_sub';
+                        $updateFields[] = 'last_user_msg_time';
+                        $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
                         $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
                         $tpl->set('msg', array('msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Hold removed!'), 'time' => time()));
                         $returnBody .= $tpl->fetch();
@@ -114,38 +117,44 @@ if (trim($form->msg) != '')
     	                }
                     }
 
-    	        	$stmt = $db->prepare('UPDATE lh_chat SET  user_id = :user_id, status_sub = :status_sub, status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
-    	        	$stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
-    	        	$stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
-    	        	$stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
+                    $Chat->last_op_msg_time = time();
+                    $Chat->last_msg_id = $msg->id;
+                    $updateFields[] = 'last_op_msg_time';
+                    $updateFields[] = 'last_msg_id';
 
-    	        	// We should change status only if chat is not closed
-    	        	$stmt->bindValue(':has_unread_op_messages',($Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT ? 1 : $Chat->has_unread_op_messages),PDO::PARAM_INT);
-    	        	
-    	        	$stmt->bindValue(':unread_op_messages_informed',0,PDO::PARAM_INT);
+                    if ($Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                        $Chat->has_unread_op_messages = 1;
+                        $updateFields[] = 'has_unread_op_messages';
+                    }
+
+    	        	if ($Chat->unread_op_messages_informed != 0) {
+                        $Chat->unread_op_messages_informed = 0;
+                        $updateFields[] = 'unread_op_messages_informed';
+                    }
+
     	        	
     	        	if ($userData->invisible_mode == 0 && $messageUserId > 0) { // Change status only if it's not internal command
     		        	if ($Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
     		        		$Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
                             $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
     		        		$Chat->user_id = $messageUserId;
+                            $updateFields[] = 'status';
+                            $updateFields[] = 'status_sub';
+                            $updateFields[] = 'user_id';
     		        	}
     	        	}
     	
     	        	// Chat can be reopened only if user did not ended chat explictly
     	        	if ($Chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT && $Chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
     	        		$Chat->user_status = erLhcoreClassModelChat::USER_STATUS_PENDING_REOPEN;
+                        $updateFields[] = 'user_status';
     	        		if ( ($onlineuser = $Chat->online_user) !== false) {
     	        			$onlineuser->reopen_chat = 1;
     	        			$onlineuser->saveThis();
     	        		}
     	        	}
-    	        	
-    	        	$stmt->bindValue(':user_status',$Chat->user_status,PDO::PARAM_INT);
-    	        	$stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
-                    $stmt->bindValue(':status_sub',$Chat->status_sub,PDO::PARAM_INT);
-                    $stmt->bindValue(':user_id',$Chat->user_id,PDO::PARAM_INT);
-                    $stmt->execute();
+
+                    $Chat->updateThis(array('update' => $updateFields));
     	        }
 
     	        // If chat is in bot mode and operators writes a message, accept a chat as operator.
@@ -154,7 +163,6 @@ if (trim($form->msg) != '')
                     $userData = $currentUser->getUserData();
 
                     if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
-                        $Chat->refreshThis();
                         $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
                         $Chat->pnd_time = time();
@@ -209,7 +217,7 @@ if (trim($form->msg) != '')
 	            }
 	        }
 	        
-	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody)+ $customArgs);
+	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody) + $customArgs);
 	        
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
 

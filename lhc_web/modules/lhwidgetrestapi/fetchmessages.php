@@ -13,7 +13,7 @@ $db->beginTransaction();
 
 try {
     if (isset($requestPayload['chat_id'])) {
-        $chat = erLhcoreClassModelChat::fetch($requestPayload['chat_id']);
+        $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['chat_id']);
     } else {
         $chat = false;
     }
@@ -96,7 +96,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 				        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
 				        $tpl->set('messages',$Messages);
 				        $tpl->set('chat',$chat);
-				        $tpl->set('sync_mode',/*isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] :*/ '');
+				        $tpl->set('sync_mode','');
 
 				        if ($requestPayload['lmgsid'] == 0) {
                             if (isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == true) {
