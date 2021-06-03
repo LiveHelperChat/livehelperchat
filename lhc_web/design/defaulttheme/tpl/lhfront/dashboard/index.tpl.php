@@ -1,11 +1,13 @@
 <?php
 
-$dashboardOrder = json_decode(erLhcoreClassModelUserSetting::getSetting('dwo',''),true);
+if (!isset($dashboardOrder)) {
+    $dashboardOrder = json_decode(erLhcoreClassModelUserSetting::getSetting('dwo',''),true);
 
-if ($dashboardOrder === null) {
-	if ($dashboardOrder == '') {
-		$dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
-	}
+    if ($dashboardOrder === null) {
+        if ($dashboardOrder == '') {
+            $dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
+        }
+    }
 }
 
 $columnsTotal = count($dashboardOrder);

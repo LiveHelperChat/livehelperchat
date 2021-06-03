@@ -101,7 +101,37 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			if (lhinst.disableSync == true || that.forbiddenVisitors == true ) {
 				return;
 			}
-			
+
+			// Check is online visitors tab is active or widget is expanded
+            // otherwise also do not sync and save resources
+            var activeList = false;
+
+            var itemTab = document.getElementById('onlineusers');
+			if (itemTab !== null) {
+                activeList = itemTab.classList.contains('active');
+            }
+
+			if (activeList == false){
+                var mapItem = document.getElementById('map');
+                if (mapItem !== null) {
+                    activeList = mapItem.classList.contains('active');
+                }
+            }
+
+			if (activeList == false) {
+                var widgetItem = document.getElementById('widget-onvisitors-body');
+                if (widgetItem !== null) {
+                    var dashboardTab = document.getElementById('dashboard');
+                    if (dashboardTab !== null && dashboardTab.classList.contains('active')) {
+                        activeList = true;
+                    }
+                }
+            }
+
+			if (activeList === false) {
+			    return;
+            }
+
 			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
 							
 				that.onlineusers = data;

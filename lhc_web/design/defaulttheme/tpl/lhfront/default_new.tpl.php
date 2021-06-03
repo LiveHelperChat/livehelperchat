@@ -24,12 +24,28 @@
     $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 1);
 
     $frontTabsOrder = explode(',', str_replace(' ','',erLhcoreClassModelChatConfig::fetch('front_tabs')->current_value));
+
+    $dashboardOrder = json_decode(erLhcoreClassModelUserSetting::getSetting('dwo',''),true);
+
+    if ($dashboardOrder === null) {
+        if ($dashboardOrder == '') {
+            $dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
+        }
+    }
+
+    $widgetsUser = array();
+    foreach ($dashboardOrder as $widgetsColumn) {
+        foreach ($widgetsColumn as $widget) {
+            $widgetsUser[] = $widget;
+        }
+    }
+
     ?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_online_check.tpl.php')); ?>
 
-    <div ng-controller="OnlineCtrl as online" ng-init='online.forbiddenVisitors=<?php $currentUser->hasAccessTo('lhchat', 'use_onlineusers') != true ? print 'true' : print 'false'?>;groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows="<?php echo (int)$omaxRows ?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.country="<?php echo htmlspecialchars($oCountry)?>";online.updateTimeout="<?php echo (int)$oupdTimeout ?>";online.userTimeout = "<?php echo (int)$ouserTimeout ?>";online.department="<?php echo (int)$onlineDepartment ?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
+    <div ng-controller="OnlineCtrl as online" ng-init='online.forbiddenVisitors=<?php ($currentUser->hasAccessTo('lhchat', 'use_onlineusers') != true || (!in_array('online_users',$frontTabsOrder) && !in_array('online_visitors',$widgetsUser))) ? print 'true' : print 'false'?>;groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows="<?php echo (int)$omaxRows ?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.country="<?php echo htmlspecialchars($oCountry)?>";online.updateTimeout="<?php echo (int)$oupdTimeout ?>";online.userTimeout = "<?php echo (int)$ouserTimeout ?>";online.department="<?php echo (int)$onlineDepartment ?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
 
         <div class="row">
             <div translate="no" class="col chats-column border-right pr-0 pl-0">
