@@ -128,16 +128,16 @@ if ( isset($_POST['SendMessage']) ) {
                 }
 
                 if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
-                    if ($chat->nick == 'Visitor') {
+                    if ($chat->nick == 'Visitor' || empty($chat->nick)) {
                         if ($visitor->nick && $visitor->has_nick) {
                             $chat->nick = $visitor->nick;
-                            if (empty($chat->nick)) {
-                                $chat->nick = 'Visitor';
-                            }
                         }
                     }
                 }
 
+                if (empty($chat->nick)) {
+                    $chat->nick = 'Visitor';
+                }
 
                 $chat->time = $chat->pnd_time = time();
                 $chat->lsync = time();
