@@ -40,10 +40,10 @@
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?>
                 </button>
                 <ul class="dropdown-menu dropdown-lhc" role="menu">
-                    <li ng-repeat="userGroup in lhc.userGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_ugroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_ugroups')" checklist-value="userGroup.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User group')?>" class="material-icons">people</i>{{userGroup.name}}</label></li>
-                    <li ng-show="lhc.userGroups.length > 0" class="border-bottom"></li>
                     <li class="p-1"><input type="text" data-stopPropagation="true" ng-model="lhc.userFilterText" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for operator')?>" class="form-control form-control-sm" value=""></li>
                     <li ng-repeat="userItem in lhc.userList" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['userid']?>" checklist-change="lhc.productChanged('<?php echo $optinsPanel['userid']?>')" checklist-value="userItem.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User')?>" class="material-icons">account_box</i>{{userItem.name || userItem.name_official}}</label></li>
+                    <li ng-show="lhc.userGroups.length > 0" class="border-top"></li>
+                    <li ng-repeat="userGroup in lhc.userGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_ugroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_ugroups')" checklist-value="userGroup.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User group')?>" class="material-icons">people</i>{{userGroup.name}}</label></li>
                 </ul>
             </div>
 		</div>

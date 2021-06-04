@@ -6,10 +6,11 @@ $return = array();
 
 if ($Params['user_parameters']['scope'] == 'users') {
     $db = ezcDbInstance::get();
-    //$userListParams['sort'] = 'name ASC';
-    $items = erLhcoreClassModelUser::getList(array('sort' => 'name ASC', 'limit' => 50, 'customfilter' => array('`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').')')));
-    foreach ($items as $item) {
-        $return[] = array('id' => $item->id, 'name' => $item->name_official);
+    if (!empty($search)) {
+        $items = erLhcoreClassModelUser::getList(array('sort' => 'name ASC', 'limit' => 50, 'customfilter' => array('`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').')')));
+        foreach ($items as $item) {
+            $return[] = array('id' => $item->id, 'name' => $item->name_official);
+        }
     }
 } else if ($Params['user_parameters']['scope'] == 'users_ids') {
     $db = ezcDbInstance::get();
