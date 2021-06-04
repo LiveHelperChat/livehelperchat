@@ -84,14 +84,17 @@ class erLhcoreClassUser{
 		$this->session->destroy();
        
 		$user = erLhcoreClassModelUser::findOne(array(
-			'filter' => array(
-				'username' => $username
+			'filterlor' => array(
+				'username' => array($username),
+                'email' => array($username)
 			)
 		));  
 
 		if ($user === false) {
-			return false;
-		};
+            return false;
+		} else {
+            $fieldAuthentificated = $user->email == $username ? 'email' : 'username';
+        }
 
 		$cfgSite = erConfigClassLhConfig::getInstance();
 		$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
@@ -111,7 +114,7 @@ class erLhcoreClassUser{
 
        $this->credentials = new ezcAuthenticationPasswordCredentials( $username, $passwordVerify );
 
-       $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
+       $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( $fieldAuthentificated, 'password' ) );
        $this->authentication = new ezcAuthentication( $this->credentials );
 
        $this->filter = new ezcAuthenticationDatabaseFilter( $database );
