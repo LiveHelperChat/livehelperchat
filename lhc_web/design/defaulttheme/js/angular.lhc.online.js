@@ -42,11 +42,31 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
     	this.forbiddenVisitors = false;
 		this.soundEnabled = false;
 		this.notificationEnabled = false;
-		
-		
-		$scope.groupByField = 'none';
-		
+		this.lastSyncSkipped = false;
+
 		var that = this;
+
+        if (that.forbiddenVisitors !== true) {
+            ['onlineusers','widget-onvisitors','map','dashboard'].forEach(function(item){
+                var itemTab = document.getElementById(item);
+                if (itemTab !== null) {
+                    var observer = new MutationObserver(function (event) {
+                        if (itemTab.classList.contains('active') && that.lastSyncSkipped == true) {
+                            that.updateList();
+                        }
+                    })
+                    observer.observe(itemTab, {
+                        attributes: true,
+                        attributeFilter: ['class'],
+                        childList: false,
+                        characterData: false
+                    })
+                }
+            });
+        }
+
+		$scope.groupByField = 'none';
+
 				
 		function sortOn( collection, name ) {			 
             collection.sort(
@@ -129,8 +149,11 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
             }
 
 			if (activeList === false) {
+                that.lastSyncSkipped = true;
 			    return;
             }
+
+			that.lastSyncSkipped = false;
 
 			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
 							
