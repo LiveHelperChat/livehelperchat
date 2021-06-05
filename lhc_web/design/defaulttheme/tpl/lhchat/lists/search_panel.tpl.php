@@ -406,6 +406,7 @@
         <div class="col-2"><label class="col-form-label"><input type="checkbox" name="has_operator" value="1" <?php $input->has_operator == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with an operator')?></label></div>
         <div class="col-2"><label class="col-form-label"><input type="checkbox" name="with_bot" value="1" <?php $input->with_bot == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which had a bot')?></label></div>
         <div class="col-2"><label class="col-form-label"><input type="checkbox" name="without_bot" value="1" <?php $input->without_bot == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats which did not had a bot')?></label></div>
+        <div class="col-2"><label class="col-form-label"><input type="checkbox" name="abandoned_chat" value="1" <?php $input->abandoned_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Abandoned chats')?></label></div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_multiinclude.tpl.php'));?>
 
