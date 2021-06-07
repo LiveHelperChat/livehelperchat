@@ -80,8 +80,11 @@ class erLhcoreClassTransfer
     public static function handleTransferredChatOpen(& $chat, $userId)
     {
         $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id)));
-        if ($transfer instanceof erLhcoreClassModelTransfer){
-            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        if ($transfer instanceof erLhcoreClassModelTransfer) {
+
+            if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+            }
 
             // If it was transfer to operator change operator
             if ($userId == $transfer->transfer_to_user_id) {
