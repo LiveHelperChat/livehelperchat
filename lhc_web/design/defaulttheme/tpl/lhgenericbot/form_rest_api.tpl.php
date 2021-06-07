@@ -218,7 +218,8 @@
                 <select ng-model="param.body_request_type" class="form-control form-control-sm">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','none')?></option>
                     <option value="raw"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','raw (Use this to send JSON Body)')?></option>
-                    <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form data (Use this to send post parameters)')?></option>
+                    <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form-data (Use this to send post parameters)')?></option>
+                    <option value="form-data-urlencoded"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','x-www-form-urlencoded (Use this to send post parameters encoded in URL)')?></option>
                 </select>
             </div>
 
@@ -254,7 +255,7 @@
 
             </div>
 
-            <div ng-if="param.body_request_type == 'form-data'">
+            <div ng-if="param.body_request_type == 'form-data' || param.body_request_type == 'form-data-urlencoded'">
 
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 

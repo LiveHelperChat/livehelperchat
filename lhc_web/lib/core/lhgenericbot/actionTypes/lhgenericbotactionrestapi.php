@@ -461,14 +461,25 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        if (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'form-data') {
+        if (isset($methodSettings['body_request_type']) && ($methodSettings['body_request_type'] == 'form-data' || $methodSettings['body_request_type'] == 'form-data-urlencoded')) {
             if (isset($methodSettings['postparams']) && !empty($methodSettings['postparams'])) {
                 $postParams = array();
                 foreach ($methodSettings['postparams'] as $postParam) {
                     $postParams[$postParam['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $postParam['value']);
                 }
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
+
+                if ($methodSettings['body_request_type'] == 'form-data-urlencoded') {
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postParams));
+                } else {
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
+                }
             }
+
+            if ($methodSettings['body_request_type'] == 'form-data-urlencoded') {
+                $headers[] = 'Cache-Control: no-cache';
+                $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+            }
+
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
             $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
