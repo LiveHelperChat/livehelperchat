@@ -515,7 +515,7 @@ class erLhcoreClassChatCommand
 
     public static function blockUser($params)
     {
-        erLhcoreClassModelChatBlockedUser::blockChat(array('chat' => $params['chat']));
+        erLhcoreClassModelChatBlockedUser::blockChat(array('user' => $params['user'], 'chat' => $params['chat']));
 
         return array(
             'processed' => true,
