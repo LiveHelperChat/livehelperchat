@@ -451,6 +451,10 @@
         		        </div>
 
 						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('disable_sound', $fields['disable_sound'], $object)?> <?php echo $fields['disable_sound']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('kcw', $fields['kcw'], $object)?> <?php echo $fields['kcw']['trans'];?></label>
         		        </div>
 

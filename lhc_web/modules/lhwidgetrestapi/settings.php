@@ -214,6 +214,8 @@ if (isset($outputResponse['theme'])){
                $outputResponse['wposition'] = $theme->widget_position;
            }
         }
+
+        $outputResponse['chat_ui']['sound_enabled'] = (isset($theme->bot_configuration_array['disable_sound']) && $theme->bot_configuration_array['disable_sound'] == 1) ? 0 : 1;
     }
 }
 
@@ -232,7 +234,10 @@ if ((int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_val
 $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
 
 $outputResponse['chat_ui']['proactive_interval'] = (int)($soundData['check_for_operator_msg']);
-$outputResponse['chat_ui']['sound_enabled'] = (int)($soundData['new_message_sound_user_enabled']);
+
+if (!isset($outputResponse['chat_ui']['sound_enabled'])) {
+    $outputResponse['chat_ui']['sound_enabled'] = (int)($soundData['new_message_sound_user_enabled']);
+}
 
 if (erLhcoreClassModelChatConfig::fetch('use_secure_cookie')->current_value == 1) {
     $outputResponse['secure_cookie'] = true;

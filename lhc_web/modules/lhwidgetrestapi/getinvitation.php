@@ -81,6 +81,7 @@ if (isset($payload['theme']) && $payload['theme'] > 0) {
         if ($theme->intro_operator_text != '') {
             $outputResponse['extra_profile'] = $theme->intro_operator_text;
         }
+
     }
 }
 
