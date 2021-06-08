@@ -492,6 +492,8 @@ class erLhcoreClassRestAPIHandler
             $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($_GET['vid']);
             if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
                 $filter['filter']['online_user_id'] = $onlineUser->id;
+            } else {
+                $filter['filter']['online_user_id'] = -1;
             }
         }
 
