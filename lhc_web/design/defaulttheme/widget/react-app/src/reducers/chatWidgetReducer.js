@@ -64,7 +64,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case CLOSED_WIDGET : {
             if (state.get('isChatting') === false) {
-                state = state.set('processStatus',0);
+                state = state.set('processStatus',0).set('isOfflineMode',false);
             }
             return state.set('shown',false);
         }
