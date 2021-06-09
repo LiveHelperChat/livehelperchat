@@ -8,6 +8,7 @@ const initialState = fromJS({
     isMobile: false,
     isOnline: false,
     isChatting: false,
+    isOfflineMode: false,
     newChat: true,
     departmentDefault: null,
     theme: null,

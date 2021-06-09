@@ -25,6 +25,7 @@ class OfflineChat extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleContentChangeCustom = this.handleContentChangeCustom.bind(this);
+        this.goToChat = this.goToChat.bind(this);
     }
 
     initOfflineFormCall(dep_default){
@@ -118,7 +119,11 @@ class OfflineChat extends Component {
     handleContentChangeCustom(obj) {
         this.props.dispatch({'type' : 'CUSTOM_FIELDS_ITEM', data : {id : obj.field.get('index'), value : obj.value}});
     }
-    
+
+    goToChat() {
+        this.props.dispatch({type : 'attr_set', attr : ['isOfflineMode'], data: false});
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (document.getElementById('id-container-fluid')) {
 
@@ -183,6 +188,7 @@ class OfflineChat extends Component {
                             {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "") && <div className="row">
                                 <div className="col-12 pb-2">
                                     <button type="submit" disabled={this.props.chatwidget.get('processStatus') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
+                                    {this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-right btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
                                 </div>
                             </div>}
                         </form>

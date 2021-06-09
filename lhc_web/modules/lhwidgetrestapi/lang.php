@@ -28,7 +28,8 @@ $translations = array(
         "new_msg" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message!'),
         "new_msgm" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New messages!'),
         "new" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New'),
-        "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Close')
+        "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Close'),
+        "back_to_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Back')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
