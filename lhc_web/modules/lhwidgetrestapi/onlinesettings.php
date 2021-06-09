@@ -194,10 +194,16 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_name_visible_in_page_widget']) && $start_data_fields['offline_name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_name_visible_in_popup']) && $start_data_fields['offline_name_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name');
+        if (isset($theme->bot_configuration_array['formf_name']) && $theme->bot_configuration_array['formf_name'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_name']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_name_hidden']) && $start_data_fields['offline_name_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_name_width'] > 0 ? (int)$start_data_fields['offline_name_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_name_require_option']) && $start_data_fields['offline_name_require_option'] == 'required'),
             'hide_prefilled' => (isset($start_data_fields['offline_name_hidden_prefilled']) && $start_data_fields['offline_name_hidden_prefilled'] == true),
@@ -211,10 +217,16 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_email_visible_in_page_widget']) && $start_data_fields['offline_email_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_email_visible_in_popup']) && $start_data_fields['offline_email_visible_in_popup'] == true)
     ) {
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail');
+
+        if (isset($theme->bot_configuration_array['formf_email']) && $theme->bot_configuration_array['formf_email'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_email']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_email_hidden']) && $start_data_fields['offline_email_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_email_width']) && $start_data_fields['offline_email_width'] > 0 ? (int)$start_data_fields['offline_email_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
+            'label' => $label,
             'hide_prefilled' => (isset($start_data_fields['offline_email_hidden_prefilled']) && $start_data_fields['offline_email_hidden_prefilled'] == true),
             'class' => 'form-control form-control-sm',
             'required' => (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'),
@@ -228,10 +240,16 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['offline_phone_visible_in_page_widget']) && $start_data_fields['offline_phone_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_phone_visible_in_popup']) && $start_data_fields['offline_phone_visible_in_popup'] == true)
     ) {
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone');
+
+        if (isset($theme->bot_configuration_array['formf_phone']) && $theme->bot_configuration_array['formf_phone'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_phone']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_phone_hidden']) && $start_data_fields['offline_phone_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['offline_phone_width'] > 0 ? (int)$start_data_fields['offline_phone_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_phone_require_option']) && $start_data_fields['offline_phone_require_option'] == 'required'),
             'name' => 'Phone',
@@ -245,11 +263,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         ($Params['user_parameters_unordered']['mode'] == 'widget' && isset($start_data_fields['offline_file_visible_in_page_widget']) && $start_data_fields['offline_file_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_file_visible_in_popup']) && $start_data_fields['offline_file_visible_in_popup'] == true)
     ) {
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File');
+
+        if (isset($theme->bot_configuration_array['formf_file']) && $theme->bot_configuration_array['formf_file'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_file']));
+        }
+
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
         $fields[] = array(
             'type' => 'file',
             'width' => 12,
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File'),
+            'label' => $label,
             'class' => 'd-block fs14',
             'required' => false,
             'name' => 'File',
@@ -264,11 +288,16 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['offline_message_visible_in_popup']) && $start_data_fields['offline_message_visible_in_popup'] == true)
     ) {
 
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question');
+
+        if (isset($theme->bot_configuration_array['formf_question']) && $theme->bot_configuration_array['formf_question'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_question']));
+        }
 
         $fields[] = array(
             'type' => (isset($start_data_fields['offline_message_hidden']) && $start_data_fields['offline_message_hidden'] == true ? 'hidden' : 'textarea'),
             'width' => 12,
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'),
             'hide_prefilled' => (isset($start_data_fields['offline_message_hidden_prefilled']) && $start_data_fields['offline_message_hidden_prefilled'] == true),
@@ -308,10 +337,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['name_visible_in_page_widget']) && $start_data_fields['name_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['name_visible_in_popup']) && $start_data_fields['name_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Name');
+
+        if (isset($theme->bot_configuration_array['formf_name']) && $theme->bot_configuration_array['formf_name'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_name']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['name_hidden']) && $start_data_fields['name_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['name_width'] > 0 ? (int)$start_data_fields['name_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Name'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['name_require_option']) && $start_data_fields['name_require_option'] == 'required'),
             'name' => 'Username',
@@ -325,10 +361,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['email_visible_in_page_widget']) && $start_data_fields['email_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['email_visible_in_popup']) && $start_data_fields['email_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail');
+
+        if (isset($theme->bot_configuration_array['formf_email']) && $theme->bot_configuration_array['formf_email'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_email']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['email_hidden']) && $start_data_fields['email_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['email_width'] > 0 ? (int)$start_data_fields['email_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['email_require_option']) && $start_data_fields['email_require_option'] == 'required' ? true : false),
             'name' => 'Email',
@@ -342,10 +385,17 @@ if ($Params['user_parameters_unordered']['online'] == '0')
         (($Params['user_parameters_unordered']['mode'] == 'widget' || $Params['user_parameters_unordered']['mode'] == 'embed') && isset($start_data_fields['phone_visible_in_page_widget']) && $start_data_fields['phone_visible_in_page_widget'] == true) ||
         ($Params['user_parameters_unordered']['mode'] == 'popup' && isset($start_data_fields['phone_visible_in_popup']) && $start_data_fields['phone_visible_in_popup'] == true)
     ) {
+
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Phone');
+
+        if (isset($theme->bot_configuration_array['formf_phone']) && $theme->bot_configuration_array['formf_phone'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_phone']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['phone_hidden']) && $start_data_fields['phone_hidden'] == true ? 'hidden' : 'text'),
             'width' => (isset($start_data_fields['offline_name_width']) && $start_data_fields['phone_width'] > 0 ? (int)$start_data_fields['phone_width'] : 6),
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Phone'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['phone_require_option']) && $start_data_fields['phone_require_option'] == 'required'),
             'name' => 'Phone',
@@ -366,10 +416,16 @@ if ($Params['user_parameters_unordered']['online'] == '0')
             $placeholderMessage = $chat_ui['placeholder_message'] = $theme->bot_configuration_array['placeholder_message'];
         }
 
+        $label = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Your question');
+
+        if (isset($theme->bot_configuration_array['formf_question']) && $theme->bot_configuration_array['formf_question'] != '') {
+            $label = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['formf_question']));
+        }
+
         $fields[] = array(
             'type' => (isset($start_data_fields['message_hidden']) && $start_data_fields['message_hidden'] == true ? 'hidden' : 'textarea'),
             'width' => 12,
-            'label' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Your question'),
+            'label' => $label,
             'class' => 'form-control form-control-sm',
             'required' => (isset($start_data_fields['message_require_option']) && $start_data_fields['message_require_option'] == 'required'),
             'name' => 'Question',

@@ -490,6 +490,11 @@ class erLhAbstractModelWidgetTheme {
             'cnew_msg',
             'cscroll_btn',
             'cnew_msgm',
+            'formf_name',
+            'formf_email',
+            'formf_file',
+            'formf_phone',
+            'formf_question',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;

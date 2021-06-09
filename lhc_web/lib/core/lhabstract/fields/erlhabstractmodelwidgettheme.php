@@ -955,7 +955,6 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
-    
                 // General chat settings
                 'show_voting' => array(
                     'type' => 'checkbox',
@@ -964,6 +963,66 @@ $fields = array(
                     'hidden' => true,
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                )),
+                'formf_name' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'translatable' => true,
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for the name field'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Name'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'formf_email' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'translatable' => true,
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for the e-mail field'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'E-mail'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'formf_file' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'translatable' => true,
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for the file field'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'formf_phone' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'translatable' => true,
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for the phone field'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Phone'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'formf_question' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'translatable' => true,
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use different title for the question field'),
+                    'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
                 'department_title' => array(
                     'type' => 'text',
