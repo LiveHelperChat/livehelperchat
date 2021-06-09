@@ -5,6 +5,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		this.fieldtype = 'text';
 		this.visibility = 'all';
 		this.showcondition = 'always';
+		this.priority = 50;
 
 		var that = this;
 				
@@ -28,13 +29,14 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 				'isrequired' : that.isrequired,
 				'hide_prefilled' : that.hide_prefilled,
 				'options' : that.options,
-				'showcondition' : that.showcondition
+				'showcondition' : that.showcondition,
+				'priority' : that.priority,
 			});
 		};
 		
 		this.deleteField = function(field) {								
 			that.startchatfields.splice(that.startchatfields.indexOf(field),1);
-		};	
+		};
 		
 		this.moveLeftField = function(field) {
 			that.move(field,-1);

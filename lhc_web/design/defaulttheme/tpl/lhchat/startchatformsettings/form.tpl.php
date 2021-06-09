@@ -64,7 +64,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="NameHiddenPrefilled" <?php (isset($start_chat_data['name_hidden_prefilled']) && $start_chat_data['name_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="NameRequireOption">
@@ -73,10 +73,16 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                     <input type="text" name="OnlineNameWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['name_width'])) ? print htmlspecialchars($start_chat_data['name_width']) : ''?>">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                    <input type="text" name="OnlineNamePriority" class="form-control" placeholder="10" value="<?php (isset($start_chat_data['name_priority'])) ? print htmlspecialchars($start_chat_data['name_priority']) : print '10'?>">
                                 </div>
                             </div>
                         </div>
@@ -95,7 +101,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="EmailHiddenPrefilled" <?php (isset($start_chat_data['email_hidden_prefilled']) && $start_chat_data['email_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="EmailRequireOption">
@@ -104,10 +110,16 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                     <input type="text" name="OnlineEmailWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['email_width'])) ? print htmlspecialchars($start_chat_data['email_width']) : ''?>">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                    <input type="text" name="OnlineEmailPriority" class="form-control" placeholder="20" value="<?php (isset($start_chat_data['email_priority'])) ? print htmlspecialchars($start_chat_data['email_priority']) : print '20'?>">
                                 </div>
                             </div>
                         </div>
@@ -129,14 +141,25 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 						<br /> <label><input type="checkbox" value="on" name="MessageAutoStart" <?php (isset($start_chat_data['message_auto_start']) && $start_chat_data['message_auto_start'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start chat process in the background as soon user submits form. Only message field has to be required');?></label><br />
                         <br /> <label><input type="checkbox" value="on" name="MessageHiddenPrefilled" <?php (isset($start_chat_data['message_hidden_prefilled']) && $start_chat_data['message_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
-                        <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
-                            <select class="form-control" name="MessageRequireOption">
-                                <option value="required" <?php (isset($start_chat_data['message_require_option']) && $start_chat_data['message_require_option'] == 'required') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Required');?></option>
-                                <option value="optional" <?php (isset($start_chat_data['message_require_option']) && $start_chat_data['message_require_option'] == 'optional') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Optional');?></option>
-                            </select>
-                        </div>
 
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
+                                    <select class="form-control" name="MessageRequireOption">
+                                        <option value="required" <?php (isset($start_chat_data['message_require_option']) && $start_chat_data['message_require_option'] == 'required') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Required');?></option>
+                                        <option value="optional" <?php (isset($start_chat_data['message_require_option']) && $start_chat_data['message_require_option'] == 'optional') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Optional');?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                    <input type="text" name="MessagePriority" class="form-control" placeholder="40" value="<?php (isset($start_chat_data['message_priority'])) ? print htmlspecialchars($start_chat_data['message_priority']) : print '40'?>">
+                                </div>
+                            </div>
+                        </div>
 
 					</fieldset>
 				</div>
@@ -151,7 +174,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="PhoneHiddenPrefilled" <?php (isset($start_chat_data['phone_hidden_prefilled']) && $start_chat_data['phone_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="PhoneRequireOption">
@@ -160,10 +183,16 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                    <input type="text" name="PhoneWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['phone_width'])) ? print htmlspecialchars($start_chat_data['phone_width']) : ''?>">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                   <input type="text" name="PhonePriority" class="form-control" placeholder="30" value="<?php (isset($start_chat_data['phone_priority'])) ? print htmlspecialchars($start_chat_data['phone_priority']) : print '30'?>">
                                 </div>
                             </div>
                         </div>
@@ -180,9 +209,12 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 						<label><input type="checkbox" value="on" name="TOSVisibleInPageWidget" <?php (isset($start_chat_data['tos_visible_in_page_widget']) && $start_chat_data['tos_visible_in_page_widget'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the page widget');?></label><br />
 						<label><input type="checkbox" value="on" name="TOSCheckByDefaultOnline" <?php (isset($start_chat_data['tos_checked_online']) && $start_chat_data['tos_checked_online'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Checked by default');?></label><br />
 					</fieldset>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                        <input type="text" name="TOSPriority" class="form-control" placeholder="50" value="<?php (isset($start_chat_data['tos_priority'])) ? print htmlspecialchars($start_chat_data['tos_priority']) : print '50'?>">
+                    </div>
 				</div>
 			</div>
-
 
 		</div>
 		<div role="tabpanel" class="tab-pane" id="panel2">
@@ -197,7 +229,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="OfflineNameHiddenPrefilled" <?php (isset($start_chat_data['offline_name_hidden_prefilled']) && $start_chat_data['offline_name_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="OfflineNameRequireOption">
@@ -206,9 +238,13 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                 <input type="text" name="OfflineNameWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['offline_name_width'])) ? print htmlspecialchars($start_chat_data['offline_name_width']) : ''?>">
+                            </div>
+                            <div class="col-4">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                <input type="text" name="OfflineNamePriority" class="form-control" placeholder="10" value="<?php (isset($start_chat_data['offline_name_priority'])) ? print htmlspecialchars($start_chat_data['offline_name_priority']) : print '10'?>">
                             </div>
                         </div>
 
@@ -223,7 +259,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="OfflineEmailHiddenPrefilled" <?php (isset($start_chat_data['offline_email_hidden_prefilled']) && $start_chat_data['offline_email_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="OfflineEmailRequireOption">
@@ -232,11 +268,15 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                     <input type="text" name="OfflineEmailWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['offline_email_width'])) ? print htmlspecialchars($start_chat_data['offline_email_width']) : ''?>">
                                 </div>
+                            </div>
+                            <div class="col-4">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                <input type="text" name="OfflineEmailPriority" class="form-control" placeholder="20" value="<?php (isset($start_chat_data['offline_email_priority'])) ? print htmlspecialchars($start_chat_data['offline_email_priority']) : print '20'?>">
                             </div>
                         </div>
 
@@ -253,11 +293,20 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="OfflineMessageHidden" <?php (isset($start_chat_data['offline_message_hidden']) && $start_chat_data['offline_message_hidden'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is invisible but prefilled data is collected');?></label><br />
                         <label><input type="checkbox" value="on" name="OfflineMessageHiddenPrefilled" <?php (isset($start_chat_data['offline_message_hidden_prefilled']) && $start_chat_data['offline_message_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
-                        <select class="form-control" name="OfflineMessageRequireOption">
-							<option value="required" <?php (isset($start_chat_data['offline_message_require_option']) && $start_chat_data['offline_message_require_option'] == 'required') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Required');?></option>
-							<option value="optional" <?php (isset($start_chat_data['offline_message_require_option']) && $start_chat_data['offline_message_require_option'] == 'optional') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Optional');?></option>
-						</select>
+                        <div class="row">
+                            <div class="col-6">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
+                                <select class="form-control" name="OfflineMessageRequireOption">
+                                    <option value="required" <?php (isset($start_chat_data['offline_message_require_option']) && $start_chat_data['offline_message_require_option'] == 'required') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Required');?></option>
+                                    <option value="optional" <?php (isset($start_chat_data['offline_message_require_option']) && $start_chat_data['offline_message_require_option'] == 'optional') ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Optional');?></option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                <input type="text" name="OfflineMessagePriority" class="form-control" placeholder="40" value="<?php (isset($start_chat_data['offline_message_priority'])) ? print htmlspecialchars($start_chat_data['offline_message_priority']) : print '40'?>">
+                            </div>
+                        </div>
 
 					</fieldset>
 				</div>
@@ -271,7 +320,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                         <label><input type="checkbox" value="on" name="OfflinePhoneHiddenPrefilled" <?php (isset($start_chat_data['offline_phone_hidden_prefilled']) && $start_chat_data['offline_phone_hidden_prefilled'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled');?></label><br />
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is');?></label>
                                     <select class="form-control" name="OfflinePhoneRequireOption">
@@ -280,9 +329,13 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Column width, 1-12')?></label>
                                 <input type="text" name="OfflinePhoneWidth" class="form-control" placeholder="6" value="<?php (isset($start_chat_data['offline_phone_width'])) ? print htmlspecialchars($start_chat_data['offline_phone_width']) : ''?>">
+                            </div>
+                            <div class="col-4">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                                <input type="text" name="OfflinePhonePriority" class="form-control" placeholder="30" value="<?php (isset($start_chat_data['offline_phone_priority'])) ? print htmlspecialchars($start_chat_data['offline_phone_priority']) : print '30'?>">
                             </div>
                         </div>
 
@@ -296,12 +349,20 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 						<label><input type="checkbox" value="on" name="OfflineTOSVisibleInPopup" <?php (isset($start_chat_data['offline_tos_visible_in_popup']) && $start_chat_data['offline_tos_visible_in_popup'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the popup');?></label><br /> <label><input type="checkbox" value="on" name="OfflineTOSVisibleInPageWidget" <?php (isset($start_chat_data['offline_tos_visible_in_page_widget']) && $start_chat_data['offline_tos_visible_in_page_widget'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the page widget');?></label><br />
 						<label><input type="checkbox" value="on" name="TOSCheckByDefaultOffline" <?php (isset($start_chat_data['tos_checked_offline']) && $start_chat_data['tos_checked_offline'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Checked by default');?></label><br />
 					</fieldset>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                        <input type="text" name="OfflineTOSPriority" class="form-control" placeholder="60" value="<?php (isset($start_chat_data['offline_tos_priority'])) ? print htmlspecialchars($start_chat_data['offline_tos_priority']) : print '60'?>">
+                    </div>
 				</div>
 				<div class="col-md-6">
 					<fieldset>
-						<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Allow to attatch a file');?></legend>
+						<legend><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Allow to attach a file');?></legend>
 						<label><input type="checkbox" value="on" name="OfflineFileVisibleInPopup" <?php (isset($start_chat_data['offline_file_visible_in_popup']) && $start_chat_data['offline_file_visible_in_popup'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the popup');?></label><br /> <label><input type="checkbox" value="on" name="OfflineFileVisibleInPageWidget" <?php (isset($start_chat_data['offline_file_visible_in_page_widget']) && $start_chat_data['offline_file_visible_in_page_widget'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','This field is visible in the page widget');?></label><br />
 					</fieldset>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                        <input type="text" name="OfflineFilePriority" class="form-control" placeholder="50" value="<?php (isset($start_chat_data['offline_file_priority'])) ? print htmlspecialchars($start_chat_data['offline_file_priority']) : print '50'?>">
+                    </div>
 				</div>
 			</div>
 		</div>

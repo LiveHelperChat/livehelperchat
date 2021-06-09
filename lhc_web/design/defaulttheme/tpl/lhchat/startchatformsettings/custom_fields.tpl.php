@@ -90,13 +90,13 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field label')?></label>
-                        <input ng-model="field.fieldname" class="form-control" ng-model="" type="text" name="customFieldLabel[]" value="" />
+                        <input ng-model="field.fieldname" class="form-control form-control-sm" ng-model="" type="text" name="customFieldLabel[]" value="" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Type')?></label>
-                        <select ng-model="field.fieldtype" class="form-control" name="customFieldType[]">
+                        <select ng-model="field.fieldtype" class="form-control form-control-sm" name="customFieldType[]">
                             <option value="text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Text')?></option>
                             <option value="password"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Password')?></option>
                             <option value="hidden"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hidden')?></option>
@@ -110,13 +110,13 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Field identifier')?></label>
-                        <input ng-model="field.fieldidentifier" class="form-control" ng-model="" type="text" name="customFieldIdentifier[]" value="" />
+                        <input ng-model="field.fieldidentifier" class="form-control form-control-sm" ng-model="" type="text" name="customFieldIdentifier[]" value="" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Size (between 1 and 12)')?></label>
-                        <input ng-model="field.size" class="form-control" type="text" name="customFieldSize[]" value="6" />
+                        <input ng-model="field.size" class="form-control form-control-sm" type="text" name="customFieldSize[]" value="6" />
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Visible on')?></label>
-                        <select ng-model="field.visibility" name="customFieldVisibility[]" class="form-control">
+                        <select ng-model="field.visibility" name="customFieldVisibility[]" class="form-control form-control-sm">
                             <option value="all"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Offline and online form')?></option>
                             <option value="off"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Only offline')?></option>
                             <option value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Only online')?></option>
@@ -133,7 +133,18 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[{{$index}}]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label><br>
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Priority')?></label>
+                        <input ng-model="field.priority" class="form-control form-control-sm" type="text" name="customFieldPriority[]" value="50" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label><input ng-model="field.isrequired" type="checkbox" name="customFieldIsrequired[{{$index}}]" value="true" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Is required')?></label>
+                </div>
+                <div class="col-6">
                     <label><input ng-model="field.hide_prefilled" type="checkbox" name="customFieldHidePrefilled[{{$index}}]" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Hide if prefilled')?></label>
                 </div>
             </div>
@@ -142,13 +153,13 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Default value')?></label>
-                        <input ng-model="field.defaultvalue" class="form-control" type="text" name="customFieldDefaultValue[]" value="" />
+                        <input ng-model="field.defaultvalue" class="form-control form-control-sm" type="text" name="customFieldDefaultValue[]" value="" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show if')?></label>
-                        <select name="customFieldCondition[]" ng-model="field.showcondition" class="form-control">
+                        <select name="customFieldCondition[]" ng-model="field.showcondition" class="form-control form-control-sm">
                             <option value="always"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Always')?></option>
                             <option value="uempty"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Username is empty')?></option>
                         </select>

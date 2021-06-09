@@ -407,6 +407,40 @@ class erLhcoreClassAdminChatValidatorHelper {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
 
+            'OnlineNamePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OnlineEmailPriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'MessagePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'PhonePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflineNamePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflineEmailPriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflineMessagePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflinePhonePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflineFilePriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'OfflineTOSPriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'TOSPriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+
 	        // Custom fields from back office
 	        'customFieldLabel' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
@@ -447,6 +481,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'customFieldURLName' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
             ),
+            'customFieldPriority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
 	    );
 	    
 	    $form = new ezcInputForm( INPUT_POST, $definition );
@@ -472,6 +509,77 @@ class erLhcoreClassAdminChatValidatorHelper {
             $data['np_border'] = true;
         } else {
             $data['np_border'] = false;
+        }
+
+        // Priority options
+
+
+
+
+        if ( $form->hasValidData( 'OnlineNamePriority' )) {
+            $data['name_priority'] = $form->OnlineNamePriority;
+        } else {
+            $data['name_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OnlineEmailPriority' )) {
+            $data['email_priority'] = $form->OnlineEmailPriority;
+        } else {
+            $data['email_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'MessagePriority' )) {
+            $data['message_priority'] = $form->MessagePriority;
+        } else {
+            $data['message_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'PhonePriority' )) {
+            $data['phone_priority'] = $form->PhonePriority;
+        } else {
+            $data['phone_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflineNamePriority' )) {
+            $data['offline_name_priority'] = $form->OfflineNamePriority;
+        } else {
+            $data['offline_name_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflineEmailPriority' )) {
+            $data['offline_email_priority'] = $form->OfflineEmailPriority;
+        } else {
+            $data['offline_email_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflineMessagePriority' )) {
+            $data['offline_message_priority'] = $form->OfflineMessagePriority;
+        } else {
+            $data['offline_message_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflinePhonePriority' )) {
+            $data['offline_phone_priority'] = $form->OfflinePhonePriority;
+        } else {
+            $data['offline_phone_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflineFilePriority' )) {
+            $data['offline_file_priority'] = $form->OfflineFilePriority;
+        } else {
+            $data['offline_file_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'OfflineTOSPriority' )) {
+            $data['offline_tos_priority'] = $form->OfflineTOSPriority;
+        } else {
+            $data['offline_tos_priority'] = 0;
+        }
+
+        if ( $form->hasValidData( 'TOSPriority' )) {
+            $data['tos_priority'] = $form->TOSPriority;
+        } else {
+            $data['tos_priority'] = 0;
         }
 
         // Width options
@@ -947,6 +1055,7 @@ class erLhcoreClassAdminChatValidatorHelper {
 	                'hide_prefilled' => ($form->hasValidData('customFieldHidePrefilled') && isset($form->customFieldHidePrefilled[$key]) && $form->customFieldHidePrefilled[$key] == true),
 	                'fieldidentifier' => $form->customFieldIdentifier[$key],
 	                'showcondition' => $form->customFieldCondition[$key],
+	                'priority' => (($form->hasValidData('customFieldPriority') && isset($form->customFieldPriority[$key])) ? (int)$form->customFieldPriority[$key] : 0)
 	            );
 	        }
 	        $data['custom_fields'] = json_encode($customFields,JSON_HEX_APOS);
