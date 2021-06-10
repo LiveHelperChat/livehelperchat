@@ -153,17 +153,17 @@ class erLhcoreClassChatWebhookHttp {
                         $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
                         // Allow only mathematical operators
-                        $conditionAttr = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                        $valueAttr = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+                        $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                        $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
 
-                        if ($conditionAttr != '') {
+                        if ($conditionAttrMath != '') {
                             // Evaluate if there is mathematical rules
-                            eval('$conditionAttr = ' . $conditionAttr . ";");
+                            eval('$conditionAttr = ' . $conditionAttrMath . ";");
                         }
 
-                        if ($valueAttr != '') {
+                        if ($valueAttrMath != '') {
                             // Evaluate if there is mathematical rules
-                            eval('$valueAttr = ' . $valueAttr . ";");
+                            eval('$valueAttr = ' . $valueAttrMath . ";");
                         }
 
                         if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {

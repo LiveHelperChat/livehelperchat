@@ -88,6 +88,12 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','IP');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.ip" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','E-mail');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.email" value="" />
                 </div>
@@ -127,6 +133,10 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond" value="" />
         </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op" value="" />
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="text_messages_2">
@@ -138,6 +148,10 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_2" value="" />
         </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_op_2" value="" />
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="attachments">
@@ -148,8 +162,19 @@
 
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_attachments_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download attachment instead of using external URL');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_body" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file name. Optional');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_name" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_file_name" value="" />
+        </div>
+        
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL To make request to get content');?></label>
@@ -170,6 +195,12 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered attachment message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_attachments" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_op" value="" />
+        </div>
+
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="img-attachments">
@@ -180,8 +211,19 @@
 
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_body" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file name. Optional');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_name" ng-model="webhookincomingsctl.conditions.msg_cond_img_file_name" value="" />
+        </div>
+
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL To make request to get content');?></label>
@@ -202,6 +244,12 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_op" value="" />
+        </div>
+
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="chat_options">
