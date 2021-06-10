@@ -70,7 +70,7 @@ class erLhcoreClassAdminChatValidatorHelper {
             }
         }
 
-        $cannedMessage->languages = json_encode($languagesData);
+        $cannedMessage->languages = json_encode($languagesData, JSON_HEX_APOS);
         $cannedMessage->languages_array = $languagesData;
 
         if ( $form->hasValidData( 'Title' ) )
