@@ -19,7 +19,7 @@ if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->v
     exit;
 }
 
-if (is_numeric($payload['invitation']) && $payload['invitation'] > 0/*&& ($onlineUser->invitation_id == 0 || $onlineUser->invitation_id != $payload['invitation'])*/) {
+if (is_numeric($payload['invitation']) && $payload['invitation'] > 0) {
     erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
 }
 
@@ -162,6 +162,12 @@ if ($outputResponse['invitation_id'] > 0) {
 
         if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
             $outputResponse['std_header'] = true;
+        }
+
+        if (isset($invitation->design_data_array['play_sound']) && $invitation->design_data_array['play_sound'] == true) {
+            $outputResponse['play_sound'] = true;
+        } else {
+            $outputResponse['play_sound'] = false;
         }
 
         $outputResponse['invitation_name'] = $invitation->name;
