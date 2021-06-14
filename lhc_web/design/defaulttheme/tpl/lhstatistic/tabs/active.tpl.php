@@ -1,4 +1,4 @@
-<form action="" method="get" autocomplete="off">
+<form action="" method="get" autocomplete="off" ng-non-bindable>
 
 <div class="row form-group">
 
