@@ -41,7 +41,7 @@ class erLhcoreClassRenderHelper {
                 $valueItem = $valueItem.$params['prepend_option_value'];
             }
 
-            $output .= "<option value=\"{$item->$attrId}\" $selected >{$valueItem}</option>";
+            $output .= "<option value=\"{$item->$attrId}\" $selected ng-non-bindable>{$valueItem}</option>";
         }
 
         $disbled = '';
@@ -67,7 +67,7 @@ class erLhcoreClassRenderHelper {
 
         if (isset($params['append_value'])) {
             $selected = (is_array($params['selected_id']) && in_array($params['append_value'][0],$params['selected_id']) || (!is_array($params['selected_id']) && $params['selected_id'] == $params['append_value'][0])) ? 'selected="selected"' : '';
-            $output .= "<option value=\"{$params['append_value'][0]}\" $selected >{$params['append_value'][1]}</option>";
+            $output .= "<option value=\"{$params['append_value'][0]}\" $selected ng-non-bindable>{$params['append_value'][1]}</option>";
         }
 
         $output .= '</select>';
@@ -90,7 +90,7 @@ class erLhcoreClassRenderHelper {
             $ngModelReplace = str_replace('$id', $item->{$idAttr}, $ngModel);
             $checked = in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
             $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->{$idAttr},$params['read_only_list']) ? ' disabled="disabled" ' : '';
-            $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"". $item->{$idAttr} . "\" {$checked} /> ".htmlspecialchars($item->name)."</label>{$append}";
+            $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"". $item->{$idAttr} . "\" {$checked} /> <span ng-non-bindable>".htmlspecialchars($item->name)."</span></label>{$append}";
         }
 
         return $output;
@@ -201,7 +201,7 @@ class erLhcoreClassRenderHelper {
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
 
         foreach ($items as $item) {
-            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="selector-' .$params['input_name'] .'" value="'. $item->id .'"> ' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
+            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="selector-' .$params['input_name'] .'" value="'. $item->id .'"> <span ng-non-bindable>' . htmlspecialchars($item->{$params['display_name']}). '</span></label></li>';
         }
 
         $template .= '</ul></li></ul></div>';
