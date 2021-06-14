@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('faq/view')?>/<?php echo $faq->id?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('faq/view')?>/<?php echo $faq->id?>" method="post">
 
 	<?php include(erLhcoreClassDesign::designtpl('lhfaq/form.tpl.php'));?>
 
