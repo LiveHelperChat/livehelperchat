@@ -59,7 +59,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></a>
+                                <a ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span ng-non-bindable><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
                     	      <?php if ($chat->has_unread_messages == 1) : ?>
                     	      <?php
@@ -70,10 +70,10 @@
                     	      ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                     	      <?php endif;?>
                             </td>
-                            <td>
+                            <td ng-non-bindable>
                                 <?php echo htmlspecialchars($chat->user);?>
                             </td>
-                            <td>
+                            <td ng-non-bindable>
                                 <?php echo htmlspecialchars($chat->department);?>
                             </td>
                             <td nowrap="nowrap">
