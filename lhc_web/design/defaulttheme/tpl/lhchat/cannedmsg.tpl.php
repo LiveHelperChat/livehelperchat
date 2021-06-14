@@ -2,7 +2,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/search_panel.tpl.php')); ?>
 <br/>
-<table class="table table-sm" cellpadding="0" cellspacing="0">
+<table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>

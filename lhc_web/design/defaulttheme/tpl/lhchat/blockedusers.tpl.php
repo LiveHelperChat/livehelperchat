@@ -9,7 +9,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<div class="row">
+<div class="row" ng-non-bindable>
     <div class="col-6">
         <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>" >
             <div class="row">
@@ -46,7 +46,7 @@
 
 
 <?php if (!empty($items)) : ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>

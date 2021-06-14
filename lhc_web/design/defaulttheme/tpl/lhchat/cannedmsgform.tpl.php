@@ -11,24 +11,24 @@
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title');?></label>
-            <input type="text" class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_message->title);?>" />
+            <input type="text" ng-non-bindable class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_message->title);?>" />
         </div>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
-            <input type="text" class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
+            <input type="text" ng-non-bindable class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
         </div>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Explain');?></label>
-            <input type="text" class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
+            <input type="text" ng-non-bindable class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
         </div>
 
         <label><input type="checkbox" name="AutoSend" value="on" <?php $canned_message->auto_send == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Automatically send this message to user then chat is accepted');?></label>
 
         <div class="form-group">
            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-           <input type="text" class="form-control" name="Delay" value="<?php echo $canned_message->delay?>" />
+           <input type="text" ng-non-bindable class="form-control" name="Delay" value="<?php echo $canned_message->delay?>" />
         </div>
 
         <div class="form-group">
@@ -36,7 +36,7 @@
                     <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
                 </label>
 
-            <input type="text" class="form-control" name="Position" value="<?php echo $canned_message->position?>" />
+            <input type="text" class="form-control" ng-non-bindable name="Position" value="<?php echo $canned_message->position?>" />
         </div>
 
         <?php $showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhchat','see_global'); ?>

@@ -30,7 +30,7 @@ class erLhcoreClassAbstract
                         $value = $object->$name;
                     }
 
-                    $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : '';
+                    $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
 
                     if (isset($attr['placeholder'])) {
                         $ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
@@ -157,7 +157,7 @@ class erLhcoreClassAbstract
                     $selected = $value == $item->id ? 'selected="selected"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
 
-                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
+                    $return .= '<option ng-non-bindable value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
                 }
                 $return .= "</select>";
 
@@ -174,7 +174,7 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'selected="selected"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
+                    $return .= '<option ng-non-bindable value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
                 }
                 $return .= "</select>";
                 return $return;
@@ -187,7 +187,7 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div class="col-' . $attr['col_size'] . '"><label><input ng-non-bindable type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
@@ -201,11 +201,11 @@ class erLhcoreClassAbstract
                 break;
                 
             case 'text_display':
-                return '<p>' . htmlspecialchars($object->$name) . '</p>';
+                return '<p ng-non-bindable>' . htmlspecialchars($object->$name) . '</p>';
                 break;
 
             case 'text_pre':
-                return '<pre>' . htmlspecialchars($object->$name) . '</pre>';
+                return '<pre ng-non-bindable>' . htmlspecialchars($object->$name) . '</pre>';
                 break;
 
             default:

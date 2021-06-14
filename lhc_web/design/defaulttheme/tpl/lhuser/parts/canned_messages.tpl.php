@@ -27,7 +27,7 @@ if ($pages->items_total > 0) {
 <?php foreach ($cannedMessages as $message) : ?>
     <tr>
         <td><?php echo $message->id?></td>
-        <td><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
+        <td ng-non-bindable><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
         <td><?php echo $message->delay?></td>
         <td><?php echo $message->position?></td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_column_content_multiinclude.tpl.php'));?>
@@ -68,17 +68,17 @@ if ($pages->items_total > 0) {
         <div role="tabpanel" class="tab-pane active" id="main">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title');?></label>
-                <input type="text" class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_msg->title);?>" />
+                <input type="text" ng-non-bindable class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_msg->title);?>" />
             </div>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Explain');?></label>
-                <input type="text" class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_msg->explain);?>" />
+                <input type="text" ng-non-bindable class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_msg->explain);?>" />
             </div>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
-                <input type="text" class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_msg->tags_plain)?>" />
+                <input type="text" ng-non-bindable class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_msg->tags_plain)?>" />
             </div>
 
             <div class="form-group">
@@ -87,12 +87,12 @@ if ($pages->items_total > 0) {
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay in seconds');?></label>
-                <input type="text" class="form-control" name="Delay" value="<?php echo $canned_msg->delay?>" />
+                <input type="text" ng-non-bindable class="form-control" name="Delay" value="<?php echo $canned_msg->delay?>" />
             </div>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></label>
-                <input type="text" class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
+                <input type="text" ng-non-bindable class="form-control" name="Position" value="<?php echo $canned_msg->position?>" />
             </div>
 
             <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_fields_multiinclude.tpl.php'));?>

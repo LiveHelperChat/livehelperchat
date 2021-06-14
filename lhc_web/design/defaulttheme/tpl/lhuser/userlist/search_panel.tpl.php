@@ -1,4 +1,4 @@
-<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight" class="mb-2">
+<form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight" class="mb-2" ng-non-bindable>
 
 	<input type="hidden" name="doSearch" value="1">
 

@@ -144,7 +144,7 @@
 	</div>
 	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
-	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments" >
+	<div role="tabpanel" ng-non-bindable class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments" >
     	<?php 
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
     	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
