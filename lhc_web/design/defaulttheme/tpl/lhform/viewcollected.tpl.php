@@ -1,6 +1,8 @@
 <h1><?php echo htmlspecialchars($collected->form)?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','collected information');?></h1>
 
+<div  ng-non-bindable>
 <?php echo $content?>
+</div>
 
 <hr>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Identifier');?></h4>
