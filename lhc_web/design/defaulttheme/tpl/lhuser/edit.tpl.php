@@ -34,7 +34,7 @@
 	        
 	        <div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?>*</label>
-    		  <input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
+    		  <input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" type="text" ng-non-bindable name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
     		</div>
     		
     		<div class="form-group">
@@ -53,27 +53,27 @@
 
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></label>
-        		<input type="text" class="form-control" name="Email" value="<?php echo $user->email;?>"/>
+        		<input type="text" ng-non-bindable class="form-control" name="Email" value="<?php echo $user->email;?>"/>
     		</div>
     		
     		<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Chat nickname');?></label>
-				<input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+				<input type="text" ng-non-bindable class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
 			</div>
 			
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></label>
-    		  <input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
+    		  <input type="text" ng-non-bindable class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
     		</div>
     		
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
-    		  <input type="text" class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
+    		  <input type="text" ng-non-bindable class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
     		</div>
     		
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
-    		  <input type="text" class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
+    		  <input type="text" ng-non-bindable class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
     		</div>
     			    
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
@@ -98,11 +98,11 @@
     		<div class="row form-group">
     			<div class="col-md-6">
     				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
-    				<input type="text" class="form-control" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+    				<input type="text" ng-non-bindable class="form-control" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
     			</div>
     			<div class="col-md-6">
     				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
-    				<input type="text" class="form-control" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+    				<input type="text" ng-non-bindable class="form-control" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
     			</div>
     		</div>
 
@@ -224,7 +224,7 @@
 
         <div class="form-group">
            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active chats');?></label>
-           <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
+           <input type="text" ng-non-bindable class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
         </div>
 
 		<input type="submit" class="btn btn-secondary" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>

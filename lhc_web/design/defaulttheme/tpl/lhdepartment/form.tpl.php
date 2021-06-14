@@ -1,6 +1,6 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-    <input type="text" class="form-control form-control-sm" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
+    <input type="text" ng-non-bindable class="form-control form-control-sm" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/email.tpl.php'));?>
@@ -22,22 +22,22 @@
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?> <i>(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Group limit')?> - <?php echo $departament->pending_group_max?>)</i></label>
-    <input type="text" class="form-control form-control-sm" name="pending_max"  value="<?php echo htmlspecialchars($departament->pending_max);?>" />
+    <input type="text" ng-non-bindable class="form-control form-control-sm" name="pending_max" value="<?php echo htmlspecialchars($departament->pending_max);?>" />
 </div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, ');?></label>
-    <input type="text" class="form-control form-control-sm" name="delay_lm"  value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
+    <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_lm" value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
 </div>
 
 <div class="row form-group">
 	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for chats priority');?></label>
-        <input type="text" class="form-control form-control-sm" name="Priority"  value="<?php echo htmlspecialchars($departament->priority);?>" />
+        <input type="text" ng-non-bindable class="form-control form-control-sm" name="Priority" value="<?php echo htmlspecialchars($departament->priority);?>" />
 	</div>
 	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for departments sort');?></label>
-        <input type="text" class="form-control form-control-sm" name="SortPriority"  value="<?php echo htmlspecialchars($departament->sort_priority);?>" />
+        <input type="text" ng-non-bindable class="form-control form-control-sm" name="SortPriority" value="<?php echo htmlspecialchars($departament->sort_priority);?>" />
 	</div>
 </div>	
 
@@ -222,10 +222,10 @@
 			     <div class="row form-group">
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','XMPP recipients');?></label>
-						<input type="text" class="form-control form-control-sm" name="XMPPRecipients"  value="<?php echo htmlspecialchars($departament->xmpp_recipients);?>" /></div>
+						<input type="text" ng-non-bindable class="form-control form-control-sm" name="XMPPRecipients"  value="<?php echo htmlspecialchars($departament->xmpp_recipients);?>" /></div>
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','XMPP group recipients');?></label>
-						<input type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E.g somechat@conference.server.org/LiveChat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These messages will be send as group messages');?>" name="XMPPRecipientsGroup"  value="<?php echo htmlspecialchars($departament->xmpp_group_recipients);?>" />
+						<input type="text" ng-non-bindable class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E.g somechat@conference.server.org/LiveChat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These messages will be send as group messages');?>" name="XMPPRecipientsGroup"  value="<?php echo htmlspecialchars($departament->xmpp_group_recipients);?>" />
 					</div>
 				</div>	
 				<?php endif;?>
@@ -241,12 +241,12 @@
 								
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','How many seconds chat can be pending before about chat is informed a staff');?></label>
-				    <input type="text" class="form-control form-control-sm" name="inform_delay"  value="<?php echo htmlspecialchars($departament->inform_delay);?>" />
+				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_delay"  value="<?php echo htmlspecialchars($departament->inform_delay);?>" />
 				</div>
 				
 				<div class="form-group">
 				    <label><input type="checkbox" name="inform_unread"  value="on" <?php echo $departament->inform_unread == 1 ? 'checked="checked"' : '';?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inform about unread messages if from last unread user message has passed (seconds)');?></label>
-				    <input type="text" class="form-control form-control-sm" name="inform_unread_delay" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please enter value in seconds');?>" value="<?php echo htmlspecialchars($departament->inform_unread_delay);?>" />
+				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_unread_delay" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please enter value in seconds');?>" value="<?php echo htmlspecialchars($departament->inform_unread_delay);?>" />
 				</div>
 				
 				<div class="form-group">
@@ -264,7 +264,7 @@
 				
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats');?></label> 
-				    <input type="text" class="form-control form-control-sm" name="inform_close_all_email" value="<?php echo htmlspecialchars($departament->inform_close_all_email);?>" />
+				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_close_all_email" value="<?php echo htmlspecialchars($departament->inform_close_all_email);?>" />
 				</div>
 				
 			</div>
@@ -286,7 +286,7 @@
 				
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.');?></label>
-				    <input type="text" class="form-control form-control-sm" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
+				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
 				</div>
 				
 				<div class="form-group">			
@@ -327,23 +327,23 @@
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
-					    <input type="text" class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
                     </div>
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active chats, 0 - unlimited');?></label>
-					    <input type="text" class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
+					    <input type="text"  ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
                         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new chats will not be assigned to any operator.')?></i></small></p>
                     </div>
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
-					    <input type="text" class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
+					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
                     </div>
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between chat assignment to operator');?></label>
-                        <input type="text" class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
+                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
                         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next chat can be assigned to operator.')?></i></small></p>
                     </div>
 
@@ -358,12 +358,12 @@
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Check for presence of variable');?></label>
-                        <input type="text" class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
+                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
                     </div>
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Resume auto assign if chat remains pending for n seconds');?></label>
-                        <input type="text" class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
+                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
                     </div>
 
 				</div> 
@@ -384,7 +384,7 @@
 
                <div class="form-group">
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>
-			    <input type="text" class="form-control form-control-sm" name="Identifier"  value="<?php echo htmlspecialchars($departament->identifier);?>" />
+			    <input type="text" ng-non-bindable class="form-control form-control-sm" name="Identifier" value="<?php echo htmlspecialchars($departament->identifier);?>" />
 		       </div>
 
                <div class="form-group">
