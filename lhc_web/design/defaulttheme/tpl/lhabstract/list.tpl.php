@@ -23,7 +23,7 @@
 <?php endif;?>
 
 <?php if ($pages->items_total > 0) : ?>
-	<table cellpadding="0" class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php else : ?>table-sm<?php endif?>" cellspacing="0" width="100%">
+	<table cellpadding="0" ng-non-bindable class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php else : ?>table-sm<?php endif?>" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 	    	<?php foreach ($fields as $field) : ?>

@@ -1,4 +1,4 @@
-<form action="" method="get">
+<form action="" method="get" ng-non-bindable>
 <div class="row">
     <div class="col-md-2">
         <div class="form-group">
