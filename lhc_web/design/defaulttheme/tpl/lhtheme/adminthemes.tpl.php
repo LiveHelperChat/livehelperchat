@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Admin themes');?></h1>
 
 <?php if ($pages->items_total > 0) : ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhtheme/admin','Name');?></th>

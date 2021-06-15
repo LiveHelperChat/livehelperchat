@@ -23,7 +23,7 @@
 	<!-- Tab panes -->
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="settings">
-			<div class="form-group">
+			<div class="form-group" ng-non-bindable>
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('icclicktocallform/form','Name');?>*</label> 
 				<input type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($form->name) ?>" />
 			</div>

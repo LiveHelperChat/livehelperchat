@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label>Language</label>
     <input type="text" class="form-control" name="name" value="<?php echo htmlspecialchars($item->name)?>">
 </div>

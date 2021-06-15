@@ -10,7 +10,7 @@
 
 	<div class="form-group">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-        <select name="ThemeID" class="form-control">
+        <select name="ThemeID" class="form-control" ng-non-bindable>
             <option value="0">--<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?>--</option>
     		<?php foreach (erLhAbstractModelAdminTheme::getList(array('limit' => 1000,'filter' => array('user_id' => 0))) as $theme) : ?>
     		   <option value="<?php echo $theme->id?>" <?php $default_theme_id == $theme->id ? print 'selected="selected"' : '';?>><?php echo htmlspecialchars($theme->name)?></option>
