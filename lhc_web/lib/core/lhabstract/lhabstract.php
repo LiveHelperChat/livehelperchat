@@ -135,7 +135,7 @@ class erLhcoreClassAbstract
             case 'combobox':
 
                 $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-                $return = '<select class="form-control" name="AbstractInput_' . $name . '"' . $onchange . '>';
+                $return = '<select ng-non-bindable class="form-control" name="AbstractInput_' . $name . '"' . $onchange . '>';
 
                 if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false) {
                     $return .= '<option value="0">Choose option</option>';
@@ -157,7 +157,7 @@ class erLhcoreClassAbstract
                     $selected = $value == $item->id ? 'selected="selected"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
 
-                    $return .= '<option ng-non-bindable value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
+                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
                 }
                 $return .= "</select>";
 
@@ -169,12 +169,12 @@ class erLhcoreClassAbstract
                 break;
 
             case 'combobox_multi':
-                $return = '<select class="form-control" name="AbstractInput_' . $name . '[]" multiple size="5">';
+                $return = '<select class="form-control" ng-non-bindable name="AbstractInput_' . $name . '[]" multiple size="5">';
                 $items = call_user_func($attr['source'], $attr['params_call']);
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'selected="selected"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<option ng-non-bindable value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
+                    $return .= '<option value="' . $item->id . '" ' . $selected . '>' . ((string)$nameAttr) . '</option>';
                 }
                 $return .= "</select>";
                 return $return;
@@ -187,17 +187,17 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div class="col-' . $attr['col_size'] . '"><label><input ng-non-bindable type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
                 }
-                $return .= "</select>";
+                //$return .= "</select>";
                 return $return;
                 break;
 
             case 'title':
-                return '<h3>' . $attr['trans'] . '</h3>';
+                return '<h3 ng-non-bindable>' . $attr['trans'] . '</h3>';
                 break;
                 
             case 'text_display':
