@@ -1,4 +1,4 @@
-lhcAppControllers.controller('TrItemCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('TrItemCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.languages = [];
     this.dialects = [];
@@ -13,6 +13,10 @@ lhcAppControllers.controller('TrItemCtrl',['$scope','$http','$location','$rootSc
             that.languages.splice(newIndex, 0, removedElement)
         }
     };
+
+    this.setLanguages = function(id){
+        that.languages = typeof $window['translationItem'+id] !== 'undefined' ? $window['translationItem'+id] : [];
+    }
 
     this.addLanguage = function() {
         that.languages.push({

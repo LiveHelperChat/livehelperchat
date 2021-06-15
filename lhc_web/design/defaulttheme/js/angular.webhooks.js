@@ -1,9 +1,13 @@
-lhcAppControllers.controller('WebhooksCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('WebhooksCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.conditions = [];
     this.itemAdd = "1";
     this.conditions_json = "";
     var that = this;
+
+    this.setConditions = function () {
+        this.conditions = $window['conditionsWebhook'];
+    }
 
     this.makeid = function(length) {
         var text = "";

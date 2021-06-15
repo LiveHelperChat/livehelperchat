@@ -1,4 +1,4 @@
-lhcAppControllers.controller('LHCPriorityCtrl',['$scope', function($scope) {
+lhcAppControllers.controller('LHCPriorityCtrl',['$scope','$window', function($scope, $window) {
 
     this.value = [];
 
@@ -25,6 +25,10 @@ lhcAppControllers.controller('LHCPriorityCtrl',['$scope', function($scope) {
             removedElement = list.splice(index, 1)[0];
             list.splice(newIndex, 0, removedElement)
         }
+    }
+
+    this.setValue = function() {
+        this.value = $window['priorityValue'];
     }
 
 }]);

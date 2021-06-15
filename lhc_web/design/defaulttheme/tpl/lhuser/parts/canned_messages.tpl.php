@@ -12,7 +12,7 @@ if ($pages->items_total > 0) {
 
 ?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -27,7 +27,7 @@ if ($pages->items_total > 0) {
 <?php foreach ($cannedMessages as $message) : ?>
     <tr>
         <td><?php echo $message->id?></td>
-        <td ng-non-bindable><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
+        <td><?php echo nl2br(htmlspecialchars($message->title != '' ? $message->title : $message->msg))?></td>
         <td><?php echo $message->delay?></td>
         <td><?php echo $message->position?></td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/cannedmsg/custom_column_content_multiinclude.tpl.php'));?>
@@ -56,7 +56,13 @@ if ($pages->items_total > 0) {
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form ng-controller="CannedMsgCtrl as cmsg"  ng-init='<?php if ($canned_msg->languages != '') : ?>cmsg.languages = <?php echo $canned_msg->languages?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>' action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
+<?php if ($canned_msg->languages != '') : ?>
+<script>
+    var languageCanned<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?> = <?php echo $canned_msg->languages?>;
+</script>
+<?php endif; ?>
+
+<form ng-controller="CannedMsgCtrl as cmsg" ng-init='<?php if ($canned_msg->languages != '') : ?>cmsg.initLanguage(<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>);<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>' action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
 
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
         <li class="nav-item" role="presentation" ><a class="nav-link active"href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Main');?></a></li>

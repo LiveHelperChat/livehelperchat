@@ -1,9 +1,13 @@
-lhcAppControllers.controller('WebhooksIncomingCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('WebhooksIncomingCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.conditions = {};
     this.conditions_json = "";
 
     var that = this;
+
+    this.setConditions = function() {
+        that.conditions = $window['incomingConditions'];
+    }
 
     this.makeid = function(length) {
         var text = "";
