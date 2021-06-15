@@ -1,3 +1,31 @@
+3.72v
+
+1. Security fix for https://huntr.dev/bounties/1-LiveHelperChat/livehelperchat/
+2. You can change sound option per invitation now. (Play sound or not)
+3. Fixes for webhooks conditions being parsed incorrectly.
+4. Now you can change order of start chat fields including custom fields you define in start chat form.
+5. You can set titles for standard fields in widget theme now.
+6. Now you can trigger offline form manually from website https://doc.livehelperchat.com/docs/javascript-arguments#open-offline-form-while-keeping-option-to-start-a-chat-normally
+7. You can set default sound setting in widget theme. (Play sound for new messages or not)
+8. Offline message will support BBCode now.
+9. Rest API call will support now also x-www-form-urlencoded request type.
+10. !block command did not worked.
+11. Chat lists has direct option to filter abandoned chats https://doc.livehelperchat.com/docs/chat/statistic/#performance
+12. Send message did not set nick if previous chat was not found. (Empty nick scenario)
+13. Now you can login to back office using e-mail also.
+14. If operator is not looking at online visitors widget we will not load it's content. Performance improvement.
+15. New widget dropdown was missing click action support.
+16. Users dropdown filter is now AJAX based and will filter directly.
+17. NodeJS extension now support option to track online visitors live status or not.
+18. Setting subject in the chat will sort subjects by their names.
+19. Bot Execute JS will support replaceable variables also.
+20. foreach cycle support in bot response https://doc.livehelperchat.com/docs/bot/bot-text/#foreach-cycle
+21. Bot buttons will support translations also.
+22. If visitor has closed chat there will be button invite support in chat messages.
+23. Different color for a system message if visitor has left a chat.
+
+There is no database update this time. So just replaces files.
+
 3.71v
 
 1. Duplicate online record was presented if old version JS files were cached.
