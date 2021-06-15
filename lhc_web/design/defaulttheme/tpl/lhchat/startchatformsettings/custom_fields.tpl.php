@@ -1,6 +1,12 @@
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Custom fields generator, these fields will be visible in start chat forms')?></p>
 
-<div ng-controller="StartChatFormCtrl as startChat" <?php if (isset($start_chat_data['custom_fields']) && $start_chat_data['custom_fields'] != '') : ?> ng-init='startChat.startchatfields = <?php echo $start_chat_data['custom_fields']?>'<?php endif;?>>
+<?php if (isset($start_chat_data['custom_fields']) && $start_chat_data['custom_fields'] != '') : ?>
+<script>
+    var startChatFields = <?php echo $start_chat_data['custom_fields']?>;
+</script>
+<?php endif;?>
+
+<div ng-controller="StartChatFormCtrl as startChat" <?php if (isset($start_chat_data['custom_fields']) && $start_chat_data['custom_fields'] != '') : ?> ng-init='startChat.setStartChatFields()'<?php endif;?>>
 
 	<div class="row">
 		<div class="col-3">
