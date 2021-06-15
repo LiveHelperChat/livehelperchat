@@ -1,5 +1,19 @@
 <?php $mainAttribute = isset($fields[$translatableItem['identifier']]['main_attr']) ? 'main_attr' : 'main_attr_lang'; ?>
-<div class="mt-2" ng-controller="ThemeAttrTranslatableCtrl as attrTranslatable" ng-init='attrTranslatable.identifier = "<?php echo $translatableItem['identifier']?>";<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>attrTranslatable.languages = <?php echo json_encode($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'],JSON_HEX_APOS)?>;<?php endif;?>attrTranslatable.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
+
+<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>
+    <script>
+    var themeLangAttr<?php echo $translatableItem['identifier']?> = <?php echo json_encode($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'],JSON_HEX_APOS)?>;
+    </script>
+<?php endif; ?>
+
+
+<?php if (!isset($themeLangDialects)) : $themeLangDialects = true;?>
+<script>
+    var themeLangDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
+</script>
+<?php endif; ?>
+
+<div class="mt-2" ng-controller="ThemeAttrTranslatableCtrl as attrTranslatable" ng-init='attrTranslatable.identifier = "<?php echo $translatableItem['identifier']?>";<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>attrTranslatable.setLanguage("<?php echo $translatableItem['identifier']?>");<?php endif;?>attrTranslatable.setDialects();'>
     <ul class="nav nav-tabs" role="tablist" id="translate-tabs-<?php echo $translatableItem['identifier']?>">
         <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
         <li ng-repeat="lang in attrTranslatable.languages" class="nav-item" role="presentation"><a href="#lang-<?php echo $translatableItem['identifier']?>-{{$index}}" class="nav-link" aria-controls="lang-<?php echo $translatableItem['identifier']?>-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i> [{{attrTranslatable.getLanguagesChecked(lang)}}]</a></li>

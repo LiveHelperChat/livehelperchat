@@ -1,4 +1,8 @@
-<div ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='<?php if ($canned_message->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($canned_message->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()), JSON_HEX_APOS)?>'>
+<script>
+    var languageCanned<?php echo $canned_message->id?> = <?php echo json_encode(json_decode($canned_message->languages, true), JSON_HEX_APOS) ?>;
+</script>
+
+<div id="canned-controller" ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='<?php if ($canned_message->languages != '') : ?>cmsg.initLanguage(<?php echo $canned_message->id?>);<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()), JSON_HEX_APOS)?>'>
 
 <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
     <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
