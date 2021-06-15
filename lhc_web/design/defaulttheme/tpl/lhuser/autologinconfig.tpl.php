@@ -6,7 +6,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" ng-non-bindable>
 
 	<div role="tabpanel">
 

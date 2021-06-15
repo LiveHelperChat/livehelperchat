@@ -3,7 +3,7 @@
 	$canEdit = $currentUser->hasAccessTo('lhpermission','edit');
 	$canDelete = $currentUser->hasAccessTo('lhpermission','delete');
 ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>

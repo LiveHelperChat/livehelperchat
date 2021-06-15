@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-non-bindable>
 
 	<div class="col-6">
 		<div class="row">

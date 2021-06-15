@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department');?> - <?php echo htmlspecialchars($item->name)?></h1>
+<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Edit department');?> - <?php echo htmlspecialchars($item->name)?></h1>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgroupchat/form.tpl.php'));?>
 

@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="" ng-non-bindable method="post">
 
     <div class="row">
         <div class="col-6">

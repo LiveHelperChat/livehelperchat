@@ -1,4 +1,4 @@
-<h1><?php echo htmlspecialchars($item->name)?></h1>
+<h1 ng-non-bindable><?php echo htmlspecialchars($item->name)?></h1>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form_translation.tpl.php'));?>
 

@@ -1,6 +1,6 @@
 <h1>Configuration</h1>
 
-<form action="" method="post">
+<form ng-non-bindable action="" method="post">
     <div class="form-group">
         <label><input type="checkbox" name="automatic_archiving" value="on" <?php isset($ar_options['automatic_archiving']) && $ar_options['automatic_archiving'] == true ? print 'checked="checked"' : '' ?> > Automatic archiving</label>
     </div>

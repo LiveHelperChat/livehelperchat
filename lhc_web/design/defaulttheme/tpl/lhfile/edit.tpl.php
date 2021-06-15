@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" ng-non-bindable>
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','File name');?></label>
         <p><?php echo htmlspecialchars($item->upload_name)?></p>

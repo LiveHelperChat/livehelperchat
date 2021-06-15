@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Edit user');?> - <?php echo htmlspecialchars($user->name_support)?></h1>
+<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Edit user');?> - <?php echo htmlspecialchars($user->name_support)?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -39,12 +39,12 @@
     		
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
-        		<input autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
+        		<input ng-non-bindable autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
     		</div>
 
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat the new password');?></label>
-        		<input autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
+        		<input ng-non-bindable autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
     		</div>
            
            <div class="form-group">

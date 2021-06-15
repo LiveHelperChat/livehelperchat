@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role_id ?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role_id ?>" method="post">
 <table class="table" width="100%">
 <thead>
 <tr>

@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <?php if (isset($items)) : ?>
-    <table class="table" cellpadding="0" cellspacing="0" width="100%">
+    <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Name');?></th>

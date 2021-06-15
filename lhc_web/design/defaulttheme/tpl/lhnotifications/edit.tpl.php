@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
     <ul class="nav nav-pills" role="tablist">
         <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?> active<?php endif;?>" href="#edit" aria-controls="edit" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Main');?></a></li>
         <li class="nav-item" role="presentation" ><a class="nav-link<?php if ($tab == 'tab_notification') : ?> active<?php endif;?>" href="#notification" aria-controls="notification" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/edit','Test notification');?></a></li>

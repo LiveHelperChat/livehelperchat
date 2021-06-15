@@ -9,17 +9,17 @@
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="main">
 
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title');?></label>
             <input type="text" ng-non-bindable class="form-control" name="Title" value="<?php echo htmlspecialchars($canned_message->title);?>" />
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
             <input type="text" ng-non-bindable class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
         </div>
 
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Explain');?></label>
             <input type="text" ng-non-bindable class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
         </div>
@@ -36,7 +36,7 @@
                     <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
                 </label>
 
-            <input type="text" class="form-control" ng-non-bindable name="Position" value="<?php echo $canned_message->position?>" />
+            <input type="text" ng-non-bindable class="form-control" ng-non-bindable name="Position" value="<?php echo $canned_message->position?>" />
         </div>
 
         <?php $showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhchat','see_global'); ?>
@@ -55,17 +55,17 @@
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message');?>*</label>
                     <?php $bbcodeOptions = array('selector' => '#canned-message'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-                    <textarea class="form-control" rows="5" id="canned-message" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
+                    <textarea ng-non-bindable class="form-control" rows="5" id="canned-message" name="Message"><?php echo htmlspecialchars($canned_message->msg);?></textarea>
                 </div>
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message');?></label>
                     <?php $bbcodeOptions = array('selector' => '#id-FallbackMessage'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
-                    <textarea class="form-control" id="id-FallbackMessage" rows="5" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
+                    <textarea ng-non-bindable class="form-control" id="id-FallbackMessage" rows="5" name="FallbackMessage"><?php echo htmlspecialchars($canned_message->fallback_msg);?></textarea>
                 </div>
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','HTML Snippet');?></label>
-                    <textarea class="form-control" rows="5" name="HTMLSnippet"><?php echo htmlspecialchars($canned_message->html_snippet);?></textarea>
+                    <textarea ng-non-bindable class="form-control" rows="5" name="HTMLSnippet"><?php echo htmlspecialchars($canned_message->html_snippet);?></textarea>
                 </div>
             </div>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_content_multiinclude.tpl.php')); ?>

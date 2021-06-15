@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>" method="post">
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/newrole','Title');?></label>

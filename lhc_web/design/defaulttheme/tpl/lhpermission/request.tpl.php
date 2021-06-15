@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('permission/request')?>" method="post" enctype="multipart/form-data">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('permission/request')?>" method="post" enctype="multipart/form-data">
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     <ul class="list-unstyled">
     <?php $counter = 0; foreach ($users as $user) : ?>

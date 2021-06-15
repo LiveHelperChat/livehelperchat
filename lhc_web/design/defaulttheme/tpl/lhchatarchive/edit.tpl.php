@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('chatarchive/edit')?>/<?php echo $archive->id?>" method="post">
     
     <div class="form-group">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Date from');?></label>

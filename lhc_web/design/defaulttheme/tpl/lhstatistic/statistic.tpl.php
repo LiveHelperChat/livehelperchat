@@ -1,6 +1,6 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
-<div role="tabpanel">
+<div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'active') : ?> active<?php endif;?>" onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_statistic.tpl.php'));?></a></li>

@@ -15,7 +15,7 @@
     echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Identifier');?></label>
     <input type="text" class="form-control" name="identifier"  value="<?php echo htmlspecialchars($item->identifier);?>" />
 </div>
@@ -37,7 +37,7 @@
                 <?php $bbcodeOptions = array('selector' => '#default-message-translation'); ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhbbcode/toolbar.tpl.php')); ?>
 
-                <textarea class="form-control form-control-sm" id="default-message-translation" name="default_message"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
+                <textarea ng-non-bindable class="form-control form-control-sm" id="default-message-translation" name="default_message"><?php echo htmlspecialchars($item->translation_array['default']);?></textarea>
 
             </div>
         </div>

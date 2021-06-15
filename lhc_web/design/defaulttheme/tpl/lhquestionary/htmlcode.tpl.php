@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row" ng-non-bindable>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label> <select id="LocaleID" class="form-control">

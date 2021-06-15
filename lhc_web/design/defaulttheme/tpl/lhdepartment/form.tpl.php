@@ -305,7 +305,7 @@
 			     <label><input type="checkbox" name="products_required" value="on" <?php if (isset($departament->product_configuration_array['products_required']) && $departament->product_configuration_array['products_required'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Required');?></label><br>
 			     <hr>
 			     
-			     <div class="form-group">
+			     <div class="form-group" ng-non-bindable>
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Assigned products');?></label>				    
 				    <div class="mx170">
                     	<?php 

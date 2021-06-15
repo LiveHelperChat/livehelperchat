@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Group chat');?></h1>
 
 <?php if (isset($items)) : ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
     <thead>
     <tr>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Name');?></th>

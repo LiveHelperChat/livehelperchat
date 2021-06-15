@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row" ng-non-bindable>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Position from the top, is only used if the Middle left or the Middle right side is chosen');?></label>
@@ -46,7 +46,7 @@
 </div>
 
 
-<div class="row">
+<div class="row" ng-non-bindable>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label> <select class="form-control" id="LocaleID">
@@ -101,7 +101,7 @@
 
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the footer, before the closing &lt;/body&gt; tag');?></p>
-<textarea style="width: 100%; height: 180px; font-size: 12px;" id="HMLTContent"></textarea>
+<textarea ng-non-bindable style="width: 100%; height: 180px; font-size: 12px;" id="HMLTContent"></textarea>
 
 <script type="text/javascript">
 var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';

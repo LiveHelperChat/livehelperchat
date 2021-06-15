@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Command, do not add ! prefix');?></label>
     <input type="text" class="form-control" name="command" placeholder="go2bot" value="<?php echo htmlspecialchars($item->command);?>" />
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department, if you do not choose command will be available to all departments.');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'dep_id',
@@ -16,7 +16,7 @@
     ) ); ?>
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'bot_id',

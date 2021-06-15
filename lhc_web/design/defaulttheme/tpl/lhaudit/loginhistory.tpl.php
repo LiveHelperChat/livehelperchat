@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Login history')?></h1>
 
-<form action="<?php echo $input->form_action?>" method="get" class="pb-2" name="SearchFormRight" autocomplete="off">
+<form ng-non-bindable action="<?php echo $input->form_action?>" method="get" class="pb-2" name="SearchFormRight" autocomplete="off">
     <input type="hidden" name="doSearch" value="1">
     <div class="row">
         <div class="col-md-3">
@@ -16,7 +16,7 @@
 </form>
 
 <?php if (isset($items)) : ?>
-    <table class="table table-sm" cellpadding="0" cellspacing="0" width="100%">
+    <table class="table table-sm" ng-non-bindable cellpadding="0" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ID');?></th>

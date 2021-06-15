@@ -1,4 +1,4 @@
-<h1>Password requirements</h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Password requirements')?></h1>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" autocomplete="off">
+<form ng-non-bindable action="" method="post" autocomplete="off">
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','User has to change password every n days');?></label>
         <input type="text" class="form-control" name="expires_in" value="<?php (isset($password_data['expires_in'])) ? print htmlspecialchars($password_data['expires_in']) : print '' ?>" />

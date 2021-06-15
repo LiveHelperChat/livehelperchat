@@ -1,6 +1,6 @@
 <?php if (isset($startchatoption['show_department']) && $startchatoption['show_department'] == true) : ?>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Name');?></label>		
     <input type="text" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>" name="name" value="<?php echo htmlspecialchars($start_chat_item->name);?>" />
 </div>
@@ -398,7 +398,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
             <label><input type="checkbox" value="on" name="RequireLockForPassedDepartment" <?php (isset($start_chat_data['requires_dep_lock']) && $start_chat_data['requires_dep_lock'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','User can not change passed department.');?></label>
 
             <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption')?></h4>
-            <div class="form-group">
+            <div class="form-group" ng-non-bindable>
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Encryption key, min length 40');?></label> 
 				<input class="form-control" type="text" name="CustomFieldsEncryption" value="<?php (isset($start_chat_data['custom_fields_encryption'])) ? print htmlspecialchars($start_chat_data['custom_fields_encryption']) : ''?>" />
 			</div>

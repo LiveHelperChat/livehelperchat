@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" ng-non-bindable>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form.tpl.php'));?>
 

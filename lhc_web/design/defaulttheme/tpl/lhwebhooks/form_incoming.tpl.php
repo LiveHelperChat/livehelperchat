@@ -1,17 +1,17 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Name');?></label>
     <input type="text" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name);?>" />
 </div>
 
 <div class="row">
     <div class="col-6">
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Identifier');?></label>
             <input type="text" class="form-control form-control-sm" name="identifier" onkeyup="$('#api-incoming-url').val($('#api-incoming-url').attr('data-base')+$(this).val())" value="<?php echo htmlspecialchars($item->identifier);?>" />
         </div>
     </div>
     <div class="col-6">
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Scope. This should be the same for all same provider implementations.');?></label>
             <input type="text" class="form-control form-control-sm" name="scope" value="<?php echo htmlspecialchars($item->scope);?>" />
         </div>

@@ -1,6 +1,6 @@
 <form action="" method="get">
 
-<div class="row form-group">
+<div class="row form-group" ng-non-bindable>
     
     
 	<div class="col-md-3">

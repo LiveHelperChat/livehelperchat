@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-lg">
+<div ng-non-bindable class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
 

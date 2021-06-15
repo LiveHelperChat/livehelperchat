@@ -15,7 +15,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<div>
+<div ng-non-bindable>
     <form action="<?php echo erLhcoreClassDesign::baseurl('user/import')?>" method="post" enctype="multipart/form-data">
 
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

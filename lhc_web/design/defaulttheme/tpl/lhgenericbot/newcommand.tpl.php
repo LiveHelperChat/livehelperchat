@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newcommand')?>" method="post" enctype="multipart/form-data">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newcommand')?>" method="post" enctype="multipart/form-data">
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form_command.tpl.php'));?>
 

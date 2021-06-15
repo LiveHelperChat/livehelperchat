@@ -5,7 +5,7 @@ if (!isset($gaOptions['ga_enabled']) || $gaOptions['ga_enabled'] == false) : ?>
     <?php $errors = [erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Please enable events tracking first!')]; ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php else : ?>
-    <table class="table" cellpadding="0" cellspacing="0">
+    <table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Name');?></th>

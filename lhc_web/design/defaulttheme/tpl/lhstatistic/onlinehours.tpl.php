@@ -2,7 +2,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/onlinehours/search_panel.tpl.php')); ?>
 
-<table class="table" cellpadding="0" cellspacing="0" width="100%">
+<table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>

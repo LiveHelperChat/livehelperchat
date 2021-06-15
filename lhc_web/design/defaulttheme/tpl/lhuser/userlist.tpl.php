@@ -7,7 +7,7 @@
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');
 	$canLoginAs = $currentUser->hasAccessTo('lhuser','loginas');
 ?>
-<table class="table table-sm" cellpadding="0" cellspacing="0" width="100%">
+<table class="table table-sm" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
 <thead>
 <tr>
     <th width="1%">ID</th>

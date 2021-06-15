@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" ng-non-bindable>
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/recaptcha','This works with V3 re-captcha.');?> <a href="https://www.google.com/recaptcha/admin#v3signup" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/recaptcha','Get Re-captcha keys');?></a></p>
 

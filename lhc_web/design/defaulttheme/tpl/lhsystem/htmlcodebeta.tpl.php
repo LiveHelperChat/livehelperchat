@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
-<div role="tabpanel">
+<div role="tabpanel" ng-non-bindable>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">

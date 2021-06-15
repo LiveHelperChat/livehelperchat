@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','HTML code');?></h1>
 
-<div class="row">
+<div class="row" ng-non-bindable>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Popup width');?></label>
@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row" ng-non-bindable>
 	<div class="col-md-6">
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','For what domain you are generating embed code?');?></label> 

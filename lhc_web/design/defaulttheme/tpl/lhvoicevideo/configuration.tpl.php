@@ -8,8 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
-
+<form action="" method="post" ng-non-bindable>
 
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Features'); ?></h5>
 

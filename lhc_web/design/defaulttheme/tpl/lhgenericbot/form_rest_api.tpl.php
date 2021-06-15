@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name');?></label>
     <input type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Description');?></label>
     <input type="text" class="form-control" name="description"  value="<?php echo htmlspecialchars($item->description);?>" />
 </div>

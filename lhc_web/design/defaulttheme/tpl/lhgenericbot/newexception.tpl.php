@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newexception')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newexception')?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form_exception.tpl.php'));?>
 

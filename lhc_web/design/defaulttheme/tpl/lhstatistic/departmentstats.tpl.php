@@ -4,7 +4,7 @@ $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslati
 $modalBodyClass = 'p-1'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<div class="modal-body">
+<div class="modal-body" ng-non-bindable>
     <div class="p-2">
         <ul class="nav nav-pills mb-3" role="tablist">
             <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link active" aria-controls="dep-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>

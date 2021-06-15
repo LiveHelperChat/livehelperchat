@@ -1,6 +1,6 @@
 <h1 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Audit Configuration')?></h1>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

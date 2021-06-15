@@ -5,12 +5,12 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<ul>
+<ul ng-non-bindable>
     <li><b><?php echo htmlspecialchars(erLhcoreClassModules::getModuleName($function->module))?> (<?php echo $function->module?>)</b></li>
     <li><b><?php echo htmlspecialchars(erLhcoreClassModules::getFunctionName($function->module,$function->function))?> (<?php echo $function->function?>)</b></li>
 </ul>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">

@@ -4,7 +4,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" ng-non-bindable>
 
 <div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Set application specific time zone');?></label>

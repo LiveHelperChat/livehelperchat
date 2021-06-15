@@ -8,7 +8,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<div role="tabpanel">
+<div role="tabpanel" ng-non-bindable>
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs mb-2" role="tablist">

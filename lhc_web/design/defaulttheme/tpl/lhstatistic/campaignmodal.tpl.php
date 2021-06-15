@@ -10,7 +10,7 @@ $modalSize = 'md';
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<table class="table">
+<table class="table" ng-non-bindable>
     <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Parameter');?></th>

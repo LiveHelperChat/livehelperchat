@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Translations groups')?></h1>
 
 <?php if (isset($items)) : ?>
-    <table class="table table-sm" cellpadding="0" cellspacing="0" width="100%">
+    <table class="table table-sm" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Name');?></th>

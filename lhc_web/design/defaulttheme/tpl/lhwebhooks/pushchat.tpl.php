@@ -14,7 +14,7 @@
 
 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'You will initiate chat as it was response to incoming webhook.'); ?></p>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'Webhook'); ?></label>

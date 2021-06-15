@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('groupchat/new')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('groupchat/new')?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgroupchat/form.tpl.php'));?>
 

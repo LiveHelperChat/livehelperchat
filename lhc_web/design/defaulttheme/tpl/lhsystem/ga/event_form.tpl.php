@@ -1,9 +1,9 @@
 <?php if (isset($eventtrackoptions['show_department']) && $eventtrackoptions['show_department'] == true) : ?>
-    <div class="form-group">
+    <div class="form-group" ng-non-bindable>
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Name');?></label>
         <input type="text" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>" name="name" value="<?php echo htmlspecialchars($event_item->name);?>" />
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-non-bindable>
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
         <?php
         $params = array (
@@ -41,7 +41,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     <textarea rows="6" ng-non-bindable name="js_static" class="form-control form-control-sm"><?php isset($ga_options['js_static']) ? print htmlspecialchars($ga_options['js_static']) : print ''?></textarea>
 </div>
 
-<ul class="nav nav-tabs mb-3" role="tablist">
+<ul class="nav nav-tabs mb-3" role="tablist" ng-non-bindable>
     <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Widget');?></a></li>
     <li role="presentation" class="nav-item"><a href="#chat" class="nav-link<?php if ($tab == 'chat') : ?> active<?php endif;?>" aria-controls="chat" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Chat');?></a></li>
     <li role="presentation" class="nav-item"><a href="#invitation" class="nav-link<?php if ($tab == 'invitation') : ?> active<?php endif;?>" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Invitation');?></a></li>
@@ -49,7 +49,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     <li role="presentation" class="nav-item"><a href="#bot" class="nav-link<?php if ($tab == 'bot') : ?> active<?php endif;?>" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Bot');?></a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" ng-non-bindable>
     <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="widget">
 
         <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [clickAction]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['clickAction_on']) && $ga_options['clickAction_on'] == 1) : ?>checked="checked"<?php endif;?> name="clickAction_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Status was clicked')?></label>

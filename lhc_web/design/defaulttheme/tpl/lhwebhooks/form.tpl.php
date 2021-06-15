@@ -10,7 +10,7 @@
         <div class="form-group">
             <label><input type="radio" value="0" name="type" <?php if ($item->type == 0) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is hook event');?></label>
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
             <input type="text" class="form-control" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
         </div>
