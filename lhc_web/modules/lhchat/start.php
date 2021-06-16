@@ -121,11 +121,14 @@ $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $P
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('bot',$Params['user_parameters_unordered']['bot'] != '' ? (int)$Params['user_parameters_unordered']['bot'] : null);
 $tpl->set('online',$online);
+$tpl->set('font_size',$Params['user_parameters_unordered']['fs'] != '' ? (int)$Params['user_parameters_unordered']['fs'] : null);
 $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
 $tpl->set('sound',is_numeric($Params['user_parameters_unordered']['sound']) ? (int)$Params['user_parameters_unordered']['sound'] : (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['new_message_sound_user_enabled']);
+$tpl->set('app_scope', 'lhc');
 
 if ($Params['user_parameters_unordered']['scope'] != ''){
     $Result['app_scope'] = strip_tags($Params['user_parameters_unordered']['scope']);
+    $tpl->set('app_scope', strip_tags($Params['user_parameters_unordered']['scope']));
 }
 
 $ts = time();

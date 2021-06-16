@@ -33,6 +33,12 @@ export class storageHandler {
         }
 
         try {
+            this.hasLocalStorage = !!this.window.localStorage;
+        } catch (e){
+            this.hasLocalStorage = false;
+        }
+
+        try {
             // Create cookie
             document.cookie = 'cookietest=1';
             this.cookieEnabled = document.cookie.indexOf('cookietest=') !== -1;
@@ -111,6 +117,25 @@ export class storageHandler {
     getSessionStorage(a) {
         return this.hasSessionStorage && sessionStorage.getItem ?
             sessionStorage.getItem(a) : null
+    }
+
+    setLocalStorage(key, value) {
+        if (this.hasLocalStorage && localStorage.setItem) try {
+            localStorage.setItem(key, value)
+        } catch (d) {
+        }
+    }
+
+    getLocalStorage(a) {
+        return this.hasLocalStorage && localStorage.getItem ?
+            localStorage.getItem(a) : null
+    }
+
+    removeLocalStorage(key) {
+        if (this.hasLocalStorage && localStorage.removeItem) try {
+            localStorage.removeItem(key)
+        } catch (d) {
+        }
     }
 
     setSessionReferer(ref) {

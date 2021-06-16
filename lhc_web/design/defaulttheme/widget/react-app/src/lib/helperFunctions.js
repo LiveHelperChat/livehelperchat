@@ -20,6 +20,12 @@ class _helperFunctions {
             this.hasSessionStorage = false;
         }
 
+        try {
+            this.hasLocalStorage = !!window.localStorage;
+        } catch (e) {
+            this.hasLocalStorage = false;
+        }
+
     }
 
     emitEvent(event, data, internal) {
@@ -55,6 +61,13 @@ class _helperFunctions {
         }
     }
 
+    setLocalStorage(key, value) {
+        if (this.hasLocalStorage && localStorage.setItem) try {
+            localStorage.setItem(this.prefix + key, value)
+        } catch (d) {
+        }
+    }
+
     setSessionStorage(key, value) {
         if (this.hasSessionStorage && sessionStorage.setItem) try {
             sessionStorage.setItem(this.prefix + key, value)
@@ -66,8 +79,16 @@ class _helperFunctions {
         return this.hasSessionStorage && sessionStorage.getItem ? sessionStorage.getItem(this.prefix + a) : null
     }
 
+    getLocalStorage(a) {
+        return this.hasLocalStorage && localStorage.getItem ? localStorage.getItem(this.prefix + a) : null
+    }
+
     removeSessionStorage(a) {
         this.hasSessionStorage && sessionStorage.removeItem && sessionStorage.removeItem(this.prefix + a);
+    }
+
+    removeLocalStorage(a) {
+        this.hasLocalStorage && localStorage.removeItem && localStorage.removeItem(this.prefix + a);
     }
 
     getTimeZone() {

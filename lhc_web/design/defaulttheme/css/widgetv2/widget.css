@@ -6,12 +6,12 @@ body {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v3.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v4.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v3.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v3.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v3.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v4.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v4.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v4.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -1013,4 +1013,16 @@ textarea[name=ChatMessage] {
     right: 0;
     top:-5px;
     z-index: 2;
+}
+
+.font-button{
+    font-size: 18px;
+    text-decoration: none;
+    color:#6c757d;
+}
+
+.font-button:hover i,
+.font-button:hover{
+    text-decoration: none;
+    color: #000000!important;
 }

@@ -136,6 +136,10 @@ try {
                     $outputResponse['chat_ui']['msg_expand'] = true;
                 }
 
+                if (isset($theme->bot_configuration_array['font_size']) && $theme->bot_configuration_array['font_size'] == true) {
+                    $outputResponse['chat_ui']['font_size'] = true;
+                }
+
                 // Theme configuration overrides default settings
                 if (isset($theme->bot_configuration_array['hide_bb_code']) && $theme->bot_configuration_array['hide_bb_code'] == true) {
                     $outputResponse['chat_ui']['bbc_btnh'] = true;

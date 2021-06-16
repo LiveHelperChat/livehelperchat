@@ -119,6 +119,12 @@ export class mainWidgetPopup {
                 }
             }
 
+            var fontSize = this.attributes.storageHandler.getLocalStorage(this.attributes['prefixStorage']+'_dfs');
+
+            if (fontSize) {
+                urlArgumetns = urlArgumetns + "/(fs)/" + parseInt(fontSize);
+            }
+
             if (this.attributes['leaveMessage'] === true) {
                 urlArgumetns = urlArgumetns + "/(leaveamessage)/true";
             }

@@ -3,6 +3,14 @@
 <?php else : ?>
 <script>
 (function (){
+
+    <?php if (isset($font_size) && $font_size > 0) : ?>
+    if (!!window.localStorage && localStorage.setItem) try {
+        localStorage.setItem(<?php echo json_encode($app_scope);?>+'_dfs',<?php echo $font_size?>);
+    } catch (d) {
+    }
+    <?php endif; ?>
+
     var initParams = <?php
         $params = array(
             'mode' => $mode,

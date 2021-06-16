@@ -1,18 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <!--
-2021-4-22: Created.
+2021-6-14: Created.
 -->
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Thu Apr 22 10:00:58 2021
+Created by FontForge 20120731 at Mon Jun 14 10:12:49 2021
  By root
 
 </metadata>
 <defs>
-<font id="MaterialIcons-lhc" horiz-adv-x="512" >
+<font id="MaterialIcons-lhc-v3" horiz-adv-x="512" >
   <font-face 
-    font-family="MaterialIcons-lhc"
+    font-family="MaterialIcons-lhc-v3"
     font-weight="500"
     font-stretch="normal"
     units-per-em="512"
@@ -22,7 +22,7 @@ Created by FontForge 20120731 at Thu Apr 22 10:00:58 2021
     bbox="0 -42.667 512 426.667"
     underline-thickness="25.6"
     underline-position="-51.2"
-    unicode-range="U+0020-F11C"
+    unicode-range="U+0020-F11D"
   />
     <missing-glyph />
     <glyph glyph-name="space" unicode=" " horiz-adv-x="200" 
@@ -53,6 +53,8 @@ d="M448 42.667c0 -23.4668 -19.2002 -42.667 -42.667 -42.667h-298.666c-23.4668 0 -
 l-96 128l-74.666 -96.2129z" />
     <glyph glyph-name="ic_menu_24px" unicode="&#xf105;" 
 d="M64 64v42.667h384v-42.667h-384zM64 170.667v42.666h384v-42.666h-384zM64 320h384v-42.667h-384v42.667z" />
+    <glyph glyph-name="ic_format_size_24px" unicode="&#xf11d;" 
+d="M192 362.667h277.333v-64h-106.666v-256h-64v256h-106.667v64zM64 192v64h192v-64h-64v-149.333h-64v149.333h-64z" />
     <glyph glyph-name="ic_face_24px" unicode="&#xf104;" 
 d="M192 197.333c14.7197 0 26.667 -11.9463 26.667 -26.666c0 -14.7207 -11.9473 -26.667 -26.667 -26.667s-26.667 11.9463 -26.667 26.667c0 14.7197 11.9473 26.666 26.667 26.666zM320 197.333c14.7197 0 26.667 -11.9463 26.667 -26.666
 c0 -14.7207 -11.9473 -26.667 -26.667 -26.667s-26.667 11.9463 -26.667 26.667c0 14.7197 11.9473 26.666 26.667 26.666zM256 405.333c117.76 0 213.333 -95.5732 213.333 -213.333s-95.5732 -213.333 -213.333 -213.333s-213.333 95.5732 -213.333 213.333

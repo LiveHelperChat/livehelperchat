@@ -19,6 +19,7 @@ import { Suspense, lazy } from 'react';
 
 const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
 const MailModal = React.lazy(() => import('./MailModal'));
+const FontSizeModal = React.lazy(() => import('./FontSizeModal'));
 
 @connect((store) => {
     return {
@@ -40,10 +41,12 @@ class OnlineChat extends Component {
         gotToSurvey : false,
         voiceMode : false,
         showMail : false,
+        changeFontSize : false,
         errorMode: false,
         hasNew: false,
         newId: 0, // From what index there is a new messages
         scrollButton: false,
+        fontSize: 100,
         otm: 0 // New operator messages
     };
 
@@ -65,6 +68,7 @@ class OnlineChat extends Component {
         this.sendMessage = this.sendMessage.bind(this);
         this.endChat = this.endChat.bind(this);
         this.mailChat = this.mailChat.bind(this);
+        this.changeFont = this.changeFont.bind(this);
         this.voiceCall = this.voiceCall.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.setStatusText = this.setStatusText.bind(this);
@@ -80,6 +84,7 @@ class OnlineChat extends Component {
         this.cancelVoiceRecording = this.cancelVoiceRecording.bind(this);
         this.onScrollMessages = this.onScrollMessages.bind(this);
         this.scrollToMessage = this.scrollToMessage.bind(this);
+        this.changeFontAction = this.changeFontAction.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -171,11 +176,24 @@ class OnlineChat extends Component {
         }
     }
 
+    changeFontAction(action){
+        this.setState({
+            fontSize: this.state.fontSize + (action == true ? 5 : -5)
+        });
+        helperFunctions.setLocalStorage('_dfs',this.state.fontSize);
+        this.scrollBottom();
+    }
+
     componentDidMount() {
 
         var txtTyping = helperFunctions.getSessionStorage('_ttxt');
         if (txtTyping !== null) {
             this.setState({value: txtTyping})
+        }
+
+        var defaultFontSize = helperFunctions.getLocalStorage('_dfs');
+        if (defaultFontSize !== null) {
+            this.setState({fontSize: parseInt(defaultFontSize)})
         }
 
         // We want to focus only if widget is open
@@ -659,6 +677,12 @@ class OnlineChat extends Component {
         });
     }
 
+    changeFont() {
+        this.setState({
+            changeFontSize: !this.state.changeFontSize
+        });
+    }
+
     voiceCall() {
 
         const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
@@ -837,6 +861,8 @@ class OnlineChat extends Component {
 
             const endTitle = this.props.chatwidget.getIn(['chat_ui','end_chat_text']) || t('button.end_chat');
 
+            const fontSizeStyle = {fontSize: (this.props.chatwidget.hasIn(['chat_ui','font_size']) ? this.state.fontSize : '100') + '%'};
+
             return (
                 <React.Fragment>
 
@@ -852,7 +878,9 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
-                    {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
+                    {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} changeFont={this.changeFont} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
+
+                    {this.state.changeFontSize && <Suspense fallback="..."><FontSizeModal showModal={this.state.changeFontSize} toggle={this.changeFont} changeFont={this.changeFontAction} /></Suspense>}
 
                     {this.props.chatwidget.get('mode') == 'embed' && this.props.chatwidget.hasIn(['chat_ui','embed_cls']) && this.props.chatwidget.getIn(['chat_ui','embed_cls']) == 1 && <div className="close-modal-btn position-absolute">
                         {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons settings text-muted">&#xf10a;</i><span className="embed-close-title">{endTitle}</span></a>}
@@ -861,7 +889,7 @@ class OnlineChat extends Component {
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} id="messagesBlock" onScroll={this.onScrollMessages}>
-                        <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
+                        <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
                         </div>
@@ -886,6 +914,7 @@ class OnlineChat extends Component {
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && <a onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted">&#xf117;</i></a>}
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <a onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons chat-setting-item text-muted">&#xf104;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted">&#xf11a;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','font_size']) && <a onClick={(event) => this.changeFont(event)}><i className="material-icons chat-setting-item text-muted">&#xf11d;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons chat-setting-item text-muted">&#xf10a;</i></a>}
                                     </div>
                                 </div>
