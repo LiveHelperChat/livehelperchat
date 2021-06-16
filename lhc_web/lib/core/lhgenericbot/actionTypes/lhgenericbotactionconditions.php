@@ -34,6 +34,8 @@ class erLhcoreClassGenericBotActionConditions {
 
                     if ($paramsConditions[0] == 'lhc') {
                         $attr = $chat->{$paramsConditions[1]};
+                    } elseif ($paramsConditions[0] == 'siteaccess') {
+                        $attr = erLhcoreClassSystem::instance()->SiteAccess;
                     } elseif ($paramsConditions[0] == 'online_department_hours') {
                         $attr = erLhcoreClassChat::isOnline($chat->dep_id,false, array(
                             'exclude_bot' => true,
