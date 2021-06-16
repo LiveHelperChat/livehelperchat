@@ -11,7 +11,7 @@ curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_URL, 'https://devmysql.livehelperchat.com/index.php/webhooks/incoming/chat_apisasdd_sdasdasd');
+curl_setopt($ch, CURLOPT_URL, 'https://demo.livehelperchat.com/index.php/webhooks/incoming/chat_apisasdd_sdasdasd');
 @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
