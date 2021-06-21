@@ -324,6 +324,10 @@ class erLhcoreClassGenericBotActionRestapi
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
         }
 
+        foreach ($replaceVariablesJSON as $keyVariable) {
+            $replaceVariablesJSON['raw_'.$keyVariable] = trim($replaceVariablesJSON[$keyVariable],"\"");
+        }
+
         if (isset($methodSettings['conditions']) && is_array($methodSettings['conditions']) && !empty($methodSettings['conditions'])) {
             foreach ($methodSettings['conditions'] as $condition){
 
