@@ -56,8 +56,8 @@ if (isset($_POST['UploadFileAction'])) {
 
             foreach ($data as $item) {
 
-                if (is_numeric($item['id'])) {
-                    $cannedMessage = erLhcoreClassModelCannedMsg::fetch($item['id']);
+                if (!empty($item['unique_id'])) {
+                    $cannedMessage = erLhcoreClassModelCannedMsg::findOne(array('filter' => array('unique_id' => $item['unique_id'])));
                 }
 
                 if (!($cannedMessage instanceof erLhcoreClassModelCannedMsg)) {

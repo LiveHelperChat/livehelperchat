@@ -2,7 +2,11 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
-$payload = json_decode(file_get_contents('php://input'),true);
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $payload = $_GET;
+} else {
+    $payload = json_decode(file_get_contents('php://input'),true);
+}
 
 if (isset($payload['vid_id']) && is_numeric($payload['vid_id'])) {
     $onlineUser = erLhcoreClassModelChatOnlineUser::fetch($payload['vid_id']);
@@ -15,7 +19,7 @@ if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->v
     exit;
 }
 
-if (is_numeric($payload['invitation']) && $payload['invitation'] > 0/*&& ($onlineUser->invitation_id == 0 || $onlineUser->invitation_id != $payload['invitation'])*/) {
+if (is_numeric($payload['invitation']) && $payload['invitation'] > 0) {
     erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
 }
 
@@ -77,6 +81,7 @@ if (isset($payload['theme']) && $payload['theme'] > 0) {
         if ($theme->intro_operator_text != '') {
             $outputResponse['extra_profile'] = $theme->intro_operator_text;
         }
+
     }
 }
 
@@ -147,13 +152,67 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
 
+        if (isset($invitation->design_data_array['message_bottom']) && is_numeric($invitation->design_data_array['message_bottom']) && $invitation->design_data_array['message_bottom'] > 0) {
+            $outputResponse['message_bottom'] = (int)$invitation->design_data_array['message_bottom'];
+        }
+
+        if (isset($invitation->design_data_array['message_right']) && is_numeric($invitation->design_data_array['message_right']) && $invitation->design_data_array['message_right'] > 0) {
+            $outputResponse['message_right'] = (int)$invitation->design_data_array['message_right'];
+        }
+
         if (isset($invitation->design_data_array['std_header']) && $invitation->design_data_array['std_header'] == true) {
             $outputResponse['std_header'] = true;
         }
 
+        if (isset($invitation->design_data_array['play_sound']) && $invitation->design_data_array['play_sound'] == true) {
+            $outputResponse['play_sound'] = true;
+        } else {
+            $outputResponse['play_sound'] = false;
+        }
+
         $outputResponse['invitation_name'] = $invitation->name;
     }
+
+} else if (isset($onlineUser->online_attr_system_array['lhc_start_chat']) && $onlineUser->chat_id > 0) {
+
+    $onlineAttrSystem = $onlineUser->online_attr_system_array;
+    unset($onlineAttrSystem['lhc_start_chat']);
+
+    $onlineUser->online_attr_system_array = $onlineAttrSystem;
+    $onlineUser->online_attr_system = json_encode($onlineAttrSystem);
+    $onlineUser->updateThis(array('update' => array('online_attr_system')));
+
+    $chat = $onlineUser->chat;
+    if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT))) {
+        $outputResponse['chat_id'] = $onlineUser->chat_id;
+        $outputResponse['chat_hash'] = $onlineUser->chat->hash;
+    }
 }
+
+// Show previous messages for invitation also
+if (isset($theme) && isset($theme->bot_configuration_array['prev_msg']) && $theme->bot_configuration_array['prev_msg'] == true) {
+    $previousChat = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC', 'limit' => 1, 'filter' => array('online_user_id' => $onlineUser->id)));
+
+    if ($previousChat instanceof erLhcoreClassModelChat) {
+
+        if ($previousChat->has_unread_op_messages == 1) {
+            $previousChat->unread_op_messages_informed = 0;
+            $previousChat->has_unread_op_messages = 0;
+            $previousChat->unanswered_chat = 0;
+            $previousChat->updateThis(array('update' => array('unread_op_messages_informed','has_unread_op_messages','unanswered_chat')));
+        }
+
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/previous_chat.tpl.php');
+        $tpl->set('messages', erLhcoreClassChat::getPendingMessages((int)$previousChat->id,  0));
+        $tpl->set('chat',$previousChat);
+        $tpl->set('sync_mode','');
+        $tpl->set('async_call',true);
+        $tpl->set('theme',$theme);
+        $tpl->set('react',true);
+        $outputResponse['prev_msg'] = $tpl->fetch();
+    }
+}
+
 
 if (strpos($outputResponse['message'],'{operator}') !== false) {
     $outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'], $outputResponse['message']);
@@ -167,7 +226,7 @@ if (!isset($outputResponse['invitation_name'])) {
     $outputResponse['invitation_name'] = 'Manual';
 }
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.getinvitation',array('output' => & $outputResponse, 'ou' => $onlineUser, 'theme' => (isset($theme) ? $theme : null)));
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;

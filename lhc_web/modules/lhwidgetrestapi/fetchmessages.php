@@ -1,14 +1,19 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
-$requestPayload = json_decode(file_get_contents('php://input'),true);
+
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $requestPayload = $_GET;
+} else {
+    $requestPayload = json_decode(file_get_contents('php://input'),true);
+}
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
 
 try {
     if (isset($requestPayload['chat_id'])) {
-        $chat = erLhcoreClassModelChat::fetch($requestPayload['chat_id']);
+        $chat = erLhcoreClassModelChat::fetchAndLock($requestPayload['chat_id']);
     } else {
         $chat = false;
     }
@@ -24,6 +29,7 @@ $saveChat = false;
 $operation = '';
 $operatorId = 0;
 $visitorTotalMessages = 0;
+$operatorTotalMessages = 0;
 
 $responseArray = array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_DEFAULT);
 
@@ -90,11 +96,14 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 				        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncuser.tpl.php');
 				        $tpl->set('messages',$Messages);
 				        $tpl->set('chat',$chat);
-				        $tpl->set('sync_mode',/*isset($Params['user_parameters_unordered']['mode']) ? $Params['user_parameters_unordered']['mode'] :*/ '');
+				        $tpl->set('sync_mode','');
 
 				        if ($requestPayload['lmgsid'] == 0) {
                             if (isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == true) {
                                 $tpl->set('chat_started_now',true);
+                                if (isset($requestPayload['old_msg_id']) && is_numeric($requestPayload['old_msg_id']) && $requestPayload['old_msg_id'] > 0) {
+                                    $tpl->set('old_msg_id',(int)$requestPayload['old_msg_id']);
+                                }
                             }
                         } else {
                             $tpl->set('async_call',true);
@@ -121,11 +130,11 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
 				        	if ($msg['user_id'] == 0) {
                                 $visitorTotalMessages++;
+                            } else {
+                                $operatorTotalMessages++;
                             }
 
-                            if ((int)$requestPayload['lmgsid'] == 0) {
-                                $operatorIdLast = (int)$msg['user_id'];
-                            }
+                            $operatorIdLast = (int)$msg['user_id'];
 
                             $LastMessageID = $msg['id'];
 				        }
@@ -145,8 +154,10 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 		    	$responseArray['closed'] = true;
 		    }
 
+		    $updateFields = array('lsync');
 		    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED) {
 		    	$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
+                $updateFields[] = 'status_sub';
 		    	$saveChat = true;
 		    }
 
@@ -161,11 +172,13 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 		    if ($chat->operation != '') {
 		    	$operation = explode("\n", trim($chat->operation));
 		    	$chat->operation = '';
+                $updateFields[] = 'operation';
 		    	$saveChat = true;
 		    }
 
 		    if ($chat->user_status != 0) {
 		    	$chat->user_status = 0;
+                $updateFields[] = 'user_status';
 		    	$saveChat = true;
 		    }
 
@@ -174,20 +187,22 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 		    	$chat->unread_op_messages_informed = 0;
 		    	$chat->has_unread_op_messages = 0;
                 $chat->unanswered_chat = 0;
+                $updateFields[] = 'unread_op_messages_informed';
+                $updateFields[] = 'has_unread_op_messages';
+                $updateFields[] = 'unanswered_chat';
 		    	$saveChat = true;
 		    }
 
+		    if (isset($responseArray['closed']) && $responseArray['closed'] == true) {
+                $chatVariables = $chat->chat_variables_array;
+                if (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0) {
+                    $responseArray['disable_survey'] = true;
+                }
+            }
+
 		    if ($saveChat === true || $chat->lsync < time()-30) {
 		        $chat->lsync = time();
-		    	$chat->updateThis(array('update' => array(
-		    	    'lsync',
-                    'unanswered_chat',
-                    'has_unread_op_messages',
-                    'unread_op_messages_informed',
-                    'user_status',
-                    'operation',
-                    'status_sub',
-                )));
+		    	$chat->updateThis(array('update' => $updateFields));
 		    }
 
 		    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser',array('chat' => & $chat, 'response' => & $responseArray));
@@ -206,7 +221,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 $responseArray['op'] = $operation;
 $responseArray['uw'] = $userOwner;
 $responseArray['msop'] = $operatorId;
-if (isset($operatorIdLast)) {
+if (isset($operatorIdLast) && $operatorIdLast != $operatorId) {
     $responseArray['lmsop'] = $operatorIdLast;
 }
 $responseArray['ott'] = $ott;
@@ -214,6 +229,11 @@ $responseArray['ott'] = $ott;
 // Append how many of messages ones are visitor ones
 if ($visitorTotalMessages > 0) {
     $responseArray['vtm'] = $visitorTotalMessages;
+}
+
+// Append how many of messages ones are visitor ones
+if ($operatorTotalMessages > 0) {
+    $responseArray['otm'] = $operatorTotalMessages;
 }
 
 $responseArray['message_id'] = (int)$LastMessageID;

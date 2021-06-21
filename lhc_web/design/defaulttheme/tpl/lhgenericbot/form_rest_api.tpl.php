@@ -1,9 +1,9 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name');?></label>
     <input type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Description');?></label>
     <input type="text" class="form-control" name="description"  value="<?php echo htmlspecialchars($item->description);?>" />
 </div>
@@ -66,7 +66,7 @@
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="params-rest-{{$index}}">
 
-            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_all}} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','all chat messages');?>, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{footprint}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></p>
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 
             <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.query)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 
@@ -96,12 +96,24 @@
                 <select ng-model="param.authorization" class="form-control form-control-sm">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Skip')?></option>
                     <option value="basicauth">Basic Auth</option>
+                    <option value="NTLMauth">NTLM Auth</option>
                     <option value="bearer">Bearer token</option>
                     <option value="apikey">API Key</option>
                 </select>
             </div>
 
             <div ng-if="param.authorization == 'basicauth'">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_username" placeholder="Username">
+                    </div>
+                    <div class="col-6">
+                        <input type="password" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-if="param.authorization == 'NTLMauth'">
                 <div class="row">
                     <div class="col-6">
                         <input type="text" autocomplete="new-password" class="form-control form-control-sm" ng-model="param.auth_username" placeholder="Username">
@@ -206,7 +218,8 @@
                 <select ng-model="param.body_request_type" class="form-control form-control-sm">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','none')?></option>
                     <option value="raw"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','raw (Use this to send JSON Body)')?></option>
-                    <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form data (Use this to send post parameters)')?></option>
+                    <option value="form-data"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','form-data (Use this to send post parameters)')?></option>
+                    <option value="form-data-urlencoded"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','x-www-form-urlencoded (Use this to send post parameters encoded in URL)')?></option>
                 </select>
             </div>
 
@@ -224,14 +237,27 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{msg_clean}}, {{msg_url}}, {{chat_id}}, {{lhc.nick}}, {{lhc.email}}, {{lhc.department}}, {{lhc.dep_id}}, {{ip}}, {{lhc.add. &lt;additional variable key/identifier&gt;}}, User parameters {{Location/Key}}</code></label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Paste your request here (E.g JSON body). You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></label>
                     <textarea rows="10" class="form-control form-control-sm" ng-model="param.body_raw"></textarea>
                 </div>
+
+                <hr>
+                
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Sub URL for file');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="param.suburl_file" placeholder="" value="" />
+                </div>
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If you are sending file you can have a different body content')?></label>
+                    <textarea rows="10" class="form-control form-control-sm" ng-model="param.body_raw_file"></textarea>
+                </div>
+
             </div>
 
-            <div ng-if="param.body_request_type == 'form-data'">
+            <div ng-if="param.body_request_type == 'form-data' || param.body_request_type == 'form-data-urlencoded'">
 
-                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?> <code ng-non-bindable>{{msg}}, {{chat_id}}</code></p>
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','You can put visitor message as placeholder')?>&nbsp;<a href="https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables" target="_blank"><i class="material-icons">help</i></a></p>
 
                 <button type="button" class="btn btn-secondary btn-xs" ng-click="lhcrestapi.addParam(param.postparams)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add param')?></button>
 

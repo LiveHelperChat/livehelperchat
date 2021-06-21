@@ -1,7 +1,12 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
-$requestPayload = json_decode(file_get_contents('php://input'),true);
+
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $requestPayload = $_GET;
+} else {
+    $requestPayload = json_decode(file_get_contents('php://input'),true);
+}
 
 $Params['user_parameters_unordered'] = $requestPayload;
 $Params['user_parameters'] = $requestPayload;
@@ -18,8 +23,10 @@ $tpl->set('react',true);
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
     try {
         $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
-        $theme->translate();
-        $tpl->set('theme',$theme);
+        if (is_object($theme)) {
+            $theme->translate();
+            $tpl->set('theme',$theme);
+        }
     } catch (Exception $e) {
 
     }
@@ -64,7 +71,7 @@ try {
     		$department = $chat->department;
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
-    			if ($department->delay_lm > 0 && $chat->time < $delay) {
+    			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash . (isset($Params['user_parameters']['theme']) && is_numeric($Params['user_parameters']['theme']) ? '/(theme)/'.$Params['user_parameters']['theme'] : '');
     				
@@ -106,7 +113,6 @@ try {
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 	       $activated = 'true';
 	       $tpl->set('is_activated',true);
-	       $ott = ($chat->user !== false) ? $chat->user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 	    } else {
 	       $tpl->set('is_activated',false);
 	    }
@@ -135,7 +141,11 @@ try {
 	    		// We do not store last msg time for chat here, because in any case none of opeators has opened it
 	    	}
 	    }
-	    
+
+	    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+            $responseArray['deleted'] = true;
+        }
+
 	    $tpl->set('chat', $chat);
     } else {
         $responseArray['error'] = 'false';

@@ -8,13 +8,13 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development && cp -v dist/*.js ../../js/widgetv2/",
-    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/widgetv2/",
-    "build-ie": "webpack -p --mode production --config webpack.config.ie.js && cp -v dist/*.js ../../js/widgetv2/",
+    "build-dev": "webpack -d --mode development && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
+    "build": "webpack -p --mode production && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
+    "build-ie": "webpack -p --mode production --config webpack.config.ie.js && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
     "start": "webpack-dev-server --hot --mode development"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap.native": "^2.0.27",
     "bootstrap.native-loader": "^2.0.0",
     "core-js": "^3.6.4",
@@ -23,6 +23,7 @@
     "html-react-parser": "^0.10.1",
     "html-webpack-template": "^6.2.0",
     "i18next": "^19.3.2",
+    "i18next-http-backend": "^1.0.22",
     "i18next-xhr-backend": "^3.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -53,7 +54,7 @@
     "vmsg": "^0.3.6",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.2",
     "xwiper": "^2.2.0"
   }
 }

@@ -4,7 +4,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?><?php $option->id > 0 ? print "/(option_id)/{$option->id}" : ''?>/(tab)/voting" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('questionary/edit')?>/<?php echo $question->id?><?php $option->id > 0 ? print "/(option_id)/{$option->id}" : ''?>/(tab)/voting" method="post">
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Option');?></label>
@@ -26,7 +26,7 @@
 </form>
 
 <?php $optionsItems = erLhcoreClassQuestionary::getList(array('sort' => 'priority DESC','filter' => array('question_id' => $question->id)),'erLhcoreClassModelQuestionOption','lh_question_option'); if (!(empty($optionsItems))) : ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table ng-non-bindable class="table" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>

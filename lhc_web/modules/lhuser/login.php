@@ -100,7 +100,22 @@ if (isset($_POST['Login']))
             if ($valid == false) {
                 $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Google re-captcha validation failed');
             } else {
-                $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+
+                if (erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
+                    $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your account is disabled!');
+                } else {
+                    $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');
+                }
+
+                if (($userAttempt = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $_POST['Username'])))) instanceof erLhcoreClassModelUser) {
+                    erLhcoreClassModelUserLogin::logUserAction(array(
+                        'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
+                        'user_id' => $userAttempt->id,
+                        'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Failed login. WEB')
+                    ));
+
+                    erLhcoreClassModelUserLogin::disableIfRequired($userAttempt);
+                }
             }
 
             $tpl->set('errors',array($Error));
@@ -115,12 +130,16 @@ if (isset($_POST['Login']))
             
             if ($response === false)
             {
-
                 $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
 
-                if (isset($passwordData['expires_in']) && $passwordData['expires_in'] > 0) {
+                $pendResetPassword = erLhcoreClassModelUserLogin::getCount(array('filter' => array(
+                    'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                    'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                    'user_id' => $currentUser->getUserID()))) > 0;
+
+                if ((isset($passwordData['expires_in']) && $passwordData['expires_in'] > 0) || $pendResetPassword == true) {
                    $userData = $currentUser->getUserData();
-                   if ($userData->pswd_updated < time()-($passwordData['expires_in']*24*3600)) {
+                   if ($pendResetPassword == true || ($userData->pswd_updated < time()-($passwordData['expires_in']*24*3600))) {
                        $currentUser->logout();
 
                        $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
@@ -133,6 +152,12 @@ if (isset($_POST['Login']))
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('remember' => (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 1),'is_external' => $isExternalRequest, 'current_user' => $currentUser));
+
+                erLhcoreClassModelUserLogin::logUserAction(array(
+                    'type' => erLhcoreClassModelUserLogin::TYPE_LOGGED,
+                    'user_id' => $currentUser->getUserID(),
+                    'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully. WEB')
+                ));
 
                 if ($isExternalRequest) {
                     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));

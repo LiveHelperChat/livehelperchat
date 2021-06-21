@@ -45,8 +45,11 @@ $tpl->set('start_chat_data',$data);
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.startchatformgenerator.js').'"></script>';
 
-$Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
-array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start chat form settings')));
+$Result['path'] = array(
+    array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
+    array('url' => erLhcoreClassDesign::baseurl('chatsettings/startchatformsettingsindex'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Start chat form settings')),
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Default settings'))
+);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.startchatformsettings_path',array('result' => & $Result));
 

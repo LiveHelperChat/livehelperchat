@@ -1,4 +1,4 @@
-<form action="<?php echo $input->form_action?>" method="get" id="file-search-form">
+<form action="<?php echo $input->form_action?>" method="get" id="file-search-form" ng-non-bindable>
 
     <input type="hidden" name="doSearch" value="1">
 

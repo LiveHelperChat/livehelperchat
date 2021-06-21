@@ -1,9 +1,9 @@
-<div class="card card-dashboard" data-panel-id="online_visitors" ng-init="lhc.getToggleWidget('onvisitors_widget_exp')">
+<div class="card card-dashboard" data-panel-id="online_visitors" id="widget-onvisitors" ng-class="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true ? 'active' : ''" ng-init="lhc.getToggleWidget('onvisitors_widget_exp')">
 	<div class="card-header">
 		<i class="material-icons">face</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?> ({{online.onlineusers.length}})
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('onvisitors_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['onvisitors_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
-	<div ng-if="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true">
+	<div ng-if="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true" id="widget-onvisitors-body">
 
         <div class="p-2">
            <div class="row">
@@ -40,10 +40,12 @@
 					<tr ng-show="group.label != ''">
 						<td><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
       				</tr>
-					<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" ng-class="{recent_visit:(ou.last_visit_seconds_ago < 15)<?php echo $onlineCheck?>}">
+					<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" id="uo-vid-{{ou.vid}}" ng-class="{<?php echo $onlineCheck?>}">
 						<td nowrap="nowrap">
 							<div class="btn-group" role="group" aria-label="...">
-								<a href="#" class="btn btn-xs btn-secondary" ng-class="{'icon-user-away': ou.online_status == 1, 'icon-user-online': ou.online_status == 0}" ng-click="online.showOnlineUserInfo(ou.id)"><i class="material-icons">info_outline</i>{{ou.lastactivity_ago}} | {{ou.nick}}&nbsp;<img ng-if="ou.user_country_code" ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" /></a><?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/custom_online_button_multiinclude.tpl.php')); ?><span ng-click="online.previewChat(ou)" class="btn btn-xs btn-success action-image" ng-show="ou.chat_id > 0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Preview chat')?>"><i class="material-icons mr0">chat</i></span><span class="btn btn-xs btn-info" ng-show="ou.total_visits > 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visits');?> ({{ou.total_visits}})</span><span class="btn btn-success btn-xs" ng-show="ou.total_visits == 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','New');?></span> <span title="{{ou.operator_user_string}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has sent a message to the user');?>" class="btn btn-xs" ng-show="ou.operator_message" ng-class="ou.message_seen == 1 ? 'btn-success' : 'btn-danger'"><i class="material-icons">chat_bubble_outline</i>{{ou.message_seen == 1 ? trans.msg_seen : trans.msg_not_seen}}</span>
+								<a href="#" class="btn btn-xs btn-outline-secondary" id="ou-face-{{ou.vid}}" <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/face_icon.tpl.php'));?> ng-click="online.showOnlineUserInfo(ou.id)"><i class="material-icons">info_outline</i>{{ou.lastactivity_ago}} | {{ou.nick}}&nbsp;<img ng-if="ou.user_country_code" ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" /></a><?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/custom_online_button_multiinclude.tpl.php')); ?><span ng-click="online.previewChat(ou)" class="btn btn-xs btn-outline-success action-image" ng-show="ou.chat_id > 0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Preview chat')?>"><i class="material-icons mr0">chat</i></span><span class="btn btn-xs btn-outline-info" ng-show="ou.total_visits > 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visits');?> ({{ou.total_visits}})</span><span class="btn btn-outline-success btn-xs" ng-show="ou.total_visits == 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','New');?></span>
+                                <span title="{{ou.operator_user_string}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','has sent a message to the user');?>" class="btn btn-xs" ng-show="ou.operator_message" ng-class="ou.message_seen == 1 ? 'btn-outline-success' : 'btn-outline-danger'"><i class="material-icons">chat_bubble_outline</i>{{ou.message_seen == 1 ? trans.msg_seen : trans.msg_not_seen}}</span>
+                                <a href="#" class="btn btn-xs btn-outline-secondary" ng-click="lhc.openModal('chat/sendnotice/'+ou.id);"><i class="material-icons">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Start a chat');?></a>
 							</div>
 							<div class="abbr-list" ng-if="ou.page_title || ou.current_page">
 								<i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="{{ou.current_page}}" title="{{ou.current_page}}">{{ou.page_title || ou.current_page}}</a>
@@ -57,6 +59,6 @@
 				</tbody>
 			</table>
 		</div>
-		<div ng-if="online.onlineusers.length == 0" class="m-1 alert alert-info"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You will see short list of your site visitors here.')?>...</div>
+		<div ng-if="online.onlineusers.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You will see short list of your site visitors here.')?>...</div>
 	</div>
 </div>

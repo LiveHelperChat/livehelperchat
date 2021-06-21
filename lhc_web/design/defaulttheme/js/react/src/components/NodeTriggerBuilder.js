@@ -23,6 +23,8 @@ import NodeTriggerActionExecuteJS from './builder/NodeTriggerActionExecuteJS';
 import NodeTriggerActionRestAPI from './builder/NodeTriggerActionRestAPI';
 import NodeTriggerActionTbody from './builder/NodeTriggerActionTbody';
 import NodeTriggerActionTextConditional from './builder/NodeTriggerActionTextConditional';
+import NodeTriggerActionAlertIcon from './builder/NodeTriggerActionAlertIcon';
+import NodeTriggerActionMail from './builder/NodeTriggerActionMail';
 
 @connect((store) => {
     return {
@@ -201,6 +203,10 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionRestAPI upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'text_conditional') {
                     return <NodeTriggerActionTextConditional upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                } else if (action.get('type') == 'alert_icon') {
+                    return <NodeTriggerActionAlertIcon upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                } else if (action.get('type') == 'mail') {
+                    return <NodeTriggerActionMail upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }

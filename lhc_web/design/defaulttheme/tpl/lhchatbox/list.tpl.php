@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatbox/list','Chatbox list');?></h1>
 
 <?php if ($pages->items_total > 0) { ?>
-<table class="table" width="100%">
+<table class="table" width="100%" ng-non-bindable>
 <thead>
     <tr>
         <th width="1%">ID</th>

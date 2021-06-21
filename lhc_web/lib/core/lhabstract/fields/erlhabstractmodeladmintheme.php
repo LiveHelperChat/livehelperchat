@@ -92,6 +92,15 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'newm_color' => array(
+        'type' => 'colorpicker',
+        'main_attr' => 'css_attributes_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','New message separator color'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'time_color' => array(
         'type' => 'colorpicker',
         'main_attr' => 'css_attributes_array',

@@ -16,7 +16,15 @@ class erLhcoreClassModelDepartamentGroup
     {
         return array(
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'achats_cnt' => $this->achats_cnt,
+            'inachats_cnt' => $this->inachats_cnt,
+            'pchats_cnt' => $this->pchats_cnt,
+            'bchats_cnt' => $this->bchats_cnt,
+            'max_load' => $this->max_load,
+            'max_load_h' => $this->max_load_h,
+            'inopchats_cnt' => $this->inopchats_cnt,
+            'acopchats_cnt' => $this->acopchats_cnt,
         );
     }
 
@@ -60,8 +68,15 @@ class erLhcoreClassModelDepartamentGroup
     }
     
     public $id = null;
-
     public $name = '';
+    public $achats_cnt = 0;
+    public $inachats_cnt = 0;
+    public $pchats_cnt = 0;
+    public $bchats_cnt = 0;
+    public $inopchats_cnt = 0;
+    public $acopchats_cnt = 0;
+    public $max_load = 0;
+    public $max_load_h = 0;
 }
 
 ?>

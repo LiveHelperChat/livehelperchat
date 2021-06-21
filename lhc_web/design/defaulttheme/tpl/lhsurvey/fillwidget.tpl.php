@@ -14,7 +14,10 @@
                 <?php if ($survey_item->is_filled == false) : ?>
                     <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Submit')?>" name="Vote" />
                 <?php endif;?>
+
+                <?php if (!(isset($survey->configuration_array['disable_chat_preview']) && $survey->configuration_array['disable_chat_preview'] == true)) : ?>
                 <button type="button" class="btn btn-info btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Preview chat')?></button>
+                <?php endif; ?>
             </div>
             
             <?php if ($survey_item->is_filled == true && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
@@ -33,6 +36,15 @@
     </div>
 </div>
 <script type="text/javascript">
+<?php if ($survey_item->is_filled == false) : ?>
+setInterval(function(){
+    $.getJSON(WWW_DIR_JAVASCRIPT + 'survey/isfilled/<?php echo $chat->id?>/<?php echo $chat->hash?>/<?php echo $survey->id?>', function(data) {
+        if (data === true) {
+            document.location.reload();
+        }
+    });
+},2000);
+<?php endif; ?>
 
 <?php if ($survey_item->is_filled == true && $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED && isset($just_stored) && $just_stored == true) : ?>
 setTimeout(function() {

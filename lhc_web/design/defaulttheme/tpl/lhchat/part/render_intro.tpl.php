@@ -1,5 +1,9 @@
 <?php
-    $trigger = erLhcoreClassModelGenericBotTrigger::fetch((isset($triggerMessageId) && $triggerMessageId > 0) ? $triggerMessageId : $theme->bot_configuration_array['trigger_id']);
+    if (isset($triggerMessage) && $triggerMessage instanceof erLhcoreClassModelGenericBotTrigger) {
+        $trigger = $triggerMessage;
+    } else {
+        $trigger = erLhcoreClassModelGenericBotTrigger::fetch((isset($triggerMessageId) && $triggerMessageId > 0) ? $triggerMessageId : $theme->bot_configuration_array['trigger_id']);
+    }
 
     if (!isset($chat)) {
         $chat = new erLhcoreClassModelChat();

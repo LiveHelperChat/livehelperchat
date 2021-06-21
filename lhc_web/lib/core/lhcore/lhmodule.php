@@ -567,10 +567,19 @@ class erLhcoreClassModule{
     {
         header('Location: '. erLhcoreClassDesign::baseurl($url).$appendURL );
     }
-    
+
+    public static function getModuleName() {
+        return self::$currentModuleName;
+    }
+
+    public static function getCurrentView() {
+        return self::$currentView;
+    }
+
     static private $currentModule = NULL;
     static private $currentModuleName = NULL;
     static private $currentView = NULL;
+
     static private $moduleCacheEnabled = NULL;
     static private $cacheInstance = NULL;
     static private $cacheVersionSite = NULL;

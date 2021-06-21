@@ -1,6 +1,10 @@
 <?php if ($chat->product !== false) : ?>
-    <tr>
-        <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Product')?></td>
-        <td><?php echo htmlspecialchars($chat->product);?></td>
-    </tr>
+<tr>
+    <td colspan="2">
+        <h6 class="font-weight-bold"><i class="material-icons">shopping_cart</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Product')?></h6>
+        <div class="text-muted pb-1">
+            <?php echo htmlspecialchars($chat->product);?>
+        </div>
+    </td>
+</tr>
 <?php endif;?>

@@ -3,6 +3,7 @@
 header('Content-Type: application/json');
 
 $items = array();
+$data_ext = array();
 
 $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
 
@@ -43,7 +44,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
         'chat' => $chat,
     ));
 
-    if ($dataPrevious['has_messages'] == true && isset($dataPrevious['chat_history']) && is_object($dataPrevious['chat_history'])) {
+    if (isset($dataPrevious) && $dataPrevious['has_messages'] == true && isset($dataPrevious['chat_history']) && is_object($dataPrevious['chat_history'])) {
         $items[] = array (
             'selector' => '#load-prev-btn-' . $chat->id,
             'action' => 'show',
@@ -96,10 +97,14 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             'action' => 'event'
         );
     }
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.loadmainchatdata',array(
+        'chat' => $chat,
+        'items' => & $items,
+        'user' => $currentUser->getUserData(true),
+        'data_ext' => & $data_ext));
 }
 
-
-
-echo json_encode(array('error' => true, 'items' => $items));
+echo json_encode(array('error' => true, 'items' => $items, 'data_ext' => $data_ext));
 exit;
 ?>

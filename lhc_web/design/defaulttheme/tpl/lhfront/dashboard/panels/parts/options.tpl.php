@@ -10,7 +10,16 @@
 				    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_only_online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Only online')?></label></li>
 				    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_only_explicit_online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Only explicit online')?></label></li>
 				    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_hide_hidden"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide hidden')?></label></li>
-				    <li class="border-bottom"><label><input data-stopPropagation="true" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" type="checkbox" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_hide_disabled"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled')?></label></li>
+
+                    <?php if (isset($optinsPanel['hide_department']) && $optinsPanel['hide_department'] == true) : ?>
+                    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_hide_dep"> <i class="material-icons">home</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide departments')?></label></li>
+                    <?php endif; ?>
+
+                    <?php if (isset($optinsPanel['hide_depgroup']) && $optinsPanel['hide_depgroup'] == true) : ?>
+                    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_hide_dgroup"> <i class="material-icons">&#xE84F;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide departments groups')?></label></li>
+                    <?php endif; ?>
+
+                    <li class="border-bottom"><label><input data-stopPropagation="true" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" type="checkbox" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_hide_disabled"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled')?></label></li>
 
 				    <?php if (!isset($optinsPanel['disable_product']) || $optinsPanel['disable_product'] == false) : ?>
 				    <li ng-repeat="product in lhc.userProductNames" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_products" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_products')" checklist-value="product.id"><i class="material-icons">&#xE8CC;</i>{{product.name}}</label></li>
@@ -31,9 +40,10 @@
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?>
                 </button>
                 <ul class="dropdown-menu dropdown-lhc" role="menu">
+                    <li class="p-1"><input type="text" data-stopPropagation="true" ng-model="lhc.userFilterText" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for operator')?>" class="form-control form-control-sm" value=""></li>
+                    <li ng-repeat="userItem in lhc.userList" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['userid']?>" checklist-change="lhc.productChanged('<?php echo $optinsPanel['userid']?>')" checklist-value="userItem.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User')?>" class="material-icons">account_box</i>{{userItem.name || userItem.name_official}}</label></li>
+                    <li ng-show="lhc.userGroups.length > 0" class="border-top"></li>
                     <li ng-repeat="userGroup in lhc.userGroups" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['panelid']?>_ugroups" checklist-change="lhc.productChanged('<?php echo $optinsPanel['panelid']?>_ugroups')" checklist-value="userGroup.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User group')?>" class="material-icons">people</i>{{userGroup.name}}</label></li>
-                    <li ng-show="lhc.userGroups.length > 0" class="border-bottom"></li>
-                    <li ng-repeat="userItem in lhc.userList" data-stopPropagation="true"><label><input type="checkbox" checklist-model="lhc.<?php echo $optinsPanel['userid']?>" checklist-change="lhc.productChanged('<?php echo $optinsPanel['userid']?>')" checklist-value="userItem.id"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','User')?>" class="material-icons">account_box</i>{{userItem.name_official}}</label></li>
                 </ul>
             </div>
 		</div>

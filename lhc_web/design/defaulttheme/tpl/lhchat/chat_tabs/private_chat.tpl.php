@@ -1,7 +1,13 @@
-<div role="tabpanel" class="tab-pane<?php if ($chatTabsOrderDefault == 'private_chat_tab') print ' active';?>" id="private-chat-tab-<?php echo $chat->id?>">
+<div role="tabpanel" class="tab-pane pl-2 <?php if ($chatTabsOrderDefault == 'private_chat_tab') print ' active';?>" id="private-chat-tab-<?php echo $chat->id?>">
     <?php if (isset($archive)) : ?>
-        <?php $archiveSupportChat = erLhcoreClassModelGroupChatArchive::findOne(array('filter' => array('chat_id' => $chat->id))); ?>
-        <?php if ($archiveSupportChat instanceof erLhcoreClassModelGroupChatArchive) : ?>
+        <?php
+            try {
+                $archiveSupportChat = erLhcoreClassModelGroupChatArchive::findOne(array('filter' => array('chat_id' => $chat->id)));
+            } catch (Exception $e) {
+                echo "Archive not found.";
+            }
+        ?>
+        <?php if (isset($archiveSupportChat) && $archiveSupportChat instanceof erLhcoreClassModelGroupChatArchive) : ?>
             <?php $supportChatMembers = erLhcoreClassModelGroupChatMemberArchive::getList(array('filter' => array('group_id' => $archiveSupportChat->id))); ?>
             <div class="pb-1 border-bottom">
                 <?php foreach ($supportChatMembers as $supportChatMember) : ?>

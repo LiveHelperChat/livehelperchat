@@ -16,6 +16,7 @@
 <?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_online_check.tpl.php')); ?>
 
 <div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows="<?php echo (int)$omaxRows?>";online.updateTimeout="<?php echo (int)$oupdTimeout?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.userTimeout = "<?php echo (int)$ouserTimeout?>";online.department="<?php echo (int)$onlineDepartment?>";online.country="<?php echo htmlspecialchars($oCountry)?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
 
@@ -43,25 +44,6 @@
 <script>
 
 $( document ).ready(function() {
-	<?php if (!isset($popoverInitialized) || $popoverInitialized == false) : ?>
-	$('#dashboard-body, #onlineusers, #map').popover({
-		  trigger:'hover',
-		  html : true, 
-		  container: 'body',
-		  selector: '[data-toggle="popover"]',
-		  content: function () {
-			 if ($(this).is('[data-popover-content]')) {
-				return $('#'+$(this).attr('data-popover-content')+'-'+$(this).attr('data-chat-id')).html();
-			 } else {
-				return $('#popover-content-'+$(this).attr('data-chat-id')).html();
-			 }
-		  },
-		  title: function () {
-			 return  $('#popover-title-'+$(this).attr('data-chat-id')).html();
-		  }
-	});
-	<?php endif; ?>
-		
 	lhinst.attachTabNavigator();
 	$('#right-column-page').removeAttr('id');	
 });

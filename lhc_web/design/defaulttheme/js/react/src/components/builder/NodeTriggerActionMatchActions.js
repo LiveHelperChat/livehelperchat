@@ -26,18 +26,21 @@ class NodeTriggerActionMatchActions extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-2">
+                <div className="d-flex flex-row">
+                    <div>
                         <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                             <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
                             {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
                             {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                         </div>
                     </div>
-                    <div className="col-9">
+                    <div className="flex-grow-1 px-2">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-1">
+                    <div className="pr-2 pt-1">
+                        <label className="form-check-label" title="Response will not be executed. Usefull for a quick testing."><input onChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['skip_resp'], value : e.target.checked})} defaultChecked={this.props.action.getIn(['skip_resp'])} type="checkbox"/> Skip</label>
+                    </div>
+                    <div>
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
@@ -47,6 +50,12 @@ class NodeTriggerActionMatchActions extends Component {
                     <div className="col-12">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['event_background'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','event_background'])} /> Event is processed on next visitor message.</label>
                     </div>
+
+                    <div className="col-12">
+                        <label>Search for text. This field will override user message text. Usefull in case you want to search by Rest API response. You can put here like {'{content_1}'}</label>
+                        <input type="text" placeholder="Bot content {content_1}" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','text']) ? this.props.action.getIn(['content','text']) : ""} className="form-control form-control-sm" />
+                    </div>
+
                     <div className="col-6">
                         <div className="form-group">
                             <label>For what start chat actions to search</label>

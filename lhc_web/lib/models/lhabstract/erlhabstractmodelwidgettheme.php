@@ -210,8 +210,6 @@ class erLhAbstractModelWidgetTheme {
 	    return $metaData;
 	}
 
-
-
 	public function afterSave()
     {
         $movePhotos = array(
@@ -293,6 +291,9 @@ class erLhAbstractModelWidgetTheme {
                return $this->replace_array;
                break;
 
+           case 'operator_image_avatar':
+               return $this->operator_image_url !== false || (isset($this->bot_configuration_array['operator_avatar']) && $this->bot_configuration_array['operator_avatar'] != '');
+
 	   	case 'notification_icon_url':
 	   	case 'logo_image_url':
 	   	case 'minimize_image_url':
@@ -307,7 +308,7 @@ class erLhAbstractModelWidgetTheme {
 	   	       $attr = str_replace('_url', '', $var);	   	       	   	       
 	   	       $this->$var = false;	   	        
 	   	       if ($this->$attr != ''){
-	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
+	   	           $this->$var =  ($this->{$attr.'_path'} != '' ? (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) . '/' . $this->{$attr.'_path'} . $this->$attr;
 	   	       }	   	        
 	   	       return $this->$var;
 	   	    break;
@@ -325,7 +326,7 @@ class erLhAbstractModelWidgetTheme {
 	   	        $attr = str_replace('_url_img', '', $var);	   	    
 	   			$this->$var = false;	   		
 	   			if($this->$attr != ''){
-	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
+	   				$this->$var = '<img src="'.($this->{$attr.'_path'} != '' ? (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'.$this->{$attr.'_path'} . $this->$attr.'"/>';
 	   			}
 	   			return $this->$var;
 	   		break;
@@ -481,6 +482,19 @@ class erLhAbstractModelWidgetTheme {
             'need_help_html',
             'chat_unavailable',
             'custom_op_name',
+            'custom_tos_text',
+            'min_text',
+            'popup_text',
+            'end_chat_text',
+            'cnew_msgh',
+            'cnew_msg',
+            'cscroll_btn',
+            'cnew_msgm',
+            'formf_name',
+            'formf_email',
+            'formf_file',
+            'formf_phone',
+            'formf_question',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;

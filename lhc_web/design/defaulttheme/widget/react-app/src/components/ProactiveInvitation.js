@@ -36,7 +36,10 @@ class ProactiveInvitation extends Component {
                     if (document.getElementById('id-invitation-height')) {
                         helperFunctions.sendMessageParent('widgetHeight', [{
                             'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20}]);
+                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20,
+                            'force_bottom' : (this.props.chatwidget.hasIn(['proactive','data','message_bottom']) ? this.props.chatwidget.getIn(['proactive','data','message_bottom']) : 75),
+                            'force_right' : (this.props.chatwidget.hasIn(['proactive','data','message_right']) ? this.props.chatwidget.getIn(['proactive','data','message_right']) : 75),
+                        }]);
                         this.setState({shown : true});
                     }
                  }, 50);
@@ -107,13 +110,13 @@ class ProactiveInvitation extends Component {
                             </div>
 
                             <div className="flex-grow-1">
-                                
                                 {!this.props.chatwidget.hasIn(['proactive','data','hide_op_name']) && <div className="fs14">
                                     <b>{this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])}</b>
                                 </div>}
-                                
-                                <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
-                                {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
+                                <div id="inv-msg-wrapper">
+                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
+                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
+                                </div>
                             </div>
 
                         </div>}
@@ -129,8 +132,10 @@ class ProactiveInvitation extends Component {
 
                                     {!this.props.chatwidget.hasIn(['proactive','data','hide_op_name']) && <b>{this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}</b>}
                                 </div>
-                                <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['proactive', 'data', 'message'])}}></p>
-                                {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive', 'data', 'message_full'])} />}
+                                <div id="inv-msg-wrapper">
+                                    <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['proactive', 'data', 'message'])}}></p>
+                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive', 'data', 'message_full'])} />}
+                                </div>
                             </div>
                         }
 

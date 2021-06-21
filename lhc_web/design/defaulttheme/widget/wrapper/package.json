@@ -5,7 +5,7 @@
   "description": "VanillaJS plugin starter using Webpack",
   "main": "dist/index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack && cp -v dist/*.js ../../js/widgetv2/",
+    "build": "NODE_ENV=production webpack && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
     "start": "webpack-dev-server --inline --hot"
   },
   "repository": {
@@ -38,11 +38,11 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "core-js": "^3.6.4",
     "eventemitter3": "^4.0.0",

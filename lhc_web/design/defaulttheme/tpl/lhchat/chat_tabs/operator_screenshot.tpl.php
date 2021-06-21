@@ -6,7 +6,7 @@
       <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Refresh')?>" class="btn btn-secondary" onclick="lhinst.updateScreenshot('<?php echo $chat->id?>')" />
     </div>
        
-    <div id="user-screenshot-container">
+    <div id="user-screenshot-container-<?php echo $chat->id?>">
       	<?php if ($chat->screenshot !== false) : ?>    
       	<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Taken')?> <?php echo $chat->screenshot->date_front?></h5>
       	   	

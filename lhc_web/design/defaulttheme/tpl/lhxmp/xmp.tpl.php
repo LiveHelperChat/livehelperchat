@@ -20,7 +20,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>" method="post" autocomplete="off">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>" method="post" autocomplete="off">
 
 <label><input type="checkbox" name="use_xmp" value="1" <?php isset($xmp_data['use_xmp']) && ($xmp_data['use_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP active'); ?></label>
 

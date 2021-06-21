@@ -21,6 +21,10 @@ $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numer
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
+if (isset($requestPayload['fields']['DepartamentID']) && is_numeric($requestPayload['fields']['DepartamentID'])) {
+    $Params['user_parameters_unordered']['department'] = [$requestPayload['fields']['DepartamentID']];
+}
+
 $validStart = false;
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
@@ -70,6 +74,15 @@ if (isset($restAPI['collect_all']) && $restAPI['collect_all'] === true) {
 
 if (!isset($Errors)) {
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
+    // Check is visitor blocked based on previous data if present chat does not have a nick
+    if (empty($Errors) &&
+        erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 &&
+        ($chat->nick == 'Visitor' || empty($chat->nick)) && isset($inputData->vid) && !empty($inputData->vid) &&
+        ($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($inputData->vid)) instanceof erLhcoreClassModelChatOnlineUser && $onlineUser->nick &&
+        $onlineUser->has_nick && erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $onlineUser->nick))
+    ) {
+        $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
+    }
 }
 
 if (empty($Errors)) {
@@ -179,9 +192,20 @@ if (empty($Errors)) {
                     if ($msg->msg == '') {
                         $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
                         if ($inv instanceof erLhAbstractModelProactiveChatInvitation){
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation',array(
+                                'invitation' => & $inv,
+                                'chat' => $chat,
+                                'ou' => $userInstance
+                            ));
                             $inv->translateByLocale();
                             $msg->msg = $inv->message;
                         }
+                    } else {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation_ou',array(
+                            'ou' => $userInstance,
+                            'msg' => & $msg,
+                            'chat' => $chat
+                        ));
                     }
 
                     $msg->chat_id = $chat->id;
@@ -228,16 +252,25 @@ if (empty($Errors)) {
                 $userInstance->message_seen = 1;
                 $userInstance->message_seen_ts = time();
 
-                if ($chat->nick != 'Visitor') {
-                    $onlineAttr = $userInstance->online_attr_system_array;
-                    if (!isset($onlineAttr['username'])) {
-                        $onlineAttr['username'] = $chat->nick;
-                        $userInstance->online_attr_system = json_encode($onlineAttr);
-                        $userInstance->online_attr_system_array = $onlineAttr;
-                    }
-                } elseif ($chat->nick == 'Visitor') {
-                    if ($userInstance->nick && $userInstance->has_nick) {
-                        $chat->nick = $userInstance->nick;
+                if ($userInstance->visitor_tz == '') {
+                    $userInstance->visitor_tz = $chat->user_tz_identifier;
+                }
+
+                if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
+                    if ($chat->nick != 'Visitor') {
+                        $onlineAttr = $userInstance->online_attr_system_array;
+                        if (!isset($onlineAttr['username'])) {
+                            $onlineAttr['username'] = $chat->nick;
+                            $userInstance->online_attr_system = json_encode($onlineAttr);
+                            $userInstance->online_attr_system_array = $onlineAttr;
+                        }
+                    } elseif ($chat->nick == 'Visitor') {
+                        if ($userInstance->nick && $userInstance->has_nick) {
+                            $chat->nick = $userInstance->nick;
+                            if (empty($chat->nick)) {
+                                $chat->nick = 'Visitor';
+                            }
+                        }
                     }
                 }
 
@@ -333,7 +366,7 @@ if (empty($Errors)) {
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_message',array('chat' => & $chat, 'responder' => & $responder));
 
-                if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT)
+                if ($chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT)
                 {
                     $messageText = '';
 
@@ -406,6 +439,7 @@ if (empty($Errors)) {
         'chatData' => array (
             'id' => $chat->id,
             'hash' => $chat->hash,
+            'lmsg_id' => (is_numeric($chat->old_last_msg_id) ? $chat->old_last_msg_id : 0)
         )
     );
 

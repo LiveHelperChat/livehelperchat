@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('speech/language','Languages')?></h1>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
     <thead>
     <tr>
         <th width="1%">ID</th>

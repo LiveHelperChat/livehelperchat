@@ -31,11 +31,21 @@ class NodeTriggerActionAttribute extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-11">
+                <div className="d-flex flex-row">
+                    <div>
+                        <div className="btn-group float-left" role="group" aria-label="Trigger actions">
+                            <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
+                            {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
+                            {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
+                        </div>
+                    </div>
+                    <div className="flex-grow-1 px-2">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-1">
+                    <div className="pr-2 pt-1">
+                        <label className="form-check-label" title="Response will not be executed. Usefull for a quick testing."><input onChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['skip_resp'], value : e.target.checked})} defaultChecked={this.props.action.getIn(['skip_resp'])} type="checkbox"/> Skip</label>
+                    </div>
+                    <div>
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
@@ -81,7 +91,7 @@ class NodeTriggerActionAttribute extends Component {
                         </div>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12">
                         <div className="form-group">
                             <label>Intro message</label>
                             <textarea className="form-control" defaultValue={this.props.action.getIn(['content','intro_message'])} onChange={(e) => this.onchangeAttr({'path' : ['intro_message'], 'value' : e.target.value})}></textarea>
@@ -89,8 +99,8 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
                     <div className="col-6">
                         <div className="form-group">
-                            <label>Confirmation message</label>
-                            <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
+                            <label>Execute trigger on validation failure</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_fail'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_fail'])} />
                         </div>
                     </div>
                     <div className="col-6">
@@ -105,9 +115,13 @@ class NodeTriggerActionAttribute extends Component {
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','collection_callback_pattern'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','collection_callback_pattern'])} />
                         </div>
                     </div>
-
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Success message</label>
+                            <textarea className="form-control" defaultValue={this.props.action.getIn(['content','success_message'])} onChange={(e) => this.onchangeAttr({'path' : ['success_message'], 'value' : e.target.value})}></textarea>
+                        </div>
+                    </div>
                     <div className="col-12">
-
                         <div className="row">
                             <div className="col-6">
                                 <div className="form-group">
@@ -123,6 +137,10 @@ class NodeTriggerActionAttribute extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['soft_event'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','soft_event'])} /> Soft event. If this event is found while cliking another button - we will automatically terminate it.</label>
                     </div>
 
                 </div>

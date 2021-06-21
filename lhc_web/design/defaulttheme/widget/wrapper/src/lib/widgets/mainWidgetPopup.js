@@ -55,9 +55,10 @@ export class mainWidgetPopup {
         return paramsReturn;
     }
 
-    init(attributes) {
+    init(attributes, chatEvents, paramsPopup) {
 
         if (this.cont.elementReferrerPopup && this.cont.elementReferrerPopup.closed === false) {
+            typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
             this.cont.elementReferrerPopup.focus();
         } else {
 
@@ -77,7 +78,7 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(theme)/" + this.attributes['theme'];
             }
 
-            if (attr['static_chat']['vid'] !== null) {
+            if (attr['static_chat']['vid'] !== null && this.attributes.storageHandler.cookieEnabled === true) {
                 urlArgumetns = urlArgumetns + "/(vid)/" + attr['static_chat']['vid'];
             }
 
@@ -118,6 +119,16 @@ export class mainWidgetPopup {
                 }
             }
 
+            var fontSize = this.attributes.storageHandler.getLocalStorage(this.attributes['prefixStorage']+'_dfs');
+
+            if (fontSize) {
+                urlArgumetns = urlArgumetns + "/(fs)/" + parseInt(fontSize);
+            }
+
+            if (this.attributes['leaveMessage'] === true) {
+                urlArgumetns = urlArgumetns + "/(leaveamessage)/true";
+            }
+
             if (this.attributes['userSession'].getSessionReferrer() !== null && this.attributes['userSession'].getSessionReferrer() != '') {
                 urlArgumetns = urlArgumetns + '?ses_ref=' + this.attributes['userSession'].getSessionReferrer() + this.parseOptions();
             } else {
@@ -134,7 +145,39 @@ export class mainWidgetPopup {
             const left = (width - parseInt(this.attributes['popupDimesnions']['pwidth'])) / 2 / systemZoom + dualScreenLeft;
             const top = (height - parseInt(this.attributes['popupDimesnions']['pheight'])) / 2 / systemZoom + dualScreenTop;
 
-            this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, 'lhc_popup_v2', "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left);
+            var paramsWindow = "scrollbars=yes,menubar=1,resizable=1,width=" + this.attributes['popupDimesnions']['pwidth'] + ",height=" + this.attributes['popupDimesnions']['pheight'] + ",top=" + top + ",left=" + left;
+            var newWin = window.open("", this.attributes['prefixStorage'] + '_popup_v2', paramsWindow);
+            var needWindow = false;
+            var windowCreated = false;
+
+            // First try to find any existing window
+            try {
+                // It has to be new window or popup was blocked
+                if (!newWin || newWin.closed || typeof newWin.closed=='undefined' || newWin.location.href === "about:blank") {
+                    newWin = this.cont.elementReferrerPopup = window.open(this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns, this.attributes['prefixStorage']+'_popup_v2', paramsWindow);
+                    windowCreated = true;
+                } else {
+                    needWindow = true;
+                }
+            } catch (e) { // We get cross-origin error only if window exist and it's location is other one than about:blank
+                needWindow = true;
+            }
+
+            // Now if visitor has blocked popup change chat status link and just allow browser handle the rest.
+            if (!newWin || newWin.closed || typeof newWin.closed=='undefined') {
+                try {
+                    this.attributes.viewHandler.cont.getElementById("status-icon").href = this.attributes['base_url'] + this.attributes['lang'] + "chat/start" + urlArgumetns;
+                } catch (e) {
+                    alert('You have disabled popups!');
+                }
+            } else if (windowCreated == true) {
+                typeof chatEvents !== 'undefined' && this.attributes.kcw === false && chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
+                typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
+            } else if (needWindow === true) {
+                this.cont.elementReferrerPopup = newWin;
+                newWin.focus();
+                typeof paramsPopup !== 'undefined' && paramsPopup.event !== 'undefined' && paramsPopup.event.preventDefault();
+            }
         }
     }
 

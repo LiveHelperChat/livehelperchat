@@ -620,7 +620,9 @@ class erLhcoreClassBBCodePlain
             '/\[list\](.*?)\[\/list\]/ms',
             '/\[\*\]\s?(.*?)\n/ms',
             '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
-            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms'
+            '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms',
+            '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
+            '/\[button_action\=([A-Za-z0-9_\-\s]{2,60})\](.*?)\[\/button_action\]/ms',
         );
 
         // And replace them by...
@@ -633,7 +635,9 @@ class erLhcoreClassBBCodePlain
             '\1',
             '\1',
             '\2',
-            '\2'
+            '\2',
+            '\2',
+            '',
         );
 
         $text = preg_replace($in, $out, $text);
@@ -799,17 +803,17 @@ class erLhcoreClassBBCodePlain
                                 }
                             } else {
                                 $prepend = '';
-                                $append = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
+                                $append = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
                             }
 
                             return $prepend . $append;
                         }
 
                         if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg') {
-                            return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
+                            return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}";
                         }
 
-                        return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . "//" . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash} {$file->upload_name}" . ' [' . $file->extension . ']';
+                        return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . "//" . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash} {$file->upload_name}" . ' [' . $file->extension . ']';
                     }
                 }
 
@@ -837,7 +841,7 @@ class erLhcoreClassBBCodePlain
                     if ($surveyId == $surveyItem->survey_id)
                     {
                         $survey = erLhAbstractModelSurvey::fetch($surveyId);
-                        return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . "//" . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name);
+                        return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . "//" . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name);
                     }
                 }
 
@@ -859,7 +863,7 @@ class erLhcoreClassBBCodePlain
 
                 // Check that user has permission to see the chat. Let say if user purposely types file bbcode
                 if ($hash == $file->security_hash) {
-                    return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurldirect('file/downloadfile')."/{$file->id}/{$hash}";
+                    return (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurldirect('file/downloadfile')."/{$file->id}/{$hash}";
                 }
             } catch (Exception $e) {
 
@@ -971,11 +975,20 @@ class erLhcoreClassBBCodePlain
         return $meta;
     }
 
+    public static function _make_base_link($matches) {
+        $data = htmlspecialchars($matches[1]);
+        $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl($data);
+        return $url;
+    }
+
     // Converts bbcode and general links to hmtl code
     public static function make_clickable($ret, $paramsMessage = array()) {
         $ret = ' ' . $ret;
 
         $makeLinksClickable = true;
+
+        // Make base URL
+        $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
 
         $ret = preg_replace_callback('/\[img=?(.*?)\](.*?)\[\/img\]/ms', "erLhcoreClassBBCodePlain::_make_url_embed_image", $ret);
 
@@ -997,7 +1010,6 @@ class erLhcoreClassBBCodePlain
             return $html;
 
         }, $ret);
-
 
         if ($makeLinksClickable) {
             $ret = self::make_clickable_text($ret);

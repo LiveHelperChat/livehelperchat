@@ -1,9 +1,11 @@
 <?php
 header('content-type: application/json; charset=utf-8');
 
+$db = ezcDbInstance::get();
+$db->beginTransaction();
+
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
-
         if ($Params['user_parameters_unordered']['scope'] == erLhcoreClassModelTransfer::SCOPE_MAIL) {
             $chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['transfer_id']);
             $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_MAIL);
@@ -11,14 +13,14 @@ try {
             $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['transfer_id']);
             $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_CHAT);
         }
-
         if (is_array($transferLegacy)) {
-            $chatTransfer = erLhcoreClassTransfer::getSession()->load('erLhcoreClassModelTransfer', $transferLegacy['id']);
+            $chatTransfer = erLhcoreClassModelTransfer::fetchAndLock($transferLegacy['id']);
         } else {
             exit;
         }
         
     } else {    
+
     	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
 
     	if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
@@ -51,7 +53,11 @@ if  ($chatTransfer->dep_id > 0) {
 		exit;
 	} else {
         $chat->user_id = $currentUser->getUserID();
-        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+        if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        }
+
         $chat->user_typing  = time();
         $chat->usaccept = $userData->hide_online;
 
@@ -74,7 +80,11 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
     if ($chat->user_id == 0 || $chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT)
     {
         $chat->user_id = $currentUser->getUserID();
-        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+        if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+            $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+        }
+
         $chat->user_typing  = time();
         $chat->usaccept = $userData->hide_online;
 
@@ -95,7 +105,10 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
 		if ($dep_id > 0) {
 			$chat->dep_id = $dep_id;
-			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+            if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+            }
 
             if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
                 erLhAbstractModelAutoResponder::updateAutoResponder($chat);
@@ -110,7 +123,10 @@ if ( !erLhcoreClassChat::hasAccessToRead($chat) )
 		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
 		if ($dep_id > 0) {
 			$chat->dep_id = $dep_id;
-			$chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+
+            if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
+                $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+            }
 
             if ($chatTransfer->transfer_scope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
                 erLhAbstractModelAutoResponder::updateAutoResponder($chat);
@@ -141,6 +157,9 @@ if ($oldUserId != $chat->user_id && $oldUserId > 0) {
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
+// Commit all the changes
+$db->commit();
 
 if ($Params['user_parameters_unordered']['postaction'] == 'singlewindow') {
 	erLhcoreClassModule::redirect('chat/single/' . $chat->id);

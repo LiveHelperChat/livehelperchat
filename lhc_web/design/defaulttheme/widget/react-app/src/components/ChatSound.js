@@ -22,13 +22,15 @@ class ChatSound extends PureComponent {
                 this.playSoundFile('new_message');
             }
             if (e.widget_open == false) {
-                helperFunctions.sendMessageParent('unread_message',[{'type' : 'unread_message'}]);
+                helperFunctions.sendMessageParent('unread_message',[{'msop': (e.msop || null), 'msg_body':(e.msg_body || null), 'type' : 'unread_message','otm' : (e.otm || 0)}]);
             }
         } else if (e.type == 'new_invitation' && e.sound_on === true) {
              if (helperFunctions.getSessionStorage('_invs') === null) {
                  helperFunctions.setSessionStorage('_invs',1);
                  this.playSoundFile('new_invitation');
              }
+        } else if (e.type == 'new_chat' && e.sound_on === true) {
+            this.playSoundFile('new_invitation');
         }
 
         if (window.lhcChat['is_focused'] == false) {

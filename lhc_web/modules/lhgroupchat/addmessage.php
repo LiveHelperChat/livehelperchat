@@ -1,6 +1,26 @@
 <?php
 
-header ( 'content-type: application/json; charset=utf-8' );
+if (isset($_GET['rest_api']) && $_GET['rest_api'] == 'true') {
+    $restAPI = true;
+    erLhcoreClassRestAPIHandler::validateRequest();
+    $currentUserId = (int)erLhcoreClassRestAPIHandler::getUserId();
+
+    $payload = $_POST;
+    $userData = erLhcoreClassRestAPIHandler::getUser();
+
+} else {
+
+    header ( 'content-type: application/json; charset=utf-8' );
+
+    $currentUser = erLhcoreClassUser::instance();
+
+    if (!$currentUser->hasAccessTo('lhgroupchat','use')) {
+        throw new Exception('You do not have permission to use group chats');
+    }
+
+    $payload = json_decode(file_get_contents('php://input'),true);
+    $userData = $currentUser->getUserData();
+}
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
@@ -9,13 +29,9 @@ try {
 
     $groupChat = erLhcoreClassModelGroupChat::fetch((int)$Params['user_parameters']['id']);
 
-    $payload = json_decode(file_get_contents('php://input'),true);
-
     if (!isset($payload['msg']) || trim($payload['msg']) == '') {
         throw new Exception('Please enter a message!');
     }
-
-    $userData = $currentUser->getUserData();
 
     $msg = new erLhcoreClassModelGroupMsg();
     $msg->time = time();
@@ -42,10 +58,12 @@ try {
 
     $options[] = 'status';
     $groupChat->last_msg_op_id = $userData->id;
-    $groupChat->last_msg = $msg->msg;
+    $groupChat->last_msg = mb_substr($msg->msg,0,200);
     $groupChat->last_user_msg_time = time();
     $groupChat->last_msg_id = $msg->id;
     $groupChat->updateThis(array('update' => array('last_msg_op_id','last_msg','last_user_msg_time','last_msg_id')));
+
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $groupChat));
 
     echo json_encode(array('result' => $options));
     $db->commit();

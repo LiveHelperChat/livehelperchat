@@ -63,11 +63,16 @@ foreach ($cfgSite->getSetting( 'site', 'available_site_access' ) as $siteAccess)
         $Matches = array();
         preg_match_all('/erLhcoreClassDesign::designJS\((.*?)\)/i',$contentFile,$Matches);
 
+        $replace = array(
+            'angular.lhc.min.js' => 'angular.lhc.js',
+            'lh.min.js' => 'lh.js',
+        );
+
         if (!empty($Matches[1])) {
             foreach ($Matches[1] as $key => $section)
             {
                 // Because we are in build mode it will build CSS
-                erLhcoreClassDesign::designJS(trim($section,'\''));
+                erLhcoreClassDesign::designJS(trim(str_replace(array_keys($replace),array_values($replace),$section),'\''),trim($section,'\''));
             }
         }
     }

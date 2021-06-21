@@ -63,7 +63,10 @@ class erLhcoreClassModelDepartament {
             'attr_int_3' => $this->attr_int_3,
             'active_chats_counter' => $this->active_chats_counter,
             'pending_chats_counter' => $this->pending_chats_counter,
-            'closed_chats_counter' => $this->closed_chats_counter,
+            'bot_chats_counter' => $this->bot_chats_counter,
+            'inactive_chats_cnt' => $this->inactive_chats_cnt,
+            'max_load' => $this->max_load,
+            'max_load_h' => $this->max_load_h,
             'product_configuration' => $this->product_configuration,
             'pending_max' => $this->pending_max,
             'pending_group_max' => $this->pending_group_max,
@@ -71,6 +74,8 @@ class erLhcoreClassModelDepartament {
             'bot_configuration' => $this->bot_configuration,
             'assign_same_language' => $this->assign_same_language,
             'archive' => $this->archive,
+            'inop_chats_cnt' => $this->inop_chats_cnt,
+            'acop_chats_cnt' => $this->acop_chats_cnt
         );
     }
 
@@ -102,6 +107,12 @@ class erLhcoreClassModelDepartament {
         // Delete member from department group
         $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom('lh_departament_group_member')->where($q->expr->eq('dep_id', $this->id));
+        $stmt = $q->prepare();
+        $stmt->execute();
+
+        // Delete any stats
+        $q = ezcDbInstance::get()->createDeleteQuery();
+        $q->deleteFrom('lh_abstract_stats')->where($q->expr->eq('object_id', $this->id),$q->expr->eq('type', 0));
         $stmt = $q->prepare();
         $stmt->execute();
     }
@@ -180,6 +191,11 @@ class erLhcoreClassModelDepartament {
 	   		            $this->product_configuration_array = json_decode($this->product_configuration,true);
 	   		        }
 	   		        return $this->product_configuration_array;
+	   		    break;
+
+	   		case 'stats':
+	   		        $this->stats = erLhAbstractModelStats::getInstance(erLhAbstractModelStats::STATS_DEP,$this->id);
+	   		        return $this->stats;
 	   		    break;
 	   		    
 	   		case 'end_minutes_front':
@@ -272,6 +288,7 @@ class erLhcoreClassModelDepartament {
     public $nc_cb_execute = 0;
     public $active_balancing = 0;
     public $max_active_chats = 0;
+
     public $max_timeout_seconds = 0;
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
@@ -284,11 +301,17 @@ class erLhcoreClassModelDepartament {
     public $exclude_inactive_chats = 0;
     public $max_ac_dep_chats = 0;
     public $archive = 0;
-
+    public $bot_chats_counter = 0;
     public $active_chats_counter = 0;
     public $delay_before_assign = 0;
     public $pending_chats_counter = 0;
-    public $closed_chats_counter = 0;
+    public $inactive_chats_cnt = 0;
+    public $inop_chats_cnt = 0;
+    public $acop_chats_cnt = 0;
+
+    public $max_load = 0;
+    public $max_load_h = 0;
+
     public $assign_same_language = 0;
     public $product_configuration = '';
     public $bot_configuration = '';

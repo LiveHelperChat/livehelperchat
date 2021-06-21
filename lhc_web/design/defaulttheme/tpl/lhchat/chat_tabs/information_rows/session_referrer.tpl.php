@@ -1,6 +1,5 @@
-<?php if (!empty($chat->session_referrer)) : ?>
-    <tr>
-        <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Came from')?></td>
-        <td><div class="page-url"><span><?php echo $chat->session_referrer != '' ? '<a target="_blank" rel="noopener" title="' . htmlspecialchars($chat->session_referrer) . '" href="' . htmlspecialchars($chat->session_referrer) . '">'.htmlspecialchars($chat->session_referrer).'</a>' : ''?></span></div></td>
-    </tr>
+<?php if (isset($orderInformation['session_referrer']['enabled']) && $orderInformation['session_referrer']['enabled'] == true && !empty($chat->session_referrer)) : ?>
+<div class="col-12 pb-1">
+    <a target="_blank" style="max-width: 400px;" class="text-muted text-truncate d-inline-block" rel="noopener" title="<?php echo htmlspecialchars($chat->session_referrer) ?>" href="<?php echo htmlspecialchars($chat->session_referrer)?>"><span class="material-icons">flight_land</span><?php echo htmlspecialchars($chat->session_referrer)?></a>
+</div>
 <?php endif;?>

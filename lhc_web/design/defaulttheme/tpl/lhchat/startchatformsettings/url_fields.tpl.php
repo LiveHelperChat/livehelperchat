@@ -1,6 +1,12 @@
-<p>If you page has custom argumetns in URL you can extract them here</p>
+<p>If you page has custom arguments in URL you can extract them here</p>
 
-<div ng-controller="StartChatFormURLCtrl as startChatURL" <?php if (isset($start_chat_data['custom_fields_url']) && $start_chat_data['custom_fields_url'] != '') : ?> ng-init='startChatURL.startchatfields = <?php echo $start_chat_data['custom_fields_url']?>'<?php endif;?>>
+<?php if (isset($start_chat_data['custom_fields_url']) && $start_chat_data['custom_fields_url'] != '') : ?>
+    <script>
+        var startChatFieldsURL = <?php echo $start_chat_data['custom_fields_url']?>;
+    </script>
+<?php endif;?>
+
+<div ng-controller="StartChatFormURLCtrl as startChatURL" <?php if (isset($start_chat_data['custom_fields_url']) && $start_chat_data['custom_fields_url'] != '') : ?> ng-init='startChatURL.setStartFields();'<?php endif;?>>
 
 <div class="row">
     <div class="col-3">

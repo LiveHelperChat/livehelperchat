@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
-import { updateTriggerClicked, subscribeNotifications } from "../actions/chatActions";
+import { updateTriggerClicked, subscribeNotifications, parseScript } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
 
@@ -12,7 +12,6 @@ class ChatMessage extends PureComponent {
         this.abstractClick = this.abstractClick.bind(this);
         this.imageLoaded = this.imageLoaded.bind(this);
         this.updateTriggerClicked = this.updateTriggerClicked.bind(this);
-        this.processBotAction = this.processBotAction.bind(this);
         this.disableEditor = false;
         this.delayData = [];
     }
@@ -31,8 +30,25 @@ class ChatMessage extends PureComponent {
 
         const { t } = this.props;
 
+
+
         if (typeof attrs.onchange !== 'undefined') {
 
+            // Checkbox support
+            if (attrs.type && attrs.type == "checkbox") {
+                if (attrs['payload-type'] == 'enable-confirm') {
+                    var elm = document.getElementById('confirm-button-'+attrs['data-id']);
+                    if (e.target.checked) {
+                        elm.removeAttribute('disabled');
+                        elm.onclick = (e) => this.updateTriggerClicked({type:''}, {'data-payload':'confirm', 'data-id' : attrs['data-id']}, e.target);
+                    } else {
+                        elm.setAttribute('disabled','disabled');
+                    }
+                }
+                return ;
+            }
+
+            // Drop down support
             const optionSelected = e.target.options[e.target.selectedIndex];
 
             const attrLoad = {
@@ -42,7 +58,7 @@ class ChatMessage extends PureComponent {
 
             if (optionSelected.getAttribute('payload-type') == 'trigger') {
                 this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrLoad , e.target);
-            } else if (optionSelected.getAttribute('payload-type') == 'button') {
+            } else if (optionSelected.getAttribute('payload-type') == 'button' || optionSelected.getAttribute('payload-type') == 'payload') {
                 this.updateTriggerClicked({type:''}, attrLoad, e.target);
             }
 
@@ -51,49 +67,56 @@ class ChatMessage extends PureComponent {
 
         this.addLoader(attrs,e.target);
 
-        if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
-            this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
+        if (attrs.onclick) {
+            if (attrs.onclick.indexOf('lhinst.updateTriggerClicked') !== -1) {
+                this.updateTriggerClicked({type:'/(type)/triggerclicked'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('notificationsLHC.sendNotification') !== -1) {
 
-            this.props.dispatch(subscribeNotifications());
-            e.target.innerHTML = t('notifications.subscribing');
-            setTimeout(() => {
-                this.removeMetaMessage(attrs['data-id']);
-            }, 500);
+                this.props.dispatch(subscribeNotifications());
+                e.target.innerHTML = t('notifications.subscribing');
+                setTimeout(() => {
+                    this.removeMetaMessage(attrs['data-id']);
+                }, 500);
 
-        } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
-            this.updateTriggerClicked({type:''}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
-            this.props.abstractAction('fileupload');
-        } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
-            this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
-            this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
-        } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
-            const args = JSON.parse(attrs['data-load']);
-            var more = document.getElementById('message-more-'+args['id']);
-            if (more.classList.contains('hide')) {
-                e.target.innerText = args['hide_text'];
-                more.classList.remove('hide');
+            } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
+                this.updateTriggerClicked({type:''}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.startVoiceCall') !== -1) {
+                this.props.voiceCall();
+            } else if (attrs.onclick.indexOf('lhinst.chooseFile') !== -1) {
+                this.props.abstractAction('fileupload');
+            } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
+                this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
+                this.updateTriggerClicked({type:'/(type)/editgenericstep'}, attrs, e.target);
+            } else if (attrs.onclick.indexOf('lhinst.hideShowAction') !== -1) {
+                const args = JSON.parse(attrs['data-load']);
+                var more = document.getElementById('message-more-'+args['id']);
+                if (more.classList.contains('hide')) {
+                    e.target.innerText = args['hide_text'];
+                    more.classList.remove('hide');
+                } else {
+                    e.target.innerText = args['show_text'];
+                    more.classList.add('hide');
+                }
+            } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
+                const list = document.getElementById('id_generic_list-' + attrs['data-id']);
+                if (list && list.value != "0" && list.value != "") {
+                    attrs['data-payload'] = list.value;
+                    this.updateTriggerClicked({type:'/(type)/valueclicked'}, attrs, e.target);
+                } else {
+                    alert(t('bot.please_choose'));
+                }
             } else {
-                e.target.innerText = args['show_text'];
-                more.classList.add('hide');
+                helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
+                console.log('Unknown click event: ' + attrs.onclick);
             }
-        } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
-            const list = document.getElementById('id_generic_list-' + attrs['data-id']);
-            if (list && list.value != "0" && list.value != "") {
-                attrs['data-payload'] = list.value;
-                this.updateTriggerClicked({type:'/(type)/valueclicked'}, attrs, e.target);
-            } else {
-                alert(t('bot.please_choose'));
-            }
-        } else {
-            helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
-            console.log('Unknown click event: ' + attrs.onclick);
         }
 
         e.preventDefault();
-        this.props.focusMessage();
+
+        if (!(attrs.src && attrs.class && attrs.class == 'img-fluid')) {
+            this.props.focusMessage();
+        }
     }
 
     removeMetaMessage(messageId) {
@@ -126,7 +149,7 @@ class ChatMessage extends PureComponent {
 
     imageLoaded(attrs) {
         if (this.props.scrollBottom) {
-            this.props.scrollBottom();
+            this.props.scrollBottom(true);
         }
     }
 
@@ -144,27 +167,6 @@ class ChatMessage extends PureComponent {
             this.delayData.forEach((item) => {
                 this.props.sendDelay(item);
             })
-        }
-    }
-
-    processBotAction(domNode) {
-        const attr = domNode.attribs;
-        if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
-            this.disableEditor = true;
-        } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
-            this.delayData.push(JSON.parse(attr['data-bot-args']));
-        } else if (attr['data-bot-action'] == 'execute-js') {
-            if (attr['data-bot-extension']) {
-                var args = {};
-                if (typeof attr['data-bot-args'] !== 'undefined') {
-                    args = JSON.parse(attr['data-bot-args']);
-                }
-                helperFunctions.emitEvent('extensionExecute',[attr['data-bot-extension'],[args]]);
-            } else if (attr['data-bot-event']) {
-                this.props[attr['data-bot-event']]();
-            } else {
-                eval(domNode.children[0]['data']);
-            }
         }
     }
 
@@ -195,9 +197,11 @@ class ChatMessage extends PureComponent {
 
     render() {
 
+        const { t } = this.props;
+
         var operatorChanged = false;
 
-        return parse(this.props.msg['msg'], {
+        var messages = parse(this.props.msg['msg'], {
 
             replace: domNode => {
                 if (domNode.attribs) {
@@ -216,6 +220,8 @@ class ChatMessage extends PureComponent {
                                 domNode.attribs.className += ' operator-changes';
                                 operatorChanged = true;
                             }
+                        } else if (this.props.profilePic && domNode.attribs.className.indexOf('vis-icon-hld') !== -1) {
+                            return <img className="profile-msg-pic" onLoad={this.imageLoaded} src={this.props.profilePic} alt="" title="" />
                         }
 
                         delete domNode.attribs.class;
@@ -262,12 +268,23 @@ class ChatMessage extends PureComponent {
                             return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
                         }
 
+                    } else if (domNode.name && domNode.name === 'input') {
+
+                        if (domNode.attribs.type && domNode.attribs.type == 'checkbox' && cloneAttr.onchange) {
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+                            return <input type="checkbox" {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} />
+                        }
+
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
-                        this.processBotAction(domNode);
+                        parseScript(domNode, this);
                     }
                 }
             }
         });
+
+        return <React.Fragment>{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
     }
 }
 

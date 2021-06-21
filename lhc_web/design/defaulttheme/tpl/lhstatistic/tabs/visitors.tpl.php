@@ -88,10 +88,11 @@
         <div class="col-md-12">
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
             <div class="row">
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_new" <?php if (in_array('visitors_new',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','New visitors')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_returning" <?php if (in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Returning visitors')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_country" <?php if (in_array('visitors_country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Countries')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_city" <?php if (in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Cities')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_all" <?php if (in_array('visitors_all',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total visitors')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_new" <?php if (in_array('visitors_new',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','New visitors')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_returning" <?php if (in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Returning visitors')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_country" <?php if (in_array('visitors_country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Countries')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_city" <?php if (in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Cities')?></label></div>
 
                 <?php /* Don't have attribute for device type
 
@@ -130,6 +131,7 @@
             drawChartVisitorsCountry();
             drawChartVisitorsCity();
             drawChartVisitorsNew();
+            drawChartVisitorsAll();
             drawChartVisitorsReturning();
         };
 
@@ -397,6 +399,61 @@
             <?php endif; ?>
         };
 
+        function drawChartVisitorsAll() {
+            <?php if (!empty($visitors_statistic['visitors_all']) && in_array('visitors_all',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+            var barChartData = {
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_all'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date($visitors_statistic['group_date'],$monthUnix).'\'';$key++; endforeach;?>],
+                datasets: [
+                    {
+                        label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total visitors');?>',
+                        backgroundColor: '#3366cc',
+                        borderColor: '#3366cc',
+                        borderWidth: 1,
+                        data: [<?php $key = 0; foreach ($visitors_statistic['visitors_all'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data; $key++; endforeach;?>]
+                    }
+                ]
+            };
+
+            var ctx = document.getElementById("chart_visitors_all").getContext("2d");
+            var myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    layout: {
+                        padding: {
+                            top: 20
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 11,
+                                stepSize: 1,
+                                min: 0,
+                                autoSkip: false
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            });
+            <?php endif; ?>
+        };
+
         function drawChartVisitorsReturning() {
             <?php if (!empty($visitors_statistic['visitors_returning']) && in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
@@ -456,6 +513,12 @@
             redrawAllCharts();
         });
     </script>
+
+<?php if (in_array('visitors_all',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+    <hr>
+    <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chart_visitors_all.tpl.php'));?></h5>
+    <canvas id="chart_visitors_all"></canvas>
+<?php endif;?>
 
 <?php if (in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>

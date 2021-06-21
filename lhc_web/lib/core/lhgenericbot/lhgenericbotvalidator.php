@@ -5,6 +5,8 @@ class erLhcoreClassGenericBotValidator {
     public static function validateGroup(& $data) {
         $group = erLhcoreClassModelGenericBotGroup::fetch($data['id']);
         $group->name = $data['name'];
+        $group->is_collapsed = isset($data['is_collapsed']) && $data['is_collapsed'] == true ? 1 : 0;
+        $group->pos = isset($data['pos']) ? (int)$data['pos']: 0;
         $group->saveThis();
     }
 

@@ -28,7 +28,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
-	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
+	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
 	    {
 
 	        $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$form->msg);
@@ -45,7 +45,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                     $msg->user_id = 0;
                     $msg->time = time();
 
-                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
                         erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
                     }
 
@@ -137,13 +137,13 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	        /* else {
         	    // Auto responder
         	    $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
-        	    
+
         	    if ($responder instanceof erLhAbstractModelAutoResponder) {
         	        $chat->wait_timeout = $responder->wait_timeout;
         	        $chat->timeout_message = $responder->timeout_message;
         	        $chat->wait_timeout_send = 1-$responder->repeat_number;
         	        $chat->wait_timeout_repeat = $responder->repeat_number;
-        	    
+
         	        if ($responder->wait_message != '') {
         	            $msg = new erLhcoreClassModelmsg();
         	            $msg->msg = trim($responder->wait_message);
@@ -152,16 +152,16 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
         	            $msg->user_id = -2;
         	            $msg->time = time()+5;
         	            erLhcoreClassChat::getSession()->save($msg);
-        	    
+
         	            if ($chat->last_msg_id < $msg->id) {
         	                $chat->last_msg_id = $msg->id;
         	            }
         	        }
-        	    
+
         	        $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
         	        $chat->time = time(); // Update initial chat start time for auto responder
         	        $chat->saveThis();
-        	    
+
         	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_responder_triggered',array('chat' => & $chat));
         	    }
 	        }*/

@@ -4,7 +4,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/vadation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('chatbox/new')?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('chatbox/new')?>" method="post">
 
 <?php include(erLhcoreClassDesign::designtpl('lhchatbox/form.tpl.php'));?>
 

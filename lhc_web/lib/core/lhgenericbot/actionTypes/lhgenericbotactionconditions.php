@@ -34,10 +34,34 @@ class erLhcoreClassGenericBotActionConditions {
 
                     if ($paramsConditions[0] == 'lhc') {
                         $attr = $chat->{$paramsConditions[1]};
+                    } elseif ($paramsConditions[0] == 'siteaccess') {
+                        $attr = erLhcoreClassSystem::instance()->SiteAccess;
+                    } elseif ($paramsConditions[0] == 'online_department_hours') {
+                        $attr = erLhcoreClassChat::isOnline($chat->dep_id,false, array(
+                            'exclude_bot' => true,
+                            'exclude_online_hours' => false,
+                            'ignore_user_status' => true
+                        )) == true ? 1 : 0;
+                        $valAttr = (int)$valAttr;
+                    } elseif ($paramsConditions[0] == 'online_department') {
+                        $attr = erLhcoreClassChat::isOnline($chat->dep_id,false, array(
+                            'exclude_bot' => true,
+                            'exclude_online_hours' => false
+                        )) == true ? 1 : 0;
+                        $valAttr = (int)$valAttr;
+                    } elseif ($paramsConditions[0] == 'online_op_department') {
+                        $attr = erLhcoreClassChat::isOnline($chat->dep_id,false, array(
+                            'exclude_bot' => true,
+                            'exclude_online_hours' => true
+                        )) == true ? 1 : 0;
+                        $valAttr = (int)$valAttr;
                     } elseif (isset($chatVariables[$condition['content']['attr']])) {
                         $attr = $chatVariables[$condition['content']['attr']];
                     } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
                         $attr = $chatAttributesFrontend[$condition['content']['attr']];
+                    } elseif (strpos($condition['content']['attr'],'{args.') !== false) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
+                        $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
                     } else {
                         $attrData = erLhcoreClassGenericBotActionRestapi::extractAttribute($chatVariables, $condition['content']['attr']);
                         if ($attrData['found'] == true) {
@@ -45,11 +69,21 @@ class erLhcoreClassGenericBotActionConditions {
                         } else {
                             $attr = '';
                         }
-                     }
+                    }
 
                     if ($attr === null) {
-                        $conditionsMet = false;
-                        break;
+                       $conditionsMet = false;
+                       break;
+                    }
+
+                    if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {
+                        $attr = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$condition['content']['attr']);
+                    }
+
+                    // Replace right side of the attribute
+                    if (strpos($valAttr,'{args.') !== false) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$valAttr), '.');
+                        $valAttr = $valueAttribute['found'] == true ? $valueAttribute['value'] : $valAttr;
                     }
 
                     if ($condition['content']['comp'] == 'eq' && !($attr == $valAttr)) {
@@ -70,10 +104,18 @@ class erLhcoreClassGenericBotActionConditions {
                     } else if ($condition['content']['comp'] == 'gt' && !($attr > $valAttr)) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$valAttr),$attr,0) == false) {
+                    } else if ($condition['content']['comp'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                            'pattern' => $valAttr,
+                            'msg' => $attr,
+                            'words_typo' => 0,
+                        ))['found'] == false) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$valAttr),$attr,0) == true) {
+                    } else if ($condition['content']['comp'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                            'pattern' => $valAttr,
+                            'msg' => $attr,
+                            'words_typo' => 0,
+                        ))['found'] == true) {
                         $conditionsMet = false;
                         break;
                     }
@@ -90,7 +132,7 @@ class erLhcoreClassGenericBotActionConditions {
                 }
 
                 return array (
-                    'status' => 'stop',
+                    'status' => ((isset($action['content']['attr_options']['continue_all']) && $action['content']['attr_options']['continue_all'] == true) ? 'continue_all' : 'stop'),
                     'trigger_id' => ((isset($action['content']['attr_options']['callback_match']) && is_numeric($action['content']['attr_options']['callback_match'])) ? $action['content']['attr_options']['callback_match'] : null)
                 );
 
@@ -105,7 +147,7 @@ class erLhcoreClassGenericBotActionConditions {
 
                 if (isset($action['content']['attr_options']['callback_unmatch']) && is_numeric($action['content']['attr_options']['callback_unmatch'])){
                     return array(
-                        'status' => 'stop',
+                        'status' => ((isset($action['content']['attr_options']['continue_all']) && $action['content']['attr_options']['continue_all'] == true) ? 'continue_all' : 'stop'),
                         'trigger_id' => ((isset($action['content']['attr_options']['callback_unmatch']) && is_numeric($action['content']['attr_options']['callback_unmatch'])) ? $action['content']['attr_options']['callback_unmatch'] : null)
                     );
                 }

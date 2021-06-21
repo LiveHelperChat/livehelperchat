@@ -52,10 +52,16 @@ if (!$form->hasValidData('btype') || empty($form->btype)) {
 if (!$form->hasValidData('expires')) {
     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Please choose expire option!');
 } else {
-    $params['expires'] = time() + ($form->expires * 24 * 3600);
+    if ($form->expires > 0) {
+        $params['expires'] = time() + ($form->expires * 24 * 3600);
+    } else {
+        $params['expires'] = 0;
+    }
 }
 
 $params['chat'] = $chat;
+
+$params['user'] =  $currentUser->getUserData(true);
 
 if (empty($Errors)){
     erLhcoreClassModelChatBlockedUser::blockChat($params);

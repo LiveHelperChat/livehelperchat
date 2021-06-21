@@ -30,7 +30,11 @@ class erLhcoreClassAbstract
                         $value = $object->$name;
                     }
 
-                    $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : '';
+                    if (isset($attr['nginit'])) {
+                        $value = str_replace(array('}}','{{'),'',$value);
+                    }
+
+                    $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
 
                     if (isset($attr['placeholder'])) {
                         $ngModel .= " placeholder=\"{$attr['placeholder']}\" ";
@@ -40,7 +44,7 @@ class erLhcoreClassAbstract
                         $ngModel .= " maxlength=\"{$attr['maxlength']}\" ";
                     }
 
-                    return '<input class="form-control" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
+                    return '<input class="form-control form-control-sm" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
                 }
                 break;
 
@@ -54,7 +58,7 @@ class erLhcoreClassAbstract
                 } else {
                     $value = $object->$name;
                 }
-                return '<div class="input-group" ng-init=\'bactract_bg_color_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\'><div class="input-group-prepend"><span style="background-color:#{{bactract_bg_color_' . $name . '}}" class="input-group-text">#</span></div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_' . $name . '" id="id_AbstractInput_' . $name . '" name="AbstractInput_' . $name . '" type="text" value="' . htmlspecialchars($value) . '" /></div><script>$(\'#id_AbstractInput_' . $name . '\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
+                return '<div class="input-group input-group-sm" ng-init=\'bactract_bg_color_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\'><div class="input-group-prepend"><span style="background-color:#{{bactract_bg_color_' . $name . '}}" class="input-group-text">#</span></div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_' . $name . '" id="id_AbstractInput_' . $name . '" name="AbstractInput_' . $name . '" type="text" value="' . htmlspecialchars($value) . '" /></div><script>$(\'#id_AbstractInput_' . $name . '\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
                 break;
 
             case 'textarea':
@@ -85,7 +89,14 @@ class erLhcoreClassAbstract
                         }
                     }
 
+                    if (isset($attr['nginit'])) {
+                        $value = str_replace(array('}}','{{'),'',$value);
+                    }
+
                     $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
+
+
+
                     $aceEditor = isset($attr['ace_editor']) ? ' data-editor="'.$attr['ace_editor'].'" ' : '';
 
                     return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' ' . $aceEditor . ' class="form-control" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
@@ -135,7 +146,7 @@ class erLhcoreClassAbstract
             case 'combobox':
 
                 $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-                $return = '<select class="form-control" name="AbstractInput_' . $name . '"' . $onchange . '>';
+                $return = '<select ng-non-bindable class="form-control" name="AbstractInput_' . $name . '"' . $onchange . '>';
 
                 if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false) {
                     $return .= '<option value="0">Choose option</option>';
@@ -169,7 +180,7 @@ class erLhcoreClassAbstract
                 break;
 
             case 'combobox_multi':
-                $return = '<select class="form-control" name="AbstractInput_' . $name . '[]" multiple size="5">';
+                $return = '<select class="form-control" ng-non-bindable name="AbstractInput_' . $name . '[]" multiple size="5">';
                 $items = call_user_func($attr['source'], $attr['params_call']);
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'selected="selected"' : '';
@@ -187,25 +198,25 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
                 }
-                $return .= "</select>";
+                //$return .= "</select>";
                 return $return;
                 break;
 
             case 'title':
-                return '<h3>' . $attr['trans'] . '</h3>';
+                return '<h3 ng-non-bindable>' . $attr['trans'] . '</h3>';
                 break;
                 
             case 'text_display':
-                return '<p>' . htmlspecialchars($object->$name) . '</p>';
+                return '<p ng-non-bindable>' . htmlspecialchars($object->$name) . '</p>';
                 break;
 
             case 'text_pre':
-                return '<pre>' . htmlspecialchars($object->$name) . '</pre>';
+                return '<pre ng-non-bindable>' . htmlspecialchars($object->$name) . '</pre>';
                 break;
 
             default:

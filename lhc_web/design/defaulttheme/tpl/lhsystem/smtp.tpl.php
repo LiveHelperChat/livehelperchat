@@ -10,7 +10,7 @@
 
 
       
-<form action="" method="post" autocomplete="new-password">
+<form action="" method="post" autocomplete="new-password" ng-non-bindable>
 
 	<div role="tabpanel">
 

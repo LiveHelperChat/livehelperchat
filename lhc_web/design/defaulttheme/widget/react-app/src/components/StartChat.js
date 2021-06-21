@@ -10,7 +10,8 @@ import ChatStartOptions from './ChatStartOptions';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatInvitationMessage from './ChatInvitationMessage';
 import ChatBotIntroMessage from './ChatBotIntroMessage';
-import { initOnlineForm, submitOnlineForm } from "../actions/chatActions"
+import ChatAbort from './ChatAbort';
+import { initOnlineForm, submitOnlineForm, minimizeWidget } from "../actions/chatActions"
 
 @connect((store) => {
     return {
@@ -133,6 +134,11 @@ class StartChat extends Component {
                             this.props.dispatch({'type' : 'dep_default', data : obj.value});
                             this.props.dispatch({'type' : 'onlineStatus', data : false});
                         }
+
+                        // Update online fields settings if different department
+                        if (this.props.chatwidget.getIn(['onlineData','dep_forms']) != obj.value) {
+                            this.updateOnlineFieldsInit(obj.value);
+                        }
                     }
                 })
             }
@@ -187,20 +193,25 @@ class StartChat extends Component {
         this.handleSubmit();
     }
 
-    updateOnlineFields(){
+    updateOnlineFieldsInit(dep_default) {
+        // Init offline form with all attributes
+        this.props.dispatch(initOnlineForm({
+            'department':this.props.chatwidget.get('department'),
+            'product':this.props.chatwidget.get('product'),
+            'theme' : this.props.chatwidget.get('theme'),
+            'mode' : this.props.chatwidget.get('mode'),
+            'pvhash' : this.props.chatwidget.get('pvhash'),
+            'phash' : this.props.chatwidget.get('phash'),
+            'bot_id' : this.props.chatwidget.get('bot_id'),
+            'vid' : this.props.chatwidget.get('vid'),
+            'dep_default' : (dep_default || this.props.chatwidget.get('departmentDefault') || 0),
+            'online' : 1
+        }));
+    }
+
+    updateOnlineFields() {
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === false) {
-            // Init offline form with all attributes
-            this.props.dispatch(initOnlineForm({
-                'department':this.props.chatwidget.get('department'),
-                'product':this.props.chatwidget.get('product'),
-                'theme' : this.props.chatwidget.get('theme'),
-                'mode' : this.props.chatwidget.get('mode'),
-                'pvhash' : this.props.chatwidget.get('pvhash'),
-                'phash' : this.props.chatwidget.get('phash'),
-                'bot_id' : this.props.chatwidget.get('bot_id'),
-                'vid' : this.props.chatwidget.get('vid'),
-                'online' : 1
-            }));
+            this.updateOnlineFieldsInit();
         }
     }
 
@@ -225,7 +236,18 @@ class StartChat extends Component {
 
         // Rest API data was fetched we can scroll to bottomnow
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
+            this.props.chatwidget.hasIn(['chat_ui','uprev']) && helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
             this.scrollBottom();
+        }
+
+        // If parent pages changes default department we have to reload
+        if (this.props.chatwidget.get('departmentDefault') !== prevProps.chatwidget.get('departmentDefault')) {
+            this.setState({'DepartamentID': this.props.chatwidget.get('departmentDefault')});
+            var elm = document.getElementById('id-department-field');
+            if (elm !== null) {
+                elm.value = this.props.chatwidget.get('departmentDefault');
+            }
+            this.updateOnlineFieldsInit();
         }
     }
 
@@ -332,16 +354,20 @@ class StartChat extends Component {
         return null;
     }
 
-    if (this.props.chatwidget.get('onlineData').has('fields') && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
+    if (this.props.chatwidget.getIn(['onlineData','fields']).size > 0 && !(this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0)) {
         var mappedFields = this.props.chatwidget.getIn(['onlineData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={this.state[field.get('name')] || field.get('value')} attrPrefill={{'attr_prefill_admin' : this.props.chatwidget.get('attr_prefill_admin'), 'attr_prefill' : this.props.chatwidget.get('attr_prefill')}} onChangeContent={this.handleContentChange} field={field} />);
     } else {
         var mappedFields = "";
     }
 
+    var hasVisibleCustomFields = false;
+    var mappedFieldsCustom = "";
+
     if (this.props.chatwidget.getIn(['customData','fields']).size > 0) {
-        var mappedFieldsCustom = this.props.chatwidget.getIn(['customData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={field.get('value')} onChangeContent={this.handleContentChangeCustom} field={field} />);
-    } else {
-        var mappedFieldsCustom = "";
+        this.props.chatwidget.getIn(['customData','fields']).map(field => hasVisibleCustomFields = !(field.has('type') && field.get('type') === 'hidden') ? true : hasVisibleCustomFields);
+        if (hasVisibleCustomFields == true) {
+            mappedFieldsCustom = this.props.chatwidget.getIn(['customData','fields']).map(field =><ChatField chatUI={this.props.chatwidget.get('chat_ui')} key={field.get('identifier')} isInvalid={this.props.chatwidget.hasIn(['validationErrors',field.get('identifier')])} defaultValueField={field.get('value')} onChangeContent={this.handleContentChangeCustom} field={field} />);
+        }
     }
 
     if (this.props.chatwidget.hasIn(['onlineData','paid','error']) && this.props.chatwidget.getIn(['onlineData','paid','error'])) {
@@ -349,7 +375,7 @@ class StartChat extends Component {
     }
 
     if (this.props.chatwidget.get('processStatus') == 0 || this.props.chatwidget.get('processStatus') == 1) {
-            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && this.props.chatwidget.getIn(['customData','fields']).size == 0) {
+            if (this.props.chatwidget.hasIn(['chat_ui','show_messages_box']) && this.props.chatwidget.getIn(['onlineData','department','departments']).size <= 1 && this.props.chatwidget.getIn(['onlineData','fields_visible']) <= 1 && (this.props.chatwidget.getIn(['customData','fields']).size == 0 || hasVisibleCustomFields === false)) {
 
                 var classMessageInput = "pl-0 no-outline form-control rounded-0 form-control border-left-0 border-right-0 border-0 " + (this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.Question) || (this.state.Question.length > this.textMessageRef.current.offsetWidth/8.6)) ? 'msg-two-line' : 'msg-one-line');
 
@@ -366,10 +392,12 @@ class StartChat extends Component {
 
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
+                        {this.props.chatwidget.hasIn(['validationErrors','blocked_user']) && <ChatAbort closeText={t('button.close')} close={(e) => this.props.dispatch(minimizeWidget(true))} text={this.props.chatwidget.getIn(['validationErrors','blocked_user'])} />}
+
                         {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.hasIn(['proactive','data','std_header'])  && <ChatInvitationMessage mode='profile_only' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div id="lhc-profile-body"><div id="chat-status-container" className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div></div>)
                         }
 
                         <div className={msg_expand} id="messagesBlock">
@@ -394,8 +422,8 @@ class StartChat extends Component {
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
 
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
-                                <ChatStartOptions toggleModal={this.toggleModal} />
-                                <div className="mx-auto pb-1 w-100">
+                                {!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <ChatStartOptions toggleModal={this.toggleModal} />}
+                                <div className="mx-auto w-100">
                                     <textarea autoFocus={this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
@@ -414,7 +442,6 @@ class StartChat extends Component {
                                 {this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat_With_us')}
                             </button>}
 
-
                           </div>}
                     </React.Fragment>
                 )
@@ -425,7 +452,7 @@ class StartChat extends Component {
                     {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && <div className="p-2 border-bottom" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
+                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                     }
                     <div className="container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
@@ -438,11 +465,11 @@ class StartChat extends Component {
                                 {mappedFieldsCustom}
                                 {this.props.chatwidget.hasIn(['onlineData','department']) && <ChatDepartment defaultValueField={this.state['DepartamentID']} setDefaultValue={this.props.chatwidget.get('departmentDefault')} onChangeContent={this.handleContentChange} isInvalidProduct={this.props.chatwidget.hasIn(['validationErrors','ProductID'])} isInvalid={this.props.chatwidget.hasIn(['validationErrors','department'])} departments={this.props.chatwidget.getIn(['onlineData','department'])} />}
                             </div>
-                            <div className="row">
+                            {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "" || this.props.chatwidget.getIn(['proactive','has']) === true) && <div className="row">
                                 <div className="col-12 pb-3">
                                     <button disabled={this.props.chatwidget.get('processStatus') == 1} type="submit" className="btn btn-secondary btn-sm">{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('button.start_chat')}</button>
                                 </div>
-                            </div>
+                            </div>}
                         </form>
                     </div>
                 </div>

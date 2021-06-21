@@ -130,11 +130,18 @@
 						<?php echo erLhcoreClassAbstract::renderInput('offline_image', $fields['offline_image'], $object)?>
 						</div>
 
-
-						<div class="form-group">
-						<label><?php echo $fields['operator_image']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
-						</div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['operator_image']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('operator_image', $fields['operator_image'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <?php $avatarOptions = ['field_name' => 'AbstractInput_operator_avatar', 'avatar' => (isset($object->bot_configuration_array['operator_avatar']) ? $object->bot_configuration_array['operator_avatar'] : '') ]; ?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+                            </div>
+                        </div>
 
                         <?php $translatableItem = array('identifier' => 'explain_text', 'bb_code_selected' => 'textarea[name=AbstractInput_explain_text]'); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
@@ -160,7 +167,7 @@
                                     <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
             		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
-            		            <div class="msg-date">10:18:22</div>
+            		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
                                         <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
@@ -171,54 +178,138 @@
                                     </span>
                                     <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
+
+                                <div id="scroll-to-message" class="message-admin border-bottom border-danger text-center" style="border-bottom-style: dashed!important;border-bottom-color: #{{bactract_bg_color_bg_new_msg}}!important;"><span style="color:#{{bactract_bg_color_new_msg_text_color}}!important;background-color: #{{bactract_bg_color_bg_new_msg}}!important;" class="new-msg bg-danger text-white d-inline-block fs12 rounded-top"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New')?></span></div>
+
+                                <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
+            		                <div class="msg-date">10:18:22</div>
+                                    <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
+
+                                        <i ng-show="abstract_checked_bubble_style_profile" title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
+                                            <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
+                                        </i>
+                                    </span>
+                                    <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                </div>
+
+                                <div class="btn-bottom-scroll fade-in-fast text-center"><button type="button" style="border-radius:15px;padding: 3px 10px;opacity: 0.85;color:#{{bactract_bg_color_text_scroll_bottom}}!important;background-color: #{{bactract_bg_color_bg_scroll_bottom}}!important;" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom')?></button></div>
+
             		        </div>
                         </div>
 		
-        		        <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h3>
-        		        
-        		        <div class="form-group">
-                            <label><?php echo erLhcoreClassAbstract::renderInput('bubble_style_profile', $fields['bubble_style_profile'], $object)?> <?php echo $fields['bubble_style_profile']['trans'];?></label>
-    				    </div>
+        		        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor messages style')?></h5>
 
-        		        <div class="form-group">
-                            <label><?php echo erLhcoreClassAbstract::renderInput('hide_visitor_profile', $fields['hide_visitor_profile'], $object)?> <?php echo $fields['hide_visitor_profile']['trans'];?></label>
-    				    </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erLhcoreClassAbstract::renderInput('bubble_style_profile', $fields['bubble_style_profile'], $object)?> <?php echo $fields['bubble_style_profile']['trans'];?></label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erLhcoreClassAbstract::renderInput('hide_visitor_profile', $fields['hide_visitor_profile'], $object)?> <?php echo $fields['hide_visitor_profile']['trans'];?></label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erLhcoreClassAbstract::renderInput('msg_expand', $fields['msg_expand'], $object)?> <?php echo $fields['msg_expand']['trans'];?></label>
+                                </div>
+                            </div>
+                        </div>
 
-        		        <div class="form-group">
-                            <label><?php echo erLhcoreClassAbstract::renderInput('msg_expand', $fields['msg_expand'], $object)?> <?php echo $fields['msg_expand']['trans'];?></label>
-    				    </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_visitor_title_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_visitor_title_color', $fields['buble_visitor_title_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_visitor_text_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_visitor_text_color', $fields['buble_visitor_text_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_visitor_background']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_background', $fields['buble_visitor_background'], $object)?>
-    				    </div>
-        		
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_visitor_title_color']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_title_color', $fields['buble_visitor_title_color'], $object)?>		
-    				    </div>
-        		
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_visitor_text_color']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_visitor_text_color', $fields['buble_visitor_text_color'], $object)?>		
-    				    </div>
-    				    
-    				    <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator messages style')?></h3>
-    				    
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_operator_background']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_background', $fields['buble_operator_background'], $object)?>		
-    				    </div>
-    				    
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_operator_title_color']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_title_color', $fields['buble_operator_title_color'], $object)?>		
-    				    </div>
-    				    
-        		        <div class="form-group">
-        		        <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
-    					<?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>		
-    				    </div>
+    				    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator messages style')?></h5>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_operator_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_operator_background', $fields['buble_operator_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_operator_title_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_operator_title_color', $fields['buble_operator_title_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['buble_operator_text_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('buble_operator_text_color', $fields['buble_operator_text_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','New message separator style')?></h5>
+
+                        <?php $translatableItem = array('identifier' => 'cnew_msgh'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['new_msg_text_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('new_msg_text_color', $fields['new_msg_text_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['bg_new_msg']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('bg_new_msg', $fields['bg_new_msg'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Scroll to the bottom style')?></h5>
+
+                        <?php $translatableItem = array('identifier' => 'cnew_msg'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                        <?php $translatableItem = array('identifier' => 'cnew_msgm'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                        <?php $translatableItem = array('identifier' => 'cscroll_btn'); ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['bg_scroll_bottom']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('bg_scroll_bottom', $fields['bg_scroll_bottom'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['text_scroll_bottom']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('text_scroll_bottom', $fields['text_scroll_bottom'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other')?></h5>
 
         		        <div class="form-group">
         		            <label><?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?> <?php echo $fields['hide_ts']['trans'];?></label>
@@ -229,22 +320,33 @@
     				    </div>
 
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="widgetcontainer">
-        		
-        		        <div class="form-group">
-        		        <label><?php echo $fields['header_background']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>		
-					    </div>
-					    
-					    <div class="form-group">				
-						<label><?php echo $fields['widget_border_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>		
-						</div>
+        		<div role="tabpanel" class="tab-pane pt-2" id="widgetcontainer">
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_background']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_background', $fields['header_background'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['widget_border_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('widget_border_color', $fields['widget_border_color'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo $fields['header_icon_color']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
-						<label><?php echo $fields['header_icon_color']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('header_icon_color', $fields['header_icon_color'], $object)?>
-						</div>
+                            <label><?php echo $fields['icons_order']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
+                        </div>
 
 						<div class="form-group">											
 						<label><?php echo $fields['widget_border_width']['trans'];?></label>
@@ -348,6 +450,14 @@
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_popup', $fields['hide_popup'], $object)?> <?php echo $fields['hide_popup']['trans'];?></label>	
         		        </div>
 
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('disable_sound', $fields['disable_sound'], $object)?> <?php echo $fields['disable_sound']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('kcw', $fields['kcw'], $object)?> <?php echo $fields['kcw']['trans'];?></label>
+        		        </div>
+
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('detect_language', $fields['detect_language'], $object)?> <?php echo $fields['detect_language']['trans'];?></label>
         		        </div>
@@ -375,6 +485,31 @@
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('close_on_unload', $fields['close_on_unload'], $object)?> <?php echo $fields['close_on_unload']['trans'];?></label>
         		        </div>
+                    
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('dont_prefill_offline', $fields['dont_prefill_offline'], $object)?> <?php echo $fields['dont_prefill_offline']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('hide_bb_code', $fields['hide_bb_code'], $object)?> <?php echo $fields['hide_bb_code']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('msg_snippet', $fields['msg_snippet'], $object)?> <?php echo $fields['msg_snippet']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('font_size', $fields['font_size'], $object)?> <?php echo $fields['font_size']['trans'];?></label>
+        		        </div>
+
+                        <div class="form-group">
+                            <label><?php echo $fields['embed_closed']['trans'];?></label>
+                            <select name="AbstractInput_embed_closed" class="form-control form-control-sm">
+                                <option value="" <?php !isset($object->bot_configuration_array['embed_closed']) || $object->bot_configuration_array['embed_closed'] == '' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Absent');?></option>
+                                <option value="1" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '1' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Top right');?></option>
+                                <option value="2" <?php isset($object->bot_configuration_array['embed_closed']) && $object->bot_configuration_array['embed_closed'] == '2' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Bottom left');?></option>
+                            </select>
+                        </div>
 
                         <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
@@ -447,10 +582,22 @@
 
         		
         		</div>
-        		<div role="tabpanel" class="tab-pane" id="needhelp">
+        		<div role="tabpanel" class="tab-pane pt-2" id="needhelp">
 
         		        <div class="form-group">
-        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?><?php echo $fields['show_need_help']['trans'];?></label>
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?> <?php echo $fields['show_need_help']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?> <?php echo $fields['hide_mobile_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('always_present_nh', $fields['always_present_nh'], $object)?> <?php echo $fields['always_present_nh']['trans'];?></label>
+						</div>
+
+        		        <div class="form-group">
+        		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_close_nh', $fields['hide_close_nh'], $object)?> <?php echo $fields['hide_close_nh']['trans'];?></label>
 						</div>
 
         		        <div class="form-group">
@@ -498,11 +645,20 @@
 						<label><?php echo $fields['need_help_close_hover_bg']['trans'];?></label>
 						<?php echo erLhcoreClassAbstract::renderInput('need_help_close_hover_bg', $fields['need_help_close_hover_bg'], $object)?>												
 						</div>
-						
-						<div class="form-group">										
-						<label><?php echo $fields['need_help_image']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>		
-						</div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['need_help_image']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('need_help_image', $fields['need_help_image'], $object)?>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <?php $avatarOptions = ['field_prefix' => 'nh_', 'field_name' => 'AbstractInput_nh_avatar', 'avatar' => (isset($object->bot_configuration_array['nh_avatar']) ? $object->bot_configuration_array['nh_avatar'] : '') ]; ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+                        </div>
+                    </div>
+
 
                     <hr>
                     <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Build your own need help widget layout')?></h4>
@@ -563,12 +719,39 @@
                     <?php $translatableItem = array('identifier' => 'department_select'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'formf_name'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'formf_email'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'formf_file'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'formf_question'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'formf_phone'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
                     <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Text changes')?></h3>
 
                     <?php $translatableItem = array('identifier' => 'placeholder_message'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'bot_status_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+                    
+                    <?php $translatableItem = array('identifier' => 'custom_tos_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'min_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'popup_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'end_chat_text'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'support_joined'); ?>
@@ -917,7 +1100,7 @@
           <span class="px-1" aria-hidden="true">&times;</span>
         </button>
         <div class="d-flex">
-          <div class="p-1"><img class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
+          <div class="p-1"><img style="min-width: 50px;" alt="Customer service" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
           <div class="p-1 flex-grow-1"><h6 class="mb-0">{{need_help_header}}</h6>
             <p class="mb-1" style="font-size: 14px">{{need_help_body}}</p></div>
         </div>

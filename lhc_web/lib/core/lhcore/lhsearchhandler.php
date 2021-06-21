@@ -94,11 +94,15 @@ class erLhcoreClassSearchHandler
                     if ($field['filter_type'] == 'filter') {
                         
                         if (is_bool($inputParams->$key) && $inputParams->$key == true) {
-
                             $filter[$field['filter_type']][$field['filter_table_field']] = isset($field['filter_value_if_checked']) ? $field['filter_value_if_checked'] : 1;
-
                         } else {
-                            $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
+                            if (isset($field['multiple_id']) && $field['multiple_id'] == true) {
+                                $parts = explode(",",str_replace(array("\n"," ","\t"),"", $inputParams->$key));
+                                erLhcoreClassChat::validateFilterIn($parts);
+                                $filter[$field['filter_type']][$field['filter_table_field']] = $parts;
+                            } else {
+                                $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
+                            }
                         }
                     } elseif ($field['filter_type'] == 'filterin_remote') {
                         
@@ -326,6 +330,10 @@ class erLhcoreClassSearchHandler
                     } elseif ($field['filter_type'] == 'filterin') {
                         if (!empty($inputParams->$key)) {
                             $filter['filterin'][$field['filter_table_field']] = $inputParams->$key;
+                        }
+                    } elseif ($field['filter_type'] == 'filterin_elastic') {
+                        if (!empty($inputParams->$key)) {
+                            $filter['filterin_elastic'][$field['filter_table_field']] = $inputParams->$key;
                         }
                     } elseif ($field['filter_type'] == 'manual') {
                         $filter = array_merge_recursive($filter, $field['filter_table_field']);

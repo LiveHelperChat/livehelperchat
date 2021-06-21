@@ -35,7 +35,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        if ($msg->chat_id == $Chat->id && $msg->user_id == $currentUser->getUserID()) {
 		        $msg->msg = trim($form->msg);
 		        
-		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '') {
+		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
 		            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
 		        }
 
@@ -50,8 +50,10 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
 			    $Chat->updateThis(array('update' => array('operation')));
 			    
-		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f','msg' => trim($tpl->fetch())));
-	        }	        
+		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f', 'msg' => trim($tpl->fetch())));
+	        } else {
+                echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit only your own messages!')));
+            }
 	    }   
 	     	    
 	    $db->commit();

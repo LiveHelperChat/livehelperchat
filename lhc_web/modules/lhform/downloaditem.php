@@ -34,6 +34,9 @@ try {
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Date'));
 	$i++;
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, 'IP');
+
+	$i++;
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Custom fields'));
 	
 	$i++;
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($i, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('form/index','Identifier'));
@@ -63,11 +66,13 @@ try {
 	$y++;
 	
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->ip);	
-	$i++;
-	
 	$y++;
+
+	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->custom_fields);
+	$y++;
+
 	$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->identifier);	
-	$i++;
+	$y++;
 	
 	$objPHPExcel->getActiveSheet()->setTitle('Report');
 	$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
@@ -75,7 +80,7 @@ try {
 	$objWriter->save('var/storageform/'.$item->id.'-report.xlsx');
 			
 	$zip = new ZipArchive();
-	$zip->open('var/storageform/'.$item->id.'-temp.zip',ZIPARCHIVE::OVERWRITE);
+	$zip->open('var/storageform/'.$item->id.'-temp.zip',ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
 	$zip->addFile('var/storageform/'.$item->id.'-report.xlsx','report.xlsx');
 			
 	foreach ($item->content_array as $key => $content) {
@@ -93,7 +98,7 @@ try {
 			}
 		}			
 	} 
-		
+
 	$zip->close();
 			
 	header("Content-type: application/octet-stream");
@@ -101,7 +106,7 @@ try {
 	echo file_get_contents('var/storageform/'.$item->id.'-temp.zip');
 	unlink('var/storageform/'.$item->id.'-temp.zip');
 	unlink('var/storageform/'.$item->id.'-report.xlsx');
-	exit;	
+	exit;
 
 } catch (Exception $e) {
 	header('Location: /');

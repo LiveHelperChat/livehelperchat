@@ -43,6 +43,27 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
     
     if (count($Errors) == 0) {
 
+        if ( isset($_POST['ForceResetPassword']) ) {
+            if (erLhcoreClassModelUserLogin::getCount(array('filter' => array (
+                'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                'user_id' => $UserData->id))) == 0) {
+                    erLhcoreClassModelUserLogin::logUserAction(array(
+                        'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                        'user_id' => $UserData->id,
+                        'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password reset requested by') . ' ' . $currentUser->getUserData(),
+                    ));
+            }
+        } else {
+            $userLogin = erLhcoreClassModelUserLogin::findOne(array('filter' => array (
+                'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+                'user_id' => $UserData->id)));
+            if ($userLogin instanceof erLhcoreClassModelUserLogin){
+                $userLogin->removeThis();
+            }
+        }
+
         erLhcoreClassUser::getSession()->update($UserData);
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
@@ -75,7 +96,30 @@ if (isset($_POST['UpdatePending_account'])) {
 	}
 
     $pendingSettings = erLhcoreClassUserValidator::validateShowAllPendingOption();
-	
+
+	// Log user changes
+    $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+    $data = (array)$auditOptions->data;
+    if (isset($data['log_user']) && $data['log_user'] == 1) {
+        $originalSettings['old'] = array(
+            'auto_accept' => $UserData->auto_accept,
+            'max_chats' => $UserData->max_active_chats,
+            'exclude_autoasign' => $UserData->exclude_autoasign,
+            'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
+            'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
+        );
+        $originalSettings['new'] = $pendingSettings;
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $UserData,
+            'msg' => array(
+                'prev' => $originalSettings['old'],
+                'new' => $originalSettings['new'],
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+    }
+
 	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
 	erLhcoreClassModelUserSetting::setSetting('auto_join_private', $pendingSettings['auto_join_private'], $UserData->id);
 
@@ -94,6 +138,8 @@ if (isset($_POST['UpdatePending_account'])) {
 
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_pending');
+
+
 	
 }
 
@@ -150,6 +196,11 @@ $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => arr
 $tpl->set('user_groups_filter',$userGroupFilter);
 $tpl->set('can_edit_groups',$can_edit_groups);
 $tpl->set('groups_read_only',$groups_can_edit === true ? true : $groups_can_edit['read']);
+
+$tpl->set('force_reset_password', erLhcoreClassModelUserLogin::getCount(array('filter' => array(
+    'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+    'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
+    'user_id' => $UserData->id))));
 
 $tpl->set('user',$UserData);
 

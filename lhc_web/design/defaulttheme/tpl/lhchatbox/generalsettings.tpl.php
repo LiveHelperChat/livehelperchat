@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('chatbox/generalsettings')?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('chatbox/generalsettings')?>" method="post">
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

@@ -17,7 +17,8 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,
             erLhcoreClassModelChat::STATUS_CLOSED_CHAT,
             erLhcoreClassModelChat::STATUS_CHATBOX_CHAT,
-            erLhcoreClassModelChat::STATUS_OPERATORS_CHAT
+            erLhcoreClassModelChat::STATUS_OPERATORS_CHAT,
+            erLhcoreClassModelChat::STATUS_BOT_CHAT
         ))) {
             
             erLhcoreClassChatHelper::changeStatus(array(

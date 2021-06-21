@@ -31,6 +31,7 @@ class erLhcoreClassModelCannedMsg
             'languages' => $this->languages,
             'additional_data' => $this->additional_data,
             'html_snippet' => $this->html_snippet,
+            'unique_id' => $this->unique_id,
         );
     }
 
@@ -127,7 +128,12 @@ class erLhcoreClassModelCannedMsg
     }
 
     public function afterSave()
-    {            
+    {
+        if ($this->unique_id == 0) {
+            $this->unique_id = $this->id;
+            $this->updateThis(array('update' => array('unique_id')));
+        }
+
         $tagLinks = erLhcoreClassModelCannedMsgTagLink::getList(array('filter' => array('canned_id' => $this->id)));
                 
         $tagsArray = array();
@@ -329,36 +335,22 @@ class erLhcoreClassModelCannedMsg
     private $replaceData = array();
 
     public $id = null;
-
     public $msg = '';
-
     public $title = '';
-
     public $explain = '';
-
     public $languages = '';
-
     public $fallback_msg = '';
-
     public $additional_data = '';
-
     public $html_snippet = '';
-
     public $position = 0;
-
     public $delay = 0;
-
     public $department_id = 0;
-
     public $user_id = 0;
-
     public $auto_send = 0;
-
     public $attr_int_1 = 0;
-
     public $attr_int_2 = 0;
-
     public $attr_int_3 = 0;
+    public $unique_id = 0;
 }
 
 ?>

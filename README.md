@@ -1,18 +1,45 @@
 Live helper chat
 ==============
 
-It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com
+It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com.
 
-[![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat)
+[![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat) [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://marketplace.digitalocean.com/apps/live-helper-chat/?refcode=09c74421e3c2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste)
+
+[![Codemagic build status](https://api.codemagic.io/apps/5f50c50be2db272d7690ae45/5f50c50be2db272d7690ae44/status_badge.svg)](https://codemagic.io/apps/5f50c50be2db272d7690ae45/5f50c50be2db272d7690ae44/latest_build)
 
 ## Need help?
 * Documentation - https://doc.livehelperchat.com
 * Forum - https://forum.livehelperchat.com/
 * Chat (Discord) https://discord.gg/YsZXQVh
+* [Laravel version of Live Helper Chat](https://github.com/LiveHelperChat/livehelperchat_laravel)
 
-## Mobile app
+## Demo
 
-Mobile app is also open source and can be found https://github.com/LiveHelperChat/lhc_messenger
+http://livehelperchat.com/demo-12c.html
+
+## Integrations
+
+ * [Mobile app](https://github.com/LiveHelperChat/lhc_messenger) flutter
+ * [Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/voice-video-screenshare) powered by [agora](https://www.agora.io/en/)
+ * [Rest API](https://api.livehelperchat.com)
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
+ * [Telegram](https://github.com/LiveHelperChat/telegram)
+ * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
+ * [Mattermost](https://github.com/LiveHelperChat/mattermost)
+ * [Facebook messenger](https://github.com/LiveHelperChat/fbmessenger)
+ * [Insult detection](https://github.com/LiveHelperChat/lhcinsult) powered by [DeepPavlov.ai](https://demo.deeppavlov.ai/#/en/insult) and [NudeNet](https://github.com/notAI-tech/NudeNet)
+ * [SMS, WhatsApp](https://github.com/LiveHelperChat/twilio) (Twilio based)
+ * [WhatsApp](https://doc.livehelperchat.com/docs/integrating/whatsapp) open-wa based.
+ * [Elasticsearch](https://github.com/LiveHelperChat/elasticsearch) get statistic for millions of chats in seconds
+ * [Node.js](https://github.com/LiveHelperChat/NodeJS-Helper)
+ * [Docker](https://github.com/LiveHelperChat/docker-standalone)
+ * [Background worker for heavy tasks](https://github.com/LiveHelperChat/lhc-php-resque) offload Rest API calls
+ * Integrate any [third party Rest API](https://doc.livehelperchat.com/docs/bot/rest-api)
+ * [Google Authentication](https://github.com/LiveHelperChat/lhcgoogleauth) login using Google account
+ * [2FA](https://github.com/LiveHelperChat/2fa) `Authenticator` mobile app support
+ * [Amazon S3](https://github.com/LiveHelperChat/amazon-s3) scale infinitely by storing app files in the cloud
+ * [Desktop app](https://github.com/LiveHelperChat/electron) written with electron
+ * [Sentiment analysis using DeepPavlov](https://github.com/LiveHelperChat/sentiment)
 
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
@@ -30,13 +57,8 @@ Mobile app is also open source and can be found https://github.com/LiveHelperCha
    * There is two apps [wrapper](https://github.com/LiveHelperChat/livehelperchat/tree/master/lhc_web/design/defaulttheme/widget/wrapper) and [widget](https://github.com/LiveHelperChat/livehelperchat/tree/master/lhc_web/design/defaulttheme/widget/react-app)
    * `cd lhc_web/design/defaulttheme/widget/wrapper && npm install && npm run build`
    * `cd lhc_web/design/defaulttheme/widget/react-app && npm install && npm run build && npm run build-ie`
-   
-
-## Demo
-http://livehelperchat.com/demo-12c.html
-
-## Documentation
-https://doc.livehelperchat.com
+ * Recompile static JS/CSS files. This is required if you change core JS files. It also avoids missing CSS/JS files if more than one server is used.
+   * `php cron.php -s site_admin -c cron/util/generate_css -p 1 && gulp js-static`
 
 ## Extensions
 https://github.com/LiveHelperChat
@@ -48,20 +70,12 @@ https://www.transifex.com/projects/p/live-helper-chat/
 
  * Directories content:
   * lhc_web - WEB application folder.
-  
-## Rest API support
-https://api.livehelperchat.com/
-
-## Third party support
-
- * [Telegram](https://livehelperchat.com/telegram-integration-481a.html)
- * [Twilio](https://livehelperchat.com/twilio-support-for-sms-chat-477a.html)
- * [Facebook messenger](https://livehelperchat.com/integration-with-facebook-messenger-464a.html)
  
 ## Features
 
 Few main features
 
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
  * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
  * Chrome extension
  * Repeatable sound notifications

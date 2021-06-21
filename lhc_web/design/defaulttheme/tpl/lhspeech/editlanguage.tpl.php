@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('speech/editlanguage')?>/<?php echo $item->id?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('speech/editlanguage')?>/<?php echo $item->id?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhspeech/form/form_language.tpl.php'));?>
 
@@ -23,7 +23,7 @@
 <?php if ($item->id > 0) : ?>
     <hr>
     <?php $dialectsLanguage = erLhcoreClassModelSpeechLanguageDialect::getList(array('filter' => array('language_id' => $item->id))); ?>
-    <div class="row">
+    <div class="row" ng-non-bindable>
         <?php foreach ($dialectsLanguage as $langDialect) : ?>
             <div class="col-4">
                 <label class="fs12"><?php echo htmlspecialchars($langDialect->language)?> [<?php echo htmlspecialchars($langDialect->lang_code)?>]</label>

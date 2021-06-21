@@ -2,26 +2,32 @@
 header ( 'content-type: application/json; charset=utf-8' );
 $itemsID = array();
 $itemsTypes = array();
+$notificationsTypes = array();
+
 $type = 'pending_chat';
 $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Pending Chat');
 
 $itemsGrouped = [];
 $returnArray = array();
 
-$validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep'];
+$validChatGroups = ['bot_chats', 'pending_chat', 'unread_chat', 'transfer_chat', 'transfer_chat_dep','active_chats'];
 $validMailGroups = ['pmails','amails'];
 
-foreach ($Params['user_parameters_unordered']['id'] as $item) {
+foreach ($Params['user_parameters_unordered']['id'] as $itemNotification) {
+
+    $partsAlerts = explode('__',$itemNotification);
+    $item = array_shift($partsAlerts);
+
     if (is_numeric($item)) {
         $itemsGrouped[$type][] = (int)$item;
         if (in_array($type,$validChatGroups)) {
             $itemsTypes[$item] = $type;
             if ($type != 'transfer_chat' && $type != 'transfer_chat_dep')
-            $itemsID[] = (int)$item;
+                $itemsID[] = (int)$item;
         }
     } else {
         $type = $item;
-    }    
+    }
 }
 
 $mails = [];
@@ -131,9 +137,25 @@ foreach ($items as $item) {
     
     $nick = $item->nick;
     $department = (string)$item->department;
-        
+    $messageNotification = '';
+    $forceShow = false;
+
     if ($itemsTypes[$item->id] == 'unread_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Unread message');
+    } elseif ($itemsTypes[$item->id] == 'active_chats') {
+        $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Alert notification');
+
+        $alertText = [];
+        foreach ($notificationsTypes[$item->id] as $identifier) {
+            $alert = erLhAbstractModelChatAlertIcon::findOne(array('filter' => array('identifier' => $identifier)));
+            if ($alert instanceof erLhAbstractModelChatAlertIcon) {
+                $alertText[] = $alert->name;
+            }
+        }
+
+        $messageNotification = implode($alertText,"\n");
+
+        $forceShow = true;
     } elseif ($itemsTypes[$item->id] == 'pending_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Pending Chat');
     } elseif ($itemsTypes[$item->id] == 'bot_chats') {
@@ -163,13 +185,17 @@ foreach ($items as $item) {
     $titleParts = array_filter(array($notification_message_type, $nick, $department));
 
     // do not show notification if i'm not chat owner and it's already belongs to other user
-    if ($item->user_id > 0 && $type != 'transfer_chat' && $item->user_id != $currentUser->getUserID()) {
+    if ($forceShow == false && $item->user_id > 0 && $type != 'transfer_chat' && $item->user_id != $currentUser->getUserID()) {
         continue;
+    }
+
+    if ($messageNotification == ''){
+        $messageNotification = erLhcoreClassChat::getGetLastChatMessagePending($item->id);
     }
 
     $returnArray[] = array(
         'nick' => implode(' | ', $titleParts),
-        'msg' => erLhcoreClassChat::getGetLastChatMessagePending($item->id),
+        'msg' => $messageNotification,
         'nt' => $item->nick,
         'last_id_identifier' => $type,
         'last_id' => $item->id

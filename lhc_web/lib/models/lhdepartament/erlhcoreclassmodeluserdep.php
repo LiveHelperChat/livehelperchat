@@ -48,6 +48,18 @@ class erLhcoreClassModelUserDep
                 return $this->offline_since;
                 break;
 
+            case 'avatar':
+                if ($this->user->has_photo) {
+                    $this->avatar = $this->user->photo_path;
+                } elseif ($this->user->avatar != '') {
+                    $this->avatar = erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar') . '/' . $this->user->avatar;
+                } else {
+                    $this->avatar = null;
+                }
+
+                return $this->avatar;
+                break;
+
             case 'name_support':
                 $this->name_support = $this->user->name_support;
                 return $this->name_support;

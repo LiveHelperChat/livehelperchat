@@ -1,3 +1,295 @@
+3.72v
+
+1. Security fix for https://huntr.dev/bounties/1-LiveHelperChat/livehelperchat/
+2. You can change sound option per invitation now. (Play sound or not)
+3. Fixes for webhooks conditions being parsed incorrectly.
+4. Now you can change order of start chat fields including custom fields you define in start chat form.
+5. You can set titles for standard fields in widget theme now.
+6. Now you can trigger offline form manually from website https://doc.livehelperchat.com/docs/javascript-arguments#open-offline-form-while-keeping-option-to-start-a-chat-normally
+7. You can set default sound setting in widget theme. (Play sound for new messages or not)
+8. Offline message will support BBCode now.
+9. Rest API call will support now also x-www-form-urlencoded request type.
+10. !block command did not worked.
+11. Chat lists has direct option to filter abandoned chats https://doc.livehelperchat.com/docs/chat/statistic/#performance
+12. Send message did not set nick if previous chat was not found. (Empty nick scenario)
+13. Now you can login to back office using e-mail also.
+14. If operator is not looking at online visitors widget we will not load it's content. Performance improvement.
+15. New widget dropdown was missing click action support.
+16. Users dropdown filter is now AJAX based and will filter directly.
+17. NodeJS extension now support option to track online visitors live status or not.
+18. Setting subject in the chat will sort subjects by their names.
+19. Bot Execute JS will support replaceable variables also.
+20. foreach cycle support in bot response https://doc.livehelperchat.com/docs/bot/bot-text/#foreach-cycle
+21. Bot buttons will support translations also.
+22. If visitor has closed chat there will be button invite support in chat messages.
+23. Different color for a system message if visitor has left a chat.
+
+There is no database update this time. So just replaces files.
+
+3.71v
+
+1. Duplicate online record was presented if old version JS files were cached.
+2. Option to have event tracking settings by department.
+3. Visitor typing text was not updating above text area
+4. Automated hosting extension now supports PHP-Resque
+5. Custom icons alerts will have a new sound
+6. Dark theme edit previous message background changed to more readable.
+7. Survey won't be shown to visitors who are blocked during conversation.
+8. We will remember nick if chat is started in popup directly.
+9. And various other small changes.
+
+execute doc/update_db/update_244.sql for update
+
+3.70v
+
+1. Validation failure trigger option instead of validation message.
+https://doc.livehelperchat.com/docs/bot/collect-custom-attribute
+https://doc.livehelperchat.com/docs/bot/collecting-information-two-tries
+2. Now you will be able to filter chats by visitor status at the moment of chat was closed. Help's to find chats which were closed before visitor left a chat.
+3. BBCode selecting string applied style to wrong text if same text was presented multiple times in text area.
+4. Auto responder will execute bot actions independently of messages. So you can have message or trigger to be executed on auto responder. https://doc.livehelperchat.com/docs/bot/operator-not-responding
+5. Style fixes in case bot sends HTML style message.
+6. If operator disables all fields we still should show department dropdown if there is more than one department to choose from
+7. https://github.com/LiveHelperChat/livehelperchat/issues/1642
+8. Optimised how online status is calculated. Performance improvement.
+9. Some servers were caching GET request of URL it should not. Workaround for servers misconfigurations.
+10. If chat is closed we will not update send_status
+
+execute doc/update_db/update_243.sql for update
+
+3.69v
+
+1. Survey control from a bot - https://doc.livehelperchat.com/docs/bot/survey-control-from-bot
+2. Scroll to the bottom UI for the operator and widget
+3. Another option to close widget from website itself. Gracefully https://doc.livehelperchat.com/docs/javascript-arguments/#to-end-the-chat
+4. Do not not close widget if automatic start chat is checked in widget themes.
+5. Rest API file updated to support PUT, DELETE methods.
+6. Custom post survey support - https://doc.livehelperchat.com/docs/integrating/custom-post-survey/
+
+execute doc/update_db/update_242.sql for update
+
+3.68v
+
+1. Support fully https://github.com/open-wa/wa-automate-nodejs integration.
+2. In widget themes you can set that chat remained in widget once was opened in a popup.
+
+execute doc/update_db/update_241.sql for update
+
+3.67v
+
+1. Incoming webhooks support. You can integrate easily any third party API providers.
+
+execute doc/update_db/update_240.sql for update
+
+3.66v
+
+1. Now you can also import/export Rest API configuration.
+2. `Collect information` response type `Ask user to confirm information by checking checkbox` was not working.
+3. `Check for conditions to proceed` response type now can check is there any operator online or not https://doc.livehelperchat.com/docs/bot/check-conditions/
+4. Canned messages import changed the workflow so master-master replication won't break it.
+5. Rest API name length changed from 20 to 50 characters
+
+execute doc/update_db/update_239.sql for update
+
+3.65v
+
+1. In master/master replication environment canned messages import did not worked correctly because we did id's comparison. We now will have unique_id field for that.
+2. Now you can move triggers between trigger groups.
+3. There is now Rest API for files upload.
+4. Bugfix - https://github.com/LiveHelperChat/livehelperchat/issues/1624
+5. Rest API call now has {{msg_items}} and {{msg_all_html}} replaceable variables. https://doc.livehelperchat.com/docs/bot/rest-api#replaceable-variables
+6. Percentages now are rendered at the top instead of the same line.
+7. Javascript argument for default department if more than one department is passed. Related section - https://doc.livehelperchat.com/docs/javascript-arguments/#how-to-change-default-department-from-parent-page
+8. Changing department in the widget will update it's fields now. You can have custom fields by department now.
+9. Bot now supports file upload handling https://doc.livehelperchat.com/docs/bot/collect-custom-attribute#file-expecting-trigger-example
+10. Rest API authentication method now supports NTLMauth. Thanks to https://github.com/ProsWeb
+11. `addmsgadmin` now will support also system messages. https://api.livehelperchat.com/#/chat/post_restapi_addmsgadmin
+
+And various other small changes :)
+
+execute doc/update_db/update_238.sql for update
+
+3.64v
+
+1. Any form now can be integrated into a widget. https://doc.livehelperchat.com/docs/modules/forms/
+2. Widget can have only pre chat form now only.
+3. New widget was not respecting do not track online visitors setting.
+4. Chat's can be searched by entering multiple id's
+5. Some charts will show percentages at the top of column
+6. Abandoned chats statistic
+7. Forms were not exported to zip by clicking download icon.
+
+execute doc/update_db/update_237.sql for update
+
+3.63v
+
+1. You can generate avatar for your profile.
+2. Avatar for bot added.
+3. Avatar in widget themes.
+4. BB Code turn off/on support for a new widget.
+5. Option to set full screen mode from embed code directly.
+6. Fix. Voice message for the admin was broken.
+7. Group chats won't be focused by default.
+8. Tablets won't show widget in full screen mode.
+9. Option to have hidden status widget in case of api position
+
+Avatars are generated using https://multiavatar.com project
+
+execute doc/update_db/update_236.sql for update
+
+3.62v
+
+1. E-mail templates can be translatable now
+2. New widget now supports custom images for the header icons
+3. Title attribute can be translated for the header icons
+4. New dashboard left column can have lists instead of tabs layout.
+5. Changes to support to NodeJS Extension. Now it can track live connectivity status of the visitor.
+
+execute doc/update_db/update_235.sql for update
+
+3.61v
+
+1. Bot building interface will have option to set group position, expand collapse group triggers. Usefull if you have a big bot.
+
+execute doc/update_db/update_234.sql for update
+
+3.60v
+
+1. Voice & Video & ScreenShare powered by agora.io. They give 10 000 call minits every month for free.
+2. Option to reset counter from bot https://doc.livehelperchat.com/docs/bot/multiple-unknown-messages
+
+execute doc/update_db/update_233.sql for update
+
+3.59v
+
+1. Option to automatically close the chats where visitor has abandoned them. In other words will close chats where pending widget row indicates that visitor has left the chat.
+2. Option to do prefill offline message form. Usefull if bot redirects to offline form and you do not want that message area would be prefilled by previous covnersation.
+3. Update chat -> Transfer to operator has now option to transfer chat to operator and ignore department online hours.
+4. Internal failing of visitor sending messages will be logged in audit log. Usefull if you experiencing high load and want to investigate why it's happening.
+5. Transactions will be used on remarks saving.
+6. saveThis method was not respecting passed arguments to indicate what columns should be updated.
+7. Department load statistic modal window.
+
+execute doc/update_db/update_232.sql for update
+
+3.58v
+
+1. You can change TOS field text value directly in theme. E.g Our terms of service [url=http://livehelperchat.com]Live Helper Chat[/url]
+2. There is new option to close all active chats based on last message.
+3. Right chat column layout was changes
+4. Screenshot from chat was not updating image if more than one chat was open at a time.
+5. Mobile app will show notification if chat was transfered to an operator.
+6. Option to reload widget theme on the fly. Usefull if your APP is switching between dark/bright themes.
+7. Statistic for last 24 hours won't be generated if operator clicks a tab.
+8. [html] tag will not be rendered for an operator to avoid bad operator scenario :D
+9. We will try to assign default chat by departments priority.
+
+execute doc/update_db/update_231.sql for update
+
+3.57v
+
+1. New widget offline form will support file field now.
+2. Webhook has option to set alternative scenario of conditions are not met.
+3. Change how soft limit is calculated for department load statistic.
+4. Popup was not showing offline form even argument was passed in embed code.
+5. Dashboard open chats has sub-tabs instead of list one after another.
+6. Start chat custom field settings was not setting required attribute if not first one was checked.
+7. Webhooks conditions can be applied to standard events now.
+8. JS API to send messages as visitor from third party JS.
+9. Images will show download icon always.
+10. If sending message to chat fails we will show an error to visitor.
+
+execute doc/update_db/update_230.sql for update
+
+3.56v
+
+1. Chat export will have modal window dedicated to chat's export with subject and messages types inclusion.
+2. FB and Twilio extension has new documentation for easier understanding how to install.  https://github.com/LiveHelperChat/twilio https://github.com/LiveHelperChat/fbmessenger
+3. Sandbox error for serviceWorker will be ignored. Edge case devices handling.
+4. You can have notifications for active chats which get's alert icon assigned
+5. You can now manual init widget JS and all it's dependencies https://doc.livehelperchat.com/docs/javascript-arguments/
+6. Notifications won't be shown if you have many pending chats and change sort
+7. If storing message fails we should show visitor what happened. So he can try again
+8. We should also keep his last message attempt
+9. Reduced number of renders checks in widget
+10. Translations performance/cache improvements
+11. You can override now also english translations - https://doc.livehelperchat.com/docs/language/#how-to-override-default-translations
+12. If sending message from a new widget fails we will show now message for a visitor.
+
+execute doc/update_db/update_229.sql for update
+
+3.55v
+
+1. Continuous webhooks.
+2. Chat closing and other emails will include all chat messages.
+3. You can have now custom JS in static url. "Events Tracking" window. Events in static URL still won't be tracked. It will be implemented in next releases.
+
+execute doc/update_db/update_228.sql for update
+
+3.54v
+
+1. Update angular version and disable debug output.
+2. Anyone who is using NodeJS extension will have to update it also.
+3. Now you can manually choose what alert icons to exclude from dashboard lists.
+4. "Check for conditions to proceed" now have option to continue execution even if conditions are matched.
+5. "Check for conditions to proceed" can access any attribute through {args.chat.<any_attr>} E.g chat message {args.msg.msg}.
+6. Alert icon now can have custom text as tooltip.
+
+execute doc/update_db/update_227.sql for update
+
+3.53v
+
+1. Inactive chats for logged operator and active chats for logged operator stats in departments widget.
+2. Live helper chat will work perfectly fine on devices where cookies, session storage and popups are disabled.
+3. Popup refocus did not worked from react app.
+4. Previous messages will be shown also for proactive invitation.
+5. Pending chats wait time was calculated from start chat time, but in case bot transfer after some time it should be based on time since chat become pending.
+6. Departments stats will be ordered by active chats number instead of pending one.
+
+execute doc/update_db/update_226.sql for update
+
+3.52v
+
+1. Support for a browser with cookie, sessionStorage support.
+2. Inactive chats statistic. This change was needed because auto assigned can exclude inactive chats. In that scenario statistic is misleading.
+3. Offline form now can be without an e-mail field. So you can configure it to be with e-mail either phone.
+
+execute doc/update_db/update_225.sql for update
+
+3.51v
+
+1. Departments statistic widget will have a new columns.
+1.1 Bot chats - number of active bot chats
+1.2 Load column - `hard limit` - `active chats` (`soft limit` - `active chats`)
+`Hard limit` - is the sum of max chats value of logged operators who were active during last 5 minutes
+`Active chats` - number of active chats in department or department group
+`Soft limit` - is the sum of max chats of operators who were active during last 10 minutes.
+1.3 Group chats list in departments statistic widget
+2. If you have `php-resque` extension running. Departments statistic will be calculate in the background.
+3. Changed background color of chat tab/left chat.
+4. Rest API to fetch chat information https://api.livehelperchat.com/#/chat/get_restapi_chat__chat_id_
+5. Check is audio is available on device.
+6. Separate backend and frontend scripts. Performance improvement.
+7. Frontend errors tracking in audit log. category - js, source - lhc. It has to be enabled in audit configuration.
+8. Option to tell LHC are we running under proxy. Avoids faking IP address. https://doc.livehelperchat.com/docs/blocking/#live-helper-chat-does-not-detect-ip
+9. If archived chat group chat table does not exists. Ignore.
+10. Bot changes to handle previous process https://github.com/LiveHelperChat/livehelperchat/issues/1579
+11. `Typing until` bot response fixes for a new widget.
+
+execute doc/update_db/update_224.sql for update
+
+3.50v
+
+1. Login history.
+1.2 You can force user to reset password on first login.
+1.3 You can limit how many attempts operator has before his account is disabled.
+2. Dark theme improvements.
+3. You can set chat subject directly from bot. "Update current chat" -> "Set subject" command.
+4. "Alert icon" response type. It will allow to add custom icon to a bot chat list. So you can quickly take over bot chat.
+5. And many other changes.
+
+execute doc/update_db/update_223.sql for update
+
 3.49v
 
 1. Now operators can have chat between themself directly in the chat.

@@ -2,7 +2,16 @@
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_not_available.tpl.php'));?>
 <?php else : ?>
 <script>
-    window.initializeLHC = "lhc_init:"+JSON.stringify(<?php
+(function (){
+
+    <?php if (isset($font_size) && $font_size > 0) : ?>
+    if (!!window.localStorage && localStorage.setItem) try {
+        localStorage.setItem(<?php echo json_encode($app_scope);?>+'_dfs',<?php echo $font_size?>);
+    } catch (d) {
+    }
+    <?php endif; ?>
+
+    var initParams = <?php
         $params = array(
             'mode' => $mode,
             'onlineStatus' => $online,
@@ -35,7 +44,7 @@
 
         if (isset($inv) && $inv != '') {
             $params['proactive'] = array(
-                 'invitation' => $inv
+                'invitation' => $inv
             );
         }
 
@@ -46,7 +55,7 @@
         if (isset($priority) && $priority != '') {
             $params['priority'] = (int)$priority;
         }
-        
+
         if (isset($operator) && is_numeric($operator)) {
             $params['operator'] = (int)$operator;
         }
@@ -66,9 +75,21 @@
         if (isset($prefill_admin)) {
             $params['attr_prefill_admin'] = $prefill_admin;
         }
-        
 
-        
-        echo json_encode($params); ?>);
+        echo json_encode($params); ?>;
+
+    var hash = window.location.hash;
+    if (hash != '') {
+        var chatParams = hash.replace('#/','').split('/');
+        if (typeof chatParams[0] !== 'undefined' && !isNaN(chatParams[0]) && typeof chatParams[1] !== 'undefined' && chatParams[1].length > 20) {
+            initParams.static_chat.id = parseInt(chatParams[0]);
+            initParams.static_chat.hash = chatParams[1];
+        }
+    }
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/events_tracking.tpl.php'));?>
+
+    window.initializeLHC = "lhc_init:"+JSON.stringify(initParams);
+})();
 </script>
 <?php endif;?>

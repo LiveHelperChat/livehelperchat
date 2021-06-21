@@ -6,12 +6,12 @@ body {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v2.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v4.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v2.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v2.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v2.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v4.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v4.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v4.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -121,7 +121,14 @@ div.message-row {
     padding-left:0.5rem;
 }
 
-.header-link .material-icons{
+.header-link:hover,
+.header-link{
+    color:#343a40;
+    text-decoration: none;
+}
+
+.header-link .material-icons
+{
     font-size: 32px;
     color:#343a40;
 }
@@ -224,6 +231,10 @@ div.system-response {
     border-radius: 7px;
     display:block;
     font-size:14px;
+}
+
+.vis-tit{
+    margin:0px 0px 5px 0px;
 }
 
 .sys-tit{
@@ -421,15 +432,21 @@ div.message-row.response div.msg-body{
 .msg-body-media{
     position: relative;
 }
-.msg-body-media:hover .hidden-download::after{
+
+.msg-body:hover .hidden-download::after{
     display: block;
 }
 
 .hidden-download{
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 5px;
+    top: 5px;
     z-index:99;
+    text-decoration: none;
+}
+
+.hidden-download:hover{
+    text-decoration: none;
 }
 
 .audio-download{
@@ -438,7 +455,7 @@ div.message-row.response div.msg-body{
 }
 
 .hidden-download::after{
-    font-family: 'Material Icons';
+    font-family: 'MaterialIconsLHC';
     content:'\f119';
     font-size: 25px;
     color: #007bff;
@@ -446,16 +463,13 @@ div.message-row.response div.msg-body{
     background: #FFFFFF;
     padding: 5px;
     border-radius: 5px;
+    box-shadow: 0px 0px 21px -8px #000000;
 }
 
 .audio-download::after{
     font-size: 16px;
 }
 
-.msg-body-media:hover > img
-{
-    filter: contrast(50%);
-}
 .msg-body-emoji{
     font-size: 32px!important;
     line-height: 80%;
@@ -947,4 +961,78 @@ textarea[name=ChatMessage] {
 #CSChatMessage.msg-one-line{
     height:36px;
     overflow-y: hidden;
+}
+
+.bb-list > a.p-1{
+    padding:1px !important;
+}
+
+.bb-list > a.p-1:hover{
+    text-decoration: none;
+    background-color: #eaeaea;
+}
+
+.new-msg-holder {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top:-26px;
+    border-bottom-style: dashed!important;
+}
+
+.new-msg{
+    padding: 0px 5px;
+    font-weight: bold;
+    line-height:21px;
+}
+
+.btn-bottom-scroll {
+    bottom:5px;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btn-bottom-scroll > button{
+    border-radius:15px;
+    padding: 3px 10px;
+    opacity: 0.85;
+}
+
+#msgsnippet div.message-admin div.msg-body{
+    max-width:100%;
+    background-color:transparent ;
+    margin-left: 0!important;
+}
+
+#msgsnippet span.op-tit{
+    display: none!important;
+}
+
+.close-modal-btn{
+    right: 0;
+    top:-5px;
+    z-index: 2;
+}
+
+.font-button{
+    font-size: 18px;
+    text-decoration: none;
+    color:#6c757d;
+}
+
+.font-button:hover i,
+.font-button:hover{
+    text-decoration: none;
+    color: #000000!important;
+}
+
+.default-list > br{
+    display: none;
+}
+
+.default-list{
+    margin:0;
+    padding:0 0 0 22px;
+
 }

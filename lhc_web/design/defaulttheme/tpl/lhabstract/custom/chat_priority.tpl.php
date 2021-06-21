@@ -10,7 +10,11 @@
     <?php echo erLhcoreClassAbstract::renderInput('priority', $fields['priority'], $object)?>
 </div>
 
-<div ng-controller="LHCPriorityCtrl as pchat" ng-init='pchat.value = <?php echo $object->value != '' ? $object->value : '[]'?>;'>
+<script>
+    var priorityValue = <?php echo $object->value != '' ? $object->value : '[]'?>;
+</script>
+
+<div ng-controller="LHCPriorityCtrl as pchat" ng-init='pchat.setValue()'>
 
     <textarea class="hide" name="AbstractInput_value">{{pchat.value | json : 0}}</textarea>
 

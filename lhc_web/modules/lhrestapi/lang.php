@@ -12,6 +12,12 @@ header("User-Cache-Control: max-age=84600");
 
 if ($Params['user_parameters']['ns'] == 'group_chat') {
     include 'modules/lhrestapi/trans/group_chat.php';
+} else if ($Params['user_parameters']['ns'] == 'chat_tabs') {
+    include 'modules/lhrestapi/trans/chat_tabs.php';
+} else if ($Params['user_parameters']['ns'] == 'chat_canned') {
+    include 'modules/lhrestapi/trans/chat_canned.php';
+} else if ($Params['user_parameters']['ns'] == 'voice_call') {
+    include 'modules/lhrestapi/trans/voice_call.php';
 }
 
 if ($Params['user_parameters']['ns'] == 'mail_chat') {

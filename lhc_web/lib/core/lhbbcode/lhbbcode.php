@@ -621,7 +621,8 @@ class erLhcoreClassBBCode
     					 '/\[list\](.*?)\[\/list\]/ms',
     					 '/\[\*\]\s?(.*?)\n/ms',
     					 '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
-    					 '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms'
+    					 '/\[color\=([A-Za-z0-9]{2,6})\](.*?)\[\/color\]/ms',
+    					 '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms'
     	);
 
     	// And replace them by...
@@ -630,11 +631,12 @@ class erLhcoreClassBBCode
     					 '<u>\1</u>',
     					 '<mark>\1</mark>',
     					 '<strike>\1</strike>',
-    					 '<ol start="\1">\2</ol>',
-    					 '<ul>\1</ul>',
+    					 '<ol class="default-list" start="\1">\2</ol>',
+    					 '<ul class="default-list" >\1</ul>',
     					 '<li>\1</li>',
     					 '<span style="font-size:\1pt">\2</span>',
-    					 '<span style="color:#\1">\2</span>'
+    					 '<span style="color:#\1">\2</span>',
+    					 '<span class="\1">\2</span>'
     	);
 
     	$text = preg_replace($in, $out, $text);
@@ -793,6 +795,12 @@ class erLhcoreClassBBCode
        return '<a class="action-image alert-link" onclick="lhinst.chooseFile()">' . htmlspecialchars($data) . '</a>';
    }
 
+   public static function _make_base_link($matches) {
+       $data = htmlspecialchars($matches[1]);
+       $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl($data);
+       return  $url;
+   }
+
    public static function _make_url_file($matches)
    {
 
@@ -818,7 +826,7 @@ class erLhcoreClassBBCode
                                 $subpartParts = explode('=',$mainData[1]);
                                 if ($subpartParts[0] == 'link' || $subpartParts[0] == 'linkdirect') {
                                     if (!isset($subpartParts[1])) {
-                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\">";
+                                        $prepend = '<a class="link" rel="noreferrer" target="_blank" href="//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}/(inline)/true\">";
                                         $append = '</a>';
 
                                         if ($subpartParts[0] == 'linkdirect') {
@@ -834,28 +842,28 @@ class erLhcoreClassBBCode
                                     }
                                 }
                             } else {
-                                $prepend = '';
-                                $append = '<a class="hidden-download" rel="noreferrer" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a>';
+                                $prepend = '<div class="position-relative">';
+                                $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
                             }
 
                             if (isset($displayType) && $displayType == 'rawimg'){
-                                return '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                                return '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' .(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                             } else {
-                                return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
+                                return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="//' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
                             }
 
                         }
 
                         $audio = '';
-                        if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg') {
-                            return '<a rel="noreferrer" class="hidden-download audio-download" href="//'. $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a><audio preload="none" style="width: 230px" controls><source src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
+                        if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg' || $fileExtension == 'oga') {
+                            return '<a rel="noreferrer" class="hidden-download audio-download" href="//'. (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a><audio preload="none" style="width: 230px" controls><source src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
                         } elseif ($fileExtension == 'mp4' || $fileExtension == 'avi' || $fileExtension == 'mov' || $fileExtension == 'ogg' || $fileExtension == '3gpp') {
-                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
+                            $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="//' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
                         } else if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
                             $audio = ' <a rel="noreferrer" class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
                         }
 
-                        return "<a href=\"//" . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
+                        return "<a href=\"//" . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
                     }
                 }
 
@@ -883,7 +891,7 @@ class erLhcoreClassBBCode
                    if ($surveyId == $surveyItem->survey_id) 
                    {
                        $survey = erLhAbstractModelSurvey::fetch($surveyId);
-                       return "<a href=\"//" . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name) . "</a>";
+                       return "<a href=\"//" . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurl('survey/collected')."/{$survey->id}?show={$surveyItem->id}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file','Collected survey data') . ' - ' . htmlspecialchars($survey->name) . "</a>";
                    }
                }
                
@@ -905,7 +913,7 @@ class erLhcoreClassBBCode
 
    				// Check that user has permission to see the chat. Let say if user purposely types file bbcode
    				if ($hash == $file->security_hash) {
-   					return erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurldirect('file/downloadfile')."/{$file->id}/{$hash}";
+   					return erLhcoreClassXMP::getBaseHost().(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '').erLhcoreClassDesign::baseurldirect('file/downloadfile')."/{$file->id}/{$hash}";
    				}
    			} catch (Exception $e) {
 
@@ -1019,22 +1027,35 @@ class erLhcoreClassBBCode
 
    public static function makeSubmessages($msg, $paramsMessage = array()) {
 
-       // Links wraps images
+       $replacer = 'IMG_REPLACE';
+
+       if (strpos($msg,'[quote]') !== false) {
+           $replacer = '';
+       }
+
+        // Links wraps images
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[file="?(.*?)_img"?\]\[\/url\]#is','[file=\2_img link=\1]',$msg);
 
        // pure files
-       $msg = preg_replace('#\[file="?(.*?)_img"?(.*?)\]#is','IMG_REPLACE[file=\1_img\2]IMG_REPLACE',$msg);
+       $msg = preg_replace('#\[file="?(.*?)_img"?(.*?)\]#is',$replacer.'[file=\1_img\2]'.$replacer,$msg);
 
        // Images within links
        $msg = preg_replace('#\[url\="?(.*?)"?\]\[img\](.*?)\[\/img\]\[\/url\]#is','[img=\1]\2[/img]',$msg);
 
        // Pure images
-       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is','IMG_REPLACE[img\1]\2[/img]IMG_REPLACE',$msg);
+       $msg = preg_replace('#\[img(.*?)\](.*?)\[\/img\]#is',$replacer.'[img\1]\2[/img]'.$replacer,$msg);
 
        $msg = trim($msg);
 
-       $messages = array_filter(explode('IMG_REPLACE', $msg));
-       $totalMessages = count($messages);
+       if (strpos($msg,'IMG_REPLACE') !== false) {
+           $messages = array_filter(explode('IMG_REPLACE', $msg), function($v) {
+               return $v != "";
+           });
+           $totalMessages = count($messages);
+       } else {
+           $totalMessages = 1;
+           $messages = [$msg];
+       }
 
        $messagesData = array();
        foreach ($messages as $indexMessage => $message) {
@@ -1081,6 +1102,9 @@ class erLhcoreClassBBCode
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
 
+        // Make base URL
+        $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
+
         $ret = preg_replace_callback('/\[img=?(.*?)\](.*?)\[\/img\]/ms', "erLhcoreClassBBCode::_make_url_embed_image", $ret);
 
         $ret = preg_replace_callback('/\[loc\](.*?)\[\/loc\]/ms', "erLhcoreClassBBCode::_make_embed_map", $ret);
@@ -1089,14 +1113,23 @@ class erLhcoreClassBBCode
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
             $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);
+        } else if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
+            $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+                return '<code class="rounded mx170 text-white">'.trim($matches[1]).'</code>';
+            }, $ret);
         }
 
-        $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) {
+        $ret = preg_replace_callback('/\[html\](.*?)\[\/html\]/ms', function ($matches) use ($paramsMessage) {
             $html = htmlspecialchars_decode($matches[1]);
 
             $html = preg_replace_callback('/"window\.parent\.(.*)"/ms',function ($matches){
                 return "'lhinst.executeRemoteCommands([\"lhc_eval:" . $matches[1] . "\"])'";
             },$html);
+
+            // Remove JS if it's not the first run
+            if (!isset($paramsMessage['render_js']) || $paramsMessage['render_js'] == false) {
+                $html = preg_replace("/<script.*?\/script>/s", "", $html);
+            }
 
             return $html;
 
@@ -1123,7 +1156,25 @@ class erLhcoreClassBBCode
 
     	$ret = preg_replace_callback('#\[button_action="?(.*?)"?\](.*?)\[/button_action\]#is', 'erLhcoreClassBBCode::_make_button_action', $ret);
 
-    	$ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
+    	if (strpos($ret,'[translation]') !== false) {
+            // For the admin we show original and translated text
+            if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
+                $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '<span class="tr-msg">$1</span>', $ret);
+            } else {
+                // This is visitor translated message. We show original message for the visitor
+                if (isset($paramsMessage['sender']) && $paramsMessage['sender'] > 0) {
+                    // This is admin message. We show translated content only
+                    $translations = array();
+                    preg_match('#\[translation\](.*?)\[/translation\]#is',$ret, $translations);
+                    if (isset($translations[1])) {
+                        $ret = $translations[1];
+                    }
+
+                } else {
+                    $ret = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $ret);
+                }
+            }
+        }
 
     	// File block
     	$ret = preg_replace_callback('#\[file="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_file', $ret);
@@ -1159,7 +1210,9 @@ class erLhcoreClassBBCode
            '/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms',
            '/\[quote\]/ms',
            '/\[\/quote\]/ms',
-           '/\[fs(.*?)\](.*?)\[\/fs(.*?)\]/ms',
+           '/\[fs([0-9]+)\](.*?)\[\/fs\]/ms',
+           '/\[level\=([A-Za-z0-9\-\s]{2,60})\](.*?)\[\/level\]/ms',
+           '/\[button_action\=([A-Za-z0-9_\-\s]{2,60})\](.*?)\[\/button_action\]/ms',
            '/\n/ms',
        );
 
@@ -1175,6 +1228,8 @@ class erLhcoreClassBBCode
            '',
            '',
            '\2',
+           '\2',
+           '',
            ' ',
        );
 

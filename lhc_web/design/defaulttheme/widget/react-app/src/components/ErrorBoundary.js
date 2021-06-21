@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { helperFunctions } from "../lib/helperFunctions";
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -9,18 +10,16 @@ class ErrorBoundary extends React.Component {
     componentDidCatch(error, info) {
         // Display fallback UI
         this.setState({ hasError: true, error : error, info : info });
-        console.log(error);
-        console.log(info);
-        // You can also log the error to an error reporting service
-        //logErrorToMyService(error, info);
+
+        helperFunctions.logJSError({
+            'stack' : (error.stack ? JSON.stringify(error.stack) : "")
+        });
     }
 
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            console.log(JSON.stringify(this.state.error));
-            console.log(JSON.stringify(this.state.info));
-            return <p></p>;
+            return <p>Please re-load window because of an error.</p>;
             //return this.props.children;
         } else {
             return this.props.children;

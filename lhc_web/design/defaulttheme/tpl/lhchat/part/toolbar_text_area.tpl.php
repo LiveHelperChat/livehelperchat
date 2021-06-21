@@ -12,8 +12,8 @@
     <div class="btn-group btn-group-sm mr-2" role="group">
 
         <div class="dropdown mr-2">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons mr-0">format_size</i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <?php for($i = 0; $i < 7; $i++) : ?>
@@ -23,8 +23,8 @@
         </div>
 
         <div class="dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="material-icons mr-0">palette</span>
             </button>
             <div class="dropdown-menu keepopen downdown-menu-color-<?php echo $chat->id?>" style="width: 128px;">
                 <div id="color-picker-chat-<?php echo $chat->id?>"></div>
@@ -48,7 +48,10 @@
 
 
     <div class="btn-group btn-group-sm mr-2" role="group">
-        <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="window.lhcSelector = $(this).attr('data-selector'); lhc.revealModal({'hidecallback' : function(){$('.embed-into').removeClass('embed-into');},'showcallback' : function(){ $(window.lhcSelector).addClass('embed-into');},'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Insert image or file')?>','iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'file/attatchfileimg'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Insert image or file')?>"><i class="material-icons mr-0">attach_file</i></button>
+        <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="window.lhcSelector = $(this).attr('data-selector'); lhc.revealModal({'hidecallback' : function(){$('.embed-into').removeClass('embed-into');},'showcallback' : function(){ $(window.lhcSelector).addClass('embed-into');},'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Insert image or file')?>','iframe':true,'height':500,'url':WWW_DIR_JAVASCRIPT +'file/attatchfileimg'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Insert image or file')?>"><i class="material-icons mr-0">insert_link</i></button>
+        <?php if (isset($chat) && isset($filesEnabled) && $filesEnabled == true) : ?>
+        <button type="button" class="btn btn-outline-secondary" onclick="$('#fileupload-<?php echo $chat->id?>').click()"><i class="material-icons mr-0">attach_file</i></button>
+        <?php endif; ?>
         <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="window.lhcSelector = $(this).attr('data-selector'); lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'/chat/bbcodeinsert/0/(mode)/editor'})">
             <i class="material-icons mr-0">&#xE24E;</i>
         </button>
@@ -57,7 +60,7 @@
 
     <?php if (isset($chat)) : ?>
 
-    <div class="btn-group btn-group-sm mr-2<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>" id="action-block-row-<?php echo $chat->id?>">
+    <div class="btn-group btn-group-sm<?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?> hide<?php endif;?>" id="action-block-row-<?php echo $chat->id?>">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/speech_action.tpl.php')); ?>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/voice_action.tpl.php')); ?>
@@ -68,12 +71,6 @@
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_message_button.tpl.php')); ?>
     </div>
-
-    <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
-        <div class="btn-group btn-group-sm mr-2">
-            <input type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Reopen chat')?>" class="btn btn-secondary" data-id="<?php echo $chat->id?>" onclick="lhinst.reopenchat($(this))" />
-        </div>
-    <?php endif;?>
 
     <?php endif;?>
 

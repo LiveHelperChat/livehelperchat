@@ -4,13 +4,13 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" ng-non-bindable>
 
 <div class="form-group">
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Set application specific time zone');?></label>
 <?php $tzlist = DateTimeZone::listIdentifiers(DateTimeZone::ALL); ?>
 <select class="form-control" name="TimeZone">
-		<option value="">[[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Server default time zone');?>]]</option>
+		<option value="">[[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Server default time zone');?> - <?php echo date_default_timezone_get()?>]]</option>
 	<?php foreach ($tzlist as $zone) : ?>
 		<option value="<?php echo htmlspecialchars($zone)?>" <?php $timezone == $zone ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($zone)?></option>
 	<?php endforeach;?>

@@ -17,13 +17,14 @@ class erLhcoreClassChat {
 			'user_typing_txt',
 			'hash',
 			'ip',
+			'cls_us',
 			//'user_status',
 			'email',
 			'support_informed',
 			'phone',
 			'user_typing',
 			'operator_typing',
-			'has_unread_messages',			
+			//'has_unread_messages',
 			'operation',			
 			'operation_admin',			
 			'screenshot_id',			
@@ -50,7 +51,7 @@ class erLhcoreClassChat {
 			//'chat_variables',
 			// Angular remake
 			'referrer',
-			'last_op_msg_time',
+			//'last_op_msg_time',
 			'has_unread_op_messages',
 			'unread_op_messages_informed',
 			'tslasign',
@@ -60,7 +61,6 @@ class erLhcoreClassChat {
 			'chat_locale',
 			'anonymized',
 			'uagent',
-			'pnd_time',
 			'user_tz_identifier',
 			'invitation_id',
 	);
@@ -465,6 +465,10 @@ class erLhcoreClassChat {
 
     public static function getCount($params = array(), $table = 'lh_chat', $operation = 'COUNT(id)')
     {
+        if ($table == 'lh_chat' && $operation == 'COUNT(id)') {
+            $operation = 'count(`lh_chat`.`id`)';
+        }
+
     	$session = erLhcoreClassChat::getSession();
     	$q = $session->database->createSelectQuery();
     	$q->select( $operation )->from( $table );
@@ -639,6 +643,9 @@ class erLhcoreClassChat {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
 
+    	// Optimization - we get these stats only from last 50 chats
+        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT 50) AS `sq`)';
+
     	return self::getList($filter);
     }
 
@@ -733,10 +740,13 @@ class erLhcoreClassChat {
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
-    	
+
     	if (!empty($filterAdditional)) {
     		$filter = array_merge_recursive($filter,$filterAdditional);
     	}
+
+    	// Optimization - we get these stats only from last 50 chats
+        $filter['customfilter'][] = '`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `id` FROM `lh_chat` ORDER BY `id` DESC LIMIT 50) AS `sq`)';
 
     	return self::getList($filter);
     }
@@ -846,6 +856,7 @@ class erLhcoreClassChat {
        
        $db = ezcDbInstance::get();
 	   $rowsNumber = 0;
+       $userFilter = (isset($params['user_id']) && is_numeric($params['user_id'])) ? ' AND `lh_userdep`.`user_id` = '.(int)$params['user_id'] : '';
 
        if ($dep_id !== false && $dep_id !== '') {
        		$exclipicFilter = ($exclipic == false) ? ' OR dep_id = 0' : '';
@@ -853,7 +864,7 @@ class erLhcoreClassChat {
        		if ($ignoreUserStatus === false) {
 
 				if (is_numeric($dep_id)) {
-		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter})");
+		           $stmt = $db->prepare("SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep INNER JOIN lh_departament ON lh_departament.id = :dep_id_dest WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id = :dep_id {$exclipicFilter}) {$userFilter}");
 		           $stmt->bindValue(':dep_id',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':dep_id_dest',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
@@ -861,7 +872,7 @@ class erLhcoreClassChat {
 					if (empty($dep_id)) {
 						$dep_id = array(-1);
 					}
-					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE lh_departament.id IN ('. implode(',', $dep_id) .') AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter})");
+					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE lh_departament.id IN ('. implode(',', $dep_id) .') AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter}) {$userFilter}");
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
 				$stmt->execute();
@@ -931,7 +942,7 @@ class erLhcoreClassChat {
        } else {
        	
 	       	if ($ignoreUserStatus === false) {
-	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep LEFT JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max IS NULL || lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max IS NULL || lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (lh_departament.hidden IS NULL || lh_departament.hidden = 0) AND (last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND ro = 0 AND hide_online = 0 AND (lh_departament.disabled IS NULL || lh_departament.disabled = 0)');
+	           $stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep LEFT JOIN lh_departament ON lh_departament.id = lh_userdep.dep_id WHERE (lh_departament.pending_group_max IS NULL || lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max IS NULL || lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND (lh_departament.hidden IS NULL || lh_departament.hidden = 0) AND (last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND ro = 0 AND hide_online = 0 AND (lh_departament.disabled IS NULL || lh_departament.disabled = 0) '.$userFilter);
 	           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 	           $stmt->execute();
 	           $rowsNumber = $stmt->fetchColumn();
@@ -1216,15 +1227,22 @@ class erLhcoreClassChat {
     * Get last message for browser notification
     *
     * */
-   public static function getGetLastChatMessagePending($chat_id)
+   public static function getGetLastChatMessagePending($chat_id, $visitorMessages = false, $limit = 3, $implode = "\n")
    {
+       $filter = '';
+       if ($visitorMessages == true) {
+           $filter = ' AND user_id = 0';
+       }
+
        $db = ezcDbInstance::get();
-       $stmt = $db->prepare('SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id ORDER BY id DESC LIMIT 3 OFFSET 0) AS items ON lh_msg.id = items.id');
+       $stmt = $db->prepare("SELECT lh_msg.msg FROM lh_msg INNER JOIN ( SELECT id FROM lh_msg WHERE chat_id = :chat_id {$filter} ORDER BY id DESC LIMIT {$limit} OFFSET 0) AS items ON lh_msg.id = items.id");
        $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
        $stmt->setFetchMode(PDO::FETCH_ASSOC);
        $stmt->execute();
        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
-       $text = mb_substr(implode("\n", array_reverse($rows)),-200);
+
+       $plain = erLhcoreClassBBCodePlain::make_clickable(implode($implode, array_reverse($rows)), array('sender' => 0));
+       $text = mb_substr($plain,-200);
        
        return $text;
    }
@@ -1319,6 +1337,9 @@ class erLhcoreClassChat {
             }
 
             return false;
+
+       } elseif ($userData->all_departments != 0 && $chat->user_id != 0 && $chat->user_id != $currentUser->getUserID() && !$currentUser->hasAccessTo('lhchat','allowopenremotechat')) {
+           return false;
        }
 
        return true;
@@ -1333,28 +1354,34 @@ class erLhcoreClassChat {
 	    $s = gmdate('s', $seconds);
 
 	    $parts = array();
+        $hasYears = false;
+        $hasDays = false;
+        $hasHours = false;
 
-	    if($y > 0)
+	    if ($y > 0)
 	    {
 	    	$parts[] = $y . ' .y';
+            $hasYears = true;
 	    }
 
-	    if($d > 0)
+	    if ($d > 0)
 	    {
 	    	$parts[] = $d . ' d.';
+            $hasDays = true;
 	    }
 
-	    if($h > 0)
+	    if ($h > 0 && $hasYears == false)
 	    {
 	    	$parts[] = $h . ' h.';
+            $hasHours = true;
 	    }
 
-	    if($m > 0)
+	    if ($m > 0 && $hasDays == false && $hasYears == false)
 	    {
 	    	$parts[] = $m . ' m.';
 	    }
 
-	    if($s > 0)
+	    if ($s > 0 && $hasHours == false && $hasDays == false && $hasYears == false)
 	    {
 	    	$parts[] = $s . ' s.';
 	    }
@@ -1443,16 +1470,19 @@ class erLhcoreClassChat {
 
    /**
     * Update department main statistic for frontend
+    * This can be calculated in background as it does not influence anything except statistic
     * */
    public static function updateDepartmentStats($dep) {
        try {
-           $db = ezcDbInstance::get();
-           $stmt = $db->prepare('UPDATE lh_departament SET active_chats_counter = :active_chats_counter, pending_chats_counter = :pending_chats_counter, closed_chats_counter = :closed_chats_counter WHERE id = :id');
-           $stmt->bindValue(':active_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':pending_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':closed_chats_counter',erLhcoreClassChat::getCount(array('use_index' => 'dep_id_status','filter' => array('dep_id' => $dep->id, 'status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT))),PDO::PARAM_INT);
-           $stmt->bindValue(':id',$dep->id,PDO::PARAM_INT);
-           $stmt->execute();
+
+           if (erLhcoreClassSystem::instance()->backgroundMode == false && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+               $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+               erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_stats_resque', 'erLhcoreClassChatStatsResque', array('inst_id' => $inst_id,'type' => 'dep', 'id' => $dep->id));
+               return;
+           }
+
+           erLhcoreClassChatStatsResque::updateStats($dep);
+
        } catch (Exception $e) {
            //Fail silently as it's just statistic update operation
        }
@@ -1555,6 +1585,7 @@ class erLhcoreClassChat {
                 // The rest will be done automatically.
                 $chat->id = $chatOld->id;
                 $chat->remarks = $chatOld->remarks;
+                $chat->old_last_msg_id = $chatOld->last_msg_id;
             }
         }
    }
@@ -1808,241 +1839,7 @@ class erLhcoreClassChat {
            }
        }
    }
-   
-   /**
-    * Sets chats status directly
-    * */
-   public static function setOnlineStatusDirectly($chatLists)
-   {
-       $onlineUserId = array();
-        
-       foreach ($chatLists as $chat) {
-           if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
-               $onlineUserId[] = (int)$chat->online_user_id;
-           }
-       }
-        
-       if (!empty($onlineUserId)) {
-           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus_directly',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
-            
-           // Event listener has done it's job
-           if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-               return ;
-           }
-   
-           $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList( array (
-               'sort' => false,
-               'filterin' => array (
-                   'id' => $onlineUserId
-               )
-           ), array (
-               'vid',
-               'current_page',
-               'invitation_seen_count',
-               'page_title',
-               'chat_id',
-               'last_visit',
-               'first_visit',
-               'user_agent',
-               'user_country_name',
-               'user_country_code',
-               'operator_message',
-               'operator_user_id',
-               'operator_user_proactive',
-               'message_seen',
-               'message_seen_ts',
-               'pages_count',
-               'tt_pages_count',
-               'lat',
-               'lon',
-               'city',
-               'identifier',
-               'time_on_site',
-               'tt_time_on_site',
-               'referrer',
-               'invitation_id',
-               'total_visits',
-               'invitation_count',
-               'requires_email',
-               'requires_username',
-               'requires_phone',
-               'dep_id',
-               'reopen_chat',
-               'operation',
-               'operation_chat',
-               'screenshot_id',
-               'online_attr',
-               'online_attr_system',
-               'visitor_tz',
-               'notes'
-           ));
-   
-           foreach ($chatLists as & $chat) {
-               if (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                   $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
-               } else {
-                   $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
-               }
-           }
-       }
-   }
 
-    /**
-     * Sets chat's status by online visitors records in efficient way
-     * */
-    public static function setOnlineStatus($chatLists, $chatListOriginal) {
-        $onlineUserId = array();
-        foreach ($chatLists as $chatList) {
-            foreach ($chatList as $chat) {
-                if (isset($chat->online_user_id) && $chat->online_user_id > 0) {
-                    $onlineUserId[] = (int)$chat->online_user_id;
-                }
-            }
-        }
-
-        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setonlinestatus',array('list' => & $chatLists, 'online_users_id' => $onlineUserId));
-
-        // Event listener has done it's job
-        if (isset($response['status']) && $response['status'] === erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-            return ;
-        }
-
-        $onlineVisitors = array();
-
-        if (!empty($onlineUserId)) {
-            $onlineVisitors = erLhcoreClassModelChatOnlineUser::getList(array(
-                'sort' => false,
-                'filterin' => array(
-                    'id' => $onlineUserId
-                )
-            ), array(
-                'vid',
-                'current_page',
-                'invitation_seen_count',
-                'page_title',
-                'chat_id',
-                'last_visit',
-                'first_visit',
-                'user_agent',
-                'user_country_name',
-                'user_country_code',
-                'operator_message',
-                'operator_user_id',
-                'operator_user_proactive',
-                'message_seen',
-                'message_seen_ts',
-                'pages_count',
-                'tt_pages_count',
-                'lat',
-                'lon',
-                'city',
-                'identifier',
-                'time_on_site',
-                'tt_time_on_site',
-                'referrer',
-                'invitation_id',
-                'total_visits',
-                'invitation_count',
-                'requires_email',
-                'requires_username',
-                'requires_phone',
-                'dep_id',
-                'reopen_chat',
-                'operation',
-                'operation_chat',
-                'screenshot_id',
-                'online_attr',
-                'online_attr_system',
-                'visitor_tz',
-                'notes'
-            ));
-        }
-
-        foreach ($chatLists as & $chatList) {
-            foreach ($chatList as & $chat) {
-                if (isset($chatListOriginal[$chat->id]) && $chatListOriginal[$chat->id]->lsync > 0) {
-
-                    // Because mobile devices freezes background tabs we need to have bigger timeout
-                    $timeout = 60;
-
-                    if ($chatListOriginal[$chat->id]->device_type != 0 && (strpos($chatListOriginal[$chat->id]->uagent,'iPhone') !== false || strpos($chatListOriginal[$chat->id]->uagent,'iPad') !== false)) {
-                        $timeout = 240;
-                    }
-
-                    $chat->user_status_front =  (time() - $timeout > $chatListOriginal[$chat->id]->lsync || in_array($chatListOriginal[$chat->id]->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
-
-                    unset($chat->lsync);
-
-                } elseif (isset($chat->online_user_id) && $chat->online_user_id > 0 && isset($onlineVisitors[$chat->online_user_id])) {
-                    $chat->user_status_front = self::setActivityByChatAndOnlineUser($chat, $onlineVisitors[$chat->online_user_id]);
-                } else {
-                    $chat->user_status_front = (isset($chat->user_status) && $chat->user_status == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) ? 1 : 0;
-                }
-
-                if (isset($chat->online_user_id)){
-                    unset($chat->online_user_id);
-                }
-
-                if (isset($chat->uagent)){
-                    unset($chat->uagent);
-                }
-
-                if (isset($chat->user_status)){
-                    unset($chat->user_status);
-                }
-
-                if (isset($chat->last_user_msg_time)){
-                    unset($chat->last_user_msg_time);
-                }
-            }
-        }
-    }
-   
-   /**
-    * @desc Returns user status based on the following logic
-    * 1. Green - if widget is not closed
-    * 2. Green - if widget is closed and user activity tracking enabled and user still on site and he is active
-    * 3. Green - if widget is closed and user activity tracking is disabled, but we still receive pings and from last user message has not passed 5 minutes
-    *
-    * 4. Yellow - if widget is closed and user activity tracking enabled, but user is not active but he is still on site
-    * 5. Yellow - from last user message has passed 5 minutes but user still on site
-    *
-    * 6. Widget is closed and we could not determine online user || None of above conditions are met.
-    *
-    * If user activity tracking is enabled but status checking not we default to 10 seconds status checks timeout
-    *
-    * @param array $params
-    *
-    * 1 GREEN user has activity in last 5 minutes and ping respond
-    * 2 ORANGE user has no activity in last 5 minutes and ping respond
-    * 3 GREY Offline user fails to respond pings for X number of times in a row
-    *
-    * @return int
-    */
-   public static function setActivityByChatAndOnlineUser($chat, erLhcoreClassModelChatOnlineUser $onlineUser)
-   {
-        $user_status_front = (!isset($chat->user_status) || $chat->user_status == erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT) ? 0 : 1;
-        
-        if (($user_status_front == erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT) || (erLhcoreClassChat::$onlineCondition == 1)) {
-           $timeout = (int)erLhcoreClassChat::$trackTimeout || 10;
-           if (erLhcoreClassChat::$trackActivity == true) {
-               if ($onlineUser->last_check_time_ago < ($timeout+10) && isset($onlineUser->user_active) && $onlineUser->user_active == 1) { //User still on site, it does not matter that he have closed widget.
-                   $user_status_front = 0;
-               } elseif ((!isset($onlineUser->user_active) || $onlineUser->user_active == 0) && $onlineUser->last_check_time_ago < ($timeout+10)) {
-                   $user_status_front = 2;
-               }
-           } else {
-               if ($onlineUser->last_check_time_ago < ($timeout+10) && time()-$chat->last_user_msg_time < 300) { //User still on site, it does not matter that he have closed widget.
-                   $user_status_front = 0;
-               } elseif (isset($chat->last_user_msg_time) && time()-$chat->last_user_msg_time >= 300 && $onlineUser->last_check_time_ago < ($timeout+10)) {
-                   $user_status_front = 2;                 
-               }
-           }
-        }
-        
-        return $user_status_front;
-   }
-   
    public static function updateActiveChats($user_id, $ignoreEvent = false)
    {
        if ($user_id == 0) {
@@ -2076,7 +1873,7 @@ class erLhcoreClassChat {
                    }
 
                    if ($inactiveChats === null) {
-                       $inactiveChats = erLhcoreClassChat::getCount(array('filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT), 'status_sub' => array(erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)), 'filter' => array('user_id' => $user_id)));
+                       $inactiveChats = erLhcoreClassChat::getCount(array('filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT), 'status_sub' => array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)), 'filter' => array('user_id' => $user_id)));
                    }
 
                    $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
@@ -2299,7 +2096,7 @@ class erLhcoreClassChat {
        
        if ( $ts > 0 ) {
        
-           $periods         = array("s.", "m.", "h.", "d.", "w.", "m.", "y.", "dec.");
+           $periods         = array("s.", "m.", "h.", "d.", "w.", "M.", "y.", "dec.");
            $lengths         = array("60","60","24","7","4.35","12","10");
        
            $difference     = time() - $ts;
@@ -2351,7 +2148,20 @@ class erLhcoreClassChat {
 
         return $result;
     }
-   
+
+    public static function cleanForDashboard($chatLists) {
+       $attrsClean = array('online_user_id','uagent','user_status','last_user_msg_time','last_op_msg_time','lsync','dep_id','gbot_id');
+        foreach ($chatLists as & $chatList) {
+            foreach ($chatList as & $chat) {
+                foreach ($attrsClean as $attrClean) {
+                    if (isset($chat->{$attrClean})) {
+                        unset($chat->{$attrClean});
+                    }
+                }
+            }
+        }
+    }
+
    // Static attribute for class
    public static $trackActivity = false;
    public static $trackTimeout = 0;

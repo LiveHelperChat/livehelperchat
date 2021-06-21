@@ -1,5 +1,11 @@
 <?php
 
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s', time() + 60 * 60 * 8) . ' GMT');
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/start.tpl.php');
 
 $dep = false;
@@ -7,6 +13,7 @@ $dep = false;
 if (is_array($Params['user_parameters_unordered']['department'])) {
     erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $dep = $Params['user_parameters_unordered']['department'];
+    $Result['chat_args']['departments'] = $dep;
 }
 
 $startDataDepartment = false;
@@ -17,6 +24,8 @@ if (is_array($dep) && !empty($dep) && count($dep) == 1) {
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }
+    $Result['chat_args']['dep_id'] = $dep_id;
+    $tpl->set('dep_id',$dep_id);
 }
 
 if ($startDataDepartment === false) {
@@ -87,12 +96,24 @@ $online = erLhcoreClassChat::isOnline($dep, false, array(
 $leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
 $tpl->set('leaveamessage',$leaveamessage);
 $tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
 $tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');
 $tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : null);
-$tpl->set('vid',$Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null);
+
+$vid = $Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null;
+
+if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)) {
+    if (isset($_COOKIE['lhc_vid'])) {
+        $vid = $_COOKIE['lhc_vid'];
+    } else {
+        $vid = substr(sha1(mt_rand() . microtime()),0,20);
+    }
+    setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
+    erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
+}
+
+$tpl->set('vid',$vid);
 $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' ? $Params['user_parameters_unordered']['identifier'] : null);
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
 $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Params['user_parameters_unordered']['survey'] : null);
@@ -100,11 +121,14 @@ $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $P
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('bot',$Params['user_parameters_unordered']['bot'] != '' ? (int)$Params['user_parameters_unordered']['bot'] : null);
 $tpl->set('online',$online);
+$tpl->set('font_size',$Params['user_parameters_unordered']['fs'] != '' ? (int)$Params['user_parameters_unordered']['fs'] : null);
 $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');
 $tpl->set('sound',is_numeric($Params['user_parameters_unordered']['sound']) ? (int)$Params['user_parameters_unordered']['sound'] : (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['new_message_sound_user_enabled']);
+$tpl->set('app_scope', 'lhc');
 
 if ($Params['user_parameters_unordered']['scope'] != ''){
     $Result['app_scope'] = strip_tags($Params['user_parameters_unordered']['scope']);
+    $tpl->set('app_scope', strip_tags($Params['user_parameters_unordered']['scope']));
 }
 
 $ts = time();
@@ -158,12 +182,12 @@ if (isset($_GET['name']) && is_array($_GET['name']) && !empty($_GET['name'])) {
             'index' => $index,
             'name' => $value,
             'class' => 'form-control form-control-sm',
-            'type' => $_GET['type'][$index],
+            'type' => isset($_GET['type'][$index]) ? $_GET['type'][$index] : 'hidden',
             'identifier' => ('additional_' . $index),
             'placeholder' => (isset($_GET['placeholder'][$index]) ? $_GET['placeholder'][$index] : ''),
             'width' => (isset($_GET['size'][$index]) ? $_GET['size'][$index] : 6),
-            'encrypted' => ($_GET['encattr'][$index] === 't'),
-            'required' => ($_GET['req'][$index] === 't'),
+            'encrypted' => (isset($_GET['encattr'][$index]) && $_GET['encattr'][$index] === 't'),
+            'required' => (isset($_GET['req'][$index]) && $_GET['req'][$index] === 't'),
             'label' => $value,
         );
     }

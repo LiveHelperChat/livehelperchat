@@ -10,7 +10,34 @@ class erLhcoreClassGenericBotActionCommand {
 
         if ($action['content']['command'] == 'stopchat') {
 
-            $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true));
+            $filterOnline = array(
+                'exclude_bot' => true,
+                'exclude_online_hours' => (isset($action['content']['payload_ignore_dep_hours']) && $action['content']['payload_ignore_dep_hours'] == true),
+            );
+
+            $isOnlineUser = true;
+
+            if (
+                isset($action['content']['payload_attr']) &&
+                isset($action['content']['payload_val']) &&
+                isset($action['content']['payload_val']) &&
+                $action['content']['payload_val'] != '' &&
+                $action['content']['payload_attr'] != ''
+            ) {
+                $user = erLhcoreClassModelUser::findOne(array('filter' => array(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_attr'], array('chat' => $chat, 'args' => $params))  => erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_val'], array('chat' => $chat, 'args' => $params)))));
+
+                if ($user instanceof erLhcoreClassModelUser) {
+                    $filterOnline['user_id'] = $user->id;
+                } else {
+                    $isOnlineUser = false;
+                }
+            }
+
+            if ($isOnlineUser === true) {
+                $isOnline = (isset($action['content']['payload_ignore_status']) && $action['content']['payload_ignore_status'] == true) || erLhcoreClassChat::isOnline($chat->dep_id,false, $filterOnline);
+            } else {
+                $isOnline = false;
+            }
 
             if ($isOnline == false && isset($action['content']['payload']) && is_numeric($action['content']['payload'])) {
 
@@ -35,6 +62,11 @@ class erLhcoreClassGenericBotActionCommand {
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
                 $chat->pnd_time = time();
+
+                if (isset($filterOnline['user_id'])) {
+                    $chat->user_id = (int)$filterOnline['user_id'];
+                }
+
                 // We do not have to set this
                 // Because it triggers auto responder of not replying
                 // $chat->last_op_msg_time = time();
@@ -117,9 +149,13 @@ class erLhcoreClassGenericBotActionCommand {
                 $msg->msg = '';
                 $msg->meta_msg = '{"content":{"execute_js":{"chat_event":"endChat","payload":""}}}';
                 $msg->chat_id = $chat->id;
-                $msg->user_id = -2;
+                $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
                 $msg->time = time();
-                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);;
+                if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                    $msg->name_support = (string)$params['override_nick'];
+                } else {
+                    $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                }
                 $msg->saveThis();
             }
 
@@ -136,7 +172,7 @@ class erLhcoreClassGenericBotActionCommand {
             }
 
         } elseif ($action['content']['command'] == 'chatattribute') {
-
+            
             $variablesArray = (array)$chat->additional_data_array;
 
             $variablesAppend = json_decode($action['content']['payload'],true);
@@ -151,7 +187,12 @@ class erLhcoreClassGenericBotActionCommand {
                         foreach ($variablesArray as $indexVariable => $variableData) {
                             if ($variableData['identifier'] == $value['identifier']) {
                                 if (isset($value['value'])) {
-                                    $variablesArray[$indexVariable]['value'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                    if (!is_numeric($value['value']) && !is_bool($value['value'])) {
+                                        $valueItem = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
+                                        $variablesArray[$indexVariable]['value'] = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                                    } else {
+                                        $variablesArray[$indexVariable]['value'] = $value['value'];
+                                    }
                                 } else {
                                     unset($variablesArray[$indexVariable]);
                                 }
@@ -163,10 +204,18 @@ class erLhcoreClassGenericBotActionCommand {
 
                 foreach ($variablesAppend as $value) {
                     if (isset($value['identifier']) && isset($value['key']) && isset($value['value']) && $value['key'] != '' && $value['identifier'] != '' && !in_array($value['identifier'],$updatedIdentifiers)) {
+
+                        if (!is_numeric($value['value']) && !is_bool($value['value'])) {
+                            $valueItem = (isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $value['value']) : $value['value']);
+                            $valueItem = erLhcoreClassGenericBotWorkflow::translateMessage($valueItem, array('chat' => $chat, 'args' => $params));
+                        } else {
+                            $valueItem = $value['value'];
+                        }
+
                         $variablesArray[] = array(
                             'identifier' => $value['identifier'],
                             'key' => $value['key'],
-                            'value' => (isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'])
+                            'value' => $valueItem
                         );
                     }
                 }
@@ -182,18 +231,20 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $variablesArray = (array)$chat->chat_variables_array;
 
-                $variablesAppend = json_decode($action['content']['payload'],true);
+                if (is_array($params['replace_array'])) {
+                    $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
+                } else {
+                    $variablesAppend = $action['content']['payload'];
+                }
+
+                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('chat' => $chat, 'args' => $params)), true);
 
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
-                        if (isset($params['replace_array']) && isset($value)) {
-                            $variablesArray[$key] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value);
-                        } else {
-                            if (isset($value)) {
-                                $variablesArray[$key] = $value;
-                            } elseif (isset($variablesArray[$key])) {
-                                unset($variablesArray[$key]);
-                            }
+                        if (isset($value)) {
+                            $variablesArray[$key] = $value;
+                        } elseif (isset($variablesArray[$key])) {
+                            unset($variablesArray[$key]);
                         }
                     }
                 }
@@ -205,10 +256,12 @@ class erLhcoreClassGenericBotActionCommand {
         } elseif ($action['content']['command'] == 'setchatattribute') {
 
                 // Replace variables if any
-                $action['content']['payload_arg'] = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
+                // Todo make sure object is not used during replacement
+                $action['content']['payload_arg'] = isset($params['replace_array']) ? @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
 
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
-                $chat->{$action['content']['payload']} = $action['content']['payload_arg'];
+                
+                $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
 
                 $updateDepartmentStats = false;
 
@@ -251,6 +304,8 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassChat::updateDepartmentStats($department);
                 }
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('chat' => & $chat));
+
         } elseif ($action['content']['command'] == 'setdepartment') {
 
             // Department was changed
@@ -280,6 +335,90 @@ class erLhcoreClassGenericBotActionCommand {
                     $chat->saveThis();
 
                     erLhcoreClassChat::updateDepartmentStats($department);
+                }
+            }
+        } elseif ($action['content']['command'] == 'setliveattr') {
+
+            if (isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true) {
+                $payload = array(
+                    "chat_emit" => "attr_rem",
+                    "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true)], JSON_HEX_APOS), // Path of the attribute
+                );
+            } else {
+                $valueAttribute = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+
+                if (isset($action['content']['remove_if_empty']) && $action['content']['remove_if_empty'] == true && empty($valueAttribute)) {
+                    $payload = array(
+                        "chat_emit" => "attr_rem",
+                        "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true)], JSON_HEX_APOS), // Path of the attribute
+                    );
+                } else {
+                    $payload = array(
+                        "chat_emit" => "attr_set",
+                        "ext_args" => json_encode(['attr' => json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload'], array('chat' => $chat, 'args' => $params)),true), 'data' => json_decode($valueAttribute)], JSON_HEX_APOS), // Path of the attribute
+                    );
+                }
+            }
+
+            // Store as message to visitor
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = '';
+            $msg->meta_msg = json_encode(array(
+                'content' => array(
+                    'execute_js' => $payload
+                )
+            ));
+            $msg->chat_id = $chat->id;
+            $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
+            $msg->time = time();
+            if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                $msg->name_support = (string)$params['override_nick'];
+            } else {
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+            }
+            $msg->saveThis();
+
+            // Update last user msg time so auto responder work's correctly
+            $chat->last_op_msg_time = $chat->last_user_msg_time = time();
+            $chat->last_msg_id = $msg->id;
+
+            // All ok, we can make changes
+            $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'status_sub', 'last_user_msg_time')));
+
+        } elseif ($action['content']['command'] == 'removeprocess') {
+
+            $q = ezcDbInstance::get()->createDeleteQuery();
+
+            // Repeat counter remove
+            $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Bot chat event remove
+            $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            // Bot chat event remove
+            $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $chat->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+            
+        } elseif ($action['content']['command'] == 'setsubject') {
+
+            $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
+            if ($remove == true && is_numeric($action['content']['payload'])) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+                if ($subjectChat instanceof erLhAbstractModelSubjectChat) {
+                    $subjectChat->removeThis();
+                }
+            } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+                if (!($subjectChat instanceof erLhAbstractModelSubjectChat)) {
+                    $subjectChat = new erLhAbstractModelSubjectChat();
+                    $subjectChat->subject_id = $subject->id;
+                    $subjectChat->chat_id = $chat->id;
+                    $subjectChat->saveThis();
                 }
             }
 

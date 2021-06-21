@@ -5,12 +5,6 @@ export function fetchNodeGroups(botId) {
     return function(dispatch) {
         dispatch({type: "FETCH_NODE_GROUPS"});
 
-        /*
-          http://rest.learncode.academy is a public test server, so another user's experimentation can break your tests
-          If you get console errors due to bad data:
-          - change "reacttest" below to any other username
-          - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
-        */
         axios.get(WWW_DIR_JAVASCRIPT + "genericbot/nodegroups/" + botId)
             .then((response) => {
             dispatch({type: "FETCH_NODE_GROUPS_FULFILLED", payload: response.data})
@@ -25,12 +19,6 @@ export function addNodeGroup(botId) {
     return function(dispatch) {
         dispatch({type: "FETCH_NODE_GROUPS"});
 
-        /*
-          http://rest.learncode.academy is a public test server, so another user's experimentation can break your tests
-          If you get console errors due to bad data:
-          - change "reacttest" below to any other username
-          - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
-        */
         axios.get(WWW_DIR_JAVASCRIPT + "genericbot/addgroup/" + botId)
             .then((response) => {
             dispatch({type: "ADD_GROUP_FULFILLED", payload: response.data})
@@ -59,7 +47,7 @@ export function updateNodeGroup(obj) {
                 .catch((err) => {
                         dispatch({type: "ADD_GROUP_REJECTED", payload: err})
                     })
-        },1000);
+        },200);
     }
 }
 

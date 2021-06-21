@@ -30,6 +30,7 @@ class erLhcoreClassChatCommand
     	'!transferforce' => 'self::transferforce',
     	'!files' => 'self::enableFiles',
     	'!stopfiles' => 'self::disableFiles',
+    	'!modal' => 'self::showModal',
     );
 
     private static function extractCommand($message)
@@ -40,6 +41,47 @@ class erLhcoreClassChatCommand
         $commandData['argument'] = trim(implode(' ', $params));
         
         return $commandData;
+    }
+
+    public static function showModal($params) {
+
+        if (!isset($params['argument']) || empty($params['argument'])) {
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Please provide modal URL!')
+            );
+        }
+
+        $paramsURL = explode(' ',$params['argument']);
+        $URL = array_shift($paramsURL);
+
+        if (is_numeric($URL)) {
+            $URL =  (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurldirect('form/formwidget') . '/' . $URL;
+        }
+
+        // Store as message to visitor
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = !empty($paramsURL) ? implode(' ',$paramsURL) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','We will show a form in a moment!');
+        $msg->meta_msg = '{"content":{"execute_js":{"text":"","ext_execute":"modal_ext","ext_args":"{\"delay\":3,\"url\":\"' . $URL .'\"}"}}}';
+        $msg->chat_id = $params['chat']->id;
+        $msg->user_id = $params['user']->id;
+        $msg->time = time();
+        $msg->name_support = $params['user']->name_support;
+        $msg->saveThis();
+
+        // Update last user msg time so auto responder work's correctly
+        $params['chat']->last_op_msg_time = $params['chat']->last_user_msg_time = time();
+        $params['chat']->last_msg_id = $msg->id;
+
+        // All ok, we can make changes
+        $params['chat']->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'status_sub', 'last_user_msg_time')));
+
+        return array(
+            'status' => erLhcoreClassChatEventDispatcher::STOP_WORKFLOW,
+            'processed' => true,
+            'raw_message' => '!modal',
+            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Modal activated!') . ' ' . $URL
+        );
     }
 
     /**
@@ -146,16 +188,18 @@ class erLhcoreClassChatCommand
             $params['chat']->chat_variables_array = $chatVariables;
         }
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Files upload was disabled!');
-        $msg->chat_id = $params['chat']->id;
-        $msg->user_id = $params['user']->id;
-        $msg->time = time();
-        $msg->name_support = $params['user']->name_support;
+        if (!isset($params['argument']) || $params['argument'] != 'no') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Files upload was disabled!');
+            $msg->chat_id = $params['chat']->id;
+            $msg->user_id = $params['user']->id;
+            $msg->time = time();
+            $msg->name_support = $params['user']->name_support;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat']));
 
-        $msg->saveThis();
+            $msg->saveThis();
+        }
 
         // Schedule UI Refresh
         $params['chat']->operation .= "lhc_ui_refresh:0\n";
@@ -178,16 +222,18 @@ class erLhcoreClassChatCommand
         $params['chat']->chat_variables = json_encode($chatVariables);
         $params['chat']->chat_variables_array = $chatVariables;
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','I have enabled files upload for you. [fupload]Upload a file[/fupload].');
-        $msg->chat_id = $params['chat']->id;
-        $msg->user_id = $params['user']->id;
-        $msg->time = time();
-        $msg->name_support = $params['user']->name_support;
+        if (!isset($params['argument']) || $params['argument'] != 'no') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = (isset($params['argument']) && $params['argument'] != '') ? $params['argument'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','I have enabled files upload for you. [fupload]Upload a file[/fupload].');
+            $msg->chat_id = $params['chat']->id;
+            $msg->user_id = $params['user']->id;
+            $msg->time = time();
+            $msg->name_support = $params['user']->name_support;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
 
-        $msg->saveThis();
+            $msg->saveThis();
+        }
 
         // Schedule UI Refresh
         $params['chat']->operation .= "lhc_ui_refresh:1\n";
@@ -214,9 +260,17 @@ class erLhcoreClassChatCommand
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_ON_HOLD;
 
         if ($params['argument'] != '') {
+            $defaultHoldMessage = $params['argument'];
+        } else if ($params['chat']->auto_responder !== false && $params['chat']->auto_responder->auto_responder !== false && $params['chat']->auto_responder->auto_responder->wait_timeout_hold != '') {
+            $defaultHoldMessage = $params['chat']->auto_responder->auto_responder->wait_timeout_hold;
+        } else {
+            $defaultHoldMessage = '';
+        }
+
+        if ($defaultHoldMessage != '') {
             // Store as message to visitor
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = $params['argument'];
+            $msg->msg = $defaultHoldMessage;
             $msg->chat_id = $params['chat']->id;
             $msg->user_id = $params['user']->id;
             $msg->time = time();
@@ -461,7 +515,7 @@ class erLhcoreClassChatCommand
 
     public static function blockUser($params)
     {
-        erLhcoreClassModelChatBlockedUser::blockChat(array('chat' => $params['chat']));
+        erLhcoreClassModelChatBlockedUser::blockChat(array('user' => $params['user'], 'chat' => $params['chat']));
 
         return array(
             'processed' => true,

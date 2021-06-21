@@ -12,7 +12,7 @@ if ($pages->items_total > 0) {
 
 ?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
     <thead>
     <tr>
         <th width="1%">ID</th>
@@ -52,8 +52,14 @@ if ($pages->items_total > 0) {
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
+<?php if ($autoResponder_msg->languages != '') : ?>
+<script>
+    var autoResponderLanguages = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;
+</script>
+<?php endif; ?>
+
 <?php $fields = $autoResponder_msg->getFields(); $object = $autoResponder_msg;?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='<?php if ($autoResponder_msg->languages != '') : ?>cmsg.languages = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='<?php if ($autoResponder_msg->languages != '') : ?>cmsg.setLanguages();<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
 
     <div class="form-group">
         <label><?php echo $fields['name']['trans'];?></label>

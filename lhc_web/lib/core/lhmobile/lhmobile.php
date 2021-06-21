@@ -2,6 +2,51 @@
 
 class erLhcoreClassLHCMobile {
 
+    public function perform()
+    {
+        $db = ezcDbInstance::get();
+        $db->reconnect(); // Because it timeouts automatically, this calls to reconnect to database, this is implemented in 2.52v
+
+        if (isset($this->args['inst_id']) && $this->args['inst_id'] > 0) {
+            $cfg = erConfigClassLhConfig::getInstance();
+            $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
+        }
+
+        $chatId = $this->args['chat_id'];
+
+        $chat = erLhcoreClassModelChat::fetch($chatId);
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            return;
+        }
+
+        if ($this->args['type'] == 'message') {
+            if ($this->args['msg_id'] > 0) {
+                $msg = erLhcoreClassModelmsg::fetch($this->args['msg_id']);
+                if ($msg instanceof erLhcoreClassModelmsg) {
+                    self::newMessage(array(
+                        'resque' => true,
+                        'chat' => $chat,
+                        'msg' => $msg
+                    ));
+                }
+            }
+        } elseif ($this->args['type'] == 'started') {
+            $params = array('chat' => $chat, 'resque' => true);
+
+            if ($this->args['msg_id'] > 0) {
+                $msg = erLhcoreClassModelmsg::fetch($this->args['msg_id']);
+                if ($msg instanceof erLhcoreClassModelmsg) {
+                    $params['msg'] = $msg;
+                } else {
+                    // Message is gone for some reason
+                    return;
+                }
+            }
+
+            self::chatStarted($params);
+        }
+    }
+
     public static function sendTestNotifications($session)
     {
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
@@ -10,13 +55,13 @@ class erLhcoreClassLHCMobile {
             $chat = new erLhcoreClassModelChat();
             $chat->nick = 'Live Helper Chat';
 
-            self::sendPushNotification($session, $chat, ['title' => $chat->nick, 'msg' => 'Test notifications']);
+            self::sendPushNotification($session, $chat, ['chat_type' => 'test_notification', 'title' => $chat->nick, 'msg' => 'Test notifications']);
         } else {
             throw new Exception('Notifications not enabled!');
         }
     }
 
-    public static function sendPushNotification(erLhcoreClassModelUserSession $session, erLhcoreClassModelChat $chat, $params = array())
+    public static function sendPushNotification(erLhcoreClassModelUserSession $session, $chat, $params = array())
     {
         $paramsSend = $params;
 
@@ -28,10 +73,39 @@ class erLhcoreClassLHCMobile {
         if ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_ANDROID || $session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
             return self::sendAndoid($session, $chat, $paramsSend);
         }
+    }
 
-        /*elseif ($session->device_type == erLhcoreClassModelUserSession::DEVICE_TYPE_IOS) {
-            //return self::sendIOS($session, $chat, $paramsSend);
-        }*/
+    public static function newGroupMessage($params) {
+        $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+        if (isset($options['notifications']) && $options['notifications'] == true) {
+
+            $members = erLhcoreClassModelGroupChatMember::getList(array('limit' => false, 'filter' => array('group_id' => $params['chat']->id)));
+
+            $membersUserIds = array();
+            foreach ($members as $member) {
+                $membersUserIds[] = $member->user_id;
+            }
+
+            if (empty($membersUserIds)) {
+                return;
+            }
+
+            foreach (erLhcoreClassModelUserSession::getList(array('filterin' => array('user_id' => $membersUserIds),'filternot' => array('user_id' => $params['msg']->user_id, 'token' => ''),'filter' => array('error' => 0))) as $operator) {
+                if (is_object($operator->user)) {
+
+                    //Set custom attributes used for mobile app
+                    $params['chat']->user_id = $params['msg']->user_id;
+                    $params['chat']->chat_id = $params['msg']->chat_id;
+                    $params['chat']->name_official = $operator->user->name_official;
+
+                    self::sendPushNotification($operator, $params['chat'], array(
+                        'msg' => trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))),
+                        'chat_type' => 'new_group_msg',
+                        'title' => $params['chat']->name . ' - ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New group message'),
+                    ));
+                }
+            }
+        }
     }
 
     public static function newMessage($params) {
@@ -41,12 +115,24 @@ class erLhcoreClassLHCMobile {
         if ($params['chat']->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
             return;
         }
-        
+
+        if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array('inst_id' => $inst_id, 'type' => 'message', 'msg_id' => (isset($params['msg']) ? $params['msg']->id : 0), 'chat_id' => $params['chat']->id));
+            return;
+        }
+
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
         
         if (isset($options['notifications']) && $options['notifications'] == true) {
             foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''),'filter' => array('error' => 0))) as $operator) {
                 if (is_object($operator->user) && $operator->user->hide_online == 0 && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0)) {
+
+                    $messageSoundEnabled = (int)erLhcoreClassModelUserSetting::getSetting('chat_message',1, $operator->user->id);
+
+                    if ($messageSoundEnabled == 0) {
+                        continue;
+                    }
 
                     // Do not notify if user is not assigned to department
                     // Do not notify if user has only read department permission
@@ -68,7 +154,7 @@ class erLhcoreClassLHCMobile {
                     self::sendPushNotification($operator, $params['chat'], array(
                         'msg' => $params['chat']->nick . ' - ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))),
                         'chat_type' => 'new_msg',
-                        'title' => 'New message',
+                        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New message'),
                     ));
                 }
             }
@@ -81,11 +167,27 @@ class erLhcoreClassLHCMobile {
         }
     }
 
+    public static function chatTransferred($params) {
+            self::chatStarted(array('chat' => $params['chat'], 'msg' => $params['msg'], 'user_id' => $params['transfer']->transfer_to_user_id));
+    }
+
     public static function chatStarted($params) {
 
         // New chat notification should be send only if chat is pending
         // We are not interested in pending or bot chats etc.
-        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+        // But we are interested in direct notifications about chat
+        if ($params['chat']->status != erLhcoreClassModelChat::STATUS_PENDING_CHAT && (!isset($params['user_id']) || $params['user_id'] == 0)) {
+            return;
+        }
+
+        if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array(
+                'inst_id' => $inst_id,
+                'type' => 'started',
+                'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0),
+                'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
+                'chat_id' => $params['chat']->id));
             return;
         }
 
@@ -93,7 +195,13 @@ class erLhcoreClassLHCMobile {
         if (isset($options['notifications']) && $options['notifications'] == true) {
 
             foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''), 'filter' => array('error' => 0))) as $operator) {
-                if (is_object($operator->user) && $operator->user->hide_online == 0 && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0)) {
+                if (is_object($operator->user) && $operator->user->hide_online == 0 &&
+                    (
+                        (isset($params['user_id']) && $params['user_id'] > 0 && $operator->user->id == $params['user_id'])
+                        ||
+                        ((!isset($params['user_id']) || $params['user_id'] == 0) && ($operator->user->id == $params['chat']->user_id || $params['chat']->user_id == 0))
+                    )
+                ) {
 
                     // Do not notify if user is not assigned to department
                     // Do not notify if user has only read department permission
@@ -113,10 +221,15 @@ class erLhcoreClassLHCMobile {
                     }
 
                     $visitor = array();
-                    $visitor[] = 'Department: ' . ((string)$params['chat']->department) .',  ID: ' . $params['chat']->id .', Nick: ' . $params['chat']->nick;
+                    $visitor[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Department').': ' . ((string)$params['chat']->department) .',  ID: ' . $params['chat']->id .', '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Nick').': ' . $params['chat']->nick;
 
-                    if (isset($params['msg'])) {
-                        $visitor[] = 'Message: ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                    if (isset($params['msg']) && is_object($params['msg'])) {
+                        if (isset($params['user_id']) && $params['user_id'] > 0) {
+                            $visitor = array();
+                            $visitor[] = trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                        } else {
+                            $visitor[] = 'Message: ' . trim(erLhcoreClassBBCodePlain::make_clickable($params['msg']->msg, array('sender' => 0))) . '';
+                        }
                     } elseif ($params['chat']->user_id > 0) {
                         $visitor[] = 'Chat was assigned to you';
                     }
@@ -124,7 +237,7 @@ class erLhcoreClassLHCMobile {
                     self::sendPushNotification($operator, $params['chat'], array(
                         'msg' => implode("\n", $visitor),
                         'chat_type' => 'pending',
-                        'title' => 'New chat',
+                        'title' => isset($params['user_id']) && $params['user_id'] > 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Transferred chat') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New chat'),
                     ));
                 }
             }
@@ -226,7 +339,7 @@ class erLhcoreClassLHCMobile {
         fclose($fp);
     }
 
-    public static function sendAndoid(erLhcoreClassModelUserSession $session, erLhcoreClassModelChat $chat, $params = array())
+    public static function sendAndoid(erLhcoreClassModelUserSession $session, $chat, $params = array())
     {
         $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
 

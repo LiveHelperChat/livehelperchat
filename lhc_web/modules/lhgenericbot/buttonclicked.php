@@ -52,16 +52,19 @@ try {
         }
 
         // On button click also update counter
-        if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
-            $chatVariables = $chat->chat_variables_array;
-            if (!isset($chatVariables['msg_v'])) {
-                $chatVariables['msg_v'] = 1;
-            } else {
-                $chatVariables['msg_v']++;
+        if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->bot instanceof erLhcoreClassModelGenericBotBot) {
+            $ignoreButtonClick = isset($chat->bot->configuration_array['ign_btn_clk']) && $chat->bot->configuration_array['ign_btn_clk'] == true;
+            if ($ignoreButtonClick === false) {
+                $chatVariables = $chat->chat_variables_array;
+                if (!isset($chatVariables['msg_v'])) {
+                    $chatVariables['msg_v'] = 1;
+                } else {
+                    $chatVariables['msg_v']++;
+                }
+                $chat->chat_variables_array = $chatVariables;
+                $chat->chat_variables = json_encode($chatVariables);
+                $chat->updateThis(array('update' => array('chat_variables')));
             }
-            $chat->chat_variables_array = $chatVariables;
-            $chat->chat_variables = json_encode($chatVariables);
-            $chat->updateThis(array('update' => array('chat_variables')));
         }
 
         echo json_encode(array('error' => false, 't' => erLhcoreClassGenericBotWorkflow::$triggerName));

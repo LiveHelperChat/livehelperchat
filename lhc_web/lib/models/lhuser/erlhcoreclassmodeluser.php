@@ -34,9 +34,6 @@ class erLhcoreClassModelUser {
             'xmpp_username' => $this->xmpp_username,
             'rec_per_req' => $this->rec_per_req,
             'session_id' => $this->session_id,
-            'active_chats_counter' => $this->active_chats_counter,
-            'closed_chats_counter' => $this->closed_chats_counter,
-            'pending_chats_counter' => $this->pending_chats_counter,
             'departments_ids' => $this->departments_ids,
             'chat_nickname' => $this->chat_nickname,
             'max_active_chats' => $this->max_active_chats,
@@ -47,7 +44,8 @@ class erLhcoreClassModelUser {
             'operation_admin' => $this->operation_admin,
             'exclude_autoasign' => $this->exclude_autoasign,
             'pswd_updated' => $this->pswd_updated,
-            'always_on' => $this->always_on
+            'always_on' => $this->always_on,
+            'avatar' => $this->avatar
         );
    }
 
@@ -112,6 +110,10 @@ class erLhcoreClassModelUser {
 
        	case 'has_photo':
        	    	return $this->filename != '';
+       	    break;
+
+       	case 'has_photo_avatar':
+       	    	return $this->filename != '' || $this->avatar != '';
        	    break;
 
        	case 'photo_path':
@@ -237,9 +239,6 @@ class erLhcoreClassModelUser {
     public $rec_per_req = '';
     public $session_id = '';
     public $chat_nickname = '';
-    public $active_chats_counter = 0;
-    public $closed_chats_counter = 0;
-    public $pending_chats_counter = 0;
     public $operation_admin = '';
     public $inactive_mode = 0;
     public $max_active_chats = 0;
@@ -247,6 +246,7 @@ class erLhcoreClassModelUser {
     public $exclude_autoasign = 0;
     public $pswd_updated = 0;
     public $always_on = 0;
+    public $avatar = '';
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

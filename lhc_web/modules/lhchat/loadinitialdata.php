@@ -173,10 +173,6 @@ if (is_array($Params['user_parameters_unordered']['chatmopen']) && !empty($Param
     }
 }
 
-$userListParams = erLhcoreClassGroupUser::getConditionalUserFilter();
-$userListParams['sort'] = 'name ASC';
-$userList = erLhcoreClassModelUser::getUserList($userListParams);
-erLhcoreClassChat::prefillGetAttributes($userList,array('id','name_official'),array(),array('remove_all' => true));
 
 $columns = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','enabled','variable'), 'sort' => 'position ASC, id ASC','filter' => array('enabled' => 1)));
 
@@ -201,14 +197,18 @@ if (!is_array($widgets)) {
 
 $widgets = erLhcoreClassChat::array_flatten($widgets);
 
+$dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
+$not_ic = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
+
 $response = array(
     'widgets' => $widgets,
+    'exc_ic' => ($dwic === null ? [] : $dwic),
+    'not_ic' => ($not_ic === null ? [] : $not_ic),
     'col' => array_values($columnsAdd),
     'v' => erLhcoreClassUpdate::LHC_RELEASE,
     'ho' => $userData->hide_online == 1,
     'a_on' => ($userData->always_on == 1),
     'im' => ($userData->invisible_mode == 1),
-    'user_list' => array_values($userList),
     'user_groups' => array_values(erLhcoreClassModelGroup::getList($groupListParams)),
     'track_activity' => $trackActivity,
     'cgdel' => $chatgDel,

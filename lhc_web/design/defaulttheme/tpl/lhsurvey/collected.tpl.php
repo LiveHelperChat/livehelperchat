@@ -1,6 +1,6 @@
-<h1><?php echo htmlspecialchars($survey)?></h1>
+<h1 ng-non-bindable><?php echo htmlspecialchars($survey)?></h1>
 
-<div role="tabpanel">
+<div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
 	    <li role="presentation" class="nav-item"><a class="nav-link <?php if ($tab == 'list' || $tab == '') : ?>active<?php endif;?>" href="#list" aria-controls="list" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','List')?></a></li>

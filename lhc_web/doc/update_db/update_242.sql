@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_survey` ADD `configuration` longtext NOT NULL, COMMENT='';

@@ -7,7 +7,7 @@ class erLhcoreClassGenericBotActionActions {
 
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 
-            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']), array('chat' => $chat)));
+            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']), array('chat' => $chat, 'args' => $params)));
 
             $item = $msgData[0];
             if (count($msgData) > 0){
@@ -16,8 +16,12 @@ class erLhcoreClassGenericBotActionActions {
 
             $msg = new erLhcoreClassModelmsg();
             $msg->chat_id = $chat->id;
-            $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
-            $msg->user_id = -2;
+            if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                $msg->name_support = (string)$params['override_nick'];
+            } else {
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+            }
+            $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
             $msg->time = time() + 5;
             $msg->msg = $item;
 

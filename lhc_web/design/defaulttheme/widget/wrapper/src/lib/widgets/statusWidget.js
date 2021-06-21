@@ -5,10 +5,10 @@ import {helperFunctions} from '../helperFunctions';
 export class statusWidget{
     constructor(prefix) {
 
-       this.attributes = {};
-       this.controlMode = false;
+        this.attributes = {};
+        this.controlMode = false;
 
-       this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
+        this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
             width: "95px",
             height: "95px",
@@ -22,6 +22,7 @@ export class statusWidget{
 
         this.loadStatus = {main : false, theme: false, font: true, widget : false};
         this.lload = false;
+        this.unread_counter = 0;
     }
 
     toggleOfflineIcon(onlineStatus) {
@@ -43,8 +44,8 @@ export class statusWidget{
 
     checkLoadStatus() {
         if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
-             this.cont.getElementById('lhc_status_container').style.display = "";
-             this.attributes.sload.next(true);
+            this.cont.getElementById('lhc_status_container').style.display = "";
+            this.attributes.sload.next(true);
         }
     }
 
@@ -64,9 +65,11 @@ export class statusWidget{
 
         this.cont.massRestyle(placement);
 
-        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><i id="status-icon" class="offline-status" href="#"></i></div>';
+        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a href="#" target="_blank" id="status-icon" class="offline-status"></a></div>';
 
-        this.cont.constructUIIframe('');
+        if (this.cont.constructUIIframe('') === null) {
+            return null;
+        }
 
         this.cont.elmDom.className = this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop';
 
@@ -82,15 +85,19 @@ export class statusWidget{
             attributes.wloaded.subscribe((data) => { if (data){this.loadStatus['widget'] = true; this.checkLoadStatus()}});
         }
 
-        this.cont.attachUserEventListener("click", function (a) {
+        this.cont.attachUserEventListener("click", function (e) {
+
+            attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
 
             if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
                 document.location = attributes.offline_redirect;
+                e.preventDefault();
             } else {
                 if (_inst.controlMode == true) {
                     attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                    e.preventDefault();
                 } else {
-                    attributes.eventEmitter.emitEvent('showWidget', []);
+                    attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
                     attributes.eventEmitter.emitEvent('clickAction');
                 }
             }
@@ -102,12 +109,12 @@ export class statusWidget{
         }
 
         if (this.attributes.staticJS['font_status']) {
-             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
         }
 
         if (this.attributes.theme > 0) {
             this.loadStatus['theme'] = false;
-            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['theme'] = true; this.checkLoadStatus()}, id: "lhc-theme-status", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
         }
@@ -115,29 +122,47 @@ export class statusWidget{
         this.cont.insertCssRemoteFile({onload: ()=>{this.loadStatus['main'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.staticJS['status_css'] });
 
         if (this.attributes.staticJS['page_css']) {
-            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
         }
 
         attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
 
-        if (this.attributes.mode !== 'popup') {
-            attributes.widgetStatus.subscribe((data) => {
-
+        attributes.widgetStatus.subscribe((data) => {
+            if (this.attributes.mode !== 'popup') {
                 const chatParams = this.attributes['userSession'].getSessionAttributes();
-
                 (data == true || (!this.attributes.leaveMessage && this.attributes.onlineStatus.value == false && !chatParams['id'])) ? this.hide() : this.show();
-            });
-        } else {
-            this.show()
-        }
-
-        attributes.eventEmitter.addListener('unread_message', () => {
-            this.showUnreadIndicator();
+            }
         });
 
-        if (attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr') == "1") {
-            this.showUnreadIndicator();
+        this.attributes.mode === 'popup' && this.show();
+        let unreadMessagesNumber = attributes.storageHandler.getSessionStorage(this.attributes['prefixStorage']+'_unr');
+
+        attributes.eventEmitter.addListener('unread_message', (data) => {
+            var unreadTotal = (data && data.otm);
+            if (unreadTotal) {
+                unreadTotal = parseInt(unreadTotal);
+                unreadTotal += this.unread_counter;
+            }
+            this.attributes.unread_counter.next(unreadTotal);
+            this.showUnreadIndicator(unreadTotal);
+        });
+
+        if (unreadMessagesNumber !== null) {
+            attributes.eventEmitter.emitEvent('unread_message',[{otm:unreadMessagesNumber, init: true}]);
+            if (unreadMessagesNumber !== null && !isNaN(unreadMessagesNumber)) {
+                this.unread_counter = parseInt(unreadMessagesNumber);
+            }
         }
+
+        // Widget reload was called
+        // We avoid cache by using timestamp because we do not call init call.
+        // We also always insert themepage even if there is no css in it.
+        attributes.eventEmitter.addListener('reloadWidget',() => {
+            if (this.attributes.theme > 0) {
+                this.cont.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-status", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themestatus/' + this.attributes.theme + '?v=' + Date.now()}, true);
+            }
+            helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + Date.now()});
+        });
     }
 
     hide () {
@@ -148,7 +173,7 @@ export class statusWidget{
             const chatParams = this.attributes['userSession'].getSessionAttributes();
             if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
 
-                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
+                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hideStatus'] !== true && chatParams['id'] && chatParams['hash'])) {
                     this.cont.show();
                 }
 
@@ -162,16 +187,29 @@ export class statusWidget{
         this.cont.hide();
     }
 
-    showUnreadIndicator(){
+    showUnreadIndicator(number){
+        var iconText = number || '!';
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.addClass(icon, "has-uread-message");
-        this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',"1");
+
+        var iconValue = this.cont.getElementById("unread-msg-number");
+        if (iconValue) {
+            iconValue.innerText = iconText;
+        }
+
+        if (this.attributes.storageHandler)
+            this.attributes.storageHandler.setSessionStorage(this.attributes['prefixStorage']+'_unr',iconText);
     }
 
     removeUnreadIndicator() {
         var icon = this.cont.getElementById("lhc_status_container");
         helperFunctions.removeClass(icon, "has-uread-message");
-        this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        if (this.attributes.storageHandler) {
+            this.attributes.storageHandler.removeSessionStorage(this.attributes['prefixStorage']+'_unr');
+        }
+        this.attributes.eventEmitter.emitEvent('remove_unread_indicator', []);
+        this.attributes.unread_counter.next(0);
+        this.unread_counter = 0;
     }
 
     show () {
@@ -186,7 +224,7 @@ export class statusWidget{
             }
 
             // show status icon only if we are not in api mode or chat is going now
-            if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && chatParams['id'] && chatParams['hash'])) {
+            if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hide_status'] !== true && chatParams['id'] && chatParams['hash'])) {
                 this.cont.show();
             }
 

@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    font: 13px Helvetica,Arial,sans-serif;
+    position: relative;
+}
+
+.full-screen-icon{
+    color:#fff;
+    z-index:9999;
+    position: absolute;
+}
+
+.full-screen-icon .material-icons{
+    font-size: 28px;
+    text-shadow: 1px 1px 2px black;
+    cursor:pointer;
+}
+
+.agora_video_player{
+    object-fit: contain!important;
+}
+
+#root {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    overflow: hidden!important;
+}
+
+@media (min-width: 768px){
+    .flex-md-row {
+        -ms-flex-direction: row!important;
+        flex-direction: row!important;
+    }
+}

@@ -20,6 +20,7 @@
 @ini_set('session.gc_maxlifetime', 200000);
 @ini_set('session.cookie_lifetime', 2000000);
 @ini_set('session.cookie_httponly',1);
+@ini_set('session.cookie_samesite', 'Lax');
 
 // Uncomment these if you are using chrome extension
 // Min PHP 7.3v is required

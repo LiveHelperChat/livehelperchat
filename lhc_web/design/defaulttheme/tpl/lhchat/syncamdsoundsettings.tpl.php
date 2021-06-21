@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<form action="" method="post">
+<form action="" method="post" ng-non-bindable>
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds for a user to be considered as being online');?></label>
     <input type="text" name="OnlineTimeout" class="form-control" value="<?php echo htmlspecialchars(isset($sound_data['online_timeout']) ? $sound_data['online_timeout'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
@@ -36,21 +36,6 @@
 </div>
 
 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Show browser notification for new messages');?> <input type="checkbox" name="ShowBrowserNotificationMessage" value="1" <?php echo isset($sound_data['browser_notification_message']) && $sound_data['browser_notification_message'] == 1 ? 'checked="checked"' : '' ?> /></label>
-
-<div class="form-group">
-    <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Long polling (experimental)');?></h2>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Enable long polling');?> <input type="checkbox" name="EnableLongPolling" value="on" <?php echo isset($sound_data['long_polling_enabled']) && $sound_data['long_polling_enabled'] == 1 ? 'checked="checked"' : '' ?> /></label>
-</div>
-
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','How many seconds keep connection to server?');?></label>
-    <input type="text" class="form-control" name="ServerConnectionTimeout" value="<?php echo htmlspecialchars(isset($sound_data['connection_timeout']) ? $sound_data['connection_timeout'] : 30)?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
-</div>
-
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Sync for a new user message, interval in seconds');?></label>
-    <input type="text" class="form-control" name="SyncForUserMessagesEveryPolling" value="<?php echo htmlspecialchars(isset($sound_data['polling_chat_message_sinterval']) ? $sound_data['polling_chat_message_sinterval'] : '')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','Value in seconds');?>" />
-</div>
 
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncandsoundesetting','New chat request notification settings');?></h2>
 

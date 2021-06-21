@@ -1,10 +1,10 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Edit role');?> - <?php echo $role->name?></h1>
+<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Edit role');?> - <?php echo $role->name?></h1>
 
     <?php if (isset($errors)) : ?>
     		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
     <?php endif; ?>
 
-	<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post">
+	<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post" ng-non-bindable>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 		<div class="form-group">
@@ -20,6 +20,12 @@
 	    <hr>
 
 		<h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Assigned functions');?></h2>
+
+        <div class="btn-group mb-2" role="group" aria-label="...">
+            <input type="submit" class="btn btn-secondary" name="Delete_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Remove selected policy');?>"/>
+            <input type="submit" class="btn btn-secondary" name="New_policy" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','New policy');?>" />
+        </div>
+
 		<table class="table">
 		<thead>
 		<tr>
@@ -48,7 +54,7 @@
 
 <h2><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role assigned groups');?></h2>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" method="post" ng-non-bindable>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 	<table class="table">
 	<thead>

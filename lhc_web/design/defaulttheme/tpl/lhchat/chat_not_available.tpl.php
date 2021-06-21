@@ -22,5 +22,5 @@ if (is_numeric($theme)) {
 <?php if ($themeOffline == '') : ?>
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Chat is currently unavailable');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please try again later.');?></p>
 <?php else : ?>
-    <?php echo htmlspecialchars($themeOffline); ?>
+    <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($themeOffline)); ?>
 <?php endif;?>

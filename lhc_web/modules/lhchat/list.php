@@ -89,6 +89,8 @@ if ($limitation !== false) {
     $filterParams['filter']['smart_select'] = true;         
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+
 if ($Params['user_parameters_unordered']['print'] == 1) {
 	$tpl = erLhcoreClassTemplate::getInstance('lhchat/printchats.tpl.php');
 	$items = erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0)));
@@ -98,9 +100,16 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 	return;
 }
 
-if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
-	erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))),array('type' => (int)$Params['user_parameters_unordered']['xls']));
-	exit;
+if (isset($Params['user_parameters_unordered']['export'])) {
+    if (ezcInputForm::hasPostData()) {
+        erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))), array('csv' => isset($_POST['CSV']), 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
+        exit;
+    } else {
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/export_config.tpl.php');
+        $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+        echo $tpl->fetch();
+        exit;
+    }
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
@@ -114,7 +123,6 @@ $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
 	$items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
-	erLhcoreClassChat::setOnlineStatusDirectly($items);
 	$tpl->set('items',$items);
 }
 

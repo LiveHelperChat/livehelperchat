@@ -1,4 +1,4 @@
-<form action="" method="get" autocomplete="off">
+<form action="" method="get" autocomplete="off" ng-non-bindable>
 
 <div class="row form-group">
     	
@@ -115,6 +115,36 @@
                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
             )); ?>
         </div>   
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'subject_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose subjects for stats'),
+                'selected_id'    => $input->subject_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'list_function_params' => array(),
+                'list_function'  => 'erLhAbstractModelSubject::getList'
+            )); ?>
+        </div>
+    </div>
+
+	<div class="col-md-2">
+	   <div class="form-group">
+        	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+               'input_name'     => 'user_ids[]',
+               'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
+               'selected_id'    => $input->user_ids,
+               'css_class'      => 'form-control',
+               'ajax'           => 'users',
+               'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
+               'list_function'  => 'erLhcoreClassModelUser::getUserList'
+            )); ?>
+        </div>
     </div>
 
     <div class="col-md-12">

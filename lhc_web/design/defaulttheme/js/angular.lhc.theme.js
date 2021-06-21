@@ -1,4 +1,4 @@
-lhcAppControllers.controller('ThemeAttrTranslatableCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('ThemeAttrTranslatableCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.languages = [];
     this.identifier = null;
@@ -14,6 +14,14 @@ lhcAppControllers.controller('ThemeAttrTranslatableCtrl',['$scope','$http','$loc
             that.languages.splice(newIndex, 0, removedElement)
         }
     };
+
+    this.setDialects = function() {
+        this.dialects = $window['themeLangDialects'];
+    }
+    
+    this.setLanguage = function(identifier) {
+        that.languages = typeof $window['themeLangAttr'+ identifier] !== 'undefined' ? $window['themeLangAttr'+ identifier] : [];
+    }
 
     this.addLanguage = function() {
         that.languages.push({

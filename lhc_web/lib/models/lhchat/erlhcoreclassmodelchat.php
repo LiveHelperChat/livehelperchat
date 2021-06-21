@@ -121,6 +121,7 @@ class erLhcoreClassModelChat {
                // Anonymized
                'anonymized'    	        => $this->anonymized,
                'gbot_id'    	        => $this->gbot_id,
+               'cls_us'    	            => $this->cls_us,
        );
    }
 
@@ -168,6 +169,26 @@ class erLhcoreClassModelChat {
        $stmt = $q->prepare();
        $stmt->execute();
 
+       // Voice calls
+       $q->deleteFrom( 'lh_chat_voice_video' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+
+       // Incoming chats
+       $q->deleteFrom( 'lh_chat_incoming' )->where( $q->expr->eq( 'chat_id', $this->id ) );
+       $stmt = $q->prepare();
+       $stmt->execute();
+
+       $this->removePendingEvents();
+
+       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
+
+       erLhcoreClassModelChatFile::deleteByChatId($this->id);
+   }
+
+   public function removePendingEvents() {
+       $q = ezcDbInstance::get()->createDeleteQuery();
+
        // Auto responder chats
        $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
@@ -187,10 +208,6 @@ class erLhcoreClassModelChat {
        $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
        $stmt = $q->prepare();
        $stmt->execute();
-
-       erLhcoreClassModelGroupChat::deleteByChatId($this->id);
-
-       erLhcoreClassModelChatFile::deleteByChatId($this->id);
    }
 
    public function afterRemove()
@@ -260,8 +277,16 @@ class erLhcoreClassModelChat {
        		break;
 
        	case 'wait_time_seconds':
-       		   $this->wait_time_seconds = time() - $this->time;
+       		   $this->wait_time_seconds = time() - max($this->time,$this->pnd_time);
        		   return $this->wait_time_seconds;
+
+       case 'last_msg_time':
+            $this->last_msg_time = max($this->last_user_msg_time, $this->last_op_msg_time);
+            return $this->last_msg_time;
+
+       case 'last_msg_time_front':
+            $this->last_msg_time_front = erLhcoreClassChat::formatSeconds(time() - max($this->last_user_msg_time, $this->last_op_msg_time, $this->pnd_time));
+            return $this->last_msg_time_front;
 
        	case 'wait_time_front':
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
@@ -272,14 +297,18 @@ class erLhcoreClassModelChat {
        		   return $this->last_user_msg_time_front;
 
        	case 'wait_time_pending':
-       		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds(time() - $this->time);
+       		   $this->wait_time_pending = erLhcoreClassChat::formatSeconds($this->wait_time_seconds);
        		   return $this->wait_time_pending;
+
+       	case 'pnd_rsp':
+       		   $this->pnd_rsp = $this->status == self::STATUS_PENDING_CHAT || $this->last_user_msg_time > $this->last_op_msg_time;
+       		   return $this->pnd_rsp;
 
        	case 'chat_duration_front':
        	       if ($this->chat_duration > 0) {
                    $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->chat_duration);
                } elseif ($this->status != self::STATUS_CLOSED_CHAT) {
-                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds(time() - $this->time);
+                   $this->chat_duration_front = erLhcoreClassChat::formatSeconds($this->wait_time_seconds);
                } else {
                    $this->chat_duration_front = null;
                }
@@ -297,6 +326,11 @@ class erLhcoreClassModelChat {
        	        
        			return $this->plain_user_name;
        		break;
+
+           case 'hum':
+               $this->hum = $this->has_unread_messages == 1 && $this->last_user_msg_time < time() - 7;
+               return $this->hum;
+               break;
 
        	case 'n_official':
        	        $this->n_office = false;
@@ -462,13 +496,43 @@ class erLhcoreClassModelChat {
        		break;
 
        case 'msg_v':
-            $this->msg_v = 1;
+            $this->msg_v = 0;
             $chatVariables = $this->chat_variables_array;
             if (isset($chatVariables['msg_v'])) {
                 $this->msg_v = $chatVariables['msg_v'];
             }
             return $this->msg_v;
        break;
+
+       case 'aicons':
+           $this->aicons = [];
+           $chatVariables = $this->chat_variables_array;
+           if (isset($chatVariables['aicons']) ) {
+               foreach ($chatVariables['aicons'] as $icon => $params) {
+                   $iconParams = ['i' => $icon];
+                   if (isset($params['icolor'])) {
+                       $iconParams['c'] = $params['icolor'];
+                   }
+                   if (isset($params['t']) && $params['t'] != '') {
+                       $iconParams['t'] = $params['t'];
+                   }
+                   $this->aicons[$icon] = $iconParams;
+               }
+           }
+           return $this->aicons;
+
+       case 'aalert':
+            $this->aalert = null;
+            $chatVariables = $this->chat_variables_array;
+            if (isset($chatVariables['aicons'])) {
+                foreach ($chatVariables['aicons'] as $aicon) {
+                    if ($aicon['alert'] == true) {
+                        $this->aalert = true;
+                        break;
+                    }
+                }
+            }
+            return $this->aalert;
 
        	case 'chat_variables_array':
        	        if (!empty($this->chat_variables)){
@@ -487,29 +551,24 @@ class erLhcoreClassModelChat {
        	            $this->chat_variables_array = array();
        	        }
        			return $this->chat_variables_array;
-       		break;
 
        	case 'user_status_front':
 
-       	    if ($this->lsync > 0) {
+       	    if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
+                $this->user_status_front = $this->cls_us - 1;
+                return $this->user_status_front;
+            }
 
-       	        // Because mobile devices freezes background tabs we need to have bigger timeout
-       	        $timeout = 60;
+            // Because mobile devices freezes background tabs we need to have bigger timeout
+            $timeout = 60;
 
-       	        if ($this->device_type != 0 && (strpos($this->uagent,'iPhone') !== false || strpos($this->uagent,'iPad') !== false)) {
-                    $timeout = 240;
-                }
+            if ($this->device_type != 0 && (strpos($this->uagent,'iPhone') !== false || strpos($this->uagent,'iPad') !== false)) {
+                $timeout = 240;
+            }
 
-       	        $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT))) ? 1 : 0;
-
-       	    } elseif ($this->online_user !== false) {
-       		    $this->user_status_front = erLhcoreClassChat::setActivityByChatAndOnlineUser($this, $this->online_user);
-       		} else {
-       		    $this->user_status_front = $this->user_status == self::USER_STATUS_JOINED_CHAT ? 0 : 1;
-       		}
+            $this->user_status_front =  (time() - $timeout > $this->lsync || in_array($this->status_sub,array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) ? 1 : 0;
 
        		return $this->user_status_front;
-       	break;
 
        	case 'bot':
             $chatVariables = $this->chat_variables_array;
@@ -523,8 +582,12 @@ class erLhcoreClassModelChat {
 
             $this->bot = $bot;
             return $this->bot;
-       	break;
-       		
+
+       case 'incoming_chat':
+           $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
+           return $this->incoming_chat;
+           break;
+
        	default:
        		break;
        }
@@ -619,6 +682,7 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_SURVEY_COLLECTED = 6;
    const STATUS_SUB_OFFLINE_REQUEST = 7;
    const STATUS_SUB_ON_HOLD = 8;
+   const STATUS_SUB_SURVEY_COMPLETED = 9;
 
    const STATUS_SUB_SUB_DEFAULT = 0;
    const STATUS_SUB_SUB_TRANSFERED = 1;
@@ -757,6 +821,12 @@ class erLhcoreClassModelChat {
 
    // Bot ID assigned to the chat
    public $gbot_id = 0;
+
+   // User status on close event
+
+   // 0 - online
+   // 1 - offline
+   public $cls_us = 0;
 
    public $updateIgnoreColumns = array();
 }

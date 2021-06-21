@@ -59,6 +59,7 @@ return array_merge(array (
 
 
         'erLhcoreClassModelUser'            => 'lib/models/lhuser/erlhcoreclassmodeluser.php',
+        'erLhcoreClassModelUserLogin'       => 'lib/models/lhuser/erlhcoreclassmodeluserlogin.php',
         'erLhcoreClassModelUserOnlineSession' => 'lib/models/lhuser/erlhcoreclassmodeluseronlinesession.php',
         'erLhcoreClassModelUserSession'     => 'lib/models/lhuser/erlhcoreclassmodelusersession.php',
 		'erLhcoreClassModelUserRemember' 	=> 'lib/models/lhuser/erlhcoreclassmodeluserremember.php',
@@ -76,7 +77,8 @@ return array_merge(array (
         'erLhcoreClassModelChatPaid'    => 'lib/models/lhchat/erlhcoreclassmodelchatpaid.php',
         'erLhcoreClassModelmsg'         => 'lib/models/lhchat/erlhcoreclassmodelmsg.php',
         'erLhcoreClassModelChatStartSettings'         => 'lib/models/lhchat/erlhcoreclassmodelchatstartsettings.php',
-    
+        'erLhcoreClassModelChatEventTrack'         => 'lib/models/lhchat/erlhcoreclassmodelchateventtrack.php',
+
         'erLhcoreClassModelCannedMsg'           => 'lib/models/lhchat/erlhcoreclassmodelcannedmsg.php',
         'erLhcoreClassModelCannedMsgTag'        => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtag.php',
         'erLhcoreClassModelCannedMsgTagLink'    => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtaglink.php',
@@ -123,6 +125,8 @@ return array_merge(array (
 		'erLhAbstractModelChatVariable'  		    => 'lib/models/lhabstract/erlhabstractmodelchatvariable.php',
 		'erLhAbstractModelChatColumn'  		        => 'lib/models/lhabstract/erlhabstractmodelchatcolumn.php',
 		'erLhAbstractModelChatPriority'  		    => 'lib/models/lhabstract/erlhabstractmodelchatpriority.php',
+		'erLhAbstractModelChatAlertIcon'  		    => 'lib/models/lhabstract/erlhabstractmodelchatalerticon.php',
+		'erLhAbstractModelStats'  		            => 'lib/models/lhabstract/erlhabstractmodelstats.php',
 
 		'erLhAbstractModelSurvey'  			        => 'lib/models/lhabstract/erlhabstractmodelsurvey.php',
 		'erLhAbstractModelSurveyItem'  			    => 'lib/models/lhabstract/erlhabstractmodelsurveyitem.php',
@@ -291,6 +295,8 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionRestapi'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionrestapi.php',
         'erLhcoreClassGenericBotActionTbody'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontbody.php',
         'erLhcoreClassGenericBotActionText_conditional' => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontext_conditional.php',
+        'erLhcoreClassGenericBotActionAlert_icon'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionalert_icon.php',
+        'erLhcoreClassGenericBotActionMail'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmail.php',
         'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
@@ -339,7 +345,15 @@ return array_merge(array (
         // Web hooks
         'erLhcoreClassChatWebhookHttp'              => 'lib/core/lhchat/lhchatwebhookhttp.php',
         'erLhcoreClassModelChatWebhook'             => 'lib/models/lhchat/erlhcoreclassmodelchatwebhook.php',
+        'erLhcoreClassModelChatIncomingWebhook'     => 'lib/models/lhchat/erlhcoreclassmodelchatincomingwebhook.php',
         'erLhcoreClassChatWebhookResque'            => 'lib/core/lhchat/lhchatwebhookresque.php',
+        'erLhcoreClassChatStatsResque'              => 'lib/core/lhchat/lhchatstatsresque.php',
+        'erLhcoreClassChatWebhookContinuous'        => 'lib/core/lhchat/lhchatwebhookcontinous.php',
+        'erLhcoreClassModelChatIncoming'            => 'lib/models/lhchat/erlhcoreclassmodelchatincoming.php',
+        'erLhcoreClassChatWebhookIncoming'          => 'lib/core/lhchat/lhchatwebhookincomming.php',
+
+        // Voice Video
+        'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')

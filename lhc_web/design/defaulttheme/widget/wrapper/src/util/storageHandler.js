@@ -1,12 +1,54 @@
 
 export class storageHandler {
-    constructor(global, domain, prefix) {
+    constructor(global, domain, prefix, cookieEnabled) {
         this.window = global;
-        this.hasSessionStorage = !!this.window.sessionStorage;
+        this.cookieEnabled = false;
+
+        // Have we checked cookies support
+        this.cookiesSupportChecked = false;
+
+        // We should try to enable cookie
+        if (cookieEnabled == true) {
+            this.checkCookiesSupport();
+        }
+
         this.domain = domain;
         this.secureCookie = false;
         this.cookiePerPage = false;
         this.prefix = prefix || 'lhc';
+    }
+
+    checkCookiesSupport() {
+
+        if (this.cookiesSupportChecked === true) {
+            return this.cookieEnabled;
+        }
+
+        this.cookiesSupportChecked = true;
+
+        try {
+            this.hasSessionStorage = !!this.window.sessionStorage;
+        } catch (e){
+            this.hasSessionStorage = false;
+        }
+
+        try {
+            this.hasLocalStorage = !!this.window.localStorage;
+        } catch (e){
+            this.hasLocalStorage = false;
+        }
+
+        try {
+            // Create cookie
+            document.cookie = 'cookietest=1';
+            this.cookieEnabled = document.cookie.indexOf('cookietest=') !== -1;
+            // Delete cookie
+            document.cookie = 'cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT';
+        } catch (e) {
+
+        }
+
+        return this.cookieEnabled;
     }
 
     setCookieDomain(domain) {
@@ -30,12 +72,14 @@ export class storageHandler {
     }
 
     setHTTPCookie(coookieName, cookieValue, expireTime, domain) {
+        if (this.cookieEnabled === false) return ;
         var string = "";
         expireTime || (expireTime = new Date, expireTime.setTime(expireTime.getTime() + 15552E6), string = "; expires=" + expireTime.toGMTString());
         document.cookie = coookieName + "=" + cookieValue + string + (this.cookiePerPage === false ? "; path=/" : (this.cookiePerPage === true ? "" : '; path=' + this.cookiePerPage)) + (this.secureCookie ? ";secure" : "") + (domain ? ";domain=" + domain : "") + ";SameSite=Lax";
     };
 
     getHTTPCookie(cookieName) {
+        if (this.cookieEnabled === false) return [];
         var b, d, k = [], baseCookie = cookieName + "=", e = document.cookie.split(";");
         cookieName = 0;
         for (b = e.length; cookieName < b; cookieName++) {
@@ -73,6 +117,25 @@ export class storageHandler {
     getSessionStorage(a) {
         return this.hasSessionStorage && sessionStorage.getItem ?
             sessionStorage.getItem(a) : null
+    }
+
+    setLocalStorage(key, value) {
+        if (this.hasLocalStorage && localStorage.setItem) try {
+            localStorage.setItem(key, value)
+        } catch (d) {
+        }
+    }
+
+    getLocalStorage(a) {
+        return this.hasLocalStorage && localStorage.getItem ?
+            localStorage.getItem(a) : null
+    }
+
+    removeLocalStorage(key) {
+        if (this.hasLocalStorage && localStorage.removeItem) try {
+            localStorage.removeItem(key)
+        } catch (d) {
+        }
     }
 
     setSessionReferer(ref) {

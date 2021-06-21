@@ -76,6 +76,7 @@ ezcBaseInit::setCallback(
 );
 
 $instance = erLhcoreClassSystem::instance();
+$instance->backgroundMode = true;
 $instance->SiteAccess = $helpOption->value;
 $instance->SiteDir = dirname(__FILE__).'/';
 $cfgSite = erConfigClassLhConfig::getInstance();

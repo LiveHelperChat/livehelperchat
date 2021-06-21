@@ -8,19 +8,20 @@ class erLhcoreClassFormRenderer {
 	private static $isCollected = false;
 	private static $collectedObject = false;
 	private static $mainEmail = false;
-	
+	private static $customFields = array();
+
 	
 	public static function setCollectedObject($object) {
 		self::$collectedObject = $object;
 	}
 	
-    public static function renderForm($form) {    	 	 
+    public static function renderForm($form, $asAdmin = false) {
     	$contentForm = $form->content;
 
     	$inputFields = array();
     	preg_match_all('/\[\[[input|textarea|combobox|range](.*?)\]\]/i', $contentForm, $inputFields);
     	foreach ($inputFields[0] as $inputDefinition) {
-    		$content = self::processInput($inputDefinition);    		
+    		$content = self::processInput($inputDefinition, $asAdmin);
     		$contentForm = str_replace($inputDefinition,$content,$contentForm);    		
     	};
 
@@ -36,10 +37,69 @@ class erLhcoreClassFormRenderer {
 
     	if ( empty(self::$errors) && ezcInputForm::hasPostData()) {
     		self::$isCollected = true;
+            self::collectCustomFields();
     	}
-    	
+
     	return $contentForm;    	
-    }    
+    }
+
+    public static function collectCustomFields() {
+
+	    $collectedData = array();
+
+        if (isset($_POST['custom_fields']) && !empty($_POST['custom_fields'])) {
+            $customFields = json_decode($_POST['custom_fields'], true);
+            foreach ($customFields as $customField) {
+                $valueStore = $customField['value'];
+                if (isset($customField['encrypted']) && $customField['encrypted'] == true) {
+                    try {
+                        $valueStore = erLhcoreClassChatValidator::decryptAdditionalField($valueStore);
+                    } catch (Exception $e) {
+                        $valueStore = $e->getMessage();
+                    }
+                }
+
+                $collectedData[] = array(
+                    'identifier' => str_replace(' ','_',strtolower($customField['name'])),
+                    'name' => $customField['name'],
+                    'value' => $valueStore
+                );
+            }
+        }
+
+        if (isset($_POST['jsvar']) && !empty($_POST['jsvar'])) {
+            foreach ($_POST['jsvar'] as $key => $value) {
+                $jsVar = erLhAbstractModelChatVariable::fetch($key);
+                if ($jsVar instanceof erLhAbstractModelChatVariable) {
+                    $val = $value;
+                    if ($jsVar->type == 0) {
+                        $val = (string)$val;
+                    } elseif ($jsVar->type == 1) {
+                        $val = (int)$val;
+                    } elseif ($jsVar->type == 2) {
+                        $val = (float)$val;
+                    } elseif ($jsVar->type == 3) {
+                        try {
+                            $val = erLhcoreClassChatValidator::decryptAdditionalField($val);
+                        } catch (Exception $e) {
+                            $val = $e->getMessage();
+                        }
+                    }
+                    $collectedData[] = array(
+                        'identifier' => $jsVar->var_identifier,
+                        'name' => $jsVar->var_name,
+                        'value' => $val
+                    );
+                }
+            }
+        }
+
+        self::$customFields = $collectedData;
+    }
+
+    public static function getCustomFields() {
+	    return self::$customFields;
+    }
 
     public static function getErrors() {
     	return self::$errors;
@@ -57,7 +117,7 @@ class erLhcoreClassFormRenderer {
     	self::$collectedInfo = $information;
     }
     
-    public static function processInput($inputDefinition) {
+    public static function processInput($inputDefinition, $asAdmin = false) {
     	    	
     	$inputDefinition = str_replace(array('[[',']]'), '', $inputDefinition);
     	$paramsInput = explode('||', $inputDefinition);    	
@@ -71,8 +131,10 @@ class erLhcoreClassFormRenderer {
         	
     	if (!isset($paramsParsed['type'])) {
     		$paramsParsed['type'] = $defaultType;
-    	}    	
-    	
+    	}
+
+        $paramsParsed['as_admin'] = $asAdmin;
+
     	return call_user_func('erLhcoreClassFormRenderer::renderInputType'.ucfirst($paramsParsed['type']),$paramsParsed);
     }
     
@@ -131,7 +193,7 @@ class erLhcoreClassFormRenderer {
     	}
     	 
     	$return .= "<div ng-init=\"ng{$params['name']}From=".htmlspecialchars($valueFromDefault,ENT_QUOTES).";ng{$params['name']}Till=".htmlspecialchars($valueTillDefault,ENT_QUOTES)."\"><input type=\"text\" id=\"id_{$params['name']}From\" ng-model=\"ng{$params['name']}From\" name=\"{$params['name']}From\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueFrom)."\" />";
-    	$return .= "<input class=\"form-control\" type=\"text\" id=\"id_{$params['name']}Till\" ng-model=\"ng{$params['name']}Till\" name=\"{$params['name']}Till\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueTill)."\" /></div>";
+    	$return .= "<input class=\"form-control form-control-sm\" type=\"text\" id=\"id_{$params['name']}Till\" ng-model=\"ng{$params['name']}Till\" name=\"{$params['name']}Till\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($valueTill)."\" /></div>";
     	 
     	if ($params['usejquislider'] && $params['usejquislider'] == 'true') {
     
@@ -185,7 +247,52 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
+    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
+    }
+
+    public static function renderInputTypeHidden($params) {
+    	$additionalAttributes = self::renderAdditionalAtrributes($params);
+
+    	$value = '';
+    	if (ezcInputForm::hasPostData()) {
+
+    		$validationFields = array();
+    		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+
+    		$form = new ezcInputForm( INPUT_POST, $validationFields );
+    		$Errors = array();
+
+    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
+    			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+    		} elseif ($form->hasValidData( $params['name'] )) {
+    			$value = $form->{$params['name']};
+    			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
+    		}
+
+    	} else {
+    		if (isset(self::$collectedInfo[$params['name']]['value'])) {
+    			$value = self::$collectedInfo[$params['name']]['value'];
+    		} else {
+    		    if (isset($params['value']) && strpos($params['value'],'prefill|') !== false) {
+    		        $varName = str_replace('prefill|','',$params['value']);
+                    if (isset($_GET['prefill'][$varName])) {
+                        $value = $_GET['prefill'][$varName];
+                    } else {
+                        $value = '';
+                    }
+                } else {
+                    $value = (isset($params['value']) ? $params['value'] : '');
+                }
+    		}
+    	}
+
+        $returnAppend = $return = "";
+        if (isset($params['as_admin']) && $params['as_admin'] == true) {
+            $return = "<div class='form-group'><label class='font-weight-bold'>" . htmlspecialchars($params['name_literal']) . "</label>";
+            $returnAppend = "</div>";
+        }
+
+    	return $return . "<input class=\"form-control form-control-sm\" type=\"". ((isset($params['as_admin']) && $params['as_admin'] == true) ? "text" : "hidden") ."\" name=\"{$params['name']}\" {$additionalAttributes} value=\"".htmlspecialchars($value)."\" />" . $returnAppend;
     }
         
     public static function renderInputTypeEmail($params) {    	
@@ -221,7 +328,7 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
+    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
     }
     
     
@@ -254,7 +361,7 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";    	
+    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
     }
     
     
@@ -298,7 +405,7 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control\" type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";    	
+    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" id=\"id_{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" /><script>$(function() {\$('#id_{$params['name']}').fdatepicker({format: '{$params['format']}'});});</script>";
     }
     
     public static function renderInputTypeTranslate($params)
@@ -349,7 +456,7 @@ class erLhcoreClassFormRenderer {
 	    	};
     	}
     	    	
-    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
     
     
@@ -388,7 +495,7 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
     
     public static function renderInputTypeMonth($params) {    	
@@ -426,7 +533,7 @@ class erLhcoreClassFormRenderer {
     		$options[] = "<option =\"".htmlspecialchars($i)."\" {$isSelected}>".htmlspecialchars($i).'</option>';    		
     	}
     		    	
-    	return "<select class=\"form-control\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";  	
+    	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
     
     
@@ -491,7 +598,7 @@ class erLhcoreClassFormRenderer {
     	}    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';
     	
-    	return "<textarea class=\"form-control\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
+    	return "<textarea class=\"form-control form-control-sm\" name=\"{$params['name']}\" {$placeholder}>" . htmlspecialchars($value) . "</textarea>";
     }
     
     public static function renderAdditionalAtrributes($params) {
@@ -522,16 +629,36 @@ class erLhcoreClassFormRenderer {
     	
     	return "{$downloadLink}<input type=\"file\" name=\"{$params['name']}\" />";
     }
-    
-    public static function storeCollectedInformation($form, $collectedInformation) {
+
+    public static function storeCollectedInformation($form, $collectedInformation, $customFields = []) {
     	
     	$formCollected = new erLhAbstractModelFormCollected();
     	$formCollected->ip = erLhcoreClassIPDetect::getIP();
     	$formCollected->ctime = time();
     	$formCollected->form_id = $form->id;  
-    	$formCollected->identifier = isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''); 
-    	$formCollected->saveThis();
-    	
+    	$formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
+        $formCollected->saveThis();
+
+        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+            $formCollected->chat_id = $chat->id;
+
+            // Store as message to visitor
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Information collected. [baseurl]form/viewcollected/'.$formCollected->id.'[/baseurl]');
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $msg->time = time();
+            $msg->name_support = $chat->nick;
+            $msg->saveThis();
+
+            // Update last user msg time so auto responder work's correctly
+            $chat->last_op_msg_time = $chat->last_user_msg_time = time();
+            $chat->last_msg_id = $msg->id;
+
+            // All ok, we can make changes
+            $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'last_user_msg_time')));
+        }
+
     	// Finish collect information
     	foreach ($collectedInformation as $fieldName => & $params) {
     		
@@ -552,7 +679,8 @@ class erLhcoreClassFormRenderer {
     		}
     	}
     	
-    	$formCollected->content = serialize($collectedInformation);    	
+    	$formCollected->content = serialize($collectedInformation);
+        $formCollected->custom_fields = json_encode($customFields);
     	$formCollected->saveThis();
 
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('form.filled',array('form' => & $formCollected));

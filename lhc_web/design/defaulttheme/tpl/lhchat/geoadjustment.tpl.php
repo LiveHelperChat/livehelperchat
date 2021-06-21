@@ -14,7 +14,7 @@
 		<label><input type="checkbox" name="ApplyWidget" value="on" <?php isset($geo_data['apply_widget']) && ($geo_data['apply_widget'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','Apply to chat widget status indicator these rules also? performance decrease is associated with this option')?></label>
 				
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','Make chat status normal for these countries, countries can be separated by comma "de,gb,us,fr" means chat would be shown as usual only for these countries.')?></label>
-		<input class="form-control" type="text" name="AvailableFor" value="<?php echo htmlspecialchars(isset($geo_data['available_for']) ? $geo_data['available_for'] : '')?>" placeholder="de,gb,us,fr" />
+		<input class="form-control" ng-non-bindable type="text" name="AvailableFor" value="<?php echo htmlspecialchars(isset($geo_data['available_for']) ? $geo_data['available_for'] : '')?>" placeholder="de,gb,us,fr" />
 		
 		<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','For')?></h4>
 		

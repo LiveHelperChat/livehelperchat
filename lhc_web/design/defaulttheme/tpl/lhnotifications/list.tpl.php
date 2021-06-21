@@ -1,7 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/list','Subscribers list')?></h1>
 
 <?php if (isset($items)) : ?>
-    <table class="table" cellpadding="0" cellspacing="0" width="100%">
+    <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notification/list','Chat ID');?></th>

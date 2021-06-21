@@ -7,24 +7,26 @@ class erLhcoreClassChatWorkflow {
      */
     public static function timeoutWorkflow(erLhcoreClassModelChat & $chat)
     {
-        $msg = new erLhcoreClassModelmsg();
-
-        $metaMessage = $chat->auto_responder->auto_responder->getMeta($chat, 'pending_op', 1, array('include_message' => true));
-
-        $msg->msg = trim($chat->auto_responder->auto_responder->timeout_message) . $metaMessage['msg'];
-        $msg->meta_msg = $metaMessage['meta_msg'];
-        $msg->chat_id = $chat->id;
         $operator = $chat->auto_responder->auto_responder->operator;
-        $msg->name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-        $msg->user_id = -2;
-        $msg->time = time();
-        erLhcoreClassChat::getSession()->save($msg);
+        $name_support = $operator != '' ? $operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
 
-        if ($chat->last_msg_id < $msg->id) {
-            $chat->last_msg_id = $msg->id;
+        if (trim($chat->auto_responder->auto_responder->timeout_message) != '') {
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($chat->auto_responder->auto_responder->timeout_message), array('chat' => $chat));
+            $msg->chat_id = $chat->id;
+            $msg->name_support = $name_support;
+            $msg->user_id = -2;
+            $msg->time = time();
+            erLhcoreClassChat::getSession()->save($msg);
+
+            if ($chat->last_msg_id < $msg->id) {
+                $chat->last_msg_id = $msg->id;
+            }
+
+            $chat->updateThis(array('update' => array('last_msg_id')));
         }
 
-        $chat->updateThis(array('update' => array('last_msg_id')));
+        $chat->auto_responder->auto_responder->getMeta($chat, 'pending_op', 1, array('override_nick' => $name_support, 'store_messages' => true));
     }
 
     /**
@@ -88,7 +90,7 @@ class erLhcoreClassChatWorkflow {
 
             erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_assigned_department',array('chat' => & $chat, 'from_dep' => $chat->department, 'to_dep' => $departmentTransfer));
 
             $chat->updateThis(array('update' => array('dep_id','last_user_msg_time','last_msg_id','reinform_timeout','unread_messages_informed','user_id','na_cb_executed','transfer_if_na','transfer_timeout_ts')));
         } else {
@@ -230,11 +232,15 @@ class erLhcoreClassChatWorkflow {
             // Close normal chats
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
-
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -265,10 +271,15 @@ class erLhcoreClassChatWorkflow {
 
             // Close pending chats where the only message is user initial message
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)),'filter' => array('last_user_msg_time' => 0))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -302,10 +313,14 @@ class erLhcoreClassChatWorkflow {
 
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -338,10 +353,15 @@ class erLhcoreClassChatWorkflow {
         if ($timeout > 0) {
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -374,10 +394,15 @@ class erLhcoreClassChatWorkflow {
         if ($timeout > 0) {
             $delay = time()-($timeout*60);
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'customfilter' => array('((last_user_msg_time = 0 AND time < ' . $delay . ') OR (last_user_msg_time > 0 AND last_user_msg_time < ' . $delay . '))'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_BOT_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
-                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was automatically closed by cron');
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron!');
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
 
@@ -405,6 +430,116 @@ class erLhcoreClassChatWorkflow {
                 $closedChatsNumber++;
             }
         }
+
+        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_activity_timeout')->current_value;
+        if ($timeout > 0) {
+            $delay = time()-($timeout*60);
+            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('((
+            (last_user_msg_time = 0 AND last_op_msg_time = 0 AND time < ' . $delay . ') OR 
+            (last_user_msg_time > 0 AND last_user_msg_time >= last_op_msg_time AND last_user_msg_time < ' . $delay . ') OR 
+            (last_op_msg_time > 0 AND last_op_msg_time >= last_user_msg_time AND last_op_msg_time < ' . $delay . ') 
+            ) AND (GREATEST(`pnd_time`,`time`) + `wait_time`) < '.$delay.')'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+
+                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because of inactivity!');
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+
+                $chat->last_user_msg_time = $msg->time = time();
+
+                erLhcoreClassChat::getSession()->save($msg);
+
+                if ($chat->last_msg_id < $msg->id) {
+                    $chat->last_msg_id = $msg->id;
+                }
+
+                if ($chat->wait_time == 0) {
+                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                }
+
+                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->cls_time = time();
+                $chat->has_unread_messages = 0;
+                $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+
+                erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                $closedChatsNumber++;
+            }
+        }
+        
+        $timeoutParts = explode(',',str_replace(' ','',erLhcoreClassModelChatConfig::fetch('autoclose_abandon_pending')->current_value));
+
+        if ((int)$timeoutParts[0] > 0) {
+            $delay = time()-((int)$timeoutParts[0]*60);
+            $delayMobile = time()-((isset($timeoutParts[1]) && is_numeric($timeoutParts[1]) ? (int)$timeoutParts[1] : (int)$timeoutParts[0]) * 60);
+            $closeActive = isset($timeoutParts[2]) && is_numeric($timeoutParts[2]) ? (int)$timeoutParts[2] : 0;
+            if ($closeActive == 1) {
+                $closeTypes = array(
+                    erLhcoreClassModelChat::STATUS_ACTIVE_CHAT
+                );
+            } elseif ($closeActive == 2) {
+                $closeTypes = array(
+                    erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+                    erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
+                );
+            } else {
+                $closeTypes = array(
+                    erLhcoreClassModelChat::STATUS_PENDING_CHAT
+                );
+            }
+
+            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('(`status_sub` IN ('.
+                erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ',' .
+                erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM . ') OR (`lsync` > 0 AND ((`lsync` < '. $delay .' AND `device_type` = 0) OR  (`lsync` < '. $delayMobile .' AND `device_type` IN (1,2)))))'),
+                'filterin' => array('status' => $closeTypes))) as $chat) {
+
+                if ($chat->cls_us == 0) {
+                    $chat->cls_us = $chat->user_status_front + 1;
+                }
+                
+                $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
+
+                $msg = new erLhcoreClassModelmsg();
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Chat was closed by cron because visitor left the pending chat!');
+                $msg->chat_id = $chat->id;
+                $msg->user_id = -1;
+
+                $chat->last_user_msg_time = $msg->time = time();
+
+                erLhcoreClassChat::getSession()->save($msg);
+
+                if ($chat->last_msg_id < $msg->id) {
+                    $chat->last_msg_id = $msg->id;
+                }
+
+                if ($chat->wait_time == 0) {
+                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                }
+
+                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->cls_time = time();
+                $chat->has_unread_messages = 0;
+                $chat->updateThis();
+
+                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+
+                erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                $closedChatsNumber++;
+            }
+        }
+
 
         return $closedChatsNumber;
     }
@@ -863,7 +998,7 @@ class erLhcoreClassChatWorkflow {
             ));
 
             if ($statusWorkflow === false) {
-                if (($online_user = $chat->online_user) !== false) {
+                if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','prev_chats') && ($online_user = $chat->online_user) !== false) {
                     $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $chat->id), 'filter' => array('online_user_id' => $online_user->id)));
                     if ($chatHistory instanceof erLhcoreClassModelChat) {
                         $chat = $chatHistory;
@@ -895,7 +1030,7 @@ class erLhcoreClassChatWorkflow {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.has_previous_messages', $params);
 
         if ($statusWorkflow === false) {
-            if ($hasMessages == false && ($online_user = $params['chat']->online_user) !== false) {
+            if ($hasMessages == false && erLhcoreClassUser::instance()->hasAccessTo('lhchat','prev_chats') && ($online_user = $params['chat']->online_user) !== false) {
                 $chatHistory = erLhcoreClassModelChat::findOne(array('sort' => 'id DESC','filterlt' => array('id' => $params['chat']->id), 'filter' => array('online_user_id' => $online_user->id)));
                 if ($chatHistory instanceof erLhcoreClassModelChat) {
                     $hasMessages = true;

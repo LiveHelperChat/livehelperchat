@@ -1,16 +1,16 @@
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
     <input type="text" class="form-control" name="Name"  value="<?php echo htmlspecialchars($departament_group->name);?>" />
 </div>
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats');?></label>
     <input type="text" class="form-control" name="PendingMax"  value="<?php echo htmlspecialchars($departament_group->pending_max);?>" />
 </div>
 
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Departments');?></h4>
 
-<div class="row" style="max-height:500px;overflow-y:auto;">
+<div class="row" style="max-height:500px;overflow-y:auto;" ng-non-bindable>
         <?php $depIds = $departament_group->departments_ids; foreach (erLhcoreClassModelDepartament::getList() as $department) : ?>
         <div class="col-6">
             <div class="form-group mb-0">

@@ -8,8 +8,8 @@ i18n.use(Backend).use(initReactI18next).init({
     backend: {
         loadPath: WWW_DIR_JAVASCRIPT+'restapi/lang/{{ns}}?l={{lng}}&v='+(""+date.getFullYear() + date.getMonth() + date.getDate())
     },
-    lng: confLH.lngUser,
-    fallbackLng: confLH.lngUser,
+    lng: confLH.lngUser || 'en',
+    fallbackLng: confLH.lngUser || 'en',
     defaultNS: 'group_chat',
     ns: 'group_chat',
     debug: false,

@@ -1,6 +1,6 @@
 <div class="operator-info d-flex">
 	<div class="align-self-center op-photo">
-		<?php if ($user->has_photo) : ?>
+		<?php if ($user->has_photo_avatar) : ?>
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
      	<?php else : ?>
      		<i class="icon-assistant material-icons mr-0"><?php if (isset($react) && $react === true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?></i>

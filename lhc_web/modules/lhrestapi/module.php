@@ -17,6 +17,12 @@ $ViewList['chats'] = array(
     'params' => array()
 );
 
+$ViewList['onlineimage'] = array(
+    'params' => array(),
+    'uparams' => array('user_id','department'),
+    'multiple_arguments' => array ( 'department' )
+);
+
 $ViewList['extensions'] = array(
     'params' => array()
 );
@@ -75,6 +81,14 @@ $ViewList['isonlinedepartment'] = array(
 
 $ViewList['getusers'] = array(
     'params' => array()
+);
+
+$ViewList['onlineusers'] = array(
+    'params' => array()
+);
+
+$ViewList['startchatwithoperator'] = array(
+    'params' => array('id','initiator_user_id')
 );
 
 $ViewList['groupsbyobject'] = array(
@@ -145,6 +159,10 @@ $ViewList['swagger'] = array(
     'params' => array()
 );
 
+$ViewList['agentstatistic'] = array(
+    'params' => array()
+);
+
 /**
  * Calls dedicated to users
  * */
@@ -161,6 +179,10 @@ $ViewList['addmsguser'] = array(
 
 $ViewList['addmsgadmin'] = array(
     'params' => array()
+);
+
+$ViewList['file'] = array(
+    'params' => array('id')
 );
 
 $ViewList['setchatstatus'] = array(

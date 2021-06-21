@@ -1,5 +1,5 @@
 import { helperFunctions } from "../../lib/helperFunctions";
-import { fetchMessages, checkChatStatus } from "../../actions/chatActions"
+import { fetchMessages, checkChatStatus, updateMessage } from "../../actions/chatActions"
 
 class _nodeJSChat {
     constructor() {
@@ -22,7 +22,8 @@ class _nodeJSChat {
 
         var socketOptions = {
             hostname: params.hostname,
-            path: params.path
+            path: params.path,
+            autoReconnectOptions: {initialDelay: 5000, randomness: 5000}
         }
 
         if (params.port != '') {
@@ -52,7 +53,7 @@ class _nodeJSChat {
         });
 
        function visitorTypingListener(data)
-        {
+       {
             if (data.status == true){
                 if (params.instance_id > 0) {
                     socket.publish('chat_'+params.instance_id+'_'+chatId,{'op':'vt','msg':data.msg});
@@ -66,15 +67,38 @@ class _nodeJSChat {
                     socket.publish('chat_'+chatId,{'op':'vts'});
                 }
             }
+       }
+
+       function messageSend(data)
+       {
+            if (params.instance_id > 0) {
+                socket.publish('chat_'+params.instance_id+'_'+chatId, {'op':'vt','msg':'✉️ ' + data.msg});
+            } else {
+                socket.publish('chat_'+chatId,{'op':'vt', 'msg':'✉️ ' + data.msg});
+            }
         }
 
-        socket.on('close', function() {
+       function messageSendError(data)
+       {
+            if (params.instance_id > 0) {
+                socket.publish('chat_'+params.instance_id+'_'+chatId,{'op':'vt','msg':'📕️ error happened while sending visitor message, please inform your administrator!'});
+            } else {
+                socket.publish('chat_'+chatId, {'op':'vt','msg':'📕️ error happened while sending visitor message, please inform your administrator!'});
+            }
+        }
 
+        function disconnect() {
             if (sampleChannel !== null) {
-                sampleChannel.destroy();
+                try {
+                    sampleChannel.destroy();
+                } catch (e) {
+
+                }
             }
 
             helperFunctions.eventEmitter.removeListener('visitorTyping', visitorTypingListener);
+            helperFunctions.eventEmitter.removeListener('messageSend', messageSend);
+            helperFunctions.eventEmitter.removeListener('messageSendError', messageSendError);
 
             dispatch({
                 'type': 'CHAT_UI_UPDATE',
@@ -85,7 +109,10 @@ class _nodeJSChat {
                 'type': 'CHAT_REMOVE_OVERRIDE',
                 'data': "typing"
             });
+        }
 
+        socket.on('close', function() {
+            disconnect();
         });
 
         function connectVisitor(){
@@ -97,6 +124,10 @@ class _nodeJSChat {
 
             sampleChannel.on('subscribeFail', function (err) {
                 console.error('Failed to subscribe to the sample channel due to error: ' + err);
+            });
+
+            sampleChannel.on('subscribe', function () {
+                socket.publish((params.instance_id > 0 ? 'chat_'+params.instance_id+'_'+chatId : 'chat_'+chatId), {'op':'vi_online', status: true});
             });
 
             sampleChannel.watch(function (op) {
@@ -122,7 +153,12 @@ class _nodeJSChat {
                             'theme' : state.chatwidget.get('theme')
                         }));
                     }
-                } else if (op.op == 'schange') {
+                } else if (op.op == 'umsg') {
+                    const state = getState();
+                    if (state.chatwidget.hasIn(['chatData','id'])) {
+                        updateMessage({'msg_id' :  op.msid,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+                    }
+                } else if (op.op == 'schange' || op.op == 'cclose') {
                     const state = getState();
                     if (state.chatwidget.hasIn(['chatData','id'])){
                         dispatch(checkChatStatus({
@@ -132,11 +168,17 @@ class _nodeJSChat {
                             'theme' : state.chatwidget.get('theme')
                         }));
                     }
+                } else if (op.op == 'vo') {
+                    const state = getState();
+                    if (state.chatwidget.hasIn(['chatData','id'])) {
+                        socket.publish((params.instance_id > 0 ? 'chat_'+params.instance_id+'_'+state.chatwidget.getIn(['chatData','id']) : 'chat_'+state.chatwidget.getIn(['chatData','id'])) ,{'op':'vi_online', status: true});
+                    }
                 }
             });
 
             helperFunctions.eventEmitter.addListener('visitorTyping', visitorTypingListener);
-
+            helperFunctions.eventEmitter.addListener('messageSend', messageSend);
+            helperFunctions.eventEmitter.addListener('messageSendError', messageSendError);
 
             dispatch({
                 'type': 'CHAT_UI_UPDATE',
@@ -149,16 +191,34 @@ class _nodeJSChat {
             });
         }
 
+        socket.on('deauthenticate', function(){
+            const state = getState();
+            let chat_id = state.chatwidget.getIn(['chatData','id']);
+            window.lhcAxios.post(window.lhcChat['base_url'] + "nodejshelper/tokenvisitor/"+chat_id+"/"+state.chatwidget.getIn(['chatData','hash']), null, {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+                socket.emit('login', {hash:response.data, chanelName: (params.instance_id > 0 ? ('chat_'+params.instance_id+'_'+chat_id) : ('chat_'+chat_id)) }, function (err) {
+                    if (err) {
+                        console.log(err);
+                        disconnect();
+                    }
+                });
+            });
+        });
+
         socket.on('connect', function (status) {
             if (status.isAuthenticated && chatId > 0) {
                 connectVisitor();
             } else {
-                socket.emit('login', {hash:params.hash, chanelName: chanelName}, function (err) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        connectVisitor();
-                    }
+                const state = getState();
+                let chat_id = state.chatwidget.getIn(['chatData','id']);
+                window.lhcAxios.post(window.lhcChat['base_url'] + "nodejshelper/tokenvisitor/"+chat_id+"/"+state.chatwidget.getIn(['chatData','hash']), null, {headers : {'Content-Type': 'application/x-www-form-urlencoded'}}).then((response) => {
+                    socket.emit('login', {hash: response.data, chanelName: (params.instance_id > 0 ? ('chat_'+params.instance_id+'_'+chat_id) : ('chat_'+chat_id)) }, function (err) {
+                        if (err) {
+                            console.log(err);
+                            socket.destroy();
+                        } else {
+                            connectVisitor();
+                        }
+                    });
                 });
             }
         });

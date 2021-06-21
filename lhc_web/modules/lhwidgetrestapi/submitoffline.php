@@ -3,7 +3,11 @@
 erLhcoreClassRestAPIHandler::setHeaders();
 erTranslationClassLhTranslation::$htmlEscape = false;
 
-$requestPayload = json_decode(file_get_contents('php://input'),true);
+if (isset($_POST['document'])) {
+    $requestPayload = json_decode($_POST['document'],true);
+} else {
+    $requestPayload = json_decode(file_get_contents('php://input'),true);
+}
 
 $Params['user_parameters_unordered']['department'] = isset($requestPayload['department']) ? $requestPayload['department'] : null;
 
@@ -91,20 +95,35 @@ if (empty($Errors)) {
         'chat' => $chat,
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-    erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+    erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+
+    // Assign chat to user
+    if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {
+        // To track online users
+        $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $inputData->vid));
+        
+        if ($userInstance !== false) {
+            $userInstance->chat_id = $chat->id;
+            $userInstance->dep_id = $chat->dep_id;
+            $userInstance->saveThis();
+            $chat->online_user_id = $userInstance->id;
+            $chat->saveThis();
+        }
+    }
 
     $outputResponse = array (
         'success' => true
     );
 
 } else {
+    $optionsJson = JSON_FORCE_OBJECT;
     $outputResponse = array (
         'success' => false,
         'errors' => $Errors
     );
 }
 
-erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
+erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
 exit;
 
 ?>

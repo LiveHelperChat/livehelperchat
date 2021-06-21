@@ -23,6 +23,9 @@ class erLhcoreClassGenericBot {
             'nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'avatar' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'attr_str_1' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -42,6 +45,9 @@ class erLhcoreClassGenericBot {
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'msg_hide' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'ign_btn_clk' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'configuration' => new ezcInputFormDefinitionElement(
@@ -67,6 +73,10 @@ class erLhcoreClassGenericBot {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter bot nick!');
         } else {
             $bot->nick = $form->nick;
+        }
+
+        if ( $form->hasValidData( 'avatar' )) {
+            $bot->avatar = $form->avatar;
         }
 
         if ( $form->hasValidData( 'attr_str_1' ) ) {
@@ -111,6 +121,12 @@ class erLhcoreClassGenericBot {
             $configurationArray['msg_hide'] = true;
         } else {
             $configurationArray['msg_hide'] = false;
+        }
+
+        if ( $form->hasValidData( 'ign_btn_clk' ) ) {
+            $configurationArray['ign_btn_clk'] = true;
+        } elseif (isset($configurationArray['ign_btn_clk'])) {
+            unset($configurationArray['ign_btn_clk']);
         }
 
         if ( $form->hasInputField( 'configuration' ) && $form->hasValidData('configuration') ) {

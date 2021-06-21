@@ -1,13 +1,19 @@
-lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 		
 		this.startchatfields = [];	
 		this.size = 6;
 		this.fieldtype = 'text';
 		this.visibility = 'all';
 		this.showcondition = 'always';
+		this.priority = 50;
 
 		var that = this;
-				
+
+
+        this.setStartChatFields = function() {
+            that.startchatfields = $window['startChatFields'];
+        }
+
 		this.move = function(element, offset) {
 		  index = that.startchatfields.indexOf(element);
 		  newIndex = index + offset;		  
@@ -28,13 +34,14 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 				'isrequired' : that.isrequired,
 				'hide_prefilled' : that.hide_prefilled,
 				'options' : that.options,
-				'showcondition' : that.showcondition
+				'showcondition' : that.showcondition,
+				'priority' : that.priority,
 			});
 		};
 		
 		this.deleteField = function(field) {								
 			that.startchatfields.splice(that.startchatfields.indexOf(field),1);
-		};	
+		};
 		
 		this.moveLeftField = function(field) {
 			that.move(field,-1);
@@ -47,7 +54,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		
 }]);
 
-lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log,  $window) {
 
 		this.startchatfields = [];
 
@@ -61,6 +68,10 @@ lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location
 		    that.startchatfields.splice(newIndex, 0, removedElement)
 		  }
 		};
+
+        this.setStartFields = function() {
+            that.startchatfields = $window['startChatFieldsURL'];
+        }
 
 		this.addField = function() {
 			that.startchatfields.push({

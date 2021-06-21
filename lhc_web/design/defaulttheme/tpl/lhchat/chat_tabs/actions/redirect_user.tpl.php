@@ -1,3 +1,7 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowredirect')) : ?>
-<a class="material-icons mr-0" onclick="lhinst.redirectToURL('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Please enter a URL');?>')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Redirect user to another url');?>">link</a>
+<div class="col-6 pb-1">
+<a class="text-muted" onclick="lhinst.redirectToURL('<?php echo $chat->id?>','<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Please enter a URL');?>')">
+    <span class="material-icons">link</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Redirect to another url');?>
+</a>
+</div>
 <?php endif;?>

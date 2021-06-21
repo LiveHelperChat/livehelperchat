@@ -56,10 +56,14 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
             $fileUpload->name = $file->name;
             $fileUpload->date = time();
             $fileUpload->user_id = isset($this->options['user_id']) ? $this->options['user_id'] : 0;
-            $fileUpload->upload_name = (isset($this->options['file_name_manual']) && $this->options['file_name_manual'] != '') ? $this->options['file_name_manual'] . ' - ' . $name : $name;;
+            $fileUpload->upload_name = (isset($this->options['file_name_manual']) && $this->options['file_name_manual'] != '') ? $this->options['file_name_manual'] . ' - ' . $name : $name;
             $fileUpload->file_path = $this->options['upload_dir'];
-            $fileUpload->chat_id = 0;
+            $fileUpload->chat_id = (isset($this->options['chat_id']) && $this->options['chat_id'] > 0) ? (int)$this->options['chat_id'] : 0;
             $fileUpload->persistent = (isset($this->options['persistent']) && $this->options['persistent'] == true) ? 1 : 0;
+
+            if (isset($this->options['file_name_replace']) && $this->options['file_name_replace'] != '') {
+                $fileUpload->upload_name = $this->options['file_name_replace'];
+            }
 
             $matches = array();
             if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {

@@ -203,17 +203,24 @@ module.exports = (function() {
         const formData = new FormData();
         formData.append("files[]", this.recording, "record.mp3");
         req.open("POST", WWW_DIR_JAVASCRIPT + '/file/uploadfileadmin/' + this.chat_id);
-        req.upload.addEventListener("load", event => {
-            this.leaveVoiceUI();
+        req.responseType = 'json';
+        req.onreadystatechange = () => {
+            if (req.readyState == 4) {
+                this.leaveVoiceUI();
 
-            lhinst.updateChatFiles(this.chat_id);
-            lhinst.syncadmincall();
+                lhinst.updateChatFiles(this.chat_id);
 
-            if (LHCCallbacks.addFileUpload) {
-                LHCCallbacks.addFileUpload(this.chat_id);
+                var txtArea = $('#CSChatMessage-'+this.chat_id);
+                var txtValue = jQuery.trim(txtArea.val());
+                txtArea.val(txtValue + (txtValue != '' ? "\n" : "") + req.response.msg + "\n");
+                txtArea.focus();
+
+                if (LHCCallbacks.addFileUpload) {
+                    LHCCallbacks.addFileUpload(this.chat_id);
+                }
             }
+        };
 
-        });
         req.send(formData);
     }
 

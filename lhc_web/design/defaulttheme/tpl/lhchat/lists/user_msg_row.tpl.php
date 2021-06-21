@@ -42,7 +42,7 @@
 
                 <?php if ($msg['msg'] != '') : ?>
 
-                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id']); ?>
+                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'render_js' => ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true && (!isset($msg['id']) || !isset($old_msg_id) || $msg['id'] > $old_msg_id)))); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>

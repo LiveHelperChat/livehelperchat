@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('speech/newdialect')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('speech/newdialect')?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhspeech/form/form.tpl.php'));?>
 

@@ -136,8 +136,12 @@ class erLhcoreClassGenericBotActionCollectable {
             $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($stepData['content']['message'], $chat->dep_id);
             $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
             $msg->chat_id = $chat->id;
-            $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
-            $msg->user_id = -2;
+            if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+                $msg->name_support = (string)$params['override_nick'];
+            } else {
+                $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+            }
+            $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
             $msg->time = time() + 5;
 
             erLhcoreClassChat::getSession()->save($msg);

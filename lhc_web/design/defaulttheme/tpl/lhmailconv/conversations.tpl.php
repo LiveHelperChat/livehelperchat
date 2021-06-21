@@ -3,7 +3,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
 <?php if (isset($items)) : ?>
-<form action="<?php echo $input->form_action,$inputAppend?>" method="post">
+<form action="<?php echo $input->form_action,$inputAppend?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

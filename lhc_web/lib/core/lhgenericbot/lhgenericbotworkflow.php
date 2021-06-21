@@ -261,6 +261,11 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_nick', array(
+            'nick' => & $nameSupport,
+            'chat' => $chat
+        ));
+
         return $nameSupport;
     }
 
@@ -447,8 +452,6 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
 
-
-
             $textLetters = self::splitWord($text);
 
             $word = trim($word);
@@ -537,6 +540,8 @@ class erLhcoreClassGenericBotWorkflow {
 
         if (isset($params['msg'])) {
             $payload = $params['msg']->msg;
+        } elseif (isset($params['msg_text']) && !empty($params['msg_text'])) {
+            $payload = $params['msg_text'];
         } else {
             $payload = $params['payload'];
         }
@@ -720,6 +725,22 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
                             }
                         }
+                    } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'rest_api_next_msg') {
+
+                        $args = array();
+                        $args['args']['msg_text'] = $payload;
+                        if (isset($params['msg'])) {
+                            $args['args']['msg'] = $params['msg'];
+                        }
+
+                        // Build a fake trigger and set actions
+                        $trigger = new erLhcoreClassModelGenericBotTrigger();
+                        $trigger->bot_id = $chat->gbot_id;
+                        $trigger->group_id = 0;
+                        $trigger->actions_front = array(array('type' => 'restapi', 'content' => $eventData['content']['content']));
+
+                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+
                     } else if (isset($eventData['content']['type']) && $eventData['content']['type'] == 'default_actions') {
 
                         $args = array();
@@ -783,47 +804,78 @@ class erLhcoreClassGenericBotWorkflow {
 
                         // Make sure field is not empty
                         if (empty($payload)) {
-                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error']);
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])) {
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0));
                             } else {
-                                throw new erLhcoreClassGenericBotException('Your message does not match required format!');
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0));
                             }
                         }
 
-                        // Preg match validation
-                        if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']))
-                        {
-                            if (!preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) {
+                        $invalidMessage = false;
 
-                                $metaMessage = array();
+                        if (isset($eventData['content']['attr_options']['identifier']) && $eventData['content']['attr_options']['identifier'] == '[file]') {
+                            // Make sure visitor has uploaded a file
 
-                                if (isset($eventData['content']['attr_options']['cancel_button_enabled']) && $eventData['content']['attr_options']['cancel_button_enabled'] == true) {
-                                    $metaMessage = array('content' =>
-                                        array (
-                                            'quick_replies' =>
-                                                array (
-                                                    0 =>
-                                                        array (
-                                                            'type' => 'button',
-                                                            'content' =>
-                                                                array (
-                                                                    'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
-                                                                    'payload' => 'cancel_workflow',
-                                                                ),
-                                                        )
-                                                ),
-                                        ));
+                            $invalidMessage = true;
+                            $fileAttributes = array();
+
+                            preg_match_all('/\[file="?(.*?)"?\]/is', $payload, $fileAttributes);
+
+                            if (isset($fileAttributes[0][0]) && isset($fileAttributes[1][0])) {
+
+                                $partsFile = explode('_',$fileAttributes[1][0]);
+
+                                $file = erLhcoreClassModelChatFile::fetch($partsFile[0]);
+
+                                if (is_object($file)) {
+                                    // Check that user has permission to see the chat. Let say if user purposely types file bbcode
+                                    if ($partsFile[1] == $file->security_hash) {
+                                        if (preg_match('/' . $eventData['content']['preg_match'] . '/', $file->extension)) {
+                                            $invalidMessage = false;
+                                        } else {
+                                            // Remove file and message because it's an invalid file
+                                            $file->removeThis();
+                                            $params['msg']->removeThis();
+                                        }
+                                    }
                                 }
+                            }
 
-                                if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])){
-                                    throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], 0, null, $metaMessage);
-                                } else {
-                                    throw new erLhcoreClassGenericBotException('Your message does not match required format!', 0, null, $metaMessage);
-                                }
+                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && $eventData['content']['preg_match'] == 'validate_email' && !filter_var($payload, FILTER_VALIDATE_EMAIL)) { // E-mail validation
+                            $invalidMessage = true;
+                        } else if (isset($eventData['content']['preg_match']) && !empty($eventData['content']['preg_match']) && $eventData['content']['preg_match'] != 'validate_email' && !preg_match('/' . $eventData['content']['preg_match'] . '/',$payload)) { // Preg match validation
+                            $invalidMessage = true;
+                        }
+
+                        if ($invalidMessage === true) {
+                            $metaMessage = array();
+
+                            if (isset($eventData['content']['attr_options']['cancel_button_enabled']) && $eventData['content']['attr_options']['cancel_button_enabled'] == true) {
+                                $metaMessage = array('content' =>
+                                    array (
+                                        'quick_replies' =>
+                                            array (
+                                                0 =>
+                                                    array (
+                                                        'type' => 'button',
+                                                        'content' =>
+                                                            array (
+                                                                'name' => (($eventData['content']['cancel_button'] && $eventData['content']['cancel_button'] != '') ? $eventData['content']['cancel_button'] : 'Cancel?'),
+                                                                'payload' => 'cancel_workflow',
+                                                            ),
+                                                    )
+                                            ),
+                                    ));
+                            }
+
+                            if (isset($eventData['content']['validation_error']) && !empty($eventData['content']['validation_error'])) {
+                                throw new erLhcoreClassGenericBotException($eventData['content']['validation_error'], (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0), null, $metaMessage);
+                            } else {
+                                throw new erLhcoreClassGenericBotException('Your message does not match required format!', (isset($eventData['content']['attr_options']['collection_callback_fail']) && is_numeric($eventData['content']['attr_options']['collection_callback_fail']) ? (int)$eventData['content']['attr_options']['collection_callback_fail'] : 0), null, $metaMessage);
                             }
                         }
 
-                        if (!empty($chat->additional_data)){
+                        if (!empty($chat->additional_data)) {
                             $chatAttributes = (array)json_decode($chat->additional_data,true);
                         } else {
                             $chatAttributes = array();
@@ -844,7 +896,7 @@ class erLhcoreClassGenericBotWorkflow {
                         } elseif ($attrIdToUpdate == 'lhc.phone') {
                             $chat->phone = $payload;
                         } else {
-                            $chatAttributes[] = array('key' => $eventData['content']['attr_options']['name'], 'identifier' => $attrIdToUpdate, 'value' => $payload);
+                            $chatAttributes[] = array('key' => (isset($eventData['content']['attr_options']['name']) ? $eventData['content']['attr_options']['name'] : $attrIdToUpdate), 'identifier' => $attrIdToUpdate, 'value' => $payload);
                         }
 
                         $chat->additional_data = json_encode(array_values($chatAttributes));
@@ -887,6 +939,17 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                         $paramsTrigger = array();
+
+                        if (isset($params['msg'])) {
+                            $paramsTrigger['args']['msg'] = $params['msg'];
+                        }
+
+                        $paramsTrigger['args']['msg_text'] = $payload;
+
+                        if (isset($file) && $file instanceof erLhcoreClassModelChatFile) {
+                            $paramsTrigger['args']['file'] = $file;
+                        }
+
                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                     }
                 }
@@ -902,27 +965,42 @@ class erLhcoreClassGenericBotWorkflow {
         } catch (Exception $e) {
              if ($e instanceof erLhcoreClassGenericBotException) {
 
-                 $message = $e->getMessage();
+                 // We have trigger to execute on failure
+                 $hasTrigger = false;
 
-                 $translatedMessage = false;
+                 if ($e->getCode() > 0) {
+                     $hasTrigger = true;
 
-                 $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
-                 if ($bot instanceof erLhcoreClassModelGenericBotBot) {
-                     $configurationArray = $bot->configuration_array;
-                     if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
-                         $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
-                         if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                             $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
-                             $translatedMessage = true;
-                         }
+                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($e->getCode());
+                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                         $paramsTrigger = array();
+                         erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                      }
                  }
 
-                 if ($translatedMessage === false) {
-                     $message = erLhcoreClassGenericBotWorkflow::translateMessage($message, array('chat' => $chat));
-                 }
+                 if ($hasTrigger === false || !empty($e->getContent())) {
+                     $message = $e->getMessage();
 
-                 self::sendAsBot($chat, $message, $e->getContent());
+                     $translatedMessage = false;
+
+                     $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
+                     if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                         $configurationArray = $bot->configuration_array;
+                         if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
+                             $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1, 'code' => $e->getCode()), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
+                             if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
+                                 $message = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
+                                 $translatedMessage = true;
+                             }
+                         }
+                     }
+
+                     if ($translatedMessage === false) {
+                         $message = erLhcoreClassGenericBotWorkflow::translateMessage($message, array('chat' => $chat));
+                     }
+
+                     self::sendAsBot($chat, $message, $e->getContent());
+                 }
              } else {
                  self::sendAsBot($chat, erLhcoreClassGenericBotWorkflow::translateMessage($e->getMessage(), array('chat' => $chat)));
              }
@@ -1462,7 +1540,8 @@ class erLhcoreClassGenericBotWorkflow {
 
         $recursion_counter++;
 
-        if ($recursion_counter > 50) {
+        // Limit calls only for web calls
+        if (($recursion_counter > 50 && erLhcoreClassSystem::instance()->backgroundMode === false) || $recursion_counter > 1000) {
             throw new Exception('To many calls to process trigger! [50]');
         }
 
@@ -1479,6 +1558,12 @@ class erLhcoreClassGenericBotWorkflow {
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
+
+            // Response needs to be skipped
+            if (isset($action['skip_resp']) && $action['skip_resp'] == true) {
+                continue;
+            }
+
         	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
@@ -1678,29 +1763,51 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $messageClick = $messageClickData['name'];
 
-                            $chatAdditionalData = $chat->additional_data_array;
+                            if (isset($messageClickData['as_variable']) && $messageClickData['as_variable'] == true) {
+                                $chatAdditionalData = $chat->chat_variables_array;
 
-                            $updateAdditionalData = false;
-                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
-                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
-                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
-                                        $updateAdditionalData = true;
-                                        break;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    $hasStoreValue = false;
+                                    if (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') {
+                                        $chatAdditionalData[$messageClickData['store_name']] = $messageClickData['store_value'];
+                                        $hasStoreValue = true;
+                                    } elseif (isset($chatAdditionalData[$messageClickData['store_name']])) {
+                                        unset($chatAdditionalData[$messageClickData['store_name']]);
+                                        $hasStoreValue = true;
+                                    }
+
+                                    if ($hasStoreValue == true) {
+                                        $chat->chat_variables_array = $chatAdditionalData;
+                                        $chat->chat_variables = json_encode($chatAdditionalData);
+                                        $chat->updateThis(array('update' => array('chat_variables')));
                                     }
                                 }
 
-                                if ($updateAdditionalData == false) {
-                                    $chatAdditionalData[] = array(
-                                        'identifier' => $messageClickData['store_name'],
-                                        'key' => $messageClickData['store_name'],
-                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
-                                    );
-                                }
+                            } else {
+                                $chatAdditionalData = $chat->additional_data_array;
 
-                                $chat->additional_data_array = $chatAdditionalData;
-                                $chat->additional_data = json_encode($chatAdditionalData);
-                                $chat->updateThis(array('update' => array('additional_data')));
+                                $updateAdditionalData = false;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                        if ($dataItem['identifier'] == $messageClickData['store_name']) {
+                                            $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
+                                            $updateAdditionalData = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if ($updateAdditionalData == false) {
+                                        $chatAdditionalData[] = array(
+                                            'identifier' => $messageClickData['store_name'],
+                                            'key' => $messageClickData['store_name'],
+                                            'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
+                                        );
+                                    }
+
+                                    $chat->additional_data_array = $chatAdditionalData;
+                                    $chat->additional_data = json_encode($chatAdditionalData);
+                                    $chat->updateThis(array('update' => array('additional_data')));
+                                }
                             }
                         }
 
@@ -1796,30 +1903,54 @@ class erLhcoreClassGenericBotWorkflow {
 
                             $messageClick = $messageClickData['name'];
 
-                            $chatAdditionalData = $chat->additional_data_array;
+                            if (isset($messageClickData['as_variable']) && $messageClickData['as_variable'] == true) {
+                                $chatAdditionalData = $chat->chat_variables_array;
 
-                            $updateAdditionalData = false;
-                            if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
-                                foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
-                                    if ($dataItem['identifier'] == $messageClickData['store_name']) {
-                                        $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick;
-                                        $updateAdditionalData = true;
-                                        break;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    $hasStoreValue = false;
+                                    if (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') {
+                                        $chatAdditionalData[$messageClickData['store_name']] = $messageClickData['store_value'];
+                                        $hasStoreValue = true;
+                                    } elseif (isset($chatAdditionalData[$messageClickData['store_name']])) {
+                                        unset($chatAdditionalData[$messageClickData['store_name']]);
+                                        $hasStoreValue = true;
+                                    }
+
+                                    if ($hasStoreValue == true) {
+                                        $chat->chat_variables_array = $chatAdditionalData;
+                                        $chat->chat_variables = json_encode($chatAdditionalData);
+                                        $chat->updateThis(array('update' => array('chat_variables')));
                                     }
                                 }
 
-                                if ($updateAdditionalData == false) {
-                                    $chatAdditionalData[] = array(
-                                        'identifier' => $messageClickData['store_name'],
-                                        'key' => $messageClickData['store_name'],
-                                        'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ?  $messageClickData['store_value'] : $messageClick),
-                                    );
-                                }
+                            } else {
 
-                                $chat->additional_data_array = $chatAdditionalData;
-                                $chat->additional_data = json_encode($chatAdditionalData);
-                                $chat->updateThis(array('update' => array('additional_data')));
+                                $chatAdditionalData = $chat->additional_data_array;
+
+                                $updateAdditionalData = false;
+                                if (isset($messageClickData['store_name']) && $messageClickData['store_name'] != '') {
+                                    foreach ($chatAdditionalData as $dataItemIndex => $dataItem) {
+                                        if ($dataItem['identifier'] == $messageClickData['store_name']) {
+                                            $chatAdditionalData[$dataItemIndex]['value'] = (isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ? $messageClickData['store_value'] : $messageClick;
+                                            $updateAdditionalData = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if ($updateAdditionalData == false) {
+                                        $chatAdditionalData[] = array(
+                                            'identifier' => $messageClickData['store_name'],
+                                            'key' => $messageClickData['store_name'],
+                                            'value' => ((isset($messageClickData['store_value']) && $messageClickData['store_value'] != '') ? $messageClickData['store_value'] : $messageClick),
+                                        );
+                                    }
+
+                                    $chat->additional_data_array = $chatAdditionalData;
+                                    $chat->additional_data = json_encode($chatAdditionalData);
+                                    $chat->updateThis(array('update' => array('additional_data')));
+                                }
                             }
+
                         }
 
                         if (!empty($messageClick)) {
@@ -1954,6 +2085,11 @@ class erLhcoreClassGenericBotWorkflow {
 
     public static function translateMessage($message, $params = array())
     {
+
+        if (is_numeric($message) || is_bool($message)) {
+            return $message;
+        }
+
         $depId = 0;
         $locale = null;
         if (isset($params['chat'])) {
@@ -1965,11 +2101,46 @@ class erLhcoreClassGenericBotWorkflow {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_before_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
         }
 
+        // We have foreach cycle
+        if (strpos($message,'{foreach=content_') !== false || strpos($message,'{foreach=args[') !== false ) {
+            $matchesCycle = array();
+            preg_match_all('/{foreach=((content_[0-9])|args\[([a-z\._]+)\])}(.*?){\/foreach}/is', $message, $matchesCycle);
+            if (isset($matchesCycle[4]) && is_array($matchesCycle[4])) {
+                foreach ($matchesCycle[4] as $foreachCounter => $foreachCycle) {
+                    $output = '';
+                    if (isset($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}']) && is_array($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'])) {
+                        foreach ($params['args']['replace_array']['{' . $matchesCycle[2][$foreachCounter] . '}'] as $foreachItem) {
+                            $paramsForeach = $params;
+                            $paramsForeach['args']['item'] = $foreachItem;
+                            $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                        }
+                    } else if (isset($matchesCycle[3][$foreachCounter]) && !empty($matchesCycle[3][$foreachCounter])){
+                        if (isset($params['chat'])) {
+                            $params['args']['chat'] = $params['chat'];
+                        }
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'],$matchesCycle[3][$foreachCounter], '.');
+                        if ($valueAttribute['found'] == true && is_array($valueAttribute['value'])) {
+                            foreach ($valueAttribute['value'] as $foreachItem) {
+                                $paramsForeach = $params;
+                                $paramsForeach['args']['item'] = $foreachItem;
+                                $output .= self::translateMessage($foreachCycle, $paramsForeach);
+                            }
+                        }
+                    }
+                    $message = str_replace($matchesCycle[0][$foreachCounter], $output, $message);
+                }
+            }
+        }
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 
         if (isset($matches[0]) && !empty($matches[0]))
         {
+            $matchesChild = array();
+            preg_match_all('~\{((?:[^\{\}]++|(?R)))\}~',$message,$matchesChild);
+            $matches[0] = array_merge($matches[0], $matchesChild[0]);
+            $matches[1] = array_merge($matches[1], $matchesChild[1]);
 
             $identifiers = array();
             foreach ($matches[0] as $key => $match) {
@@ -2054,6 +2225,21 @@ class erLhcoreClassGenericBotWorkflow {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
 
             $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+        }
+
+        // Dynamic args replacement
+        if (isset($params['args'])) {
+            if (isset($params['chat'])) {
+                $params['args']['chat'] = $params['chat'];
+            }
+            $matchesValues = [];
+            preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $message,$matchesValues);
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[1][$indexElement], '.');
+                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $message);
+                }
+            }
         }
 
         return $message;

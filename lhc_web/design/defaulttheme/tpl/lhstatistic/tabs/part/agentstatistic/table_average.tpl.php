@@ -1,6 +1,6 @@
 <tr>
     <td><strong><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average')?></i></strong></td>
-    <td>
+    <td <?php if (is_array($input->subject_ids) && !empty($input->subject_ids)) : ?>colspan="<?php echo count($input->subject_ids) + 1;?>"<?php endif;?> >
         <?php echo htmlspecialchars($agentStatistic_avg['numberOfChats'])?>
     </td>
     <td>

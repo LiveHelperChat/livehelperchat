@@ -22,7 +22,14 @@ $translations = array(
         "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
         "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message'),
         "start_chat_With_us" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat with us!'),
-        "cancel" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel')
+        "cancel" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel'),
+        "voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Voice call'),
+        "scroll_bottom" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom'),
+        "new_msg" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New message!'),
+        "new_msgm" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New messages!'),
+        "new" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','New'),
+        "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Close'),
+        "back_to_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Back')
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),
@@ -39,7 +46,9 @@ $translations = array(
     ],
     "online_chat" => [
         "go_to_survey" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Go to Survey.'),
-        "leave_a_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message')
+        "leave_a_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Leave a message'),
+        "send_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was an issue sending the message. Try again.'),
+        "send_connection" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','No internet connection.')
     ],
     "department" => [
         "offline" => "--=" . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Offline') . "=--",

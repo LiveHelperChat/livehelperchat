@@ -101,7 +101,7 @@ class erLhcoreClassRestAPIHandler
 
         $headers = self::getHeaders();
 
-        $authorization = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($headers['authorization']) ? $headers['authorization'] : null);
+        $authorization = isset($headers['Authorization']) ? $headers['Authorization'] : (isset($headers['authorization']) ? $headers['authorization'] : (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION']) ? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] : null));
 
         if ($authorization !== null) {
             
@@ -135,6 +135,17 @@ class erLhcoreClassRestAPIHandler
             if (!($apiKey instanceof erLhAbstractModelRestAPIKey)) {
                 $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $apiData[0])));
                 if (!($user instanceof erLhcoreClassModelUser) || !password_verify($apiData[1], $user->password)) {
+
+                    if ($user instanceof erLhcoreClassModelUser) {
+                        erLhcoreClassModelUserLogin::logUserAction(array(
+                            'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
+                            'user_id' => $user->id,
+                            'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Failed login. API')
+                        ));
+
+                        erLhcoreClassModelUserLogin::disableIfRequired($user);
+                    }
+
                     throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
                 } else {
                     if (!$user->hasAccessTo('lhrestapi','use_direct_logins')){
@@ -401,6 +412,13 @@ class erLhcoreClassRestAPIHandler
                         'min_range' => 1
                     ))
                 ),
+                'online_user_id' => array(
+                    'type' => 'filter',
+                    'field' => 'online_user_id',
+                    'validator' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                        'min_range' => 1
+                    ))
+                ),
                 'phone' => array(
                     'type' => 'filter',
                     'field' => 'phone',
@@ -451,6 +469,31 @@ class erLhcoreClassRestAPIHandler
             erLhcoreClassChat::validateFilterIn($idDep);
             if (!empty($idDep)){
                 $filter['filterin']['dep_id'] = $idDep;
+            }
+        }
+
+        if (isset($_GET['user_ids'])) {
+            $uidDep = explode(',',$_GET['user_ids']);
+            erLhcoreClassChat::validateFilterIn($uidDep);
+            if (!empty($uidDep)){
+                $filter['filterin']['user_id'] = $uidDep;
+            }
+        }
+
+        if (isset($_GET['status_ids'])) {
+            $statusIds = explode(',',$_GET['status_ids']);
+            erLhcoreClassChat::validateFilterIn($statusIds);
+            if (!empty($statusIds)){
+                $filter['filterin']['status'] = $statusIds;
+            }
+        }
+
+        if (isset($_GET['vid']) && !empty($_GET['vid'])) {
+            $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($_GET['vid']);
+            if ($onlineUser instanceof erLhcoreClassModelChatOnlineUser) {
+                $filter['filter']['online_user_id'] = $onlineUser->id;
+            } else {
+                $filter['filter']['online_user_id'] = -1;
             }
         }
 
@@ -565,9 +608,27 @@ class erLhcoreClassRestAPIHandler
                 if (!is_array($chats[$message->chat_id]->messages)) {
                     $chats[$message->chat_id]->messages = array();
                 }
+
+                if (isset($_GET['meta_parse']) && ($_GET['meta_parse'] == 'true' && $_GET['meta_parse'] == '1') && $message->msg == '') {
+                    $metaMessage = $message->meta_msg_array;
+                    if (is_array($metaMessage) && isset($metaMessage['content']) && is_array($metaMessage['content'])) {
+                        if (isset($metaMessage['content']['text_conditional']['full_op'])) {
+                            $message->msg = trim(preg_replace('/\[button_action=not_insult\](.*)\[\/button_action\]/is','',$metaMessage['content']['text_conditional']['full_op']));
+                            unset($message->meta_msg_array);
+                        }
+                    }
+                }
+
                 $chats[$message->chat_id]->messages[] = $message;
             }
         }
+
+         if (isset($_GET['include_survey']) && $_GET['include_survey'] == 'true' && !empty($chats)) {
+             $filledSurveys = erLhAbstractModelSurveyItem::getList(array('limit' => 100000,'sort' => 'id ASC','filterin' => array('chat_id' => array_keys($chats))));
+             foreach ($filledSurveys as $filledSurvey) {
+                 $chats[$filledSurvey->chat_id]->survey = $filledSurvey;
+             }
+         }
 
         $prefillFields = array();
 

@@ -1,0 +1,1 @@
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'No information')?></p>

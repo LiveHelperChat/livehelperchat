@@ -1,6 +1,5 @@
-<?php if ($chat->wait_time > 0) : ?>
-    <tr>
-        <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Waited')?></td>
-        <td><?php echo $chat->wait_time_front?> </td>
-    </tr>
-<?php endif;?>
+<?php if (isset($orderInformation['wait_time']['enabled']) && $orderInformation['wait_time']['enabled'] == true && $chat->wait_time > 0) : ?>
+<div class="col-6 pb-1">
+    <span class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Waited')?> - </span><?php echo $chat->wait_time_front?>
+</div>
+<?php endif; ?>

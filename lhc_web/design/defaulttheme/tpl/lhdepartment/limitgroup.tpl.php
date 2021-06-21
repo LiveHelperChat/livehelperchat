@@ -1,6 +1,6 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments limit groups');?></h1>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table ng-non-bindable class="table" cellpadding="0" cellspacing="0">
 <thead>
     <tr>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Group');?></th>

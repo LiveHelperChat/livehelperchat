@@ -81,12 +81,20 @@ class chatEventsHandler {
             attr['operator'] = this.attributes['operator'];
         }
 
+        if (this.attributes['profile_pic'] !== null) {
+            attr['profile_pic'] = this.attributes['profile_pic'];
+        }
+
         if (this.attributes['lang'] != '') {
             attr['lang'] = this.attributes['lang'];
         }
 
         if (this.attributes['proactive']['invitation']) {
             attr['proactive'] = this.attributes['proactive'];
+        }
+
+        if (this.attributes['dep_default'] !== null) {
+            attr['dep_default'] = this.attributes['dep_default'];
         }
 
         if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr) {

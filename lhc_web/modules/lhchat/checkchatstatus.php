@@ -68,7 +68,7 @@ try {
     		$department = $chat->department;
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
-    			if ($department->delay_lm > 0 && $chat->time < $delay) {
+    			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
     				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? erLhcoreClassDesign::baseurl('chat/chatwidget') : erLhcoreClassDesign::baseurl('chat/startchat');
     				$ru = $baseURL.'/(department)/'.$department->id.'/(offline)/true/(leaveamessage)/true/(chatprefill)/'.$chat->id.'_'.$chat->hash;
     				
@@ -110,7 +110,6 @@ try {
 	    if ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
 	       $activated = 'true';
 	       $tpl->set('is_activated',true);
-	       $ott = ($chat->user !== false) ? $chat->user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
 	    } else {
 	       $tpl->set('is_activated',false);
 	    }

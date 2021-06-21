@@ -58,7 +58,50 @@
 
     <?php elseif ($is_online == true) : ?>
     <h6 class="fs12 status-text">
-         <?php if ($chat->number_in_queue > 1) : ?>
+
+        <?php if (
+                $theme !== false &&
+                $theme->pending_join_queue != '' &&
+                (strpos($theme->pending_join_queue,'{avg_wait_time}') !== false ||
+                strpos($theme->pending_join_queue,'{avg_wait_time_live}') !== false)
+        ) {
+
+            $valueWaitTimeLive = 60;
+
+            // If we do not have stats always set as 1 minute
+            if (!isset($chat->department->stats->stats_array['avg_wait_time'])) {
+                $valueWaitTime = 60;
+            } else {
+                $valueWaitTime = $chat->department->stats->stats_array['avg_wait_time'];
+                $valueWaitTimeLive = $chat->department->stats->stats_array['avg_wait_time'] - $chat->wait_time_seconds;
+                $valueWaitTimeLive = $valueWaitTimeLive > 60 ? $valueWaitTimeLive : 60;
+            }
+
+            $statusSet = true;
+            $m = (int)gmdate('i', $valueWaitTime);
+            $mLive = (int)gmdate('i', $valueWaitTimeLive);
+
+            if ($m == 0) {
+                if ($theme->pending_join != '') {
+                    echo htmlspecialchars($theme->pending_join);
+                }
+            } else {
+                if ($m == 1) {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','',$theme->pending_join_queue);
+                } else {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time__(.*?)}/','\\1',$theme->pending_join_queue);
+                }
+                if ($mLive == 1) {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time_live__(.*?)}/','',$theme->pending_join_queue);
+                } else {
+                    $theme->pending_join_queue = preg_replace('/{avg_wait_time_live__(.*?)}/','\\1',$theme->pending_join_queue);
+                }
+                echo htmlspecialchars(str_replace(array('{avg_wait_time}','{number}','{avg_wait_time_live}'),array($m,$chat->number_in_queue, $mLive),$theme->pending_join_queue));
+            }
+
+        } ?>
+
+         <?php if (!isset($statusSet)) : if ($chat->number_in_queue > 1) : ?>
             <?php if ($theme !== false  && $theme->pending_join_queue != '') : ?>
                  <?php echo htmlspecialchars(str_replace('{number}',$chat->number_in_queue,$theme->pending_join_queue))?>
             <?php else : ?>
@@ -70,7 +113,7 @@
         	<?php else : ?>
         	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/pending_join.tpl.php'));?>
             <?php endif;?>
-        <?php endif;?>
+        <?php endif;endif;?>
     </h6>
    
     <?php else : ?>

@@ -26,12 +26,32 @@
       "description": "API Related to user"
     },
     {
+      "name": "file",
+      "description": "API Related to working with a files"
+    },
+    {
+      "name": "bot",
+      "description": "API Related to working with a bot"
+    },
+    {
+      "name": "department",
+      "description": "API Related to department"
+    },
+    {
+      "name": "operators_chats",
+      "description": "API Related to operators chats"
+    },
+    {
       "name": "online",
       "description": "API Related to online status"
     },
     {
       "name": "online_user",
       "description": "API Related to online users"
+    },
+    {
+      "name": "statistic",
+      "description": "API Related to statistic"
     }
   ],
   "schemes": [
@@ -95,6 +115,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -121,10 +167,28 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "status_ids",
+            "in": "query",
+            "description": "status_ids. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "include_survey",
+            "description": "Include filled survey if it exists",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           },
           {
             "name": "limit",
@@ -193,6 +257,14 @@
           {
             "name": "group_by_phone",
             "description": "Group by phone",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "meta_parse",
+            "description": "Parse meta messages and use them in msg field",
             "required": false,
             "type": "boolean",
             "default": false,
@@ -278,6 +350,32 @@
             "format": "int32"
           },
           {
+            "name": "user_ids",
+            "in": "query",
+            "description": "User IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "online_user_id",
+            "in": "query",
+            "description": "Online user ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "vid",
+            "in": "query",
+            "description": "Visitor unique ID",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "phone",
             "in": "query",
             "description": "Phone",
@@ -304,10 +402,20 @@
           {
             "name": "status",
             "in": "query",
-            "description": "Status",
+            "description": "Status. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
             "required": false,
             "type": "string",
             "format": "int32"
+          },
+          {
+            "name": "status_ids",
+            "in": "query",
+            "description": "status_ids. \nconst STATUS_PENDING_CHAT = 0;\n   const STATUS_ACTIVE_CHAT = 1;\n   const STATUS_CLOSED_CHAT = 2;\n   const STATUS_CHATBOX_CHAT = 3;\n   const STATUS_OPERATORS_CHAT = 4;\n   const STATUS_BOT_CHAT = 5;",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
           },
           {
             "name": "delay",
@@ -677,12 +785,28 @@
             "type": "boolean"
           },
           {
+            "name": "remove_bbcode",
+            "in": "query",
+            "description": "Return messages as plain text messages.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
             "name": "remove_media",
             "in": "query",
             "description": "Remove bbcode tags from message if it's only file message?",
             "required": false,
             "default": false,
             "type": "boolean"
+          },
+          {
+            "name": "meta_parse",
+            "description": "Parse meta messages and use them in msg field",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
           },
           {
             "name": "as_html",
@@ -853,12 +977,13 @@
           {
             "name": "sender",
             "in": "formData",
-            "description": "Sender - operator or bot is sending a message. On it depends how Live Helper Chat will change chat statuses.",
+            "description": "Sender - `operator` / `bot` / `system` is sending a message. On it depends how Live Helper Chat will change chat statuses.",
             "required": true,
             "type": "string",
             "enum": [
               "operator",
-              "bot"
+              "bot",
+              "system"
             ]
           },
           {
@@ -881,6 +1006,51 @@
             "description": "Message added",
             "schema": {
                 "$ref": "#/definitions/addmsguser"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/groupchat/addmessage/{group_chat_id}?rest_api=true": {
+      "post": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Add message to a group chat",
+        "description": "Used by mobile app",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "group_chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "msg",
+            "in": "formData",
+            "description": "Message",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message added",
+            "schema": {
             }
           },
           "400": {
@@ -1055,6 +1225,64 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "E-mail",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "chat_nickname",
+            "in": "query",
+            "description": "Chat nickname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "surname",
+            "in": "query",
+            "description": "Surname",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "disabled",
+            "in": "query",
+            "default": null,
+            "description": "User status enabled/disabled. 0 - not disabled, 1 - disabled",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "User should be member of these group IDs",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1181,6 +1409,203 @@
         "responses": {
           "200": {
             "description": "Deletes specified user",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/file/{file_id}": {
+      "get": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Fetches file by file id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File ID to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "meta",
+            "in": "query",
+            "default": true,
+            "description": "Fetch only meta information. Otherwise file content will be returned.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns file data",
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Update file meta data",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "File object needs to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/File"
+            }
+          },
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File to update",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates user with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Deletes specified file",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "File to delete",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified file",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/file": {
+      "post": {
+        "tags": [
+          "file"
+        ],
+        "summary": "Upload a file",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "file",
+            "name": "files",
+            "description": "Upload a file and returns it's meta data",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "name_prepend",
+            "description": "You can prepend custom string to file name",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "name_replace",
+            "description": "You can override file name.",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "boolean",
+            "name": "persistent",
+            "description": "Store file as persistent",
+            "required": false
+          },
+          {
+            "in": "formData",
+            "type": "integer",
+            "name": "chat_id",
+            "description": "Associated chat id",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a file and returns it's attributes",
             "schema": {
             }
           },
@@ -1339,6 +1764,77 @@
             "description": "Ignore user status",
             "required": false,
             "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/onlineusers": {
+      "get": {
+        "tags": [
+          "online"
+        ],
+        "summary": "Fetches online operators",
+        "description": "Returns list of online operators",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dep_id",
+            "in": "query",
+            "description": "Only users assigned to specified department.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "include_offline",
+            "in": "query",
+            "description": "Include also offline operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "exclude_invisible",
+            "in": "query",
+            "description": "Exclude invisible operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "include_disabled",
+            "in": "query",
+            "description": "Include disabled operators",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "include_user",
+            "in": "query",
+            "description": "Should we include a user object also with online record?",
+            "required": true,
+            "type": "boolean",
+            "default": false
           }
         ],
         "responses": {
@@ -1991,6 +2487,93 @@
         ]
       }
     },
+    "/restapi/startchatwithoperator/{user_id}/{init_user_id}": {
+      "get": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Start a chat with an operator",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "With what operator you want to start a chat",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "init_user_id",
+            "in": "path",
+            "description": "User ID who is initializing a chat. If you ommit this, user who is executing Rest API call will be used.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns data of operators chats",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/groupchat/sync?rest_api=true": {
+      "post": {
+        "tags": [
+          "operators_chats"
+        ],
+        "summary": "Sync for a new group chat messages",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Sync request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns list of messages for group chats",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
     "/restapi/departments": {
       "get": {
         "tags": [
@@ -2365,6 +2948,67 @@
             "login": []
           }
         ]
+      },
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Fetch chat information",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "hash",
+            "in": "query",
+            "description": "Hash, optional variable. If provided it will be validated against chat hash also.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "department_groups",
+            "description": "Should we include department_groups attribute in response",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "attr",
+            "description": "What magic attributes we should include. Separated by comma. E.g user,number_in_queue,unread_time Etc. See https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/lib/models/lhchat/erlhcoreclassmodelchat.php#L226",
+            "required": false,
+            "type": "string",
+            "default": "",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch chat information",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
       }
     },
     "/restapi/chat": {
@@ -2491,6 +3135,99 @@
           }
         ]
       }
+    },
+    "/restapi/agentstatistic": {
+      "get": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Fetches agent statistic",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "timefrom",
+            "in": "query",
+            "description": "From datetime.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timeto",
+            "in": "query",
+            "description": "To datetime.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "description": "Users groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_ids",
+            "in": "query",
+            "description": "Department ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "department_group_ids",
+            "in": "query",
+            "description": "Department groups ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "subject_ids",
+            "in": "query",
+            "description": "Subjects ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "description": "Users ids.",
+            "required": false,
+            "type": "array",
+            "items":{
+              "type":"integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns agents statistic"
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
     }{{append_paths}}
   },
   "securityDefinitions": {
@@ -2579,6 +3316,11 @@
           "description": "   const USER_STATUS_JOINED_CHAT = 0;\n   const USER_STATUS_CLOSED_CHAT = 1;\n   const USER_STATUS_PENDING_REOPEN = 2;",
           "example": null
         },
+        "cls_us": {
+          "type": "integer",
+          "description": "User status on chat close event. 0 - undetermined, 1 - visitor was online, 2 - visitor was offline",
+          "example": null
+        },
         "country_code": {
           "type": "string",
           "description": "Two letter country code",
@@ -2597,6 +3339,16 @@
         "user_typing_txt": {
           "type": "string",
           "description": "Visitor typing text",
+          "example": null
+        },
+       "last_user_msg_time": {
+          "type": "string",
+          "description": "Time of of last visitor message",
+          "example": null
+        },
+        "last_op_msg_time": {
+          "type": "string",
+          "description": "Time of of last operator message",
           "example": null
         },
         "operator_typing": {
@@ -2838,6 +3590,64 @@
           "type": "integer",
           "description": "Was chat data anonymized. 0 - no, 1 - yes",
           "example": null
+        },
+        "last_msg_time": {
+          "type": "string",
+          "description": "Magic attribute. This is the max of (last_user_msg_time, last_op_msg_time)",
+          "example": null
+        },
+        "time_created_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat was created. uses - time",
+          "example": null
+        },
+        "pnd_time_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat become pending. uses - pnd_time",
+          "example": null
+        },
+        "cls_time_front": {
+          "type": "string",
+          "description": "Magic attribute. Time in human readable format when chat was closed. uses - cls_time",
+          "example": null
+        },
+        "wait_time_seconds": {
+          "type": "string",
+          "description": "Magic attribute. How long chat is pending for being accepted. Value in seconds. uses - time() - max(time,pnd_time)",
+          "example": null
+        },
+        "wait_time_front": {
+          "type": "string",
+          "description": "Magic attribute. How long chat was pending before being accepted. Value in seconds. Uses - wait_time",
+          "example": null
+        },
+        "number_in_queue": {
+          "type": "string",
+          "description": "Magic attribute. Number in the queue.",
+          "example": null
+        },
+        "hum": {
+          "type": "string",
+          "description": "Magic attribute. Has chat unread messages and from last visitor message already passed 7 seconds.",
+          "example": null
+        },
+        "additional_data_array": {
+          "type": "string",
+          "description": "Magic attribute. json_decoded array of additional_data attribute.",
+          "example": null
+        },
+        "chat_variables_array": {
+          "type": "string",
+          "description": "Magic attribute. json_decoded array of chat_variables",
+          "example": null
+        },
+        "bot": {
+          "description": "Magic attribute. Bot object. User bot_id to fetch bot",
+          "$ref": "#/definitions/Bot"
+        },
+        "department": {
+          "description": "Magic attribute. Bot object. Uses dep_id to fetch bot",
+          "$ref": "#/definitions/Department"
         }
       },
       "example" : {
@@ -3065,12 +3875,6 @@
           "required": false,
           "description": "Stores how many active chats current operator has. This field is not updatable."
       },
-      "closed_chats_counter": {
-          "type": "integer",
-          "default": 0,
-          "required": false,
-          "description": "Stores how many closed chats current operator has. This field is not updatable."
-      },
       "pending_chats_counter": {
           "type": "integer",
           "default": 0,
@@ -3167,7 +3971,7 @@
        "required": false,
        "description": "To what user groups operator belongs"
      }
-},
+     },
       "example" : {
           "username" : "username",
           "password" : "password",
@@ -3179,6 +3983,91 @@
           "departments_read" : [2],
           "department_groups" : [1],
           "user_groups" : [1]
+      }
+   },
+   "File": {
+      "type": "object",
+      "properties": {
+        "id": {
+            "type": "integer",
+            "default": null,
+            "required": false,
+            "description": "File ID"
+        },
+        "name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "System file name"
+        },
+        "upload_name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Uploaded file name. This name is used to render file name for the vistior."
+        },
+        "type": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Meta type"
+        },
+        "file_path": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Directory path to the file"
+        },
+        "size": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Size in bytes"
+        },
+        "extension": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "File extension"
+       },
+       "date": {
+          "type": "integer",
+          "default": false,
+          "required": false,
+          "description": "File upload date in unixtimestamp"
+       },
+       "user_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "User ID"
+       },
+      "chat_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Chat ID"
+       },
+      "online_user_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Online user ID"
+       },
+      "persistent": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Is file persistent and should not be removed within files maintenence cronjob."
+       },
+      "security_hash": {
+        "type": "string",
+        "description": "Image content encoded with base64_encode. It's used to change operator profile photo."
+      }
+     },
+      "example" : {
+          "upload_name" : "invoice",
+          "chat_id" : 11
       }
    },
    "NewChat": {

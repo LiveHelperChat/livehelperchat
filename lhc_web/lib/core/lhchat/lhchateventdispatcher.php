@@ -30,6 +30,8 @@ class erLhcoreClassChatEventDispatcher {
                $this->listen('chat.addmsguser', 'erLhcoreClassLHCMobile::newMessage');
                $this->listen('chat.messages_added_passive', 'erLhcoreClassLHCMobile::newMessage');
                $this->listen('chat.genericbot_chat_command_transfer', 'erLhcoreClassLHCMobile::botTransfer');
+               $this->listen('chat.chat_transfered', 'erLhcoreClassLHCMobile::chatTransferred');
+               $this->listen('group_chat.web_add_msg_admin', 'erLhcoreClassLHCMobile::newGroupMessage');
            }
        }
 
@@ -39,7 +41,7 @@ class erLhcoreClassChatEventDispatcher {
 
            $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
 
-           // Web gooks disabled
+           // Web hooks disabled
            if ($webhooksEnabled === false) {
                $this->webhooksSet = true;
                return;
@@ -59,7 +61,9 @@ class erLhcoreClassChatEventDispatcher {
    {
        $this->setGlobalListeners($event, $param);
 
-	   	if (isset($this->listeners[$event])){
+	   	if (isset($this->listeners[$event])) {
+            $param['lhc_caller'] = debug_backtrace(2,2)[1];
+
 		   	foreach ($this->listeners[$event] as $listener)
 		   	{
 		   		$responseData = call_user_func_array($listener, array($param));

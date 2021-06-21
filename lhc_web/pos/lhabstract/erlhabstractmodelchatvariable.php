@@ -9,47 +9,19 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['dep_id'] = new ezcPersistentObjectProperty();
-$def->properties['dep_id']->columnName   = 'dep_id';
-$def->properties['dep_id']->propertyName = 'dep_id';
-$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['js_variable','var_name','var_identifier','change_message'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['js_variable'] = new ezcPersistentObjectProperty();
-$def->properties['js_variable']->columnName   = 'js_variable';
-$def->properties['js_variable']->propertyName = 'js_variable';
-$def->properties['js_variable']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['var_name'] = new ezcPersistentObjectProperty();
-$def->properties['var_name']->columnName   = 'var_name';
-$def->properties['var_name']->propertyName = 'var_name';
-$def->properties['var_name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['var_identifier'] = new ezcPersistentObjectProperty();
-$def->properties['var_identifier']->columnName   = 'var_identifier';
-$def->properties['var_identifier']->propertyName = 'var_identifier';
-$def->properties['var_identifier']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['type'] = new ezcPersistentObjectProperty();
-$def->properties['type']->columnName   = 'type';
-$def->properties['type']->propertyName = 'type';
-$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['persistent'] = new ezcPersistentObjectProperty();
-$def->properties['persistent']->columnName   = 'persistent';
-$def->properties['persistent']->propertyName = 'persistent';
-$def->properties['persistent']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-// Log message on chat variable change
-$def->properties['change_message'] = new ezcPersistentObjectProperty();
-$def->properties['change_message']->columnName   = 'change_message';
-$def->properties['change_message']->propertyName = 'change_message';
-$def->properties['change_message']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-// Log message on chat variable change
-$def->properties['inv'] = new ezcPersistentObjectProperty();
-$def->properties['inv']->columnName   = 'inv';
-$def->properties['inv']->propertyName = 'inv';
-$def->properties['inv']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['dep_id','type','persistent','inv'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

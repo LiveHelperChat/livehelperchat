@@ -32,9 +32,28 @@ HAVING
 
         $operator = erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['id']);
 
+        function getLetters($word) {
+            $letters = '';
+            $inviter = explode(' ',trim($word));
+            if (isset($inviter[0])) {
+                $letters .= mb_strtoupper($inviter[0][0]);
+                if (!isset($inviter[1])) {
+                    $letters .= mb_strtoupper($inviter[0][1]);
+                }
+                if (isset($inviter[1])) {
+                    $letters .= mb_strtoupper($inviter[1][0]);
+                }
+            }
+            return $letters;
+        }
+
+        $letterName[] = getLetters($operator->name_official);
+        $letterName[] = '&';
+        $letterName[] = getLetters($currentUser->getUserData()->name_official);
+
         // Create a group chat
         $groupChat = new erLhcoreClassModelGroupChat();
-        $groupChat->name = $operator->name_official;
+        $groupChat->name = implode(' ',$letterName);
         $groupChat->type = 1;
         $groupChat->user_id = $currentUser->getUserID();
         $groupChat->time = time();

@@ -52,18 +52,21 @@ class NodeTriggerActionConditions extends Component {
 
         return (
             <div>
-                <div className="row">
-                    <div className="col-2">
+                <div className="d-flex flex-row">
+                    <div>
                         <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                             <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
                             {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
                             {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                         </div>
                     </div>
-                    <div className="col-9">
+                    <div className="flex-grow-1 px-2">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="col-1">
+                    <div className="pr-2 pt-1">
+                        <label className="form-check-label" title="Response will not be executed. Usefull for a quick testing."><input onChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['skip_resp'], value : e.target.checked})} defaultChecked={this.props.action.getIn(['skip_resp'])} type="checkbox"/> Skip</label>
+                    </div>
+                    <div>
                         <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                             <i className="material-icons mr-0">delete</i>
                         </button>
@@ -106,8 +109,13 @@ class NodeTriggerActionConditions extends Component {
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path' : ['attr_options','callback_unreschedule'], 'value' : e})} payload={this.props.action.getIn(['content','attr_options','callback_unreschedule'])} />
                         </div>
                     </div>
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','continue_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','continue_all'])} /> If conditions are matched continue executing responses.</label>
+                            <p><small>By default if conditions are met we execute trigger and stop any futher responses execution.</small></p>
+                        </div>
+                    </div>
                 </div>
-
                 <hr className="hr-big" />
             </div>
         );

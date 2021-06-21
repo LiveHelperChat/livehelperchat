@@ -9,7 +9,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchatarchive/process_content.tpl.php'));?>
 
 <?php else : ?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('chatarchive/newarchive')?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('chatarchive/newarchive')?>" method="post">
     
     <div class="form-group">
 	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Date from');?></label>

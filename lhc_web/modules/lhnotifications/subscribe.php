@@ -82,7 +82,7 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription 
 
             // Finish saving subscription
             $detect = new Mobile_Detect;
-            $notificationSubscriber->uagent = $detect->getUserAgent();
+            $notificationSubscriber->uagent = (string)$detect->getUserAgent();
             $notificationSubscriber->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
             $notificationSubscriber->ip = erLhcoreClassIPDetect::getIP();
 

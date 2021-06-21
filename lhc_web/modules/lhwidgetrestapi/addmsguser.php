@@ -6,11 +6,9 @@ erTranslationClassLhTranslation::$htmlEscape = false;
 $payload = json_decode(file_get_contents('php://input'),true);
 
 $r = '';
-$error = 'f';
 
 if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
-
     try {
         $db = ezcDbInstance::get();
 
@@ -31,9 +29,8 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat',array('chat' => & $chat, 'valid_statuses' => & $validStatuses));
 
-        if ($chat->hash == $payload['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
+        if ($chat->hash == $payload['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
         {
-
             $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$payload['msg']);
 
             $messagesToStore = explode('[[msgitm]]', trim($msgText));
@@ -48,7 +45,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                     $msg->user_id = 0;
                     $msg->time = time();
 
-                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '') {
+                    if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($chat->chat_variables_array['lhc_live_trans']) && $chat->chat_variables_array['lhc_live_trans'] === true) {
                         erLhcoreClassTranslate::translateChatMsgVisitor($chat, $msg);
                     }
 
@@ -58,10 +55,9 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                 }
             }
 
-            if (!isset($msg)){
-                $error = 't';
+            if (!isset($msg)) {
                 $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
-                echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+                echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
                 exit;
             }
 
@@ -114,12 +110,12 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             $msg->msg = trim(implode("\n", $messagesToStore));
 
         } else {
-            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Please refresh your browser.'));
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You cannot send messages to this chat. Chat has been closed.'), 100);
         }
 
         $db->commit();
 
-        echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r, 't' => $triggers));
+        echo erLhcoreClassChat::safe_json_encode(array('r' => $r, 't' => $triggers));
 
         // Try to finish request before any listers do their job
         flush();
@@ -132,14 +128,38 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
 
     } catch (Exception $e) {
         $db->rollback();
-        echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'r' => $e->getMessage()));
+
+        if ($e->getCode() !== 100) {
+            echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage(), 'system' => true));
+        } else {
+            echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
+        }
+
+        if ($e->getCode() !== 100) {
+            $statusString = '';
+
+            if (isset($chat)) {
+                $statusString = ' | '. $chat->status . '_' . $chat->satus_sub;
+            }
+
+            erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'store',
+                    'line' => $e->getLine(),
+                    'file' => 'addmsguser.php',
+                    'object_id' => $payload['id']
+                )
+            );
+        }
+
         exit;
     }
 
 } else {
-    $error = 't';
     $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message') . ', ' . (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters max.');
-    echo erLhcoreClassChat::safe_json_encode(array('error' => $error, 'r' => $r));
+    echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
     exit;
 }
 

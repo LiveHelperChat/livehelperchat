@@ -110,7 +110,8 @@ class erLhAbstractModelSurvey {
 			'question_plain_5_enabled' => $this->question_plain_5_enabled,
 			'question_plain_5_req'     => $this->question_plain_5_req,
 		    
-			'feedback_text'            => $this->feedback_text
+			'feedback_text'            => $this->feedback_text,
+			'configuration'            => $this->configuration
 		);
 
 		return $stateArray;
@@ -144,7 +145,22 @@ class erLhAbstractModelSurvey {
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
 	   		break;
-	   		
+
+       case 'configuration_array':
+           $attr = str_replace('_array','',$var);
+           if (!empty($this->{$attr})) {
+               $jsonData = json_decode($this->{$attr},true);
+               if ($jsonData !== null) {
+                   $this->{$var} = $jsonData;
+               } else {
+                   $this->{$var} = array();
+               }
+           } else {
+               $this->{$var} = array();
+           }
+           return $this->{$var};
+           break;
+
 	   	case 'question_options_1_items_front':
 	   	case 'question_options_2_items_front':
 	   	case 'question_options_3_items_front':
@@ -224,7 +240,17 @@ class erLhAbstractModelSurvey {
 	public function customForm() {
 	    return 'survey.tpl.php';
 	}
-	
+
+    public function beforeUpdate()
+    {
+        $this->configuration = json_encode($this->configuration_array);
+    }
+
+    public function beforeSave()
+    {
+        $this->configuration = json_encode($this->configuration_array);
+    }
+
    	public $id = null;
 	public $name = '';
 	
@@ -313,7 +339,8 @@ class erLhAbstractModelSurvey {
 	public $question_plain_5_req = 0;
 	
 	public $feedback_text = '';
-	
+	public $configuration = '';
+
 	public $hide_add = false;
 	public $hide_delete = false;
 

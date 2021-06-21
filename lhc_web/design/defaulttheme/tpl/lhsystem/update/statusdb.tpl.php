@@ -34,7 +34,7 @@
           <div class="card-body">
             <ul>
         		<?php foreach ($queries as $query) : ?>
-        			<li><?php echo $query;?></li>
+        			<li><?php echo htmlspecialchars($query);?></li>
         		<?php endforeach; ?>
         	</ul>
           </div>

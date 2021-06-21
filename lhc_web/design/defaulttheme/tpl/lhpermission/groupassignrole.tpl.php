@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group_id?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group_id?>" method="post">
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

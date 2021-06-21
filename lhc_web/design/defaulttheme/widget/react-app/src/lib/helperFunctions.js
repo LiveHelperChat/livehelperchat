@@ -13,7 +13,19 @@ class _helperFunctions {
         this.prefix = currentScript.getAttribute('scope') || 'lhc';
         this.prefixUppercase = this.prefix.toUpperCase();
         this.eventEmitter = new EventEmitter();
-        this.hasSessionStorage = !!window.sessionStorage;
+
+        try {
+            this.hasSessionStorage = !!window.sessionStorage;
+        } catch (e) {
+            this.hasSessionStorage = false;
+        }
+
+        try {
+            this.hasLocalStorage = !!window.localStorage;
+        } catch (e) {
+            this.hasLocalStorage = false;
+        }
+
     }
 
     emitEvent(event, data, internal) {
@@ -25,6 +37,11 @@ class _helperFunctions {
             window.opener.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
         } else if (window.parent && window.parent.closed === false) {
             window.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'/');
+        }
+
+        // Send to popup event listener to track an events
+        if (typeof LHCEventTracker !== 'undefined') {
+            LHCEventTracker(key,data);
         }
     }
 
@@ -44,6 +61,13 @@ class _helperFunctions {
         }
     }
 
+    setLocalStorage(key, value) {
+        if (this.hasLocalStorage && localStorage.setItem) try {
+            localStorage.setItem(this.prefix + key, value)
+        } catch (d) {
+        }
+    }
+
     setSessionStorage(key, value) {
         if (this.hasSessionStorage && sessionStorage.setItem) try {
             sessionStorage.setItem(this.prefix + key, value)
@@ -55,13 +79,23 @@ class _helperFunctions {
         return this.hasSessionStorage && sessionStorage.getItem ? sessionStorage.getItem(this.prefix + a) : null
     }
 
+    getLocalStorage(a) {
+        return this.hasLocalStorage && localStorage.getItem ? localStorage.getItem(this.prefix + a) : null
+    }
+
     removeSessionStorage(a) {
         this.hasSessionStorage && sessionStorage.removeItem && sessionStorage.removeItem(this.prefix + a);
     }
 
+    removeLocalStorage(a) {
+        this.hasLocalStorage && localStorage.removeItem && localStorage.removeItem(this.prefix + a);
+    }
+
     getTimeZone() {
         try {
-            return Intl.DateTimeFormat().resolvedOptions().timeZone;
+            var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (tz == 'undefined') { tz = 'UTC'; }
+            return tz;
         } catch (e) {
             var today = new Date();
 
@@ -111,6 +145,19 @@ class _helperFunctions {
                 inst.setState(item);
             });
         }
+    }
+
+    logJSError(params) {
+        var e;
+        e = {};
+        e.location = location && location.href ? location.href : "";
+        e.message = window.navigator.userAgent;
+        e.stack = params['stack'];// error.stack ? JSON.stringify(error.stack) : "";
+        e.stack = e.stack.replace(/(\r\n|\n|\r)/gm, "");
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST",  window.lhcChat['base_url'] + 'audit/logjserror', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + encodeURIComponent( JSON.stringify(e) ) );
     }
 
 };

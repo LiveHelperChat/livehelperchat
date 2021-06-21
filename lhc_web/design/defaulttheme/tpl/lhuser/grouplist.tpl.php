@@ -3,7 +3,7 @@
 	$canEdit = $currentUser->hasAccessTo('lhuser','editgroup');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deletegroup');
 ?>
-<table class="table" cellpadding="0" cellspacing="0" width="100%">
+<table class="table" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
 <thead>
 <tr>
     <th>ID</th>

@@ -41,7 +41,10 @@ class erLhcoreClassRenderHelper {
                 $valueItem = $valueItem.$params['prepend_option_value'];
             }
 
-            $output .= "<option value=\"{$item->$attrId}\" $selected >{$valueItem}</option>";
+
+            $valueItem = str_replace('}}','}<!---->}',$valueItem);
+
+            $output .= "<option value=\"{$item->$attrId}\" $selected>{$valueItem}</option>";
         }
 
         $disbled = '';
@@ -67,7 +70,7 @@ class erLhcoreClassRenderHelper {
 
         if (isset($params['append_value'])) {
             $selected = (is_array($params['selected_id']) && in_array($params['append_value'][0],$params['selected_id']) || (!is_array($params['selected_id']) && $params['selected_id'] == $params['append_value'][0])) ? 'selected="selected"' : '';
-            $output .= "<option value=\"{$params['append_value'][0]}\" $selected >{$params['append_value'][1]}</option>";
+            $output .= "<option value=\"{$params['append_value'][0]}\" $selected>{$params['append_value'][1]}</option>";
         }
 
         $output .= '</select>';
@@ -83,13 +86,15 @@ class erLhcoreClassRenderHelper {
         $append = isset($params['wrap_append']) ? $params['wrap_append'] : null;
         $ngChange = isset($params['ng_change']) ? 'ng-change="'.$params['ng_change'].'"' : null;
         $ngModel = isset($params['ng_model']) ? 'ng-model="'.$params['ng_model'].'"' : null;
+        $idAttr = isset($params['id_attr']) ? $params['id_attr'] : 'id';
 
         foreach (call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array()) as $item)
         {
-            $ngModelReplace = str_replace('$id', $item->id, $ngModel);
-            $checked = in_array($item->id,$params['selected_id']) ? 'checked="checked"' : '';
-            $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->id,$params['read_only_list']) ? ' disabled="disabled" ' : '';
-            $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"{$item->id}\" {$checked} />".htmlspecialchars($item->name)."</label>{$append}";
+            $ngModelReplace = str_replace('$id', $item->{$idAttr}, $ngModel);
+            $checked = in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
+            $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->{$idAttr},$params['read_only_list']) ? ' disabled="disabled" ' : '';
+            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($item->name));
+            $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"". $item->{$idAttr} . "\" {$checked} /> ".$valueItem."</label>{$append}";
         }
 
         return $output;
@@ -171,7 +176,21 @@ class erLhcoreClassRenderHelper {
 
     public static function renderMultiDropdown($params) {
 
-        $template = '<div class="btn-block-department">
+        $selectedOptions = '';
+        if (is_array($params['selected_id']) && !empty($params['selected_id'])) {
+            $filterSelected = isset($params['list_function_params']) ? $params['list_function_params'] : array();
+            $filterSelected['filter']['id'] = $params['selected_id'];
+            $filterSelected['limit'] = false;
+            $selectedIDS = call_user_func($params['list_function'],$filterSelected);
+            foreach ($selectedIDS as $selectedID) {
+                if (is_array($params['selected_id']) && in_array($selectedID->id,$params['selected_id'])){
+                    $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($selectedID->{$params['display_name']}));
+                    $selectedOptions .= '<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' . $selectedID->id . '"><input type="hidden" value="' . $selectedID->id . '" name="' . $params['input_name'] . '" /><i class="material-icons chat-unread">delete</i>' . $valueItem . '</a></div>';
+                }
+            }
+        }
+
+        $template = '<div class="btn-block-department"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
                     <li class="dropdown">
                         <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">' .
@@ -179,16 +198,16 @@ class erLhcoreClassRenderHelper {
                         </button>
                         <ul class="dropdown-menu" role="menu">
                         <li class="btn-block-department-filter">
-                            <input type="text" class="form-control input-sm" value="" />
-                            <div class="selected-items-filter"></div>
+                            <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
+                            <div class="selected-items-filter">'.$selectedOptions.'</div>
                         </li>
                         ';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
-        $array = array();
 
         foreach ($items as $item) {
-            $template .= '<li data-stoppropagation="true"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="' .$params['input_name'] .'" value="'. $item->id .'">' . htmlspecialchars($item->{$params['display_name']}). '</label></li>';
+            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($item->{$params['display_name']}));
+            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input '. ((is_array($params['selected_id']) && in_array($item->id,$params['selected_id'])) ? 'checked="checked"' : '') .' type="checkbox" name="selector-' .$params['input_name'] .'" value="'. $item->id .'">' . $valueItem. '</label></li>';
         }
 
         $template .= '</ul></li></ul></div>';

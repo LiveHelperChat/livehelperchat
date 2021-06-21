@@ -1,4 +1,4 @@
-lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.languages = [];
     this.dialects = [];
@@ -16,6 +16,14 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
             that.languages.splice(newIndex, 0, removedElement)
         }
     };
+
+    this.setIgnoreLanguages = function() {
+        this.ignoreLanguages.languages = $window['autoResponderLanguagesIgnore'];
+    }
+
+    this.setLanguages = function() {
+        this.languages = $window['autoResponderLanguages'];
+    }
 
     this.addLanguage = function() {
         that.languages.push({

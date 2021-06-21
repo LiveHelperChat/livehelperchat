@@ -127,13 +127,22 @@ var LHCCannedMessageAutoSuggest = (function() {
                     evt.stopImmediatePropagation();
 
 				} else if (evt.keyCode == 39 || evt.keyCode == 13) { // right arrow OR enter
-					if (_that.cannedMode === false) {
-						$('#canned-hash-'+_that.chat_id+' > li.current-item a').trigger( "click" );								
+
+				    var preventDefault = true;
+                    var element = null;
+
+				    if (_that.cannedMode === false) {
+				        element = $('#canned-hash-'+_that.chat_id+' > li.current-item a');
 					} else {
-						$('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg').trigger( "click" );
-					}					
-					evt.preventDefault();
-					evt.stopImmediatePropagation();
+                        element = $('#canned-hash-current-'+_that.chat_id+' li.current-item > span.canned-msg');
+					}
+
+				    if (element !== null && element.length > 0) {
+                        element.trigger( "click" );
+                        evt.preventDefault();
+                        evt.stopImmediatePropagation();
+                    }
+
 				}
 			}
 		});
@@ -334,6 +343,8 @@ var LHCCannedMessageAutoSuggest = (function() {
                     _that.currentRequest = null;
 				}
 
+				if (typeof _that.currentKeword !== "string") return ;
+
                 var cacheKeyword = false;
 				var cacheData = null;
 
@@ -371,8 +382,16 @@ var LHCCannedMessageAutoSuggest = (function() {
 	LHCCannedMessageAutoSuggest.prototype.initSuggester = function()
 	{
 		var _that = this;
-		var currentElement = $('#canned-hash-'+this.chat_id+' > li:last-child').addClass('current-item');
-		
+		var currentElement = $('#canned-hash-'+this.chat_id+' > li:last-child');
+
+		if (currentElement.length > 0) {
+            currentElement.addClass('current-item');
+            this.textarea.parent().find('.canned-suggester').css("bottom", _that.textarea.height() + 16);
+        } else {
+            this.stopSuggesting();
+		    return;
+        }
+
 		$('#canned-hash-'+this.chat_id+' > li > a').click(function() {
 			
 			_that.cannedMode = true;

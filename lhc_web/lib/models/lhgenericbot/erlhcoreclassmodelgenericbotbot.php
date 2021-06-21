@@ -24,6 +24,7 @@ class erLhcoreClassModelGenericBotBot {
             'attr_str_3' => $this->attr_str_3,
             'filepath' => $this->filepath,
             'filename' => $this->filename,
+            'avatar' => $this->avatar,
         );
 
         return $stateArray;
@@ -78,6 +79,10 @@ class erLhcoreClassModelGenericBotBot {
 
             case 'has_photo':
                 return $this->filename != '';
+                break;
+
+            case 'has_photo_avatar':
+                return $this->filename != '' || $this->avatar != '';
                 break;
 
             case 'photo_path':
@@ -140,4 +145,5 @@ class erLhcoreClassModelGenericBotBot {
     public $attr_str_3 = '';
     public $filepath = '';
     public $filename = '';
+    public $avatar = '';
 }

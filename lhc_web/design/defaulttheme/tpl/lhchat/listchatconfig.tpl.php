@@ -6,7 +6,9 @@
 
 <form action="" method="post">
 
-<div role="tabpanel">
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+<div role="tabpanel" ng-non-bindable>
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs mb-2" role="tablist">
@@ -90,6 +92,9 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
                 <?php $attribute = 'footprint_background';$boolValue = true;?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'remember_username';$boolValue = true;?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
                 <?php $attribute = 'cleanup_cronjob';$boolValue = true;?>
@@ -241,6 +246,12 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    <hr>		    
     		    <?php $attribute = 'autoclose_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'autoclose_activity_timeout'?>
+    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+
+                <?php $attribute = 'autoclose_abandon_pending'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
                 <?php $attribute = 'autoclose_timeout_pending'?>

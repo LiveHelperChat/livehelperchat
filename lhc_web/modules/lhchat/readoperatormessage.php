@@ -469,7 +469,7 @@ if (isset($_POST['askQuestion']))
        $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
        $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
 
-       if ($chat->nick == '') {
+       if (trim($chat->nick) == '') {
        		$chat->nick = 'Visitor';
        }
        
@@ -673,7 +673,7 @@ if (isset($_POST['askQuestion']))
        
        // Detect device
        $detect = new Mobile_Detect;
-       $chat->uagent = $detect->getUserAgent();
+       $chat->uagent = (string)$detect->getUserAgent();
        $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
        
        $chat->last_msg_id = $msg->id;

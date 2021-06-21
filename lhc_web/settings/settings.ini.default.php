@@ -15,6 +15,7 @@ return array (
                     'templatecompile' => false,
                     'modulecompile' => false,
                     'force_virtual_host' => false,
+                    'proxy_mode' => false,
                     'one_login_per_account' => false,
                     'time_zone' => '',
                     'date_format' => 'Y-m-d',
@@ -100,6 +101,7 @@ return array (
                 'server' => array (
                     'host' => 'localhost',
                     'port' => 6379,
+                    'auth' => null,
                     'database' => 0
                 )
             ),

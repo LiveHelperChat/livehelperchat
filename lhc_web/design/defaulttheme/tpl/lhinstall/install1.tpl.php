@@ -94,7 +94,11 @@
     <tr>
         <td>Is the bcmath extension detected</td>
         <td><?php echo extension_loaded('bcmath') ? '<span class="badge badge-success">Yes</span>' : '<span class="label label-warning">No, GEO detection will be disabled</span>'; ?></td>
-    </tr>        
+    </tr>
+    <tr>
+        <td>Is the php-xml extension detected</td>
+        <td><?php echo function_exists('simplexml_load_string') ? '<span class="badge badge-success">Yes</span>' : '<span class="label label-warning">No</span>'; ?></td>
+    </tr>
     <tr>
         <td>Minimum 5.4 PHP</td>
         <td><?php echo (version_compare(PHP_VERSION, '5.4.0','<')) ? '<span class="badge badge-danger">No</span>' : '<span class="badge badge-success">Yes</span>'; ?></td>

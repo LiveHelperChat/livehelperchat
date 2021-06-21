@@ -1,4 +1,4 @@
-<title><?php if (isset($Result['path'])) : ?>
+<title ng-non-bindable><?php if (isset($Result['path'])) : ?>
 <?php
 $ReverseOrder = $Result['path'];
 krsort($ReverseOrder);

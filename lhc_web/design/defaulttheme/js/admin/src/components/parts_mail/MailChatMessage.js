@@ -125,7 +125,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
         </div>}
 
-        {expandBody && <div className="col-12 mail-message-body pt-2 pb-2">
+        {expandBody && message.body_front && <div className="col-12 mail-message-body pt-2 pb-2">
 
          {parse(message.body_front, {
         replace: domNode => {

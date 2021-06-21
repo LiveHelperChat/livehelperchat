@@ -24,7 +24,7 @@ class erLhcoreClassGenericBotActionText {
 
         if (isset($action['content']['html']) && !empty($action['content']['html']))
         {
-            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat));
+            $metaMessage['content']['html']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['html'], array('chat' => $chat, 'args' => $params));
 
             if (isset($params['replace_array'])) {
                 $metaMessage['content']['html']['content'] = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$metaMessage['content']['html']['content']);
@@ -81,7 +81,15 @@ class erLhcoreClassGenericBotActionText {
 
             $event = erLhcoreClassModelGenericBotChatEvent::findOne($filter);
 
-            if ($event instanceof erLhcoreClassModelGenericBotChatEvent) {
+            $softEvent = false;
+            $hasEvent = $event instanceof erLhcoreClassModelGenericBotChatEvent;
+
+            if ($hasEvent === true && isset($event->content_array['soft_event']) && $event->content_array['soft_event'] === true) {
+                $softEvent = true;
+                $event->removeThis();
+            }
+
+            if ($hasEvent && $softEvent === false) {
                 $action['content']['text'] = 'Please complete previous process!';
             } else {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
@@ -100,7 +108,7 @@ class erLhcoreClassGenericBotActionText {
             $metaMessage['content']['attr_options'] = $action['content']['attr_options'];
         }
 
-        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat));
+        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 
@@ -118,32 +126,60 @@ class erLhcoreClassGenericBotActionText {
                 if (isset($configurationArray['exc_group_id']) && !empty($configurationArray['exc_group_id'])){
                     $exceptionMessage = erLhcoreClassModelGenericBotExceptionMessage::findOne(array('limit' => 1, 'sort' => 'priority ASC', 'filter' => array('active' => 1,'code' => $params['error_code']), 'filterin' => array('exception_group_id' => $configurationArray['exc_group_id'])));
                     if ($exceptionMessage instanceof erLhcoreClassModelGenericBotExceptionMessage && $exceptionMessage->message != '') {
-                        $params['replace_array']['{error}'] = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat));
+                        $params['replace_array']['{error}'] = erLhcoreClassGenericBotWorkflow::translateMessage($exceptionMessage->message, array('chat' => $chat, 'args' => $params));
                     }
                 }
             }
         }
 
         if (isset($params['replace_array'])) {
-            $msg->msg = str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
+            $msg->msg = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$msg->msg);
         }
 
-        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat));
+        $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('chat' => $chat, 'args' => $params));
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
 
         if (!empty($msg->meta_msg)){
-            $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat));
+            $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
         }
 
         $msg->chat_id = $chat->id;
-        $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
-        $msg->user_id = -2;
+
+        if (isset($params['override_nick']) && !empty($params['override_nick'])) {
+            $msg->name_support = (string)$params['override_nick'];
+        } else {
+            $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+        }
+
+        $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
+
         $msg->time = time() + 5;
 
         // Perhaps this message should be saved as a system message
         if (isset($action['content']['attr_options']['as_system']) && $action['content']['attr_options']['as_system'] == true)
         {
             $msg->user_id = -1;
+        }
+
+        if (isset($action['content']['attr_options']['as_log_msg']) && $action['content']['attr_options']['as_log_msg'] == true)
+        {
+            $params['do_not_save'] = true;
+            erLhcoreClassLHCBotWorker::logIfRequiredPlain($chat, 'text_msg', $msg->msg);
+        }
+
+        // Support for commands
+        if (strpos($msg->msg, '!') === 0) {
+            $bot = erLhcoreClassModelGenericBotBot::fetch($trigger->bot_id);
+            if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                $bot->id = -2;
+                $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $bot, 'msg' => $msg->msg, 'chat' => & $chat));
+
+                if ($statusCommand['processed'] === true) {
+                    $msg->user_id = -1;
+                    $rawMessage = !isset($statusCommand['raw_message']) ? $msg->msg : $statusCommand['raw_message'];
+                    $msg->msg = trim('[b]'.$bot->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
+                }
+            }
         }
 
         if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {

@@ -6,8 +6,7 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 $vid = erLhcoreClassModelChatOnlineUser::fetchByVid($Params ['user_parameters_unordered'] ['vid']);
 
 try {
-
-    if (is_object($vid) && isset($_POST ['data']) || isset($_GET['data'])) {
+    if ($vid instanceof erLhcoreClassModelChatOnlineUser && (isset($_POST['data']) || isset($_GET['data']))) {
 
         $data = isset($_POST ['data']) ? $_POST ['data'] : $_GET['data'];
         $jsonData = json_decode($data, true);
@@ -15,10 +14,10 @@ try {
         if ($jsonData !== null) {
             erLhcoreClassChatEvent::logEvents($jsonData, $vid);
         }
-
-        echo json_encode(array('stored' => 'true'));
-        exit;
     }
+
+    echo json_encode(array('stored' => 'true'));
+    exit;
 
 } catch (Exception $e) {
     echo $e->getMessage();

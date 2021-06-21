@@ -8,17 +8,25 @@
     <div role="tabpanel" class="tab-pane active" id="general">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-            <input type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
+            <input maxlength="20" type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
         </div>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Nick, what should be operator nick. E.g Support Bot');?></label>
-            <input type="text" class="form-control" name="nick"  value="<?php echo htmlspecialchars($item->nick);?>" />
+            <input maxlength="250" type="text" class="form-control" name="nick"  value="<?php echo htmlspecialchars($item->nick);?>" />
         </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
-            <input type="file" name="UserPhoto" value="" />
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+                    <input type="file" name="UserPhoto" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <?php $avatarOptions = ['avatar' => $item->avatar]; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
+            </div>
         </div>
 
         <?php if ($item->has_photo) : ?>
@@ -38,11 +46,17 @@
 
     </div>
     <div role="tabpanel" class="tab-pane" id="interface">
+
         <div class="form-group">
             <label><input type="checkbox" <?php (isset($item->configuration_array['profile_hide']) && $item->configuration_array['profile_hide'] == true) ? print 'checked="checked"' : ''?> name="profile_hide" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Hide bot profile while chat is in bot mode')?></label>
         </div>
+
         <div class="form-group">
             <label><input type="checkbox" name="msg_hide" value="1" <?php (isset($item->configuration_array['msg_hide']) && $item->configuration_array['msg_hide'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Start chat with hidden message box')?></label>
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" name="ign_btn_clk" value="1" <?php (isset($item->configuration_array['ign_btn_clk']) && $item->configuration_array['ign_btn_clk'] == true) ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not count button click as a visitor message')?></label>
         </div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_interface_multiinclude.tpl.php'));?>

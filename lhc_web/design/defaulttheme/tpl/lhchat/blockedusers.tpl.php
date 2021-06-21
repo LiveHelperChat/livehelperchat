@@ -9,12 +9,15 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<div class="row">
+<div class="row" ng-non-bindable>
     <div class="col-6">
         <form class="mb-2" action="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>" >
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','IP');?>" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control form-control-sm" name="nick" value="<?php echo htmlspecialchars($input->nick)?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick');?>" />
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
@@ -43,7 +46,7 @@
 
 
 <?php if (!empty($items)) : ?>
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -76,7 +79,7 @@
         </td>
         <td><?php echo htmlspecialchars($item->department)?></td>
         <td><?php echo htmlspecialchars($item->nick)?></td>
-        <td><?php echo htmlspecialchars($item->expires_front)?></td>
+        <td><?php echo htmlspecialchars($item->expires_front)?> [<?php echo $item->block_duration?>]</td>
         <td><?php echo htmlspecialchars($item->datets_front)?></td>
         <td><?php echo htmlspecialchars($item->user)?></td>
         <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>/(remove_block)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Remove block');?></a></td>

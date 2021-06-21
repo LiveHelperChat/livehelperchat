@@ -12,7 +12,7 @@
     
     <div class="row">
         <div class="col-4">
-            <div class="form-group">
+            <div class="form-group" ng-non-bindable>
                 <textarea class="form-control" name="DetectLanguageText" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enter text for testing purposes')?>"><?php isset($_POST['DetectLanguageText']) ? print htmlspecialchars($_POST['DetectLanguageText']) : ''?></textarea>
             </div>
         </div>
@@ -25,7 +25,7 @@
             )); ?>
               
         </div>
-        <div class="col-4">
+        <div class="col-4" ng-non-bindable>
             <?php if (isset($translated_text)) : ?>
                 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Translated text')?></h5>
                 <p><b><?php echo htmlspecialchars($translated_text)?></b></p>
@@ -73,7 +73,7 @@
 				?>
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Select Region');?></label>
-					<select name="bing_region" class="form-control">
+					<select ng-non-bindable name="bing_region" class="form-control">
 						<?php 
 							if( !isset($translation_data['bing_region']) )
 								echo '<option value="0" selected="selected">Select Region</option>';
@@ -87,17 +87,17 @@
 					</select>
 				</div>
 						
-				<div class="form-group">
+				<div class="form-group" ng-non-bindable>
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing client secret, key is never shown for security purposes');?></label>
 					<input class="form-control" type="text" name="bing_client_secret" value="" />
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group" ng-non-bindable>
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing access token expires');?></label>
 					<input class="form-control" disabled type="text" value="<?php (isset($translation_data['bing_access_token_expire']) && $translation_data['bing_access_token_expire'] != '') ? print htmlspecialchars(date('H:i:s',$translation_data['bing_access_token_expire'])) : print '' ?>" />
 				</div>
 											
-				<div class="btn-group" role="group" aria-label="...">
+				<div class="btn-group" role="group" aria-label="..." ng-non-bindable>
 				  <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>				
 		</div>
@@ -111,7 +111,7 @@
 
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Set referrer, usefull if want to limit calls to specific referrer.');?></label>
-				    <input class="form-control" type="text" name="google_referrer" value="<?php (isset($translation_data['google_referrer']) && $translation_data['google_referrer'] != '') ? print htmlspecialchars($translation_data['google_referrer']) : print '' ?>" />
+				    <input ng-non-bindable class="form-control" type="text" name="google_referrer" value="<?php (isset($translation_data['google_referrer']) && $translation_data['google_referrer'] != '') ? print htmlspecialchars($translation_data['google_referrer']) : print '' ?>" />
 				</div>
 
 				<div class="btn-group" role="group" aria-label="...">
@@ -123,7 +123,7 @@
 
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','API key, key is never shown for security purposes');?></label>
-				    <input class="form-control" type="text" name="yandex_api_key" value="" />
+				    <input ng-non-bindable class="form-control" type="text" name="yandex_api_key" value="" />
 				</div>
 											
 				<div class="btn-group" role="group" aria-label="...">

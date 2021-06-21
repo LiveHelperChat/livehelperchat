@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -8,27 +8,33 @@ export default function (dispatch, getState) {
     let extensions = {};
     let readyReceived = false;
 
-    function executeExtension(extension, args) {
-        if (typeof extensions[extension] !== 'undefined') {
-
-            if (Array.isArray(args)) {
-                args.push(dispatch);
-                args.push(getState);
-            }
-
-            if (document.getElementById('ext-' + extension) === null) {
-                var th = document.getElementsByTagName('head')[0];
-                var s = document.createElement('script');
-                s.setAttribute('type','text/javascript');
-                s.setAttribute('src',extensions[extension]);
-                s.setAttribute('id','ext-' + extension);
-                th.appendChild(s);
-                s.onreadystatechange = s.onload = function() {
-                    helperFunctions.emitEvent(extension + '.init', args);
-                };
-            } else {
+    function insertJS(extension, src, args) {
+        if (document.getElementById('ext-' + extension) === null) {
+            var th = document.getElementsByTagName('head')[0];
+            var s = document.createElement('script');
+            s.setAttribute('type','text/javascript');
+            s.setAttribute('src',src);
+            s.setAttribute('id','ext-' + extension);
+            th.appendChild(s);
+            s.onreadystatechange = s.onload = function() {
                 helperFunctions.emitEvent(extension + '.init', args);
-            }
+            };
+        } else {
+            helperFunctions.emitEvent(extension + '.init', args);
+        }
+    }
+
+    function executeExtension(extension, args) {
+        if (Array.isArray(args)) {
+            args.push(dispatch);
+            args.push(getState);
+        }
+
+        if (typeof extensions[extension] !== 'undefined') {
+            insertJS(extension, extensions[extension], args);
+        } else if (extension == 'modal_ext') {
+            var date = new Date();
+            insertJS(extension, __webpack_public_path__.replace('/widgetv2/','') + '/modal.ext.min.js?'+(""+date.getFullYear() + date.getMonth() + date.getDate()), args);
         }
     }
 
@@ -40,9 +46,35 @@ export default function (dispatch, getState) {
                 window.close();
             }
         }},
+        {id : 'endCookies', cb : (data) => {
+                helperFunctions.sendMessageParent('endChatCookies', [{force: true}]);
+                if (window.lhcChat['mode'] == 'popup') {
+                    helperFunctions.removeSessionStorage('_chat');
+                }
+        }},
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
         {id : 'subcribedEvent', cb : (e) => {dispatch(storeSubscriber(e.payload))}},
+        {id : 'dispatch_direct', cb : (data) => {dispatch({type: data.type, data : data.data})}},
         {id : 'attr_set', cb : (data) => {dispatch({type: 'attr_set', attr : data.attr, data : data.data})}},
+        {id : 'attr_rem', cb : (data) => {dispatch({type: 'attr_rem', attr : data.attr})}},
+        {id : 'dispatch_event', cb : (data) => {
+
+                const state = getState();
+
+                let attributesCall = {};
+
+                data.attr && Object.keys(data.attr).forEach(key => {
+                    attributesCall[key] = state.chatwidget.getIn(data.attr[key]);
+                })
+
+                data.attr_params && Object.keys(data.attr_params).forEach(key => {
+                    attributesCall[key] = data.attr_params[key];
+                })
+
+                const operations = {fetchMessages, addMessage};
+
+                dispatch(operations[data.func](attributesCall));
+        }},
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
@@ -100,17 +132,20 @@ export default function (dispatch, getState) {
 
         if (typeof e.data !== 'string') { return; }
 
+        var action = e.data.split(':')[0];
+
         if (typeof e.origin !== 'undefined') {
             
             var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
 
             // We allow to send events only from chat installation or page where script is embeded.
             if (originDomain !== document.domain && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain)) {
-                return;
+                // Third party domains can send only these two events
+                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed') {
+                    return;
+                }
             }
         }
-
-        var action = e.data.split(':')[0];
 
         if (action == 'lhc_chat_closed_explicit') {
             const state = getState();
@@ -133,6 +168,16 @@ export default function (dispatch, getState) {
                 }
             }
 
+        } else if (action == 'lhc_survey_completed') {
+            const state = getState();
+            dispatch(
+                endChat({
+                'vid' : state.chatwidget.get('vid'),
+                'chat': {
+                    id : state.chatwidget.getIn(['chatData','id']),
+                    hash : state.chatwidget.getIn(['chatData','hash'])
+                }
+            },'survey'));
         } else if (action == 'lhc_load_ext') {
             const parts = e.data.replace('lhc_load_ext:','').split('::');
             executeExtension(parts[0],JSON.parse(parts[1]));
@@ -169,7 +214,7 @@ export default function (dispatch, getState) {
 
             i18n.init({
                 backend: {
-                    loadPath: paramsInit['base_url']+'{{lng}}/widgetrestapi/lang/{{ns}}?v=2'+(""+date.getFullYear() + date.getMonth() + date.getDate())
+                    loadPath: paramsInit['base_url']+'{{lng}}/widgetrestapi/lang/{{ns}}?v=4'+(""+date.getFullYear() + date.getMonth() + date.getDate())
                 },
                 lng: ((paramsInit['lang'] && paramsInit['lang'] != '') ?  paramsInit['lang'].replace('/','') : 'eng'),
                 fallbackLng: 'eng',
@@ -279,6 +324,10 @@ export default function (dispatch, getState) {
             dispatch(pageUnload());
         });
     };
+
+    // We are not listening online event, because we want that this attribute would be changed by xhr call so we will be sure there is an internet.
+    // window.addEventListener('online', () => dispatch({type: "NO_CONNECTION", data: false}));
+    window.addEventListener('offline', () => dispatch({type: "NO_CONNECTION", data: true}));
 
     // Iframe is ready to receive updates
     // But we do not want to receive any updates as popup

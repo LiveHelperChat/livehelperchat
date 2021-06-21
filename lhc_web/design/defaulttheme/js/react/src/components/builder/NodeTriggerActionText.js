@@ -28,6 +28,7 @@ class NodeTriggerActionText extends Component {
         this.onStoreNameChange = this.onStoreNameChange.bind(this);
         this.onStoreValueChange = this.onStoreValueChange.bind(this);
         this.onButtonIDChange = this.onButtonIDChange.bind(this);
+        this.onButtonStoreTypeChange = this.onButtonStoreTypeChange.bind(this);
 
         // Abstract methods
         this.onDeleteField = this.onDeleteField.bind(this);
@@ -97,6 +98,9 @@ class NodeTriggerActionText extends Component {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','button_id'], value : e.value});
     }
 
+    onButtonStoreTypeChange(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','as_variable'], value : e.value});
+    }
 
     onRenderArgsChange(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','render_args'], value : e.value});
@@ -146,7 +150,7 @@ class NodeTriggerActionText extends Component {
             var totalButtons = this.props.action.getIn(['content','quick_replies']).size;
 
             quick_replies = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
-                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} upField={(e) => this.upChildField(index)} downField={(e) => this.downChildField(index)} onButtonIDChange={this.onButtonIDChange} isFirst={index == 0} isLast={index + 1 == totalButtons} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
+                return <NodeTriggerActionQuickReply onPayloadAttrChange={this.onPayloadAttrChange} upField={(e) => this.upChildField(index)} downField={(e) => this.downChildField(index)} onButtonStoreTypeChange={this.onButtonStoreTypeChange} onButtonIDChange={this.onButtonIDChange} isFirst={index == 0} isLast={index + 1 == totalButtons} onStoreValueChange={this.onStoreValueChange} onStoreNameChange={this.onStoreNameChange} onPrecheckChange={this.onPrecheckChange} onRenderArgsChange={this.onRenderArgsChange} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}  onPayloadChange={this.onQuickReplyPayloadChange} id={index} key={reply.get('_id') || index} reply={reply} />
             });
         }
 
@@ -161,18 +165,21 @@ class NodeTriggerActionText extends Component {
         return (
             <div className="row">
                 <div className="col-12">
-                    <div className="row">
-                        <div className="col-2">
+                    <div className="d-flex flex-row">
+                        <div>
                             <div className="btn-group float-left" role="group" aria-label="Trigger actions">
                                 <button disabled="disabled" className="btn btn-sm btn-info">{this.props.id + 1}</button>
                                 {this.props.isFirst == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.upField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_up</i></button>}
                                 {this.props.isLast == false && <button className="btn btn-secondary btn-sm" onClick={(e) => this.props.downField(this.props.id)}><i className="material-icons mr-0">keyboard_arrow_down</i></button>}
                             </div>
                         </div>
-                        <div className="col-9">
+                        <div className="flex-grow-1 px-2">
                             <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                         </div>
-                        <div className="col-1">
+                        <div className="pr-2 pt-1">
+                            <label className="form-check-label" title="Response will not be executed. Usefull for a quick testing."><input onChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['skip_resp'], value : e.target.checked})} defaultChecked={this.props.action.getIn(['skip_resp'])} type="checkbox"/> Skip</label>
+                        </div>
+                        <div>
                             <button onClick={this.removeAction} type="button" className="btn btn-danger btn-sm float-right">
                                 <i className="material-icons mr-0">delete</i>
                             </button>
@@ -202,11 +209,16 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
+                        </div>
+                        <div className="col-6">
                             <div role="group">
-                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as a system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
                             </div>
                         </div>
-                        <div className="col-6 text-right">
+                        <div className="col-12 text-right">
                             <div className="btn-group" role="group">
                                 <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add action on message</button>
                                 <button onClick={this.addQuickReply} className="btn btn-xs btn-secondary"><i className="material-icons mr-0">add</i> Add quick reply</button>

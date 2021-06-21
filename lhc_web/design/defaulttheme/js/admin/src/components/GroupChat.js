@@ -88,8 +88,7 @@ const GroupChat = props => {
     }
 
     const startChatWithOperator = (operator) => {
-        var lhcController = angular.element('body').scope();
-        lhcController.startChatOperatorPublic(operator.user_id);
+        ee.emitEvent('angularStartChatOperatorPublic',[operator.user_id]);
     }
 
     const setUnreadSupportChat = (chat_id, length) => {
@@ -97,6 +96,7 @@ const GroupChat = props => {
         var whoisHot,hotSet = false;
         if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
             whoisHot.classList.remove("d-none");
+            ee.emitEvent('supportUnreadChat', [{id:chat_id,unread:true}]);
             hotSet = true;
         }
 
@@ -250,6 +250,11 @@ const GroupChat = props => {
                 setUnreadSupportChat(props.chatPublicId,2);
             }
 
+            if (props.paramsStart && props.paramsStart.default_message && messageElement.current !== null) {
+                messageElement.current.focus();
+                messageElement.current.value = '[quote]'+props.paramsStart.default_message+'[/quote]'+"\n";
+            }
+
             props.chatId = String(result.data.chat.id);
             groupChatSync.addSubscriber(props.chatId, chatSynced);
             groupChatSync.sync();
@@ -271,8 +276,6 @@ const GroupChat = props => {
                     'supervisors': result.data.supervisors || []
                 }
             });
-
-
 
         }).catch((error) => {
            !props.chatPublicId && lhinst.removeDialogTabGroup('gc'+props.chatId,$('#tabs'),true);
@@ -325,6 +328,19 @@ const GroupChat = props => {
             }
         }
 
+        const prefillMessage = (chatId, message) => {
+            if (props.chatPublicId && chatId == props.chatPublicId) {
+                if (messageElement && messageElement.current) {
+                    messageElement.current.value = '[quote]'+message+'[/quote]'+"\n";
+                    messageElement.current.focus();
+                }
+            }
+        }
+
+        if (props.chatPublicId){
+            ee.addListener('groupChatPrefillMessage',prefillMessage);
+        }
+
         ee.addListener((!props.chatPublicId ? 'groupChatTabClicked' : 'chatTabClicked'),tabClicked)
 
         !props.chatPublicId && messageElement.current.focus();
@@ -336,7 +352,8 @@ const GroupChat = props => {
             if (!props.chatPublicId) {
                 ee.removeListener('groupChatTabClicked',tabClicked);
             } else {
-                ee.removeListener('chatTabClicked',tabClicked)
+                ee.removeListener('chatTabClicked',tabClicked);
+                ee.removeListener('prefillMessage',prefillMessage);
             }
 
             groupChatSync.removeSubscriber(props.chatId, chatSynced);
@@ -408,9 +425,9 @@ const GroupChat = props => {
 
 
         <React.Fragment>
-            <div className="row">
+            <div className={"row group-chat-"+(props.chatPublicId ? "public" : "private")}>
 
-                {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1 border-bottom">
+                {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1">
 
                     {state.operators.map((operator, index) => (
                         <button className="btn btn-sm fs12 btn-outline-secondary mb-1 mr-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}
@@ -419,7 +436,7 @@ const GroupChat = props => {
 
                 </div>}
 
-                <div className={(props.chatPublicId ? "col-12" : "col-7")+" chat-main-left-column"}>
+                <div className={(props.chatPublicId ? "col-12" : "col-7")}>
                     <div className="message-block">
 
                         {state.has_more_messages && <a className="load-prev-btn"  title="Load more..." onClick={(e) => loadPrevious()}><i className="material-icons">&#xE889;</i></a>}

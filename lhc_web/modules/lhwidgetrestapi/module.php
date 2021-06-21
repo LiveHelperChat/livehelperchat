@@ -8,6 +8,10 @@ $ViewList['getproducts'] = array(
     'params' => array('id','product_id')
 );
 
+$ViewList['avatar'] = array(
+    'params' => array('id')
+);
+
 $ViewList['settings'] = array(
     'params' => array(),
     'uparams' => array('department','ua','identifier'),
@@ -63,6 +67,11 @@ $ViewList['uisettings'] = array(
 );
 
 $ViewList['fetchmessages'] = array(
+    'params' => array(),
+    'uparams' => array(),
+);
+
+$ViewList['getmessagesnippet'] = array(
     'params' => array(),
     'uparams' => array(),
 );

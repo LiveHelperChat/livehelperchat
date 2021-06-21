@@ -45,6 +45,9 @@ class erLhcoreClassUserValidator {
 			'JobTitle' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
+            'avatar' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
 			'UserTimeZone' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
@@ -140,6 +143,10 @@ class erLhcoreClassUserValidator {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');
 		} else {
 			$userData->email = $form->Email;
+		}
+
+		if ($form->hasValidData( 'avatar' ) ) {
+            $userData->avatar = $form->avatar;
 		}
 		
 		if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
@@ -644,6 +651,9 @@ class erLhcoreClassUserValidator {
 			'Name' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
 			),
+            'avatar' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+			),
 			'Surname' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
 			),
@@ -745,7 +755,11 @@ class erLhcoreClassUserValidator {
 		} else {
 			$userData->job_title = '';
 		}
-		
+
+		if ( $form->hasValidData( 'avatar' )) {
+			$userData->avatar = $form->avatar;
+		}
+
 		if ( $form->hasValidData( 'UserTimeZone' ) && $form->UserTimeZone != '') {
 			$userData->time_zone = $form->UserTimeZone;
 			CSCacheAPC::getMem()->setSession('lhc_user_timezone', $userData->time_zone, true);

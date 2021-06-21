@@ -8,7 +8,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('chatbox/edit')?>/<?php echo $chatbox->id?>" method="post">
+<form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('chatbox/edit')?>/<?php echo $chatbox->id?>" method="post">
 
 	<?php include(erLhcoreClassDesign::designtpl('lhchatbox/form.tpl.php'));?>
 

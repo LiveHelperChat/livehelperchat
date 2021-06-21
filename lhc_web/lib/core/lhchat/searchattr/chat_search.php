@@ -26,6 +26,54 @@ $fieldsSearch['bot_ids'] = array (
     )
 );
 
+$fieldsSearch['cls_us'] = array (
+    'type' => 'text',
+    'trans' => 'Visitor status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'cls_us',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
+$fieldsSearch['online_user_id'] = array (
+    'type' => 'text',
+    'trans' => 'Online user ID',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'online_user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
+);
+
+$fieldsSearch['has_unread_op_messages'] = array (
+    'type' => 'text',
+    'trans' => 'Has unread operator messages',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'has_unread_op_messages',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
+$fieldsSearch['chat_status_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Chat status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'status',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['no_operator'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',
@@ -103,10 +151,11 @@ $fieldsSearch['chat_id'] = array (
     'trans' => 'id',
     'required' => false,
     'valid_if_filled' => false,
+    'multiple_id' => true,
     'filter_type' => 'filter',
     'filter_table_field' => '`lh_chat`.`id`',
     'validation_definition' => new ezcInputFormDefinitionElement (
-            ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )
 );
 
@@ -377,6 +426,17 @@ $fieldsSearch['group_ids'] = array (
     )
 );
 
+$fieldsSearch['abandoned_chat'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['((`lh_chat`.`user_id` = 0 AND `status_sub` IN (' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ')) OR (`lsync` < (`pnd_time` + `wait_time`)))']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
 
 $fieldSortAttr = array (
 'field'      => false,

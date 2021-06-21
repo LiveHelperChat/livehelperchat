@@ -1,6 +1,5 @@
-<?php if (!empty($chat->referrer)) : ?>
-    <tr>
-        <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Page')?></td>
-        <td><div class="page-url"><span><?php echo $chat->referrer != '' ? '<a target="_blank" rel="noopener" title="' . htmlspecialchars($chat->referrer) . '" href="' .htmlspecialchars($chat->referrer). '">'.htmlspecialchars($chat->referrer).'</a>' : ''?></span></div></td>
-    </tr>
+<?php if (isset($orderInformation['referrer']['enabled']) && $orderInformation['referrer']['enabled'] == true && !empty($chat->referrer)) : ?>
+<div class="col-12 pb-1">
+    <a target="_blank" style="max-width: 400px;" class="text-muted text-truncate d-inline-block" rel="noopener" title="<?php echo htmlspecialchars($chat->referrer)?>" href="<?php echo htmlspecialchars($chat->referrer)?>"><span class="material-icons">link</span><?php echo htmlspecialchars($chat->referrer)?></a>
+</div>
 <?php endif;?>

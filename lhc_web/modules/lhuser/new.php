@@ -33,7 +33,15 @@ if (isset($_POST['Update_account']))
             $db->beginTransaction();
     
             erLhcoreClassUser::getSession()->save($UserData);
-    
+
+            if ( isset($_POST['ForceResetPassword']) ) {
+                erLhcoreClassModelUserLogin::logUserAction(array(
+                    'type' => erLhcoreClassModelUserLogin::TYPE_PASSWORD_RESET_REQUEST,
+                    'user_id' => $UserData->id,
+                    'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password reset requested by') . ' ' . $currentUser->getUserData(),
+                ));
+            }
+
             if (count($userParams['global_departament']) > 0) {
                erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead);
             }

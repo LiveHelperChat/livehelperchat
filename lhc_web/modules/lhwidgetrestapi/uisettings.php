@@ -1,7 +1,12 @@
 <?php
 
 erLhcoreClassRestAPIHandler::setHeaders();
-$requestPayload = json_decode(file_get_contents('php://input'),true);
+
+if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $requestPayload = $_GET;
+} else {
+    $requestPayload = json_decode(file_get_contents('php://input'),true);
+}
 
 try {
     $db = ezcDbInstance::get();
@@ -29,6 +34,11 @@ try {
                 'fs' => $fileData['fs_max']*1024,
                 'ft_us' => $fileData['ft_us'],
             );
+
+            if (isset($fileData['one_file_upload']) && $fileData['one_file_upload'] == true) {
+                $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
+            }
+
         } else {
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file'];
             $outputResponse['chat_ui_remove'][] = ['chat_ui','file_options'];

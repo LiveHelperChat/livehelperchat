@@ -30,7 +30,11 @@ class erLhcoreClassChatHelper
         
         $params['chat']->support_informed = 1;
         $params['chat']->has_unread_messages = 0;
-        
+
+        if ($params['chat']->cls_us == 0) {
+            $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+        }
+
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM;
         $params['chat']->updateThis();        
     }
@@ -84,7 +88,11 @@ class erLhcoreClassChatHelper
             
             $params['chat']->status_sub_arg = json_encode($argStore);            
         }
-        
+
+        if ($params['chat']->cls_us == 0) {
+            $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+        }
+
         $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW;
         $params['chat']->saveThis();
 
@@ -135,6 +143,11 @@ class erLhcoreClassChatHelper
         $stmt = $q->prepare();
         $stmt->execute();
 
+        // Voice calls
+        $q->deleteFrom( 'lh_chat_voice_video' )->where( $q->expr->eq( 'chat_id', $chatId ) );
+        $stmt = $q->prepare();
+        $stmt->execute();
+
         // Close by support chat
         erLhcoreClassModelGroupChat::closeByChatId($chatId);
     }
@@ -145,6 +158,10 @@ class erLhcoreClassChatHelper
             
             $db = ezcDbInstance::get();
             $db->beginTransaction();
+
+                if ($params['chat']->cls_us == 0) {
+                    $params['chat']->cls_us = $params['chat']->user_status_front + 1;
+                }
 
                 if ($params['chat']->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT && $params['chat']->user_id > 0 && $params['chat']->auto_responder !== false) {
                     $params['chat']->auto_responder->processClose();
@@ -205,18 +222,30 @@ class erLhcoreClassChatHelper
         $allowCloseRemote = $params['allow_close_remote'];
                 
         if ($changeStatus == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-            if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
-                $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
-                if ($chat->wait_time == 0) {
-                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
-                }
+
+            // If chat is transferred to pending state we don't want to process any old events
+            $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+            if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
+                $eventPending->removeThis();
             }
-        
+
+            if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+                if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                    $chat->pnd_time = time();
+                    $chat->wait_time = 2;
+                } elseif ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+                    if ($chat->wait_time == 0) {
+                        $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                    }
+                }
+                $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
+            }
+
             if ($chat->user_id == 0)
             {
                 $chat->user_id = $userData->id;
             }
-             
+
             $chat->updateThis();
              
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
@@ -229,12 +258,26 @@ class erLhcoreClassChatHelper
             $chat->support_informed = 0;
             $chat->has_unread_messages = 1;
             $chat->pnd_time = time();
+
+            // Store system message
+            $msg = new erLhcoreClassModelmsg();
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $chat->last_user_msg_time = $msg->time = time();
+            $msg->name_support = $userData->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+            $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has changed chat status to pending!');
+            erLhcoreClassChat::getSession()->save($msg);
+
+            $chat->last_msg_id = $msg->id;
             $chat->updateThis();
         
             
-        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $chat->user_id == $userData->id || $allowCloseRemote == true) {
+        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_CLOSED_CHAT && ($chat->user_id == $userData->id || $allowCloseRemote == true)) {
         
-            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT){
+            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
                 $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
                 $chat->cls_time = time();
@@ -264,6 +307,27 @@ class erLhcoreClassChatHelper
         } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) {
             $chat->status = erLhcoreClassModelChat::STATUS_OPERATORS_CHAT;
             $chat->updateThis(array('update' => array('status')));
+        } elseif ($changeStatus == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+            // If chat is changed to pending reset assigned operator
+            erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+            $chat->user_id = 0;
+            $chat->status = erLhcoreClassModelChat::STATUS_BOT_CHAT;
+
+            // Store system message
+            $msg = new erLhcoreClassModelmsg();
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $chat->last_user_msg_time = $msg->time = time();
+            $msg->name_support = $userData->name_support;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+            $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin','has changed chat status to bot!');
+            erLhcoreClassChat::getSession()->save($msg);
+            $chat->last_msg_id = $msg->id;
+
+            $chat->updateThis(array('update' => array('status','user_id','last_user_msg_time','last_msg_id')));
         }
         
         erLhcoreClassChat::updateActiveChats($chat->user_id);

@@ -10,7 +10,7 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
 <?php endif; ?>
 
 <?php if (isset($items)) : ?>
-    <table class="table" cellpadding="0" cellspacing="0" width="100%">
+    <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Event');?></th>
@@ -24,7 +24,11 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td nowrap="nowrap">
-                    <?php echo htmlspecialchars($item->event)?>
+                    <?php if ($item->type == 0) : ?>
+                        <?php echo htmlspecialchars($item->event)?>
+                    <?php elseif ($item->type == 1) : ?>
+                        <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Continuous event');?></b>
+                    <?php endif; ?>
                 </td>
                 <td><?php echo htmlspecialchars($item->bot)?></td>
                 <td><?php echo htmlspecialchars($item->trigger)?></td>

@@ -7,7 +7,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<div role="tabpanel">
+<div role="tabpanel" ng-non-bindable>
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">	

@@ -79,17 +79,22 @@ class erLhcoreClassUser{
 
    function authenticate($username, $password, $remember = false)
    {
+        session_regenerate_id(true);
+
 		$this->session->destroy();
        
 		$user = erLhcoreClassModelUser::findOne(array(
-			'filter' => array(
-				'username' => $username
+			'filterlor' => array(
+				'username' => array($username),
+                'email' => array($username)
 			)
 		));  
 
 		if ($user === false) {
-			return false;
-		};
+            return false;
+		} else {
+            $fieldAuthentificated = $user->email == $username ? 'email' : 'username';
+        }
 
 		$cfgSite = erConfigClassLhConfig::getInstance();
 		$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
@@ -109,7 +114,7 @@ class erLhcoreClassUser{
 
        $this->credentials = new ezcAuthenticationPasswordCredentials( $username, $passwordVerify );
 
-       $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'username', 'password' ) );
+       $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( $fieldAuthentificated, 'password' ) );
        $this->authentication = new ezcAuthentication( $this->credentials );
 
        $this->filter = new ezcAuthenticationDatabaseFilter( $database );
@@ -203,6 +208,8 @@ class erLhcoreClassUser{
    function setLoggedUser($user_id, $remember = false)
    {
 	   	if ($user_id != $this->userid) {
+
+            session_regenerate_id(true);
 
 	   		$this->credentials = new ezcAuthenticationIdCredentials( $user_id );
 	   		$this->authentication = new ezcAuthentication( $this->credentials );
@@ -441,20 +448,6 @@ class erLhcoreClassUser{
            $this->AccessTimestamp =  $_SESSION['lhc_access_timestamp'];
 
            return $this->AccessArray;
-
-           /* For future
-            * $cacheObj = CSCacheAPC::getMem();
-           if (($AccessTimestamp = $cacheObj->restore('cachetimestamp_accessfile_version_'.$cacheObj->getCacheVersion('site_version'))) === false)
-           {
-               $cfg = erConfigClassLhCacheConfig::getInstance();
-               $AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
-               $cacheObj->store('cachetimestamp_accessfile_version_'.$cacheObj->getCacheVersion('site_version'),$AccessTimestamp);
-           }
-
-           if ( $this->AccessTimestamp === $AccessTimestamp)
-           {
-               return $this->AccessArray;
-           }*/
        }
 
        $cfg = erConfigClassLhCacheConfig::getInstance();

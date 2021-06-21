@@ -19,7 +19,8 @@ class _helperFunctions {
 
     removeById(EId)
     {
-        return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
+        var EObj = null;
+        return(EObj = document.getElementById(EId)) ? EObj.parentNode.removeChild(EObj) : false;
     }
 
     // Returns time zone offset
@@ -85,7 +86,7 @@ class _helperFunctions {
             "width                       : " + (params.width ? params.width : "auto") + " ; ",
             "height                      : " + (params.height ? params.height : "auto") + " ; ",
             "display                     : " + (params.display ? params.display : "block") + " !important; ",
-            "z-index                     : " + (params.zindex ? params.zindex : "none") + " !important; ",
+            "z-index                     : " + (params.zindex ? params.zindex : "none") + " ; ",
             "background-color            : " + (params.backgroundcolor ? params.backgroundcolor : "transparent") + " !important; ",
             "cursor                      : " + (params.cursor ? params.cursor : "auto") + " !important; ",
             "float                       : " + (params["float"] ? params["float"] : "none") + " !important; ",
@@ -93,14 +94,17 @@ class _helperFunctions {
     };
 
     hasClass(element, className) {
+        if (element === null) return;
         return element.classList ? element.classList.contains(className) : !!element.className.match(RegExp("(\\s|^)" + className + "(\\s|$)"))
     }
 
     addClass(element, className) {
+        if (element === null) return;
         element.classList ? element.classList.add(className) : this.hasClass(element, className) || (element.className += " " + className)
     }
 
     removeClass(element, className) {
+        if (element === null) return;
         element.classList ? element.classList.remove(className) : this.hasClass(element, className) && (element.className = element.className.replace(RegExp("(\\s|^)" + className + "(\\s|$)"), " "))
     }
 
@@ -145,10 +149,16 @@ class _helperFunctions {
     
     makeRequest(url, params, callback) {
         var request = new XMLHttpRequest;
-        request.open("GET", url + '?' + this.makeQuery(params.params), true);
+        var urlRequest =  url + '?' + this.makeQuery(params.params);
+        request.open("GET",urlRequest, true);
         request.onreadystatechange = function () {
-           if (4 == request.readyState) {
-               callback(JSON.parse(request.responseText));
+           if (4 == request.readyState && request.status != 0) {
+               try {
+                   callback(JSON.parse(request.responseText));
+               } catch (e) {
+                   e.message += "\n" + urlRequest + "\n" + "["+request.status+"]\n" + request.responseText;
+                   throw e;
+               }
            }
         };
         request.send();
@@ -156,6 +166,14 @@ class _helperFunctions {
     }
 
     insertCssRemoteFile(attr) {
+
+        var elm = null;
+
+        if (attr.id && attr.href && (elm = document.getElementById(attr.id)) !== null) {
+            elm.href = attr.href
+            return;
+        }
+
         var d = document.getElementsByTagName("head")[0],
             k = document.createDocumentFragment(),
             e = document.createElement('link');

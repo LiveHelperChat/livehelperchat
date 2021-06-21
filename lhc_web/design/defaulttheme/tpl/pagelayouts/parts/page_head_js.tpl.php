@@ -8,7 +8,19 @@ var confLH = {};
 <?php $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value; ?>
 confLH.back_office_sinterval = <?php echo (int)($soundData['back_office_sinterval']*1000) ?>;
 confLH.chat_message_sinterval = <?php echo (int)($soundData['chat_message_sinterval']*1000) ?>;
-confLH.transLation = {'sending' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Sending...')?>','delete_confirm':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure you want to delete this chat?')?>','new_chat':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request')?>','transfered':'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!')?>'};
+confLH.transLation = <?php echo json_encode(array(
+            'sending' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Sending...'),
+            'delete_confirm' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Are you sure you want to delete this chat?'),
+            'new_chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat request'),
+            'transfered' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New chat has been transferred to you directly!'),
+            'edit' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Edit'),
+            'quote' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Quote'),
+            'copy' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy'),
+            'copy_group' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Copy all'),
+            'ask_help' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Ask for help'),
+            'translate' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Translate'),
+            'new' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New'),
+)); ?>;
 confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])) ?>;
 <?php if (!isset($Result['anonymous'])) : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';
@@ -23,6 +35,8 @@ confLH.sn_off = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('sn_of
 confLH.ownntfonly = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('ownntfonly',0)?>;
 confLH.accept_chats = <?php if (erLhcoreClassUser::instance()->isLogged()) { print (int)erLhcoreClassUser::instance()->getUserData()->auto_accept; } else {print 0;}?>;
 confLH.auto_uppercase = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1)?>;
+confLH.new_dashboard = <?php if (isset($Result['body_class'])) : ?>true<?php else : ?>false<?php endif; ?>;
+confLH.hide_tabs = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1)?>;
 <?php else : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::anonymousGetCSFRToken()?>';
 <?php endif;?>
@@ -39,5 +53,15 @@ confLH.lngUser = '<?php echo erConfigClassLhConfig::getInstance()->getDirLanguag
 confLH.gmaps_api_key = "<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false);} elseif (isset($geo_location_data['gmaps_api_key'])) {echo $geo_location_data['gmaps_api_key'];}?>";
 </script>
 
-<script type="text/javascript" src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js;js/color-picker.min.js;js/admin/dist/react.admin.app.js');?>"></script>
+<?php if (!isset($Result['anonymous'])) : ?>
+<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.cannedmsg.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/jquery.zoom.min.js;js/datepicker.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js;js/color-picker.min.js;js/admin/dist/react.admin.app.js');?>"></script>
+<?php else : ?>
+
+<?php $detect = new Mobile_Detect(); if ($detect->version('IE') !== false) : ?>
+<script src="<?php echo erLhcoreClassDesign::designJS('js/bluebird.min.js');?>"></script>
+<?php endif; ?>
+
+<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js');?>"></script>
+<?php endif; ?>
+
 <?php echo isset($Result['additional_header_js']) ? $Result['additional_header_js'] : ''?>

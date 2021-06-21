@@ -16,7 +16,7 @@
 <form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username OR E-mail');?></label>
     <input class="form-control" type="text" name="Username" value="" />
 </div>
 

@@ -8,7 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmatchrule')?>/<?php echo $item->id?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmatchrule')?>/<?php echo $item->id?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_matchrule.tpl.php'));?>
 

@@ -8,19 +8,19 @@ const initialState = fromJS({
     isMobile: false,
     isOnline: false,
     isChatting: false,
+    isOfflineMode: false,
     newChat: true,
     departmentDefault: null,
     theme: null,
     pvhash: null,
     phash: null,
+    network_down: false,
     leave_message: true,
     mode: 'widget',
     overrides: [], // we store here extensions flags. Like do we override typing monitoring so we send every request
     department: [],
     product: [],
     jsVars: [],
-    // Are we syncing chat messages now
-    syncStatus : {msg: false, status : false},
     offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -32,7 +32,7 @@ const initialState = fromJS({
     chat_ui_state : {'confirm_close': 0, 'show_survey' : 0}, // Settings from themes, UI we store our present state here
     processStatus : 0,
     chatData : {}, // Stores only chat id and hash
-    chatLiveData : {'lmsop':0, 'vtm':0, 'msop':0, 'uid' : 0, 'error' : '','lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
+    chatLiveData : {'lmsop':0, 'vtm':0,'otm':0, 'msop':0, 'uid' : 0, 'error' : '','lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
     chatStatusData : {},
     usersettings : {soundOn : false},
     vid: null,
@@ -64,7 +64,7 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case CLOSED_WIDGET : {
             if (state.get('isChatting') === false) {
-                state = state.set('processStatus',0);
+                state = state.set('processStatus',0).set('isOfflineMode',false);
             }
             return state.set('shown',false);
         }
@@ -75,6 +75,14 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'attr_set': {
             return state.setIn(action.attr, action.data);
+        }
+
+        case 'profile_pic': {
+            return state.set('profile_pic', (action.data.indexOf('http:') !== -1 || action.data.indexOf('https:') !== -1) ? action.data : window.lhcChat['base_url'] + 'widgetrestapi/avatar/' + action.data);
+        }
+
+        case 'attr_rem': {
+            return state.removeIn(action.attr);
         }
 
         case 'operator':
@@ -98,6 +106,7 @@ const chatWidgetReducer = (state = initialState, action) => {
             if (action.data == true && state.getIn(['proactive','pending']) === true) {
                 state = state.setIn(['proactive','pending'],false);
             }
+
             return state.set('shown',action.data);
         }
 
@@ -128,10 +137,9 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}))
                 .set('chatData',fromJS({}))
                 .setIn(['onlineData','fetched'],false)
-                .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
+                .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
-                .set('syncStatus', fromJS({msg: false, status : false}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }
@@ -178,7 +186,11 @@ const chatWidgetReducer = (state = initialState, action) => {
                 
                 // If we are in popup mode and visitor refreshes page, remember chat
                 if (state.get('mode') == 'popup') {
-                    helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
+                    if (helperFunctions.hasSessionStorage === true) {
+                        helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
+                    } else {
+                        document.location = '#/' + action.data.chatData.id + "/" + action.data.chatData.hash;
+                    }
                 }
 
                 return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;
@@ -244,26 +256,14 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
-        case 'FETCH_MESSAGES_STARTED': {
-            return state.setIn(['syncStatus','msg'],true);
-        }
-
-        case 'CHECK_CHAT_STATUS_STARTED': {
-            return state.setIn(['syncStatus','status'],true);
-        }
-
-        case 'FETCH_MESSAGES_REJECTED': {
-            return state.setIn(['syncStatus','msg'],false);
-        }
-
-        case 'CHECK_CHAT_STATUS_REJECTED': {
-            return state.setIn(['syncStatus','status'],false);
-        }
-
         case 'FETCH_MESSAGES_SUBMITTED' : {
 
             if (action.data.closed_arg && action.data.closed_arg.survey_id) {
                 state = state.setIn(['chat_ui','survey_id'],action.data.closed_arg.survey_id);
+            }
+
+            if (action.data.disable_survey) {
+                state = state.removeIn(['chat_ui','survey_id']);
             }
 
             if (action.data.extension) {
@@ -272,12 +272,11 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             if (action.data.messages !== '') {
                 state = state.updateIn(['chatLiveData','messages'],list => list.push({
-                        'lmsop': (action.data.lmsop || state.getIn(['chatLiveData','msop'])),
-                        'msop': (action.data.lmsop || action.data.msop),
-                        'msg': action.data.messages
-                    }))
+                    'lmsop': state.getIn(['chatLiveData','msop']),
+                    'msop': action.data.msop,
+                    'msg': action.data.messages
+                }))
                     .setIn(['chatLiveData','uw'], action.data.uw && action.data.uw === true)
-                    .setIn(['chatLiveData','lmsop'],action.data.lmsop || state.getIn(['chatLiveData','msop'])) // Remember last message operator ID
                     .setIn(['chatLiveData','lmsgid'],action.data.message_id)
                     .setIn(['chatLiveData','msop'],action.data.lmsop || action.data.msop);
             }
@@ -286,14 +285,18 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.updateIn(['chatLiveData','vtm'], (counter) => {return counter + action.data.vtm})
             }
 
+            if (action.data.otm) {
+                state = state.setIn(['chatLiveData','otm'], action.data.otm)
+            }
+
             if (!state.get('overrides').contains('typing')) {
                 state = state.setIn(['chatLiveData','ott'], action.data.ott);
             }
 
             return state.setIn(['chatLiveData','status_sub'], action.data.status_sub)
                 .setIn(['chatLiveData','status'], action.data.status)
-                .setIn(['syncStatus','msg'], false)
                 .set('msgLoaded', true)
+                .set('network_down', false)
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true)
         }
 
@@ -307,18 +310,16 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','closed'], action.data.closed && action.data.closed === true || state.getIn(['chatLiveData','closed']))
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['chatLiveData','uid'], action.data.uid)
-                .setIn(['syncStatus','status'], false)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
+                .set('network_down', false)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
 
         case 'ONLINE_FIELDS_UPDATED' : {
-            return state.set('onlineData', fromJS({'disabled': action.data.disabled, 'fetched' : true, 'paid': action.data.paid, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
+            return state.set('onlineData', fromJS({'dep_forms': action.data.dep_forms, 'disabled': action.data.disabled, 'fetched' : true, 'paid': action.data.paid, 'fields_visible': action.data.fields_visible, 'fields' : action.data.fields, 'department' : action.data.department})).set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)));
         }
 
         case 'CHAT_UI_UPDATE' : {
-
-
             return state.set('chat_ui',state.get('chat_ui').merge(fromJS(action.data)));
         }
 
@@ -339,7 +340,11 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'ADD_MESSAGES_SUBMITTED': {
-            return state.setIn(['chatLiveData','error'], action.data.r);
+            return state.setIn(['chatLiveData','error'], action.data.r).setIn(['chatLiveData','lmsg'], action.data.r ? action.data.msg : "");
+        }
+
+        case 'NO_CONNECTION': {
+            return state.set('network_down', action.data);
         }
 
         default:

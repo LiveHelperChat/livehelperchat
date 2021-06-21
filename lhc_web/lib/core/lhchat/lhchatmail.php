@@ -39,9 +39,7 @@ class erLhcoreClassChatMail {
 				$phpMailer->Password = $data['password'];
 				$phpMailer->SMTPAuth = true;
 				$phpMailer->From = isset($data['default_from']) ? $data['default_from'] : $data['username'];
-			} else {
-			    $phpMailer->From = '';
-			}			
+			}
 		}
 	}
 
@@ -203,6 +201,7 @@ class erLhcoreClassChatMail {
     public static function sendMailFAQ($faq) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(6);
+        $sendMail->translate();
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -240,7 +239,8 @@ class erLhcoreClassChatMail {
     
     public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
-        
+        $sendMail->translate();
+
         $mail = new PHPMailer();
         $mail->CharSet = "UTF-8";
         
@@ -264,6 +264,7 @@ class erLhcoreClassChatMail {
     public static function sendMailRequest($inputData, erLhcoreClassModelChat $chat, $params = array()) {
 
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(2);
+        $sendMail->translate();
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -345,7 +346,8 @@ class erLhcoreClassChatMail {
     
     public static function sendMailUnacceptedChat(erLhcoreClassModelChat $chat, $templateID = 4) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch($templateID);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
     	
@@ -364,7 +366,7 @@ class erLhcoreClassChatMail {
     	
     	$mail->Subject = str_replace(array('{chat_id}','{department}'), array($chat->id,(string)$chat->department), $sendMail->subject);
     	   	    	
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
     	
     	foreach ($messages as $msg ) {
@@ -473,7 +475,8 @@ class erLhcoreClassChatMail {
     
     public static function informFormFilled($formCollected, $params = array()) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(8);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
     	
@@ -523,6 +526,7 @@ class erLhcoreClassChatMail {
     	}
     	
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(11);
+        $sendMail->translate($chat->chat_locale);
 
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
@@ -549,7 +553,7 @@ class erLhcoreClassChatMail {
 
     	$mail->Subject = $sendMail->subject;
 
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false, 'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
 
     	foreach ($messages as $msg ) {
@@ -570,7 +574,8 @@ class erLhcoreClassChatMail {
     
     public static function informChatClosed(erLhcoreClassModelChat $chat, $operator = false) {
     	$sendMail = erLhAbstractModelEmailTemplate::fetch(5);
-    	
+        $sendMail->translate();
+
     	$mail = new PHPMailer();
     	$mail->CharSet = "UTF-8";
 
@@ -589,7 +594,7 @@ class erLhcoreClassChatMail {
             $mail->FromName = $chat->nick;
         }
     	   	    	
-    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+    	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
     	$messagesContent = '';
     	
     	foreach ($messages as $msg ) {
@@ -675,6 +680,7 @@ class erLhcoreClassChatMail {
 
     public static function informVisitorReturned($item) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(12);
+        $sendMail->translate();
 
         $mail = new PHPMailer();
         $mail->CharSet = "UTF-8";
@@ -734,7 +740,7 @@ class erLhcoreClassChatMail {
 
             $messagesContent = '';
 
-            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 10,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
+            $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $chat->id))));
             foreach ($messages as $msg ) {
                 if ($msg->user_id == -1) {
                     $messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";

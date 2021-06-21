@@ -62,6 +62,14 @@ export default ({onChange, type}) => {
         {
             'value': 'text_conditional',
             'text' : 'Different text message to visitor and operator',
+        },
+        {
+            'value': 'alert_icon',
+            'text' : 'Alert icon',
+        },
+        {
+            'value': 'mail',
+            'text' : 'Send mail',
         }
     ]);
 
@@ -102,12 +110,9 @@ export default ({onChange, type}) => {
 
     return (
         <div className="row">
-            <div className="col-6">
-            Response type
-            </div>
-            <div className="col-6">
+            <div className="col-12">
                 <div className="form-group">
-                    <select onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
+                    <select title="Response type" onChange={(e) => onChange(e)} className="form-control form-control-sm" defaultValue={type}>
                         <optgroup label="Basic">
                             {list}
                         </optgroup>

@@ -37,6 +37,15 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 $payload = $params['msg_text'];
             }
 
+            // Override search payload
+            if (isset($action['content']['text']) && !empty($action['content']['text'])) {
+                $payload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
+
+                if (isset($params['replace_array'])) {
+                    $payload = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $payload);
+                }
+            }
+
             $filter = array();
 
             if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] != 5) {
@@ -83,6 +92,11 @@ class erLhcoreClassGenericBotActionMatch_actions {
                         'trigger_id' => $event->trigger_id
                     );
                 }
+            } else if (isset($action['content']['alternative_callback']) && is_numeric($action['content']['alternative_callback']) && $action['content']['alternative_callback'] > 0) {
+                return array(
+                    'status' => 'continue_all',
+                    'trigger_id' => $action['content']['alternative_callback']
+                );
             }
         }
 
