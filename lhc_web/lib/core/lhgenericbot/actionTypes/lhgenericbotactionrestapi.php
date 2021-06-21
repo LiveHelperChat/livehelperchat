@@ -483,8 +483,8 @@ class erLhcoreClassGenericBotActionRestapi
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
 
             $rawReplaceArray = array();
-            foreach ($replaceVariablesJSON as $keyVariable) {
-                $rawReplaceArray['raw_'.$keyVariable] = trim($replaceVariablesJSON[$keyVariable],"\"");
+            foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
+                $rawReplaceArray['raw_'.$keyVariable] = trim($keyValue,"\"");
             }
 
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
