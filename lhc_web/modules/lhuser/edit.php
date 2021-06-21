@@ -96,7 +96,30 @@ if (isset($_POST['UpdatePending_account'])) {
 	}
 
     $pendingSettings = erLhcoreClassUserValidator::validateShowAllPendingOption();
-	
+
+	// Log user changes
+    $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+    $data = (array)$auditOptions->data;
+    if (isset($data['log_user']) && $data['log_user'] == 1) {
+        $originalSettings['old'] = array(
+            'auto_accept' => $UserData->auto_accept,
+            'max_chats' => $UserData->max_active_chats,
+            'exclude_autoasign' => $UserData->exclude_autoasign,
+            'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
+            'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
+        );
+        $originalSettings['new'] = $pendingSettings;
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $UserData,
+            'msg' => array(
+                'prev' => $originalSettings['old'],
+                'new' => $originalSettings['new'],
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+    }
+
 	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
 	erLhcoreClassModelUserSetting::setSetting('auto_join_private', $pendingSettings['auto_join_private'], $UserData->id);
 
@@ -115,6 +138,8 @@ if (isset($_POST['UpdatePending_account'])) {
 
 	$tpl->set('account_updated','done');
 	$tpl->set('tab','tab_pending');
+
+
 	
 }
 

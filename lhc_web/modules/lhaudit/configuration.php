@@ -10,6 +10,7 @@ if ( isset($_POST['StoreOptions']) ) {
     $definition = array(
         'days_log' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),
         'log_js' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
+        'log_user' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
         'log_objects' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
     );
 
@@ -32,6 +33,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['log_js'] = 1;
     } else {
         $data['log_js'] = 0;
+    }
+
+    if ( $form->hasValidData( 'log_user' )) {
+        $data['log_user'] = 1;
+    } else {
+        $data['log_user'] = 0;
     }
 
     $auditOptions->explain = '';
