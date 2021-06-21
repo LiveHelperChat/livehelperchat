@@ -324,10 +324,6 @@ class erLhcoreClassGenericBotActionRestapi
             $replaceVariablesJSON[$keyDynamic] = json_encode($valueDynamic);
         }
 
-        foreach ($replaceVariablesJSON as $keyVariable) {
-            $replaceVariablesJSON['raw_'.$keyVariable] = trim($replaceVariablesJSON[$keyVariable],"\"");
-        }
-
         if (isset($methodSettings['conditions']) && is_array($methodSettings['conditions']) && !empty($methodSettings['conditions'])) {
             foreach ($methodSettings['conditions'] as $condition){
 
@@ -485,7 +481,14 @@ class erLhcoreClassGenericBotActionRestapi
             }
 
         } elseif (isset($methodSettings['body_request_type']) && $methodSettings['body_request_type'] == 'raw') {
-            $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
+
+            $rawReplaceArray = array();
+            foreach ($replaceVariablesJSON as $keyVariable) {
+                $rawReplaceArray['raw_'.$keyVariable] = trim($replaceVariablesJSON[$keyVariable],"\"");
+            }
+
+            $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
+            $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
             $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPOST);
