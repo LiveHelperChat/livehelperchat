@@ -102,7 +102,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 
 if (isset($Params['user_parameters_unordered']['export'])) {
     if (ezcInputForm::hasPostData()) {
-        erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))), array('type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
+        erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))), array('csv' => isset($_POST['CSV']), 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
         exit;
     } else {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/export_config.tpl.php');

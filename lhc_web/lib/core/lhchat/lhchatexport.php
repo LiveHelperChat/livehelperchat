@@ -279,24 +279,49 @@ class erLhcoreClassChatExport {
                 $chatArray[] = $itemData;
         }
 
-		// Create new PHPExcel object
-		$objPHPExcel = new PHPExcel();
-		$objPHPExcel->setActiveSheetIndex(0);
+        if ($params['csv'] && $params['csv'] == true) {
 
-		// Set the starting point and array of data
-		$objPHPExcel->getActiveSheet()->fromArray($chatArray, null, 'A1');
+            $now = gmdate("D, d M Y H:i:s");
+            header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+            header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+            header("Last-Modified: {$now} GMT");
 
-		// Set style for top row
-		$objPHPExcel->getActiveSheet()->getStyle('A1:AW1')->getFont()->setBold(true);
+            // force download
+            header("Content-Type: application/force-download");
+            header("Content-Type: application/octet-stream");
+            header("Content-Type: application/download");
 
-		// Set file type and name of file
-		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="report.xlsx"');
-		header('Cache-Control: max-age=0');
+            // disposition / encoding on response body
+            header("Content-Disposition: attachment;filename=report.csv");
+            header("Content-Transfer-Encoding: binary");
 
-		$writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            $df = fopen("php://output", 'w');
+            /*fputcsv($df, array_keys(reset($array)));*/
+            foreach ($chatArray as $row) {
+                fputcsv($df, $row);
+            }
+            fclose($df);
 
-		$writer->save('php://output');
+        } else {
+            // Create new PHPExcel object
+            $objPHPExcel = new PHPExcel();
+            $objPHPExcel->setActiveSheetIndex(0);
+
+            // Set the starting point and array of data
+            $objPHPExcel->getActiveSheet()->fromArray($chatArray, null, 'A1');
+
+            // Set style for top row
+            $objPHPExcel->getActiveSheet()->getStyle('A1:AW1')->getFont()->setBold(true);
+
+            // Set file type and name of file
+            header('Content-Type: application/vnd.ms-excel');
+            header('Content-Disposition: attachment;filename="report.xlsx"');
+            header('Cache-Control: max-age=0');
+
+            $writer = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+
+            $writer->save('php://output');
+        }
 	}
 }
 
