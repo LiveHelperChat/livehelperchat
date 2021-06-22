@@ -1,0 +1,1 @@
+ALTER TABLE `lh_generic_bot_trigger` ADD `as_argument` int(11) NOT NULL DEFAULT '0', COMMENT='';

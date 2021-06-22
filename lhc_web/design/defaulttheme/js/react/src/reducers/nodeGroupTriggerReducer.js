@@ -1,4 +1,4 @@
-import { SET_DEFAULT_TRIGGER, SET_GROUP_TRIGGER_EVENT, SET_DEFAULT_ALWAYS_TRIGGER, REMOVE_TRIGGER, SET_DEFAULT_UNKNOWN_TRIGGER, SET_DEFAULT_UNKNOWN_BTN_TRIGGER, FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED, UPDATE_TRIGGER_NAME, ADD_TRIGGER_FULFILLED, SAVE_TRIGGER } from "../constants/action-types";
+import { SET_DEFAULT_TRIGGER, SET_GROUP_TRIGGER_EVENT, SET_DEFAULT_ALWAYS_TRIGGER, REMOVE_TRIGGER, SET_DEFAULT_UNKNOWN_TRIGGER, SET_DEFAULT_UNKNOWN_BTN_TRIGGER, SET_AS_ARGUMENT_TRIGGER, FETCH_NODE_GROUP_TRIGGERS, FETCH_NODE_GROUP_TRIGGERS_FULFILLED, FETCH_NODE_GROUP_TRIGGERS_REJECTED, UPDATE_TRIGGER_NAME, ADD_TRIGGER_FULFILLED, SAVE_TRIGGER } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
@@ -70,6 +70,14 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             });
 
             return state.setIn(['nodegrouptriggers', action.payload.get('group_id'), indexOfListingToUpdate, 'default_unknown'], action.payload.get('default_unknown'));
+        }
+
+        case SET_AS_ARGUMENT_TRIGGER: {
+            const indexOfListingToUpdate = state.get('nodegrouptriggers').get( action.payload.get('group_id') ).findIndex(listing => {
+                return listing.get('id') === action.payload.get('id');
+            });
+
+            return state.setIn(['nodegrouptriggers', action.payload.get('group_id'), indexOfListingToUpdate, 'as_argument'], action.payload.get('as_argument'));
         }
 
         case SET_DEFAULT_UNKNOWN_BTN_TRIGGER: {

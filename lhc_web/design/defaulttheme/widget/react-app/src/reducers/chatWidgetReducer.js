@@ -44,6 +44,7 @@ const initialState = fromJS({
     proactive : {'pending' : false, 'has' : false, data : {}}, // Proactive invitation data holder
     lang : '',
     bot_id : '',
+    trigger_id : '',
     operator : '',
     priority : null,
     ses_ref : null,
@@ -96,6 +97,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'theme':
         case 'jsVars':
         case 'bot_id':
+        case 'trigger_id':
         case 'priority':
         case 'lang': {
             return state.set(action.type,action.data);
