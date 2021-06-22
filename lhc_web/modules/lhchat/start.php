@@ -120,6 +120,7 @@ $tpl->set('survey',$Params['user_parameters_unordered']['survey'] != '' ? $Param
 $tpl->set('priority',$Params['user_parameters_unordered']['priority'] != '' ? $Params['user_parameters_unordered']['priority'] : null);
 $tpl->set('operator',$Params['user_parameters_unordered']['operator'] != '' ? (int)$Params['user_parameters_unordered']['operator'] : null);
 $tpl->set('bot',$Params['user_parameters_unordered']['bot'] != '' ? (int)$Params['user_parameters_unordered']['bot'] : null);
+$tpl->set('trigger',$Params['user_parameters_unordered']['trigger'] != '' ? (int)$Params['user_parameters_unordered']['trigger'] : null);
 $tpl->set('online',$online);
 $tpl->set('font_size',$Params['user_parameters_unordered']['fs'] != '' ? (int)$Params['user_parameters_unordered']['fs'] : null);
 $tpl->set('mode',$Params['user_parameters_unordered']['mode'] != '' && in_array($Params['user_parameters_unordered']['mode'],['embed','popup','widget']) ? $Params['user_parameters_unordered']['mode']  : 'popup');

@@ -16,6 +16,7 @@ $inputData->username = '';
 $inputData->phone = '';
 $inputData->product_id = '';
 $inputData->bot_id = '';
+$inputData->trigger_id = '';
 $inputData->validate_start_chat = $inputData->validate_start_chat = isset($requestPayload['mode']) && $requestPayload['mode'] == 'popup' ? true : false;
 $inputData->priority = (isset($requestPayload['fields']['priority']) && is_numeric($requestPayload['fields']['priority'])) ? (int)$requestPayload['fields']['priority'] : false;
 $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['onlyBotOnline'] : 0;
@@ -339,6 +340,8 @@ if (empty($Errors)) {
             $paramsExecution['trigger_id'] = $requestPayload['bpayload']['id'];
             $paramsExecution['trigger_payload_id'] = $requestPayload['bpayload']['payload'];
             $paramsExecution['processed'] = $requestPayload['bpayload']['processed'];
+        } else if (is_numeric($inputData->trigger_id)) {
+            $paramsExecution['trigger_id'] = $inputData->trigger_id;
         }
 
         if (!(isset($requestPayload['ignore_bot']) && $requestPayload['ignore_bot'] == true) && !(isset($additionalParams['payload_data']['ignore_bot']) && $additionalParams['payload_data']['ignore_bot'] == true)) {

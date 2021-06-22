@@ -76,6 +76,10 @@ class StartChat extends Component {
             fields['bot_id'] = this.props.chatwidget.get('bot_id');
         }
 
+        if (this.props.chatwidget.get('trigger_id') != '') {
+            fields['trigger_id'] = this.props.chatwidget.get('trigger_id');
+        }
+
         if (this.props.chatwidget.get('operator') != '') {
             fields['operator'] = this.props.chatwidget.get('operator');
         }
@@ -203,6 +207,7 @@ class StartChat extends Component {
             'pvhash' : this.props.chatwidget.get('pvhash'),
             'phash' : this.props.chatwidget.get('phash'),
             'bot_id' : this.props.chatwidget.get('bot_id'),
+            'trigger_id' : this.props.chatwidget.get('trigger_id'),
             'vid' : this.props.chatwidget.get('vid'),
             'dep_default' : (dep_default || this.props.chatwidget.get('departmentDefault') || 0),
             'online' : 1
@@ -282,6 +287,10 @@ class StartChat extends Component {
 
             if (props.chatwidget.get('bot_id') != '') {
                 fields['bot_id'] = props.chatwidget.get('bot_id');
+            }
+
+            if (props.chatwidget.get('trigger_id') != '') {
+                fields['trigger_id'] = props.chatwidget.get('trigger_id');
             }
 
             if (props.chatwidget.get('operator') != '') {

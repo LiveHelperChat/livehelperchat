@@ -64,6 +64,10 @@
             $params['bot_id'] = (int)$bot;
         }
 
+        if (isset($trigger) && is_numeric($trigger)) {
+            $params['trigger_id'] = (int)$trigger;
+        }
+
         if (isset($custom_fields)) {
             $params['CUSTOM_FIELDS'] = $custom_fields;
         }

@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit the question');?> - <?php echo htmlspecialchars($question->question)?></h1>
+<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('questionary/edit','Edit the question');?> - <?php echo htmlspecialchars($question->question)?></h1>
 
 <div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->

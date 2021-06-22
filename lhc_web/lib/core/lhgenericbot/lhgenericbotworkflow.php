@@ -224,7 +224,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('msg' => $msg)));
+                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('chat' => $chat, 'msg' => $msg)));
                 if (!is_array($responseTrigger) || !isset($responseTrigger['ignore_trigger']) || $responseTrigger['ignore_trigger'] === false) {
                     return;
                 }
@@ -314,7 +314,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('msg' => $msg)));
+            $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat, 'msg' => $msg)));
 
             if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
                 self::setLastMessageId($chat, $message->id, true);
@@ -349,7 +349,7 @@ class erLhcoreClassGenericBotWorkflow {
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
                 
-                self::processTrigger($chat, $event->trigger, true, array('args' => array('msg' => $msg)));
+                self::processTrigger($chat, $event->trigger, true, array('args' => array('chat' => $chat, 'msg' => $msg)));
 
                 self::$currentAlwaysEvent = $event;
 
@@ -1820,7 +1820,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $message = self::sendAsUser($chat, $messageClick);
                         }
 
-                        $messageTrigger = self::processTrigger($chat, $trigger);
+                        $messageTrigger = self::processTrigger($chat, $trigger, false,array('args' => array('msg' => $messageClick, 'chat' => $chat)));
 
                         if ($messageTrigger instanceof erLhcoreClassModelmsg)
                         {

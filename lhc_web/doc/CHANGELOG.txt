@@ -1,3 +1,13 @@
+3.73v
+
+1. Option to pass trigger_id as argument. Usefull in case you want to make some test on production.
+2. You can now use in JSON payload Rest API call raw_{{lhc.id}} within quotes.
+3. CSV export for chats listings.
+4. UL,OL styling options. See bbcode documentation for a syntax.
+5. Option to change font size from the widget. Can be activated in widget themes.
+
+execute doc/update_db/update_244.sql for update
+
 3.72v
 
 1. Security fix for https://huntr.dev/bounties/1-LiveHelperChat/livehelperchat/
