@@ -102,6 +102,14 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(survey)/" + this.attributes['survey'];
             }
 
+            if (this.attributes['bot_id']) {
+                urlArgumetns = urlArgumetns + "/(bot)/" + this.attributes['bot_id'];
+            }
+
+            if (this.attributes['trigger_id']) {
+                urlArgumetns = urlArgumetns + "/(trigger)/" + this.attributes['trigger_id'];
+            }
+
             if (this.attributes['priority']) {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }
