@@ -219,6 +219,19 @@ export function setDefaultUnknownTrigger(obj) {
     }
 }
 
+export function setAsArgumentTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_AS_ARGUMENT_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setasargument/" + obj.get('id') + '/' +  obj.get('as_argument'))
+                .then((response) => {
+                dispatch({type: "SET_AS_ARGUMENT_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_AS_ARGUMENT__REJECTED", payload: err})
+        })
+    }
+}
+
 export function setDefaultUnknownBtnTrigger(obj) {
     return function(dispatch) {
         dispatch({type: "SET_DEFAULT_UNKNOWN_BTN_TRIGGER", payload : obj});

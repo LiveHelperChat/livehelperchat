@@ -35,6 +35,7 @@ class OfflineChat extends Component {
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
             'bot_id' : this.props.chatwidget.get('bot_id'),
+            'trigger_id' : this.props.chatwidget.get('trigger_id'),
             'online' : 0,
             'dep_default' : (dep_default || this.props.chatwidget.get('departmentDefault') || 0),
         }));

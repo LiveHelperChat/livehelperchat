@@ -155,6 +155,7 @@ class erLhcoreClassChatValidator {
         $validationFields['HasProductID'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean');
         $validationFields['keyUpStarted'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['bot_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
+        $validationFields['trigger_id'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1));
         $validationFields['tag'] = new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'string');
 
         $validationFields['name_items'] = new ezcInputFormDefinitionElement(
@@ -415,6 +416,10 @@ class erLhcoreClassChatValidator {
 
         if ($form->hasValidData( 'bot_id' )) {
         	$inputForm->bot_id = $form->bot_id;
+        }
+        
+        if ($form->hasValidData( 'trigger_id' )) {
+        	$inputForm->trigger_id = $form->trigger_id;
         }
 
         if ($form->hasValidData( 'ProductIDDefined' )) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup, setAsArgumentTrigger } from "../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -20,6 +20,7 @@ class NodeGroupTrigger extends Component {
         this.setDefaultUnknownTrigger = this.setDefaultUnknownTrigger.bind(this);
         this.setDefaultUnknownBtnTrigger = this.setDefaultUnknownBtnTrigger.bind(this);
         this.setDefaultAlwaysTrigger = this.setDefaultAlwaysTrigger.bind(this);
+        this.setAsArgumentTrigger = this.setAsArgumentTrigger.bind(this);
         this.changeGroup = this.changeGroup.bind(this);
         this.makeCopy = this.makeCopy.bind(this);
     }
@@ -35,6 +36,11 @@ class NodeGroupTrigger extends Component {
     setDefaultTrigger(e) {
         const value = e.target.checked;
         this.props.dispatch(setDefaultTrigger(this.props.trigger.set('default',value == true ? 1 : 0)));
+    }
+
+    setAsArgumentTrigger(e) {
+        const value = e.target.checked;
+        this.props.dispatch(setAsArgumentTrigger(this.props.trigger.set('as_argument',value == true ? 1 : 0)));
     }
 
     setDefaultUnknownTrigger(e) {
@@ -125,10 +131,11 @@ class NodeGroupTrigger extends Component {
                             <li className="dropdown-item"><a href="#" onClick={this.makeCopy}><i class="material-icons">file_copy</i> Copy</a></li>
                             <li className="dropdown-item"><a href="#" onClick={(e) => this.changeGroup(!this.state.changingGroup)}><i class="material-icons">home</i> Change group</a></li>
                             <div className="dropdown-divider"></div>
-                            <li className="dropdown-item"><label title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} />Default</label></li>
-                            <li className="dropdown-item"><label title="This message will be send to visitor then we could dot determine what we should do with a visitor message"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} />Default for unknown message</label></li>
-                            <li className="dropdown-item"><label title="This message will be send to visitor then we could dot determine what we should do with a button click"><input onChange={this.setDefaultUnknownBtnTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown_btn')} />Default for unknown button click</label></li>
-                            <li className="dropdown-item"><label title="This trigger will be always checking independently in what process we are"><input onChange={this.setDefaultAlwaysTrigger} type="checkbox" checked={this.props.trigger.get('default_always')} />Execute always</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This message will be send tu visitor then chat starts"><input onChange={this.setDefaultTrigger} type="checkbox" checked={this.props.trigger.get('default')} /> Default</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a visitor message"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} /> Default for unknown message</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a button click"><input onChange={this.setDefaultUnknownBtnTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown_btn')} /> Default for unknown button click</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This trigger will be always checking independently in what process we are"><input onChange={this.setDefaultAlwaysTrigger} type="checkbox" checked={this.props.trigger.get('default_always')} /> Execute always</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This trigger ID can be passed as argument trigger_id. Reffer to integration documentation"><input onChange={this.setAsArgumentTrigger} type="checkbox" checked={this.props.trigger.get('as_argument')} /> Can be passed as argument <b>{this.props.trigger.get('id')}</b></label></li>
                         </ul>
                     </div>
 
