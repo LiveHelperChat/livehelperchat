@@ -417,7 +417,7 @@ class erLhcoreClassChatValidator {
         if ($form->hasValidData( 'bot_id' )) {
         	$inputForm->bot_id = $form->bot_id;
         }
-        
+
         if ($form->hasValidData( 'trigger_id' )) {
         	$inputForm->trigger_id = $form->trigger_id;
         }
@@ -1815,6 +1815,12 @@ class erLhcoreClassChatValidator {
                 {
                     if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
                         $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
+
+                        // Trigger can be passed only if it supports it
+                        if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger && $botTrigger->as_argument == 0) {
+                            $botTrigger = null;
+                        }
+
                     } else {
                         $botIds = $bot->getBotIds();
                         // Find default messages if there are any
