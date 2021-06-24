@@ -619,6 +619,8 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     if (is_array($Params['user_parameters_unordered']['pendingmu']) && !empty($Params['user_parameters_unordered']['pendingmu'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['pendingmu']);
         $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['pendingmu'];
+    } elseif ($showAllPending == 0) {
+        $additionalFilter['filter']['user_id'] = $currentUser->getUserID();
     }
 
     if (is_array($Params['user_parameters_unordered']['pendingmd']) && !empty($Params['user_parameters_unordered']['pendingmd'])) {
