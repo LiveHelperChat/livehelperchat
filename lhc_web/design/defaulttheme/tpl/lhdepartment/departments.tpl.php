@@ -14,6 +14,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Overloaded');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Archived');?></th>
     <th width="1%">&nbsp;</th>
+    <th width="1%">&nbsp;</th>
 </tr>
 </thead>
 <?php foreach ($items as $departament) : ?>
@@ -27,6 +28,7 @@
         <td><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

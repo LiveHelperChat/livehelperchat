@@ -20,6 +20,11 @@ $ViewList['edit'] = array(
     'functions' => array( 'edit' )
 );
 
+$ViewList['clone'] = array(
+    'params' => array('departament_id'),
+    'functions' => array( 'edit' )
+);
+
 $ViewList['index'] = array(
     'params' => array(),
     'functions' => array( 'list' )
