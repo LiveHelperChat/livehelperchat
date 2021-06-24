@@ -9,18 +9,20 @@ if ((string)$Params['user_parameters_unordered']['action'] == 'statusdb' || (str
 
 	$tpl = erLhcoreClassTemplate::getInstance( 'lhsystem/update/statusdb.tpl.php');
 	
-	if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == false) {
+	if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == false && $Params['user_parameters_unordered']['scope'] !== 'local') {
 	   $contentData = erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json');
 	} else {
+       $Params['user_parameters_unordered']['scope'] = 'local';
 	   $contentData = file_get_contents('doc/update_db/structure.json');
 	}
 	
-	if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate'){	
-		erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
-	}
-		
+    if ((string)$Params['user_parameters_unordered']['action'] == 'statusdbdoupdate') {
+        erLhcoreClassUpdate::doTablesUpdate(json_decode($contentData,true));
+    }
+
 	$tables = erLhcoreClassUpdate::getTablesStatus(json_decode($contentData,true));
 	$tpl->set('tables',$tables);
+	$tpl->set('scope',$Params['user_parameters_unordered']['scope']);
 	echo json_encode(array('result' => $tpl->fetch()));
 	exit;
 }

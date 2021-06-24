@@ -5,7 +5,13 @@
 
 <div class="row" id="db-status-checked">
 	<div class="col-md-12 form-group">
-		<h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check')?></h3>
+
+        <?php if (isset($scope) && $scope == 'local') : ?>
+            <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check with local version')?></h3>
+        <?php else : ?>
+            <h3><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Database structure check with official version')?></h3>
+        <?php endif; ?>
+
 		<ul>
 		<?php 
 		$hasError = false;
@@ -23,7 +29,7 @@
 		<?php endif; ?>
 		
 		<?php if ($hasError) : ?>
-		<a class="btn btn-primary" onclick="updateDatabase()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
+		<a class="btn btn-primary" onclick="updateDatabase(<?php $scope == 'local' ? print "'local'" : print "''"?>)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('update/statusdb','Update database')?></a>
 		<?php endif;?>
 
 	</div>
