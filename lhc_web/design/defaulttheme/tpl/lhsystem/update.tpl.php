@@ -13,19 +13,26 @@
 		
 	</div>
 	<div class="col-md-8">
+        <button type="button" class="btn btn-secondary btn-xs" onclick="compareLocal()">Click to compare with local definition</button>
 		<div id="status-db"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Comparing current database structure, please wait...')?></div>
 	</div>
 </div>
 
 
 <script>
-function updateDatabase() {
+function updateDatabase(scope) {
 	$('#db-status-checked').hide();
 	$('#db-status-updating').show();		
-	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate',function(data){
+	$.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdbdoupdate' + (scope != '' ? '/(scope)/local' : ''),function(data){
         $('#status-db').html(data.result);            
     }); 
 };
+
+function compareLocal() {
+    $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb/(scope)/local',function(data){
+        $('#status-db').html(data.result);
+    });
+}
 
 (function() {
 	

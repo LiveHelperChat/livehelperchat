@@ -1,9 +1,19 @@
 <?php 
 
+// Update database using official definition from github
 // php cron.php -s site_admin -c cron/util/update_database
 
-$jsonObject = json_decode(erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json'),true);
+// Update database using local definition
+// php cron.php -s site_admin -c cron/util/update_database -p local
+
 $localFile = false;
+
+if ($cronjobPathOption->value == 'local') {
+    $jsonObject = json_decode(file_get_contents('doc/update_db/structure.json'), true);
+    $localFile = true;
+} else {
+    $jsonObject = json_decode(erLhcoreClassModelChatOnlineUser::executeRequest('https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/doc/update_db/structure.json'),true);
+}
 
 if (!is_array($jsonObject)) {
     $localFile = true;
