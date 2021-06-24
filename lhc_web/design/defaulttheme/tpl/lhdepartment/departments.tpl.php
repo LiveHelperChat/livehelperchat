@@ -20,7 +20,7 @@
 <?php foreach ($items as $departament) : ?>
     <tr>
         <td><?php echo $departament->id?></td>
-        <td><?php echo htmlspecialchars($departament->name)?></td>
+        <td title="<?php echo $departament->sort_priority?>"><?php echo htmlspecialchars($departament->name)?></td>
         <td><?php echo htmlspecialchars($departament->email)?></td>
         <td><?php if ($departament->hidden == 1) : ?><span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
