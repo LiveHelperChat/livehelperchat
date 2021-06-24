@@ -32,7 +32,7 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelDepartament::getList(array_merge($filterParams['filter'],$departmentParams,array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC')));
+    $items = erLhcoreClassModelDepartament::getList(array_merge($filterParams['filter'],$departmentParams,array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'sort_priority ASC, id ASC')));
 }
 
 $tpl->set('items',$items);
