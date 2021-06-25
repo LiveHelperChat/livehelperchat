@@ -97,6 +97,7 @@ const GroupChat = props => {
         if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
             whoisHot.classList.remove("d-none");
             ee.emitEvent('supportUnreadChat', [{id:chat_id,unread:true}]);
+            playSoundMessage();
             hotSet = true;
         }
 
@@ -104,8 +105,13 @@ const GroupChat = props => {
             tab = document.getElementById('private-chat-tab-link-'+chat_id);
             if (tab !== null && length > 1 && !tab.classList.contains('active') && (whoisHot = tab.querySelector('.whatshot')) !== null) {
                 whoisHot.classList.remove("d-none");
+                playSoundMessage();
             }
         }
+    }
+
+    const playSoundMessage = () => {
+        lhinst.playNewMessageSound();
     }
 
     useEffect(() => {
@@ -115,6 +121,7 @@ const GroupChat = props => {
             var tab = document.getElementById('chat-tab-link-gc'+props.chatId);
             if (tab && state.messages.length > 1 && !tab.classList.contains('active')) {
                 tab.querySelector('.whatshot').classList.remove("d-none");
+                playSoundMessage();
             }
         } else {
             setUnreadSupportChat(props.chatPublicId, state.messages.length);
