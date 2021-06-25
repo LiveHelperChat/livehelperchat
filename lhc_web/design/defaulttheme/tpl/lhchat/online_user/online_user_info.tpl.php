@@ -41,7 +41,7 @@
 <ul class="list-unstyled" ng-non-bindable>
 
     <?php if ($online_user->dep_id > 0) : ?>
-        <li>Department - <?php echo htmlspecialchars(erLhcoreClassModelDepartament::fetch($online_user->dep_id))?></li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Department');?> - <?php echo htmlspecialchars(erLhcoreClassModelDepartament::fetch($online_user->dep_id))?></li>
     <?php endif; ?>
 
     <li><i class="material-icons">face</i><?php if ($online_user->message_seen == 0) : ?><?php if ($online_user->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?></li>
