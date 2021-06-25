@@ -6,6 +6,7 @@ import i18n from "./components/i18n/i18n";
 const CannedMessages = React.lazy(() => import('./components/CannedMessages'));
 const MailChat = React.lazy(() => import('./components/MailChat'));
 const DashboardChatTabs = React.lazy(() => import('./components/DashboardChatTabs'));
+const GroupChat = React.lazy(() => import('./components/GroupChat'));
 
 // set webpack loading path
 __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
