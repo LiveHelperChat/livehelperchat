@@ -17,6 +17,12 @@ $ViewList['getchatdata'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['sendmassmessage'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['singleaction'] = array(
     'params' => array('chat_id','action'),
     'uparams' => array(),

@@ -73,8 +73,7 @@ if ($userDepartments !== true){
 
 if ($is_ajax == true) {
     $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1)));
-    
-    header('content-type: application/json; charset=utf-8');
+
 	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
 	
 	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
@@ -95,8 +94,15 @@ if ($is_ajax == true) {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
 
 	erLhcoreClassChat::prefillGetAttributes($items,$attributes,$attributes_remove,array('do_not_clean' => true, 'additional_columns' => $columnsAdditional));
-	
-	echo json_encode(array_values($items));
+
+	if (isset($_GET['view']) && $_GET['view'] == 'html') {
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers/items.tpl.php');
+        $tpl->set('items',$items);
+        echo $tpl->fetch();
+    } else {
+        header('content-type: application/json; charset=utf-8');
+        echo json_encode(array_values($items));
+    }
 	exit;
 }
 

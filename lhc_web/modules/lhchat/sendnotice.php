@@ -9,7 +9,7 @@ $tpl->set('visitor',$visitor);
 $tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
 if ( isset($_POST['SendMessage']) ) {
-    
+
     $validationFields = array();
     $validationFields['Message'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresEmail'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
@@ -146,6 +146,7 @@ if ( isset($_POST['SendMessage']) ) {
                 $chat->user_tz_identifier = $visitor->visitor_tz;
                 $chat->device_type = $visitor->device_type - 1;
                 $chat->uagent = $visitor->user_agent;
+                $chat->dep_id = $visitor->dep_id;
                 
                 erLhcoreClassModelChat::detectLocation($chat, $visitor->vid);
                 $chat->saveThis();
