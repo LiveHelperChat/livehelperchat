@@ -6,7 +6,9 @@ try {
 	// Start session if required only
 	$currentUser = erLhcoreClassUser::instance();
 
-    $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);
+	if ($Params['user_parameters']['identifier'] != 'online_connected') {
+        $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);
+    }
 
     // Never trust user input    
     if (!isset($Params['user_parameters_unordered']['indifferent'])){

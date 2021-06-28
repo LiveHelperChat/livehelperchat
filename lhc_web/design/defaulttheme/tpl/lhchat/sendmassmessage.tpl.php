@@ -76,6 +76,10 @@
                         </select>
                     </div>
 
+                    <div class="col-12 mt-2">
+                        <label><input type="checkbox" value="on" id="mass-only-online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected');?></label>
+                    </div>
+
                 </div>
                 <?php $sendNoticeParams = array(
                     'mode' => 'mass'
@@ -99,12 +103,21 @@
 
                             if ($('#mass_check_all').is(':checked')) {
                                 $('.online-user-filter-row-check').prop('checked','checked');
+                                $('.filter-online-active .online-user-filter-row:not(.online_user) .online-user-filter-row-check').prop('checked',false);
                             }
 
                             updateCounter();
                             $('.online-user-filter-row-check').change(function(){
                                 updateCounter();
+                            });
+
+                            var items = [];
+                            $('.mass-vid-list').each(function(){
+                                items.push($( this ).val());
                             })
+
+                            ee.emitEvent('chatAdminIsOnline', [items]);
+
                         })
                     }
 
@@ -125,7 +138,19 @@
                        } else {
                            $('.online-user-filter-row-check').prop('checked', false);
                        }
+
+                       $('.filter-online-active .online-user-filter-row:not(.online_user) .online-user-filter-row-check').prop('checked',false);
+
                        updateCounter();
+                    });
+
+                    $('#mass-only-online').change( function() {
+                        if ($(this).is(':checked')) {
+                            $('#online-visitors-filtered').addClass('filter-online-active');
+                        } else {
+                            $('#online-visitors-filtered').removeClass('filter-online-active');
+                        }
+                        updateCounter();
                     });
 
 

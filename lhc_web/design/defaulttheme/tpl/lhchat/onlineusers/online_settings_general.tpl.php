@@ -13,6 +13,7 @@ $oTimeOnSite = $oTimeOnSite == 'none' ? '' : $oTimeOnSite;
 
 $omapDepartment = (int)erLhcoreClassModelUserSetting::getSetting('omap_depid',0);
 $omapMarkerTimeout = (int)erLhcoreClassModelUserSetting::getSetting('omap_mtimeout',30);
+$onlineVisitorOnly = (int)erLhcoreClassModelUserSetting::getSetting('online_connected',0);
 
 ?>
 

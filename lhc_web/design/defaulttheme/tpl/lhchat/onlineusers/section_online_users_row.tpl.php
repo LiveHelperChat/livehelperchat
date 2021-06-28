@@ -1,4 +1,4 @@
-<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" id="uo-vid-{{ou.vid}}" ng-class="{<?php echo $onlineCheck?>}">
+<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" id="uo-vid-{{ou.vid}}" class="online-user-filter-row" ng-class="{<?php echo $onlineCheck?>}">
     	<td nowrap width="1%">
         	<div>
                 {{ou.lastactivity_ago}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><br/>

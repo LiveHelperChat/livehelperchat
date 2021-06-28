@@ -1906,3 +1906,7 @@ html {
 .system-warning{
     color: #dc3545;
 }
+
+.filter-online-active .online-user-filter-row:not(.online_user){
+    display: none;
+}
