@@ -49,6 +49,8 @@ class erLhAbstractModelAutoResponderChat
                 $msg->time = time();
                 erLhcoreClassChat::getSession()->save($msg);
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $this->chat));
+
                 $this->chat->last_msg_id = $msg->id;
                 $this->chat->updateThis(array('update' => array('last_msg_id')));
             }
@@ -72,6 +74,8 @@ class erLhAbstractModelAutoResponderChat
                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;
                 $msg->time = time();
                 erLhcoreClassChat::getSession()->save($msg);
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $this->chat));
 
                 $this->chat->last_msg_id = $msg->id;
                 $this->chat->updateThis(array('update' => array('last_msg_id')));
