@@ -37,6 +37,9 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 $payload = $params['msg_text'];
             }
 
+            // RAW visitor payload message
+            $payloadVisitor = $payload;
+
             // Override search payload
             if (isset($action['content']['text']) && !empty($action['content']['text'])) {
                 $payload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
@@ -56,6 +59,23 @@ class erLhcoreClassGenericBotActionMatch_actions {
 
             if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
                 $event = erLhcoreClassGenericBotWorkflow::findEvent($payload, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+            }
+
+            if (isset($action['content']['check_visitor_msg']) && $action['content']['check_visitor_msg'] == true && isset($action['content']['check_visitor_first']) && $action['content']['check_visitor_first'] == true) {
+                $eventVisitor = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
+                if (!($eventVisitor instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
+                    $eventVisitor = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+                }
+
+                if ($eventVisitor instanceof erLhcoreClassModelGenericBotTriggerEvent) {
+                    $event = $eventVisitor;
+                }
+
+            } else if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent) && isset($action['content']['check_visitor_msg']) && $action['content']['check_visitor_msg'] == true) {
+                $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($payloadVisitor, $chat->gbot_id, $filter, array('dep_id' => $chat->dep_id));
+                if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)) {
+                    $event = erLhcoreClassGenericBotWorkflow::findEvent($payloadVisitor, $chat->gbot_id, 0, $filter, array('dep_id' => $chat->dep_id));
+                }
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
