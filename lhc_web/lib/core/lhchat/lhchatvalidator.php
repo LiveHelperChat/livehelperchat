@@ -1829,7 +1829,7 @@ class erLhcoreClassChatValidator {
 
                     if ($botTrigger instanceof erLhcoreClassModelGenericBotTrigger && (!isset($params['trigger_id_executed']) || $params['trigger_id_executed'] != $botTrigger->id)) {
 
-                        // set flag that we are executing everthing in start chat mode
+                        // set flag that we are executing everything in start chat mode
                         erLhcoreClassGenericBotWorkflow::$startChat = true;
 
                         if (isset($params['msg']) && $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {

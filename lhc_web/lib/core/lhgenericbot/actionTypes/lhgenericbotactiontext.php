@@ -13,7 +13,11 @@ class erLhcoreClassGenericBotActionText {
         }
 
         // Send only once
-        if (isset($action['content']['attr_options']['on_start_chat']) && $action['content']['attr_options']['on_start_chat'] == true && erLhcoreClassGenericBotWorkflow::$startChat == true)
+        if (isset($action['content']['attr_options']['on_start_chat']) && $action['content']['attr_options']['on_start_chat'] == true &&
+            (
+                erLhcoreClassGenericBotWorkflow::$startChat == true || (isset($params['start_mode']) && $params['start_mode'] == true)
+            )
+        )
         {
             $triggersProcessed[] = $trigger->id;
         }
