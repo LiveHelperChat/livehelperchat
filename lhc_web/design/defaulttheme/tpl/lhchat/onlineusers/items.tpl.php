@@ -1,7 +1,7 @@
 <table class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0">
 
 <?php foreach ($items as $item) : ?>
-    <tr class="online-user-filter-row">
+    <tr class="online-user-filter-row<?php $item->last_visit_seconds_ago < 15 ? print ' recent-visit' : ''?><?php $item->last_check_time_ago < 293 ? print ' online_user' : ''?>">
         <td style="width: 20px"><input name="receivesNotification[]" class="online-user-filter-row-check" type="checkbox" value="<?php echo $item->id?>"></td>
         <td>
             <div class="btn-group" role="group" aria-label="...">
