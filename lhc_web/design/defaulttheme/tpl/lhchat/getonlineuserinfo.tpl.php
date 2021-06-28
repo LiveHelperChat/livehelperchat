@@ -1,5 +1,7 @@
+<?php if (!isset($popup)) : ?>
 <?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Online profile')?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
+<?php endif; ?>
 
 <a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs12"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
 
@@ -75,5 +77,6 @@
     </div>
 </div>
 
-
+<?php if (!isset($popup)) : ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+<?php endif; ?>

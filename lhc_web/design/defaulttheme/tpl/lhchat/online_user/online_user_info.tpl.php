@@ -38,7 +38,12 @@
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?> <?php echo htmlspecialchars($online_user->lastactivity_ago)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago');?><?php $timeoutOnPage = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value; if ($timeoutOnPage > 0) : ?>,<br/><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','On page');?> - <?php if ($online_user->last_check_time_ago < ($timeoutOnPage+3)) : ?><i class="icon-user-status material-icons icon-user-online" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Yes')?>">face</i><?php else : ?><i class="icon-user-status material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','No')?>">face</i><?php endif;?></b><?php endif;?></h5>
 
-<ul class="list-unstyled">
+<ul class="list-unstyled" ng-non-bindable>
+
+    <?php if ($online_user->dep_id > 0) : ?>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Department');?> - <?php echo htmlspecialchars(erLhcoreClassModelDepartament::fetch($online_user->dep_id))?></li>
+    <?php endif; ?>
+
     <li><i class="material-icons">face</i><?php if ($online_user->message_seen == 0) : ?><?php if ($online_user->operator_message == '') : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User have not seen message from operator, or message window still open.');?><?php endif; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen message from operator.');?><?php endif; ?></li>
     <li>
     <?php if ($online_user->chat_id > 0) : ?>
