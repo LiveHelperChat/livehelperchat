@@ -114,7 +114,7 @@
                             var items = [];
                             $('.mass-vid-list').each(function(){
                                 items.push($( this ).val());
-                            })
+                            });
 
                             ee.emitEvent('chatAdminIsOnline', [items]);
 
