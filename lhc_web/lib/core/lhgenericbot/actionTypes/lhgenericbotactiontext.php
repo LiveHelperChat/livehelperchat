@@ -7,7 +7,14 @@ class erLhcoreClassGenericBotActionText {
         static $triggersProcessed = array();
 
         // Message should be send only on start chat event, but we are not in start chat mode
-        if (in_array($trigger->id, $triggersProcessed) || isset($action['content']['attr_options']['on_start_chat']) && $action['content']['attr_options']['on_start_chat'] == true && erLhcoreClassGenericBotWorkflow::$startChat == false)
+        if (
+            in_array($trigger->id, $triggersProcessed) ||
+            (isset($action['content']['attr_options']['on_start_chat']) && $action['content']['attr_options']['on_start_chat'] == true &&
+                (
+                    erLhcoreClassGenericBotWorkflow::$startChat == false && !(isset($params['start_mode']) && $params['start_mode'] == true)
+                )
+            )
+        )
         {
             return;
         }

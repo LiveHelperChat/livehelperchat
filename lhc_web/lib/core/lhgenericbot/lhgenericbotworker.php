@@ -122,7 +122,7 @@ class erLhcoreClassLHCBotWorker
                             } else {
                                 $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
                             }
-
+                            
                             if (isset($params['start_mode']) && $params['start_mode'] == true) {
                                 $argsDefault['args']['start_mode'] = true;
                             }

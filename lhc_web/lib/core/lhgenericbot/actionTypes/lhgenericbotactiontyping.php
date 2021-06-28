@@ -15,15 +15,18 @@ class erLhcoreClassGenericBotActionTyping {
             (isset($action['content']['untill_message']) && $action['content']['untill_message'] == true)
         )
         {
-
             // Message should be send only on start chat event, but we are not in start chat mode
-            if (in_array($trigger->id, $triggersProcessed) || isset($action['content']['on_start_chat']) && $action['content']['on_start_chat'] == true && erLhcoreClassGenericBotWorkflow::$startChat == false)
+            if (in_array($trigger->id, $triggersProcessed) || isset($action['content']['on_start_chat']) && $action['content']['on_start_chat'] == true && (erLhcoreClassGenericBotWorkflow::$startChat == false && !(isset($params['start_mode']) && $params['start_mode'] == true)))
             {
                 return;
             }
 
             // Send only once
-            if (isset($action['content']['on_start_chat']) && $action['content']['on_start_chat'] == true && erLhcoreClassGenericBotWorkflow::$startChat == true)
+            if (isset($action['content']['on_start_chat']) && $action['content']['on_start_chat'] == true &&
+                (
+                    erLhcoreClassGenericBotWorkflow::$startChat == true || (isset($params['start_mode']) && $params['start_mode'] == true)
+                )
+            )
             {
                 $triggersProcessed[] = $trigger->id;
             }
