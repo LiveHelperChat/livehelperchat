@@ -24,6 +24,7 @@ class erLhcoreClassChatExport {
         $counter = 0;
         foreach ($messages as $message) {
             $values = $message->getState();
+            $values['tags_plain'] = $message->tags_plain;
             if ($counter == 0) {
                 fputcsv($fp, array_keys($values));
             }
