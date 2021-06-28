@@ -829,6 +829,11 @@ class erLhcoreClassUserValidator {
                 null,
                 FILTER_REQUIRE_ARRAY
             ),
+            'DepartmentGroups' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',
+                null,
+                FILTER_REQUIRE_ARRAY
+            ),
             'field' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',
                 null,
@@ -854,6 +859,12 @@ class erLhcoreClassUserValidator {
             $settings['dep_id'] = $form->DepartmentGroup;
         } else {
             $settings['dep_id'] = array();
+        }
+
+        if ( $form->hasValidData( 'DepartmentGroups' )) {
+            $settings['dep_group_id'] = $form->DepartmentGroups;
+        } else {
+            $settings['dep_group_id'] = array();
         }
 
         if ( $form->hasValidData( 'oneRecordImport' )) {
@@ -908,12 +919,18 @@ class erLhcoreClassUserValidator {
                 $status['updated']++;
             }
 
+            $maxActiveChats = null;
+
             foreach ($configuration['field'] as $attr => $index) {
                 if (is_numeric($index) && $index > 0 && isset($RowData[$configuration['field'][$attr]-1])) {
                     if ($attr == 'password') {
                         $user->setPassword($RowData[$index - 1]);
                     } elseif ($attr == 'all_departments') {
                         $allDepartments = $RowData[$index-1] == 1;
+                    } elseif ($attr == 'max_active_chats') {
+                        $user->max_active_chats = $maxActiveChats = (int)$RowData[$index-1];
+                    } elseif ($attr == 'show_all_pending') {
+                        $show_all_pending = $RowData[$index-1] == 1;
                     } else {
                         $user->{$attr} = $RowData[$index-1];
                     }
@@ -921,6 +938,10 @@ class erLhcoreClassUserValidator {
             }
 
             $user->saveThis();
+
+            if (isset($show_all_pending)) {
+                erLhcoreClassModelUserSetting::setSetting('show_all_pending', (int)$show_all_pending, $user->id);
+            }
 
             if (count($configuration['dep_id']) > 0) {
 
@@ -937,6 +958,19 @@ class erLhcoreClassUserValidator {
                 erLhcoreClassUserDep::addUserDepartaments($configuration['dep_id'], $user->id, $user);
             } else {
                 erLhcoreClassUserDep::addUserDepartaments(array(), $user->id, $user);
+            }
+
+            if (count($configuration['dep_group_id']) > 0) {
+                erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($user, $configuration['dep_group_id']);
+            }
+
+            if (isset($maxActiveChats)) {
+                // Update max active chats directly
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats WHERE user_id = :user_id');
+                $stmt->bindValue(':max_chats', $user->max_active_chats, PDO::PARAM_INT);
+                $stmt->bindValue(':user_id', $user->id, PDO::PARAM_INT);
+                $stmt->execute();
             }
 
             if (count($configuration['user_groups_id']) > 0) {

@@ -63,6 +63,20 @@
 
             <div class="col-3">
                 <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User department group')?></label>
+                    <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                        'input_name'     => 'DepartmentGroups[]',
+                        'selected_id'    => isset($importSettings['dep_group_id']) ? $importSettings['dep_group_id'] : array(),
+                        'multiple' 		 => true,
+                        'css_class'       => 'form-control',
+                        'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList',
+                        'list_function_params'  => array()
+                    )); ?>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','File')?></label>
                     <input type="file" name="file" value="">
                 </div>
@@ -87,7 +101,11 @@
                 'skype' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Skype')),
                 'job_title' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Job title')),
                 'time_zone' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Time Zone')),
-                'invisible_mode' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Invisible'))
+                'invisible_mode' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Invisible')),
+
+                'auto_accept' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Automatically accept assigned chats')),
+                'max_active_chats' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','Maximum active chats')),
+                'show_all_pending' => array('name' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','User can see all pending chats, not only assigned to him')),
             );
         ?>
         <div class="row">

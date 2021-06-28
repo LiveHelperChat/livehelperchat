@@ -16,7 +16,6 @@ setTimeout(function() {
     $('#myModal').modal('hide');
 },2000);
 <?php endif; ?>
-
 </script>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
