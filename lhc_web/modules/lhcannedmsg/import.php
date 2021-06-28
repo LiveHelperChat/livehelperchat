@@ -38,6 +38,7 @@ if (isset($_POST['UploadFileAction'])) {
         unlink($dir . $filename);
 
         $canned = array_keys((new erLhcoreClassModelCannedMsg())->getState());
+        $canned[] = 'tags_plain';
 
         $stats = array(
             'updated' => 0,
@@ -71,6 +72,7 @@ if (isset($_POST['UploadFileAction'])) {
 
                 $cannedMessage->setState($item);
                 $cannedMessage->saveThis();
+
             }
 
             $tpl->set('update', $stats);
