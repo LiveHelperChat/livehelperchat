@@ -81,6 +81,8 @@ class erLhcoreClassLHCBotWorker
                         $params['msg_text'] = $contentArray[0]['content']['msg_text'];
                     }
 
+                    $params['start_mode'] = isset($contentArray[0]['content']['start_mode']) && $contentArray[0]['content']['start_mode'] == true;
+
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
                         'restapi' => & $restAPI,
                         'chat' => $chat
@@ -103,6 +105,12 @@ class erLhcoreClassLHCBotWorker
                                     '{content_4}' => $response['content_4'],
                                     '{content_5}' => $response['content_5'],
                                     '{content_6}' => $response['content_6'],
+                                    '{content_1_json}' => json_encode($response['content']),
+                                    '{content_2_json}' => json_encode($response['content_2']),
+                                    '{content_3_json}' => json_encode($response['content_3']),
+                                    '{content_4_json}' => json_encode($response['content_4']),
+                                    '{content_5_json}' => json_encode($response['content_5']),
+                                    '{content_6_json}' => json_encode($response['content_6']),
                                     '{http_code}' => $response['http_code'],
                                     '{http_error}' => $response['http_error'],
                                     '{content_raw}' => $response['content_raw'],
@@ -113,6 +121,10 @@ class erLhcoreClassLHCBotWorker
                                 $argsDefault['args']['msg'] = $params['msg'];
                             } else {
                                 $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
+                            }
+                            
+                            if (isset($params['start_mode']) && $params['start_mode'] == true) {
+                                $argsDefault['args']['start_mode'] = true;
                             }
 
                             self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], $argsDefault);
@@ -138,6 +150,12 @@ class erLhcoreClassLHCBotWorker
                                     '{content_4}' => $response['content_4'],
                                     '{content_5}' => $response['content_5'],
                                     '{content_6}' => $response['content_6'],
+                                    '{content_1_json}' => json_encode($response['content']),
+                                    '{content_2_json}' => json_encode($response['content_2']),
+                                    '{content_3_json}' => json_encode($response['content_3']),
+                                    '{content_4_json}' => json_encode($response['content_4']),
+                                    '{content_5_json}' => json_encode($response['content_5']),
+                                    '{content_6_json}' => json_encode($response['content_6']),
                                     '{http_code}' => $response['http_code'],
                                     '{http_error}' => $response['http_error'],
                                     '{content_raw}' => $response['content_raw'],
@@ -148,6 +166,10 @@ class erLhcoreClassLHCBotWorker
                             $argsDefault['args']['msg'] = $params['msg'];
                         } else {
                             $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
+                        }
+
+                        if (isset($params['start_mode']) && $params['start_mode'] == true) {
+                            $argsDefault['args']['start_mode'] = true;
                         }
 
                         self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], $argsDefault);

@@ -1922,5 +1922,8 @@ html {
 .default-list{
     margin:0;
     padding:0 0 0 22px;
+}
 
+.filter-online-active .online-user-filter-row:not(.online_user){
+    display: none;
 }

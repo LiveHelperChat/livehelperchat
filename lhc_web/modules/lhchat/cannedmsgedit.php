@@ -22,7 +22,7 @@ if ( isset($_POST['Cancel_action']) ) {
 
 if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 {
-    $previousState = $Msg->getState();
+   $previousState = $Msg->getState();
 
    $Errors = erLhcoreClassAdminChatValidatorHelper::validateCannedMessage($Msg, $userDepartments);
    

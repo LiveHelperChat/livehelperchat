@@ -38,6 +38,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.time_on_site = '';
 		this.reverse = true;
 		this.wasInitiated = false;
+		this.online_connected = false;
 
     	this.forbiddenVisitors = false;
 		this.soundEnabled = false;
@@ -329,6 +330,11 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.disableNewUserBNotif = function() {		
 			that.notificationEnabled = !that.notificationEnabled;		
 			lhinst.changeUserSettings('new_user_bn',that.notificationEnabled == true ? 1 : 0);
+		};
+
+		this.showConnected = function() {
+			that.online_connected = !that.online_connected;
+            lhinst.changeUserSettings('online_connected',that.online_connected == true ? 1 : 0);
 		};
 		
 		this.disableNewUserSound = function() {

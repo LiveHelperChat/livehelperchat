@@ -1,7 +1,6 @@
 <div class="card card-dashboard" data-panel-id="online_visitors" id="widget-onvisitors" ng-class="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true ? 'active' : ''" ng-init="lhc.getToggleWidget('onvisitors_widget_exp')">
 	<div class="card-header">
-        <i class="material-icons mr-0 action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">send</i>
-		<i class="material-icons">face</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?> ({{online.onlineusers.length}})
+        <i class="material-icons action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">send</i><i class="material-icons">face</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?> ({{online.onlineusers.length}})
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('onvisitors_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['onvisitors_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 	</div>
 	<div ng-if="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true" id="widget-onvisitors-body">
@@ -31,9 +30,13 @@
         </div>
 
 	   <div class="panel-list" ng-if="online.onlineusers.length > 0">
-			<table ng-cloak class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
+			<table ng-cloak class="table table-sm mb-0 table-small table-fixed" ng-class="{'filter-online-active' : online.online_connected}"  cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
 				<thead>
-                    <th width="50%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Main information')?></th>
+                    <th width="50%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Main information')?>
+                        <a href="#" ng-click="online.showConnected()" class="text-muted">
+                            <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected');?>">{{online.online_connected ? 'flash_on' : 'flash_off'}}</i>
+                        </a>
+                    </th>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header_online.tpl.php'));?>
                 </thead>
                 <tbody ng-repeat="group in onlineusersGrouped track by group.id">
@@ -41,7 +44,7 @@
 					<tr ng-show="group.label != ''">
 						<td><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
       				</tr>
-					<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" id="uo-vid-{{ou.vid}}" ng-class="{<?php echo $onlineCheck?>}">
+					<tr ng-repeat="ou in group.ou | orderBy:online.predicate:online.reverse | filter:query track by ou.id" id="uo-vid-{{ou.vid}}" class="online-user-filter-row" ng-class="{<?php echo $onlineCheck?>}">
 						<td nowrap="nowrap">
 							<div class="btn-group" role="group" aria-label="...">
 								<a href="#" class="btn btn-xs btn-outline-secondary" id="ou-face-{{ou.vid}}" <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/face_icon.tpl.php'));?> ng-click="online.showOnlineUserInfo(ou.id)"><i class="material-icons">info_outline</i>{{ou.lastactivity_ago}} | {{ou.nick}}&nbsp;<img ng-if="ou.user_country_code" ng-src="<?php echo erLhcoreClassDesign::design('images/flags');?>/{{ou.user_country_code}}.png" alt="{{ou.user_country_name}}" /></a><?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/custom_online_button_multiinclude.tpl.php')); ?><span ng-click="online.previewChat(ou)" class="btn btn-xs btn-outline-success action-image" ng-show="ou.chat_id > 0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Preview chat')?>"><i class="material-icons mr0">chat</i></span><span class="btn btn-xs btn-outline-info" ng-show="ou.total_visits > 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visits');?> ({{ou.total_visits}})</span><span class="btn btn-outline-success btn-xs" ng-show="ou.total_visits == 1"><i class="material-icons">face</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','New');?></span>

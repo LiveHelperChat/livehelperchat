@@ -14,6 +14,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                 // Within next user message we will process this event
                 if (isset($action['content']['attr_options']['on_next_msg']) && $action['content']['attr_options']['on_next_msg'] == true) {
+
                     unset($action['content']['attr_options']['on_next_msg']);
                     $event = new erLhcoreClassModelGenericBotChatEvent();
                     $event->chat_id = $chat->id;
@@ -26,9 +27,11 @@ class erLhcoreClassGenericBotActionRestapi
                             )
                         )
                     )));
+
                     if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                         $event->saveThis();
                     }
+
                     return;
                 }
 
@@ -49,6 +52,7 @@ class erLhcoreClassGenericBotActionRestapi
                         array(
                             'content' => array(
                                 'type' => 'rest_api',
+                                'start_mode' => erLhcoreClassGenericBotWorkflow::$startChat,
                                 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
                                 'action' => $action,
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),

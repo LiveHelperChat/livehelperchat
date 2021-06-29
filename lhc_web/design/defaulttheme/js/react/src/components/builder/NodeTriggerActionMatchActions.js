@@ -52,6 +52,14 @@ class NodeTriggerActionMatchActions extends Component {
                     </div>
 
                     <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['check_visitor_msg'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','check_visitor_msg'])} /> Check for visitor message also. If you put {'{content_1}'}, or any other value, but still want to check by vistior message check this.</label>
+                    </div>
+
+                    <div className="col-12">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['check_visitor_first'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','check_visitor_first'])} /> Check first by visitor message.</label>
+                    </div>
+
+                    <div className="col-12">
                         <label>Search for text. This field will override user message text. Usefull in case you want to search by Rest API response. You can put here like {'{content_1}'}</label>
                         <input type="text" placeholder="Bot content {content_1}" onChange={(e) => this.onchangeAttr({'path' : ['text'], 'value' : e.target.value})} defaultValue={this.props.action.hasIn(['content','text']) ? this.props.action.getIn(['content','text']) : ""} className="form-control form-control-sm" />
                     </div>

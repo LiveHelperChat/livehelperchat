@@ -1,3 +1,16 @@
+3.74v
+
+1. Now you can send invitation message to mass users at once.
+2. You can filter online visitors who are connected to website only. Using nodejshelper extension this gives live view who is connected.
+3. Canned messages now can be assigned to more than one department.
+4. Private messages between operators will have a sound now.
+5. Canned messages import/export will support tags now.
+6. Users import will have more fields to prefill now.
+7. Department list will be sorted by same order as in the widget filters.
+
+execute doc/update_db/update_246.sql for update
+
+
 3.73v
 
 1. Option to pass trigger_id as argument. Usefull in case you want to make some test on production.
@@ -6,7 +19,7 @@
 4. UL,OL styling options. See bbcode documentation for a syntax.
 5. Option to change font size from the widget. Can be activated in widget themes.
 
-execute doc/update_db/update_244.sql for update
+execute doc/update_db/update_245.sql for update
 
 3.72v
 
