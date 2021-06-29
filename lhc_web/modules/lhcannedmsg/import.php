@@ -39,6 +39,7 @@ if (isset($_POST['UploadFileAction'])) {
 
         $canned = array_keys((new erLhcoreClassModelCannedMsg())->getState());
         $canned[] = 'tags_plain';
+        $canned[] = 'department_ids_front';
 
         $stats = array(
             'updated' => 0,
@@ -66,6 +67,11 @@ if (isset($_POST['UploadFileAction'])) {
                     $stats['imported']++;
                 } else {
                     $stats['updated']++;
+                }
+
+                // Set departments
+                if (isset($item['department_ids_front']) && !empty($item['department_ids_front'])) {
+                    $cannedMessage->department_ids = explode(',', $item['department_ids_front']);
                 }
 
                 unset($item['id']);

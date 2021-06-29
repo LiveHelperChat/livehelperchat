@@ -1260,7 +1260,7 @@ try {
         	   	  KEY `unique_id` (`unique_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
+                $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
 				  `id` int(11) NOT NULL AUTO_INCREMENT,
 				  `chat_id` int(11) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
@@ -1271,7 +1271,16 @@ try {
 				  KEY `online_user_id` (`online_user_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE `lh_abstract_proactive_chat_event` (
+                $db->query("CREATE TABLE `lh_canned_msg_dep` (
+                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                                 `canned_id` int(11) NOT NULL,
+                                 `dep_id` int(11) NOT NULL,
+                                 PRIMARY KEY (`id`),
+                                 KEY `canned_id` (`canned_id`),
+                                 KEY `dep_id` (`dep_id`)
+                            ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                 $db->query("CREATE TABLE `lh_abstract_proactive_chat_event` (
         	       `id` int(11) NOT NULL AUTO_INCREMENT,
         	       `vid_id` int(11) NOT NULL,
         	       `ev_id` int(11) NOT NULL,
@@ -1869,7 +1878,7 @@ try {
                     // Users
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_users` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
-                  `username` varchar(40) NOT NULL,
+                  `username` varchar(80) NOT NULL,
                   `password` varchar(200) NOT NULL,
                   `email` varchar(100) NOT NULL,
                   `time_zone` varchar(100) NOT NULL,
@@ -1878,7 +1887,7 @@ try {
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
                   `job_title` varchar(100) NOT NULL,
-                  `departments_ids` varchar(100) NOT NULL,
+                  `departments_ids` varchar(500) NOT NULL,
                   `chat_nickname` varchar(100) NOT NULL,
                   `xmpp_username` varchar(200) NOT NULL,
                   `session_id` varchar(40) NOT NULL,

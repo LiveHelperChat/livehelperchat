@@ -30,7 +30,7 @@ class erLhcoreClassAdminChatValidatorHelper {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
             ),
             'DepartmentID' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
             ),
             'AutoSend' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -117,7 +117,38 @@ class erLhcoreClassAdminChatValidatorHelper {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Canned message tags should not contain # character');
         }
 
-        if ( $form->hasValidData( 'DepartmentID' )  ) {
+
+        if ( !$form->hasValidData( 'DepartmentID' )  ) {
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
+
+            // Perhaps extension did some internal validation and we don't need anymore validate internaly
+            if ($response === false) {
+                $cannedMessage->department_id = 0;
+            }
+
+            if ($userDepartments !== true) {
+                if ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                }
+            }
+
+        } else {
+            $cannedMessage->department_ids = $form->DepartmentID;
+
+            // -1 means, individual per department
+            $cannedMessage->department_id = -1;
+
+            if ($userDepartments !== true) {
+                if (($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) || !in_array($cannedMessage->department_id, $userDepartments)) {
+                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                }
+            }
+        }
+
+
+
+        /*if ( $form->hasValidData( 'DepartmentID' )  ) {
             $cannedMessage->department_id = $form->DepartmentID;
 
             if ($userDepartments !== true) {
@@ -139,7 +170,7 @@ class erLhcoreClassAdminChatValidatorHelper {
                     $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
                 }
             }
-        }
+        }*/
         
         return $Errors;
     }

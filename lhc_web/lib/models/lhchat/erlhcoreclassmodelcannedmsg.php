@@ -11,7 +11,7 @@ class erLhcoreClassModelCannedMsg
     public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
     
     public static $dbSortOrder = 'DESC';
-    
+
     public function getState()
     {
         return array(
@@ -61,7 +61,17 @@ class erLhcoreClassModelCannedMsg
                     }
                 }
                 return $this->department;
-                break;
+
+            case 'department_ids_front':
+                $this->department_ids_front = [];
+                if ($this->id > 0) {
+                    $db = ezcDbInstance::get();
+                    $stmt = $db->prepare("SELECT `dep_id` FROM `lh_canned_msg_dep` WHERE `canned_id` = " . $this->id);
+                    $stmt->execute();
+                    $this->department_ids_front = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                }
+                return $this->department_ids_front;
+
                 
             case 'msg_to_user':
                     $this->msg_to_user = str_replace(array_keys($this->replaceData), array_values($this->replaceData), $this->msg);
@@ -132,6 +142,19 @@ class erLhcoreClassModelCannedMsg
         if ($this->unique_id == 0) {
             $this->unique_id = $this->id;
             $this->updateThis(array('update' => array('unique_id')));
+        }
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_canned_msg_dep` WHERE `canned_id` = :canned_id');
+        $stmt->bindValue(':canned_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
+
+        if (isset($this->department_ids) && !empty($this->department_ids)) {
+           $values = [];
+           foreach ($this->department_ids as $department_id) {
+               $values[] = "(" . $this->id . "," . $department_id . ")";
+           }
+           $db->query('INSERT INTO `lh_canned_msg_dep` (`canned_id`,`dep_id`) VALUES ' . implode(',',$values));
         }
 
         $tagLinks = erLhcoreClassModelCannedMsgTagLink::getList(array('filter' => array('canned_id' => $this->id)));
@@ -209,7 +232,12 @@ class erLhcoreClassModelCannedMsg
                     $tag->removeThis();
                 }
             }
-        }        
+        }
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_canned_msg_dep` WHERE `canned_id` = :canned_id');
+        $stmt->bindValue(':canned_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
     }
     
     public function setReplaceData($replaceData)
@@ -237,7 +265,18 @@ class erLhcoreClassModelCannedMsg
         
         if ($response === false) {
 	        // Extension did not changed any filters, use default        
-	        $filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
+	        $filter[] = $q->expr->lOr(
+                $q->expr->lAnd(
+                    $q->expr->eq('department_id', $q->bindValue(0)),
+                    $q->expr->eq('user_id', $q->bindValue(0))
+                ),
+                $q->expr->lAnd( // Support old settings
+                    $q->expr->eq('department_id', $q->bindValue($department_id)),
+                    $q->expr->eq('user_id', $q->bindValue(0))
+                ),
+                $q->expr->eq('user_id', $q->bindValue($user_id)),
+                'id IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$department_id . ')'
+            );
 	
 	        if (isset($paramsFilter['q']) && $paramsFilter['q'] != '') {
 	            $filter[] = $q->expr->lOr(
@@ -249,7 +288,7 @@ class erLhcoreClassModelCannedMsg
 	        if (isset($paramsFilter['id']) && !empty($paramsFilter['id'])) {
 	            $filter[] = $q->expr->in('id', $paramsFilter['id']);
 	        }
-	        
+
 	        $q->where($filter);
 	       
 	        $q->limit(5000, 0);
@@ -345,6 +384,7 @@ class erLhcoreClassModelCannedMsg
     public $position = 0;
     public $delay = 0;
     public $department_id = 0;
+    public $department_ids = [];
     public $user_id = 0;
     public $auto_send = 0;
     public $attr_int_1 = 0;
