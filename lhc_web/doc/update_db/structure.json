@@ -8409,6 +8409,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "vwait_to_long",
+        "value": "120",
+        "type": "0",
+        "explain": "How long we should wait before we inform operator about unanswered chat.",
+        "hidden": "0"
+      },
+      {
         "identifier": "banned_ip_range",
         "value": "",
         "type": "0",
