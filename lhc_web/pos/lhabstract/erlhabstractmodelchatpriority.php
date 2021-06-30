@@ -24,6 +24,16 @@ $def->properties['priority']->columnName   = 'priority';
 $def->properties['priority']->propertyName = 'priority';
 $def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['sort_priority'] = new ezcPersistentObjectProperty();
+$def->properties['sort_priority']->columnName   = 'sort_priority';
+$def->properties['sort_priority']->propertyName = 'sort_priority';
+$def->properties['sort_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['dest_dep_id'] = new ezcPersistentObjectProperty();
+$def->properties['dest_dep_id']->columnName   = 'dest_dep_id';
+$def->properties['dest_dep_id']->propertyName = 'dest_dep_id';
+$def->properties['dest_dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

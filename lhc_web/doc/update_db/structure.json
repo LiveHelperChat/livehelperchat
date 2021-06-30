@@ -5360,6 +5360,22 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "sort_priority",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "dest_dep_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_group_chat": [

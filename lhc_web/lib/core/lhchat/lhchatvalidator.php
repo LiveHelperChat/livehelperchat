@@ -821,10 +821,14 @@ class erLhcoreClassChatValidator {
         $chat->device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
         // Set priority by additional variables
-        $priority = self::getPriorityByAdditionalData($chat);
+        $priority = self::getPriorityByAdditionalData($chat, array('detailed' => true));
 
-        if ($priority !== false && $priority > $chat->priority) {
+        if ($priority !== false && $priority['priority'] > $chat->priority) {
             $chat->priority = $priority;
+        }
+
+        if ($priority !== false && $priority['dep_id'] > 0) {
+            $chat->dep_id = $priority['dep_id'];
         }
 
         if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
@@ -1168,9 +1172,9 @@ class erLhcoreClassChatValidator {
 
     }
 
-    public static function getPriorityByAdditionalData($chat)
+    public static function getPriorityByAdditionalData($chat, $paramsExecution = array())
     {
-        $priorityRules = erLhAbstractModelChatPriority::getList(array('sort' => 'dep_id DESC, priority DESC','customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)));
+        $priorityRules = erLhAbstractModelChatPriority::getList(array('sort' => 'dep_id DESC, sort_priority DESC, priority DESC', 'customfilter' => array('dep_id = 0 OR dep_id = ' .(int)$chat->dep_id)));
 
         foreach ($priorityRules as $priorityRule) {
 
@@ -1236,7 +1240,12 @@ class erLhcoreClassChatValidator {
             }
 
             if ($ruleMatched == true) {
-                return $priorityRule->priority;
+                if (isset($paramsExecution['detailed']) && $paramsExecution['detailed'] == true) {
+                    return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
+                } else {
+                    return $priorityRule->priority;
+                }
+
             }
         }
 
