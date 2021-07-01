@@ -186,7 +186,7 @@ class erLhcoreClassLHCBotWorker
                         $msg->chat_id = $chat->id;
                         $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
                         $msg->user_id = -2;
-                        $msg->time = time() + 5;
+                        $msg->time = time() + 1;
                         $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                         $msg->msg = $response['content'];
                         $msg->saveThis();

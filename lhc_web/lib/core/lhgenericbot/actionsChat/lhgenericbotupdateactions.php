@@ -9,7 +9,7 @@ class erLhcoreClassGenericBotUpdateActions {
         $msg->chat_id = $chat->id;
         $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
         $msg->user_id = -2;
-        $msg->time = time() + 5;
+        $msg->time = time() + 1;
 
         erLhcoreClassChat::getSession()->save($msg);
 
@@ -28,7 +28,7 @@ class erLhcoreClassGenericBotUpdateActions {
         $msg->chat_id = $chat->id;
         $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
         $msg->user_id = -2;
-        $msg->time = time() + 5;
+        $msg->time = time() + 1;
 
         erLhcoreClassChat::getSession()->save($msg);
 

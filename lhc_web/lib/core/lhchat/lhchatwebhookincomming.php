@@ -295,7 +295,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $msgResponder->chat_id = $chat->id;
                         $msgResponder->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                         $msgResponder->user_id = -2;
-                        $msgResponder->time = time() + 5;
+                        $msgResponder->time = time() + 1;
                         erLhcoreClassChat::getSession()->save($msgResponder);
 
                         $chat->last_msg_id = $msgResponder->id;
@@ -492,7 +492,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $msg->chat_id = $chat->id;
                         $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                         $msg->user_id = -2;
-                        $msg->time = time() + 5;
+                        $msg->time = time() + 1;
                         erLhcoreClassChat::getSession()->save($msg);
 
                         $messageResponder = $msg;
