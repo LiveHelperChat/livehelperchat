@@ -40,6 +40,8 @@
 
 <ul class="list-unstyled" ng-non-bindable>
 
+    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Visitor ID');?> - <?php echo $online_user->id?></li>
+
     <?php if ($online_user->dep_id > 0) : ?>
         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Department');?> - <?php echo htmlspecialchars(erLhcoreClassModelDepartament::fetch($online_user->dep_id))?></li>
     <?php endif; ?>
