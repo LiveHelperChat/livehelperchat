@@ -259,7 +259,7 @@ class erLhcoreClassChatExport {
                 $waitAbandoned = 'None';
 
                 if ($is_abandoned == true) {
-                    $waitAbandoned = $item->cls_time - $item->pnd_time;
+                    $waitAbandoned = ($item->cls_time > 0 ? $item->cls_time : time()) - $item->pnd_time;
                 }
 
                 $bot = (string)$item->bot;
@@ -402,7 +402,7 @@ class erLhcoreClassChatExport {
                     $tillFirstOperatorMessage = 'None';
                     $firstAgentResponseTime = 'None';
                     $timesResponseAgent = [];
-                    $startTime = $item->pnd_time;
+                    $startTime = !empty($timesResponse) ? $item->pnd_time : 0; // there was visitor messages and pnd_time is time since visitor is waiting for a response
                     foreach ($agentMessages as $agentMessage) {
                         if ($agentMessage->user_id == 0) {
                             if ($startTime == 0) {
