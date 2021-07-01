@@ -205,5 +205,7 @@ $FunctionList['see_all'] = array('explain' => 'Allow user see all users/groups n
 $FunctionList['see_all_group_users'] = array('explain' => 'Allow user see all group users he belongs to.');
 $FunctionList['changealwaysonline'] = array('explain' => 'Allow user to change always online mode');
 $FunctionList['setopstatus'] = array('explain' => 'Allow user to change other user online status from online operators widget');
+$FunctionList['change_chat_nickname'] = array('explain' => 'Allow user to change chat nickname');
+$FunctionList['changephoto'] = array('explain' => 'Allow user to change photo/avatar');
 
 ?>

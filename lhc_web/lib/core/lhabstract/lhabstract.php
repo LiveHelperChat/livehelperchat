@@ -146,7 +146,7 @@ class erLhcoreClassAbstract
             case 'combobox':
 
                 $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-                $return = '<select ng-non-bindable class="form-control" name="AbstractInput_' . $name . '"' . $onchange . '>';
+                $return = '<select ng-non-bindable class="form-control form-control-sm" name="AbstractInput_' . $name . '"' . $onchange . '>';
 
                 if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false) {
                     $return .= '<option value="0">Choose option</option>';

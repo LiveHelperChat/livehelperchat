@@ -3151,6 +3151,270 @@ class erLhcoreClassChatStatistic {
         return $statistic;
     }
 
+    public static function exportCSV($statistic, $type) {
+        $filename = "report-" . $type . "-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        //header('Content-type: application/csv');
+        //header('Content-Disposition: attachment; filename='.$filename);
+
+        $weekDays = array(
+            0 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sunday'),
+            1 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monday'),
+            2 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tuesday'),
+            3 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wednesday'),
+            4 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Thursday'),
+            5 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Friday'),
+            6 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Saturday'),
+        );
+
+        if ($type == 'numberOfChatsPerMonth') {
+            fputcsv($fp, ['date','closed','active','operators','pending','bot','total_chats']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $key => $data) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$key),
+                    $data['closed'],
+                    $data['active'],
+                    $data['operators'],
+                    $data['pending'],
+                    $data['bot'],
+                    $data['total_chats'],
+                ]);
+            }
+        } else if ($type == 'proactivevsdefault') {
+            fputcsv($fp, ['date','Proactive','Visitors initiated']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $key => $data) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$key),
+                    $data['chatinitproact'],
+                    $data['chatinitdefault']
+                ]);
+            }
+        } else if ($type == 'country') {
+            fputcsv($fp, ['Country name','Number of chats']);
+            foreach ($statistic['countryStats'] as $data) {
+                fputcsv($fp,[
+                    (isset($data['country_name']) && !empty($data['country_name']) ? $data['country_name'] : 'not set'),
+                    $data['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'waitmonth') {
+            fputcsv($fp, ['Date','Value']);
+            foreach ($statistic['numberOfChatsPerWaitTimeMonth'] as $date => $value) {
+                fputcsv($fp,[
+                   date('Y-m-d H:i:s',$date),
+                    $value
+                ]);
+            }
+        } else if ($type == 'waitbyoperator') {
+            fputcsv($fp, ['User ID','Wait time','Name']);
+            foreach ($statistic['userWaitTimeByOperator'] as $date => $value) {
+                $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                fputcsv($fp,[
+                   $value['user_id'],
+                   $value['avg_wait_time'],
+                   (is_object($obUser) ? $obUser->name_official : $value['user_id'])
+                ]);
+            }
+        } else if ($type == 'nickgroupingdatenick') {
+            $counter = 0;
+            foreach ($statistic['nickgroupingdatenick']['labels'] as $date => $value) {
+                if ($counter == 0) {
+                    fputcsv($fp,array_merge(array('Date'),$value['nick']));
+                }
+                fputcsv($fp,array_merge(array(date('Y-m-d H:i:s',$date)),$value['data']));
+                $counter++;
+            }
+        } else if ($type == 'unanswered') {
+            fputcsv($fp, ['Date','Chats number']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $date => $value) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$date),
+                    $value['unanswered']
+                ]);
+            }
+        } else if ($type == 'subject') {
+            fputcsv($fp, ['Subject ID','Subject','Chats number']);
+            foreach ($statistic['subjectsStatistic'] as $value) {
+                fputcsv($fp,[
+                    $value['subject_id'],
+                    (string)erLhAbstractModelSubject::fetch($value['subject_id'],true),
+                    $value['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'usermsg') {
+            fputcsv($fp, ['User','Chats number']);
+            foreach ($statistic['numberOfMsgByUser'] as $value) {
+                if ($value['user_id'] == 0) {
+                    $operator = 'Visitor';
+                } elseif ($value['user_id'] == -1) {
+                    $operator = 'System assistant';
+                } elseif ($value['user_id'] == -2) {
+                    $operator = 'Virtual assistant';
+                } else {
+                    $operatorObj = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                    if (is_object($operatorObj) ) {
+                        $operator = $operatorObj->name_official;
+                    } else {
+                        $operator = '['.$value['user_id'].']';
+                    }
+                }
+                fputcsv($fp,[
+                    $operator,
+                    $value['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'chatbyuser') {
+            fputcsv($fp, ['User','Chats number']);
+            foreach ($statistic['userChatsStats'] as $value) {
+                $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                $operator = (is_object($obUser) ? $obUser->name_official : $value['user_id']);
+                fputcsv($fp,[
+                    $operator,
+                    $value['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'msgtype') {
+            fputcsv($fp, ['Date','Visitor','User','System','Bot']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $date => $value) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$date),
+                    $value['msg_user'],
+                    $value['msg_operator'],
+                    $value['msg_system'],
+                    $value['msg_bot'],
+                ]);
+            }
+        } else if ($type == 'thumbsup') {
+            fputcsv($fp, ['User','User ID','Number of thumbs up']);
+            foreach ($statistic['userStats']['thumbsup'] as $value) {
+                $nameUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                $operator = (is_object($nameUser) ? $nameUser->name_official : '-');
+                fputcsv($fp,[
+                    $operator,
+                    $value['user_id'],
+                    $value['number_of_chats'],
+                ]);
+            }
+        } else if ($type == 'thumbdown') {
+            fputcsv($fp, ['User','User ID','Number of thumbsdown']);
+            foreach ($statistic['userStats']['thumbdown'] as $value) {
+                $nameUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                $operator = (is_object($nameUser) ? $nameUser->name_official : '-');
+                fputcsv($fp,[
+                    $operator,
+                    $value['user_id'],
+                    $value['number_of_chats'],
+                ]);
+            }
+        } else if ($type == 'hourbyhour') {
+            fputcsv($fp, ['Hour', 'Average number of chats', 'Max chats per hour', 'Peak date']);
+            foreach ($statistic['numberOfChatsPerHour']['byday'] as $hour => $value) {
+                fputcsv($fp,[
+                    $hour,
+                    $value,
+                    ($statistic['numberOfChatsPerHour']['bydaymax'][$hour]['total_records'] ?? ''),
+                    (isset($statistic['numberOfChatsPerHour']['bydaymax'][$hour]['time']) ? date('Y-m-d H:i:s',$statistic['numberOfChatsPerHour']['bydaymax'][$hour]['time']) : '')
+                ]);
+            }
+        } else if ($type == 'chatperhour') {
+            fputcsv($fp, ['Hour','Total chats']);
+            foreach ($statistic['numberOfChatsPerHour']['total'] as $hour => $value) {
+                fputcsv($fp,[
+                    $hour,
+                    $value,
+                ]);
+            }
+        } else if ($type == 'chatbydep') {
+            fputcsv($fp, ['Department', 'Department ID', 'Number of chats']);
+            foreach ($statistic['depChatsStats'] as $value) {
+               $obUser = erLhcoreClassModelDepartament::fetch($value['dep_id'],true);
+               $department = (is_object($obUser) ? $obUser->name : $value['dep_id']);
+               fputcsv($fp,[
+                    $department,
+                    $value['dep_id'],
+                    $value['number_of_chats'],
+                ]);
+            }
+        } else if ($type == 'nickgroupingdate') {
+            fputcsv($fp, ['Date', 'Number of records']);
+            foreach ($statistic['nickgroupingdate'] as $date => $value) {
+               fputcsv($fp,[
+                    date('Y-m-d H:i:s', $date),
+                    $value['unique'],
+                ]);
+            }
+        }
+        // Chats statistic tab exports
+        else if ($type == 'cs_total_chats') {
+            fputcsv($fp, ['Date', 'Number of chats']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $value) {
+               fputcsv($fp,[
+                   ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $value['total_chats'],
+                ]);
+            }
+        } else if ($type == 'cs_msgtype') {
+            fputcsv($fp, ['Date','Visitor','User','System','Bot']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $value) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $value['msg_user'],
+                    $value['msg_operator'],
+                    $value['msg_system'],
+                    $value['msg_bot'],
+                ]);
+            }
+        } else if ($type == 'cs_nickgroupingdate') {
+            fputcsv($fp, ['Date','Unique records']);
+            foreach ($statistic['nickgroupingdate'] as $monthUnix => $value) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $value['unique']
+                ]);
+            }
+        } else if ($type == 'cs_active') {
+            fputcsv($fp, ['date','closed','active','operators','pending','bot','total_chats']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $data) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $data['closed'],
+                    $data['active'],
+                    $data['operators'],
+                    $data['pending'],
+                    $data['bot'],
+                    $data['total_chats'],
+                ]);
+            }
+        } else if ($type == 'cs_proactivevsdefault') {
+            fputcsv($fp, ['Date','Proactive','Visitors initiated']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $data) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $data['chatinitproact'],
+                    $data['chatinitdefault']
+                ]);
+            }
+        } else if ($type == 'cs_unanswered') {
+            fputcsv($fp, ['Date','Chats number']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $value) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $value['unanswered']
+                ]);
+            }
+        } else if ($type == 'cs_waitmonth') {
+            fputcsv($fp, ['Date','Value']);
+            foreach ($statistic['numberOfChatsPerWaitTimeMonth'] as $monthUnix => $value) {
+                fputcsv($fp,[
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix]),
+                    $value
+                ]);
+            }
+        }
+        exit;
+    }
+
 }
 
 ?>

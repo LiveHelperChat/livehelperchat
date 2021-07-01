@@ -5,9 +5,25 @@
     <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
 </div>
 
-<div class="form-group">
-    <label><?php echo $fields['priority']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('priority', $fields['priority'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['priority']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('priority', $fields['priority'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['dest_dep_id']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('dest_dep_id', $fields['dest_dep_id'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['sort_priority']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('sort_priority', $fields['sort_priority'], $object)?>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -16,10 +32,12 @@
 
 <div ng-controller="LHCPriorityCtrl as pchat" ng-init='pchat.setValue()'>
 
+    <h6>Main conditions</h6>
+
     <textarea class="hide" name="AbstractInput_value">{{pchat.value | json : 0}}</textarea>
 
     <div class="form-group">
-        <input type="button" ng-click="pchat.addFilter()" class="btn btn-secondary" value="Add condition">
+        <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="Add condition">
     </div>
 
     <div class="row" ng-show="pchat.value.length > 0">
@@ -44,10 +62,10 @@
                 <div class="col-11">
                     <div class="row">
                         <div class="col-5">
-                            <input class="form-control" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field">
+                            <input class="form-control form-control-sm" ng-model="filter.field" name="field[{{$index}}]" type="text" value="" placeholder="field">
                         </div>
                         <div class="col-2">
-                            <select class="form-control" name="comparator[{{$index}}]" ng-model="filter.comparator">
+                            <select class="form-control form-control-sm" name="comparator[{{$index}}]" ng-model="filter.comparator">
                                 <option value="&gt;">&gt;</option>
                                 <option value="&lt;">&lt;</option>
                                 <option value="&gt;=">&gt;=</option>
@@ -57,7 +75,7 @@
                             </select>
                         </div>
                         <div class="col-5">
-                            <input class="form-control" ng-model="filter.value" name="value[{{$index}}]" type="text" value="" placeholder="value">
+                            <input class="form-control form-control-sm" ng-model="filter.value" name="value[{{$index}}]" type="text" value="" placeholder="value">
                         </div>
                     </div>
                 </div>
@@ -67,6 +85,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 <div class="btn-group" role="group" aria-label="...">

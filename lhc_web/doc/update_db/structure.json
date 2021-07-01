@@ -5360,6 +5360,22 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "sort_priority",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "dest_dep_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_group_chat": [
@@ -8478,6 +8494,13 @@
         "value": "",
         "type": "0",
         "explain": "Which ip should be ignored in online users list, separate by comma",
+        "hidden": "0"
+      },
+      {
+        "identifier": "vwait_to_long",
+        "value": "120",
+        "type": "0",
+        "explain": "How long we should wait before we inform operator about unanswered chat.",
         "hidden": "0"
       },
       {

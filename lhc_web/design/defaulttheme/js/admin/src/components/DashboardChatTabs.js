@@ -335,12 +335,19 @@ const DashboardChatTabs = props => {
 
     const { t, i18n } = useTranslation('chat_tabs');
 
+    /*{chat.aicons && Object.keys(chat.aicons).map((keyIndex) => {
+        return (<span style={{color: chat.aicons[keyIndex].c}} title={chat.aicons[keyIndex].t} className="material-icons">{chat.aicons[keyIndex].i}</span>)
+    })}*/
+
     return (
         <React.Fragment>
             {(!state.chats || state.chats.length == 0) && <div className="text-center text-muted p-2"><span className="material-icons">chat</span>{t('chat_tabs.open_chats')}</div>}
             {state.chats.map((chat, index) => (
-                <div title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')}>
+                <div title={chat.id} onClick={() => chatTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')+(chat.vwa ? ' long-response-chat' : '')}>
                         <div className="fs12">
+                            <span className={"material-icons"+(chat.pnd_rsp == true ? ' text-danger' : ' text-success')}>{chat.pnd_rsp == true ? 'call_received' : 'call_made'}</span>
+
+                            {chat.vwa && <span title={chat.vwa} className="material-icons text-danger">timer</span>}
                             {chat.support_chat && <span className="whatshot blink-ani text-warning material-icons">whatshot</span>}<i className={"material-icons "+(typeof chat.live_status === "boolean" ? (chat.live_status === true ? 'icon-user-online' : 'icon-user-offline') : (chat.us == 2 ? "icon-user-away" : (chat.us == 0 ? "icon-user-online" : "icon-user-offline")))}  >face</i><i className={"material-icons icon-user-online " + (chat.um == 1 ? "icon-user-offline" : "icon-user-online")}>send</i>{chat.cc && <img title={chat.cn} src={chat.cc} alt="" />} {(state.group_offline == false || !(chat.us != 0)) && <span className={(chat.mn > 0 ? "font-weight-bold " : '') + (chat.cs == 0 ? 'text-warning' : '')}>{chat.nick || chat.id}</span>}{chat.mn > 0 && <span className="msg-nm pl-1">({chat.mn})</span>}{chat.lmsg && <span className="text-muted"> {chat.lmsg}</span>}
                             <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-right btn-link m-0 ml-1 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
                             {chat.dep && <span className="float-right text-muted text-truncate mw-80px"><span className="material-icons">home</span>{chat.dep}</span>}

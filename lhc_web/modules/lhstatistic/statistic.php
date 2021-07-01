@@ -109,6 +109,11 @@ if ($tab == 'active') {
             'filter_params' => $filterParams
         ));
 
+        if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
+            erLhcoreClassChatStatistic::exportCSV($activeStats, $_GET['reportType']);
+            exit;
+        }
+
         $tpl->setArray($activeStats);
     }
     
@@ -207,9 +212,10 @@ if ($tab == 'active') {
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
 
-    if (isset($_GET['doSearch'])) {                    
+    if (isset($_GET['doSearch'])) {
+
         if ($filterParams['input_form']->groupby == 1) {
-            $tpl->setArray(array(
+            $activeStats = array(
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -225,9 +231,9 @@ if ($tab == 'active') {
                 'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            ));
+            );
         } elseif ($filterParams['input_form']->groupby == 2) {
-            $tpl->setArray(array(
+            $activeStats = array(
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -243,9 +249,9 @@ if ($tab == 'active') {
                 'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeek($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            ));
+            );
         } elseif ($filterParams['input_form']->groupby == 3) {
-            $tpl->setArray(array(
+            $activeStats = array(
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -261,9 +267,9 @@ if ($tab == 'active') {
                 'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickWeekDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            ));
+            );
         } else {
-            $tpl->setArray(array(
+            $activeStats = array(
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -279,8 +285,15 @@ if ($tab == 'active') {
                 'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
 
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
-            ));
+            );
         }
+
+        if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
+            erLhcoreClassChatStatistic::exportCSV($activeStats, $_GET['reportType']);
+            exit;
+        }
+
+        $tpl->setArray($activeStats);
     }
     
 } else if ($tab == 'last24') {

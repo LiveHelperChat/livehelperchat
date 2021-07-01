@@ -1425,6 +1425,7 @@ try {
                 ('transfer_configuration','0','0','Transfer configuration','1'),
                 ('list_unread','0','0','List unread chats','0'),
                 ('list_closed','0','0','List closed chats','0'),
+                ('vwait_to_long','120','0','How long we should wait before we inform operator about unanswered chat.','0'),
                 ('autoclose_activity_timeout','0','0','Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes','0'),
                 ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('footprint_background','0','0','Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.','0'),
@@ -2012,7 +2013,7 @@ try {
                     $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL,`payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`),  KEY `incoming_ext_id` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_chat_column` (`id` int(11) NOT NULL AUTO_INCREMENT,`column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,`variable` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `position` int(11) NOT NULL, `enabled` tinyint(1) NOT NULL, `online_enabled` tinyint(1) NOT NULL, `chat_enabled` tinyint(1) NOT NULL, `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,`column_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `column_identifier` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`), KEY `online_enabled` (`online_enabled`), KEY `chat_enabled` (`chat_enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-                    $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL, `sort_priority` int(11) NOT NULL,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Session
                     $db->query("CREATE TABLE `lh_users_session` (

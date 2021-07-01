@@ -93,19 +93,35 @@ class erLhcoreClassChatExport {
 		$phone = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Phone');
 		$wait = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Wait time');
 		$country = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Country');
+		$countryCode = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Country Code');
 		$city = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','City');
 		$ip = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','IP');
 		$operator = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator');
+		$operatorName = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Operator Name');
 		$dept = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Department');
 		$date = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Date');
 		$minutes = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Minutes');
 		$vote = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Vote status');
+		$subjects = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subjects');
 		$mail = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Mail send');
 		$page = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Page');
 		$from = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Came from');
 		$link = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Link');
 		$remarks = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Remarks');
 		$device = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Device');
+		$visitorID = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor ID');
+		$duration = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration');
+		$chat_initiator = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Started by');
+		$browser = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Browser');
+        $user_id_op = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','User ID');
+        $referrer = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat start page');      // Page visitor started a chat
+        $session_referrer = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Referer page'); // Page from which visitor come to website
+        $chat_start_time = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat start time');
+        $chat_end_time = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat end time');
+        $is_unread = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Is unread by operator');
+        $is_unread_visitor = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Is unread by visitor');
+        $is_abandoned = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Is abandoned');
+        $bot = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Bot');
 
 		$additionalDataPlain = array();
 		for ($i = 1; $i <= 20; $i++) {
@@ -121,7 +137,7 @@ class erLhcoreClassChatExport {
 
         $surveyData = array();
 
-		$mainColumns = array($id, $name, $email, $phone, $wait, $country, $city, $ip, $operator, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $device);
+		$mainColumns = array($id, $name, $email, $phone, $wait, $country, $countryCode, $city, $ip, $operator, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
 		if (isset($params['type']) && in_array(2,$params['type'])) {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
@@ -174,12 +190,29 @@ class erLhcoreClassChatExport {
                 $phone = (string)$item->{'phone'};
                 $wait = (string)$item->{'wait_time'};
                 $country = (string)$item->{'country_name'};
+                $countryCode = (string)$item->{'country_code'};
                 $city = (string)$item->{'city'};
                 $ip = (string)$item->{'ip'};
                 $user = (string)$item->{'user'};
+                $operatorName = (string)$item->{'n_off_full'};
+                $user_id_op = (string)$item->{'user_id'};
                 $dept = (string)$item->{'department'};
                 $remarks = (string)$item->{'remarks'};
                 $device = (string)$item->{'device_type'} == 0 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Computer') : ((string)$item->{'device_type'} == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Mobile') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Tablet'));
+                $visitorID = (string)$item->online_user_id;
+                $duration = (string)$item->chat_duration;
+                $chat_initiator = $item->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT ? 'visitor' : 'proactive';
+                $browser = (string)$item->uagent;
+                $referrer = (string)$item->referrer;
+                $session_referrer = (string)$item->session_referrer;
+                $chat_start_time = date('Y-m-d Y:i:s',$item->time);
+                $chat_end_time = date('Y-m-d Y:i:s',$item->cls_time);
+
+                $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
+                $is_unread = (int)$item->has_unread_messages;
+                $is_unread_visitor = (int)$item->has_unread_op_messages;
+                $is_abandoned = (int)(($item->user_id == 0 && in_array($item->status_sub,[ erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT , erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED])) || ($item->lsync < ($item->pnd_time + $item->wait_time)));
+                $bot = (string)$item->bot;
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->time);
                 $minutes = date('H:i:s',$item->time);
@@ -196,7 +229,7 @@ class erLhcoreClassChatExport {
                         if (isset($additionalItem['url']) && $additionalItem['url'] == true) {
                             $urlData[] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
                         } else {
-                            $pairsRegular[] = $additionalItem['key'] . ' - ' . $additionalItem['value'];
+                            $pairsRegular[] = (isset($additionalItem['key']) ? $additionalItem['key'] : '') . ' - ' . (isset($additionalItem['value']) ? $additionalItem['value'] : '');
                         }
 
                     }
@@ -219,7 +252,7 @@ class erLhcoreClassChatExport {
 
                 $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
 
-                $itemData = array($id, $nick, $email, $phone, $wait, $country, $city, $ip, $user, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $device);
+                $itemData = array($id, $nick, $email, $phone, $wait, $country, $countryCode, $city, $ip, $user, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
                 // Print chat content to last column
                 if (isset($params['type']) && in_array(2,$params['type'])) {

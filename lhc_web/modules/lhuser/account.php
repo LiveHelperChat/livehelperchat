@@ -127,14 +127,16 @@ if (isset($_POST['Update'])) {
 	
 	$Errors = erLhcoreClassUserValidator::validateAccount($UserData);
 
-    if ( isset($_POST['DeletePhoto']) ) {
-    	$UserData->removeFile();
-    }
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changephoto')) {
+        if ( isset($_POST['DeletePhoto']) ) {
+            $UserData->removeFile();
+        }
 
-    $userPhotoErrors = erLhcoreClassUserValidator::validateUserPhoto($UserData);
-    
-    if($userPhotoErrors !== false) {
-    	$Errors = array_merge($Errors, $userPhotoErrors);
+        $userPhotoErrors = erLhcoreClassUserValidator::validateUserPhoto($UserData);
+
+        if ($userPhotoErrors !== false) {
+            $Errors = array_merge($Errors, $userPhotoErrors);
+        }
     }
 
     if (count($Errors) == 0) {

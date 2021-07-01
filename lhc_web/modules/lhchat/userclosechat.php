@@ -30,7 +30,7 @@ if (is_object($chat) && $chat->hash == $Params['user_parameters']['hash'])
                 if ($chat->wait_time == 0) {
                     if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
                         $chat->pnd_time = time();
-                        $chat->wait_time = 2;
+                        $chat->wait_time = 1;
                     } else {
                         $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                     }
