@@ -205,8 +205,8 @@ class erLhcoreClassChatExport {
                 $browser = (string)$item->uagent;
                 $referrer = (string)$item->referrer;
                 $session_referrer = (string)$item->session_referrer;
-                $chat_start_time = date('Y-m-d Y:i:s',$item->time);
-                $chat_end_time = date('Y-m-d Y:i:s',$item->cls_time);
+                $chat_start_time = date('Y-m-d H:i:s',$item->time);
+                $chat_end_time = date('Y-m-d H:i:s',$item->cls_time);
 
                 $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
                 $is_unread = (int)$item->has_unread_messages;
