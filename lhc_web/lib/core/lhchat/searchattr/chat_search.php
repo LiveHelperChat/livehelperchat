@@ -159,6 +159,19 @@ $fieldsSearch['chat_id'] = array (
     )
 );
 
+$fieldsSearch['visitor_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => true,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lh_chat`.`online_user_id`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['subject_id'] = array (
     'type' => 'text',
     'trans' => 'id',
