@@ -2253,7 +2253,7 @@ class erLhcoreClassGenericBotWorkflow {
         $msg->chat_id = $chat->id;
         $msg->name_support = self::getDefaultNick($chat);
         $msg->user_id = -2;
-        $msg->time = time() + 5;
+        $msg->time = time() + 1;
 
         if (!empty($metaMessage)) {
             $msg->meta_msg = json_encode($metaMessage);

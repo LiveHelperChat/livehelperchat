@@ -151,6 +151,14 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','System messages');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to bot');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to operator');
+
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Maximum agent response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Maximum bot response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average agent response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average bot response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First agent response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','First bot response time');
+            $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Wait time till first operator message');
         }
 
         if (isset($params['type']) && in_array(5,$params['type'])) {
@@ -307,20 +315,81 @@ class erLhcoreClassChatExport {
                     // We have a bot assigned
                     // Chat does not have an operator OR it has operator and message time is less than chat become pending
                     $visitorMessagesBotCount = 0;
+                    $botMessages = [];
+                    $agentMessages = [];
+
                     if ($item->gbot_id > 0) {
                         // All visitor messages were interactions with bot
                         if ($item->user_id == 0) {
                             $visitorMessagesBotCount = $visitorMessagesCount;
                             $itemData[] = $visitorMessagesBotCount;
+                            // All interactions were with a bot
+                            $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
                         } else {
+                            $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
+                            $agentMessages =  erLhcoreClassModelmsg::getList(array('limit' => false, 'filtergt' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
                             $visitorMessagesBotCount = erLhcoreClassModelmsg::getCount(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
                             $itemData[] = $visitorMessagesBotCount;
                         }
                     } else { // There was no bot assigned
                         $itemData[] = 0;
+                        $agentMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
                     }
 
                     $itemData[] = $visitorMessagesCount - $visitorMessagesBotCount;
+
+                    $timesResponse = [];
+                    $startTime = 0;
+                    $firstBotResponseTime = 0;
+                    foreach ($botMessages as $messageWithABot) {
+                        if ($messageWithABot->user_id == 0) {
+                            if ($startTime == 0) {
+                                $startTime = $messageWithABot->time;
+                            }
+                        } elseif ($messageWithABot->user_id == -2) {
+                            if ($startTime > 0) {
+                                if (empty($timesResponse)){
+                                    $firstBotResponseTime = $messageWithABot->time - $startTime;
+                                    $timesResponse[] = $firstBotResponseTime;
+                                } else {
+                                    $timesResponse[] = $messageWithABot->time - $startTime;
+                                }
+
+                                $startTime = 0;
+                            }
+                        }
+                    }
+
+                    $tillFirstOperatorMessage = 0;
+                    $firstAgentResponseTime = 0;
+                    $timesResponseAgent = [];
+                    foreach ($agentMessages as $agentMessage) {
+                        if ($agentMessage->user_id == 0) {
+                            if ($startTime == 0) {
+                                $startTime = $agentMessage->time;
+                            }
+                        } elseif ($agentMessage->user_id > 0) {
+                            if ($startTime > 0) {
+                                // It's first agent response
+                                if (empty($timesResponseAgent)) {
+                                    $firstAgentResponseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
+                                    $timesResponseAgent[] = $firstAgentResponseTime;
+                                    $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
+                                } else {
+                                    $timesResponseAgent[] = $agentMessage->time - $startTime;
+                                }
+                                $startTime = 0;
+                            }
+                        }
+                    }
+
+                    $itemData[] = max($timesResponseAgent);
+                    $itemData[] = max($timesResponse);
+                    $itemData[] = array_sum($timesResponseAgent)/count($timesResponseAgent);
+                    $itemData[] = array_sum($timesResponse)/count($timesResponse);
+                    $itemData[] = $firstAgentResponseTime;
+                    $itemData[] = $firstBotResponseTime;
+                    $itemData[] = $tillFirstOperatorMessage;
                 }
 
                 if (isset($params['type']) && in_array(5,$params['type'])) {
