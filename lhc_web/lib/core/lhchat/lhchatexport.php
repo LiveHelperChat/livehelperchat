@@ -341,6 +341,7 @@ class erLhcoreClassChatExport {
                     $timesResponse = [];
                     $startTime = 0;
                     $firstBotResponseTime = 0;
+
                     foreach ($botMessages as $messageWithABot) {
                         if ($messageWithABot->user_id == 0) {
                             if ($startTime == 0) {
@@ -363,18 +364,21 @@ class erLhcoreClassChatExport {
                     $tillFirstOperatorMessage = 0;
                     $firstAgentResponseTime = 0;
                     $timesResponseAgent = [];
+                    $startTime = $item->pnd_time;
                     foreach ($agentMessages as $agentMessage) {
                         if ($agentMessage->user_id == 0) {
                             if ($startTime == 0) {
                                 $startTime = $agentMessage->time;
                             }
                         } elseif ($agentMessage->user_id > 0) {
+                            if ($tillFirstOperatorMessage == 0) {
+                                $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
+                            }
                             if ($startTime > 0) {
                                 // It's first agent response
                                 if (empty($timesResponseAgent)) {
                                     $firstAgentResponseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
                                     $timesResponseAgent[] = $firstAgentResponseTime;
-                                    $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
                                 } else {
                                     $timesResponseAgent[] = $agentMessage->time - $startTime;
                                 }
@@ -382,6 +386,7 @@ class erLhcoreClassChatExport {
                             }
                         }
                     }
+
 
                     $itemData[] = max($timesResponseAgent);
                     $itemData[] = max($timesResponse);
