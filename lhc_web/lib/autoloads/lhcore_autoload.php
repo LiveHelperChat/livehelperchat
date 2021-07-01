@@ -193,8 +193,9 @@ return array_merge(array (
 		'qqUploadedFileXhr'                         => 'lib/core/lhcore/lhimageconverter.php',
 		'erLhcoreClassGalleryImagemagickHandler'    => 'lib/core/lhcore/lhgalleryconverterhandler.php',
 		'erLhcoreClassGalleryGDHandler'             => 'lib/core/lhcore/lhgallerygdconverterhandler.php',
-		
+
 		'Mobile_Detect'								=> 'lib/core/lhexternal/Mobile_Detect.php',
+		'BrowserDetection'							=> 'lib/core/lhexternal/BrowserDetection.php',
 		'XMPPHP_XMPP'								=> 'lib/core/lhxmp/XMPPHP/XMPP.php',
 		'erLhcoreClassXMP'							=> 'lib/core/lhxmp/lhxmp.php',		
 		'erLhcoreClassModelChatAccept'				=> 'lib/models/lhchat/erlhcoreclassmodelchataccept.php',

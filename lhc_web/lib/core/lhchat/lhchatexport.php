@@ -92,6 +92,7 @@ class erLhcoreClassChatExport {
 		$email = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','E-mail');
 		$phone = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Phone');
 		$wait = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Wait time');
+		$waitAbandoned = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Wait time abandoned');
 		$country = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Country');
 		$countryCode = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Country Code');
 		$city = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','City');
@@ -112,7 +113,9 @@ class erLhcoreClassChatExport {
 		$visitorID = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor ID');
 		$duration = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Duration');
 		$chat_initiator = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Started by');
-		$browser = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Browser');
+		$browser = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','User agent');
+		$browserBrand = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Browser');
+		$platform = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Platform');
         $user_id_op = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','User ID');
         $referrer = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat start page');      // Page visitor started a chat
         $session_referrer = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Referer page'); // Page from which visitor come to website
@@ -137,7 +140,7 @@ class erLhcoreClassChatExport {
 
         $surveyData = array();
 
-		$mainColumns = array($id, $name, $email, $phone, $wait, $country, $countryCode, $city, $ip, $operator, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
+		$mainColumns = array($id, $name, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $operator, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $platform, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
 		if (isset($params['type']) && in_array(2,$params['type'])) {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
@@ -151,7 +154,6 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','System messages');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to bot');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages to operator');
-
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Maximum agent response time');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Maximum bot response time');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average agent response time');
@@ -218,6 +220,14 @@ class erLhcoreClassChatExport {
                 $duration = (string)$item->chat_duration;
                 $chat_initiator = $item->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT ? 'visitor' : 'proactive';
                 $browser = (string)$item->uagent;
+
+                $detect = new BrowserDetection;
+                $OSDetails = $detect->getOS($item->uagent);
+                $browserDetails = $detect->getBrowser($item->uagent);
+
+                $osFamily = $OSDetails['os_family'] ?? 'Unknown';
+                $browserBrand = $browserDetails['browser_name'] ?? 'Unknown';
+
                 $referrer = (string)$item->referrer;
                 $session_referrer = (string)$item->session_referrer;
                 $chat_start_time = date('Y-m-d H:i:s',$item->time);
@@ -226,7 +236,14 @@ class erLhcoreClassChatExport {
                 $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
                 $is_unread = (int)$item->has_unread_messages;
                 $is_unread_visitor = (int)$item->has_unread_op_messages;
-                $is_abandoned = (int)(($item->user_id == 0 && in_array($item->status_sub,[ erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT , erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED])) || ($item->lsync < ($item->pnd_time + $item->wait_time)));
+
+                $is_abandoned = $item->pnd_time > $item->last_op_msg_time || ($item->gbot_id == 0 && $item->user_id == 0 && in_array($item->status_sub,[ erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT , erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED])) || ($item->lsync < ($item->pnd_time + $item->wait_time));
+                $waitAbandoned = 'None';
+
+                if ($is_abandoned == true) {
+                    $waitAbandoned = $item->cls_time - $item->pnd_time;
+                }
+
                 $bot = (string)$item->bot;
 
                 $date = date(erLhcoreClassModule::$dateFormat,$item->time);
@@ -267,7 +284,7 @@ class erLhcoreClassChatExport {
 
                 $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
 
-                $itemData = array($id, $nick, $email, $phone, $wait, $country, $countryCode, $city, $ip, $user, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
+                $itemData = array($id, $nick, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $user, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $url, $remarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $osFamily, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
                 // Print chat content to last column
                 if (isset($params['type']) && in_array(2,$params['type'])) {
@@ -361,8 +378,8 @@ class erLhcoreClassChatExport {
                         }
                     }
 
-                    $tillFirstOperatorMessage = 0;
-                    $firstAgentResponseTime = 0;
+                    $tillFirstOperatorMessage = 'None';
+                    $firstAgentResponseTime = 'None';
                     $timesResponseAgent = [];
                     $startTime = $item->pnd_time;
                     foreach ($agentMessages as $agentMessage) {
@@ -371,7 +388,7 @@ class erLhcoreClassChatExport {
                                 $startTime = $agentMessage->time;
                             }
                         } elseif ($agentMessage->user_id > 0) {
-                            if ($tillFirstOperatorMessage == 0) {
+                            if ($tillFirstOperatorMessage == 'None') {
                                 $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
                             }
                             if ($startTime > 0) {
@@ -388,10 +405,10 @@ class erLhcoreClassChatExport {
                     }
 
 
-                    $itemData[] = max($timesResponseAgent);
-                    $itemData[] = max($timesResponse);
-                    $itemData[] = array_sum($timesResponseAgent)/count($timesResponseAgent);
-                    $itemData[] = array_sum($timesResponse)/count($timesResponse);
+                    $itemData[] = !empty($timesResponseAgent) ? max($timesResponseAgent) : 'None';
+                    $itemData[] = !empty($timesResponse) ? max($timesResponse) : 'None';
+                    $itemData[] = !empty($timesResponseAgent) ? (array_sum($timesResponseAgent)/count($timesResponseAgent)) : 'None';
+                    $itemData[] = !empty($timesResponse) ? array_sum($timesResponse)/count($timesResponse) : 'None';
                     $itemData[] = $firstAgentResponseTime;
                     $itemData[] = $firstBotResponseTime;
                     $itemData[] = $tillFirstOperatorMessage;
