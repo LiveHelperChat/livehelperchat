@@ -13,7 +13,7 @@ class erLhcoreClassChatHelper
         $msg->chat_id = $params['chat']->id;
         $msg->user_id = - 1;
         
-        $params['chat']->last_user_msg_time = $msg->time = time();
+        /*$params['chat']->last_user_msg_time =*/ $msg->time = time();
         erLhcoreClassChat::getSession()->save($msg);
         
         // Set last message ID
@@ -49,7 +49,7 @@ class erLhcoreClassChatHelper
         $msg->chat_id = $params['chat']->id;
         $msg->user_id = - 1;
         
-        $params['chat']->last_user_msg_time = $msg->time = time();
+        /*$params['chat']->last_user_msg_time =*/ $msg->time = time();
         erLhcoreClassChat::getSession()->save($msg);
         
         $surveyItem = erLhAbstractModelSurveyItem::findOne(array('filter' => array('chat_id' => $params['chat']->id)));
@@ -190,7 +190,7 @@ class erLhcoreClassChatHelper
 
                 $msg->msg = ((isset($params['bot']) && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $msg->name_support) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
 
-                $params['chat']->last_user_msg_time = $msg->time = time();
+                /*$params['chat']->last_user_msg_time =*/ $msg->time = time();
                 $params['chat']->cls_time = time();
 
                 erLhcoreClassChat::getSession()->save($msg);
@@ -285,7 +285,7 @@ class erLhcoreClassChatHelper
                 $msg = new erLhcoreClassModelmsg();
                 $msg->chat_id = $chat->id;
                 $msg->user_id = -1;
-                $chat->last_user_msg_time = $msg->time = time();
+                /*$chat->last_user_msg_time =*/ $msg->time = time();
                 $msg->name_support = $userData->name_support;
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));

@@ -53,7 +53,9 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                             $oldUserId = $Chat->user_id;
                         }
 
-                        $Chat->last_user_msg_time = time();
+                        $Chat->last_msg_id = $msg->id;
+                        /*$Chat->last_user_msg_time = time();*/
+
                         $Chat->user_id = $user->id;
                         $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
                         $Chat->saveThis();
@@ -137,7 +139,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userToNick;
                 }
 
-                $Chat->last_user_msg_time = $msg->time = time();
+                /*$Chat->last_user_msg_time =*/ $msg->time = time();
 
                 // Original department id
                 $Transfer->from_dep_id = $Chat->dep_id;
