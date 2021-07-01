@@ -232,7 +232,7 @@ class erLhcoreClassChatHelper
             if ($chat->status != erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
                 if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
                     $chat->pnd_time = time();
-                    $chat->wait_time = 2;
+                    $chat->wait_time = 1;
                 } elseif ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
                     if ($chat->wait_time == 0) {
                         $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
