@@ -1,3 +1,12 @@
+3.75v
+
+1. Option to blink active chat if visitor is waiting to log response from the operator
+2. Chat routing will allow to forward chat directly to department.
+3. Statistic will allow to export directly to CSV
+4. Chat list export will have more fields in exported file
+
+execute doc/update_db/update_247.sql for update
+
 3.74v
 
 1. Now you can send invitation message to mass users at once.

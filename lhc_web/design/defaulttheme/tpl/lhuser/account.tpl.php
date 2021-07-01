@@ -73,11 +73,12 @@
                 <input type="text" ng-non-bindable class="form-control" value="<?php echo $user->email;?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
 			</div>
 
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_chat_nickname')) : ?>
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat nickname');?></label>
                 <input type="text" ng-non-bindable class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
             </div>
-
+            <?php endif; ?>
 
 			<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?></label> <input ng-non-bindable type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
@@ -117,6 +118,7 @@
 			</div>
 		</div>
 
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','changephoto')) : ?>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
@@ -132,6 +134,7 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhuser/parts/avatar_build.tpl.php'));?>
             </div>
         </div>
+        <?php endif; ?>
 
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_multiinclude.tpl.php'));?>
 	        				

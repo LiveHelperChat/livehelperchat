@@ -479,6 +479,10 @@
         		        </div>
                     
 						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('hide_job_title', $fields['hide_job_title'], $object)?> <?php echo $fields['hide_job_title']['trans'];?></label>
+        		        </div>
+                    
+						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('job_new_row', $fields['job_new_row'], $object)?> <?php echo $fields['job_new_row']['trans'];?></label>
         		        </div>
 

@@ -395,6 +395,17 @@ div.message-row > span,div.message-row > i {
     animation: blink 1500ms linear infinite;
 }
 
+.long-response-chat{
+    background: #ffdadb!important;
+    animation: blink-light 2000ms linear infinite;
+}
+
+@keyframes blink-light{
+    0%{opacity: 0.7;}
+    50%{opacity: 1;}
+    100%{opacity: 0.7;}
+}
+
 @keyframes blink{
 	0%{opacity: 0.3;}
 	50%{opacity: .9;}

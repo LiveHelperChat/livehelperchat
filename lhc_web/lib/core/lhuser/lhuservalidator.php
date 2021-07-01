@@ -652,7 +652,7 @@ class erLhcoreClassUserValidator {
 				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
 			),
             'avatar' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'Surname' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
@@ -726,11 +726,14 @@ class erLhcoreClassUserValidator {
 
         self::validatePassword($userData,$Errors);
 
-		if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
-		    $userData->chat_nickname = $form->ChatNickname;
-		} else {
-		    $userData->chat_nickname = '';
-		}
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_chat_nickname') ) {
+            if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
+                $userData->chat_nickname = $form->ChatNickname;
+            } else {
+                $userData->chat_nickname = '';
+            }
+        }
+
 
 		if ( !$form->hasValidData( 'Email' ) ) {
 			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');

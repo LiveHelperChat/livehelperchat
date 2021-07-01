@@ -12,7 +12,7 @@ class erLhAbstractModelChatPriority
 
     public static $dbSortOrder = 'DESC';
 
-    public static $dbDefaultSort = 'dep_id DESC, priority DESC';
+    public static $dbDefaultSort = 'sort_priority DESC, priority DESC';
 
     public function getState()
     {
@@ -20,7 +20,9 @@ class erLhAbstractModelChatPriority
             'id' => $this->id,
             'dep_id' => $this->dep_id,
             'value' => $this->value,
-            'priority' => $this->priority
+            'priority' => $this->priority,
+            'sort_priority' => $this->sort_priority,
+            'dest_dep_id' => $this->dest_dep_id
         );
 
         return $stateArray;
@@ -66,6 +68,24 @@ class erLhAbstractModelChatPriority
                 return $this->left_menu;
                 break;
 
+            case 'dep':
+                $this->dep = null;
+
+                if ($this->dep_id > 0) {
+                    $this->dep = erLhcoreClassModelDepartament::fetch($this->dep_id);
+                }
+
+                return $this->dep;
+
+            case 'dest_dep':
+                $this->dest_dep = null;
+
+                if ($this->dest_dep_id > 0) {
+                    $this->dest_dep = erLhcoreClassModelDepartament::fetch($this->dest_dep_id);
+                }
+
+                return $this->dest_dep;
+
             case 'value_array':
                 $this->value_array = array();
                 if ($this->value != ''){
@@ -103,9 +123,13 @@ class erLhAbstractModelChatPriority
 
     public $priority = 0;
 
+    public $sort_priority = 0;
+
     public $value = '';
 
     public $dep_id = 0;
+
+    public $dest_dep_id = 0;
 
     public $hide_delete = false;
 }

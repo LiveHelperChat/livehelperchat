@@ -166,7 +166,7 @@ if (trim($form->msg) != '')
                         $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
                         $Chat->pnd_time = time();
-                        $Chat->wait_time = 2;
+                        $Chat->wait_time = 1;
 
                         $Chat->user_id = $currentUser->getUserID();
 
