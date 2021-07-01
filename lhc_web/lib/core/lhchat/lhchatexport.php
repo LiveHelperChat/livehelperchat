@@ -415,8 +415,14 @@ class erLhcoreClassChatExport {
                             if ($startTime > 0) {
                                 // It's first agent response
                                 if (empty($timesResponseAgent)) {
-                                    $firstAgentResponseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
-                                    $timesResponseAgent[] = $firstAgentResponseTime;
+
+                                    $responseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
+
+                                    if ($responseTime > 0) {
+                                        $firstAgentResponseTime = $responseTime;
+                                        $timesResponseAgent[] = $firstAgentResponseTime;
+                                    }
+
                                 } else {
                                     $timesResponseAgent[] = $agentMessage->time - $startTime;
                                 }
@@ -424,6 +430,10 @@ class erLhcoreClassChatExport {
                             }
                         }
                     }
+
+                  /*  print_r($timesResponseAgent);
+                    print_r($item->pnd_time);
+                    exit;*/
 
 
                     $itemData[] = !empty($timesResponseAgent) ? max($timesResponseAgent) : 'None';
