@@ -259,7 +259,7 @@ class erLhcoreClassChatExport {
                 $waitAbandoned = 'None';
 
                 if ($is_abandoned == true) {
-                    $waitAbandoned = $item->cls_time - $item->pnd_time;
+                    $waitAbandoned = ($item->cls_time > 0 ? $item->cls_time : time()) - $item->pnd_time;
                 }
 
                 $bot = (string)$item->bot;
@@ -402,7 +402,7 @@ class erLhcoreClassChatExport {
                     $tillFirstOperatorMessage = 'None';
                     $firstAgentResponseTime = 'None';
                     $timesResponseAgent = [];
-                    $startTime = $item->pnd_time;
+                    $startTime = !empty($timesResponse) ? $item->pnd_time : 0; // there was visitor messages and pnd_time is time since visitor is waiting for a response
                     foreach ($agentMessages as $agentMessage) {
                         if ($agentMessage->user_id == 0) {
                             if ($startTime == 0) {
@@ -415,8 +415,14 @@ class erLhcoreClassChatExport {
                             if ($startTime > 0) {
                                 // It's first agent response
                                 if (empty($timesResponseAgent)) {
-                                    $firstAgentResponseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
-                                    $timesResponseAgent[] = $firstAgentResponseTime;
+
+                                    $responseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
+
+                                    if ($responseTime > 0) {
+                                        $firstAgentResponseTime = $responseTime;
+                                        $timesResponseAgent[] = $firstAgentResponseTime;
+                                    }
+
                                 } else {
                                     $timesResponseAgent[] = $agentMessage->time - $startTime;
                                 }
@@ -424,6 +430,10 @@ class erLhcoreClassChatExport {
                             }
                         }
                     }
+
+                  /*  print_r($timesResponseAgent);
+                    print_r($item->pnd_time);
+                    exit;*/
 
 
                     $itemData[] = !empty($timesResponseAgent) ? max($timesResponseAgent) : 'None';
