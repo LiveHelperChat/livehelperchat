@@ -147,6 +147,13 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chat content');
         }
 
+        if (isset($params['type']) && in_array(6, $params['type'])) {
+            $chatVariables = erLhAbstractModelChatVariable::getList();
+            foreach ($chatVariables as $chatVariable){
+                $mainColumns[] = $chatVariable->var_name;
+            }
+        }
+
         if (isset($params['type']) && in_array(4,$params['type'])) {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Messages');
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Visitor messages');
@@ -168,12 +175,7 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subject');
         }
 
-        if (isset($params['type']) && in_array(6, $params['type'])) {
-            $chatVariables = erLhAbstractModelChatVariable::getList();
-            foreach ($chatVariables as $chatVariable){
-                $mainColumns[] = $chatVariable->var_name;
-            }
-        }
+
 
 		if (isset($params['type']) && in_array(3,$params['type'])) {
             $mainColumns = array_merge($mainColumns,$survey);
@@ -324,7 +326,10 @@ class erLhcoreClassChatExport {
                             $chatVariablesPassed = $item->chat_variables_array;
                         } else {
                             foreach ($item->additional_data_array as $chatVariablePassed) {
-                                $chatVariablesPassed[$chatVariablePassed['identifier']] = $chatVariablePassed['value'];
+                                if (isset($chatVariablePassed['identifier'])){
+                                    $chatVariablesPassed[$chatVariablePassed['identifier']] = $chatVariablePassed['value'];
+                                }
+
                             }
                         }
 
@@ -373,7 +378,7 @@ class erLhcoreClassChatExport {
 
                     $timesResponse = [];
                     $startTime = 0;
-                    $firstBotResponseTime = 0;
+                    $firstBotResponseTime = 'None';
 
                     foreach ($botMessages as $messageWithABot) {
                         if ($messageWithABot->user_id == 0) {
