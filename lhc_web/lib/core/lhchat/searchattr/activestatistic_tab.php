@@ -263,7 +263,7 @@ $fieldsSearch['abandoned_chat'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['((`lh_chat`.`user_id` = 0 AND `status_sub` IN (' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ')) OR (`lsync` < (`pnd_time` + `wait_time`)))']],
+    'filter_table_field' => ['customfilter' => ['( (`lh_chat`.`pnd_time` > `lh_chat`.`last_op_msg_time`) OR (`lh_chat`.`gbot_id` = 0 AND `lh_chat`.`user_id` = 0 AND `status_sub` IN (' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW . ',' . erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM  . ',' . erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' . erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ')) OR (`lsync` < (`pnd_time` + `wait_time`)))']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
