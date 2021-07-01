@@ -157,6 +157,13 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subject');
         }
 
+        if (isset($params['type']) && in_array(6, $params['type'])) {
+            $chatVariables = erLhAbstractModelChatVariable::getList();
+            foreach ($chatVariables as $chatVariable){
+                $mainColumns[] = $chatVariable->var_name;
+            }
+        }
+
 		if (isset($params['type']) && in_array(3,$params['type'])) {
             $mainColumns = array_merge($mainColumns,$survey);
             $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
@@ -206,7 +213,7 @@ class erLhcoreClassChatExport {
                 $referrer = (string)$item->referrer;
                 $session_referrer = (string)$item->session_referrer;
                 $chat_start_time = date('Y-m-d H:i:s',$item->time);
-                $chat_end_time = date('Y-m-d H:i:s',$item->cls_time);
+                $chat_end_time = $item->cls_time > 0 ? date('Y-m-d H:i:s',$item->cls_time) : '';
 
                 $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
                 $is_unread = (int)$item->has_unread_messages;
@@ -268,6 +275,26 @@ class erLhcoreClassChatExport {
                         }
                     }
                     $itemData[] = trim($messagesContent);
+                }
+
+                if (isset($chatVariables)) {
+                    foreach ($chatVariables as $chatVariable) {
+                        if ($chatVariable->inv == true) {
+                            $chatVariablesPassed = $item->chat_variables_array;
+                        } else {
+                            foreach ($item->additional_data_array as $chatVariablePassed) {
+                                $chatVariablesPassed[$chatVariablePassed['identifier']] = $chatVariablePassed['value'];
+                            }
+                        }
+
+                        $valueVariable = '';
+
+                        if (isset($chatVariablesPassed[$chatVariable->var_identifier])){
+                            $valueVariable = $chatVariablesPassed[$chatVariable->var_identifier];
+                        }
+
+                        $itemData[] = $valueVariable;
+                    }
                 }
 
                 if (isset($params['type']) && in_array(4,$params['type'])) {
