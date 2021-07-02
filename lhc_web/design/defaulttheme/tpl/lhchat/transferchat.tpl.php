@@ -39,7 +39,7 @@
     		<div class="row">
     		    <div class="col-6">
 
-                    <div id="transfer-chat-list-refilter">
+                    <div id="transfer-chat-list-refilter" class="mx550">
 
                     </div>
 
