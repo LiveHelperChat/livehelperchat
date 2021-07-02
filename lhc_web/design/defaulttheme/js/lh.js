@@ -2554,7 +2554,9 @@ function lh(){
 			};
 	    };
 
-        if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
+	    if (identifier == 'transfer_chat' && confLH.accept_chats) {
+            inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+        } else if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
             if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
                 inst.startChatNewWindowTransferByTransfer(chat_id, nt);
 			}
