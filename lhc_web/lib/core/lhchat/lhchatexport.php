@@ -402,7 +402,8 @@ class erLhcoreClassChatExport {
                     $tillFirstOperatorMessage = 'None';
                     $firstAgentResponseTime = 'None';
                     $timesResponseAgent = [];
-                    $startTime = !empty($timesResponse) ? $item->pnd_time : 0; // there was visitor messages and pnd_time is time since visitor is waiting for a response
+                    $startTime = $item->pnd_time;
+
                     foreach ($agentMessages as $agentMessage) {
                         if ($agentMessage->user_id == 0) {
                             if ($startTime == 0) {
@@ -411,18 +412,28 @@ class erLhcoreClassChatExport {
                         } elseif ($agentMessage->user_id > 0) {
                             if ($tillFirstOperatorMessage == 'None') {
                                 $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
+                                if ($tillFirstOperatorMessage < 0) { // It was operator who first send a message
+                                    $tillFirstOperatorMessage = 0;
+                                }
                             }
+
                             if ($startTime > 0) {
                                 // It's first agent response
                                 if (empty($timesResponseAgent)) {
-
                                     $responseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
-
                                     if ($responseTime > 0) {
                                         $firstAgentResponseTime = $responseTime;
                                         $timesResponseAgent[] = $firstAgentResponseTime;
+                                    } else {
+                                        $responseTime = $agentMessage->time - $item->pnd_time;
+                                        if ($responseTime > 0) {
+                                            $firstAgentResponseTime = $responseTime;
+                                            $timesResponseAgent[] = $firstAgentResponseTime;
+                                        } else {
+                                            $firstAgentResponseTime = $agentMessage->time - $item->time;
+                                            $timesResponseAgent[] = $firstAgentResponseTime;
+                                        }
                                     }
-
                                 } else {
                                     $timesResponseAgent[] = $agentMessage->time - $startTime;
                                 }
@@ -430,11 +441,6 @@ class erLhcoreClassChatExport {
                             }
                         }
                     }
-
-                  /*  print_r($timesResponseAgent);
-                    print_r($item->pnd_time);
-                    exit;*/
-
 
                     $itemData[] = !empty($timesResponseAgent) ? max($timesResponseAgent) : 'None';
                     $itemData[] = !empty($timesResponse) ? max($timesResponse) : 'None';

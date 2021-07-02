@@ -158,7 +158,7 @@ if (isset($_POST['receivesNotification'])) {
                         $chat->nick = 'Visitor';
                     }
 
-                    $chat->time = $chat->pnd_time = time();
+                    $chat->time = $chat->pnd_time = time() - 1;
                     $chat->lsync = time();
                     $chat->ip = $visitor->ip;
                     $chat->online_user_id = $visitor->id;
@@ -166,6 +166,7 @@ if (isset($_POST['receivesNotification'])) {
                     $chat->device_type = $visitor->device_type - 1;
                     $chat->uagent = $visitor->user_agent;
                     $chat->dep_id = $visitor->dep_id;
+                    $chat->wait_time = 1;
 
                     erLhcoreClassModelChat::detectLocation($chat, $visitor->vid);
                     $chat->saveThis();
@@ -189,7 +190,7 @@ if (isset($_POST['receivesNotification'])) {
                 // Save message as a chat message
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = $visitor->operator_message;
-                $msg->time = time();
+                $msg->time = time() - 1;
                 $msg->chat_id = $chatPast->id;
                 $msg->user_id = $chatPast->user_id;
                 $msg->name_support = (string)$chatPast->plain_user_name;

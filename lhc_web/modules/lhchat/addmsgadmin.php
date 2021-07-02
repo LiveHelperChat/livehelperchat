@@ -154,6 +154,11 @@ if (trim($form->msg) != '')
     	        		}
     	        	}
 
+                    if ($Chat->wait_time == 0) {
+                        $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                        $updateFields[] = 'wait_time';
+                    }
+
                     $Chat->updateThis(array('update' => $updateFields));
     	        }
 
