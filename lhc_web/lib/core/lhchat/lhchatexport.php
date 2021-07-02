@@ -430,7 +430,14 @@ class erLhcoreClassChatExport {
                                             $firstAgentResponseTime = $responseTime;
                                             $timesResponseAgent[] = $firstAgentResponseTime;
                                         } else {
+
                                             $firstAgentResponseTime = $agentMessage->time - $item->time;
+
+                                            // Happens for old proactive chat invitations
+                                            if ($firstAgentResponseTime < 0) {
+                                                $firstAgentResponseTime = 0;
+                                            }
+
                                             $timesResponseAgent[] = $firstAgentResponseTime;
                                         }
                                     }
