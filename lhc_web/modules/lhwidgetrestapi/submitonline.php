@@ -212,7 +212,7 @@ if (empty($Errors)) {
                     $msg->chat_id = $chat->id;
                     $msg->name_support = $userInstance->operator_user !== false ? trim($userInstance->operator_user->name_support) : (!empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
                     $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
-                    $msg->time = time()-7; // Deduct 7 seconds so for user all looks more natural
+                    $msg->time = time();
 
                     erLhcoreClassChat::getSession()->save($msg);
 
