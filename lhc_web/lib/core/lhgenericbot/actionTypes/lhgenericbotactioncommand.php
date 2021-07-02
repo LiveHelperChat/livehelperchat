@@ -61,7 +61,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
-                $chat->pnd_time = time() + 3;
+                $chat->pnd_time = time()/* + 3*/;
 
                 if (isset($filterOnline['user_id'])) {
                     $chat->user_id = (int)$filterOnline['user_id'];

@@ -5,7 +5,7 @@
 
     <?php if ($chat->pnd_time != $chat->time && $chat->pnd_time > 0) : ?>
         <div class="col-6 pb-1">
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Started at')?> - <?php echo $chat->pnd_time_front?>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Started wait at')?> - <?php echo $chat->pnd_time_front?>
         </div>
     <?php endif; ?>
 

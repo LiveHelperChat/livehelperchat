@@ -169,7 +169,7 @@ try {
                             }
                         }
 
-                        $stmt = $db->prepare('UPDATE lh_chat SET status = :status, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
+                        $stmt = $db->prepare('UPDATE lh_chat SET status = :status, wait_time = :wait_time, user_status = :user_status, last_msg_id = :last_msg_id, last_op_msg_time = :last_op_msg_time, has_unread_op_messages = :has_unread_op_messages, unread_op_messages_informed = :unread_op_messages_informed' . $statusSub . ' WHERE id = :id');
                         $stmt->bindValue(':id',$Chat->id,PDO::PARAM_INT);
                         $stmt->bindValue(':last_msg_id',$msg->id,PDO::PARAM_INT);
                         $stmt->bindValue(':last_op_msg_time',time(),PDO::PARAM_INT);
@@ -192,10 +192,17 @@ try {
                             }
                         }
 
+                        if ($Chat->wait_time == 0) {
+                            $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                        }
+
                         $stmt->bindValue(':user_status',$Chat->user_status,PDO::PARAM_INT);
                         $stmt->bindValue(':status',$Chat->status,PDO::PARAM_INT);
+                        $stmt->bindValue(':wait_time',$Chat->wait_time,PDO::PARAM_INT);
                         $stmt->execute();
                     }
+
+
 
                     // If chat is in bot mode and operators writes a message, accept a chat as operator.
                     if ($form->sender == 'operator' && $Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
@@ -204,7 +211,7 @@ try {
                             $Chat->refreshThis();
                             $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
-                            $Chat->wait_time = time() - ($Chat->pnd_time > 0 ? $Chat->pnd_time : $Chat->time);
+                            $Chat->wait_time = 1; // Chat was in bot mode so wait time has to bet 1 second to be minimal
                             $Chat->user_id = $userData->id;
 
                             // User status in event of chat acceptance
