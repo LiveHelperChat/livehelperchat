@@ -14,6 +14,19 @@ $fieldsSearch['email'] = array (
     )
 );
 
+$fieldsSearch['conversation_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => true,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lhc_mailconv_conversation`.`id`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['subject'] = array (
     'type' => 'text',
     'trans' => 'Sort by',

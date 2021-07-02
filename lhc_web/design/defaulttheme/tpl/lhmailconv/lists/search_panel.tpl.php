@@ -201,6 +201,13 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation ID');?></label>
+                <input type="text" class="form-control form-control-sm" placeholder="<?php echo htmlspecialchars("<id>[,<id>]");?>" name="conversation_id" value="<?php echo htmlspecialchars($input->conversation_id)?>" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail subject');?></label>
                 <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($input->subject)?>" />
             </div>
