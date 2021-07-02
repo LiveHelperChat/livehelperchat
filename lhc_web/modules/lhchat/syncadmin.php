@@ -113,7 +113,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
 
                 $lp = $Chat->lsync > 0 ? time()-$Chat->lsync : false;
 
-                $vwa = $Chat->last_user_msg_time > ($Chat->last_op_msg_time > 0 ? $Chat->last_op_msg_time : $Chat->pnd_time) && (time() - $Chat->last_user_msg_time > (int)erLhcoreClassModelChatConfig::fetchCache('vwait_to_long')->current_value) ? erLhcoreClassChat::formatSeconds(time() - $Chat->last_user_msg_time) : null;
+                $vwa = $Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && $Chat->last_user_msg_time > ($Chat->last_op_msg_time > 0 ? $Chat->last_op_msg_time : $Chat->pnd_time) && (time() - $Chat->last_user_msg_time > (int)erLhcoreClassModelChatConfig::fetchCache('vwait_to_long')->current_value) ? erLhcoreClassChat::formatSeconds(time() - $Chat->last_user_msg_time) : null;
 
                 if ($Chat->is_user_typing == true) {
                     $ReturnStatuses[$chat_id] = array('pnd_rsp' => $Chat->pnd_rsp, 'vwa' => $vwa, 'lmt' => max($Chat->last_user_msg_time, $Chat->last_op_msg_time, $Chat->pnd_time), 'cs' => $Chat->status, 'co' => $Chat->user_id, 'cdur' => $Chat->chat_duration_front, 'lmsg' => erLhcoreClassChat::formatSeconds(time() - ($Chat->last_user_msg_time > 0 ? $Chat->last_user_msg_time : $Chat->time)), 'chat_id' => $chat_id, 'lp' => $lp, 'um' => $Chat->has_unread_op_messages, 'us' => $Chat->user_status_front, 'tp' => 'true','tx' => htmlspecialchars($Chat->user_typing_txt));
