@@ -75,6 +75,21 @@ if ($assignWorkflowTimeout > 0) {
     }
 }
 
+foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat) {
+    try {
+        $db->beginTransaction();
+        $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+        if (is_object($chat) && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+            erLhcoreClassChatWorkflow::autoAssign($chat, $chat->department, array('cron_init' => true, 'auto_assign_timeout' => false));
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.pending_process_workflow',array('chat' => & $chat));
+        }
+        $db->commit();
+    } catch (Exception $e) {
+        $db->rollback();
+        throw $e;
+    }
+}
+
 foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
     try {
         $db->beginTransaction();
