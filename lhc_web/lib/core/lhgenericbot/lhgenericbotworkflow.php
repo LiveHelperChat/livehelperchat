@@ -2202,23 +2202,31 @@ class erLhcoreClassGenericBotWorkflow {
                 '{lhc.department}' => (string)$params['chat']->department,
             );
 
-            foreach ($params['chat']->additional_data_array as $keyItem => $addItem) {
-                if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
-                    if (isset($addItem['identifier'])) {
-                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
-                            $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
-                        }
-                    } else if (isset($addItem['key'])) {
-                        if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
-                            $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+            $additionalDataArray = $params['chat']->additional_data_array;
+
+            if (is_array($additionalDataArray)) {
+                foreach ($additionalDataArray as $keyItem => $addItem) {
+                    if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
+                        if (isset($addItem['identifier'])) {
+                            if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                                $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
+                            }
+                        } else if (isset($addItem['key'])) {
+                            if (is_string($addItem['value']) || is_numeric($addItem['value'])) {
+                                $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
+                            }
                         }
                     }
                 }
             }
 
-            foreach ($params['chat']->chat_variables_array as $keyItem => $addItem) {
-                if (is_string($addItem) || is_numeric($addItem)) {
-                    $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+            $chatVariablesArray = $params['chat']->chat_variables_array;
+
+            if (is_array($chatVariablesArray)) {
+                foreach ($chatVariablesArray as $keyItem => $addItem) {
+                    if (is_string($addItem) || is_numeric($addItem)) {
+                        $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+                    }
                 }
             }
 
