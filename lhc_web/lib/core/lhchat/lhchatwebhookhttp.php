@@ -36,7 +36,7 @@ class erLhcoreClassChatWebhookHttp {
         }
     }
 
-    public function isValidConditions($continuousHook, $chat) {
+    public static function isValidConditions($continuousHook, $chat) {
 
         $configurationParams = $continuousHook->conditions_array;
 

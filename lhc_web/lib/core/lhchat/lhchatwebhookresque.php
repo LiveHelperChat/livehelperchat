@@ -50,7 +50,9 @@ class erLhcoreClassChatWebhookResque {
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
             // processTrigger always requires a chat so fake it.
-            if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
+            if (isset($params['mail']) && $params['mail'] instanceof erLhcoreClassModelMailconvMessage) {
+                $params['chat'] = $params['mail'];
+            } else if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
                 $params['chat'] = new erLhcoreClassModelChat();
                 $params['chat']->id = -1;
             }
