@@ -64,6 +64,10 @@ class erLhcoreClassGenericBotActionMail {
             $mail->Send();
             $mail->ClearAddresses();
 
+            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                erLhcoreClassMailconvParser::syncMailbox($chat->mailbox, array('live' => true));
+            }
+
         }
     }
 }
