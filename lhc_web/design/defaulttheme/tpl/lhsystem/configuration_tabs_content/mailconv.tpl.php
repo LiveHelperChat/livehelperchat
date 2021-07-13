@@ -14,6 +14,10 @@
             <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates');?></a></li>
         <?php endif; ?>
 
+        <?php if ($currentUser->hasAccessTo('lhmailconv','send_mail')) : ?>
+            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send e-mail');?></a></li>
+        <?php endif; ?>
+
         <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
     </ul>
 </div>

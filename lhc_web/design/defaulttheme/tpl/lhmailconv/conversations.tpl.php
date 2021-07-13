@@ -37,7 +37,7 @@
                     <?php else : ?>
                         <i class="material-icons">call_received</i>
                     <?php endif; ?>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?> <small><?php echo $item->total_messages?></small></a>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
                 </td>
                 <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>

@@ -394,6 +394,52 @@ class erLhcoreClassMailconvValidator {
             $response['send'] = false;
         }
     }
+
+    public static function validateNewEmail(& $item){
+
+        $definition = array(
+            'subject' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'from_address' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'from_name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'to_data' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'reply_to_data' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( $form->hasValidData( 'name' ) && $form->name != '')
+        {
+            $item->name = $form->name;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a name!');
+        }
+
+        if ( $form->hasValidData( 'template' )) {
+            $item->template = $form->template;
+        } else {
+            $item->template = '';
+        }
+
+        if ( $form->hasValidData( 'dep_id' )) {
+            $item->dep_id = $form->dep_id;
+        } else {
+            $item->dep_id = 0;
+        }
+
+        return $Errors;
+
+    }
 }
 
 ?>

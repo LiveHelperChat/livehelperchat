@@ -1,0 +1,30 @@
+<?php
+
+$tpl = erLhcoreClassTemplate::getInstance('lhmailconv/sendemail.tpl.php');
+
+$item = new erLhcoreClassModelMailconvMessage();
+
+if (ezcInputForm::hasPostData()) {
+    erLhcoreClassMailconvValidator::validateNewEmail($item);
+}
+
+
+$tpl->setArray(array(
+    'item' => $item,
+));
+
+$Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
+
+$Result['path'] = array(
+    array(
+        'url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv',
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')
+    ),
+    array(
+        'url' => erLhcoreClassDesign::baseurl('mailconv/conversations'),
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'New')
+    )
+);
+
+?>

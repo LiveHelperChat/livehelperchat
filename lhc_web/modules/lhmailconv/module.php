@@ -14,6 +14,11 @@ $ViewList['uploadimage'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['sendemail'] = array(
+    'params' => array(),
+    'functions' => array( 'send_mail' )
+);
+
 $ViewList['uploadfile'] = array(
     'params' => array(),
     'functions' => array( 'use_admin' )
@@ -243,5 +248,6 @@ $FunctionList['mrules_manage'] = array('explain' => 'Permission to manage matchi
 $FunctionList['rtemplates_manage'] = array('explain' => 'Permission to manage response templates');
 $FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget');
 $FunctionList['delete_conversation'] = array('explain' => 'Permission to delete conversation');
+$FunctionList['send_mail'] = array('explain' => 'Allow operator to send an e-mail');
 
 ?>
