@@ -150,7 +150,15 @@ if ( isset($_POST['SendMessage']) ) {
                 $chat->wait_time = 1;
 
                 erLhcoreClassModelChat::detectLocation($chat, $visitor->vid);
+
+                $attributesSystem = $onlineAttrSystem;
+                foreach ($visitor->additional_data_array as $keyItem => $additionalItem) {
+                    $attributesSystem[$additionalItem['identifier']] = $additionalItem['value'];
+                }
+
                 $chat->saveThis();
+
+                erLhcoreClassChatValidator::validateJSVarsChat($chat, $attributesSystem);
 
                 $chatPast = $chat;
                 // Set new chat id
