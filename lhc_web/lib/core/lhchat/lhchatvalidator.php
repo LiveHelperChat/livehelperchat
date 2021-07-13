@@ -932,6 +932,8 @@ class erLhcoreClassChatValidator {
                     $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
                 } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
                     $val = trim($data[$jsVar->id]);
+                } elseif (isset($data[$jsVar->var_identifier]) && $data[$jsVar->var_identifier] != '') {
+                    $val = trim($data[$jsVar->var_identifier]);
                 } else {
                     $val = null;
                 }
