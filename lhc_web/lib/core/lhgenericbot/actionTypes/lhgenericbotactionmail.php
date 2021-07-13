@@ -34,11 +34,11 @@ class erLhcoreClassGenericBotActionMail {
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
 
             if ($chat instanceof erLhcoreClassModelMailconvMessage) {
-                if ($mail->message_id != '') {
-                    $mail->addCustomHeader('In-Reply-To', $mail->message_id);
-                    $mail->addCustomHeader('References', $mail->message_id);
+                if ($chat->message_id != '') {
+                    $mail->addCustomHeader('In-Reply-To', $chat->message_id);
+                    $mail->addCustomHeader('References', $chat->message_id);
                 }
-                erLhcoreClassMailconvValidator::setSendParameters($mail->mailbox, $mail);
+                erLhcoreClassMailconvValidator::setSendParameters($chat->mailbox, $mail);
             } else {
                 erLhcoreClassChatMail::setupSMTP($mail);
             }

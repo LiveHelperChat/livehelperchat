@@ -5,9 +5,9 @@
  * For various testing purposes
  *
  * */
-
-/*$message = erLhcoreClassModelMailconvMessage::fetch(836);
-$conversation = erLhcoreClassModelMailconvConversation::fetch(718);
+/*
+$message = erLhcoreClassModelMailconvMessage::fetch(221);
+$conversation = erLhcoreClassModelMailconvConversation::fetch(189);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
     'mail' => & $message,
