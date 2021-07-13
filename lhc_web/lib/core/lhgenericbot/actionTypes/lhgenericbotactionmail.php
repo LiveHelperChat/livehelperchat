@@ -10,7 +10,7 @@ class erLhcoreClassGenericBotActionMail {
             $mail->CharSet = "UTF-8";
 
             if (isset($action['content']['mail_options']['from_email']) && $action['content']['mail_options']['from_email'] != '') {
-                $mail->Sender = $mail->From = $action['content']['mail_options']['from_email'];
+                $mail->Sender = $mail->From =  erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['mail_options']['from_email'], array('chat' => $chat, 'args' => $params));
             }
 
             if (isset($action['content']['mail_options']['from_name']) && $action['content']['mail_options']['from_name'] != '') {
@@ -33,7 +33,15 @@ class erLhcoreClassGenericBotActionMail {
 
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
 
-            erLhcoreClassChatMail::setupSMTP($mail);
+            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                if ($mail->message_id != '') {
+                    $mail->addCustomHeader('In-Reply-To', $mail->message_id);
+                    $mail->addCustomHeader('References', $mail->message_id);
+                }
+                erLhcoreClassMailconvValidator::setSendParameters($mail->mailbox, $mail);
+            } else {
+                erLhcoreClassChatMail::setupSMTP($mail);
+            }
 
             if (isset($action['content']['mail_options']['bcc_recipient']) && $action['content']['mail_options']['bcc_recipient'] != '') {
                 $recipientsBCC = explode(',', erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['mail_options']['bcc_recipient'], array('chat' => $chat, 'args' => $params)));

@@ -6,4 +6,12 @@
  *
  * */
 
+/*$message = erLhcoreClassModelMailconvMessage::fetch(836);
+$conversation = erLhcoreClassModelMailconvConversation::fetch(718);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
+    'mail' => & $message,
+    'conversation' => & $conversation
+));*/
+
 ?>

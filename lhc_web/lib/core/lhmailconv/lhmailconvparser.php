@@ -77,8 +77,6 @@ class erLhcoreClassMailconvParser {
                 throw new Exception('No mail matching rules were found!');
             }
 
-
-
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -216,6 +214,14 @@ class erLhcoreClassMailconvParser {
                         if ($mail->hasAttachments() == true) {
                             self::saveAttatchements($mail, $message);
                         }
+
+                        if ($conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
+                                'mail' => & $message,
+                                'conversation' => & $conversations
+                            ));
+                        }
+
                     // It's an reply
                     } else {
 
@@ -296,6 +302,11 @@ class erLhcoreClassMailconvParser {
                 $message->conversation_id = $conversations->id;
                 $message->dep_id = $conversations->dep_id;
                 $message->updateThis(['update' => ['conversation_id','dep_id']]);
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
+                    'mail' => & $message,
+                    'conversation' => & $conversations
+                ));
             }
         }
 
