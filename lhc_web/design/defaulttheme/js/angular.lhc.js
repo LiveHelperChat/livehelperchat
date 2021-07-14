@@ -1103,6 +1103,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                     }
                                 }
 
+		                        // Don't show notification for transfered chats
+		                        if (item.last_id_identifier == 'transfer_chat_dep') {
+		                            return;
+                                }
+
 		                        var alertIcons = [];
 
 		                        // Active chats notifications are done by appending alert icons
