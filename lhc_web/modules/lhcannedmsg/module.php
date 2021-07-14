@@ -10,6 +10,12 @@ $ViewList['showsuggester'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['subject'] = array(
+    'params' => array('canned_id'),
+    'uparams' => array('subject','status'),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['filter'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

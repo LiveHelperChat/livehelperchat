@@ -23,6 +23,16 @@
             <input type="text" ng-non-bindable class="form-control" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />
         </div>
 
+        <h6 class="font-weight-bold"><i class="material-icons">description</i>
+            Subject <button type="button" class="btn btn-xs btn-link text-muted pb-1 pl-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/cannedmsg/subject/<?php echo $canned_message->id?>'})"><i class="material-icons mr-0"></i></button>
+            <div id="canned-message-subjects-<?php echo $canned_message->id?>"></div>
+            <script>
+                $.get(WWW_DIR_JAVASCRIPT + 'cannedmsg/subject/<?php echo $canned_message->id?>/?getsubjects=1', function(data) {
+                    $('#canned-message-subjects-<?php echo $canned_message->id?>').html(data);
+                });
+            </script>
+        </h6>
+
         <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Explain');?></label>
             <input type="text" ng-non-bindable class="form-control" name="ExplainHover" value="<?php echo htmlspecialchars($canned_message->explain);?>" />
