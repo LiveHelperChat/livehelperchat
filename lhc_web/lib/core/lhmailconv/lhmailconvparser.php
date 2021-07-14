@@ -129,13 +129,13 @@ class erLhcoreClassMailconvParser {
 
                         $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
-                        $message->from_host = $head->fromHost;
+                        $message->from_host = (string)$head->fromHost;
                         $message->from_name = (string)$head->fromName;
-                        $message->from_address = $head->fromAddress;
+                        $message->from_address = (string)$head->fromAddress;
 
-                        $message->sender_host = $head->senderHost;
+                        $message->sender_host = (string)$head->senderHost;
                         $message->sender_name = (string)$head->senderName;
-                        $message->sender_address = $head->senderAddress;
+                        $message->sender_address = (string)$head->senderAddress;
                         $message->mailbox_id = $mailbox->id;
 
                         if (isset($head->to)) {
