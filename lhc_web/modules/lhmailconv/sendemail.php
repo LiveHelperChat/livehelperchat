@@ -5,9 +5,24 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/sendemail.tpl.php');
 $item = new erLhcoreClassModelMailconvMessage();
 
 if (ezcInputForm::hasPostData()) {
-    erLhcoreClassMailconvValidator::validateNewEmail($item);
-}
+    $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item);
 
+    if (empty($Errors)) {
+
+        $response = array();
+        erLhcoreClassMailconvValidator::sendEmail($item, $response);
+
+        if ($response['send'] == true) {
+            $tpl->set('updated',true);
+        } else {
+            $tpl->set('errors',$response['errors']);
+        }
+
+    } else {
+        $tpl->set('errors',$Errors);
+    }
+
+}
 
 $tpl->setArray(array(
     'item' => $item,

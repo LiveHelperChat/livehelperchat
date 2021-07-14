@@ -395,6 +395,37 @@ class erLhcoreClassMailconvValidator {
         }
     }
 
+    public static function sendEmail($item, & $response) {
+        try {
+            $mailReply = new PHPMailer(true);
+            $mailReply->CharSet = "UTF-8";
+            $mailReply->Subject = $item->subject;
+
+            self::setSendParameters($item->mailbox, $mailReply);
+
+            if (!empty($item->to_data)) {
+                $mailReply->AddReplyTo($item->to_data, (string)$item->reply_to_data);
+            } else {
+                $mailReply->AddReplyTo($item->mailbox->mail, (string)$item->mailbox->name);
+            }
+
+            $mailReply->AddAddress($item->from_address, $item->from_name);
+
+            $item->body = self::prepareMailContent( $item->body, $mailReply);
+
+            $mailReply->Body = $item->body;
+            $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$item->body));
+
+            $response['send'] = $mailReply->Send();
+
+        } catch (Exception $e) {
+            $response['send'] = false;
+            $response['errors']['general'] = $e->getMessage();
+        }
+
+        return $response;
+    }
+
     public static function validateNewEmail(& $item){
 
         $definition = array(
@@ -412,29 +443,61 @@ class erLhcoreClassMailconvValidator {
             ),
             'reply_to_data' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'body' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'mailbox_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             )
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
 
-        if ( $form->hasValidData( 'name' ) && $form->name != '')
+        if ( $form->hasValidData( 'subject' ) && $form->subject != '')
         {
-            $item->name = $form->name;
+            $item->subject = $form->subject;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a name!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a subject!');
         }
 
-        if ( $form->hasValidData( 'template' )) {
-            $item->template = $form->template;
+        if ( $form->hasValidData( 'from_address' ) && $form->from_address != '') {
+            $item->from_address = $form->from_address;
         } else {
-            $item->template = '';
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter recipient e-mail!');
         }
 
-        if ( $form->hasValidData( 'dep_id' )) {
-            $item->dep_id = $form->dep_id;
+        if ( $form->hasValidData( 'from_name' )) {
+            $item->from_name = $form->from_name;
         } else {
-            $item->dep_id = 0;
+            $item->from_name = '';
+        }
+
+        // Reply e-mail
+        if ( $form->hasValidData( 'to_data' )) {
+            $item->to_data = $form->to_data;
+        } else {
+            $item->to_data = '';
+        }
+
+        // Reply name
+        if ( $form->hasValidData( 'reply_to_data' )) {
+            $item->reply_to_data = $form->reply_to_data;
+        } else {
+            $item->reply_to_data = '';
+        }
+
+        if ( $form->hasValidData( 'body' )) {
+            $item->body = $form->body;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter e-mail body!');
+        }
+
+        if ( $form->hasValidData( 'mailbox_id' )) {
+            $item->mailbox_id = $form->mailbox_id;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a mailbox!');
         }
 
         return $Errors;

@@ -1,12 +1,20 @@
 <h1>Send e-mail</h1>
 
+<?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was send.'); ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+<?php endif; ?>
+
+<?php if (isset($errors)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
 <form action="" method="post">
 
     <div class="form-group">
         <label>Mailbox</label>
         <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
             'input_name'     => 'mailbox_id',
-            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select mailbox'),
+            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select a mailbox'),
             'selected_id'    => $item->mailbox_id,
             'css_class'      => 'form-control form-control-sm',
             'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
@@ -15,20 +23,20 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Subject');?></label>
-        <input type="text" class="form-control form-control-sm" name="subject"><?php echo htmlspecialchars($item->subject)?></input>
+        <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($item->subject)?>" />
     </div>
 
     <div class="row">
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient E-mail');?></label>
-                <input type="text" class="form-control form-control-sm" name="from_address"><?php echo htmlspecialchars($item->from_address)?></input>
+                <input type="text" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars($item->from_address)?>" />
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient Name');?></label>
-                <input type="text" class="form-control form-control-sm" name="from_name"><?php echo htmlspecialchars($item->from_name)?></input>
+                <input type="text" class="form-control form-control-sm" name="from_name" value="<?php echo htmlspecialchars($item->from_name)?>" />
             </div>
         </div>
     </div>
@@ -37,13 +45,13 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to e-mail');?></label>
-                <input type="text" class="form-control form-control-sm" name="to_data"><?php echo htmlspecialchars($item->to_data)?></input>
+                <input type="text" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to name');?></label>
-                <input type="text" class="form-control form-control-sm" name="from_name"><?php echo htmlspecialchars($item->reply_to_data)?></input>
+                <input type="text" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
             </div>
         </div>
     </div>
