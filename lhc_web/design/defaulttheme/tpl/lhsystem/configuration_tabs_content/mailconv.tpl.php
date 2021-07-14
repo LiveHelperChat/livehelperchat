@@ -15,7 +15,7 @@
         <?php endif; ?>
 
         <?php if ($currentUser->hasAccessTo('lhmailconv','send_mail')) : ?>
-            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send e-mail');?></a></li>
+            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail');?></a></li>
         <?php endif; ?>
 
         <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
