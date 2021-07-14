@@ -148,7 +148,9 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 // User which is transferring
                 $Transfer->transfer_user_id = $currentUser->getUserID();
 
-                erLhcoreClassTransfer::getSession()->save($Transfer);
+                if (!($Chat->user_id == 0 && $Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT)) {
+                   erLhcoreClassTransfer::getSession()->save($Transfer);
+                }
 
                 $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
                 if (isset($_POST['type']) && $_POST['type'] == 'dep') {

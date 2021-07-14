@@ -491,6 +491,15 @@ class erLhcoreClassChatWorkflow {
                     erLhcoreClassModelChat::STATUS_PENDING_CHAT,
                     erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
                 );
+            } elseif ($closeActive == 3) {
+                $closeTypes = array(
+                    erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+                    erLhcoreClassModelChat::STATUS_BOT_CHAT,
+                );
+            } elseif ($closeActive == 4) {
+                $closeTypes = array(
+                    erLhcoreClassModelChat::STATUS_BOT_CHAT,
+                );
             } else {
                 $closeTypes = array(
                     erLhcoreClassModelChat::STATUS_PENDING_CHAT
