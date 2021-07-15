@@ -19,7 +19,7 @@ if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat
             ],[
                 $currentUser->getUserData()->name_official,
                 $conv->department_name
-            ],$responseTemplate->template),
+            ],($responseTemplate->template != '' ? $responseTemplate->template : $responseTemplate->template_plain)),
             'description' => ''
         ];
     }
