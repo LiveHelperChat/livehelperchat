@@ -28,7 +28,7 @@ class erLhcoreClassChatStatsResque {
         foreach ($depGroups as $depGroup) {
             $depGroupObj = erLhcoreClassModelDepartamentGroup::fetch($depGroup->dep_group_id);
             if ($depGroupObj instanceof erLhcoreClassModelDepartamentGroup) {
-                self::updateDepartmentGroupStats($depGroup);
+                self::updateDepartmentGroupStats($depGroupObj);
             }
         }
     }
@@ -182,6 +182,8 @@ class erLhcoreClassChatStatsResque {
         ),
             'count', false, 'count(`id`) as `total`, `status`, `status_sub`', false, true
         );
+
+
 
         $depGroupObj->inachats_cnt = $depGroupObj->achats_cnt = $depGroupObj->pchats_cnt = $depGroupObj->bchats_cnt = 0;
 
