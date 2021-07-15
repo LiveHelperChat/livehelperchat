@@ -24,6 +24,11 @@ $def->properties['template']->columnName   = 'template';
 $def->properties['template']->propertyName = 'template';
 $def->properties['template']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['template_plain'] = new ezcPersistentObjectProperty();
+$def->properties['template_plain']->columnName   = 'template_plain';
+$def->properties['template_plain']->propertyName = 'template_plain';
+$def->properties['template_plain']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

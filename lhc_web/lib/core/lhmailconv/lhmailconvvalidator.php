@@ -211,6 +211,12 @@ class erLhcoreClassMailconvValidator {
             'template' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'template_plain' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'DepartmentID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
+            ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             )
@@ -231,11 +237,24 @@ class erLhcoreClassMailconvValidator {
         } else {
             $item->template = '';
         }
+        
+        if ( $form->hasValidData( 'template_plain' )) {
+            $item->template_plain = $form->template_plain;
+        } else {
+            $item->template_plain = '';
+        }
 
         if ( $form->hasValidData( 'dep_id' )) {
             $item->dep_id = $form->dep_id;
         } else {
             $item->dep_id = 0;
+        }
+
+        if (!$form->hasValidData( 'DepartmentID' )) {
+            $item->dep_id = 0;
+        } else {
+            $item->dep_id = -1;
+            $item->department_ids = $form->DepartmentID;
         }
 
         return $Errors;

@@ -3,25 +3,30 @@
     <input type="text" maxlength="250" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
 </div>
 
-<div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Department');?></label>
-    <?php
-    $params = array (
-        'input_name'     => 'dep_id',
-        'display_name'   => 'name',
-        'css_class'      => 'form-control form-control-sm',
-        'selected_id'    => $item->dep_id,
-        'list_function'  => 'erLhcoreClassModelDepartament::getList',
-        'list_function_params'  => array_merge(array('limit' => '1000000'))
-    );
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
+    <div class="row" style="max-height: 500px; overflow: auto">
+        <?php
+        $params = array (
+            'input_name'     => 'DepartmentID[]',
+            'display_name'   => 'name',
+            'css_class'      => 'form-control',
+            'multiple'       => true,
+            'wrap_prepend'   => '<div class="col-4">',
+            'wrap_append'    => '</div>',
+            'selected_id'    => $item->department_ids_front,
+            'list_function'  => 'erLhcoreClassModelDepartament::getList',
+            'list_function_params'  => array('sort' => 'sort_priority ASC, id ASC', 'limit' => '1000000')
+        );
 
-    $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
-    echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
+        $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
+
+        echo erLhcoreClassRenderHelper::renderCheckbox( $params ); ?>
+    </div>
 </div>
 
-
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template HTML');?></label>
     <textarea id="response-template" class="form-control form-control-sm" name="template"><?php echo htmlspecialchars($item->template)?></textarea>
     <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department}</small></p>
 </div>
@@ -54,3 +59,9 @@
         });
     });
 </script>
+
+<div class="form-group">
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template Plain text');?></label>
+    <textarea rows="10" class="form-control form-control-sm" name="template_plain"><?php echo htmlspecialchars($item->template_plain)?></textarea>
+    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department}</small></p>
+</div>
