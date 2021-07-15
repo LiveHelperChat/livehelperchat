@@ -10,7 +10,7 @@ if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat
 
     $response = [];
 
-    foreach (erLhcoreClassModelMailconvResponseTemplate::getList(['customfilter' => ['dep_id = -1 OR id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE dep_id = ' . (int)$conv->dep_id . ')']]) as $responseTemplate) {
+    foreach (erLhcoreClassModelMailconvResponseTemplate::getList(['limit' => false, 'sort' => 'name ASC','customfilter' => ['dep_id = -1 OR id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE dep_id = ' . (int)$conv->dep_id . ')']]) as $responseTemplate) {
         $response[] = [
             'title' => $responseTemplate->name,
             'content' => str_replace([
