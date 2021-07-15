@@ -15,7 +15,7 @@
                         <li class="col list-inline-item pl-0 pr-0 mr-0">
                             <ul class="list-unstyled list-column">
                                 <?php foreach ($part as $message) : ?>
-                                <li class="canned-message-item"><span class="mr-0 left-return">&laquo;&nbsp;</span><span class="canned-msg" data-msg="<?php echo htmlspecialchars($message->msg_to_user)?>"><?php echo htmlspecialchars($message->message_title)?> &raquo;</span></li>
+                                <li class="canned-message-item"><span class="mr-0 left-return">&laquo;&nbsp;</span><span class="canned-msg" <?php if (isset($message->subjects_ids)) : ?>subjects_ids="<?php echo htmlspecialchars(implode(',',$message->subjects_ids))?>"<?php endif;?> data-msg="<?php echo htmlspecialchars($message->msg_to_user)?>"><?php echo htmlspecialchars($message->message_title)?> &raquo;</span></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>

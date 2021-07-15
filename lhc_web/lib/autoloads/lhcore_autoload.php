@@ -152,6 +152,7 @@ return array_merge(array (
 	    'erLhAbstractModelSubject'	        => 'lib/models/lhabstract/erlhabstractmodelsubject.php',
 	    'erLhAbstractModelSubjectDepartment'=> 'lib/models/lhabstract/erlhabstractmodelsubjectdepartment.php',
 	    'erLhAbstractModelSubjectChat'      => 'lib/models/lhabstract/erlhabstractmodelsubjectchat.php',
+	    'erLhcoreClassModelCannedMsgSubject'=> 'lib/models/lhchat/erlhcoreclassmodelcannedmsgsubject.php',
 	    'erLhAbstractModelAudit'            => 'lib/models/lhabstract/erlhabstractmodelaudit.php',
 
 		// Chatbox

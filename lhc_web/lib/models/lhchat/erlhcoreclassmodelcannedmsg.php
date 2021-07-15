@@ -291,11 +291,25 @@ class erLhcoreClassModelCannedMsg
 
 	        $q->where($filter);
 	       
-	        $q->limit(5000, 0);
+	        $q->limit(50, 0);
 	        $q->orderBy('position ASC, title ASC');
 	        $items = $session->find($q);
         }
-        
+
+        // Include subjects associated with canned messages
+        $keys = array_keys($items);
+        if (!empty($keys)) {
+            $cannedSubjects = erLhcoreClassModelCannedMsgSubject::getList(array('limit' => false, array('filterin' => array('canned_id' => $keys))));
+            foreach ($cannedSubjects as $cannedSubject) {
+                if (isset($items[$cannedSubject->canned_id])){
+                    if (!isset($items[$cannedSubject->canned_id]->subjects_ids)) {
+                        $items[$cannedSubject->canned_id]->subjects_ids = [];
+                    }
+                    $items[$cannedSubject->canned_id]->subjects_ids[] = $cannedSubject->subject_id;
+                }
+            }
+        }
+
         return $items;
     }
     

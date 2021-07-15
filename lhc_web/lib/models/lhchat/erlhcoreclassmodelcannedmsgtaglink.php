@@ -36,7 +36,7 @@ class erLhcoreClassModelCannedMsgTagLink
             return array();
         }
 
-        $tagLinks = self::getList(array('filterin' => array('tag_id' => array_keys($tags))));
+        $tagLinks = self::getList(array('limit' => false,'filterin' => array('tag_id' => array_keys($tags))));
 
         $cannedMessagesIds = array();
         foreach ($tagLinks as $tagLink) {
@@ -44,6 +44,10 @@ class erLhcoreClassModelCannedMsgTagLink
         }
 
         $cannedMessagesAll = erLhcoreClassModelCannedMsg::getCannedMessages($paramsExecution['chat']->dep_id, $paramsExecution['user']->id, array('id' => $cannedMessagesIds));
+
+        if (count($cannedMessagesAll) > 50) {
+            $cannedMessagesAll = array_splice($cannedMessagesAll,0,50);
+        }
 
         $chat = $paramsExecution['chat'];
         $user = $paramsExecution['user'];
