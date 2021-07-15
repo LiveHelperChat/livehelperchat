@@ -1994,6 +1994,14 @@ try {
   KEY `command` (`command`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_canned_msg_subject` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `canned_id` int(11) NOT NULL,
+    `subject_id` int(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `canned_id` (`canned_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     // API table
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_rest_api_key` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,

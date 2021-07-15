@@ -175,6 +175,7 @@ const CannedMessages = props => {
                         let element = document.getElementById('CSChatMessage-' + props.chatId);
                         element.value = message.msg;
                         element.focus();
+                        message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
                         setCollapsed(true);
                     }
                 })
@@ -291,7 +292,7 @@ const CannedMessages = props => {
                 <ul className="list-unstyled fs13 border mt-0 mx300" id={'canned-list-'+props.chatId}>
                     <li className="border-bottom pt-1 pb-1"><a onClick={(e) => setCollapsed(true)}><span className="material-icons">expand_less</span>{t('chat_canned.canned')}</a></li>
                     {data.map((item, index) => (
-                        <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}]</a>
+                        <li><a className="font-weight-bold" key={index} onClick={() => expandCategory(item, index)}><span className="material-icons">{item.expanded ? 'expand_less' : 'expand_more'}</span>{item.title} [{item.messages.length}{item.messages.length >= 50 ? '+' : ''}]</a>
                             {item.expanded &&
                             <ul className="list-unstyled ml-4">
                                 {item.messages.map(message => (

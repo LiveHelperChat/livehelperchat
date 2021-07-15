@@ -2775,6 +2775,14 @@ function lh(){
 			{
 				this.addingUserMessage = true;
 
+
+				var hasSubjects = false;
+                if (textArea.attr('subjects_ids')) {
+                    pdata.subjects_ids = textArea.attr('subjects_ids');
+                    textArea.removeAttr('subjects_ids');
+                    hasSubjects = true;
+                }
+
 				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data) {
                     textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
@@ -2793,6 +2801,10 @@ function lh(){
                             $('#hold-action-'+chat_id).removeClass('btn-outline-info');
                         } else if (data.hold_added === true) {
                             $('#hold-action-'+chat_id).addClass('btn-outline-info');
+                        }
+
+                        if (hasSubjects == true){
+                            inst.updateVoteStatus(chat_id);
                         }
 
                         lhinst.syncadmincall();
@@ -2965,6 +2977,10 @@ function lh(){
 		});
 
 		$textarea.bind('keyup', function (evt){
+
+            if ($textarea.val() == '') {
+                $textarea.removeAttr('subjects_ids');
+            }
 
             if ($textarea.val() == '' && evt.altKey && (evt.which == 38 || evt.which == 40)) {
                 if (confLH.new_dashboard == true) {

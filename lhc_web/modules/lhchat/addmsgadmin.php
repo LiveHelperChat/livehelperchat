@@ -162,6 +162,25 @@ if (trim($form->msg) != '')
                     $Chat->updateThis(array('update' => $updateFields));
     	        }
 
+    	        if (isset($_POST['subjects_ids']) && !empty($_POST['subjects_ids'])) {
+    	            $subjects_ids = explode(',',$_POST['subjects_ids']);
+    	            erLhcoreClassChat::validateFilterIn($subjects_ids);
+                    $presentSubjects = erLhAbstractModelSubjectChat::getList(array('filterin' => array('subject_id' => $subjects_ids),'filter' => array('chat_id' => $Chat->id)));
+
+                    $presentSubjectsIds = [];
+                    foreach ($presentSubjects as $presentSubject) {
+                        $presentSubjectsIds[] = $presentSubject->subject_id;
+                    }
+
+                    foreach (array_diff($subjects_ids,$presentSubjectsIds) as $subjectIdToSave)
+                    {
+                        $subjectChat = new erLhAbstractModelSubjectChat();
+                        $subjectChat->chat_id = $Chat->id;
+                        $subjectChat->subject_id = $subjectIdToSave;
+                        $subjectChat->saveThis();
+                    }
+                }
+
     	        // If chat is in bot mode and operators writes a message, accept a chat as operator.
     	        if ($Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 
