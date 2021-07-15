@@ -38,6 +38,7 @@ const CannedMessages = props => {
         let element = document.getElementById('CSChatMessage-'+props.chatId);
         element.value = message.msg;
         element.focus();
+        message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
         renderPreview(message);
     }
 
@@ -51,6 +52,13 @@ const CannedMessages = props => {
         setTimeout(() => {
             const formData = new FormData();
             formData.append('msg', message.msg);
+
+            var hasSubjects = false;
+            if (message.subject_ids) {
+                formData.append('subjects_ids',message.subject_ids);
+                hasSubjects = true;
+            }
+
             axios.post(WWW_DIR_JAVASCRIPT  + 'chat/addmsgadmin/' + props.chatId, formData,{
                 headers: {'X-CSRFToken': confLH.csrf_token}
             }).then(result => {
@@ -58,6 +66,11 @@ const CannedMessages = props => {
                     LHCCallbacks.addmsgadmin(props.chatId);
                 };
                 ee.emitEvent('chatAddMsgAdmin', [props.chatId]);
+
+                if (hasSubjects == true) {
+                    lhinst.updateVoteStatus(props.chatId);
+                }
+
                 lhinst.syncadmincall();
                 return true;
             });
