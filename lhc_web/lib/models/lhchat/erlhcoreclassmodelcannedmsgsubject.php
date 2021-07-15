@@ -21,6 +21,18 @@ class erLhcoreClassModelCannedMsgSubject
         );
     }
 
+    public function __get($var)
+    {
+        switch ($var) {
+            case 'subject':
+                $this->subject = erLhAbstractModelSubject::fetch($this->subject_id);
+                return $this->subject;
+            default:
+                ;
+                break;
+        }
+    }
+
     public $id = null;
     public $canned_id = 0;
     public $subject_id = 0;

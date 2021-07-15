@@ -41,6 +41,7 @@ foreach ($canned_options as $depId => $group) {
                  'delay' => $item->delay,
                  'message_title' => $item->message_title,
                  'id' => $item->id,
+                 'subject_ids' => (is_array($item->subjects_ids) ? implode(',',$item->subjects_ids) : null),
                  'current' => $selected
          );
      }

@@ -1,3 +1,10 @@
+3.76v
+
+1. Canned messages can have subjects now su upon usage these subjects will be auto added to the chats.
+2. Canned messages will have list of max 50 items returned.
+
+execute doc/update_db/update_248.sql for update
+
 3.75v
 
 1. Option to blink active chat if visitor is waiting to log response from the operator
