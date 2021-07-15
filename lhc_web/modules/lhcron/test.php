@@ -13,5 +13,23 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_sta
     'mail' => & $message,
     'conversation' => & $conversation
 ));*/
+include 'lib/vendor/autoload.php';
+
+$mailboxHandler = new PhpImap\Mailbox(
+    'host', // IMAP server incl. flags and optional mailbox folder
+    'mail', // Username for the before configured mailbox
+    'pass',
+    false
+);
+
+$mail = $mailboxHandler->getMail(23295, false);
+echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";
+
+$mail = $mailboxHandler->getMail(23325, false);
+echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";
+
+//echo mb_convert_encoding($mail->textPlain,'UTF-8','ISO-8859-1');
+
+
 
 ?>

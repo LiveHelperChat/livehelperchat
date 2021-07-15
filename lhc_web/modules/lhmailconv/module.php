@@ -147,7 +147,7 @@ $ViewList['mailhistory'] = array(
 
 $ViewList['conversations'] = array(
     'params' => array(),
-    'uparams' => array('conversation_id','subject','department_ids','department_group_ids','user_ids','group_ids','subject_id','wait_time_from','wait_time_till','conversation_id','nick','email','timefrom','timeto','user_id','xls','conversation_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id'),
+    'uparams' => array('mailbox_ids','conversation_id','subject','department_ids','department_group_ids','user_ids','group_ids','subject_id','wait_time_from','wait_time_till','conversation_id','nick','email','timefrom','timeto','user_id','xls','conversation_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id'),
     'functions' => array( 'use_admin' ),
     'multiple_arguments' => array(
         'department_ids',
@@ -155,6 +155,7 @@ $ViewList['conversations'] = array(
         'user_ids',
         'group_ids',
         'bot_ids',
+        'mailbox_ids',
         'conversation_id',
     )
 );

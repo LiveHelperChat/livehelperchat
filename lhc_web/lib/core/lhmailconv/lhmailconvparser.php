@@ -165,21 +165,21 @@ class erLhcoreClassMailconvParser {
                         $mail = $mailboxHandler->getMail($mailInfo->uid, false);
 
                         if ($mail->textHtml) {
-                            $message->body = $mail->textHtml;
+                            $message->body = erLhcoreClassMailconvEncoding::toUTF8($mail->textHtml);
                         }
 
                         if ($mail->textPlain) {
-                            $message->alt_body = $mail->textPlain;
+                            $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
                         }
 
                         $message->saveThis();
 
                         $conversations = new erLhcoreClassModelMailconvConversation();
                         $conversations->dep_id = $matchingRuleSelected->dep_id;
-                        $conversations->subject = (string)$message->subject;
-                        $conversations->from_name = (string)$message->from_name;
+                        $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
+                        $conversations->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$message->from_name);
                         $conversations->from_address = $message->from_address;
-                        $conversations->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
+                        $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                         $conversations->last_message_id = $conversations->message_id = $message->id;
                         $conversations->udate = $message->udate;
                         $conversations->date = $message->date;
@@ -512,15 +512,14 @@ class erLhcoreClassMailconvParser {
 
         $head = $mailboxHandler->getMailHeader($mailInfo['uid']);
 
-        $message->from_host = $head->fromHost;
-        $message->from_name = (string)$head->fromName;
-        $message->from_address = $head->fromAddress;
+        $message->from_host = (string)$head->fromHost;
+        $message->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName);
+        $message->from_address = erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromAddress);
 
-        $message->sender_host = $head->senderHost;
+        $message->sender_host = (string)$head->senderHost;
         $message->sender_name = (string)$head->senderName;
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
-
 
 
         if (isset($head->to)) {
@@ -543,11 +542,11 @@ class erLhcoreClassMailconvParser {
         $mail = $mailboxHandler->getMail($mailInfo['uid'], false);
 
         if ($mail->textHtml) {
-            $message->body = $mail->textHtml;
+            $message->body = erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textHtml);
         }
 
         if ($mail->textPlain) {
-            $message->alt_body = $mail->textPlain;
+            $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textPlain);
         }
 
         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->id > 0) {

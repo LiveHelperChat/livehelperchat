@@ -133,7 +133,7 @@ class erLhcoreClassModelMailconvMessage
                     $this->body_front = erLhcoreClassMailconvHTMLParser::getHTMLPreview($body);
 
                 } else {
-                    $this->body_front = $this->alt_body;
+                    $this->body_front = nl2br($this->alt_body);
                 }
                 return $this->body_front;
 

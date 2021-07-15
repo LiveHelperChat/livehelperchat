@@ -341,6 +341,7 @@ return array_merge(array (
         'html'                                      => 'lib/core/lhmailconv/html_parsers/html.php',
         'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
         'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
+        'erLhcoreClassMailconvEncoding'             => 'lib/core/lhmailconv/lhmailconvutf.php',
         'erLhcoreClassLHCMobile'                    => 'lib/core/lhmobile/lhmobile.php',
 
         // Web hooks
