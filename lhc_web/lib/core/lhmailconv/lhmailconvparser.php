@@ -56,22 +56,32 @@ class erLhcoreClassMailconvParser {
 
             $messages = [];
 
+
+            $db = ezcDbInstance::get();
+            $db->beginTransaction();
+
+            $mailbox = erLhcoreClassModelMailconvMailbox::fetchAndLock($mailbox->id);
+
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
                 if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 10 * 60 ) {
+                    $db->commit();
                     return;
                 }
 
                 // Sync has not passed required timeout
                 if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
+                    $db->commit();
                     return;
                 }
             }
 
             $mailbox->sync_started = time();
             $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS;
-            $mailbox->saveThis(['update' => ['sync_status']]);
+            $mailbox->saveThis(['update' => ['sync_status','sync_started']]);
+
+            $db->commit();
 
             if (empty($filteredMatchingRules)) {
                 throw new Exception('No mail matching rules were found!');
@@ -130,7 +140,7 @@ class erLhcoreClassMailconvParser {
                         $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
                         $message->from_host = (string)$head->fromHost;
-                        $message->from_name = (string)$head->fromName;
+                        $message->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName);
                         $message->from_address = (string)$head->fromAddress;
 
                         $message->sender_host = (string)$head->senderHost;
@@ -284,10 +294,10 @@ class erLhcoreClassMailconvParser {
 
                 $conversations = new erLhcoreClassModelMailconvConversation();
                 $conversations->dep_id = $matchingRuleSelected->dep_id;
-                $conversations->subject = (string)$message->subject;
-                $conversations->from_name = (string)$message->from_name;
+                $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
+                $conversations->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$message->from_name);
                 $conversations->from_address = $message->from_address;
-                $conversations->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
+                $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                 $conversations->last_message_id = $conversations->message_id = $message->id;
                 $conversations->udate = $message->udate;
                 $conversations->date = $message->date;
