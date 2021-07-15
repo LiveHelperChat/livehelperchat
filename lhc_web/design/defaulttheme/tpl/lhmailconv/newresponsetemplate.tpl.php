@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>" method="post" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_response_template.tpl.php'));?>
 
