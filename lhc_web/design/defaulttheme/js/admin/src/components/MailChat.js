@@ -173,7 +173,7 @@ const MailChat = props => {
             }
 
         }).catch((error) => {
-
+            lhinst.removeDialogTabMail('mc'+ props.chatId,$('#tabs'),true);
         });
     }
 
