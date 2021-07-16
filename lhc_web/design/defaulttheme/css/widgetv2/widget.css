@@ -1036,3 +1036,7 @@ textarea[name=ChatMessage] {
     padding:0 0 0 22px;
 
 }
+
+#widget-header-content:empty{
+    background: none!important;
+}
