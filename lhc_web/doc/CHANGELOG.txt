@@ -1,3 +1,11 @@
+3.77v
+
+1. Migration to big int. Part 1
+2. Few small widget fixes
+ 
+execute doc/update_db/update_249.sql for update
+
+
 3.76v
 
 1. Canned messages can have subjects now su upon usage these subjects will be auto added to the chats.

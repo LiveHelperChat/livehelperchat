@@ -3795,7 +3795,7 @@
     "lh_chat": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -4404,7 +4404,7 @@
       },
       {
         "field": "chat_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -4703,7 +4703,7 @@
       },
       {
         "field": "chat_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "MUL",
         "default": null,
@@ -4745,7 +4745,7 @@
     "lh_chat_online_user": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -4816,7 +4816,7 @@
       },
       {
         "field": "chat_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -5127,7 +5127,7 @@
     "lh_chat_online_user_footprint": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -5135,7 +5135,7 @@
       },
       {
         "field": "chat_id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "MUL",
         "default": null,
@@ -6332,7 +6332,7 @@
     "lh_msg": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
