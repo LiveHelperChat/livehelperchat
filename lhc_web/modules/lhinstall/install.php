@@ -273,7 +273,7 @@ try {
                     }
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `id` bigint(20) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(100) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
 				  `status_sub` int(11) NOT NULL DEFAULT '0',
@@ -1042,7 +1042,7 @@ try {
         	   `type` varchar(255) NOT NULL,
         	   `file_path` varchar(255) NOT NULL,
         	   `extension` varchar(255) NOT NULL,
-        	   `chat_id` int(11) NOT NULL,
+        	   `chat_id` bigint(20) NOT NULL,
         	   `persistent` int(11) NOT NULL,
         	   `online_user_id` int(11) NOT NULL,
         	   `user_id` int(11) NOT NULL,
@@ -1261,8 +1261,8 @@ try {
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `chat_id` int(11) NOT NULL,
+				  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+				  `chat_id` bigint(20) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
 				  `page` varchar(2083) NOT NULL,
 				  `vtime` int(11) NOT NULL,
@@ -1538,13 +1538,13 @@ try {
 
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `vid` varchar(50) NOT NULL,
                   `ip` varchar(50) NOT NULL,
                   `current_page` text NOT NULL,
         	   	  `page_title` varchar(250) NOT NULL,
                   `referrer` text NOT NULL,
-                  `chat_id` int(11) NOT NULL,
+                  `chat_id` bigint(20) NOT NULL,
                   `invitation_seen_count` int(11) NOT NULL,
         	   	  `invitation_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
@@ -1638,7 +1638,7 @@ try {
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
-        	   `chat_id` int(11) NOT NULL,
+        	   `chat_id` bigint(20) NOT NULL,
         	   `hash` varchar(50) NOT NULL,
         	   `ctime` int(11) NOT NULL,
         	   `wused` int(11) NOT NULL,
@@ -2044,7 +2044,7 @@ try {
 
                     // Chat messages
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 				  `msg` longtext NOT NULL,
 				  `meta_msg` longtext NOT NULL,
 				  `time` int(11) NOT NULL,
