@@ -46,6 +46,8 @@ class erLhcoreClassMailconvParser {
             }
         }
 
+        $messages = [];
+
         try {
 
             $mailboxFolders = $mailbox->mailbox_sync_array;
@@ -53,9 +55,6 @@ class erLhcoreClassMailconvParser {
             if (empty($mailboxFolders)) {
                 throw new Exception('Please choose folder to sync first!');
             }
-
-            $messages = [];
-
 
             $db = ezcDbInstance::get();
             $db->beginTransaction();
