@@ -181,7 +181,7 @@ class erLhcoreClassModelMailconvMessage
             case 'attachments':
                 $this->attachments = [];
                 foreach ($this->files as $file) {
-                    if ($file->disposition == 'ATTACHMENT') {
+                    if (strtolower($file->disposition) == 'attachment') {
                         if ($file->content_id == '' || !in_array($file->extension,['jpg','jpeg','png','bmp','gif']) || strpos($this->body,'cid:' . $file->content_id) === false) {
                             $this->attachments[] = [
                                 'id' => $file->id,
