@@ -125,13 +125,13 @@ class erLhcoreClassMailconvParser {
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
                         $messages[] = $existingMail;
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $vars['subject'];
+                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid . ' - ' . (isset($vars['subject']) ?? $vars['subject']);
                         continue;
                     }
 
                     // It's a new mail. Store it as new conversation.
                     if (!isset($mailInfo->in_reply_to)) {
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] . ' - ' . $vars['subject'];
+                        $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid . ' - ' . (isset($vars['subject']) ?? $vars['subject']);
 
                         $message = new erLhcoreClassModelMailconvMessage();
                         $message->setState($vars);
@@ -465,6 +465,13 @@ class erLhcoreClassMailconvParser {
 
     public static function setConversation($message) {
         if ($message->in_reply_to != '') {
+
+            // Do nothing as we will find ourself
+            // And avoid infinitive loop
+            if ($message->id == $message->in_reply_to) {
+                return $message->conversation_id;
+            }
+
             $messageReply = erLhcoreClassModelMailconvMessage::findOne(['filter' => ['message_id' => $message->in_reply_to]]);
             if ($messageReply instanceof erLhcoreClassModelMailconvMessage)
             {
