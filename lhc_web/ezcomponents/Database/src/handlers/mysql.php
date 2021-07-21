@@ -129,7 +129,7 @@ class ezcDbHandlerMysql extends ezcDbHandler
             if ($e->errorInfo[1] == 2006 && $this->reconnectedCounter < 5) {
                 $this->reconnectedCounter++;
                 parent::__construct( $this->dbParams, $this->dsn );
-                $this->query('SET NAMES utf8');
+                $this->query('SET NAMES \'utf8mb4\' COLLATE \'utf8mb4_unicode_ci\'');
             }
         }
     }
