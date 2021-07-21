@@ -107,6 +107,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $Transfer->dep_id = $dep->id; // Transfer was made to department
 
                     if (isset($transferConfiguration['change_department']) && $transferConfiguration['change_department'] == true) {
+                        $departmentFrom = erLhcoreClassModelDepartament::fetch($Chat->dep_id);
                         $Chat->dep_id = $Transfer->dep_id;
                     }
 
@@ -118,7 +119,9 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         }
                     }
 
+                    $recalculateLoad = 0;
                     if (isset($transferConfiguration['make_unassigned']) && $transferConfiguration['make_unassigned'] == true) {
+                        $recalculateLoad = $Chat->user_id;
                         $Chat->user_id = 0;
                     }
 
@@ -166,6 +169,19 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 $Chat->last_msg_id = $msg->id;
                 $Chat->transfer_uid = $currentUser->getUserID();
                 $Chat->saveThis();
+
+                if (isset($recalculateLoad) && $recalculateLoad > 0) {
+                    // Update user who transferred chat statistic
+                    erLhcoreClassChat::updateActiveChats($recalculateLoad);
+                }
+
+                if (isset($departmentFrom) && $departmentFrom instanceof $departmentFrom) {
+                    // Update from department statistic
+                    erLhcoreClassChat::updateDepartmentStats($departmentFrom);
+
+                    // Update to department statistic
+                    erLhcoreClassChat::updateDepartmentStats($dep);
+                }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfered', array('scope' => $transferScope, 'chat' => & $Chat, 'transfer' => $Transfer));
 
