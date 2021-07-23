@@ -10,7 +10,9 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
 
     $db = ezcDbInstance::get();
 
-    foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('transfer_timeout_ts < (' . time() . ' - transfer_timeout_ac)'), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT, 'transfer_if_na' => 1))) as $chat) {
+    $isOnlineCache = [];
+
+    foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT, 'transfer_if_na' => 1))) as $chat) {
 
         try {
             $db->beginTransaction();
@@ -21,7 +23,11 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
                 (
                     $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
                 ) || (
-                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false
+                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && (
+                        (isset($isOnlineCache[$chat->dep_id]) && $isOnlineCache[$chat->dep_id] === false)
+                        ||
+                        (erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false && ($isOnlineCache[$chat->dep_id] = false) === false)
+                   )
                 )
             ) {
                 $canExecuteWorkflow = true;
