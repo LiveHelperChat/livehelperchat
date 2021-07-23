@@ -89,6 +89,9 @@ class erLhcoreClassDepartament{
 	   			'na_cb_execute' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'off_if_online' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'AutoAssignActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
@@ -307,6 +310,12 @@ class erLhcoreClassDepartament{
 		   		$department->na_cb_execute = 1;
 		   	} else {
 		   		$department->na_cb_execute = 0;
+		   	}
+
+		   	if ( $form->hasValidData( 'off_if_online' ) && $form->off_if_online == true )	{
+                $botConfiguration['off_if_online'] = 1;
+		   	} else {
+		   		$botConfiguration['off_if_online'] = 0;
 		   	}
 	   	}
 	   	

@@ -543,9 +543,11 @@ class erLhcoreClassChatValidator {
         }
         
         if ($department !== false && $department->department_transfer_id > 0) {
-        	$chat->transfer_if_na = 1;
-        	$chat->transfer_timeout_ts = time();
-        	$chat->transfer_timeout_ac = $department->transfer_timeout;
+            if (!(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true)) {
+                $chat->transfer_if_na = 1;
+                $chat->transfer_timeout_ts = time();
+                $chat->transfer_timeout_ac = $department->transfer_timeout;
+            }
         }
         
         if ($department !== false && $department->inform_unread == 1) {
@@ -1976,9 +1978,11 @@ class erLhcoreClassChatValidator {
                 }
                 
                 if ($department !== false && $department->department_transfer_id > 0) {
-                    $chat->transfer_if_na = 1;
-                    $chat->transfer_timeout_ts = time();
-                    $chat->transfer_timeout_ac = $department->transfer_timeout;
+                    if (!(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true)) {
+                        $chat->transfer_if_na = 1;
+                        $chat->transfer_timeout_ts = time();
+                        $chat->transfer_timeout_ac = $department->transfer_timeout;
+                    }
                 }
 
                 if ($department !== false && $department->inform_unread == 1) {
