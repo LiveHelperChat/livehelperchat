@@ -67,6 +67,10 @@ class erLhcoreClassGenericBotActionCommand {
                     $chat->user_id = (int)$filterOnline['user_id'];
                 }
 
+                if ($chat->transfer_if_na == 1) {
+                    $chat->transfer_timeout_ts = time();
+                }
+
                 // We do not have to set this
                 // Because it triggers auto responder of not replying
                 // $chat->last_op_msg_time = time();

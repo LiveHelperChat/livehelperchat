@@ -48,7 +48,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 		        $chat->auto_responder->process();
 		    }
 
-        if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 &&
+        if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_value != 1 && $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->transfer_if_na == 1 &&
             (
                 (
                     $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
