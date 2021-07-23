@@ -330,11 +330,11 @@ const MailChat = props => {
                                         <td>{state.conv.id}</td>
                                     </tr>
                                     {state.conv.accept_time && <tr>
-                                        <td>{t('mail.accepted_at')}Accepted at</td>
+                                        <td>{t('mail.accepted_at')}</td>
                                         <td>{state.conv.accept_time_front} | Wait time {state.conv.wait_time_pending}</td>
                                     </tr>}
                                     {state.conv.response_time && <tr>
-                                        <td>{t('mail.responded_at')}Responded at</td>
+                                        <td>{t('mail.responded_at')}</td>
                                         <td>{state.conv.lr_time_front} | Wait time {state.conv.wait_time_response}</td>
                                     </tr>}
                                     {state.conv.cls_time && <tr>
