@@ -33,8 +33,8 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 
 
 
-// php cron.php72 -s site_admin -c cron/test
-$mailbox = erLhcoreClassModelMailconvMailbox::fetch(23);
+// php72 cron.php -s site_admin -c cron/test
+$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
 erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);
 
 

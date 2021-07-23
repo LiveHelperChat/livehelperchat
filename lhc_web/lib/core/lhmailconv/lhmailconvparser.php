@@ -467,7 +467,7 @@ class erLhcoreClassMailconvParser {
 
             // Do nothing as we will find ourself
             // And avoid infinitive loop
-            if ($message->id == $message->in_reply_to) {
+            if ($message->message_id == $message->in_reply_to) {
                 return $message->conversation_id;
             }
 
