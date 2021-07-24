@@ -48,15 +48,13 @@ try {
 
         if ($operatorChanged || $chatAccepted) {
             foreach ($messages as $indexMessage => $message) {
-                if ($message->user_id == 0) {
-                    if ($message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED && $message->status != erLhcoreClassModelMailconvMessage::STATUS_ACTIVE)
-                    {
-                        $message->accept_time = time();
-                        $message->wait_time = $message->accept_time - $message->ctime;
-                        $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
-                        $message->updateThis();
-                        $messages[$indexMessage] = $message;
-                    }
+                if ($message->user_id == 0 && $message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED && $message->status != erLhcoreClassModelMailconvMessage::STATUS_ACTIVE)
+                {
+                    $message->accept_time = time();
+                    $message->wait_time = $message->accept_time - $message->ctime;
+                    $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
+                    $message->updateThis();
+                    $messages[$indexMessage] = $message;
                 }
             }
         }
