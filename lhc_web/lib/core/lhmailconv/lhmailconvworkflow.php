@@ -70,10 +70,11 @@ class erLhcoreClassMailconvWorkflow {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
 
-            // User should not be set
-            if ($message->user_id == 0) {
+            // We can't do that because auto responder
+            // might send an e-mail just
+            /*if ($message->user_id == 0) {
                 $message->user_id = $conv->user_id;
-            }
+            }*/
 
             $message->updateThis();
         }

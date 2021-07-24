@@ -149,6 +149,9 @@ class erLhcoreClassMailconvParser {
                         $message->sender_address = (string)$head->senderAddress;
                         $message->mailbox_id = $mailbox->id;
 
+                        // Perhaps it was initial message
+                        $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+
                         if (isset($head->to)) {
                             $message->to_data = json_encode($head->to);
                         }
@@ -199,6 +202,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->priority = $matchingRuleSelected->priority;
                         $conversations->total_messages = 1;
                         $conversations->pnd_time = time();
+                        $conversations->user_id = $message->user_id;
 
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
                         if ($conversations->from_address == $mailbox->mail) {
@@ -267,8 +271,7 @@ class erLhcoreClassMailconvParser {
                                 $message->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
                             }
 
-                            $message->user_id = $conversation->user_id;
-                            $message->saveThis(['update' => ['accept_time','status','wait_time','user_id']]);
+                            $message->saveThis(['update' => ['accept_time','status','wait_time']]);
                         }
 
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' . $vars['subject'];
@@ -539,6 +542,8 @@ class erLhcoreClassMailconvParser {
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
 
+        // Find out what operator send this message if any
+        $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
 
         if (isset($head->to)) {
             $message->to_data = json_encode($head->to);
@@ -570,10 +575,6 @@ class erLhcoreClassMailconvParser {
         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->id > 0) {
             $message->conversation_id = $conversation->id;
             $message->dep_id = $conversation->dep_id;
-            
-            if ($conversation->user_id > 0) {
-                $message->user_id = $conversation->user_id;
-            }
         }
 
         if ($message->from_address == $mailbox->mail) {

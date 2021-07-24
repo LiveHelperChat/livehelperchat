@@ -313,7 +313,7 @@ class erLhcoreClassMailconvValidator {
         return $content;
     }
 
-    public static function sendReply($params, & $response, $mail) {
+    public static function sendReply($params, & $response, $mail, $user_id = 0) {
 
         $response['errors'] = [];
 
@@ -375,6 +375,12 @@ class erLhcoreClassMailconvValidator {
                     $mailReply->addCustomHeader('References', $mail->message_id);
                 }
 
+                // Add operator who send a message
+                // So once we fetch message we will know whom to assign it
+                if ($user_id > 0) {
+                    $mailReply->addCustomHeader('X-LHC-ID', $user_id);
+                }
+
                 // @todo add validation
                 foreach ($params['recipients']['reply'] as $recipient) {
                     $mailReply->AddAddress( $recipient['email'],'' );
@@ -407,6 +413,7 @@ class erLhcoreClassMailconvValidator {
                 $mail->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL;
                 $mail->response_time = $mail->lr_time - $mail->accept_time;
                 $mail->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+                $mail->user_id = $user_id; // Update user who replied to customer e-mail
                 $mail->updateThis();
 
             } catch (Exception $e) {
@@ -418,7 +425,7 @@ class erLhcoreClassMailconvValidator {
         }
     }
 
-    public static function sendEmail($item, & $response) {
+    public static function sendEmail($item, & $response, $user_id = 0) {
         try {
             $mailReply = new PHPMailer(true);
             $mailReply->CharSet = "UTF-8";
@@ -438,6 +445,10 @@ class erLhcoreClassMailconvValidator {
 
             $mailReply->Body = $item->body;
             $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$item->body));
+
+            if ($user_id > 0) {
+                $mailReply->addCustomHeader('X-LHC-ID', $user_id);
+            }
 
             $response['send'] = $mailReply->Send();
 

@@ -14,7 +14,7 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) ) {
         $requestPayload = json_decode(file_get_contents('php://input'),true);
-        erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message);
+        erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message, $currentUser->getUserID());
     }
 
     // We have tried to send an e-mail

@@ -10,7 +10,7 @@ if (ezcInputForm::hasPostData()) {
     if (empty($Errors)) {
 
         $response = array();
-        erLhcoreClassMailconvValidator::sendEmail($item, $response);
+        erLhcoreClassMailconvValidator::sendEmail($item, $response, $currentUser->getUserID());
 
         if ($response['send'] == true) {
             $tpl->set('updated',true);
