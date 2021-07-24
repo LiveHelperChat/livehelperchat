@@ -47,6 +47,7 @@ class erLhcoreClassModelMailconvConversation
             'start_type' => $this->start_type,
             'transfer_uid' => $this->transfer_uid,
             'remarks' => $this->remarks,
+            'conv_duration' => $this->conv_duration,
         );
     }
 
@@ -186,6 +187,7 @@ class erLhcoreClassModelMailconvConversation
     public $response_time = 0;    // How long chat was in active state before it was responded.
     public $lr_time = 0;          // Last response time by operator
     public $interaction_time = 0; // is time between the agent accepting a and closing e-chat.
+    public $conv_duration = 0;         // Total time spend between durations in the message
 }
 
 ?>

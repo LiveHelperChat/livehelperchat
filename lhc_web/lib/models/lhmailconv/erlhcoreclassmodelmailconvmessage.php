@@ -63,6 +63,7 @@ class erLhcoreClassModelMailconvMessage
             'accept_time' => $this->accept_time,
             'interaction_time' => $this->interaction_time,
             'lr_time' => $this->lr_time,
+            'conv_duration' => $this->conv_duration,
 
             'user_id' => $this->user_id,
             'response_type' => $this->response_type,
@@ -306,11 +307,23 @@ class erLhcoreClassModelMailconvMessage
 
     // Logical attributes
     public $response_time = 0; // How long chat was in accepted state before it was responded.
+
     public $cls_time = 0; // Time conversation was closed.
     public $wait_time = 0; // how long chat was in pending before it was accepted. pnd_time - accept_time
-    public $accept_time = 0; // Time when chat was accepted.
-    public $interaction_time = 0; // Is time between the agent accepting a and closing e-chat.
-    public $lr_time = 0;          // Last response time by operator
+
+    // Time when chat was accepted.
+    // During sync our send messages get's accept_time as soon they were received
+    // Accept time is the one operator opens in
+    public $accept_time = 0;
+
+    // Is time between the agent accepting a and closing e-chat.
+    public $interaction_time = 0;
+
+    // How long visitor had to wait for an answer
+    // Raw time un-till response was send
+    public $conv_duration = 0;
+
+    public $lr_time = 0;          // Last response time by operator. When was the last message send based on this message
     public $user_id = 0; // User who has accepted
     public $dep_id = 0; // User who has accepted
 

@@ -31,11 +31,9 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 //echo mb_convert_encoding($mail->textPlain,'UTF-8','ISO-8859-1');
 
 
-
-
 // php72 cron.php -s site_admin -c cron/test
-$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
-erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);
+/*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
+erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);*/
 
 
 ?>

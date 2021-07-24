@@ -115,6 +115,8 @@ class erLhcoreClassMailconvParser {
 
                 $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
 
+                $db->reconnect();
+
                 foreach ($mailsInfo as $mailInfo) {
 
                     $vars = get_object_vars($mailInfo);
@@ -485,7 +487,7 @@ class erLhcoreClassMailconvParser {
                     if ($conversationId > 0) {
                         $conversation = erLhcoreClassModelMailconvConversation::fetch($conversationId);
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation) {
-                            $message->conversation_id = $conversation->conversation_id;
+                            $message->conversation_id = $conversation->id;
                             $message->dep_id = $conversation->dep_id;
                             $message->saveThis(array('update' => array('conversation_id','dep_id')));
                             self::setLastConversationByMessage($message->conversation, $message);
@@ -568,6 +570,10 @@ class erLhcoreClassMailconvParser {
         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->id > 0) {
             $message->conversation_id = $conversation->id;
             $message->dep_id = $conversation->dep_id;
+            
+            if ($conversation->user_id > 0) {
+                $message->user_id = $conversation->user_id;
+            }
         }
 
         if ($message->from_address == $mailbox->mail) {

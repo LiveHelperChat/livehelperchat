@@ -399,6 +399,10 @@ class erLhcoreClassMailconvValidator {
                 $response['send'] = $mailReply->Send();
 
                 // Now we can set appropriate attributes for the message itself.
+                if ($mail->accept_time == 0) {
+                    $mail->accept_time = $mail->ctime;
+                }
+
                 $mail->lr_time = time();
                 $mail->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL;
                 $mail->response_time = $mail->lr_time - $mail->accept_time;

@@ -6,7 +6,7 @@ class erLhcoreClassMailconvWorkflow {
 
         $conv = $params['conv'];
 
-        if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+        if (!isset($params['force_update']) && $conv->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
             return;
         }
 
@@ -16,7 +16,9 @@ class erLhcoreClassMailconvWorkflow {
             }
         }
 
-        $conv->cls_time = time();
+        if ($conv->cls_time == 0) {
+            $conv->cls_time = time();
+        }
 
         if ($conv->accept_time == 0) {
             $conv->accept_time = time();
@@ -31,9 +33,9 @@ class erLhcoreClassMailconvWorkflow {
         $conv->response_time = $conv->lr_time - $conv->accept_time;
         $conv->interaction_time = $conv->cls_time - $conv->accept_time;
         $conv->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+        $messages = erLhcoreClassModelMailconvMessage::getList(['limit' => false, 'sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]]);
+        $conv->conv_duration = self::getConversationDuration($messages);
         $conv->saveThis();
-
-        $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $conv->id]]);
 
         foreach ($messages as $message) {
 
@@ -51,8 +53,9 @@ class erLhcoreClassMailconvWorkflow {
                 $message->cls_time = time();
             }
 
+            // Happens if operator replies being invisible so no accept_time is set
             if ($message->accept_time == 0) {
-                $message->accept_time = time();
+                $message->accept_time = $message->ctime;
             }
 
             if ($message->response_time == 0) {
@@ -67,12 +70,49 @@ class erLhcoreClassMailconvWorkflow {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
 
+            // User should not be set
             if ($message->user_id == 0) {
                 $message->user_id = $conv->user_id;
             }
 
             $message->updateThis();
         }
+    }
+
+    public static function getConversationDuration($messages) {
+        $previousMessage = null;
+        $timeToAdd = 0;
+        foreach ($messages as $message) {
+
+            if ($previousMessage == null) {
+                $previousMessage = $message;
+                continue;
+            }
+
+            // Include difference only between different messages
+            if (($previousMessage->response_type == erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL && in_array($message->response_type,array(
+                    erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL,
+                    erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED,
+                    erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED
+                ))) ||
+                ($message->response_type == erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL && in_array($previousMessage->response_type,array(
+                    erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL,
+                    erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED,
+                    erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED
+                )))) {
+                $diff = $message->udate - $previousMessage->udate;
+
+                if ($previousMessage->conv_duration == 0) {
+                    $previousMessage->conv_duration = $diff;
+                    $previousMessage->updateThis(array('update' => array('conv_duration')));
+                }
+
+                $timeToAdd += $diff;
+            }
+
+            $previousMessage = $message;
+        }
+        return $timeToAdd;
     }
 }
 
