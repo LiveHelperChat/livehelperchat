@@ -22,6 +22,8 @@ echo json_encode(array(
         "accepted_by" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accepted by'),
         "accept_wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accept wait time'),
         "response_wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response wait time'),
+        "exc_pending_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Exc. pending time'),
+        "conv_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Conversation duration'),
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Pending'),

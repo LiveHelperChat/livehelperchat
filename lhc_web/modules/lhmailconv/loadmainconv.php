@@ -69,6 +69,7 @@ try {
             'wait_time_pending',
             'wait_time_response',
             'lr_time_front',
+            'conv_duration_front',
             'interaction_time_duration',
         ), array('department','user'));
 
@@ -88,6 +89,7 @@ try {
             'cc_data_front',
             'attachments',
             'bcc_data_front',
+            'conv_duration_front',
             'subjects'
         ), array('user','files'));
 

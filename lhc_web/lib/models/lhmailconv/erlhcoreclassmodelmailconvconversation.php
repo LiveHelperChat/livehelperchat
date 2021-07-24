@@ -106,12 +106,16 @@ class erLhcoreClassModelMailconvConversation
                 return $this->department_name = (string)$this->department;
 
             case 'wait_time_pending':
-                $this->wait_time_pending = $this->wait_time > 0 ? erLhcoreClassChat::formatSeconds($this->wait_time) : erLhcoreClassChat::formatSeconds(time() - $this->pnd_time);
+                $this->wait_time_pending = $this->wait_time > 0 ? erLhcoreClassChat::formatSeconds($this->wait_time) : ($this->status !== self::STATUS_CLOSED ? erLhcoreClassChat::formatSeconds(time() - $this->pnd_time) : 0);
                 return $this->wait_time_pending;
 
             case 'wait_time_response':
-                $this->wait_time_response = $this->response_time > 0 ? erLhcoreClassChat::formatSeconds($this->response_time) : erLhcoreClassChat::formatSeconds(time() - $this->accept_time);
+                $this->wait_time_response = $this->response_time > 0 ? erLhcoreClassChat::formatSeconds($this->response_time) : ($this->status !== self::STATUS_CLOSED ? erLhcoreClassChat::formatSeconds(time() - $this->accept_time) : 0);
                 return $this->wait_time_response;
+
+            case 'conv_duration_front':
+                $this->conv_duration_front = $this->conv_duration > 0 ? erLhcoreClassChat::formatSeconds($this->conv_duration) : 0;
+                return $this->conv_duration_front;
 
             case 'user':
                 $this->user = false;

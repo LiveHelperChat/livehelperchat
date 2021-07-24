@@ -80,7 +80,7 @@ class erLhcoreClassMailconvWorkflow {
         }
     }
 
-    public static function getConversationDuration($messages) {
+    public static function getConversationDuration($messages, $attr = 'ctime') {
         $previousMessage = null;
         $timeToAdd = 0;
         foreach ($messages as $message) {
@@ -101,7 +101,12 @@ class erLhcoreClassMailconvWorkflow {
                     erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED,
                     erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED
                 )))) {
-                $diff = $message->udate - $previousMessage->udate;
+
+                if ($previousMessage->conv_duration == 0) {
+                    $diff = $message->{$attr} - $previousMessage->{$attr};
+                } else {
+                    $diff = $previousMessage->conv_duration;
+                }
 
                 if ($previousMessage->conv_duration == 0) {
                     $previousMessage->conv_duration = $diff;

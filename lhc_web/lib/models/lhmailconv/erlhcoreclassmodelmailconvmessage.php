@@ -119,6 +119,10 @@ class erLhcoreClassModelMailconvMessage
 
             case 'conversation':
                 return $this->conversation = erLhcoreClassModelMailconvConversation::fetch($this->conversation_id);
+                
+            case 'conv_duration_front':
+                $this->conv_duration_front = $this->conv_duration > 0 ? erLhcoreClassChat::formatSeconds($this->conv_duration) : 0;
+                return $this->conv_duration_front;
 
             case 'body_front':
                 if ($this->body != '') {

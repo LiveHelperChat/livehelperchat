@@ -331,15 +331,19 @@ const MailChat = props => {
                                     </tr>
                                     {state.conv.accept_time && <tr>
                                         <td>{t('mail.accepted_at')}</td>
-                                        <td>{state.conv.accept_time_front} | Wait time {state.conv.wait_time_pending}</td>
+                                        <td>{state.conv.accept_time_front}{state.conv.wait_time_pending && <React.Fragment> | Wait time {state.conv.wait_time_pending}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.response_time && <tr>
                                         <td>{t('mail.responded_at')}</td>
-                                        <td>{state.conv.lr_time_front} | Wait time {state.conv.wait_time_response}</td>
+                                        <td>{state.conv.lr_time_front}{state.conv.wait_time_response && <React.Fragment> | Wait time {state.conv.wait_time_response}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.cls_time && <tr>
                                         <td>{t('mail.closed_at')}</td>
                                         <td>{state.conv.cls_time_front}</td>
+                                    </tr>}
+                                    {state.conv.conv_duration && <tr>
+                                        <td>{t('mail.conv_duration')}</td>
+                                        <td>{state.conv.conv_duration_front}</td>
                                     </tr>}
                                     {state.conv.interaction_time && <tr>
                                         <td>{t('mail.interaction_time')}</td>
