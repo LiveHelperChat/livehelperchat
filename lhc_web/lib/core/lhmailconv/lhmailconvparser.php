@@ -517,7 +517,7 @@ class erLhcoreClassMailconvParser {
                 $conversation->pnd_time = time();
                 $conversation->accept_time = 0;
                 $conversation->tslasign = 0;
-                $conversation->user_id = 0;         // Reset operator
+                // $conversation->user_id = 0;       // Keep operator so he can follow up
                 $conversation->cls_time = 0;        // Reset close time
                 $conversation->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
             }
