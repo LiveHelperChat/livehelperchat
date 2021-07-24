@@ -21,6 +21,7 @@ try {
             'cls_time_front',
             'to_data_front',
             'reply_to_data_front',
+            'conv_duration_front',
             'cc_data_front',
             'attachments',
             'bcc_data_front',
