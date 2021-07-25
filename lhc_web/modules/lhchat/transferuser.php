@@ -97,6 +97,13 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     if (isset($transferConfiguration['change_department']) && $transferConfiguration['change_department'] == true) {
                         $departmentFrom = erLhcoreClassModelDepartament::fetch($Chat->dep_id);
                         $Chat->dep_id = $Transfer->dep_id;
+
+                        // Our new department has transfer rule
+                        if ($dep->department_transfer !== false) {
+                            $Chat->transfer_if_na = 1;
+                            $Chat->transfer_timeout_ac = $dep->transfer_timeout;
+                            $Chat->transfer_timeout_ts = time();
+                        }
                     }
 
                     if (isset($transferConfiguration['make_pending']) && $transferConfiguration['make_pending'] == true) {
