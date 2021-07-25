@@ -197,18 +197,19 @@ const MailChat = props => {
     }
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/saveremarks/" + props.chatId, {data: state.remarks}).then(result => {
-                dispatch({
-                    type: 'update',
-                    value: {
-                        'saving_remarks': false
-                    }
+        if (state.conv !== null) {
+            const timeout = setTimeout(() => {
+                axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/saveremarks/" + props.chatId, {data: state.remarks}).then(result => {
+                    dispatch({
+                        type: 'update',
+                        value: {
+                            'saving_remarks': false
+                        }
+                    });
                 });
-            });
-        }, 500);
-
-        return () => clearTimeout(timeout);
+            }, 500);
+            return () => clearTimeout(timeout);
+        }
     },[state.remarks]);
 
     const saveRemarks = (params) => {
@@ -330,11 +331,11 @@ const MailChat = props => {
                                         <td>{state.conv.id}</td>
                                     </tr>
                                     {state.conv.accept_time && <tr>
-                                        <td>{t('mail.accepted_at')}</td>
+                                        <td>{t('mail.last_accepted_at')}</td>
                                         <td>{state.conv.accept_time_front}{state.conv.wait_time_pending && <React.Fragment> | Wait time {state.conv.wait_time_pending}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.response_time && <tr>
-                                        <td>{t('mail.responded_at')}</td>
+                                        <td>{t('mail.last_responded_at')}</td>
                                         <td>{state.conv.lr_time_front}{state.conv.wait_time_response && <React.Fragment> | Wait time {state.conv.wait_time_response}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.cls_time && <tr>
@@ -346,7 +347,7 @@ const MailChat = props => {
                                         <td>{state.conv.conv_duration_front}</td>
                                     </tr>}
                                     {state.conv.interaction_time && <tr>
-                                        <td>{t('mail.interaction_time')}</td>
+                                        <td>{t('mail.last_interaction_time')}</td>
                                         <td>{state.conv.interaction_time_duration}</td>
                                     </tr>}
                                     {state.conv.priority && <tr>

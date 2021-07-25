@@ -413,6 +413,7 @@ class erLhcoreClassMailconvValidator {
                 $mail->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL;
                 $mail->response_time = $mail->lr_time - $mail->accept_time;
                 $mail->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+                $mail->conv_duration = time() - $mail->ctime;
                 $mail->user_id = $user_id; // Update user who replied to customer e-mail
                 $mail->updateThis();
 

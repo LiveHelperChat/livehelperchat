@@ -26,10 +26,6 @@ class erLhcoreClassMailconvWorkflow {
 
         $conv->wait_time = $conv->accept_time - $conv->pnd_time;
 
-        if ($conv->lr_time == 0) {
-            $conv->lr_time = time();
-        }
-
         $conv->response_time = $conv->lr_time - $conv->accept_time;
         $conv->interaction_time = $conv->cls_time - $conv->accept_time;
         $conv->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
@@ -69,12 +65,6 @@ class erLhcoreClassMailconvWorkflow {
             if ($message->wait_time == 0) {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
-
-            // We can't do that because auto responder
-            // might send an e-mail just
-            /*if ($message->user_id == 0) {
-                $message->user_id = $conv->user_id;
-            }*/
 
             $message->updateThis();
         }

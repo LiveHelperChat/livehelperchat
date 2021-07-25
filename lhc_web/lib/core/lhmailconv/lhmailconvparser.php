@@ -258,7 +258,8 @@ class erLhcoreClassMailconvParser {
 
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->udate < $message->udate) {
                             $conversation->last_message_id = $message->id;
-                            $conversation->updateThis(['update' => ['last_message_id']]);
+                            $conversation->conv_duration = erLhcoreClassChat::getCount(['filter' => ['conversation_id' => $conversation->id]],'lhc_mailconv_msg','SUM(conv_duration)');
+                            $conversation->updateThis(['update' => ['last_message_id', 'conv_duration']]);
                             self::setLastConversationByMessage($conversation, $message);
                         }
 
@@ -273,6 +274,8 @@ class erLhcoreClassMailconvParser {
 
                             $message->saveThis(['update' => ['accept_time','status','wait_time']]);
                         }
+
+
 
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' . $vars['subject'];
                    }

@@ -35,5 +35,7 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 /*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
 erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);*/
 
+echo erLhcoreClassChat::getCount(['filter' => ['conversation_id' => 150003384]],'lhc_mailconv_msg','SUM(conv_duration)');
+
 
 ?>
