@@ -14,6 +14,11 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
 
     foreach (erLhcoreClassChat::getList(array('limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT, 'transfer_if_na' => 1))) as $chat) {
 
+        // Fix misleading message
+        if (isset($offlineDepartmentOperators)) {
+            unset($offlineDepartmentOperators);
+        }
+
         try {
             $db->beginTransaction();
 
