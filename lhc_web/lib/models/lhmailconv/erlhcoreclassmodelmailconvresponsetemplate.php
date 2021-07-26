@@ -35,6 +35,10 @@ class erLhcoreClassModelMailconvResponseTemplate
                 return date('Ymd') == date('Ymd', $this->ctime) ? date(erLhcoreClassModule::$dateHourFormat, $this->ctime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->ctime);
                 break;
 
+            case 'template_html':
+                return $this->template != '' ? $this->template : nl2br($this->template_plain);
+                break;
+
             case 'department_ids_front':
                 $this->department_ids_front = [];
                 if ($this->id > 0) {

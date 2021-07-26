@@ -9913,6 +9913,14 @@
         "user_id" : "ALTER TABLE `lh_admin_theme` ADD INDEX `user_id` (`user_id`);"
       },
       "old" : []
+    },
+    "lhc_mailconv_conversation" : {
+      "new" : {
+        "from_address" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `from_address` (`from_address`);",
+        "mailbox_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `mailbox_id` (`mailbox_id`);",
+        "dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `dep_id` (`dep_id`);"
+      },
+      "old" : []
     }
   },
   "tables_create": {

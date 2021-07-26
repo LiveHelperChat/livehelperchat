@@ -266,5 +266,7 @@ $FunctionList['rtemplates_manage'] = array('explain' => 'Permission to manage re
 $FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget');
 $FunctionList['delete_conversation'] = array('explain' => 'Permission to delete conversation');
 $FunctionList['send_mail'] = array('explain' => 'Allow operator to send an e-mail');
+$FunctionList['allow_attach_files'] = array('explain' => 'Allow operator to attach files');
+$FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to change recipient');
 
 ?>

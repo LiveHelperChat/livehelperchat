@@ -1,11 +1,15 @@
 <?php
 
-$currentUser = erLhcoreClassUser::instance();
-$currentUser->getUserID();
+$tpl = erLhcoreClassTemplate::getInstance('lhmailconv/attatchtemplate.tpl.php');
 
 $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
 
-$tpl = erLhcoreClassTemplate::getInstance('lhmailconv/attatchtemplate.tpl.php');
+$conv = $message->conversation;
+
+if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
+{
+    $tpl->set('dep_id', $conv->dep_id);
+}
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';

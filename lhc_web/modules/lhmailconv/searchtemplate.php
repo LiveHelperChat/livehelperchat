@@ -8,8 +8,12 @@ $q = $session->createFindQuery('erLhcoreClassModelMailconvResponseTemplate');
 $filter = array();
 $items = array();
 
-// Extension did not changed any filters, use default
-//$filter[] = $q->expr->lOr($q->expr->eq('department_id', $q->bindValue($department_id)), $q->expr->lAnd($q->expr->eq('department_id', $q->bindValue(0)), $q->expr->eq('user_id', $q->bindValue(0))), $q->expr->eq('user_id', $q->bindValue($user_id)));
+// No chosen department means all
+// Or the one
+$filter[] = $q->expr->lOr(
+     $q->expr->eq('dep_id', $q->bindValue(0)),
+    'id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE dep_id = ' . (int) $Params['user_parameters']['id'] . ')'
+);
 
 if ($keyword != '') {
     $filter[] = $q->expr->lOr(
@@ -23,7 +27,6 @@ $q->where($filter);
 $q->limit(10, 0);
 $q->orderBy('name ASC');
 $items = $session->find($q);
-
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/searchtemplate.tpl.php');
 $tpl->set('items', $items);

@@ -102,7 +102,7 @@ try {
 
         $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
             ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.
-            '| lhtemplates lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
+            '| lhtemplates lhfiles insertfile image pageembed link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
 
         if (isset($mcOptionsData['mce_toolbar']) && $mcOptionsData['mce_toolbar'] != '') {
             $mceToolbar = $mcOptionsData['mce_toolbar'];
@@ -112,7 +112,7 @@ try {
             'advlist autolink lists link image charmap print preview anchor image lhfiles',
             'searchreplace visualblocks code fullscreen',
             'media table paste help',
-            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
+            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
         ];
 
         if (isset($mcOptionsData['mce_plugins']) && $mcOptionsData['mce_plugins'] != '') {
@@ -125,11 +125,8 @@ try {
             'moptions' => [
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
-                'can_add_recipient' => true,
-                'can_add_cc' => true,
-                'can_add_bcc' => true,
-                'files_enabled' => false,
-                'hide_recipients' => true,
+                'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
+                'hide_recipients' => !$currentUser->hasAccessTo('lhmailconv', 'manage_reply_recipients'),
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar
             ]

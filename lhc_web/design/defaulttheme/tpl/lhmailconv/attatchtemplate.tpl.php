@@ -1,6 +1,6 @@
 <form action="" method="post">
     <div class="form-group">
-        <input type="text" id="template-keyword" class="form-control form-control-sm" placeholder="Search for template"/>
+        <input type="text" id="template-keyword" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Search for template');?>"/>
     </div>
 </form>
 
@@ -14,10 +14,10 @@
         $('#template-keyword').keyup(function(){
             clearTimeout(timeoutKeyword);
             setTimeout(function() {
-                $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
+                $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
                     $('#list-result-template').html(data);
                 });
-            },500);
+            },300);
             $('#list-result-template').on('click', 'a.use-template', function(item) {
                 window.parent.postMessage({
                     mceAction: 'insertContent',
