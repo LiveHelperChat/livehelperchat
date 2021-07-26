@@ -102,7 +102,7 @@ try {
 
         $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
             ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.
-            '| lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
+            '| lhtemplates lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
 
         if (isset($mcOptionsData['mce_toolbar']) && $mcOptionsData['mce_toolbar'] != '') {
             $mceToolbar = $mcOptionsData['mce_toolbar'];

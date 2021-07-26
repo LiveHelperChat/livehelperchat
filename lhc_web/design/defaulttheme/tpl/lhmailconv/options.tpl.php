@@ -26,7 +26,7 @@
                 $('#mce_plugins_value').val("[\"advlist autolink lists link image charmap print preview anchor image lhfiles\",\n\"searchreplace visualblocks code fullscreen\",\n\"media table paste help\",\n\"print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons\"]");
             });
             $('#mce_toolbar_default').click(function(){
-                $('#mce_toolbar_value').val("undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help");
+                $('#mce_toolbar_value').val("undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | lhtemplates lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help");
             });
         });
     </script>

@@ -18,6 +18,10 @@
             <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail');?></a></li>
         <?php endif; ?>
 
+        <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
+            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/options')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options');?></a></li>
+        <?php endif; ?>
+
         <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
     </ul>
 </div>
