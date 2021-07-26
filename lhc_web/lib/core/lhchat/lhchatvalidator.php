@@ -826,7 +826,7 @@ class erLhcoreClassChatValidator {
         $priority = self::getPriorityByAdditionalData($chat, array('detailed' => true));
 
         if ($priority !== false && $priority['priority'] > $chat->priority) {
-            $chat->priority = $priority;
+            $chat->priority = $priority['priority'];
         }
 
         if ($priority !== false && $priority['dep_id'] > 0) {
