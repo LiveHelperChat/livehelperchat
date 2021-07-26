@@ -181,12 +181,6 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation ID');?></label>
-                <input type="text" class="form-control form-control-sm" name="conversation_id" value="<?php echo htmlspecialchars($input->conversation_id)?>" />
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'subject_id',

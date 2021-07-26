@@ -48,6 +48,7 @@ class erLhcoreClassModelMailconvConversation
             'transfer_uid' => $this->transfer_uid,
             'remarks' => $this->remarks,
             'conv_duration' => $this->conv_duration,
+            'mail_variables' => $this->mail_variables,
         );
     }
 
@@ -177,6 +178,7 @@ class erLhcoreClassModelMailconvConversation
 
     // Date
     public $date = '';
+    public $mail_variables = '';
     public $priority = 0;
     public $mailbox_id = 0;
     public $total_messages = 0;

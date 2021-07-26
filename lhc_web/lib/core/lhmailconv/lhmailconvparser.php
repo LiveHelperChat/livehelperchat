@@ -71,8 +71,11 @@ class erLhcoreClassMailconvParser {
 
                 // Sync has not passed required timeout
                 if ($mailbox->last_sync_time > time() - $mailbox->sync_interval) {
-                    $db->commit();
-                    return;
+                    // Skip only if it's not in progress
+                    if (!isset($params['ignore_timeout'])) {
+                        $db->commit();
+                        return;
+                    }
                 }
             }
 
@@ -107,7 +110,7 @@ class erLhcoreClassMailconvParser {
 
                 // $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 1*24*3600).'"');
                 // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 5*24*3600).'"',true);
+                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
 
                 if (empty($mailsIds)) {
                     continue;

@@ -96,12 +96,42 @@ try {
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
         $data = (array)$fileData->data;
 
+
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+
+        $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
+            ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.
+            '| lhfiles insertfile image pageembed template link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
+
+        if (isset($mcOptionsData['mce_toolbar']) && $mcOptionsData['mce_toolbar'] != '') {
+            $mceToolbar = $mcOptionsData['mce_toolbar'];
+        }
+
+        $mcePlugins = [
+            'advlist autolink lists link image charmap print preview anchor image lhfiles',
+            'searchreplace visualblocks code fullscreen',
+            'media table paste help',
+            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
+        ];
+
+        if (isset($mcOptionsData['mce_plugins']) && $mcOptionsData['mce_plugins'] != '') {
+            $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
+        }
+
         echo json_encode(array(
             'conv' => $conv,
             'messages' => array_values($messages),
             'moptions' => [
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
+                'can_add_recipient' => true,
+                'can_add_cc' => true,
+                'can_add_bcc' => true,
+                'files_enabled' => false,
+                'hide_recipients' => true,
+                'mce_plugins' => $mcePlugins,
+                'mce_toolbar' => $mceToolbar
             ]
         ));
 

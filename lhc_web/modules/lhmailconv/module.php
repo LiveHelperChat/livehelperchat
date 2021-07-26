@@ -60,7 +60,7 @@ $ViewList['apisendreply'] = array(
 );
 
 $ViewList['apifetchmails'] = array(
-    'params' => array('id'),
+    'params' => array('id','ts'),
     'functions' => array( 'use_admin' )
 );
 
@@ -73,6 +73,17 @@ $ViewList['attatchfile'] = array(
 $ViewList['insertfile'] = array(
     'params' => array('id'),
     'uparams' => array('mode'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['searchtemplate'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['attachtemplate'] = array(
+    'params' => array('id'),
     'functions' => array( 'use_admin' )
 );
 
@@ -240,6 +251,11 @@ $ViewList['editresponsetemplate'] = array(
 $ViewList['notifications'] = array(
     'params' => array(),
     'functions' => array( 'use_alarms' )
+);
+
+$ViewList['options'] = array(
+    'params' => array(),
+    'functions' => array( 'mailbox_manage' )
 );
 
 $FunctionList = array();

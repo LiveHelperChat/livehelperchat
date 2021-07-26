@@ -160,8 +160,8 @@ const MailChatReply = props => {
             {!props.fetchingMessages && (replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
 
                 {replySendStatus.send_tried && <MailSendStatus status={replySendStatus} />}
-                
-                <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />
+
+                {!props.moptions.hide_recipients && <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />}
 
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
@@ -172,27 +172,19 @@ const MailChatReply = props => {
                     id={"reply-to-mce-"+props.message.id}
                     init={{
                         height: 320,
-                        automatic_uploads: true,
+                        automatic_uploads: props.moptions.files_enabled,
                         file_picker_types: 'image',
                         images_upload_url: WWW_DIR_JAVASCRIPT + 'mailconv/uploadimage',
                         templates: WWW_DIR_JAVASCRIPT + 'mailconv/apiresponsetemplates/'+props.message.id,
-                        paste_data_images: true,
+                        paste_data_images: props.moptions.files_enabled,
                         relative_urls : false,
                         browser_spellcheck: true,
                         paste_as_text: true,
                         contextmenu: false,
                         menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor image lhfiles',
-                            'searchreplace visualblocks code fullscreen',
-                            'media table paste help',
-                            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
-                        ],
+                        plugins: props.moptions.mce_plugins,
                         toolbar_mode: 'wrap',
-                        toolbar:
-                            'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript | bold italic underline strikethrough | forecolor backcolor | \
-                            alignleft aligncenter alignright alignjustify | lhfiles insertfile image pageembed template link anchor codesample | \
-                            bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help'
+                        toolbar: props.moptions.mce_toolbar
                     }}
                 />
 
@@ -206,7 +198,7 @@ const MailChatReply = props => {
 
                 <div className="btn-group mt-1" role="group" aria-label="Mail actions">
                     <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send')}</button>
-                    <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
+                    {props.moptions.files_enabled && <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>}
                 </div>
 
                 {attachedFiles && attachedFiles.length > 0 &&

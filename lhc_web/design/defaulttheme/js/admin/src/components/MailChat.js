@@ -186,9 +186,17 @@ const MailChat = props => {
             }
         });
 
-        // We have send an e-mail so we have to fetch a new e-mail now
-        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apifetchmails/" + props.chatId).then(result => {
-            loadMainData();
+        fetchUntillUpdate(Math.floor(Date.now() / 1000));
+    }
+
+    const fetchUntillUpdate = (ts) => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apifetchmails/" + props.chatId + '/' + ts).then(result => {
+            if (result.data.updated == true) {
+                loadMainData();
+            } else {
+                // Todo handle cleanup
+                setTimeout(() => fetchUntillUpdate(ts),1000);
+            }
         });
     }
 

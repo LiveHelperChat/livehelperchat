@@ -10,7 +10,14 @@ class erLhcoreClassMailConvWorker {
         $mailboxId = $this->args['mailbox_id'];
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($mailboxId);
 
-        erLhcoreClassMailconvParser::syncMailbox($mailbox);
+        $params = array();
+
+        // Mailbox
+        if (isset($this->args['ignore_timeout'])) {
+            $params['ignore_timeout'] = true;
+        }
+
+        erLhcoreClassMailconvParser::syncMailbox($mailbox, $params);
     }
 
 }

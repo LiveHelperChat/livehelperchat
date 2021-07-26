@@ -12,12 +12,16 @@ try {
     $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('mailbox_id' => $conv->mailbox_id));
+        // We should start this job ASAP it's queue is free
+        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailconv', 'erLhcoreClassMailConvWorker', array('ignore_timeout' => true, 'mailbox_id' => $conv->mailbox_id));
     } else {
         erLhcoreClassMailconvParser::syncMailbox($conv->mailbox, ['live' => true, 'only_send' => true]);
     }
 
-    echo json_encode(['somedata' => 'synced']);
+    $mailbox = $conv->mailbox;
+    $updated = $mailbox->last_sync_time > (int)$Params['user_parameters']['ts'] && $mailbox->sync_started > (int)$Params['user_parameters']['ts'];
+
+    echo json_encode(['updated' => $updated]);
 
 } catch (Exception $e) {
     http_response_code(400);
