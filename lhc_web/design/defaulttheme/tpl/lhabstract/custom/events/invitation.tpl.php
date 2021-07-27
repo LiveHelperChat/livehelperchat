@@ -71,6 +71,10 @@
 <label><?php echo erLhcoreClassAbstract::renderInput('show_everytime', $fields['show_everytime'], $object)?><?php echo $fields['show_everytime']['trans'];?></label>
 </div>
 
+<div class="form-group">
+<label><?php echo erLhcoreClassAbstract::renderInput('show_after_chat', $fields['show_after_chat'], $object)?><?php echo $fields['show_after_chat']['trans'];?></label>
+</div>
+
 <div class="row">
     <div class="col-6">
         <div class="form-group">
