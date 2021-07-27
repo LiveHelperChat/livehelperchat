@@ -1,4 +1,5 @@
-<?php if ($chat->status != erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) : 
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/chat_nick_override_multiinclude.tpl.php'));?>
+<?php if ($chat->status != erLhcoreClassModelChat::STATUS_CHATBOX_CHAT) :
 
     $lastOperatorChanged = false;
     $lastOperatorId = false;
