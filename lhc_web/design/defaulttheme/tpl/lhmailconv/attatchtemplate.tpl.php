@@ -11,6 +11,9 @@
 <script>
     $(document).ready(function(){
         var timeoutKeyword = null;
+        $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
+            $('#list-result-template').html(data);
+        });
         $('#template-keyword').keyup(function(){
             clearTimeout(timeoutKeyword);
             setTimeout(function() {
