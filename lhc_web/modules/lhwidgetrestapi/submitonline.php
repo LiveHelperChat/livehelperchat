@@ -243,6 +243,19 @@ if (empty($Errors)) {
                                 }
                             }
                         }
+
+                        if ($invitation instanceof erLhAbstractModelProactiveChatInvitation &&
+                            $invitation->design_data_array['show_everytime'] && $invitation->design_data_array['show_everytime'] == true &&
+                            $invitation->design_data_array['show_after_chat'] && $invitation->design_data_array['show_after_chat'] == true) {
+                            $userInstance->operator_message = '';
+                            $userInstance->message_seen = 0;
+                            $userInstance->message_seen_ts = 0;
+                            if (isset($onlineAttrSystem['qinv'])) {
+                                unset($onlineAttrSystem['qinv']); // Next time show normal invitation
+                            }
+                            $userInstance->online_attr_system = json_encode($onlineAttrSystem);
+                            $resetMessage = true;
+                        }
                     }
 
                     $chat->chat_initiator = erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE;
@@ -250,8 +263,11 @@ if (empty($Errors)) {
 
                 $userInstance->chat_id = $chat->id;
                 $userInstance->dep_id = $chat->dep_id;
-                $userInstance->message_seen = 1;
-                $userInstance->message_seen_ts = time();
+
+                if (!isset($resetMessage)) {
+                    $userInstance->message_seen = 1;
+                    $userInstance->message_seen_ts = time();
+                }
 
                 if ($userInstance->visitor_tz == '') {
                     $userInstance->visitor_tz = $chat->user_tz_identifier;
