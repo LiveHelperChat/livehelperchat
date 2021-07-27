@@ -49,6 +49,11 @@ $def->properties['active']->columnName   = 'active';
 $def->properties['active']->propertyName = 'active';
 $def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['delete_mode'] = new ezcPersistentObjectProperty();
+$def->properties['delete_mode']->columnName   = 'delete_mode';
+$def->properties['delete_mode']->propertyName = 'delete_mode';
+$def->properties['delete_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['sync_status'] = new ezcPersistentObjectProperty();
 $def->properties['sync_status']->columnName   = 'sync_status';
 $def->properties['sync_status']->propertyName = 'sync_status';
@@ -68,6 +73,11 @@ $def->properties['last_sync_time'] = new ezcPersistentObjectProperty();
 $def->properties['last_sync_time']->columnName   = 'last_sync_time';
 $def->properties['last_sync_time']->propertyName = 'last_sync_time';
 $def->properties['last_sync_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['import_since'] = new ezcPersistentObjectProperty();
+$def->properties['import_since']->columnName   = 'import_since';
+$def->properties['import_since']->propertyName = 'import_since';
+$def->properties['import_since']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
 $def->properties['last_sync_log'] = new ezcPersistentObjectProperty();
 $def->properties['last_sync_log']->columnName   = 'last_sync_log';

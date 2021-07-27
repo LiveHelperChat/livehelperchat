@@ -121,10 +121,16 @@ class erLhcoreClassMailconvValidator {
             'active' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'delete_mode' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'signature_under' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'sync_interval' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'import_since' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
         );
@@ -176,6 +182,12 @@ class erLhcoreClassMailconvValidator {
             $item->sync_interval = 60;
         }
 
+        if ( $form->hasValidData( 'import_since' )) {
+            $item->import_since = $form->import_since;
+        } else {
+            $item->import_since = 0;
+        }
+
         if ( $form->hasValidData( 'password' )) {
             $item->password = $form->password;
         } else {
@@ -198,6 +210,12 @@ class erLhcoreClassMailconvValidator {
             $item->active = 1;
         } else {
             $item->active = 0;
+        }
+
+        if ($form->hasValidData( 'delete_mode' ) && $form->delete_mode == true) {
+            $item->delete_mode = erLhcoreClassModelMailconvMailbox::DELETE_ALL;
+        } else {
+            $item->delete_mode = erLhcoreClassModelMailconvMailbox::DELETE_LOCAL;
         }
 
         return $Errors;

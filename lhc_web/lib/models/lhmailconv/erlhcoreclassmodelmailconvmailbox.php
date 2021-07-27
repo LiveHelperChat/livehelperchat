@@ -33,6 +33,8 @@ class erLhcoreClassModelMailconvMailbox
             'sync_interval' => $this->sync_interval,
             'signature' => $this->signature,
             'signature_under' => $this->signature_under,
+            'import_since' => $this->import_since,
+            'delete_mode' => $this->delete_mode,
         );
     }
 
@@ -89,6 +91,9 @@ class erLhcoreClassModelMailconvMailbox
     const SYNC_PENDING = 0;
     const SYNC_PROGRESS = 1;
 
+    const DELETE_ALL = 0;
+    const DELETE_LOCAL = 1;
+
     public $id = NULL;
     public $mail = '';
     public $username = '';
@@ -106,6 +111,9 @@ class erLhcoreClassModelMailconvMailbox
     public $sync_interval = 60;
     public $name = '';
     public $signature_under = 0;
+    public $import_since = 0;
+    public $delete_mode = self::DELETE_ALL;
+
 }
 
 ?>

@@ -18,7 +18,8 @@ $filter[] = $q->expr->lOr(
 if ($keyword != '') {
     $filter[] = $q->expr->lOr(
         $q->expr->like('name', $q->bindValue('%' . $keyword . '%')),
-        $q->expr->like('template_plain', $q->bindValue('%' . $keyword . '%'))
+        $q->expr->like('template_plain', $q->bindValue('%' . $keyword . '%')),
+        $q->expr->like('template', $q->bindValue('%' . $keyword . '%'))
     );
 }
 

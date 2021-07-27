@@ -124,18 +124,23 @@ class erLhcoreClassMailconvParser {
 
                     $vars = get_object_vars($mailInfo);
 
+                    if ($mailbox->import_since > 0 && $mailbox->import_since > (int)$vars['udate']) {
+                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping because of import since - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        continue;
+                    }
+
                     $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['message_id']]));
 
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
                         $messages[] = $existingMail;
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid . ' - ' . (isset($vars['subject']) ?? $vars['subject']);
+                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
                         continue;
                     }
 
                     // It's a new mail. Store it as new conversation.
                     if (!isset($mailInfo->in_reply_to)) {
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid . ' - ' . (isset($vars['subject']) ?? $vars['subject']);
+                        $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid;
 
                         $message = new erLhcoreClassModelMailconvMessage();
                         $message->setState($vars);
@@ -604,17 +609,20 @@ class erLhcoreClassMailconvParser {
     public static function purgeMessage($message)
     {
         $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
-        $mailboxHandler = new PhpImap\Mailbox(
-            $message->mb_folder, // We use message mailbox folder.
-            $mailbox->username, // Username for the before configured mailbox
-            $mailbox->password, // Password for the before configured username
-            false
-        );
 
-        // Check that we have trash mailbox configured
-        if ($mailbox->trash_mailbox != null) {
-            $mailboxHandler->moveMail($message->uid,$mailbox->trash_mailbox);
-            $mailboxHandler->expungeDeletedMails();
+        if ($mailbox->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL) {
+            $mailboxHandler = new PhpImap\Mailbox(
+                $message->mb_folder, // We use message mailbox folder.
+                $mailbox->username, // Username for the before configured mailbox
+                $mailbox->password, // Password for the before configured username
+                false
+            );
+
+            // Check that we have trash mailbox configured
+            if ($mailbox->trash_mailbox != null) {
+                $mailboxHandler->moveMail($message->uid,$mailbox->trash_mailbox);
+                $mailboxHandler->expungeDeletedMails();
+            }
         }
     }
 }
