@@ -105,9 +105,10 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $dep = erLhcoreClassModelDepartament::fetch($Params['user_parameters']['item_id']);
 
                     $Transfer->dep_id = $dep->id; // Transfer was made to department
-
+                    $departmentFromParent = erLhcoreClassModelDepartament::fetch($Chat->dep_id);
+                    
                     if (isset($transferConfiguration['change_department']) && $transferConfiguration['change_department'] == true) {
-                        $departmentFrom = erLhcoreClassModelDepartament::fetch($Chat->dep_id);
+                        $departmentFrom = $departmentFromParent;
                         $Chat->dep_id = $Transfer->dep_id;
 
                         // Our new department has transfer rule
@@ -135,7 +136,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $msg->name_support = (string)$currentUser->getUserData()->name_support;
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
 
-                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'department');
+                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'from'). ' ' . $departmentFromParent;
 
                 } else {
                     $Transfer->transfer_to_user_id = $Params['user_parameters']['item_id']; // Transfer was made to user
