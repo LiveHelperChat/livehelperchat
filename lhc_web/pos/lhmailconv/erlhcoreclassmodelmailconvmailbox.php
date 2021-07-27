@@ -99,6 +99,11 @@ $def->properties['signature_under']->columnName   = 'signature_under';
 $def->properties['signature_under']->propertyName = 'signature_under';
 $def->properties['signature_under']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['reopen_timeout'] = new ezcPersistentObjectProperty();
+$def->properties['reopen_timeout']->columnName   = 'reopen_timeout';
+$def->properties['reopen_timeout']->propertyName = 'reopen_timeout';
+$def->properties['reopen_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

@@ -133,6 +133,9 @@ class erLhcoreClassMailconvValidator {
             'import_since' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'reopen_timeout' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
         );
 
 
@@ -186,6 +189,12 @@ class erLhcoreClassMailconvValidator {
             $item->import_since = $form->import_since;
         } else {
             $item->import_since = 0;
+        }
+        
+        if ( $form->hasValidData( 'reopen_timeout' )) {
+            $item->reopen_timeout = $form->reopen_timeout;
+        } else {
+            $item->reopen_timeout = 0;
         }
 
         if ( $form->hasValidData( 'password' )) {

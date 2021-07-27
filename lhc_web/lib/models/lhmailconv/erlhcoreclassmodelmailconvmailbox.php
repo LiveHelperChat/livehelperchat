@@ -35,6 +35,7 @@ class erLhcoreClassModelMailconvMailbox
             'signature_under' => $this->signature_under,
             'import_since' => $this->import_since,
             'delete_mode' => $this->delete_mode,
+            'reopen_timeout' => $this->reopen_timeout,
         );
     }
 
@@ -112,6 +113,7 @@ class erLhcoreClassModelMailconvMailbox
     public $name = '';
     public $signature_under = 0;
     public $import_since = 0;
+    public $reopen_timeout = 4;
     public $delete_mode = self::DELETE_ALL;
 
 }

@@ -80,5 +80,11 @@
             <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
+            <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
+        </div>
+    </div>
 </div>
 

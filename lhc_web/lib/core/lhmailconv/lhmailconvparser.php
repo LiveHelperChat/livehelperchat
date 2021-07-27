@@ -138,8 +138,22 @@ class erLhcoreClassMailconvParser {
                         continue;
                     }
 
+                    // Create a new conversations if message is just to old
+                    $newConversation = false;
+                    if (isset($mailInfo->in_reply_to)) {
+                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['in_reply_to']]));
+                        if (
+                            $previousMessage instanceof erLhcoreClassModelMailconvMessage &&
+                            $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation &&
+                            $mailbox->reopen_timeout > 0 && $previousMessage->conversation->lr_time > 0 &&
+                            $previousMessage->conversation->lr_time < time() - $mailbox->reopen_timeout * 24 * 3600
+                        ) {
+                                $newConversation = true;
+                        }
+                    }
+
                     // It's a new mail. Store it as new conversation.
-                    if (!isset($mailInfo->in_reply_to)) {
+                    if (!isset($mailInfo->in_reply_to) || $newConversation == true) {
                         $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid;
 
                         $message = new erLhcoreClassModelMailconvMessage();

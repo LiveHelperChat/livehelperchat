@@ -7983,6 +7983,14 @@
         "extra": ""
       },
       {
+        "field": "reopen_timeout",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "4",
+        "extra": ""
+      },
+      {
         "field": "delete_mode",
         "type": "tinyint(1)",
         "null": "NO",
