@@ -12,7 +12,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhwidgetrestapi/executejs.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['id'])) {
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['id']);
-    if ($chat->hash != $Params['user_parameters_unordered']['hash']) {
+    if (!($chat instanceof erLhcoreClassModelChat) || $chat->hash != $Params['user_parameters_unordered']['hash']) {
         // Invalid hash
         exit;
     } else {
