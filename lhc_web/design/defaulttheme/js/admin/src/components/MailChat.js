@@ -261,8 +261,8 @@ const MailChat = props => {
     useEffect(() => {
         if (state.loaded == true) {
             var container = tabsContainer.current;
+            ee.emitEvent('mailChatContentLoaded', [props.chatId]);
         }
-
     },[state.loaded]);
 
     const { t, i18n } = useTranslation('mail_chat');
@@ -303,6 +303,10 @@ const MailChat = props => {
 
                                 <div className="pb-2">
                                     <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
+                                </div>
+
+                                <div id={"mail-external-details-"+props.chatId}>
+
                                 </div>
 
                                 {state.conv && <table className="table table-sm">
