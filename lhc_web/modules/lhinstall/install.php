@@ -2102,6 +2102,12 @@ try {
                     // Operators rules and functions
                     $permissionsArray = array(
                         array('module' => 'lhuser',  'function' => 'selfedit'),
+                        array('module' => 'lhuser',  'function' => 'change_chat_nickname'),
+                        array('module' => 'lhuser',  'function' => 'changephoto'),
+                        array('module' => 'lhuser',  'function' => 'change_job_title'),
+                        array('module' => 'lhuser',  'function' => 'change_core_attributes'),
+                        array('module' => 'lhuser',  'function' => 'change_name_surname'),
+                        array('module' => 'lhuser',  'function' => 'selfedit'),
                         array('module' => 'lhuser',  'function' => 'changeonlinestatus'),
                         array('module' => 'lhuser',  'function' => 'changeskypenick'),
                         array('module' => 'lhuser',  'function' => 'personalcannedmsg'),
