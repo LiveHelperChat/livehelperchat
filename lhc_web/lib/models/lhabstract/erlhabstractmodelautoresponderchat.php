@@ -203,8 +203,11 @@ class erLhAbstractModelAutoResponderChat
                 }
 
                 if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
-                    if (($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0) ||
-                        ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0))
+                    if (
+                        ($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time > ($this->chat->pnd_time + $this->chat->wait_time))
+                        ||
+                        ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0 && $this->chat->last_op_msg_time > ($this->chat->pnd_time + $this->chat->wait_time))
+                    )
                     {
                         if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
                             $msg = new erLhcoreClassModelmsg();

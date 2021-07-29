@@ -35,6 +35,26 @@ export default function (dispatch, getState) {
         } else if (extension == 'modal_ext') {
             var date = new Date();
             insertJS(extension, __webpack_public_path__.replace('/widgetv2/','') + '/modal.ext.min.js?'+(""+date.getFullYear() + date.getMonth() + date.getDate()), args);
+        } else {
+
+            var url = "/(ext)/" + extension;
+
+            const state = getState();
+
+            if (state.chatwidget.hasIn(['chatData', 'id'])) {
+                url += "/(id)/" + state.chatwidget.getIn(['chatData', 'id']);
+                url += "/(hash)/" + state.chatwidget.getIn(['chatData', 'hash']);
+            }
+
+            var dep = state.chatwidget.get('department').join("/");
+
+            if (dep != "") {
+                url += "/(dep)/"+dep;
+            }
+
+            var date = new Date();
+
+            insertJS(extension, window.lhcChat['base_url'] + "widgetrestapi/executejs" + url + ("?" + date.getFullYear() + date.getMonth() + date.getDate()), args);
         }
     }
 

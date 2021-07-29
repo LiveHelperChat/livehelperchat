@@ -646,16 +646,16 @@ class erLhcoreClassUserValidator {
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'Email' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::REQUIRED, 'validate_email'
+				ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
 			),
 			'Name' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
             'avatar' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'Surname' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
+				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 			),
 			'Username' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -689,25 +689,19 @@ class erLhcoreClassUserValidator {
 		$form = new ezcInputForm( INPUT_POST, $definition );
 		
 		$Errors = array();
-		
-		if ( !$form->hasValidData( 'Username' ) || $form->Username == '') {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please enter a username');
-		} else {
-		
-			if($form->Username != $userData->username) {
-					
-				$userData->username = $form->Username;
-					
-				if(erLhcoreClassModelUser::userExists($userData->username) === true) {
-					$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','User exists');
-				}
-			}
-		}
-				
-		if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
-		    $userData->password_temp_1 = $form->Password;
-		    $userData->password_temp_2 = $form->Password1;
-		}
+
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_core_attributes') ) {
+            if (!$form->hasValidData('Username') || $form->Username == '') {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a username');
+            } else {
+                if ($form->Username != $userData->username) {
+                    $userData->username = $form->Username;
+                    if (erLhcoreClassModelUser::userExists($userData->username) === true) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'User exists');
+                    }
+                }
+            }
+        }
 
         if ( $form->hasValidData( 'HideMyStatus' ) && $form->HideMyStatus == true )	{
             $userData->hide_online = 1;
@@ -715,16 +709,29 @@ class erLhcoreClassUserValidator {
             $userData->hide_online = 0;
         }
 
-		if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
-		} else {
-			if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
-				$userData->setPassword($form->Password);
-				$userData->password_front = $form->Password;
-			}
-		}
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_core_attributes') ) {
 
-        self::validatePassword($userData,$Errors);
+            if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
+                $userData->password_temp_1 = $form->Password;
+                $userData->password_temp_2 = $form->Password1;
+            }
+
+            if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
+            } else {
+                if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
+                    $userData->setPassword($form->Password);
+                    $userData->password_front = $form->Password;
+                }
+            }
+            self::validatePassword($userData,$Errors);
+
+            if ( !$form->hasValidData( 'Email' ) ) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');
+            } else {
+                $userData->email = $form->Email;
+            }
+        }
 
         if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_chat_nickname') ) {
             if ( $form->hasValidData( 'ChatNickname' ) && $form->ChatNickname != '' ) {
@@ -734,30 +741,27 @@ class erLhcoreClassUserValidator {
             }
         }
 
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_name_surname') ) {
+            if (!$form->hasValidData('Name') || $form->Name == '') {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a name');
+            } else {
+                $userData->name = $form->Name;
+            }
 
-		if ( !$form->hasValidData( 'Email' ) ) {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');
-		} else {
-			$userData->email = $form->Email;
-		}
-		
-		if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
-			$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please enter a name');
-		} else {
-			$userData->name = $form->Name;
-		}
-		
-		if ( $form->hasValidData( 'Surname' ) && $form->Surname != '') {
-			$userData->surname = $form->Surname;
-		} else {
-			$userData->surname = '';
-		}
-		
-		if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '') {
-			$userData->job_title = $form->JobTitle;
-		} else {
-			$userData->job_title = '';
-		}
+            if ($form->hasValidData('Surname') && $form->Surname != '') {
+                $userData->surname = $form->Surname;
+            } else {
+                $userData->surname = '';
+            }
+        }
+
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_job_title') ) {
+            if ( $form->hasValidData( 'JobTitle' ) && $form->JobTitle != '') {
+                $userData->job_title = $form->JobTitle;
+            } else {
+                $userData->job_title = '';
+            }
+        }
 
 		if ( $form->hasValidData( 'avatar' )) {
 			$userData->avatar = $form->avatar;

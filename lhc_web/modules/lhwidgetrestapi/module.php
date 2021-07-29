@@ -142,6 +142,12 @@ $ViewList['screensharesettings'] = array(
     'uparams' => array()
 );
 
+$ViewList['executejs'] = array(
+    'params' => array(),
+    'uparams' => array('id','hash','ext','dep'),
+    'multiple_arguments' => array ( 'dep' )
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 
