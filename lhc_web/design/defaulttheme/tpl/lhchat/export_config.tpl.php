@@ -2,11 +2,14 @@
 $modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS/CSV');
 $modalSize = 'md';
-$modalBodyClass = 'p-1'
+$modalBodyClass = 'p-1';
+$appendPrintExportURL = '';
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<form action="<?php echo htmlspecialchars($action_url)?>/(export)/1" method="post" target="_blank">
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>
+
+<form action="<?php echo htmlspecialchars($action_url)?>/(export)/1?<?php echo $appendPrintExportURL?>" method="post" target="_blank">
     <div class="modal-body">
         <div class="row">
             <div class="col-6">
