@@ -122,6 +122,10 @@ export class needhelpWidget{
             attributes.msgsnippet_status.subscribe((data) => {
                 data == true && this.hide(true);
             });
+
+            attributes.shidden.subscribe((data) => {
+                data ? this.hide(false) : this.show();
+            });
         }
 
         setTimeout(() => {

@@ -20,7 +20,7 @@ export class statusWidget{
             minwidth: "95px"
         }), null, "iframe");
 
-        this.loadStatus = {main : false, theme: false, font: true, widget : false};
+        this.loadStatus = {main : false, theme: false, font: true, widget : false, shidden: false};
         this.lload = false;
         this.unread_counter = 0;
     }
@@ -43,7 +43,7 @@ export class statusWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true) {
+        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true && this.loadStatus['shidden'] == false) {
             this.cont.getElementById('lhc_status_container').style.display = "";
             this.attributes.sload.next(true);
         }
@@ -84,6 +84,23 @@ export class statusWidget{
             // We wait untill widget content loads
             attributes.wloaded.subscribe((data) => { if (data){this.loadStatus['widget'] = true; this.checkLoadStatus()}});
         }
+
+        attributes.shidden.subscribe((data) => {
+            if (data) {
+                const chatParams = this.attributes['userSession'].getSessionAttributes();
+                if (!chatParams['id'] && this.attributes.widgetStatus.value != true) {
+                    this.attributes['hide_status'] = true;
+                    this.loadStatus['shidden'] = true;
+                    this.hide();
+                } else {
+                    this.attributes['hide_status'] = false;
+                }
+            } else {
+                this.attributes['hide_status'] = this.loadStatus['shidden'] = false;
+                this.checkLoadStatus();
+                this.show();
+            }
+        });
 
         this.cont.attachUserEventListener("click", function (e) {
 
@@ -173,14 +190,21 @@ export class statusWidget{
             const chatParams = this.attributes['userSession'].getSessionAttributes();
             if (this.attributes.leaveMessage == true || this.attributes.onlineStatus.value == true || chatParams['id']) {
 
-                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hideStatus'] !== true && ((chatParams['id'] && chatParams['hash']) || this.attributes.widgetStatus.value == true))) {
-                    this.cont.show();
+                if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hide_status'] !== true && ((chatParams['id'] && chatParams['hash']) || this.attributes.widgetStatus.value == true))) {
+                    if (this.attributes['hide_status'] !== true || (chatParams['id'] && chatParams['hash'])) {
+                        this.cont.show();
+                    }
                 }
 
-                this.controlMode = true;
-                var icon = this.cont.getElementById("status-icon");
-                helperFunctions.addClass(icon, "close-status");
-                return ;
+                if (this.attributes['hide_status'] !== true || (chatParams['id'] && chatParams['hash']) || this.attributes.widgetStatus.value == true) {
+                    if (this.attributes.widgetStatus.value == true){
+                        this.controlMode = true;
+                        var icon = this.cont.getElementById("status-icon");
+                        helperFunctions.addClass(icon, "close-status");
+                    }
+                    return ;
+                }
+
             }
         }
 
@@ -219,16 +243,20 @@ export class statusWidget{
             const chatParams = this.attributes['userSession'].getSessionAttributes();
 
             if (this.attributes.clinst === true && this.attributes.isMobile == false) {
-                var icon = this.cont.getElementById("status-icon");
-                helperFunctions.removeClass(icon, "close-status");
-                this.controlMode = false;
+                if (this.attributes.widgetStatus.value != true) {
+                    var icon = this.cont.getElementById("status-icon");
+                    helperFunctions.removeClass(icon, "close-status");
+                    this.controlMode = false;
+                }
             }
 
             // show status icon only if we are not in api mode or chat is going now
             if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hide_status'] !== true && chatParams['id'] && chatParams['hash'])) {
                 this.cont.show();
             } else if (this.attributes.clinst === true) {
-                this.cont.hide();
+                if (this.attributes.widgetStatus.value != true) {
+                    this.cont.hide();
+                }
             }
 
         } else {

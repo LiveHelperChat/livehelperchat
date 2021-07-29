@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 175;
+            lhc.version = 176;
 
             var init = () => {
 
@@ -138,6 +138,7 @@
                     onlineStatus: new BehaviorSubject(true),
                     wloaded: new BehaviorSubject(false),
                     sload: new BehaviorSubject(false),
+                    shidden: new BehaviorSubject(LHC_API.args.hide_status || false),
                     msgsnippet_status: new BehaviorSubject(false),
                     unread_counter: new BehaviorSubject(0),
                     widgetStatus: new BehaviorSubject((storageHandler.getSessionStorage(prefixStorage + '_ws') === 'true' || (LHC_API.args.mode && LHC_API.args.mode == 'embed'))),
