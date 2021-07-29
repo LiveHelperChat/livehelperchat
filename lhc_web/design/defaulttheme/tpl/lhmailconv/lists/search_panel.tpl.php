@@ -212,8 +212,12 @@
     <div class="row">
         <div class="col-2">
             <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <button class="btn btn-secondary btn-sm" type="submit" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
                 <input type="button" onclick="window.open('<?php echo $pages->serverURL?>/(xls)/1')" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS')?>">
+                <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>">
+                    <i class="material-icons">email</i>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','New e-mail')?>
+                </a>
             </div>
         </div>
     </div>

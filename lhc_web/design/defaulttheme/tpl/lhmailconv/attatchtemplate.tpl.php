@@ -14,6 +14,13 @@
         $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
             $('#list-result-template').html(data);
         });
+        $('#list-result-template').on('click', 'a.use-template', function(item) {
+            window.parent.postMessage({
+                mceAction: 'insertContent',
+                content: $('#use-template-value-'+$(this).attr('data-id')).val()
+            }, '*');
+            window.parent.postMessage({ mceAction: 'close' });
+        });
         $('#template-keyword').keyup(function(){
             clearTimeout(timeoutKeyword);
             setTimeout(function() {
@@ -21,13 +28,6 @@
                     $('#list-result-template').html(data);
                 });
             },300);
-            $('#list-result-template').on('click', 'a.use-template', function(item) {
-                window.parent.postMessage({
-                    mceAction: 'insertContent',
-                    content: $('#use-template-value-'+$(this).attr('data-id')).val()
-                }, '*');
-                window.parent.postMessage({ mceAction: 'close' });
-            });
         });
     });
 </script>

@@ -10,10 +10,13 @@ $items = array();
 
 // No chosen department means all
 // Or the one
-$filter[] = $q->expr->lOr(
-     $q->expr->eq('dep_id', $q->bindValue(0)),
-    'id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE dep_id = ' . (int) $Params['user_parameters']['id'] . ')'
-);
+
+if ((int) $Params['user_parameters']['id'] > 0) {
+    $filter[] = $q->expr->lOr(
+        $q->expr->eq('dep_id', $q->bindValue(0)),
+        'id IN (SELECT template_id FROM lhc_mailconv_response_template_dep WHERE dep_id = ' . (int) $Params['user_parameters']['id'] . ')'
+    );
+}
 
 if ($keyword != '') {
     $filter[] = $q->expr->lOr(
@@ -23,7 +26,9 @@ if ($keyword != '') {
     );
 }
 
-$q->where($filter);
+if (count($filter) > 0) {
+    $q->where($filter);
+}
 
 $q->limit(10, 0);
 $q->orderBy('name ASC');

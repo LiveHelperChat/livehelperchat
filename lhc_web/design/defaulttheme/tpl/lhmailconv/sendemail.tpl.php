@@ -62,6 +62,30 @@
     </div>
 
     <script>
+        <?php
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+
+        $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
+            ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.
+            '| lhtemplates lhfiles insertfile image pageembed link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
+
+        if (isset($mcOptionsData['mce_toolbar']) && $mcOptionsData['mce_toolbar'] != '') {
+            $mceToolbar = $mcOptionsData['mce_toolbar'];
+        }
+
+        $mcePlugins = [
+            'advlist autolink lists link image charmap print preview anchor image lhfiles',
+            'searchreplace visualblocks code fullscreen',
+            'media table paste help',
+            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
+        ];
+
+        if (isset($mcOptionsData['mce_plugins']) && $mcOptionsData['mce_plugins'] != '') {
+            $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
+        }
+
+        ?>
         $(document).ready(function(){
             tinymce.init({
                 selector: '#response-template',
@@ -75,17 +99,9 @@
                 paste_as_text: true,
                 contextmenu: false,
                 menubar: false,
-                plugins: [
-                    'advlist autolink lists link image charmap print preview anchor image lhfiles',
-                    'searchreplace visualblocks code fullscreen',
-                    'media table paste help',
-                    'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media template codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
-                ],
+                plugins: <?php echo json_encode($mcePlugins)?>,
                 toolbar_mode: 'wrap',
-                toolbar:
-                    'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript | bold italic underline strikethrough | forecolor backcolor | \
-                    alignleft aligncenter alignright alignjustify | lhfiles insertfile image pageembed template link anchor codesample | \
-                    bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help'
+                toolbar: <?php echo json_encode($mceToolbar)?>
             });
         });
     </script>
