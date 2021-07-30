@@ -34,6 +34,11 @@ $q->limit(10, 0);
 $q->orderBy('name ASC');
 $items = $session->find($q);
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.replace_variables', array(
+    'items' => & $items,
+    'dep_id' => $Params['user_parameters']['id']
+));
+
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/searchtemplate.tpl.php');
 $tpl->set('items', $items);
 

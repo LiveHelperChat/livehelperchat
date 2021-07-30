@@ -11,7 +11,7 @@
 <script>
     $(document).ready(function(){
         var timeoutKeyword = null;
-        $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
+        $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?<?php isset($message_id) ? print 'm='.$message_id.'&' : '' ?><?php isset($conversation_id) ? print 'c='.$conversation_id.'&' : '' ?>q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
             $('#list-result-template').html(data);
         });
         $('#list-result-template').on('click', 'a.use-template', function(item) {
@@ -24,7 +24,7 @@
         $('#template-keyword').keyup(function(){
             clearTimeout(timeoutKeyword);
             setTimeout(function() {
-                $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
+                $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?<?php isset($message_id) ? print 'm='.$message_id.'&' : '' ?><?php isset($conversation_id) ? print 'c='.$conversation_id.'&' : '' ?>q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
                     $('#list-result-template').html(data);
                 });
             },300);
