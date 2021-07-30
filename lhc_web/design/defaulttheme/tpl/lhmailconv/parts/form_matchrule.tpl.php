@@ -13,19 +13,24 @@
     echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 </div>
 
-<div class="form-group">
+<div class="form-group" >
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','To mailbox');?></label>
     <br>
+    <div class="row" style="max-height: 500px; overflow: auto">
     <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
         'input_name'     => 'mailbox_ids[]',
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Select mail'),
         'selected_id'    => $item->mailbox_ids,
         'css_class'      => 'form-control',
+        'wrap_prepend'   => '<div class="col-3">',
+        'wrap_append'    => '</div>',
         'display_name'   => 'mail',
         'list_function_params' => [],
         'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
     )); ?>
+    </div>
 </div>
+
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','From mail');?></label>

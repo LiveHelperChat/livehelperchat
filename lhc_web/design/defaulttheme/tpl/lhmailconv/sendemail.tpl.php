@@ -17,7 +17,8 @@
             'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select a mailbox'),
             'selected_id'    => $item->mailbox_id,
             'css_class'      => 'form-control form-control-sm',
-            'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
+            'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList',
+            'list_function_params'  => array('filter' => array('active' => 1))
         )); ?>
     </div>
 
@@ -45,13 +46,13 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to e-mail');?></label>
-                <input type="text" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
+                <input type="text" placeholder="If not filled we will use mailbox e-mail" class="form-control form-control-sm" name="to_data" value="<?php echo htmlspecialchars($item->to_data)?>" />
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Reply to name');?></label>
-                <input type="text" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
+                <input type="text" placeholder="If not filled we will use mailbox name" class="form-control form-control-sm" name="reply_to_data" value="<?php echo htmlspecialchars($item->reply_to_data)?>" />
             </div>
         </div>
     </div>
