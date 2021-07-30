@@ -38,6 +38,12 @@ $q->deleteFrom( 'lh_speech_user_language' )->where( $q->expr->eq( 'user_id', $Pa
 $stmt = $q->prepare();
 $stmt->execute();
 
+// User groups
+$q = ezcDbInstance::get()->createDeleteQuery();
+$q->deleteFrom( 'lh_departament_group_user' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.deleted',array('userData' => $departament));
 
 erLhcoreClassModule::redirect('user/userlist');
