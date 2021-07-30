@@ -363,7 +363,7 @@ class erLhcoreClassMailconvParser {
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
-        $mailbox->saveThis();
+        $mailbox->updateThis(['update' => ['sync_status','last_sync_log','last_sync_time']]);
     }
 
     // Set conversations for the messages
