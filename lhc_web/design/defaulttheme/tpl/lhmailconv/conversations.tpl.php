@@ -24,7 +24,7 @@
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
-            <tr>
+            <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/start_row.tpl.php')); ?>
                 <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                 <td>
 
