@@ -1865,11 +1865,11 @@ class erLhcoreClassChat {
                try {
 
                    if ($activeChats === null){
-                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_ACTIVE)));
+                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));// + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_ACTIVE)));
                    }
 
                    if ($pendingChats === null) {
-                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING)));
+                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT)));// + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING)));
                    }
 
                    if ($inactiveChats === null) {
