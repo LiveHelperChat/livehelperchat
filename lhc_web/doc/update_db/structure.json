@@ -9942,7 +9942,8 @@
       "new" : {
         "from_address" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `from_address` (`from_address`);",
         "mailbox_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `mailbox_id` (`mailbox_id`);",
-        "dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `dep_id` (`dep_id`);"
+        "dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `dep_id` (`dep_id`);",
+        "status_priority" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_priority` (`status`, `priority`);"
       },
       "old" : []
     }

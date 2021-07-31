@@ -649,7 +649,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr = array();
 
-    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+    $filterAdditionalMainAttr['sort'] = 'priority ASC, id ASC';
 
     $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
@@ -692,7 +692,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr = array();
 
-    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
+    $filterAdditionalMainAttr['sort'] = 'priority ASC, id ASC';
 
     $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 

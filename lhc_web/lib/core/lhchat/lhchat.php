@@ -106,7 +106,7 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 0);
-        $filter['use_index'] = 'status';
+        $filter['use_index'] = 'status_priority';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
@@ -133,7 +133,7 @@ class erLhcoreClassChat {
 
     	$filter = array();
     	$filter['filter'] = array('status' => 1);
-        $filter['use_index'] = 'status';
+        $filter['use_index'] = 'status_priority';
 
     	if ($limitation !== true) {
     		$filter['customfilter'][] = $limitation;
@@ -178,7 +178,7 @@ class erLhcoreClassChat {
             return [];
         }
 
-        $filter['use_index'] = 'status';
+        $filter['use_index'] = 'status_priority';
 
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
