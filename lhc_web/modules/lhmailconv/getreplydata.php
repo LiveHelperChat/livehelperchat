@@ -60,6 +60,10 @@ try {
             $prepend .= implode("<br/>",$partsIntro);
         }
 
+        if (empty($replyRecipientsMapped)) {
+            $replyRecipientsMapped[] = ['email' => $message->from_address, 'name' => $message->from_name];
+        }
+
         echo json_encode([
             'intro' => ($conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',
