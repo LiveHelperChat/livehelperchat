@@ -317,7 +317,7 @@ class erLhcoreClassMailconvParser {
                 $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
 
                 if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
-                    $statsImport[] = 'No matching rule - Skipping e-mail - ' . $vars['message_id'] . ' - ' . $vars['subject'];
+                    $statsImport[] = 'No matching rule - Skipping e-mail - ' . $message->message_id . ' - ' . $message->uid;
                     continue;
                 }
 
