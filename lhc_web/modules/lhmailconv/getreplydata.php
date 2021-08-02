@@ -25,9 +25,12 @@ try {
             $replyRecipients[$replyEmail] = $name;
         }
 
-        foreach ($message->to_data_keyed as $replyEmail => $name) {
+        /*
+         * We should not fill reply recipient with recipient
+         *
+         * foreach ($message->to_data_keyed as $replyEmail => $name) {
             $replyRecipients[$replyEmail] = $name;
-        }
+        }*/
 
         foreach ($replyRecipients as $mail => $name) {
             if ($mail != $conv->mailbox->mail) {
