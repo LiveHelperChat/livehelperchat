@@ -7997,6 +7997,23 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "failed",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "uuid_status",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
       }
     ],
     "lhc_mailconv_response_template": [

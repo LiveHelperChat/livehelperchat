@@ -104,6 +104,16 @@ $def->properties['reopen_timeout']->columnName   = 'reopen_timeout';
 $def->properties['reopen_timeout']->propertyName = 'reopen_timeout';
 $def->properties['reopen_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['failed'] = new ezcPersistentObjectProperty();
+$def->properties['failed']->columnName   = 'failed';
+$def->properties['failed']->propertyName = 'failed';
+$def->properties['failed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['uuid_status'] = new ezcPersistentObjectProperty();
+$def->properties['uuid_status']->columnName   = 'uuid_status';
+$def->properties['uuid_status']->propertyName = 'uuid_status';
+$def->properties['uuid_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

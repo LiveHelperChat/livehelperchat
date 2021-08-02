@@ -78,6 +78,10 @@
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync started');?> - <?php echo $item->sync_started_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
             </ul>
 
+            <p>
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','UUID Next status')?></h6>
+                <code><?php echo htmlspecialchars($item->uuid_status);?></code>
+            </p>
 
             <h5 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Sync log');?></h5>
             <pre><?php echo htmlspecialchars(print_r($item->last_sync_log_array,true))?></pre>

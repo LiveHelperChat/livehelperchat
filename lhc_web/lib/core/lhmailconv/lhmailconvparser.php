@@ -93,6 +93,8 @@ class erLhcoreClassMailconvParser {
                 throw new Exception('No mail matching rules were found!');
             }
 
+            $mailbox->failed = 0;
+
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -112,7 +114,26 @@ class erLhcoreClassMailconvParser {
                     false
                 );
 
-                // $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 1*24*3600).'"');
+                $uuidStatusArray = $mailbox->uuid_status_array;
+
+                // We can survive this
+                try {
+                    $statusMailbox = $mailboxHandler->statusMailbox();
+                    if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
+                        $statsImport[] = 'Skipping check '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
+                        // Nothing has changed since last check
+                        continue;
+                    } elseif (isset($statusMailbox->uidnext)) {
+                        $statsImport[] = $mailboxFolder['path'].' uidnext change detected to - '.$statusMailbox->uidnext;
+                        $uuidStatusArray[$mailboxFolder['path']] = $statusMailbox->uidnext;
+                    }
+                } catch (Exception $e) {
+                    $statsImport[] = 'Failed getting message box status - ' . $e->getMessage();
+                }
+
+                $mailbox->uuid_status_array = $uuidStatusArray;
+                $mailbox->uuid_status = json_encode($uuidStatusArray);
+
                 // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
                 $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
 
@@ -129,7 +150,7 @@ class erLhcoreClassMailconvParser {
                     $vars = get_object_vars($mailInfo);
 
                     if ($mailbox->import_since > 0 && $mailbox->import_since > (int)$vars['udate']) {
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping because of import since - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping because of import since - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
                         continue;
                     }
 
@@ -309,6 +330,7 @@ class erLhcoreClassMailconvParser {
             }
         } catch (Exception $e) {
             $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+            $mailbox->failed = 1;
         }
 
         self::setConversations($messages);
@@ -367,7 +389,7 @@ class erLhcoreClassMailconvParser {
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
-        $mailbox->updateThis(['update' => ['sync_status','last_sync_log','last_sync_time']]);
+        $mailbox->updateThis(['update' => ['failed','uuid_status','sync_status','last_sync_log','last_sync_time']]);
     }
 
     // Set conversations for the messages

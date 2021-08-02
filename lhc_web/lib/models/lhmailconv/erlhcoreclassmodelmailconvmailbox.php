@@ -36,6 +36,8 @@ class erLhcoreClassModelMailconvMailbox
             'import_since' => $this->import_since,
             'delete_mode' => $this->delete_mode,
             'reopen_timeout' => $this->reopen_timeout,
+            'uuid_status' => $this->uuid_status,
+            'failed' => $this->failed,
         );
     }
 
@@ -63,6 +65,13 @@ class erLhcoreClassModelMailconvMailbox
                     $this->mailbox_sync_array = json_decode($this->mailbox_sync, true);
                 }
                 return $this->mailbox_sync_array;
+
+            case 'uuid_status_array':
+                $this->uuid_status_array = array();
+                if ($this->uuid_status != '') {
+                    $this->uuid_status_array = json_decode($this->uuid_status, true);
+                }
+                return $this->uuid_status_array;
 
             case 'trash_mailbox':
                 $this->trash_mailbox = null;
@@ -114,6 +123,8 @@ class erLhcoreClassModelMailconvMailbox
     public $signature_under = 0;
     public $import_since = 0;
     public $reopen_timeout = 4;
+    public $uuid_status = '';
+    public $failed = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }
