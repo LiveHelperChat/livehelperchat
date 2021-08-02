@@ -56,6 +56,10 @@ class erLhcoreClassMailconvParser {
                 throw new Exception('Please choose folder to sync first!');
             }
 
+            if (!($mailbox instanceof erLhcoreClassModelMailconvMailbox)) {
+                throw new Exception('$mailbox argument should be instance of erLhcoreClassModelMailconvMailbox');
+            }
+
             $db = ezcDbInstance::get();
             $db->beginTransaction();
 
