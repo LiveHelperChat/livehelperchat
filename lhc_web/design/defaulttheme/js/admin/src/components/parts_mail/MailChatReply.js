@@ -154,14 +154,14 @@ const MailChatReply = props => {
             {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>{t('msg.reply')}</button>
                 <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>{t('msg.nrr')}</button>
-                <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>{t('msg.forward')}</button>
+                {!props.moptions.hide_recipients && <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setReplyMode(false);setForwardMode(true)}}><i className="material-icons">forward</i>{t('msg.forward')}</button>}
             </div>}
 
             {!props.fetchingMessages && (replyMode || forwardMode) && loadedReplyData && <div className="shadow p-2">
 
                 {replySendStatus.send_tried && <MailSendStatus status={replySendStatus} />}
 
-                {!props.moptions.hide_recipients && <MailReplyRecipient setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />}
+                <MailReplyRecipient readOnly={props.moptions.hide_recipients} setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />
 
                 <Editor
                     tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
