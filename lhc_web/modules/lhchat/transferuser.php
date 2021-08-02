@@ -165,7 +165,10 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                 // User which is transferring
                 $Transfer->transfer_user_id = $currentUser->getUserID();
 
-                if (!($Chat->user_id == 0 && $Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT)) {
+                if (
+                    !($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT && $Chat->user_id == 0 && $Chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) ||
+                    !($transferScope == erLhcoreClassModelTransfer::SCOPE_MAIL && $Chat->user_id == 0 && $Chat->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING)
+                ) {
                    erLhcoreClassTransfer::getSession()->save($Transfer);
                 }
 

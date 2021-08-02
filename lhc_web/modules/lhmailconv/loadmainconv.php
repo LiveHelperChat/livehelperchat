@@ -24,14 +24,21 @@ try {
                 throw new Exception('You do not have permission to open all pending chats.');
             }
 
-            if ($conv->user_id == 0 && $conv->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
-                $currentUser = erLhcoreClassUser::instance();
-                $conv->user_id = $currentUser->getUserID();
-                $operatorChanged = true;
+            if (
+                $conv->user_id == 0 &&
+                $conv->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED &&
+                $conv->transfer_uid != $currentUser->getUserID()
+            ) {
+                    $currentUser = erLhcoreClassUser::instance();
+                    $conv->user_id = $currentUser->getUserID();
+                    $operatorChanged = true;
             }
 
             // If status is pending change status to active
-            if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+            if (
+                $conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING &&
+                $conv->transfer_uid != $currentUser->getUserID()
+            ) {
                 $conv->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
                 $conv->accept_time = time();
                 $conv->wait_time = $conv->accept_time - $conv->pnd_time;
