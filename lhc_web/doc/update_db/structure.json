@@ -6762,7 +6762,7 @@
     "lhc_mailconv_response_template_dep": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7903,7 +7903,7 @@
     "lhc_mailconv_conversation": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7930,7 +7930,7 @@
     "lhc_mailconv_file": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7940,7 +7940,7 @@
     "lhc_mailconv_msg": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7958,7 +7958,7 @@
     "lhc_mailconv_msg_subject": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7968,7 +7968,7 @@
     "lhc_mailconv_mailbox": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -7976,7 +7976,7 @@
       },
       {
         "field": "import_since",
-        "type": "int(11)",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "",
         "default": "0",
@@ -7984,7 +7984,7 @@
       },
       {
         "field": "reopen_timeout",
-        "type": "int(11)",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "",
         "default": "4",
@@ -7992,7 +7992,7 @@
       },
       {
         "field": "delete_mode",
-        "type": "tinyint(1)",
+        "type": "tinyint(1) unsigned",
         "null": "NO",
         "key": "",
         "default": "0",
@@ -8002,7 +8002,7 @@
     "lhc_mailconv_response_template": [
       {
         "field": "id",
-        "type": "bigint(20)",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
@@ -8030,7 +8030,7 @@
     "lhc_mailconv_match_rule": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "PRI",
         "default": null,
