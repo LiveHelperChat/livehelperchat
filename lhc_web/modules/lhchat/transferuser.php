@@ -123,14 +123,20 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
                             $Chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                         } else {
-                            $Chat->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+                            if ($Chat->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+                                $Chat->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+                            }
                         }
                     }
 
                     $recalculateLoad = 0;
                     if (isset($transferConfiguration['make_unassigned']) && $transferConfiguration['make_unassigned'] == true) {
                         $recalculateLoad = $Chat->user_id;
-                        $Chat->user_id = 0;
+                        if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
+                            $Chat->user_id = 0;
+                        } elseif ($Chat->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) { // Mail is not closed reset owner
+                            $Chat->user_id = 0;
+                        }
                     }
 
                     $msg->name_support = (string)$currentUser->getUserData()->name_support;
