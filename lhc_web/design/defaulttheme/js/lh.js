@@ -1824,10 +1824,14 @@ function lh(){
         setTimeout(function(){
             $('#myModal').modal('hide');
             if ($('#tabs').length > 0) {
-                if (obj === 'mail'){
+                if (obj === 'mail') {
                     inst.removeDialogTabMail('mc'+chat_id,$('#tabs'),true)
                 } else {
                     inst.removeDialogTab(chat_id,$('#tabs'),true)
+                }
+            } else {
+                if (obj === 'mail') {
+                    ee.emitEvent('mailChatModified', [chat_id]);
                 }
             }
         },1000);

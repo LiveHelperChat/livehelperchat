@@ -253,7 +253,17 @@ const MailChat = props => {
 
     useEffect(() => {
         loadMainData();
+
+        function mailChatModified(chatId) {
+            if (props.chatId == chatId) {
+                loadMainData();
+            }
+        }
+
+        ee.addListener('mailChatModified', mailChatModified);
+
         return function cleanup() {
+           ee.removeListener('mailChatModified', mailChatModified);
            forgetChat(props.chatId)
         };
     },[]);
