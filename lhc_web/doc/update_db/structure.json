@@ -7733,6 +7733,14 @@
         "extra": ""
       },
       {
+        "field": "cache_version",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "attr_int_1",
         "type": "int(11)",
         "null": "NO",

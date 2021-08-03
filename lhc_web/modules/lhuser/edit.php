@@ -64,7 +64,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
             }
         }
 
-        erLhcoreClassUser::getSession()->update($UserData);
+        $UserData->updateThis();
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
         
@@ -157,8 +157,8 @@ if (isset($_POST['UpdateDepartaments_account'])) {
         $readOnlyDepartments = $_POST['UserDepartamentRead'];
     }
 
-	erLhcoreClassUser::getSession()->update($UserData);
-   
+    $UserData->updateThis();
+
 	if (count($globalDepartament) > 0) {
 		erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments);
 	} else {
@@ -168,7 +168,9 @@ if (isset($_POST['UpdateDepartaments_account'])) {
 	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
 	
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
-	
+
+
+
 	$tpl->set('account_updated_departaments','done');
    
 }

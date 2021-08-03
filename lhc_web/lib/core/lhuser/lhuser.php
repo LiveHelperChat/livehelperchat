@@ -38,17 +38,12 @@ class erLhcoreClassUser{
 	       		{
 	       			unset($_SESSION['lhc_user_id']);
 	       		}
-	       			       		
+
 	       		if ( isset($_SESSION['lhc_access_array']) )
 	       		{
 	       			unset($_SESSION['lhc_access_array']);
 	       		}
-	       			       		
-	       		if ( isset($_SESSION['lhc_access_timestamp']) )
-	       		{
-	       			unset($_SESSION['lhc_access_timestamp']);
-	       		}
-	       			       		
+
 	       		if ( isset($_SESSION['lhc_chat_config']) )
 	       		{
 	       			unset($_SESSION['lhc_chat_config']);
@@ -57,11 +52,12 @@ class erLhcoreClassUser{
 	       	
        } else {
 
-          if (isset($_SESSION['lhc_user_id']) && is_numeric($_SESSION['lhc_user_id'])){
+          if (isset($_SESSION['lhc_user_id']) && is_numeric($_SESSION['lhc_user_id'])) {
               $this->session->save( $this->session->load() );
               $this->userid = $_SESSION['lhc_user_id'];
               $this->authenticated = true;
-              
+              $this->cache_version = $this->getUserData(true)->cache_version;
+
               // Check that session is valid
               if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
                   $sesid = $this->getUserData(true)->session_id;             
@@ -118,7 +114,7 @@ class erLhcoreClassUser{
        $this->authentication = new ezcAuthentication( $this->credentials );
 
        $this->filter = new ezcAuthenticationDatabaseFilter( $database );
-       $this->filter->registerFetchData(array('id','username','email','disabled','session_id'));
+       $this->filter->registerFetchData(array('id','username','email','disabled','session_id','cache_version'));
 
        $this->authentication->addFilter( $this->filter );
        $this->authentication->session = $this->session;
@@ -135,10 +131,6 @@ class erLhcoreClassUser{
             		unset($_SESSION['lhc_access_array']);
             	}
 
-            	if ( isset($_SESSION['lhc_access_timestamp']) ) {
-            		unset($_SESSION['lhc_access_timestamp']);
-            	}
-
                 $_SESSION['lhc_user_id'] = $data['id'][0];
                 $this->userid = $data['id'][0];
 
@@ -147,6 +139,7 @@ class erLhcoreClassUser{
                 }
 
                 $this->authenticated = true;
+                $this->cache_version = $data['cache_version'][0];
 
                 // Limit number per of logins under same user
                 if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
@@ -216,7 +209,7 @@ class erLhcoreClassUser{
 
 	   		$database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( 'id', 'password' ) );
 	   		$this->filter = new ezcAuthenticationDatabaseCredentialFilter( $database );
-	   		$this->filter->registerFetchData(array('id','username','email','disabled'));
+	   		$this->filter->registerFetchData(array('id','username','email','disabled','cache_version'));
 	   		$this->authentication->addFilter( $this->filter );
 
 	   		$this->authentication->session = $this->session;
@@ -229,18 +222,15 @@ class erLhcoreClassUser{
    				if ( $data['disabled'][0] == 0 ) {
 
    					$this->AccessArray = false;
-                    $this->AccessTimestamp = false;
 
    					if ( isset($_SESSION['lhc_access_array']) ) {
    						unset($_SESSION['lhc_access_array']);
    					}
 
-   					if ( isset($_SESSION['lhc_access_timestamp']) ) {
-   						unset($_SESSION['lhc_access_timestamp']);
-   					}
-
    					$_SESSION['lhc_user_id'] = $data['id'][0];
    					$this->userid = $data['id'][0];
+
+   					$this->cache_version = $data['cache_version'][0];
 
    					if ($remember == true) {
    					    $this->rememberMe();
@@ -274,7 +264,6 @@ class erLhcoreClassUser{
    function logout()
    {
        if (isset($_SESSION['lhc_access_array'])){ unset($_SESSION['lhc_access_array']); }
-       if (isset($_SESSION['lhc_access_timestamp'])){ unset($_SESSION['lhc_access_timestamp']); }
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
        if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
        if (isset($_SESSION['lhc_user_timezone'])){ unset($_SESSION['lhc_user_timezone']); }
@@ -442,27 +431,14 @@ class erLhcoreClassUser{
    {
        if ($this->AccessArray !== false) return $this->AccessArray;
 
-       if (isset($_SESSION['lhc_access_array'])) {
+       if (isset($_SESSION['lhc_access_array_'. $this->cache_version])) {
 
-           $this->AccessArray = $_SESSION['lhc_access_array'];
-           $this->AccessTimestamp =  $_SESSION['lhc_access_timestamp'];
+           $this->AccessArray = $_SESSION['lhc_access_array_'. $this->cache_version];
 
            return $this->AccessArray;
        }
 
-       $cfg = erConfigClassLhCacheConfig::getInstance();
-
-       $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
-       $_SESSION['lhc_access_array'] = $this->AccessArray = $this->generateAccessArray();
-
-       if ($this->AccessTimestamp < time() )
-       {
-           $AccessTimestamp = time() + 60*60*24*1;
-           $cfg->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
-           $cfg->save();
-
-           $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $AccessTimestamp;
-       }
+       $_SESSION['lhc_access_array_'. $this->cache_version] = $this->AccessArray = $this->generateAccessArray();
 
        return $this->AccessArray;
    }
@@ -526,7 +502,6 @@ class erLhcoreClassUser{
    private static $persistentSession;
    private $userid;
    private $AccessArray = false;
-   private $AccessTimestamp = false;
 
    // This variable will be set to true based on online hosting record
    public static $oneLoginPerAccount = false;
@@ -538,6 +513,7 @@ class erLhcoreClassUser{
    public $authenticated;
    public $status;
    public $filter;
+   public $cache_version = 0;
 
 }
 

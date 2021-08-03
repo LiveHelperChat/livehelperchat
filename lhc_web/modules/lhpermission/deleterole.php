@@ -22,6 +22,8 @@ if ($role->id != 1 && erLhcoreClassRole::canDeleteRole($role->id) === true) {
 	$stmt->execute();
 }
 
+erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
 erLhcoreClassModule::redirect('permission/roles');
 exit;
 

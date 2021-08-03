@@ -679,7 +679,7 @@ class erLhcoreClassRestAPIHandler
     public static function getLimitation($tableName = 'lh_chat')
     {
         if (self::$apiKey->user->all_departments == 0) {
-            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(self::$apiKey->user->id);
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(self::$apiKey->user->id, self::$apiKey->user->cache_version);
             
             if (count($userDepartaments) == 0)
                 return false;
@@ -704,7 +704,7 @@ class erLhcoreClassRestAPIHandler
       
             if ($chat->user_id == self::$apiKey->user->id) return true;
     
-            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(self::$apiKey->user->id);
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments(self::$apiKey->user->id, self::$apiKey->user->cache_version);
     
             if (count($userDepartaments) == 0) return false;
                 
@@ -727,7 +727,7 @@ class erLhcoreClassRestAPIHandler
 
     public static function hasAccessToWrite($chat)
     {
-        $dep = erLhcoreClassUserDep::getUserReadDepartments(self::$apiKey->user->id);
+        $dep = erLhcoreClassUserDep::getUserReadDepartments(self::$apiKey->user->id, self::$apiKey->user->cache_version);
         return !in_array($chat->dep_id, $dep);
     }
 

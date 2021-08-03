@@ -78,6 +78,14 @@ class erLhcoreClassModelUserDep
                     $parts = explode(',', $ids);
                     sort($parts);
 
+                    $totalAssigned = count($parts);
+
+                    if ($totalAssigned > 4) {
+                        $this->departments_names[] = '['.$totalAssigned.' d.]';
+                    }
+
+                    $parts = array_splice($parts,0,4);
+
                     foreach ($parts as $depId) {
                         if ($depId == 0) {
                             $this->departments_names[] = '∞';
@@ -103,13 +111,11 @@ class erLhcoreClassModelUserDep
 
     public static function getOnlineOperators($currentUser, $canListOnlineUsersAll = false, $params = array(), $limit = 10, $onlineTimeout = 120)
     {
-
-        $LimitationDepartament = '';
         $userData = $currentUser->getUserData(true);
         $filter = array();
 
         if ($userData->all_departments == 0 && $canListOnlineUsersAll == false) {
-            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
 
             if (count($userDepartaments) == 0) return array();
 
@@ -117,6 +123,8 @@ class erLhcoreClassModelUserDep
             if ($index !== false) {
                 unset($userDepartaments[$index]);
             }
+
+            if (count($userDepartaments) == 0) return array();
 
             $filter['customfilter'][] = '(dep_id IN (' . implode(',', $userDepartaments) . ') OR user_id = ' . $currentUser->getUserID() . ')';
         };

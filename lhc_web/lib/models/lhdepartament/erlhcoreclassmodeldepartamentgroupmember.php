@@ -41,6 +41,11 @@ class erLhcoreClassModelDepartamentGroupMember
             $stmt->bindValue( ':user_id', $userId);
             $stmt->execute();
             $dataUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($dataUser === false) {
+                continue;
+            }
+
             $hide_online = $dataUser['hide_online'];
             $maxChats = $dataUser['max_active_chats'];
             $excludeAutoasign = $dataUser['exclude_autoasign'];

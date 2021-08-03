@@ -8,6 +8,8 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 $group = erLhcoreClassModelDepartamentLimitGroup::fetch($Params['user_parameters']['id']);
 $group->removeThis();
 
+erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
 erLhcoreClassModule::redirect('department/limitgroup');
 exit;
 
