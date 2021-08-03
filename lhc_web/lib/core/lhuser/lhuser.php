@@ -39,9 +39,9 @@ class erLhcoreClassUser{
 	       			unset($_SESSION['lhc_user_id']);
 	       		}
 
-	       		if ( isset($_SESSION['lhc_access_array']) )
+	       		if ( isset($_SESSION['lhc_access_array_'. $this->cache_version]) )
 	       		{
-	       			unset($_SESSION['lhc_access_array']);
+	       			unset($_SESSION['lhc_access_array_'. $this->cache_version]);
 	       		}
 
 	       		if ( isset($_SESSION['lhc_chat_config']) )
@@ -127,8 +127,10 @@ class erLhcoreClassUser{
 
             if ( $data['disabled'][0] == 0 ) {
 
-            	if ( isset($_SESSION['lhc_access_array']) ) {
-            		unset($_SESSION['lhc_access_array']);
+                $this->cache_version = $data['cache_version'][0];
+
+            	if ( isset($_SESSION['lhc_access_array_'.$this->cache_version]) ) {
+            		unset($_SESSION['lhc_access_array_'.$this->cache_version]);
             	}
 
                 $_SESSION['lhc_user_id'] = $data['id'][0];
@@ -139,7 +141,7 @@ class erLhcoreClassUser{
                 }
 
                 $this->authenticated = true;
-                $this->cache_version = $data['cache_version'][0];
+
 
                 // Limit number per of logins under same user
                 if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
@@ -222,15 +224,14 @@ class erLhcoreClassUser{
    				if ( $data['disabled'][0] == 0 ) {
 
    					$this->AccessArray = false;
+                    $this->cache_version = $data['cache_version'][0];
 
-   					if ( isset($_SESSION['lhc_access_array']) ) {
-   						unset($_SESSION['lhc_access_array']);
+   					if ( isset($_SESSION['lhc_access_array_'.$this->cache_version]) ) {
+   						unset($_SESSION['lhc_access_array_'.$this->cache_version]);
    					}
 
    					$_SESSION['lhc_user_id'] = $data['id'][0];
    					$this->userid = $data['id'][0];
-
-   					$this->cache_version = $data['cache_version'][0];
 
    					if ($remember == true) {
    					    $this->rememberMe();
@@ -263,7 +264,7 @@ class erLhcoreClassUser{
     */
    function logout()
    {
-       if (isset($_SESSION['lhc_access_array'])){ unset($_SESSION['lhc_access_array']); }
+       if (isset($_SESSION['lhc_access_array_'.$this->cache_version])){ unset($_SESSION['lhc_access_array_'.$this->cache_version]); }
        if (isset($_SESSION['lhc_user_id'])){ unset($_SESSION['lhc_user_id']); }
        if (isset($_SESSION['lhc_csfr_token'])){ unset($_SESSION['lhc_csfr_token']); }
        if (isset($_SESSION['lhc_user_timezone'])){ unset($_SESSION['lhc_user_timezone']); }
@@ -431,7 +432,7 @@ class erLhcoreClassUser{
    {
        if ($this->AccessArray !== false) return $this->AccessArray;
 
-       if (isset($_SESSION['lhc_access_array_'. $this->cache_version])) {
+       if (isset($_SESSION['lhc_access_array_'. $this->cache_version]) && $_SESSION['lhc_access_array_'. $this->cache_version] !== false) {
 
            $this->AccessArray = $_SESSION['lhc_access_array_'. $this->cache_version];
 
