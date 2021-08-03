@@ -229,7 +229,7 @@ class erLhcoreClassUser{
 
    					$_SESSION['lhc_user_id'] = $data['id'][0];
    					$this->userid = $data['id'][0];
-   					
+
    					$this->cache_version = $data['cache_version'][0];
 
    					if ($remember == true) {
