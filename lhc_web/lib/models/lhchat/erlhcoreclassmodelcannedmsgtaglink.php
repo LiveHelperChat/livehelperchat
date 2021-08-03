@@ -3,15 +3,15 @@
 class erLhcoreClassModelCannedMsgTagLink
 {
     use erLhcoreClassDBTrait;
-    
+
     public static $dbTable = 'lh_canned_msg_tag_link';
-    
+
     public static $dbTableId = 'id';
-    
+
     public static $dbSessionHandler = 'erLhcoreClassChat::getSession';
-    
+
     public static $dbSortOrder = 'DESC';
-    
+
     public function getState()
     {
         return array(
@@ -24,29 +24,64 @@ class erLhcoreClassModelCannedMsgTagLink
     public function __get($var)
     {
         switch ($var) {
-             
+
             default:
                 break;
         }
     }
 
-    public static function formatSuggester($tags, $paramsExecution)
+    public static function formatSuggester($keyword, $paramsExecution)
     {
-        if (empty($tags)) {
+        $filterTagLinks = array('limit' => false);
+
+        if (!empty($keyword)) {
+            $filterTagLinks['innerjoin']['lh_canned_msg_tag'] = ['`lh_canned_msg_tag`.`id`','`lh_canned_msg_tag_link`.`tag_id`'];
+            $filterTagLinks['filterlikeright']['`lh_canned_msg_tag`.`tag`'] = $keyword;
+        }
+
+        // Apply tag linking query
+        $filterTagLinks['innerjoin']['lh_canned_msg'] = ['`lh_canned_msg`.`id`','`lh_canned_msg_tag_link`.`canned_id`'];
+
+        // Apply filtering query
+        $filterTagLinks['customfilter'][] = '( 
+                                    (department_id = 0 AND user_id = 0) OR 
+                                    (department_id = ' . (int)$paramsExecution['chat']->dep_id . ' AND user_id = 0) OR
+                                    (user_id = ' . (int)$paramsExecution['user']->id . ') OR
+                                    (`lh_canned_msg`.`id` IN (SELECT canned_id FROM lh_canned_msg_dep WHERE dep_id = ' . (int)$paramsExecution['chat']->dep_id . ') )
+        )';
+
+        $tagLinks = self::getList($filterTagLinks);
+
+        if (empty($tagLinks)) {
             return array();
         }
 
-        $tagLinks = self::getList(array('limit' => false,'filterin' => array('tag_id' => array_keys($tags))));
+        $tagsId = array();
 
         $cannedMessagesIds = array();
         foreach ($tagLinks as $tagLink) {
+            $tagsId[] = $tagLink->tag_id;
             $cannedMessagesIds[] = $tagLink->canned_id;
         }
+
+        $tags = erLhcoreClassModelCannedMsgTag::getList(array('filterin' => array('id' => $tagsId)));
 
         $cannedMessagesAll = erLhcoreClassModelCannedMsg::getCannedMessages($paramsExecution['chat']->dep_id, $paramsExecution['user']->id, array('id' => $cannedMessagesIds));
 
         if (count($cannedMessagesAll) > 50) {
-            $cannedMessagesAll = array_splice($cannedMessagesAll,0,50);
+            // Preserve keys
+            $cannedMessageShirked = [];
+
+            $counter = 0;
+            foreach ($cannedMessagesAll as $cannedMessage) {
+                if ($counter >= 50) {
+                    break;
+                }
+                $cannedMessageShirked[$cannedMessage->id] = $cannedMessage;
+                $counter++;
+            }
+
+            $cannedMessagesAll = $cannedMessageShirked;
         }
 
         $chat = $paramsExecution['chat'];
@@ -110,13 +145,13 @@ class erLhcoreClassModelCannedMsgTagLink
 
         return $returnArray;
     }
-    
+
     private $replaceData = array();
 
     public $id = null;
 
-    public $tag_id = 0;    
-    public $canned_id = 0;    
+    public $tag_id = 0;
+    public $canned_id = 0;
 }
 
 ?>
