@@ -432,7 +432,10 @@ class erLhcoreClassUser{
    {
        if ($this->AccessArray !== false) return $this->AccessArray;
 
-       if (isset($_SESSION['lhc_access_array_'. $this->cache_version]) && $_SESSION['lhc_access_array_'. $this->cache_version] !== false) {
+       if (isset($_SESSION['lhc_access_array_'. $this->cache_version]) &&
+           $_SESSION['lhc_access_array_'. $this->cache_version] !== false &&
+           is_array($_SESSION['lhc_access_array_'. $this->cache_version]) &&
+           !empty($_SESSION['lhc_access_array_'. $this->cache_version])) {
 
            $this->AccessArray = $_SESSION['lhc_access_array_'. $this->cache_version];
 
