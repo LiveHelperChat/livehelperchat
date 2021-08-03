@@ -488,9 +488,7 @@ class erLhcoreClassChat {
     }
 
     public static function getDepartmentLimitation($tableName = 'lh_chat', $params = array()) {
-    	
-    	$LimitationDepartament = '';
-    	
+
     	if (!isset($params['user'])) {
         	$currentUser = erLhcoreClassUser::instance();
         	$userData = $currentUser->getUserData(true);
@@ -503,7 +501,7 @@ class erLhcoreClassChat {
     	
     	if ( $userData->all_departments == 0 )
     	{
-    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId);
+    		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId, $userData->cache_version);
 
     		if (count($userDepartaments) == 0) return false;
 
@@ -1222,7 +1220,7 @@ class erLhcoreClassChat {
 
        		if ($chat->user_id == $currentUser->getUserID()) return true;
 
-            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+            $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
 
             if (count($userDepartaments) == 0) return false;
 

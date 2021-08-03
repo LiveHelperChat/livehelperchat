@@ -19,7 +19,9 @@ if (isset($_POST['Save_departament']))
         erLhcoreClassDepartament::validateDepartmentGroupLimitDepartments($Departament_group);
         
         $Departament_group->updateDepartmentsLimits();
-        
+
+        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
         erLhcoreClassModule::redirect('department/limitgroup');
         exit ;
 

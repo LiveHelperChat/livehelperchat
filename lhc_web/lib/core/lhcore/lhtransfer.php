@@ -8,7 +8,7 @@ class erLhcoreClassTransfer
 		$userData = $currentUser->getUserData(true);
 		if ( $userData->all_departments == 0 )
 		{
-			$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+			$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
 
 			if (count($userDepartaments) == 0) return false;
 

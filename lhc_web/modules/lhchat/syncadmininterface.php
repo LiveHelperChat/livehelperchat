@@ -105,7 +105,7 @@ if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered
 
             if ( $userData->all_departments == 0 )
             {
-                $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID());
+                $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
                 if (!empty($userDepartaments)) {
                     if ( isset( $filter['filterin']['id']) ) {
                         $validDepartments = array_intersect($userDepartaments, $filter['filterin']['id']);

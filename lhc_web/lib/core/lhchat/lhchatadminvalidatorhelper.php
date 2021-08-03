@@ -1139,7 +1139,8 @@ class erLhcoreClassAdminChatValidatorHelper {
 	    return $Errors;
     }
 
-    public static function validateWebhook(& $webhook ){
+    public static function validateWebhook(& $webhook )
+    {
         $definition = array(
             'event' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -1217,6 +1218,11 @@ class erLhcoreClassAdminChatValidatorHelper {
         }
 
         return $Errors;
+    }
+
+    public static function clearUsersCache()
+    {
+        ezcDbInstance::get()->query("UPDATE lh_users SET cache_version = cache_version + 1");
     }
 
     public static function validateIncomingWebhook(& $webhook )

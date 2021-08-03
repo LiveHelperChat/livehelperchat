@@ -32,6 +32,8 @@ if (isset($_POST['Save_departament']) || isset($_POST['Update_departament']))
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.modified',array('department' => $Departament));
 
+        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+        
         if (isset($_POST['Update_departament'])) {
             erLhcoreClassModule::redirect('department/edit','/' . $Departament->id);
         } else {

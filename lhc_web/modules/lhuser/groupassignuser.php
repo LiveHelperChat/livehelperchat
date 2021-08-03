@@ -12,7 +12,9 @@ if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['Use
         $GroupUser->user_id = $UserID;
         erLhcoreClassUser::getSession()->save($GroupUser);
    }
-    
+
+   erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
    $tpl->set('assigned',true);
     
 } else {

@@ -141,7 +141,7 @@ if (isset($_POST['Update'])) {
 
     if (count($Errors) == 0) {
     	
-        erLhcoreClassUser::getSession()->update($UserData);
+        $UserData->updateThis();
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
 
@@ -165,8 +165,6 @@ if (isset($_POST['UpdateNotifications_account'])) {
     }
     
     $validateNotificationsData = erLhcoreClassUserValidator::validateNotifications();
-
-
 
     erLhcoreClassModelUserSetting::setSetting('show_alert_chat', $validateNotificationsData['show_alert_chat']);
     erLhcoreClassModelUserSetting::setSetting('sn_off', $validateNotificationsData['sn_off']);

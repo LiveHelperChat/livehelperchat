@@ -57,11 +57,12 @@ class erLhcoreClassUser{
 	       	
        } else {
 
-          if (isset($_SESSION['lhc_user_id']) && is_numeric($_SESSION['lhc_user_id'])){
+          if (isset($_SESSION['lhc_user_id']) && is_numeric($_SESSION['lhc_user_id'])) {
               $this->session->save( $this->session->load() );
               $this->userid = $_SESSION['lhc_user_id'];
               $this->authenticated = true;
-              
+              $this->cache_version = $this->getUserData(true)->cache_version;
+
               // Check that session is valid
               if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
                   $sesid = $this->getUserData(true)->session_id;             
@@ -118,7 +119,7 @@ class erLhcoreClassUser{
        $this->authentication = new ezcAuthentication( $this->credentials );
 
        $this->filter = new ezcAuthenticationDatabaseFilter( $database );
-       $this->filter->registerFetchData(array('id','username','email','disabled','session_id'));
+       $this->filter->registerFetchData(array('id','username','email','disabled','session_id','cache_version'));
 
        $this->authentication->addFilter( $this->filter );
        $this->authentication->session = $this->session;
@@ -147,6 +148,7 @@ class erLhcoreClassUser{
                 }
 
                 $this->authenticated = true;
+                $this->cache_version = $data['cache_version'][0];
 
                 // Limit number per of logins under same user
                 if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
@@ -442,27 +444,28 @@ class erLhcoreClassUser{
    {
        if ($this->AccessArray !== false) return $this->AccessArray;
 
-       if (isset($_SESSION['lhc_access_array'])) {
+       if (isset($_SESSION['lhc_access_array_'. $this->cache_version])) {
 
-           $this->AccessArray = $_SESSION['lhc_access_array'];
-           $this->AccessTimestamp =  $_SESSION['lhc_access_timestamp'];
+           $this->AccessArray = $_SESSION['lhc_access_array_'. $this->cache_version];
+           //$this->AccessTimestamp =  $_SESSION['lhc_access_timestamp_'. $this->cache_version];
 
            return $this->AccessArray;
        }
 
-       $cfg = erConfigClassLhCacheConfig::getInstance();
+       //$cfg = erConfigClassLhCacheConfig::getInstance();
 
-       $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
-       $_SESSION['lhc_access_array'] = $this->AccessArray = $this->generateAccessArray();
+      //$_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $cfg->getSetting( 'cachetimestamps', 'accessfile' );
 
-       if ($this->AccessTimestamp < time() )
+       $_SESSION['lhc_access_array_'. $this->cache_version] = $this->AccessArray = $this->generateAccessArray();
+
+       /*if ($this->AccessTimestamp < time() )
        {
            $AccessTimestamp = time() + 60*60*24*1;
            $cfg->setSetting( 'cachetimestamps', 'accessfile', $AccessTimestamp );
            $cfg->save();
 
            $_SESSION['lhc_access_timestamp'] = $this->AccessTimestamp = $AccessTimestamp;
-       }
+       }*/
 
        return $this->AccessArray;
    }
@@ -538,6 +541,7 @@ class erLhcoreClassUser{
    public $authenticated;
    public $status;
    public $filter;
+   public $cache_version = 0;
 
 }
 

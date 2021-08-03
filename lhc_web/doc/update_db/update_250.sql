@@ -1,0 +1,1 @@
+ALTER TABLE `lh_users` ADD `cache_version` int(11) unsigned NOT NULL DEFAULT '0', COMMENT='';
