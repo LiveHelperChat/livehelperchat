@@ -6069,7 +6069,7 @@
       },
       {
         "field": "product_configuration",
-        "type": "varchar(250)",
+        "type": "longtext",
         "null": "NO",
         "key": "",
         "default": null,
@@ -9628,6 +9628,12 @@
         "error" : "ALTER TABLE `lh_users_session` ADD INDEX `error` (`error`);"
       },
       "old" : ["device_token_device_type"]
+    },
+    "lh_chat_blocked_user" : {
+      "new" : {
+        "nick" : "ALTER TABLE `lh_chat_blocked_user` ADD INDEX `nick` (`nick`);"
+      },
+      "old" : []
     },
     "lh_faq" : {
       "new" : {"active_url_2" : "ALTER TABLE `lh_faq` ADD INDEX `active_url_2` (`active`,`url`(191));"},

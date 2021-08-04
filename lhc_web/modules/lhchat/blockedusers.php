@@ -51,6 +51,36 @@ if (isset($_POST['AddBlock']))
 	}
 }
 
+if (isset($_POST['AddBlockEmail']))
+{
+	$definition = array(
+			'IPToBlock' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'string'
+			)
+	);
+
+	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+		erLhcoreClassModule::redirect('chat/blockedusers');
+		exit;
+	}
+
+	$form = new ezcInputForm( INPUT_POST, $definition );
+	$Errors = array();
+
+	if ( $form->hasValidData( 'IPToBlock' ) && $form->IPToBlock != '' ) {
+		$ipBlock = new erLhcoreClassModelChatBlockedUser();
+		$ipBlock->ip = '127.0.0.1';
+		$ipBlock->nick = $form->IPToBlock;
+		$ipBlock->user_id = erLhcoreClassUser::instance()->getUserID();
+		$ipBlock->datets = time();
+		$ipBlock->btype = erLhcoreClassModelChatBlockedUser::BLOCK_EMAIL;
+		$ipBlock->saveThis();
+		$tpl->set('block_saved',true);
+	} else {
+		$tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Please enter an IP to block')));
+	}
+}
+
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'block_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;
