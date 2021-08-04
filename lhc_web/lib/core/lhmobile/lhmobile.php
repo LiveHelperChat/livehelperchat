@@ -138,9 +138,9 @@ class erLhcoreClassLHCMobile {
                     // Do not notify if user has only read department permission
                     if ($operator->user->all_departments == 0 && $params['chat']->user_id != $operator->user->id) {
 
-                        $userDepartments = erLhcoreClassUserDep::getUserDepartaments($operator->user->id);
+                        $userDepartments = erLhcoreClassUserDep::getUserDepartaments($operator->user->id, $operator->user->cache_version);
 
-                        $userReadDepartments = erLhcoreClassUserDep::getUserReadDepartments($operator->user->id);
+                        $userReadDepartments = erLhcoreClassUserDep::getUserReadDepartments($operator->user->id, $operator->user->cache_version);
 
                         if (count($userDepartments) == 0) {
                             continue;
@@ -209,9 +209,9 @@ class erLhcoreClassLHCMobile {
                     // Do not notify if user has only read department permission
                     if ($operator->user->all_departments == 0 && $params['chat']->user_id != $operator->user->id) {
 
-                        $userDepartments = erLhcoreClassUserDep::getUserDepartaments($operator->user->id);
+                        $userDepartments = erLhcoreClassUserDep::getUserDepartaments($operator->user->id, $operator->user->cache_version);
 
-                        $userReadDepartments = erLhcoreClassUserDep::getUserReadDepartments($operator->user->id);
+                        $userReadDepartments = erLhcoreClassUserDep::getUserReadDepartments($operator->user->id, $operator->user->cache_version);
 
                         if (count($userDepartments) == 0) {
                             continue;

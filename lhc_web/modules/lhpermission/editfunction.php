@@ -29,6 +29,8 @@ if (ezcInputForm::hasPostData())
     $Function->limitation = $form->Limitation;
     $Function->saveThis();
 
+    erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
     if (isset($_POST['Update_action'])) {
         $tpl->set('updated',true);
     } else {

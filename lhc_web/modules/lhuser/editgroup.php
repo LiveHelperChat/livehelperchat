@@ -55,7 +55,9 @@ if (isset($_POST['Update_group']) )
         }
         
         erLhcoreClassUser::getSession()->update($Group);
-        
+
+        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
         erLhcoreClassModule::redirect('user/grouplist');
         exit;
 
@@ -78,6 +80,8 @@ if (isset($_POST['AssignRoles']) && isset($_POST['RoleID']) && count($_POST['Rol
         $GroupRole->role_id = $RoleID;
         erLhcoreClassRole::getSession()->save($GroupRole);
     }
+
+    erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 }
 
 if (isset($_POST['Remove_user_from_group']) && isset($_POST['AssignedID']) && count($_POST['AssignedID']) > 0)
@@ -92,6 +96,8 @@ if (isset($_POST['Remove_user_from_group']) && isset($_POST['AssignedID']) && co
         $group_user = erLhcoreClassModelGroupUser::fetch($AssignedID);
         $group_user->removeThis();
     }
+
+    erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 }
 
 if (isset($_POST['Remove_role_from_group']) && isset($_POST['AssignedID']) && count($_POST['AssignedID']) > 0)
@@ -105,6 +111,8 @@ if (isset($_POST['Remove_role_from_group']) && isset($_POST['AssignedID']) && co
     {
         erLhcoreClassGroupRole::deleteGroupRole($AssignedID);
     }
+
+    erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 }
 
 $pages = new lhPaginator();

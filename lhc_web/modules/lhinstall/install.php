@@ -1904,6 +1904,7 @@ try {
                   `rec_per_req` tinyint(1) NOT NULL,
                   `auto_accept` tinyint(1) NOT NULL,
                   `max_active_chats` int(11) NOT NULL,
+                  `cache_version` int(11) unsigned NOT NULL DEFAULT '0',
                   `pswd_updated` int(11) NOT NULL,
                   `attr_int_1` int(11) NOT NULL,
                   `attr_int_2` int(11) NOT NULL,

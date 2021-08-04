@@ -1,3 +1,9 @@
+3.78v
+
+1. There will be no longer requirement to re-login after permission/department assignment changes.
+
+execute doc/update_db/update_250.sql for update
+
 3.77v
 
 1. Migration to big int. Part 1

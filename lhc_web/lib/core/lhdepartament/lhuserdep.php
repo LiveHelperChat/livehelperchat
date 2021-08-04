@@ -7,28 +7,30 @@ class erLhcoreClassUserDep
 
     }
 
-    public static function getUserReadDepartments($userID = false)
+    public static function getUserReadDepartments($userID = false, $cacheVersion = 0)
     {
         if ($userID === false && ($currentUser = erLhcoreClassUser::instance()) && $currentUser->isLogged()) {
             $userID = $currentUser->getUserID();
+            $cacheVersion = $currentUser->cache_version;
         }
 
-        if (isset($GLOBALS['lhCacheUserDepartamentsRo_' . $userID])) return $GLOBALS['lhCacheUserDepartamentsRo_' . $userID];
-        if (isset($_SESSION['lhCacheUserDepartamentsRo_' . $userID])) return $_SESSION['lhCacheUserDepartamentsRo_' . $userID];
+        if (isset($GLOBALS['lhCacheUserDepartamentsRo_' . $userID . '_' . $cacheVersion])) return $GLOBALS['lhCacheUserDepartamentsRo_' . $userID.'_'.$cacheVersion];
+        if (isset($_SESSION['lhCacheUserDepartamentsRo_' . $userID . '_' . $cacheVersion])) return $_SESSION['lhCacheUserDepartamentsRo_' . $userID.'_'.$cacheVersion];
 
-        self::getUserDepartaments($userID);
+        self::getUserDepartaments($userID,$cacheVersion);
 
-        return isset($GLOBALS['lhCacheUserDepartamentsRo_' . $userID]) ? $GLOBALS['lhCacheUserDepartamentsRo_' . $userID] : array();
+        return isset($GLOBALS['lhCacheUserDepartamentsRo_' . $userID . '_' . $cacheVersion]) ? $GLOBALS['lhCacheUserDepartamentsRo_' . $userID.'_'.$cacheVersion] : array();
     }
 
-    public static function getUserDepartaments($userID = false)
+    public static function getUserDepartaments($userID = false, $cacheVersion = 0)
     {
         if ($userID === false && ($currentUser = erLhcoreClassUser::instance()) && $currentUser->isLogged()) {
             $userID = $currentUser->getUserID();
+            $cacheVersion = $currentUser->cache_version;
         }
 
-        if (isset($GLOBALS['lhCacheUserDepartaments_' . $userID])) return $GLOBALS['lhCacheUserDepartaments_' . $userID];
-        if (isset($_SESSION['lhCacheUserDepartaments_' . $userID])) return $_SESSION['lhCacheUserDepartaments_' . $userID];
+        if (isset($GLOBALS['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion])) return $GLOBALS['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion];
+        if (isset($_SESSION['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion])) return $_SESSION['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion];
 
         $db = ezcDbInstance::get();
 
@@ -49,11 +51,11 @@ class erLhcoreClassUserDep
             }
         }
 
-        $GLOBALS['lhCacheUserDepartaments_' . $userID] = $idArray;
-        $_SESSION['lhCacheUserDepartaments_' . $userID] = $idArray;
+        $GLOBALS['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion] = $idArray;
+        $_SESSION['lhCacheUserDepartaments_' . $userID . '_' . $cacheVersion] = $idArray;
 
-        $GLOBALS['lhCacheUserDepartamentsRo_' . $userID] = $idArrayRo;
-        $_SESSION['lhCacheUserDepartamentsRo_' . $userID] = $idArrayRo;
+        $GLOBALS['lhCacheUserDepartamentsRo_' . $userID . '_' . $cacheVersion] = $idArrayRo;
+        $_SESSION['lhCacheUserDepartamentsRo_' . $userID . '_' . $cacheVersion] = $idArrayRo;
 
         return $idArray;
     }
@@ -68,7 +70,6 @@ class erLhcoreClassUserDep
 
         $stmt = $db->prepare('SELECT dep_id FROM lh_userdep WHERE user_id = :user_id AND type = 0 AND ro = ' . (int)$readOnly . ' ORDER BY id ASC');
         $stmt->bindValue(':user_id', $userID);
-
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_COLUMN);

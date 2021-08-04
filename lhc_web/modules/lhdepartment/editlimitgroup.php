@@ -17,6 +17,9 @@ if ( isset($_POST['Delete_departament']) ) {
 	}
 
 	$Departament_group->removeThis();
+
+	erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
     erLhcoreClassModule::redirect('department/limitgroup');
     exit;
 }
@@ -37,6 +40,8 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         erLhcoreClassDepartament::validateDepartmentGroupLimitDepartments($Departament_group);
         
         $Departament_group->updateDepartmentsLimits();
+
+        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
         
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/limitgroup');

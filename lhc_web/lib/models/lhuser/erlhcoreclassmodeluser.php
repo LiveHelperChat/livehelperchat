@@ -45,7 +45,8 @@ class erLhcoreClassModelUser {
             'exclude_autoasign' => $this->exclude_autoasign,
             'pswd_updated' => $this->pswd_updated,
             'always_on' => $this->always_on,
-            'avatar' => $this->avatar
+            'avatar' => $this->avatar,
+            'cache_version' => $this->cache_version
         );
    }
 
@@ -71,7 +72,12 @@ class erLhcoreClassModelUser {
        return self::getCount($params);
    }
 
-   public function __get($param)
+   public function beforeUpdate()
+   {
+       $this->cache_version = $this->cache_version + 1;
+   }
+
+    public function __get($param)
    {
        switch ($param) {
 
@@ -247,6 +253,7 @@ class erLhcoreClassModelUser {
     public $pswd_updated = 0;
     public $always_on = 0;
     public $avatar = '';
+    public $cache_version = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

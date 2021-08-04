@@ -17,7 +17,9 @@ if (isset($_POST['Save_departament']))
         $Departament_group->saveThis();
         
         erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
-        
+
+        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
+
         erLhcoreClassModule::redirect('department/group');
         exit ;
 
