@@ -237,7 +237,8 @@ class Install
                   `btype` tinyint(1) NOT NULL DEFAULT '0',
                   `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `ip` (`ip`)
+                  KEY `ip` (`ip`),
+                  KEY `nick` (`nick`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_users_online_session` ( 
@@ -1534,7 +1535,7 @@ class Install
 				  `acop_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
-				  `product_configuration` varchar(250) NOT NULL,
+				  `product_configuration` longtext NOT NULL,
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier_2` (`identifier`(191)),

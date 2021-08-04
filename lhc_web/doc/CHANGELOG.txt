@@ -1,3 +1,9 @@
+3.79v
+
+1. Now you can block visitors by their e-mail address. Usefull in case you are passing this information.
+
+execute doc/update_db/update_251.sql for update
+
 3.78v
 
 1. There will be no longer requirement to re-login after permission/department assignment changes.

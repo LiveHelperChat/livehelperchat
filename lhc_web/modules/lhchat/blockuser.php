@@ -28,6 +28,9 @@ $definition = array(
     'btype' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 4),FILTER_REQUIRE_ARRAY
     ),
+    'btype_email' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    ),
     'expires' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 360)
     )
@@ -36,9 +39,9 @@ $definition = array(
 $form = new ezcInputForm(INPUT_POST, $definition);
 $params = array();
 
-if (!$form->hasValidData('btype') || empty($form->btype)) {
+if ((!$form->hasValidData('btype') || empty($form->btype)) && !$form->hasValidData('btype_email')) {
     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Please choose a block type!');
-} else {
+} elseif ($form->hasValidData('btype') && !empty($form->btype)) {
     if (in_array(erLhcoreClassModelChatBlockedUser::BLOCK_IP,$form->btype) && in_array(erLhcoreClassModelChatBlockedUser::BLOCK_NICK,$form->btype)) {
         $params['btype'] = erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK;
     } elseif (in_array(erLhcoreClassModelChatBlockedUser::BLOCK_IP,$form->btype) && in_array(erLhcoreClassModelChatBlockedUser::BLOCK_NICK_DEP,$form->btype)) {
@@ -47,6 +50,12 @@ if (!$form->hasValidData('btype') || empty($form->btype)) {
         $btype = $form->btype;
         $params['btype'] = array_shift($btype);
     }
+}
+
+if ($form->hasValidData('btype_email') && $chat->email != '') {
+    $params['email'] = $chat->email;
+} elseif ($form->hasValidData('btype_email') && $chat->email != '') {
+    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Chat does not have an e-mail set!');
 }
 
 if (!$form->hasValidData('expires')) {
@@ -63,7 +72,7 @@ $params['chat'] = $chat;
 
 $params['user'] =  $currentUser->getUserData(true);
 
-if (empty($Errors)){
+if (empty($Errors)) {
     erLhcoreClassModelChatBlockedUser::blockChat($params);
     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Visitor was blocked!'));

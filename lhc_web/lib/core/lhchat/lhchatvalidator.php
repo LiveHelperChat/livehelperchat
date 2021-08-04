@@ -833,7 +833,7 @@ class erLhcoreClassChatValidator {
             $chat->dep_id = $priority['dep_id'];
         }
 
-        if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+        if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email))) {
             $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
         }
 
