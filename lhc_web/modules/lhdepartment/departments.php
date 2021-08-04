@@ -24,6 +24,10 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if ($Params['user_parameters_unordered']['export'] == 1) {
+    erLhcoreClassChatExport::exportDepartments(erLhcoreClassModelDepartament::getList(array_merge($filterParams['filter'],$departmentParams,array( 'limit' => false,'sort' => 'sort_priority ASC, id ASC'))));
+}
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('department/departments') . $append;
 $pages->items_total = erLhcoreClassModelDepartament::getCount(array_merge($filterParams['filter'],$departmentParams));

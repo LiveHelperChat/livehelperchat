@@ -22,6 +22,11 @@ class erLhcoreClassModelGroup
         );
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function afterRemove()
     {
         $q = ezcDbInstance::get()->createDeleteQuery();
