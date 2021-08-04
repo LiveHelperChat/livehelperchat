@@ -82,7 +82,7 @@ $fieldsSearch['timefrom'] = array (
     'valid_if_filled' => false,
     'datatype' => 'datetime',
     'filter_type' => 'filtergte',
-    'filter_table_field' => 'time',
+    'filter_table_field' => 'udate',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )
@@ -95,7 +95,7 @@ $fieldsSearch['timeto'] = array (
     'valid_if_filled' => false,
     'datatype' => 'datetime',
     'filter_type' => 'filterlte',
-    'filter_table_field' => 'time',
+    'filter_table_field' => 'udate',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )
