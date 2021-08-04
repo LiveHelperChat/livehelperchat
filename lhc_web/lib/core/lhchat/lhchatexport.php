@@ -35,6 +35,61 @@ class erLhcoreClassChatExport {
         exit;
     }
 
+    public static function exportUsers($users) {
+        $filename = "users-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        $counter = 0;
+        foreach ($users as $user) {
+            $values = $user->getState();
+            unset($values['password']);
+
+            $values['user_groups_id'] = implode(',',$user->user_groups_id);
+
+            if (!empty($user->user_groups_id)) {
+                $values['user_groups_name'] = implode(',',erLhcoreClassModelGroup::getList(array('filterin' => array('id' => $user->user_groups_id))));
+            }
+
+            if ($counter == 0) {
+                fputcsv($fp, array_keys($values));
+            }
+            fputcsv($fp, $values);
+            $counter++;
+        }
+        exit;
+    }
+
+    public static function exportDepartments($items) {
+        $filename = "departments-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        $counter = 0;
+        foreach ($items as $item) {
+            $values = $item->getState();
+
+            $botConfiguration = $item->bot_configuration_array;
+
+            $values['bot_id'] = isset($botConfiguration['bot_id']) ? $botConfiguration['bot_id'] : 0;
+            $values['bot_name'] = $values['bot_id'] > 0 ? (string)erLhcoreClassModelGenericBotBot::fetch($values['bot_id']) : '';
+
+            $values['bot_translation_group_id'] = isset($botConfiguration['bot_tr_id']) ? $botConfiguration['bot_tr_id'] : 0;
+            $values['bot_translation_group_name'] = $values['bot_translation_group_id']  > 0 ? (string)erLhcoreClassModelGenericBotTrGroup::fetch($values['bot_translation_group_id']) : '';
+
+            if ($counter == 0) {
+                fputcsv($fp, array_keys($values));
+            }
+            fputcsv($fp, $values);
+            $counter++;
+        }
+        exit;
+    }
+
 	public static function exportDepartmentStats($departments) {
 	    include 'lib/core/lhform/PHPExcel.php';
 			$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;

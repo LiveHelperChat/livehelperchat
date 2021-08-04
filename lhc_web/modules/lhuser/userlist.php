@@ -14,6 +14,11 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
 
+
+if ($Params['user_parameters_unordered']['export'] == 1) {
+    erLhcoreClassChatExport::exportUsers(erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('limit' => false,'sort' => 'id DESC'))));
+}
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('user/userlist') . $append;
 $pages->items_total = erLhcoreClassModelUser::getUserCount($filterParams['filter']);

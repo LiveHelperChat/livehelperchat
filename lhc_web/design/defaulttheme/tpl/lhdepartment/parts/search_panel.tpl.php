@@ -42,7 +42,10 @@
 	</div>
 
 	<div class="btn-group" role="group" aria-label="...">
-		<input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />	
+		<input type="submit" name="doSearch" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+        <?php if (isset($pages) && $pages->items_total > 0) : ?>
+            <a target="_blank" class="btn btn-outline-secondary btn-sm" href="<?php echo $pages->serverURL?>/(export)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export CSV');?> (<?php echo $pages->items_total?>)</a>
+        <?php endif; ?>
 	</div>
 
 </form>
