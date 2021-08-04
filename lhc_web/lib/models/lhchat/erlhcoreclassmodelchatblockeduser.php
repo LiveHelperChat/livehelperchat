@@ -167,7 +167,7 @@ class erLhcoreClassModelChatBlockedUser
         $block->user_id = erLhcoreClassUser::instance()->getUserID();
         $block->chat_id = $params['chat']->id;
         $block->dep_id = $params['chat']->dep_id;
-        $block->nick = $params['chat']->nick;
+        $block->nick = ($params['btype'] == self::BLOCK_EMAIL ? $params['chat']->email : $params['chat']->nick);
         $block->btype = $params['btype'];
         $block->expires = isset($params['expires']) ? (int)$params['expires'] : 0;
         $block->saveThis();
