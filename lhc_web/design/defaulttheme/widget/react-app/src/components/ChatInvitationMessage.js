@@ -18,7 +18,8 @@ class ChatInvitationMessage extends PureComponent {
 
                return <React.Fragment>
                    {this.props.invitation.prev_msg && <ChatBotIntroMessage setBotPayload={this.props.setBotPayload} content={this.props.invitation.prev_msg} />}
-                   <div className="message-row message-admin">
+
+                   {this.props.invitation.message && <div className="message-row message-admin">
                         <span className="usr-tit op-tit">
                              {<i title={this.props.invitation.name_support || this.props.invitation.extra_profile} className="chat-operators mi-fs15 mr-0">
                                  {this.props.invitation.bubble && this.props.invitation.photo && <img src={this.props.invitation.photo} alt="" className="profile-msg-pic" />}
@@ -26,9 +27,9 @@ class ChatInvitationMessage extends PureComponent {
                              </i>}
                             {!this.props.invitation.bubble && (this.props.invitation.name_support || this.props.invitation.extra_profile)}
                          </span>
-
                         <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
-                   </div>
+                   </div>}
+
                    {this.props.invitation.message_full && <ChatBotIntroMessage setBotPayload={this.props.setBotPayload} content={this.props.invitation.message_full} />}
                </React.Fragment>
 
@@ -47,10 +48,14 @@ class ChatInvitationMessage extends PureComponent {
                             </div>
                         </div>
                     </div>
-                    {this.props.mode != 'profile_only' &&
-                    <div id="messagesBlock"><div className="bottom-message position-relative"><div className="message-row message-admin pt-1 text-left ml-3">
-                        <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
-                    </div></div></div>}
+                    {this.props.mode != 'profile_only' && this.props.invitation.message &&
+                    <div id="messagesBlock">
+                        <div className="bottom-message position-relative">
+                            <div className="message-row message-admin pt-1 text-left ml-3">
+                                <div className="msg-body" dangerouslySetInnerHTML={{__html:this.props.invitation.message}}></div>
+                            </div>
+                        </div>
+                    </div>}
                 </React.Fragment>
             );
         }
