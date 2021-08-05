@@ -82,7 +82,8 @@ return array_merge(array (
         'erLhcoreClassModelCannedMsg'           => 'lib/models/lhchat/erlhcoreclassmodelcannedmsg.php',
         'erLhcoreClassModelCannedMsgTag'        => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtag.php',
         'erLhcoreClassModelCannedMsgTagLink'    => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgtaglink.php',
-    
+        'erLhcoreClassModelCannedMsgReplace'    => 'lib/models/lhchat/erlhcoreclassmodelcannedmsgreplace.php',
+
         'erLhcoreClassModelChatConfig'  => 'lib/models/lhchat/erlhcoreclassmodelchatconfig.php',
 
         'erLhcoreClassModelChatOnlineUser'   		=> 'lib/models/lhchat/erlhcoreclassmodelchatonlineuser.php',
