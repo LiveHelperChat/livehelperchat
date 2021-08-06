@@ -1,0 +1,1 @@
+<?php /* Modify $frontTabsOrder variables and append to array your tab */ ?>
