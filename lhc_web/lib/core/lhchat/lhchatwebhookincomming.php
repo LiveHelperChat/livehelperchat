@@ -248,7 +248,10 @@ class erLhcoreClassChatWebhookIncoming {
             $msg->msg = self::extractMessageBody($msgBody,$payloadMessage);
             $msg->chat_id = $chat->id;
             $msg->user_id = $sender;
-            $msg->time = self::extractAttribute('time',$conditions,$payloadMessage,time());
+
+            $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
+            $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
+
             erLhcoreClassChat::getSession()->save($msg);
 
             $chat->last_user_msg_time = $msg->time;
@@ -308,8 +311,13 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
 
-            $chat->nick = self::extractAttribute('nick',$conditions,$payloadMessage,$chat->nick);
-            $chat->phone = self::extractAttribute('phone',$conditions,$payloadMessage,$chat->phone);
+            $chat->nick = self::extractAttribute('nick',$conditions, $payloadMessage, $chat->nick);
+
+            if ($chat->nick == 'Visitor') {
+                $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll, $chat->nick);
+            }
+
+            $chat->phone = self::extractAttribute('phone',$conditions, $payloadMessage, $chat->phone);
 
             if ($sender == 0) {
                 $ip = self::extractAttribute('ip', $conditions, $payloadMessage, $chat->ip);
@@ -327,7 +335,6 @@ class erLhcoreClassChatWebhookIncoming {
                 'lon',
                 'city',
                 'ip',
-
                 'pnd_time',
                 'last_user_msg_time',
                 'status',
@@ -381,9 +388,16 @@ class erLhcoreClassChatWebhookIncoming {
 
             // Save chat
             $chat = new erLhcoreClassModelChat();
-            $chat->nick = self::extractAttribute('nick',$conditions,$payloadMessage,'Visitor');
-            $chat->phone = self::extractAttribute('phone',$conditions,$payloadMessage);
-            $chat->email = self::extractAttribute('email',$conditions,$payloadMessage);
+
+            $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage,'Visitor');
+
+            // Perhaps it's first level attribute
+            if ($chat->nick == 'Visitor') {
+                $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll,'Visitor');
+            }
+
+            $chat->phone = self::extractAttribute('phone', $conditions, $payloadMessage);
+            $chat->email = self::extractAttribute('email', $conditions, $payloadMessage);
 
             if ($sender == 0) {
                 $ip = self::extractAttribute('ip',$conditions,$payloadMessage,$chat->ip);
@@ -441,7 +455,10 @@ class erLhcoreClassChatWebhookIncoming {
             $msg->msg = self::extractMessageBody($msgBody, $payloadMessage);
             $msg->chat_id = $chat->id;
             $msg->user_id = $sender;
-            $msg->time = self::extractAttribute('time', $conditions, $payloadMessage, time());
+
+            $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
+            $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
+
             erLhcoreClassChat::getSession()->save($msg);
 
             // Save external chat
