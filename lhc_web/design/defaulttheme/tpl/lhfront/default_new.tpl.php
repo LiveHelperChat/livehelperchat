@@ -44,6 +44,7 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_online_check.tpl.php')); ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/tabs_multiinclude.tpl.php')); ?>
 
     <div ng-controller="OnlineCtrl as online" ng-init='online.forbiddenVisitors=<?php ($currentUser->hasAccessTo('lhchat', 'use_onlineusers') != true || (!in_array('online_users',$frontTabsOrder) && !in_array('online_visitors',$widgetsUser))) ? print 'true' : print 'false'?>;groupByField = <?php echo json_encode($ogroupBy) ?>;online.maxRows="<?php echo (int)$omaxRows ?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.country="<?php echo htmlspecialchars($oCountry)?>";online.updateTimeout="<?php echo (int)$oupdTimeout ?>";online.userTimeout = "<?php echo (int)$ouserTimeout ?>";online.department="<?php echo (int)$onlineDepartment ?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false' ?>;online.online_connected=<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false' ?>'>
 
@@ -66,6 +67,8 @@
                         <?php endif; ?>
 
                         <a class="d-inline-block pt-2 pr-1 float-right text-secondary" onclick="$('#tabs a[href=\'#dashboard\']').tab('show')"><i class="material-icons md-18">home</i></a>
+
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/icons/icons_multiinclude.tpl.php')); ?>
                     </div>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/basic_chat_enabled.tpl.php'));?>
 
