@@ -51,7 +51,7 @@ echo json_encode(array(
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send'),
         "sending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sending...'),
         "click_to_remove" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Click to remove'),
-        "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not an owner of the conversation. Make sure you want to send a reply to this e-mail!')
+        "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.')
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),
