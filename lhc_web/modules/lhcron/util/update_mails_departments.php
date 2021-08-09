@@ -17,9 +17,11 @@ $sql = 'SELECT
 `lhc_mailconv_match_rule`.`dep_id`,
        1 as counter
 
-FROM lhc_mailconv_match_rule 
-INNER JOIN 
-lhc_mailconv_mailbox ON (`lhc_mailconv_mailbox`.`id` = JSON_EXTRACT(`lhc_mailconv_match_rule`.`mailbox_id`,\'$[0]\') )';
+FROM lhc_mailconv_match_rule, 
+lhc_mailconv_mailbox
+
+WHERE JSON_CONTAINS(`lhc_mailconv_match_rule`.`mailbox_id`,`lhc_mailconv_mailbox`.`id` )';
+
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
