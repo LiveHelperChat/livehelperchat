@@ -109,19 +109,7 @@
 
         <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changedepartment'))) : ?>
         <div role="tabpanel" class="tab-pane" id="changedepartment">
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
-                <?php $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter(erLhcoreClassUser::instance()->getUserID());
-                echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'new_dep_id',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
-                    'selected_id'    => $chat->dep_id,
-                    'css_class'      => 'form-control form-control-sm',
-                    'display_name'   => 'name',
-                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
-                    'list_function_params'  => array_merge(array('sort' => 'sort_priority ASC, id ASC', 'limit' => '1000000'), ($userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array()))
-                )); ?>
-            </div>
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/department.tpl.php'));?>
             <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','You will still remain an owner of the chat.');?></small></p>
             <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
         </div>
