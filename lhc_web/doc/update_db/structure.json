@@ -7933,6 +7933,14 @@
         "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "has_attachment",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lhc_mailconv_file": [
@@ -7957,6 +7965,14 @@
       {
         "field": "conv_duration",
         "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "has_attachment",
+        "type": "tinyint(1) unsigned",
         "null": "NO",
         "key": "",
         "default": "0",
@@ -9974,7 +9990,14 @@
         "from_address" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `from_address` (`from_address`);",
         "mailbox_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `mailbox_id` (`mailbox_id`);",
         "dep_id" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `dep_id` (`dep_id`);",
-        "status_priority" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_priority` (`status`, `priority`);"
+        "status_priority" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `status_priority` (`status`, `priority`);",
+        "has_attachment" : "ALTER TABLE `lhc_mailconv_conversation` ADD INDEX `has_attachment` (`has_attachment`);"
+      },
+      "old" : []
+    },
+    "lhc_mailconv_msg" : {
+      "new" : {
+        "has_attachment" : "ALTER TABLE `lhc_mailconv_msg` ADD INDEX `has_attachment` (`has_attachment`);"
       },
       "old" : []
     }

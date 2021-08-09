@@ -49,6 +49,7 @@ class erLhcoreClassModelMailconvConversation
             'remarks' => $this->remarks,
             'conv_duration' => $this->conv_duration,
             'mail_variables' => $this->mail_variables,
+            'has_attachment' => $this->has_attachment,
         );
     }
 
@@ -153,6 +154,11 @@ class erLhcoreClassModelMailconvConversation
     const START_IN = 0;
     const START_OUT = 1;
 
+    const ATTACHMENT_EMPTY = 0;
+    const ATTACHMENT_INLINE = 1;
+    const ATTACHMENT_FILE = 2;
+    const ATTACHMENT_MIX = 3;
+
     public $id = NULL;
     public $dep_id = null;
     public $user_id = 0;
@@ -194,6 +200,7 @@ class erLhcoreClassModelMailconvConversation
     public $lr_time = 0;          // Last response time by operator
     public $interaction_time = 0; // is time between the agent accepting a and closing e-chat.
     public $conv_duration = 0;         // Total time spend between durations in the message
+    public $has_attachment = self::ATTACHMENT_EMPTY;
 }
 
 ?>

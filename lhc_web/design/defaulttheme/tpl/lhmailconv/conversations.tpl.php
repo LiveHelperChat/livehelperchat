@@ -10,7 +10,7 @@
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
         <thead>
         <tr>
-            <th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
+            <th><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Priority');?></th>
@@ -37,6 +37,15 @@
                     <?php else : ?>
                         <i class="material-icons">call_received</i>
                     <?php endif; ?>
+
+                    <?php if ($item->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) : ?>
+                    <span class="material-icons">attach_file</span><span class="material-icons">image</span>
+                    <?php elseif ($item->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) : ?>
+                    <span class="material-icons">attach_file</span>
+                    <?php elseif ($item->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) : ?>
+                    <span class="material-icons">image</span>
+                    <?php endif; ?>
+
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
                 </td>
                 <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>

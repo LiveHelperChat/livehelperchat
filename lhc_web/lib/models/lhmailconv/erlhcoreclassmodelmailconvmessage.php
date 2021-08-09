@@ -69,6 +69,7 @@ class erLhcoreClassModelMailconvMessage
             'response_type' => $this->response_type,
             'dep_id' => $this->dep_id,
             'mb_folder' => $this->mb_folder,
+            'has_attachment' => $this->has_attachment,
         );
     }
 
@@ -268,6 +269,11 @@ class erLhcoreClassModelMailconvMessage
     const STATUS_ACTIVE = 1;
     const STATUS_RESPONDED = 2;
 
+    const ATTACHMENT_EMPTY = 0;
+    const ATTACHMENT_INLINE = 1;
+    const ATTACHMENT_FILE = 2;
+    const ATTACHMENT_MIX = 3;
+
     public $id = NULL;
     public $status = self::STATUS_PENDING;
     public $mailbox_id = 0;
@@ -337,7 +343,7 @@ class erLhcoreClassModelMailconvMessage
     const RESPONSE_NORMAL = 3;         // To this message was responded by us.
 
     public $response_type = self::RESPONSE_UNRESPONDED; // Normal mail based response
-
+    public $has_attachment = self::ATTACHMENT_EMPTY;
 }
 
 ?>

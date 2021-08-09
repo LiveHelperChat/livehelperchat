@@ -207,6 +207,19 @@
             </div>
         </div>
 
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Attachment');?></label>
+                <select name="has_attachment" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Does not matter');?></option>
+                    <option value="0" <?php if ($input->has_attachment === erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','No attachment');?></option>
+                    <option value="1" <?php if ($input->has_attachment === erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Inline');?></option>
+                    <option value="2" <?php if ($input->has_attachment === erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Attached');?></option>
+                    <option value="3" <?php if ($input->has_attachment === erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Inline or Attached');?></option>
+                </select>
+            </div>
+        </div>
+
     </div>
 
     <div class="row">

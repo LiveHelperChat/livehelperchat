@@ -21,7 +21,8 @@ foreach (array(
 foreach (array(
              'transfer_uid','start_type','lr_time','dep_id','ctime','user_id','status','last_message_id','mailbox_id','message_id','priority','udate',
              'total_messages','match_rule_id','cls_time','pnd_time','wait_time',
-             'accept_time','response_time','interaction_time','tslasign','conv_duration'
+             'accept_time','response_time','interaction_time','tslasign','conv_duration',
+             'has_attachment'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

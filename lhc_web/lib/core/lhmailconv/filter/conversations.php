@@ -161,6 +161,18 @@ $fieldsSearch['conversation_status'] = array (
     )
 );
 
+$fieldsSearch['has_attachment'] = array (
+    'type' => 'text',
+    'trans' => 'Has attachment',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => 'has_attachment',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0,'max_range' => 1000)
+    )
+);
+
 $fieldsSearch['department_ids'] = array (
     'type' => 'text',
     'trans' => 'Department',

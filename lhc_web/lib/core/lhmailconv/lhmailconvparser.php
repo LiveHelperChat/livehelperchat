@@ -277,6 +277,12 @@ class erLhcoreClassMailconvParser {
                             self::saveAttatchements($mail, $message);
                         }
 
+                        // Update attachment status
+                        if ($message->has_attachment > $conversations->has_attachment) {
+                            $conversations->has_attachment = $message->has_attachment;
+                            $conversations->updateThis(['update' => ['has_attachment']]);
+                        }
+
                         if ($conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
                                 'mail' => & $message,
@@ -308,6 +314,30 @@ class erLhcoreClassMailconvParser {
                             $conversation->conv_duration = erLhcoreClassChat::getCount(['filter' => ['conversation_id' => $conversation->id]],'lhc_mailconv_msg','SUM(conv_duration)');
                             $conversation->updateThis(['update' => ['last_message_id', 'conv_duration']]);
                             self::setLastConversationByMessage($conversation, $message);
+                        }
+
+                        // Update attachment status
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation &&
+                            $conversation->has_attachment != erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX &&
+                            $message->has_attachment != erLhcoreClassModelMailconvMessage::ATTACHMENT_EMPTY
+                        ) {
+                            if (
+                                ($message->has_attachment == erLhcoreClassModelMailconvMessage::ATTACHMENT_MIX) ||
+                                (
+                                    $conversation->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE &&
+                                    $message->has_attachment == erLhcoreClassModelMailconvMessage::ATTACHMENT_FILE
+                                ) ||
+                                (
+                                    $conversation->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE &&
+                                    $message->has_attachment == erLhcoreClassModelMailconvMessage::ATTACHMENT_INLINE
+                                )
+                            ) {
+                                $conversation->has_attachment = erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX;
+                                $conversation->updateThis(['update' => ['has_attachment']]);
+                            } elseif ($conversation->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY) {
+                                $conversation->has_attachment = $message->has_attachment;
+                                $conversation->updateThis(['update' => ['has_attachment']]);
+                            }
                         }
 
                         // If conversations is active we set accept time to import time
@@ -402,7 +432,10 @@ class erLhcoreClassMailconvParser {
         }
     }
 
-    public static function saveAttatchements($mail, $message) {
+    public static function saveAttatchements($mail, & $message) {
+
+        $dispositions = [];
+
         foreach ($mail->getAttachments() as $attachment) {
             $mailAttatchement = new erLhcoreClassModelMailconvFile();
             $mailAttatchement->message_id = $message->id;
@@ -416,6 +449,10 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->type = (string)$attachment->mime;
             $mailAttatchement->conversation_id = $message->conversation_id;
             $mailAttatchement->saveThis();
+
+            if (!in_array(strtolower($mailAttatchement->disposition),$dispositions)) {
+                $dispositions[] = strtolower($mailAttatchement->disposition);
+            }
 
             $fileBody = $attachment->getContents();
 
@@ -450,6 +487,18 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->file_name = $fileName;
             $mailAttatchement->file_path = $dir;
             $mailAttatchement->saveThis();
+        }
+
+        if (in_array('attachment',$dispositions) && in_array('inline',$dispositions)) {
+            $message->has_attachment = erLhcoreClassModelMailconvMessage::ATTACHMENT_MIX;
+        } elseif (in_array('attachment',$dispositions)) {
+            $message->has_attachment = erLhcoreClassModelMailconvMessage::ATTACHMENT_FILE;
+        } elseif (in_array('inline',$dispositions)) {
+            $message->has_attachment = erLhcoreClassModelMailconvMessage::ATTACHMENT_INLINE;
+        }
+
+        if ($message->has_attachment > 0) {
+            $message->updateThis(['update' => ['has_attachment']]);
         }
     }
 

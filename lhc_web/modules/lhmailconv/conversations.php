@@ -65,6 +65,26 @@ if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
     exit;
 }
 
+if (is_numeric($filterParams['input_form']->has_attachment)) {
+    if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
+        $filterParams['filter']['filterin']['has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) {
+        $filterParams['filter']['filterin']['has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) {
+        $filterParams['filter']['filterin']['has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    }
+}
+
 if ($filterParams['input_form']->subject_id > 0) {
     $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
     $filterParams['filter']['filter']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
