@@ -11,6 +11,10 @@
             <li role="presentation" class="nav-item"><a class="nav-link" href="#changeowner" aria-controls="changeowner" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?></a></li>
         <?php endif; ?>
 
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment')) : ?>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#changedepartment" aria-controls="changedepartment" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?></a></li>
+        <?php endif; ?>
+
 	</ul>
 	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="transferusermodal">
@@ -94,12 +98,32 @@
                     'input_name'     => 'new_user_id',
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
                     'selected_id'    => $chat->user_id,
-                    'css_class'      => 'form-control',
+                    'css_class'      => 'form-control form-control-sm',
                     'display_name' => 'name_official',
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
             </div>
             <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
+        </div>
+        <?php endif; ?>
+
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changedepartment')) : ?>
+        <div role="tabpanel" class="tab-pane" id="changedepartment">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+                <?php $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter(erLhcoreClassUser::instance()->getUserID());
+                echo erLhcoreClassRenderHelper::renderCombobox( array (
+                    'input_name'     => 'new_dep_id',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
+                    'selected_id'    => $chat->dep_id,
+                    'css_class'      => 'form-control form-control-sm',
+                    'display_name'   => 'name',
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                    'list_function_params'  => array_merge(array('sort' => 'sort_priority ASC, id ASC', 'limit' => '1000000'), ($userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array()))
+                )); ?>
+            </div>
+            <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','You will still remain an owner of the chat.');?></small></p>
+            <input type="button" onclick="lhinst.changeDep('<?php echo $chat->id?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change department');?>">
         </div>
         <?php endif; ?>
 

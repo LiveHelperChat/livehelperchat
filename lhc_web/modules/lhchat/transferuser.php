@@ -15,7 +15,37 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
         {
             $currentUser = erLhcoreClassUser::instance();
 
-            if ( isset($_POST['type']) && $_POST['type'] == 'change_owner' ) {
+            if ( isset($_POST['type']) && $_POST['type'] == 'change_dep' ) {
+
+                if ($currentUser->hasAccessTo('lhchat','changedepartment')) {
+
+                    $dep = erLhcoreClassModelDepartament::fetch($Params['user_parameters']['item_id']);
+                    $departmentFromParent = erLhcoreClassModelDepartament::fetch($Chat->dep_id);
+                    $Chat->dep_id = $dep->id;
+
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->chat_id = $Chat->id;
+                    $msg->user_id = -1;
+                    $msg->time = time();
+                    $msg->name_support = (string)$currentUser->getUserData()->name_support;
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
+                    $msg->msg = $msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed department to') . ' ' . $dep . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'from') . ' ' . $departmentFromParent;
+                    $msg->saveThis();
+
+                    $Chat->last_msg_id = $msg->id;
+                    $Chat->last_user_msg_time = time();
+                    $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                    $Chat->updateThis();
+
+                    $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
+                    $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'Chat department was changed to') . ' ' . $dep);
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_owner_changed', array('chat' => & $Chat, 'user' => $currentUser->getUserData()));
+
+                    echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
+                }
+
+            } else if ( isset($_POST['type']) && $_POST['type'] == 'change_owner' ) {
 
                 if ($currentUser->hasAccessTo('lhchat','changeowner')) {
 
