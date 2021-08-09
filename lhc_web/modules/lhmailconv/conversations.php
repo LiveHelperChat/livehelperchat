@@ -2,6 +2,8 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/conversations.tpl.php');
 
+
+
 if ($currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
     if ( isset($_POST['doDelete']) ) {
         if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -59,6 +61,22 @@ if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('customfilterfile' => 'lib/core/lhmailconv/filter/conversations.php', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = false;
 }
+
+/**
+ * Departments filter
+ * */
+$limitation = erLhcoreClassChat::getDepartmentLimitation('lhc_mailconv_conversation');
+
+if ($limitation !== false) {
+
+    if ($limitation !== true) {
+        $filterParams['filter']['customfilter'][] = $limitation;
+    }
+
+    $filterParams['filter']['smart_select'] = true;
+}
+
+
 
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
     erLhcoreClassMailconvExport::exportXLS(erLhcoreClassModelMailconvConversation::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))));
