@@ -43,6 +43,8 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_owner_changed', array('chat' => & $Chat, 'user' => $currentUser->getUserData()));
 
                     echo json_encode(['error' => 'false', 'result' => $tpl->fetch(), 'chat_id' => $Params['user_parameters']['chat_id']]);
+                } else {
+                    throw new Exception('You do not have permission to change department!');
                 }
 
             } else if ( isset($_POST['type']) && $_POST['type'] == 'change_owner' ) {
