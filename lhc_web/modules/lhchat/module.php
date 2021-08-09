@@ -674,5 +674,6 @@ $FunctionList['voicemessages'] = array('explain' => 'Allow operator to send voic
 $FunctionList['chatdebug'] = array('explain' => 'Allow operator to see raw chat details in chat edit window');
 $FunctionList['administrate_alert_icon'] = array('explain' => 'Allow operator to manage alert icons list');
 $FunctionList['prev_chats'] = array('explain' => 'Allow operator to see previous chats from visitor');
+$FunctionList['changedepartment'] = array('explain' => 'Allow operator to change chat department');
 
 ?>

@@ -1862,6 +1862,22 @@ function lh(){
         });
     };
 
+	this.changeDep = function(chat_id, obj) {
+        var inst = this;
+        var user_id = $('#id_new_dep_id').val();
+        $.postJSON(this.wwwDir + this.trasnsferuser + chat_id + '/' + user_id, {'type':'change_dep','obj' : obj}, function(data){
+            if (data.error == 'false') {
+                $('#transfer-block-'+data.chat_id).html(data.result);
+                $('#myModal').modal('hide');
+                if (obj === 'mail') {
+                    ee.emitEvent('mailChatModified', [chat_id]);
+                } else {
+                    inst.updateVoteStatus(chat_id);
+                }
+            };
+        });
+    };
+
 	this.chooseSurvey = function(chat_id)
 	{
 		var survey_id = $('[name=SurveyItem'+chat_id+']:checked').val();

@@ -268,5 +268,6 @@ $FunctionList['delete_conversation'] = array('explain' => 'Permission to delete 
 $FunctionList['send_mail'] = array('explain' => 'Allow operator to send an e-mail');
 $FunctionList['allow_attach_files'] = array('explain' => 'Allow operator to attach files');
 $FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to change recipient');
+$FunctionList['changedepartment'] = array('explain' => 'Allow operator to change department');
 
 ?>
