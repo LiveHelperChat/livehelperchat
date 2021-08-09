@@ -100,6 +100,34 @@ class erLhcoreClassChatWebhookIncoming {
 
         if ($typeMessage == 'unknown')
         {
+            if (isset($conditions['msg_cond_img_2']) && $conditions['msg_cond_img_2'] != "") {
+                $typeMessage = 'img_2';
+                $conditionsPairs = explode("||",$conditions['msg_cond_img_2']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=',$conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'img_2') {
+                    $msgBody = $conditions['msg_img_2'];
+                    $conditionsOperator = isset($conditions['msg_cond_img_2_op']) ? $conditions['msg_cond_img_2_op'] : "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown')
+        {
             $msgBody = $conditions['msg_body_2'];
 
             if (isset($conditions['msg_cond_2']) && $conditions['msg_cond_2'] != "") {
@@ -123,6 +151,64 @@ class erLhcoreClassChatWebhookIncoming {
 
                 if ($typeMessage == 'text') {
                     $conditionsOperator = isset($conditions['msg_cond_op_2']) ? $conditions['msg_cond_op_2'] : "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown')
+        {
+            $msgBody = $conditions['msg_body_3'];
+
+            if (isset($conditions['msg_cond_3']) && $conditions['msg_cond_3'] != "") {
+                $typeMessage = 'text';
+                $conditionsPairs = explode("||",$conditions['msg_cond_3']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'text') {
+                    $conditionsOperator = isset($conditions['msg_cond_op_3']) ? $conditions['msg_cond_op_3'] : "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown')
+        {
+            $msgBody = $conditions['msg_body_4'];
+
+            if (isset($conditions['msg_cond_4']) && $conditions['msg_cond_4'] != "") {
+                $typeMessage = 'text';
+                $conditionsPairs = explode("||",$conditions['msg_cond_4']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'text') {
+                    $conditionsOperator = isset($conditions['msg_cond_op_4']) ? $conditions['msg_cond_op_4'] : "";
                 }
             }
         }
@@ -217,7 +303,7 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
 
-            if ($typeMessage == 'img' || $typeMessage == 'attachments') {
+            if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'attachments') {
                 if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
                     $file = self::parseFilesDecode(array(
                         'msg' => $payloadMessage,
@@ -229,9 +315,15 @@ class erLhcoreClassChatWebhookIncoming {
                         $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
                     }
                 } else if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
-                    $file = self::parseFiles($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']], $chat);
+                    $file = self::parseFiles(
+                        self::extractAttribute(
+                            'msg_cond_'.$typeMessage.'_body',
+                            $conditions,
+                            $payloadMessage,
+                            (isset($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']]) ? $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] : '')),
+                        $chat);
                     if (!empty($file)) {
-                        $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
+                        self::array_set_value($payloadMessage, $conditions['msg_cond_'.$typeMessage.'_body'], $file);
                     }
                 } else if (
                     // base64 encoded file
@@ -423,7 +515,7 @@ class erLhcoreClassChatWebhookIncoming {
             $chat->chat_variables = json_encode($chatVariables);
             $chat->saveThis();
 
-            if ($typeMessage == 'img' || $typeMessage == 'attachments') {
+            if ($typeMessage == 'img' || $typeMessage == 'img_2' ||  $typeMessage == 'attachments') {
                 if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
                     $file = self::parseFilesDecode(array(
                         'msg' => $payloadMessage,
@@ -435,9 +527,15 @@ class erLhcoreClassChatWebhookIncoming {
                         $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
                     }
                 } else if (isset($conditions['msg_'.$typeMessage.'_download']) && $conditions['msg_'.$typeMessage.'_download'] == true) {
-                    $file = self::parseFiles($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']], $chat);
+                    $file = self::parseFiles(
+                        self::extractAttribute(
+                            'msg_cond_'.$typeMessage.'_body',
+                            $conditions,
+                            $payloadMessage,
+                            (isset($payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']]) ? $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] : '')),
+                        $chat);
                     if (!empty($file)) {
-                        $payloadMessage[$conditions['msg_cond_'.$typeMessage.'_body']] = $file;
+                        self::array_set_value($payloadMessage, $conditions['msg_cond_'.$typeMessage.'_body'], $file);
                     }
                 } else if (
                     // base64 encoded file
@@ -544,6 +642,26 @@ class erLhcoreClassChatWebhookIncoming {
                 'msg' => $msg
             ));
         }
+    }
+
+    // https://stackoverflow.com/questions/9628176/using-a-string-path-to-set-nested-array-data
+    public static function array_set_value(array &$array, $parents, $value, $glue = '.')
+    {
+        if (!is_array($parents)) {
+            $parents = explode($glue, (string) $parents);
+        }
+
+        $ref = &$array;
+
+        foreach ($parents as $parent) {
+            if (isset($ref) && !is_array($ref)) {
+                $ref = array();
+            }
+
+            $ref = &$ref[$parent];
+        }
+
+        $ref = $value;
     }
 
     public static function extractAttribute($attr, $conditions, $payload, $defaultValue = '') {
