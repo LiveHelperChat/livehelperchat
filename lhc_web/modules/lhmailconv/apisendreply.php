@@ -25,8 +25,9 @@ try {
         $conv->lr_time = time();
         $conv->updateThis(['update' => ['lr_time']]);
 
-        // There are no more unresponded messages in this conversation we can close this conversation
-        if (erLhcoreClassModelMailconvMessage::getCount(['filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
+        // Our response is the last one
+        // So we can close conversation
+        if (erLhcoreClassModelMailconvMessage::getCount(['filtergt' => ['id' => $message->id], 'filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
             erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
         }
 
