@@ -13,6 +13,9 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'mce_toolbar' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'disable_auto_owner' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -29,6 +32,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['mce_toolbar'] = $form->mce_toolbar ;
     } else {
         $data['mce_toolbar'] = '';
+    }
+
+    if ($form->hasValidData( 'disable_auto_owner' ) && $form->disable_auto_owner == true) {
+        $data['disable_auto_owner'] = 1 ;
+    } else {
+        $data['disable_auto_owner'] = 0;
     }
 
     $mcOptions->explain = '';

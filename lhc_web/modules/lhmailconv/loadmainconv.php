@@ -11,6 +11,9 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
+        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+        $mcOptionsData = (array)$mcOptions->data;
+
         $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
 
         $userData = $currentUser->getUserData();
@@ -21,13 +24,14 @@ try {
         if ($Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
 
             if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
-                throw new Exception('You do not have permission to open all pending chats.');
+                throw new Exception('You do not have permission to open all pending mails.');
             }
 
             if (
                 $conv->user_id == 0 &&
                 $conv->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED &&
-                $conv->transfer_uid != $currentUser->getUserID()
+                $conv->transfer_uid != $currentUser->getUserID() &&
+                (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0)
             ) {
                     $currentUser = erLhcoreClassUser::instance();
                     $conv->user_id = $currentUser->getUserID();
@@ -37,7 +41,8 @@ try {
             // If status is pending change status to active
             if (
                 $conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING &&
-                $conv->transfer_uid != $currentUser->getUserID()
+                $conv->transfer_uid != $currentUser->getUserID() &&
+                (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0)
             ) {
                 $conv->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
                 $conv->accept_time = time();
@@ -46,11 +51,13 @@ try {
                 $chatAccepted = true;
             }
 
-            if ($conv->transfer_uid > 0) {
+            if ($conv->transfer_uid > 0 && (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0)) {
                 erLhcoreClassTransfer::handleTransferredChatOpen($conv, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_MAIL);
             }
 
-            $conv->updateThis();
+            if (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0) {
+                $conv->updateThis();
+            }
         }
 
         if ($operatorChanged || $chatAccepted) {
@@ -102,10 +109,6 @@ try {
 
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
         $data = (array)$fileData->data;
-
-
-        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
-        $mcOptionsData = (array)$mcOptions->data;
 
         $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
             ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.

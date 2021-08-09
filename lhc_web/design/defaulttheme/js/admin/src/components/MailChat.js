@@ -155,6 +155,12 @@ const MailChat = props => {
         }});
     }
 
+    const verifyOwner = (userId) => {
+        if (userId != state.conv.user_id) {
+            loadMainData();
+        }
+    }
+
     const loadMainData = () => {
         axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal')).then(result => {
             dispatch({
@@ -290,7 +296,7 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
+                            <MailChatMessage verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
 
                         {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">{t('mail.send_fetching')}</div>}

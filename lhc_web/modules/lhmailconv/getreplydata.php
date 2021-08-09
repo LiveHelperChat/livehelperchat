@@ -67,8 +67,47 @@ try {
             $replyRecipientsMapped[] = ['email' => $message->from_address, 'name' => $message->from_name];
         }
 
+        $userData = $currentUser->getUserData();
+
+        if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
+
+            if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
+                throw new Exception('You do not have permission to open all pending mails.');
+            }
+
+            if (
+                $conv->user_id == 0 &&
+                $conv->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED &&
+                $conv->transfer_uid != $currentUser->getUserID()
+            ) {
+                $currentUser = erLhcoreClassUser::instance();
+                $conv->user_id = $currentUser->getUserID();
+                $operatorChanged = true;
+            }
+
+            // If status is pending change status to active
+            if (
+                $conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING &&
+                $conv->transfer_uid != $currentUser->getUserID()
+            ) {
+                $conv->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
+                $conv->accept_time = time();
+                $conv->wait_time = $conv->accept_time - $conv->pnd_time;
+                $conv->user_id = $currentUser->getUserID();
+                $chatAccepted = true;
+            }
+
+            if ($conv->transfer_uid > 0) {
+                erLhcoreClassTransfer::handleTransferredChatOpen($conv, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_MAIL);
+            }
+
+            $conv->updateThis();
+        }
+
         echo json_encode([
             'intro' => ($conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
+            'user_id' => $conv->user_id,
+            'is_owner' => (erLhcoreClassUser::instance()->getUserID() == $conv->user_id),
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',
             'signature_under' => ($conv->mailbox->signature_under == 1),
             'recipients' => [

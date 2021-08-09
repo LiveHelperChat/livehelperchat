@@ -19,6 +19,7 @@ const MailChatReply = props => {
     const [replySendStatus, setReplySendStatus] = useState([]);
     const [sendInProgress, setSendInProgress] = useState(false);
     const [underReplySignature, setUnderReplySignature] = useState(false);
+    const [isOwner, setIsOwner] = useState(true);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -116,6 +117,10 @@ const MailChatReply = props => {
                 setReplySignature(result.data.signature);
                 setRecipients(result.data.recipients);
                 setUnderReplySignature(result.data.signature_under);
+                if (result.data.user_id > 0) {
+                    props.verifyOwner(result.data.user_id);
+                    setIsOwner(result.data.is_owner);
+                }
             });
         } else if (replyMode == false && forwardMode == false && loadedReplyData == true) {
             setLoadedReplyData(false);
@@ -150,6 +155,10 @@ const MailChatReply = props => {
 
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
+
+            {!isOwner && <div className="alert alert-warning" role="alert"><span className="material-icons">warning</span>
+                {t('msg.not_an_owner')}
+            </div>}
 
             {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>{t('msg.reply')}</button>
