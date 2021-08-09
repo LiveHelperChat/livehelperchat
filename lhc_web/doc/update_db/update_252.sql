@@ -1,0 +1,1 @@
+ALTER TABLE `lh_users` CHANGE `departments_ids` `departments_ids` text NOT NULL;
