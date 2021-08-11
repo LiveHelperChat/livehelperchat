@@ -47,6 +47,7 @@ if (ezcInputForm::hasPostData()) {
             $restAPI->disabled = $data['disabled'];
             $restAPI->identifier = $data['identifier'];
             $restAPI->configuration = $data['configuration'];
+            $restAPI->scope = $data['scope'];
             $restAPI->saveThis();
             $tpl->set('imported_rest',true);
         }

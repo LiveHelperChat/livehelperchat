@@ -352,6 +352,8 @@ class erLhcoreClassLHCMobile {
         // API access key from Google API's Console
         $registrationIds = array( $session->device_token );
 
+        $chatSimplified = $chat->getState();
+
         $fields = array
         (
             'registration_ids' 	=> $registrationIds,
@@ -364,9 +366,9 @@ class erLhcoreClassLHCMobile {
                 "click_action"=> "FLUTTER_NOTIFICATION_CLICK",
                 "server_id" => $session->token,
                 "m" =>  $params['title'],
-                "chat_type"=> $params['chat_type'],
+                "chat_type" => $params['chat_type'],
                 "msg" => isset($params['msg']) ? preg_replace('#\[[^\]]+\]#', '',strip_tags($params['msg'])) : preg_replace('#\[[^\]]+\]#', '', erLhcoreClassChat::getGetLastChatMessagePending($chat->id)),
-                "chat"=> json_encode($chat)
+                "chat" => json_encode($chatSimplified)
             ),
             "priority"=>"high"
         );
