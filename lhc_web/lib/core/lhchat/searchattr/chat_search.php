@@ -26,6 +26,18 @@ $fieldsSearch['bot_ids'] = array (
     )
 );
 
+$fieldsSearch['country_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Country IDS',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'country_code',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', array(), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['cls_us'] = array (
     'type' => 'text',
     'trans' => 'Visitor status',

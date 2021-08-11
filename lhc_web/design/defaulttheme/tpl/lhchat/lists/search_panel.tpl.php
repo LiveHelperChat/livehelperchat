@@ -320,7 +320,6 @@
 			</div>
 		</div>
 	</div>
-    
     <div class="row">
         <div class="col-md-2">
             <div class="form-group">
@@ -392,6 +391,20 @@
                 <input type="text" class="form-control form-control-sm" name="ip" value="<?php echo htmlspecialchars($input->ip)?>" />
             </div>
         </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'country_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose country'),
+                    'selected_id'    => $input->country_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function'  => 'lhCountries::getCountries'
+                )); ?>
+            </div>
+        </div>
+
 		<div class="col-md-2">
     		<div class="form-group">
         	   <label class="col-form-label"><input type="checkbox" name="hum" <?php $input->hum == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages')?></label>
