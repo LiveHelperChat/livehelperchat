@@ -101,17 +101,10 @@
             </script>
 		</div>
         
-<<<<<<< HEAD
         <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changeowner'))) : ?>
-        <div role="tabpanel" class="tab-pane" id="changeowner">
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
-=======
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
         <div role="tabpanel" class="tab-pane pt-2" id="changeowner">
             <input class="form-control mb-2 form-control-sm" onkeyup="searchUserTransfer()" id="search-changeowner" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search for a user.  First 50 users are shown.')?>" />
             <div class="form-group" id="search-changeowner-result">
->>>>>>> master
                 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'new_user_id',
                     'selected_id'    => $chat->user_id,
