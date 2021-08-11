@@ -27,7 +27,12 @@ class erLhcoreClassRenderHelper {
         foreach ($items as $item)
         {
             $selected = ( (isset($params['is_editing']) && $params['is_editing'] == false && $item->{$params['use_default']} == 1 && (!is_array($params['selected_id']) && ($params['selected_id'] === null || $params['selected_id'] === '') )) || (is_array($params['selected_id']) && in_array($item->$attrId,$params['selected_id'])) || $params['selected_id'] == $item->$attrId) ? 'selected="selected"' : '';
-            $valueItem = $item->$nameSelect;
+
+            if (is_callable($nameSelect)) {
+                $valueItem = $nameSelect($item);
+            } else {
+                $valueItem = $item->$nameSelect;
+            }
 
             if (isset($params['number_format'])) {
                 $valueItem = number_format($valueItem,0,'.',', ');
@@ -64,9 +69,10 @@ class erLhcoreClassRenderHelper {
         $title = isset($params['title_element']) ? ' title="'.$params['title_element'].'" ' : null;
 
         $ismultiple = isset($params['multiple']) ? 'multiple' : '';
+        $size = isset($params['size']) && $params['size'] > 0 ? ' size="' . (int)$params['size'] . '" ' : '';
         $ngmodel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
 
-        $output = '<select '.$ismultiple.' id="id_'.$params['input_name'].'" name="'.$params['input_name'].'"'.$ngmodel.$onchange.$disbled.$class.$title.'>' . $output;
+        $output = '<select '.$ismultiple.' id="id_'.$params['input_name'].'" name="'.$params['input_name'].'"'.$ngmodel.$onchange.$disbled.$class.$title.$size.'>' . $output;
 
         if (isset($params['append_value'])) {
             $selected = (is_array($params['selected_id']) && in_array($params['append_value'][0],$params['selected_id']) || (!is_array($params['selected_id']) && $params['selected_id'] == $params['append_value'][0])) ? 'selected="selected"' : '';

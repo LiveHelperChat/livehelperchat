@@ -87,20 +87,39 @@
             }
             updateTransferUser();
             updateTransferDepartments();
+            function searchUserTransfer() {
+                var value = $('#search-changeowner').val();
+                $.getJSON(WWW_DIR_JAVASCRIPT+ 'chat/searchprovider/users/?exclude_disabled=1&q='+escape(value), function(result){
+                    var resultHTML = '';
+                    result.items.forEach(function(item){
+                        var selected = <?php echo $chat->user_id?> == item.id ? ' selected="selected" ' : '';
+                        resultHTML += "<option " + selected + " value=\""+item.id+"\">" + $("<div>").text(item.name + (item.nick != "" ? " | " + item.nick : '')).html() + "</option>";
+                    });
+                    $('#id_new_user_id').html(resultHTML);
+                });
+            }
             </script>
 		</div>
         
+<<<<<<< HEAD
         <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changeowner'))) : ?>
         <div role="tabpanel" class="tab-pane" id="changeowner">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
+=======
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner')) : ?>
+        <div role="tabpanel" class="tab-pane pt-2" id="changeowner">
+            <input class="form-control mb-2 form-control-sm" onkeyup="searchUserTransfer()" id="search-changeowner" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search for a user.  First 50 users are shown.')?>" />
+            <div class="form-group" id="search-changeowner-result">
+>>>>>>> master
                 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                     'input_name'     => 'new_user_id',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
                     'selected_id'    => $chat->user_id,
                     'css_class'      => 'form-control form-control-sm',
-                    'display_name' => 'name_official',
-                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
+                    'display_name'   => function($item){return $item->name_official . ($item->chat_nickname != '' ? ' | '.$item->chat_nickname : '');},
+                    'size' => 10,
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                    'list_function_params'  => array('limit' => 50, 'filter' => array('disabled' => 0))
                 )); ?>
             </div>
             <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">
