@@ -59,7 +59,10 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
             } else if ( isset($_POST['type']) && $_POST['type'] == 'change_owner' ) {
 
-                if ($currentUser->hasAccessTo('lhchat','changeowner')) {
+                if (
+                    ($currentUser->hasAccessTo('lhchat','changeowner') && $transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) ||
+                    ($currentUser->hasAccessTo('lhmailconv','changeowner') && $transferScope == erLhcoreClassModelTransfer::SCOPE_MAIL)
+                ) {
 
                     $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['item_id']);
 

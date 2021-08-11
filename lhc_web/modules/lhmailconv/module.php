@@ -269,5 +269,6 @@ $FunctionList['send_mail'] = array('explain' => 'Allow operator to send an e-mai
 $FunctionList['allow_attach_files'] = array('explain' => 'Allow operator to attach files');
 $FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to change recipient');
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change department');
+$FunctionList['changeowner'] = array('explain' => 'Allow operator to change owner of the e-mail');
 
 ?>
