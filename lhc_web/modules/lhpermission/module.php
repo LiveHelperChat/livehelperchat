@@ -22,6 +22,11 @@ $ViewList['editrole'] = array(
     'functions' => array( 'edit' )
 );
 
+$ViewList['clonerole'] = array(
+    'params' => array('role_id'),
+    'functions' => array( 'edit' )
+);
+
 $ViewList['editfunction'] = array(
     'params' => array('function_id'),
     'functions' => array( 'edit' )
