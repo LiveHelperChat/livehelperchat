@@ -65,6 +65,11 @@
             <label><input type="checkbox" name="delete_mode" value="on" <?php $item->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On message deletion delete it also on IMAP server');?></label>
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" name="create_a_copy" value="on" <?php $item->create_a_copy == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Create a copy in a send folder.');?></label>
+        </div>
+    </div>
 </div>
 
 <div class="row">

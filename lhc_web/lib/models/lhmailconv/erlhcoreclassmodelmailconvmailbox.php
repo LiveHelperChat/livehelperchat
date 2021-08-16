@@ -38,6 +38,7 @@ class erLhcoreClassModelMailconvMailbox
             'reopen_timeout' => $this->reopen_timeout,
             'uuid_status' => $this->uuid_status,
             'failed' => $this->failed,
+            'create_a_copy' => $this->create_a_copy,
         );
     }
 
@@ -125,6 +126,7 @@ class erLhcoreClassModelMailconvMailbox
     public $reopen_timeout = 4;
     public $uuid_status = '';
     public $failed = 0;
+    public $create_a_copy = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }

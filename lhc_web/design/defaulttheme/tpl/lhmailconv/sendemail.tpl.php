@@ -1,7 +1,21 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></h1>
 
-<?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was send.'); ?>
+<?php if (isset($updated)) :
+    $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was send.');
+
+    if (isset($outcome['copy']) && $outcome['copy']['success'] == true) {
+        $msg .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send e-mail copy was created in a send folder.');
+    }
+?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+
+    <?php if (isset($outcome['copy'])) : ?>
+        <?php if ($outcome['copy']['success'] == false) : ?>
+            <?php $errors = [$outcome['copy']['reason']]; ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+        <?php endif; ?>
+    <?php endif; ?>
+
 <?php endif; ?>
 
 <?php if (isset($errors)) : ?>
@@ -11,7 +25,7 @@
 <form action="" method="post">
 
     <div class="form-group">
-        <label>Mailbox</label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Mailbox');?></label>
         <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
             'input_name'     => 'mailbox_id',
             'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select a mailbox'),
@@ -108,7 +122,7 @@
     </script>
 
     <div>
-        <button name="SendEmail" class="btn btn-sm btn-secondary" type="submit">Send an e-mail</button>
+        <button name="SendEmail" onclick="$(this).attr('disabled')" class="btn btn-sm btn-secondary" type="submit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></button>
     </div>
 
 </form>

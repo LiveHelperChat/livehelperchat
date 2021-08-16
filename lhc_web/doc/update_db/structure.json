@@ -8023,6 +8023,14 @@
         "extra": ""
       },
       {
+        "field": "create_a_copy",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "failed",
         "type": "tinyint(1) unsigned",
         "null": "NO",

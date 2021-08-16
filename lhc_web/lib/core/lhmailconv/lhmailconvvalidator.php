@@ -37,37 +37,37 @@ class erLhcoreClassMailconvValidator {
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
 
-        if ( $form->hasValidData( 'dep_id' )) {
+        if ($form->hasValidData( 'dep_id' )) {
             $item->dep_id = $form->dep_id;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a department!');
         }
 
-        if ( $form->hasValidData( 'from_mail' )) {
+        if ($form->hasValidData( 'from_mail' )) {
             $item->from_mail = $form->from_mail;
         } else {
             $item->from_mail = '';
         }
 
-        if ( $form->hasValidData( 'from_name' )) {
+        if ($form->hasValidData( 'from_name' )) {
             $item->from_name = $form->from_name;
         } else {
             $item->from_name = '';
         }
 
-        if ( $form->hasValidData( 'priority' )) {
+        if ($form->hasValidData( 'priority' )) {
             $item->priority = $form->priority;
         } else {
             $item->priority = 0;
         }
 
-        if ( $form->hasValidData( 'priority_rule' )) {
+        if ($form->hasValidData( 'priority_rule' )) {
             $item->priority_rule = $form->priority_rule;
         } else {
             $item->priority_rule = 0;
         }
 
-        if ( $form->hasValidData( 'subject_contains' )) {
+        if ($form->hasValidData( 'subject_contains' )) {
             $item->subject_contains = $form->subject_contains;
         } else {
             $item->subject_contains = '';
@@ -81,13 +81,11 @@ class erLhcoreClassMailconvValidator {
 
         $item->mailbox_id = json_encode($item->mailbox_ids);
 
-        if ( $form->hasValidData( 'active' ) && $form->active == true) {
+        if ($form->hasValidData( 'active' ) && $form->active == true) {
             $item->active = 1;
         } else {
             $item->active = 0;
         }
-
-
 
         return $Errors;
     }
@@ -111,6 +109,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'imap' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'create_a_copy' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'signature' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -165,6 +166,12 @@ class erLhcoreClassMailconvValidator {
             $item->name = $form->name;
         } else {
             $item->name = '';
+        }
+
+        if ($form->hasValidData( 'create_a_copy' ) && $form->create_a_copy == true) {
+            $item->create_a_copy = 1;
+        } else {
+            $item->create_a_copy = 0;
         }
 
         if ( $form->hasValidData( 'imap' )) {
@@ -431,6 +438,11 @@ class erLhcoreClassMailconvValidator {
 
                 $response['send'] = $mailReply->Send();
 
+                // Create a copy if required
+                if ($mail->mailbox->create_a_copy == true) {
+                    $response['copy'] = self::makeSendCopy($mailReply, $mail->mailbox);
+                }
+
                 // Now we can set appropriate attributes for the message itself.
                 if ($mail->accept_time == 0) {
                     $mail->accept_time = $mail->ctime;
@@ -480,12 +492,46 @@ class erLhcoreClassMailconvValidator {
 
             $response['send'] = $mailReply->Send();
 
+            if ($item->mailbox->create_a_copy == true) {
+                $response['copy'] = self::makeSendCopy($mailReply, $item->mailbox);
+            }
+
         } catch (Exception $e) {
             $response['send'] = false;
             $response['errors']['general'] = $e->getMessage();
         }
 
         return $response;
+    }
+
+    // Save a copy in send folder
+    public static function makeSendCopy($mail, $mailbox) {
+
+        $path = null;
+
+        foreach ($mailbox->mailbox_sync_array as $syncArray) {
+            if (isset($syncArray['send_folder']) && $syncArray['send_folder'] === true) {
+                $path = $syncArray['path'];
+                break;
+            }
+        }
+
+        if ($path === null) {
+            return ['success' => false, 'reason' => 'No send folder defined!'];
+        }
+
+        \imap_errors();
+
+        // Create a copy in send folder
+        $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
+        $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
+        imap_close($imapStream);
+
+        if ($result !== true) {
+            return ['success' => false, 'reason' => implode("\n",imap_errors())];
+        }
+
+        return ['success' => true];
     }
 
     public static function validateNewEmail(& $item){

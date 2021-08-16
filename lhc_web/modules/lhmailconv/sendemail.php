@@ -14,6 +14,7 @@ if (ezcInputForm::hasPostData()) {
 
         if ($response['send'] == true) {
             $tpl->set('updated',true);
+            $tpl->set('outcome',$response);
         } else {
             $tpl->set('errors',$response['errors']);
         }

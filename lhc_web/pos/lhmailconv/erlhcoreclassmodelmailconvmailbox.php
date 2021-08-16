@@ -49,6 +49,11 @@ $def->properties['active']->columnName   = 'active';
 $def->properties['active']->propertyName = 'active';
 $def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['create_a_copy'] = new ezcPersistentObjectProperty();
+$def->properties['create_a_copy']->columnName   = 'create_a_copy';
+$def->properties['create_a_copy']->propertyName = 'create_a_copy';
+$def->properties['create_a_copy']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['delete_mode'] = new ezcPersistentObjectProperty();
 $def->properties['delete_mode']->columnName   = 'delete_mode';
 $def->properties['delete_mode']->propertyName = 'delete_mode';
