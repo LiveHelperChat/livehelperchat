@@ -242,7 +242,18 @@ class erLhcoreClassMailconvParser {
                         $conversations->dep_id = $matchingRuleSelected->dep_id;
                         $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
                         $conversations->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$message->from_name);
+
                         $conversations->from_address = $message->from_address;
+
+                        // set from address to recipient
+                        if ($message->from_address == $mailbox->mail) {
+                            foreach ($message->to_data_array as $toData) {
+                                $conversations->from_address = $toData['email'];
+                                $conversations->from_name = $toData['name'];
+                                break;
+                            }
+                        }
+
                         $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                         $conversations->last_message_id = $conversations->message_id = $message->id;
                         $conversations->udate = $message->udate;
