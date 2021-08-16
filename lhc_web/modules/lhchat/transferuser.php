@@ -141,6 +141,8 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
                     if (isset($transferConfiguration['make_pending']) && $transferConfiguration['make_pending'] == true) {
                         $Chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                        $Chat->pnd_time = time();
+                        $Chat->wait_time = 0;
                     }
 
                     $recalculateLoad = 0;
