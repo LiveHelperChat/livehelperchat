@@ -7926,6 +7926,14 @@
         "extra": ""
       },
       {
+        "field": "follow_up_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "mail_variables",
         "type": "longtext",
         "null": "NO",

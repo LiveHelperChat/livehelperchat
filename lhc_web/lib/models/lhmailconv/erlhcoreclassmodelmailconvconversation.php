@@ -50,6 +50,7 @@ class erLhcoreClassModelMailconvConversation
             'conv_duration' => $this->conv_duration,
             'mail_variables' => $this->mail_variables,
             'has_attachment' => $this->has_attachment,
+            'follow_up_id' => $this->follow_up_id,
         );
     }
 
@@ -189,6 +190,7 @@ class erLhcoreClassModelMailconvConversation
     public $mailbox_id = 0;
     public $total_messages = 0;
     public $match_rule_id = 0;
+    public $follow_up_id = 0;
 
     // Assignment workflow attribute
     public $tslasign = 0;       // Time when last auto assignment happened

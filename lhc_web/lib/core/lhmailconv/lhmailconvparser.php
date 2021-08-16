@@ -163,6 +163,8 @@ class erLhcoreClassMailconvParser {
                         continue;
                     }
 
+                    $followUpConversationId = 0;
+
                     // Create a new conversations if message is just to old
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
@@ -173,7 +175,8 @@ class erLhcoreClassMailconvParser {
                             $mailbox->reopen_timeout > 0 && $previousMessage->conversation->lr_time > 0 &&
                             $previousMessage->conversation->lr_time < time() - $mailbox->reopen_timeout * 24 * 3600
                         ) {
-                                $newConversation = true;
+                            $followUpConversationId = $previousMessage->conversation->id;
+                            $newConversation = true;
                         }
                     }
 
@@ -250,6 +253,8 @@ class erLhcoreClassMailconvParser {
                         $conversations->total_messages = 1;
                         $conversations->pnd_time = time();
                         $conversations->user_id = $message->user_id;
+                        $conversations->follow_up_id = $followUpConversationId;
+
 
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
                         if ($conversations->from_address == $mailbox->mail) {

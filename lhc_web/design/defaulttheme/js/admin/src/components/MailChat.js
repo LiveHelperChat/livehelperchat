@@ -356,7 +356,9 @@ const MailChat = props => {
                                     </tr>
                                     <tr>
                                         <td>ID</td>
-                                        <td>{state.conv.id}</td>
+                                        <td>
+                                            {state.conv.id} {state.conv.follow_up_id && <a target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/view/" + state.conv.follow_up_id}><span className="material-icons">launch</span>Follow up of {state.conv.follow_up_id}</a>}
+                                        </td>
                                     </tr>
                                     {state.conv.accept_time && <tr>
                                         <td>{t('mail.last_accepted_at')}</td>
