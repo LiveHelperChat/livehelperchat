@@ -270,5 +270,6 @@ $FunctionList['allow_attach_files'] = array('explain' => 'Allow operator to atta
 $FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to change recipient');
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change department');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change owner of the e-mail');
+$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
 
 ?>

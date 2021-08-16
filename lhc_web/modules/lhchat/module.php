@@ -634,7 +634,7 @@ $FunctionList['singlechatwindow'] = array('explain' =>'Allow operator to use sin
 $FunctionList['allowchattabs'] = array('explain' =>'Allow operator to user chat rooms functionality');
 $FunctionList['deletechat'] = array('explain' =>'Allow operator to delete his own chats');
 $FunctionList['deleteglobalchat'] = array('explain' =>'Allow to delete all chats');
-$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user');
+$FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
 $FunctionList['allowcloseremote'] = array('explain' =>'Allow operator to close another operator chat');
 $FunctionList['allowblockusers'] = array('explain' =>'Allow operator to block visitors');
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
