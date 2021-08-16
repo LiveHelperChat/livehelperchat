@@ -73,6 +73,8 @@ try {
             }
         }
 
+        $remarks = erLhcoreClassModelMailconvRemarks::getInstance($conv->customer_email, false)->remarks;
+
         erLhcoreClassChat::prefillGetAttributesObject($conv, array(
             'plain_user_name',
             'can_delete',
@@ -131,6 +133,7 @@ try {
 
         echo json_encode(array(
             'conv' => $conv,
+            'customer_remarks' => $remarks,
             'messages' => array_values($messages),
             'moptions' => [
                 'fop_op' => $data['ft_op'],

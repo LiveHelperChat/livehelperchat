@@ -21,9 +21,17 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
         $errors = array();
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_save_remarks', array('chat' => & $Chat, 'errors' => & $errors));
 
-        if(empty($errors)) {
-            $Chat->remarks = $form->data;
-            $Chat->saveThis(array('update' => array('remarks')));
+        if (empty($errors)) {
+
+            if ($Params['user_parameters_unordered']['type'] == 'customer') {
+                $remarks = erLhcoreClassModelMailconvRemarks::getInstance($Chat->customer_email, true);
+                $remarks->remarks = $form->data;
+                $remarks->saveThis(array('update' => array('remarks')));
+            } else {
+                $Chat->remarks = $form->data;
+                $Chat->saveThis(array('update' => array('remarks')));
+            }
+
             echo json_encode(array('error' => 'false'));
             exit;
         } else {

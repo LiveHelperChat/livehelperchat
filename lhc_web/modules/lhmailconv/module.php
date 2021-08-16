@@ -146,7 +146,7 @@ $ViewList['loadmainconv'] = array(
 
 $ViewList['saveremarks'] = array(
     'params' => array('id'),
-    'uparams' => array(),
+    'uparams' => array('type'),
     'functions' => array( 'use_admin' )
 );
 

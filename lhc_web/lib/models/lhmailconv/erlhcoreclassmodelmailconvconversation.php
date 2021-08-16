@@ -142,6 +142,24 @@ class erLhcoreClassModelMailconvConversation
                 $this->interaction_time_duration = $this->interaction_time > 0 ? erLhcoreClassChat::formatSeconds($this->interaction_time) : null;
                 return $this->interaction_time_duration;
 
+            case 'customer_email':
+                $this->customer_email = '';
+                if ($this->from_address == $this->mailbox->mail) {
+                    $message = erLhcoreClassModelMailconvMessage::fetch($this->message_id);
+                    if (!($message instanceof erLhcoreClassModelMailconvMessage)) {
+                        $message = erLhcoreClassModelMailconvMessage::fetch($this->last_message_id);
+                    }
+                    if ($message instanceof erLhcoreClassModelMailconvMessage) {
+                        foreach ($message->to_data_array as $toData) {
+                            $this->customer_email = $toData['email'];
+                            break;
+                        }
+                    }
+                } else {
+                    $this->customer_email = $this->from_address;
+                }
+                return $this->customer_email;
+
             default:
                 ;
                 break;

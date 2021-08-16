@@ -167,6 +167,7 @@ const MailChat = props => {
                 type: 'update',
                 value: {
                     'conv': result.data.conv,
+                    'customer_remarks': result.data.customer_remarks,
                     'messages' : result.data.messages,
                     'moptions' : result.data.moptions,
                     'loaded' : true,
@@ -226,12 +227,38 @@ const MailChat = props => {
         }
     },[state.remarks]);
 
+    useEffect(() => {
+        if (state.conv !== null) {
+            const timeout = setTimeout(() => {
+                axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/saveremarks/" + props.chatId + '/(type)/customer', {data: state.customer_remarks}).then(result => {
+                    dispatch({
+                        type: 'update',
+                        value: {
+                            'saving_customer_remarks': false
+                        }
+                    });
+                });
+            }, 500);
+            return () => clearTimeout(timeout);
+        }
+    },[state.customer_remarks]);
+
     const saveRemarks = (params) => {
         dispatch({
             type: 'update',
             value: {
                 'saving_remarks': true,
                 'remarks': params
+            }
+        });
+    }
+
+    const saveCustomerRemarks = (params) => {
+        dispatch({
+            type: 'update',
+            value: {
+                'saving_customer_remarks': true,
+                'customer_remarks': params
             }
         });
     }
@@ -310,10 +337,17 @@ const MailChat = props => {
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane" id={"mail-chat-remarks-"+props.chatId}>
-                                <div className={"material-icons pb-1 text-success" + (state.saving_remarks ? ' text-warning' : '')}>mode_edit</div>
+
+                                <div className={"pb-1 text-success" + (state.saving_customer_remarks ? ' text-warning' : '')}><span className="material-icons">mode_edit</span> Customer remarks</div>
+                                <div>
+                                    <textarea placeholder="Enter your remarks here." onKeyUp={(e) => saveCustomerRemarks(e.target.value)} className="form-control mh150" defaultValue={state.customer_remarks}></textarea>
+                                </div>
+
+                                <div className={"pb-1 text-success" + (state.saving_remarks ? ' text-warning' : '')}><span className="material-icons">mode_edit</span> Conversation remarks</div>
                                 <div>
                                     {state.conv && <textarea placeholder="Enter your remarks here." onKeyUp={(e) => saveRemarks(e.target.value)} class="form-control mh150" defaultValue={state.conv.remarks}></textarea>}
                                 </div>
+
                             </div>
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
