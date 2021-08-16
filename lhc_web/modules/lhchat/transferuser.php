@@ -160,6 +160,8 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     if (isset($transferConfiguration['make_pending']) && $transferConfiguration['make_pending'] == true) {
                         if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {
                             $Chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+                            $Chat->pnd_time = time();
+                            $Chat->wait_time = 0;
                         } else {
                             if ($Chat->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
                                 $Chat->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
