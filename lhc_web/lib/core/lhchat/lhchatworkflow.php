@@ -415,7 +415,8 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if ($chat->wait_time == 0) {
-                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                    $chat->pnd_time = time();
+                    $chat->wait_time = 1;
                 }
 
                 $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
@@ -516,7 +517,9 @@ class erLhcoreClassChatWorkflow {
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
                 }
-                
+
+                $statusOriginal = $chat->status;
+
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -533,7 +536,12 @@ class erLhcoreClassChatWorkflow {
                 }
 
                 if ($chat->wait_time == 0) {
-                    $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                    if ($statusOriginal == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
+                        $chat->pnd_time = time();
+                        $chat->wait_time = 1;
+                    } else {
+                        $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
+                    }
                 }
 
                 $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
