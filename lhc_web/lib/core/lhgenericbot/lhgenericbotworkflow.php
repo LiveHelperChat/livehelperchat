@@ -1820,7 +1820,13 @@ class erLhcoreClassGenericBotWorkflow {
                             $message = self::sendAsUser($chat, $messageClick);
                         }
 
-                        $messageTrigger = self::processTrigger($chat, $trigger, false,array('args' => array('msg' => $messageClick, 'chat' => $chat)));
+                        $argsTrigger =  array('msg' => $messageClick, 'chat' => $chat);
+
+                        if (isset($messageClickData['render_args'])) {
+                            $argsTrigger['arg_1'] = $messageClickData['render_args'];
+                        }
+
+                        $messageTrigger = self::processTrigger($chat, $trigger, false, array('args' => $argsTrigger));
 
                         if ($messageTrigger instanceof erLhcoreClassModelmsg)
                         {
