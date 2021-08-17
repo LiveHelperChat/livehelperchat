@@ -68,16 +68,18 @@
         		    </div>
         		</div>
             </div>
-
-            <script type="text/javascript">
+		</div>
+        <?php endif; ?>
+        
+        <script type="text/javascript">
             function updateTransferDepartments() {
-            	$('#transfer-chat-list-refilter').html('...');
+                $('#transfer-chat-list-refilter').html('...');
                 $.post(WWW_DIR_JAVASCRIPT + 'chat/transferchatrefilter/<?php echo $chat->id?>/(mode)/dep<?php isset($transferMode) ? print '/(obj)/'.$transferMode : ''?>',{
                     'dep_transfer_only_explicit':$('#dep_transfer_only_explicit').is(':checked'),
                     'dep_transfer_exclude_hidden':$('#dep_transfer_exclude_hidden').is(':checked'),
                     'dep_transfer_exclude_disabled':$('#dep_transfer_exclude_disabled').is(':checked')
-                    }, function(data) {
-                        $('#transfer-chat-list-refilter').html(data);
+                }, function(data) {
+                    $('#transfer-chat-list-refilter').html(data);
                 });
             }
 
@@ -103,9 +105,7 @@
                     $('#id_new_user_id').html(resultHTML);
                 });
             }
-            </script>
-		</div>
-        <?php endif; ?>
+        </script>
 
         <?php if ((erLhcoreClassUser::instance()->hasAccessTo('lhchat','changeowner') && !(isset($transferMode) && $transferMode == 'mail')) || (isset($transferMode) && $transferMode == 'mail' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','changeowner'))) : ?>
         <div role="tabpanel" class="tab-pane pt-2" id="changeowner">
