@@ -14,6 +14,13 @@
         }
         $metaMessageData['content'] = $metaMessageDataByBBCode;
     }
+
+    $hideOperator = false;
+
+    // Hide operator nick, etc for javsacript messages
+    if (isset($metaMessageData['content']['execute_js']) && count($metaMessageData['content']) == 1) {
+        $hideOperator = true;
+    }
 ?>
 
 <?php if (isset($msg['user_id']) && ($msg['user_id'] > -1 || $msg['user_id'] == -2)) : ?>
@@ -37,8 +44,11 @@
                 <?php endif; ?>
             </div>
 	 <?php } else { ?>
-	        <div class="message-row message-admin<?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/op_msg_row_nick.tpl.php'));?>
+
+            <?php if ($hideOperator == false) : ?>
+                <div class="message-row message-admin<?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/op_msg_row_nick.tpl.php'));?>
+            <?php endif; ?>
 
                 <?php if ($msg['msg'] != '') : ?>
 
@@ -54,7 +64,11 @@
                 <?php if (isset($metaMessageData)) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render.tpl.php'));?>
                 <?php endif; ?>
-            </div>
+
+            <?php if ($hideOperator == false) : ?>
+                </div>
+            <?php endif; ?>
+
 	<?php } ?>
 <?php endif;?>
 
