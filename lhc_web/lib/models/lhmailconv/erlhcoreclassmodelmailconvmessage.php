@@ -106,7 +106,12 @@ class erLhcoreClassModelMailconvMessage
             case 'cls_time_front':
             case 'lr_time_front':
                 $varObj = str_replace('_front','',$var);
-                $this->$var = date('Ymd') == date('Ymd', $this->{$varObj}) ? date(erLhcoreClassModule::$dateHourFormat, $this->{$varObj}) : date(erLhcoreClassModule::$dateDateHourFormat, $this->{$varObj});
+                $value = $this->{$varObj};
+                if ($value > 0) {
+                    $this->$var = date('Ymd') == date('Ymd', $value) ? date(erLhcoreClassModule::$dateHourFormat, $this->{$varObj}) : date(erLhcoreClassModule::$dateDateHourFormat, $this->{$varObj});
+                } else {
+                    $this->$var = null;
+                }
                 return $this->$var;
 
             case 'udate_ago':
