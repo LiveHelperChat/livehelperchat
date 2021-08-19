@@ -67,8 +67,12 @@ if (is_array($filterParams['input_form']->department_id) && !empty($filterParams
     $filterParams['filter']['filterin']['`lh_canned_msg_dep`.`dep_id`'] = $filterParams['input_form']->department_id;
 }
 
-$append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    $filterParams['filter']['innerjoin']['lh_canned_msg_subject'] = array('`lh_canned_msg_subject`.`canned_id`','`lh_canned_msg`.`id`');
+    $filterParams['filter']['filterin']['`lh_canned_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
 
+$append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 if (isset($_GET['export'])){
     erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
