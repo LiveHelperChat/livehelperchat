@@ -19,7 +19,8 @@ class erLhcoreClassModelMailconvResponseTemplate
             'name' => $this->name,
             'dep_id' => $this->dep_id,
             'template' => $this->template,
-            'template_plain' => $this->template_plain
+            'template_plain' => $this->template_plain,
+            'unique_id' => $this->unique_id
         );
     }
 
@@ -65,6 +66,11 @@ class erLhcoreClassModelMailconvResponseTemplate
 
     public function afterSave()
     {
+        if ($this->unique_id == 0) {
+            $this->unique_id = $this->id;
+            $this->updateThis(array('update' => array('unique_id')));
+        }
+
         $db = ezcDbInstance::get();
         $stmt = $db->prepare('DELETE FROM `lhc_mailconv_response_template_dep` WHERE `template_id` = :template_id');
         $stmt->bindValue(':template_id', $this->id,PDO::PARAM_INT);
@@ -97,6 +103,7 @@ class erLhcoreClassModelMailconvResponseTemplate
     public $template = '';
     public $template_plain = '';
     public $department_ids = [];
+    public $unique_id = 0;
 }
 
 ?>

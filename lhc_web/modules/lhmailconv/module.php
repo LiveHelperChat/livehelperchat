@@ -268,6 +268,12 @@ $ViewList['options'] = array(
     'functions' => array( 'mailbox_manage' )
 );
 
+$ViewList['importtemplate'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'use_import' ),
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mail conversation module');
 $FunctionList['mailbox_manage'] = array('explain' => 'Permission to manage mailbox');
@@ -281,5 +287,6 @@ $FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change department');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change owner of the e-mail');
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
+$FunctionList['use_import'] = array('explain' =>'Allow user import response templates');
 
 ?>
