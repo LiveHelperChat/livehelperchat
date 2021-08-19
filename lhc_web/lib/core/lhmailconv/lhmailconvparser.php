@@ -368,7 +368,12 @@ class erLhcoreClassMailconvParser {
                             $message->saveThis(['update' => ['accept_time','status','wait_time']]);
                         }
 
-
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply',array(
+                                'mail' => & $message,
+                                'conversation' => & $conversations
+                            ));
+                        }
 
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' .  $mailInfo->uid;
                    }
