@@ -242,6 +242,12 @@ $ViewList['subject'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['addsubjectbytemplate'] = array(
+    'params' => array('message_id', 'template_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['apiresponsetemplates'] = array(
     'params' => array('id'),
     'uparams' => array(),

@@ -14,13 +14,28 @@
         $.get(WWW_DIR_JAVASCRIPT + 'mailconv/searchtemplate/<?php echo (int)$dep_id?>?<?php isset($message_id) ? print 'm='.$message_id.'&' : '' ?><?php isset($conversation_id) ? print 'c='.$conversation_id.'&' : '' ?>q=' + encodeURIComponent($('#template-keyword').val()), function(data) {
             $('#list-result-template').html(data);
         });
+
         $('#list-result-template').on('click', 'a.use-template', function(item) {
-            window.parent.postMessage({
-                mceAction: 'insertContent',
-                content: $('#use-template-value-'+$(this).attr('data-id')).val()
-            }, '*');
-            window.parent.postMessage({ mceAction: 'close' });
+            var templateId = $(this).attr('data-id');
+            <?php if (isset($message_id)) : ?>
+            $.get(WWW_DIR_JAVASCRIPT + 'mailconv/addsubjectbytemplate/<?php echo $message_id?>/'+templateId, function(data) {
+                window.parent.ee.emitEvent('mailLabelsModified',[<?php echo $conversation_id?>,<?php echo $message_id?>]);
+                window.parent.postMessage({
+                    mceAction: 'insertContent',
+                    content: $('#use-template-value-'+templateId).val()
+                }, '*');
+                window.parent.postMessage({ mceAction: 'close' });
+
+            });
+            <?php else : ?>
+                window.parent.postMessage({
+                    mceAction: 'insertContent',
+                    content: $('#use-template-value-'+templateId).val()
+                }, '*');
+                window.parent.postMessage({ mceAction: 'close' });
+            <?php endif; ?>
         });
+
         $('#template-keyword').keyup(function(){
             clearTimeout(timeoutKeyword);
             setTimeout(function() {

@@ -144,15 +144,19 @@ const MailChat = props => {
 
     const addLabel = (message) => {
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id,hidecallback : () => {
-                axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
-                    dispatch({
-                        type: 'update_message',
-                        message: result.data.message
-                    });
-                }).catch((error) => {
-
-                });
+            updateLabels(message);
         }});
+    }
+
+    const updateLabels = (message) => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
+            dispatch({
+                type: 'update_message',
+                message: result.data.message
+            });
+        }).catch((error) => {
+
+        });
     }
 
     const verifyOwner = (userId) => {
@@ -293,10 +297,18 @@ const MailChat = props => {
             }
         }
 
+        function mailLabelsModified(chatId, messageId) {
+            if (props.chatId == chatId) {
+                updateLabels({"id": messageId});
+            }
+        }
+
         ee.addListener('mailChatModified', mailChatModified);
+        ee.addListener('mailLabelsModified', mailLabelsModified);
 
         return function cleanup() {
            ee.removeListener('mailChatModified', mailChatModified);
+           ee.removeListener('mailLabelsModified', mailLabelsModified);
            forgetChat(props.chatId)
         };
     },[]);

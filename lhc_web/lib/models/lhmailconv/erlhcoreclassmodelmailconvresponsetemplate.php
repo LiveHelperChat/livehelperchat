@@ -40,10 +40,13 @@ class erLhcoreClassModelMailconvResponseTemplate
                 return $this->template != '' ? $this->template : nl2br($this->template_plain);
                 break;
 
+            case 'subjects':
+                $this->subjects = erLhcoreClassModelMailconvResponseTemplateSubject::getList(array('filter' => array('template_id' => $this->id)));
+                return $this->subjects;
+
             case 'subject_name_front':
                 $this->subject_name_front = [];
-                $subjects = erLhcoreClassModelMailconvResponseTemplateSubject::getList(array('filter' => array('template_id' => $this->id)));
-                foreach ($subjects as $subject) {
+                foreach ($this->subjects as $subject) {
                     $this->subject_name_front[] = (string)$subject->subject;
                 }
                 return $this->subject_name_front;
