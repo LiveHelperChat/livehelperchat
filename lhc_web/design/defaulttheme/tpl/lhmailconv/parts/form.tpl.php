@@ -91,5 +91,11 @@
             <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.');?></label>
+            <input type="number" maxlength="250" class="form-control form-control-sm" name="import_priority" value="<?php echo htmlspecialchars($item->import_priority)?>" />
+        </div>
+    </div>
 </div>
 

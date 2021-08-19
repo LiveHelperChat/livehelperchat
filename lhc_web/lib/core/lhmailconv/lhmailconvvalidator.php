@@ -119,6 +119,9 @@ class erLhcoreClassMailconvValidator {
             'port' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'import_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
             'active' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
@@ -160,6 +163,12 @@ class erLhcoreClassMailconvValidator {
             $item->signature_under = 1;
         } else {
             $item->signature_under = 0;
+        }
+
+        if ( $form->hasValidData( 'import_priority' )) {
+            $item->import_priority = $form->import_priority;
+        } else {
+            $item->import_priority = 0;
         }
 
         if ( $form->hasValidData( 'name' )) {

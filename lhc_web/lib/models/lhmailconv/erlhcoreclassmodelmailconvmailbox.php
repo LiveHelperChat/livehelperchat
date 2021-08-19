@@ -39,6 +39,7 @@ class erLhcoreClassModelMailconvMailbox
             'uuid_status' => $this->uuid_status,
             'failed' => $this->failed,
             'create_a_copy' => $this->create_a_copy,
+            'import_priority' => $this->import_priority,
         );
     }
 
@@ -127,6 +128,7 @@ class erLhcoreClassModelMailconvMailbox
     public $uuid_status = '';
     public $failed = 0;
     public $create_a_copy = 0;
+    public $import_priority = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }

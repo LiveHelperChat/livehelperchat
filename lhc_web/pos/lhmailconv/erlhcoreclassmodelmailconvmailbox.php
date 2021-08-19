@@ -119,6 +119,11 @@ $def->properties['uuid_status']->columnName   = 'uuid_status';
 $def->properties['uuid_status']->propertyName = 'uuid_status';
 $def->properties['uuid_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['import_priority'] = new ezcPersistentObjectProperty();
+$def->properties['import_priority']->columnName   = 'import_priority';
+$def->properties['import_priority']->propertyName = 'import_priority';
+$def->properties['import_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

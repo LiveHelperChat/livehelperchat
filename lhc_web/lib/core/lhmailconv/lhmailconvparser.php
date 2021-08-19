@@ -159,8 +159,38 @@ class erLhcoreClassMailconvParser {
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
                         $messages[] = $existingMail;
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
                         continue;
+                    }
+
+                    $head = $mailboxHandler->getMailHeader($mailInfo->uid);
+
+                    $presentPriority = $mailbox->import_priority;
+
+                    // Handle multiple TO's
+                    if (isset($head->to)) {
+                        foreach (array_keys($head->to) as $recipient) {
+                            // Check is there any mailbox with higher priority
+                            if ($mailbox->mail != $recipient && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient))) > 0) {
+                                $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail TO - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient . ' - ' . $mailInfo->uid;
+
+                                // Skip this e-mail
+                                continue 2;
+                            }
+                        }
+                    }
+
+                    // Handle multiple CC's
+                    if (isset($head->cc)) {
+                        foreach (array_keys($head->cc) as $recipient) {
+                            // Check is there any mailbox with higher priority
+                            if ($mailbox->mail != $recipient && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient))) > 0) {
+                                $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail CC - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient . ' - ' . $mailInfo->uid;
+
+                                // Skip this e-mail
+                                continue 2;
+                            }
+                        }
                     }
 
                     $followUpConversationId = 0;
@@ -187,8 +217,6 @@ class erLhcoreClassMailconvParser {
                         $message = new erLhcoreClassModelMailconvMessage();
                         $message->setState($vars);
                         $message->mb_folder = $mailboxFolder['path'];
-
-                        $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
                         $message->from_host = (string)$head->fromHost;
                         $message->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName);
