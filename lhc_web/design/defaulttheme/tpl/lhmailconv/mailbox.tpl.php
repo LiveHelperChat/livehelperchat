@@ -1,10 +1,13 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></h1>
 
+<?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/search_panel_mailbox.tpl.php')); ?>
+
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></th>
             <th width="1%"></th>
         </tr>
@@ -16,6 +19,9 @@
                         <i class="material-icons text-danger">&#xE002;</i>
                     <?php endif; ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->mail)?></a>
+                </td>
+                <td>
+                    <?php echo $item->import_priority?>
                 </td>
                 <td>
                     <?php if ($item->active == 1) : ?>

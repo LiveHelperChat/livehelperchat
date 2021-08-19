@@ -31,6 +31,7 @@ $ViewList['attatchfiledata'] = array(
 
 $ViewList['mailbox'] = array(
     'params' => array(),
+    'uparams' => array('mail','failed'),
     'functions' => array( 'mailbox_manage' )
 );
 
