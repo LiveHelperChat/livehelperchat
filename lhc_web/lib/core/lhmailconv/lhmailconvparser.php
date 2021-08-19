@@ -276,8 +276,8 @@ class erLhcoreClassMailconvParser {
                         // set from address to recipient
                         if ($message->from_address == $mailbox->mail) {
                             foreach ($message->to_data_array as $toData) {
-                                $conversations->from_address = $toData['email'];
-                                $conversations->from_name = $toData['name'];
+                                $conversations->from_address = (string)$toData['email'];
+                                $conversations->from_name = (string)$toData['name'];
                                 break;
                             }
                         }
