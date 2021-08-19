@@ -174,6 +174,11 @@ class erLhcoreClassUpdate
 						$tablesStatus[$table]['queries'][] = "ALTER TABLE `{$table}`
 						ADD `{$columnDesired['field']}` {$columnDesired['type']} NOT NULL{$default},
 						COMMENT='';";
+
+						if (isset($columnDesired['post_query']) && !empty($columnDesired['post_query'])) {
+                            $tablesStatus[$table]['queries'][] = $columnDesired['post_query'];
+                        }
+
 					}					
 				}
 
