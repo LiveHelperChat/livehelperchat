@@ -103,7 +103,7 @@ class erLhcoreClassModelMailconvResponseTemplate
     public $template = '';
     public $template_plain = '';
     public $department_ids = [];
-    public $unique_id = 0;
+    public $unique_id = '';
 }
 
 ?>

@@ -22,7 +22,7 @@ $def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE
 $def->properties['unique_id'] = new ezcPersistentObjectProperty();
 $def->properties['unique_id']->columnName   = 'unique_id';
 $def->properties['unique_id']->propertyName = 'unique_id';
-$def->properties['unique_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+$def->properties['unique_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 $def->properties['template'] = new ezcPersistentObjectProperty();
 $def->properties['template']->columnName   = 'template';
