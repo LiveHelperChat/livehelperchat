@@ -62,6 +62,11 @@ if (isset($_GET['doSearch'])) {
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
+if (is_array($filterParams['input_form']->department_id) && !empty($filterParams['input_form']->department_id)) {
+    $filterParams['filter']['innerjoin']['lh_canned_msg_dep'] = array('`lh_canned_msg_dep`.`canned_id`','`lh_canned_msg` . `id`');
+    $filterParams['filter']['filterin']['`lh_canned_msg_dep`.`dep_id`'] = $filterParams['input_form']->department_id;
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 
