@@ -2,6 +2,11 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhuser/edit.tpl.php');
 
+if (isset($_POST['Cancel_account'])) {
+    erLhcoreClassModule::redirect('user/userlist');
+    exit;
+}
+
 try {
 	$UserData = erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['user_id']);
 } catch (Exception $e) {
@@ -20,7 +25,7 @@ if ($groups_can_edit !== true) {
     $userDataGroupsRead = erLhcoreClassGroupRole::getGroupsAccessedByUser($UserData)['read'];
 }
 
-if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
+if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_edit_groups === true) {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
@@ -89,7 +94,7 @@ if (isset($_POST['Update_account']) || isset($_POST['Save_account'])) {
     }    
 }
 
-if (isset($_POST['UpdatePending_account'])) {
+if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
 		exit;
@@ -143,7 +148,7 @@ if (isset($_POST['UpdatePending_account'])) {
 	
 }
 
-if (isset($_POST['UpdateDepartaments_account'])) {
+if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
@@ -175,7 +180,7 @@ if (isset($_POST['UpdateDepartaments_account'])) {
    
 }
 
-if (isset($_POST['UpdateSpeech_account'])) {
+if (isset($_POST['UpdateSpeech_account']) && $can_edit_groups === true) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
