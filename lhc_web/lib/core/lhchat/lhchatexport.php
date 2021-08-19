@@ -575,6 +575,28 @@ class erLhcoreClassChatExport {
             $writer->save('php://output');
         }
 	}
+
+	public static function exportResponseTemplate($messages)
+    {
+        $filename = "response-template-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        $counter = 0;
+        foreach ($messages as $message) {
+            $values = $message->getState();
+            $values['subject'] = implode(',', $message->subject_name_front);
+            $values['department_ids_front'] = implode(',',$message->department_ids_front);
+            if ($counter == 0) {
+                fputcsv($fp, array_keys($values));
+            }
+            fputcsv($fp, $values);
+            $counter++;
+        }
+        exit;
+    }
 }
 
 ?>

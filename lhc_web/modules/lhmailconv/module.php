@@ -228,8 +228,18 @@ $ViewList['deletematchingrule'] = array(
 
 $ViewList['responsetemplates'] = array(
     'params' => array(),
-    'uparams' => array(),
-    'functions' => array( 'rtemplates_manage' )
+    'uparams' => array('name','template_plain','template','dep_id','subject_id'),
+    'functions' => array( 'rtemplates_manage' ),
+    'multiple_arguments' => array(
+        'dep_id',
+        'subject_id'
+    )
+);
+
+$ViewList['subject'] = array(
+    'params' => array('id'),
+    'uparams' => array('subject','status'),
+    'functions' => array( 'use' ),
 );
 
 $ViewList['apiresponsetemplates'] = array(

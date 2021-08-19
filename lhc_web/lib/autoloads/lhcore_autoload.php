@@ -329,6 +329,7 @@ return array_merge(array (
         'erLhcoreClassModelMailconvMessage'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessage.php',
         'erLhcoreClassModelMailconvFile'            => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvfile.php',
         'erLhcoreClassModelMailconvResponseTemplate'=> 'lib/models/lhmailconv/erlhcoreclassmodelmailconvresponsetemplate.php',
+        'erLhcoreClassModelMailconvResponseTemplateSubject'=> 'lib/models/lhmailconv/erlhcoreclassmodelmailconvresponsetemplatesubject.php',
         'erLhcoreClassMailconvExport'               => 'lib/core/lhmailconv/lhmailconvexport.php',
         'erLhcoreClassMailconvWorkflow'             => 'lib/core/lhmailconv/lhmailconvworkflow.php',
         'erLhcoreClassModelMailconvMessageInternal' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessageinternal.php',

@@ -39,6 +39,14 @@ class erLhcoreClassModelMailconvResponseTemplate
                 return $this->template != '' ? $this->template : nl2br($this->template_plain);
                 break;
 
+            case 'subject_name_front':
+                $this->subject_name_front = [];
+                $subjects = erLhcoreClassModelMailconvResponseTemplateSubject::getList(array('filter' => array('template_id' => $this->id)));
+                foreach ($subjects as $subject) {
+                    $this->subject_name_front[] = (string)$subject->subject;
+                }
+                return $this->subject_name_front;
+
             case 'department_ids_front':
                 $this->department_ids_front = [];
                 if ($this->id > 0) {
@@ -75,6 +83,10 @@ class erLhcoreClassModelMailconvResponseTemplate
     {
         $db = ezcDbInstance::get();
         $stmt = $db->prepare('DELETE FROM `lhc_mailconv_response_template_dep` WHERE `template_id` = :template_id');
+        $stmt->bindValue(':template_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
+
+        $stmt = $db->prepare('DELETE FROM `lhc_mailconv_response_template_subject` WHERE `template_id` = :template_id');
         $stmt->bindValue(':template_id', $this->id,PDO::PARAM_INT);
         $stmt->execute();
     }

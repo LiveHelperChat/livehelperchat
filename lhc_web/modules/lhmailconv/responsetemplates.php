@@ -12,6 +12,20 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if (is_array($filterParams['input_form']->dep_id) && !empty($filterParams['input_form']->dep_id)) {
+    $filterParams['filter']['innerjoin']['lhc_mailconv_response_template_dep'] = array('`lhc_mailconv_response_template_dep`.`template_id`','`lhc_mailconv_response_template`.`id`');
+    $filterParams['filter']['filterin']['`lhc_mailconv_response_template_dep`.`dep_id`'] = $filterParams['input_form']->dep_id;
+}
+
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    $filterParams['filter']['innerjoin']['lhc_mailconv_response_template_subject'] = array('`lhc_mailconv_response_template_subject`.`template_id`','`lhc_mailconv_response_template`.`id`');
+    $filterParams['filter']['filterin']['`lhc_mailconv_response_template_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
+
+if (isset($_GET['export'])) {
+    erLhcoreClassChatExport::exportResponseTemplate(erLhcoreClassModelMailconvResponseTemplate::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'))));
+}
+
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvResponseTemplate::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';

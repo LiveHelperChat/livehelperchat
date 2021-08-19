@@ -3,6 +3,18 @@
     <input type="text" maxlength="250" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
 </div>
 
+<?php if ($item->id > 0) : ?>
+    <label>
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <button type="button" class="btn btn-xs btn-outline-secondary pb-1 pl-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/mailconv/subject/<?php echo $item->id?>'})"><i class="material-icons mr-0"></i></button>
+        <div id="response-template-subjects-<?php echo $item->id?>"></div>
+        <script>
+            $.get(WWW_DIR_JAVASCRIPT + 'mailconv/subject/<?php echo $item->id?>/?getsubjects=1', function(data) {
+                $('#response-template-subjects-<?php echo $item->id?>').html(data);
+            });
+        </script>
+    </label>
+<?php endif; ?>
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
     <div class="row" style="max-height: 500px; overflow: auto">
