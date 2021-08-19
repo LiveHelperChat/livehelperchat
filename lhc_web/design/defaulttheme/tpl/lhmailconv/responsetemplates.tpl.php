@@ -1,5 +1,7 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrp','Response templates');?></h1>
 
+<?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/search_panel.tpl.php')); ?>
+
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%" ng-non-bindable>
         <thead>
@@ -10,7 +12,7 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td><?php echo htmlspecialchars($item->name)?></td>
+                <td><a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a></td>
                 <td>
                     <div class="btn-group" role="group" aria-label="..." style="width:60px;">
                         <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE254;</i></a>
