@@ -13,14 +13,14 @@ if (isset($_GET['doSearch'])) {
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
-$pages->serverURL = erLhcoreClassDesign::baseurl('department/departments') . $append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('cannedmsg/listreplace') . $append;
 $pages->items_total = erLhcoreClassModelCannedMsgReplace::getCount($filterParams['filter']);
 $pages->setItemsPerPage(20);
 $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelCannedMsgReplace::getList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'sort_priority ASC, id ASC')));
+    $items = erLhcoreClassModelCannedMsgReplace::getList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'identifier ASC, id ASC')));
 }
 
 $tpl->set('items',$items);

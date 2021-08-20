@@ -2256,6 +2256,29 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        if (isset($params['chat'])) {
+            $matchesValues = [];
+            preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$message, $matchesValues);
+            $replaceCustomArgs = [];
+
+            if (isset($matchesValues[0]) && !empty($matchesValues[0])) {
+                $replaceCustomArgs = array_merge($replaceCustomArgs,$matchesValues[0]);
+            }
+
+            $replaceCustomArgs = array_unique($replaceCustomArgs);
+
+            if (!empty($replaceCustomArgs)) {
+                $identifiers = [];
+                foreach ($replaceCustomArgs as $replaceArg) {
+                    $identifiers[] = str_replace(['{','}'],'', $replaceArg);
+                }
+                $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array('limit' => false, 'filterin' => array('identifier' => $identifiers)));
+                foreach ($replaceRules as $replaceRule) {
+                    $message = str_replace('{' . $replaceRule->identifier . '}',$replaceRule->getValueReplace(['chat' => $params['chat']]),$message);
+                }
+            }
+        }
+
         return $message;
 
     }

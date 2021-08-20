@@ -2004,6 +2004,15 @@ try {
     KEY `canned_id` (`canned_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_canned_msg_replace` (
+                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                    `identifier` varchar(50) NOT NULL,
+                    `default` text NOT NULL, `conditions` longtext NOT NULL,
+                    PRIMARY KEY (`id`),
+                   KEY `identifier` (`identifier`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+
                     // API table
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_rest_api_key` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,

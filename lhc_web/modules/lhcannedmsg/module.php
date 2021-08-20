@@ -34,6 +34,18 @@ $ViewList['newreplace'] = array(
     'functions' => array( 'use_replace' ),
 );
 
+$ViewList['editreplace'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use_replace' ),
+);
+
+$ViewList['deletereplace'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_replace' ),
+);
+
 $ViewList['import'] = array(
     'params' => array(),
     'uparams' => array(),

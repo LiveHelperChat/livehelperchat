@@ -12,26 +12,19 @@ if ( isset($_POST['Cancel_action']) ) {
 
 if (isset($_POST['Save_action']) || isset($_POST['Update_action']))
 {
-    $Errors = erLhcoreClassDepartament::validateDepartment($Departament);
+    $Errors = erLhcoreClassAdminChatValidatorHelper::validateReplaceVariable($item);
 
     if (count($Errors) == 0)
     {
-        erLhcoreClassDepartament::getSession()->save($Departament);
+        $item->saveThis();
 
-        erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament);
-
-        erLhcoreClassDepartament::validateDepartmentProducts($Departament);
-
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.modified',array('department' => $Departament));
-
-        erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
-
-        if (isset($_POST['Update_departament'])) {
-            erLhcoreClassModule::redirect('department/edit','/' . $Departament->id);
+        if (isset($_POST['Update_action'])) {
+            erLhcoreClassModule::redirect('cannedmsg/editreplace','/' . $item->id);
         } else {
-            erLhcoreClassModule::redirect('department/departments');
+            erLhcoreClassModule::redirect('cannedmsg/listreplace');
         }
-        exit ;
+
+        exit;
 
     } else {
         $tpl->set('errors',$Errors);

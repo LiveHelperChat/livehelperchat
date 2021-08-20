@@ -156,12 +156,12 @@ class erLhcoreClassChatWebhookHttp {
                         $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
                         $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
 
-                        if ($conditionAttrMath != '') {
+                        if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
                             // Evaluate if there is mathematical rules
                             eval('$conditionAttr = ' . $conditionAttrMath . ";");
                         }
 
-                        if ($valueAttrMath != '') {
+                        if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
                             // Evaluate if there is mathematical rules
                             eval('$valueAttr = ' . $valueAttrMath . ";");
                         }

@@ -5,7 +5,44 @@
  * */
 
 class erLhcoreClassAdminChatValidatorHelper {
-    
+
+    public static function validateReplaceVariable(erLhcoreClassModelCannedMsgReplace & $replace) {
+        $definition = array(
+            'identifier' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'default' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'conditions' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'identifier' ) || $form->identifier == '' ) {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a identifier');
+        } else {
+            $replace->identifier = $form->identifier;
+        }
+
+        if ( !$form->hasValidData( 'default' ) || $form->identifier == '' ) {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a default value');
+        } else {
+            $replace->default = $form->default;
+        }
+
+        if ($form->hasValidData( 'conditions' )) {
+            $replace->conditions = $form->conditions;
+        } else {
+            $replace->conditions = '';
+        }
+
+        return $Errors;
+    }
+
     public static function validateCannedMessage(erLhcoreClassModelCannedMsg & $cannedMessage, $userDepartments) {
         $definition = array(
             'Message' => new ezcInputFormDefinitionElement(
