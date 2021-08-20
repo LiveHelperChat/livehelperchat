@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/sendemail.tpl.php');
 
 $item = new erLhcoreClassModelMailconvMessage();
@@ -15,6 +17,7 @@ if (ezcInputForm::hasPostData()) {
         if ($response['send'] == true) {
             $tpl->set('updated',true);
             $tpl->set('outcome',$response);
+            $tpl->set('item',$item);
         } else {
             $tpl->set('errors',$response['errors']);
         }

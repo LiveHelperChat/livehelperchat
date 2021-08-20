@@ -24,18 +24,23 @@
 <?php endif; ?>
 
 <?php if (isset($updated)) : ?>
-<a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>?new=1"><span class="material-icons">mail</span> Send a new e-mail</a>
+<a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>?new=1"><span class="material-icons">mail</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail');?></a>
 <?php endif; ?>
 
 <?php if (isset($updated) && isset($outcome['copy']['success']) && $outcome['copy']['success'] == true && isset($outcome['copy']['message_id'])) : ?>
-    <div>Ticket: <span id="ticket-progress"><span class="material-icons"></span> Working...</span></div>
+    <div class="py-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Ticket');?>: <span id="ticket-progress"><span class="material-icons lhc-spin">cached</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Working');?>...</span></div>
     <script>
-        (function intervalStarter(){
+        (function intervalStarter() {
+                var counter = 0;
                 var interval = setInterval(function () {
-                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (){
-                    clearInterval(interval);
+                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'counter': counter, 'mailbox_id': <?php echo $item->mailbox_id?>, 'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (data) {
+                    if (data.found == true) {
+                        $('#ticket-progress').html(data.conversation);
+                        clearInterval(interval);
+                    }
                 });
-            },2000);
+                counter = counter + 1;
+            }, 2000);
         })();
     </script>
 
