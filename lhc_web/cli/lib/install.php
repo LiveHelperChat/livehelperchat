@@ -1763,7 +1763,7 @@ class Install
                   `filepath` varchar(200) NOT NULL,
                   `filename` varchar(200) NOT NULL,
                   `job_title` varchar(100) NOT NULL,
-                  `departments_ids` varchar(500) NOT NULL,
+                  `departments_ids` text NOT NULL,
                   `chat_nickname` varchar(100) NOT NULL,
                   `xmpp_username` varchar(200) NOT NULL,
                   `session_id` varchar(40) NOT NULL,

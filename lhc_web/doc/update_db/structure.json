@@ -7664,7 +7664,7 @@
       },
       {
         "field": "departments_ids",
-        "type": "varchar(500)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
