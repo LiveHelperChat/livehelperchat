@@ -7,6 +7,7 @@
         $msg .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send e-mail copy was created in a send folder.');
     }
 ?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 
     <?php if (isset($outcome['copy'])) : ?>
@@ -22,7 +23,27 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="" method="post">
+<?php if (isset($updated)) : ?>
+<a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>?new=1"><span class="material-icons">mail</span> Send a new e-mail</a>
+<?php endif; ?>
+
+<?php if (isset($updated) && isset($outcome['copy']['success']) && $outcome['copy']['success'] == true && isset($outcome['copy']['message_id'])) : ?>
+    <div>Ticket: <span id="ticket-progress"><span class="material-icons"></span> Working...</span></div>
+    <script>
+        (function intervalStarter(){
+                var interval = setInterval(function () {
+                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (){
+                    clearInterval(interval);
+                });
+            },2000);
+        })();
+    </script>
+
+<?php endif; ?>
+
+<?php if (!isset($updated)) : ?>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" method="post">
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Mailbox');?></label>
@@ -126,3 +147,4 @@
     </div>
 
 </form>
+<?php endif; ?>

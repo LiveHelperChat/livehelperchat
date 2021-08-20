@@ -540,7 +540,9 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => implode("\n",imap_errors())];
         }
 
-        return ['success' => true];
+        $messageId = sprintf('<%s@%s>', $mail->uniqueid, $mail->serverHostname());
+
+        return ['success' => true, 'message_id' => $messageId];
     }
 
     public static function validateNewEmail(& $item){

@@ -19,6 +19,11 @@ $ViewList['sendemail'] = array(
     'functions' => array( 'send_mail' )
 );
 
+$ViewList['geticketbymessageid'] = array(
+    'params' => array(),
+    'functions' => array( 'send_mail' )
+);
+
 $ViewList['uploadfile'] = array(
     'params' => array(),
     'functions' => array( 'use_admin' )
