@@ -743,7 +743,7 @@ class PHPMailer
      *
      * @var string
      */
-    protected $uniqueid = '';
+    public $uniqueid = '';
 
     /**
      * The PHPMailer Version number.
@@ -4026,7 +4026,7 @@ class PHPMailer
      *
      * @return string
      */
-    protected function serverHostname()
+    public function serverHostname()
     {
         $result = '';
         if (!empty($this->Hostname)) {
