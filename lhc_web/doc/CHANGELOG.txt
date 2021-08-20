@@ -1,3 +1,10 @@
+3.80v
+
+1. Custom replaceable variables which you can define in back office. They also allow to set custom value based on chat attributes.
+They are handled in bot responses also.
+
+execute doc/update_db/update_252.sql for update
+
 3.79v
 
 1. Now you can block visitors by their e-mail address. Usefull in case you are passing this information.
