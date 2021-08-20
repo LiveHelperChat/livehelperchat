@@ -76,7 +76,7 @@ $UserData = $currentUser->getUserData(true); ?>
 
         <?php endif;?>
 
-
+        <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_chat_actions_post_multiinclude.tpl.php'));?>
 
 
     </div>

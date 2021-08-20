@@ -62,6 +62,14 @@ class erLhcoreClassModelCannedMsg
                 }
                 return $this->department;
 
+            case 'subject_name_front':
+                $this->subject_name_front = [];
+                $subjects = erLhcoreClassModelCannedMsgSubject::getList(array('filter' => array('canned_id' => $this->id)));
+                foreach ($subjects as $subject) {
+                    $this->subject_name_front[] = (string)$subject->subject;
+                }
+                return $this->subject_name_front;
+
             case 'department_ids_front':
                 $this->department_ids_front = [];
                 if ($this->id > 0) {

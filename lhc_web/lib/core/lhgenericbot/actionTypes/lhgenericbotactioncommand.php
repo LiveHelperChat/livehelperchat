@@ -235,7 +235,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $variablesArray = (array)$chat->chat_variables_array;
 
-                if (is_array($params['replace_array'])) {
+                if (isset($params['replace_array']) && is_array($params['replace_array'])) {
                     $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
                 } else {
                     $variablesAppend = $action['content']['payload'];

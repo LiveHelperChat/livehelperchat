@@ -214,7 +214,11 @@ if (empty($Errors)) {
                     $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;
                     $msg->time = time();
 
-                    erLhcoreClassChat::getSession()->save($msg);
+                    // Save only if there is a message
+                    // Happens with invitations where there is no message itself
+                    if ($msg->msg != '') {
+                        erLhcoreClassChat::getSession()->save($msg);
+                    }
 
                     if ($ignoreResponder == false && $userInstance->invitation !== false) {
                         $responder = $userInstance->invitation->autoresponder;

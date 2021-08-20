@@ -235,7 +235,7 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['list'] = array(
     'params' => array(),
-    'uparams' => array('abandoned_chat','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id'),
+    'uparams' => array('dropped_chat','abandoned_chat','country_ids','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id'),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(
         'department_ids',
@@ -243,6 +243,7 @@ $ViewList['list'] = array(
         'user_ids',
         'group_ids',
         'bot_ids',
+        'country_ids',
         'chat_status_ids',
         'cf',
     )
@@ -578,8 +579,12 @@ $ViewList['syncandsoundesetting'] = array(
 
 $ViewList['cannedmsg'] = array(
     'params' => array(),
-    'uparams' => array('action','id','csfr','message','title','fmsg','department_id'),
-    'functions' => array( 'administratecannedmsg' )
+    'uparams' => array('action','id','csfr','message','title','fmsg','department_id','subject_id'),
+    'functions' => array( 'administratecannedmsg' ),
+    'multiple_arguments' => array(
+        'department_id',
+        'subject_id'
+    )
 );
 
 $ViewList['maintenance'] = array(
@@ -674,5 +679,6 @@ $FunctionList['voicemessages'] = array('explain' => 'Allow operator to send voic
 $FunctionList['chatdebug'] = array('explain' => 'Allow operator to see raw chat details in chat edit window');
 $FunctionList['administrate_alert_icon'] = array('explain' => 'Allow operator to manage alert icons list');
 $FunctionList['prev_chats'] = array('explain' => 'Allow operator to see previous chats from visitor');
+$FunctionList['changedepartment'] = array('explain' => 'Allow operator to change chat department');
 
 ?>

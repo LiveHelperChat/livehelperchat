@@ -43,10 +43,22 @@ $fieldsSearch['department_id'] = array (
     'trans' => 'Department',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'none',
     'filter_table_field' => 'department_id',
     'validation_definition' => new ezcInputFormDefinitionElement(
-        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['subject_id'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => 'subject_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
     )
 );
 

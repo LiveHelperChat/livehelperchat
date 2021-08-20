@@ -123,7 +123,7 @@ if ($outputResponse['invitation_id'] > 0) {
         $tpl->set('additionalDataArray', $onlineUser->online_attr_array );
         $tpl->set('variablesDataArray', $onlineUser->chat_variables_array );
 
-        $outputResponse['message_full'] = $tpl->fetch();
+        $outputResponse['message_full'] = trim($tpl->fetch());
 
         if (isset($invitation->design_data_array['append_intro_bot']) && $invitation->design_data_array['append_intro_bot'] == 1) {
             $outputResponse['bot_intro'] = true;

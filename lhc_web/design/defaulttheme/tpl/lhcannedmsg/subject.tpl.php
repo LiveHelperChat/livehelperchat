@@ -14,7 +14,7 @@ foreach ($subjectsChat as $subject) {
 ?>
 <div class="row">
     <?php foreach($subjects as $subject) : ?>
-        <div class="col-3"><label><input type="checkbox" onchange="setCannedSubject($(this))" name="subject" value="<?php echo $subject->id?>" <?php if (in_array($subject->id,$selectedSubjects)) : ?>checked="checked"<?php endif?> ><?php echo htmlspecialchars($subject)?></label></div>
+        <div class="col-3"><label><input type="checkbox" onchange="setCannedSubject($(this))" name="subject" value="<?php echo $subject->id?>" <?php if (in_array($subject->id,$selectedSubjects)) : ?>checked="checked"<?php endif?> > <?php echo htmlspecialchars($subject)?></label></div>
     <?php endforeach; ?>
 </div>
 

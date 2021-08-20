@@ -158,7 +158,7 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 
     this.searchProvider = function(scope,keyword) {
         var deferred = $q.defer();
-        $http.post(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/'+scope+"/?q="+keyword).then(function(data) {
+        $http.post(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/'+scope+"/?exclude_disabled=1&q="+keyword).then(function(data) {
             deferred.resolve(data.data);
         },function(internalError){
             deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');

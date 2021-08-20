@@ -10,12 +10,23 @@
 
 <ul class="nav nav-pills" role="tablist">
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#account" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
+
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
-	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats');?></a></li>
+    <?php endif;?>
+
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
+    <li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" href="#pending" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Pending chats');?></a></li>
+    <?php endif;?>
+
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions_users')) : ?>
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
+
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
     <li class="nav-item" role="presentation" ><a class="nav-link <?php if ($tab == 'tab_speech') : ?>active<?php endif;?>" href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
+    <?php endif; ?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 
 </ul>
@@ -48,32 +59,32 @@
     		</div>
            
            <div class="form-group">
-               <label><input type="checkbox" value="on" name="ForceResetPassword" <?php echo isset($force_reset_password) && $force_reset_password == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force user to change password on login')?></label>
+               <label><input type="checkbox" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="ForceResetPassword" <?php echo isset($force_reset_password) && $force_reset_password == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force user to change password on login')?></label>
            </div>
 
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></label>
-        		<input type="text" ng-non-bindable class="form-control" name="Email" value="<?php echo $user->email;?>"/>
+        		<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Email" value="<?php echo $user->email;?>"/>
     		</div>
     		
     		<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Chat nickname');?></label>
-				<input type="text" ng-non-bindable class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+				<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
 			</div>
 			
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></label>
-    		  <input type="text" ng-non-bindable class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
+    		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
     		</div>
     		
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
-    		  <input type="text" ng-non-bindable class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
+    		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
     		</div>
     		
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
-    		  <input type="text" ng-non-bindable class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
+    		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
     		</div>
     			    
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
@@ -88,7 +99,7 @@
 
     		  <div class="col-4">
         		  <div class="form-group">
-        		      <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User receives other operators permissions request');?>"><input type="checkbox" value="on" name="ReceivePermissionRequest" <?php echo $user->rec_per_req == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User receives other operators permissions request')?></label>
+        		      <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User receives other operators permissions request');?>"><input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> type="checkbox" value="on" name="ReceivePermissionRequest" <?php echo $user->rec_per_req == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','User receives other operators permissions request')?></label>
         		  </div>
     		  </div>
     		</div>
@@ -98,20 +109,22 @@
     		<div class="row form-group">
     			<div class="col-md-6">
     				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
-    				<input type="text" ng-non-bindable class="form-control" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+    				<input type="text" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> ng-non-bindable class="form-control" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
     			</div>
     			<div class="col-md-6">
     				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
-    				<input type="text" ng-non-bindable class="form-control" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+    				<input type="text" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> ng-non-bindable class="form-control" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
     			</div>
     		</div>
 
            <div class="row">
                <div class="col-6">
-                   <div class="form-group">
-                       <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
-                       <input type="file" name="UserPhoto" value="" />
-                   </div>
+                   <?php if (!($can_edit_groups === false)) : ?>
+                       <div class="form-group">
+                           <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Photo');?>, (jpg,png)</label>
+                           <input type="file" name="UserPhoto" value="" />
+                       </div>
+                   <?php endif;?>
                    <?php if ($user->has_photo) : ?>
                        <div class="form-group">
                            <img src="<?php echo $user->photo_path?>" alt="" width="50" /><br />
@@ -172,14 +185,19 @@
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
 
     		<div class="btn-group" role="group" aria-label="..." <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> >
-        		<input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
+
+                <?php if (!($can_edit_groups === false)) : ?>
+                <input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
     		    <input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+                <?php endif; ?>
+
     		    <input type="submit" class="btn btn-secondary" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>
         	</div>	
 	
 	   </form>
 	</div>
-	
+
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Assigned departments');?></h5>
 	
@@ -200,7 +218,9 @@
 		    <input type="submit" class="btn btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
 		</form> 
     </div>
-	
+    <?php endif; ?>
+
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" id="pending">
 	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#pending" method="post">
 
@@ -230,6 +250,8 @@
 		<input type="submit" class="btn btn-secondary" name="UpdatePending_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>"/>
 	   </form>
     </div>
+    <?php endif; ?>
+
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions_users')) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_permission') : ?>active<?php endif;?>" id="permission">
         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','In order to change operator permissions you have to edit');?> <a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','roles');?></a>.</p>
@@ -239,6 +261,7 @@
     </div>
 	<?php endif;?>
 
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_speech') : ?>active<?php endif;?>" id="speech">
 
         <?php if (isset($account_updated) && $account_updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
@@ -263,6 +286,7 @@
 
         </form>
     </div>
+    <?php endif; ?>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
 	

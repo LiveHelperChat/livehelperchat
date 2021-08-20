@@ -38,6 +38,7 @@ if (isset($_POST['UploadFileAction'])) {
         unlink($dir . $filename);
 
         $canned = array_keys((new erLhcoreClassModelCannedMsg())->getState());
+        $canned[] = 'subject';
         $canned[] = 'tags_plain';
         $canned[] = 'department_ids_front';
 
@@ -78,6 +79,28 @@ if (isset($_POST['UploadFileAction'])) {
 
                 $cannedMessage->setState($item);
                 $cannedMessage->saveThis();
+
+                // Delete any previous subjects if any
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('DELETE FROM `lh_canned_msg_subject` WHERE `canned_id` = :canned_id');
+                $stmt->bindValue(':canned_id', $cannedMessage->id,PDO::PARAM_INT);
+                $stmt->execute();
+
+                if (isset($item['subject']) && !empty($item['subject'])) {
+
+                    $subjectsPlain = explode(',',$item['subject']);
+                    foreach ($subjectsPlain as $subjectIndex => $subject) {
+                        $subjectsPlain[$subjectIndex] = trim($subject);
+                    }
+
+                    $subjects = erLhAbstractModelSubject::getList(array('limit' => false, 'filterin' => array('name' => $subjectsPlain)));
+                    foreach ($subjects as $subject) {
+                        $cannedSubject = new erLhcoreClassModelCannedMsgSubject();
+                        $cannedSubject->canned_id = $cannedMessage->id;
+                        $cannedSubject->subject_id = $subject->id;
+                        $cannedSubject->saveThis();
+                    }
+                }
 
             }
 

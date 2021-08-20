@@ -3,34 +3,49 @@
     <input type="hidden" name="doSearch" value="1">
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Title');?></label>
                 <input type="text" class="form-control form-control-sm" name="title" value="<?php echo htmlspecialchars($input->title)?>" />
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message');?></label>
                 <input type="text" class="form-control form-control-sm" name="message" value="<?php echo htmlspecialchars($input->message)?>" />
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Fallback message');?></label>
                 <input type="text" class="form-control form-control-sm" name="fmsg" value="<?php echo htmlspecialchars($input->fmsg)?>" />
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
-                <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'department_id',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_id[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
                     'selected_id'    => $input->department_id,
-                    'css_class'      => 'form-control form-control-sm',
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
                     'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
+                )); ?>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'subject_id[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject'),
+                    'selected_id'    => $input->subject_id,
+                    'css_class'      => 'form-control form-control-sm',
+                    'display_name'   => 'name',
+                    'list_function_params'  => (new erLhAbstractModelSubject())->getFilter(),
+                    'list_function'  => 'erLhAbstractModelSubject::getList'
                 )); ?>
             </div>
         </div>
@@ -47,5 +62,11 @@
         <?php endif; ?>
         
     </div>
+    
+    <script>
+        $(function() {
+            $('.btn-block-department').makeDropdown();
+        });
+    </script>
 
 </form>

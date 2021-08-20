@@ -105,7 +105,15 @@ class erLhcoreClassChatCommand
                 $trigger = $command->trigger;
 
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => array('msg' => $commandData['argument'])));
+
+                    $argumentsTrigger = array('msg' => $commandData['argument']);
+
+                    foreach (explode('--arg',$commandData['argument']) as $indexArgument => $argumentValue) {
+                        $argumentsTrigger['replace_array']['{arg_'.($indexArgument + 1).'}'] = trim($argumentValue); // For direct replacement
+                        $argumentsTrigger['arg_'.($indexArgument + 1)] = trim($argumentValue);                       // For {args.arg_3} to work
+                    }
+
+                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
 
                     $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
                 } else {

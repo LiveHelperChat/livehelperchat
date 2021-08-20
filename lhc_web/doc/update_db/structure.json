@@ -3625,7 +3625,8 @@
         "key": "",
         "default": null,
         "extra": "",
-        "collation": "utf8mb4_unicode_ci"
+        "collation": "utf8mb4_unicode_ci",
+        "post_query": "UPDATE `lh_canned_msg` SET `unique_id` = `id`;"
       },
       {
         "field": "explain",

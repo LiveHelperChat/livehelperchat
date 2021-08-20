@@ -24,6 +24,7 @@ class erLhcoreClassChatExport {
         $counter = 0;
         foreach ($messages as $message) {
             $values = $message->getState();
+            $values['subject'] = implode(',',$message->subject_name_front);
             $values['tags_plain'] = $message->tags_plain;
             $values['department_ids_front'] = implode(',',$message->department_ids_front);
             if ($counter == 0) {
