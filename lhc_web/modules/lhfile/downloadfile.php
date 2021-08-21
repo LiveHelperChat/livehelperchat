@@ -6,17 +6,19 @@ try {
 
 	if ( $hash == $file->security_hash ) {
 		header('Content-type: '.$file->type);
-				
+
 		if (!isset($Params['user_parameters_unordered']['inline']) || $Params['user_parameters_unordered']['inline'] != 'true') {
 		  header('Content-Disposition: attachment; filename="'.$file->id.'-'.$file->chat_id.'.'.$file->extension.'"');
 		}
 		
 		$response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.download', array('chat_file' => $file));
-		
+
+		header('Content-length: ' . $file->size);
+
 		// There was no callbacks or file not found etc, we try to download from standard location
 		if ($response === false) {
 			echo file_get_contents($file->file_path_server);
-		} else {			
+		} else {
 			echo $response['filedata'];
 		}
 	}

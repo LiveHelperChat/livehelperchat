@@ -114,9 +114,11 @@ class ChatMessage extends PureComponent {
 
         e.preventDefault();
 
-        if (!(attrs.src && attrs.class && attrs.class == 'img-fluid')) {
+        // Why did we previously auto focused on button click?
+        // It just makes a screen smaller and is bad for UI
+        /*if (!(attrs.src && attrs.class && attrs.class == 'img-fluid')) {
             this.props.focusMessage();
-        }
+        }*/
     }
 
     removeMetaMessage(messageId) {
