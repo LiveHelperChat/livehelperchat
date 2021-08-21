@@ -37,8 +37,9 @@
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'active' : ''?>"><a class="nav-link" href="#panel3" aria-controls="panel3" role="tab" data-toggle="tab">http://ipinfodb.com</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'locatorhq') ? print 'active' : ''?>"><a class="nav-link" href="#panel4" aria-controls="panel4" role="tab" data-toggle="tab">http://www.locatorhq.com</a></li>
 						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipapi') ? print 'active' : ''?>"><a class="nav-link" href="#ipapi" aria-controls="ipapi" role="tab" data-toggle="tab">https://ip-api.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'abstractapi') ? print 'active' : ''?>"><a class="nav-link" href="#abstractapi" aria-controls="abstractapi" role="tab" data-toggle="tab">https://www.abstractapi.com</a></li>
 					</ul>
-	
+
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>" id="freegeoip">
@@ -103,8 +104,19 @@
 
 							</div>
 						</div>
-						
-						
+
+                        <div role="tabpanel" class="tab-pane <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'abstractapi') ? print 'active' : ''?>" id="abstractapi">
+						    <div>
+						        <label><input type="radio" name="UseGeoIP" value="abstractapi" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'abstractapi') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use https://www.abstractapi.com/ip-geolocation-api'); ?></label>
+
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','API Key'); ?></label>
+                                    <input class="form-control" type="text" name="abstractapi_key" value="<?php isset($geo_data['abstractapi_key']) ? print $geo_data['abstractapi_key'] : print '' ?>">
+                                </div>
+
+							</div>
+						</div>
+
 						<div role="tabpanel" class="tab-pane <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>" id="maxmind">
 						    <label><input type="radio" name="UseGeoIP" value="max_mind" <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'checked="checked"' : '' ?> /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Use MaxMind, does not depend on any third party remote service'); ?></label>
 

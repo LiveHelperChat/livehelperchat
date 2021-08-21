@@ -640,6 +640,8 @@ class erLhcoreClassModelChat {
                    $params['freegeoip_key'] = $geo_data['freegeoip_key'];
                } elseif ($geo_data['geo_service_identifier'] == 'ipapi') {
                    $params['api_key'] = $geo_data['ipapi_key'];
+               } elseif ($geo_data['geo_service_identifier'] == 'abstractapi') {
+                   $params['abstractapi_key'] = $geo_data['abstractapi_key'];
                }
 
                $location = erLhcoreClassModelChatOnlineUser::getUserData($geo_data['geo_service_identifier'],$instance->ip,$params);
