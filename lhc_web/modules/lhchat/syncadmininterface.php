@@ -64,6 +64,7 @@ $chatsListAll = array();
 
 $mapsWidgets = [
     'my_chats' => 0,
+    'subject_chats' => 20,
     'online_operators' => 1,
     'group_chats' => 2,
     'pending_chats' => 3,
@@ -77,6 +78,74 @@ $mapsWidgets = [
     'amails' => 11,
     'malarms' => 12,
 ];
+
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
+
+    $limitList = is_numeric($Params['user_parameters_unordered']['limits']) ? (int)$Params['user_parameters_unordered']['limits'] : 10;
+
+    $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+    if (is_array($Params['user_parameters_unordered']['subjectd']) && !empty($Params['user_parameters_unordered']['subjectd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['subjectd']);
+        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['subjectd'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['sdgroups']) && !empty($Params['user_parameters_unordered']['sdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['sdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['sdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    if (is_array($Params['user_parameters_unordered']['subjectdprod']) && !empty($Params['user_parameters_unordered']['subjectdprod'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['subjectdprod']);
+        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['subjectdprod'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['subjectu']) && !empty($Params['user_parameters_unordered']['subjectu'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['subjectu']);
+        $filter['filterin']['user_id'] = $Params['user_parameters_unordered']['subjectu'];
+    }
+
+    // User groups filter
+    if (is_array($Params['user_parameters_unordered']['sugroups']) && !empty($Params['user_parameters_unordered']['sugroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['sugroups']);
+        $userIds = erLhcoreClassChat::getUserIDByGroup($Params['user_parameters_unordered']['sugroups']);
+        if (!empty($userIds)) {
+            $filter['filterin']['user_id'] = isset($additionalFilter['filterin']['user_id']) ? array_merge($additionalFilter['filterin']['user_id'],$userIds) : $userIds;
+        }
+    }
+
+    $chats = erLhcoreClassChat::getSubjectChats($limitList, 0, $filter);
+
+    if (!empty($chats)) {
+        $subjectsSelected = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => array_keys($chats))));
+        $subjectByChat = [];
+        $subject_ids = [];
+        foreach ($subjectsSelected as $subjectSelected) {
+            $subject_ids[] = $subjectSelected->subject_id;
+        }
+        if (!empty($subject_ids)) {
+            $subjectsMeta = erLhAbstractModelSubject::getList(array('filterin' => array('id' => array_unique($subject_ids))));
+        }
+        foreach ($subjectsSelected as $subjectSelected) {
+            if (isset( $subjectsMeta[$subjectSelected->subject_id])) {
+                $subjectByChat[$subjectSelected->chat_id][] = $subjectsMeta[$subjectSelected->subject_id]->name;
+            }
+        }
+    }
+
+    erLhcoreClassChat::prefillGetAttributes($chats, array('user_status_front','hum','time_created_front','department_name','plain_user_name','product_name','n_official','pnd_rsp','n_off_full','aicons','last_msg_time_front','start_last_action_front'),array('last_op_msg_time','has_unread_messages','product_id','product','department','time','pnd_time','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+
+    foreach ($chats as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $chats[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
+    $ReturnMessages['subject_chats'] = array('list' => array_values($chats));
+}
 
 if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['departments_stats'],$Params['user_parameters_unordered']['w'])) {
     /**

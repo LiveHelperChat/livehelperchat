@@ -231,7 +231,55 @@ class erLhcoreClassChat {
                 
         return self::getList($filter);
     }
-    
+
+    public static function getSubjectChats($limit, $offset = 0, $filterAdditional = array()) {
+
+        $filterString = '[]';
+        $subjectIds = [];
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('subject.default_filter', array('filter' => & $filterString, 'subject_id' => & $subjectIds));
+
+        if (empty($subjectIds)) {
+            $subjectIds = json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id', $filterString), true);
+        }
+
+        $limitation = self::getDepartmentLimitation();
+
+        // Does not have any assigned department
+        if ($limitation === false) {
+            return array();
+        }
+
+        $filter = array();
+        $filter['filter'] = array('status' => array(0,1,5));
+        $filter['use_index'] = 'status';
+
+        $filterSubject = '';
+        if (!empty($subjectIds)) {
+            erLhcoreClassChat::validateFilterIn($subjectIds);
+            $filterSubject = ' WHERE `subject_id` IN (' . implode(',',$subjectIds) . ')';
+        }
+
+        // Optimization - we get these stats only from last 200 chats
+        $filter['customfilter'][] = "(`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `chat_id` AS `id` FROM `lh_abstract_subject_chat` {$filterSubject} ORDER BY `id` DESC LIMIT 150) AS `sq`))";
+
+        if ($limitation !== true) {
+            $filter['customfilter'][] = $limitation;
+        }
+
+        $filter['limit'] = $limit;
+        $filter['offset'] = $offset;
+        $filter['smart_select'] = true;
+
+        if (!empty($filterAdditional)) {
+            $filter = array_merge_recursive($filter,$filterAdditional);
+        }
+
+        $items = erLhcoreClassModelChat::getList($filter);
+
+        return $items;
+    }
+
+
     public static function getPendingChatsCount($filterAdditional = array())
     {
     	$limitation = self::getDepartmentLimitation();
