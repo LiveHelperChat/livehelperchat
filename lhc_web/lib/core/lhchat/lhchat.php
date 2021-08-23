@@ -158,7 +158,7 @@ class erLhcoreClassChat {
         }
 
         // Optimization - we get these stats only from last 200 chats
-        $filter['customfilter'][] = "(`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `chat_id` AS `id` FROM `lh_abstract_subject_chat` {$filterSubject} ORDER BY `id` DESC LIMIT 500) AS `sq`))";
+        $filter['customfilter'][] = "(`lh_chat`.`id` IN (SELECT `id` FROM (SELECT `chat_id` AS `id` FROM `lh_abstract_subject_chat` {$filterSubject} ORDER BY `id` DESC LIMIT 150) AS `sq`))";
 
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
