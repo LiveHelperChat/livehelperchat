@@ -520,6 +520,26 @@ class erLhcoreClassModelChatOnlineUser
                 }
                 return false;
             }
+        } elseif ($service == 'abstractapi') {
+            $ip = (isset($params['ip']) && !empty($params['ip'])) ? $params['ip'] : $ip;
+
+            $response = self::executeRequest("https://ipgeolocation.abstractapi.com/v1/?api_key={$params['abstractapi_key']}&ip_address={$ip}");
+
+            if (!empty($response)) {
+                $responseData = json_decode($response,true);
+                if (is_array($responseData)) {
+                    if (isset($responseData['country_code']) && $responseData['country_code'] != '') {
+                        $normalizedObject = new stdClass();
+                        $normalizedObject->country_code = strtolower($responseData['country_code']);
+                        $normalizedObject->country_name = $responseData['country'];
+                        $normalizedObject->lat = substr($responseData['latitude'],0,10);
+                        $normalizedObject->lon = substr($responseData['longitude'],0,10);
+                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . (isset($responseData['connection']['autonomous_system_organization']) && $responseData['connection']['autonomous_system_organization'] != '' ? ' || abstract' . $responseData['connection']['autonomous_system_organization'] : '');
+                        return $normalizedObject;
+                    }
+                }
+                return false;
+            }
         }
 
         return false;
@@ -552,6 +572,8 @@ class erLhcoreClassModelChatOnlineUser
                 $params['freegeoip_key'] = $geo_data['freegeoip_key'];
             } elseif ($geo_data['geo_service_identifier'] == 'ipapi') {
                 $params['api_key'] = $geo_data['ipapi_key'];
+            }  elseif ($geo_data['geo_service_identifier'] == 'abstractapi') {
+                $params['abstractapi_key'] = $geo_data['abstractapi_key'];
             }
 
             $location = self::getUserData($geo_data['geo_service_identifier'], $instance->ip, $params);

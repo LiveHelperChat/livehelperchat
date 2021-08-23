@@ -1,5 +1,15 @@
 {
   "tables": {
+    "lh_canned_msg_replace": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
     "lh_abstract_auto_responder": [
       {
         "field": "id",
@@ -10180,6 +10190,7 @@
     "lh_canned_msg_subject" : "CREATE TABLE `lh_canned_msg_subject` (\n    `id` int(11) NOT NULL AUTO_INCREMENT,\n    `canned_id` int(11) NOT NULL,\n    `subject_id` int(11) NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `canned_id` (`canned_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_response_template_dep" : "CREATE TABLE `lhc_mailconv_response_template_dep` (\n  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `template_id` bigint(20) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `template_id` (`template_id`),\n  KEY `dep_id` (`dep_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_remarks" : "CREATE TABLE `lhc_mailconv_remarks` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `email` varchar(250) NOT NULL, `remarks` longtext NOT NULL, PRIMARY KEY (`id`), KEY `email` (`email`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lhc_mailconv_response_template_subject" : "CREATE TABLE `lhc_mailconv_response_template_subject` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `template_id` bigint(20) unsigned NOT NULL,\n    `subject_id` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `template_id` (`template_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lhc_mailconv_response_template_subject" : "CREATE TABLE `lhc_mailconv_response_template_subject` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `template_id` bigint(20) unsigned NOT NULL,\n    `subject_id` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `template_id` (`template_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_canned_msg_replace" : "CREATE TABLE `lh_canned_msg_replace` (\n    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n    `identifier` varchar(50) NOT NULL,\n    `default` text NOT NULL, `conditions` longtext NOT NULL,\n    PRIMARY KEY (`id`),\n   KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

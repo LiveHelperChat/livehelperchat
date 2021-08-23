@@ -241,13 +241,13 @@ class OnlineChat extends Component {
         if (state === false && this.pendingMetaUpdate === true){
             this.pendingMetaUpdate = false;
             this.updateMetaAutoHide();
-            this.scrollBottom();
+            this.doScrollBottom();
         }
 
         if (state === true) {
             this.pendingMetaUpdate = true;
             this.updateMetaAutoHide();
-            this.scrollBottom();
+            this.doScrollBottom();
         }
 
     }
@@ -505,7 +505,6 @@ class OnlineChat extends Component {
             (this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded'))
         ) {
             this.scrollBottom();
-
             if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor)) {
                 this.focusMessage();
                 // Sometimes component is not rendered itself. We want to be 100% sure it will always have a focus.
@@ -517,7 +516,14 @@ class OnlineChat extends Component {
 
         if (snapshot !== null) {
             if (this.messagesAreaRef.current) {
-                this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
+                var msgScroller = document.getElementById('messages-scroll');
+                var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lmsgid']));
+                if (msgScroller && messageElement && msgScroller.offsetHeight < messageElement.offsetHeight) {
+                    this.setState({scrollButton: true});
+                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - messageElement.offsetHeight - 10;
+                } else {
+                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
+                }
             }
         }
 
@@ -559,15 +565,17 @@ class OnlineChat extends Component {
         }
     }
 
+    doScrollBottom() {
+        if (this.messagesAreaRef.current) {
+            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+        }
+    }
+
     scrollBottom(onlyIfAtBottom) {
         if (this.messagesAreaRef.current && (!onlyIfAtBottom || !this.state.scrollButton)) {
-
-            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-
+            this.doScrollBottom();
             setTimeout(() => {
-                if (this.messagesAreaRef.current) {
-                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-                }
+                this.doScrollBottom();
                 if (this.state.showMessages === false) {
                     this.setState({'showMessages':true});
                 }
@@ -622,7 +630,7 @@ class OnlineChat extends Component {
 
         this.currentMessageTyping = '';
         this.focusMessage();
-        this.scrollBottom();
+        this.doScrollBottom();
     }
 
     enterKeyDown(e) {

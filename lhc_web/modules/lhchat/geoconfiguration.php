@@ -114,6 +114,9 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         ),
         'ipapi_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'abstractapi_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
 
@@ -278,6 +281,21 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
                 }
 
                 $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('ipapi','8.8.8.8');
+
+                if ($responseDetection == false || !isset($responseDetection->country_code)){
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');
+                }
+
+            } elseif ($form->UseGeoIP == 'abstractapi') {
+                $data['geo_service_identifier'] = 'abstractapi';
+
+                if ( $form->hasValidData( 'abstractapi_key' ) && $form->abstractapi_key != '' ) {
+                    $data['abstractapi_key'] = $form->abstractapi_key;
+                } else {
+                    $data['abstractapi_key'] = '';
+                }
+
+                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('abstractapi','8.8.8.8', array('abstractapi_key' => $data['abstractapi_key']));
 
                 if ($responseDetection == false || !isset($responseDetection->country_code)){
                     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!');

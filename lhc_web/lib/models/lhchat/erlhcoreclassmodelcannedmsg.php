@@ -348,15 +348,46 @@ class erLhcoreClassModelCannedMsg
         ));
         
         $grouped = array();
-        
-        foreach ($items as $item) {
 
+        $replaceCustomArgs = [];
+        foreach ($items as $item) {
             // Set proper message by language
             $item->setMessageByChatLocale($chat->chat_locale);
 
+            foreach (['msg','fallback_msg'] as $metaMsg) {
+                $matchesMessage = [];
+                preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$item->{$metaMsg}, $matchesMessage);
+                if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
+                    foreach ($matchesMessage[0] as $replaceItem) {
+                        if (key_exists($replaceItem,$replaceArray) == false) {
+                            $replaceCustomArgs[] = $replaceItem;
+                        }
+                    }
+                }
+            }
+        }
+
+        $replaceCustomArgs = array_unique($replaceCustomArgs);
+
+        if (!empty($replaceCustomArgs)) {
+
+            $identifiers = [];
+            foreach ($replaceCustomArgs as $replaceArg) {
+                $identifiers[] = str_replace(['{','}'],'', $replaceArg);
+            }
+
+            $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array('limit' => false, 'filterin' => array('identifier' => $identifiers)));
+
+            foreach ($replaceRules as $replaceRule) {
+                $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $chat, 'user' => $user]);
+            }
+        }
+
+        foreach ($items as $item) {
+
             // Set replace data
             $item->setReplaceData($replaceArray);
-            
+
             $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
             $id = $item->department_id > 0 ? $item->department_id : ($item->user_id > 0 ? $item->user_id : 0);
             

@@ -3155,8 +3155,8 @@ class erLhcoreClassChatStatistic {
         $filename = "report-" . $type . "-".date('Y-m-d').".csv";
         $fp = fopen('php://output', 'w');
 
-        //header('Content-type: application/csv');
-        //header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
 
         $weekDays = array(
             0 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sunday'),
@@ -3382,7 +3382,7 @@ class erLhcoreClassChatStatistic {
                     $data['active'],
                     $data['operators'],
                     $data['pending'],
-                    $data['bot'],
+                    (isset($data['bot']) ? $data['bot'] : 0),
                     $data['total_chats'],
                 ]);
             }
