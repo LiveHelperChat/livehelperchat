@@ -35,6 +35,7 @@ $supportedWidgets['online_visitors'] = erTranslationClassLhTranslation::getInsta
 $supportedWidgets['departments_stats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Departments stats');
 $supportedWidgets['pending_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending chats');
 $supportedWidgets['transfered_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Transfered chats');
+$supportedWidgets['subject_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Ongoing trigger alerts');
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhgroupchat', 'use')) {
     $supportedWidgets['group_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Group chats');

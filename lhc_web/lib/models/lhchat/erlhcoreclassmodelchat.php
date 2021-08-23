@@ -292,6 +292,10 @@ class erLhcoreClassModelChat {
        		   $this->wait_time_front = erLhcoreClassChat::formatSeconds($this->wait_time);
        		   return $this->wait_time_front;
 
+       case 'start_last_action_front':
+           $this->start_last_action_front = erLhcoreClassChat::formatSeconds(time() - ($this->status == 0 ? $this->pnd_time : $this->time));
+           return $this->start_last_action_front;
+
        	case 'last_user_msg_time_front':
                $this->last_user_msg_time_front = $this->last_user_msg_time > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->last_user_msg_time) : null;
        		   return $this->last_user_msg_time_front;
