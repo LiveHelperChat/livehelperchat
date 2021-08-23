@@ -57,7 +57,7 @@ $columnSize = 12 / $columnsTotal;
 
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
 
-                <?php elseif ($wiget == 'subject_chats') : ?>
+                <?php elseif ($wiget == 'subject_chats' && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) : ?>
 
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/subject_chats.tpl.php'));?>
 

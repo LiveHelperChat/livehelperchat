@@ -76,7 +76,7 @@ $mapsWidgets = [
     'departments_stats' => 9,
 ];
 
-if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w'])) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
 
     $limitList = is_numeric($Params['user_parameters_unordered']['limits']) ? (int)$Params['user_parameters_unordered']['limits'] : 10;
 
