@@ -22,7 +22,7 @@
             <form action="<?php echo erLhcoreClassDesign::baseurl('chat/subjectwidget')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
                 <div class="row" style="max-height: 500px; overflow-y: auto">
-                <?php foreach (erLhAbstractModelSubject::getList(array('limit' => false)) as $item) : ?>
+                <?php foreach (erLhAbstractModelSubject::getList(array('sort' => 'name ASC','limit' => false)) as $item) : ?>
                     <div class="col-6">
                         <label><input name="subject_id[]" <?php if (in_array($item->id,$subject_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo $item->id?>"> <?php echo htmlspecialchars($item->name)?></label>
                     </div>
