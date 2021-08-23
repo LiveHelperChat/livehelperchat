@@ -310,8 +310,7 @@ class erLhcoreClassChatExport {
                 $subjects = implode(',',erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $item->id))));
                 $is_unread = (int)$item->has_unread_messages;
                 $is_unread_visitor = (int)$item->has_unread_op_messages;
-
-                $is_abandoned = $item->pnd_time > $item->last_op_msg_time || ($item->gbot_id == 0 && $item->user_id == 0 && in_array($item->status_sub,[ erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT , erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED])) || ($item->lsync < ($item->pnd_time + $item->wait_time));
+                $is_abandoned = ($item->lsync < ($item->pnd_time + $item->wait_time) && $item->wait_time > 1) || ($item->lsync > ($item->pnd_time + $item->wait_time) && $item->wait_time > 1 && $item->user_id == 0) ? 1 : 0;
                 $waitAbandoned = 'None';
 
                 if ($is_abandoned == true) {
