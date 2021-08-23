@@ -32,7 +32,7 @@ $ViewList['singleaction'] = array(
 $ViewList['subjectwidget'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use' ),
+    'functions' => array( 'subject_chats_options' ),
 );
 
 $ViewList['loadoperatorjs'] = array(
@@ -702,5 +702,6 @@ $FunctionList['administrate_alert_icon'] = array('explain' => 'Allow operator to
 $FunctionList['prev_chats'] = array('explain' => 'Allow operator to see previous chats from visitor');
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change chat department');
 $FunctionList['subject_chats'] = array('explain' => 'Allow operator see subject filtered chats');
+$FunctionList['subject_chats_options'] = array('explain' => 'Allow operator to choose what subjects should be applied as filter');
 
 ?>
