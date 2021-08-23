@@ -1,14 +1,14 @@
 <table class="table table-sm mb-0 table-small table-fixed list-chat-table">
     <thead>
     <tr>
-        <th width="20%">
+        <th width="15%">
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
         </th>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
-        <th width="40%">
+        <th width="37%">
             <span class="material-icons">label</span>
         </th>
-        <th width="10%">
+        <th width="18%">
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Time since last message')?>" class="material-icons">access_time</i>
         </th>
         <th width="10%">
