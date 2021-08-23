@@ -135,7 +135,10 @@ class erLhcoreClassChat {
 
     public static function getSubjectChats($limit, $offset = 0, $filterAdditional = array()) {
 
-        $subjectIds = json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id','[]'), true);
+        $filterString = '[]';
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('subject.default_filter',array('filter' => & $filterString));
+
+        $subjectIds = json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id', $filterString), true);
 
         $limitation = self::getDepartmentLimitation();
 
