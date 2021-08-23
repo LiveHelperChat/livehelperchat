@@ -6,9 +6,8 @@
                 <i class="material-icons mr-0 action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/subjectwidget'})">settings_applications</i>
         <?php endif; ?>
 
-            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/1"><i class="material-icons chat-active">label</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats.tpl.php'));?>
-                <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats_counter.tpl.php'));?>
-            </a>
+            <i class="material-icons chat-active">label</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats.tpl.php'));?>&nbsp;<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats_counter.tpl.php'));?>
+
             <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('subjectc_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['subjectc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
         </div>
 
