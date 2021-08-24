@@ -1,5 +1,7 @@
 <?php
 
+header('X-Frame-Options: DENY');
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpassword.tpl.php');
 
 $currentUser = erLhcoreClassUser::instance();

@@ -1,5 +1,7 @@
 <?php
 
+header('X-Frame-Options: DENY');
+
 $isExternalRequest = (isset($Params['user_parameters_unordered']['external_request'])) ? true : false;
 
 $currentUser = erLhcoreClassUser::instance();
