@@ -150,6 +150,7 @@ class erLhcoreClassChatWebhookHttp {
                         $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
 
+
                         // Remove spaces
                         if (!in_array($conditionsCurrent['condition'],['like','notlike'])) {
                             $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);

@@ -43,6 +43,7 @@ class NodeActionConditionItem extends Component {
                     <div className="form-group">
                         <label>Condition</label>
                         <select className="form-control form-control-sm" onChange={(e) => this.onConditionChange(e.target.value)} defaultValue={this.props.action.getIn(['content','comp'])} >
+                            <option value="">--Choose--</option>
                             <option value="gt">&gt;</option>
                             <option value="gte">&gt;=</option>
                             <option value="lt">&lt;</option>

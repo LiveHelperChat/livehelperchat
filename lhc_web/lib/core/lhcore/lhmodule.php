@@ -83,7 +83,13 @@ class erLhcoreClassModule{
             }
           
             try {
-            	
+
+                // Send X-Frame-Options if URL is private
+                // Or it's site_admin based one
+                if (isset($currentUser) || erLhcoreClassSystem::instance()->SiteAccess == 'site_admin') {
+                    header('X-Frame-Options: DENY');
+                }
+
             	if (isset($currentUser) && $currentUser->isLogged() && ($timeZone = $currentUser->getUserTimeZone()) != '') {    
             		self::$defaultTimeZone = $timeZone;
             		date_default_timezone_set(self::$defaultTimeZone);            		
