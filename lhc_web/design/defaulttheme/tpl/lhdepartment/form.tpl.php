@@ -354,6 +354,10 @@
                     </div>
 
                     <div class="form-group">
+                        <label><input type="checkbox" name="AutoAssignLowerLimit" value="on" <?php if (isset($departament->bot_configuration_array['auto_lower_limit']) && $departament->bot_configuration_array['auto_lower_limit'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat to lowest number of chats having operator');?></label>
+                    </div>
+
+                    <div class="form-group">
                         <label><input type="checkbox" name="assign_same_language" value="on" <?php if ($departament->assign_same_language == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Try to assign chats first to the same language speaking operators');?></label>
                     </div>
 

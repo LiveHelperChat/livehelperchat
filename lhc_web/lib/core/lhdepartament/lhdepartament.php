@@ -101,6 +101,9 @@ class erLhcoreClassDepartament{
                 'ExcludeInactiveChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
+                'AutoAssignLowerLimit' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
 	   			'MaxNumberActiveChats' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int'
 	   			),
@@ -223,6 +226,8 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 
+       $botConfiguration = $department->bot_configuration_array;
+
 	   	if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'actautoassignment')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment') ) {
 		   	if ( $form->hasValidData( 'AutoAssignActive' ) && $form->AutoAssignActive == true )	{
 		   		$department->active_balancing = 1;
@@ -260,14 +265,18 @@ class erLhcoreClassDepartament{
 		   		$department->exclude_inactive_chats = 0;
 		   	}
 
+		   	if ( $form->hasValidData( 'AutoAssignLowerLimit' ) )	{
+                $botConfiguration['auto_lower_limit'] = $form->AutoAssignLowerLimit;
+		   	} else {
+                $botConfiguration['auto_lower_limit'] = 0;
+		   	}
+
 		   	if ( $form->hasValidData( 'MaxNumberActiveDepChats' ) )	{
 		   		$department->max_ac_dep_chats = $form->MaxNumberActiveDepChats;
 		   	} else {
 		   		$department->max_ac_dep_chats = 0;
 		   	}
 	   	}
-
-        $botConfiguration = $department->bot_configuration_array;
 
 	   	if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'actworkflow')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {
 		   	if ( $form->hasValidData( 'TansferDepartmentID' ) )
