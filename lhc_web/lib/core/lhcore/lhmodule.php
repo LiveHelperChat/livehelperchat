@@ -87,7 +87,7 @@ class erLhcoreClassModule{
                 // Send X-Frame-Options if URL is private
                 // Or it's site_admin based one
                 if (isset($currentUser) || erLhcoreClassSystem::instance()->SiteAccess == 'site_admin') {
-                    header('X-Frame-Options: DENY');
+                    header('X-Frame-Options: SAMEORIGIN');
                 }
 
             	if (isset($currentUser) && $currentUser->isLogged() && ($timeZone = $currentUser->getUserTimeZone()) != '') {    
