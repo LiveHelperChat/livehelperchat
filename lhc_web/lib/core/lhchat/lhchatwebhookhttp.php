@@ -148,22 +148,24 @@ class erLhcoreClassChatWebhookHttp {
                         $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
 
-                        // Remove spaces
-                        $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
-                        $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+                        if (!in_array($conditionsCurrent['condition'],['like','notlike'])) {
+                            // Remove spaces
+                            $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                            $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
-                        // Allow only mathematical operators
-                        $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
-                        $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+                            // Allow only mathematical operators
+                            $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                            $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
 
-                        if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
-                            // Evaluate if there is mathematical rules
-                            eval('$conditionAttr = ' . $conditionAttrMath . ";");
-                        }
+                            if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
+                                // Evaluate if there is mathematical rules
+                                eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                            }
 
-                        if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
-                            // Evaluate if there is mathematical rules
-                            eval('$valueAttr = ' . $valueAttrMath . ";");
+                            if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
+                                // Evaluate if there is mathematical rules
+                                eval('$valueAttr = ' . $valueAttrMath . ";");
+                            }
                         }
 
                         if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
