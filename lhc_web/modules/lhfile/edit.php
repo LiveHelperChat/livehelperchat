@@ -5,6 +5,12 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhfile/edit.tpl.php');
 $file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['file_id']);
 
 if (ezcInputForm::hasPostData()) {
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('file/list');
+        exit;
+    }
+
     $definition = array(
         'persistent' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'

@@ -6,3 +6,5 @@
 <div class="form-group">
      <label><input type="checkbox" name="Type" value="1" <?php if ($item->type == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Private');?></label>
 </div>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

@@ -5,6 +5,11 @@ $tpl->set('file_uploaded', false);
 
 if (isset($_POST['UploadFileAction'])) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('file/list');
+        exit;
+    }
+
     $errors = array();
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_file_new_admin.file_store', array('errors' => & $errors));
 

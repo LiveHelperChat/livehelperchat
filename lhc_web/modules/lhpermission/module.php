@@ -24,6 +24,7 @@ $ViewList['editrole'] = array(
 
 $ViewList['clonerole'] = array(
     'params' => array('role_id'),
+    'uparams' => array('csfr'),
     'functions' => array( 'edit' )
 );
 
