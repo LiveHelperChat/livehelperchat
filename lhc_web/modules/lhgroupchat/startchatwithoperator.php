@@ -11,6 +11,11 @@ $db = ezcDbInstance::get();
 $db->beginTransaction();
 
 try {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSRF token!');
+    }
+
     // We need to find a private chat where only we are the members with another operator
     $sql = "SELECT DISTINCT `lh_group_chat`.`id`,count(`lh_group_chat_member`.`id`) as `tm_live` FROM `lh_group_chat`
 INNER JOIN lh_group_chat_member ON `lh_group_chat_member`.`group_id` = `lh_group_chat`.`id`

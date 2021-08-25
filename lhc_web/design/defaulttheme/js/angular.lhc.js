@@ -12,13 +12,17 @@ lhcAppControllers.config(['$compileProvider', function ($compileProvider) {
     $compileProvider.debugInfoEnabled(false);
 }]);
 
+lhcAppControllers.run(['$http', function ($http) {
+    $http.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+}]);
+
 angular.element(document).ready(function(){
     var element = angular.element(document.querySelector("form"));
     element.triggerHandler("$destroy");
 });
 
 services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
-	
+
 	this.loadChatList = function(filter){
 		var deferred = $q.defer();		
 		$http.get(WWW_DIR_JAVASCRIPT + 'chat/syncadmininterface' + filter).then(function(data) {

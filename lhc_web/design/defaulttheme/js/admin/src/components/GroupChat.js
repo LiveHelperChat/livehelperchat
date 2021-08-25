@@ -8,6 +8,8 @@ import useInterval from "./lib/useInterval";
 import {groupChatSync} from "./lib/groupChatSync";
 import {useTranslation} from 'react-i18next';
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+
 function reducer(state, action) {
     switch (action.type) {
         case 'increment':
