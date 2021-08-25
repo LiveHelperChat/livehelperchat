@@ -454,6 +454,10 @@ if ($tab == 'active') {
         $statisticOptions->value = serialize($configuration);
         $statisticOptions->saveThis();
 
+        // Need to clear cache because messages might start to collect canned messages usage statistic
+        $CacheManager = erConfigClassLhCacheConfig::getInstance();
+        $CacheManager->expireCache();
+
         $tpl->set('updated', true);
     }
 
