@@ -9,7 +9,7 @@
     </thead>
     <tr ng-repeat="chat in active_mails.list track by chat.id">
         <td>
-            <div class="abbr-list" ><a title="{{chat.id}}" ng-click="lhc.previewMail(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startMailChat(chat.id,chat.subject)" title="{{chat.from_address}}">{{chat.from_name}} | {{chat.subject}}</a></div>
+            <div class="abbr-list" ><a title="{{chat.id}}" ng-click="lhc.previewMail(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startMailChat(chat.id,chat.subject_front)" title="{{chat.from_address}}">{{chat.from_name}} | {{chat.subject_front}}</a></div>
         </td>
         <td>
             <div class="abbr-list" >{{chat.pnd_time_front}}</div>

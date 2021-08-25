@@ -101,6 +101,10 @@ class erLhcoreClassModelMailconvConversation
                 $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id);
                 return $this->mailbox;
 
+            case 'subject_front':
+                $this->subject_front = $this->subject != '' ? $this->subject : ($this->from_name != '' ? $this->from_name : $this->id.' '.$this->from_address);
+                return $this->subject_front;
+
             case 'can_delete':
                 $this->can_delete = erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','delete_conversation');
                 return $this->can_delete;
@@ -144,7 +148,7 @@ class erLhcoreClassModelMailconvConversation
 
             case 'customer_email':
                 $this->customer_email = '';
-                if ($this->from_address == $this->mailbox->mail) {
+                if ($this->mailbox instanceof erLhcoreClassModelMailconvMailbox&& $this->from_address == $this->mailbox->mail) {
                     $message = erLhcoreClassModelMailconvMessage::fetch($this->message_id);
                     if (!($message instanceof erLhcoreClassModelMailconvMessage)) {
                         $message = erLhcoreClassModelMailconvMessage::fetch($this->last_message_id);

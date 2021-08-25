@@ -10,7 +10,7 @@
     <tr ng-repeat="chat in alarm_mails.list track by chat.id">
         <td>
             <div class="abbr-list" >
-                <a title="{{chat.id}}" ng-click="lhc.previewMail(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startMailChat(chat.id,chat.subject)" title="{{chat.from_address}}"><i class="material-icons" ng-class="chat.status == 1 ? 'chat-active' : 'chat-pending'">mail_outline</i>{{chat.from_name}} | {{chat.subject}}</a>
+                <a title="{{chat.id}}" ng-click="lhc.previewMail(chat.id)" class="material-icons">info_outline</a><a ng-click="lhc.startMailChat(chat.id,chat.subject_front)" title="{{chat.from_address}}"><i class="material-icons" ng-class="chat.status == 1 ? 'chat-active' : 'chat-pending'">mail_outline</i>{{chat.from_name}} | {{chat.subject_front}}</a>
             </div>
         </td>
         <td>

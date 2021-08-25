@@ -722,7 +722,8 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
-    erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address'), array('department','time','status','user'));
+    erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('department','time','status','user','subject'));
+
     $ReturnMessages['pending_mails'] = array('last_id_identifier' => 'pmails','list' => array_values($pendingMails));
 }
 
@@ -765,7 +766,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
-    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address'), array('department','time','status','user'));
+    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('department','time','status','user','subject'));
     $ReturnMessages['active_mails'] = array('list' => array_values($activeMails));
 }
 
@@ -806,7 +807,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $activeMails = erLhcoreClassChat::getAlarmMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
-    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','wait_time_response','plain_user_name','from_name','from_address'), array('department','time','user'));
+    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','wait_time_response','plain_user_name','from_name','from_address','subject_front'), array('department','time','user','subject'));
     $ReturnMessages['alarm_mails'] = array('last_id_identifier' => 'amails', 'list' => array_values($activeMails));
 }
 // END Mail list

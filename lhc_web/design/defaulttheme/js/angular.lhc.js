@@ -1236,7 +1236,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                 if (tabs.length > 0 && confLH.auto_join_private  == 1) {
                                     item.list.forEach(function (chat) {
                                         if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1) {
-                                            lhinst.startMailChat(chat.id,tabs,LiveHelperChatFactory.truncate(chat.subject,10),true);
+                                            lhinst.startMailChat(chat.id,tabs,LiveHelperChatFactory.truncate(chat.subject_front,10),true);
                                         }
                                     });
                                 }
@@ -1479,7 +1479,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	this.startMailChat = function (chat_id, name) {
         if ($('#tabs').length > 0) {
-            return lhinst.startMailChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name,10));
+            return lhinst.startMailChat(chat_id,$('#tabs'),LiveHelperChatFactory.truncate(name || 'Mail',10));
         }
     }
 
@@ -1803,7 +1803,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             });
 
             angular.forEach(data.cmopen, function(chatOpen) {
-                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject,10));
+                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject || 'Mail',10));
             });
 
             angular.forEach(data.cdel, function(chatOpen) {

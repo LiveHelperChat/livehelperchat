@@ -168,7 +168,7 @@ if (is_array($Params['user_parameters_unordered']['chatmopen']) && !empty($Param
     foreach ($chats as $chat) {
         $chatmOpen[] = array(
             'id' => $chat->id,
-            'subject' => erLhcoreClassDesign::shrt($chat->subject,10,'...',30,ENT_QUOTES)
+            'subject' => erLhcoreClassDesign::shrt($chat->subject_front,10,'...',30,ENT_QUOTES)
         );
     }
 }
