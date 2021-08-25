@@ -97,6 +97,7 @@ if ($tab == 'active') {
             'averageChatTime' => ((is_array($filterParams['input_form']->chart_type) && in_array('avgduration',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::getAverageChatduration(30,$filterParams['filter']) : array()),
             'numberOfMsgByUser' => ((is_array($filterParams['input_form']->chart_type) && in_array('usermsg',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::numberOfMessagesByUser(30,$filterParams['filter']) : array()),
             'subjectsStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('subject',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::subjectsStatistic(30,$filterParams['filter']) : array()),
+            'cannedStatistic' => ((is_array($filterParams['input_form']->chart_type) && in_array('canned',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter']) : array()),
 
             'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDate(30,$filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
             'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNick(30,$filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
@@ -393,9 +394,18 @@ if ($tab == 'active') {
     }
 
     if (ezcInputForm::hasPostData()) {
+        
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            erLhcoreClassModule::redirect();
+            exit;
+        }
+
         $definition = array(
             'chart_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'string', null,FILTER_REQUIRE_ARRAY
+            ),
+            'canned_stats' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'boolean'
             ),
             'chat_chart_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'string',null,FILTER_REQUIRE_ARRAY
@@ -431,6 +441,11 @@ if ($tab == 'active') {
             $configuration['avg_chat_duration'] = 0;
         }
 
+        if ($form->hasValidData('canned_stats')) {
+            $configuration['canned_stats'] = $form->canned_stats;
+        } else {
+            $configuration['canned_stats'] = 0;
+        }
 
         $statisticOptions->explain = '';
         $statisticOptions->type = 0;

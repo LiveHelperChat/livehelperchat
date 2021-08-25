@@ -417,6 +417,7 @@ var LHCCannedMessageAutoSuggest = (function() {
 		        currentValue = _that.textarea.val();
                 var textAppend = $(this).attr('data-msg');
                 var subjects_ids = $(this).attr('subjects_ids');
+                var canned_id = $(this).attr('canned_id');
 
                 var textBeforeCursor = currentValue.substring(0, caretPos);
 
@@ -428,6 +429,10 @@ var LHCCannedMessageAutoSuggest = (function() {
 
                 if (subjects_ids) {
                     _that.textarea.attr('subjects_ids',subjects_ids);
+                }
+
+                if (canned_id) {
+                    _that.textarea.attr('canned_id',canned_id);
                 }
 
 				// Set cursor position

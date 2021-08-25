@@ -39,6 +39,7 @@ const CannedMessages = props => {
         element.value = message.msg;
         element.focus();
         message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
+        element.setAttribute('canned_id',message.id);
         renderPreview(message);
     }
 
@@ -58,6 +59,8 @@ const CannedMessages = props => {
                 formData.append('subjects_ids',message.subject_ids);
                 hasSubjects = true;
             }
+
+            formData.append('canned_id',message.id);
 
             axios.post(WWW_DIR_JAVASCRIPT  + 'chat/addmsgadmin/' + props.chatId, formData,{
                 headers: {'X-CSRFToken': confLH.csrf_token}
@@ -189,6 +192,7 @@ const CannedMessages = props => {
                         element.value = message.msg;
                         element.focus();
                         message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
+                        element.setAttribute('canned_id',message.id);
                         setCollapsed(true);
                     }
                 })
