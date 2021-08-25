@@ -6,6 +6,12 @@ $voiceData = erLhcoreClassModelChatConfig::fetch('vvsh_configuration');
 $data = (array)$voiceData->data;
 
 if (isset($_POST['StoreVoiceConfiguration'])) {
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('voicevideo/configuration');
+        exit;
+    }
+
     $definition = array(
         'provider' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'

@@ -7,6 +7,8 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" method="post" enctype="multipart/form-data" ng-controller="WebhooksIncomingCtrl as webhookincomingsctl" ng-submit="webhookincomingsctl.updateContinuous()" ng-init='webhookincomingsctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS)?>'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhwebhooks/form_incoming.tpl.php'));?>
+    
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" class="btn btn-secondary" name="Update_action" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
