@@ -1,3 +1,10 @@
+3.81v
+
+1. Canned messages usage statistic collecting option. Can be activated in statistic configuration tab. `Collect canned messages usage statistic`
+2. Security fixes. All these were CSFR based issues which does not have much usage on real life scenario. Update is still recommended.
+
+execute doc/update_db/update_253.sql for update
+
 3.80v
 
 1. Custom replaceable variables which you can define in back office. They also allow to set custom value based on chat attributes.

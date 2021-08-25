@@ -802,6 +802,45 @@ class erLhcoreClassChatStatistic {
     	}
     }
 
+    public static function cannedStatistic($days = 30, $filter = array()) {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getcannedstatistic',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+
+            $generalFilter = self::formatFilter($filter);
+            $generalJoin = self::formatJoin($filter);
+
+            $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+            $appendFilterTime = '';
+            if ($useTimeFilter == true) {
+                $appendFilterTime = ' ctime > :time ';
+                if (!empty($generalFilter)) {
+                    $generalFilter = ' AND ' . $generalFilter;
+                }
+            }
+
+            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_canned_msg_use`.`canned_id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id` ORDER BY number_of_chats DESC LIMIT 40";
+
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare($sql);
+
+            if ($useTimeFilter == true) {
+                $stmt->bindValue(':time',$dateUnixPast);
+            }
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $stats = $stmt->fetchAll();
+
+            return $stats;
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function subjectsStatistic($days = 30, $filter = array())
     {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getsubjectsstatistic',array('days' => $days, 'filter' => $filter));
@@ -3231,6 +3270,15 @@ class erLhcoreClassChatStatistic {
                 fputcsv($fp,[
                     date('Y-m-d H:i:s',$date),
                     $value['unanswered']
+                ]);
+            }
+        } else if ($type == 'canned') {
+            fputcsv($fp, ['Canned ID', 'Title', 'Chats number']);
+            foreach ($statistic['cannedStatistic'] as $value) {
+                fputcsv($fp,[
+                    $value['canned_id'],
+                    (string)erLhcoreClassModelCannedMsg::fetch($value['canned_id'],true),
+                    $value['number_of_chats']
                 ]);
             }
         } else if ($type == 'subject') {
