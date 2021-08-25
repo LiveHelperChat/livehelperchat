@@ -3272,6 +3272,15 @@ class erLhcoreClassChatStatistic {
                     $value['unanswered']
                 ]);
             }
+        } else if ($type == 'canned') {
+            fputcsv($fp, ['Canned ID', 'Title', 'Chats number']);
+            foreach ($statistic['cannedStatistic'] as $value) {
+                fputcsv($fp,[
+                    $value['canned_id'],
+                    (string)erLhcoreClassModelCannedMsg::fetch($value['canned_id'],true),
+                    $value['number_of_chats']
+                ]);
+            }
         } else if ($type == 'subject') {
             fputcsv($fp, ['Subject ID','Subject','Chats number']);
             foreach ($statistic['subjectsStatistic'] as $value) {

@@ -401,16 +401,15 @@ class erLhcoreClassModule{
     	            preg_match_all('/erLhcoreClassModelChatConfig::'.$fetchMethod.'\((\s?)\'([a-zA-Z0-9-\.-\/\_]+)\'(\s?)\)->data\[\'([a-zA-Z0-9-\.-\/\_]+)\'\]/i',$contentFile,$Matches);
     	            foreach ($Matches[1] as $key => $UrlAddress)
     	            {
-    	            	$valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
+    	                $valueHolder = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data;
+    	            	$valueConfig = isset($valueHolder[$Matches[4][$key]]) ? $valueHolder[$Matches[4][$key]] : '';
     	            	$valueReplace = '';
     	            	$valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
     	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }
 			    }
 			}
-            
-            
-            
+
             $fileCompiled = 'cache/compiledtemplates/'.md5($file.$instance->WWWDirLang.'_'.$instance->Language).'.php';
 
             // Atomoc template compilation to avoid concurent request compiling and writing to the same file
