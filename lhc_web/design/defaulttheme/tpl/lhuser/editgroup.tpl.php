@@ -1,4 +1,4 @@
-<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Group edit');?> - <?php echo htmlspecialchars($group->name)?></h1>
+<h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Edit group');?> - <?php echo htmlspecialchars($group->name)?></h1>
 
 <?php if (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>

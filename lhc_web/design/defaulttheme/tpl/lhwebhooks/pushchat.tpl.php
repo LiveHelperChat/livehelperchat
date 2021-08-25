@@ -16,6 +16,8 @@
 
 <form action="" method="post" ng-non-bindable>
 
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'Webhook'); ?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (

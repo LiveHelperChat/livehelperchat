@@ -12,6 +12,7 @@
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="proactivevsdefault" <?php if (in_array('proactivevsdefault',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="subject" <?php if (in_array('subject',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by subject')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="canned" <?php if (in_array('canned',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Canned messages statistic')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="thumbs" <?php if (in_array('thumbs',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Up/Down')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="country" <?php if (in_array('country',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by country')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="usermsg" <?php if (in_array('usermsg',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user')?></label></div>
@@ -98,6 +99,13 @@
         </div>
     </div>
 </div>
+
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic'); ?></h5>
+    <div class="row">
+        <div class="col-12"><label><input class="mr-1" type="checkbox" name="canned_stats" value="on" <?php if (isset($configuration['canned_stats']) && $configuration['canned_stats'] == 1) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic')?></label></div>
+    </div>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
 <input class="btn btn-secondary" type="submit" value="Store" name="StoreStatistic" />
 

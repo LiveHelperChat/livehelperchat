@@ -50,18 +50,18 @@
 				<div class="row form-group">
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Host');?></label>
-						<input class="form-control" type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print $xmp_data['host'] : print '' ?>" />
+						<input class="form-control" type="text" name="host" placeholder="talk.google.com" value="<?php (isset($xmp_data['host']) && $xmp_data['host'] != '') ? print htmlspecialchars($xmp_data['host']) : print '' ?>" />
 					</div>
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Port');?></label>
-						<input class="form-control" type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print $xmp_data['port'] : print '5222' ?>" />
+						<input class="form-control" type="text" name="port" value="<?php (isset($xmp_data['port']) && $xmp_data['port'] != '') ? print htmlspecialchars($xmp_data['port']) : print '5222' ?>" />
 					</div>
 				</div>
 				
 				<div class="row form-group">
 					<div class="col-6">			
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Login');?></label>
-						<input class="form-control" type="text" name="username" autocomplete="new-password" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print $xmp_data['username'] : print '' ?>" />
+						<input class="form-control" type="text" name="username" autocomplete="new-password" value="<?php (isset($xmp_data['username']) && $xmp_data['username'] != '') ? print htmlspecialchars($xmp_data['username']) : print '' ?>" />
 					</div>
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Password');?></label>
@@ -72,16 +72,16 @@
 				<div class="row form-group">
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Resource');?></label>
-						<input class="form-control" type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print $xmp_data['resource'] : print '' ?>" />
+						<input class="form-control" type="text" name="resource" placeholder="xmpphp" value="<?php (isset($xmp_data['resource']) && $xmp_data['resource'] != '') ? print htmlspecialchars($xmp_data['resource']) : print '' ?>" />
 					</div>
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Server');?></label>
-						<input class="form-control" type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print $xmp_data['server'] : print '' ?>" />
+						<input class="form-control" type="text" name="server" placeholder="gmail.com" value="<?php (isset($xmp_data['server']) && $xmp_data['server'] != '') ? print htmlspecialchars($xmp_data['server']) : print '' ?>" />
 					</div>
 				</div>
 				
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Recipients');?></label>
-				<input class="form-control" type="text" name="recipients" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Default recipients'); ?>" value="<?php (isset($xmp_data['recipients']) && $xmp_data['recipients'] != '') ? print $xmp_data['recipients'] : print '' ?>" />
+				<input class="form-control" type="text" name="recipients" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Default recipients'); ?>" value="<?php (isset($xmp_data['recipients']) && $xmp_data['recipients'] != '') ? print htmlspecialchars($xmp_data['recipients']) : print '' ?>" />
 								
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 				
@@ -89,12 +89,12 @@
 				
 				<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Individual recipients');?></label>
-				<input class="form-control" type="text" name="test_recipients" value="<?php (isset($xmp_data['test_recipients']) && $xmp_data['test_recipients'] != '') ? print $xmp_data['test_recipients'] : print '' ?>" />
+				<input class="form-control" type="text" name="test_recipients" value="<?php (isset($xmp_data['test_recipients']) && $xmp_data['test_recipients'] != '') ? print htmlspecialchars($xmp_data['test_recipients']) : print '' ?>" />
 				</div>
 				
 				<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Test group recipients');?></label>
-				<input class="form-control" type="text" name="test_group_recipients" value="<?php (isset($xmp_data['test_group_recipients']) && $xmp_data['test_group_recipients'] != '') ? print $xmp_data['test_group_recipients'] : print '' ?>" />
+				<input class="form-control" type="text" name="test_group_recipients" value="<?php (isset($xmp_data['test_group_recipients']) && $xmp_data['test_group_recipients'] != '') ? print htmlspecialchars($xmp_data['test_group_recipients']) : print '' ?>" />
 				</div>
 				
 				<div class="btn-group" role="group" aria-label="...">
@@ -107,7 +107,7 @@
 		        <label><input type="radio" name="use_standard_xmp" value="1" <?php isset($xmp_data['use_standard_xmp']) && ($xmp_data['use_standard_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Use GTalk for messaging'); ?></label>
 				<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Information for your google app')?></h4>	
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Redirect URL, this url you will have to enter in your google app configuration')?></label>
-				<input class="form-control" type="text" value="<?php echo erLhcoreClassXMP::getBaseHost(),$_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>/(gtalkoauth)/true" />
+				<input class="form-control" type="text" value="<?php echo htmlspecialchars(erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'])?><?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>/(gtalkoauth)/true" />
 				
 				
 				<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Enter your app information bellow')?></h4>						
@@ -118,7 +118,7 @@
 				
 				<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Client secret');?></label>
-				<input class="form-control" type="text" name="gtalk_client_secret" value="<?php (isset($xmp_data['gtalk_client_secret']) && $xmp_data['gtalk_client_secret'] != '') ? print $xmp_data['gtalk_client_secret'] : print '' ?>" />
+				<input class="form-control" type="text" name="gtalk_client_secret" value="<?php (isset($xmp_data['gtalk_client_secret']) && $xmp_data['gtalk_client_secret'] != '') ? print htmlspecialchars($xmp_data['gtalk_client_secret']) : print '' ?>" />
 				</div>
 								
 				<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

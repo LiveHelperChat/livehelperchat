@@ -7,7 +7,7 @@ $item = erLhcoreClassModelGroupChat::fetch($Params['user_parameters']['id']);
 if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-        erLhcoreClassModule::redirect('department/departments');
+        erLhcoreClassModule::redirect('groupchat/list');
         exit;
     }
 

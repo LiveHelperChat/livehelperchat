@@ -26,15 +26,15 @@
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="mailsettings">
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Sender address');?></label> <input type="text" class="form-control" name="sender" value="<?php (isset($smtp_data['sender']) && $smtp_data['sender'] != '') ? print $smtp_data['sender'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Sender address');?></label> <input type="text" class="form-control" name="sender" value="<?php (isset($smtp_data['sender']) && $smtp_data['sender'] != '') ? print htmlspecialchars($smtp_data['sender']) : print '' ?>" />
 				</div>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Default from e-mail address');?></label> <input type="text" class="form-control" name="default_from" value="<?php (isset($smtp_data['default_from']) && $smtp_data['default_from'] != '') ? print $smtp_data['default_from'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Default from e-mail address');?></label> <input type="text" class="form-control" name="default_from" value="<?php (isset($smtp_data['default_from']) && $smtp_data['default_from'] != '') ? print htmlspecialchars($smtp_data['default_from']) : print '' ?>" />
 				</div>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Default from name');?></label> <input type="text" class="form-control" name="default_from_name" value="<?php (isset($smtp_data['default_from_name']) && $smtp_data['default_from_name'] != '') ? print $smtp_data['default_from_name'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Default from name');?></label> <input type="text" class="form-control" name="default_from_name" value="<?php (isset($smtp_data['default_from_name']) && $smtp_data['default_from_name'] != '') ? print htmlspecialchars($smtp_data['default_from_name']) : print '' ?>" />
 				</div>
 
 				<div class="btn-group" role="group" aria-label="...">
@@ -46,19 +46,19 @@
 				<label><input type="checkbox" name="use_smtp" value="1" <?php isset($smtp_data['use_smtp']) && ($smtp_data['use_smtp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','SMTP enabled'); ?></label>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Login');?></label> <input type="text" class="form-control" name="username" autocomplete="new-password" value="<?php (isset($smtp_data['username']) && $smtp_data['username'] != '') ? print $smtp_data['username'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Login');?></label> <input type="text" class="form-control" name="username" autocomplete="new-password" value="<?php (isset($smtp_data['username']) && $smtp_data['username'] != '') ? print htmlspecialchars($smtp_data['username']) : print '' ?>" />
 				</div>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Password');?></label> <input type="password" class="form-control" name="password" autocomplete="new-password" value="<?php (isset($smtp_data['password']) && $smtp_data['password'] != '') ? print $smtp_data['password'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Password');?></label> <input type="password" class="form-control" name="password" autocomplete="new-password" value="<?php (isset($smtp_data['password']) && $smtp_data['password'] != '') ? print htmlspecialchars($smtp_data['password']) : print '' ?>" />
 				</div>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host');?>*</label> <input type="text" class="form-control" name="host" value="<?php (isset($smtp_data['host']) && $smtp_data['host'] != '') ? print $smtp_data['host'] : print '' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host');?>*</label> <input type="text" class="form-control" name="host" value="<?php (isset($smtp_data['host']) && $smtp_data['host'] != '') ? print htmlspecialchars($smtp_data['host']) : print '' ?>" />
 				</div>
 
 				<div class="form-group">
-					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?>*</label> <input type="text" class="form-control" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print $smtp_data['port'] : print '25' ?>" />
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?>*</label> <input type="text" class="form-control" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print htmlspecialchars($smtp_data['port']) : print '25' ?>" />
 				</div>
             
                 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

@@ -223,6 +223,7 @@
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgtype" <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message types')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="proactivevsdefault" <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive chats number vs visitors initiated')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="subject" <?php if (in_array('subject',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by subject')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="canned" <?php if (in_array('canned',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Canned messages statistic')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="thumbs" <?php if (in_array('thumbs',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of Thumbs Up/Down')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="country" <?php if (in_array('country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by country')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="usermsg" <?php if (in_array('usermsg',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages by user')?></label></div>
@@ -441,6 +442,21 @@
         };
         drawBasicChart(barChartData,'chart_div_subjects_statistic');
       <?php endif; ?>
+
+        <?php if (!empty($cannedStatistic)) : ?>
+	    var barChartData = {
+            labels: [<?php foreach ($cannedStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((string)erLhcoreClassModelCannedMsg::fetch($data['canned_id'],true),ENT_QUOTES).'\''; endforeach;?>],
+            datasets: [{
+                label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats')?>',
+                backgroundColor: '#4bc044',
+                borderColor: '#4bc044',
+                borderWidth: 1,
+                data: [<?php foreach ($cannedStatistic as $key => $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; endforeach;?>]
+            }]
+        };
+        drawBasicChart(barChartData,'chart_div_canned_statistic');
+      <?php endif; ?>
+
 	};
 	
 	function drawChartCountry() {	
@@ -1210,6 +1226,12 @@
 <hr>
 <h5><a class="csv-export" data-scope="subject" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?></h5>
 <canvas id="chart_div_subjects_statistic"></canvas>
+<?php endif; ?>
+
+<?php if (!empty($cannedStatistic)) : ?>
+<hr>
+<h5><a class="csv-export" data-scope="canned" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_canned.tpl.php'));?></h5>
+<canvas id="chart_div_canned_statistic"></canvas>
 <?php endif; ?>
 
 <?php if (!empty($userStats['thumbsup'])) : ?>

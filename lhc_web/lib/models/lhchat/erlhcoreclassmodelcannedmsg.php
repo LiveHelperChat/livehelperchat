@@ -35,6 +35,10 @@ class erLhcoreClassModelCannedMsg
         );
     }
 
+    public function __toString(){
+        return $this->title;
+    }
+
     public function __get($var)
     {
         switch ($var) {

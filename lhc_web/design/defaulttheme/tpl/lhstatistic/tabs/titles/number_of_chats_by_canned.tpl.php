@@ -1,0 +1,1 @@
+Number of chats by canned message

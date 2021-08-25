@@ -750,7 +750,6 @@
 
     $( document ).ready(function() {
         redrawAllCharts();
-        drawChartWorkload();
     });
 
 </script>

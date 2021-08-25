@@ -6,6 +6,11 @@ $db = ezcDbInstance::get();
 $db->beginTransaction();
 
 try {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSRF token!');
+    }
+
     $item = erLhcoreClassModelGroupChat::fetchAndLock($Params['user_parameters']['id']);
 
     $groupChatMember = erLhcoreClassModelGroupChatMember::findOne(array('filter' => array('user_id' => $currentUser->getUserID(), 'group_id' => $Params['user_parameters']['id'])));

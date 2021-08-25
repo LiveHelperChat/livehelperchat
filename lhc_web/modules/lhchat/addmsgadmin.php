@@ -181,6 +181,16 @@ if (trim($form->msg) != '')
                     }
                 }
 
+                if (isset($_POST['canned_id']) && is_numeric($_POST['canned_id']) && @erLhcoreClassModelChatConfig::fetch('statistic_options')->data['canned_stats'] == 1) {
+                    // @todo add indication do we need to track these stats
+                    erLhcoreClassModelCannedMsgUse::logUse(array(
+                        'canned_id' => (int)$_POST['canned_id'],
+                        'chat_id'   => $Chat->id,
+                        'ctime'     => time(),
+                        'user_id'   => $currentUser->getUserID(),
+                    ));
+                }
+
     	        // If chat is in bot mode and operators writes a message, accept a chat as operator.
     	        if ($Chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && $messageUserId != -1) {
 

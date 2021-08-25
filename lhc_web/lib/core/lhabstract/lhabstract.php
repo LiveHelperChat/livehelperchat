@@ -30,6 +30,10 @@ class erLhcoreClassAbstract
                         $value = $object->$name;
                     }
 
+                    if (empty($value) && isset($attr['default_value'])) {
+                        $value = $attr['default_value'];
+                    }
+
                     if (isset($attr['nginit'])) {
                         $value = str_replace(array('}}','{{'),'',$value);
                     }

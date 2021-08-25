@@ -2803,6 +2803,11 @@ function lh(){
                     hasSubjects = true;
                 }
 
+                if (textArea.attr('canned_id')) {
+                    pdata.canned_id = textArea.attr('canned_id');
+                    textArea.removeAttr('canned_id');
+                }
+
 				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data) {
                     textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
@@ -3000,6 +3005,7 @@ function lh(){
 
             if ($textarea.val() == '') {
                 $textarea.removeAttr('subjects_ids');
+                $textarea.removeAttr('canned_id');
             }
 
             if ($textarea.val() == '' && evt.altKey && (evt.which == 38 || evt.which == 40)) {

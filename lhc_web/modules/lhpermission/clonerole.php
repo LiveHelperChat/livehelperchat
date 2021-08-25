@@ -2,6 +2,11 @@
 
 $role = erLhcoreClassModelRole::fetch((int)$Params['user_parameters']['role_id']);
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    die('Invalid CSFR Token');
+    exit;
+}
+
 $roleFunctions = erLhcoreClassModelRoleFunction::getList(array('limit' => false, 'filter' => array('role_id' => $role->id)));
 
 // Role copy

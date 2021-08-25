@@ -128,56 +128,23 @@ class erLhcoreClassModelChat {
    public function beforeRemove()
    {
        $q = ezcDbInstance::get()->createDeleteQuery();
-       
-       // Messages
-       $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-       
-       // Transfered chats
-       $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-       
-       // Delete user footprint
-       $q->deleteFrom( 'lh_chat_online_user_footprint' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-        
-       // Delete screen sharing
-       $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-        
-       // Delete speech settings
-       $q->deleteFrom( 'lh_speech_chat_language' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-        
-       // Survey
-       $q->deleteFrom( 'lh_abstract_survey_item' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-        
-       // Paid chats
-       $q->deleteFrom( 'lh_chat_paid' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
 
-       // Subjects
-       $q->deleteFrom( 'lh_abstract_subject_chat' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       // Voice calls
-       $q->deleteFrom( 'lh_chat_voice_video' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       // Incoming chats
-       $q->deleteFrom( 'lh_chat_incoming' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
+       foreach ([
+           'lh_msg',
+           'lh_transfer',
+           'lh_chat_online_user_footprint',
+           'lh_cobrowse',
+           'lh_speech_chat_language',
+           'lh_abstract_survey_item',
+           'lh_chat_paid',
+           'lh_abstract_subject_chat',
+           'lh_chat_voice_video',
+           'lh_chat_incoming',
+           'lh_canned_msg_use'] as $table){
+           $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
+           $stmt = $q->prepare();
+           $stmt->execute();
+       }
 
        $this->removePendingEvents();
 
@@ -188,26 +155,15 @@ class erLhcoreClassModelChat {
 
    public function removePendingEvents() {
        $q = ezcDbInstance::get()->createDeleteQuery();
-
-       // Auto responder chats
-       $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       // Repeat counter remove
-       $q->deleteFrom( 'lh_generic_bot_repeat_restrict' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       // Bot chat event remove
-       $q->deleteFrom( 'lh_generic_bot_chat_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
-
-       // Bot chat event remove
-       $q->deleteFrom( 'lh_generic_bot_pending_event' )->where( $q->expr->eq( 'chat_id', $this->id ) );
-       $stmt = $q->prepare();
-       $stmt->execute();
+       foreach ([
+                    'lh_abstract_auto_responder_chat',
+                    'lh_generic_bot_repeat_restrict',
+                    'lh_generic_bot_chat_event',
+                    'lh_generic_bot_pending_event'] as $table){
+           $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
+           $stmt = $q->prepare();
+           $stmt->execute();
+       }
    }
 
    public function afterRemove()

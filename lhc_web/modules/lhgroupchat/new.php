@@ -10,6 +10,11 @@ if ( isset($_POST['Cancel_action']) ) {
 
 if (isset($_POST['Save_action']) || isset($_POST['Update_action']))
 {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('groupchat/new');
+        exit;
+    }
+    
     $Errors = erLhcoreClassGroupChat::validateGroupChat($item);
 
     if (count($Errors) == 0)
