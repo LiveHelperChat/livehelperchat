@@ -48,7 +48,9 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" id="sendemail-form" method="post">
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Mailbox');?></label>
@@ -148,7 +150,7 @@
     </script>
 
     <div>
-        <button name="SendEmail" onclick="$(this).attr('disabled')" class="btn btn-sm btn-secondary" type="submit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></button>
+        <button name="SendEmail" onclick="$(this).attr('disabled','disabled').text('Sending...');$('#sendemail-form').submit()" class="btn btn-sm btn-secondary" type="submit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></button>
     </div>
 
 </form>

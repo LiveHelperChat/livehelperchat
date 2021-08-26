@@ -7,7 +7,12 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/sendemail.tpl.php');
 $item = new erLhcoreClassModelMailconvMessage();
 
 if (ezcInputForm::hasPostData()) {
+
     $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item);
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    }
 
     if (empty($Errors)) {
 
