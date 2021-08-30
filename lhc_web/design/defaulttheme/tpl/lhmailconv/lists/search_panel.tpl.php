@@ -196,6 +196,8 @@
             </div>
         </div>
 
+        <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel_multiinclude.tpl.php'));?>
+
     </div>
 
     <div class="row">

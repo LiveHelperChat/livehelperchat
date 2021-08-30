@@ -76,7 +76,7 @@ if ($limitation !== false) {
     $filterParams['filter']['smart_select'] = true;
 }
 
-
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
     erLhcoreClassMailconvExport::exportXLS(erLhcoreClassModelMailconvConversation::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))));
