@@ -27,7 +27,7 @@
                             </tr>
                         </thead>
                         <?php foreach ($items as $chat) : ?>
-                        <tr>
+                            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/start_row.tpl.php')); ?>
                         	<td><?php if ($chat->can_edit_chat == true) : ?><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
                             <td>
                               <?php foreach ($chat->aicons as $aicon) : ?>

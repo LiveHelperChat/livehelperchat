@@ -48,7 +48,7 @@ class erLhcoreClassAbstract
                         $ngModel .= " maxlength=\"{$attr['maxlength']}\" ";
                     }
 
-                    return '<input class="form-control form-control-sm" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
+                    return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
                 }
                 break;
 
@@ -62,6 +62,11 @@ class erLhcoreClassAbstract
                 } else {
                     $value = $object->$name;
                 }
+
+                if (empty($value) && isset($attr['default_value'])) {
+                    $value = $attr['default_value'];
+                }
+
                 return '<div class="input-group input-group-sm" ng-init=\'bactract_bg_color_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\'><div class="input-group-prepend"><span style="background-color:#{{bactract_bg_color_' . $name . '}}" class="input-group-text">#</span></div><input class="form-control" class="abstract_input" ng-model="bactract_bg_color_' . $name . '" id="id_AbstractInput_' . $name . '" name="AbstractInput_' . $name . '" type="text" value="' . htmlspecialchars($value) . '" /></div><script>$(\'#id_AbstractInput_' . $name . '\').ColorPicker({	onSubmit: function(hsb, hex, rgb, el) {		$(el).val(hex);	$(el).trigger(\'input\'); $(el).trigger(\'change\'); $(el).ColorPickerHide();	},	onBeforeShow: function () {		$(this).ColorPickerSetColor(this.value);	}});</script>';
                 break;
 
@@ -73,7 +78,7 @@ class erLhcoreClassAbstract
                     $returnString = '';
 
                     foreach (erConfigClassLhConfig::getInstance()->getSetting('site', 'available_locales') as $locale) {
-                        $returnString .= '<textarea ng-non-bindable style="height:' . $height . ';"  class="form-control" name="AbstractInput_' . $name . '_' . $locale . '">' . htmlspecialchars($object->{$name . '_' . strtolower($locale)}) . '</textarea>' . $locale . '<br/>';
+                        $returnString .= '<textarea ng-non-bindable style="height:' . $height . ';"  class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" name="AbstractInput_' . $name . '_' . $locale . '">' . htmlspecialchars($object->{$name . '_' . strtolower($locale)}) . '</textarea>' . $locale . '<br/>';
                     }
 
                     return $returnString;
@@ -103,7 +108,7 @@ class erLhcoreClassAbstract
 
                     $aceEditor = isset($attr['ace_editor']) ? ' data-editor="'.$attr['ace_editor'].'" ' : '';
 
-                    return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' ' . $aceEditor . ' class="form-control" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
+                    return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' ' . $aceEditor . ' class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
                 }
                 break;
 
