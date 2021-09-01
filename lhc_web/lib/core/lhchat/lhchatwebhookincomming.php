@@ -128,6 +128,34 @@ class erLhcoreClassChatWebhookIncoming {
 
         if ($typeMessage == 'unknown')
         {
+            if (isset($conditions['msg_cond_img_3']) && $conditions['msg_cond_img_3'] != "") {
+                $typeMessage = 'img_3';
+                $conditionsPairs = explode("||",$conditions['msg_cond_img_3']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=',$conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    if ((is_array($conditionsPairData[1]) && !in_array($payloadMessage[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payloadMessage[$conditionsPairData[0]]) && $payloadMessage[$conditionsPairData[0]] == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'img_3') {
+                    $msgBody = $conditions['msg_img_3'];
+                    $conditionsOperator = isset($conditions['msg_cond_img_3_op']) ? $conditions['msg_cond_img_3_op'] : "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown')
+        {
             $msgBody = $conditions['msg_body_2'];
 
             if (isset($conditions['msg_cond_2']) && $conditions['msg_cond_2'] != "") {
@@ -303,7 +331,7 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
 
-            if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'attachments') {
+            if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'attachments') {
                 if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
                     $file = self::parseFilesDecode(array(
                         'msg' => $payloadMessage,
@@ -515,7 +543,7 @@ class erLhcoreClassChatWebhookIncoming {
             $chat->chat_variables = json_encode($chatVariables);
             $chat->saveThis();
 
-            if ($typeMessage == 'img' || $typeMessage == 'img_2' ||  $typeMessage == 'attachments') {
+            if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'attachments') {
                 if (isset($conditions['msg_cond_'.$typeMessage.'_url_decode']) && $conditions['msg_cond_'.$typeMessage.'_url_decode'] != '') {
                     $file = self::parseFilesDecode(array(
                         'msg' => $payloadMessage,
