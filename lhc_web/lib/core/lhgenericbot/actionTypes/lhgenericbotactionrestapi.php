@@ -256,13 +256,24 @@ class erLhcoreClassGenericBotActionRestapi
         $file_name = null;
 
         $file_api = false;
-        
+
         // Switch to file API if it's only one file send
         if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
             foreach ($files as $mediaFile) {
 
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
                     $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                    if (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+                        $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
+                        $methodSettings['body_raw_file'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $methodSettings['body_raw_file'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['body_raw_file']);
+                    } else {
+                        $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
+                        $methodSettings['body_raw_file'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
+                        $methodSettings['body_raw_file'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['body_raw_file']);
+                    }
                 }
 
                 $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
