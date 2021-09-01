@@ -86,6 +86,12 @@ class erLhcoreClassGenericBotActionConditions {
                         $valAttr = $valueAttribute['found'] == true ? $valueAttribute['value'] : $valAttr;
                     }
 
+                    // For these operations we want numbers
+                    if (in_array($condition['content']['comp'],['lt','lte','gt','gte'])) {
+                        $attr = round((float)$attr,3);
+                        $valAttr = round((float)$valAttr,3);
+                    }
+
                     if ($condition['content']['comp'] == 'eq' && !($attr == $valAttr)) {
                         $conditionsMet = false;
                         break;
