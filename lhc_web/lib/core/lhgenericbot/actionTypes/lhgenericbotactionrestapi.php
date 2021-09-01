@@ -151,6 +151,14 @@ class erLhcoreClassGenericBotActionRestapi
                         $argsDefault['msg_text'] = $params['msg_text'];
                     }
 
+                    // Alternative trigger, most of the time just for logging purposes
+                    if (isset($action['content']['rest_api_method_output']['default_trigger_alt']) && is_numeric($action['content']['rest_api_method_output']['default_trigger_alt'])) {
+                        $triggerDefaultAlt = erLhcoreClassModelGenericBotTrigger::fetch($action['content']['rest_api_method_output']['default_trigger_alt']);
+                        if ($triggerDefaultAlt instanceof erLhcoreClassModelGenericBotTrigger) {
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $triggerDefaultAlt, false, array('args' => $argsDefault));
+                        }
+                    }
+
                     return $argsDefault;
                 }
 

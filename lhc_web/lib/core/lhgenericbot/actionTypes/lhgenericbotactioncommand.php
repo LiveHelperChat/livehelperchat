@@ -427,9 +427,18 @@ class erLhcoreClassGenericBotActionCommand {
             }
 
         } elseif ($action['content']['command'] == 'dispatchevent') {
+
+                $valueTranslated = $action['content']['payload_arg'];
+
+                if (isset($params['replace_array'])) {
+                    $valueTranslated = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']), $valueTranslated);
+                }
+
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_chat_command_dispatch_event', array(
                     'action' => $action,
+                    'payload_translated' => erLhcoreClassGenericBotWorkflow::translateMessage($valueTranslated, array('chat' => $chat, 'args' => $params)),
                     'chat' => & $chat,
+                    'params_dispatch' => $params,
                     'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])
                 ));
         }
