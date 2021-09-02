@@ -168,6 +168,12 @@ class erLhcoreClassChatWebhookHttp {
                             }
                         }
 
+                        // For these operations we want numbers
+                        if (in_array($conditionsCurrent['condition'],['lt','lte','gt','gte'])) {
+                            $conditionAttr = round((float)$conditionAttr,3);
+                            $valueAttr = round((float)$valueAttr,3);
+                        }
+
                         if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
                             $conditionItemValid = true;
                         } else if ($conditionsCurrent['condition'] == 'lt' && ($conditionAttr < $valueAttr)) {
@@ -175,6 +181,10 @@ class erLhcoreClassChatWebhookHttp {
                         } else if ($conditionsCurrent['condition'] == 'lte' && ($conditionAttr <= $valueAttr)) {
                             $conditionItemValid = true;
                         } else if ($conditionsCurrent['condition'] == 'neq' && ($conditionAttr != $valueAttr)) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'notempty' && !empty(trim($conditionAttr))) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'empty' && empty(trim($conditionAttr))) {
                             $conditionItemValid = true;
                         } else if ($conditionsCurrent['condition'] == 'gte' && ($conditionAttr >= $valueAttr)) {
                             $conditionItemValid = true;
