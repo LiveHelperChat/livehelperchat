@@ -4,6 +4,8 @@ class erLhcoreClassMailconvStatistic {
 
     public static function messagesPerInterval($filter, $params_execution) {
 
+        self::formatFilterMail($filter);
+
         if ($params_execution['group_by'] == 1) {
             $numberOfChats = array();
 
@@ -82,11 +84,27 @@ class erLhcoreClassMailconvStatistic {
         }
     }
 
+    public static function formatFilterMail(& $filter, $table = '`lhc_mailconv_msg`') {
+
+        if (isset($filter['filterin']['lh_chat.dep_id'])) {
+            $filter['filterin'][$table.'.`dep_id`'] = $filter['filterin']['lh_chat.dep_id'];
+            unset($filter['filterin']['lh_chat.dep_id']);
+        }
+        
+        if (isset($filter['filterin']['lh_chat.user_id'])) {
+            $filter['filterin'][$table.'.`dep_id`'] = $filter['filterin']['lh_chat.user_id'];
+            unset($filter['filterin']['lh_chat.user_id']);
+        }
+
+    }
+
     public static function messagesPerUser($filter) {
 
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
         }
+
+        self::formatFilterMail($filter);
 
         $items = erLhcoreClassModelMailconvMessage::getCount(
             array_merge(array('sort' => 'total_records DESC', 'limit' => 20, 'group' => 'user_id'),$filter),
@@ -105,6 +123,8 @@ class erLhcoreClassMailconvStatistic {
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
         }
+
+        self::formatFilterMail($filter);
 
         $items = erLhcoreClassModelMailconvMessage::getCount(
             array_merge(array('sort' => 'total_records DESC', 'limit' => 20, 'group' => 'dep_id'),$filter),
@@ -127,6 +147,8 @@ class erLhcoreClassMailconvStatistic {
         $filter['filtergt']['interaction_time'] = 0;
         $filter['filterlt']['interaction_time'] = 600;
 
+        self::formatFilterMail($filter);
+
         $items = erLhcoreClassModelMailconvMessage::getCount(
             array_merge(array('sort' => 'interaction_time DESC', 'limit' => 20, 'group' => 'dep_id'),$filter),
             '',
@@ -140,6 +162,8 @@ class erLhcoreClassMailconvStatistic {
     }
 
     public static function avgInteractionPerUser($filter) {
+
+        self::formatFilterMail($filter);
 
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
@@ -162,6 +186,8 @@ class erLhcoreClassMailconvStatistic {
 
     public static function messagesPerHour($filter = array())
     {
+        self::formatFilterMail($filter);
+
         $numberOfChats = array('total' => array(), 'byday' => array(), 'bydaymax' => array());
 
         if (!isset($filter['filtergte']['udate'])) {
@@ -182,6 +208,8 @@ class erLhcoreClassMailconvStatistic {
 
     public static function attrByPerIntervalDay($filter = array(), $filterParams = array())
     {
+        self::formatFilterMail($filter);
+
         $numberOfChats = array();
         $departmentFilter = array();
 
@@ -284,6 +312,8 @@ class erLhcoreClassMailconvStatistic {
 
     public static function attrByPerIntervalMonth($filter = array(), $filterParams = array())
     {
+        self::formatFilterMail($filter);
+
         $numberOfChats = array();
         $departmentFilter = array();
 
