@@ -408,7 +408,7 @@ class erLhcoreClassMailconvParser {
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply',array(
                                 'mail' => & $message,
-                                'conversation' => & $conversations
+                                'conversation' => & $conversation
                             ));
                         }
 
