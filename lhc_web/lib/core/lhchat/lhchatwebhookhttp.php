@@ -127,7 +127,7 @@ class erLhcoreClassChatWebhookHttp {
                             }
                         }
 
-                        $valueAttr = $conditionsCurrent['value'];
+                        $valueAttr = isset($conditionsCurrent['value']) ? $conditionsCurrent['value'] : '';
 
                         if (strpos($valueAttr,'{args.') !== false) {
                             $matchesValues = array();
