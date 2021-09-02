@@ -35,12 +35,22 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 /*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
 erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);*/
 ;
+$mailbox = erLhcoreClassModelMailconvMailbox::fetch(3);
 
-$filteredMatchingRules = [erLhcoreClassModelMailconvMatchRule::fetch(1)];
+$filteredMatchingRules = array();
+$matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
+foreach ($matchingRulesByMailbox as $matchingRule) {
+    if (in_array($mailbox->id,$matchingRule->mailbox_ids)) {
+        $filteredMatchingRules[] = $matchingRule;
+    }
+}
 
-$rule = erLhcoreClassMailconvParser::getMatchingRuleByMessage(erLhcoreClassModelMailconvMessage::fetch(1096), $filteredMatchingRules);
 
-print_r($rule);
+/*$filteredMatchingRules = [erLhcoreClassModelMailconvMatchRule::fetch(1152)];*/
+
+$rule = erLhcoreClassMailconvParser::getMatchingRuleByMessage(erLhcoreClassModelMailconvMessage::fetch(1152), $filteredMatchingRules);
+
+var_dump($rule);
 
 
 ?>

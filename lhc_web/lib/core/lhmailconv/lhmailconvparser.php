@@ -252,13 +252,6 @@ class erLhcoreClassMailconvParser {
                             $message->bcc_data = json_encode($head->bcc);
                         }
 
-                        $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
-
-                        if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
-                            $statsImport[] = 'No matching rule - Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
-                            continue;
-                        }
-
                         // Parse body
                         $mail = $mailboxHandler->getMail($mailInfo->uid, false);
 
@@ -268,6 +261,13 @@ class erLhcoreClassMailconvParser {
 
                         if ($mail->textPlain) {
                             $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
+                        }
+
+                        $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
+
+                        if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
+                            $statsImport[] = 'No matching rule - Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                            continue;
                         }
 
                         $message->saveThis();
@@ -334,6 +334,10 @@ class erLhcoreClassMailconvParser {
                         if ($message->has_attachment > $conversations->has_attachment) {
                             $conversations->has_attachment = $message->has_attachment;
                             $conversations->updateThis(['update' => ['has_attachment']]);
+                        }
+
+                        if (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) {
+                            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
                         }
 
                         if ($conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
@@ -455,6 +459,10 @@ class erLhcoreClassMailconvParser {
                 $message->conversation_id = $conversations->id;
                 $message->dep_id = $conversations->dep_id;
                 $message->updateThis(['update' => ['conversation_id','dep_id']]);
+
+                if (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) {
+                    erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
+                }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
                     'mail' => & $message,
