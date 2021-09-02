@@ -164,6 +164,19 @@ class erLhcoreClassModelMailconvConversation
                 }
                 return $this->customer_email;
 
+            case 'mail_variables_array':
+                if (!empty($this->mail_variables)) {
+                    $jsonData = json_decode($this->mail_variables,true);
+                    if ($jsonData !== null) {
+                        $this->mail_variables_array = $jsonData;
+                    } else {
+                        $this->mail_variables_array = $this->mail_variables;
+                    }
+                } else {
+                    $this->mail_variables_array = array();
+                }
+                return $this->mail_variables_array;
+
             default:
                 ;
                 break;
