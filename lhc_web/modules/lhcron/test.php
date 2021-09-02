@@ -34,8 +34,13 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 // php72 cron.php -s site_admin -c cron/test
 /*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
 erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);*/
+;
 
-echo erLhcoreClassChat::getCount(['filter' => ['conversation_id' => 150003384]],'lhc_mailconv_msg','SUM(conv_duration)');
+$filteredMatchingRules = [erLhcoreClassModelMailconvMatchRule::fetch(1)];
+
+$rule = erLhcoreClassMailconvParser::getMatchingRuleByMessage(erLhcoreClassModelMailconvMessage::fetch(1096), $filteredMatchingRules);
+
+print_r($rule);
 
 
 ?>
