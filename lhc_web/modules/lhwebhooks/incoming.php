@@ -32,7 +32,7 @@ try {
 
 } catch (Exception $e) {
     if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true){
-        erLhcoreClassLog::write($e->getMessage().' | '.$data);
+        erLhcoreClassLog::write($e->getMessage().' | '. json_encode($data));
     }
 }
 

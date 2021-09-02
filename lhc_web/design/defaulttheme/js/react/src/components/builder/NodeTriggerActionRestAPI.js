@@ -159,9 +159,17 @@ class NodeTriggerActionRestAPI extends Component {
                 {userParams}
                 {outputCombinations}
 
-                <div className="form-group">
-                    <label>Default trigger to execute</label>
-                    <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger'])} />
+                <div className="row">
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label>Default trigger to execute</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger'])} />
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <label>Trigger to execute before default</label>
+                        <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger_alt'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger_alt'])} />
+                    </div>
                 </div>
 
                 <div className="row">

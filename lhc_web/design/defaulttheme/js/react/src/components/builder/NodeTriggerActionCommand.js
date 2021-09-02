@@ -186,7 +186,7 @@ class NodeTriggerActionCommand extends Component {
                     </div>
                     <div className="form-group">
                         <label>Event argument</label>
-                        <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} />
+                        <textarea className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
                     </div>
                 </div>}
 
