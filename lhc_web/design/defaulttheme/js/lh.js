@@ -1756,7 +1756,7 @@ function lh(){
         }
 	};
 
-	this.startChatNewWindowTransferByTransfer = function(chat_id, nt, transferScope)
+	this.startChatNewWindowTransferByTransfer = function(chat_id, nt, transferScope, background)
 	{
 		var inst = this;
 		$.ajax({
@@ -1767,12 +1767,17 @@ function lh(){
 	    }).done(function(data){
 
 	    	if ($('#tabs').length > 0) {
-    			window.focus();
     			if (transferScope == 1) {
                     inst.startMailChat(data.chat_id, $('#tabs'), nt);
+                    window.focus();
                 } else {
-                    inst.startChat(data.chat_id, $('#tabs'), nt);
-                }
+                    if (typeof background !== 'undefined' && background === true) {
+                        inst.startChatBackground(data.chat_id, $('#tabs'), nt);
+                    } else {
+                        window.focus();
+                        inst.startChat(data.chat_id, $('#tabs'), nt);
+                    }
+    			}
     		} else {
                 if (transferScope == 1) {
                     inst.startMailNewWindow(data.chat_id,'ChatMail');
@@ -2672,7 +2677,7 @@ function lh(){
 	    };
 
 	    if (identifier == 'transfer_chat' && confLH.accept_chats) {
-            inst.startChatNewWindowTransferByTransfer(chat_id, nt);
+            inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0, true);
         } else if (identifier == 'transfer_chat' && confLH.show_alert_transfer == 1) {
             if (confirm(confLH.transLation.transfered + "\n\n" + message)) {
                 inst.startChatNewWindowTransferByTransfer(chat_id, nt, 0);
