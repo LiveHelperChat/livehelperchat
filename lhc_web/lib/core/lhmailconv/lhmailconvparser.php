@@ -619,6 +619,15 @@ class erLhcoreClassMailconvParser {
                 }
             }
 
+            // Check conditions
+            $conditions = $matchingRule->conditions_array;
+            if (!empty($conditions)) {
+                // Same logic applies to matching rules and webhooks
+                if (erLhcoreClassChatWebhookHttp::isValidConditions($matchingRule, $message) !== true) {
+                    $matched = false;
+                }
+            }
+
             if ($matched == true) {
                 return $matchingRule;
             }

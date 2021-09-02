@@ -27,6 +27,7 @@ class erLhcoreClassModelMailconvMatchRule
             'from_mail' => $this->from_mail,
             'priority_rule' => $this->priority_rule,
             'priority' => $this->priority,
+            'options' => $this->options,
         );
     }
 
@@ -70,6 +71,22 @@ class erLhcoreClassModelMailconvMatchRule
                 }
                 return $this->from_mail_array;
 
+            case 'conditions_array':
+                $conditions_array = json_decode($this->conditions,true);
+                if ($conditions_array === null) {
+                    $conditions_array = [];
+                }
+                $this->conditions_array = $conditions_array;
+                return $this->conditions_array;
+
+            case 'options_array':
+                $options_array = json_decode($this->options,true);
+                if ($options_array === null) {
+                    $options_array = [];
+                }
+                $this->options_array = $options_array;
+                return $this->options_array;
+
             default:
                 ;
                 break;
@@ -85,6 +102,7 @@ class erLhcoreClassModelMailconvMatchRule
     public $from_name = '';
     public $from_mail = '';
     public $priority = 0;
+    public $options = '';
     public $priority_rule = 0;
 }
 

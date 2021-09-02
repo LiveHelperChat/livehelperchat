@@ -14,6 +14,9 @@ class erLhcoreClassMailconvValidator {
             'active' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'close_conversation' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'mailbox_ids' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
             ),
@@ -47,6 +50,12 @@ class erLhcoreClassMailconvValidator {
             $item->from_mail = $form->from_mail;
         } else {
             $item->from_mail = '';
+        }
+
+        if ($form->hasValidData( 'conditions' )) {
+            $item->conditions = $form->conditions;
+        } else {
+            $item->conditions = '';
         }
 
         if ($form->hasValidData( 'from_name' )) {
@@ -86,6 +95,17 @@ class erLhcoreClassMailconvValidator {
         } else {
             $item->active = 0;
         }
+
+        $options = $item->options_array;
+
+        if ($form->hasValidData( 'close_conversation' ) && $form->close_conversation == true) {
+            $options['close_conversation'] = 1;
+        } else {
+            $options['close_conversation'] = 0;
+        }
+
+        $item->options_array = $options;
+        $item->options = json_encode($item->options_array);
 
         return $Errors;
     }
