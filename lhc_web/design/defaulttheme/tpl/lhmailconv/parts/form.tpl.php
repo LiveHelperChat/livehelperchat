@@ -35,13 +35,13 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Username');?></label>
-            <input type="text" placeholder="example@example.org" maxlength="250" class="form-control form-control-sm" name="username" value="<?php echo htmlspecialchars($item->username)?>" />
+            <input type="text" placeholder="example@example.org" maxlength="250" autocomplete="new-password" class="form-control form-control-sm" name="username" value="<?php echo htmlspecialchars($item->username)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Password');?></label>
-            <input type="password" maxlength="250" class="form-control form-control-sm" name="password" value="<?php echo htmlspecialchars($item->password)?>" />
+            <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password" value="<?php echo htmlspecialchars($item->password)?>" />
         </div>
     </div>
 </div>
@@ -68,6 +68,11 @@
     <div class="col-6">
         <div class="form-group">
             <label><input type="checkbox" name="create_a_copy" value="on" <?php $item->create_a_copy == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Create a copy in a send folder.');?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" name="assign_parent_user" value="on" <?php $item->assign_parent_user == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Assign follow-up e-mail to the previous thread owner');?></label>
         </div>
     </div>
 </div>

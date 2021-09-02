@@ -9,120 +9,24 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['mail'] = new ezcPersistentObjectProperty();
-$def->properties['mail']->columnName   = 'mail';
-$def->properties['mail']->propertyName = 'mail';
-$def->properties['mail']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array(
+             'mail','name','username','password','host','imap','last_sync_log','mailbox_sync','signature','uuid_status'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['name'] = new ezcPersistentObjectProperty();
-$def->properties['name']->columnName   = 'name';
-$def->properties['name']->propertyName = 'name';
-$def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['username'] = new ezcPersistentObjectProperty();
-$def->properties['username']->columnName   = 'username';
-$def->properties['username']->propertyName = 'username';
-$def->properties['username']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['password'] = new ezcPersistentObjectProperty();
-$def->properties['password']->columnName   = 'password';
-$def->properties['password']->propertyName = 'password';
-$def->properties['password']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['host'] = new ezcPersistentObjectProperty();
-$def->properties['host']->columnName   = 'host';
-$def->properties['host']->propertyName = 'host';
-$def->properties['host']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['imap'] = new ezcPersistentObjectProperty();
-$def->properties['imap']->columnName   = 'imap';
-$def->properties['imap']->propertyName = 'imap';
-$def->properties['imap']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['port'] = new ezcPersistentObjectProperty();
-$def->properties['port']->columnName   = 'port';
-$def->properties['port']->propertyName = 'port';
-$def->properties['port']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['active'] = new ezcPersistentObjectProperty();
-$def->properties['active']->columnName   = 'active';
-$def->properties['active']->propertyName = 'active';
-$def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['create_a_copy'] = new ezcPersistentObjectProperty();
-$def->properties['create_a_copy']->columnName   = 'create_a_copy';
-$def->properties['create_a_copy']->propertyName = 'create_a_copy';
-$def->properties['create_a_copy']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['delete_mode'] = new ezcPersistentObjectProperty();
-$def->properties['delete_mode']->columnName   = 'delete_mode';
-$def->properties['delete_mode']->propertyName = 'delete_mode';
-$def->properties['delete_mode']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['sync_status'] = new ezcPersistentObjectProperty();
-$def->properties['sync_status']->columnName   = 'sync_status';
-$def->properties['sync_status']->propertyName = 'sync_status';
-$def->properties['sync_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['sync_started'] = new ezcPersistentObjectProperty();
-$def->properties['sync_started']->columnName   = 'sync_started';
-$def->properties['sync_started']->propertyName = 'sync_started';
-$def->properties['sync_started']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['sync_interval'] = new ezcPersistentObjectProperty();
-$def->properties['sync_interval']->columnName   = 'sync_interval';
-$def->properties['sync_interval']->propertyName = 'sync_interval';
-$def->properties['sync_interval']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['last_sync_time'] = new ezcPersistentObjectProperty();
-$def->properties['last_sync_time']->columnName   = 'last_sync_time';
-$def->properties['last_sync_time']->propertyName = 'last_sync_time';
-$def->properties['last_sync_time']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['import_since'] = new ezcPersistentObjectProperty();
-$def->properties['import_since']->columnName   = 'import_since';
-$def->properties['import_since']->propertyName = 'import_since';
-$def->properties['import_since']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['last_sync_log'] = new ezcPersistentObjectProperty();
-$def->properties['last_sync_log']->columnName   = 'last_sync_log';
-$def->properties['last_sync_log']->propertyName = 'last_sync_log';
-$def->properties['last_sync_log']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['mailbox_sync'] = new ezcPersistentObjectProperty();
-$def->properties['mailbox_sync']->columnName   = 'mailbox_sync';
-$def->properties['mailbox_sync']->propertyName = 'mailbox_sync';
-$def->properties['mailbox_sync']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['signature'] = new ezcPersistentObjectProperty();
-$def->properties['signature']->columnName   = 'signature';
-$def->properties['signature']->propertyName = 'signature';
-$def->properties['signature']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['signature_under'] = new ezcPersistentObjectProperty();
-$def->properties['signature_under']->columnName   = 'signature_under';
-$def->properties['signature_under']->propertyName = 'signature_under';
-$def->properties['signature_under']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['reopen_timeout'] = new ezcPersistentObjectProperty();
-$def->properties['reopen_timeout']->columnName   = 'reopen_timeout';
-$def->properties['reopen_timeout']->propertyName = 'reopen_timeout';
-$def->properties['reopen_timeout']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['failed'] = new ezcPersistentObjectProperty();
-$def->properties['failed']->columnName   = 'failed';
-$def->properties['failed']->propertyName = 'failed';
-$def->properties['failed']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['uuid_status'] = new ezcPersistentObjectProperty();
-$def->properties['uuid_status']->columnName   = 'uuid_status';
-$def->properties['uuid_status']->propertyName = 'uuid_status';
-$def->properties['uuid_status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['import_priority'] = new ezcPersistentObjectProperty();
-$def->properties['import_priority']->columnName   = 'import_priority';
-$def->properties['import_priority']->propertyName = 'import_priority';
-$def->properties['import_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array(
+             'port','active','create_a_copy','delete_mode','sync_status','sync_started','sync_interval',
+             'last_sync_time','import_since','signature_under','reopen_timeout','failed','import_priority','assign_parent_user'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

@@ -40,6 +40,7 @@ class erLhcoreClassModelMailconvMailbox
             'failed' => $this->failed,
             'create_a_copy' => $this->create_a_copy,
             'import_priority' => $this->import_priority,
+            'assign_parent_user' => $this->assign_parent_user,
         );
     }
 
@@ -129,6 +130,7 @@ class erLhcoreClassModelMailconvMailbox
     public $failed = 0;
     public $create_a_copy = 0;
     public $import_priority = 0;
+    public $assign_parent_user = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }

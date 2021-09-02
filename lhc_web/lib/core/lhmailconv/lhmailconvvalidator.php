@@ -131,6 +131,9 @@ class erLhcoreClassMailconvValidator {
             'signature_under' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'assign_parent_user' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -181,6 +184,12 @@ class erLhcoreClassMailconvValidator {
             $item->create_a_copy = 1;
         } else {
             $item->create_a_copy = 0;
+        }
+
+        if ($form->hasValidData( 'assign_parent_user' ) && $form->assign_parent_user == true) {
+            $item->assign_parent_user = 1;
+        } else {
+            $item->assign_parent_user = 0;
         }
 
         if ( $form->hasValidData( 'imap' )) {
