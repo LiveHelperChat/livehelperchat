@@ -1298,7 +1298,14 @@ class erLhcoreClassChatStatistic {
     }
     
     public static function getRatingByUser($days = 30, $filter = array()) 
-    {    	    
+    {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getratingbyuser',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
+
     	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));    	    	
     	$rating = array();    
 

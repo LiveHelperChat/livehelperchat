@@ -382,7 +382,7 @@
 
 	  <?php if (!empty($userStats['thumbdown'])) : ?>
         var barChartData = {
-            labels: [<?php foreach ($userStats['thumbdown'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars($data['user_id'] > 0 ? erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official : 'Unknown',ENT_QUOTES).'\''; endforeach;?>],
+            labels: [<?php foreach ($userStats['thumbdown'] as $key => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars($data['user_id'] > 0 ? ((($userStat = erLhcoreClassModelUser::fetch($data['user_id'],true)) && $userStat instanceof erLhcoreClassModelUser) ? $userStat->name_official : $data['user_id']) : 'Unknown',ENT_QUOTES).'\''; endforeach;?>],
             datasets: [{
                 label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Thumbs down')?>',
                 backgroundColor: '#f497a9',
