@@ -28,7 +28,7 @@ class erLhcoreClassRenderHelper {
         {
             $selected = ( (isset($params['is_editing']) && $params['is_editing'] == false && $item->{$params['use_default']} == 1 && (!is_array($params['selected_id']) && ($params['selected_id'] === null || $params['selected_id'] === '') )) || (is_array($params['selected_id']) && in_array($item->$attrId,$params['selected_id'])) || $params['selected_id'] == $item->$attrId) ? 'selected="selected"' : '';
 
-            if (is_callable($nameSelect)) {
+            if ($nameSelect instanceof Closure) {
                 $valueItem = $nameSelect($item);
             } else {
                 $valueItem = $item->$nameSelect;
@@ -98,7 +98,7 @@ class erLhcoreClassRenderHelper {
 
         foreach (call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array()) as $item)
         {
-            if (is_callable($nameSelect)) {
+            if ($nameSelect  instanceof Closure) {
                 $valueItem = $nameSelect($item);
             } else {
                 $valueItem = $item->$nameSelect;
