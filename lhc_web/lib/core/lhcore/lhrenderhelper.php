@@ -94,12 +94,20 @@ class erLhcoreClassRenderHelper {
         $ngModel = isset($params['ng_model']) ? 'ng-model="'.$params['ng_model'].'"' : null;
         $idAttr = isset($params['id_attr']) ? $params['id_attr'] : 'id';
 
+        $nameSelect = isset($params['display_name']) ? $params['display_name'] : 'name';
+
         foreach (call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array()) as $item)
         {
+            if (is_callable($nameSelect)) {
+                $valueItem = $nameSelect($item);
+            } else {
+                $valueItem = $item->$nameSelect;
+            }
+
             $ngModelReplace = str_replace('$id', $item->{$idAttr}, $ngModel);
             $checked = in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
             $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->{$idAttr},$params['read_only_list']) ? ' disabled="disabled" ' : '';
-            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($item->name));
+            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($valueItem));
             $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"". $item->{$idAttr} . "\" {$checked} /> ".$valueItem."</label>{$append}";
         }
 
