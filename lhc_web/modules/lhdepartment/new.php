@@ -10,7 +10,7 @@ $userDepartments = true;
  * */
 if ($currentUser->hasAccessTo('lhdepartment','manageall') !== true)
 {
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 }
 
 if ( isset($_POST['Cancel_departament']) ) {

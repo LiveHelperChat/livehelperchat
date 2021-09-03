@@ -195,8 +195,8 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account'])) {
         $readOnlyDepartments = $_POST['UserDepartamentRead'];
     }
 
-	erLhcoreClassUser::getSession()->update($UserData);
-	
+    $UserData->updateThis();
+
 	if (count($globalDepartament) > 0) {
 		erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments);
 	} else {

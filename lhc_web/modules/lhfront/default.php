@@ -21,7 +21,7 @@ $tpl->set('tracking_enabled',erLhcoreClassModelChatConfig::fetch('track_online_v
  * Append user departments filter
  * */
 $departmentParams = array();
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 if ($userDepartments !== true) {
     $departmentParams['filterin']['id'] = $userDepartments;
     if (!$currentUser->hasAccessTo('lhchat','sees_all_online_visitors')) {

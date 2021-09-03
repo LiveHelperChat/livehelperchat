@@ -7,9 +7,12 @@ $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (in
 /**
  * Append user departments filter
  * */
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+
 if ($userDepartments !== true) {
-	if (!in_array($Msg->department_id, $userDepartments) && $Msg->department_id != 0) {
+	if ((!erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global') && $Msg->department_id == 0) ||
+        (!empty(array_diff($Msg->department_ids_front, $userDepartments)) && $Msg->department_id == -1)
+    ) {
 		erLhcoreClassModule::redirect('chat/cannedmsg');
 		exit;
 	}

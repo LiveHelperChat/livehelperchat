@@ -177,7 +177,10 @@ class erLhcoreClassAdminChatValidatorHelper {
             $cannedMessage->department_id = -1;
 
             if ($userDepartments !== true) {
-                if (($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) || !in_array($cannedMessage->department_id, $userDepartments)) {
+                if (
+                    ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) ||
+                    !empty(array_diff($cannedMessage->department_ids, $userDepartments))
+                ) {
                     $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
                 }
             }
