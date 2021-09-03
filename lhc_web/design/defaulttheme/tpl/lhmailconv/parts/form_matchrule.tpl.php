@@ -46,7 +46,7 @@
         'css_class'      => 'form-control',
         'wrap_prepend'   => '<div class="col-3">',
         'wrap_append'    => '</div>',
-        'display_name'   => 'name',
+        'display_name'   => 'mail',
         'list_function_params' => [],
         'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
     )); ?>
