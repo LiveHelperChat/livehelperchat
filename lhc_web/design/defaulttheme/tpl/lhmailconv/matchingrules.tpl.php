@@ -4,6 +4,7 @@
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%" ng-non-bindable>
         <thead>
         <tr>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','ID');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conversation priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conditions');?></th>
@@ -14,6 +15,7 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
+                <td><?php echo htmlspecialchars($item->id)?></td>
                 <td><?php echo htmlspecialchars($item->priority_rule)?></td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>
                 <td>

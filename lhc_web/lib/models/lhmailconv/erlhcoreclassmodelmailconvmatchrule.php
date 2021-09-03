@@ -12,7 +12,7 @@ class erLhcoreClassModelMailconvMatchRule
 
     public static $dbSortOrder = 'DESC';
 
-    public static $dbDefaultSort = 'priority_rule ASC';
+    public static $dbDefaultSort = 'priority_rule ASC, id ASC';
 
     public function getState()
     {

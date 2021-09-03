@@ -45,12 +45,15 @@ foreach ($matchingRulesByMailbox as $matchingRule) {
     }
 }
 
+foreach ($filteredMatchingRules as $rule){
+    echo $rule->id,"\n";
+}
 
 /*$filteredMatchingRules = [erLhcoreClassModelMailconvMatchRule::fetch(1152)];*/
 
-$rule = erLhcoreClassMailconvParser::getMatchingRuleByMessage(erLhcoreClassModelMailconvMessage::fetch(1152), $filteredMatchingRules);
+//$rule = erLhcoreClassMailconvParser::getMatchingRuleByMessage(erLhcoreClassModelMailconvMessage::fetch(1152), $filteredMatchingRules);
 
-var_dump($rule);
+//var_dump($rule);
 
 
 ?>

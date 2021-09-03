@@ -182,7 +182,7 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority of matching rule. Rules with higher priority will be checked first.');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority of matching rule. Rules with lower number will be checked first.');?></label>
             <input type="text" class="form-control form-control-sm" name="priority_rule" value="<?php echo htmlspecialchars($item->priority_rule)?>" />
         </div>
     </div>
