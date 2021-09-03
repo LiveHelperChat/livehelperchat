@@ -158,6 +158,8 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ( !$form->hasValidData( 'DepartmentID' )  ) {
 
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
+            
+            $cannedMessage->department_ids = $cannedMessage->department_ids_front = [];
 
             // Perhaps extension did some internal validation and we don't need anymore validate internaly
             if ($response === false) {
@@ -171,8 +173,7 @@ class erLhcoreClassAdminChatValidatorHelper {
             }
 
         } else {
-            $cannedMessage->department_ids = $form->DepartmentID;
-
+            $cannedMessage->department_ids_front = $cannedMessage->department_ids = $form->DepartmentID;
             // -1 means, individual per department
             $cannedMessage->department_id = -1;
 
