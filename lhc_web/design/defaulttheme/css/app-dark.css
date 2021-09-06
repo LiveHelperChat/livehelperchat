@@ -1224,6 +1224,10 @@ input[type="file"]{
     outline: 0 none;
 }
 
+.border-secondary-control{
+    border:1px solid #495057
+}
+
 .canned-suggester{
     position:absolute;
     background-color:#343a40;
