@@ -201,7 +201,7 @@
     </div>
 
     <div class="row">
-        <div class="col-2">
+        <div class="col-12">
             <div class="btn-group" role="group" aria-label="...">
                 <button class="btn btn-secondary btn-sm" type="submit" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
                 <input type="button" onclick="window.open('<?php echo $pages->serverURL?>/(xls)/1')" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS')?>">
