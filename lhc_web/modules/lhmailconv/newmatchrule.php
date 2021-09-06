@@ -31,8 +31,9 @@ if (ezcInputForm::hasPostData()) {
 
 $tpl->set('item', $item);
 
-$Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.webhooks.js').'"></script>';
+$Result['content'] = $tpl->fetch();
+
 
 $Result['path'] = array(
     array(

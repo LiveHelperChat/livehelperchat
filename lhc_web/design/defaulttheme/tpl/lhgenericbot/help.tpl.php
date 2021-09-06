@@ -79,5 +79,17 @@
                         </li>
                     </ul>
                 <?php endif; ?>
+
+            <?php if ($context == 'matchingruleconditions') : ?>
+                <ul>
+                    <li>Few examples
+                        <?php include(erLhcoreClassDesign::designtpl('lhmailconv/help/matchingrule.tpl.php'));?>
+                    </li>
+                </ul>
+
+
+
+            <?php endif; ?>
+
             </p>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

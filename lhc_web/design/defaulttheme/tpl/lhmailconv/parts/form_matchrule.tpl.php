@@ -1,7 +1,7 @@
 
 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Do these actions if rule matches');?></h6>
 
-<div class="row">
+<div class="row" ng-non-bindable>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Set department to');?></label>
@@ -56,12 +56,12 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','From mail');?></label>
     <textarea class="form-control form-control-sm" name="from_mail" placeholder="example1@example.org,example2@example.org"><?php echo htmlspecialchars($item->from_mail)?></textarea>
 </div>
 
-<div class="row">
+<div class="row" ng-non-bindable>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','From name');?></label>
@@ -83,7 +83,10 @@
 
 <textarea name="conditions" class="hide" ng-model="webhooksctl.conditions_json"></textarea>
 
-<h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes conditions');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h6>
+<h6>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes conditions');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span>
+    <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/matchingruleconditions'});" class="material-icons text-muted">help</a>
+</h6>
 
 <div class="row mb-2">
     <div class="col-6">
@@ -181,7 +184,7 @@
 <hr class="border-top">
 
 
-<div class="row">
+<div class="row" ng-non-bindable>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority of matching rule. Rules with lower number will be checked first.');?></label>

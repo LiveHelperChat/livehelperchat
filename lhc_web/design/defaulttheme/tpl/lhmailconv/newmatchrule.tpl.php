@@ -4,7 +4,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmatchrule')?>" method="post" ng-non-bindable>
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmatchrule')?>" method="post" ng-controller="WebhooksCtrl as webhooksctl" ng-submit="webhooksctl.updateContinuous()" ng-init='webhooksctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS & JSON_FORCE_OBJECT)?>'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_matchrule.tpl.php'));?>
 
