@@ -13,7 +13,7 @@ $userDepartments = true;
 * */
 if ($currentUser->hasAccessTo('lhdepartment','manageall') !== true)
 {
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
     if ($userDepartments !== true) {
     	if (!in_array($Departament->id, $userDepartments)) {
     		erLhcoreClassModule::redirect('department/departments');

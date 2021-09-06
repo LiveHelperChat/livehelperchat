@@ -13,13 +13,13 @@ if ($tab == 'cannedmsg') {
      * Append user departments filter
      * */
     $departmentParams = array();
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
-    if ($userDepartments !== true){
-        $departmentParams['filterin']['department_id'] = $userDepartments;
-
-       if ($currentUser->hasAccessTo('lhcannedmsg','see_global')) {
-           $departmentParams['filterin']['department_id'][] = 0;
-       }
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+    if ($userDepartments !== true) {
+        $customFilter = '(id IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN ('. implode(',',$userDepartments).')))';
+        if ($currentUser->hasAccessTo('lhcannedmsg','see_global')) {
+            $customFilter = '(' . $customFilter . ' OR department_id = 0)';
+        }
+        $departmentParams['customfilter'][] = $customFilter;
     }
 
     if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete') {
@@ -33,7 +33,7 @@ if ($tab == 'cannedmsg') {
             }
 
             $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$Params['user_parameters_unordered']['id']);
-            if ($userDepartments === true || in_array($Msg->department_id, $userDepartments)) {
+            if ($userDepartments === true || empty(array_diff($Msg->department_ids_front, $userDepartments))) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg_before_remove',array('msg' => & $Msg));
                 $Msg->removeThis();
 

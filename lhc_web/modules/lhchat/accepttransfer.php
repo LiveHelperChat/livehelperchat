@@ -100,7 +100,7 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
     }
 
 	// Change department if user cannot read current department, so chat appears in right menu
-	$filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+	$filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 	if ($filter !== true && !in_array($chat->dep_id, $filter)) {
 		$dep_id = erLhcoreClassUserDep::getDefaultUserDepartment();
 		if ($dep_id > 0) {

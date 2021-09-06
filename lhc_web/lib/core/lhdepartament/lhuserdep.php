@@ -94,17 +94,18 @@ class erLhcoreClassUserDep
         }
     }
 
-    public static function conditionalDepartmentFilter($userID = false, $column = 'id') {
+    public static function conditionalDepartmentFilter($userID = false, $column = 'id', $cacheVersion = 0) {
 
         if ($userID === false) {
             $userID = erLhcoreClassUser::instance()->getUserID();
+            $cacheVersion = erLhcoreClassUser::instance()->cache_version;
         }
 
         if (erLhcoreClassRole::hasAccessTo($userID, 'lhdepartment', 'see_all') === true) {
             return array();
         };
 
-        $departments = self::parseUserDepartmetnsForFilter($userID);
+        $departments = self::parseUserDepartmetnsForFilter($userID, $cacheVersion);
 
         if ($departments === true) {
             return  array();
@@ -114,9 +115,9 @@ class erLhcoreClassUserDep
 
     }
 
-    public static function parseUserDepartmetnsForFilter($userID)
+    public static function parseUserDepartmetnsForFilter($userID, $cacheVersion = 0)
     {
-        $userDepartments = self::getUserDepartaments($userID);
+        $userDepartments = self::getUserDepartaments($userID, $cacheVersion);
 
         if (!empty($userDepartments)) {
 

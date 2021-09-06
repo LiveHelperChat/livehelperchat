@@ -8,7 +8,7 @@ $CannedMessage = new erLhcoreClassModelCannedMsg();
 /**
  * Append user departments filter
  * */
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 
 if ( isset($_POST['Cancel_action']) ) {
     erLhcoreClassModule::redirect('chat/cannedmsg');
