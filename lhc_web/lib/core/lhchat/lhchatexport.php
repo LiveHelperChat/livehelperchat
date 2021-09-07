@@ -140,7 +140,7 @@ class erLhcoreClassChatExport {
 		$cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
 		$cacheSettings = array( 'memoryCacheSize ' => '64MB');
 		PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
-		
+
 		$chatArray = array();
 		
 		$id = "ID";
@@ -195,8 +195,6 @@ class erLhcoreClassChatExport {
             $survey[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Survey data').' - '.$i;
         }
 
-        $surveyData = array();
-
 		$mainColumns = array($id, $name, $email, $phone, $wait, $waitAbandoned, $country, $countryCode, $city, $ip, $operator, $operatorName, $user_id_op, $dept, $date, $minutes, $vote, $mail, $page, $from, $link, $remarks, $visitorRemarks, $subjects, $is_unread, $is_unread_visitor, $is_abandoned, $bot, $device, $visitorID, $duration, $chat_initiator, $browser, $browserBrand, $platform, $referrer, $session_referrer, $chat_start_time, $chat_end_time);
 
 		if (isset($params['type']) && in_array(2,$params['type'])) {
@@ -231,49 +229,35 @@ class erLhcoreClassChatExport {
             $mainColumns[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Subject');
         }
 
-
-
 		if (isset($params['type']) && in_array(3,$params['type'])) {
             $mainColumns = array_merge($mainColumns,$survey);
-            $surveyData = erLhAbstractModelSurveyItem::getList(array_merge(array('filterin' => array('chat_id' => array_keys($chats)), 'offset' => 0, 'limit' => 100000)));
         }
 
         $chatArray[] = array_merge($mainColumns, $additionalDataPlain, array($additionalData));
 
-        $exportChatData = array();
-        foreach ($surveyData as $surveyItem)
-        {
-            $survey = erLhAbstractModelSurvey::fetch($surveyItem->survey_id);
-            $exported = erLhcoreClassSurveyExporter::exportRAW(array($surveyItem),$survey);
+		if ($params['csv'] && $params['csv'] == true) {
+            $now = gmdate("D, d M Y H:i:s");
+            header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+            header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+            header("Last-Modified: {$now} GMT");
 
-            $pairs = array_fill(0,20,'');
+            // force download
+            header("Content-Type: application/force-download");
+            header("Content-Type: application/octet-stream");
+            header("Content-Type: application/download");
 
-            $i = 0;
-            foreach ($exported['value'] as $chatId => $valueItems) {
-                foreach ($exported['title'] as $indexColumn => $columnName) {
-                    $pairs[$i] = $columnName . ' - ' . $valueItems[$indexColumn];
-                    $i++;
-                }
-            }
+            // disposition / encoding on response body
+            header("Content-Disposition: attachment;filename=report.csv");
+            header("Content-Transfer-Encoding: binary");
 
-            $exportChatData[$surveyItem->chat_id] = $pairs;
+            $df = fopen("php://output", 'w');
+
+            // First row
+            fputcsv($df, $chatArray[0]);
         }
-
-        $onlineUsersID = [];
-        foreach ($chats as $item) {
-            if ($item->online_user_id > 0) {
-                $onlineUsersID[] = $item->online_user_id;
-            }
-
-        }
-
-        if (!empty($onlineUsersID)) {
-            $onlineUsersRecords = erLhcoreClassModelChatOnlineUser::getList(array('filterin' => array('id' => $onlineUsersID)));
-        }
-
-
 
         foreach ($chats as $item) {
+                $item = erLhcoreClassModelChat::fetch($item->id, false);
                 $id = (string)$item->{'id'};
                 $nick = (string)$item->{'nick'};
                 $email = (string)$item->{'email'};
@@ -293,7 +277,7 @@ class erLhcoreClassChatExport {
                 $duration = (string)$item->chat_duration;
                 $chat_initiator = $item->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT ? 'visitor' : 'proactive';
                 $browser = (string)$item->uagent;
-                $visitorRemarks = $item->online_user_id > 0 && isset($onlineUsersRecords[$item->online_user_id]) ? $onlineUsersRecords[$item->online_user_id]->notes : '';
+                $visitorRemarks = $item->online_user_id > 0 && ($onlineUser = erLhcoreClassModelChatOnlineUser::fetch($item->online_user_id, false)) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser ? $onlineUser->notes : '';
 
                 $detect = new BrowserDetection;
                 $OSDetails = $detect->getOS($item->uagent);
@@ -523,37 +507,35 @@ class erLhcoreClassChatExport {
                 }
 
                 if (isset($params['type']) && in_array(3,$params['type'])) {
-                    $itemData = array_merge($itemData, isset($exportChatData[$item->id]) ? $exportChatData[$item->id] : array_fill(0,20,''));
+                    $surveyItem = erLhAbstractModelSurveyItem::findOne(array('filter' => array('chat_id' =>$item->{'id'})));
+                    if ($surveyItem instanceof erLhAbstractModelSurveyItem){
+                        $survey = erLhAbstractModelSurvey::fetch($surveyItem->survey_id);
+                        $exported = erLhcoreClassSurveyExporter::exportRAW(array($surveyItem),$survey);
+                        $pairs = array_fill(0,20,'');
+                        $i = 0;
+                        foreach ($exported['value'] as $valueItems) {
+                            foreach ($exported['title'] as $indexColumn => $columnName) {
+                                $pairs[$i] = $columnName . ' - ' . $valueItems[$indexColumn];
+                                $i++;
+                            }
+                        }
+                        $itemData = array_merge($itemData,$pairs);
+                    } else {
+                        $itemData = array_merge($itemData,array_fill(0,20,''));
+                    }
                 }
 
                 $itemData = array_merge($itemData, $additionalPairs, array($additionalDataContent));
 
-                $chatArray[] = $itemData;
+                if ($params['csv'] && $params['csv'] == true) {
+                    fputcsv($df, $itemData);
+                } else {
+                    $chatArray[] = $itemData;
+                }
         }
 
         if ($params['csv'] && $params['csv'] == true) {
-
-            $now = gmdate("D, d M Y H:i:s");
-            header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
-            header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
-            header("Last-Modified: {$now} GMT");
-
-            // force download
-            header("Content-Type: application/force-download");
-            header("Content-Type: application/octet-stream");
-            header("Content-Type: application/download");
-
-            // disposition / encoding on response body
-            header("Content-Disposition: attachment;filename=report.csv");
-            header("Content-Transfer-Encoding: binary");
-
-            $df = fopen("php://output", 'w');
-            /*fputcsv($df, array_keys(reset($array)));*/
-            foreach ($chatArray as $row) {
-                fputcsv($df, $row);
-            }
             fclose($df);
-
         } else {
             // Create new PHPExcel object
             $objPHPExcel = new PHPExcel();

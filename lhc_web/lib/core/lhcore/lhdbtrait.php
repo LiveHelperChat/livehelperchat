@@ -141,13 +141,19 @@ trait erLhcoreClassDBTrait
 
         if ($throwException == false) {
             try {
-                $GLOBALS[__CLASS__ . $id] = self::getSession()->load(__CLASS__, $id);
+                $object = self::getSession()->load(__CLASS__, $id);
             } catch (Exception $e) {
-                $GLOBALS[__CLASS__ . $id] = false;
+                $object = false;
             }
         } else {
-            $GLOBALS[__CLASS__ . $id] = self::getSession()->load(__CLASS__, $id);
+            $object = self::getSession()->load(__CLASS__, $id);
         }
+
+        if ($useCache == false) {
+            return $object;
+        }
+
+        $GLOBALS[__CLASS__ . $id] = $object;
 
         return $GLOBALS[__CLASS__ . $id];
 
