@@ -279,8 +279,10 @@ class erLhcoreClassMailconvParser {
 
                         $conversations->from_address = $message->from_address;
 
+                        $internalInit = false;
                         // set from address to recipient
                         if ($message->from_address == $mailbox->mail) {
+                            $internalInit = true;
                             foreach ($message->to_data_array as $toData) {
                                 $conversations->from_address = (string)$toData['email'];
                                 $conversations->from_name = (string)$toData['name'];
@@ -305,7 +307,7 @@ class erLhcoreClassMailconvParser {
                         }
 
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
-                        if ($conversations->from_address == $mailbox->mail) {
+                        if ($internalInit == true) {
                             $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
                             $conversations->cls_time = time();
                             $conversations->start_type = erLhcoreClassModelMailconvConversation::START_OUT;
