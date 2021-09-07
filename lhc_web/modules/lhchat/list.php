@@ -102,6 +102,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 
 if (isset($Params['user_parameters_unordered']['export'])) {
     if (ezcInputForm::hasPostData()) {
+        session_write_close();
         $ignoreFields = (new erLhcoreClassModelChat)->getState();
         unset($ignoreFields['id']);
         $ignoreFields = array_keys($ignoreFields);
