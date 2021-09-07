@@ -100,7 +100,7 @@ if ($Params['user_parameters_unordered']['print'] == 1) {
 	return;
 }
 
-if (isset($Params['user_parameters_unordered']['export'])) {
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
     if (ezcInputForm::hasPostData()) {
         erLhcoreClassChatExport::chatListExportXLS(erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))), array('csv' => isset($_POST['CSV']), 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
         exit;
@@ -110,6 +110,25 @@ if (isset($Params['user_parameters_unordered']['export'])) {
         echo $tpl->fetch();
         exit;
     }
+}
+
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 2) {
+    $savedSearch = new erLhAbstractModelSavedSearch();
+    $tpl = erLhcoreClassTemplate::getInstance('lhviews/save_chat_view.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+    if (ezcInputForm::hasPostData()) {
+        $Errors = erLhcoreClassAdminChatValidatorHelper::validateSavedSearch($savedSearch, array('filter' => $filterParams['filter'], 'input_form' => $filterParams['input_form']));
+        if (empty($Errors)) {
+            $savedSearch->user_id = $currentUser->getUserID();
+            $savedSearch->saveThis();
+            $tpl->set('updated', true);
+        } else {
+            $tpl->set('errors', $Errors);
+        }
+    }
+    $tpl->set('item', $savedSearch);
+    echo $tpl->fetch();
+    exit;
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
