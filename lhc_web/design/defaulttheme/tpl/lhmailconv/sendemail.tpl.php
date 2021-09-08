@@ -48,20 +48,17 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" id="sendemail-form" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Mailbox');?></label>
-        <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-            'input_name'     => 'mailbox_id',
-            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select a mailbox'),
-            'selected_id'    => $item->mailbox_id,
-            'css_class'      => 'form-control form-control-sm',
-            'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList',
-            'list_function_params'  => array('filter' => array('active' => 1))
-        )); ?>
+        <input type="text" autocomplete="new-password" value="<?php echo htmlspecialchars($item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
+        <datalist id="mailbox_list" autocomplete="new-password">
+            <?php foreach (erLhcoreClassModelMailconvMailbox::getList(array('filter' => array('active' => 1))) as $mailbox) : ?>
+                <option value="<?php echo htmlspecialchars($mailbox->mail)?>"><?php echo htmlspecialchars($mailbox->name)?></option>
+            <?php endforeach; ?>
+        </datalist>
     </div>
 
     <div class="form-group">

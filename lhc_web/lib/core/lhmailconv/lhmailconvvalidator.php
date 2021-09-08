@@ -596,7 +596,7 @@ class erLhcoreClassMailconvValidator {
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
             'mailbox_id' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
             )
         );
 
@@ -643,7 +643,13 @@ class erLhcoreClassMailconvValidator {
         }
 
         if ( $form->hasValidData( 'mailbox_id' )) {
-            $item->mailbox_id = $form->mailbox_id;
+            $mailbox = erLhcoreClassModelMailconvMailbox::findOne(['filter' => ['active' => 1, 'mail' => $form->mailbox_id]]);
+            if ($mailbox instanceof erLhcoreClassModelMailconvMailbox){
+                $item->mailbox_id = $mailbox->id;
+                $item->mailbox_front = $form->mailbox_id;
+            } else {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a mailbox!');
+            }
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a mailbox!');
         }
