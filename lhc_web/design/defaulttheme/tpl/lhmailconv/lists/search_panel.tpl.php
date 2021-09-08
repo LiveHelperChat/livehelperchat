@@ -204,7 +204,12 @@
         <div class="col-12">
             <div class="btn-group" role="group" aria-label="...">
                 <button class="btn btn-secondary btn-sm" type="submit" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
-                <input type="button" onclick="window.open('<?php echo $pages->serverURL?>/(xls)/1')" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export XLS')?>">
+
+                <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel_append_print_multiinclude.tpl.php'));?>
+                <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(xls)/1?<?php echo $appendPrintExportURL?>'})" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?> (<?php echo $pages->items_total?>)</button>
+                <?php endif; ?>
+
                 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>">
                     <i class="material-icons">email</i>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','New e-mail')?>

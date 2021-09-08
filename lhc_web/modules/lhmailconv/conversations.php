@@ -79,8 +79,16 @@ if ($limitation !== false) {
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
 if (in_array($Params['user_parameters_unordered']['xls'], array(1,2,3,4))) {
-    erLhcoreClassMailconvExport::exportXLS(erLhcoreClassModelMailconvConversation::getList(array_merge($filterParams['filter'],array('limit' => 100000,'offset' => 0))));
-    exit;
+    if (ezcInputForm::hasPostData()) {
+        session_write_close();
+        erLhcoreClassMailconvExport::export(array_merge($filterParams['filter'], array('limit' => 100000, 'offset' => 0)), array('csv' => isset($_POST['CSV']), 'type' => (isset($_POST['exportOptions']) ? $_POST['exportOptions'] : [])));
+        exit;
+    } else {
+        $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/export_config.tpl.php');
+        $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+        echo $tpl->fetch();
+        exit;
+    }
 }
 
 if (is_numeric($filterParams['input_form']->has_attachment)) {

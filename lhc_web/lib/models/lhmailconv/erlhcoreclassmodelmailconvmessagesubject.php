@@ -30,6 +30,11 @@ class erLhcoreClassModelMailconvMessageSubject
         return $stateArray;
     }
 
+    public function __toString()
+    {
+        return (string)$this->subject;
+    }
+
     public function __get($var)
     {
         switch ($var) {
