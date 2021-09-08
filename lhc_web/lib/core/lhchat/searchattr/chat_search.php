@@ -50,6 +50,17 @@ $fieldsSearch['cls_us'] = array (
     )
 );
 
+$fieldsSearch['view'] = array (
+    'type' => 'text',
+    'trans' => 'View',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
+);
+
 $fieldsSearch['online_user_id'] = array (
     'type' => 'text',
     'trans' => 'Online user ID',

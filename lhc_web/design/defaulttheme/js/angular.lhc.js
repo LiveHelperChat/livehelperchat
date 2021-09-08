@@ -382,6 +382,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         $scope.startChatOperatorPublic(user_id);
     });
 
+    ee.addListener('angularStartChatbyId',function (chat_id) {
+        _that.startChatByID(chat_id)
+    });
+
     this.changeVisibility = function(e) {
 
         if (e) {

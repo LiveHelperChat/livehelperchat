@@ -155,9 +155,12 @@
             return deferred.promise;
         };
 
-        this.loadView = function(id) {
+        this.loadView = function(id, mode) {
             var deferred = $q.defer();
-            $http.get(WWW_DIR_JAVASCRIPT + 'views/loadview/' + id).then(function(data) {
+
+            var params = typeof mode !== 'undefined' ? mode : '';
+
+            $http.get(WWW_DIR_JAVASCRIPT + 'views/loadview/' + id + params).then(function(data) {
                 deferred.resolve(data.data);
             },function(internalError){
                 deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
@@ -165,6 +168,25 @@
             return deferred.promise;
         };
 
+        this.deleteView = function(id) {
+            var deferred = $q.defer();
+            $http.post(WWW_DIR_JAVASCRIPT + 'views/deleteview/' + id).then(function(data) {
+                deferred.resolve(data.data);
+            },function(internalError){
+                deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+            });
+            return deferred.promise;
+        };
+
+        this.loadViewPage = function(href) {
+            var deferred = $q.defer();
+            $http.get(href + '/(mode)/list').then(function(data) {
+                deferred.resolve(data.data);
+            },function(internalError){
+                deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+            });
+            return deferred.promise;
+        };
 
         this.truncate = function (text, length, end) {
             if (isNaN(length))
@@ -189,31 +211,115 @@
         $scope.current_user_id = confLH.user_id;
 
         // Parameters for back office sync
-
         this.views = [];
 
+        this.currentView = null;
+
+        this.updateTimeout = null;
+
         var _that = this;
+
 
         // Bootstraps initial attributes
         this.initLHCData = function() {
             var appendURL = '';
             LiveHelperChatViewsFactory.loadInitialData(appendURL).then(function(data) {
-                _that.views=data.views;
+                _that.views = data.views;
+                _that.views.length > 0 && _that.loadView(_that.views[0]);
+                _that.setUpdateLive();
+            });
+
+            $('#view-content').on("click", ".page-link", function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                if ($(e.target).attr('href') != '#') {
+                    var link = $(e.target).attr('href');
+
+                    var matches = link.match(/\(page\)\/(\d+)/);
+
+                    var page = 1;
+
+                    if (matches != null) {
+                        page = matches[1];
+                    }
+
+                    _that.currentView.page = page;
+                    _that.updateViewList(link);
+                }
+            })
+        }
+
+        this.updateViewList = function(href) {
+            LiveHelperChatViewsFactory.loadViewPage(href).then(function(data) {
+                    document.getElementById('view-content-list').innerHTML = data.body;
+                    _that.protectCSFR();
+            })
+        }
+
+        this.setUpdateLive = function () {
+            clearTimeout(this.updateTimeout);
+            this.updateTimeout = setTimeout(function () {
+                if (_that.currentView != null) {
+                    _that.updateViewList(WWW_DIR_JAVASCRIPT + 'views/loadview/' + _that.currentView.id + '/(page)/' + _that.currentView.page);
+                }
+                _that.setUpdateLive();
+            },20000);
+        }
+
+        this.fetchViews = function () {
+            var appendURL = '';
+            LiveHelperChatViewsFactory.loadInitialData(appendURL).then(function(data) {
+                _that.views = data.views;
+            });
+        }
+
+        this.deleteView = function (view) {
+            if (confirm('Are you sure?')) {
+                LiveHelperChatViewsFactory.deleteView(view.id).then(function() {
+                    _that.views.splice(_that.views.indexOf(view),1);
+                    if (_that.currentView !== null && _that.currentView.id == view.id) {
+                        _that.currentView = null;
+                    }
+                    if (_that.views.length > 0) {
+                        _that.loadView(_that.views[0]);
+                    }
+                })
+            }
+        }
+
+        this.cleanupTabs = function() {
+            var chatsToRemove = [];
+
+            $.each(lhinst.chatsSynchronising, function( index, chat_id ) {
+                chatsToRemove.push(chat_id);
+            });
+
+            $.each(chatsToRemove, function( index, chat_id ) {
+                lhinst.removeSynchroChat(chat_id);
             });
         }
 
         this.loadView = function(view) {
-            view.active = true;
-
-            console.log(view);
-
+            this.cleanupTabs();
+            _that.currentView = view;
+            _that.currentView.page = 1;
             LiveHelperChatViewsFactory.loadView(view.id).then(function(data) {
                 document.getElementById('view-content').innerHTML = data.body;
+                _that.protectCSFR();
             })
         }
 
-        this.initLHCData();
+        this.protectCSFR = function () {
+            $('#view-content a.csfr-required').click(function() {
+                var inst = $(this);
+                if (!inst.attr('data-secured')) {
+                    inst.attr('href',inst.attr('href')+'/(csfr)/'+confLH.csrf_token);
+                    inst.attr('data-secured',1);
+                }
+            });
+        }
 
+        this.initLHCData();
     }]);
 
 /*

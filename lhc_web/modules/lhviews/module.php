@@ -16,6 +16,17 @@ $ViewList['loadinitialdata'] = array(
 
 $ViewList['loadview'] = array(
     'params' => array('id'),
+    'uparams' => array('mode'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['edit'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['deleteview'] = array(
+    'params' => array('id'),
     'functions' => array( 'use' )
 );
 

@@ -117,7 +117,16 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 }
 
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 2) {
+
     $savedSearch = new erLhAbstractModelSavedSearch();
+
+    if ($Params['user_parameters_unordered']['view'] > 0) {
+        $savedSearchPresent = erLhAbstractModelSavedSearch::fetch($Params['user_parameters_unordered']['view']);
+        if ($savedSearchPresent->user_id == $currentUser->getUserID()) {
+            $savedSearch = $savedSearchPresent;
+        }
+    }
+
     $tpl = erLhcoreClassTemplate::getInstance('lhviews/save_chat_view.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
     if (ezcInputForm::hasPostData()) {
