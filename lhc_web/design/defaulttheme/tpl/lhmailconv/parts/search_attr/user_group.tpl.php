@@ -1,9 +1,10 @@
+<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_group_title.tpl.php')); ?>
 <div class="col-md-2">
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
+        <label><?php echo $userGroupTitle['user_group'];?></label>
         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
             'input_name'     => 'group_ids[]',
-            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+            'optional_field' => $userGroupTitle['user_group_select'],
             'selected_id'    => $input->group_ids,
             'css_class'      => 'form-control',
             'display_name'   => 'name',
