@@ -17,7 +17,14 @@
             </div>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-1">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail subject');?></label>
+                <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($input->subject)?>" />
+            </div>
+        </div>
+
+        <div class="col-md-1">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mailbox');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -182,14 +189,6 @@
                                     'list_function_params'  => (new erLhAbstractModelSubject())->getFilter(),
                                     'list_function'  => 'erLhAbstractModelSubject::getList'
                                 )); ?>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Mail subject');?></label>
-                                <input type="text" class="form-control form-control-sm" name="subject" value="<?php echo htmlspecialchars($input->subject)?>" />
                             </div>
                         </div>
 

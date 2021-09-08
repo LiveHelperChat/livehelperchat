@@ -172,8 +172,7 @@ $ViewList['conversations'] = array(
         'user_ids',
         'group_ids',
         'bot_ids',
-        'mailbox_ids',
-        'conversation_id',
+        'mailbox_ids'
     )
 );
 

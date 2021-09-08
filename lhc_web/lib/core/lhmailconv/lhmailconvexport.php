@@ -64,7 +64,6 @@ class erLhcoreClassMailconvExport {
         fputcsv($df, $firstRow);
 
         $attributes = array(
-            'id',
             'department',
             'dep_id',
             'user',
@@ -87,6 +86,7 @@ class erLhcoreClassMailconvExport {
                 $date = date(erLhcoreClassModule::$dateFormat,$item->ctime);
                 $minutes = date('H:i:s',$item->ctime);
 
+                $itemCSV[] = $item->id;
                 $itemCSV[] = $date;
                 $itemCSV[] = $minutes;
                 

@@ -2,8 +2,6 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/conversations.tpl.php');
 
-
-
 if ($currentUser->hasAccessTo('lhmailconv','delete_conversation')) {
     if ( isset($_POST['doDelete']) ) {
         if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -61,6 +59,7 @@ if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('customfilterfile' => 'lib/core/lhmailconv/filter/conversations.php', 'format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = false;
 }
+
 
 /**
  * Departments filter
