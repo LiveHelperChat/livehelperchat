@@ -2973,7 +2973,7 @@ function lh(){
 
 		this.addSynchroChat(chat_id,last_message_id);
 
-        $messageBlock.prop('scrollTop',$messageBlock.prop('scrollHeight'));
+        confLH.no_scroll_bottom !== 1 && $messageBlock.prop('scrollTop',$messageBlock.prop('scrollHeight'));
 
 		// Start synchronisation
 		this.startSyncAdmin();

@@ -226,6 +226,10 @@
             </div>
 
             <div class="form-group">
+                <label><input type="checkbox" name="no_scroll_bottom" value="1" <?php erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not scroll to the bottom on chat open');?></label>
+            </div>
+
+            <div class="form-group">
                 <label><input type="checkbox" name="exclude_autoasign" value="1" <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude me from auto assign workflow');?></label>
             </div>
 
