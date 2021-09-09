@@ -36,10 +36,14 @@ try {
         $jsonData = json_decode ( $data, true );
         erLhcoreClassChatValidator::validateJSVarsVisitor ( $vid, $jsonData);
 
-        if ((($checkHash == true && is_object($chat) && $chat->hash == $hash) || ($checkHash == false && is_object($chat))) && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) {
+        if (
+            (($checkHash == true && is_object($chat) && $chat->hash == $hash) || ($checkHash == false && is_object($chat))) &&
+            ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) &&
+            (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM)))
+        ) {
 
             // Update chat variables
-            erLhcoreClassChatValidator::validateJSVarsChat ( $chat, $jsonData);
+            erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData);
 
             // Force operators to check for new messages
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed_chat', array(
