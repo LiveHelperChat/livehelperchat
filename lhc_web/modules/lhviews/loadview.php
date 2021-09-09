@@ -6,6 +6,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhviews/loadview.tpl.php');
 
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 $totalRecords = 0;
+$content = '';
 
 // Chats
 if ($search->scope == 'chat') {
@@ -37,9 +38,10 @@ if ($search->scope == 'chat') {
     $search->updated_at = time();
     $search->requested_at = time();
     $search->updateThis(['update' => ['total_records','updated_at','requested_at']]);
+    $content =  $tpl->fetch();
 }
 
-echo json_encode(['body' => $tpl->fetch(), 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);
+echo json_encode(['body' => $content, 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);
 
 exit;
 

@@ -133,6 +133,7 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
         $Errors = erLhcoreClassAdminChatValidatorHelper::validateSavedSearch($savedSearch, array('filter' => $filterParams['filter'], 'input_form' => $filterParams['input_form']));
         if (empty($Errors)) {
             $savedSearch->user_id = $currentUser->getUserID();
+            $savedSearch->scope = 'chat';
             $savedSearch->saveThis();
             $tpl->set('updated', true);
         } else {

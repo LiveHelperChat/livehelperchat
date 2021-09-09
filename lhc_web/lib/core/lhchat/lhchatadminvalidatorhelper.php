@@ -6,7 +6,7 @@
 
 class erLhcoreClassAdminChatValidatorHelper {
 
-    public static function validateSavedSearch(erLhAbstractModelSavedSearch & $search, $params, $scope = 0) {
+    public static function validateSavedSearch(erLhAbstractModelSavedSearch & $search, $params, $scope = 'chat') {
         $definition = array(
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
