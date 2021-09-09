@@ -190,6 +190,14 @@ class erLhcoreClassGenericBotActionCommand {
                     if (isset($value['identifier']) && isset($value['key']) && $value['key'] != '' && $value['identifier'] != '') {
                         foreach ($variablesArray as $indexVariable => $variableData) {
                             if ($variableData['identifier'] == $value['identifier']) {
+
+                                $updatedIdentifiers[] = $value['identifier'];
+
+                                // Update only if empty and this variable is not empty
+                                if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variableData['value']) && $variableData['value'] != '' && $variableData['value'] != '0') {
+                                    continue;
+                                }
+
                                 if (isset($value['value'])) {
                                     if (!is_numeric($value['value']) && !is_bool($value['value'])) {
                                         $valueItem = isset($params['replace_array']) ? str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$value['value']) : $value['value'];
@@ -200,7 +208,7 @@ class erLhcoreClassGenericBotActionCommand {
                                 } else {
                                     unset($variablesArray[$indexVariable]);
                                 }
-                                $updatedIdentifiers[] = $value['identifier'];
+
                             }
                         }
                     }
@@ -241,12 +249,18 @@ class erLhcoreClassGenericBotActionCommand {
                     $variablesAppend = $action['content']['payload'];
                 }
 
-                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('chat' => $chat, 'args' => $params)), true);
+                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
 
                 if (is_array($variablesAppend)) {
                     foreach ($variablesAppend as $key => $value) {
+
+                        // Update only if empty and this variable is not empty
+                        if (isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && isset($variablesArray[$key]) && $variablesArray[$key] != '' && $variablesArray[$key] != '0') {
+                            continue;
+                        }
+
                         if (isset($value)) {
-                            $variablesArray[$key] = $value;
+                             $variablesArray[$key] = $value;
                         } elseif (isset($variablesArray[$key])) {
                             unset($variablesArray[$key]);
                         }
@@ -264,7 +278,14 @@ class erLhcoreClassGenericBotActionCommand {
                 $action['content']['payload_arg'] = isset($params['replace_array']) ? @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload_arg']) : $action['content']['payload_arg'];
 
                 $eventArgs = array('old' => $chat->{$action['content']['payload']}, 'attr' => $action['content']['payload'], 'new' => $action['content']['payload_arg']);
-                
+
+                // Update only if empty
+                if (
+                    isset($action['content']['update_if_empty']) && $action['content']['update_if_empty'] == true && trim($chat->{$action['content']['payload']}) != '' && $chat->{$action['content']['payload']} != '0'
+                ) {
+                    return ;
+                }
+
                 $chat->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
 
                 $updateDepartmentStats = false;
