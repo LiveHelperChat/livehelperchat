@@ -8,7 +8,7 @@ $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 $totalRecords = 0;
 
 // Chats
-if ($search->scope == 0) {
+if ($search->scope == 'chat') {
     $tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalchat'));
     $tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
     $tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
@@ -31,9 +31,15 @@ if ($search->scope == 0) {
     $items = erLhcoreClassModelChat::getList($filter);
     $tpl->set('items', $items);
     $tpl->set('list_mode', $Params['user_parameters_unordered']['mode'] == 'list');
+
+    // Update view data, so background worker do nothing
+    $search->total_records = (int)$totalRecords;
+    $search->updated_at = time();
+    $search->requested_at = time();
+    $search->updateThis(['update' => ['total_records','updated_at','requested_at']]);
 }
 
-echo json_encode(['body' => $tpl->fetch(), 'total_records' => (int)$totalRecords]);
+echo json_encode(['body' => $tpl->fetch(), 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);
 
 exit;
 

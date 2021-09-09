@@ -134,12 +134,19 @@
 
 
 
-
-
-
-
-
-
+        this.updateViewsList = function(appendURL) {
+            var deferred = $q.defer();
+            $http.get(WWW_DIR_JAVASCRIPT + 'views/updateviews').then(function(data) {
+                if (typeof data.error_url !== 'undefined') {
+                    document.location = data.data.error_url;
+                } else {
+                    deferred.resolve(data.data);
+                }
+            },function(internalError){
+                deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+            });
+            return deferred.promise;
+        };
 
         this.loadInitialData = function(appendURL) {
             var deferred = $q.defer();
@@ -216,6 +223,7 @@
         this.currentView = null;
 
         this.updateTimeout = null;
+        this.updateViewsTimeout = null;
 
         var _that = this;
 
@@ -227,6 +235,7 @@
                 _that.views = data.views;
                 _that.views.length > 0 && _that.loadView(_that.views[0]);
                 _that.setUpdateLive();
+                _that.setUpdateLiveViews();
             });
 
             $('#view-content').on("click", ".page-link", function(e) {
@@ -252,8 +261,21 @@
         this.updateViewList = function(href) {
             LiveHelperChatViewsFactory.loadViewPage(href).then(function(data) {
                     document.getElementById('view-content-list').innerHTML = data.body;
+                    if (_that.currentView != null && _that.currentView.id == data.view_id) {
+                        _that.currentView.total_records = data.total_records;
+                    }
                     _that.protectCSFR();
             })
+        }
+
+        this.setUpdateLiveViews = function () {
+            clearTimeout(this.updateViewsTimeout);
+            this.updateViewsTimeout = setTimeout(function () {
+                LiveHelperChatViewsFactory.updateViewsList().then(function(data){
+                    _that.views = data.views;
+                });
+                _that.setUpdateLiveViews();
+            },5000);
         }
 
         this.setUpdateLive = function () {
@@ -287,6 +309,7 @@
             }
         }
 
+        // Required on different view load as we are not refreshing pages
         this.cleanupTabs = function() {
             var chatsToRemove = [];
 
@@ -304,8 +327,11 @@
             _that.currentView = view;
             _that.currentView.page = 1;
             LiveHelperChatViewsFactory.loadView(view.id).then(function(data) {
-                document.getElementById('view-content').innerHTML = data.body;
-                _that.protectCSFR();
+                if (_that.currentView !== null && _that.currentView.id == data.view_id) {
+                    document.getElementById('view-content').innerHTML = data.body;
+                    _that.currentView.total_records = data.total_records;
+                    _that.protectCSFR();
+                }
             })
         }
 

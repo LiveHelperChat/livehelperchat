@@ -16,7 +16,10 @@
                     <tr ng-repeat="view in vctrl.views">
                         <td>
                             <div class="abbr-list p-1 fs13">
-                                <a class="d-block" ng-class="{'font-weight-bold':view.id == vctrl.currentView.id}" ng-click="vctrl.loadView(view)">{{view.name}}</a>
+                                <a class="d-block" ng-class="{'font-weight-bold':view.id == vctrl.currentView.id}" ng-click="vctrl.loadView(view)">
+                                    <span class="material-icons">{{view.scope}}</span>
+                                    {{view.name}} <span class="badge pb-1 font-weight-normal badge-light" ng-if="view.total_records > 0">({{view.total_records}})</span>
+                                </a>
                             </div>
                         </td>
                         <td nowrap>

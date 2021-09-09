@@ -20,6 +20,11 @@ $ViewList['loadview'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updateviews'] = array(
+    'params' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['edit'] = array(
     'params' => array('id'),
     'functions' => array( 'use' )

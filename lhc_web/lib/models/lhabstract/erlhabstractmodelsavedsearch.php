@@ -21,7 +21,10 @@ class erLhAbstractModelSavedSearch {
             'scope' => $this->scope,
             'position' => $this->position,
             'user_id' => $this->user_id,
-            'days' => $this->days
+            'days' => $this->days,
+            'updated_at' => $this->updated_at,
+            'requested_at' => $this->requested_at,
+            'total_records' => $this->total_records
         );
 
         return $stateArray;
@@ -66,7 +69,9 @@ class erLhAbstractModelSavedSearch {
     public $params = '';
     public $days = 180;
     public $user_id = 0;
-    public $scope = 0;
+    public $scope = 'chat';
     public $position = 0;
-
+    public $requested_at = 0;
+    public $updated_at = 0;
+    public $total_records = 0;
 }

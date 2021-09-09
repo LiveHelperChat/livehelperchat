@@ -9,14 +9,14 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-foreach (['scope','position','user_id','days'] as $posAttr) {
+foreach (['position','user_id','days','updated_at','requested_at','total_records'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 }
 
-foreach (['name','params'] as $posAttr) {
+foreach (['name','params','scope'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
