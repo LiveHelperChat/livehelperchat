@@ -428,7 +428,7 @@ class erLhcoreClassGenericBotActionCommand {
 
         } elseif ($action['content']['command'] == 'dispatchevent') {
 
-                $valueTranslated = $action['content']['payload_arg'];
+                $valueTranslated = isset($action['content']['payload_arg']) ? $action['content']['payload_arg'] : '';
 
                 if (isset($params['replace_array'])) {
                     $valueTranslated = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']), $valueTranslated);
