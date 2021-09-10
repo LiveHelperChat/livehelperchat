@@ -38,7 +38,7 @@ if ($search->scope == 'chat') {
     $search->updated_at = time();
     $search->requested_at = time();
     $search->updateThis(['update' => ['total_records','updated_at','requested_at']]);
-    $content =  $tpl->fetch();
+    $content = $tpl->fetch();
 }
 
 echo json_encode(['body' => $content, 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);

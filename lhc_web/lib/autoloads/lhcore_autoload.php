@@ -336,7 +336,8 @@ return array_merge(array (
         'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php',
 
         // Views
-        'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php'
+        'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php',
+        'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')
