@@ -6,7 +6,7 @@
                     <thead>
                     <tr>
                         <th width="99%">
-                            <span title="Name" class="material-icons">saved_search</span> My views
+                            <span title="Name" class="material-icons">saved_search</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','My views');?>
                         </th>
                         <th width="1%">
                         </th>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col" id="view-content">
-            dasd
+            ...
         </div>
     </div>
 </div>
