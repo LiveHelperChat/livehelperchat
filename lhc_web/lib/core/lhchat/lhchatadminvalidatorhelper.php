@@ -13,6 +13,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'days' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 30)
+            ),
+            'position' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
             )
         );
 
@@ -23,6 +26,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a name');
         } else {
             $search->name = $form->name;
+        }
+
+        if ($form->hasValidData( 'position' )) {
+            $search->position = $form->position;
+        } else {
+            $search->position = 0;
         }
 
         $search->params = json_encode($params);

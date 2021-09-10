@@ -12,6 +12,8 @@ class erLhAbstractModelSavedSearch {
 
     public static $dbSortOrder = 'DESC';
 
+    public static $dbDefaultSort = 'position DESC, id DESC';
+
     public function getState()
     {
         $stateArray = array(

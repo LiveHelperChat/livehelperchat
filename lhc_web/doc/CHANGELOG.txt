@@ -1,3 +1,10 @@
+3.82v
+
+1. Views - you can save a search as view and see always updated results in My views.
+2. Forms now can update chat attributes. https://doc.livehelperchat.com/docs/modules/forms
+
+execute doc/update_db/update_254.sql for update
+
 3.81v
 
 1. Canned messages usage statistic collecting option. Can be activated in statistic configuration tab. `Collect canned messages usage statistic`

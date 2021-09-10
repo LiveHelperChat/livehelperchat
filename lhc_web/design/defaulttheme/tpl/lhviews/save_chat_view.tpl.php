@@ -32,6 +32,13 @@ $appendPrintExportURL = '';
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Include records from the past')?></label>
                         <input type="number" required min="30" class="form-control" placeholder="days" name="days" value="<?php echo htmlspecialchars($item->days)?>" />
                     </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','The higher number the higher in the list it will appear')?></label>
+                            <input required maxlength="100" class="form-control" type="text" ng-non-bindable name="position" value="<?php echo htmlspecialchars($item->position)?>" />
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <input type="hidden" name="export_action" value="doExport">

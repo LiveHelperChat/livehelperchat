@@ -40,7 +40,7 @@ $ViewList['view'] = array(
     'functions' => array( 'configuration' )
 );
 
-$FunctionList['configuration'] = array('explain' => 'Voice & Video & ScreenShare module configuration');
-$FunctionList['use'] = array('explain' => 'Allow operator to use Voice & Video & ScreenShare calls');
+$FunctionList['configuration'] = array('explain' => 'Allow operator to configure views');
+$FunctionList['use'] = array('explain' => 'Allow operator to use views');
 
 ?>
