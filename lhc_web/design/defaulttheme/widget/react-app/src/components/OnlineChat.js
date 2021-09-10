@@ -262,7 +262,8 @@ class OnlineChat extends Component {
             }
             var lastChild = block.lastChild;
 
-            if (lastChild) {
+            // Checking not null not enough, because element can be text type
+            if (lastChild && typeof lastChild.getElementsByClassName !== 'undefined') {
                 x = lastChild.getElementsByClassName("meta-auto-hide");
                 var i;
                 for (i = 0; i < x.length; i++) {

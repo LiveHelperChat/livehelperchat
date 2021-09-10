@@ -127,6 +127,16 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->invitation;
                 break;
 
+            case 'previous_chat':
+                if ($this->chat_id > 0) {
+                    $filter = ['sort' => 'id DESC','filterlt' => ['id' => $this->chat_id], 'filter' => ['online_user_id' => $this->id]];
+                } else {
+                    $filter = ['sort' => 'id DESC','offset' => 1, 'filter' => ['online_user_id' => $this->id]];
+                }
+                $this->previous_chat = erLhcoreClassModelChat::findOne($filter);
+                return $this->previous_chat;
+                break;
+
             case 'has_message_from_operator':
                 return ($this->message_seen == 0 && $this->operator_message != '');
                 break;

@@ -18,12 +18,21 @@ class erLhcoreClassFormRenderer {
     public static function renderForm($form, $asAdmin = false) {
     	$contentForm = $form->content;
 
+        // Fields definition in JSON format
+        $inputFields = array();
+        preg_match_all('/\[\[json_content\{(.*?)\]\]/i', $contentForm, $inputFields);
+        foreach ($inputFields[1] as $index => $inputDefinition) {
+            $inputDefinition = json_decode('{'.$inputDefinition, true);
+            $content = self::processInput($inputDefinition, $asAdmin);
+            $contentForm = str_replace($inputFields[0][$index], $content, $contentForm);
+        }
+
     	$inputFields = array();
     	preg_match_all('/\[\[[input|textarea|combobox|range](.*?)\]\]/i', $contentForm, $inputFields);
     	foreach ($inputFields[0] as $inputDefinition) {
     		$content = self::processInput($inputDefinition, $asAdmin);
-    		$contentForm = str_replace($inputDefinition,$content,$contentForm);    		
-    	};
+    		$contentForm = str_replace($inputDefinition,$content,$contentForm);
+    	}
 
     	if (isset($_GET['identifier']) && !empty($_GET['identifier'])) {
     		$contentForm .= "<input type=\"hidden\" name=\"identifier\" value=\"".htmlspecialchars(rawurldecode($_GET['identifier']))."\" />";
@@ -118,20 +127,23 @@ class erLhcoreClassFormRenderer {
     }
     
     public static function processInput($inputDefinition, $asAdmin = false) {
-    	    	
-    	$inputDefinition = str_replace(array('[[',']]'), '', $inputDefinition);
-    	$paramsInput = explode('||', $inputDefinition);    	
-    	$defaultType = array_shift($paramsInput);
+	    if (is_array($inputDefinition)) {
+            $paramsParsed = $inputDefinition;
+        } else {
+            $inputDefinition = str_replace(array('[[',']]'), '', $inputDefinition);
+            $paramsInput = explode('||', $inputDefinition);
+            $defaultType = array_shift($paramsInput);
 
-    	$paramsParsed = array();
-    	foreach ($paramsInput as $param) {
-    		$paramsItem = explode('=', $param);
-    		$paramsParsed[$paramsItem[0]] = $paramsItem[1];
-    	}
-        	
-    	if (!isset($paramsParsed['type'])) {
-    		$paramsParsed['type'] = $defaultType;
-    	}
+            $paramsParsed = array();
+            foreach ($paramsInput as $param) {
+                $paramsItem = explode('=', $param);
+                $paramsParsed[$paramsItem[0]] = $paramsItem[1];
+            }
+
+            if (!isset($paramsParsed['type'])) {
+                $paramsParsed['type'] = $defaultType;
+            }
+        }
 
         $paramsParsed['as_admin'] = $asAdmin;
 
@@ -140,8 +152,7 @@ class erLhcoreClassFormRenderer {
     
     public static function renderInputTypeRange($params) {
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
-    	 
-    	$value = '';
+
     	if (ezcInputForm::hasPostData()) {
     
     		$validationFields = array();
@@ -149,8 +160,7 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name'].'Till'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
-    
+
     		if ( !$form->hasValidData( $params['name'].'From' ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name'].'From'} == '')) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name'].'From').' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'].'From' )) {
@@ -229,11 +239,13 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
-    		
-    		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
+
+    		if (!$form->hasValidData($params['name']) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '') || (isset($params['validation_rule']) && $params['validation_rule'] != '' && !preg_match($params['validation_rule'],$form->{$params['name']}))) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-    		} elseif ($form->hasValidData( $params['name'] )) {    		
+                if ($form->hasValidData($params['name'])) {
+                    $value = $form->{$params['name']};
+                }
+    		} elseif ($form->hasValidData( $params['name'] ) && (!isset($params['validation_rule']) || $params['validation_rule'] == '' || preg_match($params['validation_rule'],$form->{$params['name']}))) {
     			$value = $form->{$params['name']};
     			self::$collectedInfo[$params['name']] = array('definition' => $params,'value' => $form->{$params['name']});
     		}
@@ -260,7 +272,6 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
 
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
 
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
@@ -305,8 +316,7 @@ class erLhcoreClassFormRenderer {
     		$validationFields[$params['name']] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'validate_email' );
     		
     		$form = new ezcInputForm( INPUT_POST, $validationFields );
-    		$Errors = array();
-    		
+
     		if ( !$form->hasValidData( $params['name'] ) || (isset($params['required']) && $params['required'] == 'required' && $form->{$params['name']} == '')) {    		
     			self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
     		} elseif ($form->hasValidData( $params['name'] )) {
@@ -330,9 +340,7 @@ class erLhcoreClassFormRenderer {
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
     	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
     }
-    
-    
-    
+
     public static function renderInputTypeNumber($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
@@ -361,10 +369,9 @@ class erLhcoreClassFormRenderer {
     	}
     	    	
     	$placeholder = isset($params['placeholder']) ? ' placeholder="'.htmlspecialchars($params['placeholder']).'" ' : '';    
-    	return "<input class=\"form-control form-control-sm\" type=\"text\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
+    	return "<input class=\"form-control form-control-sm\" type=\"number\" name=\"{$params['name']}\" {$additionalAttributes} {$placeholder} value=\"".htmlspecialchars($value)."\" />";
     }
-    
-    
+
     public static function renderInputTypeDate($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
@@ -458,8 +465,7 @@ class erLhcoreClassFormRenderer {
     	    	
     	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
-    
-    
+
     public static function renderInputTypeYear($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
@@ -535,9 +541,7 @@ class erLhcoreClassFormRenderer {
     		    	
     	return "<select class=\"form-control form-control-sm\" {$additionalAttributes} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
-    
-    
-    
+
     public static function renderInputTypeCheckbox($params) {   
     	
     	$isChecked = '';
@@ -615,11 +619,19 @@ class erLhcoreClassFormRenderer {
 
     	$downloadLink = '';
     	if (ezcInputForm::hasPostData()) {
-	    	if (!erLhcoreClassSearchHandler::isFile($params['name']) && (isset($params['required']) && $params['required'] == 'required')){
+
+            $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+            $data = (array)$fileData->data;
+
+            // Is file uses different method to check is valid file
+            $data['ft_us'] = str_replace('jpe?g','jpg|jpeg',$data['ft_us']);
+
+	    	if (!erLhcoreClassSearchHandler::isFile($params['name'], explode('|',$data['ft_us']), $data['fs_max'] * 1024) && (isset($params['required']) && $params['required'] == 'required')) {
 	    		self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
-	    	} elseif (erLhcoreClassSearchHandler::isFile($params['name'])) {
+	    	} elseif (erLhcoreClassSearchHandler::isFile($params['name'], explode('|',$data['ft_us']), $data['fs_max'] * 1024)) {
 	    		self::$collectedInfo[$params['name']] = array('definition' => $params, 'value' => $_FILES[$params['name']]);
-	    	} 
+	    	}
+
     	} else {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$valueContent = self::$collectedInfo[$params['name']]['value'];
@@ -630,21 +642,148 @@ class erLhcoreClassFormRenderer {
     	return "{$downloadLink}<input type=\"file\" name=\"{$params['name']}\" />";
     }
 
-    public static function storeCollectedInformation($form, $collectedInformation, $customFields = []) {
-    	
-    	$formCollected = new erLhAbstractModelFormCollected();
-    	$formCollected->ip = erLhcoreClassIPDetect::getIP();
-    	$formCollected->ctime = time();
-    	$formCollected->form_id = $form->id;  
-    	$formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
-        $formCollected->saveThis();
+    public static function storeCollectedInformation($form, $collectedInformation, $customFields = [], $chat = null) {
+
+	    $chatForm = true;
+        $chatAttributes = [];
+        $formAttributes = [];
 
         if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
-            $formCollected->chat_id = $chat->id;
+            // Check does this form only chat modifying form or also information collecting form
+            foreach ($collectedInformation as $fieldName => $params) {
+                $chatFormElement = false;
+                if (isset($params['definition']['chat_attr'])) {
+                    $chatAttributes[] = $fieldName;
+                    $chatFormElement = true;
+                    $path = explode('.', $params['definition']['chat_attr']);
+                    if ($path[0] == 'chat') {
+                        $chat->{$path[1]} = (string)$params['value'];
+                        $chat->updateThis(['update' => [$path[1]]]);
+                    } elseif ($path[0] == 'chat_variable') {
+                        $chatVariablesArray = $chat->chat_variables_array;
+                        $chatVariablesArray[$path[1]] = is_numeric($params['value']) ? $params['value'] : (string)$params['value'];
+                        $chat->chat_variables_array = $chatVariablesArray;
+                        $chat->chat_variables = json_encode($chatVariablesArray);
+                        $chat->updateThis(['update' => ['chat_variables']]);
+                    }
+                } elseif (isset($params['definition']['chat_additional']) && $params['definition']['chat_additional'] != '') {
+                    $chatFormElement = true;
+                    $chatAttributes[] = $fieldName;
+                    $paramsAdditions = json_decode($params['definition']['chat_additional'],true);
+                    if (isset($paramsAdditions['identifier'])) {
+                        $additionalData = $chat->additional_data_array;
+                        $attributesUpdates = [];
+                        foreach ($additionalData as $index => $dataAdditional) {
+                            if (isset($dataAdditional['identifier']) && $dataAdditional['identifier'] == $paramsAdditions['identifier']) {
+                                $additionalData[$index]['value'] = is_numeric($params['value']) ? $params['value'] : (string)$params['value'];
+
+                                if (isset($paramsAdditions['key'])) {
+                                    $additionalData[$index]['key'] = $paramsAdditions['key'];
+                                }
+
+                                $attributesUpdates[] = $dataAdditional['identifier'];
+                            }
+                        }
+
+                        if (!in_array($paramsAdditions['identifier'], $attributesUpdates)) {
+                            $additionalData[] = [
+                                'value' => is_numeric($params['value']) ? $params['value'] : (string)$params['value'],
+                                'key' => (isset($paramsAdditions['key']) ? $paramsAdditions['key'] : $paramsAdditions['identifier']),
+                                'identifier' => $paramsAdditions['identifier'],
+                            ];
+                        }
+
+                        $chat->additional_data_array = $additionalData;
+                        $chat->additional_data = json_encode($additionalData);
+                        $chat->updateThis(['update' => ['additional_data']]);
+                    }
+
+                } elseif (isset($params['definition']['scope']) && $params['definition']['scope'] == 'chat') {
+                    $chatAttributes[] = $fieldName;
+                    $chatFormElement = true;
+                    // Save file as association with a chat instead of a form
+                    if ($params['definition']['type'] == 'file') {
+
+                        $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
+                        $data = (array)$fileData->data;
+                        $path = 'var/storage/' . date('Y') . 'y/' . date('m') . '/' . date('d') . '/' . $chat->id . '/';
+
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $chat->id));
+
+                        $clamav = false;
+
+                        if (isset($data['clamav_enabled']) && $data['clamav_enabled'] == true) {
+
+                            $opts = array();
+
+                            if (isset($data['clamd_sock']) && !empty($data['clamd_sock'])) {
+                                $opts['clamd_sock'] = $data['clamd_sock'];
+                            }
+
+                            if (isset($data['clamd_sock_len']) && !empty($data['clamd_sock_len'])) {
+                                $opts['clamd_sock_len'] = $data['clamd_sock_len'];
+                            }
+
+                            $clamav = new Clamav($opts);
+                        }
+
+                        $upload_handler = new erLhcoreClassFileUpload(array(
+                            'antivirus' => $clamav,
+                            'param_name' => $params['definition']['name'],
+                            'user_id' => -1,    // Save as system message
+                            'as_form' => true,    // Indicate it's a form upload
+                            'max_file_size' => $data['fs_max'] * 1024,
+                            'accept_file_types_lhc' => '/\.(' . $data['ft_us'] . ')$/i',
+                            'chat' => $chat,
+                            'download_via_php' => true,
+                            'upload_dir' => $path));
+
+                        if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $upload_handler->uploadedFile));
+                            $chat->user_typing_txt = '100%';
+                        }
+
+                        $chat->user_typing = time();
+                        $chat->updateThis(array('update' => array('user_typing_txt','user_typing')));
+                    }
+                } else {
+                    $formAttributes[] = $fieldName;
+                }
+
+                // If at-least one attribute is not chat save as a form
+                if ($chatForm == true && $chatFormElement == false) {
+                    $chatForm = false;
+                }
+
+             }
+        } else {
+            $chatForm = false;
+        }
+
+        if ($chatForm === false) {
+            $formCollected = new erLhAbstractModelFormCollected();
+            $formCollected->ip = erLhcoreClassIPDetect::getIP();
+            $formCollected->ctime = time();
+            $formCollected->form_id = $form->id;
+            $formCollected->identifier = substr(isset($_POST['identifier']) ? $_POST['identifier'] : (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''),0,250);
+            $formCollected->saveThis();
+        }
+
+        if (isset($_POST['chat_id']) && is_numeric($_POST['chat_id']) && isset($_POST['hash']) && ($chat = erLhcoreClassModelChat::fetch($_POST['chat_id'])) instanceof erLhcoreClassModelChat && $chat->hash == $_POST['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+
+            if ($chatForm === false) {
+                $formCollected->chat_id = $chat->id;
+            }
 
             // Store as message to visitor
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand','Information collected. [baseurl]form/viewcollected/'.$formCollected->id.'[/baseurl]');
+
+            if ($chatForm === false) {
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. [baseurl]form/viewcollected/' . $formCollected->id . '[/baseurl]');
+            } else {
+                $msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Information collected. Only chat form');
+            }
+
             $msg->chat_id = $chat->id;
             $msg->user_id = -1;
             $msg->time = time();
@@ -659,10 +798,14 @@ class erLhcoreClassFormRenderer {
             $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'last_user_msg_time')));
         }
 
+        if ($chatForm === true) {
+            return;
+        }
+
     	// Finish collect information
     	foreach ($collectedInformation as $fieldName => & $params) {
-    		
-    		if ($params['definition']['type'] == 'file') {    
+    	    // Do not save file again if it was chat file
+    		if (!in_array($fieldName, $chatAttributes) && $params['definition']['type'] == 'file' && !(isset($params['definition']['scope']) && $params['definition']['scope'] == 'chat')) {
     						
     			$dir = 'var/storageform/'.date('Y').'y/'.date('m').'/'.date('d').'/'.$formCollected->id.'/';
     			
@@ -679,7 +822,7 @@ class erLhcoreClassFormRenderer {
     		}
     	}
     	
-    	$formCollected->content = serialize($collectedInformation);
+    	$formCollected->content = json_encode($collectedInformation);
         $formCollected->custom_fields = json_encode($customFields);
     	$formCollected->saveThis();
 

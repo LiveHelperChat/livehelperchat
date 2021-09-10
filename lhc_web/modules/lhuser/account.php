@@ -32,6 +32,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
             'exclude_autoasign' => $UserData->exclude_autoasign,
             'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
+            'no_scroll_bottom' =>  erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',  0, $UserData->id),
         );
         $originalSettings['new'] = $pendingSettings;
 
@@ -63,6 +64,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('auto_join_private', 1);
     } else {
         erLhcoreClassModelUserSetting::setSetting('auto_join_private', 0);
+    }
+
+    if (isset($_POST['no_scroll_bottom']) && $_POST['no_scroll_bottom'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', 0);
     }
 
     // Update max active chats directly

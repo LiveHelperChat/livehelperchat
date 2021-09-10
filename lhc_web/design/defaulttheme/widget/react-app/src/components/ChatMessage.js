@@ -7,6 +7,10 @@ import { helperFunctions } from "../lib/helperFunctions";
 
 class ChatMessage extends PureComponent {
 
+    state = {
+        jsExecuted : false
+    }
+
     constructor(props) {
         super(props);
         this.abstractClick = this.abstractClick.bind(this);
@@ -280,7 +284,19 @@ class ChatMessage extends PureComponent {
                         }
 
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
+
+                        // Execute JS only once
+                        // Happens if new message indicator is passed
+                        // We rerender elements, but we should execute JS
+                        if (this.state.jsExecuted == true) {
+                            return <React.Fragment></React.Fragment>;
+                        }
+
+                        this.setState({jsExecuted : true});
                         parseScript(domNode, this);
+
+                        // Return empty element
+                        return <React.Fragment></React.Fragment>;
                     }
                 }
             }
