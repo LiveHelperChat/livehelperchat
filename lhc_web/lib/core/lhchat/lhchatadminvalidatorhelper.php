@@ -6,6 +6,40 @@
 
 class erLhcoreClassAdminChatValidatorHelper {
 
+    public static function validateSavedSearch(erLhAbstractModelSavedSearch & $search, $params, $scope = 'chat') {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'days' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 30)
+            ),
+            'position' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        if ( !$form->hasValidData( 'name' ) || $form->name == '' ) {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a name');
+        } else {
+            $search->name = $form->name;
+        }
+
+        if ($form->hasValidData( 'position' )) {
+            $search->position = $form->position;
+        } else {
+            $search->position = 0;
+        }
+
+        $search->params = json_encode($params);
+        $search->scope = $scope;
+
+        return $Errors;
+    }
+
     public static function validateReplaceVariable(erLhcoreClassModelCannedMsgReplace & $replace) {
         $definition = array(
             'identifier' => new ezcInputFormDefinitionElement(

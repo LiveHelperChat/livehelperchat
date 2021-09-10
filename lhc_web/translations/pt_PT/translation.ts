@@ -2,22 +2,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How many days voting widget should not be expanded after last show</source>
       <translation>Por quantos dias o widget de voto não deve ser expandido após aparecer pela última vez</translation>
     </message>
@@ -2376,6 +2360,10 @@
       <translation>Nome do argumento</translation>
     </message>
     <message>
+      <source>Start chat settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>List of start chat settings</source>
       <translation>Lista das configurações do chat inicial</translation>
     </message>
@@ -2607,6 +2595,38 @@
       <translation>Convite proativo</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor status on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Undetermined</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Has unread operator messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>IP</source>
       <translation>IP</translation>
     </message>
@@ -2757,10 +2777,6 @@
     <message>
       <source>Group field</source>
       <translation>Campo de grupo</translation>
-    </message>
-    <message>
-      <source>Bot</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude offline requests from charts</source>
@@ -3174,6 +3190,513 @@
     <message>
       <source>Languages</source>
       <translation>Linguagens</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/startchat</name>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>↓ Scroll to the bottom</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is currently unavailable</source>
+      <translation>O chat está indisponível no momento</translation>
+    </message>
+    <message>
+      <source>Please try again later.</source>
+      <translation>Por favor, tente novamente mais tarde.</translation>
+    </message>
+    <message>
+      <source>Department is disabled</source>
+      <translation>Departamento está desativado</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Enter your email address</source>
+      <translation>Indique o seu e-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefone</translation>
+    </message>
+    <message>
+      <source>Enter your phone</source>
+      <translation>Indique o seu telefone</translation>
+    </message>
+    <message>
+      <source>Enter your message</source>
+      <translation>Insira sua mensagem</translation>
+    </message>
+    <message>
+      <source>Your question</source>
+      <translation>A sua pergunta</translation>
+    </message>
+    <message>
+      <source>Type your message here and hit enter to send...</source>
+      <translation>Insira sua mensagem aqui e clique enter para enviar...</translation>
+    </message>
+    <message>
+      <source>Please provide a department</source>
+      <translation>Indique um departamento</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Enter your name</source>
+      <translation>Indique o seu nome</translation>
+    </message>
+    <message>
+      <source>Are you sure you want to close this chat?</source>
+      <translation>Tem a certeza que quer fechar o chat?</translation>
+    </message>
+    <message>
+      <source>Type your message here...</source>
+      <translation>Insira a sua mensagem...</translation>
+    </message>
+    <message>
+      <source>Live support is not available in your country</source>
+      <translation>O chat não está disponível no seu país</translation>
+    </message>
+    <message>
+      <source>Live Support</source>
+      <translation>Suporte online</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave a message</source>
+      <translation>Não existem operadores online no momento. Deixe uma mensagem e entraremos em contato consigo.</translation>
+    </message>
+    <message>
+      <source>File</source>
+      <translation>Arquivo</translation>
+    </message>
+    <message>
+      <source>Your request was sent!</source>
+      <translation>A sua solicitação foi enviada!</translation>
+    </message>
+    <message>
+      <source>Leave a message</source>
+      <translation>Deixe uma mensagem</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation>Enviar mensagem</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Cancelar</translation>
+    </message>
+    <message>
+      <source>Record voice message</source>
+      <translation>Gravar mensagem de voz</translation>
+    </message>
+    <message>
+      <source>Stop recording</source>
+      <translation>Parar a gravação</translation>
+    </message>
+    <message>
+      <source>Play recorded audio</source>
+      <translation>Ouvir a gravação audio.</translation>
+    </message>
+    <message>
+      <source>Stop playing</source>
+      <translation>Parar</translation>
+    </message>
+    <message>
+      <source>Send voice message</source>
+      <translation>Enviar a mensagem de voz</translation>
+    </message>
+    <message>
+      <source>I accept my personal data will be handled according to</source>
+      <translation>Aceito que os meus dados pessoais serão tratados de acordo com </translation>
+    </message>
+    <message>
+      <source>our terms and to the Law</source>
+      <translation>os nossos termos e com a Lei</translation>
+    </message>
+    <message>
+      <source>Please choose</source>
+      <translation>Por favor escolha</translation>
+    </message>
+    <message>
+      <source>Start chat</source>
+      <translation>Iniciar chat</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Offline</translation>
+    </message>
+    <message>
+      <source>Have a question? Ask us!</source>
+      <translation>Tem uma pergunta? Fale connosco!</translation>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation>Enviar</translation>
+    </message>
+    <message>
+      <source>Department is offline</source>
+      <translation>Departamento está offline</translation>
+    </message>
+    <message>
+      <source>Go to leave a message form</source>
+      <translation>Ir para: deixar uma mensagem</translation>
+    </message>
+    <message>
+      <source>Cancel and choose another department</source>
+      <translation>Cancelar e escolher outro departamento</translation>
+    </message>
+    <message>
+      <source>characters</source>
+      <translation>caracteres</translation>
+    </message>
+    <message>
+      <source>Personal assistant</source>
+      <translation>Assistente pessoal</translation>
+    </message>
+    <message>
+      <source>Fill out this form to start a chat</source>
+      <translation>Preencha este formulário para iniciar uma conversa</translation>
+    </message>
+    <message>
+      <source>There are no online operators at the moment, please leave your message</source>
+      <translation>Não há operadores online no momento. Por favor, deixe a sua mensagem.</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Eu</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>Produto</translation>
+    </message>
+    <message>
+      <source>Choose a product</source>
+      <translation>Escolha um produto</translation>
+    </message>
+    <message>
+      <source>Choose your language</source>
+      <translation>Escolha a sua linguagem</translation>
+    </message>
+    <message>
+      <source>Minimize</source>
+      <translation>Minimize</translation>
+    </message>
+    <message>
+      <source>Popup</source>
+      <translation>Popup</translation>
+    </message>
+    <message>
+      <source>End chat</source>
+      <translation>Fechar chat</translation>
+    </message>
+    <message>
+      <source>You</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF inválido!</translation>
+    </message>
+    <message>
+      <source>Please enter a valid email address</source>
+      <translation>Por favor, insira um endereço de e-mail válido</translation>
+    </message>
+    <message>
+      <source>Maximum 50 characters</source>
+      <translation>Máximo de 50 caracteres</translation>
+    </message>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter your name</source>
+      <translation>Por favor, insira seu nome</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters</source>
+      <translation>Máximo de 100 caracteres</translation>
+    </message>
+    <message>
+      <source>Please enter your message</source>
+      <translation>Por favor, insira sua mensagem</translation>
+    </message>
+    <message>
+      <source>Maximum</source>
+      <translation>Máximo</translation>
+    </message>
+    <message>
+      <source>characters for a message</source>
+      <translation>caracteres para uma mensagem</translation>
+    </message>
+    <message>
+      <source>You have to accept our Terms Of Service</source>
+      <translation>Deve aceitar os nossos Termos de Serviço</translation>
+    </message>
+    <message>
+      <source>Please enter your phone</source>
+      <translation>Por favor, insira o seu telefone</translation>
+    </message>
+    <message>
+      <source>Maximum 100 characters for phone</source>
+      <translation>Máximo de 100 caracteres para telefone</translation>
+    </message>
+    <message>
+      <source>Invalid file</source>
+      <translation>Arquivo inválido</translation>
+    </message>
+    <message>
+      <source>Please choose department!</source>
+      <translation>Por favor, escolha um departamento!</translation>
+    </message>
+    <message>
+      <source>Could not find a product!</source>
+      <translation>Não foi possível localizar um produto</translation>
+    </message>
+    <message>
+      <source>Could not determine a default department!</source>
+      <translation>Não foi possível determinar um departamento padrão!</translation>
+    </message>
+    <message>
+      <source>Please choose a product!</source>
+      <translation>Por favor escolha um produto!</translation>
+    </message>
+    <message>
+      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
+      <translation>No momento o departamento está sobrecarregado. Por favor, escolha um departamento diferente ou tente novamente mais tarde!</translation>
+    </message>
+    <message>
+      <source>is required</source>
+      <translation>é obrigatório</translation>
+    </message>
+    <message>
+      <source>Could not decrypt data!</source>
+      <translation>Não foi possível descriptografar os dados!</translation>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation>Visitante</translation>
+    </message>
+    <message>
+      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
+      <translation>A sua solicitação não foi processada como esperado. Por favor, reenvie sua solicitação. Se voltar a acontecer, por favor contacte-nos por outros meios.</translation>
+    </message>
+    <message>
+      <source>Invalid file extension</source>
+      <translation>Extensão de arquivo inválida</translation>
+    </message>
+    <message>
+      <source>Invalid file extension!</source>
+      <translation>Extensão de arquivo inválida!</translation>
+    </message>
+    <message>
+      <source>To big file!</source>
+      <translation>Arquivo demasiado grande!</translation>
+    </message>
+    <message>
+      <source>Chat was transferred to operator!</source>
+      <translation>Chat transferido para um operador!</translation>
+    </message>
+    <message>
+      <source>Chat was transferred to bot!</source>
+      <translation>Chat transferido para um robô!</translation>
+    </message>
+    <message>
+      <source>Button action could not be found!</source>
+      <translation>Ação do botão não foi encontrada!</translation>
+    </message>
+    <message>
+      <source>Trigger could not be found!</source>
+      <translation>Gatilho não foi encontrado!</translation>
+    </message>
+    <message>
+      <source>Update actions could not be found!</source>
+      <translation>Ações de atualização não foram encontradas!</translation>
+    </message>
+    <message>
+      <source>Please enter a message, max characters</source>
+      <translation>Por favor, insira uma mensagem, máximo de caracteres</translation>
+    </message>
+    <message>
+      <source>You cannot send messages to this chat. Please refresh your browser.</source>
+      <translation>Não pode enviar mensagens para esse chat. Por favor, atualize seu navegador.</translation>
+    </message>
+    <message>
+      <source>Pending Chat</source>
+      <translation>Chat pendente</translation>
+    </message>
+    <message>
+      <source>Unread message</source>
+      <translation>Mensagens não lidas</translation>
+    </message>
+    <message>
+      <source>Alert notification</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New message from operator</source>
+      <translation>Nova mensagem do operador</translation>
+    </message>
+    <message>
+      <source>Transfer Chat</source>
+      <translation>Transferir chat</translation>
+    </message>
+    <message>
+      <source>Assigned Chat</source>
+      <translation>Chat atribuído</translation>
+    </message>
+    <message>
+      <source>You do not have permission to chat! Please contact site owner.</source>
+      <translation>Não tem permissão para o chat! Por favor, contate o proprietário do site.</translation>
+    </message>
+    <message>
+      <source>Fill in the form to start a chat</source>
+      <translation>Preencha o formulário para iniciar um chat</translation>
+    </message>
+    <message>
+      <source>You can edit only your own messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have subscribed to new messages notifications!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter a message</source>
+      <translation>Insira sua mensagem</translation>
+    </message>
+    <message>
+      <source>Pending to join...</source>
+      <translation>À espera de se juntar...</translation>
+    </message>
+    <message>
+      <source>Already a member</source>
+      <translation>Já é um mebro</translation>
+    </message>
+    <message>
+      <source>Invite</source>
+      <translation>Convidar</translation>
+    </message>
+    <message>
+      <source>Cancel invite</source>
+      <translation>Cancelar convite</translation>
+    </message>
+    <message>
+      <source>Leave the group</source>
+      <translation>Daixar o grupo</translation>
+    </message>
+    <message>
+      <source>Enter operator name or surname or just click search to invite</source>
+      <translation>Insira o operador ou clique para procurar convite</translation>
+    </message>
+    <message>
+      <source>Leave the group, you still can join anytime you want.</source>
+      <translation>Deixar o grupo, é possível voltar a ser membro do mesmo..</translation>
+    </message>
+    <message>
+      <source>You cannot send messages to this chat. Chat has been closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message</source>
+      <translation>Por favor, insira sua mensagem</translation>
+    </message>
+    <message>
+      <source>characters max.</source>
+      <translation>máximo de caracteres</translation>
+    </message>
+    <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BB code</source>
+      <translation>BB code</translation>
+    </message>
+    <message>
+      <source>Start a chat with us!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New messages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This chat is closed now. You can close window.</source>
+      <translation>O chat está encerrado. Pode fechar a janela.</translation>
+    </message>
+    <message>
+      <source>Your message...</source>
+      <translation>A sua mensagem...</translation>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation>Obrigado pelo seu contacto.</translation>
+    </message>
+    <message>
+      <source>Chat can not be started now. Please try again later.</source>
+      <translation>O chat não pode ser iniciado agora. Por favor, tente mais tarde.</translation>
+    </message>
+    <message>
+      <source>Go to Survey.</source>
+      <translation>Ir para o questionário.</translation>
+    </message>
+    <message>
+      <source>There was an issue sending the message. Try again.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No internet connection.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose!</source>
+      <translation>Por favor excolha!</translation>
+    </message>
+    <message>
+      <source>Cancel voice message</source>
+      <translation>Cancelar a mensagem de voz</translation>
+    </message>
+    <message>
+      <source>Play recorded message</source>
+      <translation>Ouvir a gravação audio.</translation>
+    </message>
+    <message>
+      <source>Stop playing recorded audio</source>
+      <translation>Parar a gravação audio.</translation>
     </message>
   </context>
   <context>
@@ -3781,6 +4304,10 @@
     <message>
       <source>with args</source>
       <translation>com argumentos</translation>
+    </message>
+    <message>
+      <source>Visitor was blocked by</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Confirm</source>
@@ -4785,15 +5312,15 @@
       <translation>IP</translation>
     </message>
     <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Block type</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nick</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5321,505 +5848,6 @@
     <message>
       <source>Edit a group chat</source>
       <translation>Editar um groupo</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/startchat</name>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>↓ Scroll to the bottom</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New message!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is currently unavailable</source>
-      <translation>O chat está indisponível no momento</translation>
-    </message>
-    <message>
-      <source>Please try again later.</source>
-      <translation>Por favor, tente novamente mais tarde.</translation>
-    </message>
-    <message>
-      <source>Department is disabled</source>
-      <translation>Departamento está desativado</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Enter your email address</source>
-      <translation>Indique o seu e-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefone</translation>
-    </message>
-    <message>
-      <source>Enter your phone</source>
-      <translation>Indique o seu telefone</translation>
-    </message>
-    <message>
-      <source>Enter your message</source>
-      <translation>Insira sua mensagem</translation>
-    </message>
-    <message>
-      <source>Your question</source>
-      <translation>A sua pergunta</translation>
-    </message>
-    <message>
-      <source>Type your message here and hit enter to send...</source>
-      <translation>Insira sua mensagem aqui e clique enter para enviar...</translation>
-    </message>
-    <message>
-      <source>Please provide a department</source>
-      <translation>Indique um departamento</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nome</translation>
-    </message>
-    <message>
-      <source>Enter your name</source>
-      <translation>Indique o seu nome</translation>
-    </message>
-    <message>
-      <source>Are you sure you want to close this chat?</source>
-      <translation>Tem a certeza que quer fechar o chat?</translation>
-    </message>
-    <message>
-      <source>Type your message here...</source>
-      <translation>Insira a sua mensagem...</translation>
-    </message>
-    <message>
-      <source>Live support is not available in your country</source>
-      <translation>O chat não está disponível no seu país</translation>
-    </message>
-    <message>
-      <source>Live Support</source>
-      <translation>Suporte online</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave a message</source>
-      <translation>Não existem operadores online no momento. Deixe uma mensagem e entraremos em contato consigo.</translation>
-    </message>
-    <message>
-      <source>File</source>
-      <translation>Arquivo</translation>
-    </message>
-    <message>
-      <source>Your request was sent!</source>
-      <translation>A sua solicitação foi enviada!</translation>
-    </message>
-    <message>
-      <source>Leave a message</source>
-      <translation>Deixe uma mensagem</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation>Enviar mensagem</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Cancelar</translation>
-    </message>
-    <message>
-      <source>Record voice message</source>
-      <translation>Gravar mensagem de voz</translation>
-    </message>
-    <message>
-      <source>Stop recording</source>
-      <translation>Parar a gravação</translation>
-    </message>
-    <message>
-      <source>Play recorded audio</source>
-      <translation>Ouvir a gravação audio.</translation>
-    </message>
-    <message>
-      <source>Stop playing</source>
-      <translation>Parar</translation>
-    </message>
-    <message>
-      <source>Send voice message</source>
-      <translation>Enviar a mensagem de voz</translation>
-    </message>
-    <message>
-      <source>I accept my personal data will be handled according to</source>
-      <translation>Aceito que os meus dados pessoais serão tratados de acordo com </translation>
-    </message>
-    <message>
-      <source>our terms and to the Law</source>
-      <translation>os nossos termos e com a Lei</translation>
-    </message>
-    <message>
-      <source>Please choose</source>
-      <translation>Por favor escolha</translation>
-    </message>
-    <message>
-      <source>Start chat</source>
-      <translation>Iniciar chat</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Offline</translation>
-    </message>
-    <message>
-      <source>Have a question? Ask us!</source>
-      <translation>Tem uma pergunta? Fale connosco!</translation>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation>Enviar</translation>
-    </message>
-    <message>
-      <source>Department is offline</source>
-      <translation>Departamento está offline</translation>
-    </message>
-    <message>
-      <source>Go to leave a message form</source>
-      <translation>Ir para: deixar uma mensagem</translation>
-    </message>
-    <message>
-      <source>Cancel and choose another department</source>
-      <translation>Cancelar e escolher outro departamento</translation>
-    </message>
-    <message>
-      <source>characters</source>
-      <translation>caracteres</translation>
-    </message>
-    <message>
-      <source>Personal assistant</source>
-      <translation>Assistente pessoal</translation>
-    </message>
-    <message>
-      <source>Fill out this form to start a chat</source>
-      <translation>Preencha este formulário para iniciar uma conversa</translation>
-    </message>
-    <message>
-      <source>There are no online operators at the moment, please leave your message</source>
-      <translation>Não há operadores online no momento. Por favor, deixe a sua mensagem.</translation>
-    </message>
-    <message>
-      <source>Me</source>
-      <translation>Eu</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>Produto</translation>
-    </message>
-    <message>
-      <source>Choose a product</source>
-      <translation>Escolha um produto</translation>
-    </message>
-    <message>
-      <source>Choose your language</source>
-      <translation>Escolha a sua linguagem</translation>
-    </message>
-    <message>
-      <source>Minimize</source>
-      <translation>Minimize</translation>
-    </message>
-    <message>
-      <source>Popup</source>
-      <translation>Popup</translation>
-    </message>
-    <message>
-      <source>End chat</source>
-      <translation>Fechar chat</translation>
-    </message>
-    <message>
-      <source>You</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Us</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Summary</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Token CSRF inválido!</translation>
-    </message>
-    <message>
-      <source>Please enter a valid email address</source>
-      <translation>Por favor, insira um endereço de e-mail válido</translation>
-    </message>
-    <message>
-      <source>Maximum 50 characters</source>
-      <translation>Máximo de 50 caracteres</translation>
-    </message>
-    <message>
-      <source>You do not have permission to chat! Please contact site owner.</source>
-      <translation>Não tem permissão para o chat! Por favor, contate o proprietário do site.</translation>
-    </message>
-    <message>
-      <source>Please enter your name</source>
-      <translation>Por favor, insira seu nome</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters</source>
-      <translation>Máximo de 100 caracteres</translation>
-    </message>
-    <message>
-      <source>Please enter your message</source>
-      <translation>Por favor, insira sua mensagem</translation>
-    </message>
-    <message>
-      <source>Maximum</source>
-      <translation>Máximo</translation>
-    </message>
-    <message>
-      <source>characters for a message</source>
-      <translation>caracteres para uma mensagem</translation>
-    </message>
-    <message>
-      <source>You have to accept our Terms Of Service</source>
-      <translation>Deve aceitar os nossos Termos de Serviço</translation>
-    </message>
-    <message>
-      <source>Please enter your phone</source>
-      <translation>Por favor, insira o seu telefone</translation>
-    </message>
-    <message>
-      <source>Maximum 100 characters for phone</source>
-      <translation>Máximo de 100 caracteres para telefone</translation>
-    </message>
-    <message>
-      <source>Invalid file</source>
-      <translation>Arquivo inválido</translation>
-    </message>
-    <message>
-      <source>Please choose department!</source>
-      <translation>Por favor, escolha um departamento!</translation>
-    </message>
-    <message>
-      <source>Could not find a product!</source>
-      <translation>Não foi possível localizar um produto</translation>
-    </message>
-    <message>
-      <source>Could not determine a default department!</source>
-      <translation>Não foi possível determinar um departamento padrão!</translation>
-    </message>
-    <message>
-      <source>Please choose a product!</source>
-      <translation>Por favor escolha um produto!</translation>
-    </message>
-    <message>
-      <source>At the moment department is overloaded, please choose a different department or try again later!</source>
-      <translation>No momento o departamento está sobrecarregado. Por favor, escolha um departamento diferente ou tente novamente mais tarde!</translation>
-    </message>
-    <message>
-      <source>is required</source>
-      <translation>é obrigatório</translation>
-    </message>
-    <message>
-      <source>Could not decrypt data!</source>
-      <translation>Não foi possível descriptografar os dados!</translation>
-    </message>
-    <message>
-      <source>Visitor</source>
-      <translation>Visitante</translation>
-    </message>
-    <message>
-      <source>Your request was not processed as expected - but don&apos;t worry it was not your fault. Please re-submit your request. If you experience the same issue you will need to contact us via other means.</source>
-      <translation>A sua solicitação não foi processada como esperado. Por favor, reenvie sua solicitação. Se voltar a acontecer, por favor contacte-nos por outros meios.</translation>
-    </message>
-    <message>
-      <source>Invalid file extension</source>
-      <translation>Extensão de arquivo inválida</translation>
-    </message>
-    <message>
-      <source>Invalid file extension!</source>
-      <translation>Extensão de arquivo inválida!</translation>
-    </message>
-    <message>
-      <source>To big file!</source>
-      <translation>Arquivo demasiado grande!</translation>
-    </message>
-    <message>
-      <source>Chat was transferred to operator!</source>
-      <translation>Chat transferido para um operador!</translation>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation>Chat transferido para um robô!</translation>
-    </message>
-    <message>
-      <source>Button action could not be found!</source>
-      <translation>Ação do botão não foi encontrada!</translation>
-    </message>
-    <message>
-      <source>Trigger could not be found!</source>
-      <translation>Gatilho não foi encontrado!</translation>
-    </message>
-    <message>
-      <source>Update actions could not be found!</source>
-      <translation>Ações de atualização não foram encontradas!</translation>
-    </message>
-    <message>
-      <source>Please enter a message, max characters</source>
-      <translation>Por favor, insira uma mensagem, máximo de caracteres</translation>
-    </message>
-    <message>
-      <source>You cannot send messages to this chat. Please refresh your browser.</source>
-      <translation>Não pode enviar mensagens para esse chat. Por favor, atualize seu navegador.</translation>
-    </message>
-    <message>
-      <source>Pending Chat</source>
-      <translation>Chat pendente</translation>
-    </message>
-    <message>
-      <source>Unread message</source>
-      <translation>Mensagens não lidas</translation>
-    </message>
-    <message>
-      <source>Alert notification</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New message from operator</source>
-      <translation>Nova mensagem do operador</translation>
-    </message>
-    <message>
-      <source>Transfer Chat</source>
-      <translation>Transferir chat</translation>
-    </message>
-    <message>
-      <source>Assigned Chat</source>
-      <translation>Chat atribuído</translation>
-    </message>
-    <message>
-      <source>Fill in the form to start a chat</source>
-      <translation>Preencha o formulário para iniciar um chat</translation>
-    </message>
-    <message>
-      <source>You can edit only your own messages!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You have subscribed to new messages notifications!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter a message</source>
-      <translation>Insira sua mensagem</translation>
-    </message>
-    <message>
-      <source>Pending to join...</source>
-      <translation>À espera de se juntar...</translation>
-    </message>
-    <message>
-      <source>Already a member</source>
-      <translation>Já é um mebro</translation>
-    </message>
-    <message>
-      <source>Invite</source>
-      <translation>Convidar</translation>
-    </message>
-    <message>
-      <source>Cancel invite</source>
-      <translation>Cancelar convite</translation>
-    </message>
-    <message>
-      <source>Leave the group</source>
-      <translation>Daixar o grupo</translation>
-    </message>
-    <message>
-      <source>Enter operator name or surname or just click search to invite</source>
-      <translation>Insira o operador ou clique para procurar convite</translation>
-    </message>
-    <message>
-      <source>Leave the group, you still can join anytime you want.</source>
-      <translation>Deixar o grupo, é possível voltar a ser membro do mesmo..</translation>
-    </message>
-    <message>
-      <source>You cannot send messages to this chat. Chat has been closed.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message</source>
-      <translation>Por favor, insira sua mensagem</translation>
-    </message>
-    <message>
-      <source>characters max.</source>
-      <translation>máximo de caracteres</translation>
-    </message>
-    <message>
-      <source>Start a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>BB code</source>
-      <translation>BB code</translation>
-    </message>
-    <message>
-      <source>Start a chat with us!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New messages!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This chat is closed now. You can close window.</source>
-      <translation>O chat está encerrado. Pode fechar a janela.</translation>
-    </message>
-    <message>
-      <source>Your message...</source>
-      <translation>A sua mensagem...</translation>
-    </message>
-    <message>
-      <source>Thank you for your feedback...</source>
-      <translation>Obrigado pelo seu contacto.</translation>
-    </message>
-    <message>
-      <source>Chat can not be started now. Please try again later.</source>
-      <translation>O chat não pode ser iniciado agora. Por favor, tente mais tarde.</translation>
-    </message>
-    <message>
-      <source>Go to Survey.</source>
-      <translation>Ir para o questionário.</translation>
-    </message>
-    <message>
-      <source>There was an issue sending the message. Try again.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No internet connection.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose!</source>
-      <translation>Por favor excolha!</translation>
-    </message>
-    <message>
-      <source>Cancel voice message</source>
-      <translation>Cancelar a mensagem de voz</translation>
-    </message>
-    <message>
-      <source>Play recorded message</source>
-      <translation>Ouvir a gravação audio.</translation>
-    </message>
-    <message>
-      <source>Stop playing recorded audio</source>
-      <translation>Parar a gravação audio.</translation>
     </message>
   </context>
   <context>
@@ -7639,6 +7667,10 @@
       <translation>Visitas</translation>
     </message>
     <message>
+      <source>If you do not choose any department from below we will track all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Country code variable does not exist!</source>
       <translation>A variável código do país não existe!</translation>
     </message>
@@ -7884,10 +7916,6 @@
     <message>
       <source>List of files</source>
       <translation>Lista de arquivos</translation>
-    </message>
-    <message>
-      <source>Events Tracking</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>GEO adjustment</source>
@@ -10147,6 +10175,169 @@
     <message>
       <source>New</source>
       <translation>Novo</translation>
+    </message>
+  </context>
+  <context>
+    <name>system/etracking</name>
+    <message>
+      <source>Events tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>List of events tracking settings by department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enable events tracking first!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable Events Tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track all departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable tracking only for selected departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose one of the possible templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google Analytics</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Javascript for static URL. Paste your GA or any other script here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Track this event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Status was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Category</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Event label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you leave empty we will set automatically invitation name.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation hide</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was shown</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help close icon was clicked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot trigger was executed</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will set eventLabel to trigger name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Events tracking by department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit event tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New event tracking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default settings</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -12749,129 +12940,6 @@
     </message>
   </context>
   <context>
-    <name>system/etracking</name>
-    <message>
-      <source>Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable Events Tracking</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable tracking only to selected departments.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Javascript to execute on event. {{eventCategory}}, {{eventAction}}, {{eventLabel}}, {{eventInternal}} you can use as placeholders.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose one of the possible templates</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Google Analytics</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Javascript for static URL. Paste your GA or any other script here.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Track this event</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Status was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Category</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event action</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Event label</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you leave empty we will set automatically invitation name.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation hide</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source> Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was shown</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help close icon was clicked</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Bot trigger was executed</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will set eventLabel to trigger name</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
     <name>system/languages</name>
     <message>
       <source>Languages configuration</source>
@@ -13947,10 +14015,6 @@
   <context>
     <name>chat/webhooks</name>
     <message>
-      <source>Text messages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Hooks events</source>
       <translation type="unfinished"/>
     </message>
@@ -14215,6 +14279,61 @@
     </message>
     <message>
       <source>New incoming webhook</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>webhook/push</name>
+    <message>
+      <source>New chat based on incoming webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open in a new window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Open chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You will initiate chat as it was response to incoming webhook.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Webhook</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recipient. (chatId). In most cases it is just a phone number</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department. If you do not choose one we will use the one defined in webhook.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Create chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set created chat status as closed. Visitor reply will initiate chat according to incoming webhook configuration.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was send!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a webhook</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14761,6 +14880,14 @@
       <translation>fechou o chat!</translation>
     </message>
     <message>
+      <source>has changed chat status to pending!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has changed chat status to bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor auto responder was reset because of sync timeout, returned after</source>
       <translation>A resposta automática do visitante foi redefinida devido ao tempo limite de sincronização, retornada após</translation>
     </message>
@@ -15237,6 +15364,13 @@
     </message>
   </context>
   <context>
+    <name>system/settings</name>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>lhchatsettings/startchat</name>
     <message>
       <source>Start chat form settings</source>
@@ -15390,9 +15524,17 @@
     </message>
   </context>
   <context>
-    <name>system/settings</name>
+    <name>twilio/sendmessage</name>
     <message>
-      <source>Settings</source>
+      <source>Please enter chatId!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a message!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a webhook!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -15427,76 +15569,6 @@
     <message>
       <source>Deny screen share</source>
       <translation>Não autorizar partilha de ecrã</translation>
-    </message>
-  </context>
-  <context>
-    <name>webhook/push</name>
-    <message>
-      <source>New chat based on incoming webhook</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Open in a new window</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Open chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You will initiate chat as it was response to incoming webhook.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Webhook</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Recipient. (chatId). In most cases it is just a phone number</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department. If you do not choose one we will use the one defined in webhook.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Create chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Set created chat status as closed. Visitor reply will initiate chat according to incoming webhook configuration.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message was send!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a webhook</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>twilio/sendmessage</name>
-    <message>
-      <source>Please enter chatId!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter a message!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a webhook!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

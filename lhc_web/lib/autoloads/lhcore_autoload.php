@@ -333,7 +333,11 @@ return array_merge(array (
         'erLhcoreClassChatWebhookIncoming'          => 'lib/core/lhchat/lhchatwebhookincomming.php',
 
         // Voice Video
-        'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php'
+        'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php',
+
+        // Views
+        'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php',
+        'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php'
 
 ),
 include('var/autoloads/lhextension_autoload.php')

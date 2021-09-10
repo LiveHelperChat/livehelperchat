@@ -442,16 +442,33 @@
 
     <div class="row mb-2">
         <div class="col-12">
-            <div class="btn-group" role="group" aria-label="...">
-                <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+
+            <div class="btn-group mr-2" role="group" aria-label="...">
+                    <button type="submit" class="btn btn-primary btn-sm" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
             </div>
+
             <div class="btn-group" role="group" aria-label="...">
-                <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                <?php $appendPrintExportURL = ''; if ($pages->items_total > 0) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>
-                    <a target="_blank" class="btn btn-secondary btn-sm" href="<?php echo $pages->serverURL?>/(print)/1?<?php echo $appendPrintExportURL?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
-                    <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/1?<?php echo $appendPrintExportURL?>'})" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?> (<?php echo $pages->items_total?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','chats');?>)</button>
+                    <a target="_blank" class="btn btn-outline-secondary btn-sm" href="<?php echo $pages->serverURL?>/(print)/1?<?php echo $appendPrintExportURL?>"><span class="material-icons">print</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Print');?></a>
+                    <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/1?<?php echo $appendPrintExportURL?>'})" class="btn btn-outline-secondary btn-sm"><span class="material-icons">file_download</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Export')?> (<?php echo $pages->items_total?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','chats');?>)</button>
+                <?php endif; ?>
+                <?php if ($pages->items_total > 0 || isset($_GET['doSearch'])) : ?>
+
+                <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2?<?php echo $appendPrintExportURL?>'})" class="btn btn-outline-secondary btn-sm">
+                    <span class="material-icons">saved_search</span>
+                    <?php if ($input->view > 0) : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Update view')?>
+                    <?php else : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as view')?>
+                    <?php endif; ?>
+                </button>
+
+                 <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
+
                 <?php endif; ?>
             </div>
+
         </div>
     </div>
 	
