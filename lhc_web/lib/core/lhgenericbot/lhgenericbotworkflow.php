@@ -1709,6 +1709,43 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function processManualTrigger($chat, $payload) {
+        if (isset($chat->gbot_id)) {
+            $db = ezcDbInstance::get();
+            try {
+
+                $db->beginTransaction();
+
+                $chat->syncAndLock();
+                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($payload);
+
+                if ($trigger->as_argument != 1) {
+                    throw new Exception('Trigger can not be passed as argument.');
+                }
+
+                $messageTrigger = self::processTrigger($chat, $trigger);
+
+                if ($messageTrigger instanceof erLhcoreClassModelmsg) {
+                    $message = $messageTrigger;
+                }
+
+                if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                    self::setLastMessageId($chat, $message->id);
+                } else {
+                    if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == true) {
+                        self::sendAsBot($chat, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Button action could not be found!'));
+                    }
+                }
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+        }
+    }
+
     public static function processTriggerClick($chat, $messageContext, $payload, $params = array()) {
         if (isset($chat->gbot_id)) {
 

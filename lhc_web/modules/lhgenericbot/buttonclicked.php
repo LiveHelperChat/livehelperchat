@@ -13,7 +13,7 @@ $validStatuses = array(
 );
 
 if (isset($_GET['id']) && isset($_GET['payload'])) {
-    $paramsPayload = array('id' => $_GET['id'], 'payload' => $_GET['payload'], 'processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true'));
+    $paramsPayload = array('id' => (isset($_GET['id']) ? $_GET['id'] : null), 'payload' => $_GET['payload'], 'processed' => (isset($_GET['processed']) && $_GET['processed'] == 'true'));
 } else {
     $paramsPayload = json_decode(file_get_contents('php://input'),true);
 }
@@ -23,18 +23,21 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validstatus_chat
 try {
     if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW,erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
 
-        if (!isset($paramsPayload['id']) || !is_numeric($paramsPayload['id'])) {
-            throw new Exception('Message not provided!');
-        }
 
-        $message = erLhcoreClassModelmsg::fetch($paramsPayload['id']);
+        if ($Params['user_parameters_unordered']['type'] != 'manualtrigger') {
+            if (!isset($paramsPayload['id']) || !is_numeric($paramsPayload['id'])) {
+                throw new Exception('Message not provided!');
+            }
 
-        if (!($message instanceof erLhcoreClassModelmsg)) {
-            throw new Exception('Message could not be found!');
-        }
+            $message = erLhcoreClassModelmsg::fetch($paramsPayload['id']);
 
-        if ($message->chat_id != $chat->id) {
-            throw new Exception('Invalid message provided');
+            if (!($message instanceof erLhcoreClassModelmsg)) {
+                throw new Exception('Message could not be found!');
+            }
+
+            if ($message->chat_id != $chat->id) {
+                throw new Exception('Invalid message provided');
+            }
         }
 
         if (!isset($paramsPayload['payload']) || $paramsPayload['payload'] == '') {
@@ -43,6 +46,8 @@ try {
 
         if ($Params['user_parameters_unordered']['type'] == 'valueclicked') {
             erLhcoreClassGenericBotWorkflow::processValueClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
+        } elseif ($Params['user_parameters_unordered']['type'] == 'manualtrigger') {
+            erLhcoreClassGenericBotWorkflow::processManualTrigger($chat, $paramsPayload['payload']);
         } elseif ($Params['user_parameters_unordered']['type'] == 'triggerclicked') {
             erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
         } elseif ($Params['user_parameters_unordered']['type'] == 'editgenericstep') {
