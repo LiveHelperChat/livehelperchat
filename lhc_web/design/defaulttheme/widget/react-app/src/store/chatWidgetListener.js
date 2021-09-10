@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -201,6 +201,26 @@ export default function (dispatch, getState) {
         } else if (action == 'lhc_load_ext') {
             const parts = e.data.replace('lhc_load_ext:','').split('::');
             executeExtension(parts[0],JSON.parse(parts[1]));
+        } else if (action == 'lhc_trigger_click') {
+            const parts = e.data.replace('lhc_trigger_click:','').split('::');
+            dispatch(updateTriggerClicked(
+                {'type': '/(type)/manualtrigger'},
+                {'payload':parts[0]}
+            )).then((data) => {
+                if (data.data.t) {
+                    helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
+                    // Update messages
+                    const state = getState();
+                    if (state.chatwidget.hasIn(['chatData','id'])) {
+                        dispatch(fetchMessages({
+                            'chat_id': state.chatwidget.getIn(['chatData','id']),
+                            'hash' : state.chatwidget.getIn(['chatData','hash']),
+                            'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
+                            'theme' : state.chatwidget.get('theme')
+                        }));
+                    }
+                }
+            });
         } else if (action == 'lhc_event') {
             const parts = e.data.replace('lhc_event:','').split('::');
             let args = JSON.parse(parts[1]);

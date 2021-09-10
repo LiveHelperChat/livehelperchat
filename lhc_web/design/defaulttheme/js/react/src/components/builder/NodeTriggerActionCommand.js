@@ -113,6 +113,11 @@ class NodeTriggerActionCommand extends Component {
 
                 {this.props.action.getIn(['content','command']) == 'chatvariable' &&
                 <div>
+                    
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
+                    </div>
+
                     <div className="form-group">
                         <label>Set chat variables in JSON format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
@@ -141,6 +146,11 @@ class NodeTriggerActionCommand extends Component {
 
                 {this.props.action.getIn(['content','command']) == 'chatattribute' &&
                 <div>
+
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
+                    </div>
+
                     <div className="form-group">
                         <label>Set chat attribute in JSON format.</label>
                         <input className="form-control form-control-sm" type="text" placeholder="[{&quot;value&quot;:&quot;Attribute value or {content_1}&quot;,&quot;identifier&quot;:&quot;attribute_name&quot;,&quot;key&quot;:&quot;Attribute Name&quot;}]" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
@@ -164,6 +174,11 @@ class NodeTriggerActionCommand extends Component {
                         <label>Chat attribute name (nick,remarks,email,dep_id).</label>
                         <input className="form-control form-control-sm" type="text" placeholder="remarks" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
+
+                    <div className="form-group">
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
+                    </div>
+
                     <div className="form-group">
                         <label>Chat attribute value.</label>
                         <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>

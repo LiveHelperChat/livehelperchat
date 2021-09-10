@@ -1709,6 +1709,43 @@ class erLhcoreClassGenericBotWorkflow {
         }
     }
 
+    public static function processManualTrigger($chat, $payload) {
+        if (isset($chat->gbot_id)) {
+            $db = ezcDbInstance::get();
+            try {
+
+                $db->beginTransaction();
+
+                $chat->syncAndLock();
+                $trigger = erLhcoreClassModelGenericBotTrigger::fetch($payload);
+
+                if ($trigger->as_argument != 1) {
+                    throw new Exception('Trigger can not be passed as argument.');
+                }
+
+                $messageTrigger = self::processTrigger($chat, $trigger);
+
+                if ($messageTrigger instanceof erLhcoreClassModelmsg) {
+                    $message = $messageTrigger;
+                }
+
+                if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                    self::setLastMessageId($chat, $message->id);
+                } else {
+                    if (erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output') == true) {
+                        self::sendAsBot($chat, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Button action could not be found!'));
+                    }
+                }
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
+        }
+    }
+
     public static function processTriggerClick($chat, $messageContext, $payload, $params = array()) {
         if (isset($chat->gbot_id)) {
 
@@ -2196,6 +2233,12 @@ class erLhcoreClassGenericBotWorkflow {
                     $replaceArray[$data['search']] = $data['replace'];
                 }
 
+                if (isset($params['as_json']) && $params['as_json'] == true) {
+                    foreach ($replaceArray as $indexReplace => $replaceValue) {
+                        $replaceArray[$indexReplace] = json_encode($replaceValue);
+                    }
+                }
+
                 $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
             }
         }
@@ -2238,6 +2281,12 @@ class erLhcoreClassGenericBotWorkflow {
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.replace_message_bot', array('msg' => & $message, 'chat' => & $params['chat']));
 
+            if (isset($params['as_json']) && $params['as_json'] == true) {
+                foreach ($replaceArray as $indexReplace => $replaceValue) {
+                    $replaceArray[$indexReplace] = json_encode($replaceValue);
+                }
+            }
+
             $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
         }
 
@@ -2251,7 +2300,7 @@ class erLhcoreClassGenericBotWorkflow {
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[1][$indexElement], '.');
-                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $message);
+                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($valueAttribute['value']) : $valueAttribute['value']) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : null), $message);
                 }
             }
         }
@@ -2274,7 +2323,10 @@ class erLhcoreClassGenericBotWorkflow {
                 }
                 $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array('limit' => false, 'filterin' => array('identifier' => $identifiers)));
                 foreach ($replaceRules as $replaceRule) {
-                    $message = str_replace('{' . $replaceRule->identifier . '}',$replaceRule->getValueReplace(['chat' => $params['chat']]),$message);
+                    $message = str_replace(
+                        '{' . $replaceRule->identifier . '}',
+                        ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($replaceRule->getValueReplace(['chat' => $params['chat']])) : $replaceRule->getValueReplace(['chat' => $params['chat']]))
+                        ,$message);
                 }
             }
         }

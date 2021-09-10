@@ -1,7 +1,14 @@
+3.82v
+
+1. Views - you can save a search as view and see always updated results in My views.
+2. Forms now can update chat attributes. https://doc.livehelperchat.com/docs/modules/forms
+
+execute doc/update_db/update_254.sql for update
+
 3.81v
 
 1. Canned messages usage statistic collecting option. Can be activated in statistic configuration tab. `Collect canned messages usage statistic`
-2. Security fixes. All these were CSFR based issues which does not have much usage on real life scenario. Update is still recommended.
+2. Security fixes. All these were CSFR based issues which does not have much usage in real life scenario. Update is still recommended.
 
 execute doc/update_db/update_253.sql for update
 
