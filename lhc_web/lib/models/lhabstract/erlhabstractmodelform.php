@@ -34,88 +34,44 @@ class erLhAbstractModelForm {
 	{
 		return $this->name;
 	}
-	
+
    	public function getFields()
    	{
-   		return array(
-   				'name' => array(
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Name for personal purposes'),
-   						'required' => true,
-   						'link' => erLhcoreClassDesign::baseurl('form/collected'),
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				
-   				'content' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Content'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				   				 
-   				  				   				 
-   				'name_attr' => array (
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Name attributes'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),   				 
-   				'intro_attr' => array (
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Introduction attributes'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),  
-   				'xls_columns' => array (
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','XLS Columns'),
-   						'required' => false,
-   						'height'	=> '100px',
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),  
-   				'recipient' => array (
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Recipient'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'post_content' => array(
-   						'type' => 'textarea',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Post content after form is submitted'),
-   						'required' => false,
-   						'hidden' => true,
-   						'height'	=> '150px',
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'pagelayout' => array (
-   						'type' => 'text',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Custom pagelayout'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-   						)),
-   				'active' => array (
-   						'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Active'),
-   						'required' => false,
-   						'hidden' => true,
-   						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-   						))
-   				   				
-   		);
+        return include('lib/core/lhabstract/fields/erlhabstractmodelform.php');
 	}
+
+    public function dependJs()
+    {
+        return "<script type=\"text/javascript\" src=\"".erLhcoreClassDesign::designJS('js/colorpicker.js;js/ace/ace.js')."\"></script>
+        <script>
+        $(function() {
+            ace.config.set('basePath', '".erLhcoreClassDesign::design('js/ace') . "');
+            $('textarea[data-editor]').each(function() {
+                var textarea = $(this);
+                var mode = textarea.data('editor');
+                var editDiv = $('<div>', {
+                    width: '100%',
+                    height: '200px',
+                    id: 'ace-'+textarea.attr('name')
+                }).insertBefore(textarea);
+                textarea.css('display', 'none');
+                var editor = ace.edit(editDiv[0]);
+                editor.renderer.setShowGutter(true);
+                editor.getSession().setValue(textarea.val());
+                editor.getSession().setMode('ace/mode/'+mode);
+                editor.setOptions({
+                    autoScrollEditorIntoView: true,
+                    copyWithEmptySelection: true,
+                });
+                editor.setTheme('ace/theme/github');
+                // copy back to textarea on form submit...
+                textarea.closest('form').submit(function() {
+                    textarea.val(editor.getSession().getValue());
+                })
+            });
+        });
+        </script>";
+    }
 
 	public function getModuleTranslations()
 	{
@@ -135,8 +91,7 @@ class erLhAbstractModelForm {
 	   	case 'left_menu':
 	   	       $this->left_menu = '';
 	   		   return $this->left_menu;
-	   		break;
-	   		
+
 	   	case 'content_rendered':
 	   			return erLhcoreClassFormRenderer::renderForm($this);
 
@@ -158,12 +113,11 @@ class erLhAbstractModelForm {
 	   			}
 	   			
 	   			return $this->xls_columns_data = $totalParts;
-	   		break;	
+
 	   		
 	   	case 'hide_delete':
 	   			return $this->hide_delete = !erLhcoreClassUser::instance()->hasAccessTo('lhform','delete_fm');
-	   		break;
-	   			   		
+
 	   	default:
 	   		break;
 	   }

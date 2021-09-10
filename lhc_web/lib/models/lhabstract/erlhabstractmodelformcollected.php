@@ -35,31 +35,28 @@ class erLhAbstractModelFormCollected
             case 'left_menu':
                 $this->left_menu = '';
                 return $this->left_menu;
-                break;
 
             case 'ctime_front':
                 return $this->ctime_front = date('Ymd') == date('Ymd', $this->ctime) ? date(erLhcoreClassModule::$dateHourFormat, $this->ctime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->ctime);
-                break;
 
             case 'ctime_full_front':
                 return $this->ctime_full_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->ctime);
-                break;
 
             case 'content_array':
-                return $this->content_array = unserialize($this->content);
-                break;
+                $content = json_decode($this->content,true);
+                if ($content === null) {
+                    $content = unserialize($this->content);
+                }
+                return $this->content_array = $content;
 
             case 'custom_fields_array':
                 return $this->custom_fields_array = $this->custom_fields != '' ? json_decode($this->custom_fields, true) : [];
-                break;
 
             case 'form':
                 return $this->form = erLhAbstractModelForm::fetch($this->form_id);
-                break;
 
             case 'form_content':
                 return $this->getFormattedContent();
-                break;
             default:
                 break;
         }

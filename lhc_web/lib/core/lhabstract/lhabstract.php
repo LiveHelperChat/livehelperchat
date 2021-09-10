@@ -104,8 +104,6 @@ class erLhcoreClassAbstract
 
                     $ngModel = isset($attr['nginit']) ? ' ng-init=\'ngModelAbstractInput_' . $name . '=' . json_encode($value, JSON_HEX_APOS) . '\' ng-model="ngModelAbstractInput_' . $name . '" ' : 'ng-non-bindable';
 
-
-
                     $aceEditor = isset($attr['ace_editor']) ? ' data-editor="'.$attr['ace_editor'].'" ' : '';
 
                     return '<textarea  style="height:' . $height . ';" ' . $placeholder . ' ' . $ngModel . ' ' . $aceEditor . ' class="form-control' . (isset($attr['css_class']) ? ' '.$attr['css_class'] : '') . '" name="AbstractInput_' . $name . '">' . htmlspecialchars($value) . '</textarea>';
