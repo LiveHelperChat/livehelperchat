@@ -16,11 +16,10 @@
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Priority');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Department');?></th>
-            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Status');?></th>
-            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Date');?></th>
+            <th width="15%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator');?></th>
+            <th width="10%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Department');?></th>
+            <th width="10%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Status');?></th>
+            <th width="5%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Date');?></th>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
@@ -54,9 +53,8 @@
                 <a class="user-select-none" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
             </td>
             <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
-            <td><?php echo htmlspecialchars($item->priority)?></td>
-            <td><?php echo htmlspecialchars($item->user)?></td>
-            <td><?php echo htmlspecialchars($item->department)?></td>
+            <td nowrap="nowrap"><?php echo htmlspecialchars($item->user)?></td>
+            <td nowrap="nowrap"><?php echo htmlspecialchars($item->department)?></td>
             <td nowrap="">
                 <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
                     <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Pending');?>
