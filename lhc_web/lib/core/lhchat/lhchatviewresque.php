@@ -63,7 +63,9 @@ class erLhcoreClassViewResque {
                 $search->updateThis(['update' => ['updated_at']]);
             }
         } else {
-            throw new Exception('Unknown view - '.$search->scope);
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.update_vew', array(
+                'search' => $search
+            ));
         }
     }
     
