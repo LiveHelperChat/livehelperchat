@@ -2,14 +2,13 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhviews/loadview.tpl.php');
-
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 $totalRecords = 0;
 $content = '';
 
 // Chats
 if ($search->scope == 'chat') {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhviews/loadview.tpl.php');
     $tpl->set('can_delete_global',$currentUser->hasAccessTo('lhchat','deleteglobalchat'));
     $tpl->set('can_delete_general',$currentUser->hasAccessTo('lhchat','deletechat'));
     $tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremote'));
@@ -23,7 +22,11 @@ if ($search->scope == 'chat') {
     }
 
     $pages = new lhPaginator();
+
+    $startTime = microtime();
     $totalRecords = $pages->items_total = erLhcoreClassModelChat::getCount($filterSearch);
+    erLhcoreClassViewResque::logSlowView($startTime, microtime(), $search);
+
     $pages->translationContext = 'chat/pendingchats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('views/loadview').'/'.$search->id;
     $pages->paginate();

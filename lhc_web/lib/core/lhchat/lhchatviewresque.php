@@ -12,10 +12,37 @@ class erLhcoreClassViewResque {
         $search = erLhAbstractModelSavedSearch::fetch($viewId);
         
         if ($search instanceof erLhAbstractModelSavedSearch && $search->updated_at < time() - 2 * 60 && $search->requested_at > time() - 5 * 60) {
+
+            $startTime = microtime();
+
             self::updateView($search);
+
+            erLhcoreClassViewResque::logSlowView($startTime, microtime(), $search);
+
         }
     }
-    
+
+    public static function logSlowView( $start_time, $end_time, $savedSearch )
+    {
+        $start = explode(' ', $start_time);
+        $end = explode(' ', $end_time);
+        $time = $end[0] + $end[1] - $start[0] - $start[1];
+
+        if ($time > 1) {
+            erLhcoreClassLog::write($time,
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'View',
+                    'category' => 'slow_view',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => $savedSearch->id
+                )
+            );
+        }
+
+    }
+
     public static function updateView($search)
     {
         if ($search->scope == 'chat') {
