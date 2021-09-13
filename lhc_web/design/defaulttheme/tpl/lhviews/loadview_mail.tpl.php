@@ -19,7 +19,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Department');?></th>
-            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Status');?></th>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Status');?></th>
             <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Date');?></th>
         </tr>
         </thead>
@@ -57,7 +57,7 @@
             <td><?php echo htmlspecialchars($item->priority)?></td>
             <td><?php echo htmlspecialchars($item->user)?></td>
             <td><?php echo htmlspecialchars($item->department)?></td>
-            <td>
+            <td nowrap="">
                 <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
                     <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Pending');?>
                 <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>
