@@ -20,7 +20,7 @@
                                     <?php include(erLhcoreClassDesign::designtpl('lhviews/custom_type_multiinclude.tpl.php')); ?>
                                     <span class="material-icons" ng-if="view.scope == 'mail'">mail</span>
                                     <span class="material-icons" ng-if="view.scope == 'chat'">chat</span>{{view.name}}<span class="badge pb-1 font-weight-normal badge-light" ng-if="view.total_records > 0">({{view.total_records}})</span>
-                                    <span ng-if="view.id != vctrl.currentView.id" class="float-right text-muted fs12" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Updated ago');?>">{{view.updated_ago}}</span>
+                                    <span ng-if="view.id != vctrl.currentView.id" class="float-right text-muted fs12" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Updated ago');?>">{{view.updated_ago || '0 s.'}}</span>
                                     <span ng-if="view.id == vctrl.currentView.id" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Live updating');?>" class="float-right text-muted material-icons">update</span>
                                 </a>
                             </div>
