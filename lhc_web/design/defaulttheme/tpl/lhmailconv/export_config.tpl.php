@@ -9,7 +9,7 @@ $appendPrintExportURL = '';
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>
 
-<form action="<?php echo htmlspecialchars($action_url)?>/(xls)/1?<?php echo $appendPrintExportURL?>" method="post" target="_blank">
+<form action="<?php echo htmlspecialchars($action_url)?>/(export)/1?<?php echo $appendPrintExportURL?>" method="post" target="_blank">
     <div class="modal-body">
         <div class="row">
             <div class="col-6">
