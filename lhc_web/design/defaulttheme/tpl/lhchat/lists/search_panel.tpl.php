@@ -455,6 +455,10 @@
                 <?php endif; ?>
                 <?php if ($pages->items_total > 0 || isset($_GET['doSearch'])) : ?>
 
+                <?php if ($input->view > 0) : ?>
+                    <input type="hidden" name="view" value="<?php echo $input->view?>" />
+                <?php endif; ?>
+
                 <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2?<?php echo $appendPrintExportURL?>'})" class="btn btn-outline-secondary btn-sm">
                     <span class="material-icons">saved_search</span>
                     <?php if ($input->view > 0) : ?>
