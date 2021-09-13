@@ -22,7 +22,11 @@ if ($search->scope == 'chat') {
     }
 
     $pages = new lhPaginator();
+
+    $startTime = microtime();
     $totalRecords = $pages->items_total = erLhcoreClassModelChat::getCount($filterSearch);
+    erLhcoreClassViewResque::logSlowView($startTime, microtime(), $search);
+
     $pages->translationContext = 'chat/pendingchats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('views/loadview').'/'.$search->id;
     $pages->paginate();
