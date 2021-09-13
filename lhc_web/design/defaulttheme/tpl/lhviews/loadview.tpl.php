@@ -53,7 +53,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a onclick="ee.emitEvent('angularStartChatbyId',[<?php echo $chat->id?>])"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span ng-non-bindable><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
+                                <a onclick="ee.emitEvent('angularStartChatbyId',[<?php echo $chat->id?>])"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span><span ng-non-bindable><?php echo ($chat->product !== false ? ', '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
                                 <?php if ($chat->has_unread_messages == 1) : ?>
                                     <?php
@@ -67,10 +67,11 @@
                             <td ng-non-bindable>
                                 <?php echo htmlspecialchars($chat->user);?>
                             </td>
-                            <td ng-non-bindable>
+                            <td ng-non-bindable nowrap="nowrap">
                                 <?php echo htmlspecialchars($chat->department);?>
                             </td>
                             <td nowrap="nowrap">
+                                <?php if ($chat->fbst == 1) : ?><i class="material-icons up-voted">thumb_up</i><?php elseif ($chat->fbst == 2) : ?><i class="material-icons down-voted">thumb_down<i><?php endif;?>
                                 <?php if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) : ?>
                                     <i class="material-icons chat-pending">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Pending chat');?>
                                 <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?>
@@ -86,7 +87,9 @@
                                 <?php endif;?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_multiinclude.tpl.php'));?>
                             </td>
-                            <td><?php if ($chat->fbst == 1) : ?><i class="material-icons up-voted">thumb_up</i><?php elseif ($chat->fbst == 2) : ?><i class="material-icons down-voted">thumb_down<i><?php endif;?></td>
+                            <td nowrap="nowrap" class="pl-3">
+                                <?php echo $chat->start_last_action_front?>
+                            </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
