@@ -8,6 +8,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
+    const [plainBody, setPlainBody] = useState(false);
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
 
@@ -74,6 +75,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>
                     <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>
+                    {message.alt_body && <a className="dropdown-item" href="#" onClick={(e) => setPlainBody(!plainBody)}><i className="material-icons text-muted">visibility</i>{t('msg.plain_html')}</a>}
                 </div>
             </div>}
         </div>
@@ -122,11 +124,13 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     </div>
                 </div>
             </div>
-
-
         </div>}
 
-        {expandBody && message.body_front && <div className="col-12 mail-message-body pt-2 pb-2">
+        {expandBody && plainBody && message.alt_body && <div className="col-12 mail-message-body pt-2 pb-2">
+            <pre className="fs12">{message.alt_body}</pre>
+        </div>}
+
+        {expandBody && message.body_front && !plainBody && <div className="col-12 mail-message-body pt-2 pb-2">
 
          {parse(message.body_front, {
         replace: domNode => {

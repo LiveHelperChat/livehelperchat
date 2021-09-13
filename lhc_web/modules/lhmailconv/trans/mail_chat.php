@@ -13,7 +13,7 @@ echo json_encode(array(
         "last_responded_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last time responded at'),
         "interaction_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Interaction time'),
         "last_interaction_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last interaction time'),
-        "priroity" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
+        "priority" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
         "chat_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Chat owner'),
         "received" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last mail received at'),
         "accepted_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accepted at'),
@@ -51,7 +51,8 @@ echo json_encode(array(
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send'),
         "sending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sending...'),
         "click_to_remove" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Click to remove'),
-        "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.')
+        "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.'),
+        "plain_html" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','View as Plain/HTML')
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),
