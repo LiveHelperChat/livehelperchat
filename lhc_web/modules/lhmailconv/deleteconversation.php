@@ -9,7 +9,7 @@ try {
     $item = erLhcoreClassModelMailconvConversation::fetch( $Params['user_parameters']['id']);
     $item->removeThis();
 
-    erLhcoreClassModule::redirect('mailconv/conversations');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 
 } catch (Exception $e) {

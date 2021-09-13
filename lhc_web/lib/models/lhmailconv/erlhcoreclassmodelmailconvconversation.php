@@ -124,6 +124,10 @@ class erLhcoreClassModelMailconvConversation
                 $this->conv_duration_front = $this->conv_duration > 0 ? erLhcoreClassChat::formatSeconds($this->conv_duration) : 0;
                 return $this->conv_duration_front;
 
+            case 'last_mail_front':
+                $this->last_mail_front = erLhcoreClassChat::formatSeconds(time() - $this->udate);
+                return $this->last_mail_front;
+
             case 'user':
                 $this->user = false;
                 if ($this->user_id > 0) {
