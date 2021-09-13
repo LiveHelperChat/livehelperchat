@@ -58,7 +58,10 @@ class erLhAbstractModelSavedSearch {
             case 'user':
                 $this->user = $this->user_id;
                 return $this->user;
-                break;
+
+            case 'updated_ago':
+                $this->updated_ago = erLhcoreClassChat::formatSeconds(time() - $this->updated_at);
+                return $this->updated_ago;
 
             default:
                 ;
