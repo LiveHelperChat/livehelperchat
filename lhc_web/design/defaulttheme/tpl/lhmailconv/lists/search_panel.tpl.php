@@ -40,7 +40,7 @@
         </div>
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_title.tpl.php')); ?>
-        <div class="col-md-2">
+        <div class="col-md-1">
             <div class="form-group">
                 <label><?php echo $userTitle['user'];?></label>
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -52,6 +52,18 @@
                     'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(),
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Status');?></label>
+                <select name="conversation_status" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
+                    <option value="0" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending mails');?></option>
+                    <option value="1" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails');?></option>
+                    <option value="2" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed mails');?></option>
+                </select>
             </div>
         </div>
 
@@ -168,17 +180,6 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Conversation status');?></label>
-                                <select name="conversation_status" class="form-control form-control-sm">
-                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
-                                    <option value="0" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending mails');?></option>
-                                    <option value="1" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails');?></option>
-                                    <option value="2" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed mails');?></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject');?></label>
                                 <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                                     'input_name'     => 'subject_id',
@@ -229,6 +230,10 @@
                 </a>
 
                 <?php if ($pages->items_total > 0 || isset($_GET['doSearch'])) : ?>
+
+                    <?php if ($input->view > 0) : ?>
+                        <input type="hidden" name="view" value="<?php echo $input->view?>" />
+                    <?php endif; ?>
 
                     <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2'})" class="btn btn-outline-secondary btn-sm">
                         <span class="material-icons">saved_search</span>
