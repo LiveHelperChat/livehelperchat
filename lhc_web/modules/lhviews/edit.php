@@ -2,12 +2,19 @@
 
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 
-erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['user_id']);
+if ($search->user_id != $currentUser->getUserID()) {
+    erLhcoreClassModule::redirect('/');
+    exit;
+}
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($search->params_array['input_form']);
 
-if ($search->scope == 'chat'){
+if ($search->scope == 'chat') {
     erLhcoreClassModule::redirect('chat/list', '/(view)/'.$search->id.$append);
+} else {
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.editview', array(
+        'search' => $search
+    ));
 }
 
 exit;
