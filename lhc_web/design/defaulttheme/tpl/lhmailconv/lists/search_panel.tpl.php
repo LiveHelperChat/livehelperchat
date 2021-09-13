@@ -235,14 +235,16 @@
                         <input type="hidden" name="view" value="<?php echo $input->view?>" />
                     <?php endif; ?>
 
-                    <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2'})" class="btn btn-outline-secondary btn-sm">
-                        <span class="material-icons">saved_search</span>
-                        <?php if ($input->view > 0) : ?>
-                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Update view')?>
-                        <?php else : ?>
-                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as view')?>
-                        <?php endif; ?>
-                    </button>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhviews','use')) : ?>
+                        <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2'})" class="btn btn-outline-secondary btn-sm">
+                            <span class="material-icons">saved_search</span>
+                            <?php if ($input->view > 0) : ?>
+                                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Update view')?>
+                            <?php else : ?>
+                                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as view')?>
+                            <?php endif; ?>
+                        </button>
+                    <?php endif; ?>
 
                     <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
 
