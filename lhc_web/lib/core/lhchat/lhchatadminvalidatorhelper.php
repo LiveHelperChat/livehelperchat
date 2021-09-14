@@ -16,6 +16,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'position' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'passive' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             )
         );
 
@@ -32,6 +35,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             $search->position = $form->position;
         } else {
             $search->position = 0;
+        }
+
+        if ($form->hasValidData( 'passive' ) && $form->passive == true) {
+            $search->passive = 1;
+        } else {
+            $search->passive = 0;
         }
 
         $search->params = json_encode($params);

@@ -38,6 +38,9 @@ $appendPrintExportURL = '';
                             <input required maxlength="100" class="form-control" type="text" ng-non-bindable name="position" value="<?php echo htmlspecialchars($item->position)?>" />
                         </div>
                     </div>
+                    <div class="col-12">
+                        <label><input type="checkbox" name="passive" value="on" <?php if ($item->passive == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Passive, number of matching records will not be updated in the background.')?></label>
+                    </div>
 
                 </div>
             </div>

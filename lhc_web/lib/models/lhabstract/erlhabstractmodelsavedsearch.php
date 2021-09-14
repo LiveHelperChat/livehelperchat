@@ -26,7 +26,8 @@ class erLhAbstractModelSavedSearch {
             'days' => $this->days,
             'updated_at' => $this->updated_at,
             'requested_at' => $this->requested_at,
-            'total_records' => $this->total_records
+            'total_records' => $this->total_records,
+            'passive' => $this->passive
         );
 
         return $stateArray;
@@ -79,4 +80,5 @@ class erLhAbstractModelSavedSearch {
     public $requested_at = 0;
     public $updated_at = 0;
     public $total_records = 0;
+    public $passive = 0;
 }
