@@ -19,14 +19,15 @@ try {
             'wait_time_response',
             'interaction_time_duration',
             'cls_time_front',
+            'delivery_status_keyed',
             'to_data_front',
             'reply_to_data_front',
-            'conv_duration_front',
             'cc_data_front',
             'attachments',
             'bcc_data_front',
+            'conv_duration_front',
             'subjects'
-        ), array('user','conversation'));
+        ), array('user', 'conversation', 'files', 'delivery_status'));
 
         echo json_encode(['message' => $message]);
         exit;

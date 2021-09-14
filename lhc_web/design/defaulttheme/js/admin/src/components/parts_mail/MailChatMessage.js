@@ -8,9 +8,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
-    const [plainBody, setPlainBody] = useState(false);
+    const [plainBody, setPlainBody] = useState(!!message.undelivered);
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
+    const [expandDeliveryInformation, setExpandDeliveryInformation] = useState(false);
 
     const formatStringToCamelCase = str => {
         const splitted = str.split("-");
@@ -80,6 +81,8 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             </div>}
         </div>
 
+
+
         {expandHeader && <div className="col-12">
 
             <div className="card">
@@ -124,6 +127,16 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     </div>
                 </div>
             </div>
+        </div>}
+
+        {expandBody && message.undelivered && <div className="col-12 alert alert-warning mt-2">
+            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id}>Download send message.</a>
+
+            <br/>{message.delivery_status_keyed && <button onClick={(e) => setExpandDeliveryInformation(!expandDeliveryInformation)} className="btn fs12 btn-link">Show technical information.</button>}
+            {expandDeliveryInformation && message.delivery_status_keyed && <div>
+                <div className="border-top border-bottom my-2 py-2 fs12">{message.delivery_status_keyed.Diagnostic_Code}</div>
+                <pre>{JSON.stringify(message.delivery_status_keyed, null, 2)}</pre>
+            </div>}
         </div>}
 
         {expandBody && plainBody && message.alt_body && <div className="col-12 mail-message-body pt-2 pb-2">

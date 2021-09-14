@@ -87,7 +87,8 @@ try {
             'lr_time_front',
             'conv_duration_front',
             'interaction_time_duration',
-        ), array('department','user'));
+            'mailbox_front',
+        ), array('department','user','mailbox'));
 
         erLhcoreClassChat::prefillGetAttributes($messages, array(
             'udate_front',
@@ -100,6 +101,7 @@ try {
             'wait_time_response',
             'interaction_time_duration',
             'cls_time_front',
+            'delivery_status_keyed',
             'to_data_front',
             'reply_to_data_front',
             'cc_data_front',
@@ -107,7 +109,7 @@ try {
             'bcc_data_front',
             'conv_duration_front',
             'subjects'
-        ), array('user','files'));
+        ), array('user', 'conversation', 'files', 'delivery_status'));
 
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
         $data = (array)$fileData->data;

@@ -31,6 +31,7 @@ try {
 
             erLhcoreClassChat::prefillGetAttributesObject($conv, array(
                 'plain_user_name',
+                'can_delete',
                 'udate_front',
                 'department_name',
                 'accept_time_front',
@@ -40,7 +41,8 @@ try {
                 'lr_time_front',
                 'conv_duration_front',
                 'interaction_time_duration',
-            ), array('department','user'));
+                'mailbox_front',
+            ), array('department','user','mailbox'));
 
             $message->refreshThis();
 
@@ -58,14 +60,15 @@ try {
             'wait_time_response',
             'interaction_time_duration',
             'cls_time_front',
+            'delivery_status_keyed',
             'to_data_front',
             'reply_to_data_front',
             'cc_data_front',
             'attachments',
-            'conv_duration_front',
             'bcc_data_front',
+            'conv_duration_front',
             'subjects'
-        ), array('user','conversation'));
+        ), array('user', 'conversation', 'files', 'delivery_status'));
 
         $returnAttributes['message'] = $message;
 

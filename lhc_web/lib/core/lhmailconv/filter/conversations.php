@@ -27,6 +27,19 @@ $fieldsSearch['conversation_id'] = array (
     )
 );
 
+$fieldsSearch['undelivered'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Group results',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'undelivered',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
+
 $fieldsSearch['view'] = array (
     'type' => 'text',
     'trans' => 'View',

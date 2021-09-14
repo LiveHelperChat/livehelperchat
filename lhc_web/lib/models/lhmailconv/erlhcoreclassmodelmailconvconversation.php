@@ -51,6 +51,7 @@ class erLhcoreClassModelMailconvConversation
             'mail_variables' => $this->mail_variables,
             'has_attachment' => $this->has_attachment,
             'follow_up_id' => $this->follow_up_id,
+            'undelivered' => $this->undelivered,
         );
     }
 
@@ -96,6 +97,19 @@ class erLhcoreClassModelMailconvConversation
             case 'department':
                 $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id);
                 return $this->department;
+
+            case 'mailbox_front':
+                $this->mailbox_front = [
+                    'name' => '',
+                    'email' => '',
+                ];
+
+                if ($this->mailbox instanceof erLhcoreClassModelMailconvMailbox) {
+                    $this->mailbox_front['name'] = $this->mailbox->name;
+                    $this->mailbox_front['mail'] = $this->mailbox->mail;
+                }
+
+                return $this->mailbox_front;
 
             case 'mailbox':
                 $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id);
@@ -230,6 +244,7 @@ class erLhcoreClassModelMailconvConversation
     public $total_messages = 0;
     public $match_rule_id = 0;
     public $follow_up_id = 0;
+    public $undelivered = 0;
 
     // Assignment workflow attribute
     public $tslasign = 0;       // Time when last auto assignment happened
