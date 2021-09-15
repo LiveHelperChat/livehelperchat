@@ -50,6 +50,7 @@ export function minimizeWidget(forceClose) {
         }
         if (forceClose && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed')) {
             helperFunctions.removeSessionStorage('_chat');
+            helperFunctions.removeSessionStorage('_reset_chat');
             window.close();
         }
     }
@@ -64,7 +65,7 @@ export function endChat(obj, action) {
             if (!obj.noClose) {
                 if (window.lhcChat['mode'] == 'popup') {
                     helperFunctions.removeSessionStorage('_chat');
-
+                    helperFunctions.removeSessionStorage('_reset_chat');
                     // We try to close window at first place
                     window.close();
 
@@ -560,25 +561,29 @@ export function pageUnload() {
     return function(dispatch, getState) {
         const state = getState();
 
+        let surveyMode = false
+        let surveyByVisitor = (state.chatwidget.hasIn(['chatLiveData','status_sub']) && (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (state.chatwidget.getIn(['chatLiveData','uid']) > 0 || state.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
+        let surveyByOperator = (state.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && state.chatwidget.getIn(['chatLiveData','uid']) > 0);
+
+        if ((surveyByVisitor == true || surveyByOperator) && state.chatwidget.hasIn(['chat_ui','survey_id'])) {
+            // If survey button is required and we have not went to survey yet
+            if ((!state.chatwidget.hasIn(['chat_ui','survey_button']) || state.chatwidget.getIn(['chat_ui_state','show_survey']) === 1) || surveyByVisitor == true) {
+                surveyMode = true;
+            }
+        }
+
         /**
          * Unload always if we have this options in theme and chat is in survey mode on mobile or is unloading in general desktop application
          * */
         if (state.chatwidget.hasIn(['chat_ui','close_on_unload']) && state.chatwidget.get('mode') == 'embed') {
-
-            let surveyMode = false
-            let surveyByVisitor = (state.chatwidget.hasIn(['chatLiveData','status_sub']) && (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (state.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (state.chatwidget.getIn(['chatLiveData','uid']) > 0 || state.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))));
-            let surveyByOperator = (state.chatwidget.getIn(['chatLiveData','status']) == STATUS_CLOSED_CHAT && state.chatwidget.getIn(['chatLiveData','uid']) > 0);
-
-            if ((surveyByVisitor == true || surveyByOperator) && state.chatwidget.hasIn(['chat_ui','survey_id'])) {
-                // If survey button is required and we have not went to survey yet
-                if ((!state.chatwidget.hasIn(['chat_ui','survey_button']) || state.chatwidget.getIn(['chat_ui_state','show_survey']) === 1) || surveyByVisitor == true) {
-                    surveyMode = true;
-                }
-            }
-
             if (state.chatwidget.get('isMobile') === false || surveyMode === true) {
                 helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
             }
+        }
+
+        // If popoup is closed
+        if (state.chatwidget.get('mode') == 'popup' && surveyMode == true) {
+            helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
         }
 
         if (state.chatwidget.hasIn(['chatData','id']) && state.chatwidget.hasIn(['chatData','hash'])) {

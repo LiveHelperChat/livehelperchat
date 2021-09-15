@@ -189,7 +189,8 @@ const chatWidgetReducer = (state = initialState, action) => {
                 // If we are in popup mode and visitor refreshes page, remember chat
                 if (state.get('mode') == 'popup') {
                     if (helperFunctions.hasSessionStorage === true) {
-                        helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData))
+                        helperFunctions.setSessionStorage('_chat',JSON.stringify(action.data.chatData));
+                        helperFunctions.removeSessionStorage('_reset_chat');
                     } else {
                         document.location = '#/' + action.data.chatData.id + "/" + action.data.chatData.hash;
                     }
