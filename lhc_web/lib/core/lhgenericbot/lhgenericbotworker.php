@@ -172,6 +172,11 @@ class erLhcoreClassLHCBotWorker
                             $argsDefault['args']['start_mode'] = true;
                         }
 
+                        // Alternative trigger, most of the time just for logging purposes
+                        if (isset($action['content']['rest_api_method_output']['default_trigger_alt']) && is_numeric($action['content']['rest_api_method_output']['default_trigger_alt'])) {
+                            self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger_alt'], $argsDefault);
+                        }
+
                         self::processTrigger($chat, $action['content']['rest_api_method_output']['default_trigger'], $argsDefault);
 
                         if (class_exists('erLhcoreClassNodeJSRedis')) {
