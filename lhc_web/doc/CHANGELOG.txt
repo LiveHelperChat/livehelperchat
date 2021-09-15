@@ -1,6 +1,7 @@
 3.83v
 
 1. You can set view as passive, so it won't be updated in the background and will save resources.
+2. User menu layout change and few options to change directly.
 
 execute doc/update_db/update_255.sql for update
 
