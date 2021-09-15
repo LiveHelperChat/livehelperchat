@@ -2023,6 +2023,7 @@ try {
                   `updated_at` bigint(20) unsigned NOT NULL,
                   `requested_at` bigint(20) unsigned NOT NULL,
                   `total_records` bigint(20) unsigned NOT NULL,
+                  `passive` tinyint(1) unsigned NOT NULL DEFAULT 0,
                   PRIMARY KEY (`id`),
                   KEY `user_id` (`user_id`),
                   KEY `scope` (`scope`),

@@ -5,9 +5,8 @@
   src: url('../fonts/MaterialIcons-Regularv2.eot'); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url('../fonts/MaterialIcons-Regularv2.woff2') format('woff2'),
-       url('../fonts/MaterialIcons-Regularv2.woff') format('woff'),
-       url('../fonts/MaterialIcons-Regularv2.ttf') format('truetype');
+       url('../fonts/MaterialIcons-Regularv3.woff2') format('woff2'),
+       url('../fonts/MaterialIcons-Regularv3.ttf') format('truetype');
 }
 
 div.message-row {

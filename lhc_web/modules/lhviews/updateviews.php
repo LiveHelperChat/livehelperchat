@@ -13,7 +13,13 @@ $stmt->execute();
 
 $views = erLhAbstractModelSavedSearch::getList(['limit' => false, 'filter' => ['user_id' =>  erLhcoreClassUser::instance()->getUserID()]]);
 
-erLhcoreClassChat::prefillGetAttributes($views, array('id', 'name', 'scope', 'total_records', 'updated_ago'), array(), array('remove_all' => true));
+erLhcoreClassChat::prefillGetAttributes($views, array(
+    'id',
+    'name',
+    'scope',
+    'passive',
+    'total_records',
+    'updated_ago'), array(), array('remove_all' => true));
 
 $response = [
     'views' => array_values($views)
