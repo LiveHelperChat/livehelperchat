@@ -1044,7 +1044,13 @@ var lh_inst  = {
         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/,'');
 
         // We allow to send events only from chat installation or page where script is embeded.
-        if (originDomain !== '<?php echo $_SERVER['HTTP_HOST']?>' && originDomain !== document.domain) {
+        if (
+            originDomain !== '<?php echo $_SERVER['HTTP_HOST']?>' &&
+            originDomain !== document.domain &&
+            action != 'lhc_sizing_chat_survey' &&
+            action != 'lh_survey_runed' &&
+            action != 'lhc_end_cookies'
+        ) {
             return;
         }
 

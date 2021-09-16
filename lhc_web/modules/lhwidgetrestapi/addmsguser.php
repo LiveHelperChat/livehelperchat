@@ -127,7 +127,6 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
         exit;
 
     } catch (Exception $e) {
-        $db->rollback();
 
         if ($e->getCode() !== 100) {
             echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage(), 'system' => true));

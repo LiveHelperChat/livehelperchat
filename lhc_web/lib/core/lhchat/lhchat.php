@@ -915,10 +915,13 @@ class erLhcoreClassChat {
 		           $stmt->bindValue(':dep_id_dest',$dep_id,PDO::PARAM_INT);
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				} elseif ( is_array($dep_id) ) {
-					if (empty($dep_id)) {
-						$dep_id = array(-1);
+				    $dep_id_filter = $dep_id;
+				    $sqlDepartment = 'lh_departament.id IN ('. implode(',', $dep_id_filter) .') AND';
+					if (empty($dep_id_filter)) {
+                        $dep_id_filter = array(-1);
+                        $sqlDepartment = '';
 					}
-					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE lh_departament.id IN ('. implode(',', $dep_id) .') AND (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id) .") {$exclipicFilter}) {$userFilter}");
+					$stmt = $db->prepare('SELECT COUNT(lh_userdep.id) AS found FROM lh_userdep, lh_departament WHERE ' . $sqlDepartment . ' (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND ((last_activity > :last_activity OR `lh_userdep`.`always_on` = 1) AND hide_online = 0 AND ro = 0) AND (dep_id IN ('. implode(',', $dep_id_filter) .") {$exclipicFilter}) {$userFilter}");
 					$stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				}
 				$stmt->execute();
@@ -930,14 +933,18 @@ class erLhcoreClassChat {
                     $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND date_from <= :date_from AND date_to >= :date_to AND dep_id = :dep_id");
                     $stmt->bindValue(':dep_id',$dep_id);
                 } elseif (is_array($dep_id)) {
-                    $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND date_from <= :date_from AND date_to >= :date_to AND dep_id IN (". implode(',', $dep_id) .")");
+                    $sqlDepartment = '';
+                    if (!empty($dep_id)) {
+                        $sqlDepartment = "AND dep_id IN (". implode(',', $dep_id) .")";
+                    }
+                    $stmt = $db->prepare("SELECT lh_departament_custom_work_hours.start_hour, lh_departament_custom_work_hours.end_hour FROM lh_departament_custom_work_hours INNER JOIN lh_departament ON lh_departament.id = lh_departament_custom_work_hours.dep_id WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND date_from <= :date_from AND date_to >= :date_to {$sqlDepartment}");
                 }
-                
+
                 $stmt->bindValue(':date_from',strtotime(date('Y-m-d')),PDO::PARAM_INT);
                 $stmt->bindValue(':date_to',strtotime(date('Y-m-d')),PDO::PARAM_INT);
                 $stmt->execute();
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                
+
                 if(!empty($result)) {
                     foreach ($result as $item) {
                         if($item['start_hour'] <= (int)(date('G') . date('i')) && $item['end_hour'] > (int)(date('G') . date('i')))
@@ -953,7 +960,11 @@ class erLhcoreClassChat {
                         $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 AND id = :dep_id");
                         $stmt->bindValue(':dep_id', $dep_id);
                     } elseif (is_array($dep_id)) {
-                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 AND id IN (" . implode(',', $dep_id) . ")");
+                        $sqlDepartment = '';
+                        if (!empty($dep_id)) {
+                            $sqlDepartment = "AND id IN (". implode(',', $dep_id) .")";
+                        }
+                        $stmt = $db->prepare("SELECT COUNT(id) AS found FROM lh_departament WHERE (lh_departament.pending_group_max = 0 || lh_departament.pending_group_max > lh_departament.pending_chats_counter) AND (lh_departament.pending_max = 0 || lh_departament.pending_max > lh_departament.pending_chats_counter) AND online_hours_active = 1 AND {$startHoursColumnName} <= :start_hour AND {$endHoursColumnName} > :end_hour AND {$startHoursColumnName} != -1 AND {$endHoursColumnName} != -1 {$sqlDepartment}");
                     }
                     
                     $stmt->bindValue(':start_hour', date('G') . date('i'), PDO::PARAM_INT);
@@ -964,23 +975,30 @@ class erLhcoreClassChat {
 			}					
 
 			// Check is bot enabled for department
-			if ($rowsNumber == 0 && (is_numeric($dep_id) || count($dep_id) == 1) && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
+			if ($rowsNumber == 0 && (!isset($params['exclude_bot']) || $params['exclude_bot'] == false)) {
                 if (is_numeric($dep_id)) {
                     $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id = :dep_id");
                     $stmt->bindValue(':dep_id', $dep_id);
                     $stmt->execute();
-                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                } else {
-                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament WHERE id IN (" . implode(',', $dep_id) . ")");
+                    $resultItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                } elseif (is_array($dep_id)) {
+                    $sqlDepartment = '';
+                    if (!empty($dep_id)) {
+                        $sqlDepartment = "WHERE id IN (". implode(',', $dep_id) .")";
+                    }
+                    $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament {$sqlDepartment}");
                     $stmt->execute();
-                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $resultItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
-
-                if (!empty($result['bot_configuration'])) {
-                    $botData = json_decode($result['bot_configuration'], true);
-                    if (isset($botData['bot_id']) && $botData['bot_id'] > 0 && (!isset($botData['bot_foh']) || $botData['bot_foh'] == false)) {
-                        $rowsNumber = 1;
-                        self::$botOnlyOnline = true;
+                if (is_array($resultItems)) {
+                    foreach ($resultItems as $result) {
+                        if (isset($result['bot_configuration']) && !empty($result['bot_configuration'])) {
+                            $botData = json_decode($result['bot_configuration'], true);
+                            if (isset($botData['bot_id']) && $botData['bot_id'] > 0 && (!isset($botData['bot_foh']) || $botData['bot_foh'] == false)) {
+                                $rowsNumber = 1;
+                                self::$botOnlyOnline = true;
+                            }
+                        }
                     }
                 }
             }

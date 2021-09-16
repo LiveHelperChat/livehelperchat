@@ -69,7 +69,11 @@ export default function (dispatch, getState) {
         {id : 'endCookies', cb : (data) => {
                 helperFunctions.sendMessageParent('endChatCookies', [{force: true}]);
                 if (window.lhcChat['mode'] == 'popup') {
+                    // Remove local storage
                     helperFunctions.removeSessionStorage('_chat');
+
+                    // Make sure on refresh old chat is not loaded
+                    helperFunctions.setSessionStorage('_reset_chat',1);
                 }
         }},
         {id : 'reopenNotification', cb : (data) => {dispatch({type: 'CHAT_ALREADY_STARTED', data: {'id' : data.id, 'hash' : data.hash}})}},
@@ -161,7 +165,7 @@ export default function (dispatch, getState) {
             // We allow to send events only from chat installation or page where script is embeded.
             if (originDomain !== document.domain && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain)) {
                 // Third party domains can send only these two events
-                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed') {
+                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed' && action != 'lhc_end_cookies') {
                     return;
                 }
             }
@@ -188,6 +192,9 @@ export default function (dispatch, getState) {
                 }
             }
 
+        } else if (action == 'lhc_end_cookies') {
+            const state = getState();
+            helperFunctions.emitEvent('endCookies',[]);
         } else if (action == 'lhc_survey_completed') {
             const state = getState();
             dispatch(
@@ -321,6 +328,11 @@ export default function (dispatch, getState) {
 
             if (paramsInit['mode'] == 'popup') {
                 helperFunctions.sendMessageParent('endChatCookies');
+
+                if (helperFunctions.getSessionStorage('_reset_chat')) {
+                    window.location.hash = '/#';
+                    helperFunctions.emitEvent('endedChat');
+                }
 
                 const sessionChat = helperFunctions.getSessionStorage('_chat');
 
