@@ -62,6 +62,10 @@ const MailChatReply = props => {
                 props.fetchMessages();
             }
 
+            if (result.data.conv_status) {
+                props.setConversationStatus(result.data.conv_status);
+            }
+
         }).catch(error => {
             setSendInProgress(false);
             // Error 😨

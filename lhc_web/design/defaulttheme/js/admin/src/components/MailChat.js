@@ -12,7 +12,10 @@ function reducer(state, action) {
         case 'update': {
             return { ...state, ...action.value }
         }
-
+        case 'update_conversation': {
+            state.conv = { ...state.conv, ...action.value };
+            return { ... state};
+        }
         case 'update_message': {
             var foundIndex = state.messages.findIndex(x => x.id == action.message.id);
             state.messages[foundIndex] = action.message;
@@ -288,6 +291,15 @@ const MailChat = props => {
         }
     }
 
+    const setConversationStatus = (status) => {
+        dispatch({
+            type: 'update_conversation',
+            value: {
+                'status' : status
+            }
+        });
+    }
+
     useEffect(() => {
         loadMainData();
 
@@ -337,7 +349,7 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
+                            <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
                         ))}
 
                         {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">{t('mail.send_fetching')}</div>}

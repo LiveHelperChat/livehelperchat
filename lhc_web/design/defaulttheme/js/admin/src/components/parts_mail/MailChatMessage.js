@@ -4,7 +4,7 @@ import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
 import {useTranslation} from 'react-i18next';
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
@@ -176,7 +176,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     </div>}
 
-        {mode !== 'preview' && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply verifyOwner={verifyOwner} fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
+        {mode !== 'preview' && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply setConversationStatus={setConversationStatus} verifyOwner={verifyOwner} fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
     </div>
 }

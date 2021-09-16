@@ -38,6 +38,8 @@ try {
             }
         }
 
+        $response['conv_status'] = $conv->status;
+
         echo json_encode($response);
     } else {
         http_response_code(400);
