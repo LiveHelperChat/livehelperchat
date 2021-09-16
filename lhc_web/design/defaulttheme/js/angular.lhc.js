@@ -1243,7 +1243,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                             } else if (key == 'pending_mails') {
                                 if (tabs.length > 0 && confLH.auto_join_private  == 1) {
                                     item.list.forEach(function (chat) {
-                                        if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && chat.status !== 1 && document.getElementById('chat-tab-li-mc'+chat.id) === null) {
+                                        if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_mails == 1 && chat.status !== 1 && document.getElementById('chat-tab-li-mc'+chat.id) === null) {
                                             lhinst.startMailChat(chat.id,tabs,LiveHelperChatFactory.truncate(chat.subject_front,10),true);
                                         }
                                     });

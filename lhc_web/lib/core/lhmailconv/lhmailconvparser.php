@@ -304,9 +304,19 @@ class erLhcoreClassMailconvParser {
                                 $message->subject = (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandler->decodeMimeStr($head->Subject));
                             }
 
-                            // @todo To what message reply it was
                             if (isset($head->in_reply_to) and !empty(\trim($head->in_reply_to))) {
                                 $inReplyTo = $mailboxHandler->cleanReferences($head->in_reply_to);
+                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $inReplyTo]));
+                                if ($previousMessage instanceof erLhcoreClassModelMailconvMessage) {
+                                    if ($previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
+                                        $followUpConversationId = $previousMessage->conversation->id;
+                                        $message->user_id = $previousMessage->conversation->user_id;
+                                    }
+                                }
+                            }
+
+                            if (isset($head->message_id) && !empty(\trim($head->message_id)) && $followUpConversationId == 0) {
+                                $inReplyTo = $mailboxHandler->cleanReferences($head->message_id);
                                 $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $inReplyTo]));
                                 if ($previousMessage instanceof erLhcoreClassModelMailconvMessage) {
                                     if ($previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {

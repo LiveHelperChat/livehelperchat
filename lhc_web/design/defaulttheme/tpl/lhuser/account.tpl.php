@@ -222,6 +222,10 @@
             </div>
 
             <div class="form-group">
+                <label><input type="checkbox" name="auto_accept_mail" value="1"  <?php erLhcoreClassModelUserSetting::getSetting('auto_accept_mail',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Automatically accept assigned mails');?></label>
+            </div>
+
+            <div class="form-group">
                 <label><input type="checkbox" name="auto_join_private" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_join_private',1) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto join private chats');?></label>
             </div>
 

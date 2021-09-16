@@ -72,6 +72,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', 0);
     }
 
+    if (isset($_POST['auto_accept_mail']) && $_POST['auto_accept_mail'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('auto_accept_mail', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('auto_accept_mail', 0);
+    }
+
     // Update max active chats directly
     $db = ezcDbInstance::get();
     $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats, exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');
