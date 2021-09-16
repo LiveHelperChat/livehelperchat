@@ -75,41 +75,15 @@ try {
 
         $remarks = erLhcoreClassModelMailconvRemarks::getInstance($conv->customer_email, false)->remarks;
 
-        erLhcoreClassChat::prefillGetAttributesObject($conv, array(
-            'plain_user_name',
-            'can_delete',
-            'udate_front',
-            'department_name',
-            'accept_time_front',
-            'cls_time_front',
-            'wait_time_pending',
-            'wait_time_response',
-            'lr_time_front',
-            'conv_duration_front',
-            'interaction_time_duration',
-            'mailbox_front',
-        ), array('department','user','mailbox'));
+        erLhcoreClassChat::prefillGetAttributesObject($conv,
+            erLhcoreClassMailconv::$conversationAttributes,
+            erLhcoreClassMailconv::$conversationAttributesRemove
+        );
 
-        erLhcoreClassChat::prefillGetAttributes($messages, array(
-            'udate_front',
-            'udate_ago',
-            'body_front',
-            'plain_user_name',
-            'accept_time_front',
-            'lr_time_front',
-            'wait_time_pending',
-            'wait_time_response',
-            'interaction_time_duration',
-            'cls_time_front',
-            'delivery_status_keyed',
-            'to_data_front',
-            'reply_to_data_front',
-            'cc_data_front',
-            'attachments',
-            'bcc_data_front',
-            'conv_duration_front',
-            'subjects'
-        ), array('user', 'conversation', 'files', 'delivery_status'));
+        erLhcoreClassChat::prefillGetAttributes($messages,
+            erLhcoreClassMailconv::$messagesAttributes,
+            erLhcoreClassMailconv::$messagesAttributesRemove
+        );
 
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
         $data = (array)$fileData->data;

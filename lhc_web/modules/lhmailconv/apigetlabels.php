@@ -8,27 +8,10 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
-        erLhcoreClassChat::prefillGetAttributesObject($message, array(
-            'udate_front',
-            'udate_ago',
-            'body_front',
-            'plain_user_name',
-            'accept_time_front',
-            'lr_time_front',
-            'wait_time_pending',
-            'wait_time_response',
-            'interaction_time_duration',
-            'cls_time_front',
-            'delivery_status_keyed',
-            'to_data_front',
-            'reply_to_data_front',
-            'cc_data_front',
-            'attachments',
-            'bcc_data_front',
-            'conv_duration_front',
-            'subjects'
-        ), array('user', 'conversation', 'files', 'delivery_status'));
-
+        erLhcoreClassChat::prefillGetAttributesObject($message,
+            erLhcoreClassMailconv::$messagesAttributes,
+            erLhcoreClassMailconv::$messagesAttributesRemove
+        );
         echo json_encode(['message' => $message]);
         exit;
 
