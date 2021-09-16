@@ -60,9 +60,6 @@ const MailChatReply = props => {
 
             if (result.data.send == true) {
                 props.fetchMessages();
-            }
-
-            if (result.data.conv_status) {
                 props.setConversationStatus(result.data.conv_status);
             }
 
