@@ -130,7 +130,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         </div>}
 
         {expandBody && message.undelivered && <div className="col-12 alert alert-warning mt-2">
-            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id}>Download send message.</a>
+            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id}>Download sent message.</a>
 
             <br/>{message.delivery_status_keyed && <button onClick={(e) => setExpandDeliveryInformation(!expandDeliveryInformation)} className="btn fs12 btn-link">Show technical information.</button>}
             {expandDeliveryInformation && message.delivery_status_keyed && <div>
