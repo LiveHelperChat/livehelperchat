@@ -39,7 +39,11 @@ class erLhcoreClassMailconvExport {
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','From address'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail subject'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
-            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Started by')
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Started by'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered error'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered Status'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered report')
         ];
 
         if (in_array(2, $params['type'])) {
@@ -57,7 +61,8 @@ class erLhcoreClassMailconvExport {
         $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Additional variables');
 
         if (in_array(3, $params['type'])) {
-            $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Messages');
+            $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Messages Plain');
+            $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Messages HTML');
         }
 
         // First row
@@ -104,6 +109,25 @@ class erLhcoreClassMailconvExport {
                 }
 
                 $itemCSV[] = $item->start_type == erLhcoreClassModelMailconvConversation::START_OUT ? 'OPERATOR' : 'VISITOR';
+                $itemCSV[] = $item->undelivered;
+
+                $undeliverReport = $undeliverStatus = $undeliverCode = '';
+                if ($item->undelivered == 1) {
+                    $lastUndeliveredMessage = erLhcoreClassModelMailconvMessage::fetch($item->last_message_id);
+                    if ($lastUndeliveredMessage instanceof erLhcoreClassModelMailconvMessage) {
+                        $undeliverReport = $lastUndeliveredMessage->delivery_status;
+                        if (isset($lastUndeliveredMessage->delivery_status_keyed['Diagnostic_Code'])){
+                            $undeliverCode = $lastUndeliveredMessage->delivery_status_keyed['Diagnostic_Code'];
+                        }
+                        if (isset($lastUndeliveredMessage->delivery_status_keyed['Status'])){
+                            $undeliverStatus = $lastUndeliveredMessage->delivery_status_keyed['Status'];
+                        }
+                    }
+                }
+
+                $itemCSV[] = $undeliverCode;
+                $itemCSV[] = $undeliverStatus;
+                $itemCSV[] = $undeliverReport;
 
                 if (in_array(2, $params['type'])) {
                     $itemCSV[] = implode(', ',erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['conversation_id' => $item->id]]));
@@ -127,16 +151,16 @@ class erLhcoreClassMailconvExport {
                 if (in_array(3, $params['type'])) {
                     $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $item->id]]);
 
-                    $messagesBody = [];
+                    $messagesBodyHTML = $messagesBody = [];
 
                     foreach ($messages as $message) {
                         $messagesBody[] = $message->alt_body;
+                        $messagesBodyHTML[] = $message->body;
                     }
 
                     $itemCSV[] = implode("\n\n===========================\n\n", $messagesBody);
+                    $itemCSV[] = implode("\n\n===========================\n\n", $messagesBodyHTML);
                 }
-
-
 
                 fputcsv($df, $itemCSV);
             }

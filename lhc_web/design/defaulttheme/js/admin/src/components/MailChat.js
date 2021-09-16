@@ -331,7 +331,9 @@ const MailChat = props => {
             <div className="row">
                 <div className={"chat-main-left-column " + (props.mode == 'preview' ? 'col-12' : 'col-7')}>
 
-                    {props.mode !== 'preview' && <h1 className="pb-2"><i className="material-icons">{state.conv.start_type == 1 ? 'call_made' : 'call_received'}</i>{state.conv.subject}</h1>}
+                    {props.mode !== 'preview' && <h1 className="pb-2">
+                        <i className="material-icons">{state.conv.start_type == 1 ? 'call_made' : 'call_received'}</i>{state.conv.undelivered && <i title="Undelivered e-mail" className="text-danger material-icons">sms_failed</i>}{state.conv.subject}
+                    </h1>}
 
                     <div>
                         {state.messages.map((message, index) => (
@@ -394,7 +396,9 @@ const MailChat = props => {
                                     </tr>
                                     <tr>
                                         <td>{t('mail.department')}</td>
-                                        <td>{state.conv.department_name}</td>
+                                        <td>
+                                            <span title={state.conv.dep_id}>{state.conv.department_name}</span>, <span title={state.conv.mailbox_id}>{state.conv.mailbox_front.name} ({state.conv.mailbox_front.mail})</span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>{t('mail.received')}</td>
@@ -431,7 +435,7 @@ const MailChat = props => {
                                         <td>{state.conv.priority}</td>
                                     </tr>}
                                     <tr>
-                                        <td>{t('mail.chat_owner')}</td>
+                                        <td title={state.conv.user_id}>{t('mail.chat_owner')}</td>
                                         <td>{state.conv.plain_user_name}</td>
                                     </tr>
                                 </table>}

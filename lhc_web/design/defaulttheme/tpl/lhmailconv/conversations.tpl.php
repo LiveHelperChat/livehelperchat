@@ -28,7 +28,9 @@
                 <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                 <td>
 
-
+                    <?php if ($item->undelivered == 1) : ?>
+                        <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Undelivered e-mail');?>" class="text-danger material-icons">sms_failed</span>
+                    <?php endif; ?>
 
                     <a onclick="lhc.previewMail(<?php echo $item->id?>);" class="material-icons">info_outline</a>
 

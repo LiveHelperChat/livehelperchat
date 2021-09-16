@@ -11,7 +11,7 @@ $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersist
 
 foreach (array(
     'conv_duration','dep_id','status','conversation_id','mailbox_id','response_type',
-     'lr_time','user_id','size','uid','msgno','recent','flagged','udate','ctime'
+     'lr_time','user_id','size','uid','msgno','recent','flagged','udate','ctime','undelivered'
     ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
@@ -23,7 +23,8 @@ foreach (array(
              'mb_folder','cc_data','bcc_data','from_host','from_name','from_address',
              'sender_host','sender_name','sender_address','date','in_reply_to',
              'to_data','reply_to_data','references','alt_body','body','subject','message_id',
-             'response_time','cls_time','wait_time','accept_time','interaction_time','has_attachment'
+             'response_time','cls_time','wait_time','accept_time','interaction_time','has_attachment',
+              'rfc822_body','delivery_status'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

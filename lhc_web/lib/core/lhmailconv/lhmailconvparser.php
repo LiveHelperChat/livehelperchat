@@ -122,7 +122,7 @@ class erLhcoreClassMailconvParser {
                     if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
                         $statsImport[] = 'Skipping check '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
                         // Nothing has changed since last check
-                        continue;
+                         continue;
                     } elseif (isset($statusMailbox->uidnext)) {
                         $statsImport[] = $mailboxFolder['path'].' uidnext change detected to - '.$statusMailbox->uidnext;
                         $uuidStatusArray[$mailboxFolder['path']] = $statusMailbox->uidnext;
@@ -270,13 +270,61 @@ class erLhcoreClassMailconvParser {
                             continue;
                         }
 
+                        if ($mail->deliveryStatus) {
+                            $message->delivery_status_array = self::parseDeliveryStatus($mail->deliveryStatus);
+                            $message->delivery_status = json_encode($message->delivery_status_array);
+                            $message->undelivered = 1;
+                        }
+
+                        if ($mail->RFC822) {
+                            $message->rfc822_body = $mail->RFC822;
+                        }
+
+                        // Message was undelivered
+                        // But there is returned message data
+                        // So just extract this data from message
+                        if ($message->user_id == 0 && $message->undelivered == 1 && !empty($message->rfc822_body)) {
+                            $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : 0;
+                            $head = \imap_rfc822_parse_headers($mail->RFC822);
+
+                            if (isset($head->to)) {
+                                foreach ($head->to as $to) {
+                                    $to_parsed = $mailboxHandler->possiblyGetEmailAndNameFromRecipient($to);
+                                    if ($to_parsed) {
+                                        list($toEmail, $toName) = $to_parsed;
+                                        // Switch message data to the e-mail whom we send it
+                                        $message->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$toName);
+                                        $message->from_address = (string)$toEmail;
+                                        $message->reply_to_data = json_encode([$message->from_address => $message->from_name]);
+                                    }
+                                }
+                            }
+
+                            if (isset($head->Subject)) {
+                                $message->subject = (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandler->decodeMimeStr($head->Subject));
+                            }
+
+                            // @todo To what message reply it was
+                            if (isset($head->in_reply_to) and !empty(\trim($head->in_reply_to))) {
+                                $inReplyTo = $mailboxHandler->cleanReferences($head->in_reply_to);
+                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $inReplyTo]));
+                                if ($previousMessage instanceof erLhcoreClassModelMailconvMessage) {
+                                    if ($previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
+                                        $followUpConversationId = $previousMessage->conversation->id;
+                                        $message->user_id = $previousMessage->conversation->user_id;
+                                    }
+                                }
+                            }
+                        }
+
                         $message->saveThis();
 
                         $conversations = new erLhcoreClassModelMailconvConversation();
                         $conversations->dep_id = $matchingRuleSelected->dep_id;
                         $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
-                        $conversations->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$message->from_name);
+                        $conversations->undelivered = $message->undelivered;
 
+                        $conversations->from_name = erLhcoreClassMailconvEncoding::toUTF8((string)$message->from_name);
                         $conversations->from_address = $message->from_address;
 
                         $internalInit = false;
@@ -570,6 +618,17 @@ class erLhcoreClassMailconvParser {
         }
     }
 
+    public static function parseDeliveryStatus($text) {
+
+        $arr = preg_split('~([\w-]+: )~',$text,-1,PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
+
+        for ($res = array(), $i = 0; $i < count($arr); $i+=2) {
+            $key = strtr($arr[$i],array(': '=>'','-'=>'_'));
+            $res[$key] = trim($arr[$i+1]);
+        }
+        return $res;
+    }
+    
     public static function getMatchingRuleByMessage($message, $filteredMatchingRules) {
 
         foreach ($filteredMatchingRules as $matchingRule) {

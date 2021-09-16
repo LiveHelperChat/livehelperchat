@@ -70,8 +70,12 @@ class erLhcoreClassModelMailconvMessage
             'dep_id' => $this->dep_id,
             'mb_folder' => $this->mb_folder,
             'has_attachment' => $this->has_attachment,
+            'rfc822_body' => $this->rfc822_body,
+            'delivery_status' => $this->delivery_status,
+            'undelivered' => $this->undelivered,
         );
     }
+
 
     public function __toString()
     {
@@ -235,6 +239,7 @@ class erLhcoreClassModelMailconvMessage
                 }
                 return $this->$var;
 
+            case 'delivery_status_keyed':
             case 'to_data_keyed':
             case 'reply_to_data_keyed':
             case 'cc_data_keyed':
@@ -349,6 +354,10 @@ class erLhcoreClassModelMailconvMessage
 
     public $response_type = self::RESPONSE_UNRESPONDED; // Normal mail based response
     public $has_attachment = self::ATTACHMENT_EMPTY;
+    
+    public $rfc822_body = '';
+    public $delivery_status  = '';
+    public $undelivered  = 0;
 }
 
 ?>
