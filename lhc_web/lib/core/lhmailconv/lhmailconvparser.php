@@ -95,6 +95,11 @@ class erLhcoreClassMailconvParser {
 
             $mailbox->failed = 0;
 
+            // Do so first is checked send folder
+            usort($mailboxFolders, function ($a, $b) {
+                return !(isset($a['send_folder']) && $a['send_folder'] == 1);
+            });
+            
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
