@@ -25,10 +25,17 @@ try {
         $conv->lr_time = time();
         $conv->updateThis(['update' => ['lr_time']]);
 
-        // Our response is the last one
-        // So we can close conversation
-        if (erLhcoreClassModelMailconvMessage::getCount(['filtergt' => ['id' => $message->id], 'filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
-            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+        // Change to explicit action support
+        if (isset($requestPayload['status'])) {
+            if ($requestPayload['status'] == 2) {
+                erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+            } elseif ($requestPayload['status'] == 1) {
+                $conv->status = 1;
+                $conv->updateThis(['update' => ['status']]);
+            } elseif ($requestPayload['status'] == 0) {
+                $conv->status = 0;
+                $conv->updateThis(['update' => ['status']]);
+            }
         }
 
         echo json_encode($response);

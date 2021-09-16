@@ -52,7 +52,10 @@ echo json_encode(array(
         "sending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sending...'),
         "click_to_remove" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Click to remove'),
         "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.'),
-        "plain_html" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','View as Plain/HTML')
+        "plain_html" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','View as Plain/HTML'),
+        "send_and_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Closed'),
+        "send_as_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Pending'),
+        "send_as_active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Active'),
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),

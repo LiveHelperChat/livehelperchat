@@ -43,11 +43,12 @@ const MailChatReply = props => {
         replyContentDirect = content;
     }
 
-    const sendReply = () => {
+    const sendReply = (status) => {
         let replyPayload = {
             'recipients' : recipientsModified,
             'content' : tinyMCE.get("reply-to-mce-"+props.message.id).getContent(),
             'attatchements' : attachedFiles,
+            'status': status,
             'mode' : (replyMode == true ? 'reply' : 'forward')
         };
 
@@ -205,10 +206,15 @@ const MailChatReply = props => {
                     <a className="action-image" onClick={() => {setForwardMode(false); props.cancelForward()}}><i className="material-icons">delete</i></a>
                 </div>}
 
-                <div className="btn-group mt-1" role="group" aria-label="Mail actions">
-                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-primary" onClick={() => sendReply()}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send')}</button>
-                    {props.moptions.files_enabled && <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>}
+                <div className="btn-group mt-2" role="group" aria-label="Mail actions">
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-danger" onClick={() => sendReply(2)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_and_close')}</button>
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-warning" onClick={() => sendReply(0)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_pending')}</button>
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-success" onClick={() => sendReply(1)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_active')}</button>
                 </div>
+
+                {props.moptions.files_enabled && <div className="btn-group d-block mt-2" role="group" aria-label="Mail actions">
+                     <MailChatAttachement moptions={props.moptions} fileAttached={(file) => dispatch({ type: "add", value: file})} message={props.message}></MailChatAttachement>
+                </div>}
 
                 {attachedFiles && attachedFiles.length > 0 &&
                 <div className="pt-2">{attachedFiles.map((file, index) => (
