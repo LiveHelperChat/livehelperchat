@@ -17,7 +17,7 @@ try
     }
 
     $departmentParams = array();
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id);
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id, $user->cache_version);
     if ($userDepartments !== true) {
         $departmentParams['filterin']['id'] = $userDepartments;
     }

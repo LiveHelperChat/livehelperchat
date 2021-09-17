@@ -390,7 +390,7 @@ class erLhcoreClassChatCommand
                 $params['chat']->user_typing  = time();
                      
                 // Change department if user cannot read current department, so chat appears in right menu
-                $filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id);
+                $filter = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id, $user->cache_version);
                 if ($filter !== true && !in_array($params['chat']->dep_id, $filter)) {
                     $dep_id = erLhcoreClassUserDep::getDefaultUserDepartment($user->id);                    
                     if ($dep_id > 0) {

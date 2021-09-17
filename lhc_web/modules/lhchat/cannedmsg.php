@@ -106,7 +106,7 @@ if ($tab == 'cannedmsg') {
      * */
 
     $departmentParams = array();
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
     if ($userDepartments !== true){
         $departmentParams['filterin']['department_id'] = $userDepartments;
 
