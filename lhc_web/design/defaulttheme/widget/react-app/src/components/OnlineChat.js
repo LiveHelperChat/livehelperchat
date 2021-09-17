@@ -240,7 +240,7 @@ class OnlineChat extends Component {
 
         if (state === false && this.pendingMetaUpdate === true){
             this.pendingMetaUpdate = false;
-            this.updateMetaAutoHide();
+            this.updateMetaAutoHide(true);
             this.doScrollBottom();
         }
 
@@ -252,12 +252,13 @@ class OnlineChat extends Component {
 
     }
 
-    updateMetaAutoHide(){
+    updateMetaAutoHide(hideFirst) {
         var block = document.getElementById('messages-scroll');
         var x = block.getElementsByClassName("meta-auto-hide");
         if (x.length > 0) {
             var i;
-            for (i = 0; i < x.length - 1; i++) {
+            var lengthHide = hideFirst ? 0 : 1;
+            for (i = 0; i < x.length - lengthHide ; i++) {
                 x[i].style.display = 'none';
             }
             var lastChild = block.lastChild;

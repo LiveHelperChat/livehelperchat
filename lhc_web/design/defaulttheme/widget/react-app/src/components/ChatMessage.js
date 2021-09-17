@@ -287,7 +287,7 @@ class ChatMessage extends PureComponent {
 
                         // Execute JS only once
                         // Happens if new message indicator is passed
-                        // We rerender elements, but we should execute JS
+                        // We rerender elements, but we should not execute JS
                         if (this.state.jsExecuted == true) {
                             return <React.Fragment></React.Fragment>;
                         }
