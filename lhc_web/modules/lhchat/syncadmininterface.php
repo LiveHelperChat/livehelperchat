@@ -77,6 +77,7 @@ $mapsWidgets = [
     'pmails' => 10,
     'amails' => 11,
     'malarms' => 12,
+    'my_mails' => 30,
 ];
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['subject_chats'],$Params['user_parameters_unordered']['w']) && $currentUser->hasAccessTo('lhchat', 'subject_chats') == true) {
@@ -682,6 +683,45 @@ if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['top
 }
 
 // START Mail lists
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['my_mails'],$Params['user_parameters_unordered']['w'])) {
+    /**
+     * My chats chats
+     * */
+    $limitList = is_numeric($Params['user_parameters_unordered']['limitmm']) ? (int)$Params['user_parameters_unordered']['limitmm'] : 10;
+
+    $filter = array();
+
+    if (is_array($Params['user_parameters_unordered']['mmd']) && !empty($Params['user_parameters_unordered']['mmd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mmd']);
+        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['mmd'];
+    }
+
+    if (is_array($Params['user_parameters_unordered']['mmdgroups']) && !empty($Params['user_parameters_unordered']['mmdgroups'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mmdgroups']);
+        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['mmdgroups']);
+        if (!empty($depIds)) {
+            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        }
+    }
+
+    $filter['filter']['user_id'] = (int)$currentUser->getUserID();
+
+    $myMails = erLhcoreClassChat::getMyMails($limitList,0,$filter);
+
+    /**
+     * Get last pending chat
+     * */
+    erLhcoreClassChat::prefillGetAttributes($myMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array(
+        'body',
+        'department',
+        'time',
+        'user',
+        'subject'
+    ));
+
+    $ReturnMessages['my_mails'] = array('list' => array_values($myMails));
+}
+
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['pmails'],$Params['user_parameters_unordered']['w'])) {
     $additionalFilter = array();
 
@@ -722,7 +762,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
-    erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('department','time','status','user','subject'));
+    erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
 
     $ReturnMessages['pending_mails'] = array('last_id_identifier' => 'pmails','list' => array_values($pendingMails));
 }
@@ -766,7 +806,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
-    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('department','time','status','user','subject'));
+    erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
     $ReturnMessages['active_mails'] = array('list' => array_values($activeMails));
 }
 

@@ -29,7 +29,7 @@ echo json_encode(array(
         "conv_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Conversation duration'),
     ],
     "status" => [
-        "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Pending'),
+        "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
         "active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Active'),
         "closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Closed')
     ],
@@ -54,7 +54,7 @@ echo json_encode(array(
         "not_an_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are not the owner of this conversation. This means someone else was working with this ticket. Make sure you want to send a reply to this e-mail.'),
         "plain_html" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','View as Plain/HTML'),
         "send_and_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Closed'),
-        "send_as_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Pending'),
+        "send_as_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as New'),
         "send_as_active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Active'),
     ],
     "r" => [

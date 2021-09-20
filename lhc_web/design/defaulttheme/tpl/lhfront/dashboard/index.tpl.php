@@ -91,6 +91,8 @@ $columnSize = 12 / $columnsTotal;
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
                     <?php endif;?>
 
+                <?php elseif ($wiget == 'my_mails') : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_mails.tpl.php'));?>
                 <?php elseif ($wiget == 'pmails') : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pmails.tpl.php'));?>
                 <?php elseif ($wiget == 'amails') : ?>

@@ -97,6 +97,32 @@ class erLhcoreClassChat {
     	return self::getList($filter);
     }
 
+    public static function getMyMails($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
+    {
+        $limitation = self::getDepartmentLimitation('lhc_mailconv_conversation',$limitationDepartment);
+
+        // Does not have any assigned department
+        if ($limitation === false) { return array(); }
+
+        $filter = array();
+        $filter['filterin'] = array('status' => array(0,1));
+
+        if ($limitation !== true) {
+            $filter['customfilter'][] = $limitation;
+        }
+
+        $filter['limit'] = $limit;
+        $filter['offset'] = $offset;
+        $filter['smart_select'] = true;
+        $filter['sort'] = 'status DESC, priority DESC';
+
+        if (!empty($filterAdditional)) {
+            $filter = array_merge_recursive($filter,$filterAdditional);
+        }
+
+        return erLhcoreClassModelMailconvConversation::getList($filter);
+    }
+
     public static function getPendingMails($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
     {
     	$limitation = self::getDepartmentLimitation('lhc_mailconv_conversation',$limitationDepartment);

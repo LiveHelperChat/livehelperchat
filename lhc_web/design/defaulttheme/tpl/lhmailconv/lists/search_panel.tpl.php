@@ -69,7 +69,7 @@
                         $items = array();
 
                         $item = new StdClass();
-                        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending mails');
+                        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','New mails');
                         $item->id = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
                         $items[] = $item;
 
@@ -235,6 +235,7 @@
                                 <option <?php if ($input->sortby == 'idasc') : ?>selected="selected"<?php endif; ?> value="idasc">Oldest first</option>
                                 <option <?php if ($input->sortby == 'highprioritynew') : ?>selected="selected"<?php endif; ?> value="highprioritynew">Higher priority, newest first</option>
                                 <option <?php if ($input->sortby == 'lowpriorityold') : ?>selected="selected"<?php endif; ?> value="lowpriorityold">Higher priority, oldest first</option>
+                                <option <?php if ($input->sortby == 'statuspriority') : ?>selected="selected"<?php endif; ?> value="statuspriority">Active, New sorted by higher priority</option>
                             </select>
                         </div>
 
@@ -265,6 +266,8 @@
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','New e-mail')?>
                 </a>
 
+                <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>/(sortby)/statuspriority/(conversation_status_ids)/1/0/(user_ids)/<?php echo erLhcoreClassUser::instance()->getUserID()?>"><i class="material-icons">account_box</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','My active/new mails');?></a>
+
                 <?php if ($pages->items_total > 0 || isset($_GET['doSearch'])) : ?>
 
                     <?php if ($input->view > 0) : ?>
@@ -282,10 +285,9 @@
                         </button>
                     <?php endif; ?>
 
-                    <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
-
                 <?php endif; ?>
-
+                
+                <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
 
             </div>
         </div>

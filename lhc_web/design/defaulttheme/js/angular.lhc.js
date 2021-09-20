@@ -205,6 +205,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.active_chats = {};
 	$scope.active_chats_expanded = true;
 	$scope.my_active_chats_expanded = true;
+	$scope.my_mails_expanded = true;
 	$scope.closed_chats = {};
 	$scope.closed_chats_expanded = true;
 	$scope.unread_chats = {};
@@ -269,6 +270,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitpm = this.restoreLocalSetting('limitpm','10',false);
 	this.limitam = this.restoreLocalSetting('limitam','10',false);
 	this.limitalm = this.restoreLocalSetting('limitalm','10',false);
+	this.limitmm = this.restoreLocalSetting('limitmm','10',false);
 	this.limits = this.restoreLocalSetting('limits','10',false);
 
 
@@ -346,6 +348,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.mcd_dpgroups = this.restoreLocalSetting('mcd_dpgroups',[],true);
 	this.mcdNames = [];
 
+	this.mmd = this.restoreLocalSetting('mmd',[],true);
+	this.mmd_dpgroups = this.restoreLocalSetting('mmd_dpgroups',[],true);
+	this.mmdNames = [];
+
 	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
 	this.unreadd_products = this.restoreLocalSetting('unreadd_products',[],true);
 	this.unreadd_dpgroups = this.restoreLocalSetting('unreadd_dpgroups',[],true);
@@ -391,6 +397,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.widgetsItems.push('alarmmd');
 	this.widgetsItems.push('botd');
 	this.widgetsItems.push('subjectd');
+	this.widgetsItems.push('mmd');
 
     _that['departmentd_hide_dep'] = _that.restoreLocalSetting('departmentd_hide_dep','false',false) != 'false';
     _that['departmentd_hide_dgroup'] = _that.restoreLocalSetting('departmentd_hide_dgroup','false',false) != 'false';
@@ -570,6 +577,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		filter += '/(limitd)/'+parseInt(_that.limitd);
 		filter += '/(limits)/'+parseInt(_that.limits);
 		filter += '/(limitmc)/'+parseInt(_that.limitmc);
+		filter += '/(limitmm)/'+parseInt(_that.limitmm);
 		filter += '/(limitb)/'+parseInt(_that.limitb);
 		filter += '/(limitgc)/'+parseInt(_that.limitgc);
 		filter += '/(limitpm)/'+parseInt(_that.limitpm);
@@ -591,6 +599,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'pmails' : 10,
                 'amails' : 11,
                 'malarms' : 12,
+                'my_mails' : 30,
                 'subject_chats' : 20
             }
             var activeWidgets = [];
@@ -660,6 +669,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(mdgroups)/'+_that.mcd_dpgroups.join('/');			
 		}
 		
+		if (typeof _that.mmd_dpgroups == 'object' && _that.mmd_dpgroups.length > 0) {
+			filter += '/(mmdgroups)/'+_that.mmd_dpgroups.join('/');
+		}
+		
 		if (typeof _that.unreadd_dpgroups == 'object' && _that.unreadd_dpgroups.length > 0) {
 			filter += '/(udgroups)/'+_that.unreadd_dpgroups.join('/');			
 		}
@@ -701,6 +714,17 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				var itemsFilter = _that.manualFilterByFilter('mcd');
 				if (itemsFilter.length > 0) {
 					filter += '/(mcd)/'+itemsFilter.join('/');
+				}
+			}
+		}
+
+		if (typeof _that.mmd == 'object') {
+			if (_that.mmd.length > 0) {
+				filter += '/(mmd)/'+_that.mmd.join('/');
+			} else {
+				var itemsFilter = _that.manualFilterByFilter('mmd');
+				if (itemsFilter.length > 0) {
+					filter += '/(mmd)/'+itemsFilter.join('/');
 				}
 			}
 		}
@@ -1095,6 +1119,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		};
 	});
 
+	$scope.$watch('lhc.limitmm', function(newVal,oldVal) {
+		if (newVal != oldVal) {
+			_that.storeLocalSetting('limitmm',newVal);
+			$scope.loadChatList();
+		};
+	});
+
 	$scope.$watch('lhc.limitgc', function(newVal,oldVal) {
 		if (newVal != oldVal) {
 			_that.storeLocalSetting('limitgc',newVal);
@@ -1147,7 +1178,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				$scope.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
 				$scope.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
 				$scope.my_chats_expanded = localStorage.getItem('my_chats_expanded') != 'false';
-								
+				$scope.my_mails_expanded = localStorage.getItem('my_mails_expanded') != 'false';
+
 				// Just for extension reserved keywords
 				$scope.custom_list_1_expanded = localStorage.getItem('custom_list_1_expanded') != 'false';
 				$scope.custom_list_2_expanded = localStorage.getItem('custom_list_2_expanded') != 'false';
@@ -1705,7 +1737,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'unreadd_products' : userProductNames,
 
                 'mcd_products' : userProductNames,
-                'mcd_dpgroups' : userDepartmentsGroups
+                'mcd_dpgroups' : userDepartmentsGroups,
+
+                'mmd_dpgroups' : userDepartmentsGroups,
             };
 
             angular.forEach(verifyCombinations, function(list, index) {

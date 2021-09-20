@@ -3,7 +3,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
 <?php if (isset($items)) : ?>
-<form action="<?php echo $input->form_action,$inputAppend?>" method="post" ng-non-bindable>
+<form action="<?php echo $input->form_action,$inputAppend?>" method="post" >
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -26,7 +26,7 @@
         <?php foreach ($items as $item) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/start_row.tpl.php')); ?>
                 <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
-                <td>
+                <td ng-non-bindable>
 
                     <?php if ($item->undelivered == 1) : ?>
                         <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Undelivered e-mail');?>" class="text-danger material-icons">sms_failed</span>
@@ -52,26 +52,26 @@
 
                     <span class="mr-2"><?php echo $item->id; ?></span><a class="user-select-none" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
                 </td>
-                <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
+                <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>
-                <td><?php echo htmlspecialchars($item->user)?></td>
-                <td nowrap="nowrap">
+                <td ng-non-bindable><?php echo htmlspecialchars($item->user)?></td>
+                <td nowrap="nowrap" ng-non-bindable>
                     <?php echo htmlspecialchars($item->department),', ',htmlspecialchars($item->mailbox_front['mail'])?>
                 </td>
-                <td>
+                <td ng-non-bindable>
                     <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
-                        <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Pending');?>
+                        <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','New');?>
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>
                         <i class="material-icons chat-active">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Active');?>
                     <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>
                         <i class="material-icons chat-closed">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Closed');?>
                     <?php endif; ?>
                 </td>
-                <td>
+                <td ng-non-bindable>
                     <?php echo $item->udate_front;?>
                 </td>
                 <?php if ($can_delete === true) : ?>
-                <td>
+                <td ng-non-bindable>
                     <div class="btn-group" role="group" aria-label="..." style="width:60px;">
                         <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                     </div>

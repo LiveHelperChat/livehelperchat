@@ -33,17 +33,21 @@
 
 <hr>
 
-<h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?></h6>
+<h6>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?>
+</h6>
+
+<label><input type="checkbox" onclick="$('#mailbox-list input').prop( 'checked', $(this).is(':checked') );"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Choose all mailbox');?></label>
 
 <div class="form-group" >
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Mail is send to one of these mailbox');?></label>
     <br>
-    <div class="row" style="max-height: 500px; overflow: auto">
+    <div class="row" style="max-height: 500px; overflow: auto" id="mailbox-list">
     <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
         'input_name'     => 'mailbox_ids[]',
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Select mail'),
         'selected_id'    => $item->mailbox_ids,
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control mailbox-item',
         'wrap_prepend'   => '<div class="col-3">',
         'wrap_append'    => '</div>',
         'display_name'   => function($item){
