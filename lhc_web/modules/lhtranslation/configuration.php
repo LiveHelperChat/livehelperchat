@@ -45,6 +45,16 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'yandex_api_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+
+        'aws_region' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'aws_access_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'aws_secret_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
     );
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -85,6 +95,20 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         $data['google_referrer'] = $form->google_referrer;
     } else {
         $data['google_referrer'] = '';
+    }
+
+    if ( $form->hasValidData( 'aws_region' ) && $form->aws_region != '') {
+        $data['aws_region'] = $form->aws_region;
+    } else {
+        $data['aws_region'] = '';
+    }
+
+    if ( $form->hasValidData( 'aws_access_key' ) && $form->aws_access_key != '') {
+        $data['aws_access_key'] = $form->aws_access_key;
+    }
+
+    if ( $form->hasValidData( 'aws_secret_key' ) && $form->aws_secret_key != '') {
+        $data['aws_secret_key'] = $form->aws_secret_key;
     }
 
     if ( $form->hasValidData( 'yandex_api_key' ) && $form->yandex_api_key != '') {

@@ -61,10 +61,11 @@
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" href="#bing" aria-controls="bing" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Bing');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" href="#google" aria-controls="google" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Google');?></a></li>
 		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" href="#yandex" aria-controls="yandex" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Yandex');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'aws' ) : ?>active<?php endif;?>" href="#aws" aria-controls="aws" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS');?></a></li>
 	</ul>
 
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" id="bing">
+		<div role="tabpanel" class="tab-pane pt-2 <?php if ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) : ?>active<?php endif;?>" id="bing">
 		        <label><input type="radio" name="translation_handler" value="bing" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'bing') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Bing service'); ?></label>
 		        
 				<?php 
@@ -101,7 +102,7 @@
 				  <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>				
 		</div>
-		<div role="tabpanel" class="tab-pane <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" id="google">
+		<div role="tabpanel" class="tab-pane pt-2 <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google' ) : ?>active<?php endif;?>" id="google">
 		        <label><input type="radio" name="translation_handler" value="google" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'google') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Google service'); ?></label>
 								
 				<div class="form-group">
@@ -118,7 +119,31 @@
 				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 				</div>
 		</div>
-		<div role="tabpanel" class="tab-pane <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" id="yandex">
+        <div role="tabpanel" class="tab-pane pt-2 <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'aws' ) : ?>active<?php endif;?>" id="aws">
+		        <label><input type="radio" name="translation_handler" value="aws" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'aws') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use AWS'); ?></label>
+
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS Region');?></label>
+				    <input class="form-control" type="text" name="aws_region" value="<?php (isset($translation_data['aws_region']) && $translation_data['eu-aws_region-1'] != '') ? print htmlspecialchars($translation_data['aws_region']) : print 'eu-central-1' ?>" />
+				</div>
+
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Below saved data is not shown.'); ?></p>
+
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS Access Key');?></label>
+				    <input class="form-control" type="text" name="aws_access_key" value="" />
+				</div>
+
+				<div class="form-group">
+				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS Secret Key');?></label>
+				    <input ng-non-bindable class="form-control" type="text" name="aws_secret_key" value="" />
+				</div>
+
+				<div class="btn-group" role="group" aria-label="...">
+				    <input type="submit" class="btn btn-secondary" name="StoreLanguageSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+				</div>
+		</div>
+		<div role="tabpanel" class="tab-pane pt-2 <?php if (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex' ) : ?>active<?php endif;?>" id="yandex">
 		        <label><input type="radio" name="translation_handler" value="yandex" <?php ( (isset($translation_data['translation_handler']) && $translation_data['translation_handler'] == 'yandex') ) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Use Yandex service'); ?></label>
 
 				<div class="form-group">
