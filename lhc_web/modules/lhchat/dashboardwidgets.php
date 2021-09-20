@@ -57,8 +57,8 @@ $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()-
 
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) {
-    $supportedWidgets['my_mails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending mails');
-    $supportedWidgets['pmails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Pending mails');
+    $supportedWidgets['my_mails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and new mails');
+    $supportedWidgets['pmails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','New mails');
     $supportedWidgets['amails'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Active mails');
 
     if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) {

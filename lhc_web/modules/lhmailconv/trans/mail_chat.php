@@ -14,7 +14,7 @@ echo json_encode(array(
         "interaction_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Interaction time'),
         "last_interaction_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last interaction time'),
         "priority" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
-        "chat_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Chat owner'),
+        "chat_owner" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Ticket owner'),
         "received" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last mail received at'),
         "accepted_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accepted at'),
         "last_accepted_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Last time accepted at'),
