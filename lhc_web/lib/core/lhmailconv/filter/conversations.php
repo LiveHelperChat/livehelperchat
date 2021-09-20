@@ -173,6 +173,18 @@ $fieldsSearch['conversation_status'] = array (
     )
 );
 
+$fieldsSearch['conversation_status_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Chat status',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'status',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['has_attachment'] = array (
     'type' => 'text',
     'trans' => 'Has attachment',
@@ -233,13 +245,27 @@ $fieldsSearch['group_ids'] = array (
     )
 );
 
+$fieldsSearch['sortby'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string')
+);
 
 $fieldSortAttr = array (
-    'field'      => false,
-    'default'    => false,
+    'field'      => 'sortby',
+    'default'    => 'iddesc',
     'serialised' => true,
-    'disabled'   => true,
-    'options'    => array()
+    'options'    => array(
+        'iddesc' => array('sort_column' => 'id DESC'),
+        'idasc' => array('sort_column' => 'id ASC'),
+        'highprioritynew' => array('sort_column' => 'priority DESC, id DESC'),
+        'lowpriorityold' => array('sort_column' => 'priority_asc ASC, id ASC')
+    )
 );
 
 return array(

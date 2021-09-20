@@ -28,6 +28,7 @@ class erLhcoreClassModelMailconvConversation
             'body' => $this->body,
             'ctime' => $this->ctime,
             'priority' => $this->priority,
+            'priority_asc' => $this->priority_asc,
             'last_message_id' => $this->last_message_id,
             'message_id' => $this->message_id,
             'mailbox_id' => $this->mailbox_id,
@@ -69,6 +70,14 @@ class erLhcoreClassModelMailconvConversation
         if ($this->id > 0) {
             $this->total_messages = erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id' => $this->id]]);
         }
+
+        // For reverse index
+        $this->priority_asc = $this->priority * -1;
+    }
+
+    public function beforeUpdate()
+    {
+        $this->priority_asc = $this->priority * -1;
     }
 
     public function beforeRemove()
@@ -240,6 +249,7 @@ class erLhcoreClassModelMailconvConversation
     public $date = '';
     public $mail_variables = '';
     public $priority = 0;
+    public $priority_asc = 0;
     public $mailbox_id = 0;
     public $total_messages = 0;
     public $match_rule_id = 0;

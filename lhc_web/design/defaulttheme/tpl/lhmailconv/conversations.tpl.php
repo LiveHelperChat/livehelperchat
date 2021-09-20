@@ -55,7 +55,9 @@
                 <td><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>
                 <td><?php echo htmlspecialchars($item->user)?></td>
-                <td><?php echo htmlspecialchars($item->department)?></td>
+                <td nowrap="nowrap">
+                    <?php echo htmlspecialchars($item->department),', ',htmlspecialchars($item->mailbox_front['mail'])?>
+                </td>
                 <td>
                     <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
                         <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Pending');?>

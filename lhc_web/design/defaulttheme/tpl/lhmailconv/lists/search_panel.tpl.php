@@ -58,12 +58,34 @@
         <div class="col-md-1">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Status');?></label>
-                <select name="conversation_status" class="form-control form-control-sm">
-                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any');?></option>
-                    <option value="0" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Pending mails');?></option>
-                    <option value="1" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails');?></option>
-                    <option value="2" <?php if ($input->conversation_status === erLhcoreClassModelMailconvConversation::STATUS_CLOSED) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Closed mails');?></option>
-                </select>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'conversation_status_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose status'),
+                    'selected_id'    => $input->conversation_status_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array(),
+                    'list_function'  => function () {
+                        $items = array();
+
+                        $item = new StdClass();
+                        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending mails');
+                        $item->id = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+                        $items[] = $item;
+
+                        $item = new StdClass();
+                        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active mails');
+                        $item->id = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
+                        $items[] = $item;
+
+                        $item = new StdClass();
+                        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed mails');
+                        $item->id = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+                        $items[] = $item;
+
+                        return $items;
+                    }
+                )); ?>
             </div>
         </div>
 
@@ -204,6 +226,16 @@
                                     <option value="3" <?php if ($input->has_attachment === erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Inline or Attached');?></option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label>Sort by</label>
+                            <select name="sortby" class="form-control form-control-sm">
+                                <option <?php if ($input->sortby == 'iddesc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="iddesc">Newest first (default)</option>
+                                <option <?php if ($input->sortby == 'idasc') : ?>selected="selected"<?php endif; ?> value="idasc">Oldest first</option>
+                                <option <?php if ($input->sortby == 'highprioritynew') : ?>selected="selected"<?php endif; ?> value="highprioritynew">Higher priority, newest first</option>
+                                <option <?php if ($input->sortby == 'lowpriorityold') : ?>selected="selected"<?php endif; ?> value="lowpriorityold">Higher priority, oldest first</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
