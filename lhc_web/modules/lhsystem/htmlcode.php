@@ -10,7 +10,7 @@ $tpl->set('locales',$cfgSite->getSetting( 'site', 'available_site_access' ));
  * Append user departments filter
  * */
 $departmentParams = array();
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 if ($userDepartments !== true){
 	$departmentParams['filterin']['id'] = $filter['filterin']['dep_id'] = $userDepartments;
 }

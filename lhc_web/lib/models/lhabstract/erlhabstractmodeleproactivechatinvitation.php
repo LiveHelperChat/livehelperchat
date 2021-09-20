@@ -70,7 +70,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		 * Append user departments filter
 		 * */
 		$departmentParams = array();
-		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 		if ($userDepartments !== true) {
 			if (!in_array($this->dep_id, $userDepartments) && $this->dep_id != 0) {
 				return false;
@@ -86,7 +86,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public function getFields()
    	{
    	    $currentUser = erLhcoreClassUser::instance();
-   		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID());
+   		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
    		
    		return include('lib/core/lhabstract/fields/erlhabstractmodeleproactivechatinvitation.php');
 	}
