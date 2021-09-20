@@ -247,7 +247,8 @@ return array_merge(array (
         'erLhcoreClassTranslateBing'                => 'lib/core/lhtranslate/lhbingtranslate.php',
         'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
         'erLhcoreClassTranslateYandex'              => 'lib/core/lhtranslate/lhyandextranslate.php',
-        
+        'erLhcoreClassTranslateAWS'                 => 'lib/core/lhtranslate/lhawstranslate.php',
+
 		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
 		'lhSecurity'       				            => 'lib/core/lhexternal/lhsecurity.php',
 		'erLhcoreClassChatPaid'       				=> 'lib/core/lhchat/lhchatpaid.php',

@@ -232,6 +232,75 @@ class erLhcoreClassTranslate
                         'chat' => & $chat
                     ));
                 }
+            } elseif ($translationData['translation_handler'] == 'aws') {
+
+                // Only last 10 messages are translated
+                $msgs = erLhcoreClassModelmsg::getList(array(
+                    'filter' => array(
+                        'chat_id' => $chat->id
+                    ),
+                    'limit' => 10,
+                    'sort' => 'id DESC'
+                ));
+
+                $length = 0;
+
+                foreach ($msgs as $msg) {
+                    if ($msg->user_id != - 1) {
+                        // Visitor message
+                        // Remove old Translation
+                        $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+
+                        if ($msg->user_id == 0) {
+                            $msgTranslated = erLhcoreClassTranslateAWS::translate([
+                                'aws_region' => $translationData['aws_region'],
+                                'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
+                                'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
+                            ], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                        } else { // Operator message
+                            $msgTranslated = erLhcoreClassTranslateAWS::translate([
+                                'aws_region' => $translationData['aws_region'],
+                                'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
+                                'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
+                            ], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                        }
+
+                        $length += mb_strlen($msgTranslated);
+
+                        // If translation was successfull store it
+                        if (! empty($msgTranslated)) {
+
+                            $msgTranslated = str_ireplace(array(
+                                '[/ ',
+                                'Url = http: //',
+                                '[IMG] ',
+                                ' [/img]',
+                                '[/ url]',
+                                '[/ i]',
+                                '[Img]'
+                            ), array(
+                                '[/',
+                                'url=http://',
+                                '[img]',
+                                '[/img]',
+                                '[/url]',
+                                '[/i]',
+                                '[img]'
+                            ), $msgTranslated);
+
+                            $msg->msg .= "[translation]{$msgTranslated}[/translation]";
+                            $msg->saveThis();
+                        }
+                    }
+                }
+
+                if ($length > 0) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
+                        'length' => $length,
+                        'chat' => & $chat
+                    ));
+                }
+
             } elseif ($translationData['translation_handler'] == 'yandex') {
                 // Only last 10 messages are translated
                 $msgs = erLhcoreClassModelmsg::getList(array(
@@ -372,6 +441,80 @@ class erLhcoreClassTranslate
                 $options['vi'] = 'Vietnamese';
                 $options['cy'] = 'Urdu';
                 $options['yi'] = 'Welsh';
+
+            } elseif ($translationData['translation_handler'] == 'aws') {
+
+                    $options['af'] = 'Afrikaans';
+                	$options['sq'] = 'Albanian';
+                	$options['am'] ='Amharic';
+                	$options['ar'] ='Arabic';
+                	$options['hy'] ='Armenian';
+                	$options['az'] ='Azerbaijani';
+                	$options['bn'] ='Bengali';
+                	$options['bs'] ='Bosnian';
+                	$options['bg'] ='Bulgarian';
+                	$options['ca'] ='Catalan';
+                	$options['zh'] ='Chinese (Simplified)';
+                 	$options['zh-TW'] = 'Chinese (Traditional)';
+                	$options['hr'] ='Croatian';
+                	$options['cs'] ='Czech';
+                	$options['da'] ='Danish';
+                	$options['fa-AF'] ='Dari';
+                	$options['nl'] ='Dutch';
+                	$options['en'] ='English';
+                	$options['et'] ='Estonian';
+                	$options['fa'] ='Farsi (Persian)';
+                	$options['tl'] ='Filipino, Tagalog';
+                	$options['fi'] ='Finnish';
+                	$options['fr'] ='French';
+                	$options['fr-CA'] ='French (Canada)';
+                	$options['ka'] ='Georgian';
+                	$options['de'] ='German';
+                	$options['el'] ='Greek';
+                	$options['gu'] ='Gujarati';
+               	    $options['ht'] = 'Haitian Creole';
+                	$options['ha'] ='Hausa';
+                	$options['he'] ='Hebrew';
+                	$options['hi'] ='Hindi';
+                	$options['hu'] ='Hungarian';
+                	$options['is'] ='Icelandic';
+                	$options['id'] ='Indonesian';
+                	$options['it'] ='Italian';
+                	$options['ja'] ='Japanese';
+                	$options['kn'] ='Kannada';
+                	$options['kk'] ='Kazakh';
+                	$options['ko'] ='Korean';
+                	$options['lv'] ='Latvian';
+                	$options['lt'] ='Lithuanian';
+                	$options['mk'] ='Macedonian';
+                	$options['ms'] = 'Malay';
+                	$options['ml'] ='Malayalam';
+                	$options['mt'] ='Maltese';
+                	$options['mn'] ='Mongolian';
+                	$options['no'] ='Norwegian';
+                	$options['ps'] ='Pashto';
+                	$options['pl'] ='Polish';
+                	$options['pt'] ='Portuguese';
+                	$options['ro'] ='Romanian';
+                	$options['ru'] ='Russian';
+                	$options['sr'] ='Serbian';
+                	$options['si'] ='Sinhala';
+                	$options['sk'] ='Slovak';
+                	$options['sl'] ='Slovenian';
+                	$options['so'] ='Somali';
+                	$options['es'] ='Spanish';
+                	$options['es-MX'] = 'Spanish (Mexico)';
+                	$options['sw'] ='Swahili';
+                	$options['sv'] ='Swedish';
+                	$options['ta'] ='Tamil';
+                	$options['te'] ='Telugu';
+                	$options['th'] ='Thai';
+                	$options['tr'] ='Turkish';
+                	$options['uk'] ='Ukrainian';
+                	$options['ur'] ='Urdu';
+                	$options['uz'] ='Uzbek';
+                	$options['vi'] ='Vietnamese';
+                	$options['cy'] ='Welsh';
 
             } elseif ($translationData['translation_handler'] == 'google') {
 
@@ -589,8 +732,14 @@ class erLhcoreClassTranslate
                 return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
             } elseif ($translationData['translation_handler'] == 'google') {
                 return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
-            } elseif($translationData['translation_handler'] == 'yandex'){
+            } elseif($translationData['translation_handler'] == 'yandex') {
                 return erLhcoreClassTranslateYandex::detectLanguage($translationData['yandex_api_key'], $text);
+            } elseif($translationData['translation_handler'] == 'aws') {
+               return erLhcoreClassTranslateAWS::detectLanguage([
+                    'aws_region' => $translationData['aws_region'],
+                    'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
+                    'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
+                ], $text);
             }
         }
     }
@@ -658,6 +807,24 @@ class erLhcoreClassTranslate
                 }
 
                 return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+            } elseif ($translationData['translation_handler'] == 'aws') {
+
+                if ($translateFrom == false) {
+                    $translateFrom = 'auto';
+                } else {
+                    $supportedLanguages = self::getSupportedLanguages(true);
+                    if (!key_exists($translateFrom, $supportedLanguages)) {
+                        // If not supported language fallback to auto
+                        $translateFrom = 'auto';
+                    }
+                }
+
+                return erLhcoreClassTranslateAWS::translate([
+                    'aws_region' => $translationData['aws_region'],
+                    'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
+                    'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
+                ], $text, $translateFrom, $translateTo);
+
             } elseif ($translationData['translation_handler'] == 'yandex') {
 
                 $supportedLanguages = self::getSupportedLanguages(true);
