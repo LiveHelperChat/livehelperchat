@@ -170,6 +170,15 @@ class erLhcoreClassMailconvParser {
 
                     $head = $mailboxHandler->getMailHeader($mailInfo->uid);
 
+                    if (isset($head->Subject)) {
+                        $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['subject' => (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandler->decodeMimeStr($head->Subject)), 'message_id' => $vars['message_id']]));
+                        if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
+                            $messages[] = $existingMail;
+                            $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because of same message_id and subject - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                            continue;
+                        }
+                    }
+
                     $presentPriority = $mailbox->import_priority;
 
                     // Handle multiple TO's
