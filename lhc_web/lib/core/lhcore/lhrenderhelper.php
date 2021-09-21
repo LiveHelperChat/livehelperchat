@@ -71,8 +71,9 @@ class erLhcoreClassRenderHelper {
         $ismultiple = isset($params['multiple']) ? 'multiple' : '';
         $size = isset($params['size']) && $params['size'] > 0 ? ' size="' . (int)$params['size'] . '" ' : '';
         $ngmodel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
+        $dataAttr = isset($params['data_attr']) ? ' ' . $params['data_attr'] . ' ' : '';
 
-        $output = '<select '.$ismultiple.' id="id_'.$params['input_name'].'" name="'.$params['input_name'].'"'.$ngmodel.$onchange.$disbled.$class.$title.$size.'>' . $output;
+        $output = '<select '.$ismultiple.' id="id_'.$params['input_name'].'" name="'.$params['input_name'].'"'.$ngmodel.$onchange.$disbled.$class.$title.$size.$dataAttr.'>' . $output;
 
         if (isset($params['append_value'])) {
             $selected = (is_array($params['selected_id']) && in_array($params['append_value'][0],$params['selected_id']) || (!is_array($params['selected_id']) && $params['selected_id'] == $params['append_value'][0])) ? 'selected="selected"' : '';
