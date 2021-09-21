@@ -40,6 +40,21 @@ $ViewList['mailbox'] = array(
     'functions' => array( 'mailbox_manage' )
 );
 
+$ViewList['personalmailboxgroups'] = array(
+    'params' => array(),
+    'functions' => array( 'mailbox_manage' )
+);
+
+$ViewList['newpersonalmailboxgroup'] = array(
+    'params' => array(),
+    'functions' => array( 'mailbox_manage' )
+);
+
+$ViewList['editpersonalmailboxgroup'] = array(
+    'params' => array('id'),
+    'functions' => array( 'mailbox_manage' )
+);
+
 $ViewList['inlinedownload'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )

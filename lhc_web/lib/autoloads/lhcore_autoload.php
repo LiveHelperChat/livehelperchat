@@ -338,6 +338,7 @@ return array_merge(array (
         'erLhcoreClassModelMailconvMessageInternal' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessageinternal.php',
         'erLhcoreClassModelMailconvMessageSubject'  => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmessagesubject.php',
         'erLhcoreClassModelMailconvRemarks'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvremarks.php',
+        'erLhcoreClassModelMailconvPersonalMailboxGroup'         => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvpersonalmailboxgroup.php',
         'erLhcoreClassMailConvWorker'               => 'lib/core/lhmailconv/lhmailconvworker.php',
 
         // Round Cube imported classes

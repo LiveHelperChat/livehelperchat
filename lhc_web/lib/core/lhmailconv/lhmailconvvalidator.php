@@ -2,6 +2,47 @@
 
 class erLhcoreClassMailconvValidator {
 
+    public static function validatePersonalMailboxGroup($item) {
+        $definition = array(
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'mailbox_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
+            ),
+            'user_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
+            ),
+            'active' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = array();
+
+        // COntinue here
+        /*if ($form->hasValidData( 'mails' )) {
+            $item->mails = $form->mails;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose at-least two mailbox!');
+        }*/
+
+        if ($form->hasValidData( 'name' )) {
+            $item->name = $form->name;
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a name!');
+        }
+
+        if ($form->hasValidData( 'active' )) {
+            $item->active = $form->active;
+        } else {
+            $item->active = 0;
+        }
+
+        return $Errors;
+    }
+
     public static function validateMatchRule($item) {
 
         $definition = array(
