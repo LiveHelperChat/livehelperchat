@@ -4,6 +4,7 @@
 
         <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
         <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/mailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox');?></a></li>
+        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/personalmailboxgroups')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups');?></a></li>
         <?php endif; ?>
 
         <?php if ($currentUser->hasAccessTo('lhmailconv','mrules_manage')) : ?>

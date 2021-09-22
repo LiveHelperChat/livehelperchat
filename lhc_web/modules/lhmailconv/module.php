@@ -40,6 +40,21 @@ $ViewList['mailbox'] = array(
     'functions' => array( 'mailbox_manage' )
 );
 
+$ViewList['personalmailboxgroups'] = array(
+    'params' => array(),
+    'functions' => array( 'mailbox_manage' )
+);
+
+$ViewList['newpersonalmailboxgroup'] = array(
+    'params' => array(),
+    'functions' => array( 'mailbox_manage' )
+);
+
+$ViewList['editpersonalmailboxgroup'] = array(
+    'params' => array('id'),
+    'functions' => array( 'mailbox_manage' )
+);
+
 $ViewList['inlinedownload'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )
@@ -305,5 +320,6 @@ $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change owner of the e-mail');
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
 $FunctionList['use_import'] = array('explain' =>'Allow user import response templates');
+$FunctionList['send_as_new'] = array('explain' =>'Allow user to reply an email as SEnd as New');
 
 ?>

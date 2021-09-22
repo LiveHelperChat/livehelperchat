@@ -25,7 +25,10 @@
             <a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a>
             <?php endif; ?>
             <i class="material-icons<?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?> action-image<?php endif;?>" <?php if ($currentUser->hasAccessTo('lhuser','setopstatus')) : ?>ng-click="lhc.openModal('user/setopstatus/' + operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Change operator status');?>" <?php endif;?> >{{operator.hide_online == 1 ? 'flash_off' : 'flash_on'}}</i>
-            {{operator.hide_online == 1 ? operator.offline_since : ''}} {{operator.name_official}}
+
+            <?php if ($currentUser->hasAccessTo('lhstatistic','userstats')) : ?><a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic')?>" ng-click="lhc.openModal('statistic/userstats/'+operator.user_id)"><?php endif; ?>
+                {{operator.hide_online == 1 ? operator.offline_since : ''}} {{operator.name_official}}
+            <?php if ($currentUser->hasAccessTo('lhstatistic','userstats')) : ?></a><?php endif; ?>
         </td>
         <td class="align-middle">
             <div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>

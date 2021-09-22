@@ -95,7 +95,16 @@ class erLhcoreClassModelMailconvMailbox
             case 'sync_started_ago':
                 $this->sync_started_ago = $this->sync_started > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->sync_started) : '-';
                 return $this->sync_started_ago;
-                
+
+            case 'relevant_mailbox_id':
+                $this->relevant_mailbox_id = [$this->id];
+                $personalMailboxes = erLhcoreClassModelMailconvPersonalMailboxGroup::getList(['customfilter' => ["JSON_EXTRACT(mails, '$.{$this->id}') IS NOT NULL"], 'filter' => ['active' => 1]]);
+                foreach ($personalMailboxes as $personalMailbox) {
+                    $this->relevant_mailbox_id = array_merge($this->relevant_mailbox_id,array_keys($personalMailbox->mails_array));
+                }
+                $this->relevant_mailbox_id = array_unique($this->relevant_mailbox_id);
+                return $this->relevant_mailbox_id;
+
             default:
                 break;
         }

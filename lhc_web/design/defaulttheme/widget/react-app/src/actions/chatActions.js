@@ -427,7 +427,7 @@ export function updateMessage(obj) {
 }
 
 export function parseScript(domNode, inst) {
-    const attr = domNode.attribs;
+    const attr = domNode.attribs || domNode;
 
     if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
         inst.disableEditor = true;

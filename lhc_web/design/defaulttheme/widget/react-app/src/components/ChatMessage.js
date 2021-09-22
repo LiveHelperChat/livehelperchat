@@ -102,6 +102,8 @@ class ChatMessage extends PureComponent {
                     e.target.innerText = args['show_text'];
                     more.classList.add('hide');
                 }
+            } else if (attrs.onclick.indexOf('lhinst.executeJS') !== -1) {
+                parseScript(attrs, this);
             } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {
                 const list = document.getElementById('id_generic_list-' + attrs['data-id']);
                 if (list && list.value != "0" && list.value != "") {

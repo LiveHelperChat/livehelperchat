@@ -2123,6 +2123,15 @@ try {
                   KEY `role_id` (`role_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE IF NOT EXISTS `lhc_mailconv_personal_mailbox_group` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mails` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `active` (`active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
                     $db->query("CREATE TABLE `lhc_mailconv_conversation` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `dep_id` int(11) unsigned NOT NULL,
