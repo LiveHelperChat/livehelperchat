@@ -5,4 +5,5 @@
     <li><strong>{args.chat.conversation.subject}</strong> like</li>
     <li><strong>{args.chat.conversation.body}</strong> like</li>
     <li><strong>{args.chat.conversation.from_address}</strong> sender e-mail</li>
+    <li><strong>{args.chat.headers_raw_array.X_Spam_Score}</strong> spam score. Compare it with higher/lower operands</li>
 </ul>

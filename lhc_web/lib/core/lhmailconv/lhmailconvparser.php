@@ -284,6 +284,8 @@ class erLhcoreClassMailconvParser {
                             $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
                         }
 
+                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->headersRaw));
+
                         $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
 
                         if (!($matchingRuleSelected instanceof erLhcoreClassModelMailconvMatchRule)) {
@@ -425,7 +427,10 @@ class erLhcoreClassMailconvParser {
                             $conversations->updateThis(['update' => ['has_attachment']]);
                         }
 
-                        if (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) {
+                        if (
+                            (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) ||
+                            ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && isset($matchingPriorityRuleSelected->options_array['close_conversation']) && $matchingPriorityRuleSelected->options_array['close_conversation'] == true)
+                        ) {
                             erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
                         }
 
