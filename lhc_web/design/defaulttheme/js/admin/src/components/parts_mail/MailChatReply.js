@@ -208,9 +208,9 @@ const MailChatReply = props => {
                 </div>}
 
                 <div className="btn-group mt-2" role="group" aria-label="Mail actions">
-                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-danger" onClick={() => sendReply(2)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_and_close')}</button>
-                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-warning" onClick={() => sendReply(0)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_pending')}</button>
-                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-success" onClick={() => sendReply(1)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_active')}</button>
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-primary" onClick={() => sendReply(2)}><i className="material-icons">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_and_close')}</button>
+                    {props.moptions.send_as_new && <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-secondary" onClick={() => sendReply(0)}><i className="material-icons text-warning">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_pending')}</button>}
+                    <button type="button" disabled={sendInProgress} className="btn btn-sm btn-outline-secondary" onClick={() => sendReply(1)}><i className="material-icons text-success">send</i>{sendInProgress == true ? t('msg.sending') : t('msg.send_as_active')}</button>
                 </div>
 
                 {props.moptions.files_enabled && <div className="btn-group d-block mt-2" role="group" aria-label="Mail actions">

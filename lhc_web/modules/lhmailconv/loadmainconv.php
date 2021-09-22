@@ -117,6 +117,7 @@ try {
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
                 'hide_recipients' => !$currentUser->hasAccessTo('lhmailconv', 'manage_reply_recipients'),
+                'send_as_new' => $currentUser->hasAccessTo('lhmailconv', 'send_as_new'),
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar
             ]
