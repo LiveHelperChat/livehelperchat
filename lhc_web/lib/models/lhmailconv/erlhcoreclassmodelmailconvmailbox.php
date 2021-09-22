@@ -41,6 +41,11 @@ class erLhcoreClassModelMailconvMailbox
             'create_a_copy' => $this->create_a_copy,
             'import_priority' => $this->import_priority,
             'assign_parent_user' => $this->assign_parent_user,
+            'mail_smtp' => $this->mail_smtp,
+            'name_smtp' => $this->name_smtp,
+            'username_smtp' => $this->username_smtp,
+            'password_smtp' => $this->password_smtp,
+            'no_pswd_smtp' => $this->no_pswd_smtp,
         );
     }
 
@@ -120,6 +125,12 @@ class erLhcoreClassModelMailconvMailbox
     public $mail = '';
     public $username = '';
     public $password = '';
+
+    public $mail_smtp = '';
+    public $name_smtp = '';
+    public $username_smtp = '';
+    public $password_smtp = '';
+
     public $host = '';
     public $port = '';
     public $imap = '';
@@ -140,6 +151,7 @@ class erLhcoreClassModelMailconvMailbox
     public $create_a_copy = 0;
     public $import_priority = 0;
     public $assign_parent_user = 0;
+    public $no_pswd_smtp = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }
