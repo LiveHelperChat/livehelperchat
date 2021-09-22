@@ -3466,6 +3466,8 @@ class erLhcoreClassChatStatistic {
                     $value
                 ]);
             }
+        } else {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.export_csv',array('fp' => $fp, 'type' => $type, 'data' => $statistic));
         }
         exit;
     }
