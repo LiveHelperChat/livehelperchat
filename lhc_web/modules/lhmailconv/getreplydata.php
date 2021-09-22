@@ -75,6 +75,9 @@ try {
                 throw new Exception('You do not have permission to open all pending mails.');
             }
 
+            $operatorChanged = false;
+            $chatAccepted = false;
+
             if (
                 $conv->user_id == 0 &&
                 $conv->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED &&
@@ -100,6 +103,8 @@ try {
             if ($conv->transfer_uid > 0) {
                 erLhcoreClassTransfer::handleTransferredChatOpen($conv, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_MAIL);
             }
+
+            ($chatAccepted || $operatorChanged) && erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
 
             $conv->updateThis();
         }

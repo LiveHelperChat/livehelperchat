@@ -5,6 +5,16 @@
  * For various testing purposes
  *
  * */
+
+$mailbox = erLhcoreClassModelMailconvMailbox::fetch(309);
+
+var_dump($mailbox->relevant_mailbox_id);
+
+/*$conversation = erLhcoreClassModelMailconvConversation::fetch(976);
+
+erLhcoreClassMailconvWorkflow::changePersonalMailbox($conversation,4);*/
+
+
 /*
 $message = erLhcoreClassModelMailconvMessage::fetch(221);
 $conversation = erLhcoreClassModelMailconvConversation::fetch(189);
@@ -35,7 +45,7 @@ echo erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain),"\n";*/
 /*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(4);
 erLhcoreClassMailconvParser::syncMailbox($mailbox, ['live' => true]);*/
 ;
-$mailbox = erLhcoreClassModelMailconvMailbox::fetch(3);
+/*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(3);
 
 $filteredMatchingRules = array();
 $matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
@@ -47,7 +57,7 @@ foreach ($matchingRulesByMailbox as $matchingRule) {
 
 foreach ($filteredMatchingRules as $rule){
     echo $rule->id,"\n";
-}
+}*/
 
 /*$filteredMatchingRules = [erLhcoreClassModelMailconvMatchRule::fetch(1152)];*/
 

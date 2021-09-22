@@ -42,7 +42,17 @@
 <hr>
 
 <div class="row" id="operators-with-mailbox">
-
+    <?php foreach ($item->mails_array as $mailboxId => $userId) : ?>
+    <div id="mailbox-user-<?php echo $mailboxId?>" class="col-4 mb-4">
+        <input type="hidden" name="mailbox_id[]" value="<?php echo $mailboxId?>">
+        <input type="hidden" name="user_id[<?php echo $mailboxId?>]" value="<?php echo $userId?>">
+        <div class="row pb-2">
+            <div class="col-12"><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?>: </b><?php echo erLhcoreClassModelMailconvMailbox::fetch($mailboxId, true)->mail,' | ', erLhcoreClassModelMailconvMailbox::fetch($mailboxId, true)->name?></div>
+            <div class="col-12"><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Operator');?>: </b><?php echo erLhcoreClassModelUser::fetch($userId, true)->name_official,' | ', erLhcoreClassModelUser::fetch($userId, true)->email?></div>
+        </div>
+        <button onclick="$('#mailbox-user-<?php echo $mailboxId?>').remove()" type="button" class="btn btn-xs btn-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Delete');?></button>
+    </div>
+    <?php endforeach; ?>
 </div>
 
 <hr class="mt-0">

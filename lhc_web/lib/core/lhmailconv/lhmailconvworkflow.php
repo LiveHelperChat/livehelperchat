@@ -110,6 +110,24 @@ class erLhcoreClassMailconvWorkflow {
         }
         return $timeToAdd;
     }
+
+    /*
+     * Check does email whois owner going to change has personal mailbox,
+     * and it belongs to personal mailbox group
+     * */
+    public static function changePersonalMailbox($mail, $newUserId)
+    {
+        $personalMailboxes = erLhcoreClassModelMailconvPersonalMailboxGroup::getList(['customfilter' => ["JSON_EXTRACT(mails, '$.{$mail->mailbox_id}') IS NOT NULL"], 'filter' => ['active' => 1]]);
+        foreach ($personalMailboxes as $personalMailbox) {
+            foreach ($personalMailbox->mails_array as $mailboxId => $userId) {
+                if ($newUserId == $userId && $mail->mailbox_id != $mailboxId) {
+                    $mail->mailbox_id = $mailboxId;
+                    $mail->updateThis(['update' => ['mailbox_id']]);
+                    break;
+                }
+            }
+        }
+    }
 }
 
 ?>

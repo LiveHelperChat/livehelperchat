@@ -21,12 +21,14 @@ class erLhcoreClassMailconvValidator {
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
 
-        // COntinue here
-        /*if ($form->hasValidData( 'mails' )) {
-            $item->mails = $form->mails;
-        } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose at-least two mailbox!');
-        }*/
+        if ($form->hasValidData( 'mailbox_id' )) {
+            $data = [];
+            foreach ($form->mailbox_id as $mailboxId) {
+                $data[(int)$mailboxId] = $form->user_id[(int)$mailboxId];
+            }
+            $item->mails_array = $data;
+            $item->mails = json_encode($data);
+        }
 
         if ($form->hasValidData( 'name' )) {
             $item->name = $form->name;
@@ -479,9 +481,11 @@ class erLhcoreClassMailconvValidator {
                 $mailReply->Body = $params['content'];
                 $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$params['content']));
 
-                $mailReply->AddReplyTo($mail->mailbox->mail,(string)$mail->mailbox->name);
+                $mailbox = $mail->conversation->mailbox;
 
-                self::setSendParameters($mail->mailbox, $mailReply);
+                $mailReply->AddReplyTo($mailbox->mail,(string)$mailbox->name);
+
+                self::setSendParameters($mailbox, $mailReply);
 
                 if ($mail->message_id != '') {
                     $mailReply->addCustomHeader('In-Reply-To', $mail->message_id);
@@ -518,8 +522,8 @@ class erLhcoreClassMailconvValidator {
                 $response['send'] = $mailReply->Send();
 
                 // Create a copy if required
-                if ($mail->mailbox->create_a_copy == true) {
-                    $response['copy'] = self::makeSendCopy($mailReply, $mail->mailbox);
+                if ($mailbox->create_a_copy == true) {
+                    $response['copy'] = self::makeSendCopy($mailReply, $mailbox);
                 }
 
                 // Now we can set appropriate attributes for the message itself.

@@ -56,6 +56,7 @@ try {
             }
 
             if (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0) {
+                ($chatAccepted || $operatorChanged) && erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
                 $conv->updateThis();
             }
         }

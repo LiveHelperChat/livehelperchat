@@ -38,7 +38,13 @@ class erLhcoreClassModelMailconvPersonalMailboxGroup
     public function __get($var)
     {
         switch ($var) {
-            case 'subject':
+
+            case 'mails_array':
+                $this->mails_array = array();
+                if ($this->mails != '') {
+                    $this->mails_array = json_decode($this->mails, true);
+                }
+                return $this->mails_array;
 
             default:
                 ;

@@ -159,7 +159,8 @@ class erLhcoreClassMailconvParser {
                         continue;
                     }
 
-                    $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['message_id']]));
+
+                    $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id], 'filter' => ['message_id' => $vars['message_id']]));
 
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
@@ -213,7 +214,7 @@ class erLhcoreClassMailconvParser {
                     // Create a new conversations if message is just to old
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
-                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['in_reply_to']]));
+                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $vars['in_reply_to']]));
                         if (
                             $previousMessage instanceof erLhcoreClassModelMailconvMessage &&
                             $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation &&
@@ -320,7 +321,7 @@ class erLhcoreClassMailconvParser {
 
                             if (isset($head->in_reply_to) and !empty(\trim($head->in_reply_to))) {
                                 $inReplyTo = $mailboxHandler->cleanReferences($head->in_reply_to);
-                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $inReplyTo]));
+                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id], 'filter' => ['message_id' => $inReplyTo]));
                                 if ($previousMessage instanceof erLhcoreClassModelMailconvMessage) {
                                     if ($previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                                         $followUpConversationId = $previousMessage->conversation->id;
@@ -331,7 +332,7 @@ class erLhcoreClassMailconvParser {
 
                             if (isset($head->message_id) && !empty(\trim($head->message_id)) && $followUpConversationId == 0) {
                                 $inReplyTo = $mailboxHandler->cleanReferences($head->message_id);
-                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $inReplyTo]));
+                                $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $inReplyTo]));
                                 if ($previousMessage instanceof erLhcoreClassModelMailconvMessage) {
                                     if ($previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                                         $followUpConversationId = $previousMessage->conversation->id;
@@ -426,7 +427,7 @@ class erLhcoreClassMailconvParser {
 
                         $conversation = null;
 
-                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['mailbox_id' => $mailbox->id, 'message_id' => $vars['in_reply_to']]));
+                        $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $vars['in_reply_to']]));
 
                         if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                             $conversation = $previousMessage->conversation;
