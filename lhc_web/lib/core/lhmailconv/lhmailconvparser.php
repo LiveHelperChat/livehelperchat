@@ -39,10 +39,16 @@ class erLhcoreClassMailconvParser {
         $statsImport = array();
 
         $filteredMatchingRules = array();
-        $matchingRulesByMailbox = erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['active' => 1]]);
-        foreach ($matchingRulesByMailbox as $matchingRule) {
+        foreach (erLhcoreClassModelMailconvMatchRule::getList(['filternot' => ['dep_id' => 0], 'filter' => ['active' => 1]]) as $matchingRule) {
             if (in_array($mailbox->id,$matchingRule->mailbox_ids)) {
                 $filteredMatchingRules[] = $matchingRule;
+            }
+        }
+
+        $filteredPriorityMatchingRules = array();
+        foreach (erLhcoreClassModelMailconvMatchRule::getList(['filter' => ['dep_id' => 0, 'active' => 1]]) as $matchingRule) {
+            if (in_array($mailbox->id,$matchingRule->mailbox_ids)) {
+                $filteredPriorityMatchingRules[] = $matchingRule;
             }
         }
 
@@ -285,6 +291,14 @@ class erLhcoreClassMailconvParser {
                             continue;
                         }
 
+                        $priorityConversation = $matchingRuleSelected->priority;
+
+                        // Rule without department has higher priority
+                        $matchingPriorityRuleSelected = self::getMatchingRuleByMessage($message, $filteredPriorityMatchingRules);
+                        if ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && $matchingPriorityRuleSelected->priority > $priorityConversation) {
+                            $priorityConversation = $matchingPriorityRuleSelected->priority;
+                        }
+
                         if ($mail->deliveryStatus) {
                             $message->delivery_status_array = self::parseDeliveryStatus($mail->deliveryStatus);
                             $message->delivery_status = json_encode($message->delivery_status_array);
@@ -369,7 +383,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->date = $message->date;
                         $conversations->mailbox_id = $mailbox->id;
                         $conversations->match_rule_id = $matchingRuleSelected->id;
-                        $conversations->priority = $matchingRuleSelected->priority;
+                        $conversations->priority = $priorityConversation;
                         $conversations->total_messages = 1;
                         $conversations->pnd_time = time();
                         $conversations->user_id = $message->user_id;
@@ -514,6 +528,13 @@ class erLhcoreClassMailconvParser {
                     continue;
                 }
 
+                $priorityConversation = $matchingRuleSelected->priority;
+
+                $matchingPriorityRuleSelected = self::getMatchingRuleByMessage($message, $filteredPriorityMatchingRules);
+                if ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && $matchingPriorityRuleSelected->priority > $priorityConversation) {
+                    $priorityConversation = $matchingPriorityRuleSelected->priority;
+                }
+
                 $conversations = new erLhcoreClassModelMailconvConversation();
                 $conversations->dep_id = $matchingRuleSelected->dep_id;
                 $conversations->subject = erLhcoreClassMailconvEncoding::toUTF8((string)$message->subject);
@@ -525,7 +546,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->date = $message->date;
                 $conversations->mailbox_id = $mailbox->id;
                 $conversations->match_rule_id = $matchingRuleSelected->id;
-                $conversations->priority = $matchingRuleSelected->priority;
+                $conversations->priority = $priorityConversation;
                 $conversations->total_messages = 1;
                 $conversations->pnd_time = time();
                 $conversations->saveThis();

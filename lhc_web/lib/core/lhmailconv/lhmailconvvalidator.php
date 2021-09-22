@@ -86,7 +86,7 @@ class erLhcoreClassMailconvValidator {
         if ($form->hasValidData( 'dep_id' )) {
             $item->dep_id = $form->dep_id;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a department!');
+            $item->dep_id = 0;
         }
 
         if ($form->hasValidData( 'from_mail' )) {
