@@ -80,6 +80,15 @@ class erLhcoreClassChatStatsResque {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getUserStats($user)
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT * FROM `lh_userdep` WHERE `user_id` = :user_id ORDER BY `type` ASC, `dep_id` ASC;');
+        $stmt->bindValue(':user_id',$user->id,PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function getDepartmentChatsGroupOperatorsStatistic($depGroupObj)
     {
         $db = ezcDbInstance::get();
