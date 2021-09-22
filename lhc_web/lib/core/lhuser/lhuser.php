@@ -147,7 +147,7 @@ class erLhcoreClassUser{
                 if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
                     $db = ezcDbInstance::get();
                     $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
-                    $stmt->bindValue(':session_id',$_COOKIE['PHPSESSID'],PDO::PARAM_STR);
+                    $stmt->bindValue(':session_id',session_id(),PDO::PARAM_STR);
                     $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
                     $stmt->execute();
                 }
@@ -245,7 +245,7 @@ class erLhcoreClassUser{
    					if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
    					    $db = ezcDbInstance::get();
    					    $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
-   					    $stmt->bindValue(':session_id',$_COOKIE['PHPSESSID'],PDO::PARAM_STR);
+   					    $stmt->bindValue(':session_id',session_id(),PDO::PARAM_STR);
    					    $stmt->bindValue(':id',$this->userid,PDO::PARAM_INT);
    					    $stmt->execute();
    					}
