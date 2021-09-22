@@ -8148,6 +8148,14 @@
         "extra": ""
       },
       {
+        "field": "no_pswd_smtp",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "create_a_copy",
         "type": "tinyint(1) unsigned",
         "null": "NO",
@@ -8174,6 +8182,42 @@
       {
         "field": "uuid_status",
         "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "mail_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "name_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "username_smtp",
+        "type": "varchar(250)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "password_smtp",
+        "type": "varchar(250)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -10293,7 +10337,7 @@
     "lh_group_msg": "CREATE TABLE `lh_group_msg` (\n `id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT 0,\n  `user_id` int(11) NOT NULL DEFAULT 0,\n  `name_support` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `meta_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_conversation": "CREATE TABLE `lhc_mailconv_conversation` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `dep_id` int(11) unsigned NOT NULL,\n  `user_id` int(11) unsigned NOT NULL,\n  `status` int(11) unsigned NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `ctime` int(11) unsigned NOT NULL,\n  `priority_asc` int(11) NOT NULL, `priority` int(11) NOT NULL,\n  `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_message_id` bigint(20) unsigned NOT NULL,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `udate` bigint(20) unsigned NOT NULL,\n  `date` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `total_messages` int(11) unsigned NOT NULL,\n  `match_rule_id` int(11) unsigned NOT NULL,\n  `cls_time` int(11) unsigned NOT NULL,\n  `pnd_time` int(11) unsigned NOT NULL,\n  `wait_time` int(11) unsigned NOT NULL,\n  `accept_time` int(11) unsigned NOT NULL,\n  `response_time` int(11) NOT NULL,\n  `interaction_time` int(11) NOT NULL,\n  `lr_time` int(11) unsigned NOT NULL,\n  `tslasign` int(11) unsigned NOT NULL,\n  `start_type` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `transfer_uid` int(11) unsigned NOT NULL,\n  `remarks` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conv_duration` int(11) NOT NULL DEFAULT 0,\n  `mail_variables` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `has_attachment` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `follow_up_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `from_address` (`from_address`),\n  KEY `mailbox_id` (`mailbox_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `status_priority_asc` (`status`,`priority_asc`), KEY `status_priority` (`status`,`priority`),\n  KEY `has_attachment` (`has_attachment`),\n  KEY `udate` (`udate`),\n  KEY `user_id_status` (`user_id`,`status`),\n  KEY `status_dep_id` (`status`,`dep_id`),\n  KEY `undelivered` (`undelivered`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_file": "CREATE TABLE `lhc_mailconv_file` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `message_id` bigint(20) unsigned NOT NULL,\n  `size` int(11) unsigned NOT NULL,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `description` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `extension` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `type` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attachment_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_nopad_ci NOT NULL,\n  `file_path` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `file_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `content_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disposition` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conversation_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),\n  KEY `conversation_id` (`conversation_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lhc_mailconv_mailbox": "CREATE TABLE `lhc_mailconv_mailbox` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `mail` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `username` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `active` tinyint(1) unsigned NOT NULL DEFAULT 1,\n  `port` int(11) unsigned NOT NULL,\n  `imap` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_started` bigint(20) unsigned NOT NULL,\n  `last_sync_time` bigint(20) unsigned NOT NULL,\n  `mailbox_sync` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_status` int(11) unsigned NOT NULL,\n  `sync_interval` int(11) unsigned NOT NULL,\n  `signature` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `signature_under` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `import_since` int(11) unsigned NOT NULL DEFAULT 0,\n  `delete_mode` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `reopen_timeout` int(11) unsigned NOT NULL DEFAULT 4,\n  `failed` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `uuid_status` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `create_a_copy` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `import_priority` int(11) unsigned NOT NULL DEFAULT 0,\n  `assign_parent_user` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_mailbox": "CREATE TABLE `lhc_mailconv_mailbox` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `mail` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,`mail_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `name_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `username_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `password_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `username` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `active` tinyint(1) unsigned NOT NULL DEFAULT 1,\n  `port` int(11) unsigned NOT NULL,\n  `imap` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_started` bigint(20) unsigned NOT NULL,\n  `last_sync_time` bigint(20) unsigned NOT NULL,\n  `mailbox_sync` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sync_status` int(11) unsigned NOT NULL,\n  `sync_interval` int(11) unsigned NOT NULL,\n  `signature` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `signature_under` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `import_since` int(11) unsigned NOT NULL DEFAULT 0,\n  `delete_mode` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `reopen_timeout` int(11) unsigned NOT NULL DEFAULT 4,\n  `failed` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `uuid_status` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `create_a_copy` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `import_priority` int(11) unsigned NOT NULL DEFAULT 0,`no_pswd_smtp` tinyint(1) unsigned NOT NULL DEFAULT 0, `assign_parent_user` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_match_rule": "CREATE TABLE `lhc_mailconv_match_rule` (\n  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n  `dep_id` int(11) unsigned NOT NULL,\n  `conditions` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `active` tinyint(1) unsigned NOT NULL DEFAULT 1,\n  `mailbox_id` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_name` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_mail` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject_contains` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `priority` int(11) NOT NULL,\n  `priority_rule` int(11) NOT NULL,\n  `options` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_msg": "CREATE TABLE `lhc_mailconv_msg` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `status` int(11) unsigned NOT NULL,\n  `conversation_id` bigint(20) unsigned NOT NULL,\n  `message_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `in_reply_to` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `alt_body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `references` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `ctime` int(11) unsigned NOT NULL,\n  `udate` int(11) unsigned NOT NULL,\n  `date` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `flagged` int(11) unsigned NOT NULL,\n  `recent` int(11) unsigned NOT NULL,\n  `msgno` bigint(20) unsigned NOT NULL,\n  `uid` bigint(20) unsigned NOT NULL,\n  `size` int(11) unsigned NOT NULL,\n  `from_host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `sender_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `to_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `reply_to_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `response_time` bigint(20) unsigned NOT NULL,\n  `cls_time` bigint(20) unsigned NOT NULL,\n  `wait_time` bigint(20) unsigned NOT NULL,\n  `accept_time` bigint(20) unsigned NOT NULL,\n  `interaction_time` bigint(20) NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `lr_time` bigint(20) unsigned NOT NULL,\n  `response_type` int(11) unsigned NOT NULL,\n  `bcc_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `cc_data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` int(11) unsigned NOT NULL,\n  `mb_folder` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `conv_duration` int(11) NOT NULL DEFAULT 0,\n  `has_attachment` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `rfc822_body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `delivery_status` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),\n  KEY `response_type` (`response_type`),\n  KEY `user_id` (`user_id`),\n  KEY `conversation_id` (`conversation_id`),\n  KEY `mailbox_id` (`mailbox_id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `has_attachment` (`has_attachment`),\n  KEY `udate` (`udate`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_msg_internal": "CREATE TABLE `lhc_mailconv_msg_internal` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT 0,\n  `user_id` int(11) NOT NULL DEFAULT 0,\n  `name_support` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `meta_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",

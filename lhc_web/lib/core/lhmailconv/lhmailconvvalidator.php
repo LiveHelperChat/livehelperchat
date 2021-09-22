@@ -170,6 +170,18 @@ class erLhcoreClassMailconvValidator {
             'host' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'mail_smtp' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'name_smtp' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'username_smtp' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'password_smtp' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'imap' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -195,6 +207,9 @@ class erLhcoreClassMailconvValidator {
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'assign_parent_user' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'no_pswd_smtp' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'sync_interval' => new ezcInputFormDefinitionElement(
@@ -249,6 +264,12 @@ class erLhcoreClassMailconvValidator {
             $item->create_a_copy = 0;
         }
 
+        if ($form->hasValidData( 'no_pswd_smtp' ) && $form->no_pswd_smtp == true) {
+            $item->no_pswd_smtp = 1;
+        } else {
+            $item->no_pswd_smtp = 0;
+        }
+
         if ($form->hasValidData( 'assign_parent_user' ) && $form->assign_parent_user == true) {
             $item->assign_parent_user = 1;
         } else {
@@ -301,6 +322,30 @@ class erLhcoreClassMailconvValidator {
             $item->port = $form->port;
         } else {
             $item->port = '';
+        }
+
+        if ( $form->hasValidData( 'mail_smtp' )) {
+            $item->mail_smtp = $form->mail_smtp;
+        } else {
+            $item->mail_smtp = '';
+        }
+
+        if ( $form->hasValidData( 'name_smtp' )) {
+            $item->name_smtp = $form->name_smtp;
+        } else {
+            $item->name_smtp = '';
+        }
+
+        if ( $form->hasValidData( 'username_smtp' )) {
+            $item->username_smtp = $form->username_smtp;
+        } else {
+            $item->username_smtp = '';
+        }
+
+        if ( $form->hasValidData( 'password_smtp' )) {
+            $item->password_smtp = $form->password_smtp;
+        } else {
+            $item->password_smtp = '';
         }
 
         if ( $form->hasValidData( 'active' ) && $form->active == true) {
@@ -381,10 +426,17 @@ class erLhcoreClassMailconvValidator {
         $phpmailer->Host = $mailbox->host;
         $phpmailer->Port = $mailbox->port;
 
-        $phpmailer->From = $mailbox->mail;
-        $phpmailer->FromName = $mailbox->name;
+        $phpmailer->From = $mailbox->mail_smtp != '' ?  $mailbox->mail_smtp : $mailbox->mail;
+        $phpmailer->FromName = $mailbox->name_smtp != '' ? $mailbox->name_smtp : $mailbox->name;
 
-        if ($mailbox->username != '') {
+        if ($mailbox->username_smtp != '') {
+            $phpmailer->Username = $mailbox->username_smtp;
+            $phpmailer->Password = $mailbox->password_smtp;
+            $phpmailer->SMTPAuth = true;
+            return;
+        }
+
+        if ($mailbox->no_pswd_smtp == 0 && $mailbox->username != '') {
             $phpmailer->Username = $mailbox->username;
             $phpmailer->Password = $mailbox->password;
             $phpmailer->SMTPAuth = true;
@@ -572,7 +624,7 @@ class erLhcoreClassMailconvValidator {
             if ($user_id > 0) {
                 $mailReply->addCustomHeader('X-LHC-ID', $user_id);
             }
-
+            
             $response['send'] = $mailReply->Send();
 
             if ($item->mailbox->create_a_copy == true) {

@@ -10,7 +10,8 @@ $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
 foreach (array(
-             'mail','name','username','password','host','imap','last_sync_log','mailbox_sync','signature','uuid_status'
+            'mail','name','username','password','host','imap','last_sync_log','mailbox_sync','signature','uuid_status',
+            'mail_smtp','name_smtp','username_smtp','password_smtp',
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
@@ -19,7 +20,7 @@ foreach (array(
 }
 
 foreach (array(
-             'port','active','create_a_copy','delete_mode','sync_status','sync_started','sync_interval',
+             'port','active','create_a_copy','delete_mode','sync_status','sync_started','sync_interval','no_pswd_smtp',
              'last_sync_time','import_since','signature_under','reopen_timeout','failed','import_priority','assign_parent_user'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
