@@ -327,9 +327,19 @@
                     <hr>
                     <h5><button type="button" class="btn btn-danger btn-xs" ng-click="lhcrestapi.deleteParam(param.output,paramOutput)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete')?></button> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Expected output definition')?></h5>
 
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name')?></label>
-                        <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name')?>">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name')?></label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name')?>">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Priority, output combinations with highers priority will be checked first.')?></label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.output_priority" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Priority')?>">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
