@@ -499,14 +499,25 @@ class OnlineChat extends Component {
 
         // Update untill we are sure that messages can be shown
         if (this.state.showMessages === false || prevProps.chatwidget.getIn(['chatLiveData','status']) != this.props.chatwidget.getIn(['chatLiveData','status'])) {
-            this.scrollBottom();
+            if (this.props.chatwidget.get('newChat') == true && this.props.chatwidget.getIn(['chatLiveData','messages']).size == 1) {
+                this.scrollBottom(false, true);
+            } else {
+                this.scrollBottom(false, false);
+            }
         }
+
+        var smartScroll = false;
 
         if (
             (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor) ||
-            (this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded'))
+            (this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded') && (this.props.chatwidget.get('newChat') == false || (smartScroll = true) == true))
         ) {
-            this.scrollBottom();
+            if (smartScroll == false) {
+                this.scrollBottom(false, false);
+            } else {
+                this.scrollBottom(false, true);
+            }
+
             if (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor)) {
                 this.focusMessage();
                 // Sometimes component is not rendered itself. We want to be 100% sure it will always have a focus.
@@ -519,10 +530,10 @@ class OnlineChat extends Component {
         if (snapshot !== null) {
             if (this.messagesAreaRef.current) {
                 var msgScroller = document.getElementById('messages-scroll');
-                var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lmsgid']));
-                if (msgScroller && messageElement && msgScroller.offsetHeight < messageElement.offsetHeight) {
+                var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
+                if (msgScroller && messageElement && (msgScroller.scrollHeight - msgScroller.offsetHeight) > messageElement.offsetTop) {
                     this.setState({scrollButton: true});
-                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - messageElement.offsetHeight - 10;
+                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -567,17 +578,23 @@ class OnlineChat extends Component {
         }
     }
 
-    doScrollBottom() {
+    doScrollBottom(smartScroll) {
         if (this.messagesAreaRef.current) {
-            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+            var messageElement;
+            if (smartScroll && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null) {
+                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
+            } else {
+                this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
+            }
         }
     }
 
-    scrollBottom(onlyIfAtBottom) {
+    scrollBottom(onlyIfAtBottom, smartScroll) {
+
         if (this.messagesAreaRef.current && (!onlyIfAtBottom || !this.state.scrollButton)) {
-            this.doScrollBottom();
+            this.doScrollBottom(smartScroll);
             setTimeout(() => {
-                this.doScrollBottom();
+                this.doScrollBottom(smartScroll);
                 if (this.state.showMessages === false) {
                     this.setState({'showMessages':true});
                 }
