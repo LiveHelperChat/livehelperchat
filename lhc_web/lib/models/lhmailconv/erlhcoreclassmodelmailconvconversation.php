@@ -80,6 +80,26 @@ class erLhcoreClassModelMailconvConversation
         $this->priority_asc = $this->priority * -1;
     }
 
+    public function afterSave($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation.after_save',array(
+            'conversation' => & $this
+        ));
+    }
+
+    public function afterUpdate($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation.after_update',array(
+            'conversation' => & $this
+        ));
+    }
+
+    public function afterRemove() {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation.after_remove',array(
+            'conversation' => & $this
+        ));
+    }
+
     public function beforeRemove()
     {
         $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $this->id]]);

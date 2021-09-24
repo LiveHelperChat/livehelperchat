@@ -85,6 +85,26 @@ class erLhcoreClassModelMailconvMessage
         }
     }
 
+    public function afterSave($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_save',array(
+            'message' => & $this
+        ));
+    }
+
+    public function afterUpdate($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_update',array(
+            'message' => & $this
+        ));
+    }
+
+    public function afterRemove() {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_remove',array(
+            'message' => & $this
+        ));
+    }
+
     public function beforeRemove()
     {
         $files = erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]);
