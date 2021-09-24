@@ -31,12 +31,7 @@ class erLhcoreClassModelMailconvMessage
             'ctime' => $this->ctime,
             'date' => $this->date,
             'udate' => $this->udate,
-            'from' => $this->from,
-            'to' => $this->to,
-            'draft' => $this->draft,
-            'seen' => $this->seen,
-            'deleted' => $this->deleted,
-            'answered' => $this->answered,
+
             'flagged' => $this->flagged,
             'recent' => $this->recent,
             'msgno' => $this->msgno,
@@ -73,6 +68,7 @@ class erLhcoreClassModelMailconvMessage
             'rfc822_body' => $this->rfc822_body,
             'delivery_status' => $this->delivery_status,
             'undelivered' => $this->undelivered,
+            'priority' => $this->priority,
         );
     }
 
@@ -87,6 +83,26 @@ class erLhcoreClassModelMailconvMessage
         if ($this->ctime == 0) {
             $this->ctime = time();
         }
+    }
+
+    public function afterSave($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_save',array(
+            'message' => & $this
+        ));
+    }
+
+    public function afterUpdate($params = array())
+    {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_update',array(
+            'message' => & $this
+        ));
+    }
+
+    public function afterRemove() {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.message.after_remove',array(
+            'message' => & $this
+        ));
     }
 
     public function beforeRemove()
@@ -297,17 +313,11 @@ class erLhcoreClassModelMailconvMessage
     public $ctime = 0;
     public $date = '';
     public $udate = 0;
-    public $from = '';
-    public $to = '';
     public $size = 0;
     public $uid = 0;
     public $msgno = 0;
     public $recent = 0;
     public $flagged = 0;
-    public $answered = 0;
-    public $deleted = 0;
-    public $seen = 0;
-    public $draft = 0;
 
     public $from_host = '';
     public $from_name = '';
@@ -358,6 +368,7 @@ class erLhcoreClassModelMailconvMessage
     public $rfc822_body = '';
     public $delivery_status  = '';
     public $undelivered  = 0;
+    public $priority  = 0;
 }
 
 ?>

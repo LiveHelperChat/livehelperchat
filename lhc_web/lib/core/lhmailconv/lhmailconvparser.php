@@ -411,6 +411,7 @@ class erLhcoreClassMailconvParser {
 
                         $conversations->saveThis();
 
+                        $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
                         $message->updateThis(['update' => ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
@@ -557,6 +558,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->saveThis();
 
                 // Assign conversation
+                $message->priority = $priorityConversation;
                 $message->conversation_id = $conversations->id;
                 $message->dep_id = $conversations->dep_id;
                 $message->updateThis(['update' => ['conversation_id','dep_id']]);
