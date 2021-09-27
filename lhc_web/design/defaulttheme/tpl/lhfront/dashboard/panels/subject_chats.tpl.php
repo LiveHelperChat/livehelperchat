@@ -20,7 +20,7 @@
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/subject.tpl.php'));?>
             </div>
 
-            <div ng-if="active_chats.list.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Subject filtered chats will appear here.')?></div>
+            <div ng-if="subject_chats.list.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Subject filtered chats will appear here.')?></div>
 
         </div>
     </div>
