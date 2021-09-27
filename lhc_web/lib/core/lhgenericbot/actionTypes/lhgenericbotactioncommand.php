@@ -432,6 +432,27 @@ class erLhcoreClassGenericBotActionCommand {
         } elseif ($action['content']['command'] == 'setsubject') {
 
             $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
+
+            // Mail module support
+            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                if ($remove == true && is_numeric($action['content']['payload'])) {
+                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'message_id' => $chat->id)));
+                    if ($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject) {
+                        $subjectChat->removeThis();
+                    }
+                } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
+                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'message_id' => $chat->id)));
+                    if (!($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject)) {
+                        $subjectChat = new erLhcoreClassModelMailconvMessageSubject();
+                        $subjectChat->subject_id = $subject->id;
+                        $subjectChat->message_id = $chat->id;
+                        $subjectChat->conversation_id = $chat->conversation_id;
+                        $subjectChat->saveThis();
+                    }
+                }
+                return;
+            }
+
             if ($remove == true && is_numeric($action['content']['payload'])) {
                 $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
                 if ($subjectChat instanceof erLhAbstractModelSubjectChat) {

@@ -168,6 +168,10 @@ class erLhcoreClassModelMailconvMessage
                 }
                 return $this->body_front;
 
+            case 'body_subject_index':
+                $this->body_subject_index = $this->subject . ' '. strip_tags($this->body) .' '. $this->alt_body;
+                return $this->body_subject_index;
+
             case 'user':
                 $this->user = false;
                 if ($this->user_id > 0) {

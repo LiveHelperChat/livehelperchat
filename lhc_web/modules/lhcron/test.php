@@ -1,14 +1,31 @@
 <?php
 /**
+ *
  * php cron.php -s site_admin -c cron/test
  *
  * For various testing purposes
  *
  * */
 
-$mailbox = erLhcoreClassModelMailconvMailbox::fetch(309);
+/*erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply',array(
+    'mail' => & $message,
+    'conversation' => & $conversation
+));*/
 
-var_dump($mailbox->relevant_mailbox_id);
+$conversations = erLhcoreClassModelMailconvConversation::fetch(143);
+$message = erLhcoreClassModelMailconvMessage::fetch(153);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
+    'mail' => & $message,
+    'conversation' => & $conversations
+));
+
+
+
+
+/*$mailbox = erLhcoreClassModelMailconvMailbox::fetch(309);
+
+var_dump($mailbox->relevant_mailbox_id);*/
 
 /*$conversation = erLhcoreClassModelMailconvConversation::fetch(976);
 
