@@ -24,6 +24,7 @@ try {
 $content = '';
 $ott = '';
 $LastMessageID = 0;
+$firstOperatorMessageId = 0;
 $userOwner = true;
 $saveChat = false;
 $operation = '';
@@ -120,6 +121,11 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
                         $operatorId = null;
 
 				        foreach ($Messages as $msg) {
+
+                            if ($firstOperatorMessageId == 0 && ($msg['user_id'] > 0 || $msg['user_id'] == -2)){
+                                $firstOperatorMessageId = $msg['id'];
+                            }
+
 				        	if ($msg['user_id'] > 0 || $msg['user_id'] == -2 && $userOwner === true) {
 				        		$userOwner = false;
 				        	}
@@ -237,6 +243,7 @@ if ($operatorTotalMessages > 0) {
 }
 
 $responseArray['message_id'] = (int)$LastMessageID;
+$responseArray['message_id_first'] = (int)$firstOperatorMessageId;
 $responseArray['messages'] = trim($content);
 
 echo erLhcoreClassChat::safe_json_encode($responseArray);

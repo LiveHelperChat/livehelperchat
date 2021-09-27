@@ -1,4 +1,4 @@
-<?php if ($search->scope == 0) : ?>
+<?php if ($search->scope == 'chat') : ?>
     <?php if (!$list_mode) : ?>
     <div role="tabpanel" id="tabs" ng-cloak>
         <ul class="nav nav-pills" role="tablist">

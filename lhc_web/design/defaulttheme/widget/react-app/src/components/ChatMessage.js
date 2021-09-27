@@ -157,7 +157,7 @@ class ChatMessage extends PureComponent {
 
     imageLoaded(attrs) {
         if (this.props.scrollBottom) {
-            this.props.scrollBottom(true);
+            this.props.scrollBottom(true, true);
         }
     }
 
