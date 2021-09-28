@@ -8,7 +8,7 @@ class _nodeJSChat {
         this.chatEvents = null;
     }
 
-    setParams(params, attributes, chatEvents) {
+    async setParams(params, attributes, chatEvents) {
         this.params = params;
         this.attributes = attributes;
         this.chatEvents = chatEvents;
@@ -16,6 +16,7 @@ class _nodeJSChat {
         const vid = this.attributes.userSession.getVID();
 
         var socketOptions = {
+            protocolVersion: 1,
             hostname: params.hostname,
             path: params.path,
             authTokenName: 'socketCluster.authToken_vi'
@@ -31,62 +32,49 @@ class _nodeJSChat {
 
         var socketCluster = require("socketcluster-client");
 
-        var socket = socketCluster.connect(socketOptions);
-
-        socket.on('error', function (err) {
-            console.error(err);
-        });
-
-        function connectSiteVisitor(){
-            var sampleChannel = socket.subscribe('uo_' + vid);
-
-            sampleChannel.on('subscribeFail', function (err) {
-                console.error('Failed to subscribe to the sample channel due to error: ' + err);
-            });
-
-            sampleChannel.watch(function (op) {
-                if (op.op == 'check_message') {
-                    attributes.eventEmitter.emitEvent('checkMessageOperator');
-                } else if (op.op == 'is_online') {
-                    socket.publish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
-                }
-            });
-        }
+        var socket = socketCluster.create(socketOptions);
 
         var chanelName = 'uo_' + vid;
         var instance_id = this.attributes.instance_id;
+        var sampleChannel = null;
 
-        socket.on('deauthenticate', function() {
-            helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
+        let status = await socket.listener('connect').once();
+        if (status.isAuthenticated) {
+            connectSiteVisitor();
+            attributes.LHC_API.args.check_messages = false;
+        } else {
+            authentificate();
+        }
+
+        for await (let event of socket.listener('deauthenticate')) {
+            authentificate();
+        }
+
+        function authentificate() {
+            helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, async (data) => {
                 instance_id = data.instance_id;
-                socket.emit('login', {hash: data.hash, chanelName: chanelName, instance_id: data.instance_id}, function (err) {
-                    if (err) {
-                        console.log(err);
-                    }
-                });
-            })
-        });
-
-        socket.on('connect', function (status) {
-            if (status.isAuthenticated) {
+                await Promise.all([
+                    socket.invoke('login',{hash: data.hash, chanelName: chanelName, instance_id: data.instance_id}),
+                    socket.listener('authenticate').once()
+                ]);
                 connectSiteVisitor();
-                // Disable check messages in case we connect to nodejs
-                attributes.LHC_API.args.check_messages = false;
-            } else {
-                helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, (data) => {
-                    instance_id = data.instance_id;
-                    socket.emit('login', {hash: data.hash, chanelName: chanelName, instance_id: data.instance_id}, function (err) {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            connectSiteVisitor();
-                            // Disable check messages in case we connect to nodejs
-                            attributes.LHC_API.args.check_messages = false;
-                        }
-                    });
-                })
+            })
+        }
+
+        async function connectSiteVisitor() {
+            var firstRun = sampleChannel == null;
+            sampleChannel = socket.subscribe('uo_' + vid);
+            if (firstRun == true) {
+                for await (let op of sampleChannel) {
+                    if (op.op == 'check_message') {
+                        attributes.eventEmitter.emitEvent('checkMessageOperator');
+                    } else if (op.op == 'is_online') {
+                        socket.transmitPublish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
+                    }
+                }
             }
-        });
+        }
+
     }
 }
 
