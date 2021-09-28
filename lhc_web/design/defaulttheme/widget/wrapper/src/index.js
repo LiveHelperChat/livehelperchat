@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 177;
+            lhc.version = 178;
 
             var init = () => {
 
@@ -562,7 +562,7 @@
                     var newValue = !attributesWidget.toggleSound.value;
                     attributesWidget.toggleSound.next(newValue);
                 });
-                
+
                 // Toggle cookies policy
                 attributesWidget.eventEmitter.addListener('enableCookies', function () {
 
@@ -572,7 +572,7 @@
                         var sessionAtrribute = attributesWidget.userSession.getSessionAttributes();
                         if (typeof sessionAtrribute.hnh !== 'undefined') { delete sessionAtrribute['hnh']; }
                         attributesWidget.storageHandler.storeSessionInformation(sessionAtrribute);
-                        
+
                         if (typeof LHC_API.args.orig !== 'undefined') {
 
                             attributesWidget.mode = LHC_API.args.mode = LHC_API.args.orig.mode;
