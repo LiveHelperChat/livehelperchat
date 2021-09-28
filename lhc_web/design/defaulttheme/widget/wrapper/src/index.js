@@ -884,7 +884,7 @@
                         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/, '');
 
                         // We allow to send events only from chat installation or page where script is embeded.
-                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain) {
+                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && parts[1] !== 'started') {
                             return;
                         }
                     }
@@ -924,6 +924,12 @@
 
                     } else if (parts[1] == 'ready_popup') {
                         attributesWidget.popupWidget.sendParameters(chatEvents);
+                    } else if (parts[1] == 'started') {
+                        if (window.location !== window.parent.location) {
+                            console.log('terminate');
+                        } else {
+                            console.log('dont terminate');
+                        }
                     } else {
                         attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                     }
@@ -956,6 +962,10 @@
                 if (LHC_API.args.before_init) {
                     LHC_API.args.before_init(lhc);
                 }
+
+                // Send event that lhc has started
+                // So parent page informs back that it has lhc
+                window.parent.postMessage('lhc::started','*');
 
                 LHC_API.args.manual_init || init();
             };
