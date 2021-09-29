@@ -21,6 +21,7 @@ class _nodeJSChat {
         const syncDefault = state.chatwidget.getIn(['chat_ui','sync_interval']);
 
         var socketOptions = {
+            protocolVersion: 1,
             hostname: params.hostname,
             path: params.path,
             autoReconnectOptions: {initialDelay: 5000, randomness: 5000}
