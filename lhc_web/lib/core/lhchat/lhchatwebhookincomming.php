@@ -552,6 +552,10 @@ class erLhcoreClassChatWebhookIncoming {
                 'iwh_id' => $incomingWebhook->id,
             );
 
+            if ( isset($conditions['add_field_value']) && $conditions['add_field_value'] != '') {
+                $chatVariables['iwh_field'] = self::extractAttribute('add_field_value', $conditions, $payloadMessage,'');
+            }
+
             $chat->chat_variables = json_encode($chatVariables);
             $chat->saveThis();
 
