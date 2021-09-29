@@ -45,7 +45,7 @@ cd ./design/defaulttheme/js/admin && npm run build
 cd ../../../../
 
 echo "Compiling react-js"
-cd ./design/defaulttheme/widget/react-app && npm run build && npm run build-ie
+cd ./design/defaulttheme/widget/react-app && npm run build
 cd ../../../../
 
 echo "Compiling wrapper"
