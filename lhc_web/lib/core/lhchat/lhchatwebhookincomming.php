@@ -433,6 +433,12 @@ class erLhcoreClassChatWebhookIncoming {
 
             $chat->nick = self::extractAttribute('nick',$conditions, $payloadMessage, $chat->nick);
 
+            if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
+                if (!preg_match($conditions['nick_pregmatch'],$chat->nick)) {
+                    $chat->nick = 'Visitor';
+                }
+            }
+
             if ($chat->nick == 'Visitor') {
                 $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll, $chat->nick);
             }
@@ -514,6 +520,12 @@ class erLhcoreClassChatWebhookIncoming {
             // Perhaps it's first level attribute
             if ($chat->nick == 'Visitor') {
                 $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll,'Visitor');
+            }
+
+            if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
+                if (!preg_match($conditions['nick_pregmatch'],$chat->nick)) {
+                    $chat->nick = 'Visitor';
+                }
             }
 
             $chat->phone = self::extractAttribute('phone', $conditions, $payloadMessage);

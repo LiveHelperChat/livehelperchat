@@ -79,9 +79,20 @@
 
         <div class="row">
             <div class="col-6">
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Nick');?></label>
-                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.nick" value="" />
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Nick');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.nick" value="" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Nick preg match rule');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.nick_pregmatch" placeholder="/(?!^\d+$)^.+$/is" value="" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-6">
