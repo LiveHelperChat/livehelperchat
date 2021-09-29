@@ -6,6 +6,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development && cp -v dist/*.js ../../js/widgetv2/ && cp -v dist/*.js.map ../../js/widgetv2/",
