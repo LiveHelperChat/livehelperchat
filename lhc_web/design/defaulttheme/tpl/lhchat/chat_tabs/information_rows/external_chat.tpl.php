@@ -3,8 +3,8 @@
             <div class="col-6 pb-1">
                 <span class="material-icons">extension</span>
                 <?php echo htmlspecialchars($incomingWebhook->name)?>
-                <?php if (isset($chat_variables_array['iwh_field']['value']) && !empty($chat_variables_array['iwh_field']['value'])) : ?>
-                &nbsp;|&nbsp;<?php echo htmlspecialchars($chat_variables_array['iwh_field']['value'])?>
+                <?php if (isset($chat_variables_array['iwh_field']) && !empty($chat_variables_array['iwh_field'])) : ?>
+                &nbsp;|&nbsp;<?php echo htmlspecialchars($chat_variables_array['iwh_field'])?>
                 <?php endif; ?>
             </div>
     <?php endif; ?>
