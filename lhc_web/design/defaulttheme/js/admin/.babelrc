@@ -2,23 +2,27 @@
   "presets": [
     "@babel/preset-react",
     [
-      '@babel/preset-env',
+      "@babel/preset-env",
       {
-        modules: false
+        "modules": false
       }
     ]
   ],
   "plugins": [
     [
-      "@babel/plugin-proposal-decorators", {
-      "legacy": true
-    } ],
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-runtime",
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": [
+          "./src"
+        ],
         "alias": {
           "@images": "./assets/images"
         }
