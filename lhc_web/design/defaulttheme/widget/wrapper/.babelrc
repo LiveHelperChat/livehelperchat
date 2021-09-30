@@ -1,11 +1,17 @@
 {
     "presets": [
-        "env"
+        "@babel/preset-env"
     ],
     "plugins": [
-        "syntax-dynamic-import",
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-object-rest-spread"
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread"
     ]
 }

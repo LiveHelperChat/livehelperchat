@@ -14,6 +14,11 @@ module.exports = {
 
     // output file(s) and chunks
     output: {
+        environment: {
+            // The environment supports arrow functions ('() => { ... }').
+            arrowFunction: false,
+            destructuring: false,
+        },
         library: 'LiveHelperChat',
         libraryTarget: 'this',
         libraryExport: 'LiveHelperChatDefault',

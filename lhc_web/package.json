@@ -33,7 +33,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.3",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
@@ -53,8 +53,8 @@
   },
   "dependencies": {
     "babel-loader": "^8.1.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.1",
     "vmsg": "^0.3.6",
-    "webpack": "^4.44.1"
+    "webpack": "^5.55.0"
   }
 }

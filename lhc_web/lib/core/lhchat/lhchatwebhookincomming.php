@@ -433,6 +433,12 @@ class erLhcoreClassChatWebhookIncoming {
 
             $chat->nick = self::extractAttribute('nick',$conditions, $payloadMessage, $chat->nick);
 
+            if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
+                if (!preg_match($conditions['nick_pregmatch'],$chat->nick)) {
+                    $chat->nick = 'Visitor';
+                }
+            }
+
             if ($chat->nick == 'Visitor') {
                 $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll, $chat->nick);
             }
@@ -516,6 +522,12 @@ class erLhcoreClassChatWebhookIncoming {
                 $chat->nick = self::extractAttribute('nick', $conditions, $payloadAll,'Visitor');
             }
 
+            if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
+                if (!preg_match($conditions['nick_pregmatch'],$chat->nick)) {
+                    $chat->nick = 'Visitor';
+                }
+            }
+
             $chat->phone = self::extractAttribute('phone', $conditions, $payloadMessage);
             $chat->email = self::extractAttribute('email', $conditions, $payloadMessage);
 
@@ -539,6 +551,10 @@ class erLhcoreClassChatWebhookIncoming {
             $chatVariables = array(
                 'iwh_id' => $incomingWebhook->id,
             );
+
+            if ( isset($conditions['add_field_value']) && $conditions['add_field_value'] != '') {
+                $chatVariables['iwh_field'] = self::extractAttribute('add_field_value', $conditions, $payloadMessage,'');
+            }
 
             $chat->chat_variables = json_encode($chatVariables);
             $chat->saveThis();

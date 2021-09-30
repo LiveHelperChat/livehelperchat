@@ -445,6 +445,14 @@
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_close', $fields['hide_close'], $object)?> <?php echo $fields['hide_close']['trans'];?></label>
 						</div>
+
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('hide_iframe', $fields['hide_iframe'], $object)?> <?php echo $fields['hide_iframe']['trans'];?></label>
+						</div>
+                    
+						<div class="form-group">
+						<label><?php echo erLhcoreClassAbstract::renderInput('hide_parent', $fields['hide_parent'], $object)?> <?php echo $fields['hide_parent']['trans'];?></label>
+						</div>
 						
 						<div class="form-group">	
 						<label><?php echo erLhcoreClassAbstract::renderInput('hide_popup', $fields['hide_popup'], $object)?> <?php echo $fields['hide_popup']['trans'];?></label>	

@@ -153,6 +153,14 @@ if (isset($outputResponse['theme'])){
             $outputResponse['chat_ui']['wright'] = (int)$theme->bot_configuration_array['wright'];
         }
 
+        if (isset($theme->bot_configuration_array['hide_iframe']) && $theme->bot_configuration_array['hide_iframe'] == 1) {
+            $outputResponse['chat_ui']['hide_iframe'] = 1;
+        }
+
+        if (isset($theme->bot_configuration_array['hide_parent']) && $theme->bot_configuration_array['hide_parent'] == 1) {
+            $outputResponse['chat_ui']['hide_parent'] = 1;
+        }
+
         if ($theme->widget_pbottom != 0) {
             $outputResponse['chat_ui']['sbottom'] = (int)$theme->widget_pbottom;
         }
@@ -367,10 +375,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 176;
+$outputResponse['wv'] = 179;
 
 // React APP versions
-$outputResponse['v'] = 212;
+$outputResponse['v'] = 213;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -435,6 +443,7 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
 $outputResponse['static'] = array(
     'screenshot' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
+    'vendor_js' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/vendor.js') . '?v=' . $outputResponse['v']),
     'widget_css' => erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.css;css/widgetv2/widget.css;css/widgetv2/widget_override.css') : erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.rtl.css;css/widgetv2/widget.css;css/widgetv2/widget_rtl.css;css/widgetv2/widget_override_rtl.css')),
     'dir' => erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language'),
     'cl' => erConfigClassLhConfig::getInstance()->getDirLanguage('content_language'),

@@ -16,7 +16,7 @@
                         <tr>
                             <th width="10%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
                             <th nowrap width="45%">
-                                <?php include(erLhcoreClassDesign::designtpl('elasticsearch/list/nick_title.tpl.php')); ?>
+                                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Nick');?>
                             </th>
                             <th width="15%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
                             <th width="10%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Department');?></th>

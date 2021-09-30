@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 176;
+            lhc.version = 179;
 
             var init = () => {
 
@@ -130,6 +130,8 @@
                     LHC_API: LHC_API,
                     viewHandler: null,
                     msgSnippet: null,
+                    hide_parent: LHC_API.args.hide_parent || false,
+                    hide_iframe: LHC_API.args.hide_iframe || false,
                     hide_status: LHC_API.args.hide_status || null,
                     mainWidget: new mainWidget(prefixLowercase),
                     popupWidget: new mainWidgetPopup(),
@@ -313,6 +315,12 @@
                         }
                     }
 
+                    // Send event that lhc has started
+                    // So parent page informs back that it has lhc
+                    if ((attributesWidget.hide_parent || attributesWidget.hide_iframe || (data.chat_ui && (data.chat_ui.hide_iframe || data.chat_ui.hide_parent))) && window.location != window.parent.location && window.parent.closed !== false) {
+                        window.parent.postMessage('lhc::started','*');
+                    }
+
                     attributesWidget.leaveMessage = attributesWidget.leaveMessage || data.chat_ui.leaveamessage;
 
                     if (data.department) {
@@ -372,6 +380,10 @@
                     }
 
                     if (data.chat_ui) {
+
+                        if (data.chat_ui.hide_parent) {
+                            attributesWidget.hide_parent = true;
+                        }
 
                         if ((data.chat_ui.fscreen && attributesWidget.mode == 'embed') || attributesWidget.fscreen) {
                             attributesWidget.widgetDimesions.nextProperty('width', 100);
@@ -550,7 +562,7 @@
                     var newValue = !attributesWidget.toggleSound.value;
                     attributesWidget.toggleSound.next(newValue);
                 });
-                
+
                 // Toggle cookies policy
                 attributesWidget.eventEmitter.addListener('enableCookies', function () {
 
@@ -560,7 +572,7 @@
                         var sessionAtrribute = attributesWidget.userSession.getSessionAttributes();
                         if (typeof sessionAtrribute.hnh !== 'undefined') { delete sessionAtrribute['hnh']; }
                         attributesWidget.storageHandler.storeSessionInformation(sessionAtrribute);
-                        
+
                         if (typeof LHC_API.args.orig !== 'undefined') {
 
                             attributesWidget.mode = LHC_API.args.mode = LHC_API.args.orig.mode;
@@ -738,6 +750,13 @@
                     document.location = data;
                 });
 
+                attributesWidget.eventEmitter.addListener('terminated', (data) => {
+                    attributesWidget.terminated = true;
+                    // Remove legacy dom
+                    helperFunctions.removeById(attributesWidget.prefixLowercase+'_container_v2');
+                    helperFunctions.removeById(attributesWidget.prefixLowercase+'_status_widget_v2');
+                });
+
                 attributesWidget.eventEmitter.addListener('showInvitation', (data) => {
                     attributesWidget.widgetDimesions.nextProperty('bottom_override', 75);
                     attributesWidget.widgetDimesions.nextProperty('right_override', 75);
@@ -884,7 +903,7 @@
                         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/, '');
 
                         // We allow to send events only from chat installation or page where script is embeded.
-                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain) {
+                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && parts[1] !== 'started' && parts[1] !== 'isstarted') {
                             return;
                         }
                     }
@@ -924,11 +943,19 @@
 
                     } else if (parts[1] == 'ready_popup') {
                         attributesWidget.popupWidget.sendParameters(chatEvents);
+                    } else if (parts[1] == 'isstarted') {
+                        // Parent window has LHC, terminate present instance
+                        attributesWidget.eventEmitter.emitEvent('terminated', []);
+                    } else if (parts[1] == 'started') {
+                        if (attributesWidget.hide_parent) {
+                            attributesWidget.eventEmitter.emitEvent('terminated', []);
+                        } else {
+                            e.source.postMessage('lhc::isstarted','*');
+                        }
                     } else {
                         attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                     }
                 };
-
 
                 if (window.addEventListener) {
                     window.addEventListener("message", handleMessages, false);
