@@ -256,6 +256,18 @@ $fieldsSearch['sortby'] = array (
         ezcInputFormDefinitionElement::OPTIONAL, 'string')
 );
 
+$fieldsSearch['is_followup'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['(`follow_up_id` > 0)']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => 'sortby',
     'default'    => 'iddesc',

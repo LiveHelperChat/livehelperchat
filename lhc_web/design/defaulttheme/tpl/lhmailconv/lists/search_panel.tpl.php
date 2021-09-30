@@ -238,9 +238,13 @@
                                 <option <?php if ($input->sortby == 'statuspriority') : ?>selected="selected"<?php endif; ?> value="statuspriority">Active, New sorted by higher priority</option>
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label"><input type="checkbox" name="undelivered" <?php $input->undelivered == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undelivered')?></label>
+                        <div class="col-md-2">
+                            <div class="form-group mb-0">
+                                <label class="col-form-label"><input type="checkbox" name="undelivered" <?php $input->undelivered == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undelivered')?></label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label class="col-form-label"><input type="checkbox" name="is_followup" <?php $input->is_followup == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Is followup')?></label>
+                            </div>
                         </div>
 
                         <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel_multiinclude.tpl.php'));?>
