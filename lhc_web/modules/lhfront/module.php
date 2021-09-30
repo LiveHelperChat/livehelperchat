@@ -23,5 +23,6 @@ $ViewList['switchdashboard'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'General frontpage use permission');  
+$FunctionList['switch_dashboard'] = array('explain' => 'Allow operator to switch between new/old dashboards');
 
 ?>

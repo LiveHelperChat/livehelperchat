@@ -706,5 +706,6 @@ $FunctionList['prev_chats'] = array('explain' => 'Allow operator to see previous
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change chat department');
 $FunctionList['subject_chats'] = array('explain' => 'Allow operator see subject filtered chats');
 $FunctionList['subject_chats_options'] = array('explain' => 'Allow operator to choose what subjects should be applied as filter');
+$FunctionList['export_chats'] = array('explain' => 'Allow operator to export filtered chats');
 
 ?>
