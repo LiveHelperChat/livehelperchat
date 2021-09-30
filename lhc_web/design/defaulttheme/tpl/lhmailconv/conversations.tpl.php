@@ -36,6 +36,10 @@
 
                     <a class="action-image material-icons" data-title="<?php echo htmlspecialchars($item->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $item->id?>,$(this).attr('data-title'))" >open_in_new</a>
 
+                    <?php if ($item->follow_up_id > 0) : ?>
+                        <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Follow up e-mail');?>">follow_the_signs</span>
+                    <?php endif; ?>
+
                     <?php if ($item->start_type == erLhcoreClassModelMailconvConversation::START_OUT) : ?>
                         <i class="material-icons">call_made</i>
                     <?php else : ?>
