@@ -146,8 +146,11 @@
         });
     </script>
 
-    <div>
-        <button name="SendEmail" onclick="$(this).attr('disabled','disabled').text('Sending...');$('#sendemail-form').submit()" class="btn btn-sm btn-secondary" type="submit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></button>
+    <input type="hidden" name="send_status" id="id_send_status" value="0">
+
+    <div class="btn-group mt-2">
+        <button name="SendEmail" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-primary" type="submit"><i class="material-icons">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as closed');?></button>
+        <button name="SendEmailActive" onclick="$('.send-buttons').attr('disabled','disabled').text('Sending...');$('#id_send_status').val(1);$('#sendemail-form').submit()" class="send-buttons btn btn-sm btn-outline-secondary" type="submit"><i class="material-icons text-success">send</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send as Active');?></button>
     </div>
 
 </form>

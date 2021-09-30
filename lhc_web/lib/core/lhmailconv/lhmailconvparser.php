@@ -397,8 +397,16 @@ class erLhcoreClassMailconvParser {
 
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
                         if ($internalInit == true) {
-                            $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
-                            $conversations->cls_time = time();
+
+                            // Operator send a message as closed
+                            $statusMessage = (\preg_match("/X-LHC-ST\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+
+                            $conversations->status = $statusMessage == erLhcoreClassModelMailconvMessage::STATUS_ACTIVE ? erLhcoreClassModelMailconvMessage::STATUS_ACTIVE : erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+
+                            if ($conversations->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+                                $conversations->cls_time = time();
+                            }
+
                             $conversations->start_type = erLhcoreClassModelMailconvConversation::START_OUT;
 
                             // It was just a send messages we can set all required attributes as this messages was processed

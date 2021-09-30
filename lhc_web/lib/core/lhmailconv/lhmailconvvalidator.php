@@ -623,8 +623,12 @@ class erLhcoreClassMailconvValidator {
 
             if ($user_id > 0) {
                 $mailReply->addCustomHeader('X-LHC-ID', $user_id);
+
+                if ($item->status == erLhcoreClassModelMailconvMessage::STATUS_ACTIVE) {
+                    $mailReply->addCustomHeader('X-LHC-ST', erLhcoreClassModelMailconvMessage::STATUS_ACTIVE);
+                }
             }
-            
+
             $response['send'] = $mailReply->Send();
 
             if ($item->mailbox->create_a_copy == true) {
@@ -692,6 +696,9 @@ class erLhcoreClassMailconvValidator {
             'body' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'send_status' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
             'mailbox_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
             )
@@ -749,6 +756,10 @@ class erLhcoreClassMailconvValidator {
             }
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please choose a mailbox!');
+        }
+
+        if ($form->hasValidData( 'send_status')) {
+            $item->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
         }
 
         return $Errors;
