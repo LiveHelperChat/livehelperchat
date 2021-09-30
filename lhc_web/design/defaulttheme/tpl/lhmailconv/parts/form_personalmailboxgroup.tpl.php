@@ -15,7 +15,7 @@
                 'display_name'   => function($item) {
                     return $item->mail.' | '.$item->name;
                 },
-                'list_function_params' => [],
+                'list_function_params' => ['limit' => false],
                 'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
             )); ?>
         </div>
@@ -31,7 +31,7 @@
             'display_name'   => function($item){
                 return $item->name_official.' | '.$item->email;
             },
-            'list_function_params' => [],
+            'list_function_params' => ['limit' => false],
             'list_function'  => 'erLhcoreClassModelUser::getUserList'
         )); ?>
     </div>
