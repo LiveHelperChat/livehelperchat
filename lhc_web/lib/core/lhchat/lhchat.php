@@ -186,6 +186,7 @@ class erLhcoreClassChat {
 
         $pendingAlert = (int)erLhcoreClassModelUserSetting::getSetting('malarm_p', -1);
         $pendingAlertResponse = (int)erLhcoreClassModelUserSetting::getSetting('malarm_pr', -1);
+        $mailPastHour = (int)erLhcoreClassModelUserSetting::getSetting('malarm_h', -1);
 
         $filterOptions = [];
         if ($pendingAlert > 0) {
@@ -198,13 +199,37 @@ class erLhcoreClassChat {
 
         $filter = array();
 
+        if ($mailPastHour > 0) {
+            $filter['filtergt']['udate'] = time() - $mailPastHour;
+        }
+
         if (!empty($filterOptions)){
             $filter['customfilter'] = array(' ( '.implode(' OR ',$filterOptions). ' ) ');
-        } else {
+        }
+
+        $filterString = '[]';
+        $subjectIds = [];
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('subject.default_filter_mail', array('filter' => & $filterString, 'subject_id' => & $subjectIds));
+
+        if (empty($subjectIds)) {
+            $subjectIds = json_decode(erLhcoreClassModelUserSetting::getSetting('subject_mail_id', $filterString), true);
+        }
+
+        $filterSubject = '';
+        if (!empty($subjectIds)) {
+            erLhcoreClassChat::validateFilterIn($subjectIds);
+            $filterSubject = ' WHERE `subject_id` IN (' . implode(',',$subjectIds) . ')';
+        }
+
+        if (!empty($filterSubject)){
+            $filter['customfilter'][] = "(`lhc_mailconv_conversation`.`id` IN (SELECT `id` FROM (SELECT `conversation_id` AS `id` FROM `lhc_mailconv_msg_subject` {$filterSubject} ORDER BY `id` DESC LIMIT 150 ) AS `sq`))";
+        }
+
+        if (empty($filter)) {
             return [];
         }
 
-        //$filter['use_index'] = 'status_priority';
+        $filter['filter'] = array('status' => array(0,1));
 
         if ($limitation !== true) {
             $filter['customfilter'][] = $limitation;
@@ -213,7 +238,7 @@ class erLhcoreClassChat {
         $filter['limit'] = $limit;
         $filter['offset'] = $offset;
         $filter['smart_select'] = true;
-        $filter['sort'] = 'status ASC, priority DESC, id DESC';
+        $filter['sort'] = 'udate DESC';
 
         if (!empty($filterAdditional)) {
             $filter = array_merge_recursive($filter,$filterAdditional);

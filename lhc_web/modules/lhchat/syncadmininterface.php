@@ -847,7 +847,33 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $activeMails = erLhcoreClassChat::getAlarmMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
+    // Prerender subject
+    $subjectByChat = [];
+    if (!empty($activeMails)) {
+        $subjectsSelected = erLhcoreClassModelMailconvMessageSubject::getList(array('filter' => array('conversation_id' => array_keys($activeMails))));
+        $subject_ids = [];
+        foreach ($subjectsSelected as $subjectSelected) {
+            $subject_ids[] = $subjectSelected->subject_id;
+        }
+        if (!empty($subject_ids)) {
+            $subjectsMeta = erLhAbstractModelSubject::getList(array('filterin' => array('id' => array_unique($subject_ids))));
+        }
+        foreach ($subjectsSelected as $subjectSelected) {
+            if (isset($subjectsMeta[$subjectSelected->subject_id])) {
+                $subjectByChat[$subjectSelected->conversation_id][] = $subjectsMeta[$subjectSelected->subject_id]->name;
+            }
+        }
+    }
+
     erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','wait_time_response','plain_user_name','from_name','from_address','subject_front'), array('department','time','user','subject'));
+
+    // Set subject list
+    foreach ($activeMails as $index => $chat) {
+        if (isset($subjectByChat[$chat->id])) {
+            $activeMails[$index]->subject_list = $subjectByChat[$chat->id];
+        }
+    }
+
     $ReturnMessages['alarm_mails'] = array('last_id_identifier' => 'amails', 'list' => array_values($activeMails));
 }
 // END Mail list
