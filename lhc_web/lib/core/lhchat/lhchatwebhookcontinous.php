@@ -178,6 +178,8 @@ class erLhcoreClassChatWebhookContinuous {
                                         'words_typo' => 0,
                                     ))['found'] == false) {
                                     $conditionItemValid = true;
+                                } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
+                                    $conditionItemValid = true;
                                 }
                             }
 

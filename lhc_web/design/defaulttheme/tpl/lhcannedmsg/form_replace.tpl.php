@@ -77,6 +77,7 @@
                                 <option value="neq">!=</option>
                                 <option value="like">like</option>
                                 <option value="notlike">not like</option>
+                                <option value="contains">contains</option>
                             </select>
                         </div>
                         <div class="col-4">

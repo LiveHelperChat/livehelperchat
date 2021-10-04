@@ -80,6 +80,7 @@
                                 <option value="notempty"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Not empty');?></option>
                                 <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text like');?></option>
                                 <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text not like');?></option>
+                                <option value="contains"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Contains');?></option>
                             </select>
                         </div>
                     </div>
