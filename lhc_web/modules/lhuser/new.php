@@ -6,6 +6,7 @@ $UserData = new erLhcoreClassModelUser();
 
 $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
 $userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
+$userDepartamentsGroupRead = isset($_POST['UserDepartamentGroupRead']) ? $_POST['UserDepartamentGroupRead'] : array();
 $userDepartamentsRead = isset($_POST['UserDepartamentRead']) ? $_POST['UserDepartamentRead'] : array();
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
@@ -25,13 +26,13 @@ if (isset($_POST['Update_account']))
 	$Errors = erLhcoreClassUserValidator::validateUserNew($UserData, $userParams);
 	
     if (count($Errors) == 0) {
-    	
+
         try {
-        	
+
             $db = ezcDbInstance::get();
-            
+
             $db->beginTransaction();
-    
+
             erLhcoreClassUser::getSession()->save($UserData);
 
             if ( isset($_POST['ForceResetPassword']) ) {
@@ -45,36 +46,40 @@ if (isset($_POST['Update_account']))
             if (count($userParams['global_departament']) > 0) {
                erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead);
             }
-            
+
             $UserData->setUserGroups();
-                    
+
             $userPhotoErrors = erLhcoreClassUserValidator::validateUserPhoto($UserData);
-            
+
             if ($userPhotoErrors !== false && count($userPhotoErrors) == 0) {
             	$UserData->saveThis();
             }
-    
+
+            // Write
             erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
-            
+
+            // Read
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('read_only' => true)), true);
+
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData, 'password' => $UserData->password_front));
 
             $db->commit();
-            
+
             erLhcoreClassModule::redirect('user/userlist');
             exit;
-            
+
         } catch (Exception $e) {
 
             $tpl->set('errors',array($e->getMessage()));
 
-            $UserData->removeFile();   
+            $UserData->removeFile();
 
             $db->rollback();
-            
+
         }
-        
+
     }  else {
         $tpl->set('errors',$Errors);
     }
@@ -84,6 +89,7 @@ if (isset($_POST['Update_account']))
 $tpl->set('user',$UserData);
 $tpl->set('userDepartaments',$UserDepartaments);
 $tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
+$tpl->set('userDepartamentsGroupRead',$userDepartamentsGroupRead);
 $tpl->set('userDepartamentsRead',$userDepartamentsRead);
 $tpl->set('show_all_pending',$userParams['show_all_pending']);
 

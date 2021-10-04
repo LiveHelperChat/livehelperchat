@@ -209,9 +209,13 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account'])) {
 	} else {
 		erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments);
 	}
-   		
+
+    // Write mode
 	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
-	
+
+    // Read mode
+	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('read_only' => true)), true);
+
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
 	
 	$tpl->set('account_updated_departaments','done');

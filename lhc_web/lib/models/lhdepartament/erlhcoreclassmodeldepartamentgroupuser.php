@@ -18,7 +18,8 @@ class erLhcoreClassModelDepartamentGroupUser
         return array(
             'id' => $this->id,
             'dep_group_id' => $this->dep_group_id,
-            'user_id' => $this->user_id
+            'user_id' => $this->user_id,
+            'read_only' => $this->read_only,
         );
     }
 
@@ -27,18 +28,19 @@ class erLhcoreClassModelDepartamentGroupUser
         return $this->name;
     }
 
-    public static function getUserGroupsIds($user_id)
+    public static function getUserGroupsIds($user_id, $read_only = false)
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id');
+        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id AND read_only = :read_only');
         $stmt->bindValue( ':user_id',$user_id);
+        $stmt->bindValue( ':read_only',$read_only === false ? 0 : 1);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
     
-    public static function addUserDepartmentGroups($userData, $groupsIds)
+    public static function addUserDepartmentGroups($userData, $groupsIds, $readOnly = false)
     {
-        $groups = self::getList(array('filter' => array('user_id' => $userData->id)));
+        $groups = self::getList(array('filter' => array('user_id' => $userData->id, 'read_only' => ($readOnly === false ? 0 : 1))));
         
         $oldMembers = array();
         
@@ -58,6 +60,7 @@ class erLhcoreClassModelDepartamentGroupUser
                 if ($member->dep_group instanceof erLhcoreClassModelDepartamentGroup) {
                     $member->user_id = $userData->id;
                     $member->dep_group_id = $groupId;
+                    $member->read_only = ($readOnly === false ? 0 : 1);
                     $member->saveThis();
                 }
             }
@@ -71,18 +74,20 @@ class erLhcoreClassModelDepartamentGroupUser
     public function afterSave()
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id');
+        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id AND ro = :ro');
         $stmt->bindValue( ':dep_group_id', $this->dep_group_id);
         $stmt->bindValue( ':user_id', $this->user_id);
+        $stmt->bindValue( ':ro', $this->read_only);
         $stmt->execute();
         
         foreach ($this->dep_group->departments_ids as $depId) 
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro)');
             $stmt->bindValue(':user_id',$this->user_id);
             $stmt->bindValue(':dep_id',$depId);
             $stmt->bindValue(':hide_online',$this->user->hide_online);
             $stmt->bindValue(':dep_group_id',$this->dep_group_id);
+            $stmt->bindValue(':ro',$this->read_only);
             $stmt->bindValue(':max_chats',$this->user->max_active_chats);
             $stmt->bindValue(':exclude_autoasign', $this->user->exclude_autoasign);
             $stmt->bindValue(':always_on', $this->user->always_on);
@@ -96,9 +101,10 @@ class erLhcoreClassModelDepartamentGroupUser
     public function afterRemove()
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id');
+        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id AND ro =:ro');
         $stmt->bindValue( ':dep_group_id', $this->dep_group_id);
         $stmt->bindValue( ':user_id', $this->user_id);
+        $stmt->bindValue( ':ro', $this->read_only);
         $stmt->execute();
         
         erLhcoreClassModelDepartamentGroupMember::updateUserDepartmentsIds($this->user_id);
@@ -126,6 +132,7 @@ class erLhcoreClassModelDepartamentGroupUser
 
     public $dep_group_id = 0;
     public $user_id = 0;
+    public $read_only = 0;
 }
 
 ?>

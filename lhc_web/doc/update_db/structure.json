@@ -5274,6 +5274,14 @@
         "key": "MUL",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "read_only",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_speech_user_language": [

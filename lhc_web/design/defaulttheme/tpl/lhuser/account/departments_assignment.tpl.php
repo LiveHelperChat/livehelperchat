@@ -39,11 +39,19 @@
     <?php $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('limit' => false)); ?>
     
     <?php if (!empty($departmentsGroups)) : ?>
-    <div class="col-6">    	           
-        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?></h4>
+    <div class="col-3">
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups (write)')?></h4>
        
         <?php foreach ($departmentsGroups as $departamentGroup) : ?>
             <label><input type="checkbox" name="UserDepartamentGroup[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="col-3">
+        <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups (read)')?></h4>
+
+        <?php foreach ($departmentsGroups as $departamentGroup) : ?>
+            <label><input type="checkbox" name="UserDepartamentGroupRead[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupRead) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
         <?php endforeach; ?>
     </div>
     <?php endif;?>
