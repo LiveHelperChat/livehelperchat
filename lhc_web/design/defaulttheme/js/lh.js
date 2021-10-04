@@ -4410,7 +4410,13 @@ $.fn.makeDropdown = function() {
             var presentId = 0;
             if ($(this).is(':checked')) {
                 if (selectedItems.find('.delete-item[data-value="'+$(this).val()+'"]').length == 0) {
-                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+'[]" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
+                    selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
+                }
+                if (limitMax > 0) {
+                    selectedItems.find('.delete-item:gt('+(limitMax - 1)+')').each(function(){
+                        $(this).parent().remove();
+                        $('.search-option-item > label > input[value='+$(this).attr('data-value')+']').prop('checked',false);
+                    });
                 }
             } else {
                 selectedItems.find('.delete-item[data-value="'+$(this).val()+'"]').remove();
