@@ -424,7 +424,7 @@ class StartChat extends Component {
                             </div>
                         </div>
 
-                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className="custom-html-container" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
                         {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && <div className="d-flex flex-row border-top position-relative message-send-area">
 
@@ -466,7 +466,7 @@ class StartChat extends Component {
                     <div className="container-fluid">
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
 
-                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className="custom-html-container" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
                         <form onSubmit={this.handleSubmit}>
                             <div className="row pt-2">
