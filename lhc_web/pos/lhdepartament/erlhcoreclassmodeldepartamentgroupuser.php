@@ -9,15 +9,12 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['dep_group_id'] = new ezcPersistentObjectProperty();
-$def->properties['dep_group_id']->columnName   = 'dep_group_id';
-$def->properties['dep_group_id']->propertyName = 'dep_group_id';
-$def->properties['dep_group_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['user_id'] = new ezcPersistentObjectProperty();
-$def->properties['user_id']->columnName   = 'user_id';
-$def->properties['user_id']->propertyName = 'user_id';
-$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['dep_group_id','user_id','read_only'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

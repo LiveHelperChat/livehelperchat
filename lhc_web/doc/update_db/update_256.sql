@@ -1,0 +1,1 @@
+ALTER TABLE `lh_departament_group_user` ADD `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

@@ -1558,10 +1558,30 @@ class Install
 				  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_abstract_saved_search` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `user_id` bigint(20) unsigned NOT NULL,
+                  `position` int(11) unsigned NOT NULL,
+                  `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `days` int(11) unsigned NOT NULL,
+                  `updated_at` bigint(20) unsigned NOT NULL,
+                  `requested_at` bigint(20) unsigned NOT NULL,
+                  `total_records` bigint(20) unsigned NOT NULL,
+                  `passive` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                  PRIMARY KEY (`id`),
+                  KEY `user_id` (`user_id`),
+                  KEY `scope` (`scope`),
+                  KEY `updated_at` (`updated_at`),
+                  KEY `requested_at` (`requested_at`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE `lh_departament_group_user` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `dep_group_id` int(11) NOT NULL,
                   `user_id` int(11) NOT NULL,
+                  `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)

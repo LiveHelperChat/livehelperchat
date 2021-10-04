@@ -1734,6 +1734,7 @@ try {
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `dep_group_id` int(11) NOT NULL,
                   `user_id` int(11) NOT NULL,
+                  `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)

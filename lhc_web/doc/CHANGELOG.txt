@@ -1,3 +1,9 @@
+3.84v
+
+1. Read only departments groups
+
+execute doc/update_db/update_256.sql for update
+
 3.83v
 
 1. You can set view as passive, so it won't be updated in the background and will save resources.
