@@ -100,7 +100,7 @@ return array (
             'redis' => array (
                 'server' => array (
                     'host' => getenv('REDIS_HOST') ?: 'localhost',
-                    'port' => getenv('REDIS_HOST') ?: 6379,
+                    'port' => getenv('REDIS_PORT') ?: 6379,
                     'auth' => null,
                     'database' => 0
                 )
