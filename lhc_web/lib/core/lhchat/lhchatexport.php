@@ -52,7 +52,22 @@ class erLhcoreClassChatExport {
 
             if (!empty($user->user_groups_id)) {
                 $values['user_groups_name'] = implode(',',erLhcoreClassModelGroup::getList(array('filterin' => array('id' => $user->user_groups_id))));
+            } else {
+                $values['user_groups_name'] = '';
             }
+
+            $values['dep_groups_id'] = '';
+            $values['dep_groups_name'] = '';
+
+            $depGroupIds = $depGroupNames = [];
+            $userGroups = erLhcoreClassModelDepartamentGroupUser::getList(array('filter' => array('user_id' => $user->id)));
+            foreach ($userGroups as $userGroup) {
+                $depGroupIds[] = $userGroup->dep_group_id;
+                $depGroupNames[] = (string)$userGroup->dep_group;
+            }
+
+            $values['dep_groups_id'] = implode(',',$depGroupIds);
+            $values['dep_groups_name'] = implode(',',$depGroupNames);
 
             if ($counter == 0) {
                 fputcsv($fp, array_keys($values));
