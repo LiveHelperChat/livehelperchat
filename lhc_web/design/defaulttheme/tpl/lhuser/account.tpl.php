@@ -160,6 +160,7 @@
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
     	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
+    	   $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
     	?>
     	<?php if ($editdepartaments === true) { ?>
     	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post" enctype="multipart/form-data">
