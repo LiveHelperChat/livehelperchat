@@ -124,6 +124,9 @@ class erLhcoreClassGenericBotActionConditions {
                         ))['found'] == true) {
                         $conditionsMet = false;
                         break;
+                    } else if ($condition['content']['comp'] == 'contains' && strrpos($attr, $valAttr) === false) {
+                        $conditionsMet = false;
+                        break;
                     }
                 }
             }

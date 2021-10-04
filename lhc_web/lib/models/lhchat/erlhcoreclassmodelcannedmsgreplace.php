@@ -128,7 +128,7 @@ class erLhcoreClassModelCannedMsgReplace
                         $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $conditionAttr);
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
 
-                        if (!in_array($conditionsCurrent['comparator'],['like','notlike'])) {
+                        if (!in_array($conditionsCurrent['comparator'],['like','notlike','contains'])) {
                             // Remove spaces
                             $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
                             $valueAttr = preg_replace('/\s+/', '', $valueAttr);
@@ -171,6 +171,8 @@ class erLhcoreClassModelCannedMsgReplace
                                 'msg' => $conditionAttr,
                                 'words_typo' => 0,
                             ))['found'] == false) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['comparator'] == 'contains' && strrpos($conditionAttr,$valueAttr) !== false) {
                             $conditionItemValid = true;
                         }
 

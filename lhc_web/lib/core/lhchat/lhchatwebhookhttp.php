@@ -165,8 +165,8 @@ class erLhcoreClassChatWebhookHttp {
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
 
 
-                        // Remove spaces
-                        if (!in_array($conditionsCurrent['condition'],['like','notlike'])) {
+                        if (!in_array($conditionsCurrent['condition'],['like','notlike','contains'])) {
+                            // Remove spaces
                             $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
                             $valueAttr = preg_replace('/\s+/', '', $valueAttr);
 
@@ -218,6 +218,8 @@ class erLhcoreClassChatWebhookHttp {
                                 'msg' => $conditionAttr,
                                 'words_typo' => 0,
                             ))['found'] == false) {
+                            $conditionItemValid = true;
+                        } else if ($conditionsCurrent['condition'] == 'contains' && strrpos($conditionAttr, $valueAttr) !== false) {
                             $conditionItemValid = true;
                         }
                     }

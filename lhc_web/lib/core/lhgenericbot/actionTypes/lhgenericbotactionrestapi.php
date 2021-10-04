@@ -374,6 +374,8 @@ class erLhcoreClassGenericBotActionRestapi
                         $validCondition = false;
                     } else if ($condition['success_condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$condition['value']),$condition['key'],0) == true) {
                         $validCondition = false;
+                    } else if ($condition['success_condition'] == 'contains' && strrpos($condition['value'],$condition['key']) === false) {
+                        $validCondition = false;
                     }
                 }
 
@@ -648,6 +650,8 @@ class erLhcoreClassGenericBotActionRestapi
                         } else if ($outputCombination['success_condition'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == false) {
                             continue;
                         } else if ($outputCombination['success_condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == true) {
+                            continue;
+                        } else if ($outputCombination['success_condition'] == 'contains' && strrpos($responseValueCompare, $outputCombination['success_compare_value']) === false) {
                             continue;
                         }
                     }
