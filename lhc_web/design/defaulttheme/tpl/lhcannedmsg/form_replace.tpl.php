@@ -55,6 +55,26 @@
                     'list_function_params' => array(),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
+
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_id',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                    'selected_id'    => "0",
+                    'ng-model'       => 'combination.dep_id',
+                    'data_prop'      => 'data-limit="1"',
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array('limit' => false),
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                )); ?>
+
+                <script>
+                    $(function() {
+                        $('.btn-block-department').makeDropdown();
+                    });
+                </script>
+
+
             </div>
 
             <h6>Advanced filtering</h6>
