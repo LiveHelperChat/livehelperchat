@@ -12,7 +12,7 @@ try {
 
     $response = null;
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) ) {
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) ) {
         $requestPayload = json_decode(file_get_contents('php://input'),true);
         erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message, $currentUser->getUserID());
     }
@@ -20,7 +20,7 @@ try {
     // We have tried to send an e-mail
     $response['send_tried'] = true;
 
-    if ($response['send'] == true) {
+    if (isset($response['send']) && $response['send'] == true) {
 
         $conv->lr_time = time();
         $conv->updateThis(['update' => ['lr_time']]);

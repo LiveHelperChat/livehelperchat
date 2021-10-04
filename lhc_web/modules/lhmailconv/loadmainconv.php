@@ -20,8 +20,9 @@ try {
 
         $operatorChanged = false;
         $chatAccepted = false;
+        $canWrite = erLhcoreClassChat::hasAccessToWrite($conv);
 
-        if ($Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($conv)) {
+        if ($Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && $canWrite) {
 
             if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
                 throw new Exception('You do not have permission to open all pending mails.');
@@ -113,6 +114,7 @@ try {
             'customer_remarks' => $remarks,
             'messages' => array_values($messages),
             'moptions' => [
+                'can_write' => $canWrite,
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),

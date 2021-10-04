@@ -60,7 +60,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 {message.subjects && message.subjects.map((label, index) => (
                         <span className="badge badge-info mr-1">{label.name}</span>
                     ))}
-                {mode !== 'preview' && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
+                {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
 
             <small className="pr-2">{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
@@ -71,11 +71,11 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             {mode !== 'preview' && <div className="dropdown float-right">
                 <i className="material-icons settings text-muted" id={"message-id-"+message.id} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_vert</i>
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
-                    <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>
-                    <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>
+                    {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>}
+                    {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>
-                    <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>
+                    {moptions.can_write && <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>}
                     {message.alt_body && <a className="dropdown-item" href="#" onClick={(e) => setPlainBody(!plainBody)}><i className="material-icons text-muted">visibility</i>{t('msg.plain_html')}</a>}
                 </div>
             </div>}
@@ -176,7 +176,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     </div>}
 
-        {mode !== 'preview' && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply setConversationStatus={setConversationStatus} verifyOwner={verifyOwner} fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
+        {mode !== 'preview' && moptions.can_write && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply setConversationStatus={setConversationStatus} verifyOwner={verifyOwner} fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
     </div>
 }

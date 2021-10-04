@@ -9,7 +9,7 @@ try {
 
     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($Params['user_parameters']['id']);
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv))
     {
         $item = erLhcoreClassModelMailconvConversation::fetch( $Params['user_parameters']['id']);
         $item->removeThis();

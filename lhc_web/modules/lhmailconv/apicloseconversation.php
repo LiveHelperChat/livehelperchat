@@ -9,7 +9,7 @@ try {
 
     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($Params['user_parameters']['id']);
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) )
     {
         erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
 
@@ -30,7 +30,7 @@ try {
         echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)]);
 
     } else {
-        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to read conversation.'));
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to write conversation.'));
     }
 
 } catch (Exception $e) {

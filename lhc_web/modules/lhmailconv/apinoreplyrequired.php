@@ -11,7 +11,7 @@ try {
 
     $conv = $message->conversation;
 
-    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
+    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) )
     {
 
         if ($message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED) {

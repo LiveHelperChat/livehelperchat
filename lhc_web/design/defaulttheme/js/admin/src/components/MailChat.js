@@ -366,20 +366,20 @@ const MailChat = props => {
 
                                 <div className={"pb-1 text-success" + (state.saving_customer_remarks ? ' text-warning' : '')}><span className="material-icons">mode_edit</span> Customer remarks</div>
                                 <div>
-                                    <textarea placeholder="Enter your remarks here." onKeyUp={(e) => saveCustomerRemarks(e.target.value)} className="form-control mh150" defaultValue={state.customer_remarks}></textarea>
+                                    <textarea disabled={!state.moptions.can_write} placeholder="Enter your remarks here." onKeyUp={(e) => saveCustomerRemarks(e.target.value)} className="form-control mh150" defaultValue={state.customer_remarks}></textarea>
                                 </div>
 
                                 <div className={"pb-1 text-success" + (state.saving_remarks ? ' text-warning' : '')}><span className="material-icons">mode_edit</span> Conversation remarks</div>
                                 <div>
-                                    {state.conv && <textarea placeholder="Enter your remarks here." onKeyUp={(e) => saveRemarks(e.target.value)} class="form-control mh150" defaultValue={state.conv.remarks}></textarea>}
+                                    {state.conv && <textarea disabled={!state.moptions.can_write} placeholder="Enter your remarks here." onKeyUp={(e) => saveRemarks(e.target.value)} class="form-control mh150" defaultValue={state.conv.remarks}></textarea>}
                                 </div>
 
                             </div>
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
-                                <div className="pb-2">
+                                {state.moptions.can_write && <div className="pb-2">
                                     <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
-                                </div>
+                                </div>}
 
                                 <div id={"mail-external-details-"+props.chatId}>
 
@@ -389,9 +389,9 @@ const MailChat = props => {
                                     <tr>
                                         <td colSpan="2">
                                             <i className="material-icons action-image" title={t('mail.interactions_history')} onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
-                                            <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title={t('mail.transfer_chat')} >supervisor_account</a>
+                                            {state.moptions.can_write && <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title={t('mail.transfer_chat')} >supervisor_account</a>}
                                             <a className="text-dark material-icons" title={t('mail.print')} target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} >print</a>
-                                            {state.conv.can_delete && <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>}
+                                            {state.moptions.can_write && state.conv.can_delete && <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>}
                                         </td>
                                     </tr>
                                     <tr>
