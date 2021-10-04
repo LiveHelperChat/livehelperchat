@@ -9,11 +9,11 @@ return array (
                     'locale' => 'en_EN',
                     'theme' => 'defaulttheme',
                     'installed' => false,
-                    'secrethash' => '',
-                    'debug_output' => false,
-                    'templatecache' => false,
-                    'templatecompile' => false,
-                    'modulecompile' => false,
+                    'secrethash' => getenv('LHC_SECRET_HASH') ?: '',
+                    'debug_output' => getenv('LHC_DEBUG') ?: false,
+                    'templatecache' => getenv('LHC_TEMPLATE_CACHE') ?: false,
+                    'templatecompile' => getenv('LHC_TEMPLATE_COMPILE') ?: false,
+                    'modulecompile' => getenv('LHC_MODULE_COMPILE') ?: false,
                     'force_virtual_host' => false,
                     'proxy_mode' => false,
                     'one_login_per_account' => false,
@@ -99,29 +99,29 @@ return array (
                 ),
             'redis' => array (
                 'server' => array (
-                    'host' => 'localhost',
-                    'port' => 6379,
+                    'host' => getenv('REDIS_HOST') ?: 'localhost',
+                    'port' => getenv('REDIS_HOST') ?: 6379,
                     'auth' => null,
                     'database' => 0
                 )
             ),
             'db' =>
                 array (
-                    'host' => '',
-                    'user' => '',
-                    'password' => '',
-                    'database' => '',
-                    'port' => 3306,
+                    'host' => getenv('MYSQL_HOST') ?: '',
+                    'user' => getenv('MYSQL_USER') ?: '',
+                    'password' => getenv('MYSQL_PASSWORD') ?: '',
+                    'database' => getenv('MYSQL_DATABASE') ?: '',
+                    'port' => getenv('MYSQL_PORT') ?: 3306,
                     'use_slaves' => false,
                     'db_slaves' =>
                         array (
                             0 =>
                                 array (
-                                    'host' => '',
-                                    'user' => '',
-                                    'port' => 3306,
-                                    'password' => '',
-                                    'database' => '',
+                                    'host' => getenv('MYSQL_HOST_0') ?: '',
+                                    'user' => getenv('MYSQL_USER_0') ?: '',
+                                    'port' => getenv('MYSQL_PORT_0') ?: 3306,
+                                    'password' => getenv('MYSQL_PASSWORD_0') ?: '',
+                                    'database' => getenv('MYSQL_DATABASE_0') ?: '',
                                 ),
                         ),
                 ),
