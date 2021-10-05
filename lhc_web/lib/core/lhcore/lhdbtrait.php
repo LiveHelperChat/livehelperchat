@@ -502,6 +502,12 @@ trait erLhcoreClassDBTrait
             }
         }
 
+        if (isset($params['leftouterjoin']) && count($params['leftouterjoin']) > 0) {
+            foreach ($params['leftouterjoin'] as $table => $joinOn) {
+                $q->leftOuterJoin($table, $joinOn);
+            }
+        }
+
         if (isset($params['group']) && $params['group'] != '') {
             $q->groupBy($params['group']);
         }

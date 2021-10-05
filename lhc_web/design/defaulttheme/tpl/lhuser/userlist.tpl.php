@@ -24,7 +24,15 @@
 <?php foreach ($userlist as $user) : ?>
     <tr>
         <td><?php echo $user->id?></td>
-        <td><?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?></td>
+        <td>
+            <?php if ($currentUser->hasAccessTo('lhstatistic','userstats')) : ?>
+                <a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/userstats/<?php echo htmlspecialchars($user->id)?>'})">
+                    <span class="material-icons">bar_chart</span>
+                </a>
+            <?php endif; ?>
+
+            <?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?>
+        </td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td>
             <?php if ($user->exclude_autoasign == 1) : ?>

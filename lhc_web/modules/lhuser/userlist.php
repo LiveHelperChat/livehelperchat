@@ -14,6 +14,11 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
 
+if (isset($filterParams['filter']['filtergte']['`p1`.`ctime`']) || isset($filterParams['filter']['filterlte']['`p1`.`ctime`'])) {
+    $filterParams['filter']['innerjoin'] = array('lh_users_login as p1' => array('`p1`.`user_id`', '`lh_users`.`id`'));
+    $filterParams['filter']['leftouterjoin'] = array('lh_users_login as p2' => '(`p2`.`user_id` = `lh_users`.`id` AND p1.id < p2.id)');
+    $filterParams['filter']['customfilter'][] = 'p2.id IS NULL';
+}
 
 if ($Params['user_parameters_unordered']['export'] == 1) {
     erLhcoreClassChatExport::exportUsers(erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('limit' => false,'sort' => 'id DESC'))));
