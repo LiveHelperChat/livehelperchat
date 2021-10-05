@@ -14,7 +14,7 @@ const config = {
     chunkFilename: "[name].[contenthash].js",
     crossOriginLoading: "anonymous"
   },
-  optimization: {
+  /*optimization: {
     splitChunks: {
         cacheGroups: {
               vendor: {
@@ -25,7 +25,7 @@ const config = {
                },
            },
        },
-  },
+  },*/
   devtool: 'source-map',
   module: {
     rules: [

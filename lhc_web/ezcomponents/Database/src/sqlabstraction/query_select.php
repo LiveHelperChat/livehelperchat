@@ -573,6 +573,13 @@ class ezcQuerySelect extends ezcQuery
         return call_user_func_array( array( $this, 'doJoin' ), $args );
     }
 
+    public function leftOuterJoin()
+    {
+        $args = func_get_args();
+        array_unshift( $args, 'left outer' );
+        return call_user_func_array( array( $this, 'doJoin' ), $args );
+    }
+
     /**
      * Returns the SQL for a right join or prepares $fromString for a right join.
      *

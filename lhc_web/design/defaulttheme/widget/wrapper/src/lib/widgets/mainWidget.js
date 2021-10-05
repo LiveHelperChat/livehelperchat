@@ -170,11 +170,9 @@ export class mainWidget{
             }
         }
 
-        this.cont.insertJSFile(this.attributes.staticJS['vendor_js'], false, () => {
-            this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
-                this.loadStatus['main'] = true;
-                this.checkLoadStatus();
-            }, {'scope': this.attributes.prefixLowercase});
+        this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
+            this.loadStatus['main'] = true;
+            this.checkLoadStatus();
         }, {'scope': this.attributes.prefixLowercase});
 
         if (this.attributes.staticJS['ex_js'] && this.attributes.staticJS['ex_js'].length > 0) {

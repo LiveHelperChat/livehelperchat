@@ -1,5 +1,9 @@
 <?php
 
+header('Cache-Control: nocache, no-store, max-age=0, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: Sun, 02 Jan 1990 00:00:00 GMT');
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
 if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0) {

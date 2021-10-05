@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 179;
+            lhc.version = 181;
 
             var init = () => {
 
@@ -317,7 +317,7 @@
 
                     // Send event that lhc has started
                     // So parent page informs back that it has lhc
-                    if ((attributesWidget.hide_parent || attributesWidget.hide_iframe || (data.chat_ui && (data.chat_ui.hide_iframe || data.chat_ui.hide_parent))) && window.location != window.parent.location && window.parent.closed !== false) {
+                    if ((attributesWidget.hide_parent || attributesWidget.hide_iframe || (data.chat_ui && (data.chat_ui.hide_iframe || data.chat_ui.hide_parent))) && window.location != window.parent.location && window.parent.closed === false) {
                         window.parent.postMessage('lhc::started','*');
                     }
 
