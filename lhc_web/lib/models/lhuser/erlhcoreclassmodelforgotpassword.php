@@ -20,22 +20,20 @@ class erLhcoreClassModelForgotPassword {
        }
    }
 
-   public static function randomPassword($lenght = 10)
-   {
-		$allchar = "abcdefghijklmnopqrstuvwxyz1234567890";
-    
-        $str = "" ;
-    
-        mt_srand(( double) microtime() * 1000000);
-    
-        for ($i = 0; $i<$lenght; $i++) {
-            $str .= substr($allchar, mt_rand(0, 36), 1);
-        }
-        
-        $str = substr(md5($str . microtime() . rand(1, 10000000)), 0, $lenght);
+    public static function randomPassword($length = 10)
+    {
+        $string = '';
 
-   		return $str ;
-	}
+        while (($len = strlen($string)) < $length) {
+            $size = $length - $len;
+
+            $bytes = random_bytes($size);
+
+            $string .= substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $size);
+        }
+
+        return $string;;
+    }
 
 	public static function setRemindHash($user_id, $hash) {
 
