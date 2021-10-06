@@ -575,22 +575,33 @@ class erLhcoreClassUserValidator {
 	public static function validatePassword(& $userData, & $Errors)
     {
         if ($userData->password_temp_1 != '') {
+
+            $length = mb_strlen($userData->password_temp_1);
+            $lowercase = preg_match_all('@[a-z]@', $userData->password_temp_1);
+            $uppercase = preg_match_all('@[A-Z]@', $userData->password_temp_1);
+            $number    = preg_match_all('@[0-9]@', $userData->password_temp_1);
+            $specialChars = preg_match_all('@[^\w]@', $userData->password_temp_1);
+
             $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
 
-            if (isset($passwordData['length']) && $passwordData['length'] > 0 && $passwordData['length'] > mb_strlen($userData->password_temp_1)) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to be at least') .' '. $passwordData['length'] .' '. erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','characters length');
+            if (isset($passwordData['length']) && $passwordData['length'] > 0 && $passwordData['length'] > $length) {
+                $Errors[] = sprintf(erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to be at least %d characters length'),$passwordData['length']);
             }
 
-            if (isset($passwordData['uppercase_required']) && $passwordData['uppercase_required'] == 1 && !(bool) preg_match('/[A-Z]/', $userData->password_temp_1)) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one uppercase letter');
+            if (isset($passwordData['uppercase_required']) && $passwordData['uppercase_required'] > 0 && $passwordData['uppercase_required'] > $uppercase) {
+                $Errors[] = sprintf(erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least %d uppercase letter'),$passwordData['uppercase_required']);
             }
 
-            if (isset($passwordData['number_required']) && $passwordData['number_required'] == 1 && !(bool) preg_match('/[0-9]/', $userData->password_temp_1)) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one number');
+            if (isset($passwordData['number_required']) && $passwordData['number_required'] > 0 && $passwordData['number_required'] > $number) {
+                $Errors[] = sprintf(erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least %d number(s)'),$passwordData['number_required']);
             }
 
-            if (isset($passwordData['special_required']) && $passwordData['special_required'] == 1 && !(bool)preg_match('/[\'\/~`\!@#\$%\^&\*\(\)_\-\+=\{\}\[\]\|;:"\<\>,\.\?\\\]/', $userData->password_temp_1)) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least one special character');
+            if (isset($passwordData['special_required']) && $passwordData['special_required'] > 1 && $passwordData['special_required'] > $specialChars) {
+                $Errors[] = sprintf(erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least %d special character(s)'),$passwordData['special_required']);
+            }
+
+            if (isset($passwordData['lowercase_required']) && $passwordData['lowercase_required'] > 1 && $passwordData['lowercase_required'] > $lowercase) {
+                $Errors[] = sprintf(erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Password has to have at-least %d lowercase letters'),$passwordData['lowercase_required']);
             }
         }
     }

@@ -11,13 +11,16 @@ if ( isset($_POST['StorePasswordSettings']) ) {
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         ),
         'uppercase_required' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
+        'lowercase_required' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
         'number_required' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
         'special_required' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         ),
         'expires_in' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
@@ -49,10 +52,16 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['expires_in'] = 0;
     }
 
-    if ( $form->hasValidData( 'uppercase_required' ) && $form->uppercase_required == true ) {
-        $data['uppercase_required'] = 1;
+    if ( $form->hasValidData( 'uppercase_required' ) ) {
+        $data['uppercase_required'] = $form->uppercase_required;
     } else {
         $data['uppercase_required'] = 0;
+    }
+
+    if ( $form->hasValidData( 'lowercase_required' ) ) {
+        $data['lowercase_required'] = $form->lowercase_required;
+    } else {
+        $data['lowercase_required'] = 0;
     }
 
     if ($form->hasValidData( 'max_attempts' ) ) {
@@ -61,14 +70,14 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['max_attempts'] = 0;
     }
 
-    if ( $form->hasValidData( 'number_required' ) && $form->number_required == true ) {
-        $data['number_required'] = 1;
+    if ( $form->hasValidData( 'number_required' )) {
+        $data['number_required'] = $form->number_required;
     } else {
         $data['number_required'] = 0;
     }
 
-    if ( $form->hasValidData( 'special_required' ) && $form->special_required == true ) {
-        $data['special_required'] = 1;
+    if ( $form->hasValidData( 'special_required' )) {
+        $data['special_required'] = $form->special_required;
     } else {
         $data['special_required'] = 0;
     }
