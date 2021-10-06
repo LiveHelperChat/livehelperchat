@@ -46,9 +46,14 @@ class _nodeJSChat {
             authentificate();
         }
 
-        for await (let event of socket.listener('deauthenticate')) {
-            authentificate();
+        try {
+            for await (let event of socket.listener('deauthenticate')) {
+                authentificate();
+            }
+        } catch (e) {
+            // shut up old browers
         }
+
 
         function authentificate() {
             helperFunctions.makeRequest(attributes.LHC_API.args.lhc_base_url + attributes['lang'] + "nodejshelper/tokenvisitor", { params: {ts: (new Date()).getTime()}}, async (data) => {
@@ -65,12 +70,16 @@ class _nodeJSChat {
             var firstRun = sampleChannel == null;
             sampleChannel = socket.subscribe('uo_' + vid);
             if (firstRun == true) {
-                for await (let op of sampleChannel) {
-                    if (op.op == 'check_message') {
-                        attributes.eventEmitter.emitEvent('checkMessageOperator');
-                    } else if (op.op == 'is_online') {
-                        socket.transmitPublish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
+                try {
+                    for await (let op of sampleChannel) {
+                        if (op.op == 'check_message') {
+                            attributes.eventEmitter.emitEvent('checkMessageOperator');
+                        } else if (op.op == 'is_online') {
+                            socket.transmitPublish('ous_'+instance_id,{op:'vi_online', status: true, vid: vid});
+                        }
                     }
+                } catch (e){
+                    // shut up old browsers
                 }
             }
         }

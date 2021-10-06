@@ -28,7 +28,6 @@ module.exports = {
         chunkFilename: "[contenthash].js",
         crossOriginLoading: "anonymous"
     },
-
     optimization: {
         splitChunks: {
            name: 'hashed',
@@ -44,7 +43,6 @@ module.exports = {
             }
         }
     },
-
     // module/loaders configuration
     module: {
         rules: [
@@ -52,6 +50,11 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
+            },
+            {
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader',
+                include: /node_modules\/socketcluster-client/
             },
             {
                 test: /\.scss$/,
