@@ -166,7 +166,9 @@ class erLhcoreClassModelCannedMsg
            foreach ($this->department_ids as $department_id) {
                $values[] = "(" . $this->id . "," . $department_id . ")";
            }
-           $db->query('INSERT INTO `lh_canned_msg_dep` (`canned_id`,`dep_id`) VALUES ' . implode(',',$values));
+           if (!empty($values)) {
+               $db->query('INSERT INTO `lh_canned_msg_dep` (`canned_id`,`dep_id`) VALUES ' . implode(',',$values));
+           }
         }
 
         $tagLinks = erLhcoreClassModelCannedMsgTagLink::getList(array('filter' => array('canned_id' => $this->id)));
