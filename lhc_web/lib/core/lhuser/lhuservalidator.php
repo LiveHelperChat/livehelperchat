@@ -267,24 +267,63 @@ class erLhcoreClassUserValidator {
 	public static function validateDepartments(& $userData, $params = array()) {
 	
 		$globalDepartament = array();
-	
-		if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
-			$userData->all_departments = 1;
-			$globalDepartament[] = 0;
-		} else {
-			$userData->all_departments = 0;
-			if(isset($params['all_departments_0_global_value'])) {
-				$globalDepartament[] = $params['all_departments_0_global_value'];
-			}
-		}
-			
-		if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0) {
-			$globalDepartament = array_merge($_POST['UserDepartament'], $globalDepartament);
-		}
 
-		if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
-			$globalDepartament = array_merge($_POST['UserDepartamentRead'], $globalDepartament);
-		}
+        if (!isset($params['all_departments']) || $params['all_departments'] == true)
+        {
+            if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+                $userData->all_departments = 1;
+                $globalDepartament[] = 0;
+            } else {
+                $userData->all_departments = 0;
+                if(isset($params['all_departments_0_global_value'])) {
+                    $globalDepartament[] = $params['all_departments_0_global_value'];
+                } else {
+                    $globalDepartament[] = -1;
+                }
+            }
+        } else {
+            $globalDepartament[] = $userData->all_departments == 1 ? 0 : -1;
+        }
+
+		if ($params['edit_params']['individual']['edit_all'] == true) {
+            if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0) {
+                $globalDepartament = array_merge($_POST['UserDepartament'], $globalDepartament);
+            }
+		} elseif ($params['edit_params']['individual']['edit_personal'] == true) {
+            // Append departments present operator can't control
+            $globalDepartament = array_merge($params['edit_params']['individual']['remote_id_write'], $globalDepartament);
+
+            if (isset($_POST['UserDepartament']) && count($_POST['UserDepartament']) > 0) {
+                foreach ($params['edit_params']['individual']['id'] as $depId) {
+                    if (in_array($depId, $_POST['UserDepartament'])){
+                        $globalDepartament[] = $depId;
+                    }
+                }
+            }
+
+        } else {
+            $globalDepartament = array_merge($params['edit_params']['individual']['remote_id_write_all'], $globalDepartament); // Keep previously selected departments
+        }
+
+        if ($params['edit_params']['individual']['edit_all'] == true) {
+            if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+                $globalDepartament = array_merge($_POST['UserDepartamentRead'], $globalDepartament);
+            }
+		} elseif ($params['edit_params']['individual']['edit_personal'] == true) {
+            // Append departments present operator can't control
+            $globalDepartament = array_merge($params['edit_params']['individual']['remote_id_read'], $globalDepartament);
+
+            if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+                foreach ($params['edit_params']['individual']['id'] as $depId) {
+                    if (in_array($depId, $_POST['UserDepartamentRead'])){
+                        $globalDepartament[] = $depId;
+                    }
+                }
+            }
+
+        } else {
+            $globalDepartament = array_merge($params['edit_params']['individual']['remote_id_read_all'], $globalDepartament); // Keep previously selected departments
+        }
 
         $globalDepartament = array_unique($globalDepartament);
 
@@ -417,7 +456,7 @@ class erLhcoreClassUserValidator {
 		$Errors = self::validateUser($userData, $params);
 
 		if (isset($params['global_departament'])) {
-			$params['global_departament'] = self::validateDepartments($userData);
+			$params['global_departament'] = self::validateDepartments($userData, ['edit_params' => $params['edit_params']]);
 		}
 
 		if (isset($params['show_all_pending'])) {
@@ -564,9 +603,36 @@ class erLhcoreClassUserValidator {
 	    $globalDepartament = array();
 
         $attr = isset($params['read_only']) && $params['read_only'] == true ?  'UserDepartamentGroupRead' : 'UserDepartamentGroup';
-       
-        if (isset($_POST[$attr]) && count($_POST[$attr]) > 0) {
-            $globalDepartament = array_merge($_POST[$attr], $globalDepartament);
+
+        if ($params['edit_params']['groups']['edit_all'] == true) {
+
+            if (isset($_POST[$attr]) && count($_POST[$attr]) > 0) {
+                $globalDepartament = array_merge($_POST[$attr], $globalDepartament);
+            }
+
+        } elseif ($params['edit_params']['groups']['edit_personal'] == true) {
+
+            // Keep original departments present user can't edit in other user
+            if (isset($params['read_only']) && $params['read_only'] == true) {
+                $globalDepartament = $params['edit_params']['groups']['remote_id_read'];
+            } else {
+                $globalDepartament = $params['edit_params']['groups']['remote_id_write'];
+            }
+
+            if (isset($_POST[$attr]) && count($_POST[$attr]) > 0) {
+                foreach ($_POST[$attr] as $depId) {
+                    if (in_array($depId, $params['edit_params']['groups']['id'])) {
+                        $globalDepartament[] = $depId;
+                    }
+                }
+            }
+
+        } else {
+            if (isset($params['read_only']) && $params['read_only'] == true) {
+                $globalDepartament = $params['edit_params']['groups']['remote_id_read_all'];
+            } else {
+                $globalDepartament = $params['edit_params']['groups']['remote_id_write_all'];
+            }
         }
 
 	    return $globalDepartament;
@@ -1007,6 +1073,88 @@ class erLhcoreClassUserValidator {
         }
 
         return $status;
+    }
+
+    public static function getDepartmentValidationParams($UserData)
+    {
+        $departmentEditParams = [
+            'self_edit' => false,
+            'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
+            'individual' => [
+                'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual')
+            ],
+            'groups' => [
+                'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+            ]
+        ];
+
+        if ($departmentEditParams['individual']['edit_all'] == false) {
+            $departmentEditParams['individual']['id'] = array_merge(
+                erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                    erLhcoreClassUser::instance()->getUserID()
+                ),
+                erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                    erLhcoreClassUser::instance()->getUserID(),
+                    true
+                )
+            );
+
+            $departmentEditParams['individual']['remote_id_read_all'] = $departmentEditParams['individual']['remote_id_write_all'] = [];
+
+            if ($UserData->id > 0) {
+
+                $departmentEditParams['individual']['remote_id_write_all'] = erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                    $UserData->id
+                );
+
+                $departmentEditParams['individual']['remote_id_read_all'] = erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                    $UserData->id,
+                    true
+                );
+            }
+
+            // Departments to whom edited operator has access to
+            $departmentEditParams['individual']['remote_id_write'] = array_diff($departmentEditParams['individual']['remote_id_write_all'], $departmentEditParams['individual']['id']);
+
+            $departmentEditParams['individual']['remote_id_read'] = array_diff($departmentEditParams['individual']['remote_id_read_all'], $departmentEditParams['individual']['id']);
+
+        }
+
+        if ($departmentEditParams['groups']['edit_all'] == false) {
+            $departmentEditParams['groups']['id'] = array_merge(
+                erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                    erLhcoreClassUser::instance()->getUserID()
+                ),
+                erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                    erLhcoreClassUser::instance()->getUserID(),
+                    true
+                )
+            );
+
+            $departmentEditParams['groups']['remote_id_write_all'] = $departmentEditParams['groups']['remote_id_read_all'] = [];
+
+            if ($UserData->id > 0) {
+                $departmentEditParams['groups']['remote_id_write_all'] = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                    $UserData->id
+                );
+
+                $departmentEditParams['groups']['remote_id_read_all'] = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                    $UserData->id,
+                    true
+                );
+            }
+
+            // Departments to whom edited operator has access to
+            $departmentEditParams['groups']['remote_id_write'] = array_diff($departmentEditParams['groups']['remote_id_write_all'], $departmentEditParams['groups']['id']);
+
+            $departmentEditParams['groups']['remote_id_read'] = array_diff($departmentEditParams['groups']['remote_id_read_all'], $departmentEditParams['groups']['id']);
+        }
+
+        return $departmentEditParams;
     }
 }
 
