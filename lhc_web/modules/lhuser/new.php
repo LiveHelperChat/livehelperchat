@@ -13,7 +13,7 @@ $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_c
 
 $groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
 
-$userParams = array('show_all_pending' => 1, 'global_departament' => array(), 'groups_can_read' => array(), 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
+$userParams = array('edit_params' => erLhcoreClassUserValidator::getDepartmentValidationParams($UserData), 'show_all_pending' => 1, 'global_departament' => array(), 'groups_can_read' => array(), 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
 
 if (isset($_POST['Update_account']))
 {
@@ -22,7 +22,7 @@ if (isset($_POST['Update_account']))
 		erLhcoreClassModule::redirect('user/new');
 		exit;
 	}
-	
+
 	$Errors = erLhcoreClassUserValidator::validateUserNew($UserData, $userParams);
 	
     if (count($Errors) == 0) {
@@ -56,10 +56,10 @@ if (isset($_POST['Update_account']))
             }
 
             // Write
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData));
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'])));
 
             // Read
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('read_only' => true)), true);
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'], 'read_only' => true)), true);
 
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
 
