@@ -436,6 +436,7 @@ class erLhcoreClassGenericBotActionCommand {
                 $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
                 if ($subjectChat instanceof erLhAbstractModelSubjectChat) {
                     $subjectChat->removeThis();
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_remove',array('chat' => & $chat));
                 }
             } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
                 $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
@@ -444,6 +445,7 @@ class erLhcoreClassGenericBotActionCommand {
                     $subjectChat->subject_id = $subject->id;
                     $subjectChat->chat_id = $chat->id;
                     $subjectChat->saveThis();
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_add',array('chat' => & $chat));
                 }
             }
 
