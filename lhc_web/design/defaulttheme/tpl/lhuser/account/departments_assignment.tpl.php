@@ -51,7 +51,7 @@
             <?php foreach ($departmentsGroups as $departamentGroup) :
             $canEditDepartment = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($departamentGroup->id,$departmentEditParams['groups']['id']);
             if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
-                <label><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentGroup[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
+                <label><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-group-ro-<?php echo $departamentGroup->id?>').prop('checked', false);" id="dep-group-full-<?php echo $departamentGroup->id?>" type="checkbox" name="UserDepartamentGroup[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
             <?php endif; endforeach; ?>
         </div>
 
@@ -60,7 +60,7 @@
             <?php foreach ($departmentsGroups as $departamentGroup) :
             $canEditDepartment = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($departamentGroup->id,$departmentEditParams['groups']['id']);
             if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
-                <label><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentGroupRead[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupRead) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
+                <label><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-group-full-<?php echo $departamentGroup->id?>').prop('checked', false);" id="dep-group-ro-<?php echo $departamentGroup->id?>" type="checkbox" name="UserDepartamentGroupRead[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupRead) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo htmlspecialchars($departamentGroup->name)?></label><br>
             <?php endif; endforeach; ?>
         </div>
         <?php endif;?>
