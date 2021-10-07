@@ -11,7 +11,13 @@
 <ul class="nav nav-pills" role="tablist">
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#account" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
 
-    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false) && (
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+        )) : ?>
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
     <?php endif;?>
 
