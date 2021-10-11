@@ -476,9 +476,22 @@ class erLhcoreClassMailconvParser {
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation);
 
+                        $messageUpdateAttr = ['mb_folder'];
+
+                        if ($message->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $message->user_id, 'disabled' => 1]]) == 1) {
+
+                            if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->user_id == $conversation->user_id) {
+                                $conversation->user_id = 0;
+                                $conversation->updateThis(['update' => ['user_id']]);
+                            }
+
+                            $messageUpdateAttr[] = 'user_id';
+                            $message->user_id = 0;
+                        }
+
                         // Set folder from where message was taken;
                         $message->mb_folder = $mailboxFolder['path'];
-                        $message->updateThis(['update' => ['mb_folder']]);
+                        $message->updateThis(['update' => $messageUpdateAttr]);
 
                         $messages[] = $message;
 
