@@ -417,12 +417,25 @@ class erLhcoreClassMailconvParser {
                             $message->cls_time = time();
                         }
 
+                        // Take care the case if operator is disabled
+                        $messageUpdateAttr =  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time'];
+
+                        if ($message->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $message->user_id, 'disabled' => 1]]) == 1) {
+                            $messageUpdateAttr[] = 'user_id';
+
+                            if ($message->user_id == $conversations->user_id) {
+                                $conversations->user_id = 0;
+                            }
+
+                            $message->user_id = 0;
+                        }
+
                         $conversations->saveThis();
 
                         $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
-                        $message->updateThis(['update' => ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
+                        $message->updateThis(['update' => $messageUpdateAttr]);
 
                         $messages[] = $message;
 
