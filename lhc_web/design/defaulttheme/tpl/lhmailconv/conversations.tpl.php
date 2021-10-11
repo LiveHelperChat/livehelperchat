@@ -93,6 +93,12 @@
 
     <div class="btn-group" role="group" aria-label="...">
 
+        <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','quick_actions')) : ?>
+                <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/3?<?php echo $appendPrintExportURL?>'})" class="btn btn-outline-secondary btn-sm"><span class="material-icons">sync_alt</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Quick actions')?></button>
+            <?php endif; ?>
+        <?php endif; ?>
+
         <?php if ($can_close === true) : ?>
         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Close selected');?>" />
         <?php endif; ?>

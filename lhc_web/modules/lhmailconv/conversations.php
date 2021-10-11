@@ -122,6 +122,32 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3 && $currentUser->hasAccessTo('lhmailconv','quick_actions')) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhviews/quick_actions.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+    $tpl->set('update_records',erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']));
+
+    if (ezcInputForm::hasPostData()) {
+        if (isset($_POST['new_user_id']) && is_numeric($_POST['new_user_id']) && $_POST['new_user_id'] > 0) {
+            $q = ezcDbInstance::get()->createUpdateQuery();
+            $conditions = erLhcoreClassModelMailconvConversation::getConditions($filterParams['filter'], $q);
+            $q->update( 'lhc_mailconv_conversation' )
+                ->set( 'user_id',  (int)$_POST['new_user_id'] )
+                ->where(
+                    $conditions
+                );
+            $stmt = $q->prepare();
+            $stmt->execute();
+            $tpl->set('updated', true);
+        } else {
+            $tpl->set('errors', ['Please choose an operator']);
+        }
+    }
+
+
+    echo $tpl->fetch();
+    exit;
+}
 
 if (is_numeric($filterParams['input_form']->has_attachment)) {
     if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
