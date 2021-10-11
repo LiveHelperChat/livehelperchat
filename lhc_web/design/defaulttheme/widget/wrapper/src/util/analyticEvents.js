@@ -13,8 +13,10 @@ class _analyticEvents {
     }
 
     initMonitoring() {
-        this.params['ga']['events'].forEach((item) => {
-            this.attributes.eventEmitter.addListener(item.ev, (params) => {
+        this.params['ga']['events'].forEach((itemList) => {
+            this.attributes.eventEmitter.addListener(itemList.ev, (params) => {
+
+                var item = JSON.parse(JSON.stringify(itemList));
 
                 if (item.ev == 'hideInvitation' && typeof params !== 'undefined' && params.full) {
                     return ;
@@ -23,7 +25,12 @@ class _analyticEvents {
                 var label = item.el;
 
                 // Set invitation name
-                if ((item.ev == 'showInvitation' || item.ev == 'readInvitation' || item.ev == 'fullInvitation' || item.ev == 'cancelInvitation') && typeof params !== 'undefined' && params.name) {
+                if (item.ev == 'trackingEvent' && typeof params !== 'undefined') {
+                    item.ev = params.ev | item.ev;
+                    item.ec = params.ec || item.ec;
+                    item.ea = params.ea || item.ea;
+                    label = params.el || item.el;
+                } else if ((item.ev == 'showInvitation' || item.ev == 'readInvitation' || item.ev == 'fullInvitation' || item.ev == 'cancelInvitation') && typeof params !== 'undefined' && params.name) {
                     label = label || params.name;
                 } else if (item.ev == 'botTrigger') {
                     if (typeof params !== 'undefined' && params.trigger && params.trigger.length > 0) {

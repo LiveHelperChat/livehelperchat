@@ -379,7 +379,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 182;
+$outputResponse['wv'] = 183;
 
 // React APP versions
 $outputResponse['v'] = 219;
@@ -439,6 +439,13 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
                 );
             }
         }
+
+        $outputResponse['ga']['events'][] = array(
+            'ev' => 'trackingEvent',
+            'ec' => 'Widget',
+            'ea' => 'Click',
+            'el' => '',
+        );
 
         $outputResponse['ga']['js'] = $gaOptions['ga_js'];
     }
