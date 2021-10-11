@@ -642,7 +642,7 @@ class erLhcoreClassChatStatistic {
         	$numberOfChats = array();
         	    	 	    	    	    
         	for ($i = 0; $i < 12;$i++) {
-        		$dateUnix = mktime(0,0,0,date('m')-$i,1,date('y'));
+        		$dateUnix = mktime(0,0,0,date('m')-$i,0, date('y'));
 
 
         		$numberOfChats[$dateUnix] = (int)erLhcoreClassChat::getCount(array_merge_recursive($filter,array('customfilter' =>  array('(wait_time > 0 AND wait_time < 600 AND FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix). ' )' ))),'lh_chat','AVG(wait_time)');
