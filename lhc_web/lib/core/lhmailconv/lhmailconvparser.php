@@ -417,17 +417,8 @@ class erLhcoreClassMailconvParser {
                             $message->cls_time = time();
                         }
 
-                        // Take care the case if operator is disabled
-                        $messageUpdateAttr =  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time'];
-
-                        if ($message->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $message->user_id, 'disabled' => 1]]) == 1) {
-                            $messageUpdateAttr[] = 'user_id';
-
-                            if ($message->user_id == $conversations->user_id) {
-                                $conversations->user_id = 0;
-                            }
-
-                            $message->user_id = 0;
+                        if ($conversations->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $conversations->user_id, 'disabled' => 1]]) == 1) {
+                            $conversations->user_id = 0;
                         }
 
                         $conversations->saveThis();
@@ -435,7 +426,7 @@ class erLhcoreClassMailconvParser {
                         $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
-                        $message->updateThis(['update' => $messageUpdateAttr]);
+                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
 
                         $messages[] = $message;
 
@@ -476,22 +467,14 @@ class erLhcoreClassMailconvParser {
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation);
 
-                        $messageUpdateAttr = ['mb_folder'];
-
-                        if ($message->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $message->user_id, 'disabled' => 1]]) == 1) {
-
-                            if ($conversation instanceof erLhcoreClassModelMailconvConversation && $message->user_id == $conversation->user_id) {
-                                $conversation->user_id = 0;
-                                $conversation->updateThis(['update' => ['user_id']]);
-                            }
-
-                            $messageUpdateAttr[] = 'user_id';
-                            $message->user_id = 0;
+                        if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $conversation->user_id, 'disabled' => 1]]) == 1) {
+                            $conversation->user_id = 0;
+                            $conversation->updateThis(['update' => ['user_id']]);
                         }
 
                         // Set folder from where message was taken;
                         $message->mb_folder = $mailboxFolder['path'];
-                        $message->updateThis(['update' => $messageUpdateAttr]);
+                        $message->updateThis(['update' => ['mb_folder']]);
 
                         $messages[] = $message;
 
