@@ -17,7 +17,7 @@ class erLhcoreClassChatWebhookContinuous {
         );
 
         $chats = erLhcoreClassModelChat::getList(array(
-            'limit' => false,
+            'limit' => 1000,
             'filterin' => array('status' => $statusValid)));
 
         $db = ezcDbInstance::get();
