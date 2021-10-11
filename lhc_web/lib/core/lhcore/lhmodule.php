@@ -32,7 +32,7 @@ class erLhcoreClassModule{
             {
                 $Params[in_array($userParameter,self::$currentModule[self::$currentView]['params']) ? 'user_parameters' : 'user_parameters_unordered'][$userParameter] = $url->getParam($userParameter);
             }
-            
+
             // Function set, check permission
             if (isset($Params['module']['functions']))
             {
@@ -54,8 +54,9 @@ class erLhcoreClassModule{
                    	        echo json_encode(array('error' => true, 'error_url' => erLhcoreClassDesign::baseurl('user/login') . '/(noaccess)/true'));
                    	        exit;
                    	    } else {
-                       		self::redirect('user/login');
-                       		exit;
+                               $r = '/(r)/'.rawurlencode(base64_encode(substr($url->buildUrl(), strrpos($url->buildUrl(),self::$currentModuleName.'/'.self::$currentView))));
+                               self::redirect('user/login',$r);
+                               exit;
                    	    }
                    	}
                 }
@@ -556,7 +557,7 @@ class erLhcoreClassModule{
                 
         self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
         self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
-                
+
         if (self::$currentModuleName == '' || (self::$currentModule = self::getModule(self::$currentModuleName)) === false) {
             $params = $cfg->getOverrideValue('site','default_url');
 

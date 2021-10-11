@@ -268,8 +268,11 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    <?php if (isset($load_chat_id) && is_numeric($load_chat_id)) : ?>
+        <input type="hidden" id="load_chat_id" value="<?php echo htmlspecialchars($load_chat_id)?>" />
+    <?php endif; ?>
 
     <script>
         $(document).ready(function () {
