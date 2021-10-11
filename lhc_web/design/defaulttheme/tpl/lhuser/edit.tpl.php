@@ -11,7 +11,13 @@
 <ul class="nav nav-pills" role="tablist">
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == '') : ?>active<?php endif;?>" href="#account" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
 
-    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false) && (
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+        )) : ?>
 	<li class="nav-item" role="presentation"><a class="nav-link <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
     <?php endif;?>
 
@@ -197,10 +203,15 @@
 	   </form>
 	</div>
 
-    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
+    <?php if (!(isset($can_edit_groups) && $can_edit_groups === false) && (
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual') ||
+            erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+        )) : ?>
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
-		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Assigned departments');?></h5>
-	
+
 		<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif; ?>
@@ -210,6 +221,44 @@
 		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
 		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
 		  $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
+          $departmentEditParams = [
+                  'self_edit' => false,
+                  'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
+                  'individual' => [
+                          'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                          'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                          'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual')
+                  ],
+                  'groups' => [
+                      'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                      'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                      'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+                  ]
+          ];
+
+          if ($departmentEditParams['individual']['edit_all'] == false) {
+              $departmentEditParams['individual']['id'] = array_merge(
+                      erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                              erLhcoreClassUser::instance()->getUserID()
+                      ),
+                      erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                              erLhcoreClassUser::instance()->getUserID(),
+                              true
+                      )
+              );
+          }
+
+          if ($departmentEditParams['groups']['edit_all'] == false) {
+              $departmentEditParams['groups']['id'] = array_merge(
+                      erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                              erLhcoreClassUser::instance()->getUserID()
+                      ),
+                      erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                              erLhcoreClassUser::instance()->getUserID(),
+                              true
+                      )
+              );
+          }
 		?>
 		
 		<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#departments" method="post" enctype="multipart/form-data">

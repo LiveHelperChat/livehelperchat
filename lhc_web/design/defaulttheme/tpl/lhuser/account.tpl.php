@@ -161,6 +161,18 @@
     	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
     	   $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
+           $departmentEditParams = [
+                   'self_edit' => true,
+                   'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
+                   'individual' => [
+                           'read_all' => true,
+                           'edit_all' => true,
+                   ],
+                   'groups' => [
+                           'read_all' => true,
+                           'edit_all' => true,
+                   ]
+           ];
     	?>
     	<?php if ($editdepartaments === true) { ?>
     	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post" enctype="multipart/form-data">
