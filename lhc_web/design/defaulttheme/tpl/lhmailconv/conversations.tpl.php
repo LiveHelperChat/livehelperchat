@@ -92,8 +92,14 @@
     <?php endif;?>
 
     <div class="btn-group" role="group" aria-label="...">
+
+        <?php if ($can_close === true) : ?>
         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Close selected');?>" />
+        <?php endif; ?>
+        
+        <?php if ($can_delete === true) : ?>
         <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete selected');?>" />
+        <?php endif; ?>
     </div>
 
 </form>

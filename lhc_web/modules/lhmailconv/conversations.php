@@ -47,7 +47,10 @@ if ( isset($_POST['doClose']) ) {
         $userData = $currentUser->getUserData(true);
 
         foreach ($chats as $chatToClose) {
-            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => $chatToClose, 'user_id' => $currentUser->getUserID()]);
+            if ($currentUser->hasAccessTo('lhmailconv','close_all_conversation') || erLhcoreClassChat::hasAccessToWrite($chatToClose) )
+            {
+                erLhcoreClassMailconvWorkflow::closeConversation(['conv' => $chatToClose, 'user_id' => $currentUser->getUserID()]);
+            }
         }
     }
 }
@@ -163,6 +166,7 @@ $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailcon
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 $tpl->set('can_delete',$currentUser->hasAccessTo('lhmailconv','delete_conversation'));
+$tpl->set('can_close',$currentUser->hasAccessTo('lhmailconv','close_all_conversation'));
 
 $Result['content'] = $tpl->fetch();
 
