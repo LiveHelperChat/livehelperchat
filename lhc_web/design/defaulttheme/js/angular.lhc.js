@@ -1798,6 +1798,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             }
         }
 
+        var elm = document.getElementById('load_chat_id');
+
+        if (elm && openedChats.indexOf(elm.value) === -1) {
+            chat_id = elm.value;
+            openedChats.push(elm.value);
+            window.location.hash = '#!#chat-id-'+elm.value;
+        }
+
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
             appendURL = '/(chatopen)/' + openedChats.join('/');
 		}

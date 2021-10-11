@@ -6,6 +6,7 @@ $ViewList = array();
    
 $ViewList['default'] = array( 
     'params' => array(),
+    'uparams' => array('cid'),
     'functions' => array( 'use' )
 );
 
