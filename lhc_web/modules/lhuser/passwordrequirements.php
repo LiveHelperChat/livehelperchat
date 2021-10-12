@@ -27,6 +27,12 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         ),
         'max_attempts' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'disable_after' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'logout_after' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )
     );
 
@@ -44,6 +50,18 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['length'] = $form->length;
     } else {
         $data['length'] = 0;
+    }
+
+    if ( $form->hasValidData( 'disable_after' ) ) {
+        $data['disable_after'] = $form->disable_after;
+    } else {
+        $data['disable_after'] = 0;
+    }
+    
+    if ( $form->hasValidData( 'logout_after' ) ) {
+        $data['logout_after'] = $form->logout_after;
+    } else {
+        $data['logout_after'] = 0;
     }
 
     if ( $form->hasValidData( 'expires_in' ) ) {

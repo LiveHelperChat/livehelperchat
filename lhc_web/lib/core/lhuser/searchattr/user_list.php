@@ -93,7 +93,7 @@ $fieldsSearch['timefrom'] = array (
     'valid_if_filled' => false,
     'datatype' => 'datetime',
     'filter_type' => 'filtergte',
-    'filter_table_field' => '`p1`.`ctime`',
+    'filter_table_field' => '`llogin`',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )
@@ -106,7 +106,7 @@ $fieldsSearch['timeto'] = array (
     'valid_if_filled' => false,
     'datatype' => 'datetime',
     'filter_type' => 'filterlte',
-    'filter_table_field' => '`p1`.`ctime`',
+    'filter_table_field' => '`llogin`',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )

@@ -46,7 +46,9 @@ class erLhcoreClassModelUser {
             'pswd_updated' => $this->pswd_updated,
             'always_on' => $this->always_on,
             'avatar' => $this->avatar,
-            'cache_version' => $this->cache_version
+            'cache_version' => $this->cache_version,
+            'llogin' => $this->llogin,
+            'force_logout' => $this->force_logout,
         );
    }
 
@@ -83,13 +85,11 @@ class erLhcoreClassModelUser {
 
        	case 'name_support':
        			return $this->chat_nickname != '' ? trim($this->chat_nickname) : trim($this->name_official);
-       		break;
 
        	case 'name_official':
        			$this->name_official = trim($this->name.' '.$this->surname);
        			$this->name_official = $this->name_official != '' ? $this->name_official : $this->chat_nickname;
        			return $this->name_official;
-       		break;
 
        	case 'user_groups_id':
        		   $userGroups = erLhcoreClassModelGroupUser::getList(array('filter' => array('user_id' => $this->id)));
@@ -102,7 +102,6 @@ class erLhcoreClassModelUser {
        		   }
 
        		   return $this->user_groups_id;
-       		break;
 
        	case 'lastactivity':
        	case 'lastd_activity':
@@ -116,20 +115,16 @@ class erLhcoreClassModelUser {
 
        	case 'has_photo':
        	    	return $this->filename != '';
-       	    break;
 
        	case 'has_photo_avatar':
        	    	return $this->filename != '' || $this->avatar != '';
-       	    break;
 
        	case 'photo_path':
        			$this->photo_path = ($this->filepath != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
        			return $this->photo_path;
-       		break;
 
        	case 'file_path_server':
        			return $this->filepath . $this->filename;
-       		break;
 
        	case 'lastactivity_front':
        		   $this->lastactivity_front = '';
@@ -139,12 +134,16 @@ class erLhcoreClassModelUser {
        		   };
 
        		   return $this->lastactivity_front;
-       		break;
 
        	case 'lastactivity_ago':
-       		   $this->lastactivity_ago = erLhcoreClassChat::getAgoFormat($this->lastactivity);       		   
-       		   return $this->lastactivity_ago;
-       		break;
+       	case 'llogin_ago':
+               $var = str_replace('_ago','',$param);
+               if ($this->{$var} > 0) {
+                   $this->{$param} = erLhcoreClassChat::getAgoFormat($this->{$var});
+               } else {
+                   $this->{$param} = '';
+               }
+       		   return $this->{$param};
 
        	default:
        		break;
@@ -254,6 +253,8 @@ class erLhcoreClassModelUser {
     public $always_on = 0;
     public $avatar = '';
     public $cache_version = 0;
+    public $llogin = 0;
+    public $force_logout = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

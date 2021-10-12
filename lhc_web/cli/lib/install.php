@@ -1804,6 +1804,8 @@ class Install
                   `attr_int_1` int(11) NOT NULL,
                   `attr_int_2` int(11) NOT NULL,
                   `attr_int_3` int(11) NOT NULL,
+                   `force_logout` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `llogin` bigint(20) unsigned NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),

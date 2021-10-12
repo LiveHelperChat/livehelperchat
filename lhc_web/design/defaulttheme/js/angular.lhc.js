@@ -1059,6 +1059,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){
 
+                if (data.logout || data.error_url) {
+                    document.location.reload();
+                    return;
+                }
+
                 if (_that.blockSync == true) {
                     clearTimeout($scope.timeoutControl);
                     $scope.timeoutControl = setTimeout(function(){
@@ -1650,6 +1655,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		}
 
 		LiveHelperChatFactory.loadInitialData(appendURL).then(function(data) {
+
+            if (data.logout || data.error_url) {
+                document.location.reload();
+                return;
+            }
+
 			_that.userDepartmentsNames=data.dp_names;
 			_that.userDepartments=data.dep_list;
 			_that.userProductNames=data.pr_names;
