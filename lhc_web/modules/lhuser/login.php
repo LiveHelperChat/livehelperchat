@@ -139,8 +139,9 @@ if (isset($_POST['Login']))
                     'status' => erLhcoreClassModelUserLogin::STATUS_PENDING,
                     'user_id' => $currentUser->getUserID()))) > 0;
 
+                $userData = $currentUser->getUserData();
+
                 if ((isset($passwordData['expires_in']) && $passwordData['expires_in'] > 0) || $pendResetPassword == true) {
-                   $userData = $currentUser->getUserData();
                    if ($pendResetPassword == true || ($userData->pswd_updated < time()-($passwordData['expires_in']*24*3600))) {
                        $currentUser->logout();
 
@@ -160,6 +161,9 @@ if (isset($_POST['Login']))
                     'user_id' => $currentUser->getUserID(),
                     'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully. WEB')
                 ));
+
+                $userData->llogin = time();
+                $userData->updateThis(['update' => ['llogin']]);
 
                 if ($isExternalRequest) {
                     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));

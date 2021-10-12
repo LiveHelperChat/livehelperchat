@@ -63,9 +63,18 @@
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Repeat the new password');?></label>
         		<input ng-non-bindable autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
     		</div>
-           
-           <div class="form-group">
-               <label><input type="checkbox" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="ForceResetPassword" <?php echo isset($force_reset_password) && $force_reset_password == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force user to change password on login')?></label>
+
+           <div class="row">
+               <div class="col-6">
+                   <div class="form-group">
+                       <label><input type="checkbox" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="ForceResetPassword" <?php echo isset($force_reset_password) && $force_reset_password == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force user to change password on login')?></label>
+                   </div>
+               </div>
+               <div class="col-6">
+                   <div class="form-group">
+                       <label><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="force_logout" <?php echo $user->force_logout == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force logout')?></label>
+                   </div>
+               </div>
            </div>
 
     		<div class="form-group">

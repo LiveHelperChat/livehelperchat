@@ -1,3 +1,13 @@
+3.85v
+
+1. There is new event you can fire to trigger google analytics events directly from custom HTML of your widget.
+2. Now you can explicitly control what one operator can change in other operator departments. https://doc.livehelperchat.com/docs/users/account-edit
+3. In password change requirements you can force users to logout after certain period of last login.
+4. You can automatically disable operator if from their last login passed X number of days.
+5. In password requirements you can set bunch of other requirements for the password.
+
+execute doc/update_db/update_256.sql for update
+
 3.84v
 
 1. Read only departments groups

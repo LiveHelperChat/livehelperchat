@@ -33,6 +33,9 @@ class erLhcoreClassUserValidator {
 			'UserDisabled' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'force_logout' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
 			'HideMyStatus' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -190,7 +193,13 @@ class erLhcoreClassUserValidator {
 		} else {
 			$userData->hide_online = 0;
 		}
-		
+
+		if ( $form->hasValidData( 'force_logout' ) && $form->force_logout == true )	{
+			$userData->force_logout = 1;
+		} else {
+			$userData->force_logout = 0;
+		}
+
 		if ( $form->hasValidData( 'UserInvisible' ) && $form->UserInvisible == true ) {
 			$userData->invisible_mode = 1;
 		} else {
