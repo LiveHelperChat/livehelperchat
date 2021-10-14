@@ -3,7 +3,9 @@
 try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
-    
+
+
+
     // init data
     $user_id        = isset($_GET['user_id'])? intval($_GET['user_id']) : (isset($_POST['user_id']) ? intval($_POST['user_id']) : 0);
     $username    = isset($_GET['username'])? trim($_GET['username']) : (isset($_POST['username']) ? trim($_POST['username']) : '');
@@ -16,13 +18,17 @@ try
      
     // init user
     $user = ($user_id > 0)? erLhcoreClassModelUser::fetch($user_id) : erLhcoreClassModelUser::findOne(array('filter' => $param));
-    
+
     // check we have data
     if (! ($user instanceof erLhcoreClassModelUser)) 
     {
         throw new Exception('User could not be found!');
     }
-    
+
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlist') && $user->id != erLhcoreClassRestAPIHandler::getUserId()) {
+        throw new Exception('You do not have permission to list a users. `lhuser`, `userlist` is required or you have to be an owner of user you want to fetch.');
+    }
+
     // check if password is given, if so, validate password
     if($password != '')
     {

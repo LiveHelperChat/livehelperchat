@@ -4,6 +4,11 @@ try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhfile', 'upload_new_file')) {
+            throw new Exception('You do not have permission. `lhfile`, `upload_new_file` is required.');
+        }
+
         $errors = array();
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_admin_uploadfile.file_store', array('errors' => & $errors));
 
@@ -33,6 +38,10 @@ try {
 
     } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {
 
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhfile', 'use_operator')) {
+            throw new Exception('You do not have permission. `lhrestapi`, `use_operator` is required.');
+        }
+
         $file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['id']);
 
         if (!($file instanceof erLhcoreClassModelChatFile)) {
@@ -56,6 +65,10 @@ try {
 
         if (!($file instanceof erLhcoreClassModelChatFile)) {
             throw new Exception('File could not be found!');
+        }
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhrestapi', 'file_download')) {
+            throw new Exception('You do not have permission. `lhrestapi`, `file_download` is required.');
         }
 
         if ((isset($_GET['meta']) && $_GET['meta'] == 'true')) {

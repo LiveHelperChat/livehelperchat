@@ -221,6 +221,12 @@ $ViewList['checkchatstatus'] = array(
 
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
-$FunctionList['use_direct_logins'] = array('explain' => 'Allow opeator use api directly with his username and password');
+$FunctionList['use_direct_logins'] = array('explain' => 'Allow operator use api directly with his username and password');
+
+// Objects API
+$FunctionList['object_api'] = array('explain' => 'Allow operator to user objects api');
+$FunctionList['updatelastactivity'] = array('explain' => 'Allow operator update other operator last activity');
+$FunctionList['file_download'] = array('explain' => 'Allow operator to download file');
+$FunctionList['list_extensions'] = array('explain' => 'Allow operator to list extensions');
 
 ?>

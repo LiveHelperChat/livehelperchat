@@ -3,7 +3,9 @@
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
-    // erLhcoreClassLog::write(print_r($_POST,true));
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'use')) {
+        throw new Exception('You do not have permission. `lhchat`, `use` is required.');
+    }
 
     $definition = array(
         'chat_id' => new ezcInputFormDefinitionElement(
@@ -40,7 +42,7 @@ try {
 
             // Has access to read, chat
             //FIXME create permission to add message...
-            if ( erLhcoreClassRestAPIHandler::hasAccessToRead($Chat) )
+            if ( erLhcoreClassRestAPIHandler::hasAccessToWrite($Chat) )
             {
                 $userData = erLhcoreClassRestAPIHandler::getUser();
 

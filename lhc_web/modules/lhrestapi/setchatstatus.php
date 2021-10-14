@@ -10,6 +10,14 @@ try {
         throw new Exception('chat_id has to be provided!');
     }
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'use')) {
+        throw new Exception('You do not have permission. `lhchat`, `use` is required.');
+    }
+
+    if (!erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
+        throw new Exception('You do not have permission to modify this chat. Make sure you have assigned department');
+    }
+
     $validStatus = array(
         erLhcoreClassModelChat::STATUS_PENDING_CHAT,
         erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,

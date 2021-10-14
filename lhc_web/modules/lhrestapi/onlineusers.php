@@ -3,6 +3,11 @@
 try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
+
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlistonlineall')) {
+        throw new Exception('You do not have permission. `lhuser`, `userlistonlineall` is required.');
+    }
+
     $params = array();
 
     if (isset($_GET['dep_id']) && is_numeric($_GET['dep_id'])) {
