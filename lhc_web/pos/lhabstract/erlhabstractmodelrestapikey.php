@@ -24,6 +24,11 @@ $def->properties['active']->columnName   = 'active';
 $def->properties['active']->propertyName = 'active';
 $def->properties['active']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['ip_restrictions'] = new ezcPersistentObjectProperty();
+$def->properties['ip_restrictions']->columnName   = 'ip_restrictions';
+$def->properties['ip_restrictions']->propertyName = 'ip_restrictions';
+$def->properties['ip_restrictions']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

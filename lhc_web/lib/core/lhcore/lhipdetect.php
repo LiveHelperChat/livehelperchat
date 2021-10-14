@@ -36,7 +36,7 @@ class erLhcoreClassIPDetect
     {
 
         foreach ($ignore_ips as $ip_ignore) {
-            if (self::ip_in_range($ip, $ip_ignore) == true) {
+            if (self::ip_in_range($ip, trim($ip_ignore)) == true) {
                 return true;
             }
         }

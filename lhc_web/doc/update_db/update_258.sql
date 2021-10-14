@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_rest_api_key` ADD `ip_restrictions` varchar(250) NOT NULL, COMMENT='';

@@ -133,6 +133,14 @@ class erLhcoreClassRestAPIHandler
             $user = null;
 
             if (!($apiKey instanceof erLhAbstractModelRestAPIKey)) {
+
+                $disabledByUser = erConfigClassLhConfig::getInstance()->getSetting('site', 'disable_rest_api_by_user',false);
+
+                // Rest API disabled by username and only by Rest API key's can be used
+                if ($disabledByUser === true){
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Authorization failed!'));
+                }
+
                 $user = erLhcoreClassModelUser::findOne(array('filter' => array('username' => $apiData[0])));
                 if (!($user instanceof erLhcoreClassModelUser) || !password_verify($apiData[1], $user->password)) {
 
@@ -164,6 +172,11 @@ class erLhcoreClassRestAPIHandler
                 self::$apiKey = new erLhAbstractModelRestAPIKey();
                 self::$apiKey->user = $user;
             } else {
+
+                if ($apiKey->ip_restrictions != '' && !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$apiKey->ip_restrictions))) {
+                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Rest API IP restrictions applies! '). erLhcoreClassIPDetect::getIP());
+                }
+
                 // API Key
                 self::$apiKey = $apiKey;
             }
