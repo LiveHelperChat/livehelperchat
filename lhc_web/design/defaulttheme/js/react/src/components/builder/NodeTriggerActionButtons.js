@@ -72,7 +72,15 @@ class NodeTriggerActionButtons extends Component {
                     <div className="flex-grow-1 px-2">
                         <NodeTriggerActionType onChange={this.changeType} type={this.props.action.get('type')} />
                     </div>
-                    <div className="pr-2 pt-1">
+                    <div className="pr-2">
+                        <div className="input-group input-group-sm">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text" id="basic-addon1"><span className="material-icons">vpn_key</span></span>
+                            </div>
+                            <input type="text" className="form-control" readOnly="true" value={this.props.action.getIn(['_id'])} title="Action ID"/>
+                        </div>
+                    </div>
+                    <div className="pr-2 pt-1 text-nowrap">
                         <label className="form-check-label" title="Response will not be executed. Usefull for a quick testing."><input onChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['skip_resp'], value : e.target.checked})} defaultChecked={this.props.action.getIn(['skip_resp'])} type="checkbox"/> Skip</label>
                     </div>
                     <div>

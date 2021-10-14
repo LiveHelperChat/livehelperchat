@@ -1559,8 +1559,19 @@ class erLhcoreClassGenericBotWorkflow {
         $message = null;
         foreach ($trigger->actions_front as $action) {
 
+            $forceContinue = false;
+
+            if (isset($params['trigger_action_id']) && !empty($params['trigger_action_id'])) {
+                if (isset($action['_id']) && $params['trigger_action_id'] == $action['_id']) {
+                    $forceContinue = true;
+                } else {
+                    // Ignore all other triggers except the one
+                    continue;
+                }
+            }
+
             // Response needs to be skipped
-            if (isset($action['skip_resp']) && $action['skip_resp'] == true) {
+            if ($forceContinue == false && isset($action['skip_resp']) && $action['skip_resp'] == true) {
                 continue;
             }
 
@@ -1595,6 +1606,10 @@ class erLhcoreClassGenericBotWorkflow {
                     
                     if (isset($messageNew['meta_msg'])) {
                         $params['args']['meta_msg'] = $messageNew['meta_msg'];
+                    }
+
+                    if (isset($messageNew['trigger_action_id']) && !empty($messageNew['trigger_action_id'])) {
+                        $params['trigger_action_id'] = $messageNew['trigger_action_id'];
                     }
 
                     $response = self::processTrigger($chat, $trigger, $setLastMessageId, $params);
