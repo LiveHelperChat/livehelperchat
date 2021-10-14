@@ -3,6 +3,10 @@
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
     
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'use')) {
+        throw new Exception('You do not have permission. `lhchat`, `use` is required.');
+    }
+
     $chat = erLhcoreClassModelChat::fetch((int)$_GET['chat_id']);
 
     // Try to find chat in archive

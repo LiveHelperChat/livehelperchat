@@ -17,16 +17,16 @@ try
 
         $user = erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['id']);
 
-        if ( $_SERVER['REQUEST_METHOD'] == 'PUT' && !erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'edituser')) {
+        if (!($user instanceof erLhcoreClassModelUser)) {
+            throw new Exception('User could not be found!');
+        }
+
+        if ( $_SERVER['REQUEST_METHOD'] == 'PUT' && !erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'edituser') && $user->id != erLhcoreClassRestAPIHandler::getUserId()) {
             throw new Exception('You do not have permission to edit a user. `lhuser`, `edituser` is required.');
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && !erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlist')) {
-            throw new Exception('You do not have permission to list a users. `lhuser`, `createuser` is required.');
-        }
-
-        if (!($user instanceof erLhcoreClassModelUser)) {
-            throw new Exception('User could not be found!');
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && !erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlist') && $user->id != erLhcoreClassRestAPIHandler::getUserId()) {
+            throw new Exception('You do not have permission to list a users. `lhuser`, `userlist` is required.');
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {

@@ -65,7 +65,7 @@
           "chat"
         ],
         "summary": "Fetch chats list",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use`. List content depends on assigned API user departments.",
         "produces": [
           "application/json"
         ],
@@ -318,7 +318,7 @@
           "chat"
         ],
         "summary": "Get only number of chats",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use`. List content depends on assigned API user departments.",
         "produces": [
           "application/json"
         ],
@@ -499,7 +499,7 @@
           "online_user"
         ],
         "summary": "Search for campaign conversions",
-        "description": "",
+        "description": "Required permissions - `lhchat`, `administratecampaigs`",
         "produces": [
           "application/json"
         ],
@@ -684,7 +684,7 @@
           "chat"
         ],
         "summary": "Fetch chat information",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use`.",
         "produces": [
           "application/json"
         ],
@@ -739,7 +739,7 @@
           "chat"
         ],
         "summary": "Fetch chat messages",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use`. Will API user get content - depends on assigned departments.",
         "produces": [
           "application/json"
         ],
@@ -955,7 +955,7 @@
           "chat"
         ],
         "summary": "Add message to chat as an admin",
-        "description": "",
+        "description": "Required permissions - `lhchat`, `use` and assigned department.",
         "produces": [
           "application/json"
         ],
@@ -1027,7 +1027,7 @@
           "operators_chats"
         ],
         "summary": "Add message to a group chat",
-        "description": "Used by mobile app",
+        "description": "Used by mobile app.\nRequired permissions - `lhgroupchat`, `use`",
         "produces": [
           "application/json"
         ],
@@ -1072,7 +1072,7 @@
           "chat"
         ],
         "summary": "Set chat status",
-        "description": "Changes chat status to provided one. Related logic is also executed in the background.",
+        "description": "Changes chat status to provided one. Related logic is also executed in the background.\nRequired permissions - `lhchat`, `use` and assigned department.",
         "produces": [
           "application/json"
         ],
@@ -1118,7 +1118,7 @@
           "user"
         ],
         "summary": "Fetches user and verifies provided password",
-        "description": "If user_id is provided. Systems tries to find provided user. If not system tries to find user by email or username. If password is provided it verifies provided password.",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system tries to find user by email or username. If password is provided it verifies provided password.\nIn order to fetch other user than yourself you have to have 'lhuser', 'userlist' permission.",
         "produces": [
           "application/json"
         ],
@@ -1181,7 +1181,7 @@
           "user"
         ],
         "summary": "Fetches user departments",
-        "description": "If user_id is provided. Systems tries to find provided user. If not system returns authorised user departments.",
+        "description": "If user_id is provided. Systems tries to find provided user. If not system returns authorised user departments.\nIn order to fetch other user than yourself you have to have 'lhuser', 'userlist' permission.",
         "produces": [
           "application/json"
         ],
@@ -1220,7 +1220,7 @@
           "user"
         ],
         "summary": "Fetches users",
-        "description": "Returns list of all system users.",
+        "description": "Returns list of all system users.\nIn order to fetch other user than yourself you have to have 'lhuser', 'userlist' permission.",
         "produces": [
           "application/json"
         ],
@@ -1309,7 +1309,7 @@
           "user"
         ],
         "summary": "Fetches user by user ID",
-        "description": "",
+        "description": "Required permission - 'lhuser', 'userlist' or be the owner of the user..",
         "produces": [
           "application/json"
         ],
@@ -1346,7 +1346,7 @@
           "user"
         ],
         "summary": "Update a user",
-        "description": "",
+        "description": "Required permission - 'lhuser', 'edituser' or be the owner of the user.",
         "produces": [
           "application/json"
         ],
@@ -1354,7 +1354,7 @@
           {
             "in": "body",
             "name": "body",
-            "description": "User object needs to be updated",
+            "description": "User object needs to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/User"
@@ -1363,7 +1363,7 @@
           {
             "name": "user_id",
             "in": "path",
-            "description": "User to update",
+            "description": "User to update.",
             "required": true,
             "type": "string",
             "format": "int32"
@@ -1392,7 +1392,7 @@
           "user"
         ],
         "summary": "Deletes specified user",
-        "description": "",
+        "description": "Required permission - 'lhuser', 'deleteuser'",
         "produces": [
           "application/json"
         ],
@@ -1400,7 +1400,7 @@
           {
             "name": "user_id",
             "in": "path",
-            "description": "User to delete",
+            "description": "User to delete. 'lhuser', 'deleteuser'",
             "required": true,
             "type": "string",
             "format": "int32"
@@ -1431,7 +1431,7 @@
           "file"
         ],
         "summary": "Fetches file by file id",
-        "description": "",
+        "description": "`lhrestapi`, `file_download`",
         "produces": [
           "application/json"
         ],
@@ -1477,7 +1477,7 @@
           "file"
         ],
         "summary": "Update file meta data",
-        "description": "",
+        "description": "Required permissions - `lhfile`, `use_operator`",
         "produces": [
           "application/json"
         ],
@@ -1523,7 +1523,7 @@
           "file"
         ],
         "summary": "Deletes specified file",
-        "description": "",
+        "description": "Required permission - `lhfile`, `file_delete`",
         "produces": [
           "application/json"
         ],
@@ -1562,7 +1562,7 @@
           "file"
         ],
         "summary": "Upload a file",
-        "description": "",
+        "description": "Required permission - `lhfile`, `upload_new_file`",
         "consumes": [
           "multipart/form-data"
         ],
@@ -1628,7 +1628,7 @@
           "user"
         ],
         "summary": "Creates a new user",
-        "description": "",
+        "description": "Required permission - 'lhuser', 'createuser'",
         "produces": [
           "application/json"
         ],
@@ -1777,12 +1777,7 @@
             "schema": {
             }
           }
-        },
-        "security": [
-          {
-            "login": []
-          }
-        ]
+        }
       }
     },
     "/restapi/onlineusers": {
@@ -1791,7 +1786,7 @@
           "online"
         ],
         "summary": "Fetches online operators",
-        "description": "Returns list of online operators",
+        "description": "Returns list of online operators. Required permissions - `lhuser`, `userlistonlineall`",
         "produces": [
           "application/json"
         ],
@@ -1901,12 +1896,7 @@
             "schema": {
             }
           }
-        },
-        "security": [
-          {
-            "login": []
-          }
-        ]
+        }
       }
     },
     "/restapi/isonlineuser/{user_id}": {
@@ -1940,12 +1930,7 @@
             "schema": {
             }
           }
-        },
-        "security": [
-          {
-            "login": []
-          }
-        ]
+        }
       }
     },
     "/restapi/isonlinechat/{chat_id}": {
@@ -1993,12 +1978,7 @@
             "schema": {
             }
           }
-        },
-        "security": [
-          {
-            "login": []
-          }
-        ]
+        }
       }
     },
     "/restapi/groupsbyobject/{object_id}/{type}": {
@@ -2007,7 +1987,7 @@
           "user"
         ],
         "summary": "Returns objects by object id and type",
-        "description": "Is used to get objects by object id and type. This can be used in third party software to have custom permissions.",
+        "description": "Is used to get objects by object id and type. This can be used in third party software to have custom permissions.\nRequired permissions - `lhrestapi`, `object_api`",
         "produces": [
           "application/json"
         ],
@@ -2054,7 +2034,7 @@
           "user"
         ],
         "summary": "Returns list of groups id by object id and type",
-        "description": "Is used to get list of groups by object id and type. This can be used in third party software to have custom permissions.",
+        "description": "Is used to get list of groups by object id and type. This can be used in third party software to have custom permissions.\nRequired permissions - `lhrestapi`, `object_api`",
         "produces": [
           "application/json"
         ],
@@ -2101,7 +2081,7 @@
           "user"
         ],
         "summary": "Returns list of objects user can access by user id and type of object",
-        "description": "",
+        "description": "Required permissions - `lhrestapi`, `object_api`",
         "produces": [
           "application/json"
         ],
@@ -2148,7 +2128,7 @@
           "user"
         ],
         "summary": "Updates last operator activity. So chat considers operator as online",
-        "description": "Updates last operator activity. So chat considers operator as online",
+        "description": "Updates last operator activity. So chat considers operator as online.\nRequired permissions - `lhrestapi`, `updatelastactivity` or to be an owner of an object",
         "produces": [
           "application/json"
         ],
@@ -2187,7 +2167,7 @@
           "user"
         ],
         "summary": "Changes operator status to offline or online",
-        "description": "Updates operator status to online or offline",
+        "description": "Updates operator status to online or offline.\nRequired to change yourself status - `lhuser`, `changeonlinestatus`\nRequired to change other user status - `lhuser`, `edituser`",
         "produces": [
           "application/json"
         ],
@@ -2234,7 +2214,7 @@
           "user"
         ],
         "summary": "Will generate autologin link.",
-        "description": "",
+        "description": "Required - `lhuser`, `userautologin`",
         "produces": [
           "application/json"
         ],
@@ -2422,7 +2402,7 @@
           "bot"
         ],
         "summary": "Bot list",
-        "description": "",
+        "description": "Required permissions - `lhgenericbot`, `use`",
         "produces": [
           "application/json"
         ],
@@ -2493,7 +2473,7 @@
           "operators_chats"
         ],
         "summary": "Start a chat with an operator",
-        "description": "",
+        "description": "Required permission - `lhgroupchat`, `use`",
         "produces": [
           "application/json"
         ],
@@ -2540,7 +2520,7 @@
           "operators_chats"
         ],
         "summary": "Sync for a new group chat messages",
-        "description": "",
+        "description": "Required permissions - `lhgroupchat`, `use`",
         "produces": [
           "application/json"
         ],
@@ -2580,7 +2560,7 @@
           "department"
         ],
         "summary": "Departments list",
-        "description": "",
+        "description": "Required permissions - `lhdepartment`, `list`",
         "produces": [
           "application/json"
         ],
@@ -2675,7 +2655,7 @@
           "system"
         ],
         "summary": "List of activated extensions",
-        "description": "",
+        "description": "Required permissions - `lhrestapi`, `list_extensions`",
         "produces": [
           "application/json"
         ],
@@ -2706,7 +2686,7 @@
           "department"
         ],
         "summary": "Create a new department",
-        "description": "",
+        "description": "Required permissions - `lhdepartment`, `create`",
         "produces": [
           "application/json"
         ],
@@ -2746,7 +2726,7 @@
           "department"
         ],
         "summary": "Update a department",
-        "description": "",
+        "description": "Required permissions - `lhdepartment`, `edit`",
         "produces": [
           "application/json"
         ],
@@ -2792,7 +2772,7 @@
           "department"
         ],
         "summary": "Deletes specified department",
-        "description": "",
+        "description": "Required permissions - `lhdepartment`, `delete`",
         "produces": [
           "application/json"
         ],
@@ -2831,7 +2811,7 @@
           "bot"
         ],
         "summary": "Create a bot",
-        "description": "",
+        "description": "Required permissions - `lhgenericbot`, `use`",
         "produces": [
           "application/json"
         ],
@@ -2871,7 +2851,7 @@
           "chat"
         ],
         "summary": "Update a chat",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use` and assigned department in write mode.",
         "produces": [
           "application/json"
         ],
@@ -2917,7 +2897,7 @@
           "chat"
         ],
         "summary": "Delete a chat",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use` and assigned department in write mode and 'lhchat','deleteglobalchat' or being chat owner with 'lhchat','deletechat' permission",
         "produces": [
           "application/json"
         ],
@@ -2954,7 +2934,7 @@
           "chat"
         ],
         "summary": "Fetch chat information",
-        "description": "",
+        "description": "Required permissions - `lhchat`,`use` and assigned department",
         "produces": [
           "application/json"
         ],
@@ -3057,7 +3037,7 @@
           "bot"
         ],
         "summary": "Update a bot",
-        "description": "",
+        "description": "Required permissions - `lhgenericbot`, `use`",
         "produces": [
           "application/json"
         ],
@@ -3065,7 +3045,7 @@
             {
               "in": "body",
               "name": "body",
-              "description": "Bot object that needs to be added to the lhc",
+              "description": "Bot object that needs to be added to the lhc.",
               "required": true,
               "schema": {
                 "$ref": "#/definitions/Bot"
@@ -3102,8 +3082,8 @@
         "tags": [
           "bot"
         ],
-        "summary": "Deletes specified bot",
-        "description": "",
+        "summary": "Deletes specified bot.",
+        "description": "Required permissions - `lhgenericbot`, `use`",
         "produces": [
           "application/json"
         ],
@@ -3142,7 +3122,7 @@
           "statistic"
         ],
         "summary": "Fetches agent statistic",
-        "description": "",
+        "description": "Required permissions - `lhstatistic`, `viewstatistic`",
         "produces": [
           "application/json"
         ],

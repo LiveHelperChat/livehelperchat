@@ -16,6 +16,10 @@ try
         throw new Exception('User could not be found!');
     }
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlist') && $user->id != erLhcoreClassRestAPIHandler::getUserId()) {
+        throw new Exception('You do not have permission to list a users. `lhuser`, `userlist` is required or you have to be an owner of user you want to fetch.');
+    }
+
     $departmentParams = array();
     $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($user->id, $user->cache_version);
     if ($userDepartments !== true) {

@@ -6,6 +6,10 @@ try
 
     $requestBody = json_decode(file_get_contents('php://input'),true);
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhgenericbot', 'use')) {
+        throw new Exception('You do not have permission. `lhgenericbot`, `use` is required.');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $bot = new erLhcoreClassModelGenericBotBot();

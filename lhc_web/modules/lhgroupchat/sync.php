@@ -11,6 +11,10 @@ if (isset($_GET['rest_api']) && $_GET['rest_api'] == 'true') {
         $payload = $payload['chats'];
     }
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhgroupchat', 'use')) {
+        throw new Exception('You do not have permission to use group chats.');
+    }
+
 } else {
     $restAPI = false;
     header ( 'content-type: application/json; charset=utf-8' );

@@ -5,6 +5,12 @@ try {
 
     $user = erLhcoreClassModelUser::fetch((int) $Params['user_parameters']['user_id']);
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'changeonlinestatus') && $user->id == erLhcoreClassRestAPIHandler::getUserId()) {
+        throw new Exception('You do not have permission. `lhuser`, `changeonlinestatus` is required.');
+    } elseif (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'edituser') || !erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassRestAPIHandler::getUser(), $user)) {
+        throw new Exception('You do not have permission. `lhuser`, `edituser` is required and to belong to all other user groups.');
+    }
+
     if ($user instanceof erLhcoreClassModelUser) {
 
         $db = ezcDbInstance::get();

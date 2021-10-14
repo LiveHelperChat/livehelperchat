@@ -6,6 +6,10 @@ try
 
     $requestBody = json_decode(file_get_contents('php://input'),true);
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'use')) {
+        throw new Exception('You do not have permission. `lhchat`, `use` is required.');
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $restAPI = array('ignore_captcha' => true, 'ignore_geo' => true, 'collect_all' => true);
@@ -24,6 +28,10 @@ try
             throw new Exception('Chat could not be found!');
         }
 
+        if (!erLhcoreClassRestAPIHandler::hasAccessToWrite($chat)) {
+            throw new Exception('You do not have permission. Please check that current user has permission to write to selected department.');
+        }
+
         foreach ($requestBody as $attr => $value) {
             if ($attr != 'id') { // we never update ID
                 $chat->{$attr} = $value;
@@ -37,12 +45,20 @@ try
         if (!($chat instanceof erLhcoreClassModelChat)) {
             throw new Exception('Chat could not be found!');
         }
+
+        if (erLhcoreClassRestAPIHandler::hasAccessToWrite($chat) && (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deleteglobalchat') || (erLhcoreClassRestAPIHandler::hasAccessTo('lhchat','deletechat') && $chat->user_id == erLhcoreClassRestAPIHandler::getUserId())))
+        {
+            throw new Exception('You do not have permission to delete this chat!');
+        }
+
         $chat->removeThis();
 
         erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => true));
         exit;
     } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
         $chat = erLhcoreClassModelChat::fetch((int)$Params['user_parameters']['id']);
+
         if (!($chat instanceof erLhcoreClassModelChat)) {
             throw new Exception('Chat could not be found!');
         }
@@ -61,6 +77,10 @@ try
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('api.fetchchat', array('chat' => & $chat));
 
         $attributes = isset($_GET['attr']) ? explode(',',str_replace(' ','',$_GET['attr'])) : array();
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessToRead($chat)) {
+            throw new Exception('You do not have permission. Please check that current user has permission to read to selected department.');
+        }
 
         erLhcoreClassChat::prefillGetAttributesObject($chat, $attributes, array(), array('do_not_clean' => true));
 

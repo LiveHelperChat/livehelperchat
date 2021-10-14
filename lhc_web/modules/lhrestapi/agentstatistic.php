@@ -4,6 +4,10 @@ try
 {
     erLhcoreClassRestAPIHandler::validateRequest();
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhstatistic', 'viewstatistic')) {
+        throw new Exception('You do not have permission. `lhstatistic`, `viewstatistic` is required.');
+    }
+
     $filterParams = erLhcoreClassSearchHandler::getParams(array(
         'module'        => 'chat',
         'module_file'   => 'agent_statistic',

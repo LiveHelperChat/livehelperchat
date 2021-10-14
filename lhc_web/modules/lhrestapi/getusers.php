@@ -14,6 +14,10 @@ try
         }
     }
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'userlist')) {
+        throw new Exception('You do not have permission to list a users. `lhuser`, `userlist` is required.');
+    }
+
     erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
 
     $userlist = erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'], array('offset' => 0, 'limit' => false)));

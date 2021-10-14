@@ -3,6 +3,10 @@
 try {
     erLhcoreClassRestAPIHandler::validateRequest();
 
+    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhgroupchat', 'use')) {
+        throw new Exception('You do not have permission to use group chats.');
+    }
+
     $operators = array(
         (int)$Params['user_parameters']['id'],
         isset($Params['user_parameters']['initiator_user_id']) && $Params['user_parameters']['initiator_user_id'] > 0 ? (int)$Params['user_parameters']['initiator_user_id'] : (int)erLhcoreClassRestAPIHandler::getUserId()

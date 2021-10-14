@@ -29,9 +29,17 @@ try
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'create')) {
+            throw new Exception('You do not have permission. `lhdepartment`, `create` is required.');
+        }
+
         $dep = new erLhcoreClassModelDepartament();
 
     } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'edit')) {
+            throw new Exception('You do not have permission. `lhdepartment`, `edit` is required.');
+        }
 
         $dep = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters']['id']);
         if (!($dep instanceof erLhcoreClassModelDepartament)) {
@@ -42,6 +50,10 @@ try
         $dep = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters']['id']);
         if (!($dep instanceof erLhcoreClassModelDepartament)) {
             throw new Exception('Department could not be found!');
+        }
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'delete')) {
+            throw new Exception('You do not have permission. `lhdepartment`, `delete` is required.');
         }
 
         if ($dep->can_delete = true) {
