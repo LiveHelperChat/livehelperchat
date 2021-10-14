@@ -408,13 +408,14 @@
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions')?></h5>
 
                     <div class="row">
-                        <div class="col-6">
+
+                        <div class="col-4">
                             <div class="form-group">
-                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If required you can also have condition to check')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response Location. It will also fail if attribute is not found.')?></label>
+                                <label>1. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If required you can also have condition to check')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response Location. It will also fail if attribute is not found.')?></label>
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_condition_val" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','response:msg you can leave an empty if you want forward whole response.')?>">
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response comparison')?></label>
                                 <select class="form-control form-control-sm" ng-model="paramOutput.success_condition" >
@@ -436,10 +437,37 @@
                                 <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
                             </div>
                         </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>2. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If required you can also have condition to check')?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response Location. It will also fail if attribute is not found.')?></label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_condition_val_2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','response:msg you can leave an empty if you want forward whole response.')?>">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Response comparison')?></label>
+                                <select class="form-control form-control-sm" ng-model="paramOutput.success_condition_2" >
+                                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for presence of variable')?></option>
+                                    <option value="gt">&gt;</option>
+                                    <option value="gte">&gt;=</option>
+                                    <option value="lt">&lt;</option>
+                                    <option value="lte">&lt;=</option>
+                                    <option value="eq">=</option>
+                                    <option value="neq">!=</option>
+                                    <option value="like"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text like')?></option>
+                                    <option value="notlike"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Text not like')?></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4" ng-if="paramOutput.success_condition != '' && paramOutput.success_condition != undefined">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Comparison value')?></label>
+                                <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_compare_value_2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Value to compare')?>">
+                            </div>
+                        </div>
+
                     </div>
-
-
-
                 </div>
 
         </div>
