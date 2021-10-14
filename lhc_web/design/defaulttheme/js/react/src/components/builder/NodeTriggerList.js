@@ -16,6 +16,11 @@ class NodeTriggerList extends Component {
 
     onChange(e) {
         this.props.onSetPayload(e.target.value);
+
+    }
+
+    onChangeActionId(e) {
+        this.props.onSetPayloadActionId(e.target.value);
     }
 
     render() {
@@ -26,10 +31,19 @@ class NodeTriggerList extends Component {
         </optgroup>);
 
         return (
-            <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={this.props.payload}>
-                <option value="">Choose a trigger</option>
-                {mappedNodeGroups}
-            </select>
+            <React.Fragment>
+                <div className="row">
+                    <div className={"col-"+(this.props.enableAction ? 6 : 12)}>
+                        <select className="form-control form-control-sm" onChange={this.onChange.bind(this)} value={this.props.payload}>
+                            <option value="">Choose a trigger</option>
+                            {mappedNodeGroups}
+                        </select>
+                    </div>
+                    {this.props.enableAction && <div className="col-6">
+                        <input type="text" defaultValue={this.props.payload_action_id} onChange={this.onChangeActionId.bind(this)} className="form-control form-control-sm" title="Execute only one action from selected trigger from selected" placeholder="Action ID" />
+                    </div>}
+                </div>
+            </React.Fragment>
         );
     }
 }

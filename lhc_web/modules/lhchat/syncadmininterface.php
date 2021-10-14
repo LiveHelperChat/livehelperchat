@@ -18,10 +18,18 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 // Update last visit
 $currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
+$userData = $currentUser->getUserData(true);
+
+if ($userData->force_logout == 1) {
+    $currentUser->logout();
+    $userData->force_logout = 0;
+    $userData->updateThis(['update' => ['force_logout']]);
+    echo erLhcoreClassChat::safe_json_encode(array('logout' => true));
+    exit;
+}
+
 // We do not need a session anymore
 session_write_close();
-
-$userData = $currentUser->getUserData(true);
 
 $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1, 'chat_enabled' => 1)));
 

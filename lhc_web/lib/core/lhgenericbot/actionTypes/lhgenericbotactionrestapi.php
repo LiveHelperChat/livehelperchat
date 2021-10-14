@@ -142,7 +142,8 @@ class erLhcoreClassGenericBotActionRestapi
                             '{http_data}' => $response['http_data']
                         ),
                         'meta_msg' => $response['meta'],
-                        'trigger_id' => $action['content']['rest_api_method_output']['default_trigger']
+                        'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
+                        'trigger_action_id' => ($action['content']['rest_api_method_output']['default_trigger_action_id'] ?? null)
                     );
 
                     if (isset($params['msg'])) {
@@ -617,7 +618,9 @@ class erLhcoreClassGenericBotActionRestapi
                                 }
                             }
 
-                            $responseValueCompare = $responseValue = $successLocation['value'];
+                            $responseValueCompare2 = $responseValueCompare = $responseValue = $successLocation['value'];
+
+                            // First condition
                             if (isset($outputCombination['success_condition_val']) && !empty($outputCombination['success_condition_val'])) {
                                 $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val']);
                                 if ($responseValueCompareLocation['found'] === true && !is_array($responseValueCompareLocation['value'])) {
@@ -627,33 +630,59 @@ class erLhcoreClassGenericBotActionRestapi
                                     continue;
                                 }
                             }
+
+                            // Second condition
+                            if (isset($outputCombination['success_condition_val_2']) && !empty($outputCombination['success_condition_val_2'])) {
+                                $responseValueCompareLocation = self::extractAttribute($contentJSON, $outputCombination['success_condition_val_2']);
+
+                                if ($responseValueCompareLocation['found'] === true && !is_array($responseValueCompareLocation['value'])) {
+                                    $responseValueCompare2 = $responseValueCompareLocation['value'];
+                                } else {
+                                    // Attribute was not found
+                                    continue;
+                                }
+                            }
+
+
                         } else {
                             continue; // Required attribute was not found
                         }
                     } else {
-                        $responseValueCompare = $responseValue = $content;
+                        $responseValueCompare2 = $responseValueCompare = $responseValue = $content;
                     }
 
-                    if (isset($outputCombination['success_condition']) && $outputCombination['success_condition'] != '' && isset($outputCombination['success_compare_value']) && $outputCombination['success_compare_value'] != '') {
-                        if ( $outputCombination['success_condition'] == 'eq' && !($responseValueCompare == $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'lt' && !($responseValueCompare < $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'lte' && !($responseValueCompare <= $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'neq' && !($responseValueCompare != $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'gte' && !($responseValueCompare >= $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'gt' && !($responseValueCompare > $outputCombination['success_compare_value'])) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == false) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination['success_compare_value']),$responseValueCompare,0) == true) {
-                            continue;
-                        } else if ($outputCombination['success_condition'] == 'contains' && strrpos($responseValueCompare, $outputCombination['success_compare_value']) === false) {
-                            continue;
-                        }
+                    foreach([   [
+                                    'success_compare_value' => 'success_compare_value',
+                                    'success_condition' => 'success_condition',
+                                    'live_value' => $responseValueCompare,
+                                ],
+                                [
+                                    'success_compare_value' => 'success_compare_value_2',
+                                    'success_condition' => 'success_condition_2',
+                                    'live_value' => $responseValueCompare2,
+                                ]
+                            ] as $attrCompare) {
+                                if (isset($outputCombination[$attrCompare['success_condition']]) && $outputCombination[$attrCompare['success_condition']] != '' && isset($outputCombination[$attrCompare['success_compare_value']]) && $outputCombination[$attrCompare['success_compare_value']] != '') {
+                                    if ( $outputCombination[$attrCompare['success_condition']] == 'eq' && !($attrCompare['live_value'] == $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lt' && !($attrCompare['live_value'] < $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'lte' && !($attrCompare['live_value'] <= $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'neq' && !($attrCompare['live_value'] != $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gte' && !($attrCompare['live_value'] >= $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'gt' && !($attrCompare['live_value'] > $outputCombination[$attrCompare['success_compare_value']])) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == false) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$outputCombination[$attrCompare['success_compare_value']]),$attrCompare['live_value'],0) == true) {
+                                        continue 2;
+                                    } else if ($outputCombination[$attrCompare['success_condition']] == 'contains' && strrpos($attrCompare['live_value'], $outputCombination[$attrCompare['success_compare_value']]) === false) {
+                                        continue 2;
+                                    }
+                                }
                     }
 
                     $meta = array();

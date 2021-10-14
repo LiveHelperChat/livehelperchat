@@ -7754,6 +7754,22 @@
         "extra": ""
       },
       {
+        "field": "force_logout",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "llogin",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "rec_per_req",
         "type": "tinyint(1)",
         "null": "NO",

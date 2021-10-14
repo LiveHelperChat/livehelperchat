@@ -15,6 +15,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','E-mail');?></th>
     <th title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Maximum number of chats operator can have.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Number of chats');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last login');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
     <?php if ($canLoginAs) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
@@ -22,9 +23,17 @@
 </tr>
 </thead>
 <?php foreach ($userlist as $user) : ?>
-    <tr>
+    <tr class="<?php if ($user->disabled == 1) : ?>text-muted<?php endif;?>">
         <td><?php echo $user->id?></td>
         <td>
+            <?php if ($user->disabled == 1) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','This user is disabled');?>">person_off</span>
+            <?php endif; ?>
+
+            <?php if ($user->force_logout == 1) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','This user is forced to logout');?>">logout</span>
+            <?php endif; ?>
+
             <?php if ($currentUser->hasAccessTo('lhstatistic','userstats')) : ?>
                 <a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'statistic/userstats/<?php echo htmlspecialchars($user->id)?>'})">
                     <span class="material-icons">bar_chart</span>
@@ -44,7 +53,20 @@
                 <?php echo htmlspecialchars($user->max_active_chats)?>
             <?php endif; ?>
         </td>
-        <td><?php echo $user->lastactivity_ago?> ago</td>
+        <td>
+            <?php if ($user->lastactivity > 0) : ?>
+            <?php echo $user->lastactivity_ago?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ago');?>
+            <?php else : ?>
+            -
+            <?php endif; ?>
+        </td>
+        <td>
+            <?php if ($user->llogin > 0) : ?>
+                <?php echo $user->llogin_ago?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ago');?>
+            <?php else : ?>
+                -
+            <?php endif; ?>
+        </td>
         <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_data_multiinclude.tpl.php')); ?>
         <?php if ($canLoginAs) : ?>
             <td nowrap=""><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/loginas')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Login As');?></a></td>
