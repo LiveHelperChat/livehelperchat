@@ -1864,7 +1864,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             });
 
             angular.forEach(data.cmopen, function(chatOpen) {
-                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject || 'Mail',10));
+                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject || 'Mail',10), true);
             });
 
             angular.forEach(data.cdel, function(chatOpen) {
