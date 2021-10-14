@@ -1921,3 +1921,8 @@ html {
 .filter-online-active .online-user-filter-row:not(.online_user){
     display: none;
 }
+
+.dropdown-toggle.btn-department-dropdown::after{
+    float:right;
+    margin-top: 8px;
+}

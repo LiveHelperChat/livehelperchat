@@ -205,7 +205,7 @@ class erLhcoreClassAbstract
                 foreach ($items as $item) {
                     $selected = in_array($item->id, $object->$name) ? 'checked="checked"' : '';
                     $nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
-                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
+                    $return .= '<div ng-non-bindable class="col-' . $attr['col_size'] . '"><label><input class="mr-1" type="checkbox" name="AbstractInput_' . $name . '[]" ' . $selected . ' value="' . $item->id . '">' . htmlspecialchars($nameAttr) . '</label></div>';
 
                     /*$nameAttr = isset($attr['name_attr']) ? $item->{$attr['name_attr']} : ((string)$item);
                     $return .= '<option value="'.$item->id.'" '.$selected.'>'.((string)$nameAttr).'</option>';*/
@@ -226,6 +226,35 @@ class erLhcoreClassAbstract
                 return '<pre ng-non-bindable>' . htmlspecialchars($object->$name) . '</pre>';
                 break;
 
+            case 'multi_dropdown':
+                $paramsRender = [
+                    'input_name'     => 'AbstractInput_' . $name ,
+                    'wrapper_class'     => 'dropdown-AbstractInput_' . $name ,
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose'),
+                    'selected_id'    => $object->$name,
+                    'css_class'      => 'form-control',
+                    'display_name'   => $attr['name_attr'] ?? 'name',
+                    'list_function_params' => $attr['params_call'],
+                    'list_function'  => $attr['source']
+                ];
+
+                if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false) {
+                    $paramsRender['show_optional'] = true;
+                }
+
+                if (isset($attr['data_prop']) && $attr['data_prop'] != '') {
+                    $paramsRender['data_prop'] = $attr['data_prop'];
+                }
+
+                if (isset($attr['type_element']) && $attr['type_element'] != '') {
+                    $paramsRender['type'] = $attr['type_element'];
+                }
+
+                if (isset($attr['no_selector']) && $attr['no_selector'] == true) {
+                    $paramsRender['no_selector'] = true;
+                }
+
+                return erLhcoreClassRenderHelper::renderMultiDropdown($paramsRender). '<script>$(function() {$(\'.'.$paramsRender['wrapper_class'].'\').makeDropdown();})</script>';
             default:
                 break;
         }

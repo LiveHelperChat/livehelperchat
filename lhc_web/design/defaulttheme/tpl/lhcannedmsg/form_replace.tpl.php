@@ -45,21 +45,24 @@
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department filter');?></label>
-                <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'department_id',
-                    'ng-model'       => 'combination.dep_id',
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_id-{{$index}}',
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
                     'selected_id'    => "0",
-                    'css_class'      => 'form-control form-control-sm',
+                    'ng-model'       => 'combination.dep_id',
+                    'type'           => 'radio',
+                    'data_prop'      => 'data-limit="1"',
+                    'css_class'      => 'form-control',
                     'display_name'   => 'name',
-                    'list_function_params' => array(),
-                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+                    'show_optional'  => true,
+                    'list_function_params' => array('limit' => false),
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
                 )); ?>
             </div>
 
-            <h6>Advanced filtering</h6>
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Advanced filtering');?></h6>
 
-            <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addCondition(combination)">Add condition</button>
+            <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addCondition(combination)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add condition');?></button>
 
             <div class="row pt-1" ng-repeat="conditionItem in combination.conditions track by $index" >
                 <div class="col-9">
@@ -110,7 +113,4 @@
 
         </div>
     </div>
-
-
-
 </div>

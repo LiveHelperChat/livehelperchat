@@ -39,6 +39,11 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
             'dep_id': "0",
             'priority' : 0,
         });
+
+        setTimeout(function(){
+            $('.btn-block-department').makeDropdown();
+        },1000);
+
     };
 
     this.addCondition = function(items) {
@@ -52,5 +57,10 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
     this.moveDown = function(field,list) {
         that.move(field,list,1);
     }
+
+    setTimeout(function(){
+        $('.btn-block-department').makeDropdown();
+    },1500);
+
 
 }]);
