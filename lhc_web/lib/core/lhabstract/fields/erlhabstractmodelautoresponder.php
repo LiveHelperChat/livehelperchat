@@ -108,7 +108,7 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
-    'dep_id' => array(
+    /*'dep_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
         'required' => false,
@@ -118,7 +118,37 @@ return array(
         'params_call' => $departmentFilterdefault,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        )),*/
+
+    'dep_id' => array(
+        'type' => 'multi_dropdown',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
+        'required' => false,
+        'data_prop'   => 'data-limit="1"',
+        'no_selector'    => true,
+        'type_element'    => 'radio',
+        'frontend' => 'dep_frontend',
+        'source' => 'erLhcoreClassModelDepartament::getList',
+        'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
+        'params_call' => $departmentFilterdefault,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )),
+
+      /*echo erLhcoreClassRenderHelper::renderMultiDropdown(array(
+          'input_name' => 'department_id',
+          'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Choose department'),
+          'selected_id' => "0",
+          'ng-model' => 'combination.dep_id',
+          'type' => 'radio',
+          'data_prop' => 'data-limit="1"',
+          'css_class' => 'form-control',
+          'display_name' => 'name',
+          'list_function_params' => array('limit' => false),
+          'list_function' => 'erLhcoreClassModelDepartament::getList',
+      ));*/
+
+
      'user_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'User'),
