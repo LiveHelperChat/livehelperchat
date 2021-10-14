@@ -23,7 +23,8 @@ class erLhAbstractModelRestAPIKey
             'id' => $this->id,
             'user_id' => $this->user_id,
             'api_key' => $this->api_key,
-            'active' => $this->active
+            'active' => $this->active,
+            'ip_restrictions' => $this->ip_restrictions
         );
 
         return $stateArray;
@@ -76,6 +77,7 @@ class erLhAbstractModelRestAPIKey
     public $user_id = '';
     public $api_key = '';
     public $active = 0;
+    public $ip_restrictions = '';
 
     public $hide_add = false;
     public $hide_delete = false;
