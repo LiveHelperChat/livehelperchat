@@ -2040,6 +2040,7 @@ try {
                     `api_key` varchar(50) NOT NULL,
                     `user_id` int(11) NOT NULL DEFAULT '0',
                     `active` int(11) NOT NULL DEFAULT '0',
+                    `ip_restrictions` varchar(250) NOT NULL,
                     PRIMARY KEY (`id`),
                     KEY `api_key` (`api_key`),
                     KEY `user_id` (`user_id`)

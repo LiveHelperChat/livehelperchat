@@ -1,3 +1,12 @@
+3.86v
+
+1. Rest API access can be restricted only to Rest API keys.
+2. Rest API keys themself can have IP restrictions
+3. Bot Rest API call default trigger can execute selected trigger only one action.
+4. Output parsing in Rest API calls, now can have two conditions.
+
+execute doc/update_db/update_258.sql for update
+
 3.85v
 
 1. There is new event you can fire to trigger google analytics events directly from custom HTML of your widget.
@@ -6,7 +15,7 @@
 4. You can automatically disable operator if from their last login passed X number of days.
 5. In password requirements you can set bunch of other requirements for the password.
 
-execute doc/update_db/update_256.sql for update
+execute doc/update_db/update_257.sql for update
 
 3.84v
 
