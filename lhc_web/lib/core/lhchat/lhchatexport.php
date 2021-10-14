@@ -69,6 +69,10 @@ class erLhcoreClassChatExport {
             $values['dep_groups_id'] = implode(',',$depGroupIds);
             $values['dep_groups_name'] = implode(',',$depGroupNames);
 
+            $lastLogin = erLhcoreClassModelUserLogin::findOne(array('sort' => 'ctime DESC','filter' => array('user_id' => $user->id)));
+            
+            $values['last_login'] = $lastLogin instanceof erLhcoreClassModelUserLogin ? date(erLhcoreClassModule::$dateDateHourFormat,$lastLogin->ctime) : '';
+
             if ($counter == 0) {
                 fputcsv($fp, array_keys($values));
             }

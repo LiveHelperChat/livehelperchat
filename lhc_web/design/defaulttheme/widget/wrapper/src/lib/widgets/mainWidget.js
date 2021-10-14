@@ -170,7 +170,7 @@ export class mainWidget{
             }
         }
 
-        this.cont.insertJSFile(this.attributes.staticJS['vendor_js'], false, () => {
+        this.cont.insertJSFile(this.attributes.staticJS['vendor'], false, () => {
             this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
                 this.loadStatus['main'] = true;
                 this.checkLoadStatus();

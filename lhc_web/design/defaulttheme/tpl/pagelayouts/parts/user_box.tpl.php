@@ -1,7 +1,16 @@
 <?php
 $currentUser = erLhcoreClassUser::instance();
 if ($currentUser->isLogged()) :
-$UserData = $currentUser->getUserData(true); ?>
+$UserData = $currentUser->getUserData(true);
+
+// Just logout if force to logout
+if ($UserData->force_logout == 1) {
+    $UserData->force_logout = 0;
+    $UserData->updateThis(['update' => ['force_logout']]);
+    $currentUser->logout();
+}
+
+?>
 <li class="nav-item dropleft">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo htmlspecialchars($UserData->name),' ',htmlspecialchars($UserData->surname)?></a>
     <div class="dropdown-menu" style="min-width: 25rem;" role="menu">

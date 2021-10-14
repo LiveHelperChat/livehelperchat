@@ -12,10 +12,12 @@ $modalSize = 'xl';
                 <a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" class="pr-2"><span class="material-icons">edit</span> <?php echo htmlspecialchars($user->name_official)?> [<?php echo $user->id?>]</a>
                 <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $user->id?>/(chat_status_ids)/0/1" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?></a>
                 <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>/(user_id)/<?php echo $user->id?>" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator online hours');?></a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('audit/loginhistory')?>/(user_id)/<?php echo $user->id?>" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a>
             </div>
             <ul class="nav nav-pills mb-3" role="tablist">
                 <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link active" aria-controls="user-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User stats');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" id="online-hours" style="max-height: 550px;overflow-y: auto">
@@ -115,6 +117,43 @@ $modalSize = 'xl';
                             </tr>
                         <?php endforeach; ?>
                     </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="login-history" style="max-height: 550px;overflow-y: auto">
+
+                    <table class="table table-sm" ng-non-bindable cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','ID');?></th>
+                        <th width="1%" nowrap=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','User ID');?></th>
+                        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Message');?></th>
+                        <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','IP');?></th>
+                        <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Date');?></th>
+                    </tr>
+                    </thead>
+                    <?php foreach (erLhcoreClassModelUserLogin::getList(array('filter' => ['user_id' => $user->id],'offset' => 0, 'limit' => 20,'sort' => 'id DESC')) as $item) : ?>
+                        <tr>
+                            <td>
+                                <?php echo $item->id?>
+                            </td>
+                            <td>
+                                <?php echo $item->user_id?>
+                            </td>
+                            <td title="<?php echo $item->type?>">
+                                <?php if ($item->status == erLhcoreClassModelUserLogin::STATUS_COMPLETED) : ?>
+                                    <span class="material-icons text-success">done</span>
+                                <?php endif; ?>
+                                <?php echo htmlspecialchars($item->msg)?>
+                            </td>
+                            <td>
+                                <?php echo $item->ip?>
+                            </td>
+                            <td nowrap>
+                                <?php echo $item->ctime_front?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </table>
+
                 </div>
             </div>
         </div>

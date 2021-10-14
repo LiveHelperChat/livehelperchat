@@ -17,7 +17,7 @@ const config = {
   optimization: {
     splitChunks: {
         cacheGroups: {
-              vendor: {
+                vendor: {
                    test: /[\\/]node_modules[\\/](react|react-dom|i18next-http-backend|immutable|axios|html-react-parser|react-i18next|i18next|redux-thunk|redux-promise-middleware|react-redux|bootstrap\.native)[\\/]/,
                    name: 'vendor',
                    filename: 'vendor.js',
@@ -33,6 +33,11 @@ const config = {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        include: /node_modules\/socketcluster-client/
       },
       {
         test: /bootstrap\.native/,

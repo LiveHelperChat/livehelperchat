@@ -139,7 +139,7 @@ class Install
             }
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `id` bigint(20) NOT NULL AUTO_INCREMENT,
 				  `nick` varchar(100) NOT NULL,
 				  `status` int(11) NOT NULL DEFAULT '0',
 				  `status_sub` int(11) NOT NULL DEFAULT '0',
@@ -907,7 +907,7 @@ class Install
         	   `type` varchar(255) NOT NULL,
         	   `file_path` varchar(255) NOT NULL,
         	   `extension` varchar(255) NOT NULL,
-        	   `chat_id` int(11) NOT NULL,
+        	   `chat_id` bigint(20) NOT NULL,
         	   `persistent` int(11) NOT NULL,
         	   `online_user_id` int(11) NOT NULL,
         	   `user_id` int(11) NOT NULL,
@@ -1099,8 +1099,8 @@ class Install
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
-				  `chat_id` int(11) NOT NULL,
+				  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+				  `chat_id` bigint(20) NOT NULL,
 				  `online_user_id` int(11) NOT NULL,
 				  `page` varchar(2083) NOT NULL,
 				  `vtime` int(11) NOT NULL,
@@ -1367,7 +1367,7 @@ class Install
 
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `vid` varchar(50) NOT NULL,
                   `ip` varchar(50) NOT NULL,
                   `current_page` text NOT NULL,
@@ -1467,7 +1467,7 @@ class Install
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_accept` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
-        	   `chat_id` int(11) NOT NULL,
+        	   `chat_id` bigint(20) NOT NULL,
         	   `hash` varchar(50) NOT NULL,
         	   `ctime` int(11) NOT NULL,
         	   `wused` int(11) NOT NULL,
@@ -1804,6 +1804,8 @@ class Install
                   `attr_int_1` int(11) NOT NULL,
                   `attr_int_2` int(11) NOT NULL,
                   `attr_int_3` int(11) NOT NULL,
+                   `force_logout` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `llogin` bigint(20) unsigned NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `hide_online` (`hide_online`),
@@ -1936,7 +1938,7 @@ class Install
 
             // Chat messages
             $db->query("CREATE TABLE IF NOT EXISTS `lh_msg` (
-				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 				  `msg` longtext NOT NULL,
 				  `meta_msg` longtext NOT NULL,
 				  `time` int(11) NOT NULL,

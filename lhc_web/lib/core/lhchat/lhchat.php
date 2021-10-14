@@ -1372,7 +1372,17 @@ class erLhcoreClassChat {
 
    public static function generateHash()
    {
-       return sha1(mt_rand().time());
+       $string = '';
+
+       while (($len = strlen($string)) < 40) {
+           $size = 40 - $len;
+
+           $bytes = random_bytes($size);
+
+           $string .= substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $size);
+       }
+
+       return $string;;
    }
    
    public static function setTimeZoneByChat($chat)

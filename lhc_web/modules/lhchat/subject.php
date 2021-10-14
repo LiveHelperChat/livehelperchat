@@ -22,6 +22,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 $subjectChat->subject_id = $Params['user_parameters_unordered']['subject'];
                 $subjectChat->saveThis();
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_add',array('chat' => & $chat));
+                
                 $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject selected!'));
 
             } else {
@@ -32,6 +34,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 }
 
                 $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject unselected!'));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_remove',array('chat' => & $chat));
             }
         } else {
             $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Please choose a subject'));

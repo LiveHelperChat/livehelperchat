@@ -152,7 +152,46 @@
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
-	    
+        <?php
+            $departmentEditParams = [
+                'self_edit' => false,
+                'edit_all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
+                'individual' => [
+                    'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                    'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+                    'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual')
+                ],
+                'groups' => [
+                    'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                    'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                    'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
+                ]
+            ];
+
+            if ($departmentEditParams['individual']['edit_all'] == false) {
+                $departmentEditParams['individual']['id'] = array_merge(
+                    erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                        erLhcoreClassUser::instance()->getUserID()
+                    ),
+                    erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                        erLhcoreClassUser::instance()->getUserID(),
+                        true
+                    )
+                );
+            }
+
+            if ($departmentEditParams['groups']['edit_all'] == false) {
+                $departmentEditParams['groups']['id'] = array_merge(
+                    erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                        erLhcoreClassUser::instance()->getUserID()
+                    ),
+                    erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                        erLhcoreClassUser::instance()->getUserID(),
+                        true
+                    )
+                );
+            }
+        ?>
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
 	    		
 		<input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />

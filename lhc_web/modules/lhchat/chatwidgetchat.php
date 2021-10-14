@@ -2,6 +2,9 @@
 
 // For IE to support headers if chat is installed on different domain
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+header('Cache-Control: nocache, no-store, max-age=0, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: Sun, 02 Jan 1990 00:00:00 GMT');
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/chat.tpl.php');
 
