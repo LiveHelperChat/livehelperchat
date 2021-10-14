@@ -1925,3 +1925,8 @@ html {
     50%{opacity: 1;}
     100%{opacity: 0.5;}
 }
+
+.dropdown-toggle.btn-department-dropdown::after{
+    float:right;
+    margin-top: 8px;
+}
