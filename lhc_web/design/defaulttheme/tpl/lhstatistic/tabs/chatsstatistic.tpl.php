@@ -730,6 +730,9 @@
             foreach (array_keys(current($by_channel)) as $incomingId) {
                 $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
                 $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
+                if (empty($label)) {
+                    $label = 'Chat';
+                }
                 $itemData = [
                     'label' => $label,
                     'backgroundColor' => erLhcoreClassChatStatistic::colorFromString($label),
