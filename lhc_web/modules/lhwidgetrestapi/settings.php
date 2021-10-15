@@ -379,7 +379,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 183;
+$outputResponse['wv'] = 184;
 
 // React APP versions
 $outputResponse['v'] = 220;
