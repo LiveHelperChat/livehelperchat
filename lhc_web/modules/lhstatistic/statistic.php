@@ -176,11 +176,12 @@ if ($tab == 'active') {
 
                 'nickgroupingdate' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdate',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
                 'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('nickgroupingdatenick',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::nickGroupingDateNickDay($filterParams['filter'], array('group_field' => $filterParams['input']->group_field)) : array()),
-
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
                 'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
             );
         } elseif ($filterParams['input_form']->groupby == 2) {
             $activeStats = array(
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -199,6 +200,7 @@ if ($tab == 'active') {
             );
         } elseif ($filterParams['input_form']->groupby == 3) {
             $activeStats = array(
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||
@@ -217,6 +219,7 @@ if ($tab == 'active') {
             );
         } else {
             $activeStats = array(
+                'by_channel' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('by_channel',$filterParams['input_form']->chart_type)) ? erLhcoreClassChatStatistic::byChannel($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
                 'numberOfChatsPerMonth' => (
                 (is_array($filterParams['input_form']->chart_type) && (
                         in_array('active',$filterParams['input_form']->chart_type) ||

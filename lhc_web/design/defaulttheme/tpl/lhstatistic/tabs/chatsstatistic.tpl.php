@@ -290,6 +290,7 @@
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
             <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chart_type[]" value="nickgroupingdate" <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Unique group field records grouped by date')?></label></div>
             <div class="col-4"><label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Usefull if you prefill usernames always')?>"><input type="checkbox" name="chart_type[]" value="nickgroupingdatenick" <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Chats number grouped by date and group field')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="by_channel" <?php if (in_array('by_channel',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Total chats by channel')?></label></div>
         </div>
     </div>
 
@@ -721,6 +722,69 @@
         });
         <?php endif; ?>
 
+        <?php if (in_array('by_channel',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+        var barChartData = {
+            labels: [<?php $key = 0; foreach ($by_channel as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix]).'\'';$key++; endforeach;?>],
+            datasets: <?php
+            $items = [];
+            foreach (array_keys(current($by_channel)) as $incomingId) {
+                $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
+                $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
+                $itemData = [
+                    'label' => $label,
+                    'backgroundColor' => erLhcoreClassChatStatistic::colorFromString($label),
+                    'borderColor' =>  erLhcoreClassChatStatistic::colorFromString($label),
+                    'borderWidth' => 1,
+                    'data' => []
+                ];
+                foreach ($by_channel as $dataItem) {
+                    $itemData['data'][] = (int)$dataItem[$incomingId];
+                }
+                $items[] = $itemData;
+            }
+            echo json_encode($items);
+            ?>
+        };
+        var ctx = document.getElementById("chart_type_div_by_channel").getContext("2d");
+        var myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                layout: {
+                    padding: {
+                        top: 20
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                            fontSize: 11,
+                            stepSize: 1,
+                            min: 0,
+                            autoSkip: false
+                        }
+                    }
+                    ],
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                title: {
+                    display: false
+                }
+            }
+        });
+        <?php endif; ?>
+
         <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.($monthUnix > 10 ? date($groupby,$monthUnix) : $weekDays[(int)$monthUnix]).'\'';$key++; endforeach;?>],
@@ -838,6 +902,12 @@
 <hr>
 <h5><a class="csv-export" data-scope="cs_msgtype" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
 <canvas id="chart_type_div_msg_type"></canvas>
+<?php endif; ?>
+
+<?php if (in_array('by_channel',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+<hr>
+<h5><a class="csv-export" data-scope="cs_by_channel" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/by_channel.tpl.php'));?></h5>
+<canvas id="chart_type_div_by_channel"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>

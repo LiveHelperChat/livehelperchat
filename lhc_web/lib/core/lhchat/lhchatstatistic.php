@@ -3199,6 +3199,133 @@ class erLhcoreClassChatStatistic {
         return $statistic;
     }
 
+    public static function byChannel($filter, $params) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperchannel',array('params_execution' => $params, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            $yearStart = date('y');
+            $monthStart = date('m');
+
+            if (isset($filter['filterlte']['time'])){
+                $yearStart = date('y',$filter['filterlte']['time']);
+                $monthStart = date('m',$filter['filterlte']['time']);
+            }
+
+            $daysGroupLimit = ($params['groupby'] == 2) ? 42 : 31;
+            $multiplier = ($params['groupby'] == 2) ? 7 : 1;
+            $limitDays = 12;
+
+            if ($params['groupby'] != 0)
+            {
+                $startTimestamp = time()-($daysGroupLimit*$multiplier*24*3600);
+
+                $limitDays = $daysGroupLimit;
+
+                if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                    $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*$multiplier));
+                    if ($daysDifference <= $daysGroupLimit && $daysDifference > 0) {
+                        $limitDays = $daysDifference;
+                        $startTimestamp = $filter['filtergte']['time'];
+                    }
+                } elseif (isset($filter['filtergte']['time'])) {
+                    $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*$multiplier));
+                    if ($daysDifference <= $daysGroupLimit && $daysDifference > 0) {
+                        $limitDays = $daysDifference;
+                        $startTimestamp = $filter['filtergte']['time'];
+                    }
+                } elseif (isset($filter['filterlte']['time'])) {
+                    $limitDays = $daysGroupLimit;
+                    $startTimestamp = $filter['filterlte']['time']-($daysGroupLimit*$multiplier*24*3600);
+                }
+
+                $weekStarted = false;
+            }
+
+            $groupAttributes = array(
+                0 => array('db' => '\'%Y%m\'', 'php' => 'Ym','front' => 'Y.m'), // Month
+                1 => array('db' => '\'%Y%m%d\'', 'php' => 'Ymd','front' => 'Y.m.d'), // Day
+                2 => array('db' => '\'%Y%v\'', 'php' => 'YW','front' => 'Y.m.d'), // Week
+                3 => array('db' => '\'%w\'', 'php' => 'YW','front' => 'Y.m.d') // Week
+            );
+
+            $filter['sort'] = 'time DESC';
+            $filter['group'] = 'FROM_UNIXTIME(time,' . $groupAttributes[$params['groupby']]['db'] . '), incoming_id';
+            $filter['innerjoin']['lh_chat_incoming'] = array('`lh_chat_incoming`.`chat_id`','`lh_chat`.`id`');
+
+            $numberOfChats = erLhcoreClassModelChat::getCount(array_merge_recursive($filter,array()),'',false,'incoming_id, FROM_UNIXTIME(time,'.$groupAttributes[$params['groupby']]['db'].') as day, time, count(`lh_chat`.`id`) as total_records',false, true);
+
+            $webHooksDifference = [];
+            $reformatResponse = [];
+            // Reformat response to correctData
+            foreach ($numberOfChats as $item){
+                $reformatResponse[$item['day']][$item['incoming_id']] = $item['total_records'];
+                if (!isset($webHooksDifference[$item['incoming_id']])) {
+                    $webHooksDifference[$item['incoming_id']] = 0;
+                }
+            }
+
+            if ($params['groupby'] == 3) {
+                $responseReturn = [];
+                for ($day = 1; $day < 8; $day++) {
+                    $i = $day;
+                    if ($i == 7) {
+                        $i = 0;
+                    }
+
+                    $responseReturn[$i] = $webHooksDifference;
+
+                    if (isset($reformatResponse[$i])) {
+                        $responseReturn[$i] = array_replace($webHooksDifference, $reformatResponse[$i]);
+                    }
+                }
+                return $responseReturn;
+            }
+
+            $responseReturn = [];
+
+            for ($i = 0; $i < $limitDays;$i++) {
+                if ($params['groupby'] == 2) {
+                    $dateUnix = mktime(0, 0, 0, date('m', $startTimestamp), date('d', $startTimestamp) + ($i * 7), date('y', $startTimestamp));
+
+                    if ($weekStarted == false) {
+                        $weekStarted = true;
+
+                        if (date('N', $dateUnix) != 1) {
+                            // Adjust start time to be it monday
+                            $startReturning = $startTimestamp = $startTimestamp - ((date('N', $startTimestamp) - 1) * 24 * 3600);
+
+                            continue; // First day is not a monday, skip to next week
+                        }
+                    }
+
+                    // This week has not ended, so exclude it
+                    if (date('YW') == date('YW', $dateUnix) || time() < $dateUnix) {
+                        continue;
+                    }
+
+                    // Day
+                } elseif ($params['groupby'] == 1) {
+                    $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+
+                    // Month
+                } else if ($params['groupby'] == 0) {
+                    $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
+                }
+
+                $responseReturn[$dateUnix] = $webHooksDifference;
+                if (isset($reformatResponse[date($groupAttributes[$params['groupby']]['php'],$dateUnix)])) {
+                    $responseReturn[$dateUnix] = array_replace($webHooksDifference, $reformatResponse[date($groupAttributes[$params['groupby']]['php'],$dateUnix)]);
+                }
+            }
+
+            return $responseReturn;
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function exportCSV($statistic, $type) {
         $filename = "report-" . $type . "-".date('Y-m-d').".csv";
         $fp = fopen('php://output', 'w');
