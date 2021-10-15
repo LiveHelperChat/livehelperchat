@@ -3557,6 +3557,27 @@ class erLhcoreClassChatStatistic {
                     $value['unique']
                 ]);
             }
+        } else if ($type == 'cs_by_channel') {
+
+            $labels = ['date'];
+            foreach (array_keys(current($statistic['by_channel'])) as $incomingId) {
+                $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
+                $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
+                $labels[] = $label;
+            }
+            fputcsv($fp, $labels);
+
+            foreach ($statistic['by_channel'] as $monthUnix => $data) {
+                $itemData = [
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix])
+                ];
+
+                foreach ($data as $dataItem) {
+                    $itemData[] = (int)$dataItem;
+                }
+                fputcsv($fp,$itemData);
+            }
+
         } else if ($type == 'cs_active') {
             fputcsv($fp, ['date','closed','active','operators','pending','bot','total_chats']);
             foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $data) {
