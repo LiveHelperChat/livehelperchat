@@ -101,6 +101,27 @@ class erLhcoreClassChatExport {
             $values['bot_translation_group_id'] = isset($botConfiguration['bot_tr_id']) ? $botConfiguration['bot_tr_id'] : 0;
             $values['bot_translation_group_name'] = $values['bot_translation_group_id']  > 0 ? (string)erLhcoreClassModelGenericBotTrGroup::fetch($values['bot_translation_group_id']) : '';
 
+            $memberOfGroups = erLhcoreClassModelDepartamentGroupMember::getList(['filter' => ['dep_id' => $item->id]]);
+
+            $ids = [];
+            $names = [];
+
+            foreach ($memberOfGroups as $member) {
+                $departmentGroup = erLhcoreClassModelDepartamentGroup::fetch($member->dep_group_id);
+                $ids[] = $member->dep_group_id;
+                $names[] = (string)$departmentGroup;
+            }
+
+            $values['department_group_ids'] = implode(',',$ids);
+            $values['department_group_names'] = implode(',',$names);
+
+            unset($values['department_transfer_id']);
+            unset($values['transfer_timeout']);
+
+            $values['department_transfer_id'] = $item->department_transfer_id;
+            $values['transfer_timeout'] = $item->transfer_timeout;
+            $values['department_transfer_name'] = $item->department_transfer_id > 0 ? (string)erLhcoreClassModelDepartament::fetch($item->department_transfer_id) : '';
+
             if ($counter == 0) {
                 fputcsv($fp, array_keys($values));
             }
