@@ -183,7 +183,7 @@ $FunctionList['editusergroupall'] = array('explain' => 'Allow user to edit anoth
 $FunctionList['grouplist'] = array('explain' => 'Allow user to list group');
 $FunctionList['userlist'] = array('explain' => 'Allow user to list users');
 $FunctionList['selfedit'] = array('explain' => 'Allow user to edit his own data');
-$FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his own responsible departments');
+
 
 // All department option
 $FunctionList['self_all_departments'] = array('explain' => 'Allow user to assign himself to all departments option');
@@ -196,7 +196,14 @@ $FunctionList['assign_all_department_group'] = array('explain' => 'Allow user to
 $FunctionList['assign_to_own_department_individual'] = array('explain' => 'Allow user to change other users individual departments (only if operator belong to them)');
 $FunctionList['assign_to_own_department_group'] = array('explain' => 'Allow user to change other users departments groups (only if operator belong to them)');
 
-$FunctionList['see_user_assigned_departments'] = array('explain' => 'Allow user to see to other user assigned departments/departments groups');
+$FunctionList['see_user_assigned_departments'] = array('explain' => 'Allow user to see to other user assigned departments');
+$FunctionList['see_user_assigned_departments_groups'] = array('explain' => 'Allow user to see to other user assigned departments groups');
+
+// Self account
+$FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to him');
+$FunctionList['see_assigned_departments_groups'] = array('explain' => 'Allow user to see departments groups assigned to him');
+$FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit his own responsible departments/departments groups');
+
 
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from his department');
 $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from his department');
@@ -206,7 +213,6 @@ $FunctionList['personalcannedmsg'] = array('explain' => 'Allow user to have pers
 $FunctionList['personalautoresponder'] = array('explain' => 'Allow user to have personal auto responder messages');
 $FunctionList['changevisibility'] = array('explain' => 'Allow user to change his visibility mode');
 $FunctionList['change_visibility_list'] = array('explain' => 'Allow user to choose what list should be visible by him, pending/active/unread/closed');
-$FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to see departments assigned to him');
 $FunctionList['allowtochoosependingmode'] = array('explain' => 'Allow user to choose what pending chats he can see, only assigned to him or all.');
 $FunctionList['receivepermissionrequest'] = array('explain' => 'Allow user to choose should he receive other operators permissions requests');
 $FunctionList['userautologin'] = array('explain' => 'Allow user to configure autologin');

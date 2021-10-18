@@ -194,48 +194,52 @@ $currentUser = erLhcoreClassUser::instance();
 
 $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
 
-if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account'])) {
-	
-	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
-		erLhcoreClassModule::redirect('user/account');
-		exit;
-	}
+if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($currentUser->hasAccessTo('lhuser','see_assigned_departments') || $currentUser->hasAccessTo('lhuser','see_assigned_departments_groups'))) {
 
-    $departmentEditParams = [
-        'individual' => [
-            'edit_all' => true,
-        ],
-        'groups' => [
-            'edit_all' => true
-        ]
-    ];
-
-    $globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, [
-        'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
-        'edit_params' => $departmentEditParams
-    ]);
-
-    $readOnlyDepartments = array();
-    if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
-        $readOnlyDepartments = $_POST['UserDepartamentRead'];
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/account');
+        exit;
     }
 
-    $UserData->updateThis();
+    if ($currentUser->hasAccessTo('lhuser','see_assigned_departments')) {
+        $departmentEditParams = [
+            'individual' => [
+                'edit_all' => $currentUser->hasAccessTo('lhuser','see_assigned_departments'),
+            ],
+            'groups' => [
+                'edit_all' => $currentUser->hasAccessTo('lhuser','see_assigned_departments_groups')
+            ]
+        ];
 
-	if (count($globalDepartament) > 0) {
-		erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments);
-	} else {
-		erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments);
-	}
+        $globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, [
+            'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
+            'edit_params' => $departmentEditParams
+        ]);
 
-    // Write mode
-	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)));
+        $readOnlyDepartments = array();
+        if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+            $readOnlyDepartments = $_POST['UserDepartamentRead'];
+        }
 
-    // Read mode
-	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)), true);
+        $UserData->updateThis();
+
+        if (count($globalDepartament) > 0) {
+            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments);
+        } else {
+            erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments);
+        }
+    }
+
+    if ($currentUser->hasAccessTo('lhuser','see_assigned_departments_groups')) {
+        // Write mode
+        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)));
+
+        // Read mode
+        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)), true);
+    }
 
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
-	
+
 	$tpl->set('account_updated_departaments','done');
 	$tpl->set('tab','tab_departments');
    

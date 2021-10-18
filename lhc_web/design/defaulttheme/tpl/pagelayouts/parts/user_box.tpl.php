@@ -18,7 +18,7 @@ if ($UserData->force_logout == 1) {
         <div class="row">
             <div class="col-6">
                 <div class="pl-2 pt-1 font-weight-bold" ng-non-bindable>
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hello')?>&nbsp;<?php echo htmlspecialchars(erLhcoreClassDesign::shrt($UserData->name,10,'...',30,ENT_QUOTES))?>!
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hello')?>&nbsp;<?php echo erLhcoreClassDesign::shrt($UserData->name,10,'...',30,ENT_QUOTES)?>!
                 </div>
             </div>
             <?php if ($currentUser->hasAccessTo('lhuser','selfedit')) : ?>
