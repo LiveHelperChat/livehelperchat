@@ -2840,7 +2840,260 @@ class erLhcoreClassChatStatistic {
     public static function colorFromString($string)
     {
         $colors = [
-            '#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'
+            '#F44336',
+            '#FFEBEE',
+            '#FFCDD2',
+            '#EF9A9A',
+            '#E57373',
+            '#EF5350',
+            '#E53935',
+            '#D32F2F',
+            '#C62828',
+            '#B71C1C',
+            '#FF8A80',
+            '#FF5252',
+            '#FF1744',
+            '#D50000',
+            '#FCE4EC',
+            '#F8BBD0',
+            '#F48FB1',
+            '#F06292',
+            '#EC407A',
+            '#E91E63',
+            '#D81B60',
+            '#C2185B',
+            '#AD1457',
+            '#880E4F',
+            '#FF80AB',
+            '#FF4081',
+            '#F50057',
+            '#C51162',
+            '#F3E5F5',
+            '#E1BEE7',
+            '#CE93D8',
+            '#BA68C8',
+            '#AB47BC',
+            '#9C27B0',
+            '#8E24AA',
+            '#7B1FA2',
+            '#6A1B9A',
+            '#4A148C',
+            '#EA80FC',
+            '#E040FB',
+            '#D500F9',
+            '#AA00FF',
+            '#EDE7F6',
+            '#D1C4E9',
+            '#B39DDB',
+            '#9575CD',
+            '#7E57C2',
+            '#673AB7',
+            '#5E35B1',
+            '#512DA8',
+            '#4527A0',
+            '#311B92',
+            '#B388FF',
+            '#7C4DFF',
+            '#651FFF',
+            '#6200EA',
+            '#E8EAF6',
+            '#C5CAE9',
+            '#9FA8DA',
+            '#7986CB',
+            '#5C6BC0',
+            '#3F51B5',
+            '#3949AB',
+            '#303F9F',
+            '#283593',
+            '#1A237E',
+            '#8C9EFF',
+            '#536DFE',
+            '#3D5AFE',
+            '#304FFE',
+            '#E3F2FD',
+            '#BBDEFB',
+            '#90CAF9',
+            '#64B5F6',
+            '#42A5F5',
+            '#2196F3',
+            '#1E88E5',
+            '#1976D2',
+            '#1565C0',
+            '#0D47A1',
+            '#82B1FF',
+            '#448AFF',
+            '#2979FF',
+            '#2962FF',
+            '#E1F5FE',
+            '#B3E5FC',
+            '#81D4FA',
+            '#4FC3F7',
+            '#29B6F6',
+            '#03A9F4',
+            '#039BE5',
+            '#0288D1',
+            '#0277BD',
+            '#01579B',
+            '#80D8FF',
+            '#40C4FF',
+            '#00B0FF',
+            '#0091EA',
+            '#E0F7FA',
+            '#B2EBF2',
+            '#80DEEA',
+            '#4DD0E1',
+            '#26C6DA',
+            '#00BCD4',
+            '#00ACC1',
+            '#0097A7',
+            '#00838F',
+            '#6064',
+            '#84FFFF',
+            '#18FFFF',
+            '#00E5FF',
+            '#00B8D4',
+            '#E0F2F1',
+            '#B2DFDB',
+            '#80CBC4',
+            '#4DB6AC',
+            '#26A69A',
+            '#9688',
+            '#00897B',
+            '#00796B',
+            '#00695C',
+            '#004D40',
+            '#A7FFEB',
+            '#64FFDA',
+            '#1DE9B6',
+            '#00BFA5',
+            '#E8F5E9',
+            '#C8E6C9',
+            '#A5D6A7',
+            '#81C784',
+            '#66BB6A',
+            '#4CAF50',
+            '#43A047',
+            '#388E3C',
+            '#2E7D32',
+            '#1B5E20',
+            '#B9F6CA',
+            '#69F0AE',
+            '#00E676',
+            '#00C853',
+            '#F1F8E9',
+            '#DCEDC8',
+            '#C5E1A5',
+            '#AED581',
+            '#9CCC65',
+            '#8BC34A',
+            '#7CB342',
+            '#689F38',
+            '#558B2F',
+            '#33691E',
+            '#CCFF90',
+            '#B2FF59',
+            '#76FF03',
+            '#64DD17',
+            '#F9FBE7',
+            '#F0F4C3',
+            '#E6EE9C',
+            '#DCE775',
+            '#D4E157',
+            '#CDDC39',
+            '#C0CA33',
+            '#AFB42B',
+            '#9E9D24',
+            '#827717',
+            '#F4FF81',
+            '#EEFF41',
+            '#C6FF00',
+            '#AEEA00',
+            '#FFFDE7',
+            '#FFF9C4',
+            '#FFF59D',
+            '#FFF176',
+            '#FFEE58',
+            '#FFEB3B',
+            '#FDD835',
+            '#FBC02D',
+            '#F9A825',
+            '#F57F17',
+            '#FFFF8D',
+            '#FFFF00',
+            '#FFEA00',
+            '#FFD600',
+            '#FFF8E1',
+            '#FFECB3',
+            '#FFE082',
+            '#FFD54F',
+            '#FFCA28',
+            '#FFC107',
+            '#FFB300',
+            '#FFA000',
+            '#FF8F00',
+            '#FF6F00',
+            '#FFE57F',
+            '#FFD740',
+            '#FFC400',
+            '#FFAB00',
+            '#FFF3E0',
+            '#FFE0B2',
+            '#FFCC80',
+            '#FFB74D',
+            '#FFA726',
+            '#FF9800',
+            '#FB8C00',
+            '#F57C00',
+            '#EF6C00',
+            '#E65100',
+            '#FFD180',
+            '#FFAB40',
+            '#FF9100',
+            '#FF6D00',
+            '#FBE9E7',
+            '#FFCCBC',
+            '#FFAB91',
+            '#FF8A65',
+            '#FF7043',
+            '#FF5722',
+            '#F4511E',
+            '#E64A19',
+            '#D84315',
+            '#BF360C',
+            '#FF9E80',
+            '#FF6E40',
+            '#FF3D00',
+            '#DD2C00',
+            '#EFEBE9',
+            '#D7CCC8',
+            '#BCAAA4',
+            '#A1887F',
+            '#8D6E63',
+            '#795548',
+            '#6D4C41',
+            '#5D4037',
+            '#4E342E',
+            '#3E2723',
+            '#FAFAFA',
+            '#F5F5F5',
+            '#EEEEEE',
+            '#E0E0E0',
+            '#BDBDBD',
+            '#9E9E9E',
+            '#757575',
+            '#616161',
+            '#424242',
+            '#212121',
+            '#ECEFF1',
+            '#CFD8DC',
+            '#B0BEC5',
+            '#90A4AE',
+            '#78909C',
+            '#607D8B',
+            '#546E7A',
+            '#455A64',
+            '#37474F',
+            '#263238',
             // this list should be as long as practical to avoid duplicates
         ];
 
@@ -3199,6 +3452,133 @@ class erLhcoreClassChatStatistic {
         return $statistic;
     }
 
+    public static function byChannel($filter, $params) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getnumberofchatsperchannel',array('params_execution' => $params, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            $yearStart = date('y');
+            $monthStart = date('m');
+
+            if (isset($filter['filterlte']['time'])){
+                $yearStart = date('y',$filter['filterlte']['time']);
+                $monthStart = date('m',$filter['filterlte']['time']);
+            }
+
+            $daysGroupLimit = ($params['groupby'] == 2) ? 42 : 31;
+            $multiplier = ($params['groupby'] == 2) ? 7 : 1;
+            $limitDays = 12;
+
+            if ($params['groupby'] != 0)
+            {
+                $startTimestamp = time()-($daysGroupLimit*$multiplier*24*3600);
+
+                $limitDays = $daysGroupLimit;
+
+                if (isset($filter['filterlte']['time']) && isset($filter['filtergte']['time'])) {
+                    $daysDifference = ceil(($filter['filterlte']['time'] - $filter['filtergte']['time'])/(24*3600*$multiplier));
+                    if ($daysDifference <= $daysGroupLimit && $daysDifference > 0) {
+                        $limitDays = $daysDifference;
+                        $startTimestamp = $filter['filtergte']['time'];
+                    }
+                } elseif (isset($filter['filtergte']['time'])) {
+                    $daysDifference = ceil((time() - $filter['filtergte']['time'])/(24*3600*$multiplier));
+                    if ($daysDifference <= $daysGroupLimit && $daysDifference > 0) {
+                        $limitDays = $daysDifference;
+                        $startTimestamp = $filter['filtergte']['time'];
+                    }
+                } elseif (isset($filter['filterlte']['time'])) {
+                    $limitDays = $daysGroupLimit;
+                    $startTimestamp = $filter['filterlte']['time']-($daysGroupLimit*$multiplier*24*3600);
+                }
+
+                $weekStarted = false;
+            }
+
+            $groupAttributes = array(
+                0 => array('db' => '\'%Y%m\'', 'php' => 'Ym','front' => 'Y.m'), // Month
+                1 => array('db' => '\'%Y%m%d\'', 'php' => 'Ymd','front' => 'Y.m.d'), // Day
+                2 => array('db' => '\'%Y%v\'', 'php' => 'YW','front' => 'Y.m.d'), // Week
+                3 => array('db' => '\'%w\'', 'php' => 'YW','front' => 'Y.m.d') // Week
+            );
+
+            $filter['sort'] = 'time DESC';
+            $filter['group'] = 'FROM_UNIXTIME(time,' . $groupAttributes[$params['groupby']]['db'] . '), incoming_id';
+            $filter['leftjoin']['lh_chat_incoming'] = array('`lh_chat_incoming`.`chat_id`','`lh_chat`.`id`');
+
+            $numberOfChats = erLhcoreClassModelChat::getCount(array_merge_recursive($filter,array()),'',false,'incoming_id, FROM_UNIXTIME(time,'.$groupAttributes[$params['groupby']]['db'].') as day, time, count(`lh_chat`.`id`) as total_records',false, true);
+
+            $webHooksDifference = [];
+            $reformatResponse = [];
+            // Reformat response to correctData
+            foreach ($numberOfChats as $item){
+                $reformatResponse[$item['day']][$item['incoming_id']] = $item['total_records'];
+                if (!isset($webHooksDifference[$item['incoming_id']])) {
+                    $webHooksDifference[$item['incoming_id']] = 0;
+                }
+            }
+
+            if ($params['groupby'] == 3) {
+                $responseReturn = [];
+                for ($day = 1; $day < 8; $day++) {
+                    $i = $day;
+                    if ($i == 7) {
+                        $i = 0;
+                    }
+
+                    $responseReturn[$i] = $webHooksDifference;
+
+                    if (isset($reformatResponse[$i])) {
+                        $responseReturn[$i] = array_replace($webHooksDifference, $reformatResponse[$i]);
+                    }
+                }
+                return $responseReturn;
+            }
+
+            $responseReturn = [];
+
+            for ($i = 0; $i < $limitDays;$i++) {
+                if ($params['groupby'] == 2) {
+                    $dateUnix = mktime(0, 0, 0, date('m', $startTimestamp), date('d', $startTimestamp) + ($i * 7), date('y', $startTimestamp));
+
+                    if ($weekStarted == false) {
+                        $weekStarted = true;
+
+                        if (date('N', $dateUnix) != 1) {
+                            // Adjust start time to be it monday
+                            $startReturning = $startTimestamp = $startTimestamp - ((date('N', $startTimestamp) - 1) * 24 * 3600);
+
+                            continue; // First day is not a monday, skip to next week
+                        }
+                    }
+
+                    // This week has not ended, so exclude it
+                    if (date('YW') == date('YW', $dateUnix) || time() < $dateUnix) {
+                        continue;
+                    }
+
+                    // Day
+                } elseif ($params['groupby'] == 1) {
+                    $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
+
+                    // Month
+                } else if ($params['groupby'] == 0) {
+                    $dateUnix = mktime(0,0,0,$monthStart - $i,1, $yearStart);
+                }
+
+                $responseReturn[$dateUnix] = $webHooksDifference;
+                if (isset($reformatResponse[date($groupAttributes[$params['groupby']]['php'],$dateUnix)])) {
+                    $responseReturn[$dateUnix] = array_replace($webHooksDifference, $reformatResponse[date($groupAttributes[$params['groupby']]['php'],$dateUnix)]);
+                }
+            }
+
+            return $responseReturn;
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function exportCSV($statistic, $type) {
         $filename = "report-" . $type . "-".date('Y-m-d').".csv";
         $fp = fopen('php://output', 'w');
@@ -3430,6 +3810,30 @@ class erLhcoreClassChatStatistic {
                     $value['unique']
                 ]);
             }
+        } else if ($type == 'cs_by_channel') {
+
+            $labels = ['date'];
+            foreach (array_keys(current($statistic['by_channel'])) as $incomingId) {
+                $webHook = erLhcoreClassModelChatIncomingWebhook::fetch($incomingId);
+                $label = $webHook instanceof erLhcoreClassModelChatIncomingWebhook ? $webHook->name : $incomingId;
+                if (empty($label)){
+                    $label = 'Chat';
+                }
+                $labels[] = $label;
+            }
+            fputcsv($fp, $labels);
+
+            foreach ($statistic['by_channel'] as $monthUnix => $data) {
+                $itemData = [
+                    ($monthUnix > 10 ? date('Y-m-d H:i:s',$monthUnix) : $weekDays[(int)$monthUnix])
+                ];
+
+                foreach ($data as $dataItem) {
+                    $itemData[] = (int)$dataItem;
+                }
+                fputcsv($fp,$itemData);
+            }
+
         } else if ($type == 'cs_active') {
             fputcsv($fp, ['date','closed','active','operators','pending','bot','total_chats']);
             foreach ($statistic['numberOfChatsPerMonth'] as $monthUnix => $data) {

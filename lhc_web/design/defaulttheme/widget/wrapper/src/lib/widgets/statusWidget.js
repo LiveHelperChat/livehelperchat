@@ -89,14 +89,11 @@ export class statusWidget{
             if (data) {
                 const chatParams = this.attributes['userSession'].getSessionAttributes();
                 if (!chatParams['id'] && this.attributes.widgetStatus.value != true) {
-                    this.attributes['hide_status'] = true;
                     this.loadStatus['shidden'] = true;
                     this.hide();
-                } else {
-                    this.attributes['hide_status'] = false;
                 }
             } else {
-                this.attributes['hide_status'] = this.loadStatus['shidden'] = false;
+                this.loadStatus['shidden'] = false;
                 this.checkLoadStatus();
                 this.show();
             }
