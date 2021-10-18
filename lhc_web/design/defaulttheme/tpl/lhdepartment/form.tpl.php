@@ -396,6 +396,12 @@
                    <label><input type="checkbox" name="hide_send_email" value="on" <?php if (isset($departament->bot_configuration_array['hide_send_email']) && $departament->bot_configuration_array['hide_send_email'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Hide send e-mail button for operators in chat window');?></label>
                </div>
 
+                <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Department groups');?></h6>
+                <ul>
+                <?php foreach (erLhcoreClassModelDepartamentGroupMember::getList(['filter' => ['dep_id' => $departament->id]]) as $departmentGroupMember) : ?>
+                    <li><?php echo htmlspecialchars(erLhcoreClassModelDepartamentGroup::fetch($departmentGroupMember->dep_group_id)) ?></li>
+                <?php endforeach; ?>
+                </ul>
 		    </div>
 
 		    <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_content_multiinclude.tpl.php'));?>
