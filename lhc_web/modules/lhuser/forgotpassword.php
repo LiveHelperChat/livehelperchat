@@ -50,10 +50,10 @@ if (isset($_POST['Forgotpassword'])) {
 			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Password remind');
 
 			// HTML body
-			$body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Click this link and You will be sent a new password').' </br><a href="' . (erLhcoreClassSystem::$httpsMode == true ? 'https://' : 'http://') . $host . erLhcoreClassDesign::baseurl('user/remindpassword').'/'.$hash.'">Restore password</a>';
+			$body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Click this link and You will be able to change a password').' </br><a href="' . (erLhcoreClassSystem::$httpsMode == true ? 'https://' : 'http://') . $host . erLhcoreClassDesign::baseurl('user/remindpassword').'/'.$hash.'">Restore password</a>';
 
 			// Plain text body
-			$text_body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Click this link and You will be sent a new password').' - ' . (erLhcoreClassSystem::$httpsMode == true ? 'https://' : 'http://') . $host . erLhcoreClassDesign::baseurl('user/remindpassword').'/'.$hash;
+			$text_body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/forgotpassword','Click this link and You will be able to change a password').' - ' . (erLhcoreClassSystem::$httpsMode == true ? 'https://' : 'http://') . $host . erLhcoreClassDesign::baseurl('user/remindpassword').'/'.$hash;
 
 			$mail->Body    = $body;
 			$mail->AltBody = $text_body;

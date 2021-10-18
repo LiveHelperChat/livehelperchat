@@ -61,15 +61,13 @@ class erLhcoreClassModelForgotPassword {
         return false;
 	}
 
-	public static function deleteHash($id) {
+	public static function deleteHash($user_id) {
 		$db = ezcDbInstance::get();
-       	$stmt = $db->prepare('DELETE FROM lh_forgotpasswordhash WHERE id =:id LIMIT 1');
-       	$stmt->bindValue( ':id',$id);
+       	$stmt = $db->prepare('DELETE FROM lh_forgotpasswordhash WHERE user_id =:user_id');
+       	$stmt->bindValue( ':user_id',$user_id);
        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
 	}
-
-
 
     public $id = null;
     public $username = '';

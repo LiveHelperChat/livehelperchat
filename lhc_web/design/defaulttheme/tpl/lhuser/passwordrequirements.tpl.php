@@ -30,6 +30,10 @@
         <input type="number" class="form-control form-control-sm" name="max_attempts" value="<?php (isset($password_data['max_attempts'])) ? print htmlspecialchars($password_data['max_attempts']) : print '' ?>" />
     </div>
 
+    <div class="form-group">
+        <label><input type="checkbox" class="mr-1" value="on" <?php (isset($password_data['generate_manually']) && $password_data['generate_manually'] == 1) ? print 'checked="checked"': print '' ?> name="generate_manually" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','We should generate password for password reminder');?></label>
+    </div>
+
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Password format requirements');?></h5>
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Minimal password length');?></label>

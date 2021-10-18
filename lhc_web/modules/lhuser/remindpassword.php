@@ -1,58 +1,98 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/remindpassword.tpl.php');
-
-$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Hash was not found or was used already');
+$tpl = erLhcoreClassTemplate::getInstance('lhuser/remindpassword.tpl.php');
 
 $hash = $Params['user_parameters']['hash'];
 
 if ($hash != '') {
 
-	$hashData = erLhcoreClassModelForgotPassword::checkHash($hash);
+    $hashData = erLhcoreClassModelForgotPassword::checkHash($hash);
 
-	if ($hashData) {
+    if ($hashData) {
 
-		$UserData = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', (int)$hashData['user_id'] );
+        $UserData = erLhcoreClassUser::getSession()->load('erLhcoreClassModelUser', (int)$hashData['user_id']);
 
-		if ($UserData) {
+        if ($UserData) {
 
-			$password = erLhcoreClassModelForgotPassword::randomPassword(10);
-			$UserData->setPassword($password);
+            $tpl->set('hash', $hashData['hash']);
 
-			erLhcoreClassUser::getSession()->update($UserData);
+            $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
 
-			$adminEmail = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_admin_email' );
+            $tpl->set('minimum_length', 1);
 
-			$mail = new PHPMailer();
-			$mail->CharSet = "UTF-8";
-			$mail->From = $adminEmail;
-			$mail->FromName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'title' );
-			$mail->Subject = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Password reminder - new password');
+            if (isset($passwordData['length']) && $passwordData['length'] > 0) {
+                $tpl->set('minimum_length', $passwordData['length']);
+            }
 
-			// HTML body
-			$body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password:').' '.$password;
+            foreach (['uppercase_required','number_required','special_required','lowercase_required'] as $passwordRequirement) {
+                if (isset($passwordData[$passwordRequirement]) && $passwordData[$passwordRequirement] > 0) {
+                    $tpl->set($passwordRequirement, $passwordData[$passwordRequirement]);
+                }
+            }
 
-			// Plain text body
-			$text_body  = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password:').' '.$password;
+            if (isset($passwordData['generate_manually']) && $passwordData['generate_manually'] == 1) {
 
-			$mail->Body    = $body;
-			$mail->AltBody = $text_body;
-			$mail->AddAddress( $UserData->email, $UserData->username);
+                $newPassword = erLhcoreClassUserValidator::generatePassword();
 
-			erLhcoreClassChatMail::setupSMTP($mail);
+                $tpl->set('manual_password', true);
+                $tpl->set('new_password', $newPassword);
 
-			$mail->Send();
-			$mail->ClearAddresses();
+                $UserData->setPassword($newPassword);
+                erLhcoreClassUser::getSession()->update($UserData);
 
-			$msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','New password has been sent to your email.');
+                erLhcoreClassModelForgotPassword::deleteHash($hashData['user_id']);
 
-			erLhcoreClassModelForgotPassword::deleteHash($hashData['id']);
+            } else {
+                if (ezcInputForm::hasPostData()) {
+                    $definition = array(
+                        'Password1' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        ),
+                        'Password2' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        )
+                    );
 
-		}
-	}
+                    $form = new ezcInputForm(INPUT_POST, $definition);
+
+                    $Errors = array();
+
+                    if (!$form->hasValidData('Password1') || !$form->hasValidData('Password2')) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
+                    }
+
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2')) {
+                        $UserData->password_temp_1 = $form->Password1;
+                        $UserData->password_temp_2 = $form->Password2;
+                    }
+
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '' && $form->Password1 != $form->Password2) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Passwords must match!');
+                    }
+
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '') {
+                        $UserData->setPassword($form->Password1);
+                        $UserData->password_front = $form->Password2;
+                        erLhcoreClassUserValidator::validatePassword($UserData, $Errors);
+                    } else {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
+                    }
+
+                    if (empty($Errors)) {
+                        $tpl->set('account_updated', true);
+
+                        $UserData->setPassword($UserData->password_front);
+                        erLhcoreClassUser::getSession()->update($UserData);
+
+                        erLhcoreClassModelForgotPassword::deleteHash($hashData['user_id']);
+                    } else {
+                        $tpl->set('errors', $Errors);
+                    }
+                }
+            }
+        }
+    }
 }
-
-$tpl->set('msg',$msg);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'login';

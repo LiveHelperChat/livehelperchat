@@ -647,6 +647,40 @@ class erLhcoreClassUserValidator {
 	    return $globalDepartament;
 	}
 
+    public static function generatePassword() {
+
+        $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+        $charactersList = [
+            'uppercase_required' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'lowercase_required' => 'abcdefghijklmnopqrstuvwxyz',
+            'number_required' => '0123456789',
+            'special_required' => '~!@#$%^&*()_+-,.<>/?;:\'"{}[]\\|=',
+        ];
+
+        $passwordParts = [];
+
+        foreach (['uppercase_required','number_required','special_required','lowercase_required'] as $parameter){
+            if (isset($passwordData[$parameter]) && $passwordData[$parameter] > 0) {
+                for ($i = 0; $i < $passwordData[$parameter]; $i++) {
+                    $passwordParts[] = substr($charactersList[$parameter], random_int(1, strlen($charactersList[$parameter])) - 1, 1);
+                }
+            }
+        }
+
+        $passwordRandomized = [];
+
+        while (!empty($passwordParts)) {
+            $passwordRandomized[] = implode('',array_splice($passwordParts,random_int(1, count($passwordParts)) - 1,1));
+        }
+
+        if (empty($passwordRandomized)) {
+            return erLhcoreClassModelForgotPassword::randomPassword(10);
+        }
+
+        return implode($passwordRandomized);
+    }
+
 	public static function validatePassword(& $userData, & $Errors)
     {
         if ($userData->password_temp_1 != '') {
