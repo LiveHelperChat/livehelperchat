@@ -3,7 +3,7 @@
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print 10?> pr-0">
 			<div class="btn-group btn-block btn-block-department">
 				<button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
-					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ")}}
+					{{lhc.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : (lhc.<?php echo $optinsPanel['panelid']?>.length == 1 ? lhc.<?php echo $optinsPanel['panelid']?>Names.join(", ") : '['+lhc.<?php echo $optinsPanel['panelid']?>.length+'] '+'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','departments');?>')}}
 				</button>
 				<ul class="dropdown-menu" role="menu">
 				    <li><label><input type="checkbox" ng-change="lhc.allDepartmentsChanged('<?php echo $optinsPanel['panelid']?>',true)" ng-model="lhc.<?php echo $optinsPanel['panelid']?>_all_departments"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Check all')?></label></li>
