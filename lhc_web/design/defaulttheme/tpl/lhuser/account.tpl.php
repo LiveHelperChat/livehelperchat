@@ -16,7 +16,7 @@
 <ul class="nav nav-tabs mb-3" role="tablist">
 	<li role="presentation" class="nav-item"><a href="#account" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="account" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account data');?></a></li>
 	
-	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
+	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments_groups')) : ?>
 	<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_departments') : ?> active<?php endif;?>" href="#departments" aria-controls="departments" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assigned departments');?></a></li>
 	<?php endif;?>
 	
@@ -153,8 +153,8 @@
 
 		</form>
 	</div>
-	
-	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments')) : ?>
+
+	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments_groups')) : ?>
 	<div role="tabpanel" ng-non-bindable class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments" >
     	<?php 
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
@@ -165,27 +165,50 @@
                    'self_edit' => true,
                    'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
                    'individual' => [
-                           'read_all' => true,
-                           'edit_all' => true,
+                           'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments'),
+                           'edit_all' => $editdepartaments,
+                           'edit_personal' => false,
+                           'see_personal' => false,
                    ],
                    'groups' => [
-                           'read_all' => true,
-                           'edit_all' => true,
+                           'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments_groups'),
+                           'edit_all' => $editdepartaments,
+                           'edit_personal' => false,
+                           'see_personal' => false,
                    ]
            ];
+
+            if ($departmentEditParams['individual']['edit_all'] == false) {
+                $departmentEditParams['individual']['id'] = array_merge(
+                    erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                        $user->id
+                    ),
+                    erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                        $user->id,
+                        true
+                    )
+                );
+            }
+
+            if ($departmentEditParams['groups']['edit_all'] == false) {
+                $departmentEditParams['groups']['id'] = array_merge(
+                    erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                        $user->id
+                    ),
+                    erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                        $user->id,
+                        true
+                    )
+                );
+            }
+
     	?>
-    	<?php if ($editdepartaments === true) { ?>
+
     	<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>#departments" method="post" enctype="multipart/form-data">
             <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
-            
             <input type="submit" class="btn btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
-            
 		</form>
-    	<?php } else {?>
-        	<?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
-        	    <label><input type="checkbox" disabled value="<?php echo $departament['id']?>" <?php echo in_array($departament['id'],$userDepartaments) ? 'checked="checked"' : '';?> /> <?php echo htmlspecialchars($departament['name'])?></label><br>
-        	<?php endforeach; ?>    
-    	<?php } ?>
+
 	</div>
 	<?php endif;?>
 		

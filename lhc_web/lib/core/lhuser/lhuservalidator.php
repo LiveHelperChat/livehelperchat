@@ -1118,10 +1118,10 @@ class erLhcoreClassUserValidator {
         return $status;
     }
 
-    public static function getDepartmentValidationParams($UserData)
+    public static function getDepartmentValidationParams($UserData, $selfEdit = false)
     {
         $departmentEditParams = [
-            'self_edit' => false,
+            'self_edit' => $selfEdit,
             'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
             'individual' => [
                 'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
@@ -1129,7 +1129,7 @@ class erLhcoreClassUserValidator {
                 'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual')
             ],
             'groups' => [
-                'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+                'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments_groups') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
                 'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
                 'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group')
             ]
