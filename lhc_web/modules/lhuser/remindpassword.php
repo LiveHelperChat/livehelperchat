@@ -30,50 +30,64 @@ if ($hash != '') {
                 }
             }
 
-            if (ezcInputForm::hasPostData()) {
-                $definition = array(
-                    'Password1' => new ezcInputFormDefinitionElement(
-                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-                    ),
-                    'Password2' => new ezcInputFormDefinitionElement(
-                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-                    )
-                );
+            if (isset($passwordData['generate_manually']) && $passwordData['generate_manually'] == 1) {
 
-                $form = new ezcInputForm(INPUT_POST, $definition);
+                $newPassword = erLhcoreClassUserValidator::generatePassword();
 
-                $Errors = array();
+                $tpl->set('manual_password', true);
+                $tpl->set('new_password', $newPassword);
 
-                if (!$form->hasValidData('Password1') || !$form->hasValidData('Password2')) {
-                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
-                }
+                $UserData->setPassword($newPassword);
+                erLhcoreClassUser::getSession()->update($UserData);
 
-                if ($form->hasValidData('Password1') && $form->hasValidData('Password2')) {
-                    $UserData->password_temp_1 = $form->Password1;
-                    $UserData->password_temp_2 = $form->Password2;
-                }
+                erLhcoreClassModelForgotPassword::deleteHash($hashData['user_id']);
 
-                if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '' && $form->Password1 != $form->Password2) {
-                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Passwords must match!');
-                }
+            } else {
+                if (ezcInputForm::hasPostData()) {
+                    $definition = array(
+                        'Password1' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        ),
+                        'Password2' => new ezcInputFormDefinitionElement(
+                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                        )
+                    );
 
-                if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '') {
-                    $UserData->setPassword($form->Password1);
-                    $UserData->password_front = $form->Password2;
-                    erLhcoreClassUserValidator::validatePassword($UserData, $Errors);
-                } else {
-                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
-                }
+                    $form = new ezcInputForm(INPUT_POST, $definition);
 
-                if (empty($Errors)) {
-                    $tpl->set('account_updated', true);
+                    $Errors = array();
 
-                    $UserData->setPassword($UserData->password_front);
-                    erLhcoreClassUser::getSession()->update($UserData);
+                    if (!$form->hasValidData('Password1') || !$form->hasValidData('Password2')) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
+                    }
 
-                    erLhcoreClassModelForgotPassword::deleteHash($hashData['user_id']);
-                } else {
-                    $tpl->set('errors', $Errors);
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2')) {
+                        $UserData->password_temp_1 = $form->Password1;
+                        $UserData->password_temp_2 = $form->Password2;
+                    }
+
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '' && $form->Password1 != $form->Password2) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Passwords must match!');
+                    }
+
+                    if ($form->hasValidData('Password1') && $form->hasValidData('Password2') && $form->Password1 != '' && $form->Password2 != '') {
+                        $UserData->setPassword($form->Password1);
+                        $UserData->password_front = $form->Password2;
+                        erLhcoreClassUserValidator::validatePassword($UserData, $Errors);
+                    } else {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Please enter a password!');
+                    }
+
+                    if (empty($Errors)) {
+                        $tpl->set('account_updated', true);
+
+                        $UserData->setPassword($UserData->password_front);
+                        erLhcoreClassUser::getSession()->update($UserData);
+
+                        erLhcoreClassModelForgotPassword::deleteHash($hashData['user_id']);
+                    } else {
+                        $tpl->set('errors', $Errors);
+                    }
                 }
             }
         }

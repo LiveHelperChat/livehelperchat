@@ -33,6 +33,9 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         ),
         'logout_after' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        ),
+        'generate_manually' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
 
@@ -56,6 +59,12 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['disable_after'] = $form->disable_after;
     } else {
         $data['disable_after'] = 0;
+    }
+
+    if ( $form->hasValidData( 'generate_manually' ) && $form->generate_manually == true ) {
+        $data['generate_manually'] = 1;
+    } else {
+        $data['generate_manually'] = 0;
     }
     
     if ( $form->hasValidData( 'logout_after' ) ) {

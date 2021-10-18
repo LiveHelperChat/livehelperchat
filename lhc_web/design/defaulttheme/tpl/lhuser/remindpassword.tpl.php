@@ -5,6 +5,20 @@
         <?php $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password was reset. Please login now.');$hideSuccessButton = true; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 
+    <?php elseif (isset($manual_password) && $manual_password == 1) : ?>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New password was set, copy it or');?>&nbsp;<a href="#" class="action-image" onclick="$('#new-password').get(0).type = 'text';return false;"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','click to show');?>.</a></label>
+            <div class="input-group input-group-sm mb-3">
+                <input readonly class="form-control" type="password" id="new-password" value="<?php echo htmlspecialchars($new_password)?>" />
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <span data-success="Copied" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy');?>" data-copy="<?php echo htmlspecialchars($new_password)?>" onclick="lhinst.copyContent($(this))" class="material-icons mr-0 action-image">content_copy</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
         <a class="btn btn-primary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('user/login')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Login')?></a>
 
     <?php else : ?>
