@@ -782,6 +782,14 @@ if ($theme !== false) {
         $chat_ui['custom_html_widget'] .= erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->explain_text));
     }
 
+    if (isset($theme->bot_configuration_array['custom_html_priority']) && $theme->bot_configuration_array['custom_html_priority'] == '1') {
+        $chat_ui['custom_html_priority'] = 1;
+    }
+
+    if (isset($theme->bot_configuration_array['proactive_once_typed']) && $theme->bot_configuration_array['proactive_once_typed'] == '1') {
+        $chat_ui['proactive_once_typed'] = 1;
+    }
+
     if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
         $chat_ui['clinst'] = true;
     }
