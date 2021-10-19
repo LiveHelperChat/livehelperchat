@@ -485,6 +485,14 @@
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('prev_msg', $fields['prev_msg'], $object)?> <?php echo $fields['prev_msg']['trans'];?></label>
         		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('custom_html_priority', $fields['custom_html_priority'], $object)?> <?php echo $fields['custom_html_priority']['trans'];?></label>
+        		        </div>
+
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('proactive_once_typed', $fields['proactive_once_typed'], $object)?> <?php echo $fields['proactive_once_typed']['trans'];?></label>
+        		        </div>
                     
 						<div class="form-group">
 						    <label><?php echo erLhcoreClassAbstract::renderInput('hide_job_title', $fields['hide_job_title'], $object)?> <?php echo $fields['hide_job_title']['trans'];?></label>

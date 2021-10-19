@@ -25,6 +25,7 @@ class StartChat extends Component {
         super(props);
 
         this.apiLoaded = false;
+        this.customHTMLPriority = false;
 
         this.state = {showBBCode : null, Question:''};
         this.botPayload = null;
@@ -147,6 +148,21 @@ class StartChat extends Component {
                 })
             }
         }
+
+        if (obj.id == 'Question')
+        {
+            if (this.props.chatwidget.getIn(['proactive','has']) === true &&
+                obj.value != '' &&
+                this.props.chatwidget.getIn(['chat_ui','proactive_once_typed']) === 1 &&
+                this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1
+            ) {
+                this.props.dispatch({type: 'attr_set', attr : ['chat_ui','custom_html_priority'], data : 0});
+                this.customHTMLPriority = true;
+            } else if (obj.value == '' && this.customHTMLPriority == true) {
+                this.props.dispatch({type: 'attr_set', attr : ['chat_ui','custom_html_priority'], data : 1});
+            }
+        }
+
     }
 
     handleContentChangeCustom(obj) {
@@ -411,7 +427,7 @@ class StartChat extends Component {
 
                         <div className={msg_expand} id="messagesBlock">
                             <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
-                                {this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
+                                {(this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.getIn(['chat_ui','custom_html_priority'])) && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
                                 {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
 
@@ -424,7 +440,7 @@ class StartChat extends Component {
                             </div>
                         </div>
 
-                        {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
+                        {(!this.props.chatwidget.getIn(['proactive','has']) || this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
                         {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && <div className="d-flex flex-row border-top position-relative message-send-area">
 
