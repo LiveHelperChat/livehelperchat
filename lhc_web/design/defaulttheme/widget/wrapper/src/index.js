@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 184;
+            lhc.version = 185;
 
             var init = () => {
 
@@ -412,7 +412,7 @@
                             attributesWidget.clinst = true;
                         }
 
-                        if (data.chat_ui.wbottom && !isMobile) {
+                        if (data.chat_ui.wbottom) {
                             attributesWidget.widgetDimesions.nextProperty('wbottom', data.chat_ui.wbottom);
                         }
 
@@ -424,11 +424,11 @@
                             attributesWidget.widgetDimesions.nextProperty('sright', data.chat_ui.sright);
                         }
 
-                        if (data.chat_ui.wright && !isMobile) {
+                        if (data.chat_ui.wright) {
                             attributesWidget.widgetDimesions.nextProperty('wright', data.chat_ui.wright);
                         }
 
-                        if (data.chat_ui.wright_inv && !isMobile) {
+                        if (data.chat_ui.wright_inv) {
                             attributesWidget.widgetDimesions.nextProperty('wright_inv', data.chat_ui.wright_inv);
                         }
 
