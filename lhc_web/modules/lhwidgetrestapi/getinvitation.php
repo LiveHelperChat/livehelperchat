@@ -214,11 +214,23 @@ if (isset($theme) && isset($theme->bot_configuration_array['prev_msg']) && $them
 }
 
 
-if (strpos($outputResponse['message'],'{operator}') !== false) {
+if (
+    strpos($outputResponse['message'],'{operator}') !== false ||
+    strpos($outputResponse['message'],'{operator_name}') !== false
+) {
     $outputResponse['message'] = str_replace('{operator}',$outputResponse['name_support'], $outputResponse['message']);
 
     // Update operator message so once chat is started it will have correct message.
     $onlineUser->operator_message = str_replace('{operator}', $outputResponse['name_support'], $onlineUser->operator_message);
+
+    if ($onlineUser->operator_user !== false) {
+        $outputResponse['message'] = str_replace('{operator_name}', $onlineUser->operator_user->name, $outputResponse['message']);
+        $onlineUser->operator_message = str_replace('{operator_name}', $onlineUser->operator_user->name, $onlineUser->operator_message);
+    } else {
+        $outputResponse['message'] = str_replace('{operator_name}', '', $outputResponse['message']);
+        $onlineUser->operator_message = str_replace('{operator_name}', '', $onlineUser->operator_message);
+    }
+
     $onlineUser->updateThis(['update' => ['operator_message']]);
 }
 
