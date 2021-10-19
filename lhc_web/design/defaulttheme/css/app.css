@@ -1698,6 +1698,12 @@ html {
     flex-direction: column;
 }
 
+.dashboard-height #right-column-page{
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
 /*.dashboard-height #middle-column-page > div,*/
 .dashboard-height #middle-column-page,
 .dashboard-height #page-content-wrapper,

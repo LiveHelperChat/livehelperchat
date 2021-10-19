@@ -1930,3 +1930,9 @@ html {
     float:right;
     margin-top: 8px;
 }
+
+.dashboard-height #right-column-page{
+    position: absolute;
+    right: 0;
+    top: 4px;
+}

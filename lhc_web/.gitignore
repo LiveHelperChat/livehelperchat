@@ -2,3 +2,4 @@ node_modules
 bower_components
 package-lock.json
 composer.phar
+post_deploy.sh
