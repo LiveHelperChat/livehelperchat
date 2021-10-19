@@ -1936,3 +1936,7 @@ html {
     right: 0;
     top: 4px;
 }
+
+.statistic-tab canvas{
+    background: white;
+}
