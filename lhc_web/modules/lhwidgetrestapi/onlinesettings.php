@@ -2,6 +2,40 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+function renderMessage($paramsRender, $theme) {
+    $tpl = new erLhcoreClassTemplate( 'lhchat/syncuser.tpl.php');
+
+    $msg = new erLhcoreClassModelmsg();
+
+    if (isset($paramsRender['intro_message']) && $paramsRender['intro_message'] != '') {
+        $msg->msg = $paramsRender['intro_message'];
+    }
+
+    if (isset($paramsRender['intro_message_html']) && $paramsRender['intro_message_html'] != '') {
+        $msg->meta_msg = json_encode([
+            'content' => [
+                'html' => [
+                    'content' => $paramsRender['intro_message_html']
+                ]
+            ]
+        ]);
+    }
+
+    $msg->id = -1;
+    $msg->user_id = -2;
+    $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+    $msg->time = time();
+
+    $tpl->set('messages', [$msg->getState()]);
+    $tpl->set('chat',new erLhcoreClassModelChat());
+    $tpl->set('sync_mode','');
+    $tpl->set('async_call',true);
+    $tpl->set('theme',$theme);
+    $tpl->set('react',true);
+
+    return $tpl->fetch();
+}
+
 erTranslationClassLhTranslation::$htmlEscape = false;
 
 $requestPayload = json_decode(file_get_contents('php://input'),true);
@@ -834,37 +868,7 @@ if ($theme !== false) {
             (isset($theme->bot_configuration_array['intro_message']) && $theme->bot_configuration_array['intro_message'] != '') ||
             (isset($theme->bot_configuration_array['intro_message_html']) && $theme->bot_configuration_array['intro_message_html'] != '')
         ) {
-            $tpl = new erLhcoreClassTemplate( 'lhchat/syncuser.tpl.php');
-
-            $msg = new erLhcoreClassModelmsg();
-
-            if (isset($theme->bot_configuration_array['intro_message']) && $theme->bot_configuration_array['intro_message'] != '') {
-                $msg->msg = $theme->bot_configuration_array['intro_message'];
-            }
-
-            if (isset($theme->bot_configuration_array['intro_message_html']) && $theme->bot_configuration_array['intro_message_html'] != '') {
-                $msg->meta_msg = json_encode([
-                    'content' => [
-                        'html' => [
-                            'content' => $theme->bot_configuration_array['intro_message_html']
-                        ]
-                    ]
-                ]);
-            }
-
-            $msg->id = -1;
-            $msg->user_id = -2;
-            $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-            $msg->time = time();
-
-            $tpl->set('messages', [$msg->getState()]);
-            $tpl->set('chat',new erLhcoreClassModelChat());
-            $tpl->set('sync_mode','');
-            $tpl->set('async_call',true);
-            $tpl->set('theme',$theme);
-            $tpl->set('react',true);
-
-            $chat_ui['cmmsg_widget'] = $tpl->fetch();
+            $chat_ui['cmmsg_widget'] = renderMessage($theme->bot_configuration_array, $theme);
         }
     }
 
@@ -894,7 +898,26 @@ if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFie
     $chat_ui['operator_profile'] .= $tpl->fetch();
 }
 
-$chat_ui['operator_profile'] = $preChatHTML . $chat_ui['operator_profile'];
+if (!empty($preChatHTML)) {
+    $chat_ui['pre_chat_html'] = $preChatHTML;
+}
+
+foreach ([
+            'custom_html_widget',
+            'custom_html_header_body',
+            'custom_html_header',
+            'cmmsg_widget',
+            'pre_chat_html'
+         ] as $attrOverride) {
+    if (isset($requestPayload['chat_ui'][$attrOverride])) {
+        $chat_ui[$attrOverride] = $requestPayload['chat_ui'][$attrOverride];
+    }
+}
+
+if (isset($requestPayload['chat_ui']['intro_message']) || isset($requestPayload['chat_ui']['intro_message_html'])) {
+    $chat_ui['cmmsg_widget'] = renderMessage($requestPayload['chat_ui'], $theme);
+}
+
 
 if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;

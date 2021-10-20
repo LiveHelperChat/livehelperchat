@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 185;
+            lhc.version = 186;
 
             var init = () => {
 
@@ -130,6 +130,7 @@
                     LHC_API: LHC_API,
                     viewHandler: null,
                     msgSnippet: null,
+                    react_attr: LHC_API.args.react_attr || null,
                     hide_parent: LHC_API.args.hide_parent || false,
                     hide_iframe: LHC_API.args.hide_iframe || false,
                     hide_status: LHC_API.args.hide_status || null,
@@ -940,6 +941,15 @@
                         attributesWidget.childCommands.forEach((params) => {
                             chatEvents.sendChildEvent(params['cmd'], [params['arg']]);
                         });
+
+                        if (attributesWidget.react_attr !== null) {
+                            attributesWidget.react_attr.forEach(item => {
+                                chatEvents.sendChildEvent('attr_set',[{
+                                    'type':'attr_set','attr': item['k'],
+                                    data : item['v']
+                                }]);
+                            })
+                        }
 
                     } else if (parts[1] == 'ready_popup') {
                         attributesWidget.popupWidget.sendParameters(chatEvents);
