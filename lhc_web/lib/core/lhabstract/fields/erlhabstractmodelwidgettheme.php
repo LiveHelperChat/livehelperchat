@@ -496,6 +496,54 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'intro_message' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator intro message. You can wrap custom HTML with [html][/html] bbcode'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'intro_message_html' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator intro message in HTML'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                 'pre_chat_html' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html above status/profile body in online mode'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'pre_offline_chat_html' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html above status/profile body in offline mode'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'custom_html_header_body' => array(
    						'type' => 'textarea',
    						'height' => '50px',

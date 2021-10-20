@@ -614,6 +614,8 @@ if (erLhcoreClassModelChatConfig::fetch('product_enabled_module')->current_value
     $departmentsOptions['settings']['product'] = true;
 }
 
+$preChatHTML = '';
+
 if ($theme !== false) {
 
     // Theme configuration overrides default settings
@@ -798,8 +800,14 @@ if ($theme !== false) {
         $chat_ui['msg_expand'] = true;
     }
 
-    if ($Params['user_parameters_unordered']['online'] == '0' && isset($theme->bot_configuration_array['custom_start_button_offline']) && $theme->bot_configuration_array['custom_start_button_offline'] != '') {
-        $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_offline'];
+    if ($Params['user_parameters_unordered']['online'] == '0') {
+        if (isset($theme->bot_configuration_array['custom_start_button_offline']) && $theme->bot_configuration_array['custom_start_button_offline'] != ''){
+            $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button_offline'];
+        }
+
+        if (isset($theme->bot_configuration_array['pre_offline_chat_html']) && $theme->bot_configuration_array['pre_offline_chat_html'] != '') {
+            $preChatHTML = $theme->bot_configuration_array['pre_offline_chat_html'];
+        }
     }
 
     if ($Params['user_parameters_unordered']['online'] == '1') {
@@ -817,10 +825,55 @@ if ($theme !== false) {
         if (!isset($chat_ui['custom_start_button']) && isset($theme->bot_configuration_array['custom_start_button']) && $theme->bot_configuration_array['custom_start_button'] != '') {
             $chat_ui['custom_start_button'] = $theme->bot_configuration_array['custom_start_button'];
         }
+
+        if (isset($theme->bot_configuration_array['pre_chat_html']) && $theme->bot_configuration_array['pre_chat_html'] != '') {
+            $preChatHTML = $theme->bot_configuration_array['pre_chat_html'];
+        }
+
+        if ((!isset($chat_ui['cmmsg_widget']) || $chat_ui['cmmsg_widget'] == '') &&
+            (isset($theme->bot_configuration_array['intro_message']) && $theme->bot_configuration_array['intro_message'] != '') ||
+            (isset($theme->bot_configuration_array['intro_message_html']) && $theme->bot_configuration_array['intro_message_html'] != '')
+        ) {
+            $tpl = new erLhcoreClassTemplate( 'lhchat/syncuser.tpl.php');
+
+            $msg = new erLhcoreClassModelmsg();
+
+            if (isset($theme->bot_configuration_array['intro_message']) && $theme->bot_configuration_array['intro_message'] != '') {
+                $msg->msg = $theme->bot_configuration_array['intro_message'];
+            }
+
+            if (isset($theme->bot_configuration_array['intro_message_html']) && $theme->bot_configuration_array['intro_message_html'] != '') {
+                $msg->meta_msg = json_encode([
+                    'content' => [
+                        'html' => [
+                            'content' => $theme->bot_configuration_array['intro_message_html']
+                        ]
+                    ]
+                ]);
+            }
+
+            $msg->id = -1;
+            $msg->user_id = -2;
+            $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+            $msg->time = time();
+
+            $tpl->set('messages', [$msg->getState()]);
+            $tpl->set('chat',new erLhcoreClassModelChat());
+            $tpl->set('sync_mode','');
+            $tpl->set('async_call',true);
+            $tpl->set('theme',$theme);
+            $tpl->set('react',true);
+
+            $chat_ui['cmmsg_widget'] = $tpl->fetch();
+        }
     }
 
     if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
         $chat_ui['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
+    }
+
+    if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
+        $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
     }
 
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
@@ -840,6 +893,8 @@ if ($Params['user_parameters_unordered']['online'] == '1' && isset($startDataFie
 
     $chat_ui['operator_profile'] .= $tpl->fetch();
 }
+
+$chat_ui['operator_profile'] = $preChatHTML . $chat_ui['operator_profile'];
 
 if ($theme !== false && $theme->hide_popup == 1) {
     $chat_ui['hide_popup'] = true;
