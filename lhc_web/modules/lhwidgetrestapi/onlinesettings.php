@@ -907,12 +907,15 @@ foreach ([
             'custom_html_header_body',
             'custom_html_header',
             'cmmsg_widget',
-            'pre_chat_html'
+            'pre_chat_html',
+            'operator_profile'
          ] as $attrOverride) {
     if (isset($requestPayload['chat_ui'][$attrOverride])) {
         $chat_ui[$attrOverride] = $requestPayload['chat_ui'][$attrOverride];
     }
 }
+
+
 
 if (isset($requestPayload['chat_ui']['intro_message']) || isset($requestPayload['chat_ui']['intro_message_html'])) {
     $chat_ui['cmmsg_widget'] = renderMessage($requestPayload['chat_ui'], $theme);
