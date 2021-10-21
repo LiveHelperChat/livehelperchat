@@ -21,7 +21,7 @@
 	</ul>
 
 	<!-- Tab panes -->
-	<div class="tab-content">
+	<div class="tab-content statistic-tab">
 	    
 	    <?php if ($tab == 'active') : ?>
 		<div role="tabpanel" class="tab-pane active">
