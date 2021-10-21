@@ -390,8 +390,20 @@ class erLhcoreClassUser{
      return $rows;
    }
 
+   public static $permissionsChecks = [];
+
    function hasAccessTo($module, $functions, $returnLimitation = false)
    {
+       static $debugEnabled = null;
+
+       if ($debugEnabled === null) {
+           $debugEnabled = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
+       }
+
+       if ($debugEnabled == true) {
+           self::$permissionsChecks[] = $module . ' | ' . (is_array($functions) ? implode('|',$functions) : $functions);
+       }
+
        $AccessArray = $this->accessArray();
 
        // Global rights

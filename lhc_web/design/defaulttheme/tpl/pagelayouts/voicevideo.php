@@ -6,5 +6,10 @@
 </head>
 <body>
     <?php echo $Result['content']; ?>
+    <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+        $debug = ezcDebug::getInstance();
+        echo "<div><pre>" . json_encode(erLhcoreClassUser::$permissionsChecks, JSON_PRETTY_PRINT) . "</pre></div>";
+        echo $debug->generateOutput();
+    } ?>
 </body>
 </html>
