@@ -59,8 +59,14 @@ if ($Params['user_parameters_unordered']['action'] == 2) {
         }
     }
 
-    echo "<pre>";
-    echo htmlspecialchars(json_encode($requiredPermissions,JSON_PRETTY_PRINT));
+    $moduleData = [
+        'module' => 'lh'.$currentModuleName,
+        'name' => erLhcoreClassModules::getModuleName('lh'.$currentModuleName),
+        'permissions' => $requiredPermissions
+    ];
+
+    echo "<pre class='bg-secondary text-white p-2'>";
+    echo htmlspecialchars(json_encode($moduleData,JSON_PRETTY_PRINT));
     echo "</pre>";
 
     exit;
