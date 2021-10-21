@@ -1,4 +1,4 @@
-<div class="<?php if (!isset($hideCard)) : ?>card<?php endif;?> panel-lhc" ng-show="pending_chats.list.length > 0 || active_chats.list.length > 0 || unread_chats.list.length > 0 || closed_chats.list.length > 0<?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/right_column_angular_conditions_multiinclude.tpl.php'));?>">
+<div class="<?php if (!isset($hideCard)) : ?>card<?php endif;?> panel-lhc"">
     
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/basic_chat_enabled.tpl.php'));?>
     
