@@ -455,7 +455,7 @@ if (isset($_POST['askQuestion']))
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_read_operator_message',array('errors' => & $Errors, 'input_form' => & $inputData, 'chat' => & $chat));
 
-    if (erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => erLhcoreClassIPDetect::getIP(), 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
+    if (erLhcoreClassModelChatBlockedUser::isBlocked(array('country_code' => $userInstance->user_country_code, 'ip' => erLhcoreClassIPDetect::getIP(), 'dep_id' => $chat->dep_id, 'nick' => $chat->nick))) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You do not have permission to chat! Please contact site owner.');
     }
 
