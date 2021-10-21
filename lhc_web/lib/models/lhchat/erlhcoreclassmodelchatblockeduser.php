@@ -75,6 +75,10 @@ class erLhcoreClassModelChatBlockedUser
             $emailBlock = ' OR (nick = ' . $db->quote($params['email']) . ' AND btype = 5)';
         }
 
+        if (isset($params['country_code']) && !empty($params['country_code'])) {
+            $emailBlock .= ' OR (nick = ' . $db->quote($params['country_code']) . ' AND btype = 6 AND (`dep_id` = ' . $db->quote($params['dep_id']). ' OR `dep_id` = 0))';
+        }
+
         return erLhcoreClassModelChatBlockedUser::getCount(array(
                 'customfilter' => array(
                     '(
@@ -179,6 +183,7 @@ class erLhcoreClassModelChatBlockedUser
     const BLOCK_ALL_IP_NICK = 3;
     const BLOCK_ALL_IP_NICK_DEP = 4;
     const BLOCK_EMAIL = 5;
+    const BLOCK_COUNTRY = 6;
 
     public $id = null;
     public $ip = '';

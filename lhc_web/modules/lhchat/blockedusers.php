@@ -51,6 +51,38 @@ if (isset($_POST['AddBlock']))
 	}
 }
 
+if (isset($_POST['AddBlockCountryButton']))
+{
+    $definition = array(
+        'AddBlockCountry' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        )
+    );
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chat/blockedusers');
+        exit;
+    }
+
+    $form = new ezcInputForm( INPUT_POST, $definition );
+    $Errors = array();
+
+    if ( $form->hasValidData( 'AddBlockCountry' ) && $form->AddBlockCountry != '' ) {
+        $ipBlock = new erLhcoreClassModelChatBlockedUser();
+        $ipBlock->ip = '127.0.0.1';
+        $ipBlock->nick = $form->AddBlockCountry;
+        $ipBlock->user_id = erLhcoreClassUser::instance()->getUserID();
+        $ipBlock->datets = time();
+        $ipBlock->btype = erLhcoreClassModelChatBlockedUser::BLOCK_COUNTRY;
+
+        if (isset($_POST['selector-AddBlockCountryDep']) && is_numeric($_POST['selector-AddBlockCountryDep'])) {
+            $ipBlock->dep_id = $_POST['selector-AddBlockCountryDep'];
+        }
+
+        $ipBlock->saveThis();
+    }
+}
+
 if (isset($_POST['AddBlockEmail']))
 {
 	$definition = array(
