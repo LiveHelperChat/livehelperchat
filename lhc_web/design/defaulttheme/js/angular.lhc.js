@@ -150,6 +150,17 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
         return deferred.promise;
     };
 
+    // Continue here
+    this.setLocalSettings = function(name,publicChat) {
+        var deferred = $q.defer();
+        $http.post(WWW_DIR_JAVASCRIPT + 'groupchat/newgroupajax/',{"name":name,"public":publicChat}).then(function(data) {
+            deferred.resolve(data.data);
+        },function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+        });
+        return deferred.promise;
+    };
+
 	this.newGroupChat = function(name,publicChat) {
         var deferred = $q.defer();
         $http.post(WWW_DIR_JAVASCRIPT + 'groupchat/newgroupajax/',{"name":name,"public":publicChat}).then(function(data) {
@@ -838,10 +849,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			var listValue = _that[listId].join("/");
 
 			if (listValue != '') {
-				_that.storeLocalSetting(listId,listValue);			
+				//_that.storeLocalSetting(listId,listValue);
 				_that.setDepartmentNames(listId);	
 			}
-			
+
+
+
 		} else {
 			if (localStorage) {
 	    		try {
