@@ -45,12 +45,26 @@ class erLhcoreClassModules {
         return $ModuleList ;
    }
 
-   public static function getModuleFunctions($ModulePath)
+   public static function getModuleFunctions($ModulePath, $params = array())
    {
    		$FunctionListReturn = array();
    	    if (file_exists('modules/' . $ModulePath . '/module.php')) {
+            $ViewList = [];
        		include('modules/' . $ModulePath . '/module.php');
        		$FunctionListReturn = $FunctionList;
+
+           if (isset($ViewList) && !empty($ViewList) && isset($params['extract_url']) && $params['extract_url'] == true) {
+               foreach ($ViewList as $urlKey => $viewItem) {
+                   if (isset($viewItem['functions']) && !empty($viewItem['functions'])){
+                       foreach ($viewItem['functions'] as $viewFunction) {
+                           if (!isset($FunctionListReturn[$viewFunction]['url'])){
+                               $FunctionListReturn[$viewFunction]['url'] = array();
+                           }
+                           $FunctionListReturn[$viewFunction]['url'][] = $ModulePath.'/'.$urlKey;
+                       }
+                   }
+               }
+           }
    	    }
 
    	    $cfg = erConfigClassLhConfig::getInstance();
@@ -58,15 +72,30 @@ class erLhcoreClassModules {
    	   	$extensions = $cfg->getSetting( 'site', 'extensions' );
    	   	foreach ($extensions as $extension) {
    	   		if (file_exists("extension/{$extension}/modules/{$ModulePath}/module.php")) {
+                $ViewList = [];
    	   			include("extension/{$extension}/modules/{$ModulePath}/module.php");
    	   			if (isset($FunctionList)) {
    	   			  $FunctionListReturn = array_merge($FunctionListReturn,$FunctionList);
    	   			}
+                if (isset($ViewList) && !empty($ViewList) && isset($params['extract_url']) && $params['extract_url'] == true) {
+                    foreach ($ViewList as $urlKey => $viewItem) {
+                        if (isset($viewItem['functions']) && !empty($viewItem['functions'])) {
+                            foreach ($viewItem['functions'] as $viewFunction) {
+                                if (!isset($FunctionListReturn[$viewFunction]['url'])){
+                                    $FunctionListReturn[$viewFunction]['url'] = array();
+                                }
+                                $FunctionListReturn[$viewFunction]['url'][] = $ModulePath.'/'.$urlKey;
+                            }
+                        }
+                    }
+                }
    	   		}
    	   	}
 
    	   	foreach ($FunctionListReturn as & $Function) {
-   	   		$Function['explain'] = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Function['explain']);
+              if (isset($Function['explain'])){
+                  $Function['explain'] = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole',$Function['explain']);
+              }
    	   	}
 
    	   	return $FunctionListReturn;
