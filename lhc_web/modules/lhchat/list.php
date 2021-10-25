@@ -156,6 +156,7 @@ $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
 	$items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_items',array('filter' => & $items, 'uparams' => $Params['user_parameters_unordered']));
 	$tpl->set('items',$items);
 }
 
