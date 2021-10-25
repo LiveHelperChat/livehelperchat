@@ -9,6 +9,7 @@ $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('chat/list'),'iclass
 
 if ($currentUser->hasAccessTo('lhmailconv','use_admin')) {
     $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('mailconv/conversations'), 'iclass' => 'mail_outline', 'text' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout', 'Mails List'));
+    $menuItems[] = array('href' => erLhcoreClassDesign::baseurl('mailconv/sendemail'), 'iclass' => 'send', 'text' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout', 'New e-mail'));
 }
 
 if ($currentUser->hasAccessTo('lhviews','use')) {

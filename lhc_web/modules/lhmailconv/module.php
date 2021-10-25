@@ -16,6 +16,7 @@ $ViewList['uploadimage'] = array(
 
 $ViewList['sendemail'] = array(
     'params' => array(),
+    'uparams' => array('chat_id'),
     'functions' => array( 'send_mail' )
 );
 
