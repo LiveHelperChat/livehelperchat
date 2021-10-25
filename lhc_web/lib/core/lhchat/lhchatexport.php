@@ -275,6 +275,8 @@ class erLhcoreClassChatExport {
 
         $chatArray[] = array_merge($mainColumns, $additionalDataPlain, array($additionalData));
 
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_export_columns',array('items' => & $chatArray));
+
 		if ($params['csv'] && $params['csv'] == true) {
             $now = gmdate("D, d M Y H:i:s");
             header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
@@ -566,6 +568,8 @@ class erLhcoreClassChatExport {
                 }
 
                 $itemData = array_merge($itemData, $additionalPairs, array($additionalDataContent));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_export_item_data',array('item' => & $itemData, 'chat' => $item));
 
                 if ($params['csv'] && $params['csv'] == true) {
                     fputcsv($df, $itemData);
