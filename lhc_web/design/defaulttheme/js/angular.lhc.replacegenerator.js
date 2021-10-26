@@ -1,6 +1,7 @@
 lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.combinations = [];
+    this.departments = [];
     var that = this;
 
     this.makeid = function(length) {
@@ -15,6 +16,7 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
 
     this.setConditions = function() {
         this.combinations = $window['replaceConditions'];
+        this.departments = $window['replaceDepartments'];
     }
 
     this.deleteElement = function (element,list) {
@@ -37,6 +39,7 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
             'conditions' : [],
             'value' : '',
             'dep_id': "0",
+            'dep_ids': [],
             'priority' : 0,
         });
 
@@ -45,6 +48,17 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
         },1000);
 
     };
+
+    this.addDepartment = function(combination){
+
+        if (!combination.dep_ids) {
+            combination.dep_ids = [];
+        }
+
+        if (combination.dep_ids.indexOf(combination.dep_id) == -1) {
+            combination.dep_ids.push(combination.dep_id);
+        }
+    }
 
     this.addCondition = function(items) {
         items.conditions.push({field:"", logic: "and"});
