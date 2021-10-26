@@ -183,6 +183,30 @@
             }
           },
           {
+            "name": "has_operator",
+            "description": "Has operator",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
+            "name": "had_bot",
+            "description": "Chat involved a bot. Means bot was assigned to the chat",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
+            "name": "bot_ids",
+            "description": "Bot ID's separated by comma",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
             "name": "include_survey",
             "description": "Include filled survey if it exists",
             "required": false,
@@ -234,6 +258,14 @@
             "name": "time_gt",
             "in": "query",
             "description": "Time greater than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "time_lt",
+            "in": "query",
+            "description": "Time less than. Unix timestamp.",
             "required": false,
             "type": "string",
             "format": "int32"

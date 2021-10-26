@@ -528,6 +528,14 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
+        if (isset($_GET['bot_ids'])) {
+            $botIds = explode(',',$_GET['bot_ids']);
+            erLhcoreClassChat::validateFilterIn($botIds);
+            if (!empty($botIds)) {
+                $filter['filterin']['gbot_id'] = $botIds;
+            }
+        }
+
         if (isset($_GET['id_gt']) && is_numeric($_GET['id_gt'])) {
             $filter['filtergt']['id'] = (int)$_GET['id_gt'];
         }
@@ -536,12 +544,28 @@ class erLhcoreClassRestAPIHandler
             $filter['filtergt']['time'] = (int)$_GET['time_gt'];
         }
 
+        if (isset($_GET['time_lt']) && is_numeric($_GET['time_lt'])) {
+            $filter['filterlt']['time'] = (int)$_GET['time_lt'];
+        }
+
         if (isset($_GET['delay']) && is_numeric($_GET['delay'])) {
             $filter['filterlte']['time'] = time()-(int)$_GET['delay'];
         }
 
         if (isset($_GET['last_user_msg_time_gt']) && is_numeric($_GET['last_user_msg_time_gt'])) {
             $filter['filtergt']['last_user_msg_time'] = (int)$_GET['last_user_msg_time_gt'];
+        }
+
+        if (isset($_GET['has_operator']) && $_GET['has_operator'] == 'true') {
+            $filter['filtergt']['user_id'] = 0;
+        } elseif (isset($_GET['has_operator']) && $_GET['has_operator'] == 'false') {
+            $filter['filter']['user_id'] = 0;
+        }
+
+        if (isset($_GET['had_bot']) && $_GET['had_bot'] == 'true') {
+            $filter['filtergt']['gbot_id'] = 0;
+        } elseif (isset($_GET['had_bot']) && $_GET['had_bot'] == 'false') {
+            $filter['filter']['gbot_id'] = 0;
         }
 
         $groupFields = array();
