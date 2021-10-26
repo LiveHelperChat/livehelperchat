@@ -54,15 +54,15 @@ class erLhcoreClassMailconvWorkflow {
                 $message->accept_time = $message->ctime;
             }
 
-            if ($message->response_time == 0) {
+            if ($message->response_time == 0 && $message->lr_time >= $message->accept_time) {
                 $message->response_time = $message->lr_time - $message->accept_time;
             }
 
-            if ($message->interaction_time == 0) {
+            if ($message->interaction_time == 0 && $message->cls_time >= $message->accept_time) {
                 $message->interaction_time = $message->cls_time - $message->accept_time;
             }
 
-            if ($message->wait_time == 0) {
+            if ($message->wait_time == 0 && $message->accept_time >= $message->ctime) {
                 $message->wait_time = $message->accept_time - $message->ctime;
             }
 
