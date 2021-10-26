@@ -279,6 +279,14 @@
             "in": "query"
           },
           {
+            "name": "include_department",
+            "description": "Include department within chat",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
             "name": "group_by_nick",
             "description": "Group by nick",
             "required": false,
@@ -2753,6 +2761,43 @@
       }
     },
     "/restapi/department/{department_id}": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Department to fetch",
+        "description": "Required permissions - 'lhdepartment', 'list'",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetches department data",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
       "put": {
         "tags": [
           "department"
