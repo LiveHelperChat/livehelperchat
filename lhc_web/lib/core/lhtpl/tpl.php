@@ -125,7 +125,7 @@ class erLhcoreClassTemplate {
             }
 
 
-            if (($this->cacheTemplates = $this->cacheWriter->restore('templateCache')) == false)
+            if (($this->cacheTemplates = $this->cacheWriter->restore('templateCache')) == false || !is_array($this->cacheTemplates))
             {
             	try {
             		$this->cacheWriter->store('templateCache',array());
@@ -529,8 +529,13 @@ class erLhcoreClassTemplate {
                 rename($fileName,$file);
             }
 
-	 	    $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)] = $file;
-			$this->storeCache();
+            if (!is_array($this->cacheTemplates)) {
+                $this->cacheTemplates = array();
+            }
+
+            $this->cacheTemplates[md5($fileTemplate.$instance->WWWDirLang.$instance->Language.$port)] = $file;
+            $this->storeCache();
+
         }
 
 		return $this->fetchExecute($file, $fileRAW);
