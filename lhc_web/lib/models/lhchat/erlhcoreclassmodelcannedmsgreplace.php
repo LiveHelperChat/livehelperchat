@@ -60,9 +60,13 @@ class erLhcoreClassModelCannedMsgReplace
 
         foreach ($conditionArray as $condition) {
             // Check if department matches
-            if (isset($condition['dep_id']) && $condition['dep_id'] > 0 && $condition['dep_id'] != $params['chat']->dep_id) {
-                continue;
+            if (
+                (isset($condition['dep_id']) && $condition['dep_id'] > 0 && $condition['dep_id'] != $params['chat']->dep_id && (!isset($condition['dep_ids']) || empty($condition['dep_ids']))) ||
+                (isset($condition['dep_ids']) && !empty($condition['dep_ids']) && !in_array((string)$params['chat']->dep_id,$condition['dep_ids']))
+            ) {
+                 continue;
             }
+
             // We do final check here
             $isValid = true;
 
