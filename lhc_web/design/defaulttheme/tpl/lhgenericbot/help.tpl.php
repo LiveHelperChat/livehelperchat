@@ -6,6 +6,9 @@
         </div>
         <div class="modal-body">
             <p>
+
+           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules.tpl.php'));?>
+
             <?php if ($context == 'text') : ?>
                 <ul>
                     <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
