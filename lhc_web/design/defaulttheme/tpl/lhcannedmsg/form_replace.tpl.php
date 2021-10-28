@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Advanced filtering');?></h6>
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Advanced filtering');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></h6>
 
             <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addCondition(combination)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add condition');?></button>
 
