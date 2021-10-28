@@ -149,7 +149,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         }
     }
 
-    $ReturnMessages['subject_chats'] = array('list' => array_values($chats));
+    $ReturnMessages['subject_chats'] = array('last_id_identifier' => 'subject_chats', 'list' => array_values($chats));
 }
 
 if ($showDepartmentsStats == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['departments_stats'],$Params['user_parameters_unordered']['w'])) {
