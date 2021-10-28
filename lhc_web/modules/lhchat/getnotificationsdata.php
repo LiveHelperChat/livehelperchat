@@ -170,6 +170,8 @@ foreach ($items as $item) {
             $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Transfer Chat');
         }
         
+    } elseif ($itemsTypes[$item->id] == 'subject_chats') {
+        $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Trigger alert chat!');
     } elseif ($itemsTypes[$item->id] == 'active_chat') {
         $notification_message_type = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Assigned Chat');
     }

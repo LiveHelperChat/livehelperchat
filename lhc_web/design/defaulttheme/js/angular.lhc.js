@@ -1334,7 +1334,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
 
-		                        if (_that.isListLoaded == true && item.last_id_identifier == 'active_chats') {
+		                        if (_that.isListLoaded == true && item.last_id_identifier == 'subject_chats') {
+                                    if (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) {
+                                        chatsToNotify.push(itemList.id);
+                                    }
+                                } else if (_that.isListLoaded == true && item.last_id_identifier == 'active_chats') {
                                     if (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && alertIcons.length > 0 && _that.notifIcons.length > 0) {
                                         var iconsMonitoring = _that.notifIcons.filter(function(n) {
                                             return _that.excludeIcons.indexOf(n) === -1 && alertIcons.indexOf(n) !== -1;
