@@ -536,7 +536,7 @@ class erLhcoreClassSearchHandler
             }
             
             if ($maxFileSize !== false && $maxFileSize > 0 && $_FILES[$fileName]['size'] > $maxFileSize) {
-                self::$lastError = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'To big file!');
+                self::$lastError = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'File too big!');
                 return false;
             }
             

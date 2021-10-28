@@ -701,6 +701,16 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
+        if (isset($_GET['include_department']) && $_GET['include_department'] == 'true') {
+            erLhcoreClassChat::prefillObjects($chats,array(
+                array(
+                    'dep_id',
+                    'department',
+                    'erLhcoreClassModelDepartament::getList'
+                ),
+            ));
+        }
+
         if (!empty($prefillFields) || !empty($ignoreFields)) {
             erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true, 'do_not_clean' => true));
         }
