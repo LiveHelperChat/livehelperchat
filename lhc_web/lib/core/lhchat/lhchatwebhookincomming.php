@@ -454,6 +454,9 @@ class erLhcoreClassChatWebhookIncoming {
                 }
             }
 
+            // Store online visitor record so previous chat workflow works
+            self::assignOnlineVisitor($chat, $eChat);
+
             $chat->updateThis(array('update' => array(
                 'country_code',
                 'country_name',
@@ -605,6 +608,11 @@ class erLhcoreClassChatWebhookIncoming {
 
             // Save external chat
             $eChat = ($eChat instanceof erLhcoreClassModelChatIncoming) ? $eChat : (new erLhcoreClassModelChatIncoming());
+
+            if ($eChat->chat_id > 0) {
+                $previousChat = erLhcoreClassModelChat::fetch($eChat->chat_id);
+            }
+
             $eChat->chat_external_id = self::extractAttribute('chat_id',$conditions,$payloadMessage);
 
             if ($eChat->chat_external_id == '') {
@@ -670,6 +678,15 @@ class erLhcoreClassChatWebhookIncoming {
             // Save chat
             $chat->saveThis();
 
+            // Store online visitor record so previous chat workflow works
+            self::assignOnlineVisitor($chat, $eChat);
+
+            // If previous chat did not had online record associated assign in
+            if ($previousChat instanceof erLhcoreClassModelChat && $previousChat->online_user_id == 0 && $chat->online_user_id > 0) {
+                $previousChat->online_user_id = $chat->online_user_id;
+                $previousChat->updateThis(['update' => ['online_user_id']]);
+            }
+
             // Auto responder has something to send to visitor.
             if (isset($messageResponder)) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
@@ -685,6 +702,29 @@ class erLhcoreClassChatWebhookIncoming {
                 'chat' => & $chat,
                 'msg' => $msg
             ));
+        }
+    }
+
+    public static function assignOnlineVisitor(& $chat, $eChat)
+    {
+        if ($chat->online_user_id == 0 && erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1) {
+            $vid = md5($eChat->incoming_id . '_' . $eChat->chat_external_id);
+            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array(
+                'pages_count' => true,
+                'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value,
+                'vid' => $vid));
+
+            $userInstance->chat_id = $chat->id;
+            $userInstance->dep_id = $chat->dep_id;
+
+            if ($userInstance->visitor_tz == '') {
+                $userInstance->visitor_tz = $chat->user_tz_identifier;
+            }
+
+            $userInstance->updateThis(['update' => ['chat_id','dep_id','visitor_tz']]);
+
+            $chat->online_user_id = $userInstance->id;
+            $chat->updateThis(['update' => ['online_user_id']]);
         }
     }
 
