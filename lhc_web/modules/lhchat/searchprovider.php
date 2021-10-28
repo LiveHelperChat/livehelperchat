@@ -1,10 +1,16 @@
 <?php
 header ( 'content-type: application/json; charset=utf-8' );
 
-$search = rawurldecode($_GET['q']);
+$search = isset($_GET['q']) ? rawurldecode($_GET['q']) : '';
 $return = array();
 
-if ($Params['user_parameters']['scope'] == 'users') {
+if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
+    if (isset($_GET['d']) && is_numeric($_GET['d'])) {
+        foreach (erLhcoreClassModelDepartamentGroupMember::getList(['filter' => ['dep_group_id' => (int)$_GET['d']]]) as $depMember) {
+            $return[] = $depMember->dep_id;
+        }
+    }
+} else if ($Params['user_parameters']['scope'] == 'users') {
     $db = ezcDbInstance::get();
 
     $filter = array('sort' => 'name ASC', 'limit' => 50);
