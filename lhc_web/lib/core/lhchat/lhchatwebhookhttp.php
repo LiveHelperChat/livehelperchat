@@ -122,7 +122,7 @@ class erLhcoreClassChatWebhookHttp {
                             if (!empty($matchesValues[0])) {
                                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                                     $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                    $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $conditionAttr);
+                                    $conditionAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                                 }
                             }
                         }
@@ -135,7 +135,7 @@ class erLhcoreClassChatWebhookHttp {
                             if (!empty($matchesValues[0])) {
                                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                                     $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('chat' => $chat), $matchesValues[1][$indexElement], '.');
-                                    $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : null, $valueAttr);
+                                    $valueAttr = str_replace($elementValue,  $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                                 }
                             }
                         }
@@ -172,6 +172,9 @@ class erLhcoreClassChatWebhookHttp {
                         if (in_array($conditionsCurrent['condition'],['lt','lte','gt','gte'])) {
                             $conditionAttr = round((float)$conditionAttr,3);
                             $valueAttr = round((float)$valueAttr,3);
+                        } elseif ((is_string($conditionAttr) || is_numeric($conditionAttr)) && (is_string($valueAttr) || is_numeric($valueAttr))) {
+                            $conditionAttr = (string)$conditionAttr;
+                            $valueAttr = (string)$valueAttr;
                         }
 
                         if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {
