@@ -44,7 +44,11 @@ try {
             $msg->user_id = - 1;
             
             $chat->last_user_msg_time = $msg->time = time();
-            
+
+            // Now we change responses to visitor not replying
+            // As he should inform operator that he has completed a survey.
+            $chat->last_op_msg_time = $chat->last_user_msg_time + 1;
+
             erLhcoreClassChat::getSession()->save($msg);
                                     
             // Set last message ID
