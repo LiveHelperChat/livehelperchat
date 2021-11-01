@@ -154,8 +154,8 @@
 
         <div class="col-md-6">
             <div class="row">
-                <div class="col-4"><label><input type="checkbox" name="no_operator" value="1" <?php $input->no_operator == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats without an operator')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="has_operator" value="1" <?php $input->has_operator == true ? print 'checked="checked"' : ''?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with an operator')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="no_operator" value="1" <?php $input->no_operator == true ? print 'checked="checked"' : ''?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats without an operator')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="has_operator" value="1" <?php $input->has_operator == true ? print 'checked="checked"' : ''?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chats with an operator')?></label></div>
             </div>
         </div>
 
@@ -177,14 +177,14 @@
         <div class="col-md-12">
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','What charts to display')?></h6>
             <div class="row">
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperinterval" <?php if (in_array('mmsgperinterval',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per interval')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperuser" <?php if (in_array('mmsgperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per user')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperdep" <?php if (in_array('mmsgperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per department')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmintperdep" <?php if (in_array('mmintperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions by department')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmintperuser" <?php if (in_array('mmintperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions per user')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mavgwaittime" <?php if (in_array('mavgwaittime',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mattrgroup" <?php if (in_array('mattrgroup',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages grouped by date and group field')?></label></div>
-                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgperhour" <?php if (in_array('msgperhour',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages number per hour')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperinterval" <?php if (in_array('mmsgperinterval',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per interval')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperuser" <?php if (in_array('mmsgperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per user')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmsgperdep" <?php if (in_array('mmsgperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per department')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmintperdep" <?php if (in_array('mmintperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions by department')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mmintperuser" <?php if (in_array('mmintperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions per user')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mavgwaittime" <?php if (in_array('mavgwaittime',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="mattrgroup" <?php if (in_array('mattrgroup',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages grouped by date and group field')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgperhour" <?php if (in_array('msgperhour',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> >&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages number per hour')?></label></div>
             </div>
         </div>
     </div>
@@ -296,7 +296,7 @@
 
         <?php if (in_array('mmsgperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($mmsgperuser as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars($data['user_id'] > 0 ? erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official : 'Not assigned',ENT_QUOTES).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($mmsgperuser as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),json_encode($data['user_id'] > 0 && ($userStat = erLhcoreClassModelUser::fetch($data['user_id'],true)) ? $userStat->name_official : 'Not assigned ['.$data['user_id'].']');$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages');?>',
@@ -458,7 +458,7 @@
 
         <?php if (in_array('mmintperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
         var barChartData = {
-            labels: [<?php $key = 0; foreach ($mmintperuser as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars($data['user_id'] > 0 ? erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official : 'Not assigned',ENT_QUOTES).'\'';$key++; endforeach;?>],
+            labels: [<?php $key = 0; foreach ($mmintperuser as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),json_encode($data['user_id'] > 0 && ($userStat = erLhcoreClassModelUser::fetch($data['user_id'],true)) ? erLhcoreClassModelUser::fetch($data['user_id'],true)->name_official : 'Not assigned');$key++; endforeach;?>],
             datasets: [
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average interaction time');?>',

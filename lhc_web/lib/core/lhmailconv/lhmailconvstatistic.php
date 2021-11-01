@@ -4,6 +4,12 @@ class erLhcoreClassMailconvStatistic {
 
     public static function messagesPerInterval($filter, $params_execution) {
 
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.messagesperinterval',array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
+
         self::formatFilterMail($filter);
 
         if ($params_execution['group_by'] == 1) {
@@ -98,7 +104,13 @@ class erLhcoreClassMailconvStatistic {
 
     }
 
-    public static function messagesPerUser($filter) {
+    public static function messagesPerUser($filter, $params_execution = []) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.messagesperuser',array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
 
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
@@ -118,7 +130,13 @@ class erLhcoreClassMailconvStatistic {
         return $items;
     }
 
-    public static function messagesPerDep($filter) {
+    public static function messagesPerDep($filter, $params_execution = []) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.messagesperdep',array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
 
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
@@ -138,7 +156,13 @@ class erLhcoreClassMailconvStatistic {
         return $items;
     }
 
-    public static function avgInteractionPerDep($filter) {
+    public static function avgInteractionPerDep($filter, $params_execution = []) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.avginteractionperdep',array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
 
         if (!isset($filter['filtergte']['udate'])) {
             $filter['filtergte']['udate'] = mktime(0,0,0,date('m'),date('d')-31,date('y'));
@@ -161,7 +185,13 @@ class erLhcoreClassMailconvStatistic {
         return $items;
     }
 
-    public static function avgInteractionPerUser($filter) {
+    public static function avgInteractionPerUser($filter, $params_execution = []) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.avginteractionperuser',array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
 
         self::formatFilterMail($filter);
 
@@ -184,8 +214,14 @@ class erLhcoreClassMailconvStatistic {
         return $items;
     }
 
-    public static function messagesPerHour($filter = array())
+    public static function messagesPerHour($filter = array(), $params_execution = [])
     {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.messagesperhour', array('params_execution' => $params_execution, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
+
         self::formatFilterMail($filter);
 
         $numberOfChats = array('total' => array(), 'byday' => array(), 'bydaymax' => array());
@@ -303,6 +339,12 @@ class erLhcoreClassMailconvStatistic {
 
     public static function attrByPerInterval($filter = array(), $filterParams = array())
     {
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.statistic.attrbyperinterval', array('params_execution' => $filterParams, 'filter' => $filter));
+
+        if ($statusWorkflow !== false) {
+            return $statusWorkflow['list'];
+        }
+
         if ($filterParams['group_by'] == 1) {
             return self::attrByPerIntervalDay($filter,$filterParams);
         } else {
@@ -352,7 +394,7 @@ class erLhcoreClassMailconvStatistic {
                     $attr = $filterParams['group_field'];
                 }
 
-                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
+                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter, $filter, array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
 
                 $returnArray = array();
 
@@ -360,7 +402,7 @@ class erLhcoreClassMailconvStatistic {
                     $returnArray['color'][] = json_encode(erLhcoreClassChatStatistic::colorFromString($demoItem->{$attr}));
 
                     if ($attr == 'user_id') {
-                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? erLhcoreClassModelUser::fetch($demoItem->{$attr},true)->name_official : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
+                        $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 && ($userStat = erLhcoreClassModelUser::fetch($demoItem->{$attr},true)) ? $userStat->name_official : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                     } else if ($attr == 'dep_id') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} > 0 ? (string)$demoItem->department : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Not assigned'));
                     } else if ($attr == 'mailbox_id') {

@@ -158,15 +158,36 @@ if ($tab == 'active') {
     $tpl->set('input',$filterParams['input_form']);
 
     if (isset($_GET['doSearch'])) {
-
         $activeStats = array(
-            'mmsgperinterval' =>  ((is_array($filterParams['input_form']->chart_type) && (in_array('mmsgperinterval',$filterParams['input_form']->chart_type) || in_array('mavgwaittime',$filterParams['input_form']->chart_type))) ? erLhcoreClassMailconvStatistic::messagesPerInterval($filterParams['filter'], ['chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),'group_by' => $filterParams['input_form']->groupby]) : array()),
-            'mmsgperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerUser($filterParams['filter'], ['group_by' => $filterParams['input_form']->groupby]) : array()),
-            'mmsgperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerDep($filterParams['filter'], ['group_by' => $filterParams['input_form']->groupby]) : array()),
-            'mmintperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerDep($filterParams['filter'], ['group_by' => $filterParams['input_form']->groupby]) : array()),
-            'mmintperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerUser($filterParams['filter'], ['group_by' => $filterParams['input_form']->groupby]) : array()),
-            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('mattrgroup',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::attrByPerInterval($filterParams['filter'], array('group_by' => $filterParams['input_form']->groupby, 'group_field' => $filterParams['input']->group_field)) : array()),
-            'msgperhour' => ((is_array($filterParams['input_form']->chart_type) && in_array('msgperhour',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerHour($filterParams['filter']) : array()),
+            'mmsgperinterval' =>  ((is_array($filterParams['input_form']->chart_type) && (in_array('mmsgperinterval',$filterParams['input_form']->chart_type) || in_array('mavgwaittime',$filterParams['input_form']->chart_type))) ? erLhcoreClassMailconvStatistic::messagesPerInterval($filterParams['filter'], [
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                'group_by' => $filterParams['input_form']->groupby]) : array()
+            ),
+            'mmsgperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerUser($filterParams['filter'], [
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                'group_by' => $filterParams['input_form']->groupby]) : array()
+            ),
+            'mmsgperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmsgperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerDep($filterParams['filter'], [
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                'group_by' => $filterParams['input_form']->groupby
+             ]) : array()),
+            'mmintperdep' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperdep',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerDep($filterParams['filter'], [
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                'group_by' => $filterParams['input_form']->groupby
+             ]) : array()),
+            'mmintperuser' =>  ((is_array($filterParams['input_form']->chart_type) && in_array('mmintperuser',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::avgInteractionPerUser($filterParams['filter'], [
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                'group_by' => $filterParams['input_form']->groupby
+            ]) : array()),
+            'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('mattrgroup',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::attrByPerInterval($filterParams['filter'], array(
+                'group_by' => $filterParams['input_form']->groupby, 
+                'group_field' => $filterParams['input']->group_field,
+                'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+            )) : array()),
+            'msgperhour' => ((is_array($filterParams['input_form']->chart_type) && in_array('msgperhour',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerHour($filterParams['filter'], [
+                    'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
+                    'group_by' => $filterParams['input_form']->groupby
+             ]) : array()),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         );
         $tpl->setArray($activeStats);
