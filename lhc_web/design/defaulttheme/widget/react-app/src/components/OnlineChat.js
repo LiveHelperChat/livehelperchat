@@ -315,7 +315,7 @@ class OnlineChat extends Component {
                     this.intervalFunction = () => {
                         if (this.nextUntil(msg,'.message-admin', false, true).length > 0) {
                             msg.parentNode.removeChild(msg);
-                            this.scrollBottom();
+                            this.scrollBottom(false, false);
                             this.intervalFunction = null;
                             clearInterval(this.intervalPending);
                         } else {
