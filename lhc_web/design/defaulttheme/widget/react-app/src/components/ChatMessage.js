@@ -174,6 +174,7 @@ class ChatMessage extends PureComponent {
         if (this.delayData.length > 0) {
             this.delayData.forEach((item) => {
                 this.props.sendDelay(item);
+                this.props.scrollBottom(false, false);
             })
         }
     }

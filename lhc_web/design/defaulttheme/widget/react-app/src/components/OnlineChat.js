@@ -333,7 +333,7 @@ class OnlineChat extends Component {
                                     this.removeClass(item, 'hide');
                                 }
 
-                                this.scrollBottom();
+                                this.scrollBottom(false, false);
                             }
                         }
                     }
@@ -365,7 +365,7 @@ class OnlineChat extends Component {
 
                     if (delay > 0) {
                         this.updateMetaAutoHide();
-                        this.scrollBottom();
+                        this.scrollBottom(false, false);
                     }
                 }
 
@@ -590,7 +590,6 @@ class OnlineChat extends Component {
     }
 
     scrollBottom(onlyIfAtBottom, smartScroll) {
-
         if (this.messagesAreaRef.current && (!onlyIfAtBottom || !this.state.scrollButton)) {
             this.doScrollBottom(smartScroll);
             setTimeout(() => {
