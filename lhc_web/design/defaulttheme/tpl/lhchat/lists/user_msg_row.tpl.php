@@ -15,6 +15,11 @@
         $metaMessageData['content'] = $metaMessageDataByBBCode;
     }
 
+    $typingMessage = false;
+    if (isset($metaMessageData['content']['typing'])) {
+        $typingMessage = true;
+    }
+
     $hideOperator = false;
 
     // Hide operator nick, etc for javsacript messages
@@ -46,7 +51,7 @@
 	 <?php } else { ?>
 
             <?php if ($hideOperator == false) : ?>
-                <div class="message-row message-admin<?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
+                <div class="message-row message-admin<?php $typingMessage == true ? print ' ignore-auto-scroll' : ''?><?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/op_msg_row_nick.tpl.php'));?>
             <?php endif; ?>
 
