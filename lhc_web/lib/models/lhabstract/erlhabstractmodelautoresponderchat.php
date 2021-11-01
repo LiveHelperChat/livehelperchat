@@ -265,7 +265,7 @@ class erLhAbstractModelAutoResponderChat
                             }
                         }
 
-                    } elseif ($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time >= $this->chat->pnd_time ) {
+                    } elseif ($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time >= $this->chat->pnd_time && $this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 
                         $lastMessageTime = self::getLastVisitorMessageTime($this->chat);
 
