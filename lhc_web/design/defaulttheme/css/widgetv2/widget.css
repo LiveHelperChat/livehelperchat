@@ -491,7 +491,7 @@ div.system-response + div.message-admin{
 }
 
 div.system-response+div.system-response .usr-tit,
-div.message-admin+div.message-admin .usr-tit,
+div.message-admin:not(#scroll-to-message)+div.message-admin:not(#scroll-to-message) .usr-tit,
 div.message-row.response+div.message-row.response .usr-tit{
     width:5px;
     visibility:hidden;
