@@ -32,7 +32,7 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array (
     array('url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv', 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Personal mailbox groups'))
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Personal Mailbox Rules'))
 );
 
 ?>

@@ -1,4 +1,6 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Personal mailbox groups');?></h1>
+<h1>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Personal Mailbox Rules');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/personalmailbox'});" class="material-icons text-muted">help</a>
+</h1>
 
 <?php if (isset($items)) : ?>
     <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%" ng-non-bindable>
