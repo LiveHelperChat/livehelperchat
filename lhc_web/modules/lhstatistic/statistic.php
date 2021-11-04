@@ -45,12 +45,12 @@ if ($tab == 'active') {
 
     if (!empty($departmentFilter)){
         if (isset($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
-            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
                 $filterParams['filter']['filterin']['lh_chat.dep_id'] = array(-1);
             }
         } else {
-            $filterParams['filter']['filterin']['lh_chat.dep_id'] = $departmentFilter['filterin']['id'];
+            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
         }
     }
 
@@ -58,9 +58,9 @@ if ($tab == 'active') {
 
     if (!empty($userFilterDefault)) {
         if (isset($filterParams['filter']['filterin']['lh_chat.user_id'])) {
-            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
-            $filterParams['filter']['filterin']['lh_chat.user_id'] = $userFilterDefault['filterin']['id'];
+            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
         }
     }
 
@@ -135,12 +135,12 @@ if ($tab == 'active') {
 
     if (!empty($departmentFilter)){
         if (isset($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
-            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filterParams['filter']['filterin']['lh_chat.dep_id'])) {
                 $filterParams['filter']['filterin']['lh_chat.dep_id'] = array(-1);
             }
         } else {
-            $filterParams['filter']['filterin']['lh_chat.dep_id'] = $departmentFilter['filterin']['id'];
+            $filterParams['filter']['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
         }
     }
 
@@ -148,9 +148,9 @@ if ($tab == 'active') {
 
     if (!empty($userFilterDefault)) {
         if (isset($filterParams['filter']['filterin']['lh_chat.user_id'])) {
-            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']);
+            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values(array_intersect($filterParams['filter']['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
-            $filterParams['filter']['filterin']['lh_chat.user_id'] = $userFilterDefault['filterin']['id'];
+            $filterParams['filter']['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
         }
     }
 
@@ -266,12 +266,12 @@ if ($tab == 'active') {
 
     if (!empty($departmentFilter)){
         if (isset($filter24['filterin']['lh_chat.dep_id'])) {
-            $filter24['filterin']['lh_chat.dep_id'] = array_intersect($filter24['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']);
+            $filter24['filterin']['lh_chat.dep_id'] = array_values(array_intersect($filter24['filterin']['lh_chat.dep_id'],$departmentFilter['filterin']['id']));
             if (empty($filter24['filterin']['lh_chat.dep_id'])) {
                 $filter24['filterin']['lh_chat.dep_id'] = array(-1);
             }
         } else {
-            $filter24['filterin']['lh_chat.dep_id'] = $departmentFilter['filterin']['id'];
+            $filter24['filterin']['lh_chat.dep_id'] = array_values($departmentFilter['filterin']['id']);
         }
     }
 
@@ -279,9 +279,9 @@ if ($tab == 'active') {
 
     if (!empty($userFilterDefault)) {
         if (isset($filter24['filterin']['lh_chat.user_id'])) {
-            $filter24['filterin']['lh_chat.user_id'] = array_intersect($filter24['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']);
+            $filter24['filterin']['lh_chat.user_id'] = array_values(array_intersect($filter24['filterin']['lh_chat.user_id'],$userFilterDefault['filterin']['id']));
         } else {
-            $filter24['filterin']['lh_chat.user_id'] = $userFilterDefault['filterin']['id'];
+            $filter24['filterin']['lh_chat.user_id'] = array_values($userFilterDefault['filterin']['id']);
         }
     }
 
