@@ -6,11 +6,14 @@
 	});
 </script>
 
-<?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+<div class="position-absolute" style="right: 0">
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+</div>
+
 <div role="tabpanel" id="tabs">
         <ul class="nav nav-pills" role="tablist">
         </ul>
-        <div class="tab-content">
+        <div class="tab-content pl-1">
         </div>
 </div>
 
