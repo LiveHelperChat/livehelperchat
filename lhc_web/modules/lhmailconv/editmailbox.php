@@ -70,10 +70,18 @@ if (isset($_POST['Save_mailbox'])) {
         try {
             $item->saveThis();
 
-            if (isset($_POST['Update_page']) || isset($_POST['UpdateSignature_page'])) {
+            if (
+                isset($_POST['Update_page']) ||
+                isset($_POST['UpdateSignature_page']) ||
+                isset($_POST['UpdateOptions_page'])
+            ) {
 
                 if (isset($_POST['UpdateSignature_page'])) {
                     $tab = 'tab_signature';
+                }
+
+                if (isset($_POST['UpdateOptions_page'])) {
+                    $tab = 'tab_options';
                 }
 
                 $tpl->set('updated',true);

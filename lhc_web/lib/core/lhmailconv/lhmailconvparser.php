@@ -395,6 +395,10 @@ class erLhcoreClassMailconvParser {
                             $conversations->user_id = $followUpUserId;
                         }
 
+                        if ($conversations->user_id == 0 && $mailbox->user_id > 0) {
+                            $conversations->user_id = $mailbox->user_id;
+                        }
+
                         // It was just a send e-mail. We can mark conversations as finished. Until someone replies back to us.
                         if ($internalInit == true) {
 

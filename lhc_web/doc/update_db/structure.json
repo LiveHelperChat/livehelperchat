@@ -8205,6 +8205,14 @@
         "extra": ""
       },
       {
+        "field": "user_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "assign_parent_user",
         "type": "tinyint(1) unsigned",
         "null": "NO",

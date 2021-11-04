@@ -2216,6 +2216,7 @@ try {
   `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `sync_started` bigint(20) unsigned NOT NULL,
   `last_sync_time` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
   `mailbox_sync` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `sync_status` int(11) unsigned NOT NULL,
   `sync_interval` int(11) unsigned NOT NULL,

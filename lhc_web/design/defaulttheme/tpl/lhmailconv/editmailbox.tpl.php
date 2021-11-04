@@ -11,7 +11,8 @@
 <form autocomplete="off" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" method="post" ng-non-bindable>
 
     <ul class="nav nav-tabs mb-3" role="tablist">
-        <li role="presentation" class="nav-item"><a href="#settings" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Settings');?></a></li>
+        <li role="presentation" class="nav-item"><a href="#settings" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Login settings');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_options') : ?> active<?php endif;?>" href="#options" aria-controls="options" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Options');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_mailbox') : ?> active<?php endif;?>" href="#mailbox" aria-controls="mailbox" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_signature') : ?> active<?php endif;?>" href="#signature" aria-controls="signature" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Signature');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_utilities') : ?> active<?php endif;?>" href="#utilities" aria-controls="utilities" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Utilities');?></a></li>
@@ -66,6 +67,86 @@
 
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" class="btn btn-secondary" name="Save_mailbox" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+            </div>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_options') : ?>active<?php endif;?>" id="options">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" name="active" value="on" <?php $item->active == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" name="delete_mode" value="on" <?php $item->delete_mode == erLhcoreClassModelMailconvMailbox::DELETE_ALL ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On message deletion delete it also on IMAP server');?></label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" name="create_a_copy" value="on" <?php $item->create_a_copy == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Create a copy in a send folder.');?></label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><input type="checkbox" name="assign_parent_user" value="on" <?php $item->assign_parent_user == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Assign follow-up e-mail to the previous thread owner');?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
+                        <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
+                        <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
+                        <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.');?></label>
+                        <input type="number" maxlength="250" class="form-control form-control-sm" name="import_priority" value="<?php echo htmlspecialchars($item->import_priority)?>" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-2">
+                <div class="col-6">
+                    <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                        'input_name'     => 'user_id',
+                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a user'),
+                        'selected_id'    => [$item->user_id],
+                        'ajax'           => 'users',
+                        'data_prop'      => 'data-limit="1"',
+                        'css_class'      => 'form-control',
+                        'display_name'   => 'name_official',
+                        'list_function_params' => array('limit' => 2),
+                        'list_function'  => 'erLhcoreClassModelUser::getList',
+                    )); ?>
+                </div>
+                <script>
+                    $(function() {
+                        $('.btn-block-department').makeDropdown();
+                    });
+                </script>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" class="btn btn-secondary" name="SaveOptions_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+                <input type="submit" class="btn btn-secondary" name="UpdateOptions_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Cancel_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
             </div>
 
         </div>
