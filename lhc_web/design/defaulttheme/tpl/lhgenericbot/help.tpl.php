@@ -45,6 +45,7 @@
                         <li><strong>lhc.phone</strong> - set user provided data as visitor phone</li>
                         <li><strong>order_number</strong> - non internal attribute. Can be anything. Like order number</li>
                         <li><strong>[file]</strong> - this attributes expects that visitor would upload a file. Preg match rule can look like <strong>(gif|jpg|png)</strong></li>
+                        <li><strong>[msg]</strong> - we will not store this text as an attribute, but only as a normal visitor message. <strong>(gif|jpg|png)</strong></li>
                     </ul>
                 </li>
             </ul>

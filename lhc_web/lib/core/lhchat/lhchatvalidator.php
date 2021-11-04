@@ -1866,7 +1866,7 @@ class erLhcoreClassChatValidator {
                             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $params['trigger_payload_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
                         }
 
-                        if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+                        if (isset($message) && $message instanceof erLhcoreClassModelmsg && $message->id > 0) {
                             $chat->last_msg_id = $message->id;
                         }
                     }
