@@ -92,6 +92,12 @@ $ViewList['editgroup'] = array(
     'functions' => array( 'editgroup' )
     );
 
+$ViewList['clonegroup'] = array(
+    'params' => array('group_id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'editgroup' )
+);
+
 $ViewList['groupassignuser'] = array(
     'params' => array('group_id'),
     'functions' => array( 'groupassignuser' )
