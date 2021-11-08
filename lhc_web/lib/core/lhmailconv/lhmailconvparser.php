@@ -217,6 +217,8 @@ class erLhcoreClassMailconvParser {
                     $followUpConversationId = 0;
                     $followUpUserId = 0;
 
+                    $logImport = [];
+
                     // Create a new conversations if message is just to old
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
@@ -231,6 +233,9 @@ class erLhcoreClassMailconvParser {
 
                             if ($mailbox->assign_parent_user == 1) {
                                 $followUpUserId = $previousMessage->conversation->user_id;
+                                $logImport[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Previous mail owner').' [' .$followUpUserId . ']';
+                            } else {
+                                $logImport[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Assigning previous mail owner is disabled for the mailbox');
                             }
 
                             $newConversation = true;
@@ -393,6 +398,7 @@ class erLhcoreClassMailconvParser {
 
                         if ($conversations->user_id == 0 && $followUpUserId > 0) {
                             $conversations->user_id = $followUpUserId;
+                            $logImport[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Conversation user id was set by previous conversation user.') . ' [' . $followUpUserId . ']';
                         }
 
                         if ($conversations->user_id == 0 && $mailbox->user_id > 0) {
@@ -431,6 +437,16 @@ class erLhcoreClassMailconvParser {
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
                         $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
+
+                        // Save initial message
+                        if (!empty($logImport)) {
+                            $messageLog = new erLhcoreClassModelMailconvMessageInternal();
+                            $messageLog->msg = implode("\n",$logImport);
+                            $messageLog->user_id = -1;
+                            $messageLog->chat_id = $conversations->id;
+                            $messageLog->time = time();
+                            $messageLog->saveThis();
+                        }
 
                         $messages[] = $message;
 
@@ -698,7 +714,9 @@ class erLhcoreClassMailconvParser {
 
         for ($res = array(), $i = 0; $i < count($arr); $i+=2) {
             $key = strtr($arr[$i],array(': '=>'','-'=>'_'));
-            $res[$key] = trim($arr[$i+1]);
+            if (isset($arr[$i+1])) {
+                $res[$key] = trim($arr[$i+1]);
+            }
         }
         return $res;
     }
