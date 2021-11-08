@@ -9,6 +9,7 @@
                     'selected_id'    => $input->user_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name_official',
+                    'ajax'           => 'users',
                     'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(),
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
