@@ -388,10 +388,21 @@ const MailChat = props => {
                                 {state.conv && <table className="table table-sm">
                                     <tr>
                                         <td colSpan="2">
-                                            <i className="material-icons action-image" title={t('mail.interactions_history')} onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}>history</i>
-                                            {state.moptions.can_write && <a className="material-icons action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})} title={t('mail.transfer_chat')} >supervisor_account</a>}
-                                            <a className="text-dark material-icons" title={t('mail.print')} target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} >print</a>
-                                            {state.moptions.can_write && state.conv.can_delete && <a className="material-icons mr-0" onClick={(e) => deleteConversation()} title="Delete chat">delete</a>}
+
+                                            <div className="row">
+                                                <div className="col-6">
+                                                    <span className="action-image" onClick={() => showModal({url: "mailconv/mailhistory/" + props.chatId})}><i className="material-icons">history</i>{t('mail.interactions_history')}</span>
+                                                </div>
+                                                {state.moptions.can_write && <div className="col-6">
+                                                    <span className="action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})}><i className="material-icons">supervisor_account</i>{t('mail.transfer_chat')}</span>
+                                                </div>}
+                                                <div className="col-6">
+                                                    <a className="text-dark" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} ><i className="material-icons">print</i>{t('mail.print')}</a>
+                                                </div>
+                                                {state.moptions.can_write && state.conv.can_delete && <div className="col-6">
+                                                    <span className="action-image mr-0" onClick={(e) => deleteConversation()}><i className="material-icons">delete</i>{t('mail.delete')}</span>
+                                                </div>}
+                                           </div>
                                         </td>
                                     </tr>
                                     <tr>

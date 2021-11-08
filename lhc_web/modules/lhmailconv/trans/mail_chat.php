@@ -5,6 +5,7 @@ echo json_encode(array(
         "sender" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Sender'),
         "status" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Status'),
         "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Close'),
+        "delete" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Delete chat'),
         "interactions_history" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Interactions history'),
         "print" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Print'),
         "transfer_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Transfer chat'),
