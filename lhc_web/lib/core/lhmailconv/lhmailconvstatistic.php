@@ -119,7 +119,7 @@ class erLhcoreClassMailconvStatistic {
         self::formatFilterMail($filter);
 
         $items = erLhcoreClassModelMailconvMessage::getCount(
-            array_merge(array('sort' => 'total_records DESC', 'limit' => 20, 'group' => 'user_id'),$filter),
+            array_merge(array('sort' => 'total_records DESC', 'limit' => 50, 'group' => 'user_id'),$filter),
             '',
             false,
             'user_id, count(id) as total_records',
