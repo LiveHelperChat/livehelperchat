@@ -373,7 +373,7 @@ class erLhcoreClassModelChatOnlineUser
                 $normalizedObject->country_code = strtolower($_SERVER[$params['country_code']]);
                 $normalizedObject->country_name = strtolower($_SERVER[$params['country_name']]);
                 $normalizedObject->city = isset($_SERVER[$params['mod_geo_ip_city_name']]) ? $_SERVER[$params['mod_geo_ip_city_name']] : '';
-                $normalizedObject->city .= isset($params['mod_geo_ip_region_name']) && isset($_SERVER[$params['mod_geo_ip_region_name']]) ? ', ' . $_SERVER[$params['mod_geo_ip_region_name']] : '';
+                $normalizedObject->city .= isset($params['mod_geo_ip_region_name']) && isset($_SERVER[$params['mod_geo_ip_region_name']]) ? ' || ' . $_SERVER[$params['mod_geo_ip_region_name']] : '';
                 $normalizedObject->lat = isset($_SERVER[$params['mod_geo_ip_latitude']]) ? substr($_SERVER[$params['mod_geo_ip_latitude']],0,10) : '0';
                 $normalizedObject->lon = isset($_SERVER[$params['mod_geo_ip_longitude']]) ? substr($_SERVER[$params['mod_geo_ip_longitude']],0,10) : '0';
 
@@ -391,7 +391,7 @@ class erLhcoreClassModelChatOnlineUser
                     $normalizedObject->country_code = isset($data['country_code']) ? strtolower($data['country_code']) : '';
                     $normalizedObject->country_name = isset($data['country_name']) ? strtolower($data['country_name']) : '';
                     $normalizedObject->city = isset($data['city']) ? strtolower($data['city']) : '';
-                    $normalizedObject->city .= isset($data['region']) ? ', ' . strtolower($data['region']) : '';
+                    $normalizedObject->city .= isset($data['region']) ? ' || ' . strtolower($data['region']) : '';
                     $normalizedObject->lat = isset($data['latitude']) ? substr(strtolower($data['latitude']),0,10) : '';
                     $normalizedObject->lon = isset($data['longitude']) ? substr(strtolower($data['longitude']),0,10) : '';
                     return $normalizedObject;
@@ -431,9 +431,9 @@ class erLhcoreClassModelChatOnlineUser
 
                     try {
                         $normalizedObject->city = $countryData->city->name != '' ? $countryData->city->name : (isset($countryData->raw['location']['time_zone']) ? $countryData->raw['location']['time_zone'] : '');
-                        $regionName = isset($countryData->raw['mostSpecificSubdivision']['name']) ? ', ' . $countryData->raw['mostSpecificSubdivision']['name'] : '';
-                        $normalizedObject->city .= isset($countryData->mostSpecificSubdivision->isoCode) ? ', ' . $countryData->mostSpecificSubdivision->isoCode : '';
-                        $normalizedObject->city .= $regionName;
+                        if ($countryData->mostSpecificSubdivision->name != '') {
+                            $normalizedObject->city .= ' || ' . $countryData->mostSpecificSubdivision->name;
+                        }
                     } catch (Exception $e) {
                         // Just in case of city error
                     }
@@ -666,18 +666,24 @@ class erLhcoreClassModelChatOnlineUser
         if (isset($_SERVER['HTTP_USER_AGENT']) && !self::isBot($_SERVER['HTTP_USER_AGENT'])) {
             $newVisitor = false;
             $returningVisitor = false;
+            $detectLocation = false;
 
             if (isset($paramsHandle['vid']) && !empty($paramsHandle['vid'])) {
                 $items = erLhcoreClassModelChatOnlineUser::getList(array('filter' => array('vid' => $paramsHandle['vid'])));
                 if (!empty($items)) {
                     $item = array_shift($items);
 
-                    // Visit duration les than 30m. Same as google analytics
+                    // Visit duration less than 30m. Same as google analytics
                     // See: https://support.google.com/analytics/answer/2731565?hl=en
                     if ((time() - $item->last_visit) <= 30 * 60) {
                         $item->time_on_site += time() - $item->last_visit;
                         $item->tt_time_on_site += time() - $item->last_visit;
                     } else {
+
+                        if ((time() - (2 * 24 * 3600)) > $item->last_visit) {
+                            $detectLocation = true;
+                        }
+
                         $item->time_on_site = 0;
                         $item->total_visits++;
                         $item->last_visit = time();
@@ -757,7 +763,7 @@ class erLhcoreClassModelChatOnlineUser
 
             $ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
             
-            if ($item->ip != $ip) {
+            if ($item->ip != $ip || $detectLocation == true) {
                 $item->ip = $ip;
                 self::detectLocation($item);
                 $item->store_chat = true;
