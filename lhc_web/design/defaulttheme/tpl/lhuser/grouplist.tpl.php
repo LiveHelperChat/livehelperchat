@@ -9,6 +9,7 @@
     <th>ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Name');?></th>
     <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
+    <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canDelete) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>
 </thead>
@@ -17,6 +18,7 @@
         <td width="1%"><?php echo $group->id?></td>
         <td><?php echo htmlspecialchars($group->name)?></td>
         <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?></a></td><?php endif;?>
+        <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('user/clonegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Clone');?></a></td><?php endif;?>
         <?php if ($canDelete) : ?><td nowrap><?php if ($group->id != 1) : ?><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>
