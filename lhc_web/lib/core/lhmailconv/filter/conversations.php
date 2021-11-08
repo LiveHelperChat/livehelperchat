@@ -277,7 +277,9 @@ $fieldSortAttr = array (
         'idasc' => array('sort_column' => 'id ASC'),
         'highprioritynew' => array('sort_column' => 'priority DESC, id DESC'),
         'lowpriorityold' => array('sort_column' => 'priority_asc ASC, id ASC'),
-        'statuspriority' => array('sort_column' => 'status DESC, priority DESC')
+        'statuspriority' => array('sort_column' => 'status DESC, priority DESC'),
+        'lastupdateasc' => array('sort_column' => 'udate ASC'),
+        'lastupdatedesc' => array('sort_column' => 'udate DESC'),
     )
 );
 

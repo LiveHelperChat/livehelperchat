@@ -120,7 +120,17 @@ class erLhcoreClassModelMailconvConversation
             case 'cls_time_front':
             case 'lr_time_front':
                 $varObj = str_replace('_front','',$var);
-                $this->$var = date('Ymd') == date('Ymd', $this->{$varObj}) ? date(erLhcoreClassModule::$dateHourFormat, $this->{$varObj}) : date(erLhcoreClassModule::$dateDateHourFormat, $this->{$varObj});
+                $this->$var = date('Ymd') == date('Ymd', $this->{$varObj}) ? date(erLhcoreClassModule::$dateHourFormat, $this->{$varObj}) : date(erLhcoreClassModule::$dateFormat, $this->{$varObj});
+                return $this->$var;
+
+            case 'pnd_time_front_ago':
+            case 'ctime_front_ago':
+            case 'udate_front_ago':
+            case 'accept_time_front_ago':
+            case 'cls_time_front_ago':
+            case 'lr_time_front_ago':
+                $varObj = str_replace('_front_ago','',$var);
+                $this->$var = erLhcoreClassChat::formatSeconds(time() - $this->{$varObj});
                 return $this->$var;
 
             case 'department':

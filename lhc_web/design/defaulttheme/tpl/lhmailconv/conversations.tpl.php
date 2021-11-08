@@ -71,7 +71,7 @@
                         <i class="material-icons chat-closed">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Closed');?>
                     <?php endif; ?>
                 </td>
-                <td ng-non-bindable>
+                <td ng-non-bindable title="<?php echo $item->udate_front_ago;?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','ago');?>">
                     <?php echo $item->udate_front;?>
                 </td>
                 <?php if ($can_delete === true) : ?>

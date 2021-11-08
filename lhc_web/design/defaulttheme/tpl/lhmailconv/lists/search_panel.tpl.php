@@ -231,11 +231,13 @@
                         <div class="col-md-2">
                             <label>Sort by</label>
                             <select name="sortby" class="form-control form-control-sm">
-                                <option <?php if ($input->sortby == 'iddesc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="iddesc">Newest first (default)</option>
-                                <option <?php if ($input->sortby == 'idasc') : ?>selected="selected"<?php endif; ?> value="idasc">Oldest first</option>
-                                <option <?php if ($input->sortby == 'highprioritynew') : ?>selected="selected"<?php endif; ?> value="highprioritynew">Higher priority, newest first</option>
-                                <option <?php if ($input->sortby == 'lowpriorityold') : ?>selected="selected"<?php endif; ?> value="lowpriorityold">Higher priority, oldest first</option>
-                                <option <?php if ($input->sortby == 'statuspriority') : ?>selected="selected"<?php endif; ?> value="statuspriority">Active, New sorted by higher priority</option>
+                                <option <?php if ($input->sortby == 'iddesc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="iddesc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Newest first (default)');?></option>
+                                <option <?php if ($input->sortby == 'idasc') : ?>selected="selected"<?php endif; ?> value="idasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Oldest first');?></option>
+                                <option <?php if ($input->sortby == 'highprioritynew') : ?>selected="selected"<?php endif; ?> value="highprioritynew"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Higher priority, newest first');?></option>
+                                <option <?php if ($input->sortby == 'lowpriorityold') : ?>selected="selected"<?php endif; ?> value="lowpriorityold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Higher priority, oldest first');?></option>
+                                <option <?php if ($input->sortby == 'statuspriority') : ?>selected="selected"<?php endif; ?> value="statuspriority"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active, New sorted by higher priority');?></option>
+                                <option <?php if ($input->sortby == 'lastupdatedesc') : ?>selected="selected"<?php endif; ?> value="lastupdatedesc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Newest replies first');?></option>
+                                <option <?php if ($input->sortby == 'lastupdateasc') : ?>selected="selected"<?php endif; ?> value="lastupdateasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Newest replies last');?></option>
                             </select>
                         </div>
                         <div class="col-md-2">
