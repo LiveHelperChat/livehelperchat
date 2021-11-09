@@ -12,6 +12,7 @@ $ViewList['default'] = array(
 
 $ViewList['settings'] = array(
     'params' => array(),
+    'uparams' => array('action'),
     'functions' => array( 'use' )
 );
 

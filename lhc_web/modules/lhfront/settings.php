@@ -1,5 +1,11 @@
 <?php
 
+if ($Params['user_parameters_unordered']['action'] == 'reset') {
+    erLhcoreClassModelUserSetting::setSetting('dw_filters', '{}', false, true);
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
+
 erLhcoreClassRestAPIHandler::setHeaders();
 
 $payload = json_decode(file_get_contents('php://input'),true);
