@@ -151,9 +151,9 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
     };
 
     // Continue here
-    this.setLocalSettings = function(name,publicChat) {
+    this.setLocalSettings = function(attr,val) {
         var deferred = $q.defer();
-        $http.post(WWW_DIR_JAVASCRIPT + 'groupchat/newgroupajax/',{"name":name,"public":publicChat}).then(function(data) {
+        $http.post(WWW_DIR_JAVASCRIPT + 'front/settings',{"attr":attr,"val":val}).then(function(data) {
             deferred.resolve(data.data);
         },function(internalError){
             deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
@@ -849,19 +849,12 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			var listValue = _that[listId].join("/");
 
 			if (listValue != '') {
-				//_that.storeLocalSetting(listId,listValue);
-				_that.setDepartmentNames(listId);	
+                LiveHelperChatFactory.setLocalSettings(listId, listValue);
+				_that.setDepartmentNames(listId);
 			}
 
-
-
 		} else {
-			if (localStorage) {
-	    		try {
-	    			localStorage.removeItem(listId);
-	    		} catch(err) {    			   		
-	    		};
-	    	}	
+           LiveHelperChatFactory.setLocalSettings(listId, null);
 		}
 		
 		_that.isListLoaded = false;
@@ -875,17 +868,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			var listValue = _that[listId].join("/");
 
 			if (listValue != '') {
-				_that.storeLocalSetting(listId,listValue);
+                LiveHelperChatFactory.setLocalSettings(listId, listValue);
 			}
 
 		} else {
-			if (localStorage) {
-	    		try {
-	    			localStorage.removeItem(listId);
-	    		} catch(err) {
-	    		};
-	    	}
+            LiveHelperChatFactory.setLocalSettings(listId, null);
 		}
+
 		_that.isListLoaded = false;
 		$scope.loadChatList();
 	};
