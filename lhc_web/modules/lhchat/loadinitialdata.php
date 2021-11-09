@@ -199,6 +199,7 @@ $widgets = erLhcoreClassChat::array_flatten($widgets);
 
 $dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
 $not_ic = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
+$dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
 
 $response = array(
     'widgets' => $widgets,
@@ -222,6 +223,7 @@ $response = array(
     'dp_groups' => $depGroupsList,
     'dp_names' => $departmentNames,
     'dep_list' => $departmentList,
+    'dw_filters' => $dwFilters,
     'bot_st' => array(
         'msg_nm' =>  (int)erLhcoreClassModelUserSetting::getSetting('bot_msg_nm',3),
         'bot_notifications' => (int)erLhcoreClassModelUserSetting::getSetting('bot_notifications',0)
