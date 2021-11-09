@@ -35,6 +35,20 @@ try
 
         $dep = new erLhcoreClassModelDepartament();
 
+    } elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'list')) {
+            throw new Exception('You do not have permission. `lhdepartment`, `list` is required.');
+        }
+
+        $dep = erLhcoreClassModelDepartament::fetch((int)$Params['user_parameters']['id']);
+        if (!($dep instanceof erLhcoreClassModelDepartament)) {
+            throw new Exception('Department could not be found!');
+        }
+
+        erLhcoreClassRestAPIHandler::outputResponse(array('error' => false, 'result' => $dep));
+        exit;
+
     } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {
 
         if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'edit')) {

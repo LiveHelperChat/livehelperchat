@@ -55,6 +55,22 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
             $stmt->execute();
         }
 
+        if (isset($_POST['auto_preload']) && $_POST['auto_preload'] == 'on') {
+            $q = ezcDbInstance::get()->createDeleteQuery();
+            $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
+            $conditions[] = $q->expr->eq('identifier', $q->bindValue('auto_preload'));
+            $q->deleteFrom( 'lh_users_setting' )
+                ->where(
+                    $conditions
+                );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
+            foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array( 'limit' => false))) as $userItem) {
+                erLhcoreClassModelUserSetting::setSetting('auto_preload',1, $userItem->id);
+            }
+        }
+
         if (isset($_POST['change_password']) && $_POST['change_password'] == 'on') {
             foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('offset' => 0, 'limit' => false))) as $item) {
                 if (erLhcoreClassModelUserLogin::getCount(array('filter' => array (

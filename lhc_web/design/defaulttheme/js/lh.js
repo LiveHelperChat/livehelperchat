@@ -192,6 +192,9 @@ function lh(){
     }
 
     this.loadMainData = function(chat_id) {
+
+        var _that = this;
+
         $.getJSON(this.wwwDir + 'chat/loadmaindata/' + chat_id, { }, function(data) {
             $.each(data.items, function( index, dataElement ) {
                 var el = $(dataElement.selector);
@@ -216,7 +219,9 @@ function lh(){
                     } else if(dataElement.action == 'event') {
                         ee.emitEvent(dataElement.event_name, dataElement.event_value);
                     } else if(dataElement.action == 'click') {
-                        el.attr('auto-scroll',1);
+                        if (confLH.no_scroll_bottom !== 1){
+                            el.attr('auto-scroll',1);
+                        }
                         el.click();
                     }
                 }
@@ -2151,28 +2156,57 @@ function lh(){
 	    }
 	};
 
-	this.loadPreviousMessages = function (inst) {
-        $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial'), function(data) {
-            if (data.error == false) {
+    this.scrollLoading = false;
+    this.scrollPending = false;
 
-                inst.attr('data-initial',0);
+	this.loadPreviousMessages = function (inst, noScroll) {
+        if (this.scrollLoading == false) {
+            this.scrollLoading = true;
+            var _that = this;
+            $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial'), function(data) {
+                if (data.error == false) {
 
-                var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
-                msg.prepend(data.result);
+                    inst.attr('data-initial',0);
 
-                if (inst.attr('auto-scroll') == 1) {
-                    inst.attr('auto-scroll',0);
-                    msg.scrollTop(msg.prop('scrollHeight'));
-                }
+                    var msg = $('#messagesBlock-'+inst.attr('chat-original-id'));
+                    msg.prepend(data.result);
 
-                if (data.has_messages == true) {
-                    inst.attr('message-id', data.message_id);
-                    inst.attr('chat-id',data.chat_id);
+                    if (inst.attr('auto-scroll') == 1) {
+                        inst.attr('auto-scroll',0);
+                        msg.scrollTop(msg.prop('scrollHeight'));
+                    } else if (!noScroll) {
+                        var elm = document.getElementById('scroll-to-chat-' + inst.attr('chat-id') + '-' + inst.attr('message-id'));
+                        if (elm) {
+                            msg[0].scrollTop = elm.offsetTop;
+                        }
+                    }
+
+                    if (data.has_messages == true) {
+                        inst.attr('message-id', data.message_id);
+                        inst.attr('chat-id',data.chat_id);
+
+                        _that.scrollLoading = false;
+
+                        if (_that.scrollPending == true) {
+                            _that.scrollPending = false;
+                            _that.loadPreviousMessages(inst, noScroll);
+                        }
+
+                    } else {
+                        inst.remove();
+                        _that.scrollLoading = false;
+                        _that.scrollPending = false;
+                    }
+
                 } else {
-                    inst.remove();
+                    _that.scrollLoading = false;
+                    _that.scrollPending = false;
                 }
-            }
-        });
+            });
+        } else {
+            this.scrollPending = true;
+        }
+
     };
 
 	this.hidenicknamesstatus = null;
@@ -2551,21 +2585,24 @@ function lh(){
 	        this.playNewChatAudio(identifier == 'active_chats' ? 'alert' : 'new_chat');
 	    };
 
-
-
-	    if(!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
+	    if(!$("textarea[name=ChatMessage]").is(":focus") && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.startBlinking();
     	};
 
+        if (identifier == 'subject_chats') {
+            this.soundPlayedTimes = 0;
+            this.playNewChatAudio('subject_chat');
+        }
+
 	    var inst = this;
 
-	    if ( (identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
+	    if ( (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'bot_chats' || identifier == 'pending_transfered') && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && window.Notification && window.Notification.permission == 'granted') {
 
 			var notification = new Notification(nick, { icon: WWW_DIR_JAVASCRIPT_FILES_NOTIFICATION + '/notification.png', body: message, requireInteraction : true });
 
 			notification.onclick = function () {
 
-    	    	if (identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
+    	    	if (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
     	    		if ($('#tabs').length > 0) {
     	    			window.focus();
     	    			inst.startChat(chat_id, $('#tabs'), nt);
@@ -2966,6 +3003,17 @@ function lh(){
 		    	   },100);
 		      }
 		});
+
+        $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
+        $messageBlock.bind('scroll',function(event) {
+            var $this = jQuery(this);
+
+            if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
+                _that.loadPreviousMessages($('#load-prev-btn-'+chat_id), true);
+            }
+
+            $this[0].oldScrollTop = $this[0].scrollTop;
+        });
 
 		this.initTypingMonitoringAdmin(chat_id);
 

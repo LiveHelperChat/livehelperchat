@@ -231,7 +231,23 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	// Parameters for back office sync
 	
 	var _that = this;
-	
+
+    this.restoreSettingByString = function(value,split) {
+        if (split == true){
+
+            var values = value.split('/');
+            var valuesInt = new Array();
+
+            angular.forEach(values, function(val) {
+                valuesInt.push(parseInt(val));
+            });
+
+            return valuesInt;
+        } else {
+            return value;
+        }
+    };
+
 	this.restoreLocalSetting = function(variable,defaultValue,split) {
 		try {
 			if (localStorage) {
@@ -261,21 +277,22 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.custom_extension_filter = '';
 
 	// Active chat limit
-	this.limitb = this.restoreLocalSetting('limitb','10',false);
-	this.limita = this.restoreLocalSetting('limita','10',false);
-	this.limitu = this.restoreLocalSetting('limitu','10',false);
-	this.limitp = this.restoreLocalSetting('limitp','10',false);
-	this.limito = this.restoreLocalSetting('limito',confLH.dlist.op_n,false);
-	this.limitc = this.restoreLocalSetting('limitc','10',false);
-	this.limitd = this.restoreLocalSetting('limitd','10',false);
-	this.limitmc = this.restoreLocalSetting('limitmc','10',false);
-	this.limitgc = this.restoreLocalSetting('limitgc','10',false);
-	this.limits = this.restoreLocalSetting('limits','10',false);
+	this.limitb = "10";
+	this.limita = "10";
+	this.limitu = "10";
+	this.limitp = "10";
+	this.limito = confLH.dlist.op_n; this.restoreLocalSetting('limito',confLH.dlist.op_n,false);
+	this.limitc = "10";
+	this.limitd = "10";
+	this.limitmc = "10";
+	this.limitgc = "10";
+	this.limits = "10";
 
 	// Active chat's operators filter
-	this.activeu = this.restoreLocalSetting('activeu',[],true);
-	this.pendingu = this.restoreLocalSetting('pendingu',[],true);
-	this.subjectu = this.restoreLocalSetting('subjectu',[],true);
+	this.activeu = [];
+	this.pendingu = [];
+	this.subjectu = [];
+
 
 	// Main left menu of pagelayout
 	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
@@ -304,52 +321,61 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.excludeIcons = [];
 	this.notifIcons = [];
 
-	this.departmentd = this.restoreLocalSetting('departmentd',[],true);
-	this.departmentd_dpgroups = this.restoreLocalSetting('departmentd_dpgroups',[],true);
+	this.departmentd = [];
+	this.departmentd_dpgroups = [];
 	this.departmentdNames = [];	
 	
-	this.operatord = this.restoreLocalSetting('operatord',[],true);
-	this.operatord_dpgroups = this.restoreLocalSetting('operatord_dpgroups',[],true);
+	this.operatord = [];
+	this.operatord_dpgroups = [];
 	this.operatordNames = [];
 
 	// Chats with products filters
-	this.actived = this.restoreLocalSetting('actived',[],true);
-	this.actived_products = this.restoreLocalSetting('actived_products',[],true);
-	this.actived_dpgroups = this.restoreLocalSetting('actived_dpgroups',[],true);
-	this.actived_ugroups = this.restoreLocalSetting('actived_ugroups',[],true);
+	this.actived = [];
+	this.actived_products = [];
+	this.actived_dpgroups = [];
+	this.actived_ugroups = [];
+
 	this.activedNames = [];
 
-	this.mcd = this.restoreLocalSetting('mcd',[],true);
-	this.mcd_products = this.restoreLocalSetting('mcd_products',[],true);
-	this.mcd_dpgroups = this.restoreLocalSetting('mcd_dpgroups',[],true);
+	this.mcd = [];
+	this.mcd_products = [];
+	this.mcd_dpgroups = [];
+
 	this.mcdNames = [];
 
-	this.unreadd = this.restoreLocalSetting('unreadd',[],true);
-	this.unreadd_products = this.restoreLocalSetting('unreadd_products',[],true);
-	this.unreadd_dpgroups = this.restoreLocalSetting('unreadd_dpgroups',[],true);
+	this.unreadd = [];
+	this.unreadd_products = [];
+	this.unreadd_dpgroups = [];
+
 	this.unreaddNames = [];
 
-	this.pendingd = this.restoreLocalSetting('pendingd',[],true);
-	this.pendingd_products = this.restoreLocalSetting('pendingd_products',[],true);
-	this.pendingd_dpgroups = this.restoreLocalSetting('pendingd_dpgroups',[],true);
-	this.pendingd_ugroups = this.restoreLocalSetting('pendingd_ugroups',[],true);
+	this.pendingd = [];
+	this.pendingd_products = [];
+	this.pendingd_dpgroups = [];
+	this.pendingd_ugroups = [];
+
+
 	this.pendingdNames = [];
 
-	this.botd = this.restoreLocalSetting('botd',[],true);
-	this.botd_products = this.restoreLocalSetting('botd_products',[],true);
-	this.botd_dpgroups = this.restoreLocalSetting('botd_dpgroups',[],true);
-	this.botd_ugroups = this.restoreLocalSetting('botd_ugroups',[],true);
+	this.botd = [];
+	this.botd_products = [];
+	this.botd_dpgroups = [];
+	this.botd_ugroups = [];
+
 	this.botdNames = [];
 
-	this.subjectd = this.restoreLocalSetting('subjectd',[],true);
-	this.subjectd_products = this.restoreLocalSetting('subjectd_products',[],true);
-	this.subjectd_dpgroups = this.restoreLocalSetting('subjectd_dpgroups',[],true);
-	this.subjectd_ugroups = this.restoreLocalSetting('subjectd_ugroups',[],true);
+    this.subjectd = [];
+	this.subjectd_products = [];
+	this.subjectd_dpgroups = [];
+	this.subjectd_ugroups = [];
+
 	this.subjectdNames = [];
 
-	this.closedd = this.restoreLocalSetting('closedd',[],true);
-	this.closedd_products = this.restoreLocalSetting('closedd_products',[],true);
-	this.closedd_dpgroups = this.restoreLocalSetting('closedd_dpgroups',[],true);
+	this.closedd = [];
+	this.closedd_products = [];
+	this.closedd_dpgroups = [];
+
+
 	this.closeddNames = [];
 	
     // Storage for notifications
@@ -795,7 +821,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	$scope.$watch('lhc.limita', function(newVal,oldVal) {       
 		if (newVal != oldVal) {							
-			_that.storeLocalSetting('limita',newVal);
+            LiveHelperChatFactory.setLocalSettings('limita', newVal);
             _that.isListLoaded = false;
 			$scope.loadChatList();
 		};
@@ -953,56 +979,56 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	$scope.$watch('lhc.limitu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('limitu',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitu', newVal);
 			$scope.loadChatList();
 		};
 	});
 	
 	$scope.$watch('lhc.limitc', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('limitc',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitc', newVal);
 			$scope.loadChatList();
 		};
 	});
 			
 	$scope.$watch('lhc.limitp', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('limitp',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitp', newVal);
 			$scope.loadChatList();
 		};
 	});
 	
 	$scope.$watch('lhc.limito', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('limito',newVal);
+            LiveHelperChatFactory.setLocalSettings('limito', newVal);
 			$scope.loadChatList();
 		};
 	});
 
 	$scope.$watch('lhc.limitmc', function(newVal,oldVal) {
 		if (newVal != oldVal) {
-			_that.storeLocalSetting('limitmc',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitmc', newVal);
 			$scope.loadChatList();
 		};
 	});
 
 	$scope.$watch('lhc.limitgc', function(newVal,oldVal) {
 		if (newVal != oldVal) {
-			_that.storeLocalSetting('limitgc',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitgc', newVal);
 			$scope.loadChatList();
 		};
 	});
 
 	$scope.$watch('lhc.limitd', function(newVal,oldVal) {
 		if (newVal != oldVal) {
-			_that.storeLocalSetting('limitd',newVal);
+            LiveHelperChatFactory.setLocalSettings('limitd', newVal);
 			$scope.loadChatList();
 		};
 	});
 
 	$scope.$watch('lhc.activeu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('activeu',newVal);
+            LiveHelperChatFactory.setLocalSettings('activeu', newVal);
 			_that.isListLoaded = false;
 			$scope.loadChatList();
 		};
@@ -1010,7 +1036,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	$scope.$watch('lhc.pendingu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
-			_that.storeLocalSetting('pendingu',newVal);
+            LiveHelperChatFactory.setLocalSettings('pendingu', newVal);
 			_that.isListLoaded = false;
 			$scope.loadChatList();
 		};
@@ -1018,7 +1044,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	$scope.$watch('lhc.subjectu', function(newVal,oldVal) {
 		if (newVal != oldVal) {
-			_that.storeLocalSetting('subjectu',newVal);
+            LiveHelperChatFactory.setLocalSettings('subjectu', newVal);
 			_that.isListLoaded = false;
 			$scope.loadChatList();
 		};
@@ -1185,7 +1211,11 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		                        	_that.statusNotifications[item.last_id_identifier] = new Array();
 		                        };
 
-		                        if (_that.isListLoaded == true && item.last_id_identifier == 'active_chats') {
+		                        if (_that.isListLoaded == true && item.last_id_identifier == 'subject_chats') {
+                                    if (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) {
+                                        chatsToNotify.push(itemList.id);
+                                    }
+                                } else if (_that.isListLoaded == true && item.last_id_identifier == 'active_chats') {
                                     if (_that.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && alertIcons.length > 0 && _that.notifIcons.length > 0) {
                                         var iconsMonitoring = _that.notifIcons.filter(function(n) {
                                             return _that.excludeIcons.indexOf(n) === -1 && alertIcons.indexOf(n) !== -1;
@@ -1677,6 +1707,71 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.bot_st = data.bot_st;
             _that.excludeIcons = data.exc_ic;
             _that.notifIcons = data.not_ic;
+
+            var arraySettings = [
+                'subjectd',
+                'subjectd_products',
+                'subjectd_dpgroups',
+                'subjectd_ugroups',
+
+                'activeu',
+                'pendingu',
+                'subjectu',
+
+                'closedd',
+                'closedd_products',
+                'closedd_dpgroups',
+
+                'botd',
+                'botd_products',
+                'botd_dpgroups',
+                'botd_ugroups',
+
+                'pendingd',
+                'pendingd_products',
+                'pendingd_dpgroups',
+                'pendingd_ugroups',
+
+                'unreadd',
+                'unreadd_products',
+                'unreadd_dpgroups',
+
+                'mcd',
+                'mcd_products',
+                'mcd_dpgroups',
+
+                'actived',
+                'actived_products',
+                'actived_dpgroups',
+                'actived_ugroups',
+
+                'departmentd_dpgroups',
+                'departmentd',
+
+                'operatord_dpgroups',
+                'operatord',
+            ];
+
+            var limitOptions = [
+                'limitb',
+                'limita',
+                'limitu',
+                'limitp',
+                'limito',
+                'limitc',
+                'limitd',
+                'limitmc',
+                'limitgc',
+                'limits',
+            ];
+
+            data.dw_filters && Object.keys(data.dw_filters).forEach(key => {
+                if (arraySettings.indexOf(key) !== -1) {
+                    _that[key] = _that.restoreSettingByString(data.dw_filters[key], true);
+                } else if (limitOptions.indexOf(key) !== -1) {
+                    _that[key] = data.dw_filters[key];
+                }
+            })
 
 			angular.forEach(_that.widgetsItems, function(listId) {
 				_that.setDepartmentNames(listId);

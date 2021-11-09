@@ -34,6 +34,9 @@ $modalBodyClass = 'p-1';
                             <div class="col-6">
                                 <label><input type="checkbox" name="change_password" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Force change password')?></label>
                             </div>
+                            <div class="col-6">
+                                <label><input type="checkbox" name="auto_preload" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Auto preload previous visitor chat messages')?></label>
+                            </div>
                         </div>
                     </div>
             </div>

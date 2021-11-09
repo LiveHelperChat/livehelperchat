@@ -19,7 +19,7 @@ $fieldsSearch['name'] = array (
     'trans' => 'Nick',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'name',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -31,7 +31,7 @@ $fieldsSearch['username'] = array (
     'trans' => 'Nick',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'username',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -55,7 +55,7 @@ $fieldsSearch['chat_nickname'] = array (
     'trans' => 'Nick',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'chat_nickname',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -67,7 +67,7 @@ $fieldsSearch['surname'] = array (
     'trans' => 'Nick',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'filter',
+    'filter_type' => 'like',
     'filter_table_field' => 'surname',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'

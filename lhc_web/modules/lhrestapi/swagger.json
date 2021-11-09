@@ -183,6 +183,30 @@
             }
           },
           {
+            "name": "has_operator",
+            "description": "Has operator",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
+            "name": "had_bot",
+            "description": "Chat involved a bot. Means bot was assigned to the chat",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
+            "name": "bot_ids",
+            "description": "Bot ID's separated by comma",
+            "required": false,
+            "type": "boolean",
+            "default": "",
+            "in": "query"
+          },
+          {
             "name": "include_survey",
             "description": "Include filled survey if it exists",
             "required": false,
@@ -239,8 +263,24 @@
             "format": "int32"
           },
           {
+            "name": "time_lt",
+            "in": "query",
+            "description": "Time less than. Unix timestamp.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          },
+          {
             "name": "include_messages",
             "description": "Include messages within chat",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "in": "query"
+          },
+          {
+            "name": "include_department",
+            "description": "Include department within chat",
             "required": false,
             "type": "boolean",
             "default": false,
@@ -2721,6 +2761,43 @@
       }
     },
     "/restapi/department/{department_id}": {
+      "get": {
+        "tags": [
+          "department"
+        ],
+        "summary": "Department to fetch",
+        "description": "Required permissions - 'lhdepartment', 'list'",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "department_id",
+            "in": "path",
+            "description": "Department to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetches department data",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
       "put": {
         "tags": [
           "department"

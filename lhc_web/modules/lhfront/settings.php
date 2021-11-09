@@ -7,7 +7,7 @@ $payload = json_decode(file_get_contents('php://input'),true);
 if (isset($payload['attr']) && is_string($payload['attr']) && $payload['attr'] != '' && key_exists('val',$payload)){
 
     // Exclude notifications icons
-    $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', ''),true);
+    $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true );
 
     if ($dwFilters === null) {
         $dwFilters = [];
@@ -18,10 +18,10 @@ if (isset($payload['attr']) && is_string($payload['attr']) && $payload['attr'] !
             unset($dwFilters[$payload['attr']]);
         }
     } else {
-        $dwFilters[$payload['attr']] = $payload['val'];
+        $dwFilters[$payload['attr']] = is_array($payload['val']) ? implode('/',$payload['val']) : $payload['val'];
     }
 
-    erLhcoreClassModelUserSetting::setSetting('dw_filters', json_encode($dwFilters));
+    erLhcoreClassModelUserSetting::setSetting('dw_filters', json_encode($dwFilters,JSON_FORCE_OBJECT), false, true);
 }
 
 echo json_encode(true);

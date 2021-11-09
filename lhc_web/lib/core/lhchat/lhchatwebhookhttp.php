@@ -172,6 +172,9 @@ class erLhcoreClassChatWebhookHttp {
                         if (in_array($conditionsCurrent['condition'],['lt','lte','gt','gte'])) {
                             $conditionAttr = round((float)$conditionAttr,3);
                             $valueAttr = round((float)$valueAttr,3);
+                        } elseif ((is_string($conditionAttr) || is_numeric($conditionAttr)) && (is_string($valueAttr) || is_numeric($valueAttr))) {
+                            $conditionAttr = (string)$conditionAttr;
+                            $valueAttr = (string)$valueAttr;
                         }
 
                         if ($conditionsCurrent['condition'] == 'eq' && ($conditionAttr == $valueAttr)) {

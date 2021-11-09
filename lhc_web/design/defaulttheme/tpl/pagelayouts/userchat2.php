@@ -96,20 +96,26 @@ if (
 ) : ?>
     <?php if (!isset($Result['voice_call'])) : ?>
         <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js')?>?v=a1"></script>
-        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/.react.appie.js')?>?t=222"></script>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/.react.appie.js')?>?t=223"></script>
     <?php else : ?>
         <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/voice/voice.call.js')?>?t=2"></script>
     <?php endif; ?>
 <?php else : ?>
     <?php if (!isset($Result['voice_call'])) : ?>
         <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/vendor.js')?>?v=a1"></script>
-        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=222"></script>
+        <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/widgetv2/react.app.js')?>?t=223"></script>
         <?php else : ?>
         <script <?php isset($Result['app_scope']) ? print 'scope="' . htmlspecialchars($Result['app_scope']) . '"' : '' ?> src="<?php echo erLhcoreClassDesign::design('js/voice/voice.call.js')?>?t=2"></script>
     <?php endif; ?>
 <?php endif; ?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_footer_widget2_js_extension_multiinclude.tpl.php'));?>
+
+<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+    $debug = ezcDebug::getInstance();
+    echo "<div><pre class='bg-light text-dark m-2 p-2 border'>" . json_encode(erLhcoreClassUser::$permissionsChecks, JSON_PRETTY_PRINT) . "</pre></div>";
+    echo $debug->generateOutput();
+} ?>
 
 </body>
 </html>

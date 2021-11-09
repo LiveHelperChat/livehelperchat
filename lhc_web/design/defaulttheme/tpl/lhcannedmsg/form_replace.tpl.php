@@ -5,6 +5,7 @@
 
 <script>
     var replaceConditions = <?php echo json_encode($item->conditions_array)?>;
+    var replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(['limit' => false]) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
 </script>
 
 <div ng-controller="CannedReplaceCtrl as crc" class="pb-1" ng-init='crc.setConditions()'>
@@ -22,7 +23,6 @@
         </li>
         <li class="nav-item"><a href="#addcombination" class="nav-link" ng-click="crc.addCombination()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add combination');?></a></li>
     </ul>
-
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="default">
             <div class="form-group" ng-non-bindable>
@@ -43,24 +43,38 @@
                 <small><p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Rules with highest priority will be checked first');?></p></small>
             </div>
 
-            <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department filter');?></label>
-                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
-                    'input_name'     => 'department_id-{{$index}}',
-                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
-                    'selected_id'    => "0",
-                    'ng-model'       => 'combination.dep_id',
-                    'type'           => 'radio',
-                    'data_prop'      => 'data-limit="1"',
-                    'css_class'      => 'form-control',
-                    'display_name'   => 'name',
-                    'show_optional'  => true,
-                    'list_function_params' => array('limit' => false),
-                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
-                )); ?>
+            <div class="row">
+                <div class="col-12">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department filter');?></label>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                            'input_name'     => 'department_id-{{$index}}',
+                            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                            'selected_id'    => "0",
+                            'ng-model'       => 'combination.dep_id',
+                            'type'           => 'radio',
+                            'data_prop'      => 'data-limit="1"',
+                            'css_class'      => 'form-control',
+                            'display_name'   => 'name',
+                            'show_optional'  => true,
+                            'list_function_params' => array('limit' => false),
+                            'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                        )); ?>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addDepartment(combination)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add');?></button>
+                </div>
+                <div class="col-6">
+                    <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge badge-secondary m-1 action-image">
+                        {{crc.departments[dep_id]}} <span class="material-icons text-warning mr-0">delete</span>
+                    </span>
+                </div>
             </div>
 
-            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Advanced filtering');?></h6>
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Advanced filtering');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></h6>
 
             <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addCondition(combination)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add condition');?></button>
 

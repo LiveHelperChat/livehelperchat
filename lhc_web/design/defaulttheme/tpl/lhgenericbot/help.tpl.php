@@ -6,6 +6,9 @@
         </div>
         <div class="modal-body">
             <p>
+
+           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules.tpl.php'));?>
+
             <?php if ($context == 'text') : ?>
                 <ul>
                     <li>{<translation>__default message__t[show from hour, show till hour]} inclusive is first hour. Few examples
@@ -42,6 +45,7 @@
                         <li><strong>lhc.phone</strong> - set user provided data as visitor phone</li>
                         <li><strong>order_number</strong> - non internal attribute. Can be anything. Like order number</li>
                         <li><strong>[file]</strong> - this attributes expects that visitor would upload a file. Preg match rule can look like <strong>(gif|jpg|png)</strong></li>
+                        <li><strong>[msg]</strong> - we will not store this text as an attribute, but only as a normal visitor message.</li>
                     </ul>
                 </li>
             </ul>
