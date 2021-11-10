@@ -27,6 +27,10 @@ class erLhcoreClassModelUserDep
             'hide_online_ts' => $this->hide_online_ts,
             'always_on' => $this->always_on,
             'lastd_activity' => $this->lastd_activity,
+            'ro' => $this->ro,
+            'type' => $this->type,
+            'dep_group_id' => $this->dep_group_id,
+            'exclude_autoasign' => $this->exclude_autoasign,
         );
     }
 
@@ -141,7 +145,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+        $filter['ignore_fields'] = array('exclude_autoasign','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
@@ -171,6 +175,10 @@ class erLhcoreClassModelUserDep
     public $pending_chats = 0;
     public $inactive_chats = 0;
     public $always_on = 0;
+    public $ro = 0;
+    public $type = 0;
+    public $dep_group_id = 0;
+    public $exclude_autoasign = 0;
 }
 
 ?>

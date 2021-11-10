@@ -66,6 +66,26 @@ $def->properties['always_on']->columnName   = 'always_on';
 $def->properties['always_on']->propertyName = 'always_on';
 $def->properties['always_on']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['ro'] = new ezcPersistentObjectProperty();
+$def->properties['ro']->columnName   = 'ro';
+$def->properties['ro']->propertyName = 'ro';
+$def->properties['ro']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['type'] = new ezcPersistentObjectProperty();
+$def->properties['type']->columnName   = 'type';
+$def->properties['type']->propertyName = 'type';
+$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['dep_group_id'] = new ezcPersistentObjectProperty();
+$def->properties['dep_group_id']->columnName   = 'dep_group_id';
+$def->properties['dep_group_id']->propertyName = 'dep_group_id';
+$def->properties['dep_group_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['exclude_autoasign'] = new ezcPersistentObjectProperty();
+$def->properties['exclude_autoasign']->columnName   = 'exclude_autoasign';
+$def->properties['exclude_autoasign']->propertyName = 'exclude_autoasign';
+$def->properties['exclude_autoasign']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def; 
 
 ?>

@@ -17,6 +17,7 @@ $ViewList['new'] = array(
 
 $ViewList['edit'] = array(
     'params' => array('departament_id'),
+    'uparams' => array('action'),
     'functions' => array( 'edit' )
 );
 
