@@ -66,6 +66,56 @@ class erLhcoreClassModelUserOnlineSession
         }
     }
 
+    public static function setChatsBySessions(& $sessions, $filterList)
+    {
+
+        if (empty($sessions) || !isset($filterList['filterin']['user_id']) || count($filterList['filterin']['user_id']) > 1) {
+            return;
+        }
+
+        $sessionsCloned = array_reverse($sessions, true);
+
+        $ranges = array_keys($sessions);
+
+        $start = $sessions[min($ranges)]->time;
+        $end = $sessions[max($ranges)]->lactivity;
+
+        $filter['filtergte']['time'] = $start;
+        $filter['filterlte']['time'] = $end;
+        $filter['limit'] = false;
+
+        if (isset($filterList['filterin']['user_id'])) {
+            $filter['filterin']['user_id'] = $filterList['filterin']['user_id'];
+        }
+
+        $filter['select_columns'] = ['time'];
+        $filter['ignore_fields'] = ['all_columns'];
+
+        $chats = erLhcoreClassModelChat::getList($filter);
+
+        foreach ($chats as $chat) {
+            $chatProcessed = false;
+            foreach ($sessionsCloned as $key => $session) {
+                if (($session->time <= $chat->time) && ($chat->time <= $session->lactivity)) {
+                    $sessions[$key]->chatsOnline++;
+                    $chatProcessed = true;
+                    break;
+                }
+            }
+
+            if ($chatProcessed == false) {
+                foreach ($sessions as $key => $session) {
+                    if ($session->lactivity < $chat->time) {
+                        if ($key > 0) {
+                            $sessions[$key]->chatsOffline++;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     public $id = null;
 
     public $user_id = null;
@@ -75,6 +125,10 @@ class erLhcoreClassModelUserOnlineSession
     public $lactivity = null;
 
     public $duration = null;
+
+    public $chatsOnline = 0;
+
+    public $chatsOffline = 0;
 }
 
 ?>

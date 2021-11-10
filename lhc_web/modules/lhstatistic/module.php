@@ -45,7 +45,8 @@ $ViewList['userstats'] = array(
 $ViewList['onlinehours'] = array(
     'params' => array(),
     'uparams' => array('group_by','xls','timefrom','timeto','user_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
-    'functions' => array( 'viewstatistic' )
+    'functions' => array( 'viewstatistic' ),
+    'multiple_arguments' => array('user_id')
 );
 
 $FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');

@@ -21,15 +21,19 @@ $modalSize = 'xl';
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" id="online-hours" style="max-height: 550px;overflow-y: auto">
-                    <table class="table table-sm" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
+                    <table class="table table-sm table-hover" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>
                         <thead>
                         <tr>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Start activity');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Duration');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Chats served');?></th>
                         </tr>
                         </thead>
-                        <?php $parentItem = null;foreach (erLhcoreClassModelUserOnlineSession::getList(array('filter' => ['user_id' => $user->id],'offset' => 0, 'limit' => 20,'sort' => 'id DESC')) as $item) : ?>
+                        <?php $parentItem = null;
+                        $onlineSessions = erLhcoreClassModelUserOnlineSession::getList(array('filter' => ['user_id' => $user->id],'offset' => 0, 'limit' => 20,'sort' => 'id DESC'));
+                        erLhcoreClassModelUserOnlineSession::setChatsBySessions($onlineSessions,['filterin' => ['user_id' => [$user->id]]]);
+                        foreach ($onlineSessions as $item) : ?>
                             <?php if (is_object($parentItem)) : ?>
                                 <tr>
                                     <td colspan="2">
@@ -37,12 +41,22 @@ $modalSize = 'xl';
                                     <td colspan="1">
                                         <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b></div>
                                     </td>
+                                    <td>
+                                        <?php if ( $item->chatsOffline > 0) : ?>
+                                            <a class="text-danger" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_minutes)/<?php echo date('i',$parentItem->time)?>/(timeto_hours)/<?php echo date('H',$parentItem->time)?>/(timeto)/<?php echo date('Y-m-d',$parentItem->time)?>/(timefrom)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom_hours)/<?php echo date('H',$item->lactivity)?>/(timefrom_minutes)/<?php echo date('i',$item->lactivity)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOffline?></a>
+                                        <?php endif; ?>
+                                    </td>
                                 </tr>
                             <?php endif; ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($item->time_front)?></td>
                                 <td><?php echo htmlspecialchars($item->lactivity_front)?></td>
                                 <td><?php echo $item->duration_front?></td>
+                                <td>
+                                <?php if ( $item->chatsOnline > 0) : ?>
+                                    <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_minutes)/<?php echo date('i',$item->lactivity)?>/(timeto_hours)/<?php echo date('H',$item->lactivity)?>/(timeto)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom)/<?php echo date('Y-m-d',$item->time)?>/(timefrom_hours)/<?php echo date('H',$item->time)?>/(timefrom_minutes)/<?php echo date('i',$item->time)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOnline?></a>
+                                <?php endif; ?>
+                                </td>
                             </tr>
                         <?php $parentItem = $item; endforeach; ?>
                     </table>

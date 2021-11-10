@@ -20,6 +20,8 @@ $pages->paginate();
 
 $userlist = erLhcoreClassModelUserOnlineSession::getList(array_merge($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC')));
 
+erLhcoreClassModelUserOnlineSession::setChatsBySessions($userlist, $filterParams['filter']);
+
 $tpl->set('items',$userlist);
 $tpl->set('pages',$pages);
 $tpl->set('currentUser',$currentUser);

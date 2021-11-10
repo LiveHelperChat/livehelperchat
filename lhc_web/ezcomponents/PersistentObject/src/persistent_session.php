@@ -733,6 +733,7 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
     public function getColumnsFromDefinition( ezcPersistentObjectDefinition $def, $prefixTableName = true, $ignoreColumns = array() )
     {
         $hasIgnoreColumns = !empty($ignoreColumns);
+        $ignoreAllColumns = $hasIgnoreColumns === true && in_array('all_columns',$ignoreColumns);
 
         $columns = array();
 
@@ -741,6 +742,10 @@ class ezcPersistentSession implements ezcPersistentSessionFoundation
             $columns[] = ( $prefixTableName
                 ? $this->database->quoteIdentifier( $def->table ) . '.' . $this->database->quoteIdentifier( $def->idProperty->columnName )
                 : $this->database->quoteIdentifier( $def->idProperty->columnName ) );
+        }
+
+        if ($ignoreAllColumns == true) {
+            return $columns;
         }
 
         foreach ( $def->properties as $property )
