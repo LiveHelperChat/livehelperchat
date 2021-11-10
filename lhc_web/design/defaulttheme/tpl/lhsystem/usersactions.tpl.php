@@ -1,5 +1,12 @@
 <h1><?php include(erLhcoreClassDesign::designtpl('lhuser/titles/userlist.tpl.php')); ?></h1>
 
+<?php
+$searchPanelOptions = [
+        'hide_export_csv' => true,
+        'hide_quick_actions' => true,
+];
+?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/search_panel.tpl.php')); ?>
 
 <?php

@@ -32,6 +32,11 @@
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/passwordrequirements')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Password requirements');?></a></li>
 		    <?php endif; ?>
 
+		    <?php if ($currentUser->hasAccessTo('lhstatistic','viewstatistic')) : ?>
+		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Online hours');?></a></li>
+		    <?php endif; ?>
+
+
 		</ul>		     
 	 <?php endif; ?>
 	 	 
