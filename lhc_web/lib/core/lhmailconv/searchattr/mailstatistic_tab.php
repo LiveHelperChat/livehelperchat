@@ -2,6 +2,18 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['group_limit'] = array (
+    'type' => 'text',
+    'trans' => 'Group Field',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'group_limit',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 3, 'max_range' => 50)
+    )
+);
+
 $fieldsSearch['group_field'] = array (
     'type' => 'text',
     'trans' => 'Group Field',

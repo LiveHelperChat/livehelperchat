@@ -295,7 +295,7 @@ class erLhcoreClassMailconvStatistic {
                 $attr = $filterParams['group_field'];
             }
 
-            $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))));
+            $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter,$filter,array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10), 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m%d\') = '. date('Ymd',$dateUnix))))));
 
             $returnArray = array();
 
@@ -322,9 +322,7 @@ class erLhcoreClassMailconvStatistic {
 
         $returnReversed = array();
 
-        if ($limitDays < 10) {
-            $limitDays = 10;
-        }
+        $limitDays = (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10);
 
         foreach ($numberOfChats as $dateIndex => $returnData) {
             for ($i = 0; $i < $limitDays; $i++) {
@@ -394,7 +392,7 @@ class erLhcoreClassMailconvStatistic {
                     $attr = $filterParams['group_field'];
                 }
 
-                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter, $filter, array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => 10, 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
+                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter, $filter, array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10), 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
 
                 $returnArray = array();
 
@@ -424,8 +422,10 @@ class erLhcoreClassMailconvStatistic {
 
         $returnReversed = array();
 
+        $limitDays = (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10);
+
         foreach ($numberOfChats as $dateIndex => $returnData) {
-            for ($i = 0; $i < 12; $i++) {
+            for ($i = 0; $i < $limitDays; $i++) {
                 $returnReversed[$i]['data'][] = isset($returnData['data'][$i]) ? $returnData['data'][$i] : 0;
                 $returnReversed[$i]['color'][] = isset($returnData['color'][$i]) ? $returnData['color'][$i] : '""';
                 $returnReversed[$i]['nick'][] = isset($returnData['nick'][$i]) ? $returnData['nick'][$i] : '""';

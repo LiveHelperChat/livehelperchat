@@ -182,6 +182,7 @@ if ($tab == 'active') {
             'nickgroupingdatenick' => ((is_array($filterParams['input_form']->chart_type) && in_array('mattrgroup',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::attrByPerInterval($filterParams['filter'], array(
                 'group_by' => $filterParams['input_form']->groupby, 
                 'group_field' => $filterParams['input']->group_field,
+                'group_limit' => $filterParams['input']->group_limit,
                 'chart_type' => (is_array($filterParams['input_form']->chart_type) ? $filterParams['input_form']->chart_type : []),
             )) : array()),
             'msgperhour' => ((is_array($filterParams['input_form']->chart_type) && in_array('msgperhour',$filterParams['input_form']->chart_type)) ? erLhcoreClassMailconvStatistic::messagesPerHour($filterParams['filter'], [
