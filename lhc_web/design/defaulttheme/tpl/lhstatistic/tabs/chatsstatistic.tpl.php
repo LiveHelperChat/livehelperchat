@@ -177,11 +177,29 @@
 	</div>
 
     <div class="col-md-2">
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group field');?></label>
-            <select class="form-control form-control-sm" name="group_field">
-                <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/filter/group_field.tpl.php'));?>
-            </select>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group field');?></label>
+                    <select class="form-control form-control-sm" name="group_field">
+                        <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/filter/group_field.tpl.php'));?>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group limit');?></label>
+                <select class="form-control form-control-sm" name="group_limit">
+                    <option value="3" <?php if ($input->group_limit == 3) : ?>selected<?php endif;?> >3</option>
+                    <option value="5" <?php if ($input->group_limit == 5) : ?>selected<?php endif;?> >5</option>
+                    <option value="10" <?php if ($input->group_limit == 10 || $input->group_limit == '') : ?>selected<?php endif;?> >10</option>
+                    <option value="15" <?php if ($input->group_limit == 15) : ?>selected<?php endif;?>>15</option>
+                    <option value="20" <?php if ($input->group_limit == 20) : ?>selected<?php endif;?>>20</option>
+                    <option value="25" <?php if ($input->group_limit == 25) : ?>selected<?php endif;?>>25</option>
+                    <option value="30" <?php if ($input->group_limit == 30) : ?>selected<?php endif;?>>30</option>
+                    <option value="40" <?php if ($input->group_limit == 40) : ?>selected<?php endif;?>>40</option>
+                    <option value="50" <?php if ($input->group_limit == 50) : ?>selected<?php endif;?>>50</option>
+                </select>
+            </div>
         </div>
     </div>
 
