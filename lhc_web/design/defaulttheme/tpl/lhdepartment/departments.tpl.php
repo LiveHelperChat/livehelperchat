@@ -2,7 +2,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/search_panel.tpl.php')); ?>
 
-<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
+<table class="table table-sm table-hover" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -19,15 +19,17 @@
 </thead>
 <?php foreach ($items as $departament) : ?>
     <tr>
-        <td><?php echo $departament->id?></td>
-        <td title="<?php echo $departament->sort_priority?>"><?php echo htmlspecialchars($departament->name)?></td>
+        <td><a href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo $departament->id?></a></td>
+        <td title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></a></td>
         <td><?php echo htmlspecialchars($departament->email)?></td>
         <td><?php if ($departament->hidden == 1) : ?><span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit department');?></a></td>
+        <td nowrap>
+            <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/<?php echo htmlspecialchars($departament->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
+        </td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
     </tr>
 <?php endforeach; ?>

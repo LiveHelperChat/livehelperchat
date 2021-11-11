@@ -22,6 +22,13 @@ if ($currentUser->hasAccessTo('lhdepartment','manageall') !== true)
     }
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'operators') {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/operators.tpl.php');
+    $tpl->set('department', $Departament);
+    echo $tpl->fetch();
+    exit;
+}
+
 if ( isset($_POST['Cancel_departament']) ) {
     erLhcoreClassModule::redirect('department/departments');
     exit;
