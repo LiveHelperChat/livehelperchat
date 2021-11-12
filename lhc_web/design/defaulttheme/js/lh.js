@@ -1900,7 +1900,11 @@ function lh(){
 	{
 		if (this.isWidgetMode && typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
 			$.postJSON(this.wwwDir + "survey/backtochat/" + this.chat_id + '/' + this.hash + '/' + survey_id , function(data){
-				 parent.postMessage('lhc_continue_chat', '*');
+                 if (data.closed) {
+                     lhinst.userclosedchatembed();
+                 } else {
+                     parent.postMessage('lhc_continue_chat', '*');
+                 }
 		    });
 		} else {
 			this.chatClosed();

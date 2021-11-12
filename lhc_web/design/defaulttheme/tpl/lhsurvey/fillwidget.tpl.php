@@ -20,7 +20,7 @@
                 <?php endif; ?>
             </div>
             
-            <?php if ($survey_item->is_filled == true && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
+            <?php if ($survey_item->is_filled == true && ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
                  <input type="button" class="btn btn-sm btn-success mb-1 float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
             <?php endif;?>
             
@@ -28,7 +28,7 @@
             /**
              * Because user filled a survey we have to redirect it back to chat
              * */
-            if (in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
+            if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
                  <input type="button" class="btn btn-sm btn-success mb-1 float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Back to chat')?>" onclick="return lhinst.continueChatFromSurvey('<?php echo $survey->id?>');" />
             <?php endif;?>
             
