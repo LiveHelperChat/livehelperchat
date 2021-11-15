@@ -34,7 +34,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/chat_operation.tpl.php'));?>
         <?php elseif ($type == 'text_conditional') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/text_conditional.tpl.php'));?>
-        <?php elseif ($type == 'attr_options' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
+        <?php elseif ($type == 'attr_options' /*&& (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])*/) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/attr_options.tpl.php'));?>
         <?php else : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/meta_user_multiinclude.tpl.php'));?>

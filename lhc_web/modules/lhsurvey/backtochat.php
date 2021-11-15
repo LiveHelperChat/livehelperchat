@@ -62,7 +62,7 @@ try {
             
             $chat->saveThis();
 
-            echo json_encode(array('result' => true));
+            echo json_encode(array('result' => true, 'closed' => $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT));
 
             flush();
 
