@@ -105,6 +105,22 @@ class erLhcoreClassModelChatOnlineUser
                 return $this->nick;
                 break;
 
+            case 'department_name':
+                return $this->department_name = (string)$this->department;
+                break;
+
+            case 'department':
+                $this->department = false;
+                if ($this->dep_id > 0) {
+                    try {
+                        $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id,true);
+                    } catch (Exception $e) {
+
+                    }
+                }
+                return $this->department;
+                break;
+
             case 'last_visit_front':
                 return $this->last_visit_front = date(erLhcoreClassModule::$dateDateHourFormat, $this->last_visit);
                 break;

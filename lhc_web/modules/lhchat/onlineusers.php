@@ -89,7 +89,7 @@ if ($is_ajax == true) {
     ));
 
     $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
-    $attributes_remove =  array('operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+    $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
 
