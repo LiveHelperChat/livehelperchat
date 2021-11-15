@@ -1,13 +1,23 @@
 services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	
 	this.loadOnlineUsers = function(params){
-		var deferred = $q.defer();		
-		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout + (params.department > 0 ? '/(department)/' + params.department : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' ) + (params.country != '' ? '/(country)/' + params.country : '' ) + (params.time_on_site != '' ? '/(timeonsite)/' + encodeURIComponent(params.time_on_site) : '') ).then(function(data) {
+		var deferred = $q.defer();
+		$http.get(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+params.timeout +  (params.department_dpgroups.length > 0 ? '/(department_dpgroups)/' + params.department_dpgroups.join('/') : '' ) + (params.department.length > 0 ? '/(department)/' + params.department.join('/') : '' ) + (params.max_rows > 0 ? '/(maxrows)/' + params.max_rows : '' ) + (params.country != '' ? '/(country)/' + params.country : '' ) + (params.time_on_site != '' ? '/(timeonsite)/' + encodeURIComponent(params.time_on_site) : '') ).then(function(data) {
 			 deferred.resolve(data.data);
 		});		
 		return deferred.promise;
 	};
-	
+
+    this.setLocalSettings = function(attr,val) {
+        var deferred = $q.defer();
+        $http.post(WWW_DIR_JAVASCRIPT + 'front/settings',{"attr":attr,"val":val}).then(function(data) {
+            deferred.resolve(data.data);
+        },function(internalError){
+            deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+        });
+        return deferred.promise;
+    };
+
 	this.deleteOnlineUser = function(params){
 		var deferred = $q.defer();		
 		$http.post(WWW_DIR_JAVASCRIPT +'chat/onlineusers/(deletevisitor)/'+params.user_id + '/(csfr)/'+confLH.csrf_token).then(function(data) {
@@ -32,7 +42,8 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.updateTimeout = '10';
 		this.userTimeout = '3600';
 		this.maxRows = '50';
-		this.department = '0';
+		this.department = [];
+		this.department_dpgroups = [];
 		this.country = 'none';
 		this.predicate = 'last_visit';
 		this.time_on_site = '';
@@ -156,7 +167,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 
 			that.lastSyncSkipped = false;
 
-			OnlineUsersFactory.loadOnlineUsers({timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
+			OnlineUsersFactory.loadOnlineUsers({department_dpgroups: that.department_dpgroups,timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
 							
 				that.onlineusers = data;
 				if ($scope.groupByField != 'none') {
@@ -287,11 +298,13 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 
-		$scope.$watch('online.department',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('o_department',newVal);
-			}
-		});
+        this.departmentChanged = function(listId) {
+            OnlineUsersFactory.setLocalSettings(listId+'_online', this[listId]);
+        };
+
+        this.productChanged = function(listId) {
+            OnlineUsersFactory.setLocalSettings(listId+'_online', this[listId]);
+        };
 
 		$scope.$watch('groupByField',function(newVal,oldVal){
 			if (newVal != oldVal) {	
@@ -299,7 +312,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.userTimeout + online.department + online.maxRows + groupByField + online.country + online.time_on_site', function(newVal,oldVal) {
+		$scope.$watch('online.userTimeout + online.department + online.department_dpgroups + online.maxRows + groupByField + online.country + online.time_on_site', function(newVal,oldVal) {
 			setTimeout(function(){
 				that.updateList();
 			},500);						

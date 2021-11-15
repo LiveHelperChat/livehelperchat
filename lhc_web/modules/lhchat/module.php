@@ -556,14 +556,22 @@ $ViewList['userclosechat'] = array(
 $ViewList['onlineusers'] = array(
     'params' => array(),
     'ajax' => true,
-    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows','country','timeonsite'),
-    'functions' => array( 'use_onlineusers' )
+    'uparams' => array('clear_list','method','deletevisitor','timeout','csfr','department','maxrows','country','timeonsite','department_dpgroups'),
+    'functions' => array( 'use_onlineusers' ),
+    'multiple_arguments' => array(
+        'department',
+        'department_dpgroups'
+    )
 );
 
 $ViewList['jsononlineusers'] = array(
     'params' => array(),
-    'uparams' => array('department','maxrows','timeout'),
-    'functions' => array( 'use_onlineusers' )
+    'uparams' => array('department','maxrows','timeout','department_dpgroups'),
+    'functions' => array( 'use_onlineusers' ),
+    'multiple_arguments' => array(
+        'department',
+        'department_dpgroups'
+    )
 );
 
 $ViewList['getonlineuserinfo'] = array(

@@ -30,7 +30,20 @@
 		</select>
 	</div>	
 	<div class="col-2 pr-0">
-		<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+
+        <?php $optinsPanel = array(
+                'panelid' => 'department',
+                'limitid' => 'limitod',
+                'hide_limits' => true,
+                'padding_filters' => 0,
+                'disable_product' => true,
+                'no_names_department' => true,
+                'hide_department_variations' => true,
+                'controller_panel' => 'online'
+        ); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
+
+		<?php /*echo erLhcoreClassRenderHelper::renderCombobox( array (
 	                    'input_name'     => 'department_id',
 						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
 	                    'selected_id'    => 0,	
@@ -38,7 +51,8 @@
 						'ng-model'		 => 'online.department',
 	                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
 						'list_function_params' => $departmentParams
-	    )); ?>
+	    ));*/ ?>
+
 	</div>
 
     <?php $columnCountrySize = 1?>
