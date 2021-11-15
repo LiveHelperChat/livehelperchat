@@ -79,7 +79,7 @@ class erLhcoreClassModelChatBlockedUser
             $emailBlock .= ' OR (nick = ' . $db->quote($params['country_code']) . ' AND btype = 6 AND (`dep_id` = ' . $db->quote($params['dep_id']). ' OR `dep_id` = 0))';
         }
 
-        return erLhcoreClassModelChatBlockedUser::getCount(array(
+        $blockRecord = erLhcoreClassModelChatBlockedUser::findOne(array(
                 'customfilter' => array(
                     '(
                         (`ip` = ' . $db->quote($params['ip']) .' AND btype IN (0,3,4)) OR 
@@ -88,7 +88,34 @@ class erLhcoreClassModelChatBlockedUser
                         ' . $emailBlock . '
                     ) AND (expires = 0 OR expires > ' . time() . ')'
                 )
-        )) > 0;
+            ));
+
+        $isBlocked = $blockRecord instanceof erLhcoreClassModelChatBlockedUser;
+
+        if ($isBlocked == true && isset($params['log_block']) && $params['log_block'] == true) {
+
+            $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+            $data = (array)$auditOptions->data;
+
+            if (isset($data['log_block']) && $data['log_block'] == true) {
+                erLhcoreClassLog::write(
+                    (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'no-site')."\n".
+                    print_r($params,true)
+                    ,
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'block',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => $blockRecord->id
+                    )
+                );
+            }
+
+        }
+
+        return $isBlocked;
     }
 
     public static function blockChat($params) {

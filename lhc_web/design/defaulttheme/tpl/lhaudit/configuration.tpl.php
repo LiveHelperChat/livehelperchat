@@ -18,6 +18,10 @@
     </div>
 
     <div class="form-group">
+        <label><input type="checkbox" name="log_block" <?php if (isset($audit_options['log_block']) && $audit_options['log_block'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log applied blocks')?></label>
+    </div>
+
+    <div class="form-group">
         <label><input type="checkbox" name="log_user" <?php if (isset($audit_options['log_user']) && $audit_options['log_user'] == true) : ?>checked<?php endif;?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('audit/options','Log users changes')?></label>
     </div>
 

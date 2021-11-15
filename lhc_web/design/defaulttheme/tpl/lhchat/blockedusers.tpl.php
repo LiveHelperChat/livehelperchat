@@ -21,6 +21,9 @@
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn btn-sm btn-secondary w-100" name="doSearch" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Search');?>" />
+                    <?php if (isset($enabled_log)) : ?>
+                        <a target="_blank" class="text-muted d-block pt-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc"><span class="material-icons">history</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?></a>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
@@ -100,6 +103,11 @@
     <tr>
         <td><?php echo $item->id?></td>
         <td title="<?php echo $item->btype?>">
+
+            <?php if (isset($enabled_log)) : ?>
+                <a class="text-danger" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc/(object_id)/<?php echo $item->id?>"><span class="material-icons mr-0">history</span></a>
+            <?php endif; ?>
+
             <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_IP,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP])) : ?>
                 <span class="badge badge-secondary">IP</span>
             <?php endif; ?>
