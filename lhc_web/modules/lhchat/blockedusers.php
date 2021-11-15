@@ -143,6 +143,10 @@ $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/bl
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 
+if ($currentUser->hasAccessTo('lhsystem','auditlog')) {
+    $tpl->set('enabled_log',true);
+}
+
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
