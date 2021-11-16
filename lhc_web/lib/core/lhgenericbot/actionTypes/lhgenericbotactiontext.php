@@ -172,6 +172,12 @@ class erLhcoreClassGenericBotActionText {
             $msg->user_id = -1;
         }
 
+        if (isset($action['content']['attr_options']['as_visitor']) && $action['content']['attr_options']['as_visitor'] == true)
+        {
+            $msg->user_id = 0;
+            $msg->name_support = '';
+        }
+
         if (isset($action['content']['attr_options']['as_log_msg']) && $action['content']['attr_options']['as_log_msg'] == true)
         {
             $params['do_not_save'] = true;

@@ -33,7 +33,6 @@
         $metaMessageId = ' meta-auto-hide-normal';
         if (isset($messagesStats) && $messagesStats['total_messages'] != $messagesStats['counter_messages']){
             $msg['user_id'] = -1;
-            //$metaMessageId = ' meta-auto-hide-normal';
         }
     }
 
@@ -44,7 +43,7 @@
 	        <div class="message-row response<?php echo $metaMessageId?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>"><div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
                 <?php if ($msg['msg'] != '') : ?>
 
-                    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('render_html' => true);?>
+                    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('msg_id' => $msg['id'], 'render_html' => true);?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                     <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>
@@ -68,7 +67,7 @@
 
                 <?php if ($msg['msg'] != '') : ?>
 
-                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'render_js' => ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true && (!isset($msg['id']) || !isset($old_msg_id) || $msg['id'] > $old_msg_id)))); ?>
+                        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('msg_id' => $msg['id'], 'sender' => $msg['user_id'], 'render_js' => ((isset($async_call) && $async_call == true) || (isset($chat_started_now) && isset($chat_started_now) == true && (!isset($msg['id']) || !isset($old_msg_id) || $msg['id'] > $old_msg_id)))); ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
                         <?php if (isset($metaMessageData['content_static']['message_explain'])) : ?>

@@ -226,6 +226,9 @@ class NodeTriggerActionText extends Component {
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_system'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_system'])} /> Save as a system message.</label> <i className="material-icons" title="Message will be saved as system message and will be invisible by visitor.">info</i>
                             </div>
                             <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_visitor'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_visitor'])} /> Save as a visitor message.</label> <i className="material-icons" title="Message will be saved as a visitor message.">info</i>
+                            </div>
+                            <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
                             </div>
                         </div>
