@@ -233,7 +233,7 @@ class erLhcoreClassAbstract
                     'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose'),
                     'selected_id'    => $object->$name,
                     'css_class'      => 'form-control',
-                    'display_name'   => $attr['name_attr'] ?? 'name',
+                    'display_name'   => (isset($attr['name_attr']) && !empty($attr['name_attr']) ? $attr['name_attr'] : 'name'),
                     'list_function_params' => $attr['params_call'],
                     'list_function'  => $attr['source']
                 ];

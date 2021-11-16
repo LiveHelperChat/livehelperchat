@@ -167,7 +167,7 @@ class erLhcoreClassLHCBotWorker
                                 ),
                             ),
                             'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
-                            'trigger_action_id' => ($action['content']['rest_api_method_output']['default_trigger_action_id'] ?? null)
+                            'trigger_action_id' => (isset($action['content']['rest_api_method_output']['default_trigger_action_id']) ? $action['content']['rest_api_method_output']['default_trigger_action_id'] : null)
                         );
 
                         if (isset($params['msg'])) {
