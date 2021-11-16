@@ -733,6 +733,10 @@ class erLhcoreClassGenericBotWorkflow {
                             $args['args']['msg'] = $params['msg'];
                         }
 
+                        if (isset($eventData['content']['replace_array'])) {
+                            $args['args']['replace_array'] = $eventData['content']['replace_array'];
+                        }
+
                         // Build a fake trigger and set actions
                         $trigger = new erLhcoreClassModelGenericBotTrigger();
                         $trigger->bot_id = $chat->gbot_id;

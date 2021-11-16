@@ -160,12 +160,20 @@ class erLhcoreClassLHCBotWorker
                                     '{http_error}' => $response['http_error'],
                                     '{content_raw}' => $response['content_raw'],
                                     '{http_data}' => $response['http_data']
-                                )));
+                                ),
+                            ),
+                            'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
+                            'trigger_action_id' => ($action['content']['rest_api_method_output']['default_trigger_action_id'] ?? null)
+                        );
 
                         if (isset($params['msg'])) {
                             $argsDefault['args']['msg'] = $params['msg'];
                         } else {
                             $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
+                        }
+
+                        if (isset($contentArray[0]['content']['replace_array']) && !empty($contentArray[0]['content']['replace_array'])) {
+                            $argsDefault['args']['replace_array'] = array_merge($contentArray[0]['content']['replace_array'], $argsDefault['args']['replace_array']);
                         }
 
                         if (isset($params['start_mode']) && $params['start_mode'] == true) {

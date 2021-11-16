@@ -23,6 +23,7 @@ class erLhcoreClassGenericBotActionRestapi
                         array(
                             'content' => array(
                                 'type' => 'rest_api_next_msg',
+                                'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
                                 'content' => $action['content']
                             )
                         )
