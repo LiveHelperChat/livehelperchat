@@ -254,24 +254,26 @@ class OnlineChat extends Component {
 
     updateMetaAutoHide(hideFirst) {
         var block = document.getElementById('messages-scroll');
-        var x = block.getElementsByClassName("meta-auto-hide");
-        if (x.length > 0) {
-            var i;
-            var lengthHide = hideFirst ? 0 : 1;
-            for (i = 0; i < x.length - lengthHide ; i++) {
-                x[i].style.display = 'none';
-            }
-            var lastChild = block.lastChild;
-
-            // Checking not null not enough, because element can be text type
-            if (lastChild && typeof lastChild.getElementsByClassName !== 'undefined') {
-                x = lastChild.getElementsByClassName("meta-auto-hide");
+        ['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
+            var x = block.getElementsByClassName(className);
+            if (x.length > 0) {
                 var i;
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = '';
+                var lengthHide = hideFirst ? 0 : 1;
+                for (i = 0; i < x.length - lengthHide ; i++) {
+                    x[i].style.display = 'none';
+                }
+                var lastChild = block.lastChild;
+
+                // Checking not null not enough, because element can be text type
+                if (lastChild && typeof lastChild.getElementsByClassName !== 'undefined') {
+                    x = lastChild.getElementsByClassName(className);
+                    var i;
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = '';
+                    }
                 }
             }
-        }
+        });
     }
 
     nextUntil(htmlElement, match, condition = true, any = false) {

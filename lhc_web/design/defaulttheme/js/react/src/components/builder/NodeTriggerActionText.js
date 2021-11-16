@@ -217,6 +217,9 @@ class NodeTriggerActionText extends Component {
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','on_start_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','on_start_chat'])} /> Send message only at chat start.</label> <i className="material-icons" title="Message will be send only on chat start event.">info</i>
                             </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','hide_on_next'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','hide_on_next'])} /> Hide on next message.</label> <i className="material-icons" title="Hide message content on next message.">info</i>
+                            </div>
                         </div>
                         <div className="col-6">
                             <div role="group">
@@ -240,7 +243,30 @@ class NodeTriggerActionText extends Component {
                     {callback_list.size > 0 && quick_replies.size > 0 &&
                     <hr/>}
 
-                    {quick_replies.size > 0 && <React.Fragment><hr/><label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_dropdown'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_dropdown'])} /> Render buttons as dropdown.</label></React.Fragment>}
+                    {quick_replies.size > 0 && <React.Fragment>
+                        <hr/>
+                        <div className="row">
+                            <div className="col-6">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_dropdown'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_dropdown'])} /> Render buttons as dropdown.</label><br/>
+                            </div>
+                            <div className="col-6">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','always_show'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','always_show'])} /> Render buttons even if it's not the last message.</label>
+                            </div>
+
+                            {this.props.action.hasIn(['content', 'attr_options', 'always_show']) && this.props.action.getIn(['content', 'attr_options', 'always_show']) == true &&
+                                <div className="col-12">
+                                    <label>How many messages can be after buttons before they are hidden permanently? (applies only after page refresh)</label>
+                                    <input type="number" placeholder="1" className="form-control form-control-sm"
+                                           min="1" onChange={(e) => this.onchangeAttr({
+                                        'path': ['attr_options', 'after_messages_number'],
+                                        'value': e.target.value
+                                    })}
+                                           defaultValue={this.props.action.getIn(['content', 'attr_options', 'after_messages_number'])}/>
+                                </div>
+                            }
+
+                        </div>
+                    </React.Fragment>}
 
                     {quick_replies}
                 </div>

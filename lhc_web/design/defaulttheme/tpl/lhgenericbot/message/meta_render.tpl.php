@@ -1,6 +1,6 @@
 <?php if (is_array($metaMessageData) && !isset($metaMessageData['processed']) || $metaMessageData['processed'] == false) : ?>
     <?php if (isset($metaMessageData['content']) && is_array($metaMessageData['content'])) : foreach ($metaMessageData['content'] as $type => $metaMessage) : ?>
-        <?php if ($type == 'quick_replies' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
+        <?php if ($type == 'quick_replies' && ((isset($metaMessageData['content']['attr_options']['always_show']) && $metaMessageData['content']['attr_options']['always_show'] == true && (!isset($messagesStats) || $messagesStats['total_messages'] - $messagesStats['counter_messages'] <= (isset($metaMessageData['content']['attr_options']['after_messages_number']) && is_numeric($metaMessageData['content']['attr_options']['after_messages_number']) ? (int)$metaMessageData['content']['attr_options']['after_messages_number'] : 1))) || !isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/quick_replies.tpl.php'));?>
         <?php elseif ($type == 'dropdown' && (!isset($messagesStats) || $messagesStats['total_messages'] == $messagesStats['counter_messages'])) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/dropdown.tpl.php'));?>
