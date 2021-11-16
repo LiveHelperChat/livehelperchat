@@ -127,6 +127,10 @@ class erLhcoreClassLHCBotWorker
                                 $argsDefault['args']['start_mode'] = true;
                             }
 
+                            if (isset($contentArray[0]['content']['replace_array']) && !empty($contentArray[0]['content']['replace_array'])) {
+                                $argsDefault['args']['replace_array'] = array_merge($contentArray[0]['content']['replace_array'], $argsDefault['args']['replace_array']);
+                            }
+
                             self::processTrigger($chat, $action['content']['rest_api_method_output'][$response['id']], $argsDefault);
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
