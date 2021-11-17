@@ -79,16 +79,22 @@ class erLhcoreClassModelChatBlockedUser
             $emailBlock .= ' OR (nick = ' . $db->quote($params['country_code']) . ' AND btype = 6 AND (`dep_id` = ' . $db->quote($params['dep_id']). ' OR `dep_id` = 0))';
         }
 
-        $blockRecord = erLhcoreClassModelChatBlockedUser::findOne(array(
-                'customfilter' => array(
-                    '(
+        $filterBlock = array(
+            'customfilter' => array(
+                '(
                         (`ip` = ' . $db->quote($params['ip']) .' AND btype IN (0,3,4)) OR 
                         (`nick` = ' . $db->quote($params['nick']) . ' AND btype IN (1,3)) OR 
                         (`nick` = ' . $db->quote($params['nick']) . ' AND `dep_id` = ' . $db->quote($params['dep_id']) . ' AND btype IN (2,4))
                         ' . $emailBlock . '
                     ) AND (expires = 0 OR expires > ' . time() . ')'
-                )
-            ));
+            )
+        );
+
+        if (isset($params['return_block']) && $params['return_block'] == true) {
+            return self::getList($filterBlock);
+        }
+
+        $blockRecord = erLhcoreClassModelChatBlockedUser::findOne($filterBlock);
 
         $isBlocked = $blockRecord instanceof erLhcoreClassModelChatBlockedUser;
 

@@ -2,9 +2,22 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div id="block-bloc-<?php echo $chat->id?>"></div>
 <form id="block-form">
-    <div class="form-group">
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/blockuser/blockoptions.tpl.php'));?>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/blockuser/blockoptions.tpl.php'));?>
+            </div>
+        </div>
+        <div class="col-6">
+            <ul>
+                <?php foreach (erLhcoreClassModelChatBlockedUser::isBlocked(array('return_block' => true, 'country_code' => $chat->country_code, 'ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email)) as $blockItem) : ?>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Bocked by')?>&nbsp;<a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('chat/blockedusers')?>?id=<?php echo $blockItem->id?>"><span class="material-icons">open_in_new</span><b><?php echo $blockItem->id?></b></a>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','block')?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
+
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Expires')?></label>
         <select class="form-control form-control-sm" name="expires" id="block-expires">
