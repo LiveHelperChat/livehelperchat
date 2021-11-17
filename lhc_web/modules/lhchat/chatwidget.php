@@ -304,7 +304,17 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
 {
    // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
-    
+
+    // Check is visitor blocked based on previous data if present chat does not have a nick
+    if (empty($Errors) &&
+        erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 &&
+        ($chat->nick == 'Visitor' || empty($chat->nick)) && isset($inputData->vid) && !empty($inputData->vid) &&
+        ($onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($inputData->vid)) instanceof erLhcoreClassModelChatOnlineUser && $onlineUser->nick &&
+        $onlineUser->has_nick && erLhcoreClassModelChatBlockedUser::isBlocked(array('ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $onlineUser->nick))
+    ) {
+        $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
+    }
+
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_chat_started', array('chat' => & $chat, 'errors' => & $Errors, 'offline' => (isset($additionalParams['offline']) && $additionalParams['offline'] == true)));
 
    if (count($Errors) == 0 && !isset($_POST['switchLang']))
