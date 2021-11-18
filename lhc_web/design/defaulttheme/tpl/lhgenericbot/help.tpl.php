@@ -107,5 +107,7 @@
                 </ul>
             <?php endif; ?>
 
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/mailtemplates.tpl.php'));?>
+
             </p>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

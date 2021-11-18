@@ -40,7 +40,7 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template HTML');?></label>
     <textarea id="response-template" class="form-control form-control-sm" name="template"><?php echo htmlspecialchars($item->template)?></textarea>
-    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department}</small></p>
+    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','and');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/mailtemplates'});" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','more');?></a></small></p>
 </div>
 
 <script>
@@ -75,5 +75,5 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Template Plain text');?></label>
     <textarea rows="10" class="form-control form-control-sm" name="template_plain"><?php echo htmlspecialchars($item->template_plain)?></textarea>
-    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department}</small></p>
+    <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Supported replaceable variable.');?> {operator}, {department} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','and');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/mailtemplates'});" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','more');?></a></small></p>
 </div>
