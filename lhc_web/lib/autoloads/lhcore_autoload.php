@@ -346,6 +346,7 @@ return array_merge(array (
         'rcube_washtml'                             => 'lib/core/lhmailconv/html_parsers/rcube_washtml.php',
         'rcube_utils'                               => 'lib/core/lhmailconv/html_parsers/rcube_utils.php',
         'rcube_mime'                                => 'lib/core/lhmailconv/html_parsers/rcube_mime.php',
+        'rcube_base_replacer'                       => 'lib/core/lhmailconv/html_parsers/rcube_base_replacer.php',
         'html'                                      => 'lib/core/lhmailconv/html_parsers/html.php',
         'erLhcoreClassMailconvHTMLParser'           => 'lib/core/lhmailconv/lhmailconvhtmlparser.php',
         'erLhcoreClassMailconvStatistic'            => 'lib/core/lhmailconv/lhmailconvstatistic.php',
