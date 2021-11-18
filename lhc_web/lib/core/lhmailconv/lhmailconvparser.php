@@ -557,6 +557,8 @@ class erLhcoreClassMailconvParser {
             $mailbox->failed = 1;
         }
 
+        $db->reconnect();
+
         self::setConversations($messages);
 
         // We have to create a conversations for forwarded messages
@@ -618,10 +620,12 @@ class erLhcoreClassMailconvParser {
             }
         }
 
+        $db->reconnect();
+
         $mailbox->last_sync_time = time();
         $log = $mailbox->last_sync_log_array;
         array_unshift ($log, $statsImport);
-        $log = array_slice($log,0,20);
+        $log = array_slice($log,0,5);
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
