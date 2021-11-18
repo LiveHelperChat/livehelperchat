@@ -56,8 +56,6 @@ const MailChatReply = props => {
 
         axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apisendreply/" + props.message.id, replyPayload).then(result => {
 
-            console.log(typeof result.data);
-
             // We always expect an object
             if (typeof result.data !== 'object') {
                 setSendInProgress(false);
