@@ -774,6 +774,10 @@ class erLhcoreClassBBCode
         return "<button type=\"button\" class=\"btn btn-xs text-white fs13 btn-secondary\" onclick=\"lhinst.buttonAction($(this),'" . htmlspecialchars(strip_tags($matches[1])) . "')\">" . htmlspecialchars($matches[2]) . "</button>";
    }
 
+   public static function _make_link_trigger($matches) {
+       return "<a class=\"action-image link-trigger-button\" data-id=\"{msg_id}\" data-payload=\"".htmlspecialchars(strip_tags($matches[1]))."\" onclick='lhinst.updateTriggerClicked(\"".htmlspecialchars(strip_tags($matches[1]))."\",{msg_id},$(this))'>" . htmlspecialchars($matches[2]) . "</a>";
+   }
+
    public static function _make_youtube_block($matches) {
 
          $data = parse_url($matches[1]);
@@ -1171,6 +1175,8 @@ class erLhcoreClassBBCode
 
     	$ret = preg_replace_callback('#\[button_action="?(.*?)"?\](.*?)\[/button_action\]#is', 'erLhcoreClassBBCode::_make_button_action', $ret);
 
+    	$ret = preg_replace_callback('#\[link_trigger="?([0-9]+)"?\](.*?)\[/link_trigger\]#is', 'erLhcoreClassBBCode::_make_link_trigger', $ret);
+
     	if (strpos($ret,'[translation]') !== false) {
             // For the admin we show original and translated text
             if (isset($paramsMessage['html_as_text']) && $paramsMessage['html_as_text'] == true) {
@@ -1198,6 +1204,10 @@ class erLhcoreClassBBCode
     	$ret = preg_replace_callback('#\[survey="?(.*?)"?\]#is', 'erLhcoreClassBBCode::_make_url_survey', $ret);
 
     	$ret = trim($ret);
+
+        if (isset($paramsMessage['msg_id']) && $paramsMessage['msg_id'] > 0) {
+            $ret = str_replace('{msg_id}',$paramsMessage['msg_id'], $ret);
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.after_make_clickable',array('msg' => & $ret));
         

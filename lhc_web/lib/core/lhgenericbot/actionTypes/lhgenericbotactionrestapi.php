@@ -23,6 +23,7 @@ class erLhcoreClassGenericBotActionRestapi
                         array(
                             'content' => array(
                                 'type' => 'rest_api_next_msg',
+                                'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : array()),
                                 'content' => $action['content']
                             )
                         )
@@ -83,7 +84,6 @@ class erLhcoreClassGenericBotActionRestapi
                 if (isset($response['id'])) {
                     if (isset($action['content']['rest_api_method_output'][$response['id']]) && is_numeric($action['content']['rest_api_method_output'][$response['id']])) {
 
-
                         $argsDefault = array(
                             'status' => 'continue_all',
                             'replace_array' => array(
@@ -112,6 +112,10 @@ class erLhcoreClassGenericBotActionRestapi
                             $argsDefault['msg'] = $params['msg'];
                         } elseif (isset($params['msg_text'])) {
                             $argsDefault['msg_text'] = $params['msg_text'];
+                        }
+
+                        if (isset($params['replace_array']) && !empty($params['replace_array'])) {
+                            $argsDefault['replace_array'] = array_merge($params['replace_array'], $argsDefault['replace_array']);
                         }
 
                         return $argsDefault;
@@ -143,13 +147,17 @@ class erLhcoreClassGenericBotActionRestapi
                         ),
                         'meta_msg' => $response['meta'],
                         'trigger_id' => $action['content']['rest_api_method_output']['default_trigger'],
-                        'trigger_action_id' => ($action['content']['rest_api_method_output']['default_trigger_action_id'] ?? null)
+                        'trigger_action_id' => (isset($action['content']['rest_api_method_output']['default_trigger_action_id']) && !empty($action['content']['rest_api_method_output']['default_trigger_action_id']) ? $action['content']['rest_api_method_output']['default_trigger_action_id'] : null)
                     );
 
                     if (isset($params['msg'])) {
                         $argsDefault['msg'] = $params['msg'];
                     } elseif (isset($params['msg_text'])) {
                         $argsDefault['msg_text'] = $params['msg_text'];
+                    }
+                    
+                    if (isset($params['replace_array']) && !empty($params['replace_array'])) {
+                        $argsDefault['replace_array'] = array_merge($params['replace_array'], $argsDefault['replace_array']);
                     }
 
                     // Alternative trigger, most of the time just for logging purposes

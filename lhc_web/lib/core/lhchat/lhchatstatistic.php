@@ -3748,7 +3748,7 @@ class erLhcoreClassChatStatistic {
                 fputcsv($fp,[
                     $hour,
                     $value,
-                    ($statistic['numberOfChatsPerHour']['bydaymax'][$hour]['total_records'] ?? ''),
+                    (isset($statistic['numberOfChatsPerHour']['bydaymax'][$hour]['total_records']) ? $statistic['numberOfChatsPerHour']['bydaymax'][$hour]['total_records'] : ''),
                     (isset($statistic['numberOfChatsPerHour']['bydaymax'][$hour]['time']) ? date('Y-m-d H:i:s',$statistic['numberOfChatsPerHour']['bydaymax'][$hour]['time']) : '')
                 ]);
             }

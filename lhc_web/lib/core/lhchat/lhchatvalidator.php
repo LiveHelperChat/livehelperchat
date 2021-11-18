@@ -1786,6 +1786,10 @@ class erLhcoreClassChatValidator {
                     'user' => false
                 ));
             }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
+                'chat' =>  & $params['chat']
+            ));
         }
     }
 

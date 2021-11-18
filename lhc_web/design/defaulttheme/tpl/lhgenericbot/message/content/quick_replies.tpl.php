@@ -1,7 +1,7 @@
 <div class="meta-message meta-message-<?php echo $messageId?>">
 
     <?php if (!isset($metaMessageData['content']['attr_options']['as_dropdown']) || $metaMessageData['content']['attr_options']['as_dropdown'] == false) : ?>
-    <ul class="quick-replies list-inline meta-auto-hide">
+    <ul class="quick-replies list-inline meta-auto-hide mb-0">
     <?php foreach ($metaMessage as $item) : $disabledButton = isset($item['content']['disabled']) && $item['content']['disabled'] == true;?>
             <?php if ($item['type'] == 'url') : ?>
             <li class="list-inline-item">

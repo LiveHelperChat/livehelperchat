@@ -18,7 +18,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_online_check.tpl.php')); ?>
 
-<div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows="<?php echo (int)$omaxRows?>";online.updateTimeout="<?php echo (int)$oupdTimeout?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.userTimeout = "<?php echo (int)$ouserTimeout?>";online.online_connected=<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>;online.department="<?php echo (int)$onlineDepartment?>";online.country="<?php echo htmlspecialchars($oCountry)?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
+<div ng-controller="OnlineCtrl as online" ng-init='groupByField = <?php echo json_encode($ogroupBy)?>;online.maxRows="<?php echo (int)$omaxRows?>";online.updateTimeout="<?php echo (int)$oupdTimeout?>";online.time_on_site = <?php echo json_encode($oTimeOnSite)?>;online.userTimeout = "<?php echo (int)$ouserTimeout?>";online.online_connected=<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>;online.department_dpgroups = <?php echo json_encode($onlineDepartmentGroups)?>;online.department=<?php echo json_encode($onlineDepartment)?>;online.country="<?php echo htmlspecialchars($oCountry)?>";online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>'>
 
 <div role="tabpanel" id="tabs">
 	<!-- Nav tabs -->

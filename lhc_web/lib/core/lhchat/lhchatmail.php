@@ -21,11 +21,11 @@ class erLhcoreClassChatMail {
 		    $phpMailer->Sender = $data['sender'];
 		}
 		
-		if ($phpMailer->From == 'root@localhost') {
+		if ($phpMailer->From == 'root@localhost' || $phpMailer->From == '') {
 		    $phpMailer->From = $data['default_from'];
 		}
 		
-		if ($phpMailer->FromName == 'Root User') {
+		if ($phpMailer->FromName == 'Root User' || $phpMailer->FromName == '') {
 		    $phpMailer->FromName = $data['default_from_name'];
 		}
 		

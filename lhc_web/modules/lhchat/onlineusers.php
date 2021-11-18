@@ -38,9 +38,25 @@ $timeout = isset($Params['user_parameters_unordered']['timeout']) && is_numeric(
 $maxrows = isset($Params['user_parameters_unordered']['maxrows']) && is_numeric($Params['user_parameters_unordered']['maxrows']) ? (int)$Params['user_parameters_unordered']['maxrows'] : 50;
 
 $filter = array('offset' => 0, 'limit' => $maxrows, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-$timeout)));
-$department = isset($Params['user_parameters_unordered']['department']) && is_numeric($Params['user_parameters_unordered']['department']) ? (int)$Params['user_parameters_unordered']['department'] : false;
-if ($department !== false){
-	$filter['filter']['dep_id'] = $department;
+$department = isset($Params['user_parameters_unordered']['department']) && is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : false;
+if ($department !== false) {
+	$filter['filterin']['`lh_chat_online_user`.`dep_id`'] = $department;
+}
+
+$departmentGroups = isset($Params['user_parameters_unordered']['department_dpgroups']) && is_array($Params['user_parameters_unordered']['department_dpgroups']) && !empty($Params['user_parameters_unordered']['department_dpgroups']) ? $Params['user_parameters_unordered']['department_dpgroups'] : false;
+if ($departmentGroups !== false) {
+    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department_dpgroups']);
+    $db = ezcDbInstance::get();
+    $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id IN (' . implode(',',$Params['user_parameters_unordered']['department_dpgroups']) . ')');
+    $stmt->execute();
+    $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    if (!empty($depIds)) {
+        if (isset($filter['filterin']['`lh_chat_online_user`.`dep_id`'])){
+            $filter['filterin']['`lh_chat_online_user`.`dep_id`'] = array_merge($filter['filterin']['`lh_chat_online_user`.`dep_id`'],$depIds);
+        } else {
+            $filter['filterin']['`lh_chat_online_user`.`dep_id`'] = $depIds;
+        }
+    }
 }
 
 $country = isset($Params['user_parameters_unordered']['country']) && $Params['user_parameters_unordered']['country'] != '' ? (string)$Params['user_parameters_unordered']['country'] : false;
@@ -89,7 +105,7 @@ if ($is_ajax == true) {
     ));
 
     $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
-    $attributes_remove =  array('operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+    $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
 

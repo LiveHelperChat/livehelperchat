@@ -123,6 +123,10 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if (isset($_GET['id']) && is_numeric($_GET['id'])){
+    $filterParams['filter']['filter']['id'] = (int)$_GET['id'];
+}
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/blockedusers').$append;
 $pages->items_total = erLhcoreClassModelChatBlockedUser::getCount($filterParams['filter']);

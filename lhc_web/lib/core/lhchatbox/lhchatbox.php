@@ -405,17 +405,7 @@ class erLhcoreClassChatbox {
 
    public static function generateHash()
    {
-       $string = '';
-
-       while (($len = strlen($string)) < 40) {
-           $size = 40 - $len;
-
-           $bytes = random_bytes($size);
-
-           $string .= substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $size);
-       }
-
-       return $string;;
+       return erLhcoreClassChat::generateHash();
    }
 
    public static function getSession()

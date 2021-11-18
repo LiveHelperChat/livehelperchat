@@ -1527,14 +1527,31 @@ class erLhcoreClassChat {
        return $rows[0]['found'] == 1;
    }
 
-   public static function generateHash()
+   public static function generateHash($length = 40)
    {
        $string = '';
 
-       while (($len = strlen($string)) < 40) {
-           $size = 40 - $len;
+       while (($len = strlen($string)) < $length) {
+           $size = $length - $len;
 
-           $bytes = random_bytes($size);
+           $bytes = '';
+
+           if (function_exists('random_bytes')) {
+               try {
+                   $bytes = random_bytes($size);
+               } catch (\Exception $e) {
+                   //Do nothing
+               }
+           } elseif (function_exists('openssl_random_pseudo_bytes')) {
+               /** @noinspection CryptographicallySecureRandomnessInspection */
+               $bytes = openssl_random_pseudo_bytes($size);
+           }
+
+           if ($bytes === '') {
+               //We failed to produce a proper random string, so make do.
+               //Use a hash to force the length to the same as the other methods
+               $bytes = hash('sha256', uniqid((string) mt_rand(), true), true);
+           }
 
            $string .= substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $size);
        }

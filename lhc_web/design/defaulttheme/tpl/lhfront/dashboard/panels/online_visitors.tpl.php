@@ -10,16 +10,18 @@
                <div class="col-3 pr-0">
                     <input class="form-control form-control-sm" ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
                </div>
-                <div class="col-3 pr-0">
-                    <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                        'input_name'     => 'department_id',
-                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
-                        'selected_id'    => 0,
-                        'css_class'      => 'form-control form-control-sm',
-                        'ng-model'		 => 'online.department',
-                        'list_function'  => 'erLhcoreClassModelDepartament::getList',
-                        'list_function_params' => $departmentParams
-                    )); ?>
+                <div class="col-3 pr-2">
+                    <?php $optinsPanel = array(
+                        'panelid' => 'department',
+                        'limitid' => 'limitod',
+                        'hide_limits' => true,
+                        'padding_filters' => 0,
+                        'disable_product' => true,
+                        'no_names_department' => true,
+                        'hide_department_variations' => true,
+                        'controller_panel' => 'online'
+                    ); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
                 </div>
                <?php $columnCountrySize = 3?>
                <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
