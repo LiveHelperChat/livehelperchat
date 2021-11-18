@@ -54,6 +54,8 @@ class erLhcoreClassMailconvParser {
 
         $messages = [];
 
+        $db = ezcDbInstance::get();
+
         try {
 
             $mailboxFolders = $mailbox->mailbox_sync_array;
@@ -66,7 +68,6 @@ class erLhcoreClassMailconvParser {
                 throw new Exception('$mailbox argument should be instance of erLhcoreClassModelMailconvMailbox');
             }
 
-            $db = ezcDbInstance::get();
             $db->beginTransaction();
 
             $mailbox = erLhcoreClassModelMailconvMailbox::fetchAndLock($mailbox->id);
