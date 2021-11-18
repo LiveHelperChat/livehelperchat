@@ -132,7 +132,7 @@
                         'data_prop'      => 'data-limit="1"',
                         'css_class'      => 'form-control',
                         'display_name'   => 'name_official',
-                        'list_function_params' => array('limit' => 2),
+                        'list_function_params' => array('limit' => 20),
                         'list_function'  => 'erLhcoreClassModelUser::getList',
                     )); ?>
                 </div>
