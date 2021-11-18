@@ -55,6 +55,22 @@ const MailChatReply = props => {
         setSendInProgress(true);
 
         axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apisendreply/" + props.message.id, replyPayload).then(result => {
+
+            console.log(typeof result.data);
+
+            // We always expect an object
+            if (typeof result.data !== 'object') {
+                setSendInProgress(false);
+                setReplySendStatus({
+                    'send' : false,
+                    'send_tried': true,
+                    'errors': {
+                        'raw_error': result.data
+                    }
+                });
+                return;
+            }
+
             setReplySendStatus(result.data);
             setSendInProgress(false);
 
@@ -74,7 +90,13 @@ const MailChatReply = props => {
                 if (error.response.status === 400) {
                     setReplySendStatus(error.response.data);
                 } else {
-                    alert('Unhandled error.' + error.response.data);
+                    setReplySendStatus({
+                        'send' : false,
+                        'send_tried': true,
+                        'errors': {
+                            'raw_error': error.response.data
+                        }
+                    });
                 }
 
             } else if (error.request) {
