@@ -359,6 +359,7 @@ class erLhcoreClassMailconvValidator {
         if ( $form->hasValidData( 'active' ) && $form->active == true) {
             $item->active = 1;
         } else {
+            $item->failed = 0;
             $item->active = 0;
         }
 
