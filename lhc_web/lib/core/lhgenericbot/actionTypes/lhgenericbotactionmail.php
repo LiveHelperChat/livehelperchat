@@ -28,7 +28,10 @@ class erLhcoreClassGenericBotActionMail {
             }
 
             if (isset($action['content']['mail_options']['recipient']) && $action['content']['mail_options']['recipient'] != '') {
-                $mail->AddAddress(erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['mail_options']['recipient'], array('chat' => $chat, 'args' => $params)));
+                $recipientsMain = explode(',',erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['mail_options']['recipient'], array('chat' => $chat, 'args' => $params)));
+                foreach ($recipientsMain as $replyItem) {
+                    $mail->AddAddress(trim($replyItem));
+                }
             }
 
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
