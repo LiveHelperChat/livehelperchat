@@ -56,8 +56,8 @@ foreach ($items as $item) {
     $item->template_plain = str_replace($searchArray,$replaceArray, $item->template_plain);
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation) {
-        $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $conv, 'args' => ['mail' => $conv, 'msg' => $message, 'chat' => $conv]));
-        $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $conv, 'args' => ['mail' => $conv, 'msg' => $message, 'chat' => $conv]));
+        $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
+        $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
     }
 }
 
