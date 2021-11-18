@@ -25,7 +25,7 @@
             </td>
             <td>
                 <?php if ( $item->chatsOffline > 0) : ?>
-                <a class="text-danger" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_minutes)/<?php echo date('i',$parentItem->time)?>/(timeto_hours)/<?php echo date('H',$parentItem->time)?>/(timeto)/<?php echo date('Y-m-d',$parentItem->time)?>/(timefrom)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom_hours)/<?php echo date('H',$item->lactivity)?>/(timefrom_minutes)/<?php echo date('i',$item->lactivity)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOffline?></a>
+                <a class="text-danger" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_seconds)/<?php echo date('s',$parentItem->time)?>/(timeto_minutes)/<?php echo date('i',$parentItem->time)?>/(timeto_hours)/<?php echo date('H',$parentItem->time)?>/(timeto)/<?php echo date('Y-m-d',$parentItem->time)?>/(timefrom)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom_hours)/<?php echo date('H',$item->lactivity)?>/(timefrom_minutes)/<?php echo date('i',$item->lactivity)?>/(timefrom_seconds)/<?php echo date('s',$item->lactivity)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOffline?></a>
                 <?php endif; ?>
             </td>
         </tr>
@@ -38,7 +38,7 @@
         <td><?php echo $item->duration_front?></td>
         <td>
             <?php if ( $item->chatsOnline > 0) : ?>
-            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_minutes)/<?php echo date('i',$item->lactivity)?>/(timeto_hours)/<?php echo date('H',$item->lactivity)?>/(timeto)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom)/<?php echo date('Y-m-d',$item->time)?>/(timefrom_hours)/<?php echo date('H',$item->time)?>/(timefrom_minutes)/<?php echo date('i',$item->time)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOnline?></a>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_seconds)/<?php echo date('s',$item->lactivity)?>/(timeto_minutes)/<?php echo date('i',$item->lactivity)?>/(timeto_hours)/<?php echo date('H',$item->lactivity)?>/(timeto)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom)/<?php echo date('Y-m-d',$item->time)?>/(timefrom_hours)/<?php echo date('H',$item->time)?>/(timefrom_minutes)/<?php echo date('i',$item->time)?>/(timefrom_seconds)/<?php echo date('s',$item->time)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOnline?></a>
             <?php endif; ?>
         </td>
     </tr>
