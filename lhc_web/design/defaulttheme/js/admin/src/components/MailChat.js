@@ -186,6 +186,10 @@ const MailChat = props => {
                 rememberChat(props.chatId);
             }
 
+            if (props.mode !== 'preview' && result.data.conv.pending_sync) {
+                fetchMessages();
+            }
+
         }).catch((error) => {
             lhinst.removeDialogTabMail('mc'+ props.chatId,$('#tabs'),true);
         });
@@ -209,7 +213,7 @@ const MailChat = props => {
                 loadMainData();
             } else {
                 // Todo handle cleanup
-                setTimeout(() => fetchUntillUpdate(ts),1000);
+                setTimeout(() => fetchUntillUpdate(ts),3000);
             }
         });
     }

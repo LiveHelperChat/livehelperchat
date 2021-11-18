@@ -22,7 +22,7 @@ echo json_encode(array(
         "department" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Department'),
         "information" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Information'),
         "remarks" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Remarks'),
-        "send_fetching" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send. Your send message will appear here... You can close this conversation in any case.'),
+        "send_fetching" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Your new message being fetched. If you just send a message you can close this conversation in any case.'),
         "accepted_by" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accepted by'),
         "accept_wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Accept wait time'),
         "response_wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response wait time'),

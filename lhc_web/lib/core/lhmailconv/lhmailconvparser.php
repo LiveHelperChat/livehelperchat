@@ -500,9 +500,10 @@ class erLhcoreClassMailconvParser {
                         $messages[] = $message;
 
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->udate < $message->udate) {
+                            $conversation->pending_sync = 0;
                             $conversation->last_message_id = $message->id;
                             $conversation->conv_duration = erLhcoreClassChat::getCount(['filter' => ['conversation_id' => $conversation->id]],'lhc_mailconv_msg','SUM(conv_duration)');
-                            $conversation->updateThis(['update' => ['last_message_id', 'conv_duration']]);
+                            $conversation->updateThis(['update' => ['last_message_id', 'conv_duration', 'pending_sync']]);
                             self::setLastConversationByMessage($conversation, $message);
                         }
 

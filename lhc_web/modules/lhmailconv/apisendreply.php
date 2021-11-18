@@ -1,11 +1,5 @@
 <?php
 
-erLhcoreClassRestAPIHandler::setHeaders();
-
-asdasdad;
-
-exit;
-
 session_write_close();
 
 erLhcoreClassRestAPIHandler::setHeaders();

@@ -21,6 +21,11 @@ try {
     $mailbox = $conv->mailbox;
     $updated = $mailbox->last_sync_time > (int)$Params['user_parameters']['ts'] && $mailbox->sync_started > (int)$Params['user_parameters']['ts'];
 
+    if ($updated == false && $conv->pending_sync == 0) {
+        $conv->pending_sync = 1;
+        $conv->updateThis(['update' => ['pending_sync']]);
+    }
+
     echo json_encode(['updated' => $updated]);
 
 } catch (Exception $e) {
