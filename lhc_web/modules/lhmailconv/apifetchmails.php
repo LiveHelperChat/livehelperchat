@@ -24,6 +24,9 @@ try {
     if ($updated == false && $conv->pending_sync == 0) {
         $conv->pending_sync = 1;
         $conv->updateThis(['update' => ['pending_sync']]);
+    } elseif ($updated == true && $conv->pending_sync == 1) {
+        $conv->pending_sync = 0;
+        $conv->updateThis(['update' => ['pending_sync']]);
     }
 
     echo json_encode(['updated' => $updated]);
