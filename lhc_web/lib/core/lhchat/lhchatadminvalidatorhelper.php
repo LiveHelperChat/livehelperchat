@@ -106,6 +106,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'Position' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array()
             ),
+            'repetitiveness' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0,'max_range' => 3)
+            ),
             'Delay' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0)
             ),
@@ -122,7 +125,24 @@ class erLhcoreClassAdminChatValidatorHelper {
             'message_lang' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'fallback_message_lang' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
         );
-        
+
+        foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+            $definition[$dayShort] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            );
+
+            $key = $dayShort.'StartTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+
+            $key = $dayShort.'EndTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+        }
+
+
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
         
@@ -136,6 +156,28 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ( $form->hasValidData( 'FallbackMessage' ) )
         {
             $cannedMessage->fallback_msg = $form->FallbackMessage;
+        }
+
+        if ( $form->hasValidData( 'repetitiveness' ) ) {
+            $cannedMessage->repetitiveness = $form->repetitiveness;
+        } else {
+            $cannedMessage->repetitiveness = 0;
+        }
+
+        if ($cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_DAILY) {
+            $activeDays = [];
+            foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+                if ($form->hasValidData( $dayShort ) && $form->{$dayShort} == true) {
+                    if ($form->hasValidData( $dayShort . 'StartTime' ) && $form->{$dayShort . 'StartTime'} != '') {
+                        $activeDays[$dayShort]['start'] = (int)str_replace(':','',$form->{$dayShort . 'StartTime'});
+                    }
+                    if ($form->hasValidData( $dayShort . 'EndTime' ) && $form->{$dayShort . 'EndTime'} != '') {
+                        $activeDays[$dayShort]['end'] = (int)str_replace(':','',$form->{$dayShort . 'EndTime'});
+                    }
+                }
+            }
+            $cannedMessage->days_activity = json_encode($activeDays, JSON_FORCE_OBJECT);
+            $cannedMessage->days_activity_array = $activeDays;
         }
 
         $languagesData = array();

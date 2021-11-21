@@ -3629,6 +3629,55 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "updated_at",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "created_at",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_from",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_to",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "repetitiveness",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "days_activity",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "additional_data",
         "type": "text",
         "null": "NO",
