@@ -25,6 +25,7 @@ import NodeTriggerActionTbody from './builder/NodeTriggerActionTbody';
 import NodeTriggerActionTextConditional from './builder/NodeTriggerActionTextConditional';
 import NodeTriggerActionAlertIcon from './builder/NodeTriggerActionAlertIcon';
 import NodeTriggerActionMail from './builder/NodeTriggerActionMail';
+import NodeTriggerActionLogAction from './builder/NodeTriggerActionLogAction';
 
 @connect((store) => {
     return {
@@ -207,6 +208,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionAlertIcon upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'mail') {
                     return <NodeTriggerActionMail upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                } else if (action.get('type') == 'laction') {
+                    return <NodeTriggerActionLogAction upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }

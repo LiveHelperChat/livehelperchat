@@ -131,6 +131,7 @@ class erLhcoreClassModelChat {
 
        foreach ([
            'lh_msg',
+           'lh_chat_action',
            'lh_transfer',
            'lh_chat_online_user_footprint',
            'lh_cobrowse',

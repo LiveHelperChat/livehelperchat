@@ -718,7 +718,7 @@ class erLhcoreClassRestAPIHandler
         }
 
         if (!empty($chats) && in_array('subject',$prefillFields)) {
-            $assignedSubjects = erLhAbstractModelSubjectChat::getList(['limite' => false,'filterin' => ['chat_id' => array_keys($chats)]]);
+            $assignedSubjects = erLhAbstractModelSubjectChat::getList(['sort' => 'id ASC', 'limit' => false,'filterin' => ['chat_id' => array_keys($chats)]]);
             foreach ($assignedSubjects as $chatSubject) {
                 if (!isset($chats[$chatSubject->chat_id]->subjects)){
                     $chats[$chatSubject->chat_id]->subject = [];
@@ -747,6 +747,17 @@ class erLhcoreClassRestAPIHandler
                     'first_bot_response_time' => ($messages_statistic[12] == 'None' ? null : (float)$messages_statistic[12]),
                     'wait_time_till_first_operator_msg' => ($messages_statistic[13] == 'None' ? null : (float)$messages_statistic[13]),
                 ];
+            }
+        }
+
+        if (!empty($chats) && in_array('chat_actions',$prefillFields)) {
+            $chatActions = erLhcoreClassModelChatAction::getList(['sort' => 'id ASC', 'limit' => false,'filterin' => ['chat_id' => array_keys($chats)]]);
+            foreach ($chatActions as $chatAction) {
+                if (!isset($chats[$chatAction->chat_id]->chat_actions)){
+                    $chats[$chatAction->chat_id]->chat_actions = [];
+                }
+                $chatAction->body_array;
+                $chats[$chatAction->chat_id]->chat_actions[] = $chatAction;
             }
         }
 
