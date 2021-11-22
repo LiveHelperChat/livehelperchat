@@ -11,7 +11,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 {
 	$userData = $currentUser->getUserData();
 
-	if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($chat)) {
+	if (($userData->invisible_mode == 0 || $chat->user_id == $userData->id) && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
 
             if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && $chat->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
