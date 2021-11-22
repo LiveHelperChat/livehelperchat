@@ -1,6 +1,13 @@
 <textarea required class="form-control form-group" name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php if (isset($visitor)) : ?><?php echo htmlspecialchars($visitor->operator_message) ?><?php endif; ?></textarea>
 
-<label><input type="checkbox" name="FullWidget" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label>
+<div class="row">
+    <div class="col-6">
+        <label><input type="checkbox" name="FullWidget" value="on" <?php (isset($visitor->online_attr_system_array['lhc_full_widget']) && $visitor->online_attr_system_array['lhc_full_widget'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Open full widget for the visitor')?></label>
+    </div>
+    <div class="col-6">
+        <label><input type="checkbox" name="IgnoreBot" value="on" <?php (isset($visitor->online_attr_system_array['lhc_ignore_bot']) && $visitor->online_attr_system_array['lhc_ignore_bot'] == 1) ? print 'checked="checked"' : ''?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Skip bot')?></label>
+    </div>
+</div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/send_order.tpl.php'));?>
 

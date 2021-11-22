@@ -12,6 +12,7 @@ if ( isset($_POST['SendMessage']) ) {
 
     $validationFields = array();
     $validationFields['Message'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
+    $validationFields['IgnoreBot'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresEmail'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresUsername'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['RequiresPhone'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
@@ -57,6 +58,12 @@ if ( isset($_POST['SendMessage']) ) {
         $onlineAttrSystem['lhc_assign_to_me'] = 1;
     } elseif (isset($onlineAttrSystem['lhc_assign_to_me'])) {
         unset($onlineAttrSystem['lhc_assign_to_me']);
+    }
+
+    if ($form->hasValidData( 'IgnoreBot' ) && $form->IgnoreBot == true) {
+        $onlineAttrSystem['lhc_ignore_bot'] = 1;
+    } elseif (isset($onlineAttrSystem['lhc_ignore_bot'])) {
+        unset($onlineAttrSystem['lhc_ignore_bot']);
     }
 
     if ($form->hasValidData( 'IgnoreAutoresponder' ) && $form->IgnoreAutoresponder == true) {

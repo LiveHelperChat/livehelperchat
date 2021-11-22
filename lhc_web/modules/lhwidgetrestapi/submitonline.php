@@ -175,6 +175,10 @@ if (empty($Errors)) {
                         $chat->tslasign = time();
                     }
 
+                    if (isset($onlineAttrSystem['lhc_ignore_bot']) && $onlineAttrSystem['lhc_ignore_bot'] == 1) {
+                        $ignoreBot = true;
+                    }
+
                     $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
                     if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion) {
                         $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED;
@@ -364,7 +368,11 @@ if (empty($Errors)) {
             $paramsExecution['trigger_id'] = $inputData->trigger_id;
         }
 
-        if (!(isset($requestPayload['ignore_bot']) && $requestPayload['ignore_bot'] == true) && !(isset($additionalParams['payload_data']['ignore_bot']) && $additionalParams['payload_data']['ignore_bot'] == true)) {
+        if (
+            !(isset($requestPayload['ignore_bot']) && $requestPayload['ignore_bot'] == true) &&
+            !(isset($additionalParams['payload_data']['ignore_bot']) && $additionalParams['payload_data']['ignore_bot'] == true) &&
+            !(isset($ignoreBot) && $ignoreBot == true)
+        ) {
             // Set bot workflow if required
             erLhcoreClassChatValidator::setBot($chat, $paramsExecution);
         }

@@ -101,6 +101,10 @@ export default ({onChange, type}) => {
         {
             'value': 'tbody',
             'text' : 'Execute trigger body',
+        },
+        {
+            'value': 'laction',
+            'text' : 'Log action',
         }
     ]);
 

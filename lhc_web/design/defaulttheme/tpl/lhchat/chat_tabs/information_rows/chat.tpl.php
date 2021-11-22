@@ -1,7 +1,12 @@
 <?php if ( $chat->department !== false ) : ?>
     <tr>
         <td colspan="2" >
-            <h6 class="font-weight-bold"><i class="material-icons">chat</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?>
+            <h6 class="font-weight-bold"><i class="material-icons">chat</i>
+                <?php if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE) : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Proactive chat')?>
+                <?php else : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?>
+                <?php endif; ?>
                 <div class="float-right text-muted">
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/thumbs.tpl.php'));?>
                     <i id="chat-id-<?php echo $chat->id?>-mds" data-chat-status="<?php echo $chat->status?>" data-chat-user="<?php echo $chat->user_id?>" class="material-icons<?php if ($chat->has_unread_op_messages == 1) : ?> chat-unread<<?php endif;?>">chat</i>
@@ -16,6 +21,8 @@
             <div class="row text-muted">
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/department.tpl.php'));?>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/bot.tpl.php'));?>
 
                 <?php if ($canEditChat == true) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/edit_chat.tpl.php'));?>

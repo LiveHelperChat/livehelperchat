@@ -538,6 +538,18 @@ class erLhAbstractModelProactiveChatInvitation {
                     $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
                 }
 
+                $onlineAttrSystem = $item->online_attr_system_array;
+
+                if (isset($message->design_data_array['ignore_bot']) && $message->design_data_array['ignore_bot'] == true) {
+                    $onlineAttrSystem['lhc_ignore_bot'] = 1;
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                } elseif (isset($onlineAttrSystem['lhc_ignore_bot'])) {
+                    unset($onlineAttrSystem['lhc_ignore_bot']);
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                }
+
                 $campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
                     erLhAbstractModelProactiveChatCampaignConversion::INV_SEND,
                     erLhAbstractModelProactiveChatCampaignConversion::INV_SHOWN

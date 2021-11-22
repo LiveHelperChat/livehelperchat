@@ -1,4 +1,8 @@
 <div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('ignore_bot', $fields['ignore_bot'], $object)?> <?php echo $fields['ignore_bot']['trans'];?></label>
+</div>
+
+<div class="form-group">
     <label><?php echo erLhcoreClassAbstract::renderInput('bot_offline', $fields['bot_offline'], $object)?> <?php echo $fields['bot_offline']['trans'];?></label>
 </div>
 
