@@ -21,4 +21,19 @@
     <td>
         <?php echo htmlspecialchars($agentStatistic_avg['avgChatLengthSeconds_front'])?>
     </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_total'])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL])?>
+    </td>
+    <td>
+        <?php echo htmlspecialchars($agentStatistic_avg['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL])?>
+    </td>
 </tr>

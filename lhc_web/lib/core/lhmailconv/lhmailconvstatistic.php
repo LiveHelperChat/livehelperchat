@@ -556,6 +556,43 @@ class erLhcoreClassMailconvStatistic {
         exit;
     }
 
+    public static function getAgentStatistic(& $itemState, $filter, $user) {
+
+        if (isset($filter['filtergte']['time'])) {
+            $filter['filtergte']['udate'] = $filter['filtergte']['time'];
+            unset($filter['filtergte']['time']);
+        }
+
+        if (isset($filter['filterlte']['time'])) {
+            $filter['filterlte']['udate'] = $filter['filterlte']['time'];
+            unset($filter['filterlte']['time']);
+        }
+
+        $items = erLhcoreClassModelMailconvMessage::getCount(
+            array_merge(array('limit' => 50, 'group' => 'response_type'),$filter),
+            '',
+            false,
+            'response_type, count(id) as total_records',
+            false,
+            true
+        );
+
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED] =
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED] =
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL] =
+        $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL] = 0;
+
+        foreach ($items as $item) {
+            $itemState['mail_statistic_'.$item['response_type']] = $item['total_records'];
+        }
+
+        $itemState['mail_statistic_total'] = $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_UNRESPONDED]+
+            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NOT_REQUIRED] +
+            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL] +
+            $itemState['mail_statistic_'.erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL];
+
+    }
+
 }
 
 ?>
