@@ -454,6 +454,108 @@ class erLhcoreClassMailconvStatistic {
         return $items;
     }
 
+    public static function exportCSV($statistic, $type) {
+        $filename = "report-" . $type . "-".date('Y-m-d').".csv";
+        $fp = fopen('php://output', 'w');
+
+        header('Content-type: application/csv');
+        header('Content-Disposition: attachment; filename='.$filename);
+
+        $weekDays = array(
+            0 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sunday'),
+            1 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monday'),
+            2 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Tuesday'),
+            3 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Wednesday'),
+            4 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Thursday'),
+            5 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Friday'),
+            6 => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Saturday'),
+        );
+
+        if ($type == 'cs_mmsgperinterval') {
+            fputcsv($fp, ['date',
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Responded by e-mail'),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No reply required'),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','We have send this message as reply or forward'),
+                erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Unresponded')
+            ]);
+            foreach ($statistic['mmsgperinterval'] as $key => $data) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$key),
+                    $data['normal'],
+                    $data['notrequired'],
+                    $data['send'],
+                    $data['unresponded']
+                ]);
+            }
+        } else if ($type == 'cs_mmintperdep') {
+            fputcsv($fp, ['department','department_id','interaction_time']);
+            foreach ($statistic['mmintperdep'] as $key => $data) {
+                fputcsv($fp,[
+                    ((string)erLhcoreClassModelDepartament::fetch($data['dep_id'])),
+                    $data['dep_id'],
+                    $data['interaction_time'],
+                ]);
+            }
+        } else if ($type == 'cs_mattrgroup') {
+            $counter = 0;
+            foreach ($statistic['nickgroupingdatenick']['labels'] as $date => $value) {
+                fputcsv($fp,array_merge(array('Date'),(isset($value['nick']) ? $value['nick'] : [])));
+                fputcsv($fp,array_merge(array(date('Y-m-d H:i:s',$date)),(isset($value['data']) ? $value['data'] : [])));
+                $counter++;
+            }
+        } else if ($type == 'cs_mmsgperuser') {
+            fputcsv($fp, ['user','user_id','total_records']);
+            foreach ($statistic['mmsgperuser'] as $date => $value) {
+                $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                fputcsv($fp,[
+                    (string)$obUser,
+                    $value['user_id'],
+                    $value['total_records'],
+                ]);
+            }
+        } else if ($type == 'cs_mmintperuser') {
+            fputcsv($fp, ['user','user_id','interaction_time']);
+            foreach ($statistic['mmintperuser'] as $date => $value) {
+                $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                fputcsv($fp,[
+                    (string)$obUser,
+                    $value['user_id'],
+                    $value['interaction_time'],
+                ]);
+            }
+        } else if ($type == 'cs_msgperhour') {
+            fputcsv($fp, ['hour','total','avg','avg_response_time']);
+            foreach ($statistic['msgperhour']['total'] as $hour => $value) {
+                fputcsv($fp,[
+                    $hour,
+                    $value,
+                    $statistic['msgperhour']['byday'][$hour],
+                    $statistic['msgperhour']['bydayavgresponse'][$hour],
+                ]);
+            }
+        } else if ($type == 'cs_mmsgperdep') {
+            fputcsv($fp, ['department','department_id','total_records']);
+            foreach ($statistic['mmsgperdep'] as $value) {
+                fputcsv($fp,[
+                    ((string)erLhcoreClassModelDepartament::fetch($value['dep_id'])),
+                    $value['dep_id'],
+                    $value['total_records']
+                ]);
+            }
+        } else if ($type == 'cs_mavgwaittime') {
+            fputcsv($fp, ['date', 'avg_wait_time']);
+            foreach ($statistic['mmsgperinterval'] as $date => $value) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$date),
+                    $value['avg_wait_time']
+                ]);
+            }
+        } else {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail_statistic.export_csv',array('fp' => $fp, 'type' => $type, 'data' => $statistic));
+        }
+        exit;
+    }
+
 }
 
 ?>

@@ -1,4 +1,4 @@
-<form action="" method="get" autocomplete="off">
+<form action="" method="get" autocomplete="off" id="form-statistic-action">
     <div class="row form-group">
         <div class="col-md-2">
             <div class="form-group">
@@ -207,8 +207,10 @@
             </div>
         </div>
     </div>
+    <input type="hidden" name="doSearch" value="on" />
+    <input type="hidden" id="id-report-type" name="reportType" value="live" />
 
-    <input type="submit" name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+    <input type="submit" name="doSearch" onclick="$('#id-report-type').val('live')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 
     <script>
         $(function() {
@@ -775,48 +777,56 @@
 
 <?php if (in_array('mmsgperinterval',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Number of messages</h5>
+    <h5><a class="csv-export" data-scope="cs_mmsgperinterval" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages')?></h5>
     <canvas id="mmsgperinterval"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mmsgperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Number of messages per user</h5>
+    <h5><a class="csv-export" data-scope="cs_mmsgperuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per user')?></h5>
     <canvas id="mmsgperuser"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mmsgperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Number of messages per department</h5>
+    <h5><a class="csv-export" data-scope="cs_mmsgperdep" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages per department')?></h5>
     <canvas id="mmsgperdep"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mmintperdep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Average duration of interactions by department. Max 10 minutes.</h5>
+    <h5><a class="csv-export" data-scope="cs_mmintperdep" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions by department. Max 10 minutes.')?></h5>
     <canvas id="mmintperdep"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mmintperuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Average duration of interactions per user.  Max 10 minutes.</h5>
+    <h5><a class="csv-export" data-scope="cs_mmintperuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average duration of interactions per user.  Max 10 minutes.')?></h5>
     <canvas id="mmintperuser"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mavgwaittime',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Average wait time. Max 10 minutes.</h5>
+    <h5><a class="csv-export" data-scope="cs_mavgwaittime" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time. Max 10 minutes.')?></h5>
     <canvas id="mavgwaittime"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('mattrgroup',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Number of messages grouped by attribute</h5>
+    <h5><a class="csv-export" data-scope="cs_mattrgroup" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages grouped by attribute')?></h5>
     <canvas id="mattrgroup"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('msgperhour',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5>Messages number per hour</h5>
+    <h5><a class="csv-export" data-scope="cs_msgperhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Messages number per hour')?></h5>
     <canvas id="msgperhour"></canvas>
 <?php endif; ?>
+
+<script>
+    $(".csv-export").click(function(event) {
+        event.preventDefault();
+        $('#id-report-type').val($(this).attr('data-scope'));
+        $('#form-statistic-action').submit();
+    })
+</script>

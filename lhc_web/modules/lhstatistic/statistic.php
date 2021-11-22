@@ -191,6 +191,12 @@ if ($tab == 'active') {
              ]) : array()),
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         );
+
+        if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
+            erLhcoreClassMailconvStatistic::exportCSV($activeStats, $_GET['reportType']);
+            exit;
+        }
+
         $tpl->setArray($activeStats);
     }
 
