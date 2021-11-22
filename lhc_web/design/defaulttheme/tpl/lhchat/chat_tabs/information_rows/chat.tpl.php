@@ -3,9 +3,9 @@
         <td colspan="2" >
             <h6 class="font-weight-bold"><i class="material-icons">chat</i>
                 <?php if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE) : ?>
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?>
-                <?php else : ?>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Proactive chat')?>
+                <?php else : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?>
                 <?php endif; ?>
                 <div class="float-right text-muted">
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information/thumbs.tpl.php'));?>
