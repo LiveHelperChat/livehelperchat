@@ -172,7 +172,7 @@
                             <div class="col-3">
                                 <div class="form-group" ng-non-bindable>
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time to');?></label>
-                                    <input name="<?php echo $dayShort ?>EndTime" value="<?php echohtmlspecialchars($hoursEnd,':',$minutesEnd)?>" type="time" class="form-control form-control-sm">
+                                    <input name="<?php echo $dayShort ?>EndTime" value="<?php echo htmlspecialchars($hoursEnd,':',$minutesEnd)?>" type="time" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>
