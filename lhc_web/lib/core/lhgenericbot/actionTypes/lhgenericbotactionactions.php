@@ -4,6 +4,11 @@ class erLhcoreClassGenericBotActionActions {
 
     public static function process($chat, $action, $trigger, $params)
     {
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
 
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 

@@ -22,6 +22,8 @@
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/department.tpl.php'));?>
 
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/bot.tpl.php'));?>
+
                 <?php if ($canEditChat == true) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/edit_chat.tpl.php'));?>
 

@@ -4,6 +4,12 @@ class erLhcoreClassGenericBotActionList {
 
     public static function process($chat, $action, $trigger, $params)
     {
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();
@@ -24,7 +30,7 @@ class erLhcoreClassGenericBotActionList {
 
         $msg->msg = '';
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : '';
-        
+
         if ($msg->meta_msg != '') {
             $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
         }

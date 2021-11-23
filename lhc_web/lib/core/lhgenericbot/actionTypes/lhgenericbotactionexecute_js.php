@@ -4,6 +4,12 @@ class erLhcoreClassGenericBotActionExecute_js {
 
     public static function process($chat, $action, $trigger, $params)
     {
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();

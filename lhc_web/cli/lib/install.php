@@ -1070,6 +1070,16 @@ class Install
 				  KEY `identifier` (`identifier`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_chat_action` (
+                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                  `chat_id` bigint(20) NOT NULL,
+                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `created_at` bigint(20) unsigned NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `chat_id` (`chat_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `msg` longtext NOT NULL,
@@ -1088,6 +1098,12 @@ class Install
         	   	  `attr_int_2` int(11) NOT NULL,
         	   	  `attr_int_3` int(11) NOT NULL,
                   `unique_id` varchar(20) NOT NULL,
+                  `updated_at` int(11) unsigned NOT NULL DEFAULT 0,
+                  `created_at` int(11) unsigned NOT NULL DEFAULT 0,
+                  `active_from` int(11) unsigned NOT NULL DEFAULT 0,
+                  `active_to` int(11) unsigned NOT NULL DEFAULT 0,
+                  `repetitiveness` int(11) unsigned NOT NULL DEFAULT 0,
+                  `days_activity` text COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
         	   	  KEY `attr_int_1` (`attr_int_1`),
@@ -1095,7 +1111,8 @@ class Install
         	   	  KEY `attr_int_3` (`attr_int_3`),
         	   	  KEY `position_title_v2` (`position`, `title`(191)),
         	   	  KEY `user_id` (`user_id`),
-        	   	  KEY `unique_id` (`unique_id`)
+        	   	  KEY `unique_id` (`unique_id`),
+                  KEY `repetitiveness` (`repetitiveness`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
