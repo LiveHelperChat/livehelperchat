@@ -190,11 +190,11 @@ class erLhcoreClassChat {
 
         $filterOptions = [];
         if ($pendingAlert > 0) {
-            $filterOptions[] = "(status = 0 AND (UNIX_TIMESTAMP() - pnd_time) > {$pendingAlert})";
+            $filterOptions[] = "(status = 0 AND user_id = 0 AND (UNIX_TIMESTAMP() - pnd_time) > {$pendingAlert})";
         }
 
         if ($pendingAlertResponse > 0) {
-            $filterOptions[] = "(status = 1 AND lr_time = 0 && (UNIX_TIMESTAMP() - accept_time) > {$pendingAlertResponse})";
+            $filterOptions[] = "((status = 1 OR (status = 0 AND user_id > 0)) AND lr_time = 0 && (UNIX_TIMESTAMP() - accept_time) > {$pendingAlertResponse})";
         }
 
         $filter = array();
