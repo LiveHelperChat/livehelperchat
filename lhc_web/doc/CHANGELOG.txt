@@ -13,6 +13,8 @@
 
 And many other changes all around
 
+execute doc/update_db/update_259.sql for update
+
 3.86v
 
 1. Rest API access can be restricted only to Rest API keys.
