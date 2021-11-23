@@ -6,6 +6,12 @@ class erLhcoreClassGenericBotActionConditions {
     {
         if (isset($action['content']['conditions']) && is_array($action['content']['conditions']) && !empty($action['content']['conditions']) ) {
 
+            $params['current_trigger'] = $trigger;
+
+            if (!isset($params['first_trigger'])) {
+                $params['first_trigger'] = $params['current_trigger'];
+            }
+            
             $conditionsMet = true;
 
             $chatVariables = $chat->chat_variables_array;

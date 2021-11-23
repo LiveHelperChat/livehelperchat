@@ -34,6 +34,14 @@ class erLhcoreClassGenericBotActionTbody {
                     $args['args']['replace_array'] = $params['replace_array'];
                 }
 
+                $args['args']['current_trigger'] = $trigger;
+
+                if (!isset($params['first_trigger'])) {
+                    $args['args']['first_trigger'] = $args['args']['current_trigger'];
+                } else {
+                    $args['args']['first_trigger'] = $params['first_trigger'];
+                }
+
                 if (!isset($params['do_not_save']) || $params['do_not_save'] == false) {
                    return erLhcoreClassGenericBotWorkflow::processTrigger($chat, $triggerRest, true, $args);
                 }

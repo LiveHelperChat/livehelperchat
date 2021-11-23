@@ -6,6 +6,12 @@ class erLhcoreClassGenericBotActionTyping {
     {
         static $triggersProcessed = array();
 
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();

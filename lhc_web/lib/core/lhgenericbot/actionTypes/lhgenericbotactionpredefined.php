@@ -11,6 +11,12 @@ class erLhcoreClassGenericBotActionPredefined {
                 'chat' => & $chat,
             ));
 
+            $params['current_trigger'] = $trigger;
+
+            if (!isset($params['first_trigger'])) {
+                $params['first_trigger'] = $params['current_trigger'];
+            }
+
             if ($handler !== false) {
                 $trigger = $handler['trigger'];
             } else {
