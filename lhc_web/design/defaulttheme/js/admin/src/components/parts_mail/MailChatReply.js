@@ -195,7 +195,7 @@ const MailChatReply = props => {
                 <MailReplyRecipient readOnly={props.moptions.hide_recipients} setRecipients={(recipients) => setModifiedRecipients(recipients)} mode={replyMode == true ? 'reply' : 'forward'} message={props.message} recipients={recipients} />
 
                 <Editor
-                    tinymceScriptSrc="/design/defaulttheme/js/tinymce/js/tinymce/tinymce.min.js"
+                    tinymceScriptSrc={props.moptions.tiny_mce_path}
                     initialValue={"<p></p>" + replyIntro + "<blockquote>" + props.message.body_front + "</blockquote>" + (underReplySignature == false ? replySignature : "")}
                     onInit={() => {
                         tinyMCE.get("reply-to-mce-"+props.message.id).focus();

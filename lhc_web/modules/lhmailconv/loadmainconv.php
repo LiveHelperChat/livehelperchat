@@ -121,7 +121,8 @@ try {
                 'hide_recipients' => !$currentUser->hasAccessTo('lhmailconv', 'manage_reply_recipients'),
                 'send_as_new' => $currentUser->hasAccessTo('lhmailconv', 'send_as_new'),
                 'mce_plugins' => $mcePlugins,
-                'mce_toolbar' => $mceToolbar
+                'mce_toolbar' => $mceToolbar,
+                'tiny_mce_path' => erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js')
             ]
         ));
 
