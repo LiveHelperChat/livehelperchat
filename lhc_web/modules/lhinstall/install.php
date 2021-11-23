@@ -1274,7 +1274,8 @@ try {
         	   	  KEY `attr_int_3` (`attr_int_3`),
         	   	  KEY `position_title_v2` (`position`, `title`(191)),
         	   	  KEY `user_id` (`user_id`),
-        	   	  KEY `unique_id` (`unique_id`)
+        	   	  KEY `unique_id` (`unique_id`),
+                  KEY `repetitiveness` (`repetitiveness`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_online_user_footprint` (
