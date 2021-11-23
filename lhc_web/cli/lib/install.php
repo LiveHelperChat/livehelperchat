@@ -1069,14 +1069,15 @@ class Install
 				  PRIMARY KEY (`id`),
 				  KEY `identifier` (`identifier`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-            
+
             $db->query("CREATE TABLE `lh_chat_action` (
                 `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `chat_id` bigint(20) NOT NULL,
                   `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
                   `created_at` bigint(20) unsigned NOT NULL,
-                  PRIMARY KEY (`id`)
+                  PRIMARY KEY (`id`),
+                  KEY `chat_id` (`chat_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_canned_msg` (
