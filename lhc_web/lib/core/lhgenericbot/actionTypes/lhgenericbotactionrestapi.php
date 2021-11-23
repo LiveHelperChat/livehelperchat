@@ -6,6 +6,12 @@ class erLhcoreClassGenericBotActionRestapi
     public static function process($chat, $action, $trigger, $params)
     {
 
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         if (isset($action['content']['rest_api']) && is_numeric($action['content']['rest_api']) && isset($action['content']['rest_api_method']) && !empty($action['content']['rest_api_method'])) {
 
             $restAPI = erLhcoreClassModelGenericBotRestAPI::fetch($action['content']['rest_api']);

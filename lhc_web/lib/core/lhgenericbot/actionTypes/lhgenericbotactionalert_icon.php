@@ -4,6 +4,7 @@ class erLhcoreClassGenericBotActionAlert_icon {
 
     public static function process($chat, $action, $trigger, $params)
     {
+
         $alertIcon = 'new_releases';
 
         if (isset($action['content']['alert_icon']) && !empty($action['content']['alert_icon'])) {

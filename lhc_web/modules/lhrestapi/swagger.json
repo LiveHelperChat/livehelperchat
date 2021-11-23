@@ -320,7 +320,7 @@
           },
           {
             "name": "prefill_fields",
-            "description": "What fields to prefill E.g time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time",
+            "description": "What fields to prefill E.g messages_statistic,subject, link, time_created_front, department_name, plain_user_name, product_name, n_official, n_off_full, wait_time_pending, wait_time_seconds, cls_time_front, tatus_sub_sub, can_edit_chat, unread_time",
             "required": false,
             "type": "string",
             "in": "query"

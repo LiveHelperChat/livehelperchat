@@ -4,6 +4,12 @@ class erLhcoreClassGenericBotActionMail {
 
     public static function process($chat, $action, $trigger, $params = array())
     {
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         if (isset($action['content']['text']) && $action['content']['text'] != '') {
 
             $mail = new PHPMailer();

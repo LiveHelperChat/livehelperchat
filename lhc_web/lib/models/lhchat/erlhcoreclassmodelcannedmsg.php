@@ -32,7 +32,22 @@ class erLhcoreClassModelCannedMsg
             'additional_data' => $this->additional_data,
             'html_snippet' => $this->html_snippet,
             'unique_id' => $this->unique_id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'active_from' => $this->active_from,
+            'active_to' => $this->active_to,
+            'repetitiveness' => $this->repetitiveness,
+            'days_activity' => $this->days_activity,
         );
+    }
+
+    public function beforeSave($params = array())
+    {
+        if ($this->created_at == 0) {
+            $this->created_at = time();
+        }
+
+        $this->updated_at = time();
     }
 
     public function __toString(){
@@ -53,8 +68,7 @@ class erLhcoreClassModelCannedMsg
                     }
                 }
                 return $this->user;
-                break;
-                
+
             case 'department':
                 $this->department = false;
                 if ($this->department_id > 0) {
@@ -99,8 +113,7 @@ class erLhcoreClassModelCannedMsg
                     }
 
                     return $this->msg_to_user;
-                break;
-                
+
             case 'message_title':
                     if ($this->title != '') {
                         $this->message_title = $this->title;
@@ -108,8 +121,7 @@ class erLhcoreClassModelCannedMsg
                         $this->message_title = $this->msg_to_user;
                     }
                     return $this->message_title;
-                break;
-                
+
             case 'tags':
                     $this->tags = array();
                     
@@ -127,23 +139,29 @@ class erLhcoreClassModelCannedMsg
                     }
                     $this->tags_plain = implode(', ', $tagsPlain);
                     return $this->tags_plain;
-                break;
 
+            case 'days_activity_array':
             case 'additional_data_array':
-                $jsonData = json_decode($this->additional_data,true);
+                $varSystem = str_replace('_array','', $var);
+                $jsonData = json_decode($this->{$varSystem},true);
                 if ($jsonData !== null) {
-                    $this->additional_data_array = $jsonData;
+                    $this->$var = $jsonData;
                 } else {
-                    $this->additional_data_array = $this->additional_data;
+                    $this->$var = $this->$varSystem;
                 }
 
-                if (!is_array($this->additional_data_array)) {
-                    $this->additional_data_array = array();
+                if (!is_array($this->$var)) {
+                    $this->$var = array();
                 }
 
-                return $this->additional_data_array;
-                break;
-                    
+                return $this->$var;
+
+            case 'created_at_front':
+            case 'updated_at_front':
+                $var = str_replace('_front','', $var);
+                $this->{$var . '_front'} = date('Ymd') == date('Ymd',$this->{$var}) ? date(erLhcoreClassModule::$dateHourFormat,$this->{$var}) : date(erLhcoreClassModule::$dateDateHourFormat,$this->{$var});
+                return $this->{$var . '_front'};
+
             default:
                 break;
         }
@@ -303,6 +321,23 @@ class erLhcoreClassModelCannedMsg
 	            $filter[] = $q->expr->in('id', $paramsFilter['id']);
 	        }
 
+            $dayShort = array(
+                1 => 'mod',
+                2 => 'tud',
+                3 => 'wed',
+                4 => 'thd',
+                5 => 'frd',
+                6 => 'sad',
+                7 => 'sud'
+            );
+
+            $filter[] = "(
+                repetitiveness = 0 OR 
+                (repetitiveness = 1 AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".start') <= " . date('Hi') . " AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".end') >= " . date('Hi') . " ) OR
+                (repetitiveness = 2 AND active_from <= " . time() . " AND active_to >= " . time() . ") OR
+                (repetitiveness = 3 AND FROM_UNIXTIME(active_from,'%m%d%H%i') <= " . date('mdHi') . " AND FROM_UNIXTIME(active_to,'%m%d%H%i') >= " . date('mdHi') . ")
+            )";
+
 	        $q->where($filter);
 	       
 	        $q->limit(50, 0);
@@ -430,6 +465,11 @@ class erLhcoreClassModelCannedMsg
         }
     }
 
+    CONST REP_NO = 0;
+    CONST REP_DAILY = 1;
+    CONST REP_PERIOD = 2;
+    CONST REP_PERIOD_REP = 3;
+
     private $replaceData = array();
 
     public $id = null;
@@ -450,6 +490,15 @@ class erLhcoreClassModelCannedMsg
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;
     public $unique_id = 0;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $active_from = 0;
+    public $active_to = 0;
+    public $repetitiveness = self::REP_NO;
+    public $days_activity = '';
+
+
 }
 
 ?>

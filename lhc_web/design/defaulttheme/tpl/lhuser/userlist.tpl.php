@@ -7,7 +7,7 @@
 	$canDelete = $currentUser->hasAccessTo('lhuser','deleteuser');
 	$canLoginAs = $currentUser->hasAccessTo('lhuser','loginas');
 ?>
-<table class="table table-sm" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
+<table class="table table-sm list-links" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -18,7 +18,6 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last login');?></th>
     <?php include(erLhcoreClassDesign::designtpl('lhuser/userlist/column_multiinclude.tpl.php')); ?>
     <?php if ($canLoginAs) : ?><th width="1%">&nbsp;</th><?php endif;?>
-    <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
     <?php if ($canDelete) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>
 </thead>
@@ -40,7 +39,7 @@
                 </a>
             <?php endif; ?>
 
-            <?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?>
+            <?php if ($canEdit) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php endif; ?><?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?><?php if ($canEdit) : ?></a><?php endif; ?>
         </td>
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td>
@@ -71,7 +70,6 @@
         <?php if ($canLoginAs) : ?>
             <td nowrap=""><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/loginas')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Login As');?></a></td>
         <?php endif;?>
-        <?php if ($canEdit) : ?><td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td><?php endif;?>
         <?php if ($canDelete) : ?><td><?php if ($user->id != 1) : ?><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('user/delete')?>/<?php echo $user->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a><?php endif;?></td><?php endif;?>
     </tr>
 <?php endforeach; ?>

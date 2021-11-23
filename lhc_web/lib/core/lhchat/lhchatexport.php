@@ -173,7 +173,123 @@ class erLhcoreClassChatExport {
 	    // Write file to the browser
 	    $objWriter->save('php://output');
 	}
-	
+
+    public static function messagesStatistic(& $itemData, $item)
+    {
+        $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('chat_id' => $item->id))); // Total messages
+        $visitorMessagesCount = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
+        $itemData[] =  $visitorMessagesCount; // Visitor messages
+        $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => -2, 'chat_id' => $item->id))); // Bot messages
+        $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filtergt' => array('user_id' => 0),'filter' => array('chat_id' => $item->id))); // Operator messages
+        $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => -1,'chat_id' => $item->id))); // System messages
+        // We have a bot assigned
+        // Chat does not have an operator OR it has operator and message time is less than chat become pending
+        $visitorMessagesBotCount = 0;
+        $botMessages = [];
+        $agentMessages = [];
+
+        if ($item->gbot_id > 0) {
+            // All visitor messages were interactions with bot
+            if ($item->user_id == 0) {
+                $visitorMessagesBotCount = $visitorMessagesCount;
+                $itemData[] = $visitorMessagesBotCount;
+                // All interactions were with a bot
+                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
+            } else {
+                $botMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
+                $agentMessages =  erLhcoreClassModelmsg::getList(array('limit' => false, 'filtergt' => array('time' => $item->pnd_time),'filter' => array('chat_id' => $item->id)));
+                $visitorMessagesBotCount = erLhcoreClassModelmsg::getCount(array('limit' => false, 'filterlte' => array('time' => $item->pnd_time),'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
+                $itemData[] = $visitorMessagesBotCount;
+            }
+        } else { // There was no bot assigned
+            $itemData[] = 0;
+            $agentMessages = erLhcoreClassModelmsg::getList(array('limit' => false, 'filter' => array('chat_id' => $item->id)));
+        }
+
+        $itemData[] = $visitorMessagesCount - $visitorMessagesBotCount;
+
+        $timesResponse = [];
+        $startTime = 0;
+        $firstBotResponseTime = 'None';
+
+        foreach ($botMessages as $messageWithABot) {
+            if ($messageWithABot->user_id == 0) {
+                if ($startTime == 0) {
+                    $startTime = $messageWithABot->time;
+                }
+            } elseif ($messageWithABot->user_id == -2) {
+                if ($startTime > 0) {
+                    if (empty($timesResponse)){
+                        $firstBotResponseTime = $messageWithABot->time - $startTime;
+                        $timesResponse[] = $firstBotResponseTime;
+                    } else {
+                        $timesResponse[] = $messageWithABot->time - $startTime;
+                    }
+
+                    $startTime = 0;
+                }
+            }
+        }
+
+        $tillFirstOperatorMessage = 'None';
+        $firstAgentResponseTime = 'None';
+        $timesResponseAgent = [];
+        $startTime = $item->pnd_time;
+
+        foreach ($agentMessages as $agentMessage) {
+            if ($agentMessage->user_id == 0) {
+                if ($startTime == 0) {
+                    $startTime = $agentMessage->time;
+                }
+            } elseif ($agentMessage->user_id > 0) {
+                if ($tillFirstOperatorMessage == 'None') {
+                    $tillFirstOperatorMessage = $agentMessage->time - $item->pnd_time;
+                    if ($tillFirstOperatorMessage < 0) { // It was operator who first send a message
+                        $tillFirstOperatorMessage = 0;
+                    }
+                }
+
+                if ($startTime > 0) {
+                    // It's first agent response
+                    if (empty($timesResponseAgent)) {
+                        $responseTime = $agentMessage->time - ($item->wait_time + $item->pnd_time);
+                        if ($responseTime > 0) {
+                            $firstAgentResponseTime = $responseTime;
+                            $timesResponseAgent[] = $firstAgentResponseTime;
+                        } else {
+                            $responseTime = $agentMessage->time - $item->pnd_time;
+                            if ($responseTime > 0) {
+                                $firstAgentResponseTime = $responseTime;
+                                $timesResponseAgent[] = $firstAgentResponseTime;
+                            } else {
+
+                                $firstAgentResponseTime = $agentMessage->time - $item->time;
+
+                                // Happens for old proactive chat invitations
+                                if ($firstAgentResponseTime < 0) {
+                                    $firstAgentResponseTime = 0;
+                                }
+
+                                $timesResponseAgent[] = $firstAgentResponseTime;
+                            }
+                        }
+                    } else {
+                        $timesResponseAgent[] = $agentMessage->time - $startTime;
+                    }
+                    $startTime = 0;
+                }
+            }
+        }
+
+        $itemData[] = !empty($timesResponseAgent) ? max($timesResponseAgent) : 'None';
+        $itemData[] = !empty($timesResponse) ? max($timesResponse) : 'None';
+        $itemData[] = !empty($timesResponseAgent) ? (array_sum($timesResponseAgent)/count($timesResponseAgent)) : 'None';
+        $itemData[] = !empty($timesResponse) ? array_sum($timesResponse)/count($timesResponse) : 'None';
+        $itemData[] = $firstAgentResponseTime;
+        $itemData[] = $firstBotResponseTime;
+        $itemData[] = $tillFirstOperatorMessage;
+    }
+
 	public static function chatListExportXLS($chats, $params = array()) {
 
 		include 'lib/core/lhform/PHPExcel.php';
@@ -425,7 +541,10 @@ class erLhcoreClassChatExport {
                 }
 
                 if (isset($params['type']) && in_array(4,$params['type'])) {
-                    $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('chat_id' => $item->id))); // Total messages
+
+                    self::messagesStatistic($itemData, $item);
+
+                    /*$itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('chat_id' => $item->id))); // Total messages
                     $visitorMessagesCount = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => 0, 'chat_id' => $item->id)));
                     $itemData[] =  $visitorMessagesCount; // Visitor messages
                     $itemData[] = erLhcoreClassModelmsg::getCount(array('limit' => false,'filter' => array('user_id' => -2, 'chat_id' => $item->id))); // Bot messages
@@ -536,7 +655,7 @@ class erLhcoreClassChatExport {
                     $itemData[] = !empty($timesResponse) ? array_sum($timesResponse)/count($timesResponse) : 'None';
                     $itemData[] = $firstAgentResponseTime;
                     $itemData[] = $firstBotResponseTime;
-                    $itemData[] = $tillFirstOperatorMessage;
+                    $itemData[] = $tillFirstOperatorMessage;*/
                 }
 
                 if (isset($params['type']) && in_array(5,$params['type'])) {

@@ -2,6 +2,16 @@
 
 erLhcoreClassRestAPIHandler::setHeaders();
 
+// Activate correct time zone for canned messages activity filter
+try {
+    $dt = new DateTime();
+    $offset = $dt->format("P");
+    $db = ezcDbInstance::get();
+    $db->query("SET LOCAL time_zone='" . $offset ."'");
+} catch (Exception $e) {
+    // Ignore
+}
+
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 $q = (isset($_GET['q']) ? $_GET['q'] : '');

@@ -2,8 +2,7 @@
         <ul class="nav nav-pills" role="tablist">
              <li role="presentation" class="active nav-item"><a class="nav-link" href="#chatlist" aria-controls="chatlist" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Chat list');?>"><i class="material-icons mr-0">info_outline</i></a></li>
         </ul>
-        
-        <div class="tab-content" ng-cloak> 
+        <div class="tab-content pl-2" ng-cloak>
                 <div role="tabpanel" class="tab-pane form-group active" id="chatlist">
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel.tpl.php')); ?>
 
@@ -15,7 +14,7 @@
                     
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/append_table_class.tpl.php'));?>
                     
-                    <table cellpadding="0" cellspacing="0" class="table<?php echo $appendTableClass?>" width="100%">
+                    <table class="table list-links<?php echo $appendTableClass?>" width="100%">
                         <thead>
                             <tr>
                             	<th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
@@ -40,7 +39,7 @@
                               <?php if ( !empty($chat->country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" />&nbsp;<?php endif; ?>
                               <a class="material-icons" onclick="lhc.previewChat(<?php echo $chat->id?>)">info_outline</a>
                               
-                              <a ng-non-bindable class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
+                              <a ng-non-bindable href="#!#Fchat-id-<?php echo $chat->id?>" class="action-image material-icons" data-title="<?php echo htmlspecialchars($chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $chat->id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Open in a new window');?>">open_in_new</a>
 
                     	      <?php if ($chat->can_edit_chat && ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT && ($can_delete_global == true || ($can_delete_general == true && $chat->user_id == $current_user_id)))) : ?>
                     	           <a class="csfr-required material-icons" onclick="return confirm(confLH.transLation.delete_confirm)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Reject chat');?>" href="<?php echo erLhcoreClassDesign::baseurl('chat/delete')?>/<?php echo $chat->id?>">delete</a>
@@ -60,7 +59,7 @@
 
                                 <?php if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST) : ?><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Offline request')?>" class="material-icons">mail</i><?php endif?>
 
-                                <a ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span ng-non-bindable><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
+                                <a href="#!#Fchat-id-<?php echo $chat->id?>" ng-click="lhc.startChatByID(<?php echo $chat->id?>)"><span ng-non-bindable><?php echo htmlspecialchars($chat->nick);?></span>, <small><i><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></i></small>, <span ng-non-bindable><?php echo htmlspecialchars($chat->department),($chat->product !== false ? ' | '.htmlspecialchars((string)$chat->product) : '');?></span></a>
 
                     	      <?php if ($chat->has_unread_messages == 1) : ?>
                     	      <?php
@@ -123,7 +122,6 @@
 <script>
 $( document ).ready(function() {
 	lhinst.attachTabNavigator();
-	$('#right-column-page').removeAttr('id');
 	$('#tabs a:first').tab('show')
 });
 </script>

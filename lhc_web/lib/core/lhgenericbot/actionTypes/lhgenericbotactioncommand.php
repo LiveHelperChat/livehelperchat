@@ -8,6 +8,12 @@ class erLhcoreClassGenericBotActionCommand {
             return;
         }
 
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         if ($action['content']['command'] == 'stopchat') {
 
             $filterOnline = array(

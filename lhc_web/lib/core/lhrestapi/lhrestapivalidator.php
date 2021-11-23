@@ -711,6 +711,56 @@ class erLhcoreClassRestAPIHandler
             ));
         }
 
+        if (in_array('link',$prefillFields)) {
+            foreach ($chats as $index => $chat) {
+                $chats[$index]->link = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$chat->id));
+            }
+        }
+
+        if (!empty($chats) && in_array('subject',$prefillFields)) {
+            $assignedSubjects = erLhAbstractModelSubjectChat::getList(['sort' => 'id ASC', 'limit' => false,'filterin' => ['chat_id' => array_keys($chats)]]);
+            foreach ($assignedSubjects as $chatSubject) {
+                if (!isset($chats[$chatSubject->chat_id]->subjects)){
+                    $chats[$chatSubject->chat_id]->subject = [];
+                }
+                $chats[$chatSubject->chat_id]->subject[] = $chatSubject->subject;
+            }
+        }
+
+        if (!empty($chats) && in_array('messages_statistic',$prefillFields)) {
+            foreach ($chats as $index => $chat) {
+                $messages_statistic = [];
+                erLhcoreClassChatExport::messagesStatistic($messages_statistic, $chat);
+                $chats[$index]->messages_statistic = [
+                    'total_messages' => ($messages_statistic[0] == 'None' ? null : (float)$messages_statistic[0]),
+                    'visitor_messages' =>  ($messages_statistic[1] == 'None' ? null : (float)$messages_statistic[1]),
+                    'bot_messages' =>  ($messages_statistic[2] == 'None' ? null : (float)$messages_statistic[2]),
+                    'operator_messages' =>  ($messages_statistic[3] == 'None' ? null : (float)$messages_statistic[3]),
+                    'system_messages' =>  ($messages_statistic[4] == 'None' ? null : (float)$messages_statistic[4]),
+                    'visitor_messages_to_bot' =>  ($messages_statistic[5] == 'None' ? null : (float)$messages_statistic[5]),
+                    'visitor_messages_to_operator' =>  ($messages_statistic[6] == 'None' ? null : (float)$messages_statistic[6]),
+                    'max_agent_response_time' =>  ($messages_statistic[7] == 'None' ? null : (float)$messages_statistic[7]),
+                    'max_bot_response_time' =>  ($messages_statistic[8] == 'None' ? null : (float)$messages_statistic[8]),
+                    'avg_agent_response_time' => ($messages_statistic[9] == 'None' ? null : (float)$messages_statistic[9]),
+                    'avg_bot_response_time' => ($messages_statistic[10] == 'None' ? null : (float)$messages_statistic[10]),
+                    'first_agent_response_time' => ($messages_statistic[11] == 'None' ? null : (float)$messages_statistic[11]),
+                    'first_bot_response_time' => ($messages_statistic[12] == 'None' ? null : (float)$messages_statistic[12]),
+                    'wait_time_till_first_operator_msg' => ($messages_statistic[13] == 'None' ? null : (float)$messages_statistic[13]),
+                ];
+            }
+        }
+
+        if (!empty($chats) && in_array('chat_actions',$prefillFields)) {
+            $chatActions = erLhcoreClassModelChatAction::getList(['sort' => 'id ASC', 'limit' => false,'filterin' => ['chat_id' => array_keys($chats)]]);
+            foreach ($chatActions as $chatAction) {
+                if (!isset($chats[$chatAction->chat_id]->chat_actions)){
+                    $chats[$chatAction->chat_id]->chat_actions = [];
+                }
+                $chatAction->body_array;
+                $chats[$chatAction->chat_id]->chat_actions[] = $chatAction;
+            }
+        }
+
         if (!empty($prefillFields) || !empty($ignoreFields)) {
             erLhcoreClassChat::prefillGetAttributes($chats, $prefillFields, $ignoreFields, array('clean_ignore' => true, 'do_not_clean' => true));
         }

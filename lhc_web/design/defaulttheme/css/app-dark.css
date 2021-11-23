@@ -1940,3 +1940,7 @@ html {
 .statistic-tab canvas{
     background: white;
 }
+
+.list-links a:visited{
+    color: #9d9d9d;
+}

@@ -363,7 +363,14 @@ $ViewList['updatebuttonclicked'] = array(
     'uparams' => array()
 );
 
+$ViewList['chatactions'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'see_actions' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
 $FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot notifications settings');
+$FunctionList['see_actions'] = array('explain' => 'Allow operator to see chat actions');
 
 ?>

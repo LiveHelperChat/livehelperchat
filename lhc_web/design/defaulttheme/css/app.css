@@ -234,7 +234,6 @@ a:hover{
 
 .msgBlock,.msgBlock-inv{
 	overflow-y:auto;
-	resize: vertical;
 	padding-bottom:3px;
 	padding-right:5px;
 	padding-left:5px;
@@ -1948,4 +1947,8 @@ html {
 .dropdown-toggle.btn-department-dropdown::after{
     float:right;
     margin-top: 8px;
+}
+
+.list-links a:visited{
+    color: #818182;
 }

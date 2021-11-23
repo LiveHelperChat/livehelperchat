@@ -7,7 +7,7 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-    <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%">
+    <table cellpadding="0" cellspacing="0" class="table table-sm list-links" width="100%">
         <thead>
         <tr>
             <th><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>

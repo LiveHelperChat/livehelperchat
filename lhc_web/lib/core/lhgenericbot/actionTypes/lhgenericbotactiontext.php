@@ -6,6 +6,12 @@ class erLhcoreClassGenericBotActionText {
     {
         static $triggersProcessed = array();
 
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+
         // Message should be send only on start chat event, but we are not in start chat mode
         if (
             in_array($trigger->id, $triggersProcessed) ||

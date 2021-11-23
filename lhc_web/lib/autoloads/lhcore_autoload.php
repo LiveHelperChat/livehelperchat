@@ -177,6 +177,7 @@ return array_merge(array (
 		'erLhcoreClassModelChatArchiveRange' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiverange.php',
 		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
 		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
+		'erLhcoreClassModelChatArchiveAction' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiveaction.php',
 		'erLhcoreClassChatArcive' 		        => 'lib/core/lhchat/lhchatarchive.php',
 
 		// Files upload
@@ -368,8 +369,10 @@ return array_merge(array (
 
         // Views
         'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php',
-        'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php'
+        'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php',
 
+        'erLhcoreClassModelChatAction'          => 'lib/models/lhchat/erlhcoreclassmodelchataction.php',
+        'erLhcoreClassGenericBotActionLaction'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlaction.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

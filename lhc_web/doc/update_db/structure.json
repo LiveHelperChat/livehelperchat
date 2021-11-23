@@ -20,6 +20,16 @@
         "extra": "auto_increment"
       }
     ],
+    "lh_chat_action": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
     "lh_abstract_saved_search": [
       {
         "field": "id",
@@ -3632,6 +3642,55 @@
       {
         "field": "html_snippet",
         "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "updated_at",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "created_at",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_from",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_to",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "repetitiveness",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "days_activity",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -10195,6 +10254,7 @@
         "attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`);",
         "attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);",
         "unique_id" : "ALTER TABLE `lh_canned_msg` ADD INDEX `unique_id` (`unique_id`);",
+        "repetitiveness" : "ALTER TABLE `lh_canned_msg` ADD INDEX `repetitiveness` (`repetitiveness`);",
         "position_title_v2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title_v2` (`position`, `title`(191));"
       },
       "old" : ["position_title"]
@@ -10417,6 +10477,7 @@
     "lhc_mailconv_response_template_subject" : "CREATE TABLE `lhc_mailconv_response_template_subject` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `template_id` bigint(20) unsigned NOT NULL,\n    `subject_id` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `template_id` (`template_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_canned_msg_replace" : "CREATE TABLE `lh_canned_msg_replace` (    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,    `identifier` varchar(50) NOT NULL,    `default` text NOT NULL, `conditions` longtext NOT NULL,    PRIMARY KEY (`id`),    KEY `identifier` (`identifier`)    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_canned_msg_use" : "CREATE TABLE `lh_canned_msg_use` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `canned_id` int(11) unsigned NOT NULL, `chat_id` bigint(20) unsigned NOT NULL, `ctime` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `ctime` (`ctime`),   KEY `canned_id` (`canned_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_abstract_saved_search" : "CREATE TABLE `lh_abstract_saved_search` (\n                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `user_id` bigint(20) unsigned NOT NULL, `passive` tinyint(1) unsigned NOT NULL DEFAULT 0, `position` int(11) unsigned NOT NULL, `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `days` int(11) unsigned NOT NULL,\n                  `updated_at` bigint(20) unsigned NOT NULL,\n                  `requested_at` bigint(20) unsigned NOT NULL,\n                  `total_records` bigint(20) unsigned NOT NULL,\n                  PRIMARY KEY (`id`),\n                  KEY `user_id` (`user_id`),\n                  KEY `scope` (`scope`),\n                  KEY `updated_at` (`updated_at`),\n                  KEY `requested_at` (`requested_at`)\n                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lh_abstract_saved_search" : "CREATE TABLE `lh_abstract_saved_search` (\n                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `user_id` bigint(20) unsigned NOT NULL, `passive` tinyint(1) unsigned NOT NULL DEFAULT 0, `position` int(11) unsigned NOT NULL, `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `days` int(11) unsigned NOT NULL,\n                  `updated_at` bigint(20) unsigned NOT NULL,\n                  `requested_at` bigint(20) unsigned NOT NULL,\n                  `total_records` bigint(20) unsigned NOT NULL,\n                  PRIMARY KEY (`id`),\n                  KEY `user_id` (`user_id`),\n                  KEY `scope` (`scope`),\n                  KEY `updated_at` (`updated_at`),\n                  KEY `requested_at` (`requested_at`)\n                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_chat_action" : "CREATE TABLE `lh_chat_action` (\n                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `chat_id` bigint(20) NOT NULL,\n                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `created_at` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

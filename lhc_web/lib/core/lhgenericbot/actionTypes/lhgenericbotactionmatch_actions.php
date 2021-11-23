@@ -4,6 +4,12 @@ class erLhcoreClassGenericBotActionMatch_actions {
 
     public static function process($chat, $action, $trigger, $params)
     {
+        $params['current_trigger'] = $trigger;
+
+        if (!isset($params['first_trigger'])) {
+            $params['first_trigger'] = $params['current_trigger'];
+        }
+        
         if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] > 0) {
 
             if (isset($action['content']['event_background']) && $action['content']['event_background'] == true) {
