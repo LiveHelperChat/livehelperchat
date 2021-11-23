@@ -119,7 +119,7 @@
                 <div class="col-3">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Active from');?></label>
-                        <input class="form-control form-control-sm" type="datetime-local" value="">
+                        <input class="form-control form-control-sm" name="active_from" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', $canned_message->active_from)?>">
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                 <div class="col-3">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Active to');?></label>
-                        <input class="form-control form-control-sm" type="datetime-local" value="">
+                        <input class="form-control form-control-sm" name="active_to" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', $canned_message->active_to)?>">
                     </div>
                 </div>
             </div>
@@ -149,14 +149,31 @@
                             <div class="col-3">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time from');?></label>
-                                    <?php // Continue here ?>
-                                    <input name="<?php echo $dayShort ?>StartTime" value="00:20" type="time" class="form-control form-control-sm">
+                                    <?php
+
+                                    if (isset($canned_message->days_activity_array[$dayShort]['start'])) {
+                                        $minutesStart = str_pad(substr($canned_message->days_activity_array[$dayShort]['start'],-2),2,'0', STR_PAD_LEFT);
+                                        $hoursStart =  str_pad(substr($canned_message->days_activity_array[$dayShort]['start'],0,strlen($canned_message->days_activity_array[$dayShort]['start']) - 2), 2, '0', STR_PAD_LEFT);
+                                    } else {
+                                        $minutesStart = $hoursStart = '00';
+                                    }
+
+                                    if (isset($canned_message->days_activity_array[$dayShort]['end'])){
+                                        $minutesEnd = str_pad(substr($canned_message->days_activity_array[$dayShort]['end'],-2),2,'0', STR_PAD_LEFT);
+                                        $hoursEnd =  str_pad(substr($canned_message->days_activity_array[$dayShort]['end'],0,strlen($canned_message->days_activity_array[$dayShort]['end']) - 2), 2, '0', STR_PAD_LEFT);
+                                    } else {
+                                        $minutesEnd = $hoursEnd = '00';
+                                    }
+
+
+                                    ?>
+                                    <input name="<?php echo $dayShort ?>StartTime" value="<?php echo $hoursStart,':',$minutesStart?>" type="time" class="form-control form-control-sm">
                                 </div>
                             </div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time to');?></label>
-                                    <input name="<?php echo $dayShort ?>EndTime" type="time" class="form-control form-control-sm">
+                                    <input name="<?php echo $dayShort ?>EndTime" value="<?php echo $hoursEnd,':',$minutesEnd?>" type="time" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>

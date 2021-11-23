@@ -103,6 +103,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             'HTMLSnippet' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'active_from' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'active_to' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'Position' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array()
             ),
@@ -178,6 +184,26 @@ class erLhcoreClassAdminChatValidatorHelper {
             }
             $cannedMessage->days_activity = json_encode($activeDays, JSON_FORCE_OBJECT);
             $cannedMessage->days_activity_array = $activeDays;
+        }
+
+        if (
+            $cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD ||
+            $cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD_REP
+        ) {
+
+            if ( $form->hasValidData( 'active_from' ) && !empty($form->active_from) )
+            {
+                $cannedMessage->active_from = strtotime($form->active_from);
+            }
+
+            if ( $form->hasValidData( 'active_to' ) && !empty($form->active_to) )
+            {
+                $cannedMessage->active_to = strtotime($form->active_to);
+            }
+
+            if ($cannedMessage->active_to === false || $cannedMessage->active_from === false) {
+                $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Invalid period');
+            }
         }
 
         $languagesData = array();
