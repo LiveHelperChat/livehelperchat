@@ -491,7 +491,7 @@ function lh(){
     		return ;
     	}
 
-    	var hideTabs = confLH.new_dashboard && confLH.hide_tabs ? ' d-none' : '';
+    	var hideTabs = confLH.new_dashboard && confLH.hide_tabs && document.getElementById('tabs-dashboard') !== null ? ' d-none' : '';
 
     	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="'+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
 
@@ -3129,16 +3129,18 @@ function lh(){
 		      }
 		});
 
-        $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
-        $messageBlock.bind('scroll',function(event) {
-            var $this = jQuery(this);
+        if (confLH.scroll_load == 1) {
+            $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
+            $messageBlock.bind('scroll',function(event) {
+                var $this = jQuery(this);
 
-            if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
-                _that.loadPreviousMessages($('#load-prev-btn-'+chat_id), true);
-            }
+                if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
+                    _that.loadPreviousMessages($('#load-prev-btn-'+chat_id), true);
+                }
 
-            $this[0].oldScrollTop = $this[0].scrollTop;
-        });
+                $this[0].oldScrollTop = $this[0].scrollTop;
+            });
+        }
 
 		this.initTypingMonitoringAdmin(chat_id);
 
