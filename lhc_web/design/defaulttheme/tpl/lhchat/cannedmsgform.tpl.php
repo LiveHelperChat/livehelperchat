@@ -147,7 +147,7 @@
                         <label><input type="checkbox" ng-init="OnlineHoursDayActive<?php echo $dayShort ?>=<?php if (isset($canned_message->days_activity_array[$dayShort])) : ?>true<?php else : ?>false<?php endif?>" ng-model="OnlineHoursDayActive<?php echo $dayShort ?>" name="<?php echo $dayShort ?>" value="1" <?php if (isset($canned_message->days_activity_array[$dayShort])) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
                         <div class="row" ng-show="OnlineHoursDayActive<?php echo $dayShort ?>">
                             <div class="col-3">
-                                <div class="form-group">
+                                <div class="form-group" ng-non-bindable>
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time from');?></label>
                                     <?php
 
@@ -166,13 +166,13 @@
                                     }
 
                                     ?>
-                                    <input name="<?php echo $dayShort ?>StartTime" value="<?php echo $hoursStart,':',$minutesStart?>" type="time" class="form-control form-control-sm">
+                                    <input name="<?php echo $dayShort ?>StartTime" value="<?php echo htmlspecialchars($hoursStart,':',$minutesStart)?>" type="time" class="form-control form-control-sm">
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="form-group">
+                                <div class="form-group" ng-non-bindable>
                                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time to');?></label>
-                                    <input name="<?php echo $dayShort ?>EndTime" value="<?php echo $hoursEnd,':',$minutesEnd?>" type="time" class="form-control form-control-sm">
+                                    <input name="<?php echo $dayShort ?>EndTime" value="<?php echohtmlspecialchars($hoursEnd,':',$minutesEnd)?>" type="time" class="form-control form-control-sm">
                                 </div>
                             </div>
                         </div>
