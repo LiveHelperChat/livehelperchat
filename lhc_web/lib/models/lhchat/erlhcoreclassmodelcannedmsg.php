@@ -321,6 +321,23 @@ class erLhcoreClassModelCannedMsg
 	            $filter[] = $q->expr->in('id', $paramsFilter['id']);
 	        }
 
+            $dayShort = array(
+                1 => 'mod',
+                2 => 'tud',
+                3 => 'wed',
+                4 => 'thd',
+                5 => 'frd',
+                6 => 'sad',
+                7 => 'sud'
+            );
+
+            $filter[] = "(
+                repetitiveness = 0 OR 
+                (repetitiveness = 1 AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".start') <= " . date('Hi') . " AND JSON_EXTRACT(days_activity,'$.".$dayShort[date('N')].".end') >= " . date('Hi') . " ) OR
+                (repetitiveness = 2 AND active_from <= " . time() . " AND active_to >= " . time() . ") OR
+                (repetitiveness = 3 AND FROM_UNIXTIME(active_from,'%m%d%H%i') <= " . date('mdHi') . " AND FROM_UNIXTIME(active_to,'%m%d%H%i') >= " . date('mdHi') . ")
+            )";
+
 	        $q->where($filter);
 	       
 	        $q->limit(50, 0);

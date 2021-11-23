@@ -1,3 +1,18 @@
+3.87v
+
+1. New trigger response type. `Log action` usefull in case you want to store historical chat actions.
+2. Canned messages can have activity period. E.g some messages can be active during christmas period or just morning hours.
+3. Chat export has more prefilled variables.
+4. While sending manual message to online visitor it's possible to ignore bot.
+5. Online hours operators statistic now has seconds filter.
+6. Improved older PHP versions support.
+7. PHP-Resque replaceable variables where lost during trigger process events.
+8. Hide block by nick if visitor nick is "Visitor"
+9. Large inactivity timeout values and custom permission to use them.
+10. Region/State detection improvement for chats.
+
+And many other changes all around
+
 3.86v
 
 1. Rest API access can be restricted only to Rest API keys.

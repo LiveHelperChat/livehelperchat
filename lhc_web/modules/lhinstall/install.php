@@ -1122,6 +1122,15 @@ try {
         	   KEY `question_id` (`question_id`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                $db->query("CREATE TABLE `lh_chat_action` (
+                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                  `chat_id` bigint(20) NOT NULL,
+                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `created_at` bigint(20) unsigned NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                $db->query("CREATE TABLE IF NOT EXISTS `lh_abstract_stats` (
                   `id` bigint(20) NOT NULL AUTO_INCREMENT,
                   `type` int(11) NOT NULL,
@@ -1251,6 +1260,12 @@ try {
         	   	  `attr_int_2` int(11) NOT NULL,
         	   	  `attr_int_3` int(11) NOT NULL,
         	   	  `unique_id` varchar(20) NOT NULL,
+                  `updated_at` int(11) unsigned NOT NULL DEFAULT 0,
+                  `created_at` int(11) unsigned NOT NULL DEFAULT 0,
+                  `active_from` int(11) unsigned NOT NULL DEFAULT 0,
+                  `active_to` int(11) unsigned NOT NULL DEFAULT 0,
+                  `repetitiveness` int(11) unsigned NOT NULL DEFAULT 0,
+                  `days_activity` text COLLATE utf8mb4_unicode_ci NOT NULL,
                   PRIMARY KEY (`id`),
         	   	  KEY `department_id` (`department_id`),
         	   	  KEY `attr_int_1` (`attr_int_1`),
