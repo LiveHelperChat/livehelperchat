@@ -38,6 +38,7 @@ confLH.auto_uppercase = <?php echo (int)erLhcoreClassModelUserSetting::getSettin
 confLH.new_dashboard = <?php if (isset($Result['body_class'])) : ?>true<?php else : ?>false<?php endif; ?>;
 confLH.hide_tabs = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1)?>;
 confLH.no_scroll_bottom = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',0)?>;
+confLH.scroll_load = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('scroll_load',1)?>;
 <?php else : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::anonymousGetCSFRToken()?>';
 <?php endif;?>

@@ -3008,16 +3008,18 @@ function lh(){
 		      }
 		});
 
-        $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
-        $messageBlock.bind('scroll',function(event) {
-            var $this = jQuery(this);
+        if (confLH.scroll_load == 1) {
+            $messageBlock[0].oldScrollTop = $messageBlock[0].scrollTop;
+            $messageBlock.bind('scroll',function(event) {
+                var $this = jQuery(this);
 
-            if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
-                _that.loadPreviousMessages($('#load-prev-btn-'+chat_id), true);
-            }
+                if ($this[0].oldScrollTop > $this[0].scrollTop && $this[0].scrollTop < 300 && $('#load-prev-btn-'+chat_id).length == 1) {
+                    _that.loadPreviousMessages($('#load-prev-btn-'+chat_id), true);
+                }
 
-            $this[0].oldScrollTop = $this[0].scrollTop;
-        });
+                $this[0].oldScrollTop = $this[0].scrollTop;
+            });
+        }
 
 		this.initTypingMonitoringAdmin(chat_id);
 
