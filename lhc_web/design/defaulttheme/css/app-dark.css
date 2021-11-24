@@ -230,6 +230,10 @@ a:hover{
     padding-left:5px;
 }
 
+#old-dashboard .msgBlock{
+    resize: vertical;
+}
+
 .msgBlock-inv{
     font-size:13px;
 }
