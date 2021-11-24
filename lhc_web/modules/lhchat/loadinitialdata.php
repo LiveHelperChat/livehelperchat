@@ -85,6 +85,10 @@ if ($userData->inactive_mode == 1) {
 
 $activityTimeout = erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1);
 
+if ($activityTimeout > 1296000) {
+    $activityTimeout = 1296000;
+}
+
 // If there is no individual setting user global one
 if ($activityTimeout == -1) {
     $activityTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('activity_timeout')->current_value*60;

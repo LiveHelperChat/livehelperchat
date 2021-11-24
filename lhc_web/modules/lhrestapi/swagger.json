@@ -15,7 +15,7 @@
     }
   },
   "host": "{{host}}",
-  "basePath": "/",
+  "basePath": "{{base_path}}",
   "tags": [
     {
       "name": "chat",

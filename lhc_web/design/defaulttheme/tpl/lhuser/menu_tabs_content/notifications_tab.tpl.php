@@ -66,7 +66,6 @@
                             <option value="432000" <?php echo erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1) == 432000 ? 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','days')?>
                             <option value="864000" <?php echo erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1) == 864000 ? 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','days')?>
                             <option value="1296000" <?php echo erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1) == 1296000 ? 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','days')?>
-                            <option value="2592000" <?php echo erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1) == 2592000 ? 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','days')?>
                             <?php endif; ?>
                         </select>
             	     </div>
