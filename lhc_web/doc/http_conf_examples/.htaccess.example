@@ -7,6 +7,9 @@ AddType application/wasm .wasm
 </Files>
 
 RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
 RewriteRule ^/var/[^/]+/cache/(stylesheets|images|javascripts?)/.* - [L]
 RewriteRule ^upgrade.php - [L]
 RewriteRule !\.(gif|jpe?g|png|bmp|css|js|xml|html|svg|json|ico|mp3|wasm|map|ogg|wav|ogv|swf|flv|otf|woff2|woff|eot|ttf)|var(.+)storage.pdf(.+)\.pdf$ index.php
