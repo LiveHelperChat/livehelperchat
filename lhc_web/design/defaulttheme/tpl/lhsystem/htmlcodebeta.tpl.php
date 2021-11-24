@@ -36,19 +36,6 @@
                     </div>
                 </div>
 
-                <?php /*<div class="col-md-6">
-                    <div>
-                        <label><input type="checkbox" id="id_disable_online_tracking" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Disable online tracking (this overrides the system configuration)');?></label>
-                    </div>
-                </div>*/?>
-
-                <?php /*
-                <div class="col-md-6">
-                    <div>
-                        <label><input type="checkbox" id="id_disable_subdomain" value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Cookie is valid only for domain where javascript embedded (excludes subdomains)');?></label>
-                    </div>
-                </div>*/ ?>
-
             </div>
             <hr>
             <div class="row">
