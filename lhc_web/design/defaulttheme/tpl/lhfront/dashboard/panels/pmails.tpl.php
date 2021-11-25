@@ -1,6 +1,8 @@
-<div class="card card-dashboard" data-panel-id="pmails" ng-init="lhc.getToggleWidget('pmails_widget_exp');">
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) : ?>
+<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard<?php endif; ?>" data-panel-id="pmails" ng-init="lhc.getToggleWidget('pmails_widget_exp');">
+
     <div class="card-header">
-        <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails')?> ({{pending_mails.list.length}}{{pending_mails.list.length == lhc.limitpm ? '+' : ''}})
+        <i class="material-icons chat-pending">mail_outline</i><span class="title-card-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails')?> ({{pending_mails.list.length}}{{pending_mails.list.length == lhc.limitpm ? '+' : ''}})</span>
         <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('pmails_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['pmails_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
     </div>
     <div ng-if="lhc.toggleWidgetData['pmails_widget_exp'] !== true">
@@ -16,3 +18,4 @@
 
     </div>
 </div>
+<?php endif; ?>

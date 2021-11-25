@@ -144,6 +144,7 @@
                                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
                                 <?php unset($rightPanelMode); unset($hideCardHeader); ?>
                             </div>
+
                             <?php endif; ?>
                         </div>
                     </div>
