@@ -22,9 +22,9 @@ class erLhcoreClassSearchHandler
         
         foreach ($uparams as $key => &$value) {
             if (! is_array($value))
-                $value = urldecode($value);
+                $value = (string)$value;
         }
-        
+
         $inputParams = new stdClass();
         $inputFrom = new stdClass();
         
