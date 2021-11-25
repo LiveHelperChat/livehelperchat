@@ -274,6 +274,10 @@
         <input type="hidden" id="load_chat_id" value="<?php echo htmlspecialchars($load_chat_id)?>" />
     <?php endif; ?>
 
+    <?php if (isset($load_mail_id) && is_numeric($load_mail_id)) : ?>
+        <input type="hidden" id="load_mail_id" value="<?php echo htmlspecialchars($load_mail_id)?>" />
+    <?php endif; ?>
+
     <script>
         $(document).ready(function () {
             //lhinst.attachTabNavigator();

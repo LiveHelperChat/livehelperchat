@@ -1825,14 +1825,25 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var openedgChats = this.getOpenedChatIds('gachat_id');
 		var openedmChats = this.getOpenedChatIds('machat_id');
 
-        var chat_id = 0;
+        var mail_id = chat_id = 0;
         var hash = window.location.hash;
         if (hash != '') {
-            var matchData = hash.match(/\d+$/);
+            var matchData = hash.match(/id-\d+$/);
             if (matchData !== null && matchData[0]) {
-                chat_id = parseInt(matchData[0]);
+                chat_id = parseInt(matchData[0].replace('id-',''));
                 if (openedChats.indexOf(chat_id) === -1){
                     openedChats.push(chat_id);
+                }
+            }
+
+            // Support mail chats hash in URL
+            if (matchData == null) {
+                var matchData = hash.match(/mc\d+$/);
+                if (matchData !== null && matchData[0]) {
+                    mail_id = parseInt(matchData[0].replace('mc',''));
+                    if (openedmChats.indexOf(mail_id) === -1){
+                        openedmChats.push(mail_id);
+                    }
                 }
             }
         }
@@ -1843,6 +1854,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             chat_id = elm.value;
             openedChats.push(elm.value);
             window.location.hash = '#!#chat-id-'+elm.value;
+        }
+
+        var elm = document.getElementById('load_mail_id');
+
+        if (elm && openedmChats.indexOf(elm.value) === -1) {
+            mail_id = elm.value;
+            openedmChats.push(elm.value);
+            window.location.hash = '#!#chat-id-mc'+elm.value;
         }
 
 		if ($('#tabs').length > 0 && lhinst.disableremember == false && openedChats.length > 0) {
@@ -1989,7 +2008,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             });
 
             angular.forEach(data.cmopen, function(chatOpen) {
-                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject || 'Mail',10), true);
+                lhinst.startMailChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id == mail_id));
             });
 
             angular.forEach(data.cdel, function(chatOpen) {

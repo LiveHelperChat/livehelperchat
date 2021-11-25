@@ -37,6 +37,10 @@ if (is_numeric($Params['user_parameters_unordered']['cid'])) {
     $tpl->set('load_chat_id',$Params['user_parameters_unordered']['cid']);
 }
 
+if (is_numeric($Params['user_parameters_unordered']['mid'])) {
+    $tpl->set('load_mail_id',$Params['user_parameters_unordered']['mid']);
+}
+
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js;vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';
 

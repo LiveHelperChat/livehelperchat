@@ -434,16 +434,22 @@ const MailChat = props => {
                                     <tr>
                                         <td>ID</td>
                                         <td>
-                                            {state.conv.id} {state.conv.follow_up_id && <a target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/view/" + state.conv.follow_up_id}><span className="material-icons">launch</span>Follow up of {state.conv.follow_up_id}</a>}
+                                            <button data-success={t('mail.copied')}
+                                                    className="btn pl-0 btn-xs btn-link py-0"
+                                                    data-copy={window.location.origin + WWW_DIR_JAVASCRIPT + "front/default/(mid)/" + state.conv.id + "/#!#chat-id-mc"+state.conv.id}
+                                                    onClick={(e) => {lhinst.copyContent($(e.target))}} type="button"><i className="material-icons">link</i>{t('mail.copy_link')}
+                                            </button>
+                                            {state.conv.id}
+                                            {state.conv.follow_up_id && <a target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/view/" + state.conv.follow_up_id}><span className="material-icons">launch</span>{t('mail.follow_up')} {state.conv.follow_up_id}</a>}
                                         </td>
                                     </tr>
                                     {state.conv.accept_time && <tr>
                                         <td>{t('mail.last_accepted_at')}</td>
-                                        <td>{state.conv.accept_time_front}{state.conv.wait_time_pending && <React.Fragment> | Wait time {state.conv.wait_time_pending}</React.Fragment>}</td>
+                                        <td>{state.conv.accept_time_front}{state.conv.wait_time_pending && <React.Fragment> | {t('mail.wait_time')} {state.conv.wait_time_pending}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.response_time && <tr>
                                         <td>{t('mail.last_responded_at')}</td>
-                                        <td>{state.conv.lr_time_front}{state.conv.wait_time_response && <React.Fragment> | Wait time {state.conv.wait_time_response}</React.Fragment>}</td>
+                                        <td>{state.conv.lr_time_front}{state.conv.wait_time_response && <React.Fragment> | {t('mail.wait_time')} {state.conv.wait_time_response}</React.Fragment>}</td>
                                     </tr>}
                                     {state.conv.cls_time && <tr>
                                         <td>{t('mail.closed_at')}</td>
