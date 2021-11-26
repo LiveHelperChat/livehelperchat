@@ -27,8 +27,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/modal_layout.css')?>" />
     <?php endif; ?>
 
-    <?php if (isset($Result['theme']) && $Result['theme'] > 0) : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo $Result['theme']?>/(p)/1?v=<?php echo $Result['theme_v']?>" />
+    <?php if (isset($Result['theme']) && !empty($Result['theme'])) : ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/theme')?>/<?php echo htmlspecialchars($Result['theme'])?>/(p)/1?v=<?php echo $Result['theme_v']?>" />
     <?php endif; ?>
 
     <?php $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value; ?>

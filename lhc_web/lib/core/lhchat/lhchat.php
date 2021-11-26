@@ -2201,7 +2201,7 @@ class erLhcoreClassChat {
        return $output;
    }
 
-   public static function extractTheme($themeId = null) {
+   public static function extractTheme($themeId = null, $checkAlias = true) {
 
        $themeId = isset($_GET['theme']) && !empty($_GET['theme']) ? $_GET['theme'] : $themeId;
 
@@ -2209,7 +2209,7 @@ class erLhcoreClassChat {
            if (is_numeric($themeId)) {
                $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
                // Don't expose existing theme
-               if ($theme->alias != '') {
+               if ($checkAlias == true && $theme->alias != '') {
                    return false;
                }
            } else {

@@ -177,8 +177,8 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
     $tpl->set('jsVars',$_GET['jsvar']);
 }
 
-if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
-    $themeObject = erLhAbstractModelWidgetTheme::fetch($themeId);
+if (isset($Params['user_parameters_unordered']['theme']) && is_numeric($Params['user_parameters_unordered']['theme'])) {
+    $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
         $Result['theme'] = $themeObject;
@@ -199,7 +199,7 @@ if ($leaveamessage === false && $online === false){
 } else {
     if (isset($Result['theme']) && is_object($Result['theme'])) {
         $Result['theme_obj'] = $Result['theme'];
-        $Result['theme'] = $Result['theme']->id;
+        $Result['theme'] = $Result['theme']->alias != '' ? $Result['theme']->alias : $Result['theme']->id;
     }
     $Result['pagelayout'] = 'userchat2';
 }
