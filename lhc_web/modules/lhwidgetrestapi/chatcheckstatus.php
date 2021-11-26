@@ -9,8 +9,7 @@ header("Pragma: no-cache");
 if (!isset($_GET['wopen']) || (isset($_GET['isproactive']) && $_GET['isproactive'] == 1 && $_GET['wopen'] == 1)) {
 
     if (isset($_GET['dep'])) {
-        $department = explode(',', $_GET['dep']);
-        $parametersDepartment = erLhcoreClassChat::extractDepartment($department);
+        $parametersDepartment = erLhcoreClassChat::extractDepartment(explode(',', $_GET['dep']));
         $department = $parametersDepartment['system'];
     } else {
         $department = false;
