@@ -10,7 +10,7 @@ if (!isset($_GET['wopen']) || (isset($_GET['isproactive']) && $_GET['isproactive
 
     if (isset($_GET['dep'])) {
         $department = explode(',', $_GET['dep']);
-        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($department);
         $department = $parametersDepartment['system'];
     } else {
         $department = false;
