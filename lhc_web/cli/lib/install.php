@@ -399,6 +399,7 @@ class Install
                  `show_voting` tinyint(1) NOT NULL DEFAULT '1',
                  `department_title` varchar(250) NOT NULL,
                  `department_select` varchar(250) NOT NULL,
+                 `alias` varchar(50) NOT NULL,
                  `buble_visitor_background` varchar(250) NOT NULL,
                  `buble_visitor_title_color` varchar(250) NOT NULL,
                  `buble_visitor_text_color` varchar(250) NOT NULL,
@@ -413,7 +414,8 @@ class Install
                  `widget_position` varchar(50) NOT NULL,
                  `widget_pright` int(11) NOT NULL,
                  `widget_pbottom` int(11) NOT NULL,
-                  PRIMARY KEY (`id`)				
+                  PRIMARY KEY (`id`),
+                  KEY `alias` (`alias`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_faq` (
@@ -1553,6 +1555,7 @@ class Install
 				  `acop_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
+				  `alias` varchar(50) NOT NULL,
 				  `product_configuration` longtext NOT NULL,
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
@@ -1566,6 +1569,7 @@ class Install
 				  KEY `bot_chats_counter` (`bot_chats_counter`),
 				  KEY `disabled_hidden` (`disabled`, `hidden`),
 				  KEY `sort_priority_name` (`sort_priority`, `name`),
+				  KEY `alias` (`alias`),
 				  KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),
 				  KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),
 				  KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),
