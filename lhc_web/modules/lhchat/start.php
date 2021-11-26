@@ -54,34 +54,6 @@ if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_s
     return $Result;
 }
 
-if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) || (isset($startDataFields['requires_dep_lock']) && $startDataFields['requires_dep_lock'] == true)) {
-
-    $cfg = erConfigClassLhConfig::getInstance();
-
-    $validHashItems = array(
-        'department',
-        'theme',
-    );
-
-    $hashStringParts = [];
-
-    foreach ($validHashItems as $validHashItem) {
-        if (isset($Params['user_parameters_unordered'][$validHashItem]) && !empty($Params['user_parameters_unordered'][$validHashItem])) {
-            $hashStringParts[] = '/(' . $validHashItem . ')/' . (is_array($Params['user_parameters_unordered'][$validHashItem]) ? implode('/', $Params['user_parameters_unordered'][$validHashItem]) : $Params['user_parameters_unordered'][$validHashItem]);
-        }
-    }
-
-    if (empty($Params['user_parameters_unordered']['h']) || md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
-        $Result['pagelayout'] = 'userchat';
-        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
-        $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is disabled!'));
-        $tpl->set('hide_close_icon',true);
-        $Result['content'] = $tpl->fetch();
-        $Result['hide_close_window'] = true;
-        return $Result;
-    }
-}
-
 if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
     $Params['user_parameters_unordered']['theme'] = $themeId;
 }

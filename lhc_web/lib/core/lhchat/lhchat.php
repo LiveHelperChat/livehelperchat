@@ -2152,6 +2152,9 @@ class erLhcoreClassChat {
    }
 
    public static function extractDepartment($departments) {
+
+       $hasInvalidDepartment = false;
+
        $output = ['argument' => [],'system' => []];
        foreach ($departments as $department) {
            if (is_numeric($department)) {
@@ -2159,15 +2162,43 @@ class erLhcoreClassChat {
                if ($dep instanceof erLhcoreClassModelDepartament) {
                    $output['system'][] = (int)$department;
                    $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
-               }
+                   if ($dep->alias != '') {
+                       $hasInvalidDepartment = true;
+                   }
+               } else {
+                  $hasInvalidDepartment = true;
+              }
            } else {
                $dep = erLhcoreClassModelDepartament::findOne(['filter' => ['alias' => $department]]);
                if ($dep instanceof erLhcoreClassModelDepartament) {
                    $output['system'][] = (int)$dep->id;
                    $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
+               } else {
+                   $hasInvalidDepartment = true;
                }
            }
        }
+
+       if ($hasInvalidDepartment == true) {
+           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.extract_department', array('departments' => $departments));
+           $referrer = print_r($departments, true) . "\n";
+           $messageLog = $referrer . erLhcoreClassIPDetect::getIP();
+           erLhcoreClassLog::write($messageLog.print_r($_SERVER, true),
+               ezcLog::SUCCESS_AUDIT,
+               array(
+                   'source' => 'lhc',
+                   'category' => 'extract_department',
+                   'line' => 0,
+                   'file' => '',
+                   'object_id' => 0
+               )
+           );
+           if ($response === false) {
+               return ['argument' => [],'system' => []];
+               exit;
+           }
+       }
+
        return $output;
    }
 

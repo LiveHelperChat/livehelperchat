@@ -466,19 +466,19 @@ $ViewList['startchat'] = array (
 
 $ViewList['start'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope','fs','trigger'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope','fs','trigger'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['begin'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope'),
 	'multiple_arguments' => array('department')
 );
 
 $ViewList['modal'] = array (
     'params' => array(),
-    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','h','mode','bot','scope'),
+    'uparams' => array('sound','id','hash','department','theme','mobile','vid','identifier','inv','survey','priority','operator','leaveamessage','mode','bot','scope'),
 	'multiple_arguments' => array('department')
 );
 
