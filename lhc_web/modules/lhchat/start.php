@@ -72,7 +72,7 @@ $online = erLhcoreClassChat::isOnline($dep, false, array(
 
 $leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
 $tpl->set('leaveamessage',$leaveamessage);
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
+$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
 $tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');

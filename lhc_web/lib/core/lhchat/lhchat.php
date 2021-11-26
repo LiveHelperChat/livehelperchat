@@ -2195,7 +2195,6 @@ class erLhcoreClassChat {
            );
            if ($response === false) {
                return ['argument' => [],'system' => []];
-               exit;
            }
        }
 
