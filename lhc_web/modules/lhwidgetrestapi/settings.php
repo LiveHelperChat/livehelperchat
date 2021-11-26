@@ -38,7 +38,11 @@ if (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep'])){
 }
 
 if (is_array($department)) {
-    erLhcoreClassChat::validateFilterIn($department);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($department);
+    $department = $parametersDepartment['system'];
+    $departmentArgument = $parametersDepartment['argument'];
+} else {
+    $departmentArgument = $department;
 }
 
 $departmentUpdated = $department;
@@ -127,8 +131,8 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     }
 }
 
-if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] > 0) {
-    $outputResponse['theme'] = (int)$_GET['theme'];
+if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
+    $outputResponse['theme'] = $themeId;
 } else {
     $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
     if ($defaultTheme > 0) {
@@ -138,9 +142,13 @@ if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] >
 
 $pageCSS = false;
 
-if (isset($outputResponse['theme'])){
+if (isset($outputResponse['theme'])) {
     $theme = erLhAbstractModelWidgetTheme::fetch($outputResponse['theme']);
+
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
+
+        $outputResponse['theme'] = $theme->alias != '' ? $theme->alias : $theme->id;
+
         if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
             $outputResponse['chat_ui']['wwidth'] = $theme->bot_configuration_array['wwidth'];
         }
@@ -388,7 +396,7 @@ $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigCl
 $outputResponse['hash_ts'] = $ts;
 
 if (is_array($department) && !empty($department)) {
-    $outputResponse['department'] = $department;
+    $outputResponse['department'] = $departmentArgument;
 }
 
 $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;

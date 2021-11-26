@@ -31,10 +31,21 @@
         	<!-- Tab panes -->
         	<div class="tab-content">
         		<div role="tabpanel" class="tab-pane active" id="statuswidget">
-        		        <div class="form-group">
-						<label><?php echo $fields['name']['trans'];?>*</label>
-						<?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
-						</div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['name']['trans'];?>*</label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['alias']['trans'];?>*</label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('alias', $fields['alias'], $object)?>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('modern_look', $fields['modern_look'], $object)?><?php echo $fields['modern_look']['trans'];?>*</label>

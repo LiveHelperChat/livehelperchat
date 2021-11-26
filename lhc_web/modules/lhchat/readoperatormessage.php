@@ -26,15 +26,17 @@ $inputData->email = isset($_GET['prefill']['email']) ? (string)$_GET['prefill'][
 $inputData->phone = isset($_GET['prefill']['phone']) ? (string)$_GET['prefill']['phone'] : '';
 $inputData->username = isset($_GET['prefill']['username']) ? (string)$_GET['prefill']['username'] : '';
 
-if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1){
-	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
 	$inputData->departament_id = 0;
 }
 
 if (is_array($Params['user_parameters_unordered']['department'])){
-	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 	$inputData->departament_id_array = $Params['user_parameters_unordered']['department'];
 }
 
@@ -109,9 +111,9 @@ if (isset($startDataFields['phone_hidden']) && $startDataFields['phone_hidden'] 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.readoperatormessage_data_field',array('data_fields' => & $startDataFields, 'params' => $Params));
 
 $modeAppendTheme = '';
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
 	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 		$Result['theme'] = $theme;
 		$modeAppendTheme = '/(theme)/'.$theme->id;
 		$tpl->set('theme',$Result['theme']);

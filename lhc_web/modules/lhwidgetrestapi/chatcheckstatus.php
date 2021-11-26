@@ -7,9 +7,11 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 if (!isset($_GET['wopen']) || (isset($_GET['isproactive']) && $_GET['isproactive'] == 1 && $_GET['wopen'] == 1)) {
+
     if (isset($_GET['dep'])) {
         $department = explode(',', $_GET['dep']);
-        erLhcoreClassChat::validateFilterIn($department);
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $department = $parametersDepartment['system'];
     } else {
         $department = false;
     }

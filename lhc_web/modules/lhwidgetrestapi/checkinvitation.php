@@ -20,8 +20,8 @@ if (
 }
 
 if (isset($_GET['dep'])) {
-    $department = explode(',',$_GET['dep']);
-    erLhcoreClassChat::validateFilterIn($department);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment(explode(',',$_GET['dep']));
+    $department = $parametersDepartment['system'];
 } else {
     $department = false;
 }

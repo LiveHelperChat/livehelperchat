@@ -2887,6 +2887,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "alias",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "support_closed",
         "type": "varchar(250)",
         "null": "NO",
@@ -5935,6 +5944,14 @@
       {
         "field": "identifier",
         "type": "varchar(2083)",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "alias",
+        "type": "varchar(50)",
         "null": "NO",
         "key": "MUL",
         "default": null,
@@ -9838,6 +9855,7 @@
     },
     "lh_departament" : {
       "new" : {
+        "alias" : "ALTER TABLE `lh_departament` ADD INDEX `alias` (`alias`);",
         "attr_int_1" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_1` (`attr_int_1`);",
         "attr_int_2" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_2` (`attr_int_2`);",
         "attr_int_3" : "ALTER TABLE `lh_departament` ADD INDEX `attr_int_3` (`attr_int_3`);",
@@ -9926,6 +9944,12 @@
     "lh_admin_theme" : {
       "new" : {
         "user_id" : "ALTER TABLE `lh_admin_theme` ADD INDEX `user_id` (`user_id`);"
+      },
+      "old" : []
+    },
+    "lh_abstract_widget_theme" : {
+      "new" : {
+        "alias" : "ALTER TABLE `lh_abstract_widget_theme` ADD INDEX `alias` (`alias`);"
       },
       "old" : []
     }

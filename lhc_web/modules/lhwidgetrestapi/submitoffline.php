@@ -26,7 +26,8 @@ $inputData->only_bot_online = isset($_POST['onlyBotOnline']) ? (int)$_POST['only
 $inputData->vid = isset($requestPayload['vid']) && $requestPayload['vid'] != '' ? (string)$requestPayload['vid'] : '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
     $requestPayload['fields']['DepartamentID'] = $inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
     $inputData->departament_id = 0;
@@ -40,8 +41,8 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
     $startDataFields = (array)$startData->data;
 }
 
-if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
-    $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
+if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
+    $additionalParams['theme'] = erLhAbstractModelWidgetTheme::fetch($themeId);
 }
 
 $additionalParams['payload_data'] = $requestPayload['fields'];

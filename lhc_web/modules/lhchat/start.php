@@ -11,7 +11,8 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/start.tpl.php');
 $dep = false;
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
     $dep = $Params['user_parameters_unordered']['department'];
     $Result['chat_args']['departments'] = $dep;
 }
@@ -79,6 +80,10 @@ if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_pa
         $Result['hide_close_window'] = true;
         return $Result;
     }
+}
+
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $Params['user_parameters_unordered']['theme'] = $themeId;
 }
 
 if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
@@ -200,8 +205,8 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
     $tpl->set('jsVars',$_GET['jsvar']);
 }
 
-if ($Params['user_parameters_unordered']['theme'] > 0) {
-    $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $themeObject = erLhAbstractModelWidgetTheme::fetch($themeId);
 
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
         $Result['theme'] = $themeObject;

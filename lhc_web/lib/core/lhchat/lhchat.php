@@ -2149,7 +2149,45 @@ class erLhcoreClassChat {
                 }
             }
         }
-    }
+   }
+
+   public static function extractDepartment($departments) {
+       $output = ['argument' => [],'system' => []];
+       foreach ($departments as $department) {
+           if (is_numeric($department)) {
+               $dep = erLhcoreClassModelDepartament::fetch((int)$department);
+               if ($dep instanceof erLhcoreClassModelDepartament) {
+                   $output['system'][] = (int)$department;
+                   $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
+               }
+           } else {
+               $dep = erLhcoreClassModelDepartament::findOne(['filter' => ['alias' => $department]]);
+               if ($dep instanceof erLhcoreClassModelDepartament) {
+                   $output['system'][] = (int)$dep->id;
+                   $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
+               }
+           }
+       }
+       return $output;
+   }
+
+   public static function extractTheme($themeId = null) {
+
+       $themeId = isset($_GET['theme']) && !empty($_GET['theme']) ? $_GET['theme'] : $themeId;
+
+       if (!empty($themeId)) {
+           if (is_numeric($themeId)) {
+               $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+           } else {
+               $theme = erLhAbstractModelWidgetTheme::findOne(['filter' => ['alias' => $themeId]]);
+           }
+           if ($theme instanceof erLhAbstractModelWidgetTheme) {
+               return $theme->id;
+           }
+       }
+
+       return false;
+   }
 
    // Static attribute for class
    public static $trackActivity = false;
