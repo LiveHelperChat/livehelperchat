@@ -66,7 +66,7 @@ export class msgSnippetWidget{
             this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.staticJS['widget_mobile_css']});
         }
 
-        if (this.attributes.theme > 0) {
+        if (this.attributes.theme) {
             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, id : "lhc-theme-msgsnippet", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
         } else {
             this.loadStatus['theme'] = true;
