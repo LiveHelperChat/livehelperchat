@@ -460,28 +460,46 @@ class erLhcoreClassMailconvValidator {
         $matches = [];
 
         $string = '/href="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
-
         preg_match_all($string,$content,$matches);
-
         foreach ($matches[1] as $index => $file) {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
-                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}",$content);
+                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
+            }
+        }
+
+        $string = '/href="' . str_replace('/','\/',erLhcoreClassDesign::baseurldirect('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
+        preg_match_all($string,$content,$matches);
+        foreach ($matches[1] as $index => $file) {
+            $paramsFile = explode('/',trim($file,'/'));
+            $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
+            if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
+                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
             }
         }
 
         // Parse images
         $string = '/src="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
-
         preg_match_all($string,$content,$matches);
-
         foreach ($matches[1] as $index => $file) {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
                 $cid = 'lhc-file-' . $fileObj->id . '-' . time();
                 $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->upload_name);
+                $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+            }
+        }
+
+        $string = '/src="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('mailconv/inlinedownload')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
+        preg_match_all($string,$content,$matches);
+        foreach ($matches[1] as $index => $file) {
+            $paramsFile = explode('/',trim($file,'/'));
+            $fileObj = erLhcoreClassModelMailconvFile::fetch($paramsFile[0]);
+            if ($fileObj instanceof erLhcoreClassModelMailconvFile) {
+                $cid = 'lhc-mail-file-' . $fileObj->id . '-' . time();
+                $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->name);
                 $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
             }
         }
