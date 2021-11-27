@@ -172,7 +172,7 @@
                                         <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>
@@ -187,7 +187,7 @@
                                         <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>
