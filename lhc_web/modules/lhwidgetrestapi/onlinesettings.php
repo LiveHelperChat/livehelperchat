@@ -133,7 +133,11 @@ if (!(is_numeric($departament_id) && $departament_id > 0)) {
         }
         $filter['sort'] = 'sort_priority ASC, name ASC';
         $departmentStartChat = erLhcoreClassModelDepartament::findOne($filter);
-        $department_id_form = $departmentStartChat->id;
+        if (is_object($departmentStartChat)) {
+            $department_id_form = $departmentStartChat->id;
+        } else {
+            $department_id_form = 0;
+        }
     }
 } else {
     $department_id_form = $departament_id;
@@ -974,8 +978,8 @@ foreach ($fields as $field) {
     }
 }
 
-usort($fields, function($a, $b){
-    return isset($a['priority']) && isset($b['priority']) && $a['priority'] > $b['priority'];
+usort($fields, function($a, $b) {
+    return (isset($a['priority']) && isset($b['priority']) && $a['priority'] > $b['priority']) ? 1 : 0;
 });
 
 // We have to increase count to show normal form
