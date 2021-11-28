@@ -75,7 +75,8 @@ class erLhcoreClassModelDepartament {
             'assign_same_language' => $this->assign_same_language,
             'archive' => $this->archive,
             'inop_chats_cnt' => $this->inop_chats_cnt,
-            'acop_chats_cnt' => $this->acop_chats_cnt
+            'acop_chats_cnt' => $this->acop_chats_cnt,
+            'alias' => $this->alias
         );
     }
 
@@ -315,6 +316,7 @@ class erLhcoreClassModelDepartament {
     public $assign_same_language = 0;
     public $product_configuration = '';
     public $bot_configuration = '';
+    public $alias = '';
 
 
     // 0 - disabled

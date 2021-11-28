@@ -152,6 +152,7 @@ class erLhcoreClassGenericBotActionCommand {
 
             $chat->pnd_time = time();
             $chat->last_op_msg_time = time();
+            $chat->has_unread_messages = 0;
 
             if (isset($action['content']['close_widget']) && $action['content']['close_widget'] == true) {
                 // Send execute JS message

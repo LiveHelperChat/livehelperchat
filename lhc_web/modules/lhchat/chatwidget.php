@@ -28,8 +28,8 @@ if (is_array($Params['user_parameters_unordered']['ua']) && !empty($Params['user
 
 $theme = false;
 $modeAppendTheme = '';
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-    $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
         $theme->translate();
         $Result['theme'] = $theme;
@@ -127,10 +127,12 @@ $tpl->set('is_embed_mode',$embedMode);
 
 $disabled_department = false;
 
-if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1){
+if (is_array($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1) {
 	try {
-		
-		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);				
+
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
+
 		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
 		
 		$disabledAll = true;
@@ -162,7 +164,8 @@ $inputData->phone = '';
 $inputData->product_id = '';
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
-	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 	$inputData->departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
 	$inputData->departament_id = 0;
@@ -180,7 +183,8 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatwidget_data_field',array('data_fields' => & $startDataFields, 'params' => $Params));
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
-	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 	$inputData->departament_id_array = $Params['user_parameters_unordered']['department'];
 }
 

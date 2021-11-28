@@ -11,7 +11,8 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/start.tpl.php');
 $dep = false;
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
     $dep = $Params['user_parameters_unordered']['department'];
     $Result['chat_args']['departments'] = $dep;
 }
@@ -53,32 +54,8 @@ if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_s
     return $Result;
 }
 
-if ((isset($Params['user_parameters_unordered']['h']) && !empty($Params['user_parameters_unordered']['h'])) || (isset($startDataFields['requires_dep_lock']) && $startDataFields['requires_dep_lock'] == true)) {
-
-    $cfg = erConfigClassLhConfig::getInstance();
-
-    $validHashItems = array(
-        'department',
-        'theme',
-    );
-
-    $hashStringParts = [];
-
-    foreach ($validHashItems as $validHashItem) {
-        if (isset($Params['user_parameters_unordered'][$validHashItem]) && !empty($Params['user_parameters_unordered'][$validHashItem])) {
-            $hashStringParts[] = '/(' . $validHashItem . ')/' . (is_array($Params['user_parameters_unordered'][$validHashItem]) ? implode('/', $Params['user_parameters_unordered'][$validHashItem]) : $Params['user_parameters_unordered'][$validHashItem]);
-        }
-    }
-
-    if (empty($Params['user_parameters_unordered']['h']) || md5(implode('',$hashStringParts) . $cfg->getSetting( 'site', 'secrethash' )) !== $Params['user_parameters_unordered']['h']) {
-        $Result['pagelayout'] = 'userchat';
-        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
-        $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Department is disabled!'));
-        $tpl->set('hide_close_icon',true);
-        $Result['content'] = $tpl->fetch();
-        $Result['hide_close_window'] = true;
-        return $Result;
-    }
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $Params['user_parameters_unordered']['theme'] = $themeId;
 }
 
 if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
@@ -95,7 +72,7 @@ $online = erLhcoreClassChat::isOnline($dep, false, array(
 
 $leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
 $tpl->set('leaveamessage',$leaveamessage);
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array());
+$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : array());
 $tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
 $tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
 $tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');
@@ -200,7 +177,7 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
     $tpl->set('jsVars',$_GET['jsvar']);
 }
 
-if ($Params['user_parameters_unordered']['theme'] > 0) {
+if (isset($Params['user_parameters_unordered']['theme']) && is_numeric($Params['user_parameters_unordered']['theme'])) {
     $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
@@ -222,7 +199,7 @@ if ($leaveamessage === false && $online === false){
 } else {
     if (isset($Result['theme']) && is_object($Result['theme'])) {
         $Result['theme_obj'] = $Result['theme'];
-        $Result['theme'] = $Result['theme']->id;
+        $Result['theme'] = $Result['theme']->alias != '' ? $Result['theme']->alias : $Result['theme']->id;
     }
     $Result['pagelayout'] = 'userchat2';
 }

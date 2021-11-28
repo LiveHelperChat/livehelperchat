@@ -35,6 +35,9 @@ class erLhcoreClassDepartament{
 	   			'Name' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
+                'Alias' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	   			),
 	   			'Email' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	   			),
@@ -224,6 +227,11 @@ class erLhcoreClassDepartament{
 	   		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a department name');
 	   	} else {
 	   		$department->name = $form->Name;
+	   	}
+
+	   	if ( $form->hasValidData( 'Alias' )  )
+	   	{
+            $department->alias = $form->Alias;
 	   	}
 
        $botConfiguration = $department->bot_configuration_array;

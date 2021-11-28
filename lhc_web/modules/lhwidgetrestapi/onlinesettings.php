@@ -53,21 +53,30 @@ $paidSettings = array();
 
 $theme = false;
 
-if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
-    $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
-    if ($theme instanceof erLhAbstractModelWidgetTheme){
-        $theme->translate();
-    } else {
-        $theme = false;
+if (isset($requestPayload['theme']) && !empty($requestPayload['theme'])) {
+
+    $themeId = erLhcoreClassChat::extractTheme($requestPayload['theme']);
+
+    if ($themeId !== false) {
+        $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+        if ($theme instanceof erLhAbstractModelWidgetTheme){
+            $theme->translate();
+        } else {
+            $theme = false;
+        }
     }
 }
 
 // Departments
 $disabled_department = false;
 
+if (is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department'])) {
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
+}
+
 if (is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) && erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1) {
     try {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
         $departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
 
         $disabledAll = true;
@@ -88,7 +97,6 @@ if (is_array($Params['user_parameters_unordered']['department']) && !empty($Para
 }
 
 if (is_array($Params['user_parameters_unordered']['department']) && count($Params['user_parameters_unordered']['department']) == 1) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $departament_id = array_shift($Params['user_parameters_unordered']['department']);
 } else {
     $departament_id = 0;
@@ -118,7 +126,6 @@ if (is_array($Params['user_parameters_unordered']['department']) && !empty($Para
 $departament_id_array = array();
 
 if (is_array($Params['user_parameters_unordered']['department'])) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
     $departament_id_array = $Params['user_parameters_unordered']['department'];
 }
 
@@ -133,7 +140,11 @@ if (!(is_numeric($departament_id) && $departament_id > 0)) {
         }
         $filter['sort'] = 'sort_priority ASC, name ASC';
         $departmentStartChat = erLhcoreClassModelDepartament::findOne($filter);
-        $department_id_form = $departmentStartChat->id;
+        if (is_object($departmentStartChat)) {
+            $department_id_form = $departmentStartChat->id;
+        } else {
+            $department_id_form = 0;
+        }
     }
 } else {
     $department_id_form = $departament_id;
@@ -566,7 +577,15 @@ if (isset($requestPayload['phash']) && isset($requestPayload['pvhash']) && (stri
 
     // Handle departments
 if (is_numeric($departament_id) && $departament_id > 0) {
-    $departmentsOptions = array('departments' => array(array('value' => $departament_id)), 'settings' => array());
+    $departmentItem = erLhcoreClassModelDepartament::fetch($departament_id);
+
+    $departament_id_alias = $departament_id;
+
+    if ($departmentItem instanceof erLhcoreClassModelDepartament && $departmentItem->alias != '') {
+        $departament_id_alias = $departmentItem->alias;
+    }
+
+    $departmentsOptions = array('departments' => array(array('value' => $departament_id_alias)), 'settings' => array());
 } else {
     $filter = array('filter' => array('disabled' => 0, 'hidden' => 0));
 
@@ -587,7 +606,7 @@ if (is_numeric($departament_id) && $departament_id > 0) {
             if (($departament->visible_if_online == 1 && $isOnline === true) || $departament->visible_if_online == 0) {
                 $departmentItem = array(
                     'online' => $isOnline,
-                    'value' => $departament->id,
+                    'value' => ($departament->alias == '' ? $departament->id : $departament->alias),
                     'name' => $departament->name
                 );
                 $departmentsOptions['departments'][] = $departmentItem;
@@ -974,8 +993,8 @@ foreach ($fields as $field) {
     }
 }
 
-usort($fields, function($a, $b){
-    return isset($a['priority']) && isset($b['priority']) && $a['priority'] > $b['priority'];
+usort($fields, function($a, $b) {
+    return (isset($a['priority']) && isset($b['priority']) && $a['priority'] > $b['priority']) ? 1 : 0;
 });
 
 // We have to increase count to show normal form

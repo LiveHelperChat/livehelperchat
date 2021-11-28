@@ -140,7 +140,7 @@ class erLhcoreClassChatWorkflow {
         }
     }
 
-    public static function unreadInformWorkflow($options = array(), & $chat) {
+    public static function unreadInformWorkflow($options, & $chat) {
 
         $chat->unread_messages_informed = 1;
         $chat->updateThis(array('update' => array('unread_messages_informed')));
@@ -173,7 +173,7 @@ class erLhcoreClassChatWorkflow {
 
     }
 
-    public static function chatAcceptedWorkflow($options = array(), & $chat) {
+    public static function chatAcceptedWorkflow($options, & $chat) {
         if (in_array('mail_accepted', $options['options'])) {
             erLhcoreClassChatMail::sendMailUnacceptedChat($chat,9);
         }
@@ -191,7 +191,7 @@ class erLhcoreClassChatWorkflow {
     }
 
 
-    public static function newChatInformWorkflow($options = array(), & $chat) {
+    public static function newChatInformWorkflow($options, & $chat) {
 
         $chat->nc_cb_executed = 1;
         $chat->updateThis(array('update' => array('nc_cb_executed')));

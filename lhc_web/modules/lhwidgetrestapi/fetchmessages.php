@@ -110,7 +110,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
                             $tpl->set('async_call',true);
                         }
 
-				        if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
+				        if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
                             $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']));
                         }
 

@@ -110,9 +110,9 @@ try {
             )
         );
 
-        if (isset($requestPayload['theme']) && $requestPayload['theme'] > 0) {
+        if (isset($requestPayload['theme']) && !empty($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
 
-            $theme = erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']);
+            $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 
             if ($theme instanceof erLhAbstractModelWidgetTheme) {
 

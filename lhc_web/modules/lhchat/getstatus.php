@@ -27,8 +27,8 @@ if (isset($_SERVER['HTTP_ORIGIN']) && !empty($_SERVER['HTTP_ORIGIN'])) {
 
 if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_value == 1 && is_array($Params['user_parameters_unordered']['department'])){
 	try {
-		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
-				
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 		$departments = erLhcoreClassModelDepartament::getList(array('filterin' => array('id' => $Params['user_parameters_unordered']['department'])));
 		
 		foreach ($departments as $department){
@@ -53,9 +53,9 @@ if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value
 $validUnits = array('pixels' => 'px','percents' => '%');
 
 $theme = false;
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
 	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);	
+		$theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 	} catch (Exception $e) {
 		$theme = false;
 	}
@@ -99,8 +99,9 @@ $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
 $tpl->set('bot_id',is_numeric($Params['user_parameters_unordered']['bot_id']) ? $Params['user_parameters_unordered']['bot_id'] : null);
 $tpl->set('fresh',is_numeric($Params['user_parameters_unordered']['fresh']) ? true : false);
 
-if (is_array($Params['user_parameters_unordered']['department'])){
-	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+if (is_array($Params['user_parameters_unordered']['department'])) {
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 	$tpl->set('department',implode('/', $Params['user_parameters_unordered']['department']));
 	$tpl->set('department_array',$Params['user_parameters_unordered']['department']);	
 } else {

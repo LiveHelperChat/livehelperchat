@@ -12,8 +12,9 @@ if ($Params['user_parameters_unordered']['wopen'] != 1 || ($Params['user_paramet
 {
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/chatcheckstatus.tpl.php');
     
-    if (is_array($Params['user_parameters_unordered']['department'])){
-    	erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    if (is_array($Params['user_parameters_unordered']['department'])) {
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
     	$tpl->set('department',implode('/', $Params['user_parameters_unordered']['department']));
     	$tpl->set('department_array',$Params['user_parameters_unordered']['department']);
     } else {

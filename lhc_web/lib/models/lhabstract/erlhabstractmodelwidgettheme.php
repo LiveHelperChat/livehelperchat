@@ -103,6 +103,7 @@ class erLhAbstractModelWidgetTheme {
 			'hide_ts'                   => $this->hide_ts,
 			'widget_response_width'     => $this->widget_response_width,
 			'modified'                  => $this->modified,
+			'alias'                     => $this->alias,
 		);
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
@@ -631,6 +632,7 @@ class erLhAbstractModelWidgetTheme {
     public $widget_popheight = 520;
     public $widget_pright = 0;
     public $widget_pbottom = 0;
+    public $alias = '';
 
 	public $hide_add = false;
 	public $hide_delete = false;

@@ -1,3 +1,10 @@
+3.88v
+
+1. Theme alias and Department alias.
+2. PHP 8.1 compatibility fixes
+
+execute doc/update_db/update_260.sql for update
+
 3.87v
 
 1. New trigger response type. `Log action` usefull in case you want to store historical chat actions.

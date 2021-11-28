@@ -49,7 +49,7 @@
                         <select id="DepartmentID" multiple="multiple" size="5" class="form-control">
                             <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Any');?></option>
                             <?php foreach (erLhcoreClassModelDepartament::getList($departmentParams) as $departament) : ?>
-                                <option value="<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
+                                <option value="<?php echo $departament->alias != '' ? htmlspecialchars($departament->alias) : $departament->id?>"><?php echo htmlspecialchars($departament->name)?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -185,7 +185,7 @@
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label> <select id="ThemeID" class="form-control">
                             <option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
                             <?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
-                                <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
+                                <option value="<?php echo $theme->alias != '' ? htmlspecialchars($theme->alias) : $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -269,7 +269,7 @@
                     var width = parseInt($('#OnlineImageWidth').val()) > 0 ? '&w=' + parseInt($('#OnlineImageWidth').val()) : '';
                     var department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
                     var operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
-                    var theme = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+                    var theme = $('#ThemeID').val() != 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 
                     var baseURL = '<?php echo erLhcoreClassXMP::getBaseHost()?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('restapi/onlineimage')?>' + department + operator + theme + '?' + onlineText + offlineText + width;
 
@@ -295,10 +295,6 @@
 <textarea style="width: 100%; height: 200px; font-size: 11px;" class="form-control" id="HMLTContent"></textarea>
 
 <p>Static URL. You can send this url to your customers</p>
-
-<div class="form-group">
-    <label><input type="checkbox" id="hash_args" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Hash arguments. Visitor will not be able to change passed arguments.');?> </label>
-</div>
 
 <input type="text" class="form-control form-control-sm" value="" id="static-url-generated">
 
@@ -329,13 +325,13 @@
        var id_disable_pro_active_invitations = $('#id_disable_pro_active_invitations').is(':checked') ? ',proactive:false' : '';
        var id_position_placement = $('#id_position_placement').val() != '' ? ',position_placement:\''+$('#id_position_placement').val()+'\'' : '';
 
-        var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? ',department:['+$('#DepartmentID').val().join(',')+']' : '';
+        var id_department = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? ',department:["'+$('#DepartmentID').val().join('","')+'"]' : '';
         var id_department_static = $('#DepartmentID').val() && $('#DepartmentID').val().length > 0 && $('#DepartmentID').val().join('/') != '0' ? '/(department)/'+$('#DepartmentID').val().join('/') : '';
 
         //var id_product = $('#id_product_id').val() && $('#id_product_id').val().length > 0 && $('#id_product_id').val().join('/') != '0' ? '/(prod)/'+$('#id_product_id').val().join('/') : '';
 
-        var id_theme = $('#ThemeID').val() > 0 ? ',theme:'+$('#ThemeID').val() : '';
-        var id_theme_static = $('#ThemeID').val() > 0 ? '/(theme)/'+$('#ThemeID').val() : '';
+        var id_theme = $('#ThemeID').val() != 0 ? ',theme:"'+$('#ThemeID').val()+'"' : '';
+        var id_theme_static = $('#ThemeID').val() != 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 
         var id_widget_position = $('#id_widget_position').val() != '' ? ',position:\''+$('#id_widget_position').val()+'\'' : '';
 
@@ -400,16 +396,8 @@
                 "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lang = _l + '/';}}\n";
         }
 
-
-        if (!$('#hash_args').is(':checked')) {
-            $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
-            staticImageGeneration();
-        } else {
-            $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/hashargs')?>',{'args' : id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static}, function(data) {
-                $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+data);
-                staticImageGeneration();
-            });
-        }
+        $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+        staticImageGeneration();
 
         var script = '<script>'+
             'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'' + $('#HttpMode').val() + '//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+id_position_placement+'};\n'+

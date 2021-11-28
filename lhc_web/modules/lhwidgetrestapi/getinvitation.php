@@ -63,8 +63,9 @@ $outputResponse['play_sound'] = erLhcoreClassModelChatConfig::fetch('sound_invit
 
 $outputResponse['bubble'] = false;
 
-if (isset($payload['theme']) && $payload['theme'] > 0) {
-    $theme = erLhAbstractModelWidgetTheme::fetch($payload['theme']);
+if (isset($payload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($payload['theme'])) !== false) {
+
+    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 
     if ($theme instanceof erLhAbstractModelWidgetTheme)
     {

@@ -19,7 +19,7 @@
             'isMobile' => $isMobile,
             'department' => $department,
             'captcha' => $captcha,
-            'theme' => $theme,
+            'theme' => (is_numeric($theme) && $theme > 0 && ($themeObj = erLhAbstractModelWidgetTheme::fetch($theme)) instanceof erLhAbstractModelWidgetTheme ? ($themeObj->alias != '' ? $themeObj->alias : $themeObj->id) : null),
             'domain_lhc' => $domain_lhc,
             'base_url' => erLhcoreClassDesign::baseurldirect(),
             'lang' => erLhcoreClassSystem::instance()->SiteAccess,
