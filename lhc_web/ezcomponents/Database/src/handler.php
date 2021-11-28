@@ -135,6 +135,7 @@ abstract class ezcDbHandler extends PDO
      * @see rollback()
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function beginTransaction()
     {
         $retval = true;
@@ -163,6 +164,7 @@ abstract class ezcDbHandler extends PDO
      * @see rollback()
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function commit()
     {
         if ( $this->transactionNestingLevel <= 0 )
@@ -206,6 +208,7 @@ abstract class ezcDbHandler extends PDO
      * @see commit()
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function rollback()
     {
         if ( $this->transactionNestingLevel <= 0 )

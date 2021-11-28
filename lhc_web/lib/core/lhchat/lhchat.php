@@ -1648,7 +1648,7 @@ class erLhcoreClassChat {
    			if (!isset($params['do_not_clean'])){
    			    if (isset($params['filter_function'])){
                     $object = (object)array_filter((array)$object,function ($value) {
-                        return is_array($value) || strlen($value) > 0;
+                        return is_array($value) || (!is_null($value) && strlen($value) > 0);
                     });
                 } else {
                     $object = (object)array_filter((array)$object);

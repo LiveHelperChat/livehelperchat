@@ -284,7 +284,7 @@ if ($startDataDepartment === false) {
 
 $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value;
 
-if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || ($userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
+if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || (isset($userInstance) && $userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
     $configInstance = erConfigClassLhConfig::getInstance();
 
