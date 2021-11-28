@@ -597,7 +597,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             // Sort by priority, first we will check the ones with higher priority
             usort($methodSettings['output'], function ($a, $b) {
-                return !(isset($a['output_priority']) && is_numeric($a['output_priority']) && (!isset($b['output_priority']) || $a['output_priority'] > $b['output_priority']));
+                return !(isset($a['output_priority']) && is_numeric($a['output_priority']) && (!isset($b['output_priority']) || $a['output_priority'] > $b['output_priority'])) ? 1 : 0;
             });
             
             foreach ($methodSettings['output'] as $outputCombination)
