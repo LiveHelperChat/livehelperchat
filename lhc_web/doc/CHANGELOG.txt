@@ -1,6 +1,7 @@
 3.88v
 
 1. Theme alias and Department alias.
+2. PHP 8.1 compatibility fixes
 
 execute doc/update_db/update_260.sql for update
 
