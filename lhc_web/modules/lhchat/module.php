@@ -608,11 +608,12 @@ $ViewList['syncandsoundesetting'] = array(
 
 $ViewList['cannedmsg'] = array(
     'params' => array(),
-    'uparams' => array('action','id','csfr','message','title','fmsg','department_id','subject_id','tab'),
+    'uparams' => array('action','id','csfr','message','title','fmsg','department_id','subject_id','tab','user_id'),
     'functions' => array( 'administratecannedmsg' ),
     'multiple_arguments' => array(
         'department_id',
-        'subject_id'
+        'subject_id',
+        'user_id'
     )
 );
 
