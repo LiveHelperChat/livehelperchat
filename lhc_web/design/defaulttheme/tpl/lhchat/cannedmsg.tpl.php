@@ -25,8 +25,11 @@
             </tr>
             </thead>
             <?php foreach ($items as $item) : ?>
-                <tr>
-                    <td title="<?php echo htmlspecialchars($item->unique_id)?>"><?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?></td>
+                <tr class="<?php $item->disabled == 1 ? print 'text-muted' : ''?>">
+                    <td title="<?php echo htmlspecialchars($item->unique_id)?>">
+                        <?php if ($item->disabled == 1) : ?><i class="text-danger material-icons">block</i><?php endif; ?>
+                        <?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?>
+                    </td>
                     <td>
                         <?php if ($item->department !== false) : ?><?php echo htmlspecialchars($item->department)?><?php endif;$item->department_ids_front; if (!empty($item->department_ids_front)) : $deps = implode(', ',erLhcoreClassModelDepartament::getList(['filterin' => ['id' => $item->department_ids_front]]))?>
                         <span title="<?php echo htmlspecialchars($deps);?>">

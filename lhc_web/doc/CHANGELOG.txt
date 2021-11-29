@@ -1,3 +1,10 @@
+3.89v
+
+1. Canned messages can be disabled now.
+2. Further 8.1 PHP compatibility fixes
+
+execute doc/update_db/update_261.sql for update
+
 3.88v
 
 1. Theme alias and Department alias.

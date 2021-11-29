@@ -138,6 +138,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('newChat',true)
                 .set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}))
                 .set('chatData',fromJS({}))
+                .removeIn(['chat_ui','survey_id'])
                 .setIn(['onlineData','fetched'],false)
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lfmsgid': 0, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))

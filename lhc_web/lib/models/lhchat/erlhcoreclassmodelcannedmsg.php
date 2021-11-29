@@ -38,6 +38,7 @@ class erLhcoreClassModelCannedMsg
             'active_to' => $this->active_to,
             'repetitiveness' => $this->repetitiveness,
             'days_activity' => $this->days_activity,
+            'disabled' => $this->disabled,
         );
     }
 
@@ -321,6 +322,8 @@ class erLhcoreClassModelCannedMsg
 	            $filter[] = $q->expr->in('id', $paramsFilter['id']);
 	        }
 
+            $filter[] = $q->expr->eq('disabled', 0);
+
             $dayShort = array(
                 1 => 'mod',
                 2 => 'tud',
@@ -497,6 +500,7 @@ class erLhcoreClassModelCannedMsg
     public $active_to = 0;
     public $repetitiveness = self::REP_NO;
     public $days_activity = '';
+    public $disabled = 0;
 
 
 }

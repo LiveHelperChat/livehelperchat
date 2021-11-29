@@ -3666,6 +3666,14 @@
         "extra": ""
       },
       {
+        "field": "disabled",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "created_at",
         "type": "int(11) unsigned",
         "null": "NO",
@@ -10271,6 +10279,7 @@
         "attr_int_1" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_1` (`attr_int_1`);",
         "attr_int_2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_2` (`attr_int_2`);",
         "attr_int_3" : "ALTER TABLE `lh_canned_msg` ADD INDEX `attr_int_3` (`attr_int_3`);",
+        "disabled" : "ALTER TABLE `lh_canned_msg` ADD INDEX `disabled` (`disabled`);",
         "unique_id" : "ALTER TABLE `lh_canned_msg` ADD INDEX `unique_id` (`unique_id`);",
         "repetitiveness" : "ALTER TABLE `lh_canned_msg` ADD INDEX `repetitiveness` (`repetitiveness`);",
         "position_title_v2" : "ALTER TABLE `lh_canned_msg` ADD INDEX `position_title_v2` (`position`, `title`(191));"

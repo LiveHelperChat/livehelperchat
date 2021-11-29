@@ -65,6 +65,10 @@ export default function (dispatch, getState) {
             if (window.lhcChat['mode'] == 'popup') {
                 window.close();
             }
+
+            if (data.survey) {
+                dispatch({type: 'attr_set', attr : ['chat_ui','survey_id'], data : data.survey});
+            }
         }},
         {id : 'endCookies', cb : (data) => {
                 helperFunctions.sendMessageParent('endChatCookies', [{force: true}]);
