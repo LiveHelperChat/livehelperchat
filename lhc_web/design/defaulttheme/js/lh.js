@@ -771,7 +771,7 @@ function lh(){
             tabs.find('> ul > li#chat-tab-li-'+chat_id+' > a').addClass("active");
             tabs.find('> div.tab-content > div.active').removeClass('active');
             tabs.find('> div.tab-content > #chat-id-'+chat_id).addClass('active');
-            ee.emitEvent('mailChatTabClicked', [chat_id]);
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
             return ;
         }
 
@@ -794,7 +794,7 @@ function lh(){
         ee.emitEvent('mailChatTabLoaded', [chat_id]);
 
         $('#chat-tab-link-'+chat_id).click(function() {
-            ee.emitEvent('mailChatTabClicked', [chat_id.replace('gc','')]);
+            ee.emitEvent('mailChatTabClicked', [chat_id.replace('mc','')]);
         });
     };
 

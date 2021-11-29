@@ -18,9 +18,9 @@ $ViewList['settings'] = array(
 
 $ViewList['tabs'] = array(
     'params' => array(),
-    'uparams' => array('id'),
+    'uparams' => array('id','idmail'),
     'functions' => array('use'),
-    'multiple_arguments' => array('id')
+    'multiple_arguments' => array('id','idmail')
 );
 
 $ViewList['switchdashboard'] = array(

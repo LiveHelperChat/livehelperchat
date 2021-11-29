@@ -19,6 +19,13 @@ function reducer(state, action) {
             state = { ... state};
             return state;
 
+        case 'attr_remove_mail':
+            var foundIndex = state.mails.findIndex(x => x[action.attr] == action.id);
+            if (foundIndex === -1) return state;
+            state.mails[foundIndex] = { ...state.mails[foundIndex], ...action.value};
+            state = { ... state};
+            return state;
+
         case 'update': {
             return { ...state, ...action.value }
         }
@@ -36,6 +43,16 @@ function reducer(state, action) {
             return { ...state}
         }
 
+        case 'add_mail': {
+            var foundIndex = state.mails.findIndex(x => x.id == action.value.id);
+            if (foundIndex === -1) {
+                state.mails.unshift(action.value);
+            } else {
+                state.mails[foundIndex].active = true;
+            }
+            return { ...state}
+        }
+
         case 'remove': {
             var foundIndex = state.chats.findIndex(x => x.id == action.id);
             if (foundIndex === -1) return state;
@@ -43,10 +60,24 @@ function reducer(state, action) {
             return { ...state}
         }
 
+        case 'remove_mail': {
+            var foundIndex = state.mails.findIndex(x => x.id == action.id);
+            if (foundIndex === -1) return state;
+            state.mails.splice(foundIndex,1);
+            return { ...state}
+        }
+
         case 'update_chat': {
             var foundIndex = state.chats.findIndex(x => x.id == action.id);
             if (foundIndex === -1) return state;
             state.chats[foundIndex] = {...state.chats[foundIndex], ...action.value}
+            return { ...state}
+        }
+
+        case 'update_mail': {
+            var foundIndex = state.mails.findIndex(x => x.id == action.id);
+            if (foundIndex === -1) return state;
+            state.mails[foundIndex] = {...state.mails[foundIndex], ...action.value}
             return { ...state}
         }
 
@@ -72,7 +103,32 @@ function reducer(state, action) {
             return { ...state}
         }
 
+        case 'refocus_mail': {
+            var foundIndex = state.chats.findIndex(x => x.active == true);
+            if (foundIndex !== -1) {
+                state.chats[foundIndex].active = false;
+            }
+            var foundIndex = state.mails.findIndex(x => x.active == true);
+            if (foundIndex !== -1) {
+                if (action.id == state.mails[foundIndex].id) {
+                    return state;
+                }
+                state.mails[foundIndex].active = false;
+            }
+
+            var foundIndex = state.mails.findIndex(x => x.id == action.id);
+            if (foundIndex !== -1) {
+                state.mails[foundIndex].active = true;
+            }
+
+            return { ...state}
+        }
+
         case 'refocus': {
+            var foundIndex = state.mails.findIndex(x => x.active == true);
+            if (foundIndex !== -1) {
+                state.mails[foundIndex].active = false;
+            }
             var foundIndex = state.chats.findIndex(x => x.active == true);
             if (foundIndex !== -1) {
                 if (action.id == state.chats[foundIndex].id) {
@@ -104,6 +160,7 @@ const DashboardChatTabs = props => {
 
     const [state, dispatch] = useReducer(reducer, {
         chats: [],
+        mails: [],
         group_offline : false
     });
 
@@ -142,12 +199,34 @@ const DashboardChatTabs = props => {
         });
     }
 
+    const loadMailTabIntro = (chatIds) => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "front/tabs/(idmail)/" + (typeof chatIds !== 'undefined' ? chatIds.join('/') : getChatIds().join('/'))).then(result => {
+            result.data.map((chat, index) => {
+                dispatch({
+                    type: 'update_mail',
+                    id: chat.id,
+                    value: chat
+                })
+            })
+        });
+    }
+
     useEffect(() => {
 
         function addTab(chatId, params) {
             if (params.focus) {
+
                 dispatch({
                     type: 'attr_remove',
+                    id: true,
+                    attr: 'active',
+                    value: {
+                        "active" : false
+                    }
+                });
+
+                dispatch({
+                    type: 'attr_remove_mail',
                     id: true,
                     attr: 'active',
                     value: {
@@ -178,6 +257,40 @@ const DashboardChatTabs = props => {
             loadChatTabIntro([chatId]);
         }
 
+        function mailContentLoaded(chatId) {
+            addMailTab(chatId);
+        }
+
+        function addMailTab(chatId, params) {
+            dispatch({
+                type: 'attr_remove_mail',
+                id: true,
+                attr: 'active',
+                value: {
+                    "active" : false
+                }
+            });
+
+            dispatch({
+                type: 'attr_remove',
+                id: true,
+                attr: 'active',
+                value: {
+                    "active" : false
+                }
+            });
+
+            dispatch({
+                type: 'add_mail',
+                value: {
+                    "id" : chatId.replace('mc',''),
+                    active: true
+                }
+            });
+
+            loadMailTabIntro([chatId.replace('mc','')]);
+        }
+
         function removeTab(chatId) {
             dispatch({
                 type: 'remove',
@@ -185,9 +298,29 @@ const DashboardChatTabs = props => {
             });
         }
 
+        function removeMailTab(chatId) {
+            dispatch({
+                type: 'remove_mail',
+                id: chatId.replace('mc','')
+            });
+        }
+
         function tabClicked(chatId) {
+
+            if (typeof chatId == 'string' && chatId.indexOf('mc') !== -1) {
+                mailTabClicked(chatId.replace('mc',''));
+                return;
+            }
+
             dispatch({
                 type: 'refocus',
+                id: chatId
+            });
+        }
+
+        function mailTabClicked(chatId) {
+            dispatch({
+                type: 'refocus_mail',
                 id: chatId
             });
         }
@@ -274,6 +407,12 @@ const DashboardChatTabs = props => {
         ee.addListener('nodeJsVisitorStatus',nodeJsVisitorStatus)
         ee.addListener('activateNextTab',activateNextTab)
 
+        // Mail module
+        ee.addListener('unloadMailChat',removeMailTab)
+        ee.addListener('mailChatTabLoaded',addMailTab)
+        ee.addListener('mailChatTabClicked',mailTabClicked)
+        ee.addListener('mailChatContentLoaded',mailContentLoaded)
+
         if (localStorage) {
             var achat_id = localStorage.getItem('achat_id');
             if (achat_id !== null && achat_id !== '') {
@@ -304,6 +443,37 @@ const DashboardChatTabs = props => {
                    });
                },1000);
             }
+
+            var achat_id = localStorage.getItem('machat_id');
+
+            if (achat_id !== null && achat_id !== '') {
+                var ids = achat_id.split(',');
+                var entries = [];
+                ids.forEach((id) => {
+                   var el = document.getElementById('chat-tab-link-mc'+id);
+                   if (el !== null) {
+                       var active = el.classList.contains('active');
+                       entries.push({id: parseInt(id), active: active})
+                   }
+               });
+               dispatch({
+                    type: 'update',
+                    value: {
+                        "mails" : entries
+                    }
+                });
+               ids.length > 0 && loadMailTabIntro(ids);
+
+               // Find active chat
+               setTimeout(() => {
+                   ids.forEach((id) => {
+                       var el = document.getElementById('chat-tab-link-mc'+id);
+                       if (el !== null) {
+                           el.classList.contains('active') && mailTabClicked(parseInt(id));
+                       }
+                   });
+               },1000);
+            }
          }
 
         // Cleanup
@@ -319,6 +489,11 @@ const DashboardChatTabs = props => {
             ee.removeListener('nodeJsTypingVisitorStopped', typingVisitorStopped);
             ee.removeListener('nodeJsVisitorStatus', nodeJsVisitorStatus);
             ee.removeListener('activateNextTab', activateNextTab);
+
+            ee.removeListener('unloadMailChat', removeMailTab);
+            ee.removeListener('mailChatTabLoaded', addMailTab);
+            ee.removeListener('mailChatTabClicked', mailTabClicked);
+            ee.removeListener('mailChatContentLoaded', mailContentLoaded);
         };
 
     },[]);
@@ -327,10 +502,20 @@ const DashboardChatTabs = props => {
         $('#chat-tab-link-'+chat.id).click();
     }
 
+    const mailTabClick = (chat) => {
+        $('#chat-tab-link-mc'+chat.id).click();
+    }
+
     const closeDialog = (e,chat) => {
         e.preventDefault();
         e.stopPropagation();
         lhinst.removeDialogTab(chat.id,$('#tabs'),true);
+    }
+
+    const closeMailDialog = (e,chat) => {
+        e.preventDefault();
+        e.stopPropagation();
+        lhinst.removeDialogTabMail('mc'+chat.id,$('#tabs'),true)
     }
 
     const { t, i18n } = useTranslation('chat_tabs');
@@ -361,6 +546,22 @@ const DashboardChatTabs = props => {
                         </div>}
                 </div>
             ))}
+
+            {state.mails.map((chat, index) => (
+                <div title={chat.id} onClick={() => mailTabClick(chat)} className={"p-1 action-image chat-tabs-row"+(chat.active ? ' chat-tab-active' : '')}>
+                    <div className="fs12">
+                        <span title={chat.from_name} ><i className="material-icons">mail_outline</i>{chat.from_address}</span>
+
+                        <button type="button" onClick={(e) => closeMailDialog(e,chat)} className="float-right btn-link m-0 ml-1 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
+                        {chat.dep && <span className="float-right text-muted text-truncate mw-80px"><span className="material-icons">home</span>{chat.dep}</span>}
+                        {chat.co == confLH.user_id && <span className="float-right text-muted"><span title={t('chat_tabs.chat_owner')} className="material-icons">account_box</span></span>}
+                    </div>
+                    <span title={chat.nick} className="fs13 text-muted pt-1 d-inline-block text-truncate mw-100">
+                        {chat.nick}
+                    </span>
+                </div>
+            ))}
+
         </React.Fragment>
     );
 }
