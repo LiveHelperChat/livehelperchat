@@ -2,7 +2,11 @@
 
 erLhcoreClassRestAPIHandler::setHeaders('Content-type: text/css');
 
-$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters']['theme']);
+if (empty($Params['user_parameters']['theme']) || ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters']['theme'])) === false) {
+    exit;
+}
+
+$theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 
 if ($theme->modified > 0) {
     header("Expires:".gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));

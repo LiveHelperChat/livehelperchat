@@ -2,6 +2,10 @@
 
 erLhcoreClassRestAPIHandler::setHeaders('Content-type: text/css');
 
+if (empty($Params['user_parameters']['theme']) || ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters']['theme'])) === false){
+    exit;
+}
+
 $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters']['theme']);
 
 if ($theme->modified > 0) {

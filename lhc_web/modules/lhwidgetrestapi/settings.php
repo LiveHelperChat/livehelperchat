@@ -38,7 +38,11 @@ if (isset($_GET['dep']) && is_array($_GET['dep']) && !empty($_GET['dep'])){
 }
 
 if (is_array($department)) {
-    erLhcoreClassChat::validateFilterIn($department);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($department);
+    $department = $parametersDepartment['system'];
+    $departmentArgument = $parametersDepartment['argument'];
+} else {
+    $departmentArgument = $department;
 }
 
 $departmentUpdated = $department;
@@ -127,8 +131,8 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     }
 }
 
-if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] > 0) {
-    $outputResponse['theme'] = (int)$_GET['theme'];
+if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
+    $outputResponse['theme'] = $themeId;
 } else {
     $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
     if ($defaultTheme > 0) {
@@ -138,9 +142,13 @@ if (isset($_GET['theme']) && is_numeric($_GET['theme']) && (int)$_GET['theme'] >
 
 $pageCSS = false;
 
-if (isset($outputResponse['theme'])){
+if (isset($outputResponse['theme'])) {
     $theme = erLhAbstractModelWidgetTheme::fetch($outputResponse['theme']);
+
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
+
+        $outputResponse['theme'] = $theme->alias != '' ? $theme->alias : $theme->id;
+
         if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
             $outputResponse['chat_ui']['wwidth'] = $theme->bot_configuration_array['wwidth'];
         }
@@ -276,7 +284,7 @@ if ($startDataDepartment === false) {
 
 $needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value;
 
-if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || ($userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
+if (((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || (isset($userInstance) && $userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
 {
     $configInstance = erConfigClassLhConfig::getInstance();
 
@@ -379,7 +387,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 186;
+$outputResponse['wv'] = 187;
 
 // React APP versions
 $outputResponse['v'] = 225;
@@ -388,7 +396,7 @@ $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigCl
 $outputResponse['hash_ts'] = $ts;
 
 if (is_array($department) && !empty($department)) {
-    $outputResponse['department'] = $department;
+    $outputResponse['department'] = $departmentArgument;
 }
 
 $gaOptions = erLhcoreClassModelChatConfig::fetch('ga_options')->data_value;

@@ -21,7 +21,8 @@ if (is_numeric($Params['user_parameters_unordered']['id'])) {
 }
 
 if (is_array($Params['user_parameters_unordered']['dep']) && !empty($Params['user_parameters_unordered']['dep'])) {
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['dep']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['dep']);
+    $Params['user_parameters_unordered']['dep'] = $parametersDepartment['system'];
     $tpl->set('dep',$Params['user_parameters_unordered']['dep']);
 }
 

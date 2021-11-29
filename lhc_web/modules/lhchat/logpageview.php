@@ -12,8 +12,9 @@ $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_val
 
 if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 	
-	if (is_array($Params['user_parameters_unordered']['department'])){
-		erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+	if (is_array($Params['user_parameters_unordered']['department'])) {
+        $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+        $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 		$department = $Params['user_parameters_unordered']['department'];
 	} else {
 		$department = false;

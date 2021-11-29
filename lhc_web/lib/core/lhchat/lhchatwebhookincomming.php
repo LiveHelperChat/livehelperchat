@@ -881,7 +881,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
     }
 
-    public function getExtensionByMime($mimeType, $getMime = false) {
+    public static function getExtensionByMime($mimeType, $getMime = false) {
         $mime_types = array(
             'txt' => 'text/plain',
             'htm' => 'text/html',

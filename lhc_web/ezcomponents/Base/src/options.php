@@ -121,6 +121,7 @@ abstract class ezcBaseOptions implements ArrayAccess
      * @param string $propertyName The name of the option to get.
      * @return bool Whether the option exists.
      */
+    #[ReturnTypeWillChange]
     public function offsetExists( $propertyName )
     {
         return $this->__isset( $propertyName );
@@ -135,6 +136,7 @@ abstract class ezcBaseOptions implements ArrayAccess
      * @param string $propertyName The name of the option to get.
      * @return mixed The option value.
      */
+    #[ReturnTypeWillChange]
     public function offsetGet( $propertyName )
     {
         return $this->__get( $propertyName );
@@ -151,6 +153,7 @@ abstract class ezcBaseOptions implements ArrayAccess
      * @param string $propertyName The name of the option to set.
      * @param mixed $propertyValue The value for the option.
      */
+    #[ReturnTypeWillChange]
     public function offsetSet( $propertyName, $propertyValue )
     {
         $this->__set( $propertyName, $propertyValue );
@@ -166,6 +169,7 @@ abstract class ezcBaseOptions implements ArrayAccess
      *         If a the value for a property is out of range.
      * @param string $propertyName The name of the option to unset.
      */
+    #[ReturnTypeWillChange]
     public function offsetUnset( $propertyName )
     {
         $this->__set( $propertyName, null );

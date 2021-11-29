@@ -19,11 +19,6 @@ $ViewList['embedcode'] = array(
     'functions' => array( 'generatejs' )
 );
 
-$ViewList['hashargs'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
 $ViewList['configuration'] = array(
     'params' => array(),
     'functions' => array( 'use' )

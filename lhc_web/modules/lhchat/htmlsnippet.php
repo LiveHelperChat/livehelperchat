@@ -26,13 +26,15 @@ if ($Params['user_parameters']['type'] == 'msg')
         }
     }
 } elseif ($Params['user_parameters']['type'] == 'theme') {
-    $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters']['id']);
-    if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->bot_configuration_array['inject_html'] != ''){
-        $htmlCode = $theme->bot_configuration_array['inject_html'];
+    if (($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters']['id'])) !== false) {
+        $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+        if ($theme instanceof erLhAbstractModelWidgetTheme && $theme->bot_configuration_array['inject_html'] != '') {
+            $htmlCode = $theme->bot_configuration_array['inject_html'];
+        }
     }
 } elseif ($Params['user_parameters']['type'] == 'inv') {
     $invitation = erLhAbstractModelProactiveChatInvitation::fetch($Params['user_parameters']['id']);
-    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->design_data_array['inject_html'] != ''){
+    if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && $invitation->design_data_array['inject_html'] != '') {
         $htmlCode = $invitation->design_data_array['inject_html'];
     }
 }

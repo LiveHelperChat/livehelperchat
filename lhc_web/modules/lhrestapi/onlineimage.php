@@ -9,8 +9,8 @@ if (is_numeric($Params['user_parameters_unordered']['user_id'])) {
         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout']
     ));
 } elseif (isset($Params['user_parameters_unordered']['department']) && is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department'])){
-
-    erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['department']);
+    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
+    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
 
     $online = erLhcoreClassChat::isOnline(
         (int)$Params['user_parameters_unordered']['department'],

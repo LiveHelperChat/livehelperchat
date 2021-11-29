@@ -1,6 +1,16 @@
-<div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-    <input type="text" ng-non-bindable class="form-control form-control-sm" name="Name"  value="<?php echo htmlspecialchars($departament->name);?>" />
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
+            <input type="text" ng-non-bindable class="form-control form-control-sm" name="Name" value="<?php echo htmlspecialchars($departament->name);?>" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
+            <input type="text" maxlength="50" ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
+        </div>
+    </div>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/email.tpl.php'));?>

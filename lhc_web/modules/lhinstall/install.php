@@ -516,6 +516,7 @@ try {
                  `pending_join_queue` varchar(250) NOT NULL,
                  `noonline_operators` varchar(250) NOT NULL,
                  `noonline_operators_offline` varchar(250) NOT NULL,
+                 `alias` varchar(50) NOT NULL,
                  `hide_close` int(11) NOT NULL,
                  `show_need_help_delay` int(11) NOT NULL DEFAULT '0',
                  `show_status_delay` int(11) NOT NULL DEFAULT '0',
@@ -546,7 +547,8 @@ try {
                  `widget_position` varchar(50) NOT NULL,
                  `widget_pright` int(11) NOT NULL,
                  `widget_pbottom` int(11) NOT NULL,
-                  PRIMARY KEY (`id`)				
+                  PRIMARY KEY (`id`),
+                  KEY `alias` (`alias`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
 
@@ -1725,11 +1727,13 @@ try {
 				  `acop_chats_cnt` int(11) NOT NULL DEFAULT '0',
 				  `inform_close_all` int(11) NOT NULL,
 				  `inform_close_all_email` varchar(250) NOT NULL,
+				  `alias` varchar(50) NOT NULL,
 				  `product_configuration` longtext NOT NULL,
 				  `bot_configuration` text NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `identifier_2` (`identifier`(191)),
 				  KEY `archive` (`archive`),
+				  KEY `alias` (`alias`),
 				  KEY `attr_int_1` (`attr_int_1`),
 				  KEY `attr_int_2` (`attr_int_2`),
 				  KEY `attr_int_3` (`attr_int_3`),

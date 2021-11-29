@@ -1803,7 +1803,7 @@ class erLhcoreClassChat {
    			if (!isset($params['do_not_clean'])){
    			    if (isset($params['filter_function'])){
                     $object = (object)array_filter((array)$object,function ($value) {
-                        return is_array($value) || strlen($value) > 0;
+                        return is_array($value) || (!is_null($value) && strlen($value) > 0);
                     });
                 } else {
                     $object = (object)array_filter((array)$object);
@@ -2304,7 +2304,79 @@ class erLhcoreClassChat {
                 }
             }
         }
-    }
+   }
+
+   public static function extractDepartment($departments) {
+
+       $hasInvalidDepartment = false;
+
+       $output = ['argument' => [],'system' => []];
+       foreach ($departments as $department) {
+           if (is_numeric($department)) {
+               $dep = erLhcoreClassModelDepartament::fetch((int)$department);
+               if ($dep instanceof erLhcoreClassModelDepartament) {
+                   $output['system'][] = (int)$department;
+                   $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
+                   if ($dep->alias != '') {
+                       $hasInvalidDepartment = true;
+                   }
+               } else {
+                  $hasInvalidDepartment = true;
+              }
+           } else {
+               $dep = erLhcoreClassModelDepartament::findOne(['filter' => ['alias' => $department]]);
+               if ($dep instanceof erLhcoreClassModelDepartament) {
+                   $output['system'][] = (int)$dep->id;
+                   $output['argument'][] = $dep->alias == '' ? $dep->id : $dep->alias;
+               } else {
+                   $hasInvalidDepartment = true;
+               }
+           }
+       }
+
+       if ($hasInvalidDepartment == true) {
+           $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.extract_department', array('departments' => $departments));
+           $referrer = print_r($departments, true) . "\n";
+           $messageLog = $referrer . erLhcoreClassIPDetect::getIP();
+           erLhcoreClassLog::write($messageLog.print_r($_SERVER, true),
+               ezcLog::SUCCESS_AUDIT,
+               array(
+                   'source' => 'lhc',
+                   'category' => 'extract_department',
+                   'line' => 0,
+                   'file' => '',
+                   'object_id' => 0
+               )
+           );
+           if ($response === false) {
+               return ['argument' => [],'system' => []];
+           }
+       }
+
+       return $output;
+   }
+
+   public static function extractTheme($themeId = null, $checkAlias = true) {
+
+       $themeId = isset($_GET['theme']) && !empty($_GET['theme']) ? $_GET['theme'] : $themeId;
+
+       if (!empty($themeId)) {
+           if (is_numeric($themeId)) {
+               $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+               // Don't expose existing theme
+               if ($checkAlias == true && $theme->alias != '') {
+                   return false;
+               }
+           } else {
+               $theme = erLhAbstractModelWidgetTheme::findOne(['filter' => ['alias' => $themeId]]);
+           }
+           if ($theme instanceof erLhAbstractModelWidgetTheme) {
+               return $theme->id;
+           }
+       }
+
+       return false;
+   }
 
    // Static attribute for class
    public static $trackActivity = false;

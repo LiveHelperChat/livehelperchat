@@ -554,9 +554,9 @@ class erLhcoreClassModule{
             // Attatch extension listeners
             self::attatchExtensionListeners();
         }
-                
-        self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'module' ));
-        self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', $url->getParam( 'function' ));
+
+        self::$currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', (string)$url->getParam( 'module' ));
+        self::$currentView = preg_replace('/[^a-zA-Z0-9\-_]/', '', (string)$url->getParam( 'function' ));
 
         if (self::$currentModuleName == '' || (self::$currentModule = self::getModule(self::$currentModuleName)) === false) {
             $params = $cfg->getOverrideValue('site','default_url');
