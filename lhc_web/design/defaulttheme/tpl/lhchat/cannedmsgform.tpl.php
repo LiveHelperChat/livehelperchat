@@ -19,6 +19,8 @@
             <input type="text" ng-non-bindable class="form-control form-control-sm" name="Title" value="<?php echo htmlspecialchars($canned_message->title);?>" />
         </div>
 
+        <label><input type="checkbox" name="Disabled" value="on" <?php $canned_message->disabled == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Disabled');?></label>
+
         <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Tag's");?></label>
             <input type="text" ng-non-bindable class="form-control form-control-sm" name="Tags" value="<?php echo htmlspecialchars($canned_message->tags_plain)?>" />

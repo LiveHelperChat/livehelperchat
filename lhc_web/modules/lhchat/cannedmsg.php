@@ -78,10 +78,36 @@ if ($tab == 'cannedmsg') {
 
     $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
-    if (isset($_GET['export'])){
+    if (isset($_GET['export'])) {
         erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
     }
 
+    if (isset($_GET['quick_action'])) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsg/quick_actions.tpl.php');
+        $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/cannedmsg') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
+
+        if (ezcInputForm::hasPostData()) {
+            if ((isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on') ||
+                (isset($_POST['enable_canned']) && $_POST['enable_canned'] == 'on')
+            ) {
+                $q = ezcDbInstance::get()->createUpdateQuery();
+                $conditions = erLhcoreClassModelCannedMsg::getConditions($filterParams['filter'], $q);
+                $q->update( 'lh_canned_msg' )
+                    ->set( 'disabled', (isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on' ? 1 : 0))
+                    ->where(
+                        $conditions
+                    );
+                $stmt = $q->prepare();
+                $stmt->execute();
+            }
+            $tpl->set('updated', true);
+        }
+
+
+        echo $tpl->fetch();
+        exit;
+    }
 
     $pages = new lhPaginator();
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/cannedmsg') . $append;

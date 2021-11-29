@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 187;
+            lhc.version = 188;
 
             var init = () => {
 
@@ -629,7 +629,7 @@
 
                     attributesWidget.widgetDimesions.nextProperty('height_override', null);
 
-                    chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton'}]);
+                    chatEvents.sendChildEvent('endedChat', [{'sender': 'endButton', 'survey' : attributesWidget.survey}]);
 
                     if (attributesWidget.mode == 'embed' || (params && params['show_start'])) {
                         attributesWidget.eventEmitter.emitEvent('showWidget', [{'sender': 'closeButton'}]);
