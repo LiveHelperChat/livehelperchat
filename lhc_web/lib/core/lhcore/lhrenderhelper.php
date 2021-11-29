@@ -92,7 +92,7 @@ class erLhcoreClassRenderHelper {
         $prepend = isset($params['wrap_prepend']) ? $params['wrap_prepend'] : null;
         $append = isset($params['wrap_append']) ? $params['wrap_append'] : null;
         $ngChange = isset($params['ng_change']) ? 'ng-change="'.$params['ng_change'].'"' : null;
-        $ngModel = isset($params['ng_model']) ? 'ng-model="'.$params['ng_model'].'"' : null;
+        $ngModel = isset($params['ng_model']) ? 'ng-model="'.$params['ng_model'].'"' : '';
         $idAttr = isset($params['id_attr']) ? $params['id_attr'] : 'id';
 
         $nameSelect = isset($params['display_name']) ? $params['display_name'] : 'name';
@@ -104,7 +104,6 @@ class erLhcoreClassRenderHelper {
             } else {
                 $valueItem = $item->$nameSelect;
             }
-
             $ngModelReplace = str_replace('$id', $item->{$idAttr}, $ngModel);
             $checked = in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
             $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->{$idAttr},$params['read_only_list']) ? ' disabled="disabled" ' : '';

@@ -64,9 +64,9 @@
 
                         <?php if (isset($field['wrap_start'])) : ?><?php echo $field['wrap_start']?><?php endif; ?><?php
     	        	if (isset($field['frontend'])) {
-    		            echo htmlspecialchars($item->{$field['frontend']});
+    		            echo htmlspecialchars((string)$item->{$field['frontend']});
     	        	} else {
-    		            echo htmlspecialchars($item->$key);
+    		            echo htmlspecialchars((string)$item->$key);
     	        	}
     		        ?><?php if (isset($field['wrap_end'])) : ?><?php echo $field['wrap_end']?><?php endif; ?>
 		        

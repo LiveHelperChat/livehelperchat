@@ -124,6 +124,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'AutoSend' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'Disabled' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'Tags' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -263,6 +266,13 @@ class erLhcoreClassAdminChatValidatorHelper {
             $cannedMessage->auto_send = 1;
         } else {
             $cannedMessage->auto_send = 0;
+        }
+
+        if ( $form->hasValidData( 'Disabled' ) && $form->Disabled == true )
+        {
+            $cannedMessage->disabled = 1;
+        } else {
+            $cannedMessage->disabled = 0;
         }
         
         if ( $form->hasValidData( 'Position' )  )
