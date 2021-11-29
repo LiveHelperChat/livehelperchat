@@ -41,8 +41,8 @@ if ((string)$Params['user_parameters_unordered']['hash'] != '' && $subscription 
             $notificationSubscriber->chat_id = $chat->id;
             $notificationSubscriber->dep_id = $chat->dep_id;
 
-            if (is_numeric($Params['user_parameters_unordered']['theme']) && $Params['user_parameters_unordered']['theme'] > 0) {
-                $notificationSubscriber->theme_id = (int)$Params['user_parameters_unordered']['theme'];
+            if (is_numeric($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+                $notificationSubscriber->theme_id = (int)$themeId;
             }
 
             if (!empty($Params['user_parameters_unordered']['vid'])){

@@ -5,9 +5,10 @@ header('P3P: CP="NOI ADM DEV COM NAV OUR STP"');
 
 $visitorName = erLhcoreClassChatbox::getVisitorName();
 $cache = CSCacheAPC::getMem();
-$themeID = isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : 0;
 
-if ($themeID == 0) {
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    
+} else {
     $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
     if ($defaultTheme > 0) {
         $themeID = $defaultTheme;

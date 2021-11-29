@@ -6,8 +6,8 @@ if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params
 
 $themeAppend = '';
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0) {
-    $theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
         $theme->translate();
         $Result['theme'] = $theme;

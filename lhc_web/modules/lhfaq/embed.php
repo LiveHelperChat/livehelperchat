@@ -12,8 +12,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhfaq/embed.tpl.php');
 
 $theme = false;
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
-	$theme = (int)$Params['user_parameters_unordered']['theme'];
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+	$theme = (int)$themeId;
 } else {
 	$defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
 	if ($defaultTheme > 0) {

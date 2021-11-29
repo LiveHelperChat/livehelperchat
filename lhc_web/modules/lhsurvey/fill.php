@@ -1,8 +1,8 @@
 <?php
 
-if (isset($Params['user_parameters_unordered']['theme']) && (int)$Params['user_parameters_unordered']['theme'] > 0){
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
 	try {
-		$theme = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
+		$theme = erLhAbstractModelWidgetTheme::fetch($themeId);
 		$Result['theme'] = $theme;
 		$themeAppend = '/(theme)/'.$theme->id;
 	} catch (Exception $e) {

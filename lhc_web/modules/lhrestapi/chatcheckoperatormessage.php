@@ -73,7 +73,9 @@ try {
     		$department = $department !== false ? implode('/', $department) : false;
     		$uarguments = $uarguments !== false ? implode('/', $uarguments) : false;
     		$operator = is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false;
-    		$theme = is_numeric($Params['user_parameters_unordered']['theme']) && $Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : false;
+
+            $themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme']);
+    		$theme = is_numeric($themeId) ? $Params['user_parameters_unordered']['theme'] : false;
     		$survey = is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false;
     		
     		if ($userInstance->has_message_from_operator) {

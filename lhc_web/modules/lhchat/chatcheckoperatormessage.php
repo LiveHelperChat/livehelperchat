@@ -58,7 +58,7 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 		$tpl->set('department',$department !== false ? implode('/', $department) : false);
 		$tpl->set('uarguments',$uarguments !== false ? implode('/', $uarguments) : false);
 		$tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
-		$tpl->set('theme',is_numeric($Params['user_parameters_unordered']['theme']) && $Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : false);
+		$tpl->set('theme',erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme']));
 		$tpl->set('visitor',$userInstance);
 		$tpl->set('vid',(string)$Params['user_parameters_unordered']['vid']);
 		$tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
