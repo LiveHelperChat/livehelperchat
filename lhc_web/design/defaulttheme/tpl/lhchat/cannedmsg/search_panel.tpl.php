@@ -49,6 +49,22 @@
                 )); ?>
             </div>
         </div>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_title.tpl.php')); ?>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo $userTitle['user'];?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'user_id[]',
+                    'optional_field' => $userTitle['user_select'],
+                    'selected_id'    => $input->user_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name_official',
+                    'ajax'           => 'users',
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                )); ?>
+            </div>
+        </div>
     </div>
 
     <div class="btn-group" role="group" aria-label="...">
