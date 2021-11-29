@@ -627,6 +627,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
      *         not initialized with initReader().
      * @return array The current context's translation map
      */
+    #[ReturnTypeWillChange]
     public function current()
     {
         $context = $this->currentContext();

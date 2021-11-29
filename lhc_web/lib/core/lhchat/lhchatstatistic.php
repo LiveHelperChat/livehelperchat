@@ -811,6 +811,16 @@ class erLhcoreClassChatStatistic {
 
             $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
 
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['`lh_chat`.`user_id`'] = $filter['filtergt']['user_id'];
+                unset($filter['filtergt']['user_id']);
+            }
+
+            if (isset($filter['filter']['user_id'])) {
+                $filter['filter']['`lh_chat`.`user_id`'] = $filter['filter']['user_id'];
+                unset($filter['filter']['user_id']);
+            }
+            
             $generalFilter = self::formatFilter($filter);
             $generalJoin = self::formatJoin($filter);
 
