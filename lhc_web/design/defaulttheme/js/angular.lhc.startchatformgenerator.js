@@ -1,6 +1,7 @@
 lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 		
-		this.startchatfields = [];	
+		this.preconditions = [];
+		this.startchatfields = [];
 		this.size = 6;
 		this.fieldtype = 'text';
 		this.visibility = 'all';
@@ -9,9 +10,9 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 
 		var that = this;
 
-
         this.setStartChatFields = function() {
             that.startchatfields = $window['startChatFields'];
+            that.preconditions = $window['startChatPreconditions'];
         }
 
 		this.move = function(element, offset) {
@@ -22,7 +23,22 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		    that.startchatfields.splice(newIndex, 0, removedElement)
 		  }
 		};
-		    
+
+        this.addPrecondition = function(){
+            that.preconditions.push({
+                'country_allowed' : '',
+                'country_offline' : '',
+                'country_disabled' : '',
+                'country_hidden' : '',
+                'country_other' : '',
+                'action_other' : '',
+                'message_other' : '',
+                'message_disabled' : '',
+                'custom_conditions' : '',
+                'priority' : 0
+            });
+        }
+
 		this.addField = function() {
 			that.startchatfields.push({
 				'fieldname' : that.fieldname,
