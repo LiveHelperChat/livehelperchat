@@ -41,7 +41,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label><?php echo $fields['alias']['trans'];?>*</label>
+                                    <label><?php echo $fields['alias']['trans'];?></label>
                                     <?php echo erLhcoreClassAbstract::renderInput('alias', $fields['alias'], $object)?>
                                 </div>
                             </div>
