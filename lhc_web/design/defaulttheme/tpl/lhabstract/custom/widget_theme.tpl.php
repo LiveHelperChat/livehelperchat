@@ -42,7 +42,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>
-                                        <a class="live-help-tooltip" data-placement="top" title="" data-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you enter alias make sure you pass this string as argument for a theme');?>"><i class="material-icons">&#xE887;</i></a><?php echo $fields['alias']['trans'];?>
+                                        <a class="live-help-tooltip" data-placement="top" title="" data-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a><?php echo $fields['alias']['trans'];?>
                                     </label>
                                     <?php echo erLhcoreClassAbstract::renderInput('alias', $fields['alias'], $object)?>
                                 </div>

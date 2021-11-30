@@ -7,7 +7,9 @@
     </div>
     <div class="col-6">
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
+            <label><a class="live-help-tooltip" data-placement="top" title="" data-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a>
+
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
             <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?>  ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
         </div>
     </div>
@@ -424,5 +426,6 @@
 		$('#custom_date_from, #custom_date_to').fdatepicker({
 			format: 'yyyy-mm-dd'
 		});
+        $('.live-help-tooltip').tooltip();
 	});
 </script>
