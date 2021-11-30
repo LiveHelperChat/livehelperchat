@@ -8,7 +8,7 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
-            <input type="text" maxlength="50" ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
+            <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?>  ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
         </div>
     </div>
 </div>

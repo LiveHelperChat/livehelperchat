@@ -83,6 +83,7 @@ $FunctionList['actautoassignment'] = array('explain' => 'Allow user to change au
 $FunctionList['manageall'] = array('explain' => 'Allow user to manage all departments, not only assigned to him');
 $FunctionList['managegroups'] = array('explain' => 'Allow user to manage all department groups, not only assigned to him');
 $FunctionList['managesurvey'] = array('explain' => 'Allow operator to change department surveys');
+$FunctionList['managealias'] = array('explain' => 'Allow operator to change department alias');
 
 
 ?>
