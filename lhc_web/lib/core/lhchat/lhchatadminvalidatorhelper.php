@@ -318,8 +318,6 @@ class erLhcoreClassAdminChatValidatorHelper {
             // -1 means, individual per department
             $cannedMessage->department_id = -1;
 
-            // You cannot modify canned messages for the departments you are not assigned to
-
             if ($userDepartments !== true) {
                 if (
                     ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global'))
