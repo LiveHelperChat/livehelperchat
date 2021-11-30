@@ -545,6 +545,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
      *         not initialized with initReader().
      * @return void
      */
+    #[ReturnTypeWillChange]
     public function next()
     {
         if ( is_null( $this->xmlParser ) )
@@ -587,6 +588,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
      *         not initialized with initReader().
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function valid()
     {
         return $this->currentContext != null;
@@ -647,6 +649,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
      *         not initialized with initReader().
      * @return string The current context's name
      */
+    #[ReturnTypeWillChange]
     public function key()
     {
         $context = $this->currentContext();
@@ -667,6 +670,7 @@ class ezcTranslationTsBackend implements ezcTranslationBackend, ezcTranslationCo
      *         not initialized with initReader().
      * @return void
      */
+    #[ReturnTypeWillChange]
     public function rewind()
     {
         $this->next();

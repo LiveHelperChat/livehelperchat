@@ -318,42 +318,21 @@ class erLhcoreClassAdminChatValidatorHelper {
             // -1 means, individual per department
             $cannedMessage->department_id = -1;
 
+            // You cannot modify canned messages for the departments you are not assigned to
+
             if ($userDepartments !== true) {
                 if (
-                    ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) ||
-                    !empty(array_diff($cannedMessage->department_ids, $userDepartments))
+                    ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global'))
                 ) {
-                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                }
+
+                if (!empty(array_diff($cannedMessage->department_ids, $userDepartments))) {
+                    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You cannot modify canned messages for the departments you are not assigned to!');
                 }
             }
         }
 
-
-
-        /*if ( $form->hasValidData( 'DepartmentID' )  ) {
-            $cannedMessage->department_id = $form->DepartmentID;
-
-            if ($userDepartments !== true) {
-                if (($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) || !in_array($cannedMessage->department_id, $userDepartments)) {
-                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
-                }
-            }
-        } else {
-            
-            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
-
-            // Perhaps extension did some internal validation and we don't need anymore validate internaly
-            if ($response === false) {            
-                $cannedMessage->department_id = 0;
-            }
-
-            if ($userDepartments !== true) {
-                if ($cannedMessage->department_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global')) {
-                    $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
-                }
-            }
-        }*/
-        
         return $Errors;
     }
     
