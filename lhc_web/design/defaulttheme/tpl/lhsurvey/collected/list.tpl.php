@@ -25,7 +25,7 @@
     	<?php if ($input->group_results == true) : ?>
     	   <?php echo $item->virtual_chats_number?>
     	<?php else : ?>
-    	   <a class="material-icons" data-title="<?php echo htmlspecialchars($item->chat->nick,ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $item->chat_id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Open in a new window');?>">open_in_new</a><a href="#" onclick="return lhc.previewChat(<?php echo $item->chat_id?>)"><?php echo htmlspecialchars($item->chat_id)?></a>
+    	   <a class="material-icons" data-title="<?php echo htmlspecialchars(($item->chat !== null ? $item->chat->nick : ''),ENT_QUOTES);?>" onclick="lhinst.startChatNewWindow('<?php echo $item->chat_id;?>',$(this).attr('data-title'))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/activechats','Open in a new window');?>">open_in_new</a><a href="#" onclick="return lhc.previewChat(<?php echo $item->chat_id?>)"><?php echo htmlspecialchars((string)$item->chat_id)?></a>
     	<?php endif;?>
     	</td>
     	<td><?php echo htmlspecialchars($item->department_name)?></td>
