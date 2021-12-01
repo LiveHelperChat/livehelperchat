@@ -2889,7 +2889,7 @@
       },
       {
         "field": "support_joined",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2907,7 +2907,7 @@
       },
       {
         "field": "support_closed",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2916,7 +2916,7 @@
       },
       {
         "field": "bot_status_text",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2925,7 +2925,7 @@
       },
       {
         "field": "pending_join",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2934,7 +2934,7 @@
       },
       {
         "field": "pending_join_queue",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2943,7 +2943,7 @@
       },
       {
         "field": "noonline_operators",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2952,7 +2952,7 @@
       },
       {
         "field": "noonline_operators_offline",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -2961,7 +2961,7 @@
       },
       {
         "field": "name_company",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3141,7 +3141,7 @@
       },
       {
         "field": "widget_copyright_url",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3398,7 +3398,7 @@
       },
       {
         "field": "need_help_header",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3407,7 +3407,7 @@
       },
       {
         "field": "need_help_text",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3416,7 +3416,7 @@
       },
       {
         "field": "online_text",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3425,7 +3425,7 @@
       },
       {
         "field": "offline_text",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3434,7 +3434,7 @@
       },
       {
         "field": "intro_operator_text",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,
@@ -3478,7 +3478,7 @@
       },
       {
         "field": "department_title",
-        "type": "varchar(250)",
+        "type": "text",
         "null": "NO",
         "key": "",
         "default": null,

@@ -2,7 +2,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/search_panel.tpl.php')); ?>
 
-<table class="table table-sm table-hover" cellpadding="0" cellspacing="0" ng-non-bindable>
+<table class="table table-sm table-hover" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">ID</th>
@@ -19,18 +19,24 @@
 </thead>
 <?php foreach ($items as $departament) : ?>
     <tr>
-        <td><a href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo $departament->id?></a></td>
-        <td title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></a></td>
-        <td><?php echo htmlspecialchars($departament->email)?></td>
-        <td><?php if ($departament->hidden == 1) : ?><span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
-        <td nowrap>
+        <td nowrap="">
+            <a href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo $departament->id?></a>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?><a href="#" ng-click="lhc.openModal('statistic/departmentstats/<?php echo $departament->id?>')"><?php endif; ?>
+            <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Load statistic');?>" class="material-icons text-info">donut_large</i>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?></a><?php endif; ?>
+
+        </td>
+        <td ng-non-bindable title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></a></td>
+        <td ng-non-bindable><?php echo htmlspecialchars($departament->email)?></td>
+        <td ng-non-bindable><?php if ($departament->hidden == 1) : ?><span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td ng-non-bindable><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td ng-non-bindable><?php if ($departament->visible_if_online == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td ng-non-bindable><?php if ($departament->is_overloaded == true) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td ng-non-bindable><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
+        <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/<?php echo htmlspecialchars($departament->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
         </td>
-        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
+        <td nowrap ng-non-bindable><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>

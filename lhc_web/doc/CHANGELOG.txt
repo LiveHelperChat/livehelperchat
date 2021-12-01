@@ -1,3 +1,9 @@
+3.90v
+
+Widget theme table columns type changes. On some MySQL servers it was returning that row size to big.
+
+execute doc/update_db/update_262.sql for update
+
 3.89v
 
 1. Canned messages can be disabled now.

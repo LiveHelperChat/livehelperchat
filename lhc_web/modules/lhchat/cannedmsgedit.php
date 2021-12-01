@@ -13,8 +13,12 @@ if ($userDepartments !== true) {
 	if ((!erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global') && $Msg->department_id == 0) ||
         (!empty(array_diff($Msg->department_ids_front, $userDepartments)) && $Msg->department_id == -1)
     ) {
-		erLhcoreClassModule::redirect('chat/cannedmsg');
-		exit;
+        $tpl->setFile( 'lhkernel/validation_error.tpl.php');
+        $tpl->set('show_close_button',true);
+        $tpl->set('auto_close_dialog',true);
+        $tpl->set('errors',[erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You cannot modify canned messages for the departments you are not assigned to!')]);
+        $Result['content'] = $tpl->fetch();
+		return;
 	}
 }
 
