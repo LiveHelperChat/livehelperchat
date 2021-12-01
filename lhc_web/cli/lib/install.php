@@ -407,7 +407,6 @@ class Install
   `modified` int(11) NOT NULL,
   `widget_show_leave_form` tinyint(1) NOT NULL,
   `enable_widget_embed_override` tinyint(1) NOT NULL,
-  `widget_ptop` int(11) NOT NULL DEFAULT 0,
   `widget_popheight` int(11) NOT NULL,
   `widget_popwidth` int(11) NOT NULL,
   `widget_survey` int(11) NOT NULL,
