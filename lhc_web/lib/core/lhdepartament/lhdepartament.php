@@ -229,10 +229,12 @@ class erLhcoreClassDepartament{
 	   		$department->name = $form->Name;
 	   	}
 
-	   	if ( $form->hasValidData( 'Alias' )  )
-	   	{
-            $department->alias = $form->Alias;
-	   	}
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias') == true) {
+            if ( $form->hasValidData( 'Alias' )  )
+            {
+                $department->alias = $form->Alias;
+            }
+        }
 
        $botConfiguration = $department->bot_configuration_array;
 

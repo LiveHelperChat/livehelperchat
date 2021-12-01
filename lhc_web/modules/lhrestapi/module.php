@@ -219,6 +219,11 @@ $ViewList['checkchatstatus'] = array(
     'uparams' => array('mode','theme','dot')
 );
 
+$ViewList['surveychat'] = array(
+    'params' => array('chat_id','survey_id'),
+    'uparams' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Allow operator to manage REST API');
 $FunctionList['use_direct_logins'] = array('explain' => 'Allow operator use api directly with his username and password');
@@ -228,5 +233,6 @@ $FunctionList['object_api'] = array('explain' => 'Allow operator to user objects
 $FunctionList['updatelastactivity'] = array('explain' => 'Allow operator update other operator last activity');
 $FunctionList['file_download'] = array('explain' => 'Allow operator to download file');
 $FunctionList['list_extensions'] = array('explain' => 'Allow operator to list extensions');
+$FunctionList['survey'] = array('explain' => 'Allow operator to work with survey');
 
 ?>

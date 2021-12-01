@@ -89,7 +89,7 @@
 	   <div class="col-6">
     	   <div class="form-group" ng-show="group_results">
     	      <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Minimum chats');?></label>
-    	      <input class="form-control" type="text" name="minimum_chats" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Optional')?>" value="<?php echo htmlspecialchars($input->minimum_chats)?>" />
+    	      <input class="form-control" type="text" name="minimum_chats" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Optional')?>" value="<?php echo htmlspecialchars((string)$input->minimum_chats)?>" />
     	   </div>
 	   </div>
 	</div>

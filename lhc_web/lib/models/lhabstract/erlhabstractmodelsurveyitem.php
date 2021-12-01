@@ -69,6 +69,19 @@ class erLhAbstractModelSurveyItem {
 	   	       
 	   		   return $this->survey;
 	   		break;
+
+	   	case 'chat':
+	   	       $this->chat = null;
+
+	   	       if ($this->chat_id > 0) {
+	   	           $this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
+                   if (!($this->chat instanceof erLhcoreClassModelChat)){
+                      $this->chat = null;
+                   }
+	   	       }
+
+	   		   return $this->chat;
+	   		break;
 	       
 	   	case 'ftime_front':
 	   	       $this->ftime_front = date('Ymd') == date('Ymd',$this->ftime) ? date(erLhcoreClassModule::$dateHourFormat,$this->ftime) : date(erLhcoreClassModule::$dateDateHourFormat,$this->ftime);
