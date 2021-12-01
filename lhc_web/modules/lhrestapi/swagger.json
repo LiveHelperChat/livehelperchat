@@ -4246,7 +4246,7 @@
           "type": "integer",
           "default": "0",
           "required": false,
-          "description": "Status. const STATUS_PERSISTENT = 0; const STATUS_TEMP = 1;"
+          "description": "Status. const STATUS_PERSISTENT = 0; const STATUS_TEMP = 1; Temporary status means visitor can refill survey."
         },
         "max_stars_1": {
           "type": "integer",

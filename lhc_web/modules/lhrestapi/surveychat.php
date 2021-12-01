@@ -44,7 +44,17 @@ try {
             }
         }
 
-        $errors = erLhcoreClassSurveyValidator::validateSurvey($presentSurvey, $survey, $attributes);
+        foreach ($requestBody as $attr => $value) {
+            if (in_array($attr,['ftime','status'])) {
+                $presentSurvey->{$attr} = $value;
+            }
+        }
+
+        if (!empty($attributes)) {
+            $errors = erLhcoreClassSurveyValidator::validateSurvey($presentSurvey, $survey, $attributes);
+        } else {
+            $errors = [];
+        }
 
         if (!empty($errors)) {
             http_response_code(403);
