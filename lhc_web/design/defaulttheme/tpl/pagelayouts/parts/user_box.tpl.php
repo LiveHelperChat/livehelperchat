@@ -76,7 +76,7 @@ if ($UserData->force_logout == 1) {
         <?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
             <div class="row">
                 <div class="col-12">
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('user/setsetting')?>/auto_uppercase/<?php echo erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1) == 0 ? 1 : 0?>" class="dropdown-item pl-2"><span class="material-icons"><?php erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1) ? print 'check' : print 'remove_done'?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?>s</a>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('user/setsetting')?>/auto_uppercase/<?php echo erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1) == 0 ? 1 : 0?>" class="dropdown-item pl-2"><span class="material-icons"><?php erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1) ? print 'check' : print 'remove_done'?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?></a>
                 </div>
                 <div class="col-12">
                     <a href="<?php echo erLhcoreClassDesign::baseurl('user/setsetting')?>/no_scroll_bottom/<?php echo erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',0) == 0 ? 1 : 0?>" class="dropdown-item pl-2"><span class="material-icons"><?php erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',0) ? print 'check' : print 'remove_done'?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not scroll to the bottom on chat open');?></a>
