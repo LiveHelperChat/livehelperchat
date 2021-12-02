@@ -130,7 +130,7 @@
 
             <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
         </td>
-        <td><?php echo htmlspecialchars($item->department)?></td>
+        <td><?php echo htmlspecialchars((string)$item->department)?></td>
         <td><?php echo htmlspecialchars($item->nick)?></td>
         <td><?php echo htmlspecialchars($item->expires_front)?> [<?php echo $item->block_duration?>]</td>
         <td><?php echo htmlspecialchars($item->datets_front)?></td>

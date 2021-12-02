@@ -665,6 +665,9 @@ class erLhcoreClassAdminChatValidatorHelper {
 	        'CustomFieldsEncryption' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
 	        ),
+            'pre_conditions' => new ezcInputFormDefinitionElement(
+	            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+	        ),
             'customFieldURLIdentifier' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
             ),
@@ -701,10 +704,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             $data['np_border'] = false;
         }
 
-        // Priority options
-
-
-
+        if ( $form->hasValidData( 'pre_conditions' )) {
+            $data['pre_conditions'] = $form->pre_conditions;
+        }
 
         if ( $form->hasValidData( 'OnlineNamePriority' )) {
             $data['name_priority'] = $form->OnlineNamePriority;

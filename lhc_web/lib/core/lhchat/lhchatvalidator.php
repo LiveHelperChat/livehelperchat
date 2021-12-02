@@ -2223,6 +2223,181 @@ class erLhcoreClassChatValidator {
 
         return false;
     }
+
+    public static function conditionsMatches($conditions, $params) {
+        $groupedConditions = [];
+        $conditionItems = $conditions;
+
+        $isValid = true;
+
+        foreach ($conditions as $indexCondition => $conditionItem) {
+            $subItems[] = $indexCondition;
+            $allItems[] = $indexCondition;
+            if (isset($conditionItem['logic']) && $conditionItem['logic'] == 'or') {
+                $nextConditionChild = true;
+            } else {
+                $nextConditionChild = false;
+            }
+            if ($nextConditionChild === false) {
+                $groupedConditions[] = $subItems;
+                $subItems = array();
+            }
+        }
+
+        if (!empty($subItems)) {
+            $groupedConditions[] = $subItems;
+        }
+
+        foreach ($groupedConditions as $groupedConditionItems) {
+            $isValidSubItem = false;
+            foreach ($groupedConditionItems as $groupedConditionItem) {
+                $conditionsCurrent = $conditionItems[$groupedConditionItem];
+
+                $conditionItemValid = false;
+
+                $conditionAttr = $conditionsCurrent['field'];
+
+                if (strpos($conditionAttr, '{args.') !== false) {
+                    $matchesValues = array();
+                    preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
+                    if (!empty($matchesValues[0])) {
+                        foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
+                            $conditionAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
+                        }
+                    }
+                }
+
+                $valueAttr = $conditionsCurrent['value'];
+                if (strpos($valueAttr, '{args.') !== false) {
+                    $matchesValues = array();
+                    preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr, $matchesValues);
+                    if (!empty($matchesValues[0])) {
+                        foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
+                            $valueAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
+                        }
+                    }
+                }
+
+                $replaceArray = array(
+                    '{time}' => time()
+                );
+
+                // Remove internal variables
+                $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $conditionAttr);
+                $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
+
+                if (!in_array($conditionsCurrent['comparator'],['like','notlike','contains'])) {
+                    // Remove spaces
+                    $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                    $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+
+                    // Allow only mathematical operators
+                    $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                    $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+
+                    if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
+                        // Evaluate if there is mathematical rules
+                        eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                    }
+
+                    if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
+                        // Evaluate if there is mathematical rules
+                        eval('$valueAttr = ' . $valueAttrMath . ";");
+                    }
+                }
+
+                if ($conditionsCurrent['comparator'] == 'eq' && ($conditionAttr == $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'in' && in_array(mb_strtolower($conditionAttr),explode(',',mb_strtolower(str_replace(' ','',trim($valueAttr)))))) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'lt' && ($conditionAttr < $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'lte' && ($conditionAttr <= $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'neq' && ($conditionAttr != $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'gte' && ($conditionAttr >= $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'gt' && ($conditionAttr > $valueAttr)) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                        'pattern' => $valueAttr,
+                        'msg' => $conditionAttr,
+                        'words_typo' => 0,
+                    ))['found'] == true) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                        'pattern' => $valueAttr,
+                        'msg' => $conditionAttr,
+                        'words_typo' => 0,
+                    ))['found'] == false) {
+                    $conditionItemValid = true;
+                } else if ($conditionsCurrent['comparator'] == 'contains' && strrpos($conditionAttr,$valueAttr) !== false) {
+                    $conditionItemValid = true;
+                }
+
+                if ($conditionItemValid == true) {
+                    $isValidSubItem = true;
+                }
+            }
+
+            if ($isValidSubItem == false) {
+                $isValid = false;
+                break; // No point to check anything else
+            }
+        }
+
+        return $isValid;
+    }
+
+    public static function validatePreconditions($precondition, $params) {
+
+        if (isset($precondition['online']) && !empty($precondition['online'])) {
+            $onlineMode = self::conditionsMatches($precondition['online'], $params);
+        } else {
+            $onlineMode = true;
+        }
+
+        $offlineMode = false;
+        // Disable only if there is online conditions OR there is disable conditions
+        if (
+            ((isset($precondition['online']) && !empty($precondition['online']) && $onlineMode == false) ||
+            isset($precondition['offline']) && !empty($precondition['offline'])) &&
+            isset($precondition['offline_enabled']) && $precondition['offline_enabled'] == true &&
+            self::conditionsMatches($precondition['offline'], $params)
+        ) {
+            $offlineMode = true;
+        }
+
+        $disableMode = false;
+        $messageDisable = '';
+        if (
+            $offlineMode == false &&
+            (
+                (isset($precondition['online']) && !empty($precondition['online']) && $onlineMode == false) ||
+                isset($precondition['disable']) && !empty($precondition['disable'])
+            ) &&
+            isset($precondition['disable_enabled']) && $precondition['disable_enabled'] == true &&
+            self::conditionsMatches($precondition['disable'], $params)
+        ) {
+            $disableMode = true;
+            if (!isset($params['ignore_message'])) {
+                $messageDisable = erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($precondition['disable_message'], array('online_user' => $params['online_user'], 'args' => $params))));
+            }
+        }
+
+        if ($offlineMode == true) {
+            return ['mode' => 'offline'];
+        } else if ($disableMode == true) {
+            return ['mode' => 'disable', 'message' => $messageDisable];
+        } else if ($onlineMode == true) {
+            return ['mode' => 'online'];
+        } else {
+            return ['mode' => 'terminate'];
+        }
+    }
 }
 
 ?>

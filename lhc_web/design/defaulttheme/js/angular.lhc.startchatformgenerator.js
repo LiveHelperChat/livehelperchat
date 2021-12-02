@@ -1,6 +1,6 @@
 lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 		
-		this.startchatfields = [];	
+		this.startchatfields = [];
 		this.size = 6;
 		this.fieldtype = 'text';
 		this.visibility = 'all';
@@ -8,7 +8,6 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		this.priority = 50;
 
 		var that = this;
-
 
         this.setStartChatFields = function() {
             that.startchatfields = $window['startChatFields'];
@@ -22,7 +21,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		    that.startchatfields.splice(newIndex, 0, removedElement)
 		  }
 		};
-		    
+
 		this.addField = function() {
 			that.startchatfields.push({
 				'fieldname' : that.fieldname,
@@ -50,10 +49,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		this.moveRightField = function(field) {
 			that.move(field,1);
 		}		
-		
-		
 }]);
-
 lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log,  $window) {
 
 		this.startchatfields = [];
@@ -93,4 +89,48 @@ lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location
 		}
 
 
+}]);
+lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log,  $window) {
+
+		this.conditions = {
+            'online': [],
+            'offline': [],
+            'disable': [],
+            'offline_enabled' : false,
+            'disable_enabled' : false,
+            'disable_message' : ''
+        };
+
+        this.deleteElement = function (element,list) {
+            if (confirm('Are you sure?')){
+                list.splice(list.indexOf(element), 1);
+            }
+        }
+
+        var that = this;
+
+        this.move = function(element, list, offset) {
+            index = list.indexOf(element);
+            newIndex = index + offset;
+            if (newIndex > -1 && newIndex < list.length){
+                removedElement = list.splice(index, 1)[0];
+                list.splice(newIndex, 0, removedElement)
+            }
+        };
+
+        this.setStartFields = function() {
+            that.conditions = $window['startChatFieldsConditions'];
+        }
+
+		this.addField = function(list) {
+			that.conditions[list].push({field:"", logic: "and", comparator : "eq"});
+		};
+
+        this.moveUp = function(field,list) {
+            that.move(field,list,-1);
+        }
+
+        this.moveDown = function(field,list) {
+            that.move(field,list,1);
+        }
 }]);

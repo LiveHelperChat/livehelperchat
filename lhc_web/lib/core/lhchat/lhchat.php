@@ -2017,7 +2017,6 @@ class erLhcoreClassChat {
        $timeToAdd = 0;
        while ($row = $stmt->fetch(PDO::FETCH_ASSOC, PDO::FETCH_ORI_NEXT)) {
            if ($previousMessage === null) {
-               //$row['time'] = $row['time']; // Consider that first user message was time plus wait time. Wait time is time then operator accepted a chat.
                $previousMessage = $row;
                continue;
            }
@@ -2030,22 +2029,11 @@ class erLhcoreClassChat {
 
            $diff = $row['time'] - $previousMessage['time'];
 
-           //$ignored = true;
            if ($diff < $timeout && $diff > 0) {
                $timeToAdd += $diff;
-               //$ignored = false;
            }
-           //echo date('Y-m-d H:i:s',$row['time']),'||',$diff,'||',(int)$ignored,'||',$row['msg'],"\n";
            $previousMessage = $row;
        }
-
-	   	/*$sql = 'SELECT ((SELECT MAX(lh_msg.time) FROM lh_msg WHERE lh_msg.chat_id = lh_chat.id AND lh_msg.user_id = 0)-(lh_chat.time+lh_chat.wait_time)) AS chat_duration_counted FROM lh_chat WHERE lh_chat.id = :chat_id';
-	   	$db = ezcDbInstance::get();
-	   	$stmt = $db->prepare($sql);
-	   	$stmt->bindValue(':chat_id',$chat->id);
-	   	$stmt->bindValue(':cls_time',$chat->cls_time);
-	   	$stmt->execute();
-	   	$time = $stmt->fetchColumn();*/
 
    	   	return $timeToAdd;
    }
