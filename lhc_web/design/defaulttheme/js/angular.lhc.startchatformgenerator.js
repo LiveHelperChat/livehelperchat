@@ -1,6 +1,5 @@
 lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
 		
-		this.preconditions = [];
 		this.startchatfields = [];
 		this.size = 6;
 		this.fieldtype = 'text';
@@ -12,7 +11,6 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 
         this.setStartChatFields = function() {
             that.startchatfields = $window['startChatFields'];
-            that.preconditions = $window['startChatPreconditions'];
         }
 
 		this.move = function(element, offset) {
@@ -23,21 +21,6 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		    that.startchatfields.splice(newIndex, 0, removedElement)
 		  }
 		};
-
-        this.addPrecondition = function(){
-            that.preconditions.push({
-                'country_allowed' : '',
-                'country_offline' : '',
-                'country_disabled' : '',
-                'country_hidden' : '',
-                'country_other' : '',
-                'action_other' : '',
-                'message_other' : '',
-                'message_disabled' : '',
-                'custom_conditions' : '',
-                'priority' : 0
-            });
-        }
 
 		this.addField = function() {
 			that.startchatfields.push({
@@ -66,10 +49,7 @@ lhcAppControllers.controller('StartChatFormCtrl',['$scope','$http','$location','
 		this.moveRightField = function(field) {
 			that.move(field,1);
 		}		
-		
-		
 }]);
-
 lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log,  $window) {
 
 		this.startchatfields = [];
@@ -109,4 +89,45 @@ lhcAppControllers.controller('StartChatFormURLCtrl',['$scope','$http','$location
 		}
 
 
+}]);
+lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log,  $window) {
+
+		this.conditions = {
+            'online': [],
+            'offline': [],
+            'disable': []
+        };
+
+        this.deleteElement = function (element,list) {
+            if (confirm('Are you sure?')){
+                list.splice(list.indexOf(element), 1);
+            }
+        }
+
+        var that = this;
+
+        this.move = function(element, list, offset) {
+            index = list.indexOf(element);
+            newIndex = index + offset;
+            if (newIndex > -1 && newIndex < list.length){
+                removedElement = list.splice(index, 1)[0];
+                list.splice(newIndex, 0, removedElement)
+            }
+        };
+
+        this.setStartFields = function() {
+            that.conditions = $window['startChatFieldsConditions'];
+        }
+
+		this.addField = function(list) {
+			that.conditions[list].push({field:"", logic: "and"});
+		};
+
+        this.moveUp = function(field,list) {
+            that.move(field,list,-1);
+        }
+
+        this.moveDown = function(field,list) {
+            that.move(field,list,1);
+        }
 }]);
