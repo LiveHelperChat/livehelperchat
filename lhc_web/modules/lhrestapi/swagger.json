@@ -22,6 +22,10 @@
       "description": "API Related to chats"
     },
     {
+      "name": "survey",
+      "description": "API Related to working with survey"
+    },
+    {
       "name": "user",
       "description": "API Related to user"
     },
@@ -1580,6 +1584,158 @@
         "responses": {
           "200": {
             "description": "Deletes specified file",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      }
+    },
+    "/restapi/surveychat/{chat_id}/{survey_id}": {
+      "get": {
+        "tags": [
+          "survey"
+        ],
+        "summary": "Fetches survey by chat id",
+        "description": "`lhrestapi`, `survey`",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID to fetch",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "survey_id",
+            "in": "path",
+            "description": "Survey ID. If you do not pass survey ID, all filled surveys related to the chat will be returned.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns filled survey data by chat",
+            "schema": {
+              "$ref": "#/definitions/Survey"
+            }
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "survey"
+        ],
+        "summary": "Update/Creates chat survey data",
+        "description": "Required permissions - `lhrestapi`, `survey`",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Survey object needs to be updated/created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Survey"
+            }
+          },
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "survey_id",
+            "in": "path",
+            "description": "Survey ID.",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updates chat survey with specified attributes",
+            "schema": {
+            }
+          },
+          "400": {
+            "description": "Internal error",
+            "schema": {
+            }
+          },
+          "403": {
+            "description": "Validation error",
+            "schema": {
+            }
+          }
+        },
+        "security": [
+          {
+            "login": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "survey"
+        ],
+        "summary": "Deletes specified survey data",
+        "description": "Required permission - `lhrestapi`, `survey`",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "description": "Chat ID",
+            "required": true,
+            "type": "string",
+            "format": "int32"
+          },
+          {
+            "name": "survey_id",
+            "in": "path",
+            "description": "Survey ID. If you do not pass Survey ID, all related surveys to the chat will be deleted.",
+            "required": false,
+            "type": "string",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletes specified survey data if it exists",
             "schema": {
             }
           },
@@ -4042,6 +4198,148 @@
           "user_groups" : [1]
       }
    },
+   "Survey": {
+      "type": "object",
+      "example" : {
+        "max_stars_1" : 5,
+        "question_options_1": 1,
+        "question_plain_1": "Plain answer"
+      },
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Filled survey ID"
+        },
+        "survey_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Survey ID"
+        },
+       "chat_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Chat ID"
+        },
+       "user_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "User ID"
+        },
+       "ftime": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Fill time in unix timestamp"
+        },
+        "dep_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Department ID"
+        },
+        "status": {
+          "type": "integer",
+          "default": "0",
+          "required": false,
+          "description": "Status. const STATUS_PERSISTENT = 0; const STATUS_TEMP = 1; Temporary status means visitor can refill survey."
+        },
+        "max_stars_1": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Starts number"
+        },
+        "max_stars_2": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Starts number"
+        },
+        "max_stars_3": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Starts number"
+        },
+        "max_stars_4": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Starts number"
+        },
+        "max_stars_5": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Starts number"
+        },
+        "question_options_1": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Answer number with options"
+        },
+        "question_options_2": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Answer number with options"
+        },
+        "question_options_3": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Answer number with options"
+        },
+        "question_options_4": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Answer number with options"
+        },
+        "question_options_5": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Answer number with options"
+        },
+        "question_plain_1": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Visitor answer to plain question"
+        },
+        "question_plain_2": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Visitor answer to plain question"
+        },
+        "question_plain_3": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Visitor answer to plain question"
+        },
+        "question_plain_4": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Visitor answer to plain question"
+        },
+        "question_plain_5": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Visitor answer to plain question"
+        }
+      }
+  },
    "File": {
       "type": "object",
       "properties": {

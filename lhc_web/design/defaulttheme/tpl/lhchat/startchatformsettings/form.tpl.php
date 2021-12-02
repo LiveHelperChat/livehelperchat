@@ -47,6 +47,7 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 		<li role="presentation" class="nav-item"><a href="#customfields" class="nav-link" aria-controls="customfields" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Custom fields');?></a></li>
 		<li role="presentation" class="nav-item"><a href="#urlfields" class="nav-link" aria-controls="urlfields" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','URL Arguments');?></a></li>
 		<li role="presentation" class="nav-item"><a href="#prechat" class="nav-link" aria-controls="prechat" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Pre chat');?></a></li>
+		<li role="presentation" class="nav-item"><a href="#prechatconditions" class="nav-link" aria-controls="prechatconditions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Pre chat conditions');?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
@@ -415,6 +416,11 @@ echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 		<div role="tabpanel" class="tab-pane" id="prechat">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/prechat.tpl.php'));?>
 		</div>
+
+        <div role="tabpanel" class="tab-pane" id="prechatconditions">
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/startchatformsettings/prechatconditions.tpl.php'));?>
+        </div>
+
 
 	</div>
 </div>

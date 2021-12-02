@@ -51,7 +51,7 @@ class erLhcoreClassModelCannedMsgReplace
         $conditionArray = $this->conditions_array;
 
         uasort($conditionArray, function ($a, $b) {
-            return isset($a['priority']) && isset($b['priority']) && $a['priority'] < $b['priority'];
+            return (isset($a['priority']) && isset($b['priority']) && $a['priority'] < $b['priority']) ? 1 : 0;
         });
 
         if (!isset($params['user'])) {

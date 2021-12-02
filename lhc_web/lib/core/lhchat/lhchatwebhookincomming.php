@@ -299,7 +299,7 @@ class erLhcoreClassChatWebhookIncoming {
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
             'filter' => array(
-                'chat_external_id' => $payloadMessage[$conditions['chat_id']],
+                'chat_external_id' => self::extractAttribute('chat_id',$conditions,$payloadMessage),
                 'incoming_id' => $incomingWebhook->id
             )
         ));

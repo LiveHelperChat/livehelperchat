@@ -1004,6 +1004,30 @@ if ($messageFieldVisible === false && $visibleCount == 1) {
 
 $chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
 
+
+if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pre_conditions'])) {
+    $preConditions = json_decode($start_data_fields['pre_conditions'], true);
+    if (
+        (isset($preConditions['online']) && !empty($preConditions['online'])) ||
+        (isset($preConditions['offline']) && !empty($preConditions['offline'])) ||
+        (isset($preConditions['disable']) && !empty($preConditions['disable'])) ) {
+        if (!isset($onlineUser) || !($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
+            if (isset($Params['user_parameters_unordered']['vid']) && !empty($Params['user_parameters_unordered']['vid'])){
+                $onlineUser = erLhcoreClassModelChatOnlineUser::fetchByVid($Params['user_parameters_unordered']['vid']);
+            }
+        }
+
+        $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['online_user' => (isset($onlineUser) ? $onlineUser : false)]);
+
+        if ($outcome['mode'] == 'disable') {
+            $chat_ui['disabled'] = $outcome['message'];
+        } else if ($outcome['mode'] == 'terminate') {
+            $chat_ui['disabled'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
+        }
+    }
+}
+
+
 $outputResponse = array(
     'fields' => $fields,
     'fields_visible' => $visibleCount, // how many fields are visible one

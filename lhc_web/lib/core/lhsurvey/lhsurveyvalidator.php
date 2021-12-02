@@ -6,7 +6,7 @@
  * */
 class erLhcoreClassSurveyValidator {
 
-	public static function validateSurvey(erLhAbstractModelSurveyItem & $surveyItem, erLhAbstractModelSurvey $survey)
+	public static function validateSurvey(erLhAbstractModelSurveyItem & $surveyItem, erLhAbstractModelSurvey $survey, $uparams = [])
 	{
 		include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));
 
@@ -33,8 +33,13 @@ class erLhcoreClassSurveyValidator {
 	    		}
 			}
 		}
-		
-		$form = new ezcInputForm( INPUT_POST, $definition );
+
+        if (empty($uparams)) {
+            $form = new ezcInputForm( INPUT_POST, $definition );
+        } else {
+            $form = new erLhcoreClassInputForm( INPUT_POST, $definition, null, $uparams);
+        }
+
 		$Errors = array();
 		
 		for ($i = 0; $i < 16; $i++)

@@ -275,7 +275,7 @@ class erLhcoreClassModelChatOnlineUser
             case 'visitor_tz_time':
                 $this->visitor_tz_time = '-';
                 if ($this->visitor_tz != '') {
-                    $date = new DateTime(null, new DateTimeZone($this->visitor_tz));
+                    $date = new DateTime('NOW', new DateTimeZone($this->visitor_tz));
                     $this->visitor_tz_time = $date->format(erLhcoreClassModule::$dateHourFormat);
                 }
                 return $this->visitor_tz_time;
