@@ -2159,6 +2159,18 @@ class erLhcoreClassGenericBotWorkflow {
         if (isset($params['chat'])) {
             $depId = $params['chat']->dep_id;
             $locale = $params['chat']->chat_locale;
+        } elseif (isset($params['online_user']) && is_object($params['online_user'])) {
+            $depId = $params['online_user']->dep_id;
+        }
+
+        if ($locale === null) {
+            if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+                $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+                $languages = explode(',',$parts[0]);
+                if (isset($languages[0])) {
+                    $locale = $languages[0];
+                }
+            }
         }
 
         if (isset($params['chat'])) {
@@ -2218,7 +2230,6 @@ class erLhcoreClassGenericBotWorkflow {
 
             if (!empty($identifiers)) {
                 $department = erLhcoreClassModelDepartament::fetch($depId,true);
-
                 if ($department instanceof erLhcoreClassModelDepartament) {
                     $configuration = $department->bot_configuration_array;
                     if (isset($configuration['bot_tr_id']) && $configuration['bot_tr_id'] > 0 && !empty($identifiers)) {

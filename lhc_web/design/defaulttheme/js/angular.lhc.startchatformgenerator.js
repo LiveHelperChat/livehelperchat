@@ -95,7 +95,10 @@ lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$lo
 		this.conditions = {
             'online': [],
             'offline': [],
-            'disable': []
+            'disable': [],
+            'offline_enabled' : false,
+            'disable_enabled' : false,
+            'disable_message' : ''
         };
 
         this.deleteElement = function (element,list) {
@@ -120,7 +123,7 @@ lhcAppControllers.controller('StartChatFormPreconditions',['$scope','$http','$lo
         }
 
 		this.addField = function(list) {
-			that.conditions[list].push({field:"", logic: "and"});
+			that.conditions[list].push({field:"", logic: "and", comparator : "eq"});
 		};
 
         this.moveUp = function(field,list) {

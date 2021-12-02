@@ -413,6 +413,10 @@ class StartChat extends Component {
                     bottom_messages += " position-relative";
                 }
 
+                if (this.props.chatwidget.getIn(['chat_ui','disabled'])) {
+                    return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['chat_ui','disabled'])} />;
+                }
+
                 return (
                     <React.Fragment>
 
@@ -481,6 +485,7 @@ class StartChat extends Component {
                             (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
                     }
                     <div className="container-fluid">
+
                         <ChatErrorList errors={this.props.chatwidget.get('validationErrors')} />
 
                         {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className="custom-html-container" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}

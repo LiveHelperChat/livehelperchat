@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 188;
+            lhc.version = 189;
 
             var init = () => {
 
@@ -253,7 +253,9 @@
                         'dep': attributesWidget.department.join(','),
                         'idnt': attributesWidget.identifier,
                         'tag': attributesWidget.tag,
-                        'theme': attributesWidget.theme
+                        'theme': attributesWidget.theme,
+                        'mode': attributesWidget.mode,
+                        'pos': attributesWidget.position
                     };
                 }
 
@@ -510,7 +512,7 @@
 
                     attributesWidget.proactive_interval = data.chat_ui.proactive_interval;
 
-                    if ((attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup' || attributesWidget.mode == 'embed') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
+                    if (!data.disable_proactive && (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup' || attributesWidget.mode == 'embed') && (typeof LHC_API.args.proactive === 'undefined' || LHC_API.args.proactive === true) && attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_invt') === null) {
                         showProactive();
                     }
 

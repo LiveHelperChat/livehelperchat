@@ -7,12 +7,14 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Department');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
+    <th width="1%">&nbsp;</th>
 </tr>
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
         <td><?php echo htmlspecialchars($item->name)?></td>
         <td><?php echo htmlspecialchars($item->department)?></td>
+        <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/copyfrom')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/editstartsettings')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>
         <td><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/deletestartsettings')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
     </tr>
@@ -26,5 +28,8 @@
 <?php endif;?>
 
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','create')) : ?>
-<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/newstartsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','New');?></a>
+<div class="btn-group" role="group" aria-label="...">
+    <a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/newstartsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','New');?></a>
+    <a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/copyfrom/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Create a copy from default settings');?></a>
+</div>
 <?php endif;?>

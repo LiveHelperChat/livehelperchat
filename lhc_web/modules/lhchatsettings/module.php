@@ -15,6 +15,11 @@ $ViewList['newstartsettings'] = array(
     'functions' => array( 'administrate' )
 );
 
+$ViewList['copyfrom'] = array(
+    'params' => array('from'),
+    'functions' => array( 'administrate' )
+);
+
 $ViewList['editstartsettings'] = array(
     'params' => array('id'),
     'functions' => array( 'administrate' )
