@@ -1,29 +1,54 @@
 <?php if ($currentUser->hasAccessTo('lhmailconv','use_admin')) : ?>
 <div role="tabpanel" class="tab-pane" id="mailconv">
-    <ul class="circle small-list">
 
-        <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
-        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/mailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox');?></a></li>
-        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/personalmailboxgroups')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups');?></a></li>
-        <?php endif; ?>
+    <div class="row">
 
-        <?php if ($currentUser->hasAccessTo('lhmailconv','mrules_manage')) : ?>
-        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/matchingrules')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules');?></a></li>
-        <?php endif; ?>
+        <div class="col-6">
+            <h6>Mail option</h6>
 
-        <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
-            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates');?></a></li>
-        <?php endif; ?>
+            <ul class="circle small-list">
 
-        <?php if ($currentUser->hasAccessTo('lhmailconv','send_mail')) : ?>
-            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail');?></a></li>
-        <?php endif; ?>
+                <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/mailbox')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mailbox');?></a></li>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/personalmailboxgroups')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Personal mailbox groups');?></a></li>
+                <?php endif; ?>
 
-        <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
-            <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/options')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options');?></a></li>
-        <?php endif; ?>
+                <?php if ($currentUser->hasAccessTo('lhmailconv','mrules_manage')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/matchingrules')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules');?></a></li>
+                <?php endif; ?>
 
-        <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
-    </ul>
+                <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates');?></a></li>
+                <?php endif; ?>
+
+
+
+                <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/options')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options');?></a></li>
+                <?php endif; ?>
+
+                <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <h6>Mailing options</h6>
+
+            <ul class="circle small-list">
+
+                <?php if ($currentUser->hasAccessTo('lhmailing','mailinglist')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','My mailing list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/mailinglist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','My mailing list');?></a></li>
+                <?php endif; ?>
+
+                <?php if ($currentUser->hasAccessTo('lhmailconv','send_mail')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Send an e-mail');?></a></li>
+                <?php endif; ?>
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
 </div>
 <?php endif; ?>

@@ -372,7 +372,10 @@ return array_merge(array (
         'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php',
 
         'erLhcoreClassModelChatAction'          => 'lib/models/lhchat/erlhcoreclassmodelchataction.php',
-        'erLhcoreClassGenericBotActionLaction'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlaction.php'
+        'erLhcoreClassGenericBotActionLaction'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlaction.php',
+
+        // Mailing list
+        'erLhcoreClassModelMailconvMailingList' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailinglist.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );
