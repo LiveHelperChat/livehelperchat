@@ -1,5 +1,7 @@
 <?php
 
+header('X-Frame-Options: DENY');
+
 $lhUser = erLhcoreClassUser::instance();
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.logout',array('user' => & $lhUser));
