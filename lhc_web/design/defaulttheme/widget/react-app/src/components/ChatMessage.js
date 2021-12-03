@@ -112,6 +112,8 @@ class ChatMessage extends PureComponent {
                 } else {
                     alert(t('bot.please_choose'));
                 }
+            } else if (attrs.onclick.indexOf('lhinst.zoomImage') !== -1) {
+                helperFunctions.sendMessageParentDirect('zoomImage', [{'src' : attrs.src, title: attrs.title ? attrs.title : '' }]);
             } else {
                 helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
                 console.log('Unknown click event: ' + attrs.onclick);
