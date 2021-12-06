@@ -149,6 +149,7 @@ class erLhcoreClassModelUserDep
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
+        max(`ro`) as `ro`,
         max(`dep_id`) as `dep_id`,
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
