@@ -4,7 +4,12 @@ header('X-Frame-Options: DENY');
 
 $lhUser = erLhcoreClassUser::instance();
 
-if (!$lhUser->isLogged() || !$lhUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+if (!$lhUser->isLogged()) {
+    erLhcoreClassModule::redirect('user/login');
+    exit;
+}
+
+if (!$lhUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
     die('Invalid CSFR Token');
     exit;
 }
