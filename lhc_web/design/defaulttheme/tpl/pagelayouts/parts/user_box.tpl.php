@@ -30,7 +30,7 @@ if ($UserData->force_logout == 1) {
                 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Toggle between dark and white themes');?>" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/mode" class="dropdown-item pl-2"><span class="material-icons">settings_brightness</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Dark/bright');?></a>
             </div>
             <div class="col-6">
-                <a class="dropdown-item pl-2" href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?>"><i class="material-icons">exit_to_app</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?></a>
+                <a class="dropdown-item pl-2" onclick="$(this).attr('href',$(this).attr('href')+'/(csfr)/'+confLH.csrf_token)" href="<?php echo erLhcoreClassDesign::baseurl('user/logout')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?>"><i class="material-icons">exit_to_app</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Logout');?></a>
             </div>
         </div>
 
