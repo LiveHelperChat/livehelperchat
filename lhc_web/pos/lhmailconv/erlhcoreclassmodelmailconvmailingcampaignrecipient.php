@@ -24,6 +24,21 @@ $def->properties['status']->columnName   = 'status';
 $def->properties['status']->propertyName = 'status';
 $def->properties['status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['send_at'] = new ezcPersistentObjectProperty();
+$def->properties['send_at']->columnName   = 'send_at';
+$def->properties['send_at']->propertyName = 'send_at';
+$def->properties['send_at']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['type'] = new ezcPersistentObjectProperty();
+$def->properties['type']->columnName   = 'type';
+$def->properties['type']->propertyName = 'type';
+$def->properties['type']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['email'] = new ezcPersistentObjectProperty();
+$def->properties['email']->columnName   = 'email';
+$def->properties['email']->propertyName = 'email';
+$def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 return $def;
 
 ?>

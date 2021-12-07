@@ -375,7 +375,12 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionLaction'  => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionlaction.php',
 
         // Mailing list
-        'erLhcoreClassModelMailconvMailingList' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailinglist.php'
+        'erLhcoreClassModelMailconvMailingList' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailinglist.php',
+        'erLhcoreClassMailconvMailingValidator' => 'lib/core/lhmailconv/lhmailconvmailingvalidator.php',
+        'erLhcoreClassModelMailconvMailingRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingrecipient.php',
+        'erLhcoreClassModelMailconvMailingListRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailinglistrecipient.php',
+        'erLhcoreClassModelMailconvMailingCampaign' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingcampaign.php',
+        'erLhcoreClassModelMailconvMailingCampaignRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingcampaignrecipient.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

@@ -24,6 +24,16 @@ $def->properties['starts_at']->columnName   = 'starts_at';
 $def->properties['starts_at']->propertyName = 'starts_at';
 $def->properties['starts_at']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['user_id'] = new ezcPersistentObjectProperty();
+$def->properties['user_id']->columnName   = 'user_id';
+$def->properties['user_id']->propertyName = 'user_id';
+$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
+$def->properties['enabled'] = new ezcPersistentObjectProperty();
+$def->properties['enabled']->columnName   = 'enabled';
+$def->properties['enabled']->propertyName = 'enabled';
+$def->properties['enabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 return $def;
 
 ?>

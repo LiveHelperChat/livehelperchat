@@ -21,8 +21,6 @@
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates');?></a></li>
                 <?php endif; ?>
 
-
-
                 <?php if ($currentUser->hasAccessTo('lhmailconv','mailbox_manage')) : ?>
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/options')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Editor options');?></a></li>
                 <?php endif; ?>
@@ -37,6 +35,8 @@
 
                 <?php if ($currentUser->hasAccessTo('lhmailing','mailinglist')) : ?>
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','My mailing list')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/mailinglist')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','My mailing list');?></a></li>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Recipients')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/mailingrecipient')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Recipients');?></a></li>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','My campaigns')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaign')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Campaigns');?></a></li>
                 <?php endif; ?>
 
                 <?php if ($currentUser->hasAccessTo('lhmailconv','send_mail')) : ?>
