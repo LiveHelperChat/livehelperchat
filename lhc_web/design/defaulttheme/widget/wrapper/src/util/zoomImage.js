@@ -26,7 +26,7 @@ class _zoomImage {
         this.appendHTML('<div id="lhc-co-browsing-modal" style="display: block" class="lhc-modal">'+
             '<div class="lhc-modal-content">'+
             '<div style="padding:5px 20px;clear: both; text-align: right"><span id="lhc-close">&times;</span></div>'+
-            '<div style="text-align: center;background-color:#cecece"><img id="lhc-zoom-image" src="'+params.src+'" style="max-width:100%;max-height: '+(window.innerHeight - 140) +'px;" title="" /></div><div><div style="height: 49px; padding:10px;" ><span style="font-family: Arial; font-size: 18px;font-weight: bold;">'+params.title+'&nbsp;</span> <a target="_blank" href="'+params.src+'" style="font-family: Arial; text-decoration: none;background-color: #dddddd; display: inline-block; padding:5px; border:1px solid #CECECE; color: #6d6d6d; float: right">Download</a></div></div></div></div>');
+            '<div style="text-align: center;background-color:#cecece"><img id="lhc-zoom-image" src="'+params.src+'" style="max-width:100%;max-height: '+(window.innerHeight - 140) +'px;" title="" /></div><div><div style="height: 49px; padding:10px;" ><span style="font-family: Arial; font-size: 18px;font-weight: bold;">'+params.title+'&nbsp;</span> <a target="_blank" href="'+params.src+'" style="font-family: Arial; text-decoration: none;background-color: #dddddd; display: inline-block; padding:5px; border:1px solid #CECECE; color: #6d6d6d; float: right">'+params.txt_download+'</a></div></div></div></div>');
 
         var btn = document.getElementById("lhc-close");
         var modal = document.getElementById("lhc-co-browsing-modal");

@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 190;
+            lhc.version = 191;
 
             var init = () => {
 

@@ -69,7 +69,8 @@ $translations = array(
     "bbcode" => [
         "img_link" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter link to an image!'),
         "link" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Please enter a link!'),
-        "link_here" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link')
+        "link_here" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Here is a link'),
+        "img_download" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Download')
     ],
     "voice" => [
         "cancel_voice_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Cancel voice message'),
