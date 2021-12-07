@@ -227,6 +227,16 @@ class erLhcoreClassSystem{
         }
     }
 
+    public static function autoload($className)
+    {
+        $file = '.' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'vendor_lhc' . DIRECTORY_SEPARATOR . str_replace('\\',DIRECTORY_SEPARATOR, $className) . '.php';
+
+        if (file_exists($file)) {
+            require_once $file;
+        }
+
+        return false;
+    }
 
     public static function instance()
     {

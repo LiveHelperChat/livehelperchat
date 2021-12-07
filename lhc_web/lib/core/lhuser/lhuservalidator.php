@@ -429,7 +429,7 @@ class erLhcoreClassUserValidator {
 			} else {
 				$file = $response['data'];
 			}
-			
+
 			if ( !empty($file["errors"]) ) {
 				
 				foreach ($file["errors"] as $err) {
