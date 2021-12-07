@@ -31,6 +31,7 @@ class erLhcoreClassModelUserDep
             'type' => $this->type,
             'dep_group_id' => $this->dep_group_id,
             'exclude_autoasign' => $this->exclude_autoasign,
+            'max_chats' => $this->max_chats,
         );
     }
 
@@ -150,6 +151,7 @@ class erLhcoreClassModelUserDep
         $filter['select_columns'] = '
         max(`id`) as `id`, 
         max(`ro`) as `ro`,
+        max(`max_chats`) as `max_chats`,
         max(`dep_id`) as `dep_id`,
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
@@ -180,6 +182,7 @@ class erLhcoreClassModelUserDep
     public $type = 0;
     public $dep_group_id = 0;
     public $exclude_autoasign = 0;
+    public $max_chats = 0;
 }
 
 ?>

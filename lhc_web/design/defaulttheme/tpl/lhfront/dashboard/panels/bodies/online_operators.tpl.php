@@ -33,7 +33,9 @@
         <td class="align-middle">
             <div class="abbr-list" title="{{operator.lastactivity_ago}}">{{operator.lastactivity_ago}}</div>
         </td>
-        <td class="align-middle">{{operator.active_chats}}</td>
+        <td title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Max');?> - {{operator.max_chats && operator.max_chats > 0 ? operator.max_chats : 'n/a'}} <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','chats');?>" ng-class="{'align-middle': true, 'text-danger' : (operator.max_chats && operator.max_chats > 0 && operator.max_chats - operator.active_chats <= 1),'text-success' : (operator.max_chats && operator.max_chats > 0 && operator.max_chats - operator.active_chats > 1)}">
+            {{operator.active_chats}} <abbr title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','a.c')?></abbr>, {{operator.max_chats && operator.max_chats > 0 ? (operator.max_chats - operator.active_chats) : ' n/a'}} <abbr title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Free slots')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','f.s')?></abbr>
+        </td>
         <td class="align-middle"><div class="abbr-list" title="{{operator.departments_names.join(', ')}}">{{operator.departments_names.join(", ")}}</div></td>
 
     </tr>
