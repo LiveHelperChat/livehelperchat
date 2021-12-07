@@ -73,11 +73,16 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
                 $fileUpload->extension = strtolower(end($partsFile));
             }
 
+            if ($fileUpload->extension == 'svg') {
+                self::cleanSVG($fileUpload->file_path_server);
+                $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
+            }
+
             if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jpg', 'jpeg', 'png', 'gif'))) {
                 self::removeExif($fileUpload->file_path_server, $fileUpload->file_path_server . '_exif');
                 unlink($fileUpload->file_path_server);
                 rename($fileUpload->file_path_server . '_exif', $fileUpload->file_path_server);
-                $fileUpload->size = filesize($fileUpload->file_path_server);
+                $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
             $fileUpload->saveThis();
@@ -88,6 +93,16 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
         }
 
         return $file;
+    }
+
+    public static function cleanSVG($path)
+    {
+        $sanitizer = new \enshrined\svgSanitize\Sanitizer();
+        $dirtySVG = file_get_contents($path);
+        $cleanSVG = $sanitizer->sanitize($dirtySVG);
+        file_put_contents($path.'_svg', $cleanSVG);
+        unlink($path);
+        rename($path.'_svg', $path);
     }
 }
 
