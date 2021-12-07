@@ -436,6 +436,14 @@ class qqFileUploader {
 			return $return = array( 'errors' => $errors );
 		}
 
+        // Clean SVG
+        if ($fileSuffix == '.svg') {
+            $sanitizer = new \enshrined\svgSanitize\Sanitizer();
+            $dirtySVG = file_get_contents($saveDir . $fileNameNew);
+            $cleanSVG = $sanitizer->sanitize($dirtySVG);
+            file_put_contents($saveDir . $fileNameNew, $cleanSVG);
+        }
+
 		$data = array( 'filename'  		   => $fileNameNew,
 					   'mime_type' 		   => $mimeType,
 					   'original_filename' => $file_name,

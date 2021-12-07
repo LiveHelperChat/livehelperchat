@@ -26,6 +26,7 @@ require_once dirname(__FILE__)."/ezcomponents/Base/src/base.php";
 ezcBase::addClassRepository( dirname(__FILE__).'/', dirname(__FILE__).'/lib/autoloads');
 
 spl_autoload_register(array('ezcBase','autoload'), true, false);
+spl_autoload_register(array('erLhcoreClassSystem','autoload'), true, false);
 
 $input = new ezcConsoleInput();
 
