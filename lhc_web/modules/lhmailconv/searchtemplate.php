@@ -58,6 +58,10 @@ foreach ($items as $item) {
     if ($conv instanceof erLhcoreClassModelMailconvConversation) {
         $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
         $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
+    } else {
+        $conv = new erLhcoreClassModelMailconvConversation();
+        $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
+        $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
     }
 }
 

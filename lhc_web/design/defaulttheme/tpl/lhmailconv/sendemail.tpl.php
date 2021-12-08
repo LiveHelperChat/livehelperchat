@@ -53,7 +53,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
-        <input type="text" autocomplete="new-password" value="<?php echo htmlspecialchars($item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
+        <input type="text" autocomplete="new-password" value="<?php echo htmlspecialchars((string)$item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
         <datalist id="mailbox_list" autocomplete="new-password">
             <?php foreach (erLhcoreClassModelMailconvMailbox::getList(array('filter' => array('active' => 1))) as $mailbox) : ?>
                 <option value="<?php echo htmlspecialchars($mailbox->mail)?>"><?php echo htmlspecialchars($mailbox->name)?></option>

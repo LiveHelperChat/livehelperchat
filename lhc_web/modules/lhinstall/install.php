@@ -2246,6 +2246,7 @@ try {
   `signature_under` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `import_since` int(11) unsigned NOT NULL DEFAULT 0,
+  `dep_id` int(11) unsigned NOT NULL DEFAULT 0,
   `delete_mode` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `reopen_timeout` int(11) unsigned NOT NULL DEFAULT 4,
   `failed` tinyint(1) unsigned NOT NULL DEFAULT 0,

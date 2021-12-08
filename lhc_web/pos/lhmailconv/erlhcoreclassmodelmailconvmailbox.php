@@ -22,7 +22,7 @@ foreach (array(
 foreach (array(
              'port','active','create_a_copy','delete_mode','sync_status','sync_started','sync_interval','no_pswd_smtp',
              'last_sync_time','import_since','signature_under','reopen_timeout','failed','import_priority','assign_parent_user',
-             'user_id'
+             'user_id','dep_id'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
