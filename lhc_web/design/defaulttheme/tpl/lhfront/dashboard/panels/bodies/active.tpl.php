@@ -46,7 +46,11 @@
 			<div class="abbr-list" title="{{chat.n_off_full}} | {{chat.plain_user_name}}">{{chat.n_office}}</div>
 		</td>
 		<td>
-			<div class="abbr-list" title="{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}">{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}</div>
+			<div class="abbr-list" title="{{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}">
+                <?php if ($currentUser->hasAccessTo('lhstatistic','statisticdep')) : ?><a class="text-primary" ng-click="lhc.openModal('statistic/departmentstats/'+chat.dep_id,$event)"><i class="material-icons">donut_large</i><?php endif; ?>
+                {{chat.department_name}}{{chat.product_name ? ' | '+chat.product_name : ''}}
+                <?php if ($currentUser->hasAccessTo('lhstatistic','statisticdep')) : ?></a><?php endif; ?>
+            </div>
 		</td>
 	</tr>
 </table>

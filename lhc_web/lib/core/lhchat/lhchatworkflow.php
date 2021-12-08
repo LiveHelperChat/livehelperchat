@@ -507,12 +507,16 @@ class erLhcoreClassChatWorkflow {
                 );
             }
 
-            foreach (erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('(`status_sub` IN ('.
+            $chatsToClose = erLhcoreClassChat::getList(array('limit' => 500, 'customfilter' => array('(`status_sub` IN ('.
                 erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW . ',' .
                 erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT . ',' .
                 erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED . ',' .
                 erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM . ') OR (`lsync` > 0 AND ((`lsync` < '. $delay .' AND `device_type` = 0) OR  (`lsync` < '. $delayMobile .' AND `device_type` IN (1,2)))))'),
-                'filterin' => array('status' => $closeTypes))) as $chat) {
+                'filterin' => array('status' => $closeTypes)));
+
+            $avoidCloseCallback = count($chatsToClose) == 500;
+
+            foreach ($chatsToClose as $chat) {
 
                 if ($chat->cls_us == 0) {
                     $chat->cls_us = $chat->user_status_front + 1;
@@ -549,7 +553,9 @@ class erLhcoreClassChatWorkflow {
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
 
-                erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+                if (!$avoidCloseCallback) {
+                    erLhcoreClassChat::closeChatCallback($chat, $chat->user);
+                }
 
                 erLhcoreClassChat::updateActiveChats($chat->user_id);
 

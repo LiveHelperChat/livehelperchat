@@ -681,7 +681,7 @@ class erLhcoreClassBBCode
             $append = '</a>';
         }
 
-        return  "<div class=\"img_embed\">{$prepend}<img class='img-fluid' src=\"".$url."\" alt=\"\" />{$append}</div>";
+        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage()' class='action-image img-fluid' src=\"".$url."\" alt=\"\" />{$append}</div>";
    }
 
    public static function _make_embed_map($matches)
@@ -864,11 +864,11 @@ class erLhcoreClassBBCode
                                 $prepend = '<div class="position-relative">';
                                 $append = '<a class="hidden-download" target="_blank" rel="noreferrer" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'/(inline)/true"></a></div>';
                             }
-
+                            
                             if (isset($displayType) && $displayType == 'rawimg') {
-                                return '<img id="img-file-' . $file->id . '" class="img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                                return '<img onclick="lhinst.zoomImage()" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                             } else {
-                                return $prepend . '<img id="img-file-' . $file->id . '" class="img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />' . $append;
+                                return $prepend . '<img onclick="lhinst.zoomImage()" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
                             }
 
                         }
@@ -879,7 +879,7 @@ class erLhcoreClassBBCode
                         } elseif ($fileExtension == 'mp4' || $fileExtension == 'avi' || $fileExtension == 'mov' || $fileExtension == 'ogg' || $fileExtension == '3gpp') {
                             $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
                         } else if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
-                            $audio = ' <a rel="noreferrer" class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" class="img-fluid hide" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="" />';
+                            $audio = ' <a rel="noreferrer" class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" onclick="lhinst.zoomImage()" class="action-image img-fluid hide" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                         }
 
                         return "<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;

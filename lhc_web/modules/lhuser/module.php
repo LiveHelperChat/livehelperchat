@@ -20,7 +20,8 @@ $ViewList['autologinuser'] = array(
 );
 
 $ViewList['logout'] = array(
-    'params' => array()
+    'params' => array(),
+    'uparams' => array('csfr')
 );
 
 $ViewList['loginas'] = array(

@@ -3352,16 +3352,16 @@ class erLhcoreClassChatStatistic {
                     $filterNew = $filter;
 
                     if (isset($filterNew['filtergte']['time'])) {
-                        $filterNew['filtergte']['last_visit'] = $filterNew['filtergte']['time'];
+                        $filterNew['filterlte']['first_visit'] = $filterNew['filterlte']['time'];
                         unset($filterNew['filtergte']['time']);
                     }
 
                     if (isset($filterNew['filterlte']['time'])) {
-                        $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
+                        $filterNew['filterlte']['first_visit'] = $filterNew['filterlte']['time'];
                         unset($filterNew['filterlte']['time']);
                     }
 
-                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix))));
+                    $filterFormated = array_merge_recursive($filterNew,array('customfilter' =>  array('(FROM_UNIXTIME(first_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix).' OR FROM_UNIXTIME(last_visit,' . $groupAttributes[$params['groupby']]['db'] .') = '. date($groupAttributes[$params['groupby']]['php'],$dateUnix).')')));
 
                     $statistic['visitors_all'][$dateUnix] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated);
                 }
@@ -3482,9 +3482,18 @@ class erLhcoreClassChatStatistic {
         $statistic['group_date'] = $groupAttributes[$params['groupby']]['front'];
 
         if ($params['groupby'] == 0) {
-            $statistic['visitors_new'] = array_reverse($statistic['visitors_new'],true);
-            $statistic['visitors_returning'] = array_reverse($statistic['visitors_returning'],true);
-            $statistic['visitors_all'] = array_reverse($statistic['visitors_all'],true);
+
+            if (isset($statistic['visitors_new'])) {
+                $statistic['visitors_new'] = array_reverse($statistic['visitors_new'], true);
+            }
+
+            if (isset($statistic['visitors_returning'])) {
+                $statistic['visitors_returning'] = array_reverse($statistic['visitors_returning'],true);
+            }
+
+            if (isset($statistic['visitors_all'])) {
+                $statistic['visitors_all'] = array_reverse($statistic['visitors_all'],true);
+            }
         }
 
         return $statistic;

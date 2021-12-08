@@ -34,8 +34,6 @@ class ChatMessage extends PureComponent {
 
         const { t } = this.props;
 
-
-
         if (typeof attrs.onchange !== 'undefined') {
 
             // Checkbox support
@@ -112,6 +110,8 @@ class ChatMessage extends PureComponent {
                 } else {
                     alert(t('bot.please_choose'));
                 }
+            } else if (attrs.onclick.indexOf('lhinst.zoomImage') !== -1) {
+                helperFunctions.sendMessageParentDirect('zoomImage', [{'txt_download': t('bbcode.img_download'), 'src' : attrs.src, title: attrs.title ? attrs.title : '' }]);
             } else {
                 helperFunctions.emitEvent('MessageClick',[attrs, this.props.dispatch]);
                 console.log('Unknown click event: ' + attrs.onclick);

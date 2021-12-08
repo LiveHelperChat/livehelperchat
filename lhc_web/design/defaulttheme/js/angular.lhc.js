@@ -1602,7 +1602,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		});
 	};
 
-	this.openModal = function(url) {
+	this.openModal = function(url, event) {
+        if (event) {
+            event.stopPropagation();
+        }
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+url,hidecallback: function() { $scope.loadChatList(); }});
     }
 
