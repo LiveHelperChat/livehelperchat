@@ -12,8 +12,15 @@ if (ezcInputForm::hasPostData()) {
 
     if (count($Errors) == 0) {
         try {
+            $item->user_id = $currentUser->getUserID();
             $item->saveThis();
-            erLhcoreClassModule::redirect('mailing/campaign');
+
+            if (isset($_POST['Save_continue'])) {
+                erLhcoreClassModule::redirect('mailing/campaignrecipient','/(campaign)/' . $item->id);
+            } else {
+                erLhcoreClassModule::redirect('mailing/campaign');
+            }
+
             exit;
         } catch (Exception $e) {
             $tpl->set('errors', array($e->getMessage()));
@@ -26,6 +33,7 @@ if (ezcInputForm::hasPostData()) {
 $tpl->set('item', $item);
 
 $Result['content'] = $tpl->fetch();
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
 
 $Result['path'] = array(
     array(

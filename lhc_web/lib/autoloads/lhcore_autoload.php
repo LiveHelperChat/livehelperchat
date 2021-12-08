@@ -380,7 +380,8 @@ return array_merge(array (
         'erLhcoreClassModelMailconvMailingRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingrecipient.php',
         'erLhcoreClassModelMailconvMailingListRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailinglistrecipient.php',
         'erLhcoreClassModelMailconvMailingCampaign' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingcampaign.php',
-        'erLhcoreClassModelMailconvMailingCampaignRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingcampaignrecipient.php'
+        'erLhcoreClassModelMailconvMailingCampaignRecipient' => 'lib/models/lhmailconv/erlhcoreclassmodelmailconvmailingcampaignrecipient.php',
+        'erLhcoreClassMailConvMailingWorker' => 'lib/core/lhmailconv/lhmailconvmailingworker.php'
 ),
 include('var/autoloads/lhextension_autoload.php')
 );

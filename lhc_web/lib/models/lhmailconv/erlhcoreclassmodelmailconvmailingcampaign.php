@@ -20,7 +20,14 @@ class erLhcoreClassModelMailconvMailingCampaign
             'user_id' => $this->user_id,
             'status' => $this->status,
             'starts_at' => $this->starts_at,
-            'enabled' => $this->enabled
+            'enabled' => $this->enabled,
+            'mailbox_id' => $this->mailbox_id,
+            'body' => $this->body,
+            'body_alt' => $this->body_alt,
+            'subject' => $this->subject,
+            'as_active' => $this->as_active,
+            'reply_email' => $this->reply_email,
+            'reply_name' => $this->reply_name,
         );
     }
 
@@ -49,7 +56,17 @@ class erLhcoreClassModelMailconvMailingCampaign
                     $this->user = erLhcoreClassModelUser::fetch($this->user_id);
                 }
                 return $this->user;
-                break;
+
+            case 'mailbox':
+                $this->mailbox = null;
+                if ($this->mailbox_id > 0) {
+                    $this->mailbox = erLhcoreClassModelMailconvMailbox::fetch($this->mailbox_id);
+                }
+                return $this->mailbox;
+
+            case 'mailbox_front':
+                $this->mailbox_front = (string)$this->mailbox;
+                return $this->mailbox_front;
 
             default:
                 break;
@@ -57,9 +74,8 @@ class erLhcoreClassModelMailconvMailingCampaign
     }
 
     const STATUS_PENDING = 0;
-    const STATUS_STARTED = 1;
-    const STATUS_IN_PROGRESS = 2;
-    const STATUS_FINISHED = 3;
+    const STATUS_IN_PROGRESS = 1;
+    const STATUS_FINISHED = 2;
 
     public $id = NULL;
     public $name = '';
@@ -67,7 +83,14 @@ class erLhcoreClassModelMailconvMailingCampaign
     public $enabled = 0;
     public $status = self::STATUS_PENDING;
     public $starts_at = 0;
+    public $mailbox_id = 0;
+    public $body = '';
+    public $body_alt = '';
 
+    public $subject = '';
+    public $as_active = 0;
+    public $reply_email = '';
+    public $reply_name = '';
 }
 
 ?>

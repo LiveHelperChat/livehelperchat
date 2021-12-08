@@ -8,16 +8,26 @@
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Name');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Status');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Recipients');?></th>
             <th width="1%"></th>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
-            <tr>
+            <tr class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>">
                 <td>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/editcampaign')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
+                    <a class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/editcampaign')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
                 </td>
                 <td>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $item->id?>" >List of recipients</a>
+                    <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING) : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?>
+                    <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS) : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>
+                    <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <a class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $item->id?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','List of recipients');?></a>
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="..." style="width:60px;">

@@ -7,7 +7,7 @@
     </div>
 
     <div role="alert" class="alert alert-info alert-dismissible hide m-3" id="list-update-import">
-        This list was updated. Please <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $campaign->id?>?refresh=<?php echo time()?>">refresh.</a>
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','This list was updated. Please');?>&nbsp;<a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $campaign->id?>?refresh=<?php echo time()?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','refresh');?>.</a>
     </div>
 
 </form>

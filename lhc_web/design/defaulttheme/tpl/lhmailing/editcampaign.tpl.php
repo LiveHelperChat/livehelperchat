@@ -8,9 +8,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-
-
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailing/editcampaign')?>/<?php echo $item->id?>" method="post">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailing/editcampaign')?>/<?php echo $item->id?>" method="post" ng-non-bindable>
 
     <ul class="nav nav-tabs mb-3" role="tablist">
         <li role="presentation" class="nav-item"><a href="#settings" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Main');?></a></li>
@@ -22,7 +20,27 @@
             <?php include(erLhcoreClassDesign::designtpl('lhmailing/parts/form_campaign.tpl.php'));?>
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_statistic') : ?>active<?php endif;?>" id="statistic">
-            Statistic
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Owner');?> - <?php echo htmlspecialchars((string)$item->user)?></p>
+
+            <p class="font-weight-bold">
+                <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING) : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?>
+                <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS) : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>
+                <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>
+                <?php endif; ?>
+            </p>
+
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Statistic');?></p>
+            <ul>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients');?> - <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $item->id?>"><?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['campaign_id' => $item->id]])?></a></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients pending');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::PENDING,'campaign_id' => $item->id]])?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients send');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::SEND,'campaign_id' => $item->id]])?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients failed');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::FAILED,'campaign_id' => $item->id]])?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients in progress');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::IN_PROGRESS,'campaign_id' => $item->id]])?></li>
+            </ul>
         </div>
     </div>
 

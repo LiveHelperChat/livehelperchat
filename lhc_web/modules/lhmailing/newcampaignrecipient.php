@@ -8,9 +8,13 @@ if (!($campaign instanceof erLhcoreClassModelMailconvMailingCampaign)) {
     die('Invalid campaign!');
 }
 
-$item = new erLhcoreClassModelMailconvMailingCampaignRecipient();
-$item->campaign_id = $campaign->id;
-$item->type = erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL;
+if (is_numeric($Params['user_parameters']['recipient_id']) && $Params['user_parameters']['recipient_id'] > 0) {
+    $item = erLhcoreClassModelMailconvMailingCampaignRecipient::fetch($Params['user_parameters']['recipient_id']);
+} else {
+    $item = new erLhcoreClassModelMailconvMailingCampaignRecipient();
+    $item->campaign_id = $campaign->id;
+    $item->type = erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL;
+}
 
 if (ezcInputForm::hasPostData()) {
     $items = array();

@@ -22,6 +22,11 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
             'email' => $this->email,
             'status' => $this->status,
             'send_at' => $this->send_at,
+            'name' => $this->name,
+            'attr_str_1' => $this->attr_str_1,
+            'attr_str_2' => $this->attr_str_2,
+            'attr_str_3' => $this->attr_str_3,
+            'log' => $this->log,
         );
     }
 
@@ -33,8 +38,8 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public function __get($var)
     {
         switch ($var) {
-            case 'mtime_front':
-                return date('Ymd') == date('Ymd', $this->mtime) ? date(erLhcoreClassModule::$dateHourFormat, $this->mtime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->mtime);
+            case 'send_at_front':
+                return date('Ymd') == date('Ymd', $this->send_at) ? date(erLhcoreClassModule::$dateHourFormat, $this->send_at) : date(erLhcoreClassModule::$dateDateHourFormat, $this->send_at);
 
             case 'user':
                 $this->user = null;
@@ -56,6 +61,22 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
                 }
                 return $this->recipient;
 
+            case 'recipient_attr_str_1':
+            case 'recipient_attr_str_2':
+            case 'recipient_attr_str_3':
+            case 'recipient_name':
+                $this->{$var} = '';
+                $systemAttr = str_replace('recipient_','',$var);
+                if ($this->type == self::TYPE_MANUAL) {
+                    $this->recipient_name = $this->{$systemAttr};
+                } else {
+                    $recipient = erLhcoreClassModelMailconvMailingRecipient::fetch($this->recipient_id);
+                    if ($recipient instanceof erLhcoreClassModelMailconvMailingRecipient) {
+                        $this->{$var} = $recipient->{$systemAttr};
+                    }
+                }
+                return $this->{$var};
+
             default:
                 break;
         }
@@ -65,7 +86,9 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     const TYPE_MANUAL = 1;
 
     const PENDING = 0;
-    const SEND = 1;
+    const IN_PROGRESS = 1;
+    const SEND = 2;
+    const FAILED = 3;
 
     public $id = NULL;
     public $campaign_id = 0;
@@ -74,6 +97,12 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public $type = self::TYPE_MAILING_LIST;
     public $email = '';
     public $status = self::PENDING;
+    public $log = '';
+
+    public $name = '';
+    public $attr_str_1 = '';
+    public $attr_str_2 = '';
+    public $attr_str_3 = '';
 }
 
 ?>

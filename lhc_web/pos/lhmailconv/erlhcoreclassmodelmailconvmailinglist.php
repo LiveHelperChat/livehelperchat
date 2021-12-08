@@ -9,15 +9,23 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['name'] = new ezcPersistentObjectProperty();
-$def->properties['name']->columnName   = 'name';
-$def->properties['name']->propertyName = 'name';
-$def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array(
+             'name'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['user_id'] = new ezcPersistentObjectProperty();
-$def->properties['user_id']->columnName   = 'user_id';
-$def->properties['user_id']->propertyName = 'user_id';
-$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array(
+             'user_id'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

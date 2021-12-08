@@ -9,15 +9,14 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['mailing_list_id'] = new ezcPersistentObjectProperty();
-$def->properties['mailing_list_id']->columnName   = 'mailing_list_id';
-$def->properties['mailing_list_id']->propertyName = 'mailing_list_id';
-$def->properties['mailing_list_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['mailing_recipient_id'] = new ezcPersistentObjectProperty();
-$def->properties['mailing_recipient_id']->columnName   = 'mailing_recipient_id';
-$def->properties['mailing_recipient_id']->propertyName = 'mailing_recipient_id';
-$def->properties['mailing_recipient_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (array(
+             'mailing_list_id','mailing_recipient_id'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

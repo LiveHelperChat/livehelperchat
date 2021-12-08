@@ -9,7 +9,7 @@ $appendPrintExportURL = '';
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>" method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>/<?php if ($item->id > 0) : ?><?php echo $item->id?><?php endif;?>" ng-non-bindable method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
 
     <div class="modal-body">
 
@@ -19,7 +19,7 @@ $appendPrintExportURL = '';
 
     <?php if (isset($updated) && $updated == true) : ?>
         <div role="alert" class="alert alert-info alert-dismissible fade show m-3">
-            Recipient was created.
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Recipient was created');?>.
         </div>
         <script>
             $('#list-update-import').removeClass('hide');
@@ -33,7 +33,6 @@ $appendPrintExportURL = '';
     <div class="modal-footer">
         <div class="btn-group" role="group" aria-label="...">
             <input type="submit" class="btn btn-sm btn-secondary" name="Save_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
-
             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
         </div>
     </div>

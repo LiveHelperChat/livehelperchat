@@ -9,20 +9,23 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['email'] = new ezcPersistentObjectProperty();
-$def->properties['email']->columnName   = 'email';
-$def->properties['email']->propertyName = 'email';
-$def->properties['email']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (array(
+             'email','data','name','attr_str_1','attr_str_2','attr_str_3'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['data'] = new ezcPersistentObjectProperty();
-$def->properties['data']->columnName   = 'data';
-$def->properties['data']->propertyName = 'data';
-$def->properties['data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['disabled'] = new ezcPersistentObjectProperty();
-$def->properties['disabled']->columnName   = 'disabled';
-$def->properties['disabled']->propertyName = 'disabled';
-$def->properties['disabled']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (array(
+             'disabled'
+         ) as $attr) {
+    $def->properties[$attr] = new ezcPersistentObjectProperty();
+    $def->properties[$attr]->columnName   = $attr;
+    $def->properties[$attr]->propertyName = $attr;
+    $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

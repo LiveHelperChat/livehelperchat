@@ -6,17 +6,17 @@ $modalBodyClass = 'p-1';
 $appendPrintExportURL = '';
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-    <form action="<?php echo $action_url?>" method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
+    <form action="<?php echo $action_url?>" ng-non-bindable method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
         <?php if (isset($errors)) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
         <?php endif; ?>
         <?php if (isset($updated) && $updated == true) : ?>
             <div role="alert" class="alert alert-info alert-dismissible fade show m-3">
                 <ul>
-                    <li><?php echo $statistic['imported']?> were assigned</li>
-                    <li><?php echo $statistic['already_exists']?> already existed</li>
-                    <li><?php echo $statistic['skipped']?> were skipped</li>
-                    <li><?php echo $statistic['unassigned']?> were removed from recipient list</li>
+                    <li><?php echo $statistic['imported']?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','were assigned');?></li>
+                    <li><?php echo $statistic['already_exists']?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','already existed');?></li>
+                    <li><?php echo $statistic['skipped']?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','were skipped');?></li>
+                    <li><?php echo $statistic['unassigned']?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','were removed from recipient list');?></li>
                 </ul>
             </div>
             <script>

@@ -12,6 +12,7 @@ if (ezcInputForm::hasPostData()) {
 
     if (count($Errors) == 0) {
         try {
+            $item->user_id = $currentUser->getUserID();
             $item->saveThis();
             erLhcoreClassModule::redirect('mailing/mailinglist');
             exit;

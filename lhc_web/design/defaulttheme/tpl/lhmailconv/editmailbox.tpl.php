@@ -148,6 +148,7 @@
                         'list_function_params' => array('limit' => 20),
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
                     )); ?>
+                    <p><small><i>Default department is only used for replaceable variables support at the moment.</i></small></p>
                 </div>
                 <script>
                     $(function() {

@@ -12,6 +12,10 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if (!$currentUser->hasAccessTo('lhmailing','all_mailing_list')) {
+    $filterParams['filter']['filter']['user_id'] = $currentUser->getUserID();
+}
+
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvMailingList::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';

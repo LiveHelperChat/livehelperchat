@@ -2148,6 +2148,72 @@ try {
                   KEY `role_id` (`role_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lhc_mailconv_mailing_campaign` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `starts_at` bigint(20) unsigned NOT NULL,
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `mailbox_id` bigint(20) unsigned NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body_alt` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `as_active` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `reply_email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reply_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status_enabled_starts_at` (`status`,`enabled`,`starts_at`),
+  KEY `enabled` (`enabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lhc_mailconv_mailing_campaign_recipient` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `campaign_id` bigint(20) unsigned NOT NULL,
+  `recipient_id` bigint(20) unsigned NOT NULL,
+  `type` tinyint(1) NOT NULL DEFAULT 0,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `send_at` bigint(20) unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `campaign_id_status` (`campaign_id`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lhc_mailconv_mailing_list` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lhc_mailconv_recipient` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `disabled` (`disabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lhc_mailconv_mailing_list_recipient` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `mailing_list_id` bigint(20) unsigned NOT NULL,
+  `mailing_recipient_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mailing_list_id` (`mailing_list_id`),
+  KEY `mailing_recipient_id` (`mailing_recipient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
                     $db->query("CREATE TABLE IF NOT EXISTS `lhc_mailconv_personal_mailbox_group` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -29,7 +29,7 @@ $ViewList['newcampaign'] = array(
 );
 
 $ViewList['newcampaignrecipient'] = array(
-    'params' => array('id'),
+    'params' => array('id','recipient_id'),
     'uparams' => array(),
     'functions' => array( 'use_admin' )
 );
@@ -96,7 +96,19 @@ $ViewList['deletecampaignrecipient'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['detailssend'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
+$ViewList['sendtestemail'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mailing module');
+$FunctionList['all_campaigns'] = array('explain' => 'Operator can see all campaigns');
+$FunctionList['all_mailing_list'] = array('explain' => 'Operator can see all mailing list');
 
 ?>

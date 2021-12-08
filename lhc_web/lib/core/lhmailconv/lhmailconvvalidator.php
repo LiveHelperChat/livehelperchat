@@ -197,6 +197,9 @@ class erLhcoreClassMailconvValidator {
             'user_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             ),
+            'dep_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
             'import_priority' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -248,10 +251,17 @@ class erLhcoreClassMailconvValidator {
         } else {
             $item->signature_under = 0;
         }
+
         if ($form->hasValidData( 'user_id' )) {
             $item->user_id = $form->user_id;
         } else {
             $item->user_id = 0;
+        }
+
+        if ($form->hasValidData( 'dep_id' )) {
+            $item->dep_id = $form->dep_id;
+        } else {
+            $item->dep_id = 0;
         }
 
         if ( $form->hasValidData( 'import_priority' )) {
@@ -643,7 +653,7 @@ class erLhcoreClassMailconvValidator {
 
             $mailReply->AddAddress($item->from_address, $item->from_name);
 
-            $item->body = self::prepareMailContent( $item->body, $mailReply);
+            $item->body = self::prepareMailContent($item->body, $mailReply);
 
             $mailReply->Body = $item->body;
             $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$item->body));

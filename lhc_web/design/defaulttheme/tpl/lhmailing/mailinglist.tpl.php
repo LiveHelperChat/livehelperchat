@@ -18,7 +18,7 @@
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/editmailinglist')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
                 </td>
                 <td>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/mailingrecipient')?>/(ml)/<?php echo $item->id?>" >List of members</a>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/mailingrecipient')?>/(ml)/<?php echo $item->id?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','List of members');?></a>
                 </td>
                 <td>
                     <?php echo htmlspecialchars($item->user instanceof erLhcoreClassModelUser ? $item->user : ''); ?>

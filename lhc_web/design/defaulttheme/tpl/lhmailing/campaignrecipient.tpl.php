@@ -7,6 +7,7 @@
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Recipient');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send at');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Status');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Type');?></th>
             <th width="1%"></th>
@@ -15,26 +16,36 @@
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td>
-                    <?php echo htmlspecialchars($item->recipient)?>
+                    <?php if ($item->type == erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL) : ?>
+                    <button class="pl-0 btn btn-sm btn-link" href="#" onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>/<?php echo $item->id?>'})"><?php echo htmlspecialchars($item->recipient)?></button>
+                    <?php else : ?>
+                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/editmailingrecipient')?>/<?php echo $item->recipient_id?>"><?php echo htmlspecialchars($item->recipient)?></a>
+                    <?php endif; ?>&nbsp;
+                    <a class="text-muted" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send text e-mail');?></a>
+                </td>
+                <td>
+                    <?php if ($item->send_at > 0) : ?><?php echo $item->send_at_front?><?php endif;?>
                 </td>
                 <td>
                     <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaignRecipient::PENDING) : ?>
-                    Pending
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?>...
+                    <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaignRecipient::IN_PROGRESS) : ?>
+                    <span class="text-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>...</span>
+                    <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaignRecipient::FAILED) : ?>
+                    <span class="text-danger action-image" onclick="return lhc.revealModal({'title' : 'Details', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/detailssend')?>/<?php echo $item->id?>'})"><i class="material-icons">sms_failed</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Failed');?>...</span>
                     <?php else : ?>
-                    Send
+                    <span class="text-success action-image" onclick="return lhc.revealModal({'title' : 'Details', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/detailssend')?>/<?php echo $item->id?>'})"><i class="material-icons">done</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send');?>...</span>
                     <?php endif; ?>
                 </td>
                 <td>
                     <?php if ($item->type == erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL) : ?>
-                        Manual
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Manual');?>
                     <?php else : ?>
-                        Based on recipient list
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Based on recipient list');?>
                     <?php endif; ?>
                 </td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="..." style="width:60px;">
-                        <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaignrecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
-                    </div>
+                    <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletecampaignrecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
