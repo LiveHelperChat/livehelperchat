@@ -199,7 +199,7 @@ class erLhcoreClassMailconvMailingValidator {
         if ($form->hasValidData( 'email' )) {
             $item->email = $form->email;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a name!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter an e-mail!');
         }
 
         if ($form->hasValidData( 'name' )) {

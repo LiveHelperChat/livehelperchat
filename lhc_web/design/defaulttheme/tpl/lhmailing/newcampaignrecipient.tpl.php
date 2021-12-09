@@ -11,6 +11,8 @@ $appendPrintExportURL = '';
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>/<?php if ($item->id > 0) : ?><?php echo $item->id?><?php endif;?>" ng-non-bindable method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+    
     <div class="modal-body">
 
     <?php if (isset($errors)) : ?>

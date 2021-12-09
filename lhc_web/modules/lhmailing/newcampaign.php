@@ -6,6 +6,11 @@ $item = new erLhcoreClassModelMailconvMailingCampaign();
 
 if (ezcInputForm::hasPostData()) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailing/campaign');
+        exit;
+    }
+
     $items = array();
 
     $Errors = erLhcoreClassMailconvMailingValidator::validateCampaign($item);

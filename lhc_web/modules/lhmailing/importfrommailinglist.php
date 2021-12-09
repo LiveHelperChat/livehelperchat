@@ -4,7 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailing/importfrommailinglist.tpl.p
 
 $campaign = erLhcoreClassModelMailconvMailingCampaign::fetch($Params['user_parameters']['id']);
 
-if (ezcInputForm::hasPostData()) {
+if (ezcInputForm::hasPostData() && !(!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token']))) {
+
     $definition = array(
         'ml' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY

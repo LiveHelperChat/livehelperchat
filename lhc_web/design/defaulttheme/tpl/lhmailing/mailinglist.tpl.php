@@ -1,9 +1,7 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailing list');?></h1>
-
 <?php include(erLhcoreClassDesign::designtpl('lhmailing/parts/search_panel_mailinglist.tpl.php')); ?>
 
 <?php if (isset($items)) : ?>
-    <table cellpadding="0" cellspacing="0" class="table table-sm" width="100%" ng-non-bindable>
+    <table cellpadding="0" cellspacing="0" class="table table-sm table-hover" width="100%" ng-non-bindable>
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Name');?></th>
@@ -24,9 +22,7 @@
                     <?php echo htmlspecialchars($item->user instanceof erLhcoreClassModelUser ? $item->user : ''); ?>
                 </td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="..." style="width:60px;">
-                        <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletemailinglist')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
-                    </div>
+                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deletemailinglist')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

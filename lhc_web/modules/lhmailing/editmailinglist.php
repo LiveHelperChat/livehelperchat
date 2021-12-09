@@ -11,6 +11,11 @@ if (ezcInputForm::hasPostData()) {
         exit ;
     }
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailing/mailinglist');
+        exit;
+    }
+
     $Errors = erLhcoreClassMailconvMailingValidator::validateMailingList($item);
 
     if (count($Errors) == 0) {

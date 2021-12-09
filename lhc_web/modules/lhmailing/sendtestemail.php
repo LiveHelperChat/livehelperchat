@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 $recipient = erLhcoreClassModelMailconvMailingCampaignRecipient::fetch($Params['user_parameters']['id']);
 
 if (!($recipient instanceof erLhcoreClassModelMailconvMailingCampaignRecipient)) {

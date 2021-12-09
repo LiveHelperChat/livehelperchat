@@ -7,6 +7,9 @@ $appendPrintExportURL = '';
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
     <form action="<?php echo $action_url?>" ng-non-bindable method="post" target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
+
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
         <?php if (isset($errors)) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
         <?php endif; ?>

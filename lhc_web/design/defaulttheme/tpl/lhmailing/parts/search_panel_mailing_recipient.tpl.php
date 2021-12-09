@@ -17,6 +17,7 @@
 
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+        <button type="button" class="btn btn-outline-secondary btn-sm"  onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newmailingrecipient')?><?php if (!empty($input->ml)) : ?>/(ml)/<?php echo implode('/',$input->ml)?><?php endif;?>'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></button>
     </div>
 
     <script>
@@ -24,6 +25,10 @@
             $('.btn-block-department').makeDropdown();
         });
     </script>
+
+    <div role="alert" class="alert alert-info alert-dismissible hide m-3" id="list-update-import">
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','This list was updated. Please');?>&nbsp;<a href="?refresh=<?php echo time()?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','refresh');?>.</a>
+    </div>
 
 </form>
 

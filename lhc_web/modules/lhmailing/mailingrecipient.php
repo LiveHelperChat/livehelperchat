@@ -38,7 +38,8 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array (
     array('url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv', 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail conversation')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailbox'))
+    array('url' => erLhcoreClassDesign::baseurl('mailing/mailinglist'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailing list')),
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailing recipient'))
 );
 
 ?>

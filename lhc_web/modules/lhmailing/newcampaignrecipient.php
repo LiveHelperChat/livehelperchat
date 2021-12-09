@@ -16,7 +16,8 @@ if (is_numeric($Params['user_parameters']['recipient_id']) && $Params['user_para
     $item->type = erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL;
 }
 
-if (ezcInputForm::hasPostData()) {
+if (ezcInputForm::hasPostData() && !(!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token']))) {
+
     $items = array();
     $Errors = erLhcoreClassMailconvMailingValidator::validateCampaignRecipient($item);
     if (count($Errors) == 0) {
