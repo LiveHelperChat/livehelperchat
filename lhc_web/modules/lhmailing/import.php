@@ -17,7 +17,7 @@ if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
 
 if (isset($_POST['UploadFileAction'])) {
 
-    $itemDefault->ml_ids_front = isset($_POST['ml']) && !empty($_POST['ml']);
+    $itemDefault->ml_ids_front = isset($_POST['ml']) && !empty($_POST['ml']) ? $_POST['ml'] : [];
 
     $errors = [];
 
@@ -51,7 +51,7 @@ if (isset($_POST['UploadFileAction'])) {
 
         unlink($dir . $filename);
 
-        $canned[] = ['email','name','attr_str_1','attr_str_2','attr_str_3'];
+        $canned = ['email','name','attr_str_1','attr_str_2','attr_str_3'];
 
         $stats = array(
             'updated' => 0,
@@ -62,14 +62,17 @@ if (isset($_POST['UploadFileAction'])) {
         if ($canned === $header) {
             if (isset($_POST['remove_old']) && $_POST['remove_old'] == true && !empty($itemDefault->ml_ids_front)) {
                 foreach (erLhcoreClassModelMailconvMailingListRecipient::getList(array('filterin' => ['mailing_list_id' => $itemDefault->ml_ids_front], 'limit' => false)) as $oldAssignment) {
-                    $oldAssignment->mailing_recipient->removeThis();
+                    if (is_object($oldAssignment->mailing_recipient)) {
+                        $oldAssignment->mailing_recipient->removeThis();
+                    }
                     $stats['removed']++;
                 }
             }
 
             foreach ($data as $item) {
-                
+
                 $cannedMessage = erLhcoreClassModelMailconvMailingRecipient::findOne(array('filter' => array('email' => $item['email'])));
+
                 if (!($cannedMessage instanceof erLhcoreClassModelMailconvMailingRecipient)) {
                     $cannedMessage = new erLhcoreClassModelMailconvMailingRecipient();
                     $stats['imported']++;
@@ -77,7 +80,7 @@ if (isset($_POST['UploadFileAction'])) {
                     $stats['updated']++;
                 }
 
-                $item->ml_ids = array_unique(array_merge($itemDefault->ml_ids_front,$item->ml_ids_front));
+                $cannedMessage->ml_ids = array_unique(array_merge($itemDefault->ml_ids_front,$cannedMessage->ml_ids_front));
                 $cannedMessage->setState($item);
                 $cannedMessage->saveThis();
             }
