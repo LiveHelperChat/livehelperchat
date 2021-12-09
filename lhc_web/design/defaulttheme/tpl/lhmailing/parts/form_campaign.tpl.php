@@ -21,8 +21,9 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group">
-            <label><input type="checkbox" name="enabled" value="on" <?php $item->enabled == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Enabled');?></label>
-            <div><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Only once the campaign is enabled we will start sending e-mails. Progress you can see in statistic tab.');?></i></small></div>
+            <label><input type="checkbox" <?php if ($item->id == null || erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::PENDING,'campaign_id' => $item->id]]) == 0) : $disabledCampaign = true;?>disabled<?php endif;?> name="enabled" value="on" <?php $item->enabled == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Activate campaign');?></label>
+            <?php if (isset($disabledCampaign) && $disabledCampaign == true) : ?><div class="text-danger"><small><i>You will be able to activate campaign once you have at-least one recipient</i></small></div><?php endif; ?>
+            <div><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Only once the campaign is activated we will start sending e-mails. Progress you can see in statistic tab.');?></i></small></div>
         </div>
         <div class="form-group">
             <label><input type="checkbox" name="as_active" value="on" <?php $item->as_active == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','As active');?></label>

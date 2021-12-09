@@ -6,6 +6,7 @@
     <table cellpadding="0" cellspacing="0" class="table table-sm table-hover" width="100%" ng-non-bindable>
         <thead>
         <tr>
+            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ID');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Name');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Status');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Recipients');?></th>
@@ -14,6 +15,7 @@
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>">
+                <td><?php echo $item->id?></td>
                 <td>
                     <a class="<?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>text-muted<?php endif;?>" href="<?php echo erLhcoreClassDesign::baseurl('mailing/editcampaign')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
                 </td>
