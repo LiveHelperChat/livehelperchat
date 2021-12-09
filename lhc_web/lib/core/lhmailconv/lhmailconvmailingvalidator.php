@@ -36,6 +36,9 @@ class erLhcoreClassMailconvMailingValidator {
             'as_active' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'activate_again' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'mailbox_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -99,6 +102,10 @@ class erLhcoreClassMailconvMailingValidator {
             $item->as_active = 1;
         } else {
             $item->as_active = 0;
+        }
+
+        if ($form->hasValidData( 'activate_again' ) && $form->activate_again == true) {
+            $item->status = erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING;
         }
 
         if ($form->hasValidData( 'body_alt' )) {

@@ -9,6 +9,12 @@ class erLhcoreClassMailConvMailingWorker {
 
         $db->beginTransaction();
         $campaign = erLhcoreClassModelMailconvMailingCampaign::fetchAndLock($this->args['campaign_id']);
+
+        // Campaign was terminated in the middle of process
+        if ($campaign->enabled == 0) {
+            return;
+        }
+
         $campaign->status = erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS;
         $campaign->updateThis(['update' => ['status']]);
         $db->commit();

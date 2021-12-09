@@ -22,19 +22,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhmailing/parts/form_campaign.tpl.php'));?>
         </div>
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_statistic') : ?>active<?php endif;?>" id="statistic">
-
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Owner');?> - <?php echo htmlspecialchars((string)$item->user)?></p>
-
-            <p class="font-weight-bold">
-                <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING) : ?>
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?>
-                <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS) : ?>
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>
-                <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>
-                <?php endif; ?>
-            </p>
-
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Statistic');?></p>
             <ul>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients');?> - <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $item->id?>"><?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['campaign_id' => $item->id]])?></a></li>

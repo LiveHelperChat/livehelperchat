@@ -35,6 +35,13 @@
             <label class="<?php ($item->starts_at > 0 && $item->starts_at < time()) ? print 'text-danger' : ''?> "><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Start sending at');?> <b><?php print date_default_timezone_get()?></b>, Current time - <b>[<?php echo (new DateTime('now', new DateTimeZone(date_default_timezone_get())))->format('Y-m-d H:i:s') ?>]</b></label>
             <input class="form-control form-control-sm" name="starts_at" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', $item->starts_at > 0 ? $item->starts_at : time())?>">
         </div>
+        <?php if ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_PENDING) : ?>
+            <div class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending, campaign has not started yet.');?></div>
+        <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_IN_PROGRESS) : ?>
+            <div class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?></div>
+        <?php elseif ($item->status == erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED) : ?>
+            <label><input type="checkbox" name="activate_again" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set campaign status to pending. E.g You can activate it again if you have added more recipients.');?></label>
+        <?php endif; ?>
     </div>
 </div>
 
