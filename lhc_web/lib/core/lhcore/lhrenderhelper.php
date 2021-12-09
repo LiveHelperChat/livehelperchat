@@ -105,7 +105,7 @@ class erLhcoreClassRenderHelper {
                 $valueItem = $item->$nameSelect;
             }
             $ngModelReplace = str_replace('$id', $item->{$idAttr}, $ngModel);
-            $checked = in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
+            $checked = is_array($params['selected_id']) && in_array($item->{$idAttr},$params['selected_id']) ? 'checked="checked"' : '';
             $readOnly = isset($params['read_only_list']) && is_array($params['read_only_list']) && in_array($item->{$idAttr},$params['read_only_list']) ? ' disabled="disabled" ' : '';
             $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($valueItem));
             $output .= "{$prepend}<label class=\"control-label\"><input {$readOnly} id=\"chk-".str_replace(['[',']',''],'',$params['input_name']) . '-' . $item->{$idAttr} . "\" type=\"checkbox\" {$ngModelReplace} {$ngChange} name=\"{$params['input_name']}\" value=\"". $item->{$idAttr} . "\" {$checked} /> ".$valueItem."</label>{$append}";
