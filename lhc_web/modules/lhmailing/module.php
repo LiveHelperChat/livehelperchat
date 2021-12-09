@@ -106,6 +106,13 @@ $ViewList['sendtestemail'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['import'] = array(
+    'params' => array(),
+    'uparams' => array('ml'),
+    'functions' => array( 'use_admin' ),
+    'multiple_arguments' => array('ml')
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mailing module');
 $FunctionList['all_campaigns'] = array('explain' => 'Operator can see all campaigns');

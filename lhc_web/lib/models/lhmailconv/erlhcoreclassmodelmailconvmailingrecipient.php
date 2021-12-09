@@ -36,6 +36,12 @@ class erLhcoreClassModelMailconvMailingRecipient
     public function afterRemove()
     {
         $this->removeAssignment();
+
+        // Remove old assignment as recipient is removed
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lhc_mailconv_mailing_campaign_recipient` WHERE `recipient_id` = :ml_id');
+        $stmt->bindValue(':ml_id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
     public function afterSave()
