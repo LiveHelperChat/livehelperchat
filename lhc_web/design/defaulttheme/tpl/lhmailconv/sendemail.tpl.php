@@ -53,7 +53,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <div class="form-group">
-        <input type="text" autocomplete="new-password" value="<?php echo htmlspecialchars($item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
+        <input type="text" id="new-mailbox-id" autocomplete="new-password" value="<?php echo htmlspecialchars((string)$item->mailbox_front)?>" class="form-control form-control-sm" name="mailbox_id" list="mailbox_list">
         <datalist id="mailbox_list" autocomplete="new-password">
             <?php foreach (erLhcoreClassModelMailconvMailbox::getList(array('filter' => array('active' => 1))) as $mailbox) : ?>
                 <option value="<?php echo htmlspecialchars($mailbox->mail)?>"><?php echo htmlspecialchars($mailbox->name)?></option>
@@ -96,55 +96,7 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Body');?></label>
-        <textarea id="response-template" class="form-control form-control-sm" name="body"><?php echo htmlspecialchars($item->body)?></textarea>
-    </div>
-
-    <script>
-        <?php
-        $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
-        $mcOptionsData = (array)$mcOptions->data;
-
-        $mceToolbar = 'undo redo | fontselect formatselect fontsizeselect | table | paste pastetext | subscript superscript |'.
-            ' bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify '.
-            '| lhtemplates lhfiles insertfile image pageembed link anchor codesample | bullist numlist outdent indent | removeformat permanentpen | charmap emoticons | fullscreen print preview paste code | help';
-
-        if (isset($mcOptionsData['mce_toolbar']) && $mcOptionsData['mce_toolbar'] != '') {
-            $mceToolbar = $mcOptionsData['mce_toolbar'];
-        }
-
-        $mcePlugins = [
-            'advlist autolink lists link image charmap print preview anchor image lhfiles',
-            'searchreplace visualblocks code fullscreen',
-            'media table paste help',
-            'print preview importcss searchreplace autolink save autosave directionality visualblocks visualchars fullscreen media codesample charmap pagebreak nonbreaking anchor toc advlist lists wordcount textpattern noneditable help charmap emoticons'
-        ];
-
-        if (isset($mcOptionsData['mce_plugins']) && $mcOptionsData['mce_plugins'] != '') {
-            $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
-        }
-
-        ?>
-        $(document).ready(function(){
-            tinymce.init({
-                selector: '#response-template',
-                height: 320,
-                automatic_uploads: true,
-                file_picker_types: 'image',
-                images_upload_url: '<?php echo erLhcoreClassDesign::baseurl('mailconv/uploadimage')?>',
-                paste_data_images: true,
-                relative_urls : false,
-                browser_spellcheck: true,
-                paste_as_text: true,
-                contextmenu: false,
-                menubar: false,
-                plugins: <?php echo json_encode($mcePlugins)?>,
-                toolbar_mode: 'wrap',
-                toolbar: <?php echo json_encode($mceToolbar)?>
-            });
-        });
-    </script>
+    <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
 
     <input type="hidden" name="send_status" id="id_send_status" value="0">
 

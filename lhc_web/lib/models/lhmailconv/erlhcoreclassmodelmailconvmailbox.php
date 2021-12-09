@@ -47,6 +47,7 @@ class erLhcoreClassModelMailconvMailbox
             'password_smtp' => $this->password_smtp,
             'no_pswd_smtp' => $this->no_pswd_smtp,
             'user_id' => $this->user_id,
+            'dep_id' => $this->dep_id,
         );
     }
 
@@ -154,6 +155,7 @@ class erLhcoreClassModelMailconvMailbox
     public $assign_parent_user = 0;
     public $no_pswd_smtp = 0;
     public $user_id = 0;
+    public $dep_id = 0;
     public $delete_mode = self::DELETE_ALL;
 
 }

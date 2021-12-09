@@ -2282,7 +2282,7 @@ class erLhcoreClassChat {
     }
 
     public static function cleanForDashboard($chatLists) {
-       $attrsClean = array('online_user_id','uagent','user_status','last_user_msg_time','last_op_msg_time','lsync','dep_id','gbot_id');
+       $attrsClean = array('online_user_id','uagent','user_status','last_user_msg_time','last_op_msg_time','lsync','gbot_id');
         foreach ($chatLists as & $chatList) {
             foreach ($chatList as & $chat) {
                 foreach ($attrsClean as $attrClean) {

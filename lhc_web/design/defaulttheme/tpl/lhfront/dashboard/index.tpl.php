@@ -2,12 +2,20 @@
 
 if (!isset($dashboardOrder)) {
     $dashboardOrder = json_decode(erLhcoreClassModelUserSetting::getSetting('dwo',''),true);
-
-    if ($dashboardOrder === null) {
-        if ($dashboardOrder == '') {
-            $dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
-        }
+    if (!is_array($dashboardOrder)) {
+        $dashboardOrder = json_decode(erLhcoreClassModelChatConfig::fetch('dashboard_order')->current_value,true);
     }
+}
+
+if (!is_array($dashboardOrder)) {
+    $dashboardOrder = [
+        [
+            'pending_chats'
+        ],
+        [
+            'active_chats'
+        ]
+    ];
 }
 
 $columnsTotal = count($dashboardOrder);

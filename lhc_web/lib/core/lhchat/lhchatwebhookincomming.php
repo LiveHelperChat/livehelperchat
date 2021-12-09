@@ -297,9 +297,15 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
+        $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+
+        if ($chatIdExternal == '') {
+            $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
+        }
+        
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
             'filter' => array(
-                'chat_external_id' => self::extractAttribute('chat_id',$conditions,$payloadMessage),
+                'chat_external_id' => $chatIdExternal,
                 'incoming_id' => $incomingWebhook->id
             )
         ));
@@ -618,6 +624,10 @@ class erLhcoreClassChatWebhookIncoming {
             }
 
             $eChat->chat_external_id = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+
+            if ($eChat->chat_external_id == '') {
+                $eChat->chat_external_id = self::extractAttribute('chat_id',$conditions,$payloadAll);
+            }
 
             if ($eChat->chat_external_id == '') {
                 throw new Exception('ChatId attribute could not be found!');

@@ -136,6 +136,20 @@
                         'list_function'  => 'erLhcoreClassModelUser::getList',
                     )); ?>
                 </div>
+                <div class="col-6">
+                    <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                        'input_name'     => 'dep_id',
+                        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Default department'),
+                        'selected_id'    => [$item->dep_id],
+                        'ajax'           => 'deps',
+                        'data_prop'      => 'data-limit="1"',
+                        'css_class'      => 'form-control',
+                        'display_name'   => 'name',
+                        'list_function_params' => array('limit' => 20),
+                        'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                    )); ?>
+                    <p><small><i>Default department is only used for replaceable variables support at the moment.</i></small></p>
+                </div>
                 <script>
                     $(function() {
                         $('.btn-block-department').makeDropdown();

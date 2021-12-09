@@ -93,6 +93,10 @@ if ($outputResponse['invitation_id'] > 0) {
 
     if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
 
+        if ($onlineUser->has_message_from_operator == false) {
+            $outputResponse['qinv'] = true;
+        }
+
         $bot = erLhcoreClassModelGenericBotBot::fetch($invitation->bot_id);
 
         if ($bot instanceof erLhcoreClassModelGenericBotBot)

@@ -71,10 +71,15 @@ class erLhcoreClassFileUpload extends UploadHandler
 
             $matches = array();
             if (strpos($name, '.') === false && preg_match('/^image\/(gif|jpe?g|png)/', $fileUpload->type, $matches)) {
-                $fileUpload->extension = $matches[1];
+                $fileUpload->extension = strtolower($matches[1]);
             } else {
                 $partsFile = explode('.', $fileUpload->upload_name);
-                $fileUpload->extension = end($partsFile);
+                $fileUpload->extension = strtolower(end($partsFile));
+            }
+
+            if ($fileUpload->extension == 'svg') {
+                erLhcoreClassFileUploadAdmin::cleanSVG($fileUpload->file_path_server);
+                $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
             if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jpg', 'jpeg', 'png', 'gif'))) {

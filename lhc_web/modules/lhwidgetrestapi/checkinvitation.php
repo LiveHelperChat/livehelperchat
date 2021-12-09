@@ -104,7 +104,7 @@ if (isset($reopen_chat)) {
         'id' => $reopen_chat->id,
         'hash' => $reopen_chat->hash
     );
-} elseif (($userInstance->has_message_from_operator == true || ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)) && (!isset($dynamicEveryTime) || $dynamicEveryTime == false)) {
+} elseif (($userInstance->has_message_from_operator == true || ($appendInvitation = ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)) == true) && (!isset($dynamicEveryTime) || $dynamicEveryTime == false)) {
     $outputResponse['status'] = false;
 
     if ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && $userInstance->invitation->show_on_mobile == 1) {
@@ -177,7 +177,8 @@ if (isset($_GET['init']) && $_GET['init'] == 1) {
     }
 }
 
-$outputResponse['qinv'] = isset($userInstance->online_attr_system_array['qinv']);
+
+$outputResponse['qinv'] = isset($userInstance->online_attr_system_array['qinv']) || ($userInstance->has_message_from_operator == false && isset($appendInvitation) && $appendInvitation == true);
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit;

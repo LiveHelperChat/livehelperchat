@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 189;
+            lhc.version = 191;
 
             var init = () => {
 
@@ -764,6 +764,12 @@
                     attributesWidget.widgetDimesions.nextProperty('bottom_override', 75);
                     attributesWidget.widgetDimesions.nextProperty('right_override', 75);
                     attributesWidget.mainWidget.showInvitation();
+                });
+
+                attributesWidget.eventEmitter.addListener('zoomImage', (data) => {
+                    import('./util/zoomImage').then((module) => {
+                        module.zoomImage.setParams((data || {}), attributesWidget, chatEvents);
+                    });
                 });
 
                 attributesWidget.eventEmitter.addListener('hideInvitation', (data) => {

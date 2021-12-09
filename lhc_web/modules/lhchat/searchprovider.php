@@ -10,6 +10,22 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = $depMember->dep_id;
         }
     }
+} else if ($Params['user_parameters']['scope'] == 'deps') {
+
+    $db = ezcDbInstance::get();
+
+    $filter = array('sort' => 'name ASC', 'limit' => 20);
+
+    if (!empty($search)) {
+        $filter['filterlike']['name'] = $search;
+    }
+
+    $items = erLhcoreClassModelDepartament::getList(array_merge_recursive(erLhcoreClassUserDep::conditionalDepartmentFilter(),$filter));
+
+    foreach ($items as $item) {
+        $return[] = array('id' => $item->id, 'name' => $item->name);
+    }
+
 } else if ($Params['user_parameters']['scope'] == 'users') {
     $db = ezcDbInstance::get();
 

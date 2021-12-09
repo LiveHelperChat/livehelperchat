@@ -35,7 +35,7 @@ if (isset($_POST['redirect'])){
     $redirect = $_POST['redirect'];
     $tpl->set('redirect_url',$redirect);
 } else {
-    $redirect = rawurldecode($Params['user_parameters_unordered']['r']);
+    $redirect = rawurldecode((string)$Params['user_parameters_unordered']['r']);
     $tpl->set('redirect_url',$redirect);
 }
 

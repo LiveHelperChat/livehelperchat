@@ -1,6 +1,18 @@
 <?php
 
+header('X-Frame-Options: DENY');
+
 $lhUser = erLhcoreClassUser::instance();
+
+if (!$lhUser->isLogged()) {
+    erLhcoreClassModule::redirect('user/login');
+    exit;
+}
+
+if (!$lhUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    die('Invalid CSFR Token');
+    exit;
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.logout',array('user' => & $lhUser));
 

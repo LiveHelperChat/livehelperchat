@@ -594,12 +594,19 @@ class erLhcoreClassSearchHandler
             $fileNameAray = explode('.', $_FILES[$fileName]['name']);
             end($fileNameAray);
             $extension = current($fileNameAray);
-            
+
             $fileNamePhysic = md5($_FILES[$fileName]['tmp_name'] . time()) . $extensionSeparator . strtolower($extension);
             
             move_uploaded_file($_FILES[$fileName]["tmp_name"], $destination_dir . $fileNamePhysic);
             chmod($destination_dir . $fileNamePhysic, 0644);
-            
+
+            if ($extension == 'svg') {
+                $sanitizer = new \enshrined\svgSanitize\Sanitizer();
+                $dirtySVG = file_get_contents($destination_dir . $fileNamePhysic);
+                $cleanSVG = $sanitizer->sanitize($dirtySVG);
+                file_put_contents($destination_dir . $fileNamePhysic, $cleanSVG);
+            }
+
             return $fileNamePhysic;
         }
     }
@@ -614,7 +621,14 @@ class erLhcoreClassSearchHandler
         
         rename($fileName, $destination_dir . $fileNamePhysic);
         chmod($destination_dir . $fileNamePhysic, 0644);
-        
+
+        if ($extension == 'svg') {
+            $sanitizer = new \enshrined\svgSanitize\Sanitizer();
+            $dirtySVG = file_get_contents($destination_dir . $fileNamePhysic);
+            $cleanSVG = $sanitizer->sanitize($dirtySVG);
+            file_put_contents($destination_dir . $fileNamePhysic, $cleanSVG);
+        }
+
         return $fileNamePhysic;
     }
 }

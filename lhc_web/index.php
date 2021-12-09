@@ -27,12 +27,12 @@
 // @ini_set('session.cookie_samesite', 'None');
 // @ini_set('session.cookie_secure', true);
 
-require_once "lib/core/lhcore/password.php";
 require_once "ezcomponents/Base/src/base.php"; // dependent on installation method, see below
 
 ezcBase::addClassRepository( './','./lib/autoloads');
 
 spl_autoload_register(array('ezcBase','autoload'), true, false);
+spl_autoload_register(array('erLhcoreClassSystem','autoload'), true, false);
 
 erLhcoreClassSystem::init();
 

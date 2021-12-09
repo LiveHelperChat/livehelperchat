@@ -2332,7 +2332,7 @@ class erLhcoreClassGenericBotWorkflow {
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[1][$indexElement], '.');
-                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($valueAttribute['value']) : $valueAttribute['value']) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : null), $message);
+                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($valueAttribute['value']) : $valueAttribute['value']) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : ''), $message);
                 }
             }
         }
