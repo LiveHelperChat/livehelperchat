@@ -51,6 +51,10 @@ class erLhcoreClassMailConvMailingWorker {
                     $recipient->send_at = time();
                     $recipient->updateThis(['update' => ['log','status','send_at']]);
                 }
+                
+                if (count($recipients) == 20 && erLhcoreClassRedis::instance()->llen('resque:queue:lhc_mailing') <= 4) {
+                    erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailing', 'erLhcoreClassMailConvMailingWorker', array('campaign_id' => $campaign->id));
+                }
             }
         } else {
 

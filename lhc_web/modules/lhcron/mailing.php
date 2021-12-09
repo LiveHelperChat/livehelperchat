@@ -14,7 +14,9 @@ $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
 foreach ($campaignValid as $campaign) {
     if ($worker == 'resque' && class_exists('erLhcoreClassExtensionLhcphpresque')) {
-        erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailing', 'erLhcoreClassMailConvMailingWorker', array('campaign_id' => $campaign->id));
+        if (erLhcoreClassRedis::instance()->llen('resque:queue:lhc_mailing') <= 4) {
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mailing', 'erLhcoreClassMailConvMailingWorker', array('campaign_id' => $campaign->id));
+        }
     } else {
         $worker = (new erLhcoreClassMailConvMailingWorker());
         $worker->args['campaign_id'] = $campaign->id;
