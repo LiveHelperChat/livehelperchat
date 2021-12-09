@@ -2,7 +2,7 @@
 
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
-<div role="tabpanel">
+<div role="tabpanel" id="system-tabs">
 
 	<ul class="nav nav-tabs mb-3" role="tablist">
 		<li role="presentation" class="nav-item"><a href="#system" class="nav-link active" aria-controls="system" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
@@ -79,3 +79,7 @@
      
     </div>
 </div>
+<script>
+var hash = window.location.hash;
+$('#system-tabs a[href="' + hash.replace('#!','') + '"]').tab('show');
+</script>
