@@ -66,7 +66,7 @@ try {
             exit;
         }
 
-        $presentSurvey->updateThis();
+        $presentSurvey->saveThis();
 
         erLhcoreClassRestAPIHandler::outputResponse(array('result' => true, 'survey' => $presentSurvey->getState()));
 
