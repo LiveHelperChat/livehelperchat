@@ -1687,10 +1687,15 @@ function lh(){
 
 	};
 
-	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
+	this.startChatTransfer = function(chat_id,tabs,name,transfer_id, background) {
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
-	    	inst.startChat(chat_id,tabs,name);
+
+            if (background) {
+                inst.startChatBackground(chat_id,tabs,name)
+            } else {
+                inst.startChat(chat_id,tabs,name);
+            }
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
 	       		LHCCallbacks.operatorAcceptedTransfer(chat_id);

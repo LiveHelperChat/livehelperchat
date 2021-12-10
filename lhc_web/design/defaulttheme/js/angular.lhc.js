@@ -1138,6 +1138,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 										}
 									}
 								});
+							} else if (key == 'transfer_chats') {
+                                item.list.forEach(function (chat) {
+                                    if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1) {
+                                        if (tabs.length > 0 && lhinst.disableremember == false) {
+                                            lhinst.removeSynchroChat(chat.id);
+                                            lhinst.startChatTransfer(chat.id,tabs,LiveHelperChatFactory.truncate((chat.nick || 'Visitor'),10),chat.transfer_id, $('#chat-tab-link-' + chat.id).length == 0);
+                                        }
+                                        if (lhinst.disableremember == false) {
+                                            notificationDataAccept.push(chat.id);
+                                        }
+                                    }
+                                });
 							} else if (key == 'group_chats') {
                                 if (tabs.length > 0 && confLH.auto_join_private  == 1) {
                                     item.list.forEach(function (chat) {
