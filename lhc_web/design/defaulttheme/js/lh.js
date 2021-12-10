@@ -1744,14 +1744,23 @@ function lh(){
 
 	};
 
-	this.startChatTransfer = function(chat_id,tabs,name,transfer_id){
+	this.startChatTransfer = function(chat_id,tabs,name,transfer_id, background) {
 		var inst = this;
-	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
+	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data) {
 
 	        if (data.scope == 1) {
                 inst.startMailChat(chat_id,tabs,name);
             } else {
-                inst.startChat(chat_id,tabs,name);
+                if ($('#chat-tab-link-' + chat_id).length == 0) {
+                    if (background) {
+                        inst.removeSynchroChat(chat_id);
+                        inst.startChatBackground(chat_id,tabs,name)
+                    } else {
+                        inst.startChat(chat_id,tabs,name);
+                    }
+                } else {
+                    inst.updateVoteStatus(chat_id);
+                }
             }
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {

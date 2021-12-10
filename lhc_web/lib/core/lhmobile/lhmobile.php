@@ -370,8 +370,30 @@ class erLhcoreClassLHCMobile {
                 "msg" => isset($params['msg']) ? preg_replace('#\[[^\]]+\]#', '',strip_tags($params['msg'])) : preg_replace('#\[[^\]]+\]#', '', erLhcoreClassChat::getGetLastChatMessagePending($chat->id)),
                 "chat" => json_encode($chatSimplified)
             ),
-            "priority"=>"high"
+            "priority" => "high"
         );
+
+        $channelName = '';
+
+        if ($params['chat_type'] == 'pending') {
+            $channelName = 'com.livehelperchat.chat.channel.NEWCHAT';
+        } elseif ($params['chat_type'] == 'new_msg') {
+            $channelName = 'com.livehelperchat.chat.channel.NEWMESSAGE';
+        } elseif ($params['chat_type'] == 'new_group_msg') {
+            $channelName = 'com.livehelperchat.chat.channel.NEWGROUPMESSAGE';
+        }
+
+        if ($channelName != '') {
+            $fields['android'] = [
+                'notification' =>  [
+                    "channel_id" => $channelName,
+                    "android_channel_id" => $channelName
+                ]
+            ];
+            $fields['notification']['channel_id'] = $channelName;
+            $fields['notification']['android_channel_id'] = $channelName;
+        }
+
 
         $headers = array
         (
