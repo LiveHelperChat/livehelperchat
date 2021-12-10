@@ -1691,10 +1691,14 @@ function lh(){
 		var inst = this;
 	    $.getJSON(this.wwwDir + this.accepttransfer + transfer_id ,{}, function(data){
 
-            if (background) {
-                inst.startChatBackground(chat_id,tabs,name)
+            if (inst.chatUnderSynchronization(chat_id) == false) {
+                if (background) {
+                    inst.startChatBackground(chat_id,tabs,name)
+                } else {
+                    inst.startChat(chat_id,tabs,name);
+                }
             } else {
-                inst.startChat(chat_id,tabs,name);
+                inst.updateVoteStatus(chat_id);
             }
 
 	    	if (LHCCallbacks.operatorAcceptedTransfer) {
