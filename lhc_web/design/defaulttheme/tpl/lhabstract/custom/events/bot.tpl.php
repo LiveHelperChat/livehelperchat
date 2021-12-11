@@ -24,6 +24,8 @@
     <div id="trigger-list-id"></div>
 </div>
 
+<p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.');?></i></small></p>
+
 <script>    
     $('select[name="AbstractInput_bot_id"]').change(function(){
         $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val(), { }, function(data) {
