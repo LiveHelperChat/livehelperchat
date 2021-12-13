@@ -30,6 +30,7 @@ try {
             $presentSurvey->chat_id = $chat->id;
             $presentSurvey->survey_id = $survey->id;
             $presentSurvey->dep_id = $chat->dep_id;
+            $presentSurvey->user_id = $chat->user_id;
             $presentSurvey->ftime = time();
         }
 
@@ -45,7 +46,7 @@ try {
         }
 
         foreach ($requestBody as $attr => $value) {
-            if (in_array($attr,['ftime','status'])) {
+            if (in_array($attr,['ftime','status','user_id','dep_id'])) {
                 $presentSurvey->{$attr} = $value;
             }
         }
