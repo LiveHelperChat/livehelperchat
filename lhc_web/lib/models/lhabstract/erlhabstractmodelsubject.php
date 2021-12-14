@@ -16,7 +16,9 @@ class erLhAbstractModelSubject {
     {
         $stateArray = array(
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'internal' => $this->internal,
+            'internal_type' => $this->internal_type
         );
 
         return $stateArray;
@@ -141,7 +143,8 @@ class erLhAbstractModelSubject {
 
     }
 
-
     public $id = null;
     public $name = '';
+    public $internal_type = '';
+    public $internal = 0;
 }
