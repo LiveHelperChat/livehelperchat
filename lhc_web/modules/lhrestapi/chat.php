@@ -21,6 +21,26 @@ try
             throw new Exception(implode("\n",$outputResponse['errors']));
         }
 
+        if (isset($requestBody['main_attr']) && is_array($requestBody['main_attr'])) {
+            $userData = erLhcoreClassRestAPIHandler::getUser();
+            $updated = false;
+            foreach ($requestBody['main_attr'] as $attr => $valueAttr) {
+                if ($attr == 'status') {
+                    erLhcoreClassChatHelper::changeStatus(array(
+                        'user' => $userData,
+                        'chat' => $chat,
+                        'status' => $valueAttr,
+                        'allow_close_remote' => erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'allowcloseremote')
+                    ));
+                } elseif ($attr != 'id') { // we never update ID
+                    $chat->{$attr} = $valueAttr;
+                    $updated = true;
+                }
+            }
+            
+            $chat->updateThis();
+        }
+
 
     } else if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         $chat = erLhcoreClassModelChat::fetch((int)$Params['user_parameters']['id']);

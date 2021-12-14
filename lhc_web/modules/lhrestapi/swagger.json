@@ -4467,7 +4467,10 @@
         "fields": {
           "$ref": "#/definitions/NewChatFields"
         },
-        "messages": {
+       "main_attr": {
+          "$ref": "#/definitions/Chat"
+       },
+       "messages": {
           "type": "array",
           "default": "name",
           "required": false,
@@ -4502,6 +4505,9 @@
           },
           "chat_variables" : {
               "UUID" : "Just some internal variable"
+          },
+         "main_attr" : {
+              "remarks" : "This is main attribute update"
           },
           "additional_data" : [
               {
