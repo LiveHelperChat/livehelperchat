@@ -60,10 +60,16 @@
 
             <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
                 <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat was closed. You can not write messages anymore.')?>
-            <?php elseif ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?><?php if (isset($writeRemoteDisabled) && $writeRemoteDisabled === true) : ?>
-                <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You can only read a messages.')?>
+            <?php elseif ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?>
+
+               <?php if (isset($writeRemoteDisabled) && $writeRemoteDisabled === true) : ?>
+                    <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You can only read a messages.')?>
+                <?php else : ?>
+                    <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?>
+                <?php endif;?>
+
             <?php else : ?>
-                <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?><?php endif;?><?php else :?><?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash. You can drop files here.')?>
+                <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash. You can drop files here.')?>
             <?php endif;?>
 
 		    <textarea <?php !erLhcoreClassChat::hasAccessToWrite($chat) || ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID() && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','writeremotechat') && $writeRemoteDisabled = true) ? print 'readonly="readonly"'  : '' ?> title="<?php echo $placeholderValue?>" placeholder="<?php echo $placeholderValue?>" class="form-control form-control-sm form-send-textarea form-group<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?> form-control-warning<?php endif;?>" rows="2" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>

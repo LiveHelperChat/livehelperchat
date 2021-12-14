@@ -1418,6 +1418,10 @@ class erLhcoreClassChat {
 
    public static function hasAccessToWrite($chat)
    {
+        if ($chat->user_id > 0 && ($currentUser = erLhcoreClassUser::instance()) && $currentUser->isLogged() && $currentUser->getUserID() == $chat->user_id) {
+            return true;
+        }
+
         $dep = erLhcoreClassUserDep::getUserReadDepartments();
         return !in_array($chat->dep_id, $dep);
    }

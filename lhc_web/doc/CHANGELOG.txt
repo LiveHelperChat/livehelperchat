@@ -1,3 +1,21 @@
+3.91v
+
+1. Survey API. See a swagger survey section.
+2. Fix tricky case if manager is monitoring a chat and chat being transferred to him, chat was not auto accepted. It will be now.
+3. Mobile app now supports android notifications categories.
+4. Further 8.1 PHP support improvements.
+5. System tab will be remembered now on refresh.
+6. If proactive invitation is used with bot append option we should not show next time invitation once a visitor closes it.
+7. SVG Cleanup on upload for security reasons.
+8. Operators statistic directly in online operators widget.
+9. Department statistic link directly in pending/active chats widget.
+10. CSRF token for logout link.
+11. We now have zoom image option directly in the chat widget.
+12. Pre chat conditions.
+
+execute doc/update_db/update_263.sql for update
+
+
 3.90v
 
 Widget theme table columns type changes. On some MySQL servers it was returning that row size to big.

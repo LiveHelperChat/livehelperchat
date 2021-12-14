@@ -12,6 +12,7 @@ $fields = array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Alias for argument. No spaces or slashes.'),
    						'required' => false,
+                    'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -26,6 +27,7 @@ $fields = array(
    						'type' => 'text',
                         'main_attr_lang' => 'bot_configuration_array',
                         'translatable' => true,
+                        'hidden' => true,
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat status if customer is chatting with a bot'),
                         'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Chat status if customer is chatting with a bot'),
    						'required' => false,
@@ -34,6 +36,7 @@ $fields = array(
    						)),
                     'icons_order' => array(
    						'type' => 'text',
+                        'hidden' => true,
                         'main_attr' => 'bot_configuration_array',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Header icons order. _print is optional and indicates we should also print a text after an icon'),
                         'placeholder' => 'left_close<_print>,right_min,right_popup',
@@ -210,6 +213,7 @@ $fields = array(
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Online status text [old widget]'),
    						'required' => false,
    						'nginit' => true,
+                    'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
@@ -217,6 +221,7 @@ $fields = array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Offline status text [old widget]'),
    						'required' => false,
+                        'hidden' => true,
    						'nginit' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
