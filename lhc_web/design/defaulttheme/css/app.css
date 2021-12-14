@@ -1647,6 +1647,10 @@ input[type="file"]{
     font-size:13px!important;
 }
 
+.mail-message-body img{
+    max-width: 100%;
+}
+
 .mail-message-body blockquote{
     margin: 0px 0px 0px 0.8ex;
     border-left-width: 1px;
