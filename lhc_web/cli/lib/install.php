@@ -1650,7 +1650,7 @@ class Install
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `internal` tinyint(1) NOT NULL DEFAULT 0,
-  `internal_type` varchar(10) NOT NULL DEFAULT '',
+  `internal_type` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `internal` (`internal`),
   KEY `internal_type` (`internal_type`)
