@@ -1797,7 +1797,17 @@ try {
 
                     $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-                    $db->query("CREATE TABLE `lh_abstract_subject` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                    $db->query("CREATE TABLE `lh_abstract_subject` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `internal` tinyint(1) NOT NULL DEFAULT 0,
+  `internal_type` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `internal` (`internal`),
+  KEY `internal_type` (`internal_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_abstract_subject_dep` ( `id` int(11) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `subject_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `subject_id` (`subject_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_abstract_subject_chat` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `subject_id` int(11) NOT NULL, `chat_id` bigint(20) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_group_object` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `object_id` bigint(20) NOT NULL, `group_id` bigint(20) NOT NULL, `type` bigint(20) NOT NULL, PRIMARY KEY (`id`), KEY `object_id_type` (`object_id`,`type`), KEY `group_id` (`group_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
