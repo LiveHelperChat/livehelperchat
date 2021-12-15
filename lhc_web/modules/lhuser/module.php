@@ -149,8 +149,7 @@ $ViewList['setinactive'] = array (
 
 $ViewList['wentinactive'] = array (
     'functions' => array( 'changeonlinestatus' ),
-    'params' => array(),
-    'uparams' => array('csfr')
+    'params' => array()
 );
 
 $ViewList['setinvisible'] = array (
