@@ -58,6 +58,12 @@ $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()-
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dashboardwidgets',array('supported_widgets' => & $supportedWidgets));
 
 if (ezcInputForm::hasPostData()) {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        die('Invalid CSRF Token');
+        exit;
+    }
+
     $definition = array(
         'WidgetsUser' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY),
         'ColumnNumber' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),

@@ -3394,11 +3394,11 @@ function lh(){
         }
 
     	if (inst.text() == 'volume_off'){
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
+    		$.post(this.wwwDir + 'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_admin_enabled = 1;
     		inst.text('volume_up');
     	} else {
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
+    		$.post(this.wwwDir + 'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_admin_enabled = 0;
     		inst.text('volume_off');
     	}
@@ -3412,11 +3412,11 @@ function lh(){
         }
 
     	if (inst.text() == 'volume_off'){
-    		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
+    		$.post(this.wwwDir+  'user/setsettingajax/new_chat_sound/1');
     		confLH.new_chat_sound_enabled = 1;
     		inst.text('volume_up');
     	} else {
-    		$.get(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
+    		$.post(this.wwwDir+  'user/setsettingajax/new_chat_sound/0');
     		confLH.new_chat_sound_enabled = 0;
     		inst.text('volume_off');
     	}
@@ -3424,11 +3424,11 @@ function lh(){
     };
 
     this.changeUserSettings = function(attr,value){
-    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
+    	$.post(this.wwwDir+  'user/setsettingajax/'+attr+'/'+value);
     };
 
-    this.changeUserSettingsIndifferent = function(attr,value){
-    	$.get(this.wwwDir+  'user/setsettingajax/'+attr+'/'+encodeURIComponent(value)+'/(indifferent)/true');
+    this.changeUserSettingsIndifferent = function(attr,value) {
+    	$.post(this.wwwDir+  'user/setsettingajax/'+attr+'/'+encodeURIComponent(value)+'/(indifferent)/true');
     };
 
 	this.switchToOfflineForm = function(){
@@ -3468,11 +3468,11 @@ function lh(){
     this.disableChatSoundUser = function(inst)
     {
     	if (inst.find('> i').text() == 'volume_off') {
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/1');
+    		$.post(this.wwwDir+  'user/setsettingajax/chat_message/1');
     		confLH.new_message_sound_user_enabled = 1;
     		inst.find('> i').text('volume_up');
     	} else {
-    		$.get(this.wwwDir+  'user/setsettingajax/chat_message/0');
+    		$.post(this.wwwDir+  'user/setsettingajax/chat_message/0');
     		confLH.new_message_sound_user_enabled = 0;
     		inst.find('> i').text('volume_off');
     	};
@@ -4560,6 +4560,10 @@ window.onfocus = window.onblur = function(e) {
 };
 
 window.lhcSelector = null;
+
+$( document ).ready(function() {
+    lhinst.protectCSFR();
+})
 
 /*Helper functions*/
 function chatsyncuser()

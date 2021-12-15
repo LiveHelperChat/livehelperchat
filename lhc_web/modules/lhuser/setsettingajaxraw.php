@@ -5,12 +5,11 @@
 try {
     // Start session if required only
     $currentUser = erLhcoreClassUser::instance();
-    
-    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-        echo json_encode(array('error' => 'true', 'result' => 'Invalid CSRF Token' ));
-        exit;
+
+    if ($currentUser->isLogged() && (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']))) {
+        throw new Exception('Invalid CSFR Token');
     }
-	
+
     $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);
     
     // Never trust user input    
@@ -18,7 +17,7 @@ try {
     exit;
     
 } catch (Exception $e){
-	print_r($e);
+
 }
 
 exit;

@@ -12,7 +12,7 @@ $ViewList['default'] = array(
 
 $ViewList['settings'] = array(
     'params' => array(),
-    'uparams' => array('action'),
+    'uparams' => array('action','csfr'),
     'functions' => array( 'use' )
 );
 
@@ -25,8 +25,8 @@ $ViewList['tabs'] = array(
 
 $ViewList['switchdashboard'] = array(
     'params' => array(),
-    'uparams' => array('action'),
-    'functions' => array('use'),
+    'uparams' => array('action','csfr'),
+    'functions' => array('use')
 );
 
 $FunctionList['use'] = array('explain' => 'General frontpage use permission');  

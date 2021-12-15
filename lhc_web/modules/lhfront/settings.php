@@ -1,8 +1,19 @@
 <?php
 
 if ($Params['user_parameters_unordered']['action'] == 'reset') {
+
+    if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+        die('Invalid CSFR Token');
+        exit;
+    }
+
     erLhcoreClassModelUserSetting::setSetting('dw_filters', '{}', false, true);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
+
+if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+    echo json_encode(true);
     exit;
 }
 
