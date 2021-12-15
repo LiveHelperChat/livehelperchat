@@ -3,6 +3,11 @@
 $currentUser = erLhcoreClassUser::instance();
 $userData = $currentUser->getUserData(true);
 
+if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+    echo json_encode(array('error' => true, 'active' => true));
+    exit;
+}
+
 // We have to check is operator really inactive or it's just a tab trying to set inactive mode
 if ($Params['user_parameters']['status'] == 'true') {
     $activityTimeout = erLhcoreClassModelUserSetting::getSetting('trackactivitytimeout',-1);

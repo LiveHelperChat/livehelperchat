@@ -3,8 +3,13 @@
 // Make sure that we support variable which is setting now
 // It was possible in another portal to cheat, and overload server without this type of checking
 try {
-	// Start session if required only
-	$currentUser = erLhcoreClassUser::instance();
+
+    // Start session if required only
+    $currentUser = erLhcoreClassUser::instance();
+
+    if ($currentUser->isLogged() && (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']))) {
+        throw new Exception('Invalid CSFR Token');
+    }
 
 	if ($Params['user_parameters']['identifier'] != 'online_connected') {
         $settingHandler = erLhcoreClassModelUserSettingOption::fetch($Params['user_parameters']['identifier']);

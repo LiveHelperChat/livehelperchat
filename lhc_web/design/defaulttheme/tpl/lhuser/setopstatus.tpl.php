@@ -20,6 +20,8 @@
 
             <form action="<?php echo erLhcoreClassDesign::baseurl('user/setopstatus')?>/<?php echo $user->id ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
+                <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
                 <div class="form-group">
                     <p><b><?php echo htmlspecialchars($user->name_official);?></b> <?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','online status')?><br></p>
                     <label><input type="radio" name="onlineStatus" value="0" <?php $user->hide_online == 1 ? print 'checked="checked"' : ''?>> <?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Offline')?></label><br>

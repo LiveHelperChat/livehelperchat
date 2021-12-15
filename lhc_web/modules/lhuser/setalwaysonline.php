@@ -6,6 +6,10 @@ $db = ezcDbInstance::get();
 try {
     $db->beginTransaction();
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSFR Token');
+    }
+
     $currentUser = erLhcoreClassUser::instance();
     $userData = $currentUser->getUserData(true);
 

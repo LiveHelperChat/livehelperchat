@@ -119,12 +119,13 @@ $ViewList['remindpassword'] = array(
 );
 
 $ViewList['setsetting'] = array (
-		'params' => array('identifier','value')
+		'params' => array('identifier','value'),
+        'uparams' => array('csfr')
 );
 
 $ViewList['setsettingajax'] = array (
-		'params' => array('identifier','value'),
-		'uparams' => array('indifferent')
+        'params' => array('identifier','value'),
+        'uparams' => array('indifferent')
 );
 
 $ViewList['setsettingajaxraw'] = array (
