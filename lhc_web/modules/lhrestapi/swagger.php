@@ -23,10 +23,20 @@ $content = ob_get_clean();
 $append_definitions = '';
 $append_paths = '';
 $chats_parameters = '';
+$elastic_definition = '';
+$elastic_mail = '';
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array('append_definitions' => & $append_definitions, 'append_paths' => & $append_paths, 'chats_parameters' => & $chats_parameters));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', array(
+    'elastic_mail_definition' => & $elastic_mail,
+    'elastic_definition' => & $elastic_definition,
+    'append_definitions' => & $append_definitions,
+    'append_paths' => & $append_paths,
+    'chats_parameters' => & $chats_parameters));
 
-echo str_replace(array('{{base_path}}','{{ts}}','{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}'),array(erLhcoreClassDesign::baseurldirect(),time(),$_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters), $content);
+echo str_replace(
+    array('{{base_path}}','{{ts}}','{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}','{{append_elastic_definitions}}','{{append_elastic_mail_definitions}}'),
+    array(erLhcoreClassDesign::baseurldirect(),time(),$_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters,$elastic_definition,$elastic_mail)
+    , $content);
 
 exit;
 
