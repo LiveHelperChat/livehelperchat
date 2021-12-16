@@ -11,6 +11,9 @@ try {
         'chat_id' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'int'
         ),
+        'user_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
         'msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         ),
@@ -52,6 +55,15 @@ try {
                     $messageUserId = $userData->id;
                 } else {
                     $messageUserId = -2;
+                }
+
+                if ($form->hasValidData('user_id')) {
+                    $messageUserId = $form->user_id;
+                    $userData = erLhcoreClassModelUser::fetch($messageUserId);
+
+                    if (!($userData instanceof erLhcoreClassModelUser)) {
+                        throw new Exception('Operator with provided user_id could not be found!');
+                    }
                 }
 
                 $msgText = trim($form->msg);

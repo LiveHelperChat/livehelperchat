@@ -44,7 +44,6 @@ class erLhcoreClassFileUpload extends UploadHandler
 
         if (!preg_match($this->options['accept_file_types_lhc'], $uploadFileName)) {
             $file->error = $this->get_error_message('accept_file_types');
-            return false;
         }
 
         if (isset($this->options['antivirus']) && $this->options['antivirus'] !== false && is_object($this->options['antivirus']) && !$this->options['antivirus']->scan(realpath($this->options['upload_dir'] . $file->name))) {
@@ -82,7 +81,7 @@ class erLhcoreClassFileUpload extends UploadHandler
                 $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
-            if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jpg', 'jpeg', 'png', 'gif'))) {
+            if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
                 erLhcoreClassFileUploadAdmin::removeExif($fileUpload->file_path_server, $fileUpload->file_path_server . '_exif');
                 unlink($fileUpload->file_path_server);
                 rename($fileUpload->file_path_server . '_exif', $fileUpload->file_path_server);
