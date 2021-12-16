@@ -6,6 +6,11 @@ try {
 	// Start session if required only
 	$currentUser = erLhcoreClassUser::instance();
 
+    if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+        die('Invalid CSFR Token');
+        exit;
+    }
+
     $userSetting = erLhcoreClassModelUserSetting::findOne(array('filter' => array('user_id' => $currentUser->getUserID(), 'identifier' => $Params['user_parameters']['identifier'])));
 
     $supportedValue = false;

@@ -7,6 +7,11 @@ try {
     $db->beginTransaction();
 
     $currentUser = erLhcoreClassUser::instance();
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSFR Token');
+    }
+
     $userData = $currentUser->getUserData(true);
 
     if ($Params['user_parameters']['status'] == 'false') {

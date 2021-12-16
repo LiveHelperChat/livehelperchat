@@ -4,6 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhuser/setopstatus.tpl.php');
 $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['user_id']);
 
 if (ezcInputForm::hasPostData()) {
+
     $definition = array(
         'onlineStatus' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     );
@@ -21,6 +22,10 @@ if (ezcInputForm::hasPostData()) {
 
     try {
         $db->beginTransaction();
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            throw new Exception('CSFR Token is missing');
+        }
 
         $user->hide_online = $status;
 

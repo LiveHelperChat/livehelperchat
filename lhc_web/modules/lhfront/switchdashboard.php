@@ -1,5 +1,10 @@
 <?php
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    die('Invalid CSFR Token');
+    exit;
+}
+
 $identifier = 'new_dashboard';
 $defaultValue = 1;
 

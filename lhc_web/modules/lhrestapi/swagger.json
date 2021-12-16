@@ -3450,7 +3450,83 @@
     }
   },
   "definitions": {
-{{append_definitions}}"Chat": {
+{{append_definitions}}"ElasticChat": {
+      "type": "object",
+      "description": "If you are using ElasticSearch extension. In addition to a Chat fields you will have these attributes available.",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Same as main chat ID",
+          "example": null
+        },
+        "location": {
+          "type": "geo",
+          "description": "ElasticSearch location attribute",
+          "example": null
+        },
+        "time": {
+          "type": "integer",
+          "description": "ElasticSearch time attribute",
+          "example": 1639632860000
+        },
+        "pnd_time": {
+          "type": "integer",
+          "description": "ElasticSearch time attribute",
+          "example": 1639632860000
+        },
+        "cls_time": {
+          "type": "integer",
+          "description": "ElasticSearch time attribute",
+          "example": 1639632860000
+        },
+        "abnd": {
+          "type": "integer",
+          "description": "Abandoned chat",
+          "example": 0
+        },
+        "drpd": {
+          "type": "integer",
+          "description": "Dropped chat",
+          "example": 0
+        },
+        "subject_id": {
+          "type": "array",
+          "description": "Holds an array of of assigned subjects id's. Array of numbers",
+          "example": [1,2]
+        },
+        "hour": {
+          "type": "integer",
+          "description": "Chat start hour in UTC time zone.",
+          "example": 12
+        },
+        "msg_visitor": {
+          "type": "integer",
+          "description": "Contains only visitor messages text",
+          "example": null
+        },
+        "msg_operator": {
+          "type": "integer",
+          "description": "Contains only operator messages text",
+          "example": null
+        },
+        "msg_system": {
+          "type": "integer",
+          "description": "Contains only system messages text",
+          "example": null
+        },
+        "hvf": {
+          "type": "integer",
+          "description": "Has uploaded file from visitor",
+          "example": null
+        },
+        "hof": {
+          "type": "integer",
+          "description": "Has uploaded file from operator",
+          "example": null
+        }{{append_elastic_definitions}}
+    }
+        },
+   "Chat": {
       "type": "object",
       "properties": {
         "id": {
@@ -3957,7 +4033,7 @@
         "u" : 1,
         "l" : "admin",
         "r" : "front/default",
-        "t" : 60,
+        "t" : 60
       }
     },
    "User": {
@@ -4706,6 +4782,544 @@
           "default": "name",
           "required": false,
           "description": "Operator nick"
+        }
+      }
+    },
+    "MailConversation": {
+      "type": "object",
+      "description": "Main thread attributes. Each mail thread get's it's own conversation. This module is not released and will be released on 2024-01-01",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Conversation ID"
+        },
+        "remarks": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Remarks of the conversation"
+        },
+        "date": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "DAte format in human readable format. This come from first mail in the thread."
+        },
+        "from_address": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "From what e-mail mail was send."
+        },
+        "from_name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Sender e-mail"
+        },
+        "body": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Mail body in plain text format."
+        },
+        "subject": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Very first mail subject"
+        },
+        "mail_variables": {
+          "type": "string",
+          "default": "name",
+          "required": false,
+          "description": "Stores additional covnersation attributes in JSON format. This is used by extensions."
+        },
+        "transfer_uid": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Stores the user ID who transfered the conversation."
+        },"start_type": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Start type of the conversatin. Indicates who started a mail thread. Was is our send e-mail or received e-mail. const START_IN = 0; const START_OUT = 1;"
+        },"lr_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Stores time last time was responded in this thread by us."
+        },"ctime": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time when conversation was created."
+        },"user_id": {
+          "type": "integer",
+          "default": "0",
+          "required": false,
+          "description": "Operator ID whom belongs current conversation."
+        },"status": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Status of the conversation. const STATUS_PENDING = 0; const STATUS_ACTIVE = 1; const STATUS_CLOSED = 2;"
+        },"last_message_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Stores last mail messages id received in the thread."
+        },"mailbox_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Stores mailbox id"
+        },"message_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Stores very first message id received in the conversation."
+        },"priority": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Stores priority of the conversation. This comes from defined matching rule."
+        },"priority_asc": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Reverse value of priority for efficient sorting and database indexes."
+        },"udate": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time when server created mail covnersation. Unix timestamp."
+        },"total_messages": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Stores number of total messages in the conversation."
+        },"match_rule_id": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Stores ID of matching rule applied"
+        },"cls_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Close time of the conversation"
+        },"pnd_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Stores time since conversation become pending."
+        },"wait_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Defines how long conversation was in pending state before it was accepted. accept_time - pnd_time"
+        },"accept_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time when conversation was accepted."
+        },"response_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "How long chat was in active state before it was responded. [lr_time - accept_time]"
+        },"interaction_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Is time between the agent accepting a and closing e-chat. [cls_time - accept_time]"
+        },"tslasign": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time since last assignment happened."
+        },"conv_duration": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Conversation duration. It's difference between messages received at and responded at times."
+        },"follow_up_id": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Previous conversation id. If conversation is closed and can't be reopened. This holds parent conversation id."
+        },"has_attachment": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Holds what type of attachements conversation has. const ATTACHMENT_EMPTY = 0;const ATTACHMENT_INLINE = 1;const ATTACHMENT_FILE = 2;const ATTACHMENT_MIX = 3;"
+        },"undelivered": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Was this an undelivered mail. 0 - no, 1 - yes."
+        },"pending_sync": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "If operator sends an e-mail and we are waiting for background process to fetch it."
+        }
+      }
+    },
+    "MailMessageElastic": {
+      "type": "object",
+      "description": "Additional mail messages attributes in elastic search",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Mail message ID"
+        },
+        "body": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "HTML body after strip_tags applies"
+        },
+        "to_data": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "covnerted to keywords"
+        },
+        "reply_to_data": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "covnerted to keywords"
+        },
+        "cc_data": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "covnerted to keywords"
+        },
+        "bcc_data": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "covnerted to keywords"
+        },
+        "cls_time": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "unix timestam in elastic search format unixtimestamp * 1000"
+        },"accept_time": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "unix timestam in elastic search format unixtimestamp * 1000"
+        },"lr_time": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "unix timestam in elastic search format unixtimestamp * 1000"
+        },"delivery_status": {
+          "type": "string",
+          "default": null,
+          "required": false,
+          "description": "covnerted to keywords"
+        },"conv_user_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Covnersation user ID"
+        },
+          "status_conv": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Covnersation status attribute"
+        },"start_type": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Covnersation start_type attribute"
+        },"mail_variables": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Covnersation mail_variables attribute"
+        },"follow_up_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Covnersation follow_up_id attribute"
+        },"subject_id": {
+          "type": "array",
+          "default": null,
+          "example": [0,1],
+          "required": false,
+          "description": "array of assigned subjects. Array of integers"
+        },"hour": {
+          "type": "integer",
+          "default": null,
+          "example": 12,
+          "required": false,
+          "description": "Hour in UTC timezome message was received"
+        }{{append_elastic_mail_definitions}}
+      }
+    },
+    "MailMessage": {
+      "type": "object",
+      "description": "Mail message attributes. Each mail thread get's it's own conversation. This module is not released and will be released on 2024-01-01",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Mail message ID"
+        },
+        "status": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Status of the mail message. const STATUS_PENDING = 0; const STATUS_ACTIVE = 1;const STATUS_RESPONDED = 2;"
+        },
+        "conversation_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "To what conversation/thread this mail message belongs to."
+        },
+        "message_id": {
+          "type": "string",
+          "default": "",
+          "example": "<CAFs-aWEdgF80YUrkVtR5Pkq4r4T15qowxQYj4xX4dmpZiWtgpw@mail.gmail.com>",
+          "required": false,
+          "description": "Message id from the sever."
+        },
+        "in_reply_to": {
+          "type": "string",
+          "default": "",
+          "example": "<CAFs-aWEdgF80YUrkVtR5Pkq4r4T15qowxQYj4xX4dmpZiWtgpw@mail.gmail.com>",
+          "required": false,
+          "description": "Stores to what message it was a reply."
+        },
+        "subject": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Subject of the message"
+        },
+        "body": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "HTML Body"
+        },
+        "alt_body": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Plain body in text"
+        },
+        "references": {
+          "type": "string",
+          "default": "",
+          "example": "<CAFs-aWH2-AgghVndxHW7n+oM_m2mOb6cnKgqBtUUNcHFKgJQ1A@mail.gmail.com> <hZWUY8EYQEKfllEVLSUNKWyiI7pygH8fVLEp0A3nXfQ@devmysql.livehelperchat.com>",
+          "required": false,
+          "description": "To what mail message this particular message is related to."
+        },"ctime": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time when message was created on our server in unix timestamp format."
+        },"udate": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Message original received time on the mail server in unix timestamp format."
+        },"date": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Time in human readable format."
+        },"flagged": {
+          "type": "integer",
+          "default": "0",
+          "required": false,
+          "description": "Mail message original attribute."
+        },"recent": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Mail message original attribute."
+        },"msgno": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Messages number attribute from the IMAP server."
+        },"uid": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Unique message ID from the mail server."
+        },"size": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Mail size in bytes."
+        },"from_host": {
+          "type": "string",
+          "default": "",
+          "example": "gmail.com",
+          "required": false,
+          "description": "From what host mail received."
+        },"from_name": {
+          "type": "string",
+          "default": "",
+          "example": "Remigijus Kiminas",
+          "required": false,
+          "description": "From what name mail received"
+        },"from_address": {
+          "type": "string",
+          "default": "",
+          "example": "info@livehelperchat.com",
+          "required": false,
+          "description": "From what e-mail mail received."
+        },"sender_host": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "From what host e-mail was send."
+        },"sender_name": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Snder name. Most of the time it matches from_name"
+        },"sender_address": {
+          "type": "string",
+          "default": "",
+          "example": "remdex@gmail.com",
+          "required": false,
+          "description": "Sender address."
+        },"to_data": {
+          "type": "string",
+          "default": "",
+          "example": "{\"info@livehelperchat.com\":\"Live Helper Chat\"}",
+          "required": false,
+          "description": "Stores to whom this mail message was send. JSON format"
+        },"reply_to_data": {
+          "type": "string",
+          "default": "",
+          "example": "{\"info@livehelperchat.com\":\"Live Helper Chat\"}",
+          "required": false,
+          "description": "To whom this mail message should be replied to. JSON format"
+        },"mailbox_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "To what mailbox this message belongs to."
+        },
+        "response_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "How long chat was in accepted state before it was responded.  [lr_time - accept_time];"
+        },
+        "cls_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Time conversation was closed."
+        },
+          "wait_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "how long chat was in pending before it was accepted. [pnd_time - accept_time]"
+        },
+          "accept_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Time when chat was accepted. During sync our send messages get's accept_time as soon they were received. Accept time is the one operator opens in or clicks reply"
+        },"interaction_time": {
+          "type": "integer",
+          "default": "name",
+          "required": false,
+          "description": "Is time between the agent accepting a and closing e-chat."
+        },"user_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Operator ID"
+        },"lr_time": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Time when we send a response to the message."
+        },
+        "response_type": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "const RESPONSE_UNRESPONDED = 0;// Normal response by sending mail back.                    const RESPONSE_NOT_REQUIRED = 1;   // Visitor just send thank you message.          const RESPONSE_INTERNAL = 2;       // We have send this message as reply or forward const RESPONSE_NORMAL = 3;         // To this message was responded by us."
+        },"bcc_data": {
+          "type": "string",
+          "default": "",
+          "example": "{\"info@livehelperchat.com\":\"Live Helper Chat\"}",
+          "required": false,
+          "description": "BCC Data in json format."
+        },"cc_data": {
+          "type": "string",
+          "default": "",
+          "example": "{\"info@livehelperchat.com\":\"Live Helper Chat\"}",
+          "required": false,
+          "description": "If operator sends an e-mail and we are waiting for background process to fetch it."
+        },"dep_id": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Department ID"
+        },"mb_folder": {
+          "type": "string",
+          "default": "",
+          "example": "{mail.livehelperchat.com:993/imap/ssl}Sent",
+          "required": false,
+          "description": "From what mailbox this mail message was imported."
+        },"conv_duration": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "// How long visitor had to wait for an answer // Raw time un-till response was send [time() - $mail->ctime];"
+        },"has_attachment": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Mail message attatchements indication.   const ATTACHMENT_EMPTY = 0;const ATTACHMENT_INLINE = 1;const ATTACHMENT_FILE = 2;const ATTACHMENT_MIX = 3;"
+        },"rfc822_body": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "If mail was undelivered this holds undelivered message body."
+        },"delivery_status": {
+          "type": "string",
+          "default": "",
+          "required": false,
+          "description": "Stores delivery status in JSON format."
+        },"undelivered": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Was this message undelivered."
+        },"priority": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "Priority from matching rule."
         }
       }
     },
