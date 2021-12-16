@@ -78,7 +78,7 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
                 $file->size = $fileUpload->size = filesize($fileUpload->file_path_server);
             }
 
-            if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jpg', 'jpeg', 'png', 'gif'))) {
+            if (isset($this->options['remove_meta']) && $this->options['remove_meta'] == true && in_array($fileUpload->extension, array('jfif','jpg', 'jpeg', 'png', 'gif'))) {
                 self::removeExif($fileUpload->file_path_server, $fileUpload->file_path_server . '_exif');
                 unlink($fileUpload->file_path_server);
                 rename($fileUpload->file_path_server . '_exif', $fileUpload->file_path_server);

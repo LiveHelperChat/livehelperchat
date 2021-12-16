@@ -836,7 +836,7 @@ class erLhcoreClassBBCode
                     // Check that user has permission to see the chat. Let say if user purposely types file bbcode
                     if ($hash == $file->security_hash) {
                         $fileExtension = strtolower($file->extension);
-                        if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'gif'){
+                        if (in_array($fileExtension,['jfif','jpg','jpeg','png','gif'])){
 
                             // Make link if required
                             $prepend = '';
@@ -863,12 +863,10 @@ class erLhcoreClassBBCode
                         }
 
                         $audio = '';
-                        if ($fileExtension == 'mp3' || $fileExtension == 'wav' || $fileExtension == 'ogg' || $fileExtension == 'oga') {
+                        if (in_array($fileExtension,['mp3','wav','ogg','oga'])) {
                             return '<a rel="noreferrer" class="hidden-download audio-download" href="'. self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}".'"></a><audio preload="none" style="width: 230px" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" type="' . $file->type . '"></audio>';
-                        } elseif ($fileExtension == 'mp4' || $fileExtension == 'avi' || $fileExtension == 'mov' || $fileExtension == 'ogg' || $fileExtension == '3gpp') {
+                        } elseif (in_array($fileExtension,['mp4','avi','mov','ogg','3gpp'])) {
                             $audio = '<br><div class="embed-responsive embed-responsive-16by9"><video class="embed-responsive-item" controls><source src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '"></video></div>';
-                        } else if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png') {
-                            $audio = ' <a rel="noreferrer" class="link" onclick="$(\'#img-file-' . $file->id . '\').toggleClass(\'hide\')"><i class="material-icons mr-0">&#xE251;</i></a><br/><img id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" onclick="lhinst.zoomImage()" class="action-image img-fluid hide" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                         }
 
                         return "<a href=\"" . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}\" target=\"_blank\" rel=\"noreferrer\" class=\"link\" >" . erTranslationClassLhTranslation::getInstance()->getTranslation('file/file', 'Download file') . ' - ' . htmlspecialchars($file->upload_name) . ' [' . $file->extension . ']' . "</a>" . $audio;
