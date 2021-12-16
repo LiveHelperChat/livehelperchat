@@ -2177,7 +2177,7 @@ function lh(){
         if (this.scrollLoading == false) {
             this.scrollLoading = true;
             var _that = this;
-            $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial'), function(data) {
+            $.getJSON(this.wwwDir + 'chat/loadpreviousmessages/' + inst.attr('chat-id') + '/' + inst.attr('message-id') + '/(initial)/' + inst.attr('data-initial') + '/(original)/' + inst.attr('chat-original-id'), function(data) {
                 if (data.error == false) {
 
                     inst.attr('data-initial',0);
