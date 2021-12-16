@@ -1012,6 +1012,13 @@
             "type": "string"
           },
           {
+            "name": "user_id",
+            "in": "formData",
+            "description": "Override Rest API user ID with a provided one.",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "name": "msg",
             "in": "formData",
             "description": "Message",
