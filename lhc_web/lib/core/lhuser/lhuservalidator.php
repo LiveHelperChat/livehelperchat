@@ -177,7 +177,7 @@ class erLhcoreClassUserValidator {
 		}
 		
 		if ( $form->hasValidData( 'Skype' ) && $form->Skype != '') {
-			$userData->skype = $form->Skype;
+			$userData->skype = mb_substr($form->Skype,0,50);
 		} else {
 			$userData->skype = '';
 		}
@@ -915,7 +915,7 @@ class erLhcoreClassUserValidator {
 		
 		if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','changeskypenick') ) {
 			if ( $form->hasValidData( 'Skype' ) && $form->Skype != '' ) {
-				$userData->skype = $form->Skype;
+				$userData->skype = mb_substr($form->Skype,0,50);
 			} else {
 				$userData->skype = '';
 			}

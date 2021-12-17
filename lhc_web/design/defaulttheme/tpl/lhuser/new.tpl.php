@@ -28,17 +28,17 @@
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','E-mail');?></label>
-		  <input type="text" class="form-control" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
+		  <input type="text" ng-non-bindable class="form-control" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
 		</div>
 					
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
-		  <input type="password" class="form-control" autocomplete="new-password" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
+		  <input type="password" ng-non-bindable class="form-control" autocomplete="new-password" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
 		</div>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?></label>
-		  <input type="password" class="form-control" autocomplete="new-password" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
+		  <input type="password" ng-non-bindable class="form-control" autocomplete="new-password" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
 		</div>
 
         <div class="form-group">
@@ -47,22 +47,22 @@
 
 		<div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Chat nickname');?></label>
-			<input type="text" class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
+			<input type="text" class="form-control" ng-non-bindable name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
 		</div>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Name');?></label>
-		  <input class="form-control" type="text" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
+		  <input class="form-control" ng-non-bindable type="text" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
 		</div>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Surname');?></label>
-		  <input class="form-control" type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
+		  <input class="form-control" ng-non-bindable type="text" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
 		</div>
 		
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
-		  <input type="text" class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
+		  <input type="text" ng-non-bindable class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
 		</div>
 		
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
@@ -87,11 +87,11 @@
 		<div class="row form-group">
 			<div class="col-md-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
-				<input class="form-control" type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
+				<input class="form-control" ng-non-bindable maxlength="50" type="text" name="Skype" value="<?php echo htmlspecialchars($user->skype);?>"/>
 			</div>
 			<div class="col-md-6">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','XMPP username');?></label>
-				<input class="form-control" type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
+				<input class="form-control" ng-non-bindable type="text" name="XMPPUsername" value="<?php echo htmlspecialchars($user->xmpp_username);?>"/>
 			</div>
 		</div>
 
