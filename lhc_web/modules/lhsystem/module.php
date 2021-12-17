@@ -36,7 +36,8 @@ $ViewList['usersactions'] = array(
 
 $ViewList['expirecache'] = array(
     'params' => array(),
-    'functions' => array( 'expirecache' )
+    'functions' => array( 'expirecache' ),
+    'uparams' => array('csfr')
 );
 
 $ViewList['smtp'] = array(
