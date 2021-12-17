@@ -87,10 +87,10 @@ if (isset($_POST['Login']))
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces wargning...
+            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Some hostings produces warning...
             $res = curl_exec($ch);
 
-            $res 		= json_decode($res,true);
+            $res = json_decode($res,true);
 
             if (!(isset($res['success']) && $res['success'] == 1 && isset($res['score']) && $res['score'] >= 0.1 && $res['action'] == 'login_action')) {
                 $valid = false;
