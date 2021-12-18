@@ -1,10 +1,28 @@
 <?php
 
-header('X-Frame-Options: DENY');
+/*header('X-Frame-Options: DENY');*/
+
+$crossDomainCookie = false;
+
+if (
+    (isset($_GET['cookie']) && $_GET['cookie'] == 'crossdomain') ||
+    (isset($_POST['cookie']) && $_POST['cookie'] == 'crossdomain')
+) {
+    @ini_set('session.cookie_samesite', 'None');
+    @ini_set('session.cookie_secure', true);
+    $crossDomainCookie = true;
+}
 
 $isExternalRequest = (isset($Params['user_parameters_unordered']['external_request'])) ? true : false;
 
 $currentUser = erLhcoreClassUser::instance();
+
+// We want cookie to be cross domain
+if ($currentUser->isLogged() && $crossDomainCookie === true && isset($_GET['ts']) && isset($_GET['token']) && ($_GET['ts'] > time() - 10 * 60) && sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).sha1(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ).'_external_login_' . $_GET['ts'])) == $_GET['token']) {
+    $currentUser->logout();
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').'?cookie=crossdomain&logout=1');
+    exit;
+}
 
 $instance = erLhcoreClassSystem::instance();
 
@@ -29,6 +47,7 @@ if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
+$tpl->set('crossdomain',$crossDomainCookie);
 
 $redirect = '';
 if (isset($_POST['redirect'])){
