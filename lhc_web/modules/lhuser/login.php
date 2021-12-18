@@ -1,6 +1,6 @@
 <?php
 
-/*header('X-Frame-Options: DENY');*/
+header('X-Frame-Options: DENY');
 
 $crossDomainCookie = false;
 
