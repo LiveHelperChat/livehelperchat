@@ -15,6 +15,10 @@
 
 <form id="form-start-chat" method="post" action="<?php echo erLhcoreClassDesign::baseurl('user/login')?>">
 
+<?php if (isset($crossdomain) && $crossdomain == true) : ?>
+    <input type="hidden" name="cookie" value="crossdomain" />
+<?php endif; ?>
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username OR E-mail');?></label>
     <input class="form-control" type="text" name="Username" value="" />

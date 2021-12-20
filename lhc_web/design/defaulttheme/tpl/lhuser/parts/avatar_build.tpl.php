@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-non-bindable>
     <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
     <div class="col-9">
         <div class="input-group mb-3">

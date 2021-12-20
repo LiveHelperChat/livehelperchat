@@ -47,14 +47,14 @@
 	   <br />
 
 	   <form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#account" method="post" autocomplete="off" enctype="multipart/form-data">
-	        
+
 	        <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_new_account_form_multiinclude.tpl.php'));?>
-	        
+
 	        <div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Username');?>*</label>
     		  <input <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" type="text" ng-non-bindable name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
     		</div>
-    		
+
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Password');?></label>
         		<input ng-non-bindable autocomplete="new-password" type="password" <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
@@ -82,33 +82,33 @@
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?></label>
         		<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Email" value="<?php echo $user->email;?>"/>
     		</div>
-    		
+
     		<div class="form-group">
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Chat nickname');?></label>
 				<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="ChatNickname" value="<?php echo htmlspecialchars($user->chat_nickname);?>" />
 			</div>
-			
+
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></label>
     		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>"/>
     		</div>
-    		
+
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Surname');?></label>
     		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>"/>
     		</div>
-    		
+
     		<div class="form-group">
     		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
     		  <input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
     		</div>
-    			    
+
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
-    		
+
     		<div class="row">
-    		
+
     		  <?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/visibility_content.tpl.php'));?>
-    		  
+
     		  <?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/after_visibility_content.tpl.php'));?>
 
               <?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/hidability.tpl.php'));?>
@@ -119,9 +119,9 @@
         		  </div>
     		  </div>
     		</div>
-    		
+
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/part/after_permission.tpl.php'));?>
-    		
+
     		<div class="row form-group">
     			<div class="col-md-6">
     				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Skype');?></label>
@@ -195,9 +195,9 @@
             <hr>
     		<label><input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
     		<?php endif; ?>
-    		    		    		
+
     		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
-    		
+
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
 
     		<div class="btn-group" role="group" aria-label="..." <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> >
@@ -208,8 +208,8 @@
                 <?php endif; ?>
 
     		    <input type="submit" class="btn btn-secondary" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>
-        	</div>	
-	
+        	</div>
+
 	   </form>
 	</div>
 
@@ -226,8 +226,8 @@
 		<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account updated'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif; ?>
-		
-		<?php 
+
+		<?php
 		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
 		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
 		  $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
@@ -271,13 +271,13 @@
               );
           }
 		?>
-		
+
 		<form action="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>#departments" method="post" enctype="multipart/form-data">
-		
+
 		    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
-		    
+
 		    <input type="submit" class="btn btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
-		</form> 
+		</form>
     </div>
     <?php endif; ?>
 
@@ -318,7 +318,7 @@
         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','In order to change operator permissions you have to edit');?> <a href="<?php echo erLhcoreClassDesign::baseurl('permission/roles')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','roles');?></a>.</p>
 
         <input type="button" class="btn btn-secondary" name="UpdateSpeech_account" onclick="lhinst.showMyPermissions('<?php echo $user->id?>')" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Show permissions');?>" />
-		<div id="permissions-summary"></div>		
+		<div id="permissions-summary"></div>
     </div>
 	<?php endif;?>
 
@@ -350,5 +350,5 @@
     <?php endif; ?>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
-	
+
 </div>

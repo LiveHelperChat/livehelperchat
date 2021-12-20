@@ -40,6 +40,7 @@ http://livehelperchat.com/demo-12c.html
  * [Amazon S3](https://github.com/LiveHelperChat/amazon-s3) scale infinitely by storing app files in the cloud
  * [Desktop app](https://github.com/LiveHelperChat/electron) written with electron
  * [Sentiment analysis using DeepPavlov](https://github.com/LiveHelperChat/sentiment)
+ * [Shopify integration](https://github.com/LiveHelperChat/pluginshopify) 
 
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 

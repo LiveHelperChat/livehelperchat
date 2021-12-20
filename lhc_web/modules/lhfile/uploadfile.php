@@ -54,6 +54,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                 }
 
                 $upload_handler = new erLhcoreClassFileUpload(array(
+                    'remove_meta' => (isset($data['remove_meta']) ? $data['remove_meta'] : false),
                     'antivirus' => $clamav,
                     'user_id' => 0,
                     'max_file_size' => $data['fs_max'] * 1024,
