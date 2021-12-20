@@ -473,6 +473,11 @@ class erLhcoreClassMailconvParser {
                                 'mail' => & $message,
                                 'conversation' => & $conversations
                             ));
+                        } else {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started_passive',array(
+                                'mail' => & $message,
+                                'conversation' => & $conversations
+                            ));
                         }
 
                     // It's an reply
@@ -547,6 +552,11 @@ class erLhcoreClassMailconvParser {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply',array(
                                 'mail' => & $message,
                                 'conversation' => & $conversation
+                            ));
+                        } elseif ($conversation instanceof erLhcoreClassModelMailconvConversation) {
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply_passive',array(
+                                'mail' => & $message,
+                                'conversation' => & $conversations
                             ));
                         }
 
