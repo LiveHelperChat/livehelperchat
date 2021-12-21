@@ -1,3 +1,10 @@
+lhinst.addmsgurluser = "chat/addmsguser/";
+lhinst.addmsgurluserchatbox = "chatbox/addmsguser/";
+lhinst.syncuser = "chat/syncuser/";
+lhinst.userclosechaturl = "chat/userclosechat/";
+lhinst.checkchatstatus = "chat/checkchatstatus/";
+lhinst.checkChatStatusTimeout = null;
+
 lhinst.addmsguserchatbox = function (chat_id) {
     var nickCurrent = false;
 
@@ -1198,6 +1205,245 @@ lhinst.userclosedchatandbrowser = function()
 lhinst.afterUserChatInit = function () {
     if (LHCCallbacks.afterUserChatInit) {
         LHCCallbacks.afterUserChatInit();
+    }
+};
+
+lhinst.sendHTML = function (id, options) {
+    if (typeof(parent) !== 'undefined' && window.location !== window.parent.location) {
+        parent.postMessage('lhc_html_snippet:' + id + ':' + options.type + '_' + options.id, '*');
+    }
+}
+
+lhinst.setDelay = function(params) {
+
+    var id = params['id'];
+    var duration = params['duration'];
+    var delay = params['delay'];
+    var untillMessage = params['untill_message'];
+
+    if (delay > 0) {
+        $('#msg-'+id).addClass('hide');
+    }
+
+    if (untillMessage == true && $('#msg-'+id).nextUntil('message-admin').length > 0) {
+        return;
+    }
+
+    setTimeout(function () {
+
+        if (lhinst.delayed == false) {
+
+            if (untillMessage == true) {
+                clearInterval(lhinst.intervalPending);
+                lhinst.intervalPending = setInterval(function() {
+                    if ($('#msg-'+id).nextUntil('message-admin').length > 0) {
+                        lhinst.unhideDelayed(id);
+                        $('#messagesBlock > #msg-'+id).remove();
+                        clearInterval(lhinst.intervalPending);
+                    } else {
+                        if (!$('#msg-'+id).hasClass('meta-hider'))
+                        {
+                            $('#msg-'+id).addClass('meta-hider message-row-typing');
+                            $('#msg-'+id).removeClass('hide');
+                            $('#msg-'+id+' .msg-body').removeClass('hide');
+
+                            var messageBlock = $('#messagesBlock');
+
+                            var scrollHeight = messageBlock.prop("scrollHeight");
+                            messageBlock.find('.meta-auto-hide').hide();
+                            messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
+                            scrollHeight = messageBlock.prop("scrollHeight");
+
+                            messageBlock.find('.pending-storage').remove();
+                            messageBlock.scrollTop(scrollHeight + 2000);
+                        }
+                    }
+                },500);
+
+            } else {
+                lhinst.delayed = true;
+
+                $('#msg-'+id).addClass('meta-hider message-row-typing').nextUntil('meta-hider').addClass('hide');
+                setTimeout(function () {
+                    lhinst.unhideDelayed(id);
+                }, duration * 1000);
+                $('#msg-'+id).removeClass('hide');
+                $('#msg-'+id+' .msg-body').removeClass('hide');
+
+                if (delay > 0) {
+                    var messageBlock = $('#messagesBlock');
+
+                    var scrollHeight = messageBlock.prop("scrollHeight");
+                    messageBlock.find('.meta-auto-hide').hide();
+                    messageBlock.find('.message-row').last().find('.meta-auto-hide').show();
+                    scrollHeight = messageBlock.prop("scrollHeight");
+
+                    messageBlock.find('.pending-storage').remove();
+                    messageBlock.scrollTop(scrollHeight + 2000);
+                }
+            }
+
+        } else {
+            lhinst.delayQueue.push({'id' : id, 'delay' : duration});
+        }
+    },delay*1000);
+}
+
+lhinst.enableFileUpload = function () {
+    $.getJSON(this.wwwDir + 'file/fileoptions/' + this.chat_id + '/' + this.hash, function(data){
+        $('#ChatMessageContainer .dropdown-menu .flex-row').prepend(data.html);
+        data.options.ft_us = new RegExp('(\.|\/)(' +data.options.ft_us + ')$','i');
+        lhinst.addFileUserUpload(data.options);
+    });
+}
+
+lhinst.chooseFile = function () {
+    if (document.getElementById('fileupload')) {
+        document.getElementById('fileupload').click();
+    }
+}
+
+lhinst.executeExtension = function (extension, params) {
+    if (document.getElementById('ext-' + extension) === null) {
+        var th = document.getElementsByTagName('head')[0];
+        var s = document.createElement('script');
+        var date = new Date();
+        s.setAttribute('type','text/javascript');
+        s.setAttribute('src', WWW_DIR_LHC_WEBPACK_ADMIN.replace('/design/defaulttheme/js/admin/dist/','') + '/extension/' + extension + '/design/' + extension + 'theme/js/'  + extension + '.legacy.js?v=' + ("" + date.getFullYear() + date.getMonth() + date.getDate()) );
+        s.setAttribute('id','ext-' + extension);
+        th.appendChild(s);
+        s.onreadystatechange = s.onload = function() {
+            ee.emitEvent(extension + '.init', [params]);
+        };
+    } else {
+        ee.emitEvent(extension + '.init', [params]);
+    }
+}
+
+lhinst.initTypingMonitoringUser = function(chat_id) {
+
+    var www_dir = this.wwwDir;
+    var inst = this;
+
+    try {
+        if (sessionStorage && sessionStorage.getItem('lhc_ttxt') && sessionStorage.getItem('lhc_ttxt') != '') {
+            jQuery('#CSChatMessage').val(sessionStorage.getItem('lhc_ttxt'));
+        }
+    } catch(e) {}
+
+    var hasMic = false;
+
+    if (jQuery('#CSChatMessage').val() != '') {
+        $('#lhc-send-icon').show();
+        $('#lhc-mic-icon').hide();
+    } else {
+        if ($('#lhc-mic-icon').length > 0){
+            $('#lhc-send-icon').hide();
+            $('#lhc-mic-icon').show();
+            hasMic = true;
+        }
+    }
+
+    jQuery('#CSChatMessage').bind('keyup', function (evt){
+
+        try {
+            if (sessionStorage) {
+                sessionStorage.setItem('lhc_ttxt',$(this).val());
+            };
+        } catch(e) {}
+
+        var element = $(this)[0];
+        element.style.height = "5px";
+
+        if (hasMic == true) {
+            if ($(this).val() != '') {
+                $('#lhc-send-icon').show();
+                $('#lhc-mic-icon').hide();
+                $('#voice-control-message').hide();
+            } else {
+                $('#lhc-send-icon').hide();
+                $('#lhc-mic-icon').show();
+            }
+        }
+
+        var heightScroll = ((element.scrollHeight)+3);
+
+        if (heightScroll > 48) {
+            heightScroll = heightScroll + 10;
+            if (heightScroll > 90) {
+                element.style.overflowY = 'auto';
+            } else {
+                element.style.overflowY = 'hidden';
+            }
+        }
+
+        element.style.height = heightScroll+"px";
+
+        if (inst.is_typing == false) {
+
+            clearTimeout(inst.typing_timeout);
+
+            if (LHCCallbacks.initTypingMonitoringUserInform) {
+
+                inst.typing_timeout = setTimeout(function(){
+                    ee.emitEvent('visitorTypingStopped', [{'chat_id':chat_id,'hash':inst.hash}]);
+                },3000);
+
+                ee.emitEvent('visitorTyping', [{'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()}]);
+            } else {
+
+                inst.is_typing = true;
+                $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:$(this).val()}, function(data){
+                    inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+
+                    if (LHCCallbacks.initTypingMonitoringUser) {
+                        ee.emitEvent('initVisitorTyping', [chat_id,true]);
+                    };
+
+                }).fail(function(){
+                    inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);},3000);
+                });
+            }
+
+        } else {
+            clearTimeout(inst.typing_timeout);
+            inst.typing_timeout = setTimeout(function(){inst.typingStoppedUser(chat_id);}, 3000);
+
+            var txtArea = $(this).val();
+            if (inst.currentMessageText != txtArea ) {
+                if ( Math.abs(inst.currentMessageText.length - txtArea.length) > 6) {
+                    inst.currentMessageText = txtArea;
+                    if (LHCCallbacks.initTypingMonitoringUserInform) {
+                        ee.emitEvent('visitorTyping', [{'chat_id':chat_id,'hash':inst.hash,'status':true,msg:$(this).val()}]);
+                    } else {
+                        $.postJSON(www_dir + 'chat/usertyping/' + chat_id+'/'+inst.hash+'/true',{msg:txtArea}, function(data){
+                            if (LHCCallbacks.initTypingMonitoringUser) {
+                                ee.emitEvent('initVisitorTyping', [chat_id,true]);
+                            };
+                        });
+                    }
+                }
+            }
+        }
+    });
+};
+
+lhinst.typingStoppedUser = function(chat_id) {
+    var inst = this;
+    if (inst.is_typing == true){
+        if (LHCCallbacks.typingStoppedUserInform) {
+            inst.is_typing = false;
+            ee.emitEvent('visitorTypingStopped', [{'chat_id':chat_id,'hash':this.hash,'status':false}]);
+        } else {
+            $.getJSON(this.wwwDir + 'chat/usertyping/' + chat_id+'/'+this.hash+'/false',{ }, function(data){
+                inst.is_typing = false;
+                if (LHCCallbacks.initTypingMonitoringUser) {
+                    ee.emitEvent('initVisitorTyping', [chat_id,false]);
+                };
+            }).fail(function(){
+                inst.is_typing = false;
+            });
+        }
     }
 };
 
