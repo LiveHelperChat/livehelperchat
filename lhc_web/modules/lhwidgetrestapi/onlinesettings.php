@@ -1017,7 +1017,7 @@ if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pr
             }
         }
 
-        $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['online_user' => (isset($onlineUser) ? $onlineUser : false)]);
+        $outcome = erLhcoreClassChatValidator::validatePreconditions($preConditions, ['is_online' => (int)($Params['user_parameters_unordered']['online'] == 1), 'online_user' => (isset($onlineUser) ? $onlineUser : false)]);
 
         if ($outcome['mode'] == 'disable') {
             $chat_ui['disabled'] = $outcome['message'];
