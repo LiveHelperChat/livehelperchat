@@ -32,8 +32,9 @@ export class UIConstructorIframe extends UIConsturctor {
                 this.elmDomDoc.body.id = this.bodyId;
             }
 
-            this.elmDomDoc.getElementsByTagName("html")[0].setAttribute("lang", cl);
-            this.elmDomDoc.getElementsByTagName("html")[0].setAttribute("dir", dir);
+            var html = this.elmDomDoc.getElementsByTagName("html")[0];
+            html.setAttribute("lang", cl);
+            html.setAttribute("dir", dir);
 
             var nodeDoctype = document.implementation.createDocumentType(
                 'html',
