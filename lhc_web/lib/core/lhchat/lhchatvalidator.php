@@ -400,7 +400,7 @@ class erLhcoreClassChatValidator {
          }
         
         if ($form->hasValidData( 'user_timezone' ) && is_numeric($form->user_timezone)) {
-        	$timezone_name = timezone_name_from_abbr(null, (int)$form->user_timezone*3600, true);
+        	$timezone_name = timezone_name_from_abbr('', (int)$form->user_timezone*3600, true);
         	if ($timezone_name !== false) {
         		$chat->user_tz_identifier = $timezone_name;
         	} else {
