@@ -76,7 +76,7 @@
             <script>
                 (function() {
                     var avatarString = '';
-
+                    var prefix = <?php echo json_encode($prefix)?>;
                     function buildAvatar() {
                         avatarString = $('#id_avatar_string_construct').val() != '' ? $('#id_avatar_string_construct').val() : 'tmp';
                         var elements = ['clo','head','mouth','eyes','top'];
@@ -97,8 +97,8 @@
                     });
 
                     $('#set_avatar_action').click(function(){
-                        $('#<?php echo htmlspecialchars($prefix)?>id_avatar_string').val(avatarString);
-                        $('#<?php echo htmlspecialchars($prefix)?>avatar_string_img').attr('src',$('#id_avatar_img').attr('src'));
+                        $('#'+prefix+'id_avatar_string').val(avatarString);
+                        $('#'+prefix+'avatar_string_img').attr('src',$('#id_avatar_img').attr('src'));
                         $('#myModal').modal('hide');
                     });
 
