@@ -63,7 +63,7 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="col-6">
-                    <img width="w-100" id="id_avatar_img" src='<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($id)?>' alt="" title="" />
+                    <img width="w-100" id="id_avatar_img" src='<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo urlencode(htmlspecialchars($id))?>' alt="" title="" />
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 <?php
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/avatarbuilder.tpl.php');
 
-$id = $Params['user_parameters']['id'];
+$id = strip_tags($Params['user_parameters']['id']);
 
 $prefix = isset($_GET['prefix']) ? strip_tags($_GET['prefix']) : '';
 
