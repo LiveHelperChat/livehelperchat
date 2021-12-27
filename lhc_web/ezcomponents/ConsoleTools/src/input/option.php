@@ -147,8 +147,8 @@ class ezcConsoleOption
      *                                              sign or contain whitespaces.
      */
     public function __construct( 
-        $short = '', 
-        $long, 
+        $short = '',
+        $long = '',
         $type = ezcConsoleInput::TYPE_NONE, 
         $default = null, 
         $multiple = false,
