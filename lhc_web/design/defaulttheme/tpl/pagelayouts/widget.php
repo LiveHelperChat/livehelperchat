@@ -64,11 +64,11 @@ if (!!window.postMessage) {
 	parent.postMessage("lhc_ch:hash_resume:<?php echo $Result['chat']->id,'_',$Result['chat']->hash?>", '*');
 	<?php endif; ?>
 	<?php if (isset($Result['additional_post_message'])) : ?>
-	parent.postMessage("<?php echo $Result['additional_post_message']?>", '*');
+	parent.postMessage(<?php echo json_encode($Result['additional_post_message'])?>, '*');
 	<?php endif;?>
 	<?php if (isset($Result['parent_messages'])) : 
 	foreach ($Result['parent_messages'] as $msgPArent) : ?>
-	parent.postMessage("<?php echo $msgPArent?>", '*');
+	parent.postMessage(<?php echo json_encode($msgPArent)?>, '*');
 	<?php endforeach;endif;?>
 
     function handleCrossMessage(e) {
