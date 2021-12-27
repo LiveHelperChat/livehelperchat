@@ -41,10 +41,14 @@ if (isset($_POST['UploadFileAction'])) {
         {
             while (($row = fgetcsv($handle, 10000, ",")) !== FALSE)
             {
-                if(!$header)
+                if (!$header) {
                     $header = $row;
-                else
+                } else {
+                    if (count($header) != count($row)) {
+                        $row = $row + array_fill(count($row),count($header) - count($row),'');
+                    }
                     $data[] = array_combine($header, $row);
+                }
             }
             fclose($handle);
         }
