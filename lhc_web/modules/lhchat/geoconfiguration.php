@@ -109,9 +109,6 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
         'MaxMindDetectionType' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
-        'CityGeoLocation' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'string'
-        ),
         'ipapi_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
@@ -198,15 +195,15 @@ if ( isset($_POST['StoreGeoIPConfiguration']) ) {
             } elseif ($form->UseGeoIP == 'max_mind') {
                 $data['geo_service_identifier'] = 'max_mind';                
                 $data['max_mind_detection_type'] = $form->hasValidData('MaxMindDetectionType') ? $form->MaxMindDetectionType : 'city';
-                $data['max_mind_city_location'] = $form->CityGeoLocation != '' ? $form->CityGeoLocation : 'var/external/geoip/GeoLite2-City.mmdb';
-                          
+                $data['max_mind_city_location'] = 'var/external/geoip/GeoLite2-City.mmdb';
+
                 if ($data['max_mind_detection_type'] == 'city' && !file_exists($data['max_mind_city_location'])) {
                 	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','MaxMind city file does not exists!');
                 } elseif (!file_exists('var/external/geoip/GeoLite2-Country.mmdb')) {
                 	$data['max_mind_detection_type'] = 'country';
                 	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','MaxMind country file does not exists!');
                 }
-                
+
                 if (empty($Errors)) {
 	                $responseDetection = erLhcoreClassModelChatOnlineUser::getUserData('max_mind','94.23.200.91',array('city_file' => $data['max_mind_city_location'],'detection_type' => $data['max_mind_detection_type']));                
 	                if ( $responseDetection == false || !isset($responseDetection->country_code) || !isset($responseDetection->country_name) ) {

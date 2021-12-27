@@ -24,9 +24,34 @@ export class UIConstructorIframe extends UIConsturctor {
 
         this.elmDomDoc = helperFunctions.getDocument(this.elmDom);
         if (this.elmDomDoc === null) return null;
-        this.elmDomDoc.open();
-        this.elmDomDoc.writeln('<!DOCTYPE html><html dir="'+dir+'" lang="'+cl+'"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />'+header+'</head><body'+(this.bodyId != '' ? ' id="'+this.bodyId+'" ' : '')+'></body></html>');
-        this.elmDomDoc.close();
+
+        try {
+            this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />'+header;
+
+            if (this.bodyId != '') {
+                this.elmDomDoc.body.id = this.bodyId;
+            }
+
+            var html = this.elmDomDoc.getElementsByTagName("html")[0];
+            html.setAttribute("lang", cl);
+            html.setAttribute("dir", dir);
+
+            var nodeDoctype = document.implementation.createDocumentType(
+                'html',
+                '',
+                ''
+            );
+
+            if (this.elmDomDoc.doctype) {
+                this.elmDomDoc.replaceChild(nodeDoctype, this.elmDomDoc.doctype);
+            } else {
+                this.elmDomDoc.insertBefore(nodeDoctype, this.elmDomDoc.childNodes[0]);
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+
         this.insertCssFile(style);
         this.insertContent();
     };

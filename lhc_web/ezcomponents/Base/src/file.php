@@ -110,7 +110,7 @@ class ezcBaseFile
      *         not be opened for reading.
      * @return array
      */
-    static public function walkRecursive( $sourceDir, array $includeFilters = array(), array $excludeFilters = array(), $callback, &$callbackContext )
+    static public function walkRecursive( $sourceDir, array $includeFilters, array $excludeFilters, $callback, &$callbackContext )
     {
         if ( !is_dir( $sourceDir ) )
         {

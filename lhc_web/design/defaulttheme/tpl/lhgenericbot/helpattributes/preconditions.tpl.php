@@ -6,6 +6,7 @@
         <li><strong>{args.online_user.online_attr_system_array.&lt;any_attribute_you_passed&gt;}</strong> = <b>VIP</b> allow to start only for visitors whois attribute is VIP</li>
         <li><strong>{args.online_user.referrer}</strong> `contains`. Referer from where visitor come to site.</li>
         <li><strong>{args.online_user.dep_id}</strong> = Department ID</li>
+        <li><strong>{args.is_online}</strong> = <b>1</b> or <b>0</b> (are we online)</li>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/preconditions_multiinclude.tpl.php'));?>
     </ul>
 <?php endif; ?>

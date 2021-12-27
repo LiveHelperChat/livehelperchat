@@ -14,7 +14,7 @@
 
     <div class="form-group">
         <label>FCM Key</label>
-        <input type="text" class="form-control" name="fcm_key" value="<?php isset($mb_options['fcm_key']) ? print $mb_options['fcm_key'] : ''?>" />
+        <input type="text" class="form-control" name="fcm_key" value="<?php isset($mb_options['fcm_key']) ? print htmlspecialchars($mb_options['fcm_key']) : ''?>" />
     </div>
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />

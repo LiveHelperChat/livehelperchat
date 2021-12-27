@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import ChatField from './ChatField';
 import StartChat from './StartChat';
 import { withTranslation } from 'react-i18next';
-import { initOfflineForm, submitOfflineForm } from "../actions/chatActions"
+import { initOfflineForm, submitOfflineForm, minimizeWidget } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatDepartment from './ChatDepartment';
+import ChatAbort from './ChatAbort';
 
 @connect((store) => {
     return {
@@ -155,6 +156,10 @@ class OfflineChat extends Component {
         if (this.props.chatwidget.getIn(['offlineData','fetched']) === false)
         {
             return null;
+        }
+
+        if (this.props.chatwidget.getIn(['chat_ui','disabled'])) {
+            return <ChatAbort closeText={t('button.close')} full_height={true} close={(e) => this.props.dispatch(minimizeWidget(true))} as_html={true} text={this.props.chatwidget.getIn(['chat_ui','disabled'])} />;
         }
 
         if (this.props.chatwidget.getIn(['offlineData','fields']).size > 0) {

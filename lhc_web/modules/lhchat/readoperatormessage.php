@@ -414,7 +414,7 @@ if (isset($_POST['askQuestion']))
     }
     
     if ($form->hasValidData( 'user_timezone' )) {
-    	$timezone_name = timezone_name_from_abbr(null, $form->user_timezone*3600, true);
+    	$timezone_name = timezone_name_from_abbr('', $form->user_timezone*3600, true);
     	if ($timezone_name !== false){
     		$chat->user_tz_identifier = $timezone_name;
     	} else {

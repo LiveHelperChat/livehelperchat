@@ -400,7 +400,7 @@ class erLhcoreClassChatValidator {
          }
         
         if ($form->hasValidData( 'user_timezone' ) && is_numeric($form->user_timezone)) {
-        	$timezone_name = timezone_name_from_abbr(null, (int)$form->user_timezone*3600, true);
+        	$timezone_name = timezone_name_from_abbr('', (int)$form->user_timezone*3600, true);
         	if ($timezone_name !== false) {
         		$chat->user_tz_identifier = $timezone_name;
         	} else {
@@ -2262,7 +2262,7 @@ class erLhcoreClassChatValidator {
                     preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
                     if (!empty($matchesValues[0])) {
                         foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
+                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('is_online' => $params['is_online'], 'online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
                             $conditionAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $conditionAttr);
                         }
                     }
@@ -2274,7 +2274,7 @@ class erLhcoreClassChatValidator {
                     preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $valueAttr, $matchesValues);
                     if (!empty($matchesValues[0])) {
                         foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
+                            $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('is_online' => $params['is_online'], 'online_user' => $params['online_user']), $matchesValues[1][$indexElement], '.');
                             $valueAttr = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $valueAttr);
                         }
                     }
@@ -2391,7 +2391,11 @@ class erLhcoreClassChatValidator {
         if ($offlineMode == true) {
             return ['mode' => 'offline'];
         } else if ($disableMode == true) {
-            return ['mode' => 'disable', 'message' => $messageDisable];
+            if (empty($messageDisable)) {
+                return ['mode' => 'terminate'];
+            } else {
+                return ['mode' => 'disable', 'message' => $messageDisable];
+            }
         } else if ($onlineMode == true) {
             return ['mode' => 'online'];
         } else {

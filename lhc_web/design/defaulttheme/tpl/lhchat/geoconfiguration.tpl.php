@@ -128,8 +128,8 @@
       	</p>
 
       	                        <div class="form-group">
-								    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Location of city database'); ?></label> 
-								    <input class="form-control" type="text" name="CityGeoLocation" value="<?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?>" />
+								    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Location of city database. Make sure you uploaded file in this location.'); ?></label>
+								    <input class="form-control" type="text" readonly value="<?php isset($geo_data['max_mind_city_location']) && ($geo_data['max_mind_city_location'] != '') ?  print htmlspecialchars($geo_data['max_mind_city_location']) : print 'var/external/geoip/GeoLite2-City.mmdb' ?>" />
                                 </div>
 								
 								<div class="row">
