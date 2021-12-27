@@ -17,9 +17,11 @@
 
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-        <button type="button" class="btn btn-outline-secondary btn-sm"  onclick="return lhc.revealModal({'title' : 'New', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newmailingrecipient')?><?php if (!empty($input->ml)) : ?>/(ml)/<?php echo implode('/',$input->ml)?><?php endif;?>'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></button>
+        <button type="button" class="btn btn-outline-secondary btn-sm"  onclick="return lhc.revealModal({'title' : 'New', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newmailingrecipient')?><?php if (!empty($input->ml)) : ?>/(ml)/<?php echo implode('/',$input->ml)?><?php endif;?>'})"><i class="material-icons">add</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></button>
         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailing','use_import'))  : ?>
-            <a target="_blank" class="btn btn-outline-secondary btn-sm" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'mailing/import<?php if (!empty($input->ml)) : ?>/(ml)/<?php echo implode('/',$input->ml)?><?php endif;?>'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?></a>
+            <a target="_blank" class="btn btn-outline-secondary btn-sm" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'mailing/import<?php if (!empty($input->ml)) : ?>/(ml)/<?php echo implode('/',$input->ml)?><?php endif;?>'})">
+                <i class="material-icons">file_upload</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>
+            </a>
         <?php endif; ?>
     </div>
 

@@ -113,6 +113,11 @@ $ViewList['import'] = array(
     'multiple_arguments' => array('ml')
 );
 
+$ViewList['importcampaign'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mailing module');
 $FunctionList['all_campaigns'] = array('explain' => 'Operator can see all campaigns');
