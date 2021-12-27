@@ -66,7 +66,12 @@ if (trim($form->msg) != '')
     	        $msg->time = time();
     	        $msg->name_support = $userData->name_support;
 
-    	        if (isset($_POST['meta_msg'])) {
+                if (strpos($msg->msg,'[html]') !== false && !$currentUser->hasAccessTo('lhchat','htmlbbcodeenabled')) {
+                    $msg->msg = '[html] is disabled for you!';
+                    $msg->user_id = -1;
+                }
+
+    	        if (isset($_POST['meta_msg']) && $currentUser->hasAccessTo('lhchat','metamsgenabled')) {
                     $meta_msg = json_decode($_POST['meta_msg'], true);
                     if (is_array($meta_msg)) {
                         $metaContent = [];
