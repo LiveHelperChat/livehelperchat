@@ -713,5 +713,7 @@ $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change
 $FunctionList['subject_chats'] = array('explain' => 'Allow operator see subject filtered chats');
 $FunctionList['subject_chats_options'] = array('explain' => 'Allow operator to choose what subjects should be applied as filter');
 $FunctionList['export_chats'] = array('explain' => 'Allow operator to export filtered chats');
+$FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [html] bbcode.');
+$FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
 
 ?>

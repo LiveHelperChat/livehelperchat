@@ -875,6 +875,12 @@ class erLhcoreClassChatWorkflow {
 
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = $cannedMsg->msg_to_user;
+
+            if (strpos($msg->msg,'[html]') !== false && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','htmlbbcodeenabled')) {
+                $msg->msg = '[html] is disabled for you!';
+                $msg->user_id = -1;
+            }
+
             $msg->chat_id = $chat->id;
             $msg->user_id = $chat->user_id;
             $msg->name_support = $chat->user->name_support;
