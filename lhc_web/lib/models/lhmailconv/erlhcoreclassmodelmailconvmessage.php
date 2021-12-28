@@ -69,6 +69,7 @@ class erLhcoreClassModelMailconvMessage
             'delivery_status' => $this->delivery_status,
             'undelivered' => $this->undelivered,
             'priority' => $this->priority,
+            'lang' => $this->lang,
         );
     }
 
@@ -373,6 +374,7 @@ class erLhcoreClassModelMailconvMessage
     public $delivery_status  = '';
     public $undelivered  = 0;
     public $priority  = 0;
+    public $lang  = '';
 }
 
 ?>

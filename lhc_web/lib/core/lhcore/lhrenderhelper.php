@@ -191,15 +191,25 @@ class erLhcoreClassRenderHelper {
     public static function renderMultiDropdown($params) {
 
         $selectedOptions = '';
+        $attrId = isset($params['attr_id']) ? $params['attr_id'] : 'id';
+        $nameSelect = isset($params['display_name']) ? $params['display_name'] : 'name';
+
         if (is_array($params['selected_id']) && !empty($params['selected_id'])) {
             $filterSelected = isset($params['list_function_params']) ? $params['list_function_params'] : array();
-            $filterSelected['filter']['id'] = $params['selected_id'];
+            $filterSelected['filter'][$attrId] = $params['selected_id'];
             $filterSelected['limit'] = false;
             $selectedIDS = call_user_func($params['list_function'],$filterSelected);
             foreach ($selectedIDS as $selectedID) {
-                if (is_array($params['selected_id']) && in_array($selectedID->id,$params['selected_id'])){
-                    $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($selectedID->{$params['display_name']}));
-                    $selectedOptions .= '<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' . $selectedID->id . '"><input type="hidden" value="' . $selectedID->id . '" name="' . $params['input_name'] . '" /><i class="material-icons chat-unread">delete</i>' . $valueItem . '</a></div>';
+                if (is_array($params['selected_id']) && in_array($selectedID->$attrId,$params['selected_id'])){
+
+                    if ($nameSelect instanceof Closure) {
+                        $valueItem = $nameSelect($selectedID);
+                    } else {
+                        $valueItem = $selectedID->$nameSelect;
+                    }
+
+                    $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($valueItem));
+                    $selectedOptions .= '<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' . $selectedID->$attrId . '"><input type="hidden" value="' . $selectedID->$attrId . '" name="' . $params['input_name'] . '" /><i class="material-icons chat-unread">delete</i>' . $valueItem . '</a></div>';
                 }
             }
         }
@@ -225,9 +235,18 @@ class erLhcoreClassRenderHelper {
             $template .= '<li data-stoppropagation="true" class="search-option-item font-weight-bold"><label><input class="mr-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';
         }
 
+
+
         foreach ($items as $item) {
-            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($item->{$params['display_name']}));
-            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input title="'. htmlspecialchars($item->id) . '" class="mr-1" '. (((is_numeric($params['selected_id']) && $item->id == $params['selected_id']) || (is_array($params['selected_id']) && in_array($item->id,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="'. $item->id .'">' . $valueItem. '</label></li>';
+
+            if ($nameSelect instanceof Closure) {
+                $valueItem = $nameSelect($item);
+            } else {
+                $valueItem = $item->$nameSelect;
+            }
+
+            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($valueItem));
+            $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input title="'. htmlspecialchars($item->$attrId) . '" class="mr-1" '. (((is_numeric($params['selected_id']) && $item->$attrId == $params['selected_id']) || (is_array($params['selected_id']) && in_array($item->$attrId,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="'. $item->$attrId .'">' . $valueItem. '</label></li>';
         }
 
         $template .= '</ul></li></ul></div>';

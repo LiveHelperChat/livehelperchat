@@ -34,6 +34,10 @@
                             <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                             <td ng-non-bindable>
 
+                                <?php if ($item->lang != '') : ?>
+                                    <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $item->lang?>.png" alt="<?php echo htmlspecialchars($item->lang)?>" title="<?php echo htmlspecialchars($item->lang)?>" />
+                                <?php endif; ?>
+
                                 <?php if ($item->undelivered == 1) : ?>
                                     <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Undelivered e-mail');?>" class="text-danger material-icons">sms_failed</span>
                                 <?php endif; ?>

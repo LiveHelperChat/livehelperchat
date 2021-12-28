@@ -56,7 +56,7 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
     array(
-        'url' => erLhcoreClassDesign::baseurl('system/configuration'),
+        'url' => erLhcoreClassDesign::baseurl('system/configuration') . '#!#mailconv',
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhelasticsearch/module', 'System configuration')
     ),
     array(

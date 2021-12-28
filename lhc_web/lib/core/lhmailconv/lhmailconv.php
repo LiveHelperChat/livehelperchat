@@ -56,6 +56,7 @@ class erLhcoreClassMailconv {
         'conv_duration_front',
         'interaction_time_duration',
         'mailbox_front',
+        'lang_front'
     ];
 
     private static $persistentSession;

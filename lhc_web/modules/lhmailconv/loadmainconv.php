@@ -114,6 +114,7 @@ try {
             'customer_remarks' => $remarks,
             'messages' => array_values($messages),
             'moptions' => [
+                'lang_dir' => erLhcoreClassDesign::design('images/flags'),
                 'can_write' => $canWrite,
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,

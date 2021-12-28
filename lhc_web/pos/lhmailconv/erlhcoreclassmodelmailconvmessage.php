@@ -24,7 +24,7 @@ foreach (array(
              'sender_host','sender_name','sender_address','date','in_reply_to',
              'to_data','reply_to_data','references','alt_body','body','subject','message_id',
              'response_time','cls_time','wait_time','accept_time','interaction_time','has_attachment',
-              'rfc822_body','delivery_status'
+              'rfc822_body','delivery_status','lang'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

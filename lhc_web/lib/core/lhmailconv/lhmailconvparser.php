@@ -480,6 +480,8 @@ class erLhcoreClassMailconvParser {
                             ));
                         }
 
+                        \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);
+
                     // It's an reply
                     } else {
 
@@ -560,6 +562,8 @@ class erLhcoreClassMailconvParser {
                             ));
                         }
 
+                        \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);
+
                         $statsImport[] = date('Y-m-d H:i:s').' | Importing reply - ' . $vars['message_id'] . ' - ' .  $mailInfo->uid;
                    }
                 }
@@ -606,6 +610,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->priority = $priorityConversation;
                 $conversations->total_messages = 1;
                 $conversations->pnd_time = time();
+                $conversations->lang = $message->lang;
                 $conversations->saveThis();
 
                 // Assign conversation

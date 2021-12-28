@@ -54,6 +54,7 @@ class erLhcoreClassModelMailconvConversation
             'follow_up_id' => $this->follow_up_id,
             'undelivered' => $this->undelivered,
             'pending_sync' => $this->pending_sync,
+            'lang' => $this->lang,
         );
     }
 
@@ -299,6 +300,7 @@ class erLhcoreClassModelMailconvConversation
     public $interaction_time = 0; // is time between the agent accepting a and closing e-chat.
     public $conv_duration = 0;         // Total time spend between durations in the message
     public $has_attachment = self::ATTACHMENT_EMPTY;
+    public $lang = '';
 }
 
 ?>

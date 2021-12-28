@@ -229,6 +229,25 @@
                         </div>
 
                         <div class="col-md-2">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Language');?></label>
+                                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                                    'input_name'     => 'lang_ids[]',
+                                    'attr_id'        => 'short_code',
+                                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose a language'),
+                                    'selected_id'    => $input->lang_ids,
+                                    'css_class'      => 'form-control',
+                                    'display_name'   => function($item) {
+                                        return '[' . $item->short_code . '] '.$item->lang_name;
+                                    },
+                                    'list_function_params' => ['filternot' => ['short_code' => '']],
+                                    'list_function'  => 'erLhcoreClassModelSpeechLanguageDialect::getList'
+                                )); ?>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-2">
                             <label>Sort by</label>
                             <select name="sortby" class="form-control form-control-sm">
                                 <option <?php if ($input->sortby == 'iddesc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="iddesc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Newest first (default)');?></option>

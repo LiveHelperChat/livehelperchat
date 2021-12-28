@@ -12,13 +12,22 @@
     'conversation' => & $conversation
 ));*/
 
-$conversations = erLhcoreClassModelMailconvConversation::fetch(143);
-$message = erLhcoreClassModelMailconvMessage::fetch(153);
+/*$conversations = erLhcoreClassModelMailconvConversation::fetch(143);*/
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
+foreach (erLhcoreClassModelMailconvMessage::getList(['limit' => false]) as $msg){
+    \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($msg);
+}
+
+/*$message = erLhcoreClassModelMailconvMessage::fetch(153);
+
+
+
+*/
+
+/*erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
     'mail' => & $message,
     'conversation' => & $conversations
-));
+));*/
 
 
 
