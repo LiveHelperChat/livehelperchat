@@ -79,7 +79,10 @@ class erLhcoreClassLHCBotWorker
                         $params['msg'] = erLhcoreClassModelmsg::fetch($msgId);
                     } else {
                         $params['msg_text'] = $contentArray[0]['content']['msg_text'];
+                        $msgId = $chat->last_msg_id;
                     }
+
+                    $msgId = max($msgId, $chat->last_msg_id);
 
                     $params['start_mode'] = isset($contentArray[0]['content']['start_mode']) && $contentArray[0]['content']['start_mode'] == true;
 
@@ -135,6 +138,12 @@ class erLhcoreClassLHCBotWorker
 
                             if (class_exists('erLhcoreClassNodeJSRedis')) {
                                 erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
+                            }
+
+                            $msgLast = erLhcoreClassModelmsg::fetch($msgId);
+
+                            if ($msgLast instanceof erLhcoreClassModelmsg) {
+                                erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
                             }
 
                             return;
@@ -195,6 +204,12 @@ class erLhcoreClassLHCBotWorker
                             erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
                         }
 
+                        $msgLast = erLhcoreClassModelmsg::fetch($msgId);
+
+                        if ($msgLast instanceof erLhcoreClassModelmsg) {
+                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                        }
+
                         return;
                     }
 
@@ -210,6 +225,12 @@ class erLhcoreClassLHCBotWorker
 
                         $chat->last_msg_id = $msg->id;
                         $chat->updateThis(array('update' => array('last_msg_id' )));
+
+                        $msgLast = erLhcoreClassModelmsg::fetch($msgId);
+
+                        if ($msgLast instanceof erLhcoreClassModelmsg) {
+                            erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                        }
 
                         if (class_exists('erLhcoreClassNodeJSRedis')) {
                             erLhcoreClassNodeJSRedis::instance()->publish('chat_' . $chat->id, 'o:' . json_encode(array('op' => 'cmsg')));
