@@ -639,15 +639,16 @@ class erLhcoreClassChatWebhookIncoming {
             $eChat->payload = json_encode($payloadAll);
             $eChat->saveThis();
 
-            // Set bot
-            erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
-            self::sendBotResponse($chat, $msg, array('init' => true));
-
             /**
              * Set appropriate chat attributes
              */
             $chat->last_msg_id = $msg->id;
             $chat->last_user_msg_time = $msg->time;
+            $chat->updateThis(['update' => ['last_msg_id','last_user_msg_time']]);
+
+            // Set bot
+            erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+            self::sendBotResponse($chat, $msg, array('init' => true));
 
             // Process auto responder
             $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
@@ -690,7 +691,7 @@ class erLhcoreClassChatWebhookIncoming {
             }
 
             // Save chat
-            $chat->saveThis();
+            $chat->updateThis();
 
             if (!isset($_SERVER['HTTP_USER_AGENT'])) {
                 $_SERVER['HTTP_USER_AGENT'] = 'API, Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36';
@@ -795,6 +796,8 @@ class erLhcoreClassChatWebhookIncoming {
 
             $chat->refreshThis();
 
+            $lastMessageIdNew = $lastMessageId = $chat->last_msg_id;
+
             if (!isset($params['init']) || $params['init'] == false) {
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
@@ -802,11 +805,21 @@ class erLhcoreClassChatWebhookIncoming {
             // Find a new messages
             $botMessages = erLhcoreClassModelmsg::getList(array('filter' => array('user_id' => -2, 'chat_id' => $chat->id), 'filtergt' => array('id' => $msg->id)));
             foreach ($botMessages as $botMessage) {
+
+                $lastMessageIdNew = $botMessage->id;
+
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                     'chat' => & $chat,
                     'msg' => $botMessage
                 ));
             }
+
+            if ($lastMessageId < $lastMessageIdNew) {
+                $chat->last_msg_id = $lastMessageIdNew;
+                $chat->updateThis(['update' => ['last_msg_id']]);
+            }
+
+
         }
     }
 

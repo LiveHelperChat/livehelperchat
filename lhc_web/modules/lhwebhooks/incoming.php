@@ -28,6 +28,12 @@ try {
         erLhcoreClassLog::write(json_encode($data));
     }
 
+    if (session_id()) session_write_close();
+
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();
+    }
+
     erLhcoreClassChatWebhookIncoming::processEvent($incomingWebhook, $data);
 
 } catch (Exception $e) {
