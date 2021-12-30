@@ -2185,6 +2185,8 @@ try {
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `send_at` bigint(20) unsigned NOT NULL,
+  `message_id` bigint(20) unsigned NOT NULL,
+  `conversation_id` bigint(20) unsigned NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,

@@ -107,6 +107,10 @@ class erLhcoreClassMailConvMailingWorker {
             $itemRecipientData->status = erLhcoreClassModelMailconvMessage::STATUS_ACTIVE;
         }
 
+        $itemRecipientData->custom_headers = [
+            'X-LHC-RCP' => $recipient->id
+        ];
+
         $output = [];
 
         erLhcoreClassMailconvValidator::sendEmail($itemRecipientData, $output, $campaign->user_id);

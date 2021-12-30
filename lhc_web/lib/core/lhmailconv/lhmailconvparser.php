@@ -263,6 +263,8 @@ class erLhcoreClassMailconvParser {
                         // Perhaps it was initial message
                         $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
 
+                        $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+
                         if (isset($head->to)) {
                             $message->to_data = json_encode($head->to);
                         }
@@ -478,6 +480,15 @@ class erLhcoreClassMailconvParser {
                                 'mail' => & $message,
                                 'conversation' => & $conversations
                             ));
+                        }
+
+                        if ($recipient_id > 0) {
+                            $recipient = erLhcoreClassModelMailconvMailingCampaignRecipient::fetch($recipient_id);
+                            if ($recipient instanceof erLhcoreClassModelMailconvMailingCampaignRecipient) {
+                                $recipient->message_id = (int)$message->id;
+                                $recipient->conversation_id = (int)$conversations->id;
+                                $recipient->updateThis(['update' => ['message_id','conversation_id']]);
+                            }
                         }
 
                         \LiveHelperChat\mailConv\workers\LangWorker::detectLanguage($message);

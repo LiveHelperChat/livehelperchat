@@ -666,6 +666,12 @@ class erLhcoreClassMailconvValidator {
                 }
             }
 
+            if (isset($item->custom_headers) && is_array($item->custom_headers)) {
+                foreach ($item->custom_headers as $header => $headerValue) {
+                    $mailReply->addCustomHeader($header, $headerValue);
+                }
+            }
+
             $response['send'] = $mailReply->Send();
 
             if ($item->mailbox->create_a_copy == true) {

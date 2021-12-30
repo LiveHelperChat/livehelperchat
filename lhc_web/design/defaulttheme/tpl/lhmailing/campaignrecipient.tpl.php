@@ -11,6 +11,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send at');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Status');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Type');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Ticket');?></th>
             <th width="1%"></th>
         </tr>
         </thead>
@@ -44,6 +45,13 @@
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Manual');?>
                     <?php else : ?>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Based on recipient list');?>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <?php if ($item->conversation_id > 0) : ?>
+                        <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->conversation_id?>"><span class="material-icons">open_in_new</span><?php echo $item->conversation_id?></a>
+                    <?php else : ?>
+                        <span class="text-muted"><span class="material-icons">autorenew</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?></span>
                     <?php endif; ?>
                 </td>
                 <td>

@@ -26,6 +26,8 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
             'attr_str_1' => $this->attr_str_1,
             'attr_str_2' => $this->attr_str_2,
             'attr_str_3' => $this->attr_str_3,
+            'message_id' => $this->message_id,
+            'conversation_id' => $this->conversation_id,
             'log' => $this->log,
         );
     }
@@ -98,6 +100,8 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public $email = '';
     public $status = self::PENDING;
     public $log = '';
+    public $message_id = 0;
+    public $conversation_id = 0;
 
     public $name = '';
     public $attr_str_1 = '';
