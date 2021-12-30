@@ -408,7 +408,7 @@ class erLhcoreClassDesign
         return implode($break, $lines);
     }
 
-    public static function shrt($string = '', $max = 10, $append = '...', $wordrap = 30, $encQuates = null)
+    public static function shrt($string = '', $max = 10, $append = '...', $wordrap = 30, $encQuates = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401)
     {
         $string = str_replace('&nbsp;', ' ', $string);
         $string = str_replace(array(
@@ -426,8 +426,10 @@ class erLhcoreClassDesign
 
         $string = self::mb_wordwrap($string, $wordrap, "\n", true);
 
-        if (mb_strlen($string) <= $max)
+        if (mb_strlen($string) <= $max) {
             return htmlspecialchars($string, $encQuates);
+        }
+
         $cutted = mb_strcut($string, 0, $max, 'UTF-8') . $append;
 
         return htmlspecialchars($cutted, $encQuates);

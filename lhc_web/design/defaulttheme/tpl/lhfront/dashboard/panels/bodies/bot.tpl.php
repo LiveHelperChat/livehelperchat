@@ -5,7 +5,7 @@
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
         </th>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
-        <th width="20%">
+        <th width="25%">
             <i title="Time ago" class="material-icons">access_time</i>
         </th>
         <th width="20%">
