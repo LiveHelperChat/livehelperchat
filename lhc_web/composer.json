@@ -33,7 +33,7 @@
     ],
     "require": {
         "php": ">=5.2.4",
-        "php-imap/php-imap": "dev-master#f0693daa172974fa593eb92a869a503b586af300",
+        "php-imap/php-imap": "dev-master#e34da955db9fde60ed5f49ea6bd813db111e9a74",
         "minishlink/web-push" : "dev-master#a9b689675c167117d91b96c34555476bbfbdc391"
     },
     "minimum-stability": "dev",
