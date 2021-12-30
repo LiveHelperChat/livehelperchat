@@ -176,16 +176,18 @@ class erLhcoreClassChatStatistic {
                         $numberOfChats[$dateUnix]['active'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                         $numberOfChats[$dateUnix]['operators'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_OPERATORS_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                         $numberOfChats[$dateUnix]['pending'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                        $numberOfChats[$dateUnix]['bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('status' => erLhcoreClassModelChat::STATUS_BOT_CHAT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                         $numberOfChats[$dateUnix]['total_chats'] = $numberOfChats[$dateUnix]['pending'] + $numberOfChats[$dateUnix]['operators'] + $numberOfChats[$dateUnix]['active'] + $numberOfChats[$dateUnix]['closed'];
                     }
 
-                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('unanswered',$paramsExecution['charttypes'])){
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('unanswered',$paramsExecution['charttypes'])) {
                         $numberOfChats[$dateUnix]['unanswered'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('unanswered_chat' => 1),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                     }
 
-                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('proactivevsdefault',$paramsExecution['charttypes'])){
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('proactivevsdefault',$paramsExecution['charttypes'])) {
                         $numberOfChats[$dateUnix]['chatinitdefault'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_DEFAULT),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
-                        $numberOfChats[$dateUnix]['chatinitproact'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                        $numberOfChats[$dateUnix]['chatinitproact'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filtergt' => array('invitation_id' => 0), 'filter' => array('chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
+                        $numberOfChats[$dateUnix]['chatinitmanualinv'] = (int)erLhcoreClassChat::getCount(array_merge_recursive($departmentFilter,$filter,array('filter' => array( 'invitation_id' => 0, 'chat_initiator' => erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE),'customfilter' =>  array('FROM_UNIXTIME(time,\'%Y%m\') = '. date('Ym',$dateUnix)))));
                     }
 
                     if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgtype',$paramsExecution['charttypes'])) {
@@ -767,12 +769,15 @@ class erLhcoreClassChatStatistic {
                 $numberOfChats['byday'][$i] = $numberOfChats['total'][$i]/$diffDays;
                 $numberOfChats['bydaymax'][$i] = erLhcoreClassModelChat::getCount(array_merge_recursive(array('sort' => 'total_records DESC', 'limit' => 1, 'group' => 'FROM_UNIXTIME(time,\'%Y%m%d\')', 'customfilter' =>  array('FROM_UNIXTIME(time,\'%k\') = '. $dateHour)),$filter),'',false,'max(time) as time, count(`lh_chat`.`id`) as total_records', false);
 
-                if (!isset($numberOfChats['bydaymax'][$i]['time'])){
-                    $numberOfChats['bydaymax'][$i]['time'] = 0;
-                }
+                if (!is_array($numberOfChats['bydaymax'][$i])) {
+                    $numberOfChats['bydaymax'][$i] = array();
+                    if (!isset($numberOfChats['bydaymax'][$i]['time'])){
+                        $numberOfChats['bydaymax'][$i]['time'] = 0;
+                    }
 
-                if (!isset($numberOfChats['bydaymax'][$i]['total_records'])) {
-                    $numberOfChats['bydaymax'][$i]['total_records'] = 0;
+                    if (!isset($numberOfChats['bydaymax'][$i]['total_records'])) {
+                        $numberOfChats['bydaymax'][$i]['total_records'] = 0;
+                    }
                 }
         	}
 

@@ -81,11 +81,12 @@
     <div class="col-md-2">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Invitation');?></label>
-            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                'input_name'     => 'invitation_id',
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'invitation_ids[]',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
-                'selected_id'    => $input->invitation_id,
-                'css_class'      => 'form-control form-control-sm',
+                'selected_id'    => $input->invitation_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
                 'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
             )); ?>
         </div>
@@ -280,7 +281,6 @@
         </div>
     </div>
 
-
     <div class="col-md-6">
         <div class="row">
             <div class="col-4"><label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label></div>
@@ -292,6 +292,8 @@
             <div class="col-4"><label><input type="checkbox" name="has_unread_messages" value="1" <?php $input->has_unread_messages == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages from visitor')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="abandoned_chat" value="1" <?php $input->abandoned_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Abandoned chat')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="dropped_chat" value="1" <?php $input->dropped_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Dropped chat')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="proactive_chat" value="<?php echo erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ?>" <?php $input->proactive_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Proactive chat')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="not_invitation" value="0" <?php $input->not_invitation === 0 ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not automatic invitation')?></label></div>
         </div>
     </div>
 
@@ -690,6 +692,13 @@
                     borderColor: '#dc3912',
                     borderWidth: 1,
                     data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproact']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Manual invitation');?>',
+                    backgroundColor: '#cca333',
+                    borderColor: '#cca333',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitmanualinv']; $key++; endforeach;?>]
                 },
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>',

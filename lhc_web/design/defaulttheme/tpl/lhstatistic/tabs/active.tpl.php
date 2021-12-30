@@ -51,19 +51,20 @@
         </div>   
     </div>
 
-	<div class="col-md-2">
-	    <div class="form-group">
-    	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Invitation');?></label>
-    	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-                    'input_name'     => 'invitation_id',
-    				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
-                    'selected_id'    => $input->invitation_id,
-    	            'css_class'      => 'form-control form-control-sm',
-                    'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Invitation');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'invitation_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose proactive invitation'),
+                'selected_id'    => $input->invitation_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList'
             )); ?>
         </div>
     </div>
-      
+
 	<div class="col-md-2">
 	   <div class="form-group">
     	   <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
@@ -278,6 +279,8 @@
             <div class="col-3"><label><input type="checkbox" name="has_unread_messages" value="1" <?php $input->has_unread_messages == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread messages from visitor')?></label></div>
             <div class="col-3"><label><input type="checkbox" name="abandoned_chat" value="1" <?php $input->abandoned_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Abandoned chat')?></label></div>
             <div class="col-3"><label><input type="checkbox" name="dropped_chat" value="1" <?php $input->dropped_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Dropped chat')?></label></div>
+            <div class="col-3"><label><input type="checkbox" name="proactive_chat" value="<?php echo erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ?>" <?php $input->proactive_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Proactive chat')?></label></div>
+            <div class="col-3"><label><input type="checkbox" name="not_invitation" value="0" <?php $input->not_invitation === 0 ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not automatic invitation')?></label></div>
         </div>
     </div>
 
@@ -798,6 +801,13 @@
                     data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['pending']; $key++; endforeach;?>]
                 },
                 {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Bot');?>',
+                    backgroundColor: '#109684',
+                    borderColor: '#109684',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['bot']; $key++; endforeach;?>]
+                },
+                {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Closed');?>',
                     backgroundColor: '#3366cc',
                     borderColor: '#3366cc',
@@ -906,11 +916,18 @@
             labels: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),'\''.date('Y.m',$monthUnix).'\'';$key++; endforeach;?>],
             datasets: [
                 {
-                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive');?>',
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Proactive invitation');?>',
                     backgroundColor: '#dc3912',
                     borderColor: '#dc3912',
                     borderWidth: 1,
                     data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitproact']; $key++; endforeach;?>]
+                },
+                {
+                    label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Manual invitation');?>',
+                    backgroundColor: '#cca333',
+                    borderColor: '#cca333',
+                    borderWidth: 1,
+                    data: [<?php $key = 0; foreach ($numberOfChatsPerMonth as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['chatinitmanualinv']; $key++; endforeach;?>]
                 },
                 {
                     label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Visitors initiated');?>',
