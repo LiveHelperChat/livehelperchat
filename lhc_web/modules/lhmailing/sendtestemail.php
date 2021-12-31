@@ -2,6 +2,11 @@
 
 session_write_close();
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    die('Invalid CSFR Token');
+    exit;
+}
+
 $recipient = erLhcoreClassModelMailconvMailingCampaignRecipient::fetch($Params['user_parameters']['id']);
 
 if (!($recipient instanceof erLhcoreClassModelMailconvMailingCampaignRecipient)) {

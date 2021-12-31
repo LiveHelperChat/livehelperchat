@@ -14,6 +14,10 @@ $ViewList['uploadimage'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['tpx'] = array(
+    'params' => array('id')
+);
+
 $ViewList['sendemail'] = array(
     'params' => array(),
     'uparams' => array('chat_id'),

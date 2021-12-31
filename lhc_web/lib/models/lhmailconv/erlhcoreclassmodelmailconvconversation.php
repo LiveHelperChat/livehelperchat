@@ -55,6 +55,7 @@ class erLhcoreClassModelMailconvConversation
             'undelivered' => $this->undelivered,
             'pending_sync' => $this->pending_sync,
             'lang' => $this->lang,
+            'opened_at' => $this->opened_at,
         );
     }
 
@@ -115,6 +116,7 @@ class erLhcoreClassModelMailconvConversation
     {
         switch ($var) {
 
+            case 'opened_at_front':
             case 'pnd_time_front':
             case 'ctime_front':
             case 'udate_front':
@@ -301,6 +303,7 @@ class erLhcoreClassModelMailconvConversation
     public $conv_duration = 0;         // Total time spend between durations in the message
     public $has_attachment = self::ATTACHMENT_EMPTY;
     public $lang = '';
+    public $opened_at = 0;
 }
 
 ?>

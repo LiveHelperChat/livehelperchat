@@ -27,6 +27,7 @@ class erLhcoreClassMailconv {
         'attachments',
         'bcc_data_front',
         'conv_duration_front',
+        'opened_at_front',
         'subjects'
     ];
 
@@ -49,6 +50,7 @@ class erLhcoreClassMailconv {
         'udate_front',
         'department_name',
         'accept_time_front',
+        'opened_at_front',
         'cls_time_front',
         'wait_time_pending',
         'wait_time_response',

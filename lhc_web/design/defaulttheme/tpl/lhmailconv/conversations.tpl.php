@@ -34,6 +34,10 @@
                             <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                             <td ng-non-bindable>
 
+                                <?php if ($item->opened_at > 0) : ?>
+                                    <span class="material-icons text-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Message was seen by customer first time at');?>: <?php echo $item->opened_at_front?>">visibility</span>
+                                <?php endif; ?>
+
                                 <?php if ($item->lang != '') : ?>
                                     <img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $item->lang?>.png" alt="<?php echo htmlspecialchars($item->lang)?>" title="<?php echo htmlspecialchars($item->lang)?>" />
                                 <?php endif; ?>
@@ -86,9 +90,7 @@
                             </td>
                             <?php if ($can_delete === true) : ?>
                                 <td ng-non-bindable>
-                                    <div class="btn-group" role="group" aria-label="..." style="width:60px;">
-                                        <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
-                                    </div>
+                                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                                 </td>
                             <?php endif; ?>
                             </tr>

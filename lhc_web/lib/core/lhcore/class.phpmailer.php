@@ -2717,7 +2717,7 @@ class PHPMailer
      *
      * @return string
      */
-    protected function generateId()
+    public function generateId()
     {
         $len = 32; //32 bytes = 256 bits
         $bytes = '';

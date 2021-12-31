@@ -419,6 +419,7 @@ const MailChat = props => {
                                             {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>{t('status.pending')}</span>}
                                             {state.conv.status == 1 && <span><i className="material-icons chat-active">mail_outline</i>{t('status.active')}</span>}
                                             {state.conv.status == 2 && <span><i className="material-icons chat-closed">mail_outline</i>{t('status.closed')}</span>}
+                                            {state.conv.opened_at && <span><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
                                         </td>
                                     </tr>
                                     <tr>

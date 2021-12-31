@@ -70,9 +70,10 @@ class erLhcoreClassModelMailconvMessage
             'undelivered' => $this->undelivered,
             'priority' => $this->priority,
             'lang' => $this->lang,
+            'message_hash' => $this->message_hash,
+            'opened_at' => $this->opened_at,
         );
     }
-
 
     public function __toString()
     {
@@ -83,6 +84,10 @@ class erLhcoreClassModelMailconvMessage
     {
         if ($this->ctime == 0) {
             $this->ctime = time();
+        }
+
+        if ($this->message_hash == '' && $this->message_id != ''){
+            $this->message_hash = sha1($this->message_id);
         }
     }
 
@@ -126,6 +131,7 @@ class erLhcoreClassModelMailconvMessage
             case 'accept_time_front':
             case 'cls_time_front':
             case 'lr_time_front':
+            case 'opened_at_front':
                 $varObj = str_replace('_front','',$var);
                 $value = $this->{$varObj};
                 if ($value > 0) {
@@ -375,6 +381,8 @@ class erLhcoreClassModelMailconvMessage
     public $undelivered  = 0;
     public $priority  = 0;
     public $lang  = '';
+    public $message_hash  = '';
+    public $opened_at  = 0;
 }
 
 ?>
