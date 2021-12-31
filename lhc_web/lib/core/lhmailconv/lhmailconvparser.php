@@ -104,7 +104,7 @@ class erLhcoreClassMailconvParser {
 
             // Do so first is checked send folder
             usort($mailboxFolders, function ($a, $b) {
-                return !(isset($a['send_folder']) && $a['send_folder'] == 1);
+                return !(isset($a['send_folder']) && $a['send_folder'] == 1) ? 1 : 0;
             });
             
             foreach ($mailboxFolders as $mailboxFolder)
@@ -285,7 +285,7 @@ class erLhcoreClassMailconvParser {
                         $mail = $mailboxHandler->getMail($mailInfo->uid, false);
 
                         if ($mail->textHtml) {
-                            $message->body = erLhcoreClassMailconvEncoding::toUTF8($mail->textHtml);
+                            $message->body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8($mail->textHtml));
                         }
 
                         if ($mail->textPlain) {
@@ -325,6 +325,9 @@ class erLhcoreClassMailconvParser {
                         if ($message->user_id == 0 && $message->undelivered == 1 && !empty($message->rfc822_body)) {
                             $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : 0;
                             $head = \imap_rfc822_parse_headers($mail->RFC822);
+
+                            // Set recipient_id if it exists
+                            $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : $recipient_id;
 
                             if (isset($head->to)) {
                                 foreach ($head->to as $to) {
@@ -645,8 +648,30 @@ class erLhcoreClassMailconvParser {
         foreach ($messages as $message) {
             if ($message->conversation_id == 0) {
                 $message->removeThis();
+            } else {
+                // Track mail open status
+                if ($message->opened_at == 0 && $message->message_hash != '') {
+                    $openedMessage = erLhcoreClassModelMailconvMessageOpen::findOne(['filter' => ['hash' => $message->message_hash]]);
+                    if ($openedMessage instanceof erLhcoreClassModelMailconvMessageOpen) {
+
+                        $campaignRecipient = erLhcoreClassModelMailconvMailingCampaignRecipient::findOne(['filter' => ['message_id' => $message->id]]);
+
+                        if ($campaignRecipient instanceof erLhcoreClassModelMailconvMailingCampaignRecipient) {
+                            $campaignRecipient->opened_at = $openedMessage->opened_at;
+                            $campaignRecipient->updateThis(['update' => ['opened_at']]);
+                        }
+
+                        $message->opened_at = $openedMessage->opened_at;
+                        $message->updateThis(['update' => ['opened_at']]);
+                        if ($message->conversation instanceof erLhcoreClassModelMailconvConversation && $message->conversation->opened_at == 0) {
+                            $message->conversation->opened_at = time();
+                            $message->conversation->updateThis(['update' => ['opened_at']]);
+                        }
+                    }
+                }
             }
         }
+
 
         $db->reconnect();
 
@@ -925,7 +950,7 @@ class erLhcoreClassMailconvParser {
         $mail = $mailboxHandler->getMail($mailInfo['uid'], false);
 
         if ($mail->textHtml) {
-            $message->body = erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textHtml);
+            $message->body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textHtml));
         }
 
         if ($mail->textPlain) {
@@ -953,6 +978,11 @@ class erLhcoreClassMailconvParser {
         }
 
         return $message;
+    }
+
+    private static function cleanupMailBody($body)
+    {
+        return preg_replace('/<img src="(.*)\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
     }
 
     public static function purgeMessage($message)

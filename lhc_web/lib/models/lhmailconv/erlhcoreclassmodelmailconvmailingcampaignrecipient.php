@@ -22,6 +22,7 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
             'email' => $this->email,
             'status' => $this->status,
             'send_at' => $this->send_at,
+            'opened_at' => $this->opened_at,
             'name' => $this->name,
             'attr_str_1' => $this->attr_str_1,
             'attr_str_2' => $this->attr_str_2,
@@ -41,7 +42,10 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     {
         switch ($var) {
             case 'send_at_front':
-                return date('Ymd') == date('Ymd', $this->send_at) ? date(erLhcoreClassModule::$dateHourFormat, $this->send_at) : date(erLhcoreClassModule::$dateDateHourFormat, $this->send_at);
+            case 'opened_at_front':
+                $varObj = str_replace('_front','',$var);
+                $this->$var = date('Ymd') == date('Ymd', $this->{$varObj}) ? date(erLhcoreClassModule::$dateHourFormat, $this->{$varObj}) : date(erLhcoreClassModule::$dateFormat, $this->{$varObj});
+                return $this->$var;
 
             case 'user':
                 $this->user = null;
@@ -102,6 +106,7 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public $log = '';
     public $message_id = 0;
     public $conversation_id = 0;
+    public $opened_at = 0;
 
     public $name = '';
     public $attr_str_1 = '';

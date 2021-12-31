@@ -53,7 +53,7 @@ class erLhcoreClassMailConvMailingWorker {
                     }
 
                     $recipient->log = json_encode($output);
-
+                    $recipient->opened_at = 0;
                     $recipient->send_at = time();
                     $recipient->updateThis(['update' => ['log','status','send_at']]);
                 }

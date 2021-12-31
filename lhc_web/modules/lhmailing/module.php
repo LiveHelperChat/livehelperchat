@@ -103,6 +103,7 @@ $ViewList['detailssend'] = array(
 
 $ViewList['sendtestemail'] = array(
     'params' => array('id'),
+    'uparams' => array('csfr'),
     'functions' => array( 'use_admin' )
 );
 

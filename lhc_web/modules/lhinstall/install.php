@@ -2184,6 +2184,7 @@ try {
   `type` tinyint(1) NOT NULL DEFAULT 0,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
+  `opened_at` bigint(20) unsigned NOT NULL DEFAULT 0,
   `send_at` bigint(20) unsigned NOT NULL,
   `message_id` bigint(20) unsigned NOT NULL,
   `conversation_id` bigint(20) unsigned NOT NULL,
@@ -2193,6 +2194,7 @@ try {
   `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `log` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `message_id` (`message_id`),
   KEY `campaign_id_status` (`campaign_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
@@ -2253,6 +2255,7 @@ try {
   `udate` bigint(20) unsigned NOT NULL,
   `date` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mailbox_id` bigint(20) unsigned NOT NULL,
+  `opened_at` bigint(20) unsigned NOT NULL DEFAULT 0,
   `total_messages` int(11) unsigned NOT NULL,
   `match_rule_id` int(11) unsigned NOT NULL,
   `cls_time` int(11) unsigned NOT NULL,
@@ -2359,10 +2362,20 @@ try {
   KEY `active_priority` (`active`,`priority`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lhc_mailconv_msg_open` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `opened_at` bigint(20) unsigned NOT NULL,
+  `hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hash` (`hash`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
                     $db->query("CREATE TABLE `lhc_mailconv_msg` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `status` int(11) unsigned NOT NULL,
+  `opened_at` bigint(20) unsigned NOT NULL DEFAULT '0',
   `conversation_id` bigint(20) unsigned NOT NULL,
+  `message_hash` varchar(40) NOT NULL,
   `message_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `in_reply_to` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2405,6 +2418,7 @@ try {
   `rfc822_body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `delivery_status` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `message_hash` (`message_hash`),
   KEY `lang` (`lang`),
   KEY `message_id` (`message_id`),
   KEY `response_type` (`response_type`),

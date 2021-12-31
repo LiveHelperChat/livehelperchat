@@ -11,6 +11,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send at');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Status');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Type');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Seen');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Ticket');?></th>
             <th width="1%"></th>
         </tr>
@@ -24,7 +25,7 @@
                     <?php else : ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/editmailingrecipient')?>/<?php echo $item->recipient_id?>"><?php echo htmlspecialchars($item->recipient)?></a>
                     <?php endif; ?>&nbsp;
-                    <a class="text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
+                    <a class="csfr-required text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
                 </td>
                 <td>
                     <?php if ($item->send_at > 0) : ?><?php echo $item->send_at_front?><?php endif;?>
@@ -46,6 +47,9 @@
                     <?php else : ?>
                         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Based on recipient list');?>
                     <?php endif; ?>
+                </td>
+                <td>
+                    <span title="<?php if ($item->opened_at == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mail was not opened yet!') ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mail was opened first time at') ?> <?php echo$item->opened_at_front?><?php endif;?>" class="material-icons<?php $item->opened_at == 0 ? print ' text-muted' : print ' text-success'?>">visibility</span>
                 </td>
                 <td>
                     <?php if ($item->conversation_id > 0) : ?>

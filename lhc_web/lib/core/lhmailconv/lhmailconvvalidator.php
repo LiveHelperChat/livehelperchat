@@ -608,6 +608,12 @@ class erLhcoreClassMailconvValidator {
                     }
                 }
 
+                // Generate message_id upfront
+                $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
+
+                // Update body with pixel image
+                $mailReply->Body = self::generatePixel($mailReply->Body,sha1($mailReply->MessageID));
+
                 $response['send'] = $mailReply->Send();
 
                 // Create a copy if required
@@ -627,6 +633,10 @@ class erLhcoreClassMailconvValidator {
                 $mail->conv_duration = time() - $mail->ctime;
                 $mail->user_id = $user_id; // Update user who replied to customer e-mail
                 $mail->updateThis();
+
+                // Reset opened indicator on new mail send from operator
+                $mail->conversation->opened_at = 0;
+                $mail->conversation->updateThis(['update' => ['opened_at']]);
 
             } catch (Exception $e) {
                 $response['send'] = false;
@@ -672,6 +682,12 @@ class erLhcoreClassMailconvValidator {
                 }
             }
 
+            // Generate message_id upfront
+            $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
+
+            // Update body with pixel image
+            $mailReply->Body = self::generatePixel($mailReply->Body,sha1($mailReply->MessageID));
+
             $response['send'] = $mailReply->Send();
 
             if ($item->mailbox->create_a_copy == true) {
@@ -684,6 +700,19 @@ class erLhcoreClassMailconvValidator {
         }
 
         return $response;
+    }
+
+    public static function generatePixel($body, $hash) {
+
+        $replacePixel = '<img src="'.erLhcoreClassBBCode::getHost() . erLhcoreClassDesign::baseurldirect('mailconv/tpx') . '/' . $hash.'" />';
+
+        if (strpos($body,'</body>') !== false) {
+            $body = str_replace('</body>', $replacePixel, $body);
+        } else {
+            $body .= $replacePixel;
+        }
+
+        return $body;
     }
 
     // Save a copy in send folder
@@ -713,7 +742,7 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => implode("\n",imap_errors())];
         }
 
-        $messageId = sprintf('<%s@%s>', $mail->uniqueid, $mail->serverHostname());
+        $messageId = $mail->getLastMessageID();
 
         return ['success' => true, 'message_id' => $messageId];
     }

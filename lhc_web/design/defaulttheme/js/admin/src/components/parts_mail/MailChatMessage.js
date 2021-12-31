@@ -63,7 +63,9 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
 
-            <small className="pr-2">{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
+
+
+            <small className="pr-2">{message.opened_at && <span className="material-icons" title={t('msg.opened_at_message') + message.opened_at_front}>visibility</span>}{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
             {mode !== 'preview' && <i onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
 
             <i onClick={(e) => {e.stopPropagation(); setExpandHeader(!expandHeader)}} className="material-icons settings text-muted">{expandHeader ? 'expand_less' : 'expand_more'}</i>

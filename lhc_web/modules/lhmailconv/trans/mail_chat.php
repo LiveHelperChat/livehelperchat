@@ -36,7 +36,8 @@ echo json_encode(array(
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
         "active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Active'),
-        "closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Closed')
+        "closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Closed'),
+        "opened_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Opened at')
     ],
     "msg" => [
         "reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply'),
@@ -61,6 +62,7 @@ echo json_encode(array(
         "send_and_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Closed'),
         "send_as_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as New'),
         "send_as_active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Active'),
+        "opened_at_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message was seen by customer first time at'),
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),

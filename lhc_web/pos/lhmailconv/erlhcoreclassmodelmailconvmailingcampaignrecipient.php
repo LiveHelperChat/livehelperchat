@@ -20,7 +20,7 @@ foreach (array(
 
 foreach (array(
              'campaign_id','recipient_id','status','send_at','type',
-             'message_id','conversation_id'
+             'message_id','conversation_id','opened_at'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
