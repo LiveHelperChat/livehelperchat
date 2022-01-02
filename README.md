@@ -60,6 +60,8 @@ http://livehelperchat.com/demo-12c.html
    * `cd lhc_web/design/defaulttheme/widget/react-app && npm install && npm run build && npm run build-ie`
  * Recompile static JS/CSS files. This is required if you change core JS files. It also avoids missing CSS/JS files if more than one server is used.
    * `php cron.php -s site_admin -c cron/util/generate_css -p 1 && gulp js-static`
+ * ORM - https://doc.livehelperchat.com/docs/development/orm
+ * Common classes - https://doc.livehelperchat.com/docs/development/common-classes
 
 ## Extensions
 https://github.com/LiveHelperChat
