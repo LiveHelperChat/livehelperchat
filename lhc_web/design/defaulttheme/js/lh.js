@@ -2823,6 +2823,11 @@ function lh(){
         }
 
     };
+    
+    this.setCloseWindowOnEvent = function (value)
+    {
+        this.closeWindowOnChatCloseDelete = value;
+    };
 }
 
 function chatMapLoaded()
