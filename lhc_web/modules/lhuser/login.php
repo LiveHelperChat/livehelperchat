@@ -182,6 +182,7 @@ if (isset($_POST['Login']))
                 ));
 
                 $userData->llogin = time();
+                $userData->force_logout = 0;
                 $userData->updateThis(['update' => ['llogin']]);
 
                 if ($isExternalRequest) {
