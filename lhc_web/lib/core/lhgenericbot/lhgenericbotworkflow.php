@@ -571,6 +571,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             $keepEvent = false;
+            $defaultInProgress = false;
 
             // Event was processed we can remove it now
             foreach ($chatEvent->content_array['callback_list'] as $eventData) {
@@ -590,7 +591,7 @@ class erLhcoreClassGenericBotWorkflow {
                     ));
 
                     if (isset($handler['keep_event']) && $handler['keep_event'] == true) {
-                        $keepEvent = true;
+                        $defaultInProgress = $keepEvent = true;
                     }
                 }
                 
@@ -666,7 +667,7 @@ class erLhcoreClassGenericBotWorkflow {
                             ));
 
                             if (isset($handler['keep_event']) && $handler['keep_event'] == true) {
-                                $keepEvent = true;
+                                $defaultInProgress = $keepEvent = true;
                             }
 
                             if (isset($eventData['content']['validation']['words']) && $eventData['content']['validation']['words'] != '') {
@@ -987,8 +988,47 @@ class erLhcoreClassGenericBotWorkflow {
             if ($keepEvent === false) {
                 $chatEvent->removeThis();
             } else {
+
                 $chatEvent->counter++;
                 $chatEvent->saveThis();
+
+                // Perhaps there is trigger we should send if work has not finished yet
+                if ($defaultInProgress == true) {
+
+                    $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_in_progress', array(
+                        'chat' => & $chat,
+                        'bot_id' => $chat->gbot_id,
+                        'chat_event' => $chatEvent
+                    ));
+
+                    $trigger = null;
+
+                    if ($handler !== false) {
+                        $trigger = $handler['trigger'];
+                    } else {
+
+                        $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
+
+                        if ($bot instanceof erLhcoreClassModelGenericBotBot) {
+                            $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('in_progress' => 1)));
+                        }
+                    }
+
+                    if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                        $paramsTrigger = array();
+
+                        if (isset($params['msg'])) {
+                            $paramsTrigger['args']['msg'] = $params['msg'];
+                        }
+
+                        $paramsTrigger['args']['msg_text'] = $payload;
+                        $paramsTrigger['args']['chat_event'] = $chatEvent;
+
+                        erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
+                    }
+                }
+
             }
 
         } catch (Exception $e) {
