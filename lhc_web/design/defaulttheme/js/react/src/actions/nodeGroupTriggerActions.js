@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+
 export function fetchNodeGroupTriggers(groupId) {
     return function(dispatch) {
         dispatch({type: "FETCH_NODE_GROUP_TRIGGERS"});

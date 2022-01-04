@@ -1,5 +1,6 @@
 import axios from "axios";
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
 
 export function fetchNodeGroups(botId) {
     return function(dispatch) {
