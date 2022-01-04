@@ -934,6 +934,8 @@ class erLhcoreClassGenericBotWorkflow {
 
                                 $paramsTrigger['args']['msg_text'] = $payload;
 
+                                $paramsTrigger['args']['chat_event'] = $chatEvent;
+
                                 if (isset($eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id']) && $eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id'] != '') {
                                     $paramsTrigger['trigger_action_id'] = $eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id'];
                                 }

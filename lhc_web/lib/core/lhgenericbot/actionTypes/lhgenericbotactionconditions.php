@@ -92,6 +92,32 @@ class erLhcoreClassGenericBotActionConditions {
                         $valAttr = $valueAttribute['found'] == true ? $valueAttribute['value'] : $valAttr;
                     }
 
+                    $replaceArray = array(
+                        '{time}' => time()
+                    );
+
+                    // Remove internal variables
+                    $attr = str_replace(array_keys($replaceArray), array_values($replaceArray),$attr);
+                    $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valAttr);
+
+                    // Remove spaces
+                    $attr = preg_replace('/\s+/', '', $attr);
+                    $valAttr = preg_replace('/\s+/', '', $valAttr);
+
+                    // Allow only mathematical operators
+                    $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
+                    $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
+
+                    if ($conditionAttrMath != '' && $conditionAttrMath == $attr) {
+                        // Evaluate if there is mathematical rules
+                        eval('$attr = ' . $conditionAttrMath . ";");
+                    }
+
+                    if ($valueAttrMath != '' && $valueAttrMath == $valAttr) {
+                        // Evaluate if there is mathematical rules
+                        eval('$valAttr = ' . $valueAttrMath . ";");
+                    }
+
                     // For these operations we want numbers
                     if (in_array($condition['content']['comp'],['lt','lte','gt','gte'])) {
                         $attr = round((float)$attr,3);
