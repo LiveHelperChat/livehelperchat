@@ -918,6 +918,29 @@ class erLhcoreClassGenericBotWorkflow {
                         }
 
                     } elseif (isset($eventData['content']['type']) && $eventData['content']['type'] == 'rest_api') {
+
+                        if (isset($eventData['content']['action']['content']['rest_api_method_output']['long_taking_trigger']) && is_numeric($eventData['content']['action']['content']['rest_api_method_output']['long_taking_trigger'])) {
+
+                            $trigger = erLhcoreClassModelGenericBotTrigger::fetch($eventData['content']['action']['content']['rest_api_method_output']['long_taking_trigger']);
+
+                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                                $paramsTrigger = array();
+
+                                if (isset($params['msg'])) {
+                                    $paramsTrigger['args']['msg'] = $params['msg'];
+                                }
+
+                                $paramsTrigger['args']['msg_text'] = $payload;
+
+                                if (isset($eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id']) && $eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id'] != '') {
+                                    $paramsTrigger['trigger_action_id'] = $eventData['content']['action']['content']['rest_api_method_output']['long_taking_action_id'];
+                                }
+
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
+                            }
+                        }
+
                         // Rest API in progress
                         // Ignore any customer request for a while
                         $keepEvent = true;
