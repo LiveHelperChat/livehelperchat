@@ -1,23 +1,31 @@
 {
-    "name":        "remdex/livehelperchat",
-    "type":        "project",
-    "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
-    "keywords":    ["php", "live support", "livehelperchat", "qt", "xmpp"],
-    "homepage":    "https://livehelperchat.com",
-    "license":     ["GPL-3.0+","LGPL-3.0+"],    
     "authors": [
         {
-            "name": "Remigijus Kiminas",
             "email": "remdex@gmail.com",
-            "homepage": "https://livehelperchat.com"
+            "name": "Remigijus Kiminas"
         }
-    ],    
-    "require": {
-        "php": ">=5.2.4",
-        "minishlink/web-push" : "dev-master#a9b689675c167117d91b96c34555476bbfbdc391"
-    },
-    "minimum-stability": "dev",
+    ],
     "config": {
         "vendor-dir": "lib/vendor"
-    }
+    },
+    "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
+    "homepage": "https://livehelperchat.com",
+    "keywords": [
+        "php",
+        "live support",
+        "livehelperchat",
+        "qt",
+        "xmpp"
+    ],
+    "license": [
+        "GPL-3.0+",
+        "LGPL-3.0+"
+    ],
+    "minimum-stability": "dev",
+    "name": "remdex/livehelperchat",
+    "require": {
+        "minishlink/web-push": "dev-master#a9b689675c167117d91b96c34555476bbfbdc391",
+        "php": ">=5.2.4"
+    },
+    "type": "project"
 }
