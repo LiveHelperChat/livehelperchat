@@ -94,9 +94,9 @@ if (isset($_POST['Forgotpassword'])) {
 			$tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpasswordsent.tpl.php');
 
 		} else {
-			erLhcoreClassModule::redirect('user/forgotpassword');
-			exit;
+            $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/forgotpasswordsent.tpl.php');
 		}
+
     }  else {
         $tpl->set('errors',$Errors);
     }

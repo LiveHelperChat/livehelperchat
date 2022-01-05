@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup, setAsArgumentTrigger } from "../actions/nodeGroupTriggerActions"
+import { fetchNodeGroupTriggerAction, removeTrigger, setDefaultTrigger, setDefaultUnknownTrigger, setDefaultAlwaysTrigger, setInProgressTrigger, setDefaultUnknownBtnTrigger, makeTriggerCopy, setTriggerGroup, setAsArgumentTrigger } from "../actions/nodeGroupTriggerActions"
 import { connect } from "react-redux";
 
 @connect((store) => {
@@ -20,6 +20,7 @@ class NodeGroupTrigger extends Component {
         this.setDefaultUnknownTrigger = this.setDefaultUnknownTrigger.bind(this);
         this.setDefaultUnknownBtnTrigger = this.setDefaultUnknownBtnTrigger.bind(this);
         this.setDefaultAlwaysTrigger = this.setDefaultAlwaysTrigger.bind(this);
+        this.setInProgressTrigger = this.setInProgressTrigger.bind(this);
         this.setAsArgumentTrigger = this.setAsArgumentTrigger.bind(this);
         this.changeGroup = this.changeGroup.bind(this);
         this.makeCopy = this.makeCopy.bind(this);
@@ -56,6 +57,11 @@ class NodeGroupTrigger extends Component {
     setDefaultAlwaysTrigger(e) {
         const value = e.target.checked;
         this.props.dispatch(setDefaultAlwaysTrigger(this.props.trigger.set('default_always',value == true ? 1 : 0)));
+    }
+
+    setInProgressTrigger(e) {
+        const value = e.target.checked;
+        this.props.dispatch(setInProgressTrigger(this.props.trigger.set('in_progress',value == true ? 1 : 0)));
     }
 
     changeGroup(state, group_id) {
@@ -135,6 +141,7 @@ class NodeGroupTrigger extends Component {
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a visitor message"><input onChange={this.setDefaultUnknownTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown')} /> Default for unknown message</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This message will be send to visitor then we could dot determine what we should do with a button click"><input onChange={this.setDefaultUnknownBtnTrigger} type="checkbox" checked={this.props.trigger.get('default_unknown_btn')} /> Default for unknown button click</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This trigger will be always checking independently in what process we are"><input onChange={this.setDefaultAlwaysTrigger} type="checkbox" checked={this.props.trigger.get('default_always')} /> Execute always</label></li>
+                            <li className="dropdown-item"><label className="mb-0" title="This trigger will be executed if previous process has not finished yet."><input onChange={this.setInProgressTrigger} type="checkbox" checked={this.props.trigger.get('in_progress')} /> In progress trigger</label></li>
                             <li className="dropdown-item"><label className="mb-0" title="This trigger can be passed as argument. Required for it to work for Themes, Proactive chat and for trigger_id argument."><input onChange={this.setAsArgumentTrigger} type="checkbox" checked={this.props.trigger.get('as_argument')} /> Can be passed as argument <b>{this.props.trigger.get('id')}</b></label></li>
                         </ul>
                     </div>

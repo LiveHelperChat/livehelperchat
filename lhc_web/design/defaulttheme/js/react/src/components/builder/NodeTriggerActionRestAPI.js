@@ -175,8 +175,14 @@ class NodeTriggerActionRestAPI extends Component {
                         </div>
                     </div>
                     <div className="col-6">
-                        <label>Trigger to execute before default</label>
+                        <label>Trigger to execute before default <i className="material-icons" title="Usefull for logging purposes to track full path of navigation. Use `Log action` response type. This trigger is executed only if default trigger is executed.">info</i></label>
                         <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','default_trigger_alt'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','default_trigger_alt'])} />
+                    </div>
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label>If your Rest API takes long time and visitor writes a message while it's still hapenning, you can send a custom trigger to execute. E.g this trigger can write that we are still processing your request.</label>
+                            <NodeTriggerList enableAction={true} payload_action_id={this.props.action.getIn(['content','rest_api_method_output','long_taking_action_id'])} onSetPayloadActionId={(e) => this.onchangeAttr({'path':['rest_api_method_output','long_taking_action_id'],'value':e})} onSetPayload={(e) => this.onchangeAttr({'path':['rest_api_method_output','long_taking_trigger'],'value':e})} payload={this.props.action.getIn(['content','rest_api_method_output','long_taking_trigger'])} />
+                        </div>
                     </div>
                 </div>
 

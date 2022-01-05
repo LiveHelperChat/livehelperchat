@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+
 export function fetchNodeGroupTriggers(groupId) {
     return function(dispatch) {
         dispatch({type: "FETCH_NODE_GROUP_TRIGGERS"});
@@ -202,6 +204,19 @@ export function setDefaultTrigger(obj) {
                 dispatch({type: "SET_DEFAULT_FULFILLED", payload: response.data})
         }).catch((err) => {
                 dispatch({type: "SET_DEFAULT_REJECTED", payload: err})
+        })
+    }
+}
+
+export function setInProgressTrigger(obj) {
+    return function(dispatch) {
+        dispatch({type: "SET_IN_PROGRESS_TRIGGER", payload : obj});
+
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/setinprogresstrigger/" + obj.get('id') + '/' +  obj.get('in_progress'))
+                .then((response) => {
+                dispatch({type: "SET_IN_PROGRESS_FULFILLED", payload: response.data})
+        }).catch((err) => {
+                dispatch({type: "SET_IN_PROGRESS_REJECTED", payload: err})
         })
     }
 }

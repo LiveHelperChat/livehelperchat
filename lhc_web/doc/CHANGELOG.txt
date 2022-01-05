@@ -1,3 +1,17 @@
+3.92v
+
+1. In progress trigger option. This is usefull in case previous process has not finished yet. Mostly use case with custom extensions.
+2. Users sometimes were logged out just after login if they were using auto logout after some interval.
+3. I have started a progress to remove old legacy widget code from the app.
+4. On password remind function show identical message in all cases to avoid scanning for existing customers.
+5. Further PHP 8.1 fixes.
+6. In statistic section now you can differentiate proactive chats was it manual invitation or automatic.
+7. In case PHP-Resque was used and incoming webhook events were not send to Rest API
+8. Get rid of document.write for a new widget to avoid warning.
+9. jfif support as image format.
+
+execute doc/update_db/update_264.sql for update
+
 3.91v
 
 1. Survey API. See a swagger survey section.

@@ -8,7 +8,7 @@ if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_S
 }
 
 $trigger = erLhcoreClassModelGenericBotTrigger::fetch((int)$Params['user_parameters']['id']);
-$trigger->as_argument = (int)$Params['user_parameters']['default'] == 1 ? 1 : 0;
+$trigger->in_progress = (int)$Params['user_parameters']['default'] == 1 ? 1 : 0;
 $trigger->saveThis();
 
 echo json_encode(

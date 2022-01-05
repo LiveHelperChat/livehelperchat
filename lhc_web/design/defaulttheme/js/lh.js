@@ -2950,6 +2950,27 @@ function lh(){
             }
         }
     }
+
+    this.startChatNewWindow = function(chat_id,name)
+    {
+        var popupWindow = window.open(this.wwwDir + 'chat/single/'+chat_id,'chatwindow-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
+
+        if (popupWindow !== null) {
+            popupWindow.focus();
+            var inst = this;
+            setTimeout(function(){
+                inst.syncadmininterfacestatic();
+            },1000);
+
+            ee.emitEvent('chatStartOpenWindow', [chat_id]);
+        }
+
+    };
+    
+    this.setCloseWindowOnEvent = function (value)
+    {
+        this.closeWindowOnChatCloseDelete = value;
+    };
 }
 
 function chatMapLoaded()

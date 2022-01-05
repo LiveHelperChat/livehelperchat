@@ -182,7 +182,8 @@ if (isset($_POST['Login']))
                 ));
 
                 $userData->llogin = time();
-                $userData->updateThis(['update' => ['llogin']]);
+                $userData->force_logout = 0;
+                $userData->updateThis(['update' => ['llogin','force_logout']]);
 
                 if ($isExternalRequest) {
                     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Logged in successfully'));

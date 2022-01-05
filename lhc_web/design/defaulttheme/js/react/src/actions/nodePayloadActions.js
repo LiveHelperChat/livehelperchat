@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+
 export function addPayload(payload) {
     return function(dispatch) {
         dispatch({type: "ADD_PAYLOAD_TRIGGERS"});

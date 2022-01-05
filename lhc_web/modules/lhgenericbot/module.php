@@ -311,6 +311,12 @@ $ViewList['setdefaulttrigger'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['setinprogresstrigger'] = array(
+    'params' => array('id','default'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['setasargument'] = array(
     'params' => array('id','default'),
     'uparams' => array(),
