@@ -19,7 +19,6 @@
                 <?php endif; ?>
                 
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/options/new_dashboard_options.tpl.php'));?>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab_multiinclude.tpl.php'));?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab_multiinclude.tpl.php'));?>
                 <div class="dropdown-item">
