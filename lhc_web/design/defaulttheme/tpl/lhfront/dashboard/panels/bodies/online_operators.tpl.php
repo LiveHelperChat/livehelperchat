@@ -5,6 +5,7 @@
             <a ng-click="lhc.toggleWidgetSort('onop_sort','onl_dsc','onl_asc',true)">
                 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator');?>" class="material-icons">account_box</i>
                 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['onop_sort'] != 'onl_dsc' && lhc.toggleWidgetData['onop_sort'] != 'onl_asc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by online status')?>" class="material-icons">{{lhc.toggleWidgetData['onop_sort'] == 'onl_dsc' || lhc.toggleWidgetData['onop_sort'] != 'onl_asc' ? 'trending_up' : 'trending_down'}}</i>
+                <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/online_operators_status_sort_multiinclude.tpl.php')); ?>
             </a>
         </th>
         <th width="5%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Last activity ago');?>" class="material-icons">access_time</i></th>
@@ -20,6 +21,8 @@
     <tr ng-repeat="operator in online_op.list track by operator.id">
         <td>
             <img class="rounded-circle" ng-if="operator.avatar" ng-src="{{operator.avatar}}" alt="" width="35" />
+
+            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/online_operators_status_multiinclude.tpl.php')); ?>
 
             <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
             <a ng-show="operator.user_id != <?php echo erLhcoreClassUser::instance()->getUserID();?>" href="#" ng-click="lhc.startChatOperator(operator.user_id)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat');?>"><i class="material-icons">chat</i></a>

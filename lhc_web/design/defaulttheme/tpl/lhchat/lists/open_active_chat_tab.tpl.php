@@ -17,11 +17,9 @@
                         <?php endif; ?>
                 </a>
                 <?php endif; ?>
+                
+                <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/options/new_dashboard_options.tpl.php'));?>
 
-                <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
-                    <a class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/tabs"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide/Show chat tabs'); ?></a>
-                    <a class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/left_list"><i class="material-icons">widgets</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Tabs/List in left column'); ?></a>
-                <?php endif; ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab_multiinclude.tpl.php'));?>
                 <div class="dropdown-item">
                     <div class="input-group input-group-sm">

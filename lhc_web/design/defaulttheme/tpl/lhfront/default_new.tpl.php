@@ -42,6 +42,7 @@
 
     ?>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/options/left_list_options.tpl.php')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_general.tpl.php')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings_online_check.tpl.php')); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/tabs_multiinclude.tpl.php')); ?>
@@ -74,7 +75,7 @@
 
                     <div role="tabpanel" class="border-top">
 
-                        <?php if ((int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 0) : ?>
+                        <?php if ($left_list_option == 0) : ?>
                         <ul class="nav nav-underline nav-small nav-fill mb-0 pb-0 border-bottom" role="tablist" id="sub-tabs">
                             <li role="presentation" class="nav-item">
                                 <a class="nav-link active" href="#sub-tabs-open" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?>" aria-controls="sub-tabs-open" role="tab" data-toggle="tab" aria-selected="true">
@@ -123,7 +124,7 @@
                                 <?php endif;?>
 
                             </div>
-                            <?php if ($basicChatEnabled == true && (int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 0) : ?>
+                            <?php if ($basicChatEnabled == true && $left_list_option == 0) : ?>
                             <div role="tabpanel" class="tab-pane" id="sub-tabs-my-assigned">
                                 <?php $rightPanelMode = true; $hideCardHeader = true; ?>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
@@ -149,7 +150,7 @@
                         </div>
                     </div>
 
-                    <?php if ($basicChatEnabled == true && (int)erLhcoreClassModelUserSetting::getSetting('left_list',0) == 1) : ?>
+                    <?php if ($basicChatEnabled == true && $left_list_option == 1) : ?>
                     <div class="dashboard-panels d-flex flex-column flex-grow-1" style="position:relative">
                         <?php $hideCard = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/right_panel_container.tpl.php'));?>
