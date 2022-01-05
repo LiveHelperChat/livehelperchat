@@ -34,7 +34,7 @@ class erLhcoreClassChatWebhookHttp {
         }
     }
 
-    public function isValidConditions($continuousHook, $chat) {
+    public static function isValidConditions($continuousHook, $chat) {
 
         $configurationParams = $continuousHook->conditions_array;
 
@@ -159,12 +159,20 @@ class erLhcoreClassChatWebhookHttp {
 
                             if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
                                 // Evaluate if there is mathematical rules
-                                eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                try {
+                                    eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                                } catch (ParseError $e) {
+                                    // Do nothing
+                                }
                             }
 
                             if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
                                 // Evaluate if there is mathematical rules
-                                eval('$valueAttr = ' . $valueAttrMath . ";");
+                                try {
+                                    eval('$valueAttr = ' . $valueAttrMath . ";");
+                                } catch (ParseError $e) {
+                                    // Do nothing
+                                }
                             }
                         }
 

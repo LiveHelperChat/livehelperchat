@@ -108,19 +108,26 @@ class erLhcoreClassGenericBotActionConditions {
                     $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
                     $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valAttr);
 
+                    if ($conditionAttrMath != '' && $conditionAttrMath == $attr) {
+                        // Evaluate if there is mathematical rules
+                        try {
+                            eval('$attr = ' . $conditionAttrMath . ";");
+                        } catch (ParseError $e) {
+                            // Do nothing
+                        }
+                    }
+
+                    if ($valueAttrMath != '' && $valueAttrMath == $valAttr) {
+                        // Evaluate if there is mathematical rules
+                        try {
+                            eval('$valAttr = ' . $valueAttrMath . ";");
+                        } catch (ParseError $e) {
+                            // Do nothing
+                        }
+                    }
+
                     // For these operations we want numbers
                     if (in_array($condition['content']['comp'],['lt','lte','gt','gte'])) {
-
-                        if ($conditionAttrMath != '' && $conditionAttrMath == $attr) {
-                            // Evaluate if there is mathematical rules
-                            eval('$attr = ' . $conditionAttrMath . ";");
-                        }
-
-                        if ($valueAttrMath != '' && $valueAttrMath == $valAttr) {
-                            // Evaluate if there is mathematical rules
-                            eval('$valAttr = ' . $valueAttrMath . ";");
-                        }
-
                         $attr = round((float)$attr,3);
                         $valAttr = round((float)$valAttr,3);
                     } elseif ((is_string($attr) || is_numeric($attr)) && (is_string($valAttr) || is_numeric($valAttr))) {
