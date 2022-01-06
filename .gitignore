@@ -2,5 +2,8 @@
 /lhc_web/lib/vendor/
 /composer.phar
 
+# Live Helper Chat
+/lhc_web/settings/settings.ini.php
+
 # PhpStorm
 /.idea/
