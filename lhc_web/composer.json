@@ -6,6 +6,7 @@
         }
     ],
     "config": {
+        "sort-packages": true,
         "vendor-dir": "lib/vendor"
     },
     "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
@@ -24,6 +25,7 @@
     "minimum-stability": "stable",
     "name": "livehelperchat/livehelperchat",
     "require": {
+        "ext-json": "*",
         "minishlink/web-push": "^6.0",
         "php": "^7.2"
     },
