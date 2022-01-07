@@ -5,3 +5,6 @@
 # JSON
 *.json text eol=lf
 *.lock text eol=lf
+
+# PHP
+*.php text eol=lf
