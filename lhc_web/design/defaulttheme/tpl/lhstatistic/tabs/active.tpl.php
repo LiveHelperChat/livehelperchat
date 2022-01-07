@@ -106,6 +106,14 @@
             </div>
         </div>
     </div>
+    
+    <div class="col-md-2">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group chart');?></label>
+        <select class="form-control form-control-sm" name="group_chart_type">
+            <option value="vertical_bar" <?php if ($input->group_chart_type == 'vertical_bar') : ?>selected<?php endif;?> >Vertical Bar Chart</option>
+            <option value="stacked_bar" <?php if ($input->group_chart_type == 'stacked_bar') : ?>selected<?php endif;?> >Stacked Bar Chart</option>
+        </select>
+    </div>
 
     <div class="col-md-2">
         <div class="form-group">
@@ -372,7 +380,7 @@
                         var dataString = dataset.data[index].toString();
                         if (dataString !== '0')
                         {
-                            ctx.fillStyle = 'rgb(0, 0, 0)';
+                            ctx.fillStyle = 'rgb(255, 255, 255)';
                             var fontSize = 11;
                             var fontStyle = 'normal';
                             var fontFamily = 'Arial';
@@ -382,7 +390,14 @@
                             // Make sure alignment settings are correct
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
-                            var padding = 5;
+
+                            // Specify the shadow colour.
+                            ctx.shadowColor = "black";
+                            ctx.shadowOffsetX = 1;
+                            ctx.shadowOffsetY = 1;
+                            ctx.shadowBlur = 1;
+
+                            var padding = -element.height()/2-5;
                             var position = element.tooltipPosition();
 
                             if (chart.options.perc) {
@@ -391,6 +406,11 @@
                             } else {
                                 ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                             }
+
+                            ctx.shadowColor = "";
+                            ctx.shadowOffsetX = 0;
+                            ctx.shadowOffsetY = 0;
+                            ctx.shadowBlur = 0;
                         }
                     });
                 }
@@ -746,7 +766,7 @@
                 },
                 scales: {
                     xAxes: [{
-                        //stacked: true,
+                        <?php ($input->group_chart_type == 'stacked_bar') ? print 'stacked: true,' : '' ?>
                         ticks: {
                             fontSize: 11,
                             stepSize: 1,
@@ -755,7 +775,7 @@
                         }
                     }],
                     yAxes: [{
-                        //stacked: true,
+                        <?php ($input->group_chart_type == 'stacked_bar') ? print 'stacked: true,' : '' ?>
                         ticks: {
                             beginAtZero: true
                         }

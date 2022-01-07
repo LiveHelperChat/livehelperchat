@@ -2,6 +2,18 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['group_chart_type'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => '',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['group_limit'] = array (
     'type' => 'text',
     'trans' => 'Group Field',
