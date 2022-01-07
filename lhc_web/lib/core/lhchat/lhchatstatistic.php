@@ -1242,6 +1242,8 @@ class erLhcoreClassChatStatistic {
     				$returnFilter[] = $field.' >= '.$db->quote($value);    			
     			} elseif ($type == 'filtergt') {
     				$returnFilter[] = $field.' > '.$db->quote($value);
+                } elseif ($type == 'filterlike') {
+                    $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
     			} elseif ($type == 'filterin') {
     				$returnFilter[] = $field.' IN ( '. implode(',', $value) . ')';
     			}
@@ -2857,8 +2859,7 @@ class erLhcoreClassChatStatistic {
 
     public static function colorFromString($string)
     {
-        $colors = [
-            '#F44336',
+        $colors = ['#F44336',
             '#FFEBEE',
             '#FFCDD2',
             '#EF9A9A',
@@ -3111,9 +3112,7 @@ class erLhcoreClassChatStatistic {
             '#546E7A',
             '#455A64',
             '#37474F',
-            '#263238',
-            // this list should be as long as practical to avoid duplicates
-        ];
+            '#263238'];
 
         // generate a partial hash of the string (a full hash is too long for the % operator)
         $hash = substr(sha1($string), 0, 10);
