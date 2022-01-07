@@ -229,7 +229,12 @@ class erLhcoreClassSystem{
 
     public static function autoload($className)
     {
-        $file = '.' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'vendor_lhc' . DIRECTORY_SEPARATOR . str_replace('\\',DIRECTORY_SEPARATOR, $className) . '.php';
+        if (strpos($className,'LiveHelperChatExtension\\') !== false) {
+            $className = str_replace('LiveHelperChatExtension\\','',$className);
+            $file = '.' . DIRECTORY_SEPARATOR . 'extension' . DIRECTORY_SEPARATOR . str_replace('\\',DIRECTORY_SEPARATOR, $className) . '.php';
+        } else {
+            $file = '.' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'vendor_lhc' . DIRECTORY_SEPARATOR . str_replace('\\',DIRECTORY_SEPARATOR, $className) . '.php';
+        }
 
         if (file_exists($file)) {
             require_once $file;
