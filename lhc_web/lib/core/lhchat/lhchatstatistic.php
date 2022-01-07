@@ -3232,7 +3232,7 @@ class erLhcoreClassChatStatistic {
 
     public static function getVisitorsStatistic($filter, $params) {
 
-        $statistic = array('visitors_new' => array());
+        $statistic = array('visitors_new' => array(), 'visitors_returning' => array());
 
         $yearStart = date('y');
         $monthStart = date('m');
