@@ -2764,12 +2764,17 @@ function lh(){
     	return false;
     };
 
-    this.submitModalForm = function(form){
+    this.submitModalForm = function(form, idElement){
     	var inst = this;
     	$.post(form.attr('action'),form.serialize(), function(data) {
-    	    var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
-	   		$('#myModal').html(data);
-            $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
+            var idElementDetermined = idElement ? '#'+idElement : '#myModal';
+            if (!idElement) {
+                var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
+            }
+            $(idElementDetermined).html(data);
+            if (!idElement) {
+                $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
+            }
 	   	 });
     	return false;
     };
