@@ -27,7 +27,7 @@
     "require": {
         "ext-json": "*",
         "minishlink/web-push": "^6.0",
-        "php": "^7.2"
+        "php": ">=7.2"
     },
     "type": "project"
 }
