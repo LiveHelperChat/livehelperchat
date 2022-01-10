@@ -400,7 +400,9 @@
                                 ctx.shadowOffsetX = 1;
                                 ctx.shadowOffsetY = 1;
                                 ctx.shadowBlur = 1;
-                                padding = -element.height()/2-5;
+                                if (typeof element.height == 'function') {
+                                    padding = -element.height()/2-5;
+                                }
                             }
 
                             var position = element.tooltipPosition();
