@@ -376,8 +376,7 @@
                         var dataString = dataset.data[index].toString();
                         if (dataString !== '0')
                         {
-
-                            ctx.fillStyle = 'rgb(255, 255, 255)';
+                            ctx.fillStyle = chart.data.datasets.length > 1 ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
                             var fontSize = 11;
                             var fontStyle = 'normal';
                             var fontFamily = 'Arial';
@@ -388,18 +387,22 @@
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
 
-                            // Specify the shadow colour.
-                            ctx.shadowColor = "black";
-                            ctx.shadowOffsetX = 1;
-                            ctx.shadowOffsetY = 1;
-                            ctx.shadowBlur = 1;
+                            var padding = 0;
 
-                            var padding = -element.height()/2-5;
+                            if (chart.data.datasets.length > 1) {
+                                // Specify the shadow colour.
+                                ctx.shadowColor = "black";
+                                ctx.shadowOffsetX = 1;
+                                ctx.shadowOffsetY = 1;
+                                ctx.shadowBlur = 1;
+                                padding = -element.height()/2-5;
+                            }
+
                             var position = element.tooltipPosition();
 
                             if (chart.options.perc) {
                                 ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
-                                ctx.fillText((parseInt(dataString)*100 / maxValue).toFixed(2)+"%", position.x, position.y - (fontSize / 2) - padding - 15);
+                                ctx.fillText((parseInt(dataString)*100 / maxValue).toFixed(0)+"%", position.x, position.y - (fontSize / 2) - padding - 15);
                             } else {
                                 ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                             }
@@ -408,8 +411,6 @@
                             ctx.shadowOffsetX = 0;
                             ctx.shadowOffsetY = 0;
                             ctx.shadowBlur = 0;
-
-
                         }
                     });
                 }
