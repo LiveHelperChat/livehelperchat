@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "9a9595279e91e221d91181ee328238a2",
-=======
-    "content-hash": "3ffc4c15deb6d6d1e14f3b0b55aa121f",
->>>>>>> master
+    "content-hash": "feb7f13c2232cfbe4d2e7745a5ac13fe",
     "packages": [
         {
             "name": "brick/math",
@@ -53,20 +49,6 @@
                 "bignum",
                 "brick",
                 "math"
-            ],
-            "support": {
-                "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.9.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/BenMorel",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/brick/math",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-08-15T20:50:18+00:00"
         },
@@ -139,15 +121,7 @@
                 "x509",
                 "x690"
             ],
-<<<<<<< HEAD
-            "time": "2018-03-31 08:32:19"
-=======
-            "support": {
-                "issues": "https://github.com/fgrosse/PHPASN1/issues",
-                "source": "https://github.com/fgrosse/PHPASN1/tree/v2.4.0"
-            },
             "time": "2021-12-11T12:41:06+00:00"
->>>>>>> master
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -155,54 +129,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-<<<<<<< HEAD
-                "reference": "d5a2b0338e1cc963532ffdcc3bba4cbba469a215"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d5a2b0338e1cc963532ffdcc3bba4cbba469a215",
-                "reference": "d5a2b0338e1cc963532ffdcc3bba4cbba469a215",
-=======
                 "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
                 "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-<<<<<<< HEAD
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7",
-                "php": "^7.2.5 || ^8.0",
-                "psr/http-client": "^1.0"
-=======
                 "guzzlehttp/promises": "^1.5",
                 "guzzlehttp/psr7": "^1.8.3 || ^2.1",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.2 || ^3.0"
->>>>>>> master
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
             },
             "require-dev": {
-<<<<<<< HEAD
-                "ext-curl": "*",
-                "php-http/client-integration-tests": "^3.0",
-                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
-                "psr/log": "^1.1"
-=======
                 "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-curl": "*",
                 "php-http/client-integration-tests": "^3.0",
                 "phpunit/phpunit": "^8.5.5 || ^9.3.5",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
->>>>>>> master
             },
             "suggest": {
                 "ext-curl": "Required for CURL handler support",
@@ -276,29 +227,7 @@
                 "rest",
                 "web service"
             ],
-<<<<<<< HEAD
-            "time": "2020-10-06 18:45:11"
-=======
-            "support": {
-                "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-12-06T18:43:05+00:00"
->>>>>>> master
         },
         {
             "name": "guzzlehttp/promises",
@@ -306,21 +235,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-<<<<<<< HEAD
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/60d379c243457e073cff02bc323a2a86cb355631",
-                "reference": "60d379c243457e073cff02bc323a2a86cb355631",
-=======
                 "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/promises/zipball/fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
                 "reference": "fe752aedc9fd8fcca3fe7ad05d419d32998a06da",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -332,11 +252,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-                    "dev-master": "1.4-dev"
-=======
                     "dev-master": "1.5-dev"
->>>>>>> master
                 }
             },
             "autoload": {
@@ -377,29 +293,7 @@
             "keywords": [
                 "promise"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-30 07:37:28"
-=======
-            "support": {
-                "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/1.5.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-10-22T20:56:57+00:00"
->>>>>>> master
         },
         {
             "name": "guzzlehttp/psr7",
@@ -407,21 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-<<<<<<< HEAD
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
-=======
                 "reference": "089edd38f5b8abba6cb01567c2a8aaa47cec4c72"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/psr7/zipball/089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
                 "reference": "089edd38f5b8abba6cb01567c2a8aaa47cec4c72",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -435,14 +320,9 @@
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-<<<<<<< HEAD
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
-=======
                 "bamarni/composer-bin-plugin": "^1.4.1",
                 "http-interop/http-factory-tests": "^0.9",
                 "phpunit/phpunit": "^8.5.8 || ^9.3.10"
->>>>>>> master
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
@@ -450,11 +330,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-                    "dev-master": "1.7-dev"
-=======
                     "dev-master": "2.1-dev"
->>>>>>> master
                 }
             },
             "autoload": {
@@ -514,29 +390,7 @@
                 "uri",
                 "url"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-30 07:37:11"
-=======
-            "support": {
-                "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-10-06T17:43:30+00:00"
->>>>>>> master
         },
         {
             "name": "minishlink/web-push",
@@ -595,8 +449,7 @@
                 "push",
                 "web"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-13 05:07:25"
+            "time": "2021-11-22T17:36:01+00:00"
         },
         {
             "name": "php-imap/php-imap",
@@ -604,7 +457,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/remdex/php-imap.git",
-                "reference": "29bfc58a16eec869353c70804b3976b623e34980"
+                "reference": "e34da955db9fde60ed5f49ea6bd813db111e9a74"
             },
             "type": "library",
             "autoload": {
@@ -612,14 +465,7 @@
                     "PhpImap\\": "src/PhpImap"
                 }
             },
-            "time": "2020-10-07 07:52:13"
-=======
-            "support": {
-                "issues": "https://github.com/web-push-libs/web-push-php/issues",
-                "source": "https://github.com/web-push-libs/web-push-php/tree/v6.0.7"
-            },
-            "time": "2021-11-22T17:36:01+00:00"
->>>>>>> master
+            "time": "2021-12-30 12:59:16"
         },
         {
             "name": "psr/http-client",
@@ -627,12 +473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "22b2ef5687f43679481615605d7a15c557ce85b1"
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/22b2ef5687f43679481615605d7a15c557ce85b1",
-                "reference": "22b2ef5687f43679481615605d7a15c557ce85b1",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +503,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP clients",
@@ -668,14 +514,7 @@
                 "psr",
                 "psr-18"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-19 09:12:31"
-=======
-            "support": {
-                "source": "https://github.com/php-fig/http-client/tree/master"
-            },
             "time": "2020-06-29T06:28:15+00:00"
->>>>>>> master
         },
         {
             "name": "psr/http-factory",
@@ -683,21 +522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
-<<<<<<< HEAD
-                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
-                "reference": "36fa03d50ff82abcae81860bdaf4ed9a1510c7cd",
-=======
                 "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
                 "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -722,7 +552,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interfaces for PSR-7 HTTP message factories",
@@ -736,14 +566,7 @@
                 "request",
                 "response"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-17 16:52:55"
-=======
-            "support": {
-                "source": "https://github.com/php-fig/http-factory/tree/master"
-            },
             "time": "2019-04-30T12:38:16+00:00"
->>>>>>> master
         },
         {
             "name": "psr/http-message",
@@ -793,14 +616,7 @@
                 "request",
                 "response"
             ],
-<<<<<<< HEAD
-            "time": "2019-08-29 13:16:46"
-=======
-            "support": {
-                "source": "https://github.com/php-fig/http-message/tree/master"
-            },
             "time": "2016-08-06T14:39:51+00:00"
->>>>>>> master
         },
         {
             "name": "ralouphie/getallheaders",
@@ -840,10 +656,6 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "support": {
-                "issues": "https://github.com/ralouphie/getallheaders/issues",
-                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
-            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
@@ -895,23 +707,6 @@
                 "safe",
                 "url"
             ],
-<<<<<<< HEAD
-            "time": "2020-08-30 14:32:28"
-=======
-            "support": {
-                "issues": "https://github.com/Spomky-Labs/base64url/issues",
-                "source": "https://github.com/Spomky-Labs/base64url/tree/v2.0.4"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/Spomky",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2020-11-03T09:10:25+00:00"
         },
         {
@@ -962,25 +757,7 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-07-12T14:48:14+00:00"
->>>>>>> master
         },
         {
             "name": "web-token/jwt-core",
@@ -988,21 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-core.git",
-<<<<<<< HEAD
-                "reference": "8115d846f3a9ee817dca03024eb4c17a3c0ff81a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/8115d846f3a9ee817dca03024eb4c17a3c0ff81a",
-                "reference": "8115d846f3a9ee817dca03024eb4c17a3c0ff81a",
-=======
                 "reference": "53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/web-token/jwt-core/zipball/53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678",
                 "reference": "53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -1056,20 +824,7 @@
                 "jwt",
                 "symfony"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-29 21:35:58"
-=======
-            "support": {
-                "source": "https://github.com/web-token/jwt-core/tree/v2.2.11"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2021-03-17T14:55:52+00:00"
->>>>>>> master
         },
         {
             "name": "web-token/jwt-key-mgmt",
@@ -1137,20 +892,7 @@
                 "jwt",
                 "symfony"
             ],
-<<<<<<< HEAD
-            "time": "2020-08-01 11:57:29"
-=======
-            "support": {
-                "source": "https://github.com/web-token/jwt-key-mgmt/tree/v2.2.11"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2021-03-17T14:55:52+00:00"
->>>>>>> master
         },
         {
             "name": "web-token/jwt-signature",
@@ -1217,20 +959,7 @@
                 "jwt",
                 "symfony"
             ],
-<<<<<<< HEAD
-            "time": "2020-08-01 11:48:26"
-=======
-            "support": {
-                "source": "https://github.com/web-token/jwt-signature/tree/v2.2.11"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2021-03-01T19:55:28+00:00"
->>>>>>> master
         },
         {
             "name": "web-token/jwt-signature-algorithm-ecdsa",
@@ -1290,20 +1019,7 @@
                 "jwt",
                 "symfony"
             ],
-<<<<<<< HEAD
-            "time": "2020-08-22 13:17:25"
-=======
-            "support": {
-                "source": "https://github.com/web-token/jwt-signature-algorithm-ecdsa/tree/v2.2.11"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2021-01-21T19:18:03+00:00"
->>>>>>> master
         },
         {
             "name": "web-token/jwt-util-ecc",
@@ -1311,21 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-util-ecc.git",
-<<<<<<< HEAD
-                "reference": "fb70cd92f91311fd211c0e1f69c7d7e69a638459"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/fb70cd92f91311fd211c0e1f69c7d7e69a638459",
-                "reference": "fb70cd92f91311fd211c0e1f69c7d7e69a638459",
-=======
                 "reference": "915f3fde86f5236c205620d61177b9ef43863deb"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/915f3fde86f5236c205620d61177b9ef43863deb",
                 "reference": "915f3fde86f5236c205620d61177b9ef43863deb",
->>>>>>> master
                 "shasum": ""
             },
             "require": {
@@ -1375,39 +1082,20 @@
                 "jwt",
                 "symfony"
             ],
-<<<<<<< HEAD
-            "time": "2020-09-29 21:25:37"
-=======
-            "support": {
-                "source": "https://github.com/web-token/jwt-util-ecc/tree/v2.2.11"
-            },
-            "funding": [
-                {
-                    "url": "https://www.patreon.com/FlorentMorselli",
-                    "type": "patreon"
-                }
-            ],
             "time": "2021-03-24T13:35:17+00:00"
->>>>>>> master
         }
     ],
     "packages-dev": [],
     "aliases": [],
-<<<<<<< HEAD
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "php-imap/php-imap": 20,
-        "minishlink/web-push": 20
-    },
-=======
     "minimum-stability": "stable",
-    "stability-flags": [],
->>>>>>> master
+    "stability-flags": {
+        "php-imap/php-imap": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "ext-json": "*",
+        "php": ">=7.2"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform-dev": []
 }

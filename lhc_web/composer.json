@@ -42,13 +42,13 @@
         }
       }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "name": "livehelperchat/livehelperchat",
     "require": {
         "ext-json": "*",
         "minishlink/web-push": "^6.0",
         "php-imap/php-imap": "dev-master#e34da955db9fde60ed5f49ea6bd813db111e9a74",
-        "php": "^7.2"
+        "php": ">=7.2"
     },
     "type": "project"
 }
