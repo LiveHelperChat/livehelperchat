@@ -1129,8 +1129,8 @@ class erLhcoreClassChatWebhookIncoming {
                 $chat->saveThis();
             }
 
-            $chat->incoming_chat = $incomingChat;
             $incomingChat->chat_id = $chat->id;
+            $chat->incoming_chat = $incomingChat;
 
             $db->commit();
 
