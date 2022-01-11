@@ -1,4 +1,4 @@
-<h1>New</h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></h1>
 
 <?php if (isset($errors)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
