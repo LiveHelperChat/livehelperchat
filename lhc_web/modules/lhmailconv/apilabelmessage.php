@@ -1,7 +1,6 @@
 <?php
 
 try {
-
     $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
 
     $conv = $message->conversation;
@@ -9,6 +8,10 @@ try {
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
         if (ezcInputForm::hasPostData()) {
+
+            if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+                throw new Exception('Invalid CSRF token!');
+            }
 
             $db = ezcDbInstance::get();
             $db->beginTransaction();

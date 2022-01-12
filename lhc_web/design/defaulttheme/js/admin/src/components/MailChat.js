@@ -3,6 +3,8 @@ import axios from "axios";
 import {useTranslation} from 'react-i18next';
 import MailChatMessage from "./parts_mail/MailChatMessage";
 
+axios.defaults.headers.common['X-CSRFToken'] = confLH.csrf_token;
+
 function reducer(state, action) {
     switch (action.type) {
         case 'increment':
@@ -86,6 +88,26 @@ const MailChat = props => {
             } catch(e) {
 
             }
+        }
+    }
+
+    const processRestAPIError = (err) => {
+        if (!!err.isAxiosError && !err.response) {
+            alert('Seems there is some connectivity problem with a server!');
+        } else {
+            if (err.response.data.error) {
+                alert(err.response.data.error);
+            } else {
+                alert(JSON.stringify(err.response.data));
+            }
+        }
+    }
+
+    const changeStatus = (e) => {
+        if (confirm('Are you sure?')) {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apichangestatus/" + state.conv.id + '/' + e.target.value).then(result => {
+                setConversationStatus(result.data.status);
+            }).catch((error) => processRestAPIError(error));
         }
     }
 
@@ -414,12 +436,30 @@ const MailChat = props => {
                                         <td>{state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'} /> } {state.conv.from_name} &lt;{state.conv.from_address}&gt;</td>
                                     </tr>
                                     <tr>
-                                        <td>{t('mail.status')}</td>
-                                        <td>
+                                        <td colSpan="2">
+
                                             {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>{t('status.pending')}</span>}
                                             {state.conv.status == 1 && <span><i className="material-icons chat-active">mail_outline</i>{t('status.active')}</span>}
-                                            {state.conv.status == 2 && <span><i className="material-icons chat-closed">mail_outline</i>{t('status.closed')}</span>}
-                                            {state.conv.opened_at && <span><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
+
+                                            {(!state.conv.status || state.conv.status == 1) && state.conv.opened_at && <span><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
+
+                                            {state.conv.status == 2 && <div className="input-group input-group-sm">
+                                                <div className="input-group-prepend">
+                                                    <span className="input-group-text">
+                                                        {!state.conv.status && <i className="material-icons chat-pending mr-0">mail_outline</i>}
+                                                        {state.conv.status == 1 && <i className="material-icons chat-active mr-0">mail_outline</i>}
+                                                        {state.conv.status == 2 && <i className="material-icons chat-closed mr-0">mail_outline</i>}
+                                                    </span>
+                                                </div>
+                                                <select className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
+                                                    <option value="">{t('status.pending')}</option>
+                                                    <option value="1">{t('status.active')}</option>
+                                                    <option value="2">{t('status.closed')}</option>
+                                                </select>
+                                                {state.conv.opened_at && <div className="input-group-append"><span className="input-group-text"><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span></div>}
+                                            </div>}
+
+
                                         </td>
                                     </tr>
                                     <tr>

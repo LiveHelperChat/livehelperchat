@@ -4,6 +4,10 @@ header ( 'content-type: application/json; charset=utf-8' );
 
 try {
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSRF token!');
+    }
+    
     $db = ezcDbInstance::get();
     $db->beginTransaction();
 

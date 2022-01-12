@@ -30,6 +30,7 @@
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients send');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::SEND,'campaign_id' => $item->id]])?></li>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients failed');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::FAILED,'campaign_id' => $item->id]])?></li>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Total recipients in progress');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['status' => erLhcoreClassModelMailconvMailingCampaignRecipient::IN_PROGRESS,'campaign_id' => $item->id]])?></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Number of recipients who opened an e-mail');?> - <?php echo erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['campaign_id' => $item->id], 'filtergt' => ['opened_at' => 0]])?></li>
             </ul>
         </div>
     </div>

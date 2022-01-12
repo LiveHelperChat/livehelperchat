@@ -164,6 +164,11 @@ $ViewList['apicloseconversation'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['apichangestatus'] = array(
+    'params' => array('id','status'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['apideleteconversation'] = array(
     'params' => array('id'),
     'functions' => array( 'delete_conversation' )

@@ -157,6 +157,20 @@
                 </script>
             </div>
 
+            <div class="row pb-2">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Close conversations older than n days. Only conversations of the active mailboxes will be closed.');?></label>
+                        <input type="number" class="form-control form-control-sm" name="workflow_auto_close" value="<?php isset($item->workflow_options_array['auto_close']) ? print htmlspecialchars($item->workflow_options_array['auto_close']) : ''?>" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','What status conversations we should close?');?></label>
+                    <div><label><input type="checkbox" name="workflow_close_status[]" <?php isset($item->workflow_options_array['close_status']) && (in_array(erLhcoreClassModelMailconvConversation::STATUS_PENDING,$item->workflow_options_array['close_status'])) ? print 'checked="checked"' : ''?> value="<?php echo erLhcoreClassModelMailconvConversation::STATUS_PENDING?>" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?></label></div>
+                    <div><label><input type="checkbox" name="workflow_close_status[]" <?php isset($item->workflow_options_array['close_status']) && (in_array(erLhcoreClassModelMailconvConversation::STATUS_ACTIVE,$item->workflow_options_array['close_status'])) ? print 'checked="checked"' : ''?> value="<?php echo erLhcoreClassModelMailconvConversation::STATUS_ACTIVE?>" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></label></div>
+                </div>
+            </div>
+
             <div class="btn-group" role="group" aria-label="...">
                 <input type="submit" class="btn btn-secondary" name="SaveOptions_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
                 <input type="submit" class="btn btn-secondary" name="UpdateOptions_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>

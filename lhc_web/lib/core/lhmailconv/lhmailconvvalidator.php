@@ -227,6 +227,12 @@ class erLhcoreClassMailconvValidator {
             'reopen_timeout' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'workflow_auto_close' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'workflow_close_status' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0),FILTER_REQUIRE_ARRAY
+            ),
         );
 
 
@@ -378,6 +384,23 @@ class erLhcoreClassMailconvValidator {
         } else {
             $item->delete_mode = erLhcoreClassModelMailconvMailbox::DELETE_LOCAL;
         }
+
+        $workflowParams = $item->workflow_options_array;
+
+        if ($form->hasValidData( 'workflow_auto_close' )) {
+            $workflowParams['auto_close'] = $form->workflow_auto_close;
+        } else {
+            $workflowParams['auto_close'] = 0;
+        }
+
+        if ($form->hasValidData( 'workflow_close_status' )) {
+            $workflowParams['close_status'] = $form->workflow_close_status;
+        } else {
+            $workflowParams['close_status'] = [];
+        }
+
+        $item->workflow_options_array = $workflowParams;
+        $item->workflow_options = json_encode($workflowParams);
 
         return $Errors;
     }
