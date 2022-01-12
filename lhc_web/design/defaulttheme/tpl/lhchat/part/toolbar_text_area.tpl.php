@@ -69,6 +69,8 @@
 
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/hold_action.tpl.php')); ?>
 
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/part/custom_toolbar_buttons_multiinclude_tab.tpl.php')); ?>
+
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/send_message_button.tpl.php')); ?>
     </div>
 
