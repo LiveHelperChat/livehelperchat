@@ -2317,6 +2317,7 @@ try {
   `host` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `port` int(11) unsigned NOT NULL,
+  `workflow_options` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `imap` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_sync_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `sync_started` bigint(20) unsigned NOT NULL,

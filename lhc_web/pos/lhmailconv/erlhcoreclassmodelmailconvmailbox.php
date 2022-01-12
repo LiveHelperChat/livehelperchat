@@ -11,7 +11,7 @@ $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersist
 
 foreach (array(
             'mail','name','username','password','host','imap','last_sync_log','mailbox_sync','signature','uuid_status',
-            'mail_smtp','name_smtp','username_smtp','password_smtp',
+            'mail_smtp','name_smtp','username_smtp','password_smtp','workflow_options'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

@@ -48,6 +48,7 @@ class erLhcoreClassModelMailconvMailbox
             'no_pswd_smtp' => $this->no_pswd_smtp,
             'user_id' => $this->user_id,
             'dep_id' => $this->dep_id,
+            'workflow_options' => $this->workflow_options,
         );
     }
 
@@ -61,6 +62,13 @@ class erLhcoreClassModelMailconvMailbox
         switch ($var) {
             case 'mtime_front':
                 return date('Ymd') == date('Ymd', $this->mtime) ? date(erLhcoreClassModule::$dateHourFormat, $this->mtime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->mtime);
+
+            case 'workflow_options_array':
+                $this->workflow_options_array = array();
+                if ($this->workflow_options != '') {
+                    $this->workflow_options_array = json_decode($this->workflow_options, true);
+                }
+                return $this->workflow_options_array;
 
             case 'last_sync_log_array':
                 $this->last_sync_log_array = array();
@@ -135,6 +143,7 @@ class erLhcoreClassModelMailconvMailbox
     public $password_smtp = '';
 
     public $host = '';
+    public $workflow_options = '';
     public $port = '';
     public $imap = '';
     public $active = 1;
