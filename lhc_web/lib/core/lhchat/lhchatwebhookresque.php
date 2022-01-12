@@ -53,6 +53,8 @@ class erLhcoreClassChatWebhookResque {
             if (!isset($params['chat']) || !($params['chat'] instanceof erLhcoreClassModelChat)) {
                 $params['chat'] = new erLhcoreClassModelChat();
                 $params['chat']->id = -1;
+            } else {
+                $params['chat'] = erLhcoreClassModelChat::fetch($params['chat']->id);
             }
 
             if (erLhcoreClassChatWebhookHttp::isValidConditions($webhook, $params['chat']) === true) {
