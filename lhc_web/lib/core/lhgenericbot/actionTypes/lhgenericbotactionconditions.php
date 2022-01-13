@@ -100,9 +100,11 @@ class erLhcoreClassGenericBotActionConditions {
                     $attr = str_replace(array_keys($replaceArray), array_values($replaceArray),$attr);
                     $valAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valAttr);
 
-                    // Remove spaces
-                    $attr = preg_replace('/\s+/', '', $attr);
-                    $valAttr = preg_replace('/\s+/', '', $valAttr);
+                    if (!in_array($condition['content']['comp'],['like','notlike','contains'])) {
+                        // Remove spaces only if it's not like operator
+                        $attr = preg_replace('/\s+/', '', $attr);
+                        $valAttr = preg_replace('/\s+/', '', $valAttr);
+                    }
 
                     // Allow only mathematical operators
                     $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $attr);
