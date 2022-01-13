@@ -860,7 +860,7 @@ class erLhcoreClassChatStatistic {
 
     public static function subjectsStatistic($days = 30, $filter = array())
     {
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getsubjectsstatistic',array('days' => $days, 'filter' => $filter));
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getsubjectsstatistic',array('days' => $days, 'filter' => & $filter));
 
         if ($statusWorkflow === false) {
 
