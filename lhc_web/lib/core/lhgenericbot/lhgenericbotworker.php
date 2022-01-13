@@ -91,6 +91,8 @@ class erLhcoreClassLHCBotWorker
                         'chat' => $chat
                     ));
 
+                    $params['chat'] = $chat;
+
                     $response = erLhcoreClassGenericBotActionRestapi::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                     $event->removeThis();
