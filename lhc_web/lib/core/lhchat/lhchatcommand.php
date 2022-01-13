@@ -106,7 +106,10 @@ class erLhcoreClassChatCommand
 
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
-                    $argumentsTrigger = array('msg' => $commandData['argument']);
+                    $argumentsTrigger = array(
+                        'msg' => $commandData['argument'], 
+                        'caller_user_id' => $params['user']->id,
+                        'caller_user_class' => get_class($params['user']));
 
                     foreach (explode('--arg',$commandData['argument']) as $indexArgument => $argumentValue) {
                         $argumentsTrigger['replace_array']['{arg_'.($indexArgument + 1).'}'] = trim($argumentValue); // For direct replacement
