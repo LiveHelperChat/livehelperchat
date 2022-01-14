@@ -7,6 +7,12 @@ $data = (array)$fileData->data;
 
 
 if (isset($_POST['StoreFileConfiguration'])) {
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('file/configuration');
+        exit;
+    }
+
     $definition = array(
         'AllowedFileTypes' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
