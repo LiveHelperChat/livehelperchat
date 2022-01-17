@@ -201,8 +201,8 @@ class erLhcoreClassModelCannedMsg
             $tags[] = trim($tagKeyword);
         }
         
-        $tags = array_unique($tags);
-        
+        $tags = array_filter(array_unique($tags));
+
         foreach ($tags as $tagKeyword) {
             $tagKeywordTrimmed = trim($tagKeyword);
             
