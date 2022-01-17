@@ -36,10 +36,12 @@
         <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/<?php echo htmlspecialchars($departament->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
         </td>
-        <td nowrap ng-non-bindable><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
+        <td nowrap ng-non-bindable><a class="btn btn-secondary csfr-required btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
     </tr>
 <?php endforeach; ?>
 </table>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>

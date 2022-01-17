@@ -23,7 +23,8 @@ $ViewList['edit'] = array(
 
 $ViewList['clone'] = array(
     'params' => array('departament_id'),
-    'functions' => array( 'edit' )
+    'functions' => array( 'edit' ),
+    'uparams' => array('csfr'),
 );
 
 $ViewList['index'] = array(
