@@ -12,6 +12,10 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     $errors = array();
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.before_messagetranslated', array('chat' => & $chat, 'errors' => & $errors));
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        $errors[] = 'Invalid CSRF token!';
+    }
+
     if (empty($errors)) {
         // User clicked button second time, and languages matches, that means he just stopped translation
 

@@ -2,6 +2,8 @@
 
 <form action="" method="post" autocomplete="off">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhtheme/admin/form.tpl.php'));?>
 	
 	<div class="btn-group" role="group" aria-label="...">

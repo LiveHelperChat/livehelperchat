@@ -13,6 +13,11 @@ if (isset($_POST['Cancel_archive']) )
 
 if (isset($_POST['Delete_archive']) )
 {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chatarchive/list');
+        exit;
+    }
+
 	$archive->removeThis();
 	erLhcoreClassModule::redirect('chatarchive/list');
 	exit;

@@ -17,7 +17,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 
   if (isset($_POST['SendMail'])) {
 
-	  	$Errors = erLhcoreClassChatMail::validateSendMail($mailTemplate, $chat);
+        $Errors = erLhcoreClassChatMail::validateSendMail($mailTemplate, $chat);
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            $Errors[] = 'Invalid CSRF token!';
+        }
 
 	  	if (count($Errors) == 0) {
 	  		erLhcoreClassChatMail::sendMail($mailTemplate, $chat);

@@ -17,6 +17,7 @@ $ViewList['newstartsettings'] = array(
 
 $ViewList['copyfrom'] = array(
     'params' => array('from'),
+    'uparams' => array('csfr'),
     'functions' => array( 'administrate' )
 );
 

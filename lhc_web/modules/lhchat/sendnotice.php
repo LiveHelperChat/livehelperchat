@@ -86,7 +86,11 @@ if ( isset($_POST['SendMessage']) ) {
     $visitor->online_attr_system = json_encode($onlineAttrSystem);
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.sendnotice', array('errors' => & $Errors));
-            
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    }
+
     if (count($Errors) == 0) { 
                
         $currentUser = erLhcoreClassUser::instance();   

@@ -26,15 +26,19 @@ if ( isset($_POST['CancelAction']) ) {
 if (ezcInputForm::hasPostData())
 {
 
-    if (isset($_POST['EnabledPersonal']) && $_POST['EnabledPersonal'] == 'on') {
-        (int)erLhcoreClassModelUserSetting::setSetting('admin_theme_enabled',1);
-        $enabledPersonal = 1;
-    } else {
-        (int)erLhcoreClassModelUserSetting::setSetting('admin_theme_enabled',0);
-        $enabledPersonal = 0;
-    }
-
     $Errors = erLhcoreClassThemeValidator::validateAdminTheme($form);
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    } else {
+        if (isset($_POST['EnabledPersonal']) && $_POST['EnabledPersonal'] == 'on') {
+            (int)erLhcoreClassModelUserSetting::setSetting('admin_theme_enabled',1);
+            $enabledPersonal = 1;
+        } else {
+            (int)erLhcoreClassModelUserSetting::setSetting('admin_theme_enabled',0);
+            $enabledPersonal = 0;
+        }
+    }
 
     $ErrorsAbstract = erLhcoreClassAbstract::validateInput($form);
 

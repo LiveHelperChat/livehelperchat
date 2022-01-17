@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/newreplace')?>" method="post">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhcannedmsg/form_replace.tpl.php'));?>
 
     <div class="btn-group" role="group" aria-label="...">

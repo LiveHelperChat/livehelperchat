@@ -13,6 +13,11 @@ if (ezcInputForm::hasPostData()) {
 
     if (isset($_POST['Send_notifications'])) {
         try {
+
+            if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+                throw new Exception('Invalid CSRF token!');
+            }
+
             erLhcoreClassLHCMobile::sendTestNotifications($item);
         } catch (Exception $e) {
             $tpl->set('errors',array($e->getMessage()));

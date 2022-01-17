@@ -7,6 +7,11 @@ $data = (array)$arOptions->data;
 
 if ( isset($_POST['StoreOptions']) ) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chatarchive/configuration');
+        exit;
+    }
+
     $definition = array(
         'automatic_archiving' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'

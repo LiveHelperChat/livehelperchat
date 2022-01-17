@@ -7,6 +7,11 @@ $data = (array)$gaOptions->data;
 
 if ( isset($_POST['StoreOptions']) ) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('system/ga');
+        exit;
+    }
+
     $definition = array(
         'ga' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'

@@ -17,6 +17,8 @@ setTimeout(function(){
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/sendmail')?>/<?php echo $chat->id?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 	<div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Recipient');?></label>
 		<input class="form-control" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendmail','Recipient e-mail');?>" name="RecipientEmail" value="<?php echo htmlspecialchars($mail_template->recipient);?>" />

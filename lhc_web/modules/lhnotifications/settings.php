@@ -7,6 +7,11 @@ $data = (array)$nSettings->data;
 
 if ( isset($_POST['StoreOptions']) ) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('notifications/index');
+        exit;
+    }
+
     $definition = array(
         'enabled' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'

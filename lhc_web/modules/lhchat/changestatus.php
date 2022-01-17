@@ -11,7 +11,15 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
         
         $userData = $currentUser->getUserData();
         $changeStatus = (int) $_POST['ChatStatus'];
-        
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            echo json_encode(array(
+                'error' => 'true',
+                'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Invalid CSRF token!')
+            ));
+            exit();
+        }
+
         if (in_array($changeStatus, array(
             erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
             erLhcoreClassModelChat::STATUS_PENDING_CHAT,

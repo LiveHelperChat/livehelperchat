@@ -22,6 +22,8 @@
 
 <form ng-non-bindable action="<?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>" method="post" autocomplete="off">
 
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <label><input type="checkbox" name="use_xmp" value="1" <?php isset($xmp_data['use_xmp']) && ($xmp_data['use_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP active'); ?></label>
 
 <div class="row form-group">

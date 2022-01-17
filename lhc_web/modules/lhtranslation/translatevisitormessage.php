@@ -7,6 +7,10 @@ $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 if (erLhcoreClassChat::hasAccessToRead($chat)) {
     try {
 
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            throw new Exception('Invalid CSRF token!');
+        }
+
         $msg = erLhcoreClassModelmsg::fetch($Params['user_parameters']['msg_id']);
         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
 

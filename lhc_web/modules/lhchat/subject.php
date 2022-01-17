@@ -7,6 +7,11 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
     if (ezcInputForm::hasPostData()) {
 
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            echo json_encode(array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token!')));
+            exit;
+        }
+
         $db = ezcDbInstance::get();
         $db->beginTransaction();
         $response = array();

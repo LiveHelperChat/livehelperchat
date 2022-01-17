@@ -1,5 +1,10 @@
 <?php
 
+if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+    die('Invalid CSRF Token');
+    exit;
+}
+
 if ($Params['user_parameters']['from'] == 'default') {
     
     $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');

@@ -1,6 +1,13 @@
 <h1>Configuration</h1>
 
 <form ng-non-bindable action="" method="post">
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
+    <?php if (isset($updated) && $updated == 'done') : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updated!'); ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
+    <?php endif; ?>
+
     <div class="form-group">
         <label><input type="checkbox" name="automatic_archiving" value="on" <?php isset($ar_options['automatic_archiving']) && $ar_options['automatic_archiving'] == true ? print 'checked="checked"' : '' ?> > Automatic archiving</label>
     </div>

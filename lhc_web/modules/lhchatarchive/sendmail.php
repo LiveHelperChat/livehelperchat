@@ -9,39 +9,43 @@ $archive->setTables();
 $chat = erLhcoreClassModelChatArchive::fetch($Params['user_parameters']['chat_id']);
 
 // Chat can be closed only by owner
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
-{
-  $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
-  $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
-  erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
-  $mailTemplate->recipient = $chat->email;
+if (erLhcoreClassChat::hasAccessToRead($chat)) {
 
-  if (isset($_POST['SendMail'])) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
+    $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);
+    erLhcoreClassChatMail::prepareSendMail($mailTemplate, $chat);
+    $mailTemplate->recipient = $chat->email;
 
-	  	$Errors = erLhcoreClassChatMail::validateSendMail($mailTemplate, $chat,array('archive_mode' => true));
+    if (isset($_POST['SendMail'])) {
 
-	  	if (count($Errors) == 0) {
-	  		erLhcoreClassChatMail::sendMail($mailTemplate, $chat);
+        $Errors = erLhcoreClassChatMail::validateSendMail($mailTemplate, $chat, array('archive_mode' => true));
 
-	  		// Set as mail send only if recipient is the same as chat user
-	  		if ($chat->email == $mailTemplate->recipient) {
-	  			$chat->mail_send = 1;
-	  			$chat->saveThis();
-	  		}
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            $Errors[] = 'Invalid CSRF token!';
+        }
 
-	  		$tpl->set('message_saved',true);
-	  	} else {
-	  		$tpl->set('errors',$Errors);
-	  	}
-  }
+        if (count($Errors) == 0) {
+            erLhcoreClassChatMail::sendMail($mailTemplate, $chat);
 
-  $tpl->set('mail_template',$mailTemplate);
-  $tpl->set('chat',$chat);
-  $Result['content'] = $tpl->fetch();
-  $Result['pagelayout'] = 'popup';
+            // Set as mail send only if recipient is the same as chat user
+            if ($chat->email == $mailTemplate->recipient) {
+                $chat->mail_send = 1;
+                $chat->saveThis();
+            }
+
+            $tpl->set('message_saved', true);
+        } else {
+            $tpl->set('errors', $Errors);
+        }
+    }
+
+    $tpl->set('mail_template', $mailTemplate);
+    $tpl->set('chat', $chat);
+    $Result['content'] = $tpl->fetch();
+    $Result['pagelayout'] = 'popup';
 
 } else {
-	exit;
+    exit;
 }
 
 ?>

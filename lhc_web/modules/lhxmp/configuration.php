@@ -7,14 +7,18 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhxmp/xmp.tpl.php');
 $xmpData = erLhcoreClassModelChatConfig::fetch('xmp_data');
 $data = (array)$xmpData->data;
 
-if (isset($_POST['StoreXMPGTalkSendeMessage'])) {	
+if (isset($_POST['StoreXMPGTalkSendeMessage'])) {
 	try {
         $definition = array(
             'test_recipients_gtalk' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'validate_email')
         );
         
         $form = new ezcInputForm(INPUT_POST, $definition);
-        
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            throw new Exception('Invalid CSRF token!');
+        }
+
         if ($form->hasValidData('test_recipients_gtalk')) {
             erLhcoreClassXMP::sendTestXMPGTalk($form->test_recipients_gtalk);
             $tpl->set('message_send','done');
@@ -30,6 +34,11 @@ if (isset($_POST['StoreXMPGTalkSendeMessage'])) {
 
 if (isset($_POST['StoreXMPGTalkRevokeToken'])){
 	try {
+
+        if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+            throw new Exception('Invalid CSRF token!');
+        }
+
 		erLhcoreClassXMP::revokeAccessToken();
 		$tpl->set('token_revoked','done');
 	} catch (Exception $e) {

@@ -10,6 +10,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('speech/newlanguage')?>" method="post" ng-non-bindable>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhspeech/form/form_language.tpl.php'));?>
 
     <div class="btn-group" role="group" aria-label="...">
