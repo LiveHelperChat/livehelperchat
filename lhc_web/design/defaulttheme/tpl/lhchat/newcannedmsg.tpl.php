@@ -5,7 +5,9 @@
 <?php endif; ?>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>" method="post">
-    
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsgform.tpl.php'));?>
 	
 	<div class="btn-group" role="group" aria-label="...">
