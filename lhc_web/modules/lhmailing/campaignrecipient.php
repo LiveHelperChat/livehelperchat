@@ -21,7 +21,7 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvMailingCampaignRecipient::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/mailbox').$append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('mailing/campaignrecipient').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
