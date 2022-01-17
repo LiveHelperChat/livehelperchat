@@ -3,7 +3,7 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhuser/groupassignuser.tpl.php');
 $tpl->set('group_id',(int)$Params['user_parameters']['group_id']);
 
-if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['UserID']) > 0)
+if (isset($_POST['AssignUsers']) && isset($_POST['UserID']) && count($_POST['UserID']) > 0 && isset($_POST['csfr_token']) && $currentUser->validateCSFRToken($_POST['csfr_token']))
 {
    foreach ($_POST['UserID'] as $UserID)
    {                

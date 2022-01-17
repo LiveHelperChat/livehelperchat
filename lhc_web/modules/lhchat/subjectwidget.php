@@ -4,6 +4,10 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/subjectwidget.tpl.php');
 
 if (ezcInputForm::hasPostData()) {
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        die('Invalid CSRF token!');
+    }
+
     $definition = array(
         'subject_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',  array('min_range' => 1), FILTER_REQUIRE_ARRAY)
     );

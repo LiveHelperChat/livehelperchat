@@ -13,6 +13,10 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 {
     $Errors = erLhcoreClassSpeech::validateLanguage($item);
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    }
+
     if (count($Errors) == 0)
     {
         $item->saveThis();

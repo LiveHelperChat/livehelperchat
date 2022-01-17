@@ -7,6 +7,10 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
 {
     if (ezcInputForm::hasPostData()) {
 
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+        }
+
         $db = ezcDbInstance::get();
         $db->beginTransaction();
         $response = array();
@@ -47,7 +51,6 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
         $tpl->set('canned', erLhcoreClassModelCannedMsg::fetch($Params['user_parameters']['canned_id']));
         echo $tpl->fetch();
         exit;
-        /*$canned = erLhcoreClassModelCannedMsg::fetch($Params['user_parameters']['canned_id']);*/
     }
 
     $tpl->set('canned', $canned);

@@ -6,6 +6,8 @@
 
 <form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/<?php echo $systemconfig->identifier?>">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 <p><?php echo htmlspecialchars($systemconfig->explain); ?></p>
 
 <?php if ( $systemconfig->type == erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON ) : ?>

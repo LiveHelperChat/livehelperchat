@@ -5,6 +5,12 @@ $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        echo json_encode(array('error' => true, 'msg' => ''));
+        exit;
+    }
+
     if ($_POST['msg'] != '') {
         try {
             $translatedMessage = erLhcoreClassTranslate::translateTo( preg_replace('#\[translation\](.*?)\[/translation\]#is', '',$_POST['msg']), ($chat->chat_locale_to != '' ? $chat->chat_locale_to : substr(erLhcoreClassSystem::instance()->Language, 0, 2)), $chat->chat_locale);

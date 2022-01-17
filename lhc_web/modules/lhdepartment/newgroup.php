@@ -11,7 +11,11 @@ if ( isset($_POST['Cancel_departament']) ) {
 if (isset($_POST['Save_departament']))
 {
     $Errors = erLhcoreClassDepartament::validateDepartmentGroup($Departament_group);
-    
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    }
+
     if (count($Errors) == 0)
     {
         $Departament_group->saveThis();

@@ -130,7 +130,13 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     $tpl = erLhcoreClassTemplate::getInstance('lhviews/save_chat_view.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
     if (ezcInputForm::hasPostData()) {
+
         $Errors = erLhcoreClassAdminChatValidatorHelper::validateSavedSearch($savedSearch, array('filter' => $filterParams['filter'], 'input_form' => $filterParams['input_form']));
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            $Errors[] = 'Invalid CSRF token!';
+        }
+
         if (empty($Errors)) {
             $savedSearch->user_id = $currentUser->getUserID();
             $savedSearch->scope = 'chat';

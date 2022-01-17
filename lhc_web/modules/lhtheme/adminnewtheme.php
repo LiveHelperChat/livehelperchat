@@ -10,6 +10,10 @@ if (ezcInputForm::hasPostData()) {
 
     $Errors = erLhcoreClassThemeValidator::validateAdminTheme($form);
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
+    }
+
     $ErrorsAbstract = erLhcoreClassAbstract::validateInput($form);
 
     if (count($Errors) == 0 && count($ErrorsAbstract) == 0) {

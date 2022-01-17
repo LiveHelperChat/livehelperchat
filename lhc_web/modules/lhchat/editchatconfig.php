@@ -7,6 +7,11 @@ $ConfigData = erLhcoreClassModelChatConfig::fetch($Params['user_parameters']['co
 
 if (isset($_POST['UpdateConfig']))
 {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chat/editchatconfig','/' . $Params['user_parameters']['config_id']);
+        exit;
+    }
+
 	switch ($ConfigData->type) {
 		case erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_ON:
 			

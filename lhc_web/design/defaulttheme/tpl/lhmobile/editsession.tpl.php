@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mobile/editsession')?>/<?php echo $item->id?>" method="post">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmobile/parts/form.tpl.php'));?>
 
     <div class="btn-group" role="group" aria-label="...">

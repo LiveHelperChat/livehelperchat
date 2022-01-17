@@ -11,6 +11,8 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 	<?php endif; ?>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhtheme/admin/form.tpl.php'));?>
 
 	<div class="btn-group" role="group" aria-label="...">

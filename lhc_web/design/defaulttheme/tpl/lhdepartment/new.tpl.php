@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('department/new')?>" method="post">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhdepartment/form.tpl.php'));?>
 	
     <div class="btn-group" role="group" aria-label="...">

@@ -5,7 +5,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/newgroup.tpl.php');
 $GroupData = new erLhcoreClassModelGroup();
 
 if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
-{    
+{
    $definition = array(
             'Name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
@@ -39,6 +39,10 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
         $GroupData->required = 1;
     } else {
         $GroupData->required = 0;
+    }
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF token!';
     }
 
     if (count($Errors) == 0)
