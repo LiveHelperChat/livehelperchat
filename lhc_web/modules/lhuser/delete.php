@@ -5,6 +5,11 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 	exit;
 }
 
+if ($currentUser->getUserID() == $Params['user_parameters']['user_id']) {
+    die('You can not delete your own account!');
+    exit;
+}
+
 $departament = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $Params['user_parameters']['user_id']);
 erLhcoreClassUser::getSession()->delete($departament);
 
