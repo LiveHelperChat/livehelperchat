@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -523,6 +531,10 @@
     <message>
       <source>Test</source>
       <translation>Test</translation>
+    </message>
+    <message>
+      <source>Below saved data is not shown.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -1151,6 +1163,14 @@
     </message>
     <message>
       <source>Disable sound for the visitor by default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terminate script if parent window already has live help script</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terminate script in parent window if any child iframe has already live helper script</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3152,6 +3172,10 @@
     </message>
     <message>
       <source>The higher number the higher in the views list it will appear</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passive, number of matching records will not be updated in the background.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6441,6 +6465,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>See operator statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation type="unfinished"/>
     </message>
@@ -6628,6 +6656,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>AWS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Bing servisini kullanın</translation>
     </message>
@@ -6656,6 +6688,22 @@
       <translation>Özel bir yönlendirici için limit sağlamak için kullanabilirsiniz</translation>
     </message>
     <message>
+      <source>Use AWS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Region</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Access Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Secret Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Yandex service</source>
       <translation type="unfinished"/>
     </message>
@@ -6664,11 +6712,11 @@
       <translation>Ayarlar güncellendi</translation>
     </message>
     <message>
-      <source>Missing translate region</source>
+      <source>Missing text to translate</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Missing text to translate</source>
+      <source>Missing translate region</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8782,6 +8830,14 @@
       <translation>Konuşmalar listesi</translation>
     </message>
     <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login history</source>
       <translation>Oturum geçmişi</translation>
     </message>
@@ -8838,6 +8894,10 @@
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Configuration</source>
+      <translation>Yapılandırma</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Boş...</translation>
@@ -9103,20 +9163,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hello</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Hesap</translation>
     </message>
     <message>
-      <source>Logout</source>
-      <translation>Çıkış</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Yapılandırma</translation>
-    </message>
-    <message>
       <source>Dark/bright</source>
       <translation>Koyu/Açık</translation>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Çıkış</translation>
     </message>
     <message>
       <source>New messages</source>
@@ -9127,20 +9187,20 @@
       <translation>Yeni sohbetler</translation>
     </message>
     <message>
-      <source>Invisible</source>
-      <translation>Görünmez</translation>
-    </message>
-    <message>
-      <source>Visible</source>
-      <translation>Görünür</translation>
-    </message>
-    <message>
       <source>Always online</source>
       <translation>Her zaman çevrimiçi</translation>
     </message>
     <message>
       <source>Based on activity</source>
       <translation>Aktiviteye göre</translation>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation>Görünmez</translation>
+    </message>
+    <message>
+      <source>Visible</source>
+      <translation>Görünür</translation>
     </message>
   </context>
   <context>
@@ -9962,6 +10022,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -10206,7 +10270,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments groups</source>
+      <source>Departments groups (write)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups (read)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11987,6 +12055,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Priority, output combinations with highers priority will be checked first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTTP status code E.g 200,301,500</source>
       <translation type="unfinished"/>
     </message>
@@ -13270,6 +13346,58 @@
     </message>
     <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last chat assigned ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14793,6 +14921,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Nick preg match rule</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation type="unfinished"/>
     </message>
@@ -14818,6 +14950,10 @@
     </message>
     <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional field location</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16357,6 +16493,18 @@
     <name>views/view</name>
     <message>
       <source>My views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This view is passive and is not updated live</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live updating</source>
       <translation type="unfinished"/>
     </message>
   </context>

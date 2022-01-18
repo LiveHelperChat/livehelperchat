@@ -10,6 +10,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -135,7 +143,7 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>Moeten wij de gebruikersnaam onthouden voor de volgende keer dat een bezoeker een chat start?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -271,11 +279,11 @@
     </message>
     <message>
       <source>After how many days encrypt messaes.</source>
-      <translation type="unfinished"/>
+      <translation>Na hoeveel dagen moet het bericht versleuteld worden.</translation>
     </message>
     <message>
       <source>Do not track visitors IP.</source>
-      <translation type="unfinished"/>
+      <translation>Volg het IP-adres van bezoekers niet.</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -291,7 +299,7 @@
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>Live toewijzen uitschakelen</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -410,7 +418,7 @@
     <name>system/buttons</name>
     <message>
       <source>Block this IP</source>
-      <translation type="unfinished"/>
+      <translation>Blokkeer dit IP-adres</translation>
     </message>
     <message>
       <source>Save</source>
@@ -446,35 +454,35 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Zoeken</translation>
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>IP-adres blokkeren</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-mailadres blokkeren</translation>
     </message>
     <message>
       <source>Yes</source>
-      <translation type="unfinished"/>
+      <translation>Ja</translation>
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Nee</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Sluiten</translation>
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Verzend berichten naar</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>bezoekers</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
@@ -486,7 +494,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Alles selecteren</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -506,7 +514,7 @@
     </message>
     <message>
       <source>Save &amp; Exit</source>
-      <translation type="unfinished"/>
+      <translation>Opslaan &amp; sluiten</translation>
     </message>
     <message>
       <source>Delete department</source>
@@ -518,11 +526,15 @@
     </message>
     <message>
       <source>Submit</source>
-      <translation type="unfinished"/>
+      <translation>Verzenden</translation>
     </message>
     <message>
       <source>Test</source>
       <translation>Test</translation>
+    </message>
+    <message>
+      <source>Below saved data is not shown.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -559,7 +571,7 @@
     <name>abstract/widgettheme</name>
     <message>
       <source>Welcome message</source>
-      <translation type="unfinished"/>
+      <translation>Welkomstbericht</translation>
     </message>
     <message>
       <source>Offline message</source>
@@ -595,7 +607,7 @@
     </message>
     <message>
       <source>Add translation</source>
-      <translation type="unfinished"/>
+      <translation>Vertaling toevoegen</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
@@ -611,7 +623,7 @@
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>Bot</translation>
     </message>
     <message>
       <source>Dynamic</source>
@@ -635,7 +647,7 @@
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>Voorbeeld</translation>
     </message>
     <message>
       <source>Download theme</source>
@@ -675,7 +687,7 @@
     </message>
     <message>
       <source>Notification</source>
-      <translation type="unfinished"/>
+      <translation>Notificatie</translation>
     </message>
     <message>
       <source>Online status options</source>
@@ -687,7 +699,7 @@
     </message>
     <message>
       <source>Images</source>
-      <translation type="unfinished"/>
+      <translation>Afbeeldingen</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -711,7 +723,7 @@
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Overige</translation>
     </message>
     <message>
       <source>Override embed code settings</source>
@@ -747,7 +759,7 @@
     </message>
     <message>
       <source>Default</source>
-      <translation type="unfinished"/>
+      <translation>Standaard</translation>
     </message>
     <message>
       <source>Other Operator messages style</source>
@@ -759,7 +771,7 @@
     </message>
     <message>
       <source>General</source>
-      <translation type="unfinished"/>
+      <translation>Algemeen</translation>
     </message>
     <message>
       <source>Bubble background color</source>
@@ -767,7 +779,7 @@
     </message>
     <message>
       <source>Title color</source>
-      <translation type="unfinished"/>
+      <translation>Titel kleur</translation>
     </message>
     <message>
       <source>Text color</source>
@@ -783,7 +795,7 @@
     </message>
     <message>
       <source>Chat background color</source>
-      <translation type="unfinished"/>
+      <translation>Chat achtergrondkleur</translation>
     </message>
     <message>
       <source>New message separator color</source>
@@ -795,7 +807,7 @@
     </message>
     <message>
       <source>Title text color</source>
-      <translation type="unfinished"/>
+      <translation>Titel tekstkleur</translation>
     </message>
     <message>
       <source>Message text color</source>
@@ -803,7 +815,7 @@
     </message>
     <message>
       <source>Main background color</source>
-      <translation type="unfinished"/>
+      <translation>Hoofd achtergrondkleur</translation>
     </message>
     <message>
       <source>Link default text color</source>
@@ -931,7 +943,7 @@
     </message>
     <message>
       <source>Choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>Selecteer een bot</translation>
     </message>
     <message>
       <source>Choose a trigger</source>
@@ -1011,7 +1023,7 @@
     </message>
     <message>
       <source>Disable chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Schakel chatvoorbeeld uit</translation>
     </message>
     <message>
       <source>Name</source>
@@ -1075,7 +1087,7 @@
     </message>
     <message>
       <source>Hide close button</source>
-      <translation type="unfinished"/>
+      <translation>Verberg afsluiten button</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -1151,6 +1163,14 @@
     </message>
     <message>
       <source>Disable sound for the visitor by default</source>
+      <translation>Schakel geluid voor bezoekers standaard uit</translation>
+    </message>
+    <message>
+      <source>Terminate script if parent window already has live help script</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Terminate script in parent window if any child iframe has already live helper script</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3152,6 +3172,10 @@
     </message>
     <message>
       <source>The higher number the higher in the views list it will appear</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passive, number of matching records will not be updated in the background.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6441,6 +6465,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>See operator statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sort</source>
       <translation>Sorteer</translation>
     </message>
@@ -6628,6 +6656,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>AWS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Bing service</source>
       <translation>Gebruik Bing service</translation>
     </message>
@@ -6656,6 +6688,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use AWS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Region</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Access Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AWS Secret Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Use Yandex service</source>
       <translation type="unfinished"/>
     </message>
@@ -6664,12 +6712,12 @@
       <translation>Instellingen opgeslagen</translation>
     </message>
     <message>
-      <source>Missing translate region</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Missing text to translate</source>
       <translation>Geen tekst om te vertalen</translation>
+    </message>
+    <message>
+      <source>Missing translate region</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Could not detect a language</source>
@@ -8781,6 +8829,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation>Chat overzicht</translation>
     </message>
     <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login history</source>
       <translation type="unfinished"/>
     </message>
@@ -8837,6 +8893,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   </context>
   <context>
     <name>pagelayout/pagelayout</name>
+    <message>
+      <source>Configuration</source>
+      <translation>Configuratie</translation>
+    </message>
     <message>
       <source>Empty...</source>
       <translation>Leeg</translation>
@@ -9102,20 +9162,20 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Hello</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Account</source>
       <translation>Account</translation>
     </message>
     <message>
-      <source>Logout</source>
-      <translation>Uitloggen</translation>
-    </message>
-    <message>
-      <source>Configuration</source>
-      <translation>Configuratie</translation>
-    </message>
-    <message>
       <source>Dark/bright</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Logout</source>
+      <translation>Uitloggen</translation>
     </message>
     <message>
       <source>New messages</source>
@@ -9126,19 +9186,19 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invisible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Always online</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Based on activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -9961,6 +10021,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>user/account</name>
     <message>
+      <source>Departments groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -10205,7 +10269,11 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Departments groups</source>
+      <source>Departments groups (write)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments groups (read)</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11986,6 +12054,14 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Priority, output combinations with highers priority will be checked first.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>HTTP status code E.g 200,301,500</source>
       <translation type="unfinished"/>
     </message>
@@ -13269,6 +13345,58 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last chat assigned ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14792,6 +14920,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Nick preg match rule</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Phone</source>
       <translation type="unfinished"/>
     </message>
@@ -14817,6 +14949,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional field location</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16356,6 +16492,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <name>views/view</name>
     <message>
       <source>My views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This view is passive and is not updated live</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live updating</source>
       <translation type="unfinished"/>
     </message>
   </context>
