@@ -36,7 +36,7 @@ if ( isset($_POST['Cancel_departament']) ) {
 
 if ( isset($_POST['Delete_departament']) ) {
 
-	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token']) || !$currentUser->hasAccessTo('lhdepartment','delete') || !$Departament->can_delete) {
+	if ($Departament->id == 1 || !isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token']) || !$currentUser->hasAccessTo('lhdepartment','delete') || !$Departament->can_delete) {
 		erLhcoreClassModule::redirect('department/departments');
 		exit;
 	}
