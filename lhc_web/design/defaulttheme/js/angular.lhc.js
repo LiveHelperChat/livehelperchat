@@ -1383,7 +1383,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         }
 		lhc.previewChatArchive(archive_id, chat_id);
 	};
-	
+	this.emitEvent = function(event, args) {
+        var _that = this;
+        ee.emitEvent(event, [_that, args]);
+    }
 	this.redirectContact = function(chat_id,message,event) {
         if (event) {
             event.stopPropagation();
