@@ -14,8 +14,8 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
         $previousChats = $commandResponse['previous_chats'];
         $nextChats = $commandResponse['next_chats'];
     } else {
-        $previousChats = array_reverse(erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 5, 'filtergt' => ['cls_time' => $chat->time], 'filterlt' => ['id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]));
-        $nextChats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 5, 'filterlt' => ['time' => $chat->cls_time], 'filtergt' => ['id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]);
+        $previousChats = array_reverse(erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 10, 'filtergt' => ['cls_time' => $chat->time], 'filterlt' => ['id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]));
+        $nextChats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 10, 'filterlt' => ['time' => $chat->cls_time], 'filtergt' => ['id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]);
     }
 
     $tpl->setArray([
