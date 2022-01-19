@@ -1,10 +1,3 @@
-<div class="modal-dialog modal-dialog-scrollable modal-xl">
-    <div class="modal-content">
-        <div class="modal-header pt-1 pb-1 pl-2 pr-2">
-            <h4 class="modal-title" id="myModalLabel"><span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Operator chats during this chat')?></h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="modal-body mx550">
 
             <?php if ($chat->cls_time == 0) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Present chat was not closed yet. This information will be inaccurate at the moment.')?></p>
@@ -12,48 +5,77 @@
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','It shows only chats if they were closed. We show maximum of 10 chats in total.')?></p>
             <?php endif; ?>
 
-            <?php
-                $previousChats = array_reverse(erLhcoreClassModelChat::getList(['sort' => 'id DESC', 'limit' => 5, 'filtergt' => ['cls_time' => $chat->time], 'filterlt' => ['id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]));
-                $nextChats = erLhcoreClassModelChat::getList(['sort' => 'id ASC', 'limit' => 5, 'filterlt' => ['time' => $chat->cls_time], 'filtergt' => ['cls_time' => 0, 'id' => $chat->id], 'filter' => ['user_id' => $chat->user_id]]);
-            ?>
+            <ul class="nav nav-pills mb-3" role="tablist">
+                <li role="presentation" class="nav-item"><a href="#chats-history" class="nav-link active" aria-controls="user-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Concurrent chats');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#live-chats" class="nav-link" aria-controls="online-hours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active operator chats');?></a></li>
+            </ul>
+            <div class="tab-content" ng-non-bindable>
+                <div role="tabpanel" class="tab-pane active" id="chats-history" style="max-height: 550px;overflow-y: auto">
 
-            <table class="table table-hover table-sm">
-                <thead>
-                    <tr>
-                        <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','ID')?></th>
-                        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Chat duration')?></th>
-                        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Started')?></th>
-                        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Ended')?></th>
-                    </tr>
-                </thead>
-                <?php foreach ($previousChats as $previewChat) : ?>
-                    <tr>
-                        <td nowrap="nowrap"><a class="material-icons" onclick="lhc.previewChat(<?php echo $previewChat->id?>)">info_outline</a><?php echo $previewChat->id?></td>
-                        <td><?php echo $previewChat->chat_duration_front?></td>
-                        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$previewChat->time);?></td>
-                        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$previewChat->cls_time);?></td>
-                    </tr>
-                <?php endforeach; ?>
-                <tr class="border border-primary bg-light">
-                    <td><?php echo $chat->id?></td>
-                    <td><?php echo $chat->chat_duration_front?></td>
-                    <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></td>
-                    <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->cls_time);?></td>
-                </tr>
-                <?php foreach ($nextChats as $previewChat) : ?>
-                    <tr>
-                        <td><a class="material-icons" onclick="lhc.previewChat(<?php echo $previewChat->id?>)">info_outline</a><?php echo $previewChat->id?></td>
-                        <td>
-                            <?php if ($previewChat->chat_duration_front !== null) : ?>
-                            <?php echo $previewChat->chat_duration_front?>
-                            <?php else : ?>
-                            -
-                            <?php endif; ?>
-                        </td>
-                        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$previewChat->time);?></td>
-                        <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$previewChat->cls_time);?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
+                    <?php $hideStatusText = true;?>
+                    <table class="table table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','ID')?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Chat duration')?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Started')?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Ended')?></th>
+                        </tr>
+                        </thead>
+                        <?php foreach ($previousChats as $chat) : ?>
+                            <tr>
+                                <td nowrap="nowrap"><a class="material-icons" onclick="lhc.previewChat(<?php echo $chat->id?>)">info_outline</a><?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_column.tpl.php'));?><?php echo $chat->id?></td>
+                                <td>
+                                    <?php if ($chat->chat_duration > 0) : ?>
+                                        <?php echo erLhcoreClassChat::formatSeconds($chat->chat_duration)?>
+                                    <?php endif; ?>
+                                </td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->time :  $chat->time/1000);?></td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->time :  $chat->cls_time/1000);?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <tr class="bg-light">
+                            <td class="border-top border-bottom"><?php echo $chatOriginal->id?></td>
+                            <td class="border-top border-bottom"><?php echo $chatOriginal->chat_duration_front?></td>
+                            <td class="border-top border-bottom"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->time);?></td>
+                            <td class="border-top border-bottom"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->cls_time);?></td>
+                        </tr>
+                        <?php foreach ($nextChats as $chat) : ?>
+                            <tr>
+                                <td><a class="material-icons" onclick="lhc.previewChat(<?php echo $chat->id?>)">info_outline</a><?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_column.tpl.php'));?><?php echo $chat->id?></td>
+                                <td>
+                                    <?php if ($chat->chat_duration > 0) : ?>
+                                        <?php echo erLhcoreClassChat::formatSeconds($chat->chat_duration)?>
+                                    <?php endif; ?>
+                                </td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->time :  $chat->time/1000);?></td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,get_class($chat) == 'erLhcoreClassModelChat' ? $chat->cls_time :  $chat->cls_time/1000);?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="live-chats" style="max-height: 550px;overflow-y: auto" ng-non-bindable>
+                    <table class="table table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','ID')?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Chat duration')?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Started')?></th>
+                        </tr>
+                        </thead>
+                        <?php foreach ($activeChats as $chat) : ?>
+                            <tr>
+                                <td nowrap="nowrap">
+                                    <a class="material-icons" onclick="lhc.previewChat(<?php echo $chat->id?>)">info_outline</a>
+                                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/status_column.tpl.php'));?><?php echo $chat->id?>
+                                </td>
+                                <td><?php echo $chat->chat_duration_front?></td>
+                                <td><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chat->time);?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+            </div>
 
-<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+
+
