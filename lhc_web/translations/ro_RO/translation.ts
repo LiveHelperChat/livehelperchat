@@ -1,22 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO" version="2.0">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="ro_RO">
   <context>
     <name>listchatconfig</name>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cât timp ar trebui să așteptăm înainte de a informa operatorul despre conversația fără răspuns.</translation>
@@ -417,10 +401,6 @@
   <context>
     <name>system/buttons</name>
     <message>
-      <source>Block this IP</source>
-      <translation>Blocați acest IP</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>Salvaţi</translation>
     </message>
@@ -465,16 +445,20 @@
       <translation>Blocare e-mail</translation>
     </message>
     <message>
+      <source>Block country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Close</source>
+      <translation>Închide</translation>
+    </message>
+    <message>
       <source>Yes</source>
       <translation>Da</translation>
     </message>
     <message>
       <source>No</source>
       <translation>Nu</translation>
-    </message>
-    <message>
-      <source>Close</source>
-      <translation>Închide</translation>
     </message>
     <message>
       <source>Send message to</source>
@@ -610,6 +594,10 @@
       <translation>Adăugați traducere</translation>
     </message>
     <message>
+      <source>For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Search for language. Enter * to see all.</source>
       <translation>Căutați limba. Introduceți * pentru a le vedea toate.</translation>
     </message>
@@ -688,6 +676,10 @@
     <message>
       <source>Notification</source>
       <translation>Notificare</translation>
+    </message>
+    <message>
+      <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status options</source>
@@ -1030,6 +1022,10 @@
       <translation>Nume</translation>
     </message>
     <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name of the company</source>
       <translation>Numele companiei</translation>
     </message>
@@ -1228,6 +1224,22 @@
     <message>
       <source>Custom html before standard widget header</source>
       <translation>HTML personalizat înainte de antetul widgetului standard</translation>
+    </message>
+    <message>
+      <source>Operator intro message. You can wrap custom HTML with [html][/html] bbcode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator intro message in HTML</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html above status/profile body in online mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html above status/profile body in offline mode</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
@@ -1518,6 +1530,14 @@
       <translation>Afișați mesajele de conversație anterioare în widgetul de conversație.</translation>
     </message>
     <message>
+      <source>Custom HTML has priority over invitation content in opened widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show invitation content once visitor started to type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide job title</source>
       <translation>Ascundeți titlul postului</translation>
     </message>
@@ -1652,10 +1672,6 @@
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
-    <message>
-      <source>Set priority to</source>
-      <translation>Setați prioritatea la</translation>
-    </message>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation>Dacă departamentul este online și vizitatorul începe o conversație și așteaptă ca unii să accepte conversația. Acesta va fi mesajul inițial pe care îl va primi.</translation>
@@ -2121,6 +2137,10 @@
       <translation>Redă sunetul</translation>
     </message>
     <message>
+      <source>Skip bot and set chat status directly to pending state</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Append trigger content in full widget</source>
       <translation>Adăugați conținut declanșator în widget complet</translation>
     </message>
@@ -2215,10 +2235,6 @@
   </context>
   <context>
     <name>chat/startchatformsettings</name>
-    <message>
-      <source>Allow to attatch a file</source>
-      <translation>Permiteți atașarea unui fișier</translation>
-    </message>
     <message>
       <source>Add event</source>
       <translation>Adăugați un eveniment</translation>
@@ -2380,6 +2396,10 @@
       <translation>Înainte de conversație</translation>
     </message>
     <message>
+      <source>Pre chat conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nume</translation>
     </message>
@@ -2500,6 +2520,82 @@
       <translation>Cheie de criptare, lungime min. 40</translation>
     </message>
     <message>
+      <source>Possible use cases</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>With these rules you can enable chat only for specific visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to maintenance mode and disable widget completely.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Provide chat only for specific players and for others leave a message that chat is available only as example for VIP visitors.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If these conditions are met widget will become online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>conditions are optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>one of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Success</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make widget offline if widget is not in oline mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable offline mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>conditions are optional.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable disable mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show this message to the visitors who opens a chat widget.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If none of the above conditions are met widget will become hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Argument identifier</source>
       <translation>Identificator argument</translation>
     </message>
@@ -2524,6 +2620,10 @@
       <translation>Nou</translation>
     </message>
     <message>
+      <source>Create a copy from default settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter resource identifier</source>
       <translation>Vă rugăm să introduceți identificatorul resursei</translation>
     </message>
@@ -2534,6 +2634,14 @@
     <message>
       <source>Minimum 40 characters for encryption key!</source>
       <translation>Minim 40 de caractere pentru cheia de criptare!</translation>
+    </message>
+    <message>
+      <source>Copy of Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy of</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -2581,6 +2689,26 @@
     <message>
       <source>Choose department</source>
       <translation>Alegeți departamentul</translation>
+    </message>
+    <message>
+      <source>Disable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salvează</translation>
+    </message>
+    <message>
+      <source>Quick actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>records will be updated.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Title</source>
@@ -2713,6 +2841,10 @@
     <message>
       <source>Select minute</source>
       <translation>Selectați minutul</translation>
+    </message>
+    <message>
+      <source>Select seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Wait time</source>
@@ -2983,6 +3115,14 @@
       <translation>Câmp de grup</translation>
     </message>
     <message>
+      <source>Group limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group chart</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Excludeți cererile offline din diagrame</translation>
     </message>
@@ -2997,6 +3137,14 @@
     <message>
       <source>Abandoned chat</source>
       <translation>Conversație abandonată</translation>
+    </message>
+    <message>
+      <source>Proactive chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not automatic invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Compare to past</source>
@@ -3135,8 +3283,20 @@
       <translation>JSON</translation>
     </message>
     <message>
-      <source>Save</source>
-      <translation>Salvează</translation>
+      <source>Disable operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Force logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Force change password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Username</source>
@@ -3155,12 +3315,24 @@
       <translation>Starea contului</translation>
     </message>
     <message>
+      <source>Active &amp; Deactivated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Active</source>
       <translation>Activ</translation>
     </message>
     <message>
       <source>Deactivated</source>
       <translation>Dezactivat</translation>
+    </message>
+    <message>
+      <source>Login date range from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login date range to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Go to my views</source>
@@ -3182,12 +3354,24 @@
       <source>Save search</source>
       <translation>Salvează căutarea</translation>
     </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/subject</name>
     <message>
       <source>If you do not choose any department, subject will be visible for all departments</source>
       <translation>Dacă nu alegeți niciun departament, subiectul va fi vizibil pentru toate departamentele</translation>
+    </message>
+    <message>
+      <source>This is usefull if you need additional filtering for your own purposes. Leave it empty in most cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Internal subjects will not be shown in a subject choosing modal window for the operators. They are good for setting them in the bot, extensions etc.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose a subject</source>
@@ -3202,6 +3386,10 @@
       <translation>Subiect</translation>
     </message>
     <message>
+      <source>Invalid CSRF token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Subject selected!</source>
       <translation>Subiect selectat!</translation>
     </message>
@@ -3212,6 +3400,10 @@
     <message>
       <source>Please choose a subject</source>
       <translation>Vă rugăm să alegeți un subiect</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -3284,6 +3476,18 @@
       <translation>Regulile cu cea mai mare prioritate vor fi verificate mai întâi</translation>
     </message>
     <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Advanced filtering</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Replaceable variables</source>
       <translation>Variabile înlocuibile</translation>
     </message>
@@ -3352,6 +3556,22 @@
       <translation>Mesaje</translation>
     </message>
     <message>
+      <source>Check all departments from selected department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uncheck all departments from selected department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uncheck</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>We are</source>
       <translation>Noi suntem</translation>
     </message>
@@ -3368,8 +3588,16 @@
       <translation>Activează-l</translation>
     </message>
     <message>
+      <source>Activity period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Title</source>
       <translation>Titlu</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Explain</source>
@@ -3400,6 +3628,34 @@
       <translation>Fragment HTML</translation>
     </message>
     <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Tag&apos;s</source>
       <translation>Etichete</translation>
     </message>
@@ -3410,6 +3666,14 @@
     <message>
       <source>Canned messages</source>
       <translation>Mesaje arhivate</translation>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Updated at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit canned message</source>
@@ -3468,12 +3732,32 @@
       <translation>Vă rugăm să introduceţi un mesaj conserve</translation>
     </message>
     <message>
+      <source>Please enter from and to time. To has to be greater than from.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter activity to period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter activity from period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activity to period has to be bigger than activity from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned message tags should not contain # character</source>
       <translation>Etichetele de mesaj arhivate nu trebuie să conțină # caractere</translation>
     </message>
     <message>
       <source>Please choose a department!</source>
       <translation>Vă rugăm să alegeți un departament!</translation>
+    </message>
+    <message>
+      <source>You cannot modify canned messages for the departments you are not assigned to!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter language name!</source>
@@ -3831,8 +4115,8 @@
       <translation>Extensie de fișier nevalidă!</translation>
     </message>
     <message>
-      <source>To big file!</source>
-      <translation>Fișier prea mare!</translation>
+      <source>File too big!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
@@ -3885,6 +4169,10 @@
     <message>
       <source>Transfer Chat</source>
       <translation>Transferați conversația</translation>
+    </message>
+    <message>
+      <source>Trigger alert chat!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assigned Chat</source>
@@ -4470,10 +4758,6 @@
       <translation>Cod sursă cu un link</translation>
     </message>
     <message>
-      <source>Hash arguments. Visitor will not be able to change passed arguments.</source>
-      <translation>Argumente hash. Vizitatorul nu va putea modifica argumentele transmise.</translation>
-    </message>
-    <message>
       <source>Show a leave a message form when there are no online operators</source>
       <translation>Afișați un formular pentru lăsarea unui mesaj atunci când nu există operatori online</translation>
     </message>
@@ -4569,6 +4853,10 @@
     <message>
       <source>Log javascript errors</source>
       <translation>Înregistrați erorile javascript</translation>
+    </message>
+    <message>
+      <source>Log applied blocks</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Log users changes</source>
@@ -4729,6 +5017,10 @@
       <translation>Durată</translation>
     </message>
     <message>
+      <source>Chats served</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Was offline for</source>
       <translation>A fost offline pentru</translation>
     </message>
@@ -4773,8 +5065,24 @@
       <translation>Număr de conversații</translation>
     </message>
     <message>
+      <source>Last login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user is disabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This user is forced to logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Excluded from auto assign workflow</source>
       <translation>Exclus din fluxul de lucru de atribuire automată</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Login As</source>
@@ -4799,18 +5107,6 @@
   </context>
   <context>
     <name>chat/adminchat</name>
-    <message>
-      <source>Redirect user to contact form</source>
-      <translation>Redirecționați utilizatorul către formularul de contact</translation>
-    </message>
-    <message>
-      <source>Started at</source>
-      <translation>A început de la</translation>
-    </message>
-    <message>
-      <source>Reopen chat</source>
-      <translation>Redeschide conversația</translation>
-    </message>
     <message>
       <source>Strike</source>
       <translation>Tăiat</translation>
@@ -4948,6 +5244,18 @@
       <translation>Identificator</translation>
     </message>
     <message>
+      <source>Bot ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat</source>
       <translation>Conversație</translation>
     </message>
@@ -4978,6 +5286,10 @@
     <message>
       <source>Bot chat</source>
       <translation>Conversație Bot</translation>
+    </message>
+    <message>
+      <source>Times</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat duration</source>
@@ -5232,6 +5544,10 @@
       <translation>a acceptat conversația!</translation>
     </message>
     <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid chat status</source>
       <translation>Stare de conversație invalidă</translation>
     </message>
@@ -5347,6 +5663,20 @@
     <message>
       <source>Invalid file format</source>
       <translation>Format de fișier invalid</translation>
+    </message>
+  </context>
+  <context>
+    <name>kernel/message</name>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Sunteți sigur?</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/buttons</name>
+    <message>
+      <source>No-Tag</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5680,6 +6010,10 @@
       <source>Please enter a link!</source>
       <translation>Vă rugăm să introduceți o legătură</translation>
     </message>
+    <message>
+      <source>Download</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/blockedusers</name>
@@ -5690,6 +6024,10 @@
     <message>
       <source>Nick/Email</source>
       <translation>Alias/E-mail</translation>
+    </message>
+    <message>
+      <source>Block history</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>IP/E-mail</source>
@@ -5704,8 +6042,8 @@
       <translation>Departament</translation>
     </message>
     <message>
-      <source>Nick/E-mail</source>
-      <translation>Alias/E-mail</translation>
+      <source>Nick/E-mail/Country</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Expires in</source>
@@ -5720,12 +6058,36 @@
       <translation>Utilizator care a blocat</translation>
     </message>
     <message>
+      <source>Nick</source>
+      <translation>Alias</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick and Department</source>
+      <translation>Alias și Departament</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
       <source>Remove block</source>
       <translation>Elimină bloc</translation>
     </message>
     <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
+    </message>
+    <message>
+      <source>Bocked by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>block</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Expires</source>
@@ -5750,18 +6112,6 @@
     <message>
       <source>Block visitor</source>
       <translation>Blochează vizitatorul</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Alias</translation>
-    </message>
-    <message>
-      <source>Nick and Department</source>
-      <translation>Alias și Departament</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
     </message>
     <message>
       <source>Blocked users</source>
@@ -5793,17 +6143,393 @@
     </message>
   </context>
   <context>
-    <name>kernel/message</name>
+    <name>user/account</name>
     <message>
-      <source>Are you sure?</source>
-      <translation>Sunteți sigur?</translation>
+      <source>Canned messages</source>
+      <translation>Mesaje arhivate</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistic</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nume</translation>
+    </message>
+    <message>
+      <source>Updated!</source>
+      <translation>Actualizat!</translation>
+    </message>
+    <message>
+      <source>Updated</source>
+      <translation>Actualizat</translation>
+    </message>
+    <message>
+      <source>General</source>
+      <translation>General</translation>
+    </message>
+    <message>
+      <source>Interface</source>
+      <translation>Interfață</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Șterge</translation>
+    </message>
+    <message>
+      <source>Hide bot profile while chat is in bot mode</source>
+      <translation>Ascundeți profilul bot în timp ce conversația este în modul bot</translation>
+    </message>
+    <message>
+      <source>Start chat with hidden message box</source>
+      <translation>Începeți conversația cu caseta de mesaje ascunsă</translation>
+    </message>
+    <message>
+      <source>Do not count button click as a visitor message</source>
+      <translation>Nu contorizați clicul pe buton ca mesaj de vizitator</translation>
+    </message>
+    <message>
+      <source>Explorer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>URL Explorer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Actualizează</translation>
+    </message>
+    <message>
+      <source>What languages you speak?</source>
+      <translation>Ce limbi vorbești?</translation>
+    </message>
+    <message>
+      <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
+      <translation>Dacă conversațiile în așteptare sunt în aceeași limbă cu cea aleasă. Ți se vor atribui mai întâi conversațiile în aceeași limbă.</translation>
+    </message>
+    <message>
+      <source>Updating...</source>
+      <translation>Actualizare</translation>
+    </message>
+    <message>
+      <source>Logged user</source>
+      <translation>Utilizatori autentificați</translation>
+    </message>
+    <message>
+      <source>Account data</source>
+      <translation>Date cont</translation>
+    </message>
+    <message>
+      <source>Assigned departments</source>
+      <translation>Departamente alocate</translation>
+    </message>
+    <message>
+      <source>Visible lists</source>
+      <translation>Liste vizibile</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Conversații</translation>
+    </message>
+    <message>
+      <source>Speech</source>
+      <translation>Voce</translation>
+    </message>
+    <message>
+      <source>Permissions</source>
+      <translation>Permisiuni</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>Nu introduceți o parolă decât dacă doriți să o modificați</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Nume utilizator</translation>
+    </message>
+    <message>
+      <source>Your username</source>
+      <translation>Nume dvs. de utilizator</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Parola</translation>
+    </message>
+    <message>
+      <source>Enter a new password</source>
+      <translation>Introduceți o parolă nouă</translation>
+    </message>
+    <message>
+      <source>Repeat password</source>
+      <translation>Repetați parola</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Repetați parola din nou</translation>
+    </message>
+    <message>
+      <source>Email</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Your email address</source>
+      <translation>Adresa dvs. de e-mail</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation>Alias conversație</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Nume de familie</translation>
+    </message>
+    <message>
+      <source>Job title</source>
+      <translation>Denumirea funcției</translation>
+    </message>
+    <message>
+      <source>I receive other operators permissions request</source>
+      <translation>Primesc cerere de permisiuni pentru alți operatori</translation>
+    </message>
+    <message>
+      <source>Skype</source>
+      <translation>Skype</translation>
+    </message>
+    <message>
+      <source>XMPP username</source>
+      <translation>Nume utilizator XMPP</translation>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Poza</translation>
+    </message>
+    <message>
+      <source>Return</source>
+      <translation>Înapoi</translation>
+    </message>
+    <message>
+      <source>Pending chats list enabled</source>
+      <translation>Lista conversațiilor în așteptare active</translation>
+    </message>
+    <message>
+      <source>Active chats list enabled</source>
+      <translation>Lista conversațiilor active activate</translation>
+    </message>
+    <message>
+      <source>Unread chats list enabled</source>
+      <translation>Lista conversațiilor necitite este activată</translation>
+    </message>
+    <message>
+      <source>Closed chats list enabled</source>
+      <translation>Lista conversațiilor închise este activată</translation>
+    </message>
+    <message>
+      <source>My pending and active chats list enabled</source>
+      <translation>Lista mea de conversații în așteptare și listele active</translation>
+    </message>
+    <message>
+      <source>Bot chats list enabled</source>
+      <translation>Lista de conversații bot activată</translation>
+    </message>
+    <message>
+      <source>I can see all pending chats, not only assigned to me</source>
+      <translation>Pot vedea toate conversațiile în așteptare, nu numai atribuite mie</translation>
+    </message>
+    <message>
+      <source>Automatically accept assigned chats</source>
+      <translation>Acceptați automat conversațiile atribuite</translation>
+    </message>
+    <message>
+      <source>Auto join private chats</source>
+      <translation>Alăturați-vă automat conversațiilor private</translation>
+    </message>
+    <message>
+      <source>Do not scroll to the bottom on chat open</source>
+      <translation>Nu derulați în partea de jos a conversației deschisă</translation>
+    </message>
+    <message>
+      <source>Exclude me from auto assign workflow</source>
+      <translation>Excludeți-mă din fluxul de lucru de atribuire automată</translation>
+    </message>
+    <message>
+      <source>Auto preload previous visitor chat messages</source>
+      <translation>Preîncărcați automat mesajele anterioare de conversație ale vizitatorilor</translation>
+    </message>
+    <message>
+      <source>Auto uppercase sentences</source>
+      <translation>Majuscule automate la propoziții</translation>
+    </message>
+    <message>
+      <source>Maximum active chats</source>
+      <translation>Conversații active maxime</translation>
+    </message>
+    <message>
+      <source>Show permissions</source>
+      <translation>Afișează permisiuni</translation>
+    </message>
+    <message>
+      <source>Account updated</source>
+      <translation>Cont actualizat</translation>
+    </message>
+    <message>
+      <source>All departments</source>
+      <translation>Toate departamentele</translation>
+    </message>
+    <message>
+      <source>Individual departments</source>
+      <translation>Departamente individuale</translation>
+    </message>
+    <message>
+      <source>Assign as operator</source>
+      <translation>Atribuiți ca operator</translation>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation>Numai citire</translation>
+    </message>
+    <message>
+      <source>Assign in read only mode</source>
+      <translation>Atribuiți în modul doar citire</translation>
+    </message>
+    <message>
+      <source>Show archived departments</source>
+      <translation>Afișați departamentele arhivate</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>Grupuri de departamente</translation>
+    </message>
+    <message>
+      <source>Offline</source>
+      <translation>Deconectat</translation>
+    </message>
+    <message>
+      <source>Chat status will not change upon pending chat opening</source>
+      <translation>Starea conversației nu se va modifica la deschiderea conversației în așteptare</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Conversații în așteptare</translation>
+    </message>
+    <message>
+      <source>User receives other operators permissions request</source>
+      <translation>Utilizatorul primește cererea de permisiuni altor operatori</translation>
+    </message>
+    <message>
+      <source>User can see all pending chats, not only assigned to him</source>
+      <translation>Utilizatorul poate vedea toate conversațiile în așteptare, nu numai atribuite acestuia</translation>
+    </message>
+    <message>
+      <source>Exclude from auto assign workflow</source>
+      <translation>Excludeți din fluxul de lucru de atribuire automată</translation>
+    </message>
+    <message>
+      <source>In order to change operator permissions you have to edit</source>
+      <translation>Pentru a modifica permisiunile operatorului trebuie să editați</translation>
+    </message>
+    <message>
+      <source>roles</source>
+      <translation>roluri</translation>
+    </message>
+    <message>
+      <source>Created</source>
+      <translation>Creat</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation>Notificări</translation>
+    </message>
+    <message>
+      <source>Personal auto responder</source>
+      <translation>Răspuns automat personal</translation>
+    </message>
+    <message>
+      <source>Personal canned messages</source>
+      <translation>Mesaje personale arhivate</translation>
+    </message>
+    <message>
+      <source>Avatar builder</source>
+      <translation>Constructor de avatare</translation>
+    </message>
+    <message>
+      <source>Enter any string to generate an avatar</source>
+      <translation>Introduceți orice șir pentru a genera un avatar</translation>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation>Faceți clic pentru a seta avatarul</translation>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation>Principal</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Adăugați traducere</translation>
+    </message>
+    <message>
+      <source>New password was set, copy it or</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>click to show</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password was reset. Please login now.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password was updated. Now you can go to back office.</source>
+      <translation>Parola a fost actualizată. Acum puteți merge la partea de administrare.</translation>
+    </message>
+    <message>
+      <source>Load previous message on scroll</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>department/edit</name>
     <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Any</source>
       <translation>Orice</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation>Aceste ore vor fi folosite</translation>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation>fus orar</translation>
+    </message>
+    <message>
+      <source>Period type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time to</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit department</source>
@@ -5820,6 +6546,14 @@
     <message>
       <source>Name</source>
       <translation>Nume</translation>
+    </message>
+    <message>
+      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible only if online</source>
@@ -5920,14 +6654,6 @@
     <message>
       <source>here</source>
       <translation>aici</translation>
-    </message>
-    <message>
-      <source>These hours will be using</source>
-      <translation>Aceste ore vor fi folosite</translation>
-    </message>
-    <message>
-      <source>time zone</source>
-      <translation>fus orar</translation>
     </message>
     <message>
       <source>to render widget online status</source>
@@ -6118,6 +6844,10 @@
       <translation>Acest câmp are o lungime de maximum 50 de caractere și poate fi utilizat în orice scop de extensii. Acest câmp este, de asemenea, indexat.</translation>
     </message>
     <message>
+      <source>Department groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>None</source>
       <translation>Nici unul</translation>
     </message>
@@ -6248,6 +6978,121 @@
     <message>
       <source>Edit a group chat</source>
       <translation>Editează un grup de conversație</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/dashboardwidgets</name>
+    <message>
+      <source>Updated!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose what widgets you want to see</source>
+      <translation>Alegeți ce widgeturi doriți să vedeți</translation>
+    </message>
+    <message>
+      <source>Widgets</source>
+      <translation>Widgeturi</translation>
+    </message>
+    <message>
+      <source>Alert icons</source>
+      <translation>Pictograme de alertă</translation>
+    </message>
+    <message>
+      <source>Column number</source>
+      <translation>Număr coloană</translation>
+    </message>
+    <message>
+      <source>Choose for what icons we should show notification.</source>
+      <translation>Alegeți pentru ce pictograme ar trebui să afișăm notificări.</translation>
+    </message>
+    <message>
+      <source>Choose what icons you want to exclude from the list.</source>
+      <translation>Alegeți ce pictograme doriți să excludeți din listă.</translation>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Setări modificate!</translation>
+    </message>
+    <message>
+      <source>Send mass invitation message</source>
+      <translation>Trimiteți un mesaj de invitație în masă</translation>
+    </message>
+    <message>
+      <source>Filter chats by subject</source>
+      <translation>Filtrați conversațiile după subiect</translation>
+    </message>
+    <message>
+      <source>Notifications about bot chats</source>
+      <translation>Notificări despre conversațiile bot</translation>
+    </message>
+    <message>
+      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
+      <translation>Pentru a primi notificări de browser trebuie să le activați în setările Notificări ale contului.</translation>
+    </message>
+    <message>
+      <source>Notify me about bot conversation after defined number of user interactions.</source>
+      <translation>Anunță-mă despre conversația bot după un număr definit de interacțiuni cu utilizatorii.</translation>
+    </message>
+    <message>
+      <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation>Anunță-mă dacă vizitatorul scrie mai multe mesaje decât numărul definit.</translation>
+    </message>
+    <message>
+      <source>online status</source>
+      <translation>statutul online</translation>
+    </message>
+    <message>
+      <source>Search was saved</source>
+      <translation>Căutarea a fost salvată</translation>
+    </message>
+    <message>
+      <source>Online operators</source>
+      <translation>Operatori online</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversații active</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Vizitatori online</translation>
+    </message>
+    <message>
+      <source>Departments stats</source>
+      <translation>Statisticile departamentelor</translation>
+    </message>
+    <message>
+      <source>Pending chats</source>
+      <translation>Conversații în așteptare</translation>
+    </message>
+    <message>
+      <source>Transfered chats</source>
+      <translation>Transferați conversațiile</translation>
+    </message>
+    <message>
+      <source>Ongoing trigger alerts</source>
+      <translation>Alerte de declanșare în curs</translation>
+    </message>
+    <message>
+      <source>Group chats</source>
+      <translation>Conversații de grup</translation>
+    </message>
+    <message>
+      <source>Unread chats</source>
+      <translation>Conversații necitite</translation>
+    </message>
+    <message>
+      <source>Closed chats</source>
+      <translation>Conversații închise</translation>
+    </message>
+    <message>
+      <source>My active and pending chats</source>
+      <translation>Conversațiile mele active și în așteptare</translation>
+    </message>
+    <message>
+      <source>Bot chats</source>
+      <translation>Conversații bot</translation>
     </message>
   </context>
   <context>
@@ -6467,6 +7312,26 @@
     <message>
       <source>See operator statistic</source>
       <translation>Vedeți statisticile operatorului</translation>
+    </message>
+    <message>
+      <source>Max</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>a.c</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Free slots</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>f.s</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Sort</source>
@@ -7020,6 +7885,10 @@
       <translation>Ascundeți porecle pentru conversațiile offline</translation>
     </message>
     <message>
+      <source>Reset widget filters</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Old dashboard</source>
       <translation>Tabloul de bord vechi</translation>
     </message>
@@ -7028,20 +7897,20 @@
       <translation>Tablou de bord nou</translation>
     </message>
     <message>
-      <source>Hide/Show chat tabs</source>
-      <translation>Ascundeți/Afișați filele de conversație</translation>
-    </message>
-    <message>
-      <source>Tabs/List in left column</source>
-      <translation>Filele/Lista din coloana din stânga</translation>
-    </message>
-    <message>
       <source>Chat ID to open</source>
       <translation>ID de conversație pentru a deschide</translation>
     </message>
     <message>
       <source>Open a chat</source>
       <translation>Deschideți o conversație</translation>
+    </message>
+    <message>
+      <source>Hide/Show chat tabs</source>
+      <translation>Ascundeți/Afișați filele de conversație</translation>
+    </message>
+    <message>
+      <source>Tabs/List in left column</source>
+      <translation>Filele/Lista din coloana din stânga</translation>
     </message>
     <message>
       <source>Open chats</source>
@@ -7207,117 +8076,6 @@
     <message>
       <source>Send chat</source>
       <translation>Trimite conversația</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/dashboardwidgets</name>
-    <message>
-      <source>Choose what widgets you want to see</source>
-      <translation>Alegeți ce widgeturi doriți să vedeți</translation>
-    </message>
-    <message>
-      <source>Widgets</source>
-      <translation>Widgeturi</translation>
-    </message>
-    <message>
-      <source>Alert icons</source>
-      <translation>Pictograme de alertă</translation>
-    </message>
-    <message>
-      <source>Column number</source>
-      <translation>Număr coloană</translation>
-    </message>
-    <message>
-      <source>Choose for what icons we should show notification.</source>
-      <translation>Alegeți pentru ce pictograme ar trebui să afișăm notificări.</translation>
-    </message>
-    <message>
-      <source>Choose what icons you want to exclude from the list.</source>
-      <translation>Alegeți ce pictograme doriți să excludeți din listă.</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Setări modificate!</translation>
-    </message>
-    <message>
-      <source>Send mass invitation message</source>
-      <translation>Trimiteți un mesaj de invitație în masă</translation>
-    </message>
-    <message>
-      <source>Filter chats by subject</source>
-      <translation>Filtrați conversațiile după subiect</translation>
-    </message>
-    <message>
-      <source>Notifications about bot chats</source>
-      <translation>Notificări despre conversațiile bot</translation>
-    </message>
-    <message>
-      <source>To receive browser notifications you have to enable them in your account Notifications settings.</source>
-      <translation>Pentru a primi notificări de browser trebuie să le activați în setările Notificări ale contului.</translation>
-    </message>
-    <message>
-      <source>Notify me about bot conversation after defined number of user interactions.</source>
-      <translation>Anunță-mă despre conversația bot după un număr definit de interacțiuni cu utilizatorii.</translation>
-    </message>
-    <message>
-      <source>Notify me if visitor writes more than defined number messages.</source>
-      <translation>Anunță-mă dacă vizitatorul scrie mai multe mesaje decât numărul definit.</translation>
-    </message>
-    <message>
-      <source>online status</source>
-      <translation>statutul online</translation>
-    </message>
-    <message>
-      <source>Search was saved</source>
-      <translation>Căutarea a fost salvată</translation>
-    </message>
-    <message>
-      <source>Online operators</source>
-      <translation>Operatori online</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Conversații active</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Vizitatori online</translation>
-    </message>
-    <message>
-      <source>Departments stats</source>
-      <translation>Statisticile departamentelor</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Conversații în așteptare</translation>
-    </message>
-    <message>
-      <source>Transfered chats</source>
-      <translation>Transferați conversațiile</translation>
-    </message>
-    <message>
-      <source>Ongoing trigger alerts</source>
-      <translation>Alerte de declanșare în curs</translation>
-    </message>
-    <message>
-      <source>Group chats</source>
-      <translation>Conversații de grup</translation>
-    </message>
-    <message>
-      <source>Unread chats</source>
-      <translation>Conversații necitite</translation>
-    </message>
-    <message>
-      <source>Closed chats</source>
-      <translation>Conversații închise</translation>
-    </message>
-    <message>
-      <source>My active and pending chats</source>
-      <translation>Conversațiile mele active și în așteptare</translation>
-    </message>
-    <message>
-      <source>Bot chats</source>
-      <translation>Conversații bot</translation>
     </message>
   </context>
   <context>
@@ -7727,8 +8485,8 @@
       <translation>extensie bcmath php detectată</translation>
     </message>
     <message>
-      <source>Location of city database</source>
-      <translation>Locația bazei de date pentru orașe</translation>
+      <source>Location of city database. Make sure you uploaded file in this location.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User country based detection, faster</source>
@@ -8550,12 +9308,20 @@
       <translation>Lista rolurilor</translation>
     </message>
     <message>
+      <source>Permissions explorer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Import users</source>
       <translation>Importă utilizatori</translation>
     </message>
     <message>
       <source>Password requirements</source>
       <translation>Cerințe privind parola</translation>
+    </message>
+    <message>
+      <source>Online hours</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Advanced</source>
@@ -8660,6 +9426,22 @@
     <message>
       <source>minutes</source>
       <translation>minute</translation>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>File configuration</source>
@@ -8893,10 +9675,6 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
-      <source>Configuration</source>
-      <translation>Configurare</translation>
-    </message>
-    <message>
       <source>Empty...</source>
       <translation>Gol...</translation>
     </message>
@@ -8975,6 +9753,10 @@
     <message>
       <source>All departments</source>
       <translation>Toate departamentele</translation>
+    </message>
+    <message>
+      <source>departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Check all</source>
@@ -9242,18 +10024,6 @@
   <context>
     <name>chat/statistic</name>
     <message>
-      <source>Chats number grouped by date and</source>
-      <translation>Numărul de conversații grupate după dată și</translation>
-    </message>
-    <message>
-      <source>nick</source>
-      <translation>alias</translation>
-    </message>
-    <message>
-      <source>user agent</source>
-      <translation>agent utilizator</translation>
-    </message>
-    <message>
       <source>Statistic</source>
       <translation>Statistici</translation>
     </message>
@@ -9362,12 +10132,20 @@
       <translation>În așteptare</translation>
     </message>
     <message>
+      <source>Bot</source>
+      <translation>Bot</translation>
+    </message>
+    <message>
       <source>Closed</source>
       <translation>Închis</translation>
     </message>
     <message>
-      <source>Proactive</source>
-      <translation>Proactive</translation>
+      <source>Proactive invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Manual invitation</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visitors initiated</source>
@@ -9410,8 +10188,12 @@
       <translation>Totalul conversațiilor</translation>
     </message>
     <message>
-      <source>Bot</source>
-      <translation>Bot</translation>
+      <source>Total chats by channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive</source>
+      <translation>Proactive</translation>
     </message>
     <message>
       <source>Default checked charts for</source>
@@ -9550,6 +10332,10 @@
       <translation>Total</translation>
     </message>
     <message>
+      <source>By channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total visitors</source>
       <translation>Total vizitatori</translation>
     </message>
@@ -9683,11 +10469,18 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
+    <name>chat/loadprevious</name>
     <message>
-      <source>E-mail is send then visitor starts new browsing session</source>
-      <translation>E-mailul este trimis, apoi vizitatorul începe o nouă sesiune de navigare</translation>
+      <source>Continue of the chat</source>
+      <translation type="unfinished"/>
     </message>
+    <message>
+      <source>End of the chat</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/modifychat</name>
     <message>
       <source>User attribute</source>
       <translation>Atribut utilizator</translation>
@@ -9742,73 +10535,150 @@
     </message>
   </context>
   <context>
-    <name>chat/sendchat</name>
+    <name>chat/chatcommand</name>
     <message>
-      <source>Enter your e-mail</source>
-      <translation>Introduceți adresa dvs. de e-mail</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendmail</name>
-    <message>
-      <source>Recipient</source>
-      <translation>Destinatar</translation>
+      <source>Visitor ID</source>
+      <translation>ID vizitator</translation>
     </message>
     <message>
-      <source>Recipient e-mail</source>
-      <translation>E-mail destinatar</translation>
+      <source>Department</source>
+      <translation>Departament</translation>
     </message>
     <message>
-      <source>Subject</source>
-      <translation>Subiect</translation>
+      <source>Please provide modal URL!</source>
+      <translation>Vă rugăm să furnizați URL modal!</translation>
     </message>
     <message>
-      <source>From name</source>
-      <translation>De la</translation>
+      <source>We will show a form in a moment!</source>
+      <translation>Vom arăta un formular într-o clipă!</translation>
     </message>
     <message>
-      <source>Reply e-mail</source>
-      <translation>E-mail pentru răspuns</translation>
+      <source>Modal activated!</source>
+      <translation>Modal activat!</translation>
     </message>
     <message>
-      <source>From e-mail</source>
-      <translation>E-mail expeditor</translation>
+      <source>was executed</source>
+      <translation>a fost executat</translation>
     </message>
     <message>
-      <source>Type your message to the user</source>
-      <translation>Introduceți mesajul către utilizator</translation>
+      <source>Assigned trigger could not be found</source>
+      <translation>Declanșatorul atribuit nu a putut fi găsit</translation>
     </message>
     <message>
-      <source>Send the mail</source>
-      <translation>Trimiteți e-mailul</translation>
+      <source>Nick changed!</source>
+      <translation>Alias schimbat!</translation>
     </message>
     <message>
-      <source>Embed link to file</source>
-      <translation>Încorporați linkul către fișier</translation>
+      <source>Files upload was disabled!</source>
+      <translation>Încărcarea fișierelor a fost dezactivată!</translation>
     </message>
     <message>
-      <source>Send mail to the user</source>
-      <translation>Transmite utilizatorului un e-mail</translation>
+      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
+      <translation>Am activat încărcarea fișierelor pentru dvs.. [fupload]Încarcă un fișier[/fupload].</translation>
     </message>
     <message>
-      <source>Mail was sent to the user</source>
-      <translation>Mesajul a fost transmis utilizatorului</translation>
+      <source>Files upload enabled.</source>
+      <translation>Încărcare fișiere activată.</translation>
     </message>
     <message>
-      <source>Please enter recipient e-mail!</source>
-      <translation>Vă rugăm să introduceți adresa de e-mail a destinatarului!</translation>
+      <source>Chat status changed on-hold!</source>
+      <translation>Starea conversației a fost modificată în așteptare!</translation>
     </message>
     <message>
-      <source>From e-mail is missing!</source>
-      <translation>E-mail-ul expeditorului lipsește</translation>
+      <source>Chat was transferred to bot!</source>
+      <translation>Conversația a fost transferată către bot!</translation>
     </message>
     <message>
-      <source>Reply e-mail is missing!</source>
-      <translation>E-mailul de răspuns lipsește!</translation>
+      <source>E-mail changed!</source>
+      <translation>E-mailul s-a schimbat!</translation>
     </message>
     <message>
-      <source>Subject is missing!</source>
-      <translation>Subiectul lipsește!</translation>
+      <source>You do not have permission to transfer chat directly!</source>
+      <translation>Nu aveți permisiunea de a transfera conversația direct!</translation>
+    </message>
+    <message>
+      <source>User could not be found!</source>
+      <translation>Utilizatorul nu a putut fi găsit!</translation>
+    </message>
+    <message>
+      <source>Phone changed!</source>
+      <translation>Telefonul s-a schimbat!</translation>
+    </message>
+    <message>
+      <source>User was redirected!</source>
+      <translation>Utilizatorul a fost redirecționat!</translation>
+    </message>
+    <message>
+      <source>Screenshot was scheduled!</source>
+      <translation>Captura de ecran a fost programată!</translation>
+    </message>
+    <message>
+      <source>User was redirected to contact form!</source>
+      <translation>Utilizatorul a fost redirecționat către formularul de contact!</translation>
+    </message>
+    <message>
+      <source>User was blocked!</source>
+      <translation>Utilizatorul a fost blocat!</translation>
+    </message>
+    <message>
+      <source>Started chat from</source>
+      <translation>A început conversația de la</translation>
+    </message>
+    <message>
+      <source>Refered from</source>
+      <translation>Referit din</translation>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation>Pagina curentă</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>Telefon</translation>
+    </message>
+    <message>
+      <source>Country</source>
+      <translation>Țară</translation>
+    </message>
+    <message>
+      <source>Chat was closed!</source>
+      <translation>Conversația a fost închisă.</translation>
+    </message>
+    <message>
+      <source>You do not have permission to close a chat!</source>
+      <translation>Nu ai dreptul de a accesa conversatia curenta!</translation>
+    </message>
+    <message>
+      <source>Chat was deleted!</source>
+      <translation>Conversația a fost ștearsă!</translation>
+    </message>
+    <message>
+      <source>You do not have permission to delete a chat!</source>
+      <translation>Nu aveți permisiunea de a șterge o conversație!</translation>
+    </message>
+    <message>
+      <source>Chat status was changed to pending!</source>
+      <translation>Starea conversației a fost schimbată în așteptare!</translation>
+    </message>
+    <message>
+      <source>Chat status was changed to active!</source>
+      <translation>Starea conversației a fost schimbată în activă!</translation>
+    </message>
+    <message>
+      <source>Remarks were saved!</source>
+      <translation>Observațiile au fost salvate!</translation>
+    </message>
+    <message>
+      <source>Information collected. [baseurl]form/viewcollected/&apos; . $formCollected-&gt;id . &apos;[/baseurl]</source>
+      <translation>Informații colectate. [baseurl]form/viewcollected/&apos; . $formCollected-&gt;id . &apos;[/baseurl]</translation>
+    </message>
+    <message>
+      <source>Information collected. Only chat form</source>
+      <translation>Informații colectate. Numai formular de conversație</translation>
     </message>
   </context>
   <context>
@@ -9820,6 +10690,10 @@
     <message>
       <source>Open full widget for the visitor</source>
       <translation>Deschideți un widget complet pentru vizitator</translation>
+    </message>
+    <message>
+      <source>Skip bot</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Assign the chat to me if the visitor replies</source>
@@ -9900,6 +10774,76 @@
     <message>
       <source>Start chat with operator</source>
       <translation>Începeți conversația cu operatorul</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendchat</name>
+    <message>
+      <source>Enter your e-mail</source>
+      <translation>Introduceți adresa dvs. de e-mail</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendmail</name>
+    <message>
+      <source>Recipient</source>
+      <translation>Destinatar</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>E-mail destinatar</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>Subiect</translation>
+    </message>
+    <message>
+      <source>From name</source>
+      <translation>De la</translation>
+    </message>
+    <message>
+      <source>Reply e-mail</source>
+      <translation>E-mail pentru răspuns</translation>
+    </message>
+    <message>
+      <source>From e-mail</source>
+      <translation>E-mail expeditor</translation>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>Introduceți mesajul către utilizator</translation>
+    </message>
+    <message>
+      <source>Send the mail</source>
+      <translation>Trimiteți e-mailul</translation>
+    </message>
+    <message>
+      <source>Embed link to file</source>
+      <translation>Încorporați linkul către fișier</translation>
+    </message>
+    <message>
+      <source>Send mail to the user</source>
+      <translation>Transmite utilizatorului un e-mail</translation>
+    </message>
+    <message>
+      <source>Mail was sent to the user</source>
+      <translation>Mesajul a fost transmis utilizatorului</translation>
+    </message>
+    <message>
+      <source>Please enter recipient e-mail!</source>
+      <translation>Vă rugăm să introduceți adresa de e-mail a destinatarului!</translation>
+    </message>
+    <message>
+      <source>From e-mail is missing!</source>
+      <translation>E-mail-ul expeditorului lipsește</translation>
+    </message>
+    <message>
+      <source>Reply e-mail is missing!</source>
+      <translation>E-mailul de răspuns lipsește!</translation>
+    </message>
+    <message>
+      <source>Subject is missing!</source>
+      <translation>Subiectul lipsește!</translation>
     </message>
   </context>
   <context>
@@ -10015,337 +10959,6 @@
     <message>
       <source>Synchronization and sound settings</source>
       <translation>Setări de sincronizare și sunet</translation>
-    </message>
-  </context>
-  <context>
-    <name>user/account</name>
-    <message>
-      <source>Departments groups</source>
-      <translation>Grupuri de departamente</translation>
-    </message>
-    <message>
-      <source>Canned messages</source>
-      <translation>Mesaje arhivate</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistic</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nume</translation>
-    </message>
-    <message>
-      <source>Updated</source>
-      <translation>Actualizat</translation>
-    </message>
-    <message>
-      <source>General</source>
-      <translation>General</translation>
-    </message>
-    <message>
-      <source>Interface</source>
-      <translation>Interfață</translation>
-    </message>
-    <message>
-      <source>Delete</source>
-      <translation>Șterge</translation>
-    </message>
-    <message>
-      <source>Hide bot profile while chat is in bot mode</source>
-      <translation>Ascundeți profilul bot în timp ce conversația este în modul bot</translation>
-    </message>
-    <message>
-      <source>Start chat with hidden message box</source>
-      <translation>Începeți conversația cu caseta de mesaje ascunsă</translation>
-    </message>
-    <message>
-      <source>Do not count button click as a visitor message</source>
-      <translation>Nu contorizați clicul pe buton ca mesaj de vizitator</translation>
-    </message>
-    <message>
-      <source>Updated!</source>
-      <translation>Actualizat!</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Actualizează</translation>
-    </message>
-    <message>
-      <source>What languages you speak?</source>
-      <translation>Ce limbi vorbești?</translation>
-    </message>
-    <message>
-      <source>If pending chats comes in the same language as chosen one. To you will be assigned same language chats first.</source>
-      <translation>Dacă conversațiile în așteptare sunt în aceeași limbă cu cea aleasă. Ți se vor atribui mai întâi conversațiile în aceeași limbă.</translation>
-    </message>
-    <message>
-      <source>Updating...</source>
-      <translation>Actualizare</translation>
-    </message>
-    <message>
-      <source>Logged user</source>
-      <translation>Utilizatori autentificați</translation>
-    </message>
-    <message>
-      <source>Account data</source>
-      <translation>Date cont</translation>
-    </message>
-    <message>
-      <source>Assigned departments</source>
-      <translation>Departamente alocate</translation>
-    </message>
-    <message>
-      <source>Visible lists</source>
-      <translation>Liste vizibile</translation>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation>Conversații</translation>
-    </message>
-    <message>
-      <source>Speech</source>
-      <translation>Voce</translation>
-    </message>
-    <message>
-      <source>Permissions</source>
-      <translation>Permisiuni</translation>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>Nu introduceți o parolă decât dacă doriți să o modificați</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Nume utilizator</translation>
-    </message>
-    <message>
-      <source>Your username</source>
-      <translation>Nume dvs. de utilizator</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Parola</translation>
-    </message>
-    <message>
-      <source>Enter a new password</source>
-      <translation>Introduceți o parolă nouă</translation>
-    </message>
-    <message>
-      <source>Repeat password</source>
-      <translation>Repetați parola</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>Repetați parola din nou</translation>
-    </message>
-    <message>
-      <source>Email</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Your email address</source>
-      <translation>Adresa dvs. de e-mail</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation>Alias conversație</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Nume de familie</translation>
-    </message>
-    <message>
-      <source>Job title</source>
-      <translation>Denumirea funcției</translation>
-    </message>
-    <message>
-      <source>I receive other operators permissions request</source>
-      <translation>Primesc cerere de permisiuni pentru alți operatori</translation>
-    </message>
-    <message>
-      <source>Skype</source>
-      <translation>Skype</translation>
-    </message>
-    <message>
-      <source>XMPP username</source>
-      <translation>Nume utilizator XMPP</translation>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Poza</translation>
-    </message>
-    <message>
-      <source>Return</source>
-      <translation>Înapoi</translation>
-    </message>
-    <message>
-      <source>Pending chats list enabled</source>
-      <translation>Lista conversațiilor în așteptare active</translation>
-    </message>
-    <message>
-      <source>Active chats list enabled</source>
-      <translation>Lista conversațiilor active activate</translation>
-    </message>
-    <message>
-      <source>Unread chats list enabled</source>
-      <translation>Lista conversațiilor necitite este activată</translation>
-    </message>
-    <message>
-      <source>Closed chats list enabled</source>
-      <translation>Lista conversațiilor închise este activată</translation>
-    </message>
-    <message>
-      <source>My pending and active chats list enabled</source>
-      <translation>Lista mea de conversații în așteptare și listele active</translation>
-    </message>
-    <message>
-      <source>Bot chats list enabled</source>
-      <translation>Lista de conversații bot activată</translation>
-    </message>
-    <message>
-      <source>I can see all pending chats, not only assigned to me</source>
-      <translation>Pot vedea toate conversațiile în așteptare, nu numai atribuite mie</translation>
-    </message>
-    <message>
-      <source>Automatically accept assigned chats</source>
-      <translation>Acceptați automat conversațiile atribuite</translation>
-    </message>
-    <message>
-      <source>Auto join private chats</source>
-      <translation>Alăturați-vă automat conversațiilor private</translation>
-    </message>
-    <message>
-      <source>Do not scroll to the bottom on chat open</source>
-      <translation>Nu derulați în partea de jos a conversației deschisă</translation>
-    </message>
-    <message>
-      <source>Exclude me from auto assign workflow</source>
-      <translation>Excludeți-mă din fluxul de lucru de atribuire automată</translation>
-    </message>
-    <message>
-      <source>Auto preload previous visitor chat messages</source>
-      <translation>Preîncărcați automat mesajele anterioare de conversație ale vizitatorilor</translation>
-    </message>
-    <message>
-      <source>Auto uppercase sentences</source>
-      <translation>Majuscule automate la propoziții</translation>
-    </message>
-    <message>
-      <source>Maximum active chats</source>
-      <translation>Conversații active maxime</translation>
-    </message>
-    <message>
-      <source>Show permissions</source>
-      <translation>Afișează permisiuni</translation>
-    </message>
-    <message>
-      <source>Account updated</source>
-      <translation>Cont actualizat</translation>
-    </message>
-    <message>
-      <source>All departments</source>
-      <translation>Toate departamentele</translation>
-    </message>
-    <message>
-      <source>Individual departments</source>
-      <translation>Departamente individuale</translation>
-    </message>
-    <message>
-      <source>Assign as operator</source>
-      <translation>Atribuiți ca operator</translation>
-    </message>
-    <message>
-      <source>Read only</source>
-      <translation>Numai citire</translation>
-    </message>
-    <message>
-      <source>Assign in read only mode</source>
-      <translation>Atribuiți în modul doar citire</translation>
-    </message>
-    <message>
-      <source>Show archived departments</source>
-      <translation>Afișați departamentele arhivate</translation>
-    </message>
-    <message>
-      <source>Departments groups (write)</source>
-      <translation>Grupuri de departamente (scrieți)</translation>
-    </message>
-    <message>
-      <source>Departments groups (read)</source>
-      <translation>Grupuri de departamente (citiți)</translation>
-    </message>
-    <message>
-      <source>Offline</source>
-      <translation>Deconectat</translation>
-    </message>
-    <message>
-      <source>Chat status will not change upon pending chat opening</source>
-      <translation>Starea conversației nu se va modifica la deschiderea conversației în așteptare</translation>
-    </message>
-    <message>
-      <source>Pending chats</source>
-      <translation>Conversații în așteptare</translation>
-    </message>
-    <message>
-      <source>User receives other operators permissions request</source>
-      <translation>Utilizatorul primește cererea de permisiuni altor operatori</translation>
-    </message>
-    <message>
-      <source>User can see all pending chats, not only assigned to him</source>
-      <translation>Utilizatorul poate vedea toate conversațiile în așteptare, nu numai atribuite acestuia</translation>
-    </message>
-    <message>
-      <source>Exclude from auto assign workflow</source>
-      <translation>Excludeți din fluxul de lucru de atribuire automată</translation>
-    </message>
-    <message>
-      <source>In order to change operator permissions you have to edit</source>
-      <translation>Pentru a modifica permisiunile operatorului trebuie să editați</translation>
-    </message>
-    <message>
-      <source>roles</source>
-      <translation>roluri</translation>
-    </message>
-    <message>
-      <source>Created</source>
-      <translation>Creat</translation>
-    </message>
-    <message>
-      <source>Notifications</source>
-      <translation>Notificări</translation>
-    </message>
-    <message>
-      <source>Personal auto responder</source>
-      <translation>Răspuns automat personal</translation>
-    </message>
-    <message>
-      <source>Personal canned messages</source>
-      <translation>Mesaje personale arhivate</translation>
-    </message>
-    <message>
-      <source>Avatar builder</source>
-      <translation>Constructor de avatare</translation>
-    </message>
-    <message>
-      <source>Enter any string to generate an avatar</source>
-      <translation>Introduceți orice șir pentru a genera un avatar</translation>
-    </message>
-    <message>
-      <source>Click to set avatar</source>
-      <translation>Faceți clic pentru a seta avatarul</translation>
-    </message>
-    <message>
-      <source>Main</source>
-      <translation>Principal</translation>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Adăugați traducere</translation>
-    </message>
-    <message>
-      <source>Password was updated. Now you can go to back office.</source>
-      <translation>Parola a fost actualizată. Acum puteți merge la partea de administrare.</translation>
     </message>
   </context>
   <context>
@@ -10939,6 +11552,10 @@
       <translation>Editează</translation>
     </message>
     <message>
+      <source>Clone</source>
+      <translation>Clonează</translation>
+    </message>
+    <message>
       <source>Departments</source>
       <translation>Departamente</translation>
     </message>
@@ -10971,6 +11588,10 @@
       <translation>Arhivat</translation>
     </message>
     <message>
+      <source>Load statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation>Da</translation>
     </message>
@@ -10979,12 +11600,8 @@
       <translation>Nu</translation>
     </message>
     <message>
-      <source>Edit department</source>
-      <translation>Editează departamentul</translation>
-    </message>
-    <message>
-      <source>Clone</source>
-      <translation>Clonează</translation>
+      <source>Assigned operators</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New department</source>
@@ -11257,6 +11874,213 @@
     <message>
       <source>New</source>
       <translation>Nou</translation>
+    </message>
+  </context>
+  <context>
+    <name>statistic/departmentstats</name>
+    <message>
+      <source>We show only directly or group assigned operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation>ID utilizator</translation>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation>Ultima activitate acum</translation>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation>Doar citire</translation>
+    </message>
+    <message>
+      <source>Assignment type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation>Grup departament</translation>
+    </message>
+    <message>
+      <source>Exclude from auto assign workflow</source>
+      <translation>Excludeți din fluxul de lucru de atribuire automată</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Da</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Nu</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamente</translation>
+    </message>
+    <message>
+      <source>Department operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Conversații</translation>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation>Operatori</translation>
+    </message>
+    <message>
+      <source>Chats operators</source>
+      <translation>Operatori conversații</translation>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live data</source>
+      <translation>Date live</translation>
+    </message>
+    <message>
+      <source>active chats</source>
+      <translation>conversații active</translation>
+    </message>
+    <message>
+      <source>bot chats</source>
+      <translation>conversații bot</translation>
+    </message>
+    <message>
+      <source>pending chats</source>
+      <translation>conversații în așteptare</translation>
+    </message>
+    <message>
+      <source>in-active chats</source>
+      <translation>conversații inactive</translation>
+    </message>
+    <message>
+      <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
+      <translation>Conversația este activă/în așteptare, iar utilizatorul a închis widgetul sau a fost redirecționat către sondaj</translation>
+    </message>
+    <message>
+      <source>Load statistic</source>
+      <translation>Încărcare statistică</translation>
+    </message>
+    <message>
+      <source>soft limit</source>
+      <translation>limită soft</translation>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
+      <translation>Operatorul este conectat la partea de administrare în ultimele 10 minute și este online/offline</translation>
+    </message>
+    <message>
+      <source>hard limit</source>
+      <translation>limită hard</translation>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation>Operatorul este conectat la partea de administrare în ultimele 10 minute și se află în stare online</translation>
+    </message>
+    <message>
+      <source>active operators chats</source>
+      <translation>conversații ale operatorilor activi</translation>
+    </message>
+    <message>
+      <source>inactive operators chats</source>
+      <translation>conversații inactive ale operatorilor</translation>
+    </message>
+    <message>
+      <source>Summary statistic [Hard limit]</source>
+      <translation>Statistică sumară [Limită maximă]</translation>
+    </message>
+    <message>
+      <source>Summary statistic [Soft limit]</source>
+      <translation>Statistică sumară [Limită moderată]</translation>
+    </message>
+    <message>
+      <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
+      <translation>Limită soft. Operatorul este conectat la partea de administrare în ultimele 10 minute și este online/offline.</translation>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation>Conversații maxime</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversații active</translation>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation>Conversații inactive</translation>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation>Disponibil</translation>
+    </message>
+    <message>
+      <source>Operator active/pending chats</source>
+      <translation>Operator conversații active/în așteptare</translation>
+    </message>
+    <message>
+      <source>Edit operator</source>
+      <translation>Editează operator</translation>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation>Total</translation>
+    </message>
+    <message>
+      <source>No data.</source>
+      <translation>Nr. date.</translation>
+    </message>
+    <message>
+      <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation>Limită hard. Operatorul este conectat la partea de administrare în ultimele 10 minute și se află în stare online</translation>
+    </message>
+    <message>
+      <source>Active chats statistic by operators</source>
+      <translation>Statistica conversațiilor active de către operatori</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Ultima activitate</translation>
+    </message>
+    <message>
+      <source>Offline for</source>
+      <translation>Deconectat pentru</translation>
+    </message>
+    <message>
+      <source>Just now</source>
+      <translation>Chiar acum</translation>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation>Statistic</translation>
+    </message>
+    <message>
+      <source>Online hours</source>
+      <translation>Ore online</translation>
+    </message>
+    <message>
+      <source>Operator online hours</source>
+      <translation>Ore online operator</translation>
+    </message>
+    <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User stats</source>
+      <translation>Statistici utilizator</translation>
+    </message>
+    <message>
+      <source>Last chat assigned ago</source>
+      <translation>Ultima conversație atribuită acum</translation>
+    </message>
+    <message>
+      <source>All</source>
+      <translation>Toate</translation>
     </message>
   </context>
   <context>
@@ -11752,6 +12576,25 @@
     </message>
   </context>
   <context>
+    <name>genericbot/chat_actions</name>
+    <message>
+      <source>Chat actions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>user/edit</name>
     <message>
       <source>Photo</source>
@@ -11810,10 +12653,6 @@
       <translation>Anulează</translation>
     </message>
     <message>
-      <source>Assigned departments</source>
-      <translation>Departamente alocate</translation>
-    </message>
-    <message>
       <source>User time zone</source>
       <translation>Fus orar al utilizatorului</translation>
     </message>
@@ -11856,10 +12695,6 @@
   </context>
   <context>
     <name>genericbot/restapi</name>
-    <message>
-      <source>form data (Use this to send post parameters)</source>
-      <translation>date formular (Utilizați acest lucru pentru a trimite parametrii postării)</translation>
-    </message>
     <message>
       <source>Name</source>
       <translation>Nume</translation>
@@ -11975,6 +12810,10 @@
     <message>
       <source>Text not like</source>
       <translation>Text neapreciat</translation>
+    </message>
+    <message>
+      <source>Contains</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Request Body</source>
@@ -12546,6 +13385,33 @@
     </message>
   </context>
   <context>
+    <name>permission/explorer</name>
+    <message>
+      <source>Permissions explorer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download as CSV</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permission</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explain</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Used by URL</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>permission/getpermissionssummary</name>
     <message>
       <source>Request permission</source>
@@ -12700,10 +13566,6 @@
   </context>
   <context>
     <name>permission/roles</name>
-    <message>
-      <source>Edit a role</source>
-      <translation>Editați un rol</translation>
-    </message>
     <message>
       <source>List of roles</source>
       <translation>Lista de roluri</translation>
@@ -13209,197 +14071,6 @@
     </message>
   </context>
   <context>
-    <name>statistic/departmentstats</name>
-    <message>
-      <source>Chats</source>
-      <translation>Conversații</translation>
-    </message>
-    <message>
-      <source>Operators</source>
-      <translation>Operatori</translation>
-    </message>
-    <message>
-      <source>Chats operators</source>
-      <translation>Operatori conversații</translation>
-    </message>
-    <message>
-      <source>Live data</source>
-      <translation>Date live</translation>
-    </message>
-    <message>
-      <source>active chats</source>
-      <translation>conversații active</translation>
-    </message>
-    <message>
-      <source>bot chats</source>
-      <translation>conversații bot</translation>
-    </message>
-    <message>
-      <source>pending chats</source>
-      <translation>conversații în așteptare</translation>
-    </message>
-    <message>
-      <source>in-active chats</source>
-      <translation>conversații inactive</translation>
-    </message>
-    <message>
-      <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
-      <translation>Conversația este activă/în așteptare, iar utilizatorul a închis widgetul sau a fost redirecționat către sondaj</translation>
-    </message>
-    <message>
-      <source>Load statistic</source>
-      <translation>Încărcare statistică</translation>
-    </message>
-    <message>
-      <source>soft limit</source>
-      <translation>limită soft</translation>
-    </message>
-    <message>
-      <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
-      <translation>Operatorul este conectat la partea de administrare în ultimele 10 minute și este online/offline</translation>
-    </message>
-    <message>
-      <source>hard limit</source>
-      <translation>limită hard</translation>
-    </message>
-    <message>
-      <source>Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation>Operatorul este conectat la partea de administrare în ultimele 10 minute și se află în stare online</translation>
-    </message>
-    <message>
-      <source>active operators chats</source>
-      <translation>conversații ale operatorilor activi</translation>
-    </message>
-    <message>
-      <source>inactive operators chats</source>
-      <translation>conversații inactive ale operatorilor</translation>
-    </message>
-    <message>
-      <source>Summary statistic [Hard limit]</source>
-      <translation>Statistică sumară [Limită maximă]</translation>
-    </message>
-    <message>
-      <source>Summary statistic [Soft limit]</source>
-      <translation>Statistică sumară [Limită moderată]</translation>
-    </message>
-    <message>
-      <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
-      <translation>Limită soft. Operatorul este conectat la partea de administrare în ultimele 10 minute și este online/offline.</translation>
-    </message>
-    <message>
-      <source>User ID</source>
-      <translation>ID utilizator</translation>
-    </message>
-    <message>
-      <source>Max chats</source>
-      <translation>Conversații maxime</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Conversații active</translation>
-    </message>
-    <message>
-      <source>Inactive chats</source>
-      <translation>Conversații inactive</translation>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation>Disponibil</translation>
-    </message>
-    <message>
-      <source>Operator active/pending chats</source>
-      <translation>Operator conversații active/în așteptare</translation>
-    </message>
-    <message>
-      <source>Edit operator</source>
-      <translation>Editează operator</translation>
-    </message>
-    <message>
-      <source>Total</source>
-      <translation>Total</translation>
-    </message>
-    <message>
-      <source>No data.</source>
-      <translation>Nr. date.</translation>
-    </message>
-    <message>
-      <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation>Limită hard. Operatorul este conectat la partea de administrare în ultimele 10 minute și se află în stare online</translation>
-    </message>
-    <message>
-      <source>Active chats statistic by operators</source>
-      <translation>Statistica conversațiilor active de către operatori</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Ultima activitate</translation>
-    </message>
-    <message>
-      <source>Offline for</source>
-      <translation>Deconectat pentru</translation>
-    </message>
-    <message>
-      <source>Just now</source>
-      <translation>Chiar acum</translation>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation>Statistic</translation>
-    </message>
-    <message>
-      <source>Online hours</source>
-      <translation>Ore online</translation>
-    </message>
-    <message>
-      <source>Operator online hours</source>
-      <translation>Ore online operator</translation>
-    </message>
-    <message>
-      <source>User stats</source>
-      <translation>Statistici utilizator</translation>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation>Ultima activitate acum</translation>
-    </message>
-    <message>
-      <source>Last chat assigned ago</source>
-      <translation>Ultima conversație atribuită acum</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamente</translation>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation>Grup departament</translation>
-    </message>
-    <message>
-      <source>Type</source>
-      <translation>Tip</translation>
-    </message>
-    <message>
-      <source>Read only</source>
-      <translation>Doar citire</translation>
-    </message>
-    <message>
-      <source>Exclude from auto assign workflow</source>
-      <translation>Excludeți din fluxul de lucru de atribuire automată</translation>
-    </message>
-    <message>
-      <source>All</source>
-      <translation>Toate</translation>
-    </message>
-    <message>
-      <source>Yes</source>
-      <translation>Da</translation>
-    </message>
-    <message>
-      <source>No</source>
-      <translation>Nu</translation>
-    </message>
-  </context>
-  <context>
     <name>survey/choosesurvey</name>
     <message>
       <source>Survey</source>
@@ -13579,24 +14250,48 @@
       <translation>Utilizatorul trebuie să schimbe parola la fiecare n zile</translation>
     </message>
     <message>
-      <source>Minimal password length</source>
-      <translation>Lungimea minimă a parolei</translation>
+      <source>Disable user automatically if from last login passed X number of days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Force user logout if last login was X hours ago</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum number of failed logins before account is disabled.</source>
       <translation>Numărul maxim de conectări eșuate înainte să fie dezactivat contul.</translation>
     </message>
     <message>
-      <source>Uppercase letter required</source>
-      <translation>Este necesară literă mare</translation>
+      <source>We should generate password for password reminder</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Number required</source>
-      <translation>Este necesar să conțină numere</translation>
+      <source>Password format requirements</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Special character required</source>
-      <translation>Este necesar un caracter special</translation>
+      <source>Minimal password length</source>
+      <translation>Lungimea minimă a parolei</translation>
+    </message>
+    <message>
+      <source>Uppercase letters required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lowercase characters required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Numbers required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Special characters required</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Both passwords must match</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Autologin hash has expired</source>
@@ -13887,6 +14582,10 @@
       <translation>Forțează utilizatorul să schimbe parola la conectare</translation>
     </message>
     <message>
+      <source>Force logout</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User receives other operators permissions request</source>
       <translation>Utilizatorul primește cererea de permisiuni altor operatori</translation>
     </message>
@@ -13988,10 +14687,6 @@
   </context>
   <context>
     <name>update/statusdb</name>
-    <message>
-      <source>Database structure check</source>
-      <translation>Verificarea structurii bazei de date</translation>
-    </message>
     <message>
       <source>Database structure check with local version</source>
       <translation>Verificarea structurii bazei de date cu versiunea locală</translation>
@@ -14270,8 +14965,8 @@
       <translation>Reamintire parolă</translation>
     </message>
     <message>
-      <source>Click this link and You will be sent a new password</source>
-      <translation>Faceți clic pe acest link și vi se va trimite o nouă parolă</translation>
+      <source>Click this link and You will be able to change a password</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14281,8 +14976,8 @@
       <translation>Reamintire parolă</translation>
     </message>
     <message>
-      <source>E-mail sent. Click the link in the email and You will be sent out a new password.</source>
-      <translation>E-mail trimis. Faceți clic pe linkul din e-mail și vi se va trimite o nouă parolă.</translation>
+      <source>If this e-mail exists we have send password remind link. Click the link in the email and You will be able to set a new password.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14449,10 +15144,6 @@
   <context>
     <name>user/login</name>
     <message>
-      <source>Username</source>
-      <translation>Nume utilizator</translation>
-    </message>
-    <message>
       <source>Please login</source>
       <translation>Va rugam să vă conectați</translation>
     </message>
@@ -14507,6 +15198,10 @@
     <message>
       <source>Update password</source>
       <translation>Actualizați parola</translation>
+    </message>
+    <message>
+      <source>Authorization failed!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Failed login. API</source>
@@ -14583,24 +15278,28 @@
   <context>
     <name>user/remindpassword</name>
     <message>
+      <source>Login</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New password</source>
       <translation>Parola nouă</translation>
     </message>
     <message>
-      <source>Hash was not found or was used already</source>
-      <translation>Hash nu a fost găsit sau a fost folosit deja</translation>
+      <source>Repeat password</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password reminder - new password</source>
-      <translation>Recuperare parolă - parolă nouă</translation>
+      <source>Password requirements</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>New password:</source>
-      <translation>Parola nouă:</translation>
+      <source>Reset password</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>New password has been sent to your email.</source>
-      <translation>Noua parolă a fost trimisă la adresa dvs. de e-mail.</translation>
+      <source>Invalid hash or it was used already!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14620,6 +15319,25 @@
     <message>
       <source>Offline</source>
       <translation>Deconectat</translation>
+    </message>
+  </context>
+  <context>
+    <name>views/view</name>
+    <message>
+      <source>My views</source>
+      <translation>Vizualizările mele</translation>
+    </message>
+    <message>
+      <source>Updated ago</source>
+      <translation>Actualizat acum</translation>
+    </message>
+    <message>
+      <source>Live updating</source>
+      <translation>Actualizare live</translation>
+    </message>
+    <message>
+      <source>This view is passive and is not updated live</source>
+      <translation>Această vizualizare este pasivă și nu este actualizată live</translation>
     </message>
   </context>
   <context>
@@ -14739,10 +15457,6 @@
   <context>
     <name>chat/webhooks</name>
     <message>
-      <source>Images</source>
-      <translation>Imagini</translation>
-    </message>
-    <message>
       <source>Hooks events</source>
       <translation>Evenimente hooks</translation>
     </message>
@@ -14813,6 +15527,10 @@
     <message>
       <source>Text not like</source>
       <translation>Text neapreciat</translation>
+    </message>
+    <message>
+      <source>Contains</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Value</source>
@@ -15216,6 +15934,109 @@
     </message>
   </context>
   <context>
+    <name>abstract/browserofferinvitation</name>
+    <message>
+      <source>Name for personal purposes</source>
+      <translation>Numele în scopuri personale</translation>
+    </message>
+    <message>
+      <source>Content</source>
+      <translation>Conținut</translation>
+    </message>
+    <message>
+      <source>Name attributes</source>
+      <translation>Atribute de nume</translation>
+    </message>
+    <message>
+      <source>Introduction attributes</source>
+      <translation>Atribute de introducere</translation>
+    </message>
+    <message>
+      <source>XLS Columns</source>
+      <translation>Coloane XLS</translation>
+    </message>
+    <message>
+      <source>Recipient</source>
+      <translation>Destinatar</translation>
+    </message>
+    <message>
+      <source>Post content after form is submitted</source>
+      <translation>Postați conținutul după trimiterea formularului</translation>
+    </message>
+    <message>
+      <source>Custom pagelayout</source>
+      <translation>Aspect personalizat al paginii</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Activ</translation>
+    </message>
+    <message>
+      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
+      <translation>Limbă, lăsați gol pentru toate. De exemplu, lit, rus, ger etc...</translation>
+    </message>
+    <message>
+      <source>Time on site on single page in seconds</source>
+      <translation>Timp pe site pe o singură pagină în secunde</translation>
+    </message>
+    <message>
+      <source>Priority, the lower the higher</source>
+      <translation>Prioritate, cu cât este mai mică, cu atât este mai mare</translation>
+    </message>
+    <message>
+      <source>Popup width</source>
+      <translation>Lățime pop-up</translation>
+    </message>
+    <message>
+      <source>Popup height</source>
+      <translation>Înălțime pop-up</translation>
+    </message>
+    <message>
+      <source>Measure units, px or percents</source>
+      <translation>Unități de măsură, px sau procente</translation>
+    </message>
+    <message>
+      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
+      <translation>Domeniul de referință fără www, de exemplu, cuvântul cheie google se va potrivi cu oricare din domeniul google</translation>
+    </message>
+    <message>
+      <source>URL, enter * at the end for the wildcard</source>
+      <translation>URL, introduceți * la sfârșit pentru wildcard</translation>
+    </message>
+    <message>
+      <source>Custom iframe URL, takes priority over default content</source>
+      <translation>Adresa URL iframe personalizată, are prioritate față de conținutul implicit</translation>
+    </message>
+    <message>
+      <source>Default popup content</source>
+      <translation>Conținut pop-up implicit</translation>
+    </message>
+    <message>
+      <source>Callback content, must be valid json</source>
+      <translation>Conținutul de apel invers trebuie să fie valid JSON</translation>
+    </message>
+    <message>
+      <source>Load content in lhc iframe</source>
+      <translation>Încărcați conținut în iframe lhc</translation>
+    </message>
+    <message>
+      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
+      <translation>Identificator, pentru ce identificator ar trebui afișat acest mesaj, lăsați gol pentru toți</translation>
+    </message>
+    <message>
+      <source>Matched times</source>
+      <translation>Număr de potriviri</translation>
+    </message>
+    <message>
+      <source>Browser offer invitations</source>
+      <translation>Invitații pentru vizualizare oferte</translation>
+    </message>
+    <message>
+      <source>Forms list</source>
+      <translation>Listă formulare</translation>
+    </message>
+  </context>
+  <context>
     <name>abstract/product</name>
     <message>
       <source>ID</source>
@@ -15240,6 +16061,17 @@
     <message>
       <source>Rest API Remote Keys</source>
       <translation>Rest API control la distanță</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/chatsubject</name>
+    <message>
+      <source>Internal</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Internal type</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -15293,162 +16125,7 @@
     </message>
   </context>
   <context>
-    <name>chat/chatcommand</name>
-    <message>
-      <source>Information collected. [baseurl]form/viewcollected/&apos;.$formCollected-&gt;id.&apos;[/baseurl]</source>
-      <translation>Informații colectate. [baseurl]form/viewcollected/&apos;.$formCollected-&gt;id.&apos;[/baseurl]</translation>
-    </message>
-    <message>
-      <source>Visitor ID</source>
-      <translation>ID vizitator</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departament</translation>
-    </message>
-    <message>
-      <source>Please provide modal URL!</source>
-      <translation>Vă rugăm să furnizați URL modal!</translation>
-    </message>
-    <message>
-      <source>We will show a form in a moment!</source>
-      <translation>Vom arăta un formular într-o clipă!</translation>
-    </message>
-    <message>
-      <source>Modal activated!</source>
-      <translation>Modal activat!</translation>
-    </message>
-    <message>
-      <source>was executed</source>
-      <translation>a fost executat</translation>
-    </message>
-    <message>
-      <source>Assigned trigger could not be found</source>
-      <translation>Declanșatorul atribuit nu a putut fi găsit</translation>
-    </message>
-    <message>
-      <source>Nick changed!</source>
-      <translation>Alias schimbat!</translation>
-    </message>
-    <message>
-      <source>Files upload was disabled!</source>
-      <translation>Încărcarea fișierelor a fost dezactivată!</translation>
-    </message>
-    <message>
-      <source>I have enabled files upload for you. [fupload]Upload a file[/fupload].</source>
-      <translation>Am activat încărcarea fișierelor pentru dvs.. [fupload]Încarcă un fișier[/fupload].</translation>
-    </message>
-    <message>
-      <source>Files upload enabled.</source>
-      <translation>Încărcare fișiere activată.</translation>
-    </message>
-    <message>
-      <source>Chat status changed on-hold!</source>
-      <translation>Starea conversației a fost modificată în așteptare!</translation>
-    </message>
-    <message>
-      <source>Chat was transferred to bot!</source>
-      <translation>Conversația a fost transferată către bot!</translation>
-    </message>
-    <message>
-      <source>E-mail changed!</source>
-      <translation>E-mailul s-a schimbat!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to transfer chat directly!</source>
-      <translation>Nu aveți permisiunea de a transfera conversația direct!</translation>
-    </message>
-    <message>
-      <source>User could not be found!</source>
-      <translation>Utilizatorul nu a putut fi găsit!</translation>
-    </message>
-    <message>
-      <source>Phone changed!</source>
-      <translation>Telefonul s-a schimbat!</translation>
-    </message>
-    <message>
-      <source>User was redirected!</source>
-      <translation>Utilizatorul a fost redirecționat!</translation>
-    </message>
-    <message>
-      <source>Screenshot was scheduled!</source>
-      <translation>Captura de ecran a fost programată!</translation>
-    </message>
-    <message>
-      <source>User was redirected to contact form!</source>
-      <translation>Utilizatorul a fost redirecționat către formularul de contact!</translation>
-    </message>
-    <message>
-      <source>User was blocked!</source>
-      <translation>Utilizatorul a fost blocat!</translation>
-    </message>
-    <message>
-      <source>Started chat from</source>
-      <translation>A început conversația de la</translation>
-    </message>
-    <message>
-      <source>Refered from</source>
-      <translation>Referit din</translation>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation>Pagina curentă</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Phone</source>
-      <translation>Telefon</translation>
-    </message>
-    <message>
-      <source>Country</source>
-      <translation>Țară</translation>
-    </message>
-    <message>
-      <source>Chat was closed!</source>
-      <translation>Conversația a fost închisă.</translation>
-    </message>
-    <message>
-      <source>You do not have permission to close a chat!</source>
-      <translation>Nu ai dreptul de a accesa conversatia curenta!</translation>
-    </message>
-    <message>
-      <source>Chat was deleted!</source>
-      <translation>Conversația a fost ștearsă!</translation>
-    </message>
-    <message>
-      <source>You do not have permission to delete a chat!</source>
-      <translation>Nu aveți permisiunea de a șterge o conversație!</translation>
-    </message>
-    <message>
-      <source>Chat status was changed to pending!</source>
-      <translation>Starea conversației a fost schimbată în așteptare!</translation>
-    </message>
-    <message>
-      <source>Chat status was changed to active!</source>
-      <translation>Starea conversației a fost schimbată în activă!</translation>
-    </message>
-    <message>
-      <source>Remarks were saved!</source>
-      <translation>Observațiile au fost salvate!</translation>
-    </message>
-    <message>
-      <source>Information collected. [baseurl]form/viewcollected/&apos; . $formCollected-&gt;id . &apos;[/baseurl]</source>
-      <translation>Informații colectate. [baseurl]form/viewcollected/&apos; . $formCollected-&gt;id . &apos;[/baseurl]</translation>
-    </message>
-    <message>
-      <source>Information collected. Only chat form</source>
-      <translation>Informații colectate. Numai formular de conversație</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/accepttrasnfer</name>
-    <message>
-      <source>has accepted a chat!</source>
-      <translation>a acceptat o conversație!</translation>
-    </message>
     <message>
       <source>Chat has been transfered to</source>
       <translation>Conversația a fost transferată către</translation>
@@ -15627,6 +16304,10 @@
     <message>
       <source>Bot</source>
       <translation>Bot</translation>
+    </message>
+    <message>
+      <source>Chat actions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional data</source>
@@ -15968,24 +16649,24 @@
       <translation>Tipul de acțiune a utilizatorului nu este setat</translation>
     </message>
     <message>
-      <source>Password has to be at least</source>
-      <translation>Parola trebuie să fie cel puțin</translation>
+      <source>Password has to be at least %d characters length</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>characters length</source>
-      <translation>lungimea caracterelor</translation>
+      <source>Password has to have at-least %d uppercase letter</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password has to have at-least one uppercase letter</source>
-      <translation>Parola trebuie să aibă cel puțin o literă mare</translation>
+      <source>Password has to have at-least %d number(s)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password has to have at-least one number</source>
-      <translation>Parola trebuie să aibă cel puțin un număr</translation>
+      <source>Password has to have at-least %d special character(s)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Password has to have at-least one special character</source>
-      <translation>Parola trebuie să aibă cel puțin un caracter special</translation>
+      <source>Password has to have at-least %d lowercase letters</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Old password incorrect!</source>
@@ -15999,6 +16680,14 @@
       <source>Old and new password has to be different!</source>
       <translation>Parola nouă și veche trebuie să fie diferită!</translation>
     </message>
+    <message>
+      <source>Please enter a password!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Passwords must match!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>lhrestapi/validation</name>
@@ -16011,6 +16700,10 @@
       <translation>Nu aveți permisiunea de a utiliza REST API direct. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; lipsește!</translation>
     </message>
     <message>
+      <source>Rest API IP restrictions applies! </source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Authorization header is missing!</source>
       <translation>Antetul autorizației lipsește!</translation>
     </message>
@@ -16021,109 +16714,6 @@
     <message>
       <source>You do not have permission to read this chat!</source>
       <translation>Nu aveți permisiunea de a citi această conversație!</translation>
-    </message>
-  </context>
-  <context>
-    <name>abstract/browserofferinvitation</name>
-    <message>
-      <source>Name for personal purposes</source>
-      <translation>Numele în scopuri personale</translation>
-    </message>
-    <message>
-      <source>Content</source>
-      <translation>Conținut</translation>
-    </message>
-    <message>
-      <source>Name attributes</source>
-      <translation>Atribute de nume</translation>
-    </message>
-    <message>
-      <source>Introduction attributes</source>
-      <translation>Atribute de introducere</translation>
-    </message>
-    <message>
-      <source>XLS Columns</source>
-      <translation>Coloane XLS</translation>
-    </message>
-    <message>
-      <source>Recipient</source>
-      <translation>Destinatar</translation>
-    </message>
-    <message>
-      <source>Post content after form is submitted</source>
-      <translation>Postați conținutul după trimiterea formularului</translation>
-    </message>
-    <message>
-      <source>Custom pagelayout</source>
-      <translation>Aspect personalizat al paginii</translation>
-    </message>
-    <message>
-      <source>Active</source>
-      <translation>Activ</translation>
-    </message>
-    <message>
-      <source>Language, leave empty for all. E.g lit, rus, ger etc...</source>
-      <translation>Limbă, lăsați gol pentru toate. De exemplu, lit, rus, ger etc...</translation>
-    </message>
-    <message>
-      <source>Time on site on single page in seconds</source>
-      <translation>Timp pe site pe o singură pagină în secunde</translation>
-    </message>
-    <message>
-      <source>Priority, the lower the higher</source>
-      <translation>Prioritate, cu cât este mai mică, cu atât este mai mare</translation>
-    </message>
-    <message>
-      <source>Popup width</source>
-      <translation>Lățime pop-up</translation>
-    </message>
-    <message>
-      <source>Popup height</source>
-      <translation>Înălțime pop-up</translation>
-    </message>
-    <message>
-      <source>Measure units, px or percents</source>
-      <translation>Unități de măsură, px sau procente</translation>
-    </message>
-    <message>
-      <source>Referrer domain without www, E.g google keyword will match any of google domain</source>
-      <translation>Domeniul de referință fără www, de exemplu, cuvântul cheie google se va potrivi cu oricare din domeniul google</translation>
-    </message>
-    <message>
-      <source>URL, enter * at the end for the wildcard</source>
-      <translation>URL, introduceți * la sfârșit pentru wildcard</translation>
-    </message>
-    <message>
-      <source>Custom iframe URL, takes priority over default content</source>
-      <translation>Adresa URL iframe personalizată, are prioritate față de conținutul implicit</translation>
-    </message>
-    <message>
-      <source>Default popup content</source>
-      <translation>Conținut pop-up implicit</translation>
-    </message>
-    <message>
-      <source>Callback content, must be valid json</source>
-      <translation>Conținutul de apel invers trebuie să fie valid JSON</translation>
-    </message>
-    <message>
-      <source>Load content in lhc iframe</source>
-      <translation>Încărcați conținut în iframe lhc</translation>
-    </message>
-    <message>
-      <source>Identifier, for what identifier this message should be shown, leave empty for all</source>
-      <translation>Identificator, pentru ce identificator ar trebui afișat acest mesaj, lăsați gol pentru toți</translation>
-    </message>
-    <message>
-      <source>Matched times</source>
-      <translation>Număr de potriviri</translation>
-    </message>
-    <message>
-      <source>Browser offer invitations</source>
-      <translation>Invitații pentru vizualizare oferte</translation>
-    </message>
-    <message>
-      <source>Forms list</source>
-      <translation>Listă formulare</translation>
     </message>
   </context>
   <context>
@@ -16147,6 +16737,13 @@
     <message>
       <source>Translations groups</source>
       <translation>Grupuri de tranduceri</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/abstractclick</name>
+    <message>
+      <source>Invitation can not be send because online visitor profile can not be found.</source>
+      <translation>Invitația nu poate fi trimisă, deoarece profilul vizitatorului online nu poate fi găsit.</translation>
     </message>
   </context>
   <context>
@@ -16187,17 +16784,6 @@
     </message>
   </context>
   <context>
-    <name>chat/reopenchat</name>
-    <message>
-      <source>has reopened the chat!</source>
-      <translation>a redeschis conversația!</translation>
-    </message>
-    <message>
-      <source>No permission to reopen the chat!</source>
-      <translation>Nu aveți permisiunea de a redeschide conversația!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/single</name>
     <message>
       <source>Chat started with</source>
@@ -16214,17 +16800,9 @@
       <source>Disabled!</source>
       <translation>Dezactivat!</translation>
     </message>
-    <message>
-      <source>Department is disabled!</source>
-      <translation>Departamentul este dezactivat!</translation>
-    </message>
   </context>
   <context>
     <name>chat/transferuser</name>
-    <message>
-      <source>department</source>
-      <translation>departament</translation>
-    </message>
     <message>
       <source>has changed department to</source>
       <translation>a schimbat departamentul în</translation>
@@ -16465,8 +17043,8 @@
       <translation>Tipul de fișier incorect!</translation>
     </message>
     <message>
-      <source>File to big!</source>
-      <translation>Fișier prea mare!</translation>
+      <source>File too big!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -16485,32 +17063,6 @@
     <message>
       <source>Deny screen share</source>
       <translation>Refuzați partajarea ecranului</translation>
-    </message>
-  </context>
-  <context>
-    <name>views/view</name>
-    <message>
-      <source>My views</source>
-      <translation>Vizualizările mele</translation>
-    </message>
-    <message>
-      <source>This view is passive and is not updated live</source>
-      <translation>Această vizualizare este pasivă și nu este actualizată live</translation>
-    </message>
-    <message>
-      <source>Updated ago</source>
-      <translation>Actualizat acum</translation>
-    </message>
-    <message>
-      <source>Live updating</source>
-      <translation>Actualizare live</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/abstractclick</name>
-    <message>
-      <source>Invitation can not be send because online visitor profile can not be found.</source>
-      <translation>Invitația nu poate fi trimisă, deoarece profilul vizitatorului online nu poate fi găsit.</translation>
     </message>
   </context>
 </TS>
