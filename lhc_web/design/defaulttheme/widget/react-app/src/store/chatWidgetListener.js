@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked, updateMessage } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -28,6 +28,7 @@ export default function (dispatch, getState) {
         if (Array.isArray(args)) {
             args.push(dispatch);
             args.push(getState);
+            args.push(updateMessage);
         }
 
         if (typeof extensions[extension] !== 'undefined') {

@@ -10,6 +10,11 @@ if ($currentUser->getUserID() == $Params['user_parameters']['user_id']) {
     exit;
 }
 
+if ((int)$Params['user_parameters']['user_id'] == 1) {
+    die('admin account never can be deleted!');
+    exit;
+}
+
 $departament = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $Params['user_parameters']['user_id']);
 erLhcoreClassUser::getSession()->delete($departament);
 

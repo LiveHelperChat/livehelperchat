@@ -104,7 +104,15 @@ class erLhcoreClassChatCommand
 
                 $trigger = $command->trigger;
 
+                $ignore = false;
+
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                    $ignore = strpos($commandData['argument'],'--silent') !== false;
+
+                    if ($ignore == true) {
+                        $commandData['argument'] = trim(str_replace('--silent','',$commandData['argument']));
+                    }
 
                     $argumentsTrigger = array(
                         'msg' => $commandData['argument'], 
@@ -119,11 +127,13 @@ class erLhcoreClassChatCommand
                     erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
 
                     $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
+
                 } else {
                     $response = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Assigned trigger could not be found');
                 }
 
                 return array(
+                    'ignore' => $ignore,
                     'processed' => true,
                     'process_status' => '',
                     'raw_message' => $commandData['command'] . ' || ' . $response

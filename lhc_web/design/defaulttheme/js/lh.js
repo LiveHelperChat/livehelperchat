@@ -865,12 +865,30 @@ function lh(){
     
     this.protectCSFR = function()
     {
-    	$('a.csfr-required').click(function(){
+    	$('a.csfr-required').click(function(event) {
+
     		var inst = $(this);
     		if (!inst.attr('data-secured')){
         		inst.attr('href',inst.attr('href')+'/(csfr)/'+confLH.csrf_token);
         		inst.attr('data-secured',1);
         	}
+
+            if (inst.hasClass('csfr-post') && !inst.hasClass('csfr-post-executed')) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                inst.addClass('csfr-post-executed');
+
+                if (!inst.attr('data-trans') || confirm(confLH.transLation[inst.attr('data-trans')])){
+                    $.post(inst.attr('href'));
+                    document.location.reload();
+                } else {
+                    setTimeout(function(){
+                        inst.removeClass('csfr-post-executed');
+                    },500);
+                }
+            }
     	});
     };
 

@@ -28,6 +28,7 @@
         if ($msg['msg'] == '' &&
             (!isset($metaMessageData['content']['text_conditional'])) &&
             (!isset($metaMessageData['content']['chat_operation'])) &&
+            (!isset($metaMessageData['content']['extension'])) &&
             (!isset($metaMessageData['content']['html']['content'])) &&
             (!isset($metaMessageData['content']['button_message']))) {
             continue;

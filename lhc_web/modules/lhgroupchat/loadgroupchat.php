@@ -16,6 +16,7 @@ try {
         if (erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $currentUser->getUserID()))) == 0){
             throw new Exception('You are not a member of this private group!');
         }
+
     } else {
         // Auto join if it's public chat
         if (erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $currentUser->getUserID()))) == 0) {

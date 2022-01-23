@@ -888,7 +888,9 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
 $version = erLhcoreClassUpdate::LHC_RELEASE;
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('lists' => & $ReturnMessages, 'v' => & $version));
+$mainSyncAttributes = [];
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface',array('main_attr' => & $mainSyncAttributes, 'lists' => & $ReturnMessages, 'v' => & $version));
 
 $ou = '';
 if ($userData->operation_admin != '') {
@@ -903,6 +905,10 @@ if (isset($currentOp) && $currentOp !== null) {
 
 if (!empty($chatsForced)) {
      $responseSync['fs'] = $chatsForced;
+}
+
+if (!empty($mainSyncAttributes)) {
+    $responseSync = $responseSync + $mainSyncAttributes;
 }
 
 echo erLhcoreClassChat::safe_json_encode($responseSync);
