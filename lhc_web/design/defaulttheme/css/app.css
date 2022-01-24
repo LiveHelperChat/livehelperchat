@@ -456,6 +456,14 @@ div.other-operator div.msg-body{
     background-color: #5585ff;
 }
 
+div.whisper-msg div.msg-body{
+    background-color: #bcbcbc;
+}
+
+div.whisper-msg span.op-tit{
+    color: #bcbcbc;
+}
+
 div.message-admin div.msg-body a.link{
 	color:#fff;
 	text-decoration:underline;

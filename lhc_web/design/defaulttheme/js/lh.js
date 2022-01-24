@@ -2210,6 +2210,10 @@ function lh(){
                     textArea.removeAttr('canned_id');
                 }
 
+                if (textArea.attr('whisper')) {
+                    pdata.whisper = 1;
+                }
+
 				$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data) {
                     textArea.removeAttr('readonly').attr('placeholder',placeholerOriginal);
 
@@ -2486,20 +2490,28 @@ function lh(){
         });
 
         $('#chat-write-button-'+chat_id).click(function() {
-            $('#CSChatMessage-'+chat_id).show().focus();
+            $('#CSChatMessage-'+chat_id).show().focus().removeAttr("whisper").removeClass('bg-light').attr('placeholder',$(this).attr('data-plc'));
             $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
-            $('#chat-preview-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
+            $('#chat-preview-button-'+chat_id+',#chat-whisper-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
             $('#chat-preview-container-'+chat_id).hide();
         });
 
-        $('#chat-preview-button-'+chat_id).click(function(){
+        $('#chat-preview-button-'+chat_id).click(function() {
             $('#chat-preview-container-'+chat_id).html('...').show();
             $('#CSChatMessage-'+chat_id).hide();
             $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
-            $('#chat-write-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
+            $('#chat-write-button-'+chat_id+',#chat-whisper-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
             jQuery.post(WWW_DIR_JAVASCRIPT +'chat/previewmessage', {msg_body: true, 'msg' : $('#CSChatMessage-'+chat_id).val()}, function(data){
                 $('#chat-preview-container-'+chat_id).html(data);
             });
+        });
+
+        $('#chat-whisper-button-'+chat_id).click(function() {
+            $('#CSChatMessage-'+chat_id).show().focus().attr('whisper','1').addClass('bg-light').attr('placeholder',$(this).attr('data-plc'));
+            $('#chat-preview-container-'+chat_id).hide();
+
+            $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
+            $('#chat-write-button-'+chat_id+',#chat-preview-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
         });
 
 		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id,arg]);

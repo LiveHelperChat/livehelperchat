@@ -8,6 +8,13 @@
         unset($metaMessageData);
     }
 
+    $skip = false;
+
+    if (isset($metaMessageData['content']['whisper'])) {
+        $skip = true;
+    }
+
+    if ($skip == false) {
     if (is_array($metaMessageDataByBBCode) && !empty($metaMessageDataByBBCode)) {
         if (!isset($metaMessageData)) {
             $metaMessageData = array();
@@ -85,6 +92,6 @@
             <?php endif; ?>
 
 	<?php } ?>
-<?php endif;?>
+<?php endif;}?>
 
 
