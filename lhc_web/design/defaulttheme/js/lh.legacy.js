@@ -1114,17 +1114,6 @@ lhinst.startChatNewWindow = function(chat_id,name)
 
 };
 
-lhinst.startCoBrowse = function(chat_id)
-{
-    popupWindow = window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
-
-    if (popupWindow !== null) {
-        popupWindow.focus();
-    }
-
-    return false;
-};
-
 lhinst.userclosedchat = function()
 {
     if (LHCCallbacks.userleftchatNotification) {
