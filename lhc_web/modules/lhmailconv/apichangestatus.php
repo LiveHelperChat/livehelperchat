@@ -19,21 +19,29 @@ try {
             $conv->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
         } else {
             $conv->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+            $conv->user_id = 0;
+            $conv->accept_time = 0;
+            $conv->wait_time = 0;
         }
 
-        $conv->updateThis(['update' => ['status']]);
+        $conv->updateThis(['update' => ['status','user_id','accept_time','wait_time']]);
 
         $db->commit();
 
-        echo json_encode(['status' => $conv->status]);
+        erLhcoreClassChat::prefillGetAttributesObject($conv,
+            erLhcoreClassMailconv::$conversationAttributes,
+            erLhcoreClassMailconv::$conversationAttributesRemove
+        );
+
+        echo json_encode([
+            'conv' => $conv
+        ]);
 
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to write conversation.'));
     }
 
 } catch (Exception $e) {
-
-    erLhcoreClassLog::write(print_r($e,true));
 
     http_response_code(400);
 

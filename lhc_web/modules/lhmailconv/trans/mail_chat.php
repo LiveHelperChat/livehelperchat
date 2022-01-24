@@ -37,7 +37,9 @@ echo json_encode(array(
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
         "active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Active'),
         "closed" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Closed'),
-        "opened_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Opened at')
+        "opened_at" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Opened at'),
+        "are_you_sure" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Are you sure?'),
+        "unresponded_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','There is still un-responded messages, are you sure you want to close this conversation?')
     ],
     "msg" => [
         "reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply'),
@@ -69,6 +71,9 @@ echo json_encode(array(
         'to' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','To'),
         'email' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','E-mail'),
         'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipient name'),
+    ],
+    "system" => [
+        'error' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Seems there is some connectivity problem with a server!'),
     ],
     "file" => [
         'incorrect_type' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Incorrect file type'),

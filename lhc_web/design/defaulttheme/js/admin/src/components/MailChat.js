@@ -93,7 +93,7 @@ const MailChat = props => {
 
     const processRestAPIError = (err) => {
         if (!!err.isAxiosError && !err.response) {
-            alert('Seems there is some connectivity problem with a server!');
+            alert(t('system.error'));
         } else {
             if (err.response.data.error) {
                 alert(err.response.data.error);
@@ -104,9 +104,14 @@ const MailChat = props => {
     }
 
     const changeStatus = (e) => {
-        if (confirm('Are you sure?')) {
+        if (confirm(t('status.are_you_sure'))) {
             axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apichangestatus/" + state.conv.id + '/' + e.target.value).then(result => {
-                setConversationStatus(result.data.status);
+                dispatch({
+                    type: 'update',
+                    value: {
+                        'conv': result.data.conv,
+                    }
+                });
             }).catch((error) => processRestAPIError(error));
         }
     }
@@ -134,7 +139,7 @@ const MailChat = props => {
             }
         });
 
-        if (hasUnrespondedMessages == false || confirm('There is still unresponded messages, are you sure you want to close this conversation?')) {
+        if (hasUnrespondedMessages == false || confirm(t('status.unresponded_messages'))) {
             axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apicloseconversation/" + state.conv.id).then(result => {
                 dispatch({
                     type: 'update',
@@ -439,11 +444,10 @@ const MailChat = props => {
                                         <td colSpan="2">
 
                                             {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>{t('status.pending')}</span>}
-                                            {state.conv.status == 1 && <span><i className="material-icons chat-active">mail_outline</i>{t('status.active')}</span>}
 
                                             {(!state.conv.status || state.conv.status == 1) && state.conv.opened_at && <span><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
 
-                                            {state.conv.status == 2 && <div className="input-group input-group-sm">
+                                            {(state.conv.status == 2 || state.conv.status == 1) && <div className="input-group input-group-sm">
                                                 <div className="input-group-prepend">
                                                     <span className="input-group-text">
                                                         {!state.conv.status && <i className="material-icons chat-pending mr-0">mail_outline</i>}
@@ -454,7 +458,7 @@ const MailChat = props => {
                                                 <select className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
                                                     <option value="">{t('status.pending')}</option>
                                                     <option value="1">{t('status.active')}</option>
-                                                    <option value="2">{t('status.closed')}</option>
+                                                    {state.conv.status == 2 && <option value="2">{t('status.closed')}</option>}
                                                 </select>
                                                 {state.conv.opened_at && <div className="input-group-append"><span className="input-group-text"><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span></div>}
                                             </div>}
