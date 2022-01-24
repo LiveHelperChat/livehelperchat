@@ -42,19 +42,34 @@ class LangWorker
                 if (isset($response['languages'][0]['language'])) {
 
                     $message->lang = (string)$response['languages'][0]['language'];
-                    $message->updateThis(['update' => ['lang']]);
+                    
+                    try {
+                        $message->updateThis(['update' => ['lang']]);
+                    } catch (\Exception $e) {
+                        \sleep(5);
+                        $db->reconnect();
+                        $message->updateThis(['update' => ['lang']]);
+                    }
+
 
                     if ($message->conversation_id > 0 &&
                         ($conversation = \erLhcoreClassModelMailconvConversation::fetch($message->conversation_id)) instanceof \erLhcoreClassModelMailconvConversation &&
                         $conversation->lang == '') {
                         $conversation->lang = $message->lang;
-                        $conversation->updateThis(['update' => ['lang']]);
+
+                        try {
+                            $conversation->updateThis(['update' => ['lang']]);
+                        } catch (\Exception $e) {
+                            \sleep(5);
+                            $db->reconnect();
+                            $conversation->updateThis(['update' => ['lang']]);
+                        }
                     }
                 }
 
             } catch (\Exception $e) {
                 if (!empty(self::$lastCallDebug)) {
-                    \erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getLine() . "\n" . \print_r(self::$lastCallDebug, true),
+                    \erLhcoreClassLog::write($e->getMessage() . "\n" . $e->getTraceAsString() . "\n" . \print_r(self::$lastCallDebug, true),
                         \ezcLog::SUCCESS_AUDIT,
                         array(
                             'source' => 'lhc_mailconv_lang',
