@@ -48,21 +48,11 @@
                 </script>
             <?php endif; endif;?>
 
-            <div class="d-flex flex-nowrap" translate="no">
-                <div class="flex-shrink-1 ">
-                    <button type="button" class="btn btn-sm btn-outline-primary" id="chat-write-button-<?php echo $chat->id?>"><i class="material-icons mr-0">create</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?></button>&nbsp;<button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>"><i class="material-icons mr-0">visibility</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?></button>
-                </div>
-                <div class="ml-auto">
-                    <?php $bbcodeOptions = array('selector' => '#CSChatMessage-' . $chat->id) ?>
-                    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/toolbar_text_area.tpl.php')); ?>
-                </div>
-            </div>
-
             <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>
                 <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','This chat was closed. You can not write messages anymore.')?>
             <?php elseif ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?>
 
-               <?php if (isset($writeRemoteDisabled) && $writeRemoteDisabled === true) : ?>
+                <?php if (isset($writeRemoteDisabled) && $writeRemoteDisabled === true) : ?>
                     <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You can only read a messages.')?>
                 <?php else : ?>
                     <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?>
@@ -72,7 +62,20 @@
                 <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash. You can drop files here.')?>
             <?php endif;?>
 
-		    <textarea <?php !erLhcoreClassChat::hasAccessToWrite($chat) || ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID() && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','writeremotechat') && $writeRemoteDisabled = true) ? print 'readonly="readonly"'  : '' ?> title="<?php echo $placeholderValue?>" placeholder="<?php echo $placeholderValue?>" class="form-control form-control-sm form-send-textarea form-group<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?> form-control-warning<?php endif;?>" rows="2" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
+            <div class="d-flex flex-nowrap" translate="no">
+                <div class="flex-shrink-1 ">
+                    <?php $whisperMode = ($chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT; ?>
+                    <button type="button" data-plc="<?php echo $placeholderValue?>" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-secondary' : print ' btn-outline-primary';?> mr-1" id="chat-write-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?>"><i class="material-icons mr-0">create</i></button><button type="button" class="btn btn-sm btn-outline-secondary mr-1" id="chat-preview-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?>"><i class="material-icons mr-0">visibility</i></button><button type="button" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-primary' : print ' btn-outline-secondary';?>" id="chat-whisper-button-<?php echo $chat->id?>" data-plc="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are in whisper mode!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Whisper')?>"><i class="material-icons mr-0">hearing</i></button>
+                </div>
+                <div class="ml-auto">
+                    <?php $bbcodeOptions = array('selector' => '#CSChatMessage-' . $chat->id) ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/toolbar_text_area.tpl.php')); ?>
+                </div>
+            </div>
+
+            <?php if ($whisperMode) {$placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are in whisper mode!'); } ?>
+
+		    <textarea <?php if ($whisperMode) : ?>whisper="1"<?php endif;?> <?php !erLhcoreClassChat::hasAccessToWrite($chat) || ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID() && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','writeremotechat') && $writeRemoteDisabled = true) ? print 'readonly="readonly"'  : '' ?> title="<?php echo $placeholderValue?>" placeholder="<?php echo $placeholderValue?>" class="form-control form-control-sm form-send-textarea form-group<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?> form-control-warning<?php endif;?>" rows="2" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
             <div id="chat-preview-container-<?php echo $chat->id?>" style="display: none; min-height: 59px"></div>
         </div>
         

@@ -91,7 +91,11 @@ if (trim($form->msg) != '')
     	        }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg,'chat' => & $Chat));
-    	        
+
+                if (isset($_POST['whisper'])) {
+                    $msg->meta_msg = json_encode(['content' => ['whisper' => true]]);
+                }
+
     	        erLhcoreClassChat::getSession()->save($msg);
     	
     	        // Set last message ID

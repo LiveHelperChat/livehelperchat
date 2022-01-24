@@ -41,6 +41,9 @@ http://livehelperchat.com/demo-12c.html
  * [Desktop app](https://github.com/LiveHelperChat/electron) written with electron
  * [Sentiment analysis using DeepPavlov](https://github.com/LiveHelperChat/sentiment)
  * [Shopify integration](https://github.com/LiveHelperChat/pluginshopify) 
+ * [MessageBird integration](https://doc.livehelperchat.com/docs/integrating/messagebird-whatsapp/) 
+ * [CloudTalk integration](https://doc.livehelperchat.com/docs/integrating/cloudtalk/) 
+ * [Chat API integration](https://doc.livehelperchat.com/docs/integrating/chat-api-com/) 
 
 ## Quick development guide
  * After app is installed disable cache and enable debug output. 
