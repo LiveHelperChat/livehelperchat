@@ -2,7 +2,7 @@
 
 1. Missing indexes fixes in some tables.
 2. Whisper mode for the operator. We will go automatically to whisper mode if operator is not a chat owner.
-3. Status wiget icon fix in chrome https://github.com/LiveHelperChat/livehelperchat/issues/1733
+3. Status widget icon fix in chrome https://github.com/LiveHelperChat/livehelperchat/issues/1733
 4. JS API improvements for CloudTalk extension
 5. Operator concurrent chats support while viewing specific chat. You can see how many other chats operator were having.
 6. PHP-Resque in some situations were missing chat object.
