@@ -127,8 +127,6 @@ class erLhcoreClassModelChat {
 
    public function beforeRemove()
    {
-       $q = ezcDbInstance::get()->createDeleteQuery();
-
        foreach ([
            'lh_msg',
            'lh_chat_action',
@@ -141,7 +139,8 @@ class erLhcoreClassModelChat {
            'lh_abstract_subject_chat',
            'lh_chat_voice_video',
            'lh_chat_incoming',
-           'lh_canned_msg_use'] as $table){
+           'lh_canned_msg_use'] as $table) {
+           $q = ezcDbInstance::get()->createDeleteQuery();
            $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
            $stmt = $q->prepare();
            $stmt->execute();

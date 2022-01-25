@@ -9798,6 +9798,18 @@
     "lh_users_setting_option" : "utf8mb4_unicode_ci"
   },
   "tables_indexes" : {
+    "lh_users_online_session" : {
+      "new" : {"lactivity" : "ALTER TABLE `lh_users_online_session` ADD INDEX `lactivity` (`lactivity`);"},
+      "old" : []
+    },
+    "lh_notification_subscriber" : {
+      "new" : {"subscriber_hash" : "ALTER TABLE `lh_notification_subscriber` ADD INDEX `subscriber_hash` (`subscriber_hash`);"},
+      "old" : []
+    },
+    "lh_canned_msg_use" : {
+      "new" : {"chat_id" : "ALTER TABLE `lh_canned_msg_use` ADD INDEX `chat_id` (`chat_id`);"},
+      "old" : []
+    },
     "lh_grouprole" : {
       "new" : {"group_id_primary" : "ALTER TABLE `lh_grouprole` ADD INDEX `group_id_primary` (`group_id`);"},
       "old" : []
