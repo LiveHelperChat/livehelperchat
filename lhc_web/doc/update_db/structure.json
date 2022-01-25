@@ -9845,6 +9845,8 @@
     },
     "lh_chat" : {
       "new" : {
+        "nick" : "ALTER TABLE `lh_chat` ADD INDEX `nick` (`nick`);",
+        "email" : "ALTER TABLE `lh_chat` ADD INDEX `email` (`email`);",
         "unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);",
         "product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
         "dep_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`dep_id`);",
