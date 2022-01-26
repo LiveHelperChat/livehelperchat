@@ -700,12 +700,17 @@ class erLhcoreClassMailconvParser {
         $dispositions = [];
 
         foreach ($mail->getAttachments() as $attachment) {
+
+            if ((int)$attachment->sizeInBytes == 0) {
+                continue;
+            }
+
             $mailAttatchement = new erLhcoreClassModelMailconvFile();
             $mailAttatchement->message_id = $message->id;
             $mailAttatchement->attachment_id = $attachment->id;
             $mailAttatchement->content_id = (string)$attachment->contentId;
             $mailAttatchement->disposition = (string)$attachment->disposition;
-            $mailAttatchement->size = $attachment->sizeInBytes;
+            $mailAttatchement->size = (int)$attachment->sizeInBytes;
             $mailAttatchement->name = (string)$attachment->name;
             $mailAttatchement->description = (string)$attachment->description;
             $mailAttatchement->extension = mb_substr((string)strtolower($attachment->subtype),0,10);
