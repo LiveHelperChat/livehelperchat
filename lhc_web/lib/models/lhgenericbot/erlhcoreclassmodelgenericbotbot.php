@@ -31,24 +31,27 @@ class erLhcoreClassModelGenericBotBot {
     }
 
     public function beforeRemove() {
-        $q = ezcDbInstance::get()->createDeleteQuery();
 
         // Bot groups
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom( 'lh_generic_bot_group' )->where( $q->expr->eq( 'bot_id', $this->id ) );
         $stmt = $q->prepare();
         $stmt->execute();
 
         // Bot payloads
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom( 'lh_generic_bot_payload' )->where( $q->expr->eq( 'bot_id', $this->id ) );
         $stmt = $q->prepare();
         $stmt->execute();
 
         // Bot triggers
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom( 'lh_generic_bot_trigger' )->where( $q->expr->eq( 'bot_id', $this->id ) );
         $stmt = $q->prepare();
         $stmt->execute();
 
         // Bot trigger event
+        $q = ezcDbInstance::get()->createDeleteQuery();
         $q->deleteFrom( 'lh_generic_bot_trigger_event' )->where( $q->expr->eq( 'bot_id', $this->id ) );
         $stmt = $q->prepare();
         $stmt->execute();

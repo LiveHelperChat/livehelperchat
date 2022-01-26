@@ -4,7 +4,23 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<div role="tabpanel" ng-controller="IClickToCallFormGenerator as cform"  ng-init='<?php if ($form->static_content != '') : ?>cform.staticResources = <?php echo $form->static_content?>;<?php endif;?><?php if ($form->static_js_content != '') : ?>cform.staticJSResources = <?php echo $form->static_js_content?>;<?php endif;?><?php if ($form->static_css_content != '') : ?>cform.staticCSSResources = <?php echo $form->static_css_content?>;<?php endif;?>'>
+<script>
+    window.PersonalTheme = {};
+
+    <?php if ($form->static_content != '') : ?>
+    window.PersonalTheme.staticResources = <?php echo $form->static_content;?>
+    <?php endif; ?>
+
+    <?php if ($form->static_js_content != '') : ?>
+    window.PersonalTheme.staticJSResources = <?php echo $form->static_js_content;?>
+    <?php endif; ?>
+
+    <?php if ($form->static_css_content != '') : ?>
+    window.PersonalTheme.staticCSSResources = <?php echo $form->static_css_content;?>
+    <?php endif; ?>
+</script>
+
+<div role="tabpanel" ng-controller="IClickToCallFormGenerator as cform" ng-init="cform.initVariables();">
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">

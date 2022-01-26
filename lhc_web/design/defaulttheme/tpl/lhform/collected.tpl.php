@@ -1,4 +1,4 @@
-<h1><?php echo htmlspecialchars($form)?></h1>
+<h1 ng-non-bindable><?php echo htmlspecialchars($form)?></h1>
 
 <div class="row pb-2">
 	<div class="col-6"><a href="<?php echo erLhcoreClassDesign::baseurl('form/downloadcollected')?>/<?php echo $form->id?>" class="btn btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download XLS');?></a></div>
@@ -12,7 +12,7 @@
 	</div>
 </div>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Name');?></th>

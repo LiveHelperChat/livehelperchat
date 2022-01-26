@@ -5,7 +5,7 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('theme/personaltheme')?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label><input type="checkbox" name="EnabledPersonal" value="on" <?php if ($enabledPersonal == true) : ?>checked="checked"<?php endif;?> /> Enable personal theme for me</label>
+        <label><input type="checkbox" name="EnabledPersonal" value="on" <?php if ($enabledPersonal == true) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('admintheme/form','Enable personal theme for me');?></label>
     </div>
 
     <?php if (isset($updated)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('admintheme/form','Updated'); ?>

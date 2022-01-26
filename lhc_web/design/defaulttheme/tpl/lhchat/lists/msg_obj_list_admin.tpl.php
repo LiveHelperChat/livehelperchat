@@ -1,45 +1,8 @@
-<?php 
-
-$lastOperatorChanged = false;
-$lastOperatorId = false;
-$lastOperatorNick = '';
-
-foreach ($messages as $msg) : 
-
-if ($lastOperatorId !== false && ($lastOperatorId != $msg->user_id || $lastOperatorNick != $msg->name_support)) {
-    $lastOperatorChanged = true;
-    $lastOperatorNick = $msg->name_support;
-} else {
-    $lastOperatorChanged = false;
+<?php
+$messagesDefault = [];
+foreach ($messages as $msg) {
+    $messagesDefault[] = $msg->getState();
 }
-
-$lastOperatorId = $msg->user_id;
-
-    if ($msg->meta_msg != '') {
-        $metaMessageData = json_decode($msg->meta_msg, true); $messageId = $msg->id;
-    } else if (isset($metaMessageData)) {
-        unset($metaMessageData);
-    }
-
+$messages = $messagesDefault;
 ?>
-<?php if ($msg->user_id == -1) : ?>
-	<div class="message-row system-response" id="msg-<?php echo $msg->id?>"><div class="msg-date"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$msg->time);?></div><i><span class="usr-tit sys-tit"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></span><?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars($msg->msg))?></i></div>
-<?php else : ?>
-    <?php if ($msg->msg != '' ||
-        isset($metaMessageData['content']['text_conditional']) ||
-        isset($metaMessageData['content']['chat_operation']) ||
-        isset($metaMessageData['content']['html']['content']) ||
-        isset($metaMessageData['content']['button_message'])
-    ) : ?>
-        <div class="message-row<?php echo $msg->user_id == 0 ? ' response' : ' message-admin'.($lastOperatorChanged == true ? ' operator-changes' : '')?>" id="msg-<?php echo $msg->id?>"><div class="msg-date"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$msg->time);?></div><span class="usr-tit<?php echo $msg->user_id == 0 ? ' vis-tit' : ' op-tit'?>"><?php if ($msg->user_id == 0) : ?><i class="material-icons"><?php echo ($chat->device_type == 0 ? 'computer' : ($chat->device_type == 1 ? 'smartphone' : 'tablet'))?></i><?php endif;?><?php echo $msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support) ?></span>
-            <?php $msgBody = $msg->msg; $paramsMessageRender = array('sender' => $msg->user_id, 'html_as_text' => true);?>
-            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
-
-            <?php if (isset($metaMessageData)) : ?>
-                <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_admin.tpl.php'));?>
-            <?php endif; ?>
-            
-        </div>
-    <?php endif;?>
-<?php endif;?>
-<?php endforeach;?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/syncadmin.tpl.php'));?>
