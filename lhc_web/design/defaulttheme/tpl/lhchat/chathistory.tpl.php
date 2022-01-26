@@ -38,7 +38,13 @@
                             <td class="border-top border-bottom"><?php echo $chatOriginal->id?></td>
                             <td class="border-top border-bottom"><?php echo $chatOriginal->chat_duration_front?></td>
                             <td class="border-top border-bottom"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->time);?></td>
-                            <td class="border-top border-bottom"><?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->cls_time);?></td>
+                            <td class="border-top border-bottom">
+                                <?php if ($chatOriginal->cls_time > 0) : ?>
+                                    <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->cls_time);?>
+                                <?php else : ?>
+                                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Chat is still running')?>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                         <?php foreach ($nextChats as $chat) : ?>
                             <tr>
