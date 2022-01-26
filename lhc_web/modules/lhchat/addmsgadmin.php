@@ -33,7 +33,7 @@ if (trim($form->msg) != '')
 	        $returnBody = '';
 	        $customArgs = array();
 
-	        if (strpos($msgText, '!') === 0) {
+	        if (!isset($_POST['whisper']) && strpos($msgText, '!') === 0) {
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
 	            if ($statusCommand['processed'] === true) {
 	                $messageUserId = -1; // Message was processed set as internal message
