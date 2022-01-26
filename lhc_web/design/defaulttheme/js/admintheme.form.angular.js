@@ -91,5 +91,17 @@ lhcAppControllers.controller('IClickToCallFormGenerator',['$scope','$http','$loc
 			});			
 			delete that.staticCSSResources[field.hash];
 		};
+
+        this.initVariables = function () {
+            if (window.PersonalTheme.staticResources) {
+                this.staticResources = window.PersonalTheme.staticResources;
+            }
+            if (window.PersonalTheme.staticJSResources) {
+                this.staticJSResources = window.PersonalTheme.staticJSResources;
+            }
+            if (window.PersonalTheme.staticCSSResources) {
+                this.staticCSSResources = window.PersonalTheme.staticCSSResources;
+            }
+        }
 		
 }]);
