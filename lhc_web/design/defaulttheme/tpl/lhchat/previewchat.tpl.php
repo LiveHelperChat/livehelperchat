@@ -64,7 +64,7 @@
           window.lhcPreviewTimeout = setTimeout(function () {
               updatePreviewLive();
           },5000);
-      })(<?php echo $chat->id,',',$msg->id?>);
+      })(<?php echo $chat->id,',',$msg['id']?>);
   </script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
