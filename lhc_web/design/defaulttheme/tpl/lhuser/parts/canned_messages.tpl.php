@@ -62,7 +62,11 @@ if ($pages->items_total > 0) {
 </script>
 <?php endif; ?>
 
-<form ng-controller="CannedMsgCtrl as cmsg" ng-init='<?php if ($canned_msg->languages != '') : ?>cmsg.initLanguage(<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>);<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>' action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
+<script>
+    var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
+</script>
+
+<form ng-controller="CannedMsgCtrl as cmsg" ng-init='cmsg.iniController();<?php if ($canned_msg->languages != '') : ?>cmsg.initLanguage(<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>);<?php endif;?>' action="<?php if ($canned_msg->id > 0) : ?><?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/canned/(msg)/<?php echo $canned_msg->id?><?php endif;?>#canned" method="post">
 
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
         <li class="nav-item" role="presentation" ><a class="nav-link active"href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Main');?></a></li>

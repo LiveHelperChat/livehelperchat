@@ -9,6 +9,10 @@ lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$roo
         that.languages = typeof $window['languageCanned'+id] !== 'undefined' ? $window['languageCanned'+id] : [];
     }
 
+    this.initController = function() {
+        that.dialects = $window['languageDialects'];
+    }
+
     this.move = function(element, offset) {
         index = that.languages.indexOf(element);
         newIndex = index + offset;

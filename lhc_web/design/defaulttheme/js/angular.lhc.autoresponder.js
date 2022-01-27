@@ -25,6 +25,10 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
         this.languages = $window['autoResponderLanguages'];
     }
 
+    this.initController = function() {
+        that.dialects = $window['languageDialects'];
+    }
+
     this.addLanguage = function() {
         that.languages.push({
             'message' : '',

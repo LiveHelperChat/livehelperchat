@@ -47,7 +47,7 @@ class erLhcoreClassRenderHelper {
             }
 
 
-            $valueItem = str_replace('}}','}<!---->}',$valueItem);
+            $valueItem = str_replace('}}','}<!---->}',htmlspecialchars($valueItem));
 
             $output .= "<option value=\"{$item->$attrId}\" $selected>{$valueItem}</option>";
         }
