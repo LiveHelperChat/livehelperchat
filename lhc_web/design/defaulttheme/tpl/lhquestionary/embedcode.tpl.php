@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-6">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Choose a language');?></label>
-        <select class="form-control" id="LocaleID">
+        <select class="form-control" id="LocaleID" ng-non-bindable>
             <?php foreach ($locales as $locale ) : ?>
             <option value="<?php echo $locale?>/"><?php echo $locale?></option>
             <?php endforeach; ?>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-6 end">
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-        <select class="form-control" id="ThemeID">
+        <select class="form-control" id="ThemeID" ng-non-bindable>
         	<option value="0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?></option>
 			<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
 			   <option value="<?php echo $theme->id?>"><?php echo htmlspecialchars($theme->name)?></option>
