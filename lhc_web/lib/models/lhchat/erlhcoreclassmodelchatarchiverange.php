@@ -303,6 +303,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_chat`", "`lh_chat_archive_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
 
             // Create archive msg table
@@ -312,6 +313,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_msg`", "`lh_chat_archive_msg_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
 
             // Create group chat member table
@@ -321,6 +323,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_group_chat_member`", "`lh_group_chat_member_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
 
             // Create a group chat table
@@ -330,6 +333,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_group_chat`", "`lh_group_chat_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
 
             // Create group chat messages table
@@ -339,6 +343,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_group_msg`", "`lh_group_msg_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
 
             $stmt = $db->prepare('SHOW CREATE TABLE `lh_chat_action`;');
@@ -347,6 +352,7 @@ class erLhcoreClassModelChatArchiveRange
             $command = $rows[1];
             $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
             $command = str_replace("`lh_chat_action`", "`lh_chat_action_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
         }
 
