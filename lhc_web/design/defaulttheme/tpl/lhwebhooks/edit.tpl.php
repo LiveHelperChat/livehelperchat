@@ -1,4 +1,4 @@
-<h1 ng-non-bindable><?php echo htmlspecialchars($item->name)?></h1>
+<h1 ng-non-bindable><?php echo htmlspecialchars((string)$item->name)?></h1>
 
 <?php if (isset($errors)) : ?>
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
