@@ -40,6 +40,25 @@ class erLhcoreClassGenericBotActionConditions {
 
                     if ($paramsConditions[0] == 'lhc') {
                         $attr = $chat->{$paramsConditions[1]};
+                    } elseif (in_array($paramsConditions[0],['chat_files','operator_files','user_files'])) {
+
+                        $multiAttr = [];
+                        $filter = ['filter' => ['chat_id' => $chat->id]];
+
+                        if ($paramsConditions[0] == 'operator_files') {
+                            $filter['filtergt']['user_id'] = 0;
+                        }
+
+                        if ($paramsConditions[0] == 'user_files') {
+                            $filter['filter']['user_id'] = 0;
+                        }
+
+                        foreach (erLhcoreClassModelChatFile::getList($filter) as $file) {
+                            $multiAttr[] = $file->extension;
+                        }
+
+                        $attr = implode(',',$multiAttr);
+
                     } elseif ($paramsConditions[0] == 'siteaccess') {
                         $attr = erLhcoreClassSystem::instance()->SiteAccess;
                     } elseif ($paramsConditions[0] == 'online_department_hours') {
@@ -137,22 +156,22 @@ class erLhcoreClassGenericBotActionConditions {
                         $valAttr = (string)$valAttr;
                     }
 
-                    if ($condition['content']['comp'] == 'eq' && !($attr == $valAttr)) {
+                    if ($condition['content']['comp'] == 'eq' && !((isset($multiAttr) && in_array($valAttr,$multiAttr)) || (!isset($multiAttr) && $attr == $valAttr))) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'lt' && !($attr < $valAttr)) {
+                    } else if ($condition['content']['comp'] == 'lt' && !((isset($multiAttr) && count($multiAttr) < $valAttr) || (!isset($multiAttr) && $attr < $valAttr))) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'lte' && !($attr <= $valAttr)) {
+                    } else if ($condition['content']['comp'] == 'lte' && !((isset($multiAttr) && count($multiAttr) <= $valAttr) ||(!isset($multiAttr) && $attr <= $valAttr))) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'neq' && !($attr != $valAttr)) {
+                    } else if ($condition['content']['comp'] == 'neq' && !((isset($multiAttr) && count($multiAttr) != $valAttr) || (!isset($multiAttr) && $attr != $valAttr))) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'gte' && !($attr >= $valAttr)) {
+                    } else if ($condition['content']['comp'] == 'gte' && !((isset($multiAttr) && count($multiAttr) >= $valAttr) || (!isset($multiAttr) && $attr >= $valAttr))) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'gt' && !($attr > $valAttr)) {
+                    } else if ($condition['content']['comp'] == 'gt' && !((isset($multiAttr) && count($multiAttr) > $valAttr) || (!isset($multiAttr) && $attr > $valAttr))) {
                         $conditionsMet = false;
                         break;
                     } else if ($condition['content']['comp'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
@@ -169,7 +188,7 @@ class erLhcoreClassGenericBotActionConditions {
                         ))['found'] == true) {
                         $conditionsMet = false;
                         break;
-                    } else if ($condition['content']['comp'] == 'contains' && strrpos($attr, $valAttr) === false) {
+                    } else if ($condition['content']['comp'] == 'contains' && !((isset($multiAttr) && !empty(array_intersect($multiAttr,explode(',',$valAttr)))) || (!isset($multiAttr) && strrpos($attr, $valAttr) !== false))) {
                         $conditionsMet = false;
                         break;
                     }
