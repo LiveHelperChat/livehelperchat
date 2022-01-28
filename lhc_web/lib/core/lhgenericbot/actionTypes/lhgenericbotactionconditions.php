@@ -30,6 +30,11 @@ class erLhcoreClassGenericBotActionConditions {
             }
 
             foreach ($action['content']['conditions'] as $condition) {
+
+                if (isset($multiAttr)) {
+                    unset($multiAttr);
+                }
+
                 if (isset($condition['content']['attr']) && $condition['content']['attr'] != '' &&
                     isset($condition['content']['comp']) && $condition['content']['comp'] != '')
                 {
@@ -84,6 +89,10 @@ class erLhcoreClassGenericBotActionConditions {
                         $attr = $chatVariables[$condition['content']['attr']];
                     } elseif (isset($chatAttributesFrontend[$condition['content']['attr']])) {
                         $attr = $chatAttributesFrontend[$condition['content']['attr']];
+                    } elseif (strpos($condition['content']['attr'],'{validation_event__') !== false) {
+                        $attr = str_replace(['{validation_event__','}'],'',$condition['content']['attr']);
+                        $result = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_event_handler', array_merge($params,array('render' => $attr, 'chat' => $chat)));
+                        $attr = isset($result['validation_result']) ? $result['validation_result'] : null;
                     } elseif (strpos($condition['content']['attr'],'{args.') !== false) {
                         $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
                         $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
