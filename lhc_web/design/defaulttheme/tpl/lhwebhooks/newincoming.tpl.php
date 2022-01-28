@@ -4,7 +4,11 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" method="post" enctype="multipart/form-data" ng-controller="WebhooksIncomingCtrl as webhookincomingsctl" ng-submit="webhookincomingsctl.updateContinuous()" ng-init='webhookincomingsctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS)?>'>
+<script>
+    var incomingConditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS & JSON_FORCE_OBJECT)?>;
+</script>
+
+<form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" method="post" enctype="multipart/form-data" ng-controller="WebhooksIncomingCtrl as webhookincomingsctl" ng-submit="webhookincomingsctl.updateContinuous()" ng-init='webhookincomingsctl.setConditions()'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhwebhooks/form_incoming.tpl.php'));?>
     

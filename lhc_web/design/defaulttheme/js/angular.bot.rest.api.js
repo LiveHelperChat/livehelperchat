@@ -1,5 +1,6 @@
-lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location','$rootScope', '$log', function($scope, $http, $location, $rootScope, $log) {
+lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
     this.parameters = [];
+    this.host = "";
 
     var that = this;
 
@@ -39,12 +40,13 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     }
 
     this.initParams = function () {
-        this.parameters = window.rest_api_parameters;
+        this.parameters = $window['rest_api_parameters'];
         this.parameters.forEach(function(item){
            if (typeof item.conditions === 'undefined') {
                item.conditions = [];
            }
         });
+        this.host = $window['botRestAPIHost'];
     }
 
 }]);

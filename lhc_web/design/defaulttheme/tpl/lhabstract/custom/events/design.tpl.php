@@ -8,7 +8,7 @@ for ($i = 1; $i < 5; $i++) {
 }
 ?>
 
-<div class="row" ng-controller="ProactiveDesignerCtrl as prdesign" ng-init='prdesign.replaceArray = <?php echo json_encode($replaceArrayImages);?>'>
+<div class="row" ng-controller="ProactiveDesignerCtrl as prdesign" ng-init='prdesign.replaceArray = <?php echo json_encode($replaceArrayImages, JSON_HEX_APOS);?>'>
 
     <div class="col-12">
         <p>

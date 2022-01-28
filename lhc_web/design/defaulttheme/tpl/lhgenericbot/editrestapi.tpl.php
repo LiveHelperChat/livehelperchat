@@ -10,9 +10,10 @@
 
 <script>
     window.rest_api_parameters = <?php isset($item->configuration_array['parameters']) ? print json_encode($item->configuration_array['parameters'],JSON_HEX_APOS) : print "[]"?>;
+    window.botRestAPIHost = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>;
 </script>
 
-<form action="" method="post" autocomplete="new-password" enctype="multipart/form-data" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams(); lhcrestapi.host = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>'>
+<form action="" method="post" autocomplete="new-password" enctype="multipart/form-data" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams();'>
 
     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/form_rest_api.tpl.php'));?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

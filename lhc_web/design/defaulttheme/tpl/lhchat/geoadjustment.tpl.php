@@ -9,7 +9,7 @@
 	   <label><input type="checkbox" ng-model="use_geo_adjustment" ng-init="use_geo_adjustment = <?php isset($geo_data['use_geo_adjustment']) && ($geo_data['use_geo_adjustment'] == '1') ? print 'true' : 'false' ?>" name="use_geo_adjustment" value="1" <?php isset($geo_data['use_geo_adjustment']) && ($geo_data['use_geo_adjustment'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Geo adjustments active'); ?></label>
     </div>
     
-	<div ng-show="use_geo_adjustment" ng-init="custom_other = '<?php isset($geo_data['other_countries']) ? print $geo_data['other_countries'] : print 'all' ?>'">
+	<div ng-show="use_geo_adjustment" ng-init='custom_other = <?php isset($geo_data['other_countries']) ? print json_encode($geo_data['other_countries'],JSON_HEX_APOS) : print "all" ?>'>
 		
 		<label><input type="checkbox" name="ApplyWidget" value="on" <?php isset($geo_data['apply_widget']) && ($geo_data['apply_widget'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/geoadjustment','Apply to chat widget status indicator these rules also? performance decrease is associated with this option')?></label>
 				
