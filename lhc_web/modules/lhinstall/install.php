@@ -2252,6 +2252,7 @@ try {
   `from_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `from_address` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lang` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_message_id` bigint(20) unsigned NOT NULL,
   `message_id` bigint(20) unsigned NOT NULL,
   `udate` bigint(20) unsigned NOT NULL,
@@ -2288,7 +2289,8 @@ try {
   KEY `udate` (`udate`),
   KEY `user_id_status` (`user_id`,`status`),
   KEY `status_dep_id` (`status`,`dep_id`),
-  KEY `undelivered` (`undelivered`)
+  KEY `undelivered` (`undelivered`),
+  KEY `phone` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lhc_mailconv_file` (

@@ -259,6 +259,12 @@
                                 <option <?php if ($input->sortby == 'lastupdateasc') : ?>selected="selected"<?php endif; ?> value="lastupdateasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Oldest replies first');?></option>
                             </select>
                         </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Phone');?></label>
+                                <input type="text" class="form-control form-control-sm" name="email" value="<?php echo htmlspecialchars($input->phone)?>" />
+                            </div>
+                        </div>
                         <div class="col-md-2">
                             <div class="form-group mb-0">
                                 <label class="col-form-label"><input type="checkbox" name="undelivered" <?php $input->undelivered == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undelivered')?></label>

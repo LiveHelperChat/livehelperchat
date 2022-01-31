@@ -56,6 +56,7 @@ class erLhcoreClassModelMailconvConversation
             'pending_sync' => $this->pending_sync,
             'lang' => $this->lang,
             'opened_at' => $this->opened_at,
+            'phone' => $this->phone,
         );
     }
 
@@ -304,6 +305,7 @@ class erLhcoreClassModelMailconvConversation
     public $has_attachment = self::ATTACHMENT_EMPTY;
     public $lang = '';
     public $opened_at = 0;
+    public $phone = '';
 }
 
 ?>

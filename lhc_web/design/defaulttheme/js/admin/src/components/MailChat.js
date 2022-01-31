@@ -440,6 +440,10 @@ const MailChat = props => {
                                         <td>{t('mail.sender')}</td>
                                         <td>{state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'} /> } {state.conv.from_name} &lt;{state.conv.from_address}&gt;</td>
                                     </tr>
+                                    {state.conv.phone && <tr>
+                                        <td>{t('mail.phone')}</td>
+                                        <td>{state.conv.phone}</td>
+                                    </tr>}
                                     <tr>
                                         <td colSpan="2">
 
