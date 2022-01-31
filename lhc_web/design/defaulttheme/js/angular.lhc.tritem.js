@@ -16,6 +16,7 @@ lhcAppControllers.controller('TrItemCtrl',['$scope','$http','$location','$rootSc
 
     this.setLanguages = function(id){
         that.languages = typeof $window['translationItem'+id] !== 'undefined' ? $window['translationItem'+id] : [];
+        that.dialects = $window['languageDialects'];
     }
 
     this.addLanguage = function() {

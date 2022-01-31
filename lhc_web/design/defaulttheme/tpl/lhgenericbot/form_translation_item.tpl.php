@@ -1,8 +1,9 @@
 <script>
     var translationItem<?php echo $item->id?> = <?php echo json_encode($item->translation_array['items'],JSON_HEX_APOS)?>;
+    var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
-<div ng-controller="TrItemCtrl as cmsg" ng-cloak ng-init='cmsg.setLanguages(<?php echo $item->id?>);cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
+<div ng-controller="TrItemCtrl as cmsg" ng-cloak ng-init='cmsg.setLanguages(<?php echo $item->id?>);'>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Group');?></label>

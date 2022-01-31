@@ -17,12 +17,20 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
         }
     };
 
+    this.setDialects = function() {
+        this.dialects = $window['languageDialects'];
+    }
+
     this.setIgnoreLanguages = function() {
         this.ignoreLanguages.languages = $window['autoResponderLanguagesIgnore'];
     }
 
     this.setLanguages = function() {
         this.languages = $window['autoResponderLanguages'];
+    }
+
+    this.initController = function() {
+        that.dialects = $window['languageDialects'];
     }
 
     this.addLanguage = function() {

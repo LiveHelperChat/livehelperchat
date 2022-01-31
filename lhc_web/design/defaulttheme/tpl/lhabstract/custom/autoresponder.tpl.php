@@ -19,9 +19,11 @@
     <?php if ($object->languages != '') : ?>
         var autoResponderLanguages = <?php echo json_encode(json_decode($object->languages,true),JSON_HEX_APOS)?>;
     <?php endif; ?>
+
+    var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
-<div ng-controller="AutoResponderCtrl as cmsg" class="ng-cloak" ng-cloak ng-init='<?php if (!empty($object->languages_ignore)) : ?>cmsg.setIgnoreLanguages();<?php endif; ?><?php if ($object->languages != '') : ?>cmsg.setLanguages();<?php endif;?>cmsg.dialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>'>
+<div ng-controller="AutoResponderCtrl as cmsg" class="ng-cloak" ng-cloak ng-init='cmsg.setDialects();<?php if (!empty($object->languages_ignore)) : ?>cmsg.setIgnoreLanguages();<?php endif; ?><?php if ($object->languages != '') : ?>cmsg.setLanguages();<?php endif;?>'>
 
 <div class="form-group">
 <label><?php echo $fields['name']['trans'];?></label>
