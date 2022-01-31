@@ -14,6 +14,18 @@ $fieldsSearch['email'] = array (
     )
 );
 
+$fieldsSearch['phone'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'phone',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['conversation_id'] = array (
     'type' => 'text',
     'trans' => 'id',
