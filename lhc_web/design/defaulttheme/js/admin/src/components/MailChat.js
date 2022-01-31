@@ -442,7 +442,7 @@ const MailChat = props => {
                                     </tr>
                                     {state.conv.phone && <tr>
                                         <td>{t('mail.phone')}</td>
-                                        <td>{state.conv.phone}</td>
+                                        <td><a href={"tel:"+state.conv.phone}><span className="material-icons">dialpad</span>{state.conv.phone}</a></td>
                                     </tr>}
                                     <tr>
                                         <td colSpan="2">

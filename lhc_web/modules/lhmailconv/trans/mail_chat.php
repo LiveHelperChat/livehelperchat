@@ -32,6 +32,7 @@ echo json_encode(array(
         "response_wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Response wait time'),
         "exc_pending_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Exc. pending time'),
         "conv_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Conversation duration'),
+        "phone" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'),
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
