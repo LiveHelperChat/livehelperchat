@@ -446,7 +446,7 @@ class erLhcoreClassGenericBotActionCommand {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_remove',array( 'init' => 'bot', 'subject_id' => (int)$action['content']['payload'], 'chat' => & $chat));
                 }
             } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
-                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array( 'init' => 'bot', 'subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array( 'subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
                 if (!($subjectChat instanceof erLhAbstractModelSubjectChat)) {
                     $subjectChat = new erLhAbstractModelSubjectChat();
                     $subjectChat->subject_id = $subject->id;
