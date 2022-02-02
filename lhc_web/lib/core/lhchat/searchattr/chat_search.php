@@ -2,6 +2,30 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['proactive_chat'] = array(
+    'type' => 'text',
+    'trans' => 'Proactive chat',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'chat_initiator',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['not_invitation'] = array(
+    'type' => 'text',
+    'trans' => 'Not invitation',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'invitation_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['email'] = array (
     'type' => 'text',
     'trans' => 'Sort by',
