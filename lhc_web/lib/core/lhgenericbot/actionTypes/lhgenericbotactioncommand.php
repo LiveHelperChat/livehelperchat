@@ -452,6 +452,11 @@ class erLhcoreClassGenericBotActionCommand {
                     $subjectChat->subject_id = $subject->id;
                     $subjectChat->chat_id = $chat->id;
                     $subjectChat->saveThis();
+
+                    if (erLhcoreClassChatEventDispatcher::getInstance()->disableMobile == true) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->listen('chat.subject_add', 'erLhcoreClassLHCMobile::newSubject');
+                    }
+
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_add',array('init' => 'bot', 'chat' => & $chat, 'subject_id' => $subject->id));
                 }
             }

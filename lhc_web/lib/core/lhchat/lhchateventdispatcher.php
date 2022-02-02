@@ -23,7 +23,7 @@ class erLhcoreClassChatEventDispatcher {
    {
        if ($this->globalListenersSet == false) {
            $this->globalListenersSet = true;
-           
+
            // Do not set listeners if mobile is disabled
            if ($this->disableMobile == false) {
                $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
