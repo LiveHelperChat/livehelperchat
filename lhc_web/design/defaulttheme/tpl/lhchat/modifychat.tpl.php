@@ -27,33 +27,35 @@ setTimeout(function() {
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="mainchatmodify">
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="$('#main-update-btn').attr('disabled','disabled').prepend('<span class=\'lhc-spin material-icons\'>refresh</span>')">
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','E-mail');?></label>
-                <input class="form-control" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Recipient e-mail');?>" name="Email" value="<?php echo htmlspecialchars($chat->email);?>" />
+                <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Recipient e-mail');?>" name="Email" value="<?php echo htmlspecialchars($chat->email);?>" />
             </div>
 
             <?php if ($chat->online_user instanceof erLhcoreClassModelChatOnlineUser) : ?>
             <div class="form-group">
-                <label><input type="checkbox" name="informReturn" <?php if (isset($chat->online_user->online_attr_system_array['lhc_ir']) && is_array($chat->online_user->online_attr_system_array['lhc_ir']) && in_array(erLhcoreClassUser::instance()->getUserID(),$chat->online_user->online_attr_system_array['lhc_ir'])) :?>checked="checked"<?php endif?> value="on"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Inform me then visitor returns');?></label>
+                <label><input type="checkbox" name="informReturn" <?php if (isset($chat->online_user->online_attr_system_array['lhc_ir']) && is_array($chat->online_user->online_attr_system_array['lhc_ir']) && in_array(erLhcoreClassUser::instance()->getUserID(),$chat->online_user->online_attr_system_array['lhc_ir'])) :?>checked="checked"<?php endif?> value="on">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Inform me then visitor returns');?></label>
                 <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','E-mail is send when visitor starts new browsing session')?></small></p>
             </div>
             <?php endif; ?>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Nick');?></label>
-                <input class="form-control" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Nick');?>" name="UserNick" value="<?php echo htmlspecialchars($chat->nick);?>" />
+                <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Nick');?>" name="UserNick" value="<?php echo htmlspecialchars($chat->nick);?>" />
             </div>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Phone');?></label>
-                <input class="form-control" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Phone');?>" name="UserPhone" value="<?php echo htmlspecialchars($chat->phone);?>" />
+                <input class="form-control form-control-sm" type="text" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Phone');?>" name="UserPhone" value="<?php echo htmlspecialchars($chat->phone);?>" />
             </div>
 
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-            <input type="submit" class="btn btn-secondary" name="UpdateChat" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
+            <input type="hidden" name="UpdateChat" value="on" />
+
+            <button type="submit" id="main-update-btn" class="btn btn-sm btn-secondary" name="UpdateChat"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?></button>
         </form>
     </div>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','modifychatcore')) : ?>
@@ -67,7 +69,7 @@ setTimeout(function() {
                 $params = array (
                     'input_name'     => 'DepartmentID',
                     'display_name'   => 'name',
-                    'css_class'      => 'form-control',
+                    'css_class'      => 'form-control form-control-sm',
                     'selected_id'    => $chat->dep_id,
                     'list_function'  => 'erLhcoreClassModelDepartament::getList',
                     'list_function_params'  => array_merge(array('limit' => '1000000'))
@@ -77,7 +79,7 @@ setTimeout(function() {
 
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-             <input type="submit" class="btn btn-secondary" name="UpdateChatCore" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
+             <input type="submit" class="btn btn-sm btn-secondary" name="UpdateChatCore" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Update chat');?>" />
         </form>
     </div>
     <?php endif; ?>

@@ -7,6 +7,8 @@ $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/modifychat.tpl.php');
 
+session_write_close();
+
 if ( erLhcoreClassChat::hasAccessToRead($chat) && $currentUser->hasAccessTo('lhchat','modifychatcore') ) {
     if (ezcInputForm::hasPostData() && isset($_POST['UpdateChatCore'])) {
 
