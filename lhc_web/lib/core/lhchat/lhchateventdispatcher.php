@@ -32,6 +32,7 @@ class erLhcoreClassChatEventDispatcher {
                $this->listen('chat.genericbot_chat_command_transfer', 'erLhcoreClassLHCMobile::botTransfer');
                $this->listen('chat.chat_transfered', 'erLhcoreClassLHCMobile::chatTransferred');
                $this->listen('group_chat.web_add_msg_admin', 'erLhcoreClassLHCMobile::newGroupMessage');
+               $this->listen('chat.subject_add', 'erLhcoreClassLHCMobile::newSubject');
            }
        }
 

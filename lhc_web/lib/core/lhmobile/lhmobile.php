@@ -44,6 +44,15 @@ class erLhcoreClassLHCMobile {
             }
 
             self::chatStarted($params);
+        } elseif ($this->args['type'] == 'subject') {
+            $params = array(
+                'chat' => $chat,
+                'resque' => true,
+                'user_id' => $this->args['user_id'],
+                'init' => $this->args['init'],
+                'subject_id' => $this->args['subject_id'],
+            );
+            self::newSubject($params);
         }
     }
 
@@ -103,6 +112,90 @@ class erLhcoreClassLHCMobile {
                         'chat_type' => 'new_group_msg',
                         'title' => $params['chat']->name . ' - ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','New group message'),
                     ));
+                }
+            }
+        }
+    }
+
+    public static function newSubject($params) {
+
+        if (!isset($params['resque']) && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_mobile_notify', 'erLhcoreClassLHCMobile', array(
+                'inst_id' => $inst_id,
+                'type' => 'subject',
+                'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0),
+                'init' => $params['init'],
+                'subject_id' => (isset($params['subject_id']) ? $params['subject_id'] : 0),
+                'chat_id' => $params['chat']->id));
+            return;
+        }
+
+        $options = erLhcoreClassModelChatConfig::fetch('mobile_options')->data;
+        if (isset($options['notifications']) && $options['notifications'] == true) {
+            foreach (erLhcoreClassModelUserSession::getList(array('filternot' => array('token' => ''), 'filter' => array('error' => 0))) as $operator) {
+                if (is_object($operator->user) && $operator->user->hide_online == 0 ) {
+
+                    $subjectOperator = erLhcoreClassModelUserSetting::findOne(['filter' => ['identifier' => 'subject_id', 'user_id' => $operator->user_id]]);
+
+                    if (!($subjectOperator instanceof erLhcoreClassModelUserSetting) || (!in_array($params['subject_id'],json_decode($subjectOperator->value,true)))) {
+                        // This operator is not interested in this subject
+                        continue;
+                    }
+
+                    $statusMobile = erLhcoreClassModelUserSetting::findOne(['filter' => ['identifier' => 'status_mobile', 'user_id' => $operator->user_id]]);
+
+                    if ($statusMobile instanceof erLhcoreClassModelUserSetting) {
+                        $statusMobileValue = json_decode($statusMobile->value,true);
+                        if (is_array($statusMobileValue) && !empty($statusMobileValue) && !in_array($params['chat']->status,$statusMobileValue)) {
+                            // Not interested in the chats of this status
+                            continue;
+                        }
+                    }
+
+                    $operatorName = 'system';
+
+                    if ($params['init'] == 'op') {
+                        if (isset($params['user_id']) && $params['user_id'] > 0) {
+
+                            // This operator added subject,
+                            // Do not inform anything
+                            if ($params['user_id'] == $operator->user->id) {
+                                continue;
+                            }
+
+                            $operatorName = erLhcoreClassModelUser::fetch($params['user_id'])->name_official;
+                        }
+
+                    } elseif ($params['chat']->gbot_id > 0) {
+                        $operatorName = (string)erLhcoreClassModelGenericBotBot::fetch($params['chat']->gbot_id);
+                    }
+
+                    // Do not notify if user is not assigned to department
+                    // Do not notify if user has only read department permission
+                    if ($operator->user->all_departments == 0 && $params['chat']->user_id != $operator->user->id) {
+
+                        $userDepartments = erLhcoreClassUserDep::getUserDepartaments($operator->user->id, $operator->user->cache_version);
+
+                        $userReadDepartments = erLhcoreClassUserDep::getUserReadDepartments($operator->user->id, $operator->user->cache_version);
+
+                        if (count($userDepartments) == 0) {
+                            continue;
+                        }
+
+                        if (!in_array($params['chat']->dep_id,$userDepartments) || in_array($params['chat']->dep_id,$userReadDepartments)) {
+                            continue;
+                        }
+                    }
+
+                    $paramsSend = array(
+                        'msg' => ($params['init'] == 'op' ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Operator') . ' "' . $operatorName . '" ' : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','Bot').' "' . $operatorName . '" ') . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','added subject').' "'.erLhAbstractModelSubject::fetch($params['subject_id']).'"',
+                        'chat_type' => 'subject',
+                        'title' => '"'.erLhAbstractModelSubject::fetch($params['subject_id']).'" ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/mobilenotifications','subject added'),
+                    );
+
+                    self::sendPushNotification($operator, $params['chat'], $paramsSend);
+
                 }
             }
         }
@@ -379,6 +472,8 @@ class erLhcoreClassLHCMobile {
             $channelName = 'com.livehelperchat.chat.channel.NEWMESSAGE';
         } elseif ($params['chat_type'] == 'new_group_msg') {
             $channelName = 'com.livehelperchat.chat.channel.NEWGROUPMESSAGE';
+        } elseif ($params['chat_type'] == 'subject') {
+            $channelName = 'com.livehelperchat.chat.channel.SUBJECT';
         }
 
         if ($channelName != '') {
