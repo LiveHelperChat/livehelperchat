@@ -331,8 +331,9 @@ class erLhcoreClassChatHelper
      * 
      * @throws Exception
      */
-    public static function mergeVid($data)
+    public static function mergeVid($data, $background = false)
     {
+
     	if (!isset($data['vid'])) {
     		throw new Exception('Old vid not provided');
     	}
@@ -341,13 +342,19 @@ class erLhcoreClassChatHelper
     		throw new Exception('New vid not provided');
     	}
 
+        if ($background == false && class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $inst_id = class_exists('erLhcoreClassInstance') ? erLhcoreClassInstance::$instanceChat->id : 0;
+            erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->enqueue('lhc_rest_webhook', 'erLhcoreClassChatWebhookResque', array('inst_id' => $inst_id, 'event_type' => 'merge_vid', 'old_vid' => $data['vid'], 'new_vid' => $data['new']));
+            return;
+        }
+
     	$old = erLhcoreClassModelChatOnlineUser::fetchByVid($data['vid']);
     	$new = erLhcoreClassModelChatOnlineUser::fetchByVid($data['new']);
 
     	if ($old === false) {
     	    throw new Exception('Invalid VID value');
     	}
-    	
+
     	if ($new === false && $old !== false) {
     		// If new record not found just update old vid to new vid hash
     		$old->vid = $data['new'];
