@@ -11,7 +11,7 @@
         'css_class'      => 'form-control',
         'selected_id'    => $item->dep_id,
         'list_function'  => 'erLhcoreClassModelDepartament::getList',
-        'list_function_params'  => array(),
+        'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => false],erLhcoreClassUserDep::conditionalDepartmentFilter()),
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any')
     ) ); ?>
 </div>
@@ -25,7 +25,7 @@
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
         'selected_id'    => $item->bot_id,
         'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
-        'list_function_params'  => array()
+        'list_function_params'  => ['sort' => '`name` ASC', 'limit' => false],
     ) ); ?>
 </div>
 

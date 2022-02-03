@@ -12,7 +12,8 @@
                     'selected_id'    => $input_statistic->department_id,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
-                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
+                    'ajax'           => 'deps',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentFilter()),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
             </div>

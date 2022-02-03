@@ -42,7 +42,7 @@
                     'selected_id'    => $input->group_ids,
                     'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
-                    'list_function_params' => [],
+                    'list_function_params' => array_merge(array('sort' => '`name` ASC'),erLhcoreClassGroupUser::getConditionalUserFilter(false, true)),
                     'list_function'  => 'erLhcoreClassModelGroup::getList'
                 )); ?>
             </div>

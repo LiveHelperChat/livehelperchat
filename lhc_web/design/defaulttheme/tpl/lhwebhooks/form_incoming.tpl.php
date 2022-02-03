@@ -31,7 +31,7 @@
         'selected_id'    => $item->dep_id,
         'css_class'      => 'form-control form-control-sm',
         'display_name'   => 'name',
-        'list_function_params' => array(),
+        'list_function_params' => array('limit' => false, 'sort' => '`name` ASC'),
         'list_function'  => 'erLhcoreClassModelDepartament::getList'
     )); ?>
 </div>

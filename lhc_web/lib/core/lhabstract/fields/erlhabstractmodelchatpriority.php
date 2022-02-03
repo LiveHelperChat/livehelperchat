@@ -8,7 +8,7 @@ return array(
         'frontend' => 'dep',
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => false,
-        'params_call' => array(),
+        'params_call' => array('limit' => false, 'sort' => '`name` ASC'),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'dest_dep_id' => array(

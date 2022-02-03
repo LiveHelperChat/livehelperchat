@@ -30,7 +30,8 @@
                     'selected_id'    => $input->department_id,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
-                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
+                    'ajax'           => 'deps',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentFilter()),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
             </div>
@@ -44,7 +45,7 @@
                     'selected_id'    => $input->subject_id,
                     'css_class'      => 'form-control form-control-sm',
                     'display_name'   => 'name',
-                    'list_function_params'  => (new erLhAbstractModelSubject())->getFilter(),
+                    'list_function_params'  => array_merge((new erLhAbstractModelSubject())->getFilter(),['sort' => '`name` ASC']),
                     'list_function'  => 'erLhAbstractModelSubject::getList'
                 )); ?>
             </div>
@@ -60,7 +61,7 @@
                     'css_class'      => 'form-control',
                     'display_name'   => 'name_official',
                     'ajax'           => 'users',
-                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC','limit' => 50)),
                     'list_function'  => 'erLhcoreClassModelUser::getUserList',
                 )); ?>
             </div>

@@ -2,7 +2,7 @@
 
 <div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Name');?></label>		
-    <input type="text" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>" name="name" value="<?php echo htmlspecialchars($start_chat_item->name);?>" />
+    <input type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>" name="name" value="<?php echo htmlspecialchars($start_chat_item->name);?>" />
 </div>
 
 <div class="form-group">
@@ -11,10 +11,10 @@
 $params = array (
 		'input_name'     => 'DepartmentID',			
 		'display_name'   => 'name',
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control form-control-sm',
 		'selected_id'    => $start_chat_item->department_id,
 		'list_function'  => 'erLhcoreClassModelDepartament::getList',
-		'list_function_params'  => array('limit' => '1000000')
+		'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
 );
 echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
 </div>

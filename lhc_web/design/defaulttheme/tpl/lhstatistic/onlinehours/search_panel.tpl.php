@@ -83,7 +83,7 @@
                 'css_class'      => 'form-control form-control-sm',
                 'display_name'   => 'name_official',
                 'ajax'           => 'users',
-                'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
+                'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50,'sort' => '`name` ASC')),
                 'list_function'  => 'erLhcoreClassModelUser::getUserList',
             )); ?>
         </div>

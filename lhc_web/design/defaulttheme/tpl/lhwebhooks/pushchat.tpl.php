@@ -23,22 +23,22 @@
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'incoming_api_id',
         'display_name'   => 'name',
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control form-control-sm',
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push','Choose a webhook'),
         'selected_id'    => $item->incoming_api_id,
         'list_function'  => 'erLhcoreClassModelChatIncomingWebhook::getList',
-        'list_function_params'  => array('filter' => array('disabled' => 0))
+        'list_function_params'  => array('limit' => false, 'sort' => '`name` ASC','filter' => array('disabled' => 0))
     ) ); ?>
 </div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'Recipient. (chatId). In most cases it is just a phone number'); ?></label>
-    <input type="text" class="form-control" value="<?php echo htmlspecialchars($item->chat_id)?>" name="chat_id">
+    <input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars($item->chat_id)?>" name="chat_id">
 </div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhook/push', 'Message'); ?></label>
-    <textarea class="form-control" name="message"><?php echo htmlspecialchars($item->message)?></textarea>
+    <textarea class="form-control form-control-sm" name="message"><?php echo htmlspecialchars($item->message)?></textarea>
 </div>
 
 <div class="form-group">
@@ -47,7 +47,8 @@
         'input_name'     => 'dep_id',
         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
         'selected_id'    => $item->dep_id,
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control form-control-sm',
+        'list_function_params'  => array('limit' => false, 'sort' => '`name` ASC'),
         'list_function'  => 'erLhcoreClassModelDepartament::getList'
     )); ?>
 </div>

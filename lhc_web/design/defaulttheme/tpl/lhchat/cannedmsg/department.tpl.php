@@ -12,7 +12,7 @@
                 'css_class'      => 'form-control form-control-sm',
                 'selected_id'    => 0,
                 'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList',
-                'list_function_params'  => array('limit' => '1000000'),
+                'list_function_params'  => array('limit' => false,'sort' => '`name` ASC'),
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose department group')
             );
             echo erLhcoreClassRenderHelper::renderCombobox($params);
@@ -37,7 +37,7 @@ $params = array (
 		'wrap_append'    => '</div>',
 		'selected_id'    => $canned_message->department_ids_front,
 		'list_function'  => 'erLhcoreClassModelDepartament::getList',
-		'list_function_params'  => array_merge(array('sort' => 'sort_priority ASC, id ASC', 'limit' => '1000000'), $limitDepartments)
+		'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)
 );
 
 if (empty($limitDepartments) || (isset($showAnyDepartment) && $showAnyDepartment == true)) {
