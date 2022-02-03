@@ -81,12 +81,9 @@ if ($filterParams['input_form']->subject_id > 0){
 $limitation = erLhcoreClassChat::getDepartmentLimitation();
 
 if ($limitation !== false) {
-
     if ($limitation !== true) {
         $filterParams['filter']['customfilter'][] = $limitation;
     }
-
-    $filterParams['filter']['smart_select'] = true;         
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
@@ -153,8 +150,14 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+$rowsNumber = null;
+
+if (empty($filterParams['filter'])) {
+    $rowsNumber = ($rowsNumber = erLhcoreClassModelChat::estimateRows()) && $rowsNumber > 10000 ? $rowsNumber : null;
+}
+
 $pages = new lhPaginator();
-$pages->items_total = erLhcoreClassModelChat::getCount($filterParams['filter']);
+$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/pendingchats';
 $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
 $pages->paginate();

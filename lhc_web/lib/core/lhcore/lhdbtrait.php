@@ -220,6 +220,15 @@ trait erLhcoreClassDBTrait
 
     }
 
+    public static function estimateRows() {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare("SELECT `table_rows` FROM `information_schema`.`tables` WHERE `table_schema` = :table_schema AND `table_name` = :table_name");
+        $stmt->bindValue(':table_schema',erConfigClassLhConfig::getInstance()->getSetting( 'db', 'database' ),PDO::PARAM_STR);
+        $stmt->bindValue(':table_name',self::$dbTable,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_COLUMN);
+    }
+
     public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false)
     {
 

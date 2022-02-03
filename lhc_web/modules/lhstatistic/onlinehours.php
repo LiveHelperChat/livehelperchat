@@ -12,9 +12,15 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+$rowsNumber = null;
+
+if (empty($filterParams['filter'])) {
+    $rowsNumber = ($rowsNumber = erLhcoreClassModelUserOnlineSession::estimateRows()) && $rowsNumber > 100 ? $rowsNumber : null;
+}
+
 $pages = new lhPaginator();
+$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelUserOnlineSession::getCount($filterParams['filter']);
 $pages->serverURL = erLhcoreClassDesign::baseurl('statistic/onlinehours') . $append;
-$pages->items_total = erLhcoreClassModelUserOnlineSession::getCount($filterParams['filter']);
 $pages->setItemsPerPage(20);
 $pages->paginate();
 

@@ -33,8 +33,16 @@ if (isset($filterParams['input_form'])) {
     $tpl->set('input_form',$filterParams['input_form']);
 }
 
+$filterParamsCount = array_merge($filterParams['filter'],$filterObject);
+
+$rowsNumber = null;
+
+if (empty($filterParamsCount)) {
+    $rowsNumber = method_exists('erLhAbstractModel'.$Params['user_parameters']['identifier'],'estimateRows') && ($rowsNumber = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
+}
+
 $pages = new lhPaginator();
-$pages->items_total = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',array_merge($filterParams['filter'],$filterObject));
+$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParamsCount);
 $pages->translationContext = 'abstract/list';
 $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
 $pages->setItemsPerPage(20);
