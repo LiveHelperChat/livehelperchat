@@ -70,12 +70,9 @@ if (isset($_GET['doSearch'])) {
 $limitation = erLhcoreClassChat::getDepartmentLimitation('lhc_mailconv_conversation');
 
 if ($limitation !== false) {
-
     if ($limitation !== true) {
         $filterParams['filter']['customfilter'][] = $limitation;
     }
-
-    $filterParams['filter']['smart_select'] = true;
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
@@ -176,8 +173,17 @@ if ($filterParams['input_form']->subject_id > 0) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+$filterWithoutSort = $filterParams['filter'];
+unset($filterWithoutSort['sort']);
+
+$rowsNumber = null;
+
+if (empty($filterWithoutSort)) {
+    $rowsNumber = ($rowsNumber = erLhcoreClassModelMailconvConversation::estimateRows()) && $rowsNumber > 10000 ? $rowsNumber : null;
+}
+
 $pages = new lhPaginator();
-$pages->items_total = erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
+$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';
 $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
 $pages->paginate();
