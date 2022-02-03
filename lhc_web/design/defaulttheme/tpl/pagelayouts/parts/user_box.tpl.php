@@ -84,9 +84,7 @@ if ($UserData->force_logout == 1) {
                 <div class="col-12">
                     <a href="<?php echo erLhcoreClassDesign::baseurl('user/setsetting')?>/auto_preload/<?php echo erLhcoreClassModelUserSetting::getSetting('auto_preload',0) == 0 ? 1 : 0?>" class="csfr-required dropdown-item pl-2"><span class="material-icons"><?php erLhcoreClassModelUserSetting::getSetting('auto_preload',0) ? print 'check' : print 'remove_done'?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></a>
                 </div>
-                <div class="col-12">
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('user/setsetting')?>/scroll_load/<?php echo erLhcoreClassModelUserSetting::getSetting('scroll_load',1) == 0 ? 1 : 0?>" class="csfr-required dropdown-item pl-2"><span class="material-icons"><?php erLhcoreClassModelUserSetting::getSetting('scroll_load',1) ? print 'check' : print 'remove_done'?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Load previous message on scroll');?></a>
-                </div>
+                <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/settings/scroll_load.tpl.php'));?>
                 <div class="col-6">
                     <a href="#" class="dropdown-item pl-2" onclick="lhinst.disableChatSoundAdmin($(this));event.stopPropagation()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from users');?>"><i class="material-icons" ><?php $soundMessageEnabled == 0 ? print 'volume_off' : print 'volume_up'?></i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New messages');?></a>
                 </div>
