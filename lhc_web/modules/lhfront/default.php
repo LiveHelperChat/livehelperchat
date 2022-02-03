@@ -5,7 +5,11 @@ $detect = new Mobile_Detect;
 // New dashboard available only on desktop
 $device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
-if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1 && $device_type == 0) {
+$new_dashboard = (int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1);
+
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setting.new_dashboard',array('new_dashboard' => & $new_dashboard));
+
+if ($new_dashboard == 1 && $device_type == 0) {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
     $tpl->set('new_dashboard',true);
     $Result['body_class'] = 'h-100 dashboard-height';
