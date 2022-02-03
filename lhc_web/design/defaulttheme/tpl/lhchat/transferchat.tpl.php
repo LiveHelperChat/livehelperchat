@@ -118,7 +118,7 @@
                     'display_name'   => function($item){return $item->name_official . ($item->chat_nickname != '' ? ' | '.$item->chat_nickname : '');},
                     'size' => 10,
                     'list_function'  => 'erLhcoreClassModelUser::getUserList',
-                    'list_function_params'  => array('limit' => 50, 'filter' => array('disabled' => 0))
+                    'list_function_params'  => array('sort' => '`name` ASC', 'limit' => 50, 'filter' => array('disabled' => 0))
                 )); ?>
             </div>
             <input type="button" onclick="lhinst.changeOwner('<?php echo $chat->id?>','<?php isset($transferMode) ? print $transferMode : print 'chat'?>')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','Change owner');?>">

@@ -8,6 +8,6 @@
         'css_class'      => 'form-control form-control-sm',
         'display_name'   => 'name',
         'list_function'  => 'erLhcoreClassModelDepartament::getList',
-        'list_function_params'  => array_merge(array('sort' => 'sort_priority ASC, id ASC', 'limit' => '1000000'), ($userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array()))
+        'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => false), ($userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array()))
     )); ?>
 </div>
