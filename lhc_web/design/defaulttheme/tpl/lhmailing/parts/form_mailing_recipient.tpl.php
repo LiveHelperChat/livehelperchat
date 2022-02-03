@@ -38,13 +38,13 @@
             $params = array (
                 'input_name'     => 'ml[]',
                 'display_name'   => 'name',
-                'css_class'      => 'form-control',
+                'css_class'      => 'form-control form-control-sm',
                 'multiple'       => true,
                 'wrap_prepend'   => '<div class="col-4">',
                 'wrap_append'    => '</div>',
                 'selected_id'    => $item->ml_ids_front,
                 'list_function'  => 'erLhcoreClassModelMailconvMailingList::getList',
-                'list_function_params'  => array('sort' => 'name ASC, id ASC', 'limit' => false)
+                'list_function_params'  => array('sort' => '`name` ASC, `id` ASC', 'limit' => false)
             );
             echo erLhcoreClassRenderHelper::renderCheckbox( $params );
         ?>

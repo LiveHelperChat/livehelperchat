@@ -10,12 +10,12 @@
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'mailbox_id',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose mailbox'),
-                'css_class'      => 'form-control',
+                'css_class'      => 'form-control form-control-sm',
                 'selected_id'      => '',
                 'display_name'   => function($item) {
                     return $item->mail.' | '.$item->name;
                 },
-                'list_function_params' => ['limit' => false],
+                'list_function_params' => ['limit' => false, 'sort' => '`mail` ASC'],
                 'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
             )); ?>
         </div>
@@ -27,11 +27,11 @@
             'input_name'     => 'user_id',
             'optional_field' => $userTitle['user_select'],
             'selected_id'    => '',
-            'css_class'      => 'form-control',
+            'css_class'      => 'form-control form-control-sm',
             'display_name'   => function($item){
                 return $item->name_official.' | '.$item->email;
             },
-            'list_function_params' => ['limit' => false],
+            'list_function_params' => ['limit' => false, 'sort' => '`name` ASC'],
             'list_function'  => 'erLhcoreClassModelUser::getUserList'
         )); ?>
     </div>

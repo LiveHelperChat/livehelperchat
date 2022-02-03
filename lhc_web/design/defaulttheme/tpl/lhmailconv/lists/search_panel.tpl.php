@@ -33,7 +33,7 @@
                     'selected_id'    => $input->mailbox_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'mail',
-                    'list_function_params' => [],
+                    'list_function_params' => ['limit' => false, 'sort' => '`mail` ASC'],
                     'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
                 )); ?>
             </div>
@@ -49,7 +49,8 @@
                     'selected_id'    => $input->user_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name_official',
-                    'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(),
+                    'ajax'           => 'users',
+                    'list_function_params' =>  array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC','limit' => 50)),
                     'list_function'  => 'erLhcoreClassModelUser::getUserList'
                 )); ?>
             </div>
@@ -100,7 +101,8 @@
                     'selected_id'    => $input->department_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
-                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
+                    'ajax'           => 'deps',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentFilter()),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList'
                 )); ?>
             </div>
@@ -115,7 +117,7 @@
                     'selected_id'    => $input->department_group_ids,
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
-                    'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
+                    'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => false],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
                     'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
                 )); ?>
             </div>
@@ -240,7 +242,7 @@
                                     'display_name'   => function($item) {
                                         return '[' . $item->short_code . '] '.$item->lang_name;
                                     },
-                                    'list_function_params' => ['filternot' => ['short_code' => '']],
+                                    'list_function_params' => ['limit' => false, 'sort' => '`lang_name` ASC','filternot' => ['short_code' => '']],
                                     'list_function'  => 'erLhcoreClassModelSpeechLanguageDialect::getList'
                                 )); ?>
                             </div>

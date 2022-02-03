@@ -12,7 +12,7 @@
                 'css_class'      => 'form-control form-control-sm',
                 'selected_id'    => $item->dep_id,
                 'list_function'  => 'erLhcoreClassModelDepartament::getList',
-                'list_function_params'  => array('limit' => '1000000'),
+                'list_function_params'  => array('limit' => false, 'sort' => '`name` ASC'),
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose')
             );
             echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
@@ -53,7 +53,7 @@
         'display_name'   => function($item){
             return $item->name. ' ('. $item->mail.')';
         },
-        'list_function_params' => [],
+        'list_function_params' => ['limit' => false, 'sort' => '`mail` ASC'],
         'list_function'  => 'erLhcoreClassModelMailconvMailbox::getList'
     )); ?>
     </div>
