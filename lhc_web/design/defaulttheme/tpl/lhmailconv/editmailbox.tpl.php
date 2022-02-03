@@ -145,7 +145,7 @@
                         'data_prop'      => 'data-limit="1"',
                         'css_class'      => 'form-control',
                         'display_name'   => 'name',
-                        'list_function_params' => array('limit' => 20),
+                        'list_function_params' => array('limit' => 20, 'sort' => '`name` ASC'),
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
                     )); ?>
                     <p><small><i>Default department is only used for replaceable variables support at the moment.</i></small></p>
