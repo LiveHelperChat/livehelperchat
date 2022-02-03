@@ -14,8 +14,14 @@ erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+$rowsNumber = null;
+
+if (empty($filterParams['filter'])) {
+    $rowsNumber = ($rowsNumber = erLhcoreClassModelUserLogin::estimateRows()) && $rowsNumber > 10000 ? $rowsNumber : null;
+}
+
 $pages = new lhPaginator();
-$pages->items_total = erLhcoreClassModelUserLogin::getCount($filterParams['filter']);
+$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelUserLogin::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/pendingchats';
 $pages->serverURL = erLhcoreClassDesign::baseurl('audit/loginhistory').$append;
 $pages->paginate();

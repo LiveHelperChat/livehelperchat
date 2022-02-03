@@ -3,7 +3,7 @@
     <div class="col-md-2">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Object ID');?></label>
-            <input type="text" class="form-control form-control-sm" name="object_id" value="<?php echo htmlspecialchars($input_form->object_id)?>" />
+            <input type="text" class="form-control form-control-sm" name="object_id" value="<?php echo htmlspecialchars((string)$input_form->object_id)?>" />
         </div>
     </div>
 
