@@ -27,7 +27,7 @@
                     <option value="-1" <?php in_array(-1, $assignedGrupsIds) ? print ' selected="selected" ' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Direct members of this group cannot assign this group to other operators.');?></option>
                 </optgroup>
                 <optgroup label="Groups">
-                    <?php foreach (erLhcoreClassModelGroup::getList() as $groupMember) : ?>
+                    <?php foreach (erLhcoreClassModelGroup::getList(['limit' => false,'sort' => '`name` ASC']) as $groupMember) : ?>
                         <option value="<?php echo $groupMember->id?>"<?php in_array($groupMember->id, $assignedGrupsIds) ? print ' selected="selected" ' : ''?>><?php echo htmlspecialchars($groupMember->name)?></option>
                     <?php endforeach; ?>
                 </optgroup>

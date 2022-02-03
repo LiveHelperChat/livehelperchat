@@ -12,7 +12,7 @@
         </div>
         <div class="form-group" ng-non-bindable>
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
-            <input type="text" class="form-control" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
+            <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
         </div>
     </div>
     <div role="tabpanel" class="tab-pane form-group" id="chooks-settings">
@@ -134,11 +134,11 @@
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'bot_id',
                 'display_name'   => 'name',
-                'css_class'      => 'form-control',
+                'css_class'      => 'form-control form-control-sm',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
                 'selected_id'    => $item->bot_id,
                 'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
-                'list_function_params'  => array()
+                'list_function_params'  => array('sort' => '`name` ASC', 'limit' => false)
             ) ); ?>
         </div>
 
@@ -155,11 +155,11 @@
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'bot_id_alt',
                 'display_name'   => 'name',
-                'css_class'      => 'form-control',
+                'css_class'      => 'form-control form-control-sm',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose a bot'),
                 'selected_id'    => $item->bot_id_alt,
                 'list_function'  => 'erLhcoreClassModelGenericBotBot::getList',
-                'list_function_params'  => array()
+                'list_function_params'  => array('sort' => '`name` ASC', 'limit' => false)
             ) ); ?>
         </div>
 

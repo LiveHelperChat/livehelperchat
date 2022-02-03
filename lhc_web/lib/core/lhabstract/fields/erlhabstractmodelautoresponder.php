@@ -108,18 +108,6 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )),
-    /*'dep_id' => array(
-        'type' => 'combobox',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
-        'required' => false,
-        'frontend' => 'dep_frontend',
-        'source' => 'erLhcoreClassModelDepartament::getList',
-        'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
-        'params_call' => $departmentFilterdefault,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int'
-        )),*/
-
     'dep_id' => array(
         'type' => 'multi_dropdown',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Department'),
@@ -130,25 +118,10 @@ return array(
         'frontend' => 'dep_frontend',
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
-        'params_call' => $departmentFilterdefault,
+        'params_call' => array_merge(['limit' => false,'sort' => '`name` ASC'],$departmentFilterdefault),
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )),
-
-      /*echo erLhcoreClassRenderHelper::renderMultiDropdown(array(
-          'input_name' => 'department_id',
-          'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel', 'Choose department'),
-          'selected_id' => "0",
-          'ng-model' => 'combination.dep_id',
-          'type' => 'radio',
-          'data_prop' => 'data-limit="1"',
-          'css_class' => 'form-control',
-          'display_name' => 'name',
-          'list_function_params' => array('limit' => false),
-          'list_function' => 'erLhcoreClassModelDepartament::getList',
-      ));*/
-
-
      'user_id' => array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'User'),
@@ -156,7 +129,7 @@ return array(
         'frontend' => 'user',
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => false,
-        'params_call' => array(),
+        'params_call' => ['limit' => false,'sort' => '`name` ASC'],
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int'
         )),

@@ -9,7 +9,8 @@ if (ezcInputForm::hasPostData()) {
     }
 
     $definition = array(
-        'subject_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',  array('min_range' => 1), FILTER_REQUIRE_ARRAY)
+        'subject_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',  array('min_range' => 1), FILTER_REQUIRE_ARRAY),
+        'chat_status_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int',  array('min_range' => 0), FILTER_REQUIRE_ARRAY)
     );
 
     $form = new ezcInputForm(INPUT_POST, $definition);
@@ -21,10 +22,19 @@ if (ezcInputForm::hasPostData()) {
         erLhcoreClassModelUserSetting::setSetting('subject_id', '[]');
     }
 
+    if ($form->hasValidData('chat_status_id')) {
+        erLhcoreClassModelUserSetting::setSetting('status_mobile', json_encode($form->chat_status_id));
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('status_mobile', '[]');
+    }
+
     $tpl->set('updated', true);
 }
 
-$tpl->setArray(array('subject_id' => json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id','[]'), true)));
+$tpl->setArray(array(
+    'subject_id' => json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id','[]'), true),
+    'status_id' => json_decode(erLhcoreClassModelUserSetting::getSetting('status_mobile','[]'), true),
+));
 
 echo $tpl->fetch();
 exit();

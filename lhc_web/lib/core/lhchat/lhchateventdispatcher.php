@@ -23,7 +23,7 @@ class erLhcoreClassChatEventDispatcher {
    {
        if ($this->globalListenersSet == false) {
            $this->globalListenersSet = true;
-           
+
            // Do not set listeners if mobile is disabled
            if ($this->disableMobile == false) {
                $this->listen('chat.chat_started', 'erLhcoreClassLHCMobile::chatStarted');
@@ -32,6 +32,7 @@ class erLhcoreClassChatEventDispatcher {
                $this->listen('chat.genericbot_chat_command_transfer', 'erLhcoreClassLHCMobile::botTransfer');
                $this->listen('chat.chat_transfered', 'erLhcoreClassLHCMobile::chatTransferred');
                $this->listen('group_chat.web_add_msg_admin', 'erLhcoreClassLHCMobile::newGroupMessage');
+               $this->listen('chat.subject_add', 'erLhcoreClassLHCMobile::newSubject');
            }
        }
 

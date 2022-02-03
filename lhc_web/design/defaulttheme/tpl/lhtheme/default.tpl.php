@@ -10,15 +10,15 @@
 
 	<div class="form-group" ng-non-bindable>
     	<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Theme')?></label>
-        <select name="ThemeID" class="form-control">
+        <select name="ThemeID" class="form-control form-control-sm">
             <option value="0">--<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Default');?>--</option>
-    		<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => 1000)) as $theme) : ?>
+    		<?php foreach (erLhAbstractModelWidgetTheme::getList(array('limit' => false, 'sort' => '`name` ASC')) as $theme) : ?>
     		   <option value="<?php echo $theme->id?>" <?php $default_theme_id == $theme->id ? print 'selected="selected"' : '';?>><?php echo htmlspecialchars($theme->name)?></option>
     		<?php endforeach; ?>
     	</select>
 	</div>
 	
-	<input type="submit" name="ImportTheme" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/default','Set as default theme')?>" />
+	<input type="submit" name="ImportTheme" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/default','Set as default theme')?>" />
 	
 </form>
 	

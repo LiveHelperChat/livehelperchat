@@ -37,6 +37,12 @@ class erLhcoreClassChatWebhookResque {
             $db->query('USE ' . $cfg->getSetting('db', 'database_user_prefix') . $this->args['inst_id']);
         }
 
+        // Helper tasks
+        if (isset($this->args['event_type']) && $this->args['event_type'] == 'merge_vid') {
+            erLhcoreClassChatHelper::mergeVid(['vid' => $this->args['old_vid'], 'new' => $this->args['new_vid']], true);
+            return;
+        }
+
         $hookId = $this->args['hook_id'];
 
         $webhook = erLhcoreClassModelChatWebhook::fetch($hookId);

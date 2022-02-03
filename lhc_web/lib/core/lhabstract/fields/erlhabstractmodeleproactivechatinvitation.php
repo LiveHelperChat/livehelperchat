@@ -179,7 +179,7 @@ return array(
         'hidden' => true,
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => !empty($departmentFilterdefault = erLhcoreClassUserDep::conditionalDepartmentFilter()),
-        'params_call' => $departmentFilterdefault,
+        'params_call' => array_merge(['limit' => false, 'sort' => '`name` ASC'],$departmentFilterdefault),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'campaign_id' => array(
@@ -188,7 +188,7 @@ return array(
         'required' => false,
         'hidden' => true,
         'source' => 'erLhAbstractModelProactiveChatCampaign::getList',
-        'params_call' => array(),
+        'params_call' => ['limit' => false],
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'bot_id' => array(
@@ -198,7 +198,7 @@ return array(
         'hidden' => true,
         'source' => 'erLhcoreClassModelGenericBotBot::getList',
         'hide_optional' => false,
-        'params_call' => array(),
+        'params_call' => ['limit' => false, 'sort' => '`name` ASC'],
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
     'trigger_id' => array(

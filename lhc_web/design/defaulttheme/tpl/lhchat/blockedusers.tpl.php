@@ -53,7 +53,7 @@
                                     'css_class'      => 'form-control',
                                     'display_name'   => 'name',
                                     'show_optional'  => true,
-                                    'list_function_params' => array('limit' => false),
+                                    'list_function_params' => array('limit' => false, 'sort' => '`name` ASC'),
                                     'list_function'  => 'erLhcoreClassModelDepartament::getList',
                                 )); ?>
                         </div>

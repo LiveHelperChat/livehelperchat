@@ -81,7 +81,7 @@
                'selected_id'    => $input->group_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
-               'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(false, true),
+               'list_function_params' => array_merge(array('sort' => '`name` ASC'),erLhcoreClassGroupUser::getConditionalUserFilter(false, true)),
                'list_function'  => 'erLhcoreClassModelGroup::getList'
             )); ?>
         </div>   
@@ -97,7 +97,7 @@
                 'display_name'   => 'name_official',
                 'css_class'      => 'form-control',
                 'ajax'           => 'users',
-                'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('limit' => 50)),
+                'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC','limit' => 50)),
                 'list_function'  => 'erLhcoreClassModelUser::getUserList'
             )); ?>
         </div>
@@ -111,8 +111,9 @@
                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
                'selected_id'    => $input->department_ids,
                'css_class'      => 'form-control',
+               'ajax'         => 'deps',
                'display_name'   => 'name',
-               'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentFilter(),
+               'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentFilter()),
                'list_function'  => 'erLhcoreClassModelDepartament::getList'
             )); ?>
         </div>
@@ -127,7 +128,7 @@
                'selected_id'    => $input->department_group_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
-               'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
+               'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
             )); ?>
         </div>   
@@ -142,7 +143,7 @@
                 'selected_id'    => $input->subject_ids,
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => array(),
+                'list_function_params'  => array_merge((new erLhAbstractModelSubject())->getFilter(),['sort' => '`name` ASC']),
                 'list_function'  => 'erLhAbstractModelSubject::getList'
             )); ?>
         </div>

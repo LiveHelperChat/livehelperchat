@@ -15,6 +15,7 @@ if ($userDepartments !== true){
     $departmentParams['filterin']['id'] = $filter['filterin']['dep_id'] = $userDepartments;
 }
 $departmentParams['limit'] = false;
+$departmentParams['sort'] = '`name` ASC';
 
 $tpl->set('departmentParams',$departmentParams);
 

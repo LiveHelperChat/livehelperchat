@@ -53,7 +53,7 @@
                 'selected_id'    => $input->group_ids,
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => erLhcoreClassGroupUser::getConditionalUserFilter(false, true),
+                'list_function_params' => array_merge(array('sort' => '`name` ASC'),erLhcoreClassGroupUser::getConditionalUserFilter(false, true)),
                 'list_function'  => 'erLhcoreClassModelGroup::getList'
             )); ?>
         </div>
@@ -67,7 +67,7 @@
                'selected_id'    => $input->department_group_ids,
                'css_class'      => 'form-control',
                'display_name'   => 'name',
-               'list_function_params' => erLhcoreClassUserDep::conditionalDepartmentGroupFilter(),
+               'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
            )); ?>
         </div>   

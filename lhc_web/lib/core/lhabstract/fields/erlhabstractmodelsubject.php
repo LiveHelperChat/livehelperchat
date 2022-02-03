@@ -42,7 +42,7 @@ return array(
         'col_size' => 4,
         'hidden' => true,
         'source' => 'erLhcoreClassModelDepartament::getList',
-        'params_call' => $departmentFilterdefault,
+        'params_call' => array_merge(['limit' => false, 'sort' => '`name` ASC'],$departmentFilterdefault),
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY)
     ),
 );

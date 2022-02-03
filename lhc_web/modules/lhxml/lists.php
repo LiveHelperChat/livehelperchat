@@ -1,5 +1,7 @@
 <?php
 
+header ( 'content-type: application/json; charset=utf-8' );
+
 $currentUser = erLhcoreClassUser::instance();
 if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
 {
@@ -10,6 +12,8 @@ $activeChats = erLhcoreClassChat::getActiveChats(10);
 $closedChats = erLhcoreClassChat::getClosedChats(10);
 $pendingChats = erLhcoreClassChat::getPendingChats(10);
 $transferedChats = erLhcoreClassTransfer::getTransferChats();
+$botChats = erLhcoreClassChat::getBotChats(10);
+
 $unreadChats = array(); // erLhcoreClassChat::getUnreadMessagesChats(10,0);
 
 foreach ($activeChats as $index => $activeChat) {
@@ -24,10 +28,23 @@ foreach ($closedChats as $index => $closedChat) {
     $closedChats[$index]->owner = $closedChat->n_off_full;
 }
 
+foreach ($botChats as $index => $botChat) {
+    $botChats[$index]->owner = $botChat->user_id > 0 ? $botChat->n_off_full : ($botChat->gbot_id > 0 ? (string)erLhcoreClassModelGenericBotBot::fetch($botChat->gbot_id) : 'n/a');
+    $alertSubjects = [];
+    foreach ($botChats[$index]->aicons as $aicon) {
+        if (isset($aicon['t']) && $aicon['t'] != '') {
+            $alertSubjects[] = $aicon['t'];
+        }
+    }
+
+    $botChats[$index]->aicon_front = implode('||',$alertSubjects);
+}
+
 erLhcoreClassChat::prefillGetAttributes($activeChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
 erLhcoreClassChat::prefillGetAttributes($closedChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
 erLhcoreClassChat::prefillGetAttributes($pendingChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
 erLhcoreClassChat::prefillGetAttributes($unreadChats,array('department_name'),array('updateIgnoreColumns','department','user'));
+erLhcoreClassChat::prefillGetAttributes($botChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
 
 $onlineUsers = array();
 if ($currentUser->hasAccessTo('lhchat','use_onlineusers')) {
@@ -111,6 +128,49 @@ if (!empty($groupChatsID)) {
     }
 }
 
+$filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
+
+$chatsSubjectChats = erLhcoreClassChat::getSubjectChats(10, 0, $filter);
+
+if (!empty($chatsSubjectChats)) {
+    $subjectsSelected = erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => array_keys($chatsSubjectChats))));
+    $subjectByChat = [];
+    $subject_ids = [];
+    foreach ($subjectsSelected as $subjectSelected) {
+        $subject_ids[] = $subjectSelected->subject_id;
+    }
+    if (!empty($subject_ids)) {
+        $subjectsMeta = erLhAbstractModelSubject::getList(array('filterin' => array('id' => array_unique($subject_ids))));
+    }
+    foreach ($subjectsSelected as $subjectSelected) {
+        if (isset( $subjectsMeta[$subjectSelected->subject_id])) {
+            $subjectByChat[$subjectSelected->chat_id][] = $subjectsMeta[$subjectSelected->subject_id]->name;
+        }
+    }
+}
+
+foreach ($chatsSubjectChats as $index => $subjectChat) {
+    $chatsSubjectChats[$index]->owner = $subjectChat->user_id > 0 ? $subjectChat->n_off_full : ($subjectChat->gbot_id > 0 ? (string)erLhcoreClassModelGenericBotBot::fetch($subjectChat->gbot_id) : 'n/a');
+
+    $alertSubjects = [];
+    foreach ($chatsSubjectChats[$index]->aicons as $aicon) {
+        if (isset($aicon['t']) && $aicon['t'] != '') {
+            $alertSubjects[] = $aicon['t'];
+        }
+    }
+
+    $chatsSubjectChats[$index]->aicon_front = implode('||',$alertSubjects);
+
+}
+
+erLhcoreClassChat::prefillGetAttributes($chatsSubjectChats,array('department_name','user_status_front'),array('updateIgnoreColumns','department','user'));
+
+foreach ($chatsSubjectChats as $index => $chat) {
+    if (isset($subjectByChat[$chat->id])) {
+        $chatsSubjectChats[$index]->subject_front = implode('||',$subjectByChat[$chat->id]);
+    }
+}
+
 $response = array(
     'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
@@ -119,6 +179,8 @@ $response = array(
     'pending_chats' => array('rows' => $pendingChats, 'size' => count($pendingChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'transfered_chats' => array('rows' => $transferedChats, 'size' => count($transferedChats), 'hidden_columns' => array_merge($columnsToHide,array('transfer_id')), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'operators_chats' => array('rows' => $onlineOperators, 'size' => count($onlineOperators), 'hidden_columns' => array(), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'subject_chats' => array('rows' => $chatsSubjectChats, 'size' => count($chatsSubjectChats), 'hidden_columns' => array(), 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
+    'bot_chats' => array('rows' => $botChats, 'size' => count($botChats), 'hidden_columns' => array(), 'timestamp_delegate' => array('time'),'column_names' => $columnsName)
 );
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('xml.lists', array('list' => & $response));

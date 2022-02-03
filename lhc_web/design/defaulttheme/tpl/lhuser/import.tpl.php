@@ -24,7 +24,7 @@
             <div class="col-3">
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/import','CSV Separator')?></label>
-                    <select class="form-control" name="CSVSeparator">
+                    <select class="form-control form-control-sm" name="CSVSeparator">
                         <option value="," <?php if (isset($importSettings['csv_separator']) && $importSettings['csv_separator'] == ',') : ?>selected="selected"<?php endif;?>>,</option>
                         <option value=";" <?php if (isset($importSettings['csv_separator']) && $importSettings['csv_separator'] == ';') : ?>selected="selected"<?php endif;?>>;</option>
                     </select>
@@ -40,9 +40,9 @@
                         'input_name'     => 'DefaultGroup[]',
                         'selected_id'    => isset($importSettings['user_groups_id']) ? $importSettings['user_groups_id'] : array(),
                         'multiple' 		 => true,
-                        'css_class'       => 'form-control',
+                        'css_class'       => 'form-control form-control-sm',
                         'list_function'  => 'erLhcoreClassModelGroup::getList',
-                        'list_function_params'  => array()
+                        'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
                     )); ?>
                 </div>
             </div>
@@ -54,9 +54,9 @@
                         'input_name'     => 'DepartmentGroup[]',
                         'selected_id'    => isset($importSettings['dep_id']) ? $importSettings['dep_id'] : array(),
                         'multiple' 		 => true,
-                        'css_class'       => 'form-control',
+                        'css_class'       => 'form-control form-control-sm',
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
-                        'list_function_params'  => array()
+                        'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
                     )); ?>
                 </div>
             </div>
@@ -68,9 +68,9 @@
                         'input_name'     => 'DepartmentGroups[]',
                         'selected_id'    => isset($importSettings['dep_group_id']) ? $importSettings['dep_group_id'] : array(),
                         'multiple' 		 => true,
-                        'css_class'       => 'form-control',
+                        'css_class'       => 'form-control form-control-sm',
                         'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList',
-                        'list_function_params'  => array()
+                        'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
                     )); ?>
                 </div>
             </div>
@@ -113,7 +113,7 @@
             <div class="col-4">
                 <div class="form-group">
                     <label><?php echo htmlspecialchars($item['name'])?></label>
-                    <input type="number" class="form-control" name="field[<?php echo $key?>]" value="<?php (isset($importSettings['field'][$key])) ? print htmlspecialchars($importSettings['field'][$key]) : null ?>" />
+                    <input type="number" class="form-control form-control-sm" name="field[<?php echo $key?>]" value="<?php (isset($importSettings['field'][$key])) ? print htmlspecialchars($importSettings['field'][$key]) : null ?>" />
                 </div>
             </div>
             <?php endforeach; ?>

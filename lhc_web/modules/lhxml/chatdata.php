@@ -20,7 +20,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         }
          
         // If status is pending change status to active
-        if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
+        if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) {
         	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
         
         	if ($chat->wait_time == 0) {
