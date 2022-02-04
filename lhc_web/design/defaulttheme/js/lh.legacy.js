@@ -227,11 +227,9 @@ lhinst.switchToOfflineForm = function() {
 lhinst.disableChatSoundUser = function(inst)
 {
     if (inst.find('> i').text() == 'volume_off') {
-        $.post(this.wwwDir+  'user/setsettingajax/chat_message/1');
         confLH.new_message_sound_user_enabled = 1;
         inst.find('> i').text('volume_up');
     } else {
-        $.post(this.wwwDir+  'user/setsettingajax/chat_message/0');
         confLH.new_message_sound_user_enabled = 0;
         inst.find('> i').text('volume_off');
     };

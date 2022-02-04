@@ -29,14 +29,14 @@ class erLhcoreClassModelUserSetting
 
     public static function setSetting($identifier, $value, $user_id = false, $noCache = false)
     {
-        if ($user_id == false) {
+        if ($user_id == false && $user_id != -1) {
             $currentUser = erLhcoreClassUser::instance();
             if ($currentUser->isLogged()) {
                 $user_id = $currentUser->getUserID();
             }
         }
 
-        if ($user_id !== false) {
+        if ($user_id !== false && $user_id != -1) {
             $list = self::getList(array('filter' => array('user_id' => $user_id, 'identifier' => $identifier)));
 
             if (count($list) > 0) {
@@ -57,20 +57,20 @@ class erLhcoreClassModelUserSetting
             }
 
         } else {
-            CSCacheAPC::getMem()->setSession('anonymous_' . $identifier, $value);
+            CSCacheAPC::getMem()->setSession('anonymous_' . $identifier, $value,true, true);
         }
     }
 
     public static function getSetting($identifier, $default_value, $user_id = false, $noSession = false, $noCache = false)
     {
-        if ($user_id == false) {
+        if ($user_id == false && $user_id != -1) {
             $currentUser = erLhcoreClassUser::instance();
             if ($currentUser->isLogged()) {
                 $user_id = $currentUser->getUserID();
             }
         }
 
-        if ($user_id !== false) {
+        if ($user_id !== false && $user_id != -1) {
 
             $value = CSCacheAPC::getMem()->getSession('settings_user_id_' . $user_id . '_' . $identifier, true);
 
@@ -98,9 +98,9 @@ class erLhcoreClassModelUserSetting
         } else {
             $value = $default_value;
 
-            if ($noSession === false && ($value = CSCacheAPC::getMem()->getSession('anonymous_' . $identifier)) === false) {
+            if ($noSession === false && ($value = CSCacheAPC::getMem()->getSession('anonymous_' . $identifier,true)) === false) {
                 $value = $default_value;
-                CSCacheAPC::getMem()->setSession('anonymous_' . $identifier, $value);
+                CSCacheAPC::getMem()->setSession('anonymous_' . $identifier, $value,true, true);
             }
         }
 

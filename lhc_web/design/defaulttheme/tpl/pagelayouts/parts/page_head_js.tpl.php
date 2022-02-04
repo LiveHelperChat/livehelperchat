@@ -21,7 +21,7 @@ confLH.transLation = <?php echo json_encode(array(
             'translate' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Translate'),
             'new' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New'),
 )); ?>;
-confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled'])) ?>;
+confLH.new_message_sound_user_enabled = <?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_message',(int)($soundData['new_message_sound_user_enabled']),-1) ?>;
 <?php if (!isset($Result['anonymous'])) : ?>
 confLH.csrf_token = '<?php echo erLhcoreClassUser::instance()->getCSFRToken()?>';
 confLH.user_id = '<?php echo erLhcoreClassUser::instance()->getUserID()?>';
