@@ -42,7 +42,7 @@ $ViewList['personaltheme'] = array(
 
 $ViewList['renderpreview'] = array(
     'params' => array('id'),
-    'functions' => array( 'administratethemes' )
+    'functions' => array( 'use_operator' )
 );
 
 $ViewList['admincss'] = array(
@@ -76,5 +76,6 @@ $ViewList['gethash'] = array (
 
 $FunctionList['administratethemes'] = array('explain' =>'Allow users to maintain themes');
 $FunctionList['personaltheme'] = array('explain' =>'Allow operators have their own personal back office theme');
+$FunctionList['use_operator'] = array('explain' =>'Allow operator to preview trigger');
 
 ?>

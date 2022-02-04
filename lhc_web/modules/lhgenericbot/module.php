@@ -80,7 +80,7 @@ $ViewList['botimportgroup'] = array(
 $ViewList['triggersbybot'] = array(
     'params' => array('id','trigger_id'),
     'uparams' => array('preview','element'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_operator' )
 );
 
 $ViewList['getpayloads'] = array(
