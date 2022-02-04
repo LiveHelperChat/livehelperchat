@@ -34,7 +34,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcore
 }
 
 if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
-	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
+	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0,-1);
 }
 
 if ($Params['user_parameters_unordered']['cstarted'] !== null && $Params['user_parameters_unordered']['cstarted'] != '') {
