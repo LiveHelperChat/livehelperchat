@@ -3,7 +3,7 @@
     var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
-<div id="canned-controller" ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='cmsg.initController()<?php if ($canned_message->languages != '') : ?>cmsg.initLanguage(<?php echo $canned_message->id?>);<?php endif;?>'>
+<div id="canned-controller" ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='cmsg.initController();<?php if ($canned_message->languages != '') : ?>cmsg.initLanguage(<?php echo $canned_message->id?>);<?php endif;?>'>
 
 <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
     <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>

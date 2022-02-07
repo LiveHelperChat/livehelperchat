@@ -2556,6 +2556,8 @@ try {
                         array('module' => 'lhgroupchat', 'function' => 'use'),
                         array('module' => 'lhuser', 'function' => 'see_all_group_users'),
                         array('module' => 'lhvoicevideo', 'function' => 'use'),
+                        array('module' => 'lhtheme', 'function' => 'use_operator'),
+                        array('module' => 'lhgenericbot', 'function' => 'use_operator'),
                     );
 
                     foreach ($permissionsArray as $paramsPermission) {
