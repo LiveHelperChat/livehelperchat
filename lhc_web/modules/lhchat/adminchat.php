@@ -65,7 +65,14 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     	    // Store who has acceped a chat so other operators will be able easily indicate this
     	    if ($operatorAccepted == true) {
-    	    	         	        
+
+                // If chat is transferred to pending state we don't want to process any old events
+                $eventPending = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
+
+                if ($eventPending instanceof erLhcoreClassModelGenericBotChatEvent) {
+                    $eventPending->removeThis();
+                }
+
     	        $msg = new erLhcoreClassModelmsg();
                 $msg->name_support = $userData->name_support;
 
