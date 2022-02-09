@@ -37,7 +37,8 @@ try {
                 }
                 if (
                     $file->name == $attachment->name &&
-                    $file->content_id == (string)$attachment->contentId
+                    $file->content_id == (string)$attachment->contentId &&
+                    $file->size = (int)$attachment->sizeInBytes
                 ) {
                     $fileBody = $attachment->getContents();
 
