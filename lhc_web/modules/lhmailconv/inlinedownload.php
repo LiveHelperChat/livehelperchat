@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 try {
     $file = erLhcoreClassModelMailconvFile::fetch((int)$Params['user_parameters']['id']);
 
@@ -8,10 +10,81 @@ try {
     }
 
     header('Content-type: '.$file->type);
-    echo file_get_contents($file->file_path_server);
+
+    if (file_exists($file->file_path_server)) {
+        echo file_get_contents($file->file_path_server);
+    } else {
+
+        include 'lib/vendor/autoload.php';
+
+        $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
+
+        $mailbox = $mail->mailbox;
+
+        $mailboxHandler = new PhpImap\Mailbox(
+            $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+            $mailbox->username, // Username for the before configured mailbox
+            $mailbox->password, // Password for the before configured username
+            false
+        );
+
+        $mail = $mailboxHandler->getMail($mail->uid, false);
+
+        if ($mail->hasAttachments() == true) {
+            foreach ($mail->getAttachments() as $attachment) {
+                if ((int)$attachment->sizeInBytes == 0) {
+                    continue;
+                }
+                if (
+                    $file->name == $attachment->name &&
+                    $file->content_id == (string)$attachment->contentId
+                ) {
+                    $fileBody = $attachment->getContents();
+
+                    // Try to save file again
+                    $cfg = erConfigClassLhConfig::getInstance();
+
+                    $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
+                    $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
+
+                    $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $file->id . '/';
+                    erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
+
+                    file_put_contents($dir . $file->file_name, $fileBody);
+
+                    chmod($dir . $file->file_name, 0644);
+
+                    if ($defaultUser != '') {
+                        chown($dir, $defaultUser);
+                    }
+
+                    if ($defaultGroup != '') {
+                        chgrp($dir, $defaultGroup);
+                    }
+
+                    // Log error for investigation
+                    if (!file_exists($file->file_path_server)) {
+                        \erLhcoreClassLog::write(
+                            "file could not be stored - ".$file->id,
+                            \ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'mailconv',
+                                'category' => 'mailconv',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => $file->id
+                            )
+                        );
+                    }
+
+                    echo $fileBody;
+                }
+            }
+        }
+    }
 
 } catch (Exception $e) {
-    header('Location: /');
+    http_response_code(404);
     exit;
 }
 exit;
