@@ -147,7 +147,7 @@ class chatEventsHandler {
     sendChildCommand(command) {
         if (this.attributes.mainWidget.cont.elmDom && this.attributes.mainWidget.cont.elmDom.contentWindow)
         {
-            this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage(command, '/');
+            this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage(command, (this.attributes.isIE ? '*' : '/'));
         }
 
         if (this.attributes.popupWidget.cont.elementReferrerPopup && this.attributes.popupWidget.cont.elementReferrerPopup.closed === false)
@@ -162,7 +162,7 @@ class chatEventsHandler {
 
         if (!(popup === true) && this.attributes.mainWidget.cont.elmDom && this.attributes.mainWidget.cont.elmDom.contentWindow)
         {
-            this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage('lhc_init:' + JSON.stringify(args), '/');
+            this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage('lhc_init:' + JSON.stringify(args), (this.attributes.isIE ? '*' : '/'));
         }
      }
 
