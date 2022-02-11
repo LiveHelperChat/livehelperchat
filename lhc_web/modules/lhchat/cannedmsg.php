@@ -130,7 +130,6 @@ if ($tab == 'cannedmsg') {
     /**
      * Append user departments filter
      * */
-
     $departmentParams = array();
     $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
     if ($userDepartments !== true){
@@ -156,9 +155,23 @@ if ($tab == 'cannedmsg') {
         $filterParams['filter']['filterin']['`lh_canned_msg_dep`.`dep_id`'] = $filterParams['input_form']->department_id;
     }
 
+    $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
+
+    if (isset($_GET['export']) && $_GET['export'] == 1) {
+        erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter'], ['offset' => 0, 'action' => 'export']);
+    }
+
+    $pages = new lhPaginator();
+    $pages->serverURL = erLhcoreClassDesign::baseurl('chat/cannedmsg') . '/(tab)/statistic' . $append;
+    $pages->items_total = erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter'], ['action' => 'count']);
+    $pages->setItemsPerPage(20);
+    $pages->paginate();
+
     $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/cannedmsg') . '/(tab)/statistic';
-    $tpl->set('items',erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter']));
+    $tpl->set('items',erLhcoreClassChatStatistic::cannedStatistic(30,$filterParams['filter'], ['offset' => $pages->low, 'action' => 'list']));
+    $tpl->set('pages',$pages);
     $tpl->set('input_statistic',$filterParams['input_form']);
+    $tpl->set('inputAppend',$append);
 }
 
 $Result['content'] = $tpl->fetch();

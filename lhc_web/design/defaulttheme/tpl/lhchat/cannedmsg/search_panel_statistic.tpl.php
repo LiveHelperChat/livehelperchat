@@ -88,6 +88,9 @@
 
     <div class="btn-group" role="group" aria-label="...">
         <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Generate');?>" />
+        <?php if ($pages->items_total > 0) : ?>
+            <a target="_blank" class="btn btn-secondary btn-sm" href="<?php echo $pages->serverURL?>?export=1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','CSV');?></a>
+        <?php endif; ?>
     </div>
 
     <script>
