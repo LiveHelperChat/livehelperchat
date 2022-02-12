@@ -77,7 +77,7 @@ class erLhcoreClassTransfer
      *
      * @param $userId
      */
-    public static function handleTransferredChatOpen(& $chat, $userId)
+    public static function handleTransferredChatOpen(& $chat, $userId, & $operatorAccepted = false)
     {
         $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id)));
         if ($transfer instanceof erLhcoreClassModelTransfer) {
@@ -93,6 +93,8 @@ class erLhcoreClassTransfer
             } elseif ($transfer->transfer_to_user_id == 0) { // It was transfer to department so we can remove record
                 $transfer->removeThis();
             }
+            
+            $operatorAccepted = true;
         }
     }
 
