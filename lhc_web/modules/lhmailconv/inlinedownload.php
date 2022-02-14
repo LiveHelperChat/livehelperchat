@@ -48,7 +48,7 @@ try {
                     $defaultGroup = $cfg->getSetting( 'site', 'default_group', false );
                     $defaultUser = $cfg->getSetting( 'site', 'default_user', false );
 
-                    $dir = 'var/storagemail/' . date('Y') . 'y/' . date('m') . '/' . date('d') .'/' . $file->id . '/';
+                    $dir = $file->file_path;
                     erLhcoreClassFileUpload::mkdirRecursive( $dir, true, $defaultUser, $defaultGroup);
 
                     file_put_contents($dir . $file->file_name, $fileBody);
