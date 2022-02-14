@@ -1617,12 +1617,18 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         // Delete pending event if same even is executing already
-        if ($chat->id > 0 && $trigger->id > 0){
+        if ($chat->id > 0 && $trigger->id > 0) {
             $db = ezcDbInstance::get();
-            $stmt = $db->prepare("DELETE FROM lh_generic_bot_pending_event WHERE chat_id = :chat_id AND trigger_id = :trigger_id");
-            $stmt->bindValue(':chat_id', $chat->id, PDO::PARAM_INT);
-            $stmt->bindValue(':trigger_id', $trigger->id, PDO::PARAM_INT);
+            $stmt = $db->prepare('SELECT `id` FROM `lh_generic_bot_pending_event` WHERE `chat_id` = :chat_id AND `trigger_id` = :trigger_id');
+            $stmt->bindValue(':chat_id', $chat->id,PDO::PARAM_INT);
+            $stmt->bindValue(':trigger_id', $trigger->id,PDO::PARAM_INT);
             $stmt->execute();
+            $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            
+            if (!empty($ids)) {
+                $stmt = $db->prepare('DELETE FROM `lh_generic_bot_pending_event` WHERE `id` IN (' . implode(',', $ids) . ')');
+                $stmt->execute();
+            }
         }
 
         self::$triggerName[] = $trigger->name;
