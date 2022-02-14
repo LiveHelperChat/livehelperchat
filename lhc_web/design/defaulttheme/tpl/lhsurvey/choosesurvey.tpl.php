@@ -17,7 +17,13 @@
         </div>
         
         <br/>
-        <input type="submit" value="Request user" class="btn btn-secondary" onclick="lhinst.chooseSurvey('<?php echo $chat->id;?>')" />
+
+        <?php if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) : ?>
+            <input type="submit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Redirect to survey');?>" class="btn btn-secondary" onclick="lhinst.chooseSurvey('<?php echo $chat->id;?>')" />
+        <?php else : ?>
+            <div class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/choosesurvey','Chat is on hold and can not be forwarded to survey');?></div>
+        <?php endif; ?>
+
 	</div>
 	<div role="tabpanel" class="tab-pane" id="collected-<?php echo $chat->id?>">
 	   <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>

@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 193;
+            lhc.version = 194;
 
             var init = () => {
 
@@ -908,7 +908,7 @@
 
                     const parts = e.data.split('::');
 
-                    if (typeof e.origin !== 'undefined') {
+                    if (typeof e.origin !== 'undefined' && e.origin != 'about:') {
                         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/, '');
 
                         // We allow to send events only from chat installation or page where script is embeded.
@@ -918,6 +918,7 @@
                     }
 
                     if (parts[1] == 'ready') {
+
                         chatEvents.sendReadyEvent(parts[2] == 'true');
 
                         if (attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_screenshare')) {

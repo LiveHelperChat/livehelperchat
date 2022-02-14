@@ -809,7 +809,7 @@ class erLhcoreClassChatStatistic {
     	}
     }
 
-    public static function cannedStatistic($days = 30, $filter = array()) {
+    public static function cannedStatistic($days = 30, $filter = array(), $paramsExecution = []) {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getcannedstatistic',array('days' => $days, 'filter' => $filter));
 
         if ($statusWorkflow === false) {
@@ -825,9 +825,9 @@ class erLhcoreClassChatStatistic {
                 $filter['filter']['`lh_chat`.`user_id`'] = $filter['filter']['user_id'];
                 unset($filter['filter']['user_id']);
             }
-            
-            $generalFilter = self::formatFilter($filter);
-            $generalJoin = self::formatJoin($filter);
+
+            $generalFilter = erLhcoreClassChatStatistic::formatFilter($filter);
+            $generalJoin = erLhcoreClassChatStatistic::formatJoin($filter);
 
             $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
             $appendFilterTime = '';
@@ -838,7 +838,28 @@ class erLhcoreClassChatStatistic {
                 }
             }
 
-            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_canned_msg_use`.`canned_id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id` ORDER BY number_of_chats DESC LIMIT 40";
+            if ($paramsExecution['action'] == 'count') {
+                $sql = "SELECT count(`id`)  FROM (SELECT `lh_canned_msg_use`.`canned_id` as `id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` INNER JOIN `lh_canned_msg` ON `lh_canned_msg`.`id` = `lh_canned_msg_use`.`canned_id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id`) as total_stats";
+
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare($sql);
+
+                if ($useTimeFilter == true) {
+                    $stmt->bindValue(':time',$dateUnixPast);
+                }
+
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $stmt->execute();
+                return $stmt->fetchColumn();
+            }
+
+            $limit = " LIMIT 20 OFFSET " .  (isset($paramsExecution['offset']) ? $paramsExecution['offset'] : 20);
+
+            if ($paramsExecution['action'] == 'export') {
+                $limit = '';
+            }
+
+            $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_canned_msg_use`.`canned_id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` INNER JOIN `lh_canned_msg` ON `lh_canned_msg`.`id` = `lh_canned_msg_use`.`canned_id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id` ORDER BY number_of_chats DESC,`lh_canned_msg_use`.`canned_id` DESC  " . $limit;
 
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
@@ -850,6 +871,24 @@ class erLhcoreClassChatStatistic {
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
             $stats = $stmt->fetchAll();
+
+            if ($paramsExecution['action'] == 'export') {
+                $filename = "report-canned-".date('Y-m-d').".csv";
+                $fp = fopen('php://output', 'w');
+
+                header('Content-type: application/csv');
+                header('Content-Disposition: attachment; filename='.$filename);
+
+                fputcsv($fp, ['ID','Title','Used']);
+                foreach ($stats as $key => $data) {
+                    fputcsv($fp,[
+                        $data['canned_id'],
+                        (string)erLhcoreClassModelCannedMsg::fetch($data['canned_id']),
+                        $data['number_of_chats'],
+                    ]);
+                }
+                exit;
+            }
 
             return $stats;
 

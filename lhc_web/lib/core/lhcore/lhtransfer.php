@@ -93,7 +93,7 @@ class erLhcoreClassTransfer
      *
      * @param $userId
      */
-    public static function handleTransferredChatOpen(& $chat, $userId, $transferScope = erLhcoreClassModelTransfer::SCOPE_CHAT)
+    public static function handleTransferredChatOpen(& $chat, $userId, $transferScope = erLhcoreClassModelTransfer::SCOPE_CHAT, & $operatorAccepted = false)
     {
         $transfer = erLhcoreClassModelTransfer::findOne(array('filter' => array('chat_id' => $chat->id, 'transfer_scope' => $transferScope)));
         if ($transfer instanceof erLhcoreClassModelTransfer) {
@@ -109,6 +109,8 @@ class erLhcoreClassTransfer
             } elseif ($transfer->transfer_to_user_id == 0) { // It was transfer to department so we can remove record
                 $transfer->removeThis();
             }
+            
+            $operatorAccepted = true;
         }
     }
 
