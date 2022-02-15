@@ -89,7 +89,11 @@ class StartChat extends Component {
             }
 
         } catch (e) {
-            fields['URLRefer'] = window.document.location;
+            try {
+                fields['URLRefer'] = String(window.document.location);
+            } catch (e) {
+                // Do nothing
+            }
         }
 
         if (fields['URLRefer'] == 'blank') {

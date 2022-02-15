@@ -113,6 +113,13 @@ if (empty($Errors)) {
 
     $chat->hash = erLhcoreClassChat::generateHash();
     $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
+    if (is_array($chat->referrer)) {
+        if (isset($chat->referrer['href'])){
+            $chat->referrer = (string)$chat->referrer['href'];
+        } else {
+            $chat->referrer = '';
+        }
+    }
     $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
 
     if (isset($restAPI) && isset($requestPayload['chat_variables']) && is_array($requestPayload['chat_variables'])) {

@@ -51,7 +51,23 @@ class erLhcoreClassGenericBotActionAlert_icon {
         if ($needUpdate == true) {
             $chat->chat_variables = json_encode($chatVariables);
             $chat->chat_variables_array = $chatVariables;
-            $chat->saveThis(array('update' => array('chat_variables')));
+
+            $db = ezcDbInstance::get();
+
+            try {
+                
+                $db->beginTransaction();
+
+                // Lock record
+                erLhcoreClassModelChat::fetchAndLock($chat->id);
+
+                $chat->saveThis(array('update' => array('chat_variables')));
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+            }
         }
     }
 }
