@@ -74,7 +74,7 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
                 $this->{$var} = '';
                 $systemAttr = str_replace('recipient_','',$var);
                 if ($this->type == self::TYPE_MANUAL) {
-                    $this->recipient_name = $this->{$systemAttr};
+                    $this->{$var} = $this->{$systemAttr};
                 } else {
                     $recipient = erLhcoreClassModelMailconvMailingRecipient::fetch($this->recipient_id);
                     if ($recipient instanceof erLhcoreClassModelMailconvMailingRecipient) {
