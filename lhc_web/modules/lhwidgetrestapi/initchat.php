@@ -329,14 +329,16 @@ try {
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.initchat', array('output' => & $outputResponse, 'chat' => $chat));
 
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
-        
-    } else {
-        //$tpl->setFile( 'lhchat/errors/chatnotexists.tpl.php');
     }
 
 } catch(Exception $e) {
-    $db->rollback();
-    //$tpl->setFile('lhchat/errors/chatnotexists.tpl.php');
+    try {
+        $db->rollback();
+    } catch (Exception $ee) {
+        // No need for an error
+    }
+
+    erLhcoreClassLog::write(print_r($e,true));
 }
 exit;
 

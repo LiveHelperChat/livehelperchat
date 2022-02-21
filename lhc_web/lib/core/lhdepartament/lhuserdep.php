@@ -85,9 +85,13 @@ class erLhcoreClassUserDep
             return array();
         }
 
-        $userGroups = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($userID);
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id');
+        $stmt->bindValue( ':user_id',$userID);
+        $stmt->execute();
+        $userGroups = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        if (empty($userGroups)){
+        if (empty($userGroups)) {
             return array('filter' => array($column => -1));
         } else {
             return array('filterin' => array($column => $userGroups));
