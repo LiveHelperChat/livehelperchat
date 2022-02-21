@@ -25,6 +25,10 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
         }
     }
 
+    this.addOption = function(element) {
+        this.addDepartment(element)
+    }
+
     this.move = function(element, list, offset) {
         index = list.indexOf(element);
         newIndex = index + offset;

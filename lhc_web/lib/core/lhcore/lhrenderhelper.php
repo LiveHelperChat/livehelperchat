@@ -228,6 +228,7 @@ class erLhcoreClassRenderHelper {
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $ngModel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
+        $ngModel .= isset($params['ng-change']) ? ' ng-change="'.$params['ng-change'].'" ' : '';
         $type = isset($params['type']) ? $params['type'] : 'checkbox';
         $selector = isset($params['no_selector']) && $params['no_selector'] == true ? '' : 'selector-';
 
