@@ -54,6 +54,7 @@
                             'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
                             'selected_id'    => "0",
                             'ng-model'       => 'combination.dep_id',
+                            'ng-change'      => 'crc.addOption(combination)',
                             'type'           => 'radio',
                             'data_prop'      => 'data-limit="1"',
                             'css_class'      => 'form-control',
@@ -64,10 +65,7 @@
                         )); ?>
                     </div>
                 </div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-sm btn-secondary" ng-click="crc.addDepartment(combination)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add');?></button>
-                </div>
-                <div class="col-6">
+                <div class="col-8">
                     <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge badge-secondary m-1 action-image">
                         {{crc.departments[dep_id]}} <span class="material-icons text-warning mr-0">delete</span>
                     </span>
