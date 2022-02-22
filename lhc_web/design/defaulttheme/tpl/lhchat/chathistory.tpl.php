@@ -1,8 +1,8 @@
 
-            <?php if ($chat->cls_time == 0) : ?>
+            <?php if ($chatOriginal->cls_time == 0) : ?>
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Present chat was not closed yet. This information will be inaccurate at the moment.')?></p>
             <?php else : ?>
-                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','It shows only chats if they were closed. We show maximum of 10 chats in total.')?></p>
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','It shows only chats if they were closed. We show maximum of 10 chats in total.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/history','Closed at')?> - <?php echo date(erLhcoreClassModule::$dateDateHourFormat,$chatOriginal->cls_time);?></p>
             <?php endif; ?>
 
             <ul class="nav nav-pills mb-3" role="tablist">

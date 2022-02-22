@@ -45,9 +45,31 @@
 <?php echo erLhcoreClassAbstract::renderInput('referrer', $fields['referrer'], $object)?>
 </div>
 
-<div class="form-group">		
-<label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['expires_after']['trans'];?></label>
+            <select class="form-control form-control-sm" name="AbstractInput_expires_after">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Permanent (visitor has to close invitation)');?></option>
+                <option value="60" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 60) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minute');?></option>
+                <option value="300" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 300) : ?>selected="selected"<?php endif;?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="600" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 600) : ?>selected="selected"<?php endif;?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="1800" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 1800) : ?>selected="selected"<?php endif;?> >30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="3600" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 3600) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hour');?></option>
+                <option value="7200" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 7200) : ?>selected="selected"<?php endif;?> >2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="14400" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 14400) : ?>selected="selected"<?php endif;?> >4 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="28800" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 28800) : ?>selected="selected"<?php endif;?> >8 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="57600" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 57600) : ?>selected="selected"<?php endif;?> >16 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="86400" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 86400) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','day');?></option>
+            </select>
+        </div>
+    </div>
 </div>
 
 <div class="form-group">		

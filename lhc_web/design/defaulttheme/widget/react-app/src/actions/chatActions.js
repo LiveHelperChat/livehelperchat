@@ -25,14 +25,18 @@ export function abtractAction(eventData) {
     }
 }
 
-export function hideInvitation() {
+export function hideInvitation(persistent) {
     return function(dispatch, getState) {
         const state = getState();
         helperFunctions.sendMessageParent('closeWidget', [{'sender' : 'closeButton'}]);
         helperFunctions.sendMessageParent('cancelInvitation', [{'name' :  state.chatwidget.getIn(['proactive','data','invitation_name'])}]);
 
         axios.post(window.lhcChat['base_url'] + "chat/chatwidgetclosed/(vid)/" + state.chatwidget.get('vid'), null, defaultHeaders).then((response) => {
-            dispatch({type: "HIDE_INVITATION"});
+            if (persistent){
+                dispatch({type: "CANCEL_INVITATION"});
+            } else {
+                dispatch({type: "HIDE_INVITATION"});
+            }
         })
         .catch((err) => {
             console.log(err);

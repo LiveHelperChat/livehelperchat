@@ -53,6 +53,10 @@ if (($user = $onlineUser->operator_user) !== false) {
     $outputResponse['name_support'] = $onlineUser->operator_user !== false ? htmlspecialchars($onlineUser->operator_user->name_support) : (!empty($onlineUser->operator_user_proactive) ? htmlspecialchars($onlineUser->operator_user_proactive) : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support'));
 }
 
+if (isset($onlineUser->online_attr_system_array['lhcinv_exp'])) {
+    $outputResponse['inv_expires'] = $onlineUser->online_attr_system_array['lhcinv_exp'] - time();
+}
+
 $outputResponse['invitation_id'] = $onlineUser->invitation_id;
 
 $outputResponse['qinv'] = isset($onlineUser->online_attr_system_array['qinv']);

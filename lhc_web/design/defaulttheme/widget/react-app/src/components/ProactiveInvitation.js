@@ -21,6 +21,7 @@ class ProactiveInvitation extends Component {
         this.hideInvitation = this.hideInvitation.bind(this);
         this.fullInvitation = this.fullInvitation.bind(this);
         this.setBotPayload = this.setBotPayload.bind(this);
+        this.expireTimeout = null;
     }
 
     componentDidMount() {
@@ -45,9 +46,16 @@ class ProactiveInvitation extends Component {
                  }, 50);
             }
         }
+
+        if (this.props.chatwidget.hasIn(['proactive','data','inv_expires'])) {
+            this.expireTimeout = setTimeout(() => {
+                this.props.dispatch(hideInvitation(true));
+            },this.props.chatwidget.getIn(['proactive','data','inv_expires'])*1000);
+        }
     }
 
     componentWillUnmount() {
+        clearTimeout(this.expireTimeout);
         helperFunctions.sendMessageParent('widgetHeight', [{'reset_height' : true}]);
     }
 

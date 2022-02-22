@@ -20,6 +20,7 @@ if ( isset($_POST['SendMessage']) ) {
     $validationFields['FullWidget'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['IgnoreAutoresponder'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' );
     $validationFields['CampaignId'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1) );
+    $validationFields['InvitationExpire'] =  new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 86400) );
 
     $form = new ezcInputForm( INPUT_POST, $validationFields );    
     $Errors = array();
@@ -80,6 +81,12 @@ if ( isset($_POST['SendMessage']) ) {
     
     if (isset($onlineAttrSystem['qinv'])) {
         unset($onlineAttrSystem['qinv']);
+    }
+
+    if ($form->hasValidData( 'InvitationExpire' )) {
+        $onlineAttrSystem['lhcinv_exp'] = time() + $form->InvitationExpire;
+    } elseif (isset($onlineAttrSystem['lhcinv_exp'])) {
+        unset($onlineAttrSystem['lhcinv_exp']);
     }
 
     $visitor->online_attr_system_array = $onlineAttrSystem;
