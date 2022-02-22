@@ -540,6 +540,16 @@ class erLhAbstractModelProactiveChatInvitation {
 
                 $onlineAttrSystem = $item->online_attr_system_array;
 
+                if (isset($message->design_data_array['expires_after']) && (int)$message->design_data_array['expires_after'] > 0) {
+                    $onlineAttrSystem['lhcinv_exp'] = (int)$message->design_data_array['expires_after'] + time();
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                } elseif (isset($onlineAttrSystem['lhcinv_exp'])) {
+                    unset($onlineAttrSystem['lhcinv_exp']);
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                }
+
                 if (isset($message->design_data_array['ignore_bot']) && $message->design_data_array['ignore_bot'] == true) {
                     $onlineAttrSystem['lhc_ignore_bot'] = 1;
                     $item->online_attr_system = json_encode($onlineAttrSystem);

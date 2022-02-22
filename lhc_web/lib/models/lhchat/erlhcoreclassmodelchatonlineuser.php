@@ -154,8 +154,23 @@ class erLhcoreClassModelChatOnlineUser
                 break;
 
             case 'has_message_from_operator':
-                return ($this->message_seen == 0 && $this->operator_message != '');
-                break;
+
+                $hasInvitation = ($this->message_seen == 0 && $this->operator_message != '');
+
+                // Invitation has expire time and it has expired
+                if ($hasInvitation == true && isset($this->online_attr_system_array['lhcinv_exp']) && $this->online_attr_system_array['lhcinv_exp'] < time()) {
+                    $hasInvitation = false;
+                    $onlineAttrSystem = $this->online_attr_system_array;
+                    unset($onlineAttrSystem['lhcinv_exp']);
+                    $this->online_attr_system_array = $onlineAttrSystem;
+                    $this->online_attr_system = json_encode($onlineAttrSystem);
+                    $this->message_seen = 1;
+                    $this->message_seen_ts = time();
+                    $this->operator_message = '';
+                    $this->updateThis(['update' => ['online_attr_system','message_seen','message_seen_ts','operator_message']]);
+                }
+
+                return $hasInvitation;
 
             case 'notes_intro':
                 return $this->notes_intro = $this->notes != '' ? '[ ' . mb_substr($this->notes, 0, 50) . ' ]' . '<br/>' : '';
