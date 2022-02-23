@@ -11,6 +11,9 @@
         <button type="button" class="btn btn-outline-secondary btn-sm" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'mailing/importcampaign/<?php echo $campaign->id?>'})" >
             <i class="material-icons">file_upload</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Import');?>
         </button>
+        <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/campaignrecipient')?>/(campaign)/<?php echo $campaign->id?>/(export)/csv" class="btn btn-outline-secondary btn-sm">
+            <i class="material-icons">file_download</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Export');?>
+        </a>
     </div>
 
     <div role="alert" class="alert alert-info alert-dismissible hide m-3" id="list-update-import">

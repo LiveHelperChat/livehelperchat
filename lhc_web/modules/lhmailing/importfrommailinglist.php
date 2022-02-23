@@ -19,7 +19,7 @@ if (ezcInputForm::hasPostData() && !(!isset($_POST['csfr_token']) || !$currentUs
 
     if ($form->hasValidData( 'ml' ) && !empty($form->ml)) {
         foreach ($form->ml as $ml) {
-            foreach (erLhcoreClassModelMailconvMailingListRecipient::getList(['filter' => ['mailing_list_id' => $ml]]) as $mailingRecipient) {
+            foreach (erLhcoreClassModelMailconvMailingListRecipient::getList(['limit' => false, 'filter' => ['mailing_list_id' => $ml]]) as $mailingRecipient) {
 
                 if (isset($_POST['export_action']) && $_POST['export_action'] == 'unassign') {
                     if ($mailingRecipient->mailing_recipient instanceof erLhcoreClassModelMailconvMailingRecipient) {

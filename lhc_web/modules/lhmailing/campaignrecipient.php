@@ -18,6 +18,11 @@ if (!($campaign instanceof erLhcoreClassModelMailconvMailingCampaign)) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
+if ($Params['user_parameters_unordered']['export'] == 'csv') {
+    erLhcoreClassMailconvExport::exportCampaignRecipientCSV(array_merge($filterParams['filter'], array('limit' => 100000, 'offset' => 0)), ['campaign' => $campaign]);
+    exit;
+}
+
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvMailingCampaignRecipient::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';

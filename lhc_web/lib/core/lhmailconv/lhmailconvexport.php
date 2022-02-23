@@ -10,6 +10,75 @@ class erLhcoreClassMailconvExport {
         }
     }
 
+    public static function exportCampaignRecipientCSV($filter, $params) {
+        $now = gmdate("D, d M Y H:i:s");
+        header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+        header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+        header("Last-Modified: {$now} GMT");
+
+        // force download
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+
+        // disposition / encoding on response body
+        header("Content-Disposition: attachment;filename=campaign-recipient-" . $params['campaign']->id . ".csv");
+        header("Content-Transfer-Encoding: binary");
+
+        $df = fopen("php://output", 'w');
+
+        $firstRow = [
+            'email',
+            'name',
+            'attr_str_1',
+            'attr_str_2',
+            'attr_str_3',
+            'status',
+            'send_at',
+            'opened_at',
+            'message_id',
+            'conversation_id',
+            'type',
+            'log',
+        ];
+
+        fputcsv($df, $firstRow);
+
+        $chunks = ceil(erLhcoreClassModelMailconvMailingCampaignRecipient::getCount($filter)/300);
+
+        $status = [
+            erLhcoreClassModelMailconvMailingCampaignRecipient::PENDING => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending'),
+            erLhcoreClassModelMailconvMailingCampaignRecipient::IN_PROGRESS => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress'),
+            erLhcoreClassModelMailconvMailingCampaignRecipient::FAILED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Failed'),
+            erLhcoreClassModelMailconvMailingCampaignRecipient::SEND => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send')
+        ];
+
+        for($i = 0; $i < $chunks; $i ++) {
+            $filterChunk = $filter;
+            $filterChunk['offset'] = $i * 300;
+            $filterChunk['limit'] = 300;
+
+            foreach (erLhcoreClassModelMailconvMailingCampaignRecipient::getList($filterChunk) as $item) {
+                $itemCSV = [];
+                $itemCSV[] = (string)$item->recipient;
+                $itemCSV[] = (string)$item->name;
+                $itemCSV[] = (string)$item->attr_str_1;
+                $itemCSV[] = (string)$item->attr_str_2;
+                $itemCSV[] = (string)$item->attr_str_3;
+                $itemCSV[] = $status[$item->status];
+                $itemCSV[] = $item->send_at > 0 ? date(erLhcoreClassModule::$dateFormat, $item->send_at) : 'n/a';
+                $itemCSV[] = $item->opened_at > 0 ? date(erLhcoreClassModule::$dateFormat, $item->opened_at) : 'n/a';
+                $itemCSV[] = (string)$item->message_id;
+                $itemCSV[] = (string)$item->conversation_id;
+                $itemCSV[] = (string)$item->type == 1 ? 'manual' : 'list';
+                $itemCSV[] = (string)$item->log;
+                fputcsv($df, $itemCSV);
+            }
+        }
+
+        fclose($df);
+    }
+
     public static function exportCSV($filter, $params) {
         $now = gmdate("D, d M Y H:i:s");
         header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
