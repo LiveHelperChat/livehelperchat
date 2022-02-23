@@ -358,7 +358,11 @@ class erLhcoreClassSearchHandler
                             $filter['filterin_elastic'][$field['filter_table_field']] = $inputParams->$key;
                         }
                     } elseif ($field['filter_type'] == 'manual') {
-                        $filter = array_merge_recursive($filter, $field['filter_table_field']);
+                        if (isset($field['filter_table_by_value']) && isset($field['filter_table_by_value'][$inputParams->$key])){
+                            $filter = array_merge_recursive($filter, $field['filter_table_by_value'][$inputParams->$key]);
+                        } else {
+                            $filter = array_merge_recursive($filter, $field['filter_table_field']);
+                        }
                     } elseif ($field['filter_type'] == 'filternot') {
                         if (!empty($inputParams->$key)) {
                             $filter['filternot'][$field['filter_table_field']] = $inputParams->$key;
