@@ -36,7 +36,7 @@ $ViewList['newcampaignrecipient'] = array(
 
 $ViewList['campaignrecipient'] = array(
     'params' => array(),
-    'uparams' => array('campaign','export'),
+    'uparams' => array('campaign','export','status','opened'),
     'functions' => array( 'use_admin' )
 );
 
