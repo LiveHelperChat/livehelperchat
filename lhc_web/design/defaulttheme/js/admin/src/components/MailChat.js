@@ -412,9 +412,7 @@ const MailChat = props => {
                                     <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
                                 </div>}
 
-                                <div id={"mail-external-details-"+props.chatId}>
-
-                                </div>
+                                <div id={"mail-external-details-"+props.chatId}></div>
 
                                 {state.conv && <table className="table table-sm">
                                     <tr>
@@ -521,6 +519,8 @@ const MailChat = props => {
                                         <td>{state.conv.plain_user_name}</td>
                                     </tr>
                                 </table>}
+
+                                <div id={"mail-external-below-"+props.chatId}></div>
                             </div>
                         </div>
                     </div>
