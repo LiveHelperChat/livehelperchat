@@ -12,5 +12,8 @@
         <li><strong>{args.recipient.attr_str_1}</strong> - attribute string 1</li>
         <li><strong>{args.recipient.attr_str_2}</strong> - attribute string 2</li>
         <li><strong>{args.recipient.attr_str_3}</strong> - attribute string 3</li>
+        <li><strong>{args.recipient.attr_str_4}</strong> - attribute string 4</li>
+        <li><strong>{args.recipient.attr_str_5}</strong> - attribute string 5</li>
+        <li><strong>{args.recipient.attr_str_6}</strong> - attribute string 6</li>
     </ul>
 <?php endif; ?>
