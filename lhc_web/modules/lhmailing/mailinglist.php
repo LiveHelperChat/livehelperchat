@@ -19,7 +19,7 @@ if (!$currentUser->hasAccessTo('lhmailing','all_mailing_list')) {
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvMailingList::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/mailbox').$append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('mailing/mailinglist').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
