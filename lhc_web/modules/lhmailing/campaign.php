@@ -19,7 +19,7 @@ if (!$currentUser->hasAccessTo('lhmailing','all_campaigns')) {
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelMailconvMailingCampaign::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/activechats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/mailbox').$append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('mailing/campaign').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 
@@ -28,7 +28,7 @@ if ($pages->items_total > 0) {
     $tpl->set('items',$items);
 }
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailing/mailinglist');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailing/campaign');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 
