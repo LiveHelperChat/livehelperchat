@@ -2194,6 +2194,9 @@ try {
   `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `log` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message_id` (`message_id`),
@@ -2217,6 +2220,9 @@ try {
   `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `disabled` (`disabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");

@@ -14,37 +14,37 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 1');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_1}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_1" value="<?php echo htmlspecialchars($item->attr_str_1)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_1" value="<?php echo htmlspecialchars($item->attr_str_1)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 2');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_2}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_2" value="<?php echo htmlspecialchars($item->attr_str_2)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_2" value="<?php echo htmlspecialchars($item->attr_str_2)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 3');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_3}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_3" value="<?php echo htmlspecialchars($item->attr_str_3)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_3" value="<?php echo htmlspecialchars($item->attr_str_3)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 4');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_4}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_4" value="<?php echo htmlspecialchars($item->attr_str_4)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_4" value="<?php echo htmlspecialchars($item->attr_str_4)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 5');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_5}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_5" value="<?php echo htmlspecialchars($item->attr_str_5)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_5" value="<?php echo htmlspecialchars($item->attr_str_5)?>" />
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','String attribute 6');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.attr_str_6}');?></label>
-            <input type="text" maxlength="50" class="form-control form-control-sm" name="attr_str_6" value="<?php echo htmlspecialchars($item->attr_str_6)?>" />
+            <input type="text" maxlength="100" class="form-control form-control-sm" name="attr_str_6" value="<?php echo htmlspecialchars($item->attr_str_6)?>" />
         </div>
     </div>
 </div>
