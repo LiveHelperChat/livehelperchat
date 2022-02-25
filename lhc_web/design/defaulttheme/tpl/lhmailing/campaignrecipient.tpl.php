@@ -21,9 +21,9 @@
                 <td><?php echo $item->id?></td>
                 <td>
                     <?php if ($item->type == erLhcoreClassModelMailconvMailingCampaignRecipient::TYPE_MANUAL) : ?>
-                    <button class="p-0 m-0 btn btn-sm btn-link" href="#" onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>/<?php echo $item->id?>'})"><?php echo htmlspecialchars($item->recipient)?></button>
+                        <button class="p-0 m-0 btn btn-sm btn-link" href="#" onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url':'<?php echo erLhcoreClassDesign::baseurl('mailing/newcampaignrecipient')?>/<?php echo $campaign->id?>/<?php echo $item->id?>'})"><?php echo htmlspecialchars($item->recipient)?></button>
                     <?php else : ?>
-                    <a href="<?php echo erLhcoreClassDesign::baseurl('mailing/editmailingrecipient')?>/<?php echo $item->recipient_id?>"><?php echo htmlspecialchars($item->recipient)?></a>
+                        <button class="m-0 p-0 btn btn-sm btn-link" href="#" onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url': WWW_DIR_JAVASCRIPT + '/mailing/editmailingrecipient/<?php echo $item->recipient_id?>'})"><?php echo htmlspecialchars($item->recipient)?></button>
                     <?php endif; ?>&nbsp;
                     <a class="csfr-required text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
                 </td>
