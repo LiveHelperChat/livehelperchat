@@ -10,6 +10,9 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 1');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 2');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 3');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 4');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 5');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Attribute string 6');?></th>
         <th width="1%"></th>
     </tr>
     </thead>
@@ -30,6 +33,15 @@
             </td>
             <td>
                 <?php echo htmlspecialchars($item->attr_str_3)?>
+            </td>
+            <td>
+                <?php echo htmlspecialchars($item->attr_str_4)?>
+            </td>
+            <td>
+                <?php echo htmlspecialchars($item->attr_str_5)?>
+            </td>
+            <td>
+                <?php echo htmlspecialchars($item->attr_str_6)?>
             </td>
             <td>
                 <a class="csfr-required text-danger" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailing/deleterecipient')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>

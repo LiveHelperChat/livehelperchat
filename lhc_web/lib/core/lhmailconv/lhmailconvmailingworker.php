@@ -98,6 +98,9 @@ class erLhcoreClassMailConvMailingWorker {
         $recipientData->attr_str_1 = $recipient->recipient_attr_str_1;
         $recipientData->attr_str_2 = $recipient->recipient_attr_str_2;
         $recipientData->attr_str_3 = $recipient->recipient_attr_str_3;
+        $recipientData->attr_str_4 = $recipient->recipient_attr_str_4;
+        $recipientData->attr_str_5 = $recipient->recipient_attr_str_5;
+        $recipientData->attr_str_6 = $recipient->recipient_attr_str_6;
 
         $itemRecipientData->body = erLhcoreClassGenericBotWorkflow::translateMessage($itemRecipientData->body, array('chat' => $conv, 'args' => ['recipient' => $recipientData, 'mail' => $conv, 'current_user' => $campaign->user]));
         $itemRecipientData->subject = erLhcoreClassGenericBotWorkflow::translateMessage($itemRecipientData->subject, array('chat' => $conv, 'args' => ['recipient' => $recipientData, 'mail' => $conv, 'current_user' => $campaign->user]));

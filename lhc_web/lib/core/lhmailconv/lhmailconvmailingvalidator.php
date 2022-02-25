@@ -151,6 +151,15 @@ class erLhcoreClassMailconvMailingValidator {
             'attr_str_3' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'attr_str_4' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_5' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_6' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -176,6 +185,18 @@ class erLhcoreClassMailconvMailingValidator {
 
         if ($form->hasValidData( 'attr_str_3' )) {
             $item->attr_str_3 = $form->attr_str_3;
+        }
+
+        if ($form->hasValidData( 'attr_str_4' )) {
+            $item->attr_str_4 = $form->attr_str_4;
+        }
+
+        if ($form->hasValidData( 'attr_str_5' )) {
+            $item->attr_str_5 = $form->attr_str_5;
+        }
+
+        if ($form->hasValidData( 'attr_str_6' )) {
+            $item->attr_str_6 = $form->attr_str_6;
         }
 
         if ($item->id == null && erLhcoreClassModelMailconvMailingCampaignRecipient::getCount(['filter' => ['campaign_id' => $item->campaign_id, 'email' => $item->email]]) == 1) {
@@ -208,6 +229,15 @@ class erLhcoreClassMailconvMailingValidator {
             'attr_str_3' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'attr_str_4' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_5' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'attr_str_6' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -233,6 +263,18 @@ class erLhcoreClassMailconvMailingValidator {
 
         if ($form->hasValidData( 'attr_str_3' )) {
             $item->attr_str_3 = $form->attr_str_3;
+        }
+
+        if ($form->hasValidData( 'attr_str_4' )) {
+            $item->attr_str_4 = $form->attr_str_4;
+        }
+
+        if ($form->hasValidData( 'attr_str_5' )) {
+            $item->attr_str_5 = $form->attr_str_5;
+        }
+
+        if ($form->hasValidData( 'attr_str_6' )) {
+            $item->attr_str_6 = $form->attr_str_6;
         }
 
         if ($form->hasValidData( 'ml' ) && !empty($form->ml)) {

@@ -52,7 +52,7 @@ if (isset($_POST['UploadFileAction'])) {
 
         unlink($dir . $filename);
 
-        $canned = ['email','name','attr_str_1','attr_str_2','attr_str_3'];
+        $canned = ['email','name','attr_str_1','attr_str_2','attr_str_3','attr_str_4','attr_str_5','attr_str_6'];
 
         $stats = array(
             'updated' => 0,

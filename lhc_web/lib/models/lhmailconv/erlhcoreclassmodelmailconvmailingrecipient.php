@@ -23,6 +23,9 @@ class erLhcoreClassModelMailconvMailingRecipient
             'attr_str_1' => $this->attr_str_1,
             'attr_str_2' => $this->attr_str_2,
             'attr_str_3' => $this->attr_str_3,
+            'attr_str_4' => $this->attr_str_4,
+            'attr_str_5' => $this->attr_str_5,
+            'attr_str_6' => $this->attr_str_6,
         );
     }
 
@@ -98,6 +101,9 @@ class erLhcoreClassModelMailconvMailingRecipient
     public $attr_str_1 = '';
     public $attr_str_2 = '';
     public $attr_str_3 = '';
+    public $attr_str_4 = '';
+    public $attr_str_5 = '';
+    public $attr_str_6 = '';
 
 }
 

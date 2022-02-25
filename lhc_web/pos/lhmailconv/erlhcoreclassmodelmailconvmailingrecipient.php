@@ -10,7 +10,9 @@ $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
 foreach (array(
-             'email','data','name','attr_str_1','attr_str_2','attr_str_3'
+             'email','data','name',
+             'attr_str_1','attr_str_2','attr_str_3',
+             'attr_str_4','attr_str_5','attr_str_6'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

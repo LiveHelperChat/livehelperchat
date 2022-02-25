@@ -33,6 +33,9 @@ class erLhcoreClassMailconvExport {
             'attr_str_1',
             'attr_str_2',
             'attr_str_3',
+            'attr_str_4',
+            'attr_str_5',
+            'attr_str_6',
             'status',
             'send_at',
             'opened_at',
@@ -65,6 +68,9 @@ class erLhcoreClassMailconvExport {
                 $itemCSV[] = (string)$item->attr_str_1;
                 $itemCSV[] = (string)$item->attr_str_2;
                 $itemCSV[] = (string)$item->attr_str_3;
+                $itemCSV[] = (string)$item->attr_str_4;
+                $itemCSV[] = (string)$item->attr_str_5;
+                $itemCSV[] = (string)$item->attr_str_6;
                 $itemCSV[] = $status[$item->status];
                 $itemCSV[] = $item->send_at > 0 ? date(erLhcoreClassModule::$dateFormat, $item->send_at) : 'n/a';
                 $itemCSV[] = $item->opened_at > 0 ? date(erLhcoreClassModule::$dateFormat, $item->opened_at) : 'n/a';
