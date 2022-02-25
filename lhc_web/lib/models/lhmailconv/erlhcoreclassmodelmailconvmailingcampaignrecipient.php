@@ -73,6 +73,9 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
             case 'recipient_attr_str_1':
             case 'recipient_attr_str_2':
             case 'recipient_attr_str_3':
+            case 'recipient_attr_str_4':
+            case 'recipient_attr_str_5':
+            case 'recipient_attr_str_6':
             case 'recipient_name':
                 $this->{$var} = '';
                 $systemAttr = str_replace('recipient_','',$var);
