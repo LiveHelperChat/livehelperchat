@@ -256,6 +256,28 @@ if (isset($Result['theme'])) {
 
 $tpl->set('leaveamessage',$leaveamessage);
 
+if (empty($Params['user_parameters_unordered']['vid']) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)) {
+
+    // Incorrect mod_rewrite rule as fetch was for an image.
+    if ((isset($_SERVER['HTTP_SEC_FETCH_DEST']) && $_SERVER['HTTP_SEC_FETCH_DEST'] == 'image') ||
+        (isset($_SERVER['HTTP_USER_AGENT']) && erLhcoreClassModelChatOnlineUser::isBot($_SERVER['HTTP_USER_AGENT']))
+    ) {
+        http_response_code(404);
+        exit;
+    }
+
+    if (isset($_COOKIE['lhc_vid'])) {
+        $vid = $_COOKIE['lhc_vid'];
+    } else {
+        $vid = substr(sha1(mt_rand() . microtime()),0,20);
+    }
+
+    setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
+
+    $Params['user_parameters_unordered']['vid'] = $vid;
+}
+
+
 if (isset($_POST['StartChat']) && $disabled_department === false) {
     // Validate post data
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
