@@ -275,8 +275,10 @@ if (empty($Params['user_parameters_unordered']['vid']) && !((isset($_GET['cd']) 
     setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
 
     $Params['user_parameters_unordered']['vid'] = $vid;
-}
 
+} elseif (!empty($Params['user_parameters_unordered']['vid'])) {
+    setcookie("lhc_vid", $Params['user_parameters_unordered']['vid'], time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
+}
 
 if (isset($_POST['StartChat']) && $disabled_department === false) {
     // Validate post data
