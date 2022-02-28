@@ -31,6 +31,9 @@ $definition = array(
     'btype_email' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     ),
+    'btype_online_user' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    ),
     'expires' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 360)
     )
@@ -39,7 +42,7 @@ $definition = array(
 $form = new ezcInputForm(INPUT_POST, $definition);
 $params = array();
 
-if ((!$form->hasValidData('btype') || empty($form->btype)) && !$form->hasValidData('btype_email')) {
+if ((!$form->hasValidData('btype') || empty($form->btype)) && !$form->hasValidData('btype_email') && !$form->hasValidData('btype_online_user')) {
     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Please choose a block type!');
 } elseif ($form->hasValidData('btype') && !empty($form->btype)) {
     if (in_array(erLhcoreClassModelChatBlockedUser::BLOCK_IP,$form->btype) && in_array(erLhcoreClassModelChatBlockedUser::BLOCK_NICK,$form->btype)) {
@@ -56,6 +59,12 @@ if ($form->hasValidData('btype_email') && $chat->email != '') {
     $params['email'] = $chat->email;
 } elseif ($form->hasValidData('btype_email') && $chat->email != '') {
     $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Chat does not have an e-mail set!');
+}
+
+if ($form->hasValidData('btype_online_user') && $chat->online_user_id > 0) {
+    $params['online_user_id'] = $chat->online_user_id;
+} elseif ($form->hasValidData('btype_online_user') && $chat->online_user_id == 0) {
+    $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Chat does not have online user');
 }
 
 if (!$form->hasValidData('expires')) {

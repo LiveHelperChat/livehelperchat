@@ -128,6 +128,10 @@
                 <span class="badge badge-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','E-mail');?></span>
             <?php endif; ?>
 
+            <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_ONLINE_USER])) : ?>
+                <span class="badge badge-secondary" title="<?php echo $item->online_user_id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Online user');?></span>
+            <?php endif; ?>
+
             <?php if ($item->chat_id > 0) : ?><a class="material-icons" title="<?php echo htmlspecialchars($item->chat_id)?>" onclick="lhc.previewChat(<?php echo $item->chat_id?>)">info_outline</a><?php endif; ?><?php echo htmlspecialchars($item->ip)?>
         </td>
         <td><?php echo htmlspecialchars((string)$item->department)?></td>

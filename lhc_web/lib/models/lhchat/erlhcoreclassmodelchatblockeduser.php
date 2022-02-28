@@ -24,6 +24,7 @@ class erLhcoreClassModelChatBlockedUser
             'dep_id' => $this->dep_id,
             'nick' => $this->nick,
             'btype' => $this->btype,
+            'online_user_id' => $this->online_user_id,
             'expires' => $this->expires,
         );
     }
@@ -79,6 +80,10 @@ class erLhcoreClassModelChatBlockedUser
             $emailBlock .= ' OR (nick = ' . $db->quote($params['country_code']) . ' AND btype = 6 AND (`dep_id` = ' . $db->quote($params['dep_id']). ' OR `dep_id` = 0))';
         }
 
+        if (isset($params['online_user_id']) && !empty($params['online_user_id'])) {
+            $emailBlock .= ' OR (online_user_id = ' . $db->quote($params['online_user_id']) . ' AND btype = 7)';
+        }
+
         $filterBlock = array(
             'customfilter' => array(
                 '(
@@ -131,7 +136,7 @@ class erLhcoreClassModelChatBlockedUser
         $skipStandardBlock = false;
 
         if (!isset($params['btype']) || $params['btype'] == self::BLOCK_IP) {
-            if (!isset($params['email']) || isset($params['btype'])) {
+            if ((!isset($params['email']) && !isset($params['online_user_id'])) || isset($params['btype'])) {
                 $filter = array('filter' => array('btype' => self::BLOCK_IP, 'ip' => $params['chat']->ip));
                 $params['btype'] = self::BLOCK_IP;
             } else {
@@ -156,6 +161,15 @@ class erLhcoreClassModelChatBlockedUser
             $paramsEmail = $params;
             $paramsEmail['btype'] = self::BLOCK_EMAIL;
             self::createBlockRecord($paramsEmail);
+        }
+
+        if (isset($params['online_user_id']) && $params['online_user_id'] > 0 && erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('online_user_id' => (string)$params['online_user_id'], 'btype' => self::BLOCK_ONLINE_USER))) == 0) {
+            $blockRecordCreated = true;
+
+            // Adjust settings for e-mail blocking
+            $paramsOnline = $params;
+            $paramsOnline['btype'] = self::BLOCK_ONLINE_USER;
+            self::createBlockRecord($paramsOnline);
         }
 
         if ($skipStandardBlock == false && erLhcoreClassModelChatBlockedUser::getCount($filter) == 0)
@@ -207,6 +221,7 @@ class erLhcoreClassModelChatBlockedUser
         $block->nick = (string)($params['btype'] == self::BLOCK_EMAIL ? $params['chat']->email : $params['chat']->nick);
         $block->btype = $params['btype'];
         $block->expires = isset($params['expires']) ? (int)$params['expires'] : 0;
+        $block->online_user_id = isset($params['online_user_id']) ? (int)$params['online_user_id'] : 0;
         $block->saveThis();
     }
 
@@ -217,6 +232,7 @@ class erLhcoreClassModelChatBlockedUser
     const BLOCK_ALL_IP_NICK_DEP = 4;
     const BLOCK_EMAIL = 5;
     const BLOCK_COUNTRY = 6;
+    const BLOCK_ONLINE_USER = 7;
 
     public $id = null;
     public $ip = '';
@@ -227,6 +243,7 @@ class erLhcoreClassModelChatBlockedUser
     public $nick = '';
     public $btype = 0;
     public $expires = 0;
+    public $online_user_id = 0;
 }
 
 ?>

@@ -1,0 +1,2 @@
+ALTER TABLE `lh_chat_blocked_user` ADD `online_user_id` bigint(20) unsigned NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_chat_blocked_user` CHANGE `id` `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, CHANGE `user_id` `user_id` bigint(20) unsigned NOT NULL, CHANGE `datets` `datets` bigint(20) unsigned NOT NULL, CHANGE `chat_id` `chat_id` bigint(20) unsigned NOT NULL, CHANGE `dep_id` `dep_id` bigint(20) unsigned NOT NULL, CHANGE `expires` `expires` bigint(20) unsigned NOT NULL DEFAULT '0';

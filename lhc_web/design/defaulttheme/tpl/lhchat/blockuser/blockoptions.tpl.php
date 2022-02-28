@@ -4,4 +4,7 @@
 </br>
 <label><input type="checkbox" name="btype[]" value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_NICK_DEP?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick and Department')?>&nbsp;<?php if (isset($chat)) : ?><small>(<?php echo htmlspecialchars($chat->nick)?> && <?php echo htmlspecialchars($chat->department_name)?>)</small><?php endif; ?></label></br>
 <?php endif; ?>
+<?php if (isset($chat->online_user_id)) : ?>
+<label><input type="checkbox" name="btype_online_user" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Online user (cookie)')?></label></br>
+<?php endif; ?>
 <label><input type="checkbox" name="btype_email" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','E-mail')?></label>
