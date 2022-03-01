@@ -130,6 +130,12 @@ if ($tab == 'active') {
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
+    if ($filterParams['input_form']->opened === 0) {
+        $filterParams['filter']['filter']['opened_at'] = 0;
+    } elseif ($filterParams['input_form']->opened === 1) {
+        $filterParams['filter']['filtergt']['opened_at'] = 0;
+    }
+
     // Global filters
     $departmentFilter = erLhcoreClassUserDep::conditionalDepartmentFilter();
 

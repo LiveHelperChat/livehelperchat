@@ -267,7 +267,7 @@
                                 <input type="text" class="form-control form-control-sm" name="phone" value="<?php echo htmlspecialchars($input->phone)?>" />
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <div class="form-group mb-0">
                                 <label class="col-form-label"><input type="checkbox" name="undelivered" <?php $input->undelivered == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Undelivered')?></label>
                             </div>
@@ -275,9 +275,15 @@
                                 <label class="col-form-label"><input type="checkbox" name="is_followup" <?php $input->is_followup == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Is followup')?></label>
                             </div>
                         </div>
-
+                        <div class="col-md-2">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Open status');?></label>
+                            <select name="opened" class="form-control form-control-sm">
+                                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any')?></option>
+                                <option value="0" <?php if ($input->opened === 0) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not opened')?></option>
+                                <option value="1" <?php if ($input->opened === 1) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Opened')?></option>
+                            </select>
+                        </div>
                         <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel_multiinclude.tpl.php'));?>
-
                     </div>
                 </div>
             </div>

@@ -50,6 +50,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             <span title={"Expand message " + message.id} ><i className="material-icons">{expandBody ? 'expand_less' : 'expand_more'}</i></span>
             <b>{message.from_name}</b>
             <small>&nbsp;&lt;{message.from_address}&gt;&nbsp;</small>
+            {message.opened_at && <span className="material-icons text-success" title={message.opened_at_front}>visibility</span>}
             <small className={!message.status || message.status == 1 ? 'chat-pending' : (message.cls_time ? 'chat-closed' : 'chat-active')}>
                 <i className="material-icons">mail_outline</i>
                 {!message.status || message.status == 1 ? 'Pending response' : 'Responded'}
@@ -62,9 +63,6 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     ))}
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
-
-
-
             <small className="pr-2">{message.opened_at && <span className="material-icons" title={t('msg.opened_at_message') + message.opened_at_front}>visibility</span>}{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
             {mode !== 'preview' && <i onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
 

@@ -2,6 +2,22 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['opened'] = array (
+    'type' => 'text',
+    'trans' => 'Name',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => ['customfilter' => ['(`opened_at` > 0)']],
+    'filter_table_by_value' => [
+        0 => ['customfilter' => ['(`opened_at` = 0)']],
+        1 => ['customfilter' => ['(`opened_at` > 0)']],
+    ],
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 1)
+    )
+);
+
 $fieldsSearch['group_limit'] = array (
     'type' => 'text',
     'trans' => 'Group Field',
