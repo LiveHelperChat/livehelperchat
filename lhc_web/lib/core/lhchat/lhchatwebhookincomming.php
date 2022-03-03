@@ -597,6 +597,12 @@ class erLhcoreClassChatWebhookIncoming {
 
                 $chat->chat_variables = json_encode($chatVariables);
                 $chat->saveThis();
+                
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_started', array(
+                    'webhook' => & $incomingWebhook,
+                    'data' => & $payloadAll,
+                    'chat' => & $chat
+                ));
 
                 if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'attachments') {
                     if (isset($conditions['msg_cond_' . $typeMessage . '_url_decode']) && $conditions['msg_cond_' . $typeMessage . '_url_decode'] != '') {

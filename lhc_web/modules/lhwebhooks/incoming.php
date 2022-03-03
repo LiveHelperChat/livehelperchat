@@ -34,6 +34,11 @@ try {
         fastcgi_finish_request();
     }
 
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming', array(
+        'webhook' => & $incomingWebhook,
+        'data' => & $data
+    ));
+
     erLhcoreClassChatWebhookIncoming::processEvent($incomingWebhook, $data);
 
 } catch (Exception $e) {
