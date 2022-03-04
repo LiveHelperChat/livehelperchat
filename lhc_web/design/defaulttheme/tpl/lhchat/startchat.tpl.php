@@ -15,7 +15,9 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/widget_geo_adjustment.tpl.php'));?>
 <?php if ($exitTemplate == true) return; ?>
 
-<?php if (isset($errors)) : ?>
+<?php if (isset($errors['blocked_user'])) : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/blocked_user_startchat.tpl.php'));?>
+<?php elseif (isset($errors)) : ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 

@@ -495,7 +495,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
     	// Show errors only if user is not switching form mode
     	if ($Params['user_parameters_unordered']['switchform'] != 'true' && !isset($_POST['switchLang'])){
     		$tpl->set('errors',$Errors);
-    	}        
+    		$tpl->set('chat_input',(isset($chat) ? $chat : null));
+    	}
     }
 }
 
