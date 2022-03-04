@@ -1,4 +1,13 @@
-<label><input type="checkbox" name="btype[]" checked="checked" value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_IP?>"> IP<?php if (isset($chat) && isset($chat->ip)) : ?>&nbsp;<small ng-non-bindable>(<?php echo htmlspecialchars($chat->ip)?>)</small><?php endif;?></label></br>
+<label><input type="checkbox" name="btype[]" checked="checked" value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_IP?>"> IP<?php if (isset($chat) && isset($chat->ip)) : ?>&nbsp;<small ng-non-bindable>(<?php
+       if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
+           echo htmlspecialchars($chat->ip);
+       } else {
+           $parts = explode('.',$chat->ip);
+           if (isset($parts[0]) && $parts[1]) {
+               echo htmlspecialchars($parts[0] . '.' . $parts[1] . '.xxx.xxx');
+           }
+       }
+       ?>)</small><?php endif;?></label></br>
 <?php if (!isset($chat) || $chat->nick != 'Visitor') : ?>
 <label ng-non-bindable><input type="checkbox" name="btype[]" value="<?php echo erLhcoreClassModelChatBlockedUser::BLOCK_NICK?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Nick')?>&nbsp;<?php if (isset($chat)) : ?><small>(<?php echo htmlspecialchars($chat->nick)?>)</small><?php endif; ?></label>
 </br>

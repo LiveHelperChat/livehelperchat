@@ -721,5 +721,6 @@ $FunctionList['subject_chats_options'] = array('explain' => 'Allow operator to c
 $FunctionList['export_chats'] = array('explain' => 'Allow operator to export filtered chats');
 $FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [html] bbcode.');
 $FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
+$FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
 
 ?>
