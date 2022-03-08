@@ -19,6 +19,10 @@ export class monitoredVariable {
         this.callListeners();
     }
 
+    nextPropertySilent(key, val) {
+        this.valueInternal[key] = val;
+    }
+
     nextProperty(key, val) {
         this.valueInternal[key] = val;
         this.callListeners();

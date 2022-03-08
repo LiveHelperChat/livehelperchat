@@ -14,10 +14,18 @@
     <?php elseif ($is_proactive_based == true) : ?>
     <?php if ($is_closed == true) : ?>
     <h6 class="fs12 status-text">
-        <?php if ($theme !== false  && $theme->support_closed != '') : ?>
-            <?php echo htmlspecialchars($theme->support_closed)?>
-        <?php else : ?>
-            <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
+        <?php if (isset($chat)) {
+            $chatVariables = $chat->chat_variables_array;
+            if (erLhcoreClassModelChatBlockedUser::isBlocked(array('online_user_id' => $chat->online_user_id, 'country_code' => $chat->country_code, 'ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email)) || (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0))  : $blocked = true; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/blocked_message_status.tpl.php'));?>
+            <?php endif;
+        } ?>
+        <?php if (!isset($blocked)) : ?>
+            <?php if ($theme !== false  && $theme->support_closed != '') : ?>
+                <?php echo htmlspecialchars($theme->support_closed)?>
+            <?php else : ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
+            <?php endif; ?>
         <?php endif; ?>
     </h6>
     <?php else : ?>
@@ -36,11 +44,19 @@
     <?php endif;?>
     <?php elseif ($is_closed == true) : ?>
     <h6 class="fs12 status-text">
-    	<?php if ($theme !== false  && $theme->support_closed != '') : ?>
-    	   <?php echo htmlspecialchars($theme->support_closed)?>
-    	<?php else : ?>
-    	   <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
-    	<?php endif; ?>	
+        <?php if (isset($chat)) {
+            $chatVariables = $chat->chat_variables_array;
+            if (erLhcoreClassModelChatBlockedUser::isBlocked(array('online_user_id' => $chat->online_user_id, 'country_code' => $chat->country_code, 'ip' => $chat->ip, 'dep_id' => $chat->dep_id, 'nick' => $chat->nick, 'email' => $chat->email)) || (isset($chatVariables['lhc_ds']) && (int)$chatVariables['lhc_ds'] == 0)) : $blocked = true; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/blocked_message_status.tpl.php'));?>
+            <?php endif; 
+        } ?>
+        <?php if (!isset($blocked)) : ?>
+            <?php if ($theme !== false && $theme->support_closed != '') : ?>
+               <?php echo htmlspecialchars($theme->support_closed)?>
+            <?php else : ?>
+               <?php include(erLhcoreClassDesign::designtpl('lhchat/checkchatstatus_text/closed_chat.tpl.php'));?>
+            <?php endif; ?>
+        <?php endif; ?>
     </h6>
     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?>
 

@@ -6,6 +6,8 @@ export default function (dispatch, getState) {
 
     // Holds extensions
     let extensions = {};
+    let jsLoaded = [];
+    let jsPendingExecution = [];
     let readyReceived = false;
 
     function insertJS(extension, src, args) {
@@ -17,10 +19,24 @@ export default function (dispatch, getState) {
             s.setAttribute('id','ext-' + extension);
             th.appendChild(s);
             s.onreadystatechange = s.onload = function() {
+                jsLoaded.push(extension + '.init');
                 helperFunctions.emitEvent(extension + '.init', args);
+                if (jsPendingExecution[extension + '.init'] !== 'undefined' && Array.isArray(jsPendingExecution[extension + '.init'])) {
+                    jsPendingExecution[extension + '.init'].forEach((args) => {
+                        helperFunctions.emitEvent(extension + '.init', args);
+                    });
+                    delete jsPendingExecution[extension + '.init'];
+                }
             };
         } else {
-            helperFunctions.emitEvent(extension + '.init', args);
+            if (jsLoaded.indexOf(extension + '.init') !== -1) {
+                helperFunctions.emitEvent(extension + '.init', args);
+            } else {
+                if (typeof jsPendingExecution[extension + '.init'] === 'undefined') {
+                    jsPendingExecution[extension + '.init'] = [];
+                }
+                jsPendingExecution[extension + '.init'].push(args);
+            }
         }
     }
 

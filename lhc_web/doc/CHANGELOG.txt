@@ -1,3 +1,23 @@
+3.94v
+
+1. Block by online user. Basically it means a cookie based block. Online visitor tracking has to be enabled.
+2. Widget will automatically adjust width, height on desktop devices.
+3. Proactive invitation now can be expireable.
+4. Online visitors widget will show read only departments groups.
+5. If chat has remarks from previous chats tab will be highlighted.
+6. Referer was passed incorrectly in so circumstances.
+7. Security fixes
+8. Added icons from the bot now is transaction wrapped.
+9. In some cases Live Helper Chat did not returned correct data for mobile app.
+10. Canned messages statistic tab will have more export capabilities.
+11. If operator takes over a chat, we should terminate any previous information collection workflow.
+12. Some refactoring to remove php-session dependency for anonymous visitors.
+13. Proactive chat filter in chat list.
+14. Commands should not be executed in whisper mode.
+15. Subject add/remove events.
+
+execute doc/update_db/update_266.sql for update
+
 3.93v
 
 1. Missing indexes fixes in some tables.

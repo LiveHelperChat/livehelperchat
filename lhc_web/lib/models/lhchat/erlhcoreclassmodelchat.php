@@ -561,13 +561,18 @@ class erLhcoreClassModelChat {
        // Try to detect GEO information from online visitor record. So we avoid duplicate calls.
        if ($vid != '' && is_string($vid)) {
            $onUser = erLhcoreClassModelChatOnlineUser::findOne(array('filter' => array('vid' => $vid)));
-           if ($onUser instanceof erLhcoreClassModelChatOnlineUser && $onUser->user_country_name != '') {
-               $instance->country_code = (string)$onUser->user_country_code;
-               $instance->country_name = (string)$onUser->user_country_name;
-               $instance->lat = (string)$onUser->lat;
-               $instance->lon = (string)$onUser->lon;
-               $instance->city = (string)$onUser->city;
-               $locationDetected = true;
+           if ($onUser instanceof erLhcoreClassModelChatOnlineUser) {
+               if ($onUser->user_country_name != '') {
+                   $instance->country_code = (string)$onUser->user_country_code;
+                   $instance->country_name = (string)$onUser->user_country_name;
+                   $instance->lat = (string)$onUser->lat;
+                   $instance->lon = (string)$onUser->lon;
+                   $instance->city = (string)$onUser->city;
+                   $locationDetected = true;
+               }
+               if ($instance->online_user_id == 0) {
+                   $instance->online_user_id = $onUser->id;
+               }
            }
        }
 

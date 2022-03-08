@@ -61,6 +61,12 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 exit;
             }
 
+            $triggers = [];
+            if ($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0)) {
+                erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                $triggers = erLhcoreClassGenericBotWorkflow::$triggerName;
+            }
+
             $stmt = $db->prepare('UPDATE lh_chat SET last_user_msg_time = :last_user_msg_time, lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = 1, unanswered_chat = :unanswered_chat WHERE id = :id');
             $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
             $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);

@@ -81,6 +81,15 @@ $tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Para
 $vid = $Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null;
 
 if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)) {
+
+    // Incorrect mod_rewrite rule as fetch was for an image.
+    if ((isset($_SERVER['HTTP_SEC_FETCH_DEST']) && $_SERVER['HTTP_SEC_FETCH_DEST'] == 'image') ||
+        (isset($_SERVER['HTTP_USER_AGENT']) && erLhcoreClassModelChatOnlineUser::isBot($_SERVER['HTTP_USER_AGENT']))
+    ) {
+        http_response_code(404);
+        exit;
+    }
+
     if (isset($_COOKIE['lhc_vid'])) {
         $vid = $_COOKIE['lhc_vid'];
     } else {

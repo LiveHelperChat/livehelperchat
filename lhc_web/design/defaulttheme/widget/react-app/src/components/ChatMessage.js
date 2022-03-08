@@ -26,7 +26,7 @@ class ChatMessage extends PureComponent {
             element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
         }
     }
-    
+
     /**
      * Here we handle bot buttons actions
      * */
@@ -246,7 +246,9 @@ class ChatMessage extends PureComponent {
                             domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
                         }
 
-                        return <img {...domNode.attribs} onLoad={this.imageLoaded} onClick={(e) => this.abstractClick(cloneAttr, e)} />
+                        if (typeof domNode.attribs['data-ignore-load'] === 'undefined') {
+                            return <img {...domNode.attribs} onLoad={this.imageLoaded} onClick={(e) => this.abstractClick(cloneAttr, e)} />
+                        }
 
                     } else if (domNode.name && domNode.name === 'button') {
                         if (cloneAttr.onclick) {
@@ -288,14 +290,17 @@ class ChatMessage extends PureComponent {
 
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
 
-                        // Execute JS only once
-                        // Happens if new message indicator is passed
-                        // We rerender elements, but we should not execute JS
-                        if (this.state.jsExecuted == true) {
-                            return <React.Fragment></React.Fragment>;
+                        if (!domNode.attribs['data-bot-always']) {
+                            // Execute JS only once
+                            // Happens if new message indicator is passed
+                            // We rerender elements, but we should not execute JS
+                            if (this.state.jsExecuted == true) {
+                                return <React.Fragment></React.Fragment>;
+                            }
+
+                            this.setState({jsExecuted : true});
                         }
 
-                        this.setState({jsExecuted : true});
                         parseScript(domNode, this);
 
                         // Return empty element

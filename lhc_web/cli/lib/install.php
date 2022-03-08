@@ -229,18 +229,20 @@ class Install
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_chat_blocked_user` (
-                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `ip` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-                  `user_id` int(11) NOT NULL,
-                  `datets` int(11) NOT NULL,
-                  `chat_id` int(11) NOT NULL,
-                  `dep_id` int(11) NOT NULL,
-                  `expires` int(11) NOT NULL DEFAULT '0',
-                  `btype` tinyint(1) NOT NULL DEFAULT '0',
+                  `user_id` bigint(20) unsigned NOT NULL,
+                  `datets` bigint(20) unsigned NOT NULL,
+                  `chat_id` bigint(20) unsigned NOT NULL,
+                  `dep_id` bigint(20) unsigned NOT NULL,
                   `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `btype` tinyint(1) NOT NULL DEFAULT 0,
+                  `expires` bigint(20) unsigned NOT NULL DEFAULT 0,
+                  `online_user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`),
-                  KEY `nick` (`nick`)
+                  KEY `nick` (`nick`),
+                  KEY `online_user_id` (`online_user_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_users_online_session` ( 

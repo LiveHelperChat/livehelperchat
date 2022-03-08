@@ -1,3 +1,4 @@
+<img src="dasadasd/asdadadsad" alt="" />
 <?php if ($leaveamessage === false && $online === false) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_not_available.tpl.php'));?>
 <?php else : ?>
