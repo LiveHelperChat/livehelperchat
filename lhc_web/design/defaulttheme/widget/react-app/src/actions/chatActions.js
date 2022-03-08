@@ -410,6 +410,7 @@ export function updateMessage(obj) {
 
             let elmUpdated = document.getElementById('msg-'+response.data.id);
             let collection = elmUpdated.getElementsByTagName('script');
+            let collectionButton = elmUpdated.getElementsByTagName('button');
 
             for (let item of collection) {
                 var attribs = {};
@@ -423,12 +424,28 @@ export function updateMessage(obj) {
                 parseScript(item, this);
             }
 
+            for (let item of collectionButton) {
+                var attribs = {};
+                if (item.hasAttributes()) {
+                    var attrs = item.attributes;
+                    for (var i = attrs.length - 1; i >= 0; i--) {
+                        attribs[attrs[i].name] = attrs[i].value;
+                    }
+                }
+                item.attribs = attribs;
+                if (item.onclick) {
+                    item.onclick = () => parseScript(item, this);
+                }
+            }
+
         })
         .catch((err) => {
             console.log(err);
         })
     }
 }
+
+
 
 export function parseScript(domNode, inst) {
     const attr = domNode.attribs || domNode;
