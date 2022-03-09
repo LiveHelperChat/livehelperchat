@@ -15,7 +15,7 @@ if ($tab == 'cannedmsg') {
     $departmentParams = array();
     $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
     if ($userDepartments !== true) {
-        $customFilter = '(id IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN ('. implode(',',$userDepartments).')))';
+        $customFilter = '(`lh_canned_msg`.`id` IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN ('. implode(',',$userDepartments).')))';
         if ($currentUser->hasAccessTo('lhcannedmsg','see_global')) {
             $customFilter = '(' . $customFilter . ' OR department_id = 0)';
         }
