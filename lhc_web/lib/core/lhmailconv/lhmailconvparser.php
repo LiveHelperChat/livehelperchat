@@ -316,7 +316,7 @@ class erLhcoreClassMailconvParser {
                         }
 
                         if ($mail->RFC822) {
-                            $message->rfc822_body = $mail->RFC822;
+                            $message->rfc822_body = erLhcoreClassMailconvEncoding::toUTF8($mail->RFC822);
                         }
 
                         // Message was undelivered
