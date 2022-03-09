@@ -282,10 +282,25 @@ class ChatMessage extends PureComponent {
                     } else if (domNode.name && domNode.name === 'input') {
 
                         if (domNode.attribs.type && domNode.attribs.type == 'checkbox' && cloneAttr.onchange) {
+
                             if (domNode.attribs.style) {
                                 domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
                             }
+
                             return <input type="checkbox" {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} />
+
+                        } else if (domNode.attribs.type && domNode.attribs.type == 'radio') {
+
+                            if (domNode.attribs.style) {
+                                domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
+                            }
+
+                            if (domNode.attribs.checked) {
+                                domNode.attribs.defaultChecked = true;
+                                delete domNode.attribs.checked;
+                            }
+
+                            return <input type="radio" {...domNode.attribs} />
                         }
 
                     } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
