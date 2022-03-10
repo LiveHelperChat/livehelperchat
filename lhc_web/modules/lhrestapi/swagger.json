@@ -4171,6 +4171,12 @@
           "required": false,
           "description": "Stores how many active chats current operator has. This field is not updatable."
       },
+     "force_logout": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Force logout, 0 - no, 1 -  yes. User will be automatically logged out."
+      },
       "pending_chats_counter": {
           "type": "integer",
           "default": 0,
