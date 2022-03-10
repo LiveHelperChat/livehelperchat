@@ -4,12 +4,22 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 
 (function() { 
 	  global.lhc = {
-			previewChat : function(chat_id){
-				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id});						
+			previewChat : function(chat_id, event) {
+
+                var keyword = '';
+                if (event) {
+                    keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+                }
+
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id + '?keyword=' + (keyword || '') });
 			},
 
-          	previewChatArchive : function(archive_id, chat_id){
-				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chatarchive/previewchat/'+archive_id+'/'+chat_id});
+          	previewChatArchive : function(archive_id, chat_id, event) {
+                var keyword = '';
+                if (event) {
+                    keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+                }
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chatarchive/previewchat/'+archive_id+'/'+chat_id + '?keyword=' + (keyword || '')});
 			},
 
 			revealModal : function(params) {				
