@@ -19,10 +19,10 @@
                 <td><?php echo htmlspecialchars($item->priority_rule)?></td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>
                 <td>
-                    <b>TO:</b> <?php echo htmlspecialchars(implode(', ',$item->mailbox_object_ids))?><br>
-                    <?php if ($item->from_name != '') : ?><b>From name matches</b>: <?php echo htmlspecialchars($item->from_name)?><br/><?php endif; ?>
-                    <?php if ($item->subject_contains != '') : ?><b>Subject contains</b>: <?php echo htmlspecialchars($item->subject_contains)?><br/><?php endif; ?>
-                    <?php if ($item->from_mail != '') : ?><b>From mail</b>: <?php echo htmlspecialchars($item->from_mail)?><br/><?php endif; ?>
+                    <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','TO');?>:</b> <?php echo erLhcoreClassDesign::shrt(implode(', ',$item->mailbox_object_ids),100,'...',30,ENT_QUOTES)?><br>
+                    <?php if ($item->from_name != '') : ?><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','From name matches');?></b>: <?php echo erLhcoreClassDesign::shrt(str_replace('  ',' ',str_replace(',',', ',$item->from_name)),100,'...',30,ENT_QUOTES)?><br/><?php endif; ?>
+                    <?php if ($item->subject_contains != '') : ?><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Subject contains');?></b>: <?php echo erLhcoreClassDesign::shrt(str_replace('  ',' ',str_replace(',',', ',$item->subject_contains)),100,'...',30,ENT_QUOTES)?><br/><?php endif; ?>
+                    <?php if ($item->from_mail != '') : ?><b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','From mail');?></b>: <?php echo erLhcoreClassDesign::shrt(str_replace('  ',' ',str_replace(',',', ',$item->from_mail)),100,'...',30,ENT_QUOTES)?><br/><?php endif; ?>
                 </td>
                 <td>
                     <?php if ($item->active == 1) : ?>
