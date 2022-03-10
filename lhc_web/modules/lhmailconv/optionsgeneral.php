@@ -7,6 +7,11 @@ $data = (array)$mcOptions->data;
 
 if ( isset($_POST['StoreOptions']) ) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailconv/optionsgeneral');
+        exit;
+    }
+
     $definition = array(
         'active_lang_detect' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -15,6 +20,9 @@ if ( isset($_POST['StoreOptions']) ) {
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
         'lang_provider' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'report_email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         )
     );
@@ -32,6 +40,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['lang_url'] = $form->lang_url;
     } else {
         $data['lang_url'] = '';
+    }
+
+    if ( $form->hasValidData( 'report_email' )) {
+        $data['report_email'] = $form->report_email;
+    } else {
+        $data['report_email'] = '';
     }
 
     if ($form->hasValidData( 'active_lang_detect' ) && $form->active_lang_detect == true) {

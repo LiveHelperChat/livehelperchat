@@ -28,6 +28,12 @@
         </select>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Send report of failing mailbox to')?></label>
+        <input type="text" placeholder="example1@example.com,example2@example.com" rows="10" class="form-control form-control-sm" value="<?php isset($general_options['report_email']) ? print htmlspecialchars($general_options['report_email']) : print ''?>" name="report_email" />
+        <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','We will report to provided e-mail. You can enter multiple e-mails by separating by comma.')?></small>
+    </div>
+
     <input type="submit" class="btn btn-sm btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
 
 </form>
