@@ -1955,3 +1955,11 @@ html {
 .list-links a:visited{
     color: #9d9d9d;
 }
+
+.list-links a.warning-visited.abbr-list-general {
+    background: #fff;
+}
+
+.list-links a.warning-visited:visited {
+    background: #ffda25 !important;
+}
