@@ -19,6 +19,7 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
 			},
 
             previewMail : function(chat_id,event){
+                var keyword = '';
                 if (event) {
                     keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
                     if (event.classList.contains('preview-list')){
