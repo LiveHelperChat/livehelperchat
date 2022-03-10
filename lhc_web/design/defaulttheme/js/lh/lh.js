@@ -9,13 +9,24 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
                 var keyword = '';
                 if (event) {
                     keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+                    if (event.classList.contains('preview-list')){
+                        $('.preview-list').removeClass('bg-current');
+                        $(event).addClass('bg-current');
+                    }
                 }
 
 				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id + '?keyword=' + (keyword || '') });
 			},
 
-            previewMail : function(chat_id){
-				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewmail/'+chat_id,hidecallback : function(){
+            previewMail : function(chat_id,event){
+                if (event) {
+                    keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+                    if (event.classList.contains('preview-list')){
+                        $('.preview-list').removeClass('bg-current');
+                        $(event).addClass('bg-current');
+                    }
+                }
+				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewmail/' + chat_id + '?keyword=' + (keyword || ''),hidecallback : function(){
 				    ee.emitEvent('unloadMailChat', ['mc'+chat_id,'preview']);
                 }});
 			},
