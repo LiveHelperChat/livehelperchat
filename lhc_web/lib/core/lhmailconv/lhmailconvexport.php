@@ -116,6 +116,7 @@ class erLhcoreClassMailconvExport {
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail subject'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Started by'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Opened At'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered error'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered Status'),
@@ -186,6 +187,7 @@ class erLhcoreClassMailconvExport {
                 }
 
                 $itemCSV[] = $item->start_type == erLhcoreClassModelMailconvConversation::START_OUT ? 'OPERATOR' : 'VISITOR';
+                $itemCSV[] = $item->opened_at > 0 ? $item->opened_at_front : 0;
                 $itemCSV[] = $item->undelivered;
 
                 $undeliverReport = $undeliverStatus = $undeliverCode = '';
