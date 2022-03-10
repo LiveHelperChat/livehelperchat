@@ -9,6 +9,10 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
                 var keyword = '';
                 if (event) {
                     keyword = typeof event.getAttribute('data-keyword') !== 'undefined' ? event.getAttribute('data-keyword') : '';
+                    if (event.classList.contains('preview-list')){
+                        $('.preview-list').removeClass('bg-current');
+                        $(event).addClass('bg-current');
+                    }
                 }
 
 				this.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+chat_id + '?keyword=' + (keyword || '') });
