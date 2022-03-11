@@ -73,6 +73,9 @@ class erLhcoreClassRestAPIUserValidator
             'attr_int_1' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'force_logout' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0, 'max_range' => 1)
+            ),
             'all_departments' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
@@ -173,6 +176,10 @@ class erLhcoreClassRestAPIUserValidator
 
         if ( $form->hasValidData( 'attr_int_3' )) {
             $userData->attr_int_3 = $form->attr_int_3;
+        }
+
+        if ( $form->hasValidData( 'force_logout' )) {
+            $userData->force_logout = $form->force_logout;
         }
 
         if ( !$form->hasValidData( 'email' ) ) {

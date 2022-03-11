@@ -618,7 +618,7 @@ $ViewList['syncandsoundesetting'] = array(
 $ViewList['cannedmsg'] = array(
     'params' => array(),
     'uparams' => array('action','id','csfr','message','title','fmsg','department_id','subject_id','tab','user_id','timefrom','timeto'),
-    'functions' => array( 'administratecannedmsg' ),
+    'functions' => array( 'explorecannedmsg' ),
     'multiple_arguments' => array(
         'department_id',
         'subject_id',
@@ -639,7 +639,7 @@ $ViewList['newcannedmsg'] = array(
 
 $ViewList['cannedmsgedit'] = array(
     'params' => array('id'),
-    'functions' => array( 'administratecannedmsg' )
+    'functions' => array( 'explorecannedmsg' )
 );
 
 $ViewList['geoadjustment'] = array(
@@ -683,6 +683,8 @@ $FunctionList['allowblockusers'] = array('explain' =>'Allow operator to block vi
 $FunctionList['administrateconfig'] = array('explain' =>'Allow to change chat config');
 $FunctionList['allowclearonlinelist'] = array('explain' =>'Allow operator to clean online users list');
 $FunctionList['administratecannedmsg'] = array('explain' =>'Allow operator change canned messages');
+$FunctionList['explorecannedmsg'] = array('explain' =>'Allow operator to explore canned messages. He will see canned messages based on departments he is member of.');
+$FunctionList['explorecannedmsg_all'] = array('explain' =>'Allow operator to explore canned messages. He will see all departments canned messages.');
 $FunctionList['allowopenremotechat'] = array('explain' =>'Allow operator to open other operators chats from same department');
 $FunctionList['writeremotechat'] = array('explain' =>'Allow operator to write to another operator chat');
 $FunctionList['allowreopenremote'] = array('explain' =>'Allow operator to reopen other operators chats');

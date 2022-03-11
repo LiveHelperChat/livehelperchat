@@ -13,16 +13,18 @@ if ($tab == 'cannedmsg') {
      * Append user departments filter
      * */
     $departmentParams = array();
-    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
-    if ($userDepartments !== true) {
-        $customFilter = '(`lh_canned_msg`.`id` IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN ('. implode(',',$userDepartments).')))';
-        if ($currentUser->hasAccessTo('lhcannedmsg','see_global')) {
-            $customFilter = '(' . $customFilter . ' OR department_id = 0)';
+    if (!$currentUser->hasAccessTo('lhchat','explorecannedmsg_all')) {
+        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+        if ($userDepartments !== true) {
+            $customFilter = '(`lh_canned_msg`.`id` IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN (' . implode(',', $userDepartments) . ')))';
+            if ($currentUser->hasAccessTo('lhcannedmsg', 'see_global')) {
+                $customFilter = '(' . $customFilter . ' OR department_id = 0)';
+            }
+            $departmentParams['customfilter'][] = $customFilter;
         }
-        $departmentParams['customfilter'][] = $customFilter;
     }
 
-    if (is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete') {
+    if ($currentUser->hasAccessTo('lhchat','administratecannedmsg') && is_numeric($Params['user_parameters_unordered']['id']) && $Params['user_parameters_unordered']['action'] == 'delete') {
 
         // Delete selected canned message
         try {
@@ -82,7 +84,7 @@ if ($tab == 'cannedmsg') {
         erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
     }
 
-    if (isset($_GET['quick_action'])) {
+    if ($currentUser->hasAccessTo('lhchat','administratecannedmsg') && isset($_GET['quick_action'])) {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsg/quick_actions.tpl.php');
         $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/cannedmsg') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
         $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
