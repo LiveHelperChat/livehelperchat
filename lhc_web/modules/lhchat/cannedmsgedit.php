@@ -7,27 +7,31 @@ $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (in
 /**
  * Append user departments filter
  * */
-$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+$userDepartments = true;
+if (!$currentUser->hasAccessTo('lhchat','explorecannedmsg_all')) {
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 
-if ($userDepartments !== true) {
-	if ((!erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global') && $Msg->department_id == 0) ||
-        (!empty(array_diff($Msg->department_ids_front, $userDepartments)) && $Msg->department_id == -1)
-    ) {
-        $tpl->setFile( 'lhkernel/validation_error.tpl.php');
-        $tpl->set('show_close_button',true);
-        $tpl->set('auto_close_dialog',true);
-        $tpl->set('errors',[erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You cannot modify canned messages for the departments you are not assigned to!')]);
-        $Result['content'] = $tpl->fetch();
-		return;
-	}
+    if ($userDepartments !== true) {
+        if ((!erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','see_global') && $Msg->department_id == 0) ||
+            (!empty(array_diff($Msg->department_ids_front, $userDepartments)) && $Msg->department_id == -1)
+        ) {
+            $tpl->setFile( 'lhkernel/validation_error.tpl.php');
+            $tpl->set('show_close_button',true);
+            $tpl->set('auto_close_dialog',true);
+            $tpl->set('errors',[erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You cannot modify canned messages for the departments you are not assigned to!')]);
+            $Result['content'] = $tpl->fetch();
+            return;
+        }
+    }
 }
+
 
 if ( isset($_POST['Cancel_action']) ) {
     erLhcoreClassModule::redirect('chat/cannedmsg');
     exit;
 }
 
-if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
+if ($currentUser->hasAccessTo('lhchat','administratecannedmsg') && isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('chat/cannedmsg');

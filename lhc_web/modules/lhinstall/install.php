@@ -2203,6 +2203,7 @@ try {
                         array('module' => 'lhchat',  'function' => 'allowtransfer'),
                         array('module' => 'lhchat',  'function' => 'allowtransferdirectly'),
                         array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
+                        array('module' => 'lhchat',  'function' => 'explorecannedmsg'),
                         array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
                         array('module' => 'lhpermission',   'function' => 'see_permissions'),
                         array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
