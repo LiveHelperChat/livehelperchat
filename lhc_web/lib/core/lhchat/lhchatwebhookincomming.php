@@ -11,12 +11,22 @@ class erLhcoreClassChatWebhookIncoming {
             foreach ($conditionsPairs as $conditionsPair) {
                 $conditionsPairData = explode('=',$conditionsPair);
 
-                if ($conditionsPairData[1] === 'false') {
-                    $conditionsPairData[1] = false;
-                } elseif ($conditionsPairData[1] === 'true') {
-                    $conditionsPairData[1] = true;
-                } elseif (strpos($conditionsPairData[1], ',') !== false) {
-                    $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                if (isset($conditionsPairData[1])) {
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+                } else { // Checks only for existence of attribute
+
+                    if (!isset($payload[$conditionsPairData[0]])) {
+                        throw new Exception('Conditional attribute does not exists ['.$conditionsPairData[0].']!' . json_encode($payload));
+                    }
+
+                    // All good, attribute exists
+                    continue;
                 }
 
                 if ((is_array($conditionsPairData[1]) && !in_array($payload[$conditionsPairData[0]], $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($payload[$conditionsPairData[0]]) && $payload[$conditionsPairData[0]] == $conditionsPairData[1]))) {
@@ -154,7 +164,7 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
-        if ($typeMessage == 'unknown')
+        if ($typeMessage == 'unknown' && isset($conditions['msg_body_2']))
         {
             $msgBody = $conditions['msg_body_2'];
 
@@ -183,7 +193,7 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
-        if ($typeMessage == 'unknown')
+        if ($typeMessage == 'unknown' && isset($conditions['msg_body_3']))
         {
             $msgBody = $conditions['msg_body_3'];
 
@@ -212,7 +222,7 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
-        if ($typeMessage == 'unknown')
+        if ($typeMessage == 'unknown' && isset($conditions['msg_body_4']))
         {
             $msgBody = $conditions['msg_body_4'];
 
