@@ -557,10 +557,6 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-        $content = curl_exec($ch);
-
-        $http_error = '';
-
         $paramsRequest = [
             'headers' => $headers,
             'url' => $url,
@@ -574,13 +570,47 @@ class erLhcoreClassGenericBotActionRestapi
             $paramsRequest['body'] = $bodyPOST;
         }
 
+        $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_make_request', array(
+            'method_settings' => $methodSettings,
+            'params_customer' => $paramsCustomer,
+            'params_request' => $paramsRequest,
+            'url' => $url
+        ));
+
+        $overridden = false;
+
+        if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
+            $content = $commandResponse['http_response'];
+            $http_error = $commandResponse['http_error'];
+            $httpcode = $commandResponse['http_code'];
+            $overridden = true;
+        } else {
+            $content = curl_exec($ch);
+            $http_error = '';
+        }
+
+        /*$paramsRequest = [
+            'headers' => $headers,
+            'url' => $url,
+        ];
+
+        if (isset($postParams)) {
+            $paramsRequest['post'] = $postParams;
+        }
+
+        if (isset($bodyPOST)) {
+            $paramsRequest['body'] = $bodyPOST;
+        }*/
+
         $http_data = json_encode($paramsRequest);
 
-        if (curl_errno($ch)) {
+        if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
         }
 
-        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($overridden == false) {
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        }
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 
