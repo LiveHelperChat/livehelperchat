@@ -1076,7 +1076,7 @@ class PHPMailer
     protected function addOrEnqueueAnAddress($kind, $address, $name)
     {
         $address = trim($address);
-        $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
+        $name = trim(preg_replace('/[\r\n]+/', '', (string)$name)); //Strip breaks and trim
         $pos = strrpos($address, '@');
         if (false === $pos) {
             //At-sign is missing.
