@@ -80,7 +80,8 @@ class erLhcoreClassGenericBotActionRestapi
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
                     'restapi' => & $restAPI,
-                    'chat' => $chat
+                    'chat' => $chat,
+                    'params' => $params
                 ));
 
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
@@ -276,24 +277,34 @@ class erLhcoreClassGenericBotActionRestapi
         if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) == '') {
             foreach ($files as $mediaFile) {
 
+                $file_api = false;
+
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
-                    $methodSettings['suburl'] = $methodSettings['suburl_file'];
                     if (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
-                        $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
-                        $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
-                        $methodSettings['body_raw_file'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
-                        $methodSettings['body_raw_file'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = trim(str_replace(['{image_api}','{/image_api}'],'', $fileBodyRawFile));
+                        if (!empty($fileBodyRawFile)) {
+                            $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                            $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
+                            $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                            $file_api = true;
+                        }
                     } else {
-                        $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
-                        $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
-                        $methodSettings['body_raw_file'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
-                        $methodSettings['body_raw_file'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = trim(str_replace(['{file_api}','{/file_api}'],'', $fileBodyRawFile));
+                        if (!empty($fileBodyRawFile)) {
+                            $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                            $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
+                            $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                            $file_api = true;
+                        }
                     }
                 }
 
                 $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
                 $file_name = $mediaFile->upload_name;
-                $file_api = true;
 
                 if (isset($_SERVER['HTTP_HOST'])) {
                     $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
@@ -557,10 +568,6 @@ class erLhcoreClassGenericBotActionRestapi
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-        $content = curl_exec($ch);
-
-        $http_error = '';
-
         $paramsRequest = [
             'headers' => $headers,
             'url' => $url,
@@ -574,13 +581,34 @@ class erLhcoreClassGenericBotActionRestapi
             $paramsRequest['body'] = $bodyPOST;
         }
 
+        $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_make_request', array(
+            'method_settings' => $methodSettings,
+            'params_customer' => $paramsCustomer,
+            'params_request' => $paramsRequest,
+            'url' => $url
+        ));
+
+        $overridden = false;
+
+        if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
+            $content = $commandResponse['http_response'];
+            $http_error = $commandResponse['http_error'];
+            $httpcode = $commandResponse['http_code'];
+            $overridden = true;
+        } else {
+            $content = curl_exec($ch);
+            $http_error = '';
+        }
+
         $http_data = json_encode($paramsRequest);
 
-        if (curl_errno($ch)) {
+        if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
         }
 
-        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($overridden == false) {
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        }
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
 

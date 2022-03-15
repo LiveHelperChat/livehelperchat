@@ -30,14 +30,14 @@ try {
 
     if (session_id()) session_write_close();
 
-    if (function_exists('fastcgi_finish_request')) {
-        fastcgi_finish_request();
-    }
-
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming', array(
         'webhook' => & $incomingWebhook,
         'data' => & $data
     ));
+
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();
+    }
 
     erLhcoreClassChatWebhookIncoming::processEvent($incomingWebhook, $data);
 

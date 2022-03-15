@@ -18,6 +18,7 @@
 		    <div class="form-group">
 			<label><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
 			<?php echo erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)?>
+            <?php if (isset($attr['trans_sub'])) : ?><p><small><i><?php echo $attr['trans_sub'];?></i></small></p><?php endif; ?>
 			</div>
 		<?php endif;?>
 	<?php endif;?>
