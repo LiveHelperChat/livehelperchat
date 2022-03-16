@@ -901,6 +901,9 @@ class erLhcoreClassChatValidator {
 
         $visitor->online_attr = json_encode($onlineAttr);
         $visitor->online_attr_array = $onlineAttr;
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.update_js_vars', array('ou' => & $visitor));
+
         $visitor->saveThis(array('update' => array('online_attr', 'online_attr_system')));
 
     }
