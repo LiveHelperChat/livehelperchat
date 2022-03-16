@@ -104,7 +104,14 @@ if (isset($reopen_chat)) {
         'id' => $reopen_chat->id,
         'hash' => $reopen_chat->hash
     );
-} elseif (($userInstance->has_message_from_operator == true || ($appendInvitation = ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)) == true) && (!isset($dynamicEveryTime) || $dynamicEveryTime == false)) {
+} elseif (
+        (
+            $userInstance->has_message_from_operator == true ||
+
+            ($userInstance->message_seen == 0 && $appendInvitation = ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($userInstance->invitation->design_data_array['append_bot']) && $userInstance->invitation->design_data_array['append_bot'] == 1 && $userInstance->invitation->bot_id > 0 && $userInstance->invitation->trigger_id > 0)) == true
+        ) &&
+        (!isset($dynamicEveryTime) || $dynamicEveryTime == false)
+) {
     $outputResponse['status'] = false;
 
     if ($userInstance->invitation instanceof erLhAbstractModelProactiveChatInvitation && $userInstance->invitation->show_on_mobile == 1) {
