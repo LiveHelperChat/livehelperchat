@@ -11,6 +11,10 @@
 </div>
 
 <div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('keep_after_close', $fields['keep_after_close'], $object)?> <?php echo $fields['keep_after_close']['trans'];?></label>
+</div>
+
+<div class="form-group">
     <label><?php echo erLhcoreClassAbstract::renderInput('append_intro_bot', $fields['append_intro_bot'], $object)?> <?php echo $fields['append_intro_bot']['trans'];?></label>
 </div>
 
