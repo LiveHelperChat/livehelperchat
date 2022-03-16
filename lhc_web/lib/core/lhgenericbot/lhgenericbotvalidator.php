@@ -221,6 +221,205 @@ class erLhcoreClassGenericBotValidator {
 
         return $useCases;
     }
+
+    public static function exportBot($bot)
+    {
+        $exportData = array('bot' => array('name' => $bot->name));
+
+        $groups = erLhcoreClassModelGenericBotGroup::getList(array('sort' => 'id ASC', 'filter' => array('bot_id' => $bot->id)));
+
+        foreach ($groups as $group) {
+            $groupVars = get_object_vars($group);
+            unset($groupVars['id']);
+            unset($groupVars['bot_id']);
+
+            $item = array(
+                'group' => $groupVars,
+                'triggers' => array()
+            );
+
+            $triggers = erLhcoreClassModelGenericBotTrigger::getList(array('sort' => 'id ASC', 'filter' => array('bot_id' => $group->bot_id,'group_id' => $group->id)));
+            foreach ($triggers as $trigger) {
+
+                $triggerVars = get_object_vars($trigger);
+
+                unset($triggerVars['group_id']);
+                unset($triggerVars['bot_id']);
+
+                $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array('sort' => 'id ASC', 'filter' => array('trigger_id' => $trigger->id, 'bot_id' => $trigger->bot_id)));
+
+                $eventsVars = array();
+                foreach ($events as $event) {
+                    $eventVar = get_object_vars($event);
+                    unset($eventVar['id']);
+                    unset($eventVar['trigger_id']);
+                    unset($eventVar['bot_id']);
+                    $eventsVars[] = $eventVar;
+                }
+
+                // Payloads
+                $payloads = erLhcoreClassModelGenericBotPayload::getList(array('sort' => 'id ASC', 'filter' => array('trigger_id' => $trigger->id, 'bot_id' => $bot->id)));
+                $payloadsVars = array();
+
+                foreach ($payloads as $payload) {
+                    $payloadVar = get_object_vars($payload);
+                    unset($payloadVar['id']);
+                    unset($payloadVar['trigger_id']);
+                    unset($payloadVar['bot_id']);
+                    $payloadsVars[] = $payloadVar;
+                }
+
+                $itemTrigger = array(
+                    'trigger' => $triggerVars,
+                    'events' => $eventsVars,
+                    'payloads' => $payloadsVars
+                );
+
+                $item['triggers'][] = $itemTrigger;
+            }
+
+            $exportData['groups'][] = $item;
+        }
+
+        return $exportData;
+    }
+
+    public static function importBot($data)
+    {
+        $bot = new erLhcoreClassModelGenericBotBot();
+        $bot->name = $data['bot']['name'] . ' - ' . date('Y-m-d H:i:s');
+        $bot->saveThis();
+
+        $replaceTriggerIds = array();
+        $triggersArray = array();
+        $pregMatchTemporary = array();
+
+
+        $replaceArraySearch = array();
+        $replaceArrayReplace = array();
+
+        foreach ($data['groups'] as $group) {
+            $groupObj = new erLhcoreClassModelGenericBotGroup();
+            $groupObj->bot_id = $bot->id;
+            $groupObj->name = $group['group']['name'];
+            $groupObj->is_collapsed = isset($group['group']['is_collapsed']) && is_numeric($group['group']['is_collapsed']) ? $group['group']['is_collapsed'] : 0;
+            $groupObj->pos = isset($group['group']['pos']) && is_numeric($group['group']['pos']) ? (int)$group['group']['pos'] : 0;
+            $groupObj->saveThis();
+
+            foreach ($group['triggers'] as $trigger) {
+
+                $triggerObj = new erLhcoreClassModelGenericBotTrigger();
+                $triggerObj->bot_id = $bot->id;
+                $triggerObj->group_id = $groupObj->id;
+                $triggerObj->name = $trigger['trigger']['name'];
+                $triggerObj->default = $trigger['trigger']['default'];
+                $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
+                $triggerObj->actions = $trigger['trigger']['actions'];
+                $triggerObj->saveThis();
+
+                $matchesTemp = array();
+                preg_match_all('/"(temp[0-9]+)":"([0-9]+)"/is', $triggerObj->actions,$matchesTemp);
+                if (isset($matchesTemp[0]) && !empty($matchesTemp[0])) {
+                    foreach ($matchesTemp[0] as $matchIndex => $matchValue) {
+                        $pregMatchTemporary[] = '"'.$matchesTemp[1][$matchIndex].'":"{replace_trigger_id}"';
+                    }
+                }
+
+                $triggersArray[] = $triggerObj;
+                $replaceTriggerIds[$trigger['trigger']['id']] = $triggerObj->id;
+
+                foreach ($trigger['events'] as $event) {
+                    $eventObj = new erLhcoreClassModelGenericBotTriggerEvent();
+                    $eventObj->trigger_id = $triggerObj->id;
+                    $eventObj->bot_id = $bot->id;
+                    $eventObj->pattern = $event['pattern'];
+                    $eventObj->pattern_exc = $event['pattern_exc'];
+                    $eventObj->configuration = $event['configuration'];
+                    $eventObj->type = $event['type'];
+
+                    if (isset($event['on_start_type'])) {
+                        $eventObj->on_start_type = $event['on_start_type'];
+                    }
+
+                    if (isset($event['priority'])) {
+                        $eventObj->priority = $event['priority'];
+                    }
+
+                    $eventObj->saveThis();
+                }
+
+                // Import payloads
+                if (isset($trigger['payloads'])) {
+                    foreach ($trigger['payloads'] as $payloadVar) {
+                        $payloadObj = new erLhcoreClassModelGenericBotPayload();
+                        $payloadObj->name = $payloadVar['name'];
+                        $payloadObj->payload = $payloadVar['payload'];
+                        $payloadObj->bot_id = $bot->id;
+                        $payloadObj->trigger_id = $triggerObj->id;
+                        $payloadObj->saveThis();
+                    }
+                }
+            }
+        }
+
+        // Preg match all
+        foreach ($replaceTriggerIds as $oldTriggerId => $newTriggerId){
+
+            $replaceArraySearch[] = '"payload":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"payload":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_pattern":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_pattern":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_fail":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_fail":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"alternative_callback":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"alternative_callback":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_alternative":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_alternative":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_format":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_format":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_match":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_match":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"collection_callback_cancel":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"collection_callback_cancel":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"payload_online":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"payload_online":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"callback_reschedule":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"callback_reschedule":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"callback_match":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"callback_match":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"trigger_id":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"trigger_id":"' . $newTriggerId . '"';
+
+            $replaceArraySearch[] = '"default_trigger":"' . $oldTriggerId . '"';
+            $replaceArrayReplace[] = '"default_trigger":"' . $newTriggerId . '"';
+
+            foreach ($pregMatchTemporary as $tempReplace) {
+                $replaceArraySearch[] = str_replace('{replace_trigger_id}', $oldTriggerId, $tempReplace);
+                $replaceArrayReplace[] = str_replace('{replace_trigger_id}', $newTriggerId, $tempReplace);
+            }
+        }
+
+        foreach ($triggersArray as $trigger) {
+            $trigger->actions = str_replace($replaceArraySearch,$replaceArrayReplace,$trigger->actions);
+            $trigger->saveThis();
+        }
+
+        return [
+            'bot' => $bot,
+            'triggers' => $triggersArray
+        ];
+    }
 }
 
 ?>
