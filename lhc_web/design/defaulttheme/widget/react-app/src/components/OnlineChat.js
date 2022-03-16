@@ -254,6 +254,9 @@ class OnlineChat extends Component {
 
     updateMetaAutoHide(hideFirst) {
         var block = document.getElementById('messages-scroll');
+        if (!block){
+            return;
+        }
         ['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
             var x = block.getElementsByClassName(className);
             if (x.length > 0) {
