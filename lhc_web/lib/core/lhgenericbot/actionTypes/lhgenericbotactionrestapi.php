@@ -213,13 +213,17 @@ class erLhcoreClassGenericBotActionRestapi
     public static function makeRequest($host, $methodSettings, $paramsCustomer)
     {
         $msg_text = '';
-        $msg_text_cleaned = '';
 
         if (isset($paramsCustomer['params']['msg'])) {
-            $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg']->msg;
+            $msg_text = $paramsCustomer['params']['msg']->msg;
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
-            $msg_text_cleaned = $msg_text = $paramsCustomer['params']['msg_text'];
+            $msg_text = $paramsCustomer['params']['msg_text'];
         }
+
+        // Allow extensions to preparse send message
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_parse_send', array('msg' => & $msg_text));
+
+        $msg_text_cleaned = $msg_text;
 
         // We have to extract attached files and send them separately
         $matches = array();
@@ -267,6 +271,56 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        if (empty($media)) {
+            $matches = array();
+
+            preg_match_all('/\[img\](.*?)\[\/img\]/ms', $msg_text, $matches);
+
+            foreach ($matches[1] as $index => $img) {
+                $in = trim($img);
+
+                $url = erLhcoreClassBBCode::esc_url($in);
+
+                if ( empty($url) )
+                    continue;
+
+                $file = new erLhcoreClassModelChatFile();
+                $file->remote_file = true;
+                $file->remote_url = $url;
+
+                $parts = explode('.',strtolower($file->remote_url));
+                $extension = array_pop($parts);
+
+                $extensionMimetype = array(
+                    'jpeg' => 'image/jpeg',
+                    'jpg' => 'image/jpg',
+                    'png' => 'image/png',
+                    'gif' => 'image/gif',
+                );
+
+                $file->upload_name = (isset($extensionMimetype[$extension]) ? 'image.' . $extension : 'image.png');
+                $file->extension = isset($extensionMimetype[$extension]) ? $extension : 'png';
+                $file->type = (isset($extensionMimetype[$extension]) ? $extensionMimetype[$extension] : 'image/jpeg');
+
+                $media[] = array(
+                    'id' => null,
+                    'size' => null,
+                    'upload_name' =>  $file->upload_name,
+                    'type' => $file->type,
+                    'extension' => $file->extension,
+                    'hash' => '',
+                    'url' => $file->remote_url
+                );
+
+                $files[] = $file;
+
+                $msg_text_cleaned = str_replace($matches[0][$index],'',$msg_text_cleaned);
+            }
+        }
+
+        // Allow extensions to preparse send message
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_parse_send_clean', array('msg' => & $msg_text_cleaned));
+
         $file_body = null;
         $file_url = null;
         $file_name = null;
@@ -303,20 +357,38 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                 }
 
-                $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
                 $file_name = $mediaFile->upload_name;
 
-                if (isset($_SERVER['HTTP_HOST'])) {
-                    $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
-                } else {
-                    if (class_exists('erLhcoreClassInstance')) {
-                        $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
+                if ($mediaFile->remote_file !== true) {
+                    $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                    if (isset($_SERVER['HTTP_HOST'])) {
+                        $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                     } else {
-                        $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
+                        if (class_exists('erLhcoreClassInstance')) {
+                            $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
+                        } else {
+                            $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
+                        }
+                        $file_url = $site_address . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                     }
-                    $file_url = $site_address . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
+                } else {
+                    $file_body = '';
+                    if (strpos($file->remote_url,'http://') !== false || strpos($file->remote_url,'https://') !== false) {
+                        $file_url = $file->remote_url;
+                    } else {
+                        if (isset($_SERVER['HTTP_HOST'])) {
+                            $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . $file->remote_url;
+                        } else {
+                            if (class_exists('erLhcoreClassInstance')) {
+                                $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
+                            } else {
+                                $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
+                            }
+                            $file_url = $site_address . $file->remote_url;
+                        }
+                    }
                 }
-            }
+             }
         }
 
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);

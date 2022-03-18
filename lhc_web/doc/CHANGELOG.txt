@@ -1,6 +1,11 @@
 3.95v
 
 1. Proactive chat invitation dynamic conditions.
+2. Messages auto scroll to reply position fixes.
+3. force_logout attributes support for Rest API.
+4. Highlight currently opened chat.
+5. Permission to allow/deny operator visitor IP
+
 
 execute doc/update_db/update_267.sql for update
 
