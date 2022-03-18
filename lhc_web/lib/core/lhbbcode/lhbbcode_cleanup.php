@@ -667,7 +667,7 @@ class erLhcoreClassBBCodePlain
         }
 
         if (strpos($url,'http://') === false && strpos($url,'https://') === false) {
-            $url = str_replace('//','/',self::getHost() .'/'. $url);
+            $url = self::getHost() . str_replace('//','/','/'. $url).' ';
         }
 
         return  $prepend . ' ' . $url;
