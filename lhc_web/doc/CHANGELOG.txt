@@ -1,3 +1,9 @@
+3.95v
+
+1. Proactive chat invitation dynamic conditions.
+
+execute doc/update_db/update_267.sql for update
+
 3.94v
 
 1. Block by online user. Basically it means a cookie based block. Online visitor tracking has to be enabled.

@@ -89,6 +89,10 @@ if ( isset($_POST['SendMessage']) ) {
         unset($onlineAttrSystem['lhcinv_exp']);
     }
 
+    if (isset($onlineAttrSystem['lhcnxt_ivt'])) {
+        unset($onlineAttrSystem['lhcnxt_ivt']);
+    }
+
     $visitor->online_attr_system_array = $onlineAttrSystem;
     $visitor->online_attr_system = json_encode($onlineAttrSystem);
 

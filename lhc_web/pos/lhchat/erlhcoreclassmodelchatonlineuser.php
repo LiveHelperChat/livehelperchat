@@ -16,7 +16,7 @@ foreach (['notes','visitor_tz','online_attr_system','operation_chat','online_att
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['conversion_id','reopen_chat','invitation_seen_count','user_active','requires_phone','requires_username','requires_email','invitation_id','message_seen_ts','chat_id','last_check_time','last_visit','device_type','dep_id','first_visit','pages_count','tt_pages_count','invitation_count','time_on_site','tt_time_on_site'] as $posAttr) {
+foreach (['last_visit_prev','chat_time','conversion_id','reopen_chat','invitation_seen_count','user_active','requires_phone','requires_username','requires_email','invitation_id','message_seen_ts','chat_id','last_check_time','last_visit','device_type','dep_id','first_visit','pages_count','tt_pages_count','invitation_count','time_on_site','tt_time_on_site'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;
