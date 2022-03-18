@@ -1437,6 +1437,8 @@ class Install
         	   	  `operation_chat` text NOT NULL,
         	   	  `online_attr` text NOT NULL,
         	   	  `device_type` tinyint(1) NOT NULL DEFAULT '0',
+                  `chat_time` bigint(20) unsigned NOT NULL DEFAULT 0,
+                  `last_visit_prev` bigint(20) unsigned NOT NULL DEFAULT 0,
                   PRIMARY KEY (`id`),
                   KEY `vid` (`vid`),
 				  KEY `dep_id` (`dep_id`),

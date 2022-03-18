@@ -216,6 +216,10 @@ if ((string)$Params['user_parameters_unordered']['hash_resume'] != '') {
 	$inputData->hash_resume = (string)$Params['user_parameters_unordered']['hash_resume'];
 }
 
+if ($Params['user_parameters_unordered']['vid'] == 'undefined') {
+    $Params['user_parameters_unordered']['vid'] = null;
+}
+
 if ((string)$Params['user_parameters_unordered']['vid'] != '') {
 	$inputData->vid = (string)$Params['user_parameters_unordered']['vid'];
 }
@@ -266,7 +270,7 @@ if (empty($Params['user_parameters_unordered']['vid']) && !((isset($_GET['cd']) 
         exit;
     }
 
-    if (isset($_COOKIE['lhc_vid'])) {
+    if (isset($_COOKIE['lhc_vid']) && $_COOKIE['lhc_vid'] != 'undefined') {
         $vid = $_COOKIE['lhc_vid'];
     } else {
         $vid = substr(sha1(mt_rand() . microtime()),0,20);

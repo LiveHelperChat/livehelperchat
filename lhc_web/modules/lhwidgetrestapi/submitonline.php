@@ -279,6 +279,7 @@ if (empty($Errors)) {
 
                 $userInstance->chat_id = $chat->id;
                 $userInstance->dep_id = $chat->dep_id;
+                $userInstance->chat_time = time();
 
                 if (!isset($resetMessage)) {
                     $userInstance->message_seen = 1;

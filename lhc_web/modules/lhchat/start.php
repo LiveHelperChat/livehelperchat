@@ -44,6 +44,10 @@ if (isset($startDataFields['requires_dep']) && $startDataFields['requires_dep'] 
     return $Result;
 }
 
+if ($Params['user_parameters_unordered']['vid'] == 'undefined') {
+    $Params['user_parameters_unordered']['vid'] = null;
+}
+
 if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true && empty($Params['user_parameters_unordered']['vid']) && (!is_numeric($Params['user_parameters_unordered']['id']) || $Params['user_parameters_unordered']['hash'] == '')) {
     $Result['pagelayout'] = 'userchat';
     $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
@@ -90,11 +94,12 @@ if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassMo
         exit;
     }
 
-    if (isset($_COOKIE['lhc_vid'])) {
+    if (isset($_COOKIE['lhc_vid']) && $_COOKIE['lhc_vid'] != 'undefined') {
         $vid = $_COOKIE['lhc_vid'];
     } else {
         $vid = substr(sha1(mt_rand() . microtime()),0,20);
     }
+    
     setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
     erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
 }

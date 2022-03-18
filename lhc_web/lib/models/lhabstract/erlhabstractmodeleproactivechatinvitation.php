@@ -488,10 +488,66 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
 		->orderBy('position ASC, time_on_site ASC, RAND()')
-		->limit( 1 );
-		
-		$messagesToUser = $session->find( $q );
-		
+		->limit( 50 );
+
+		$messagesToUserRaw = $session->find( $q );
+
+        $messagesToUser = [];
+
+        // Verify dynamic conditions
+        foreach ($messagesToUserRaw as $messageToUser) {
+            $optionsInvitation = $messageToUser->design_data_array;
+            $operatorsOnlineId = [];
+
+            if (isset($optionsInvitation['on_op_id']) && !empty($optionsInvitation['on_op_id'])) {
+                $operators = explode(',',$optionsInvitation['on_op_id']);
+                $filter = [];
+                $filter['filterin']['user_id'] = $operators;
+                $filter['filter']['hide_online'] = 0;
+                $filter['customfilter'][] = '(last_activity > ' . (int)(time() - 120) . ' OR always_on = 1)';
+                $filter['filterin']['dep_id'] = [$item->dep_id,0];
+                $filter['group'] = 'user_id';
+                $filter['ignore_fields'] = array('exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+                $filter['select_columns'] = 'max(`id`) as `id`,user_id';
+
+                if (isset($optionsInvitation['op_max_chats']) && !empty($optionsInvitation['op_max_chats'])) {
+                    $filter['customfilter'][] = '(max_chats = 0 || ((pending_chats + active_chats) - inactive_chats) < (max_chats + '.(int)$optionsInvitation['op_max_chats'] . '))';
+                }
+
+                $onlineOperators = erLhcoreClassModelUserDep::getList($filter);
+
+                if (empty($onlineOperators)) {
+                    continue;
+                } else {
+                    foreach ($onlineOperators as $onlineOperator) {
+                        $operatorsOnlineId[] = $onlineOperator->user_id;
+                    }
+                }
+            }
+
+            if (
+                $item->last_visit_prev > 0 &&
+                isset($optionsInvitation['last_visit_prev']) &&
+                    is_numeric($optionsInvitation['last_visit_prev']) &&
+                    $optionsInvitation['last_visit_prev'] > 0 &&
+                    $item->last_visit_prev > time() - $optionsInvitation['last_visit_prev']
+                ) {
+                continue;
+            }
+
+            if (
+                $item->chat_time > 0 &&
+                isset($optionsInvitation['last_chat']) &&
+                    is_numeric($optionsInvitation['last_chat']) &&
+                    $optionsInvitation['last_chat'] > 0 &&
+                    $item->chat_time > time() - $optionsInvitation['last_chat']
+                ) {
+                continue;
+            }
+
+            $messagesToUser[] = $messageToUser;
+        }
+
 		if ( !empty($messagesToUser) ) {
 
 			$message = array_shift($messagesToUser);
@@ -535,10 +591,20 @@ class erLhAbstractModelProactiveChatInvitation {
                 $item->last_visit = time();
 
                 if ($message->show_random_operator == 1) {
-                    $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => explode(',',trim($message->operator_ids))));
+                    $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => (isset($operatorsOnlineId) && !empty($operatorsOnlineId)) ? $operatorsOnlineId : explode(',',trim($message->operator_ids))));
                 }
 
                 $onlineAttrSystem = $item->online_attr_system_array;
+
+                if (isset($message->design_data_array['next_inv_time']) && (int)$message->design_data_array['next_inv_time'] > 0) {
+                    $onlineAttrSystem['lhcnxt_ivt'] = (int)$message->design_data_array['next_inv_time'];
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                } elseif (isset($onlineAttrSystem['lhcnxt_ivt'])) {
+                    unset($onlineAttrSystem['lhcnxt_ivt']);
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                }
 
                 if (isset($message->design_data_array['expires_after']) && (int)$message->design_data_array['expires_after'] > 0) {
                     $onlineAttrSystem['lhcinv_exp'] = (int)$message->design_data_array['expires_after'] + time();
