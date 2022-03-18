@@ -666,6 +666,10 @@ class erLhcoreClassBBCodePlain
             $prepend = $matches[1];
         }
 
+        if (strpos($url,'http://') === false && strpos($url,'https://') === false) {
+            $url = str_replace('//','/',self::getHost() .'/'. $url);
+        }
+
         return  $prepend . ' ' . $url;
     }
 
