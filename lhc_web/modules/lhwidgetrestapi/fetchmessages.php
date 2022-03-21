@@ -122,7 +122,7 @@ if (is_object($chat) && $chat->hash == $requestPayload['hash'])
 
 				        foreach ($Messages as $msg) {
 
-                            if ($firstOperatorMessageId == 0 && ($msg['user_id'] > 0 || $msg['user_id'] == -2)){
+                            if ($firstOperatorMessageId == 0 && ($msg['user_id'] > 0 || $msg['user_id'] == -2) && strpos($content,'id="msg-'.$msg['id'].'"') !== false) {
                                 $firstOperatorMessageId = $msg['id'];
                             }
 

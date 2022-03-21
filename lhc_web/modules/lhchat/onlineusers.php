@@ -90,8 +90,35 @@ if ($userDepartments !== true){
 if ($is_ajax == true) {
     $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1)));
 
-	$items = erLhcoreClassModelChatOnlineUser::getList($filter);
-	
+    $onlineAttributeFilter = [
+        'attrf_key_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_1',''),
+        'attrf_val_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_1',''),
+        'attrf_key_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_2',''),
+        'attrf_val_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_2',''),
+        'attrf_key_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_3',''),
+        'attrf_val_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_3',''),
+        'attrf_key_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_4',''),
+        'attrf_val_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_4',''),
+        'attrf_key_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_5',''),
+        'attrf_val_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_5','')
+    ];
+
+
+    $db = ezcDbInstance::get();
+
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($onlineAttributeFilter['attrf_key_' . $i]) && $onlineAttributeFilter['attrf_key_' . $i] != '') {
+            $values = explode('||',$onlineAttributeFilter['attrf_val_' . $i]);
+            $valuesFilter = [];
+            foreach ($values as $val) {
+                $valuesFilter[] = '( JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['attrf_key_' . $i]).' ) )';
+            }
+            $filter['customfilter'][] = '('.implode(' OR ',$valuesFilter).')';
+        }
+    }
+
+    $items = erLhcoreClassModelChatOnlineUser::getList($filter);
+
 	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
 	erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
 

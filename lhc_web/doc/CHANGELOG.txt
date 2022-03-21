@@ -1,3 +1,21 @@
+3.96v
+
+1. Proactive chat invitation now supports multiple departments assignment
+2. Proactive invitations now can filter directly `online_attr_system` key and values
+
+execute doc/update_db/update_268.sql for update
+
+3.95v
+
+1. Proactive chat invitation dynamic conditions.
+2. Messages auto scroll to reply position fixes.
+3. force_logout attributes support for Rest API.
+4. Highlight currently opened chat.
+5. Permission to allow/deny operator visitor IP
+
+
+execute doc/update_db/update_267.sql for update
+
 3.94v
 
 1. Block by online user. Basically it means a cookie based block. Online visitor tracking has to be enabled.

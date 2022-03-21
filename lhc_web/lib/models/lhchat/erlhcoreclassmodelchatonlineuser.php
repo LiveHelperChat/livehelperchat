@@ -22,6 +22,8 @@ class erLhcoreClassModelChatOnlineUser
             'invitation_seen_count' => $this->invitation_seen_count,
             'page_title' => $this->page_title,
             'chat_id' => $this->chat_id, // For future
+            'chat_time' => $this->chat_time,
+            'last_visit_prev' => $this->last_visit_prev,
             'last_visit' => $this->last_visit,
             'first_visit' => $this->first_visit,
             'user_agent' => $this->user_agent,
@@ -704,6 +706,15 @@ class erLhcoreClassModelChatOnlineUser
                 if (!empty($items)) {
                     $item = array_shift($items);
 
+                    if ($item->message_seen == 1 && (
+                            $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout'] * 3600)) ||
+                            (isset($item->online_attr_system_array['lhcnxt_ivt']) && $item->message_seen_ts < (time() - $item->online_attr_system_array['lhcnxt_ivt']))
+                        )) {
+                        $item->message_seen = 0;
+                        $item->message_seen_ts = 0;
+                        $item->operator_message = '';
+                    }
+
                     // Visit duration less than 30m. Same as google analytics
                     // See: https://support.google.com/analytics/answer/2731565?hl=en
                     if ((time() - $item->last_visit) <= 30 * 60) {
@@ -717,6 +728,7 @@ class erLhcoreClassModelChatOnlineUser
 
                         $item->time_on_site = 0;
                         $item->total_visits++;
+                        $item->last_visit_prev = $item->last_visit;
                         $item->last_visit = time();
                         $item->pages_count = 0;
 
@@ -728,12 +740,6 @@ class erLhcoreClassModelChatOnlineUser
                         }
 
                         $onlineAttrSystem = $item->online_attr_system_array;
-
-                        if ($item->message_seen == 1 && $item->message_seen_ts < (time() - ((int)$paramsHandle['message_seen_timeout'] * 3600))) {
-                            $item->message_seen = 0;
-                            $item->message_seen_ts = 0;
-                            $item->operator_message = '';
-                        }
 
                         if (isset($onlineAttrSystem['qinv'])) {
                             unset($onlineAttrSystem['qinv']);
@@ -762,6 +768,7 @@ class erLhcoreClassModelChatOnlineUser
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                     $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
                     $item->total_visits = 1;
+                    $item->last_visit_prev = time();
 
                     if (isset($paramsHandle['department']) && is_array($paramsHandle['department']) && count($paramsHandle['department']) == 1) {
                         $item->dep_id = array_shift($paramsHandle['department']);
@@ -1027,6 +1034,8 @@ class erLhcoreClassModelChatOnlineUser
     public $user_active = 0;
     public $conversion_id = 0;
     public $device_type = 0;
+    public $chat_time = 0;
+    public $last_visit_prev = 0;
 
     public $has_nick = false;
 

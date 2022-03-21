@@ -61,7 +61,7 @@ class erLhcoreClassGenericBotActionText {
 
                     $validationResult = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_handler', array(
                         'render' => $quickReply['content']['render_precheck_function'],
-                        'render_args' => $quickReply['content']['render_args'],
+                        'render_args' => (isset($quickReply['content']['render_args']) ? $quickReply['content']['render_args'] : []),
                         'chat' => & $chat,
                         'trigger' => $trigger,
                     ));

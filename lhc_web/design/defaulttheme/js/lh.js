@@ -2785,7 +2785,7 @@ function lh(){
     };
 
     this.changeUserSettingsIndifferent = function(attr,value) {
-    	$.post(this.wwwDir+  'user/setsettingajax/'+attr+'/'+encodeURIComponent(value)+'/(indifferent)/true');
+    	$.post(this.wwwDir+  'user/setsettingajax/'+attr+'/'+encodeURIComponent(value == '' ? '__empty__' : value)+'/(indifferent)/true');
     };
 
     this.changeStatusAction = function(form,chat_id){

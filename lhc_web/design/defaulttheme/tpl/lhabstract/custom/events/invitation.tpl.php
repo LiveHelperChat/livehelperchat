@@ -45,13 +45,12 @@
 <?php echo erLhcoreClassAbstract::renderInput('referrer', $fields['referrer'], $object)?>
 </div>
 
+<div class="form-group">
+    <label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
+    <?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
+</div>
+
 <div class="row">
-    <div class="col-6">
-        <div class="form-group">
-            <label><?php echo $fields['hide_after_ntimes']['trans'];?></label>
-            <?php echo erLhcoreClassAbstract::renderInput('hide_after_ntimes', $fields['hide_after_ntimes'], $object)?>
-        </div>
-    </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo $fields['expires_after']['trans'];?></label>
@@ -67,6 +66,24 @@
                 <option value="28800" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 28800) : ?>selected="selected"<?php endif;?> >8 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
                 <option value="57600" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 57600) : ?>selected="selected"<?php endif;?> >16 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
                 <option value="86400" <?php if (isset($object->{$fields['expires_after']['main_attr']}['expires_after']) && $object->{$fields['expires_after']['main_attr']}['expires_after'] == 86400) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','day');?></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['next_inv_time']['trans'];?></label>
+            <select class="form-control form-control-sm" name="AbstractInput_next_inv_time">
+                <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Follows system default settings');?></option>
+                <option value="60" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 60) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minute');?></option>
+                <option value="300" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 300) : ?>selected="selected"<?php endif;?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="600" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 600) : ?>selected="selected"<?php endif;?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="1800" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 1800) : ?>selected="selected"<?php endif;?> >30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','minutes');?></option>
+                <option value="3600" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 3600) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hour');?></option>
+                <option value="7200" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 7200) : ?>selected="selected"<?php endif;?> >2 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="14400" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 14400) : ?>selected="selected"<?php endif;?> >4 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="28800" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 28800) : ?>selected="selected"<?php endif;?> >8 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="57600" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 57600) : ?>selected="selected"<?php endif;?> >16 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','hours');?></option>
+                <option value="86400" <?php if (isset($object->{$fields['next_inv_time']['main_attr']}['next_inv_time']) && $object->{$fields['next_inv_time']['main_attr']}['next_inv_time'] == 86400) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','day');?></option>
             </select>
         </div>
     </div>
@@ -125,10 +142,69 @@
 <?php echo erLhcoreClassAbstract::renderInput('tag', $fields['tag'], $object)?>
 </div>
 
-<div class="form-group">		
-<label><?php echo $fields['dep_id']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
+<?php $showAnyDepartment = !empty($limitDepartments = erLhcoreClassUserDep::conditionalDepartmentFilter()); ?>
+<div class="form-group">
+
+    <div class="d-flex">
+        <div class="d-inline pr-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
+        </div>
+        <div class="d-inline pr-2">
+            <?php
+            $params = array (
+                'input_name'     => 'cannedDepartmentGroup',
+                'display_name'   => 'name',
+                'css_class'      => 'form-control form-control-sm',
+                'selected_id'    => 0,
+                'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList',
+                'list_function_params'  => array('limit' => false,'sort' => '`name` ASC'),
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Choose department group')
+            );
+            echo erLhcoreClassRenderHelper::renderCombobox($params);
+            ?>
+        </div>
+        <div class="d-inline">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="check-by-department-group" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Check all departments from selected department group');?>" class="btn btn-sm btn-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Check');?></button>
+                <button type="button" id="uncheck-check-by-department-group" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Uncheck all departments from selected department group');?>" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Uncheck');?></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="max-height: 500px; overflow: auto">
+        <?php
+        $params = array (
+            'input_name'     => 'DepartmentID[]',
+            'display_name'   => 'name',
+            'css_class'      => 'form-control',
+            'multiple'       => true,
+            'wrap_prepend'   => '<div class="col-4">',
+            'wrap_append'    => '</div>',
+            'selected_id'    => $object->dep_ids_front,
+            'list_function'  => 'erLhcoreClassModelDepartament::getList',
+            'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)
+        );
+
+        if (empty($limitDepartments) || (isset($showAnyDepartment) && $showAnyDepartment == true)) {
+            $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
+        }
+
+        echo erLhcoreClassRenderHelper::renderCheckbox( $params ); ?>
+    </div>
 </div>
+
+<script>
+    $( document ).ready(function() {
+        $('#check-by-department-group,#uncheck-check-by-department-group').click(function(){
+            var id = $(this).attr('id');
+            $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/depbydepgroup?d='+$('#id_cannedDepartmentGroup').val(), function(data) {
+                data.items.forEach( function(item) {
+                    $('#chk-DepartmentID-'+item).prop('checked', id == 'check-by-department-group');
+                })
+            });
+        });
+    });
+</script>
 
 <div class="form-group">
 <label><?php echo $fields['campaign_id']['trans'];?></label>

@@ -217,7 +217,10 @@ class erLhcoreClassChatEvent
             ),
             'event_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
-            )
+            ),
+            'DepartmentID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -242,7 +245,16 @@ class erLhcoreClassChatEvent
                            
                 $params['obj']->events[] = $invitationEvent;
             }
-        }      
+        }
+
+        if ( !$form->hasValidData( 'DepartmentID' )  ) {
+            $params['obj']->dep_ids = $params['obj']->dep_ids_front = [];
+            $params['obj']->dep_id = 0;
+        } else {
+            $params['obj']->dep_ids_front = $params['obj']->dep_ids = $form->DepartmentID;
+            $params['obj']->dep_id = -1; // -1 means, individual per department
+        }
+
     }
     
     public static function getEventJson($events)
