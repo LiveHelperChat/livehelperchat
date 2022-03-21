@@ -1,4 +1,4 @@
-lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
+lhcAppControllers.controller('CannedMsgCtrl',['$scope','$http','$location','$rootScope', '$log', '$window', function($scope, $http, $location, $rootScope, $log, $window) {
 
     this.languages = [];
     this.dialects = [];

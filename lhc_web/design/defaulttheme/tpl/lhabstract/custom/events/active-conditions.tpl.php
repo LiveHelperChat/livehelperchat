@@ -46,3 +46,7 @@
         <option value="86400" <?php if (isset($object->{$fields['last_chat']['main_attr']}['last_chat']) && $object->{$fields['last_chat']['main_attr']}['last_chat'] == 86400) : ?>selected="selected"<?php endif;?> >1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','day');?></option>
     </select>
 </div>
+
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Attributes conditions conditions')?></h5>
+<p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/widgettheme","You can filter by `online_attr_system` attribute key and it's value. Multiple values can be separated by ||")?></i></small></p>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/attributes_conditions.tpl.php'));?>

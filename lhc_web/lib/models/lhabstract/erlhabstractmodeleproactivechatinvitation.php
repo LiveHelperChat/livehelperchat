@@ -205,7 +205,16 @@ class erLhAbstractModelProactiveChatInvitation {
                $this->$var = false;
            }
            return $this->$var;
-           break;
+
+       case 'dep_ids_front':
+           $this->dep_ids_front = [];
+           if ($this->id > 0) {
+               $db = ezcDbInstance::get();
+               $stmt = $db->prepare("SELECT `dep_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `invitation_id` = " . $this->id);
+               $stmt->execute();
+               $this->dep_ids_front = $stmt->fetchAll(PDO::FETCH_COLUMN);
+           }
+           return $this->dep_ids_front;
 
 	   	default:
 	   		break;
@@ -261,7 +270,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\')
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
-				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
+				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
 	            AND `inject_only_html` = 1
 	            AND `disabled` = 0
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
@@ -312,7 +321,7 @@ class erLhAbstractModelProactiveChatInvitation {
 				AND ('.$q->expr->eq( 'identifier', $q->bindValue( $item->identifier ) ).' OR identifier = \'\')
 				' . $appendTag . '
 				' . $appendDevice . '
-				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
+				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
 	            AND `inject_only_html` = 0
 	            AND `dynamic_invitation` = 1
 	            AND `disabled` = 0
@@ -484,7 +493,7 @@ class erLhAbstractModelProactiveChatInvitation {
 		        AND `disabled` = 0
 		        AND `inject_only_html` = 0
 		        ' . $appendInvitationsId . '
-				AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $item->dep_id ) ).' OR dep_id = 0)
+				AND (`lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` = ' . (int)$item->dep_id . ') OR `dep_id` = ' . (int)$item->dep_id . ' OR `dep_id` = 0)
 				AND ('.$q->expr->like( $session->database->quote(trim($referrer)), 'concat(referrer,\'%\')' ).' OR referrer = \'\')'
 		)
 		->orderBy('position ASC, time_on_site ASC, RAND()')
@@ -493,6 +502,8 @@ class erLhAbstractModelProactiveChatInvitation {
 		$messagesToUserRaw = $session->find( $q );
 
         $messagesToUser = [];
+
+        $onlineAttrSystem = $item->online_attr_system_array;
 
         // Verify dynamic conditions
         foreach ($messagesToUserRaw as $messageToUser) {
@@ -545,8 +556,31 @@ class erLhAbstractModelProactiveChatInvitation {
                 continue;
             }
 
+            $design_data_array = $messageToUser->design_data_array;
+
+            for ($i = 1; $i <= 10; $i++) {
+                if (
+                    (
+                        isset($design_data_array['attrf_key_' . $i]) &&
+                        $design_data_array['attrf_key_' . $i] != '' &&
+                        !isset($onlineAttrSystem[$design_data_array['attrf_key_' . $i]])
+                    ) || (
+                        isset($design_data_array['attrf_key_' . $i]) &&
+                        isset($design_data_array['attrf_val_' . $i]) &&
+                        $design_data_array['attrf_key_' . $i] != '' &&
+                        !in_array(
+                            strtolower($onlineAttrSystem[$design_data_array['attrf_key_' . $i]]),
+                            explode('||',strtolower($design_data_array['attrf_val_' . $i]))
+                        )
+                    )
+                ) {
+                    continue 2;
+                }
+            }
+
             $messagesToUser[] = $messageToUser;
         }
+
 
 		if ( !empty($messagesToUser) ) {
 
@@ -704,6 +738,22 @@ class erLhAbstractModelProactiveChatInvitation {
 	        $this->event_invitation = 1;
 	        $this->saveThis();
 	    }
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `invitation_id` = :invitation_id');
+        $stmt->bindValue(':invitation_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
+
+        if (isset($this->dep_ids) && !empty($this->dep_ids)) {
+            $values = [];
+            foreach ($this->dep_ids as $department_id) {
+                $values[] = "(" . $this->id . "," . $department_id . ")";
+            }
+            if (!empty($values)) {
+                $db->query('INSERT INTO `lh_abstract_proactive_chat_invitation_dep` (`invitation_id`,`dep_id`) VALUES ' . implode(',',$values));
+            }
+        }
+
 	}
 
 	public function afterRemove()
@@ -711,6 +761,11 @@ class erLhAbstractModelProactiveChatInvitation {
 	    foreach (erLhAbstractModelProactiveChatInvitationEvent::getList(array('filter' => array('invitation_id' => $this->id))) as $oldEvent) {
             $oldEvent->removeThis();
 	    }
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `invitation_id` = :invitation_id');
+        $stmt->bindValue(':invitation_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
 	}
 
     public function beforeUpdate()
@@ -828,6 +883,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $show_random_operator = 0;
 	public $hide_after_ntimes = 0;
 	public $dep_id = 0;
+	public $dep_ids = [];
 	public $referrer = '';
 	public $operator_ids = '';
 	public $tag = '';

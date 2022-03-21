@@ -1,3 +1,10 @@
+3.96v
+
+1. Proactive chat invitation now supports multiple departments assignment
+2. Proactive invitations now can filter directly `online_attr_system` key and values
+
+execute doc/update_db/update_268.sql for update
+
 3.95v
 
 1. Proactive chat invitation dynamic conditions.
