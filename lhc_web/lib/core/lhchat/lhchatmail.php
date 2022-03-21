@@ -593,19 +593,17 @@ class erLhcoreClassChatMail {
         if($sendMail->from_name == '{chat_nick}' && $chat->nick != '') {
             $mail->FromName = $chat->nick;
         }
-    	   	    	
+
     	$messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
-    	$messagesContent = '';
-    	
-    	foreach ($messages as $msg ) {
-	    	 if ($msg->user_id == -1) {
-	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant').': '.htmlspecialchars($msg->msg)."\n";
-	    	 } else {
-	    		$messagesContent .= date(erLhcoreClassModule::$dateDateHourFormat,$msg->time).' '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support)).': '.htmlspecialchars($msg->msg)."\n";
-	    	 }
-    	}
-    	
-    	$emailRecipient = array();
+
+        // Fetch chat messages
+        $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+        $tpl->set('chat', $chat);
+        $tpl->set('messages', $messages);
+
+        $messagesContent = $tpl->fetch();
+
+        $emailRecipient = array();
     	$emailRecipientAll = array();
     	    	    	    
     	if ($chat->department !== false && ($chat->department->inform_close_all == 1 || $chat->department->inform_close == 1) && $chat->department->inform_close_all_email != '') {
