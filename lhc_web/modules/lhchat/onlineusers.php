@@ -107,7 +107,12 @@ if ($is_ajax == true) {
     $db = ezcDbInstance::get();
 
     for ($i = 1; $i <= 5; $i++) {
-        if (isset($onlineAttributeFilter['attrf_key_' . $i]) && $onlineAttributeFilter['attrf_key_' . $i] != '') {
+        if (
+            isset($onlineAttributeFilter['attrf_key_' . $i]) &&
+            $onlineAttributeFilter['attrf_key_' . $i] != '' &&
+            isset($onlineAttributeFilter['attrf_val_' . $i]) &&
+            $onlineAttributeFilter['attrf_val_' . $i] != ''
+        ) {
             $values = explode('||',$onlineAttributeFilter['attrf_val_' . $i]);
             $valuesFilter = [];
             foreach ($values as $val) {
