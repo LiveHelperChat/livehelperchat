@@ -68,6 +68,11 @@ class erLhAbstractModelAudit
                 $this->left_menu = '';
                 return $this->left_menu;
                 break;
+                
+            case 'message_array':
+                $this->message_array = json_decode($this->message, true);
+                return $this->message_array;
+                break;
 
             default:
                 break;

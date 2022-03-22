@@ -1,6 +1,19 @@
 <?php
 
 return array(
+    'copy_action' => array(
+        'type' => 'action',
+        'link' => 'audit/logrecord',
+        'is_modal' => true,
+        'link_class' => 'material-icons',
+        'link_title' => 'info_outline',
+        'is_iframe' => false,
+        'width' => '1%',
+        'trans' => '',
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
     'object_id' => array(
         'type' => 'text_display',
         'no_wrap' => true,
