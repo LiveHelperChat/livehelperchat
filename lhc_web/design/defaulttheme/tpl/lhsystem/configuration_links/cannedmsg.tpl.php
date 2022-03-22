@@ -8,3 +8,4 @@
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/listreplace')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Canned replaceable variables');?></a></li>
 <?php endif; ?>
 
+<?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/cannedmsg_append.tpl.php'));?>
