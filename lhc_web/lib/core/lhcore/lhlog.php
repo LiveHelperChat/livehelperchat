@@ -112,7 +112,7 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
             $className .= $params['action'];
         }
 
-        erLhcoreClassLog::write(print_r($params['msg'],true),
+        erLhcoreClassLog::write((is_string($params['msg']) || is_numeric($params['msg']) ? $params['msg'] : json_encode($params['msg'],JSON_PRETTY_PRINT)),
             ezcLog::SUCCESS_AUDIT,
             array(
                 'source' => 'lhc',
