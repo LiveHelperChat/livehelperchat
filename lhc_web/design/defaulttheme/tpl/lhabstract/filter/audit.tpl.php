@@ -23,7 +23,7 @@
 
     <div class="col-md-12">
         <div class="form-group">
-            <input type="submit" class="btn btn-secondary" value="Search" name="doSearch">
+            <input type="submit" class="btn btn-sm btn-secondary" value="Search" name="doSearch">
         </div>
     </div>
 </div>
