@@ -629,14 +629,19 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
 
 	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
 
+    $operatorsCountOnline = 0;
+
 	foreach ($onlineOperators as $onlineOp) {
 	    if ($userData->id == $onlineOp->user_id) {
             $currentOp = $onlineOp;
-            break;
+        }
+
+        if ($onlineOp->hide_online == 0) {
+            $operatorsCountOnline++;
         }
     }
 
-	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
+	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_on' => $operatorsCountOnline, 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend);
 }
 
 if ($unreadTabEnabled == true && is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['unread_chats'],$Params['user_parameters_unordered']['w'])) {

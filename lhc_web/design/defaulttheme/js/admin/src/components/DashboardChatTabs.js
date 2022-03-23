@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useReducer, useRef } from "react";
 import axios from "axios";
 import {useTranslation} from 'react-i18next';
+import useInterval from "./lib/useInterval";
 
 function reducer(state, action) {
     switch (action.type) {
@@ -179,6 +180,7 @@ const DashboardChatTabs = props => {
 
     const loadChatTabIntro = (chatIds) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "front/tabs/(id)/" + (typeof chatIds !== 'undefined' ? chatIds.join('/') : getChatIds().join('/'))).then(result => {
+
             result.data.map((chat, index) => {
 
                 // If nodeJS extension is enabled check chat live status
@@ -199,6 +201,7 @@ const DashboardChatTabs = props => {
         });
     }
 
+
     const loadMailTabIntro = (chatIds) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "front/tabs/(idmail)/" + (typeof chatIds !== 'undefined' ? chatIds.join('/') : getChatIds().join('/'))).then(result => {
             result.data.map((chat, index) => {
@@ -211,7 +214,57 @@ const DashboardChatTabs = props => {
         });
     }
 
+    if (!document.getElementById('tabs')) {
+        useInterval(() => {
+
+            if (!state.chats || state.chats.length == 0) {
+                return;
+            }
+
+            axios.get(WWW_DIR_JAVASCRIPT  + "front/tabs/(id)/" + getChatIds().join('/')).then(result => {
+                result.data.map((chat, index) => {
+
+                    // If nodeJS extension is enabled check chat live status
+                    // As on page reload react app can be yet not started and we might not receive event
+                    // at that moment react app starts
+                    var nodeJSStatus = document.getElementById('node-js-indicator-'+chat.id);
+                    if (nodeJSStatus !== null) {
+                        chat.live_status = nodeJSStatus.textContent == 'wifi';
+                    }
+
+                    if (!(!state.chats || state.chats.length == 0)) {
+                        var foundIndex = state.chats.findIndex(x => x.id == chat.id);
+                        if (foundIndex !== -1 ) {
+                            if (state.chats[foundIndex].lmsg_id !== chat.lmsg_id) {
+                                chat.mn = 1;
+                            } else {
+                                chat.mn = state.chats[foundIndex].mn;
+                            }
+                        }
+                    }
+
+                    dispatch({
+                        type: 'update_chat',
+                        id: chat.id,
+                        value: chat
+                    })
+
+                })
+            });
+
+        }, 1000);
+    }
+
     useEffect(() => {
+
+        function addTabPreload(chatId, params) {
+
+            if (!(!chatsRef.current.chats || chatsRef.current.chats.length == 0) && chatsRef.current.chats.findIndex(x => x.id == chatId) !== -1) {
+                return; // We already have this chat tab
+            }
+
+            addTab(chatId, params);
+        }
 
         function addTab(chatId, params) {
             if (params.focus) {
@@ -396,6 +449,7 @@ const DashboardChatTabs = props => {
         }
 
         ee.addListener('chatStartTab',addTab)
+        ee.addListener('chatTabPreload',addTabPreload)
         ee.addListener('chatStartBackground',addTabBackground)
         ee.addListener('removeSynchroChat',removeTab)
         ee.addListener('chatTabClicked',tabClicked)
@@ -420,9 +474,8 @@ const DashboardChatTabs = props => {
                 var entries = [];
                 ids.forEach((id) => {
                    var el = document.getElementById('chat-tab-link-'+id);
-                   if (el !== null) {
-                       var active = el.classList.contains('active');
-                       entries.push({id: parseInt(id), active: active})
+                   if (parseInt(id) > 0) {
+                       entries.push({id: parseInt(id), active: el !== null && el.classList.contains('active')})
                    }
                });
                dispatch({
@@ -499,7 +552,11 @@ const DashboardChatTabs = props => {
     },[]);
 
     const chatTabClick = (chat) => {
-        $('#chat-tab-link-'+chat.id).click();
+        if (document.getElementById('chat-tab-link-'+chat.id) !== null) {
+            $('#chat-tab-link-'+chat.id).click();
+        } else {
+            document.location = WWW_DIR_JAVASCRIPT + 'front/default/(cid)/' + chat.id + '/#!#chat-id-' + chat.id;
+        }
     }
 
     const mailTabClick = (chat) => {
@@ -520,10 +577,6 @@ const DashboardChatTabs = props => {
 
     const { t, i18n } = useTranslation('chat_tabs');
 
-    /*{chat.aicons && Object.keys(chat.aicons).map((keyIndex) => {
-        return (<span style={{color: chat.aicons[keyIndex].c}} title={chat.aicons[keyIndex].t} className="material-icons">{chat.aicons[keyIndex].i}</span>)
-    })}*/
-
     return (
         <React.Fragment>
             {(!state.chats || state.chats.length == 0) && <div className="text-center text-muted p-2"><span className="material-icons">chat</span>{t('chat_tabs.open_chats')}</div>}
@@ -533,7 +586,7 @@ const DashboardChatTabs = props => {
                             <span className={"material-icons"+(chat.pnd_rsp == true ? ' text-danger' : ' text-success')}>{chat.pnd_rsp == true ? 'call_received' : 'call_made'}</span>
 
                             {chat.vwa && <span title={chat.vwa} className="material-icons text-danger">timer</span>}
-                            {chat.support_chat && <span className="whatshot blink-ani text-warning material-icons">whatshot</span>}<i className={"material-icons "+(typeof chat.live_status === "boolean" ? (chat.live_status === true ? 'icon-user-online' : 'icon-user-offline') : (chat.us == 2 ? "icon-user-away" : (chat.us == 0 ? "icon-user-online" : "icon-user-offline")))}  >face</i><i className={"material-icons icon-user-online " + (chat.um == 1 ? "icon-user-offline" : "icon-user-online")}>send</i>{chat.cc && <img title={chat.cn} src={chat.cc} alt="" />} {(state.group_offline == false || !(chat.us != 0)) && <span className={(chat.mn > 0 ? "font-weight-bold " : '') + (chat.cs == 0 ? 'text-warning' : '')}>{chat.nick || chat.id}</span>}{chat.mn > 0 && <span className="msg-nm pl-1">({chat.mn})</span>}{chat.lmsg && <span className="text-muted"> {chat.lmsg}</span>}
+                            {chat.support_chat && <span className="whatshot blink-ani text-warning material-icons">whatshot</span>}<i className={"material-icons "+(typeof chat.live_status === "boolean" ? (chat.live_status === true ? 'icon-user-online' : 'icon-user-offline') : (chat.us == 2 ? "icon-user-away" : (chat.us == 0 ? "icon-user-online" : "icon-user-offline")))}  >face</i><i className={"material-icons icon-user-online " + (chat.um == 1 ? "icon-user-offline" : "icon-user-online")}>send</i>{chat.cc && <img title={chat.cn} src={chat.cc} alt="" />} {(state.group_offline == false || !(chat.us != 0)) && <span className={(chat.mn > 0 || chat.cs == 0 ? "font-weight-bold " : '') + (chat.cs == 0 ? 'text-danger' : '')}>{chat.nick || chat.id}</span>}{chat.mn > 0 && <span className="msg-nm pl-1">({chat.mn})</span>}{chat.lmsg && <span className="text-muted"> {chat.lmsg}</span>}
                             <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-right btn-link m-0 ml-1 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
                             {chat.dep && <span className="float-right text-muted text-truncate mw-80px"><span className="material-icons">home</span>{chat.dep}</span>}
                             {chat.co == confLH.user_id && <span className="float-right text-muted"><span title={t('chat_tabs.chat_owner')} className="material-icons">account_box</span></span>}

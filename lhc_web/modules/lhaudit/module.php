@@ -17,6 +17,11 @@ $ViewList['loginhistory'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['logrecord'] = array(
+    'params' => array('id'),
+    'functions' => array( 'log_preview' ),
+);
+
 $ViewList['logjserror'] = array(
     'params' => array(),
     'uparams' => array(),
@@ -24,5 +29,6 @@ $ViewList['logjserror'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
+$FunctionList['logrecord'] = array('explain' => 'Allow operator to preview log record');
 
 ?>

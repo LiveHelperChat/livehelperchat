@@ -1,3 +1,4 @@
+<div>
 <h1 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Permissions explorer');?></h1>
 
 <ul class="nav nav-tabs mb-3" role="tablist">
@@ -62,7 +63,7 @@
 
     </div>
 </div>
-
+</div>
 <script>
     $(function() {
         $('#explore-permission-button').click(function(){

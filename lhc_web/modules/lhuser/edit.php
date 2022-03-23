@@ -33,8 +33,10 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
 	}
 	
 	$params = array('can_edit_groups' => $can_edit_groups, 'groups_can_read' => $userDataGroupsRead, 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
-	
-	$Errors = erLhcoreClassUserValidator::validateUserEdit($UserData, $params);
+
+    $originalSettings['old'] = $UserData->getState();
+
+    $Errors = erLhcoreClassUserValidator::validateUserEdit($UserData, $params);
 	
     if ( isset($_POST['DeletePhoto']) ) {
     	$UserData->removeFile();
@@ -67,6 +69,23 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
             if ($userLogin instanceof erLhcoreClassModelUserLogin){
                 $userLogin->removeThis();
             }
+        }
+
+        // Log user changes
+        $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+        $data = (array)$auditOptions->data;
+        if (isset($data['log_user']) && $data['log_user'] == 1) {
+            $originalSettings['new'] = $UserData->getState();
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $UserData,
+                'msg' => array(
+                    'action' => 'account_data',
+                    'prev' => $originalSettings['old'],
+                    'new' => $originalSettings['new'],
+                    'user_id' => $currentUser->getUserID()
+                )
+            ));
         }
 
         $UserData->updateThis();

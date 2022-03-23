@@ -6,6 +6,12 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/html_admin.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message_admin.tpl.php'));?>
+        <?php elseif ($type == 'quick_replies' || $type == 'buttons_generic') : ?>
+        <div class="pb-2">
+            <?php foreach ($metaMessage as $item) : ?>
+                <button disabled class="btn btn-outline-secondary btn-xs mb-1" type="button"><?php echo htmlspecialchars($item['content']['name'])?></button>
+            <?php endforeach; ?>
+        </div>
         <?php elseif ($type == 'chat_operation') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/chat_operation_admin.tpl.php'));?>
         <?php else : ?>
@@ -13,3 +19,5 @@
         <?php endif; ?>
     <?php endforeach; endif; ?>
 <?php endif; ?>
+
+

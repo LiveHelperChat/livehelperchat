@@ -1,3 +1,4 @@
+<div>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/blockedusers.tpl.php'));?>
 
 <?php if (isset($block_saved) && $block_saved == true) : ?>
@@ -162,3 +163,4 @@
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
+</div>

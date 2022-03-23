@@ -1016,7 +1016,7 @@ input[type="file"]{
 }
 
 .panel-list{
-    max-height:310px;
+    max-height:330px;
     overflow-y:auto;
 }
 
@@ -1115,16 +1115,6 @@ input[type="file"]{
     margin-right:-15px;
     margin-left:-15px;
     margin-bottom:15px;
-}
-
-#wrapper.toggledr > #page-content-wrapper > .row > .right-column-page-general {
-    display:none;
-}
-
-#wrapper.toggledr > #page-content-wrapper > .row > #middle-column-page {
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
 }
 
 #page-content-wrapper {
