@@ -12,21 +12,22 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
-    $formatted = array();
-    foreach ($messages as $msg) {
-        if ($msg->msg != ''){
-            $formatted[] = '[' . date('H:i:s',$msg->time).'] '. ($msg->user_id == 0 ? htmlspecialchars($chat->nick) : ($msg->user_id == -1 ? 'System assistant' : htmlspecialchars($msg->name_support)) ).': '.htmlspecialchars($msg->msg);
-        }
-    }
+    erTranslationClassLhTranslation::$htmlEscape = false;
+
+    $tplPlain = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+    $tplPlain->set('chat', $chat);
+    $tplPlain->set('messages', $messages);
 
     if (isset($_GET['system'])) {
-        echo json_encode(array('result' => implode("\n",$formatted)));
+        echo json_encode(array('result' => $tplPlain->fetch()));
         exit;
     }
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/copymessages.tpl.php');
     $tpl->set('chat', $chat);
-    $tpl->set('messages', implode("\n",$formatted));
+    $tpl->set('messages', $tplPlain->fetch());
+
+    erTranslationClassLhTranslation::$htmlEscape = true;
 
     echo $tpl->fetch();
 }
