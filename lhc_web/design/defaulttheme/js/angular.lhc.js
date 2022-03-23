@@ -101,7 +101,7 @@ services.factory('LiveHelperChatFactory', ['$http','$q',function ($http, $q) {
 
 	this.setOnlineMode = function(status) {
         var deferred = $q.defer();
-        $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status).then(function(data) {
+        $http.get(WWW_DIR_JAVASCRIPT + 'user/setoffline/'+status,{'X-CSRFToken':confLH.csrf_token}).then(function(data) {
             deferred.resolve(data.data);
         },function(internalError) {
             deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');

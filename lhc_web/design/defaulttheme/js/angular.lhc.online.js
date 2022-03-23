@@ -10,7 +10,14 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 
     this.setLocalSettings = function(attr,val) {
         var deferred = $q.defer();
-        $http.post(WWW_DIR_JAVASCRIPT + 'front/settings',{"attr":attr,"val":val}).then(function(data) {
+		let headers = new Headers();
+        $http({
+				method: 'POST',
+				url: WWW_DIR_JAVASCRIPT + 'front/settings',
+				data: {"attr":attr,"val":val},
+				headers: {'X-CSRFToken':confLH.csrf_token}
+			}
+		).then(function(data) {
             deferred.resolve(data.data);
         },function(internalError){
             deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
@@ -33,7 +40,7 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 	return this;
 }]);
 
-lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootScope', '$log','$interval', '$window', 'OnlineUsersFactory', function($scope, $http, $location, $rootScope, $log, $interval, $window, OnlineUsersFactory) {
+lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','OnlineUsersFactory', function($scope, $http, $location, $rootScope, $log, $interval, OnlineUsersFactory) {
 	  	  		
 		var timeoutId;		
 		this.onlineusers = [];	
@@ -50,22 +57,6 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 		this.reverse = true;
 		this.wasInitiated = false;
 		this.online_connected = false;
-
-        // Attributes filters
-        this.attrf_key_1 = '';
-        this.attrf_val_1 = '';
-
-        this.attrf_key_2 = '';
-        this.attrf_val_2 = '';
-
-        this.attrf_key_3 = '';
-        this.attrf_val_3 = '';
-
-        this.attrf_key_4 = '';
-        this.attrf_val_4 = '';
-
-        this.attrf_key_5 = '';
-        this.attrf_val_5 = '';
 
     	this.forbiddenVisitors = false;
 		this.soundEnabled = false;
@@ -314,66 +305,6 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 
-        $scope.$watch('online.attrf_key_1',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_key_1',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_val_1',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_val_1',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_key_2',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_key_2',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_val_2',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_val_2',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_key_3',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_key_3',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_val_3',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_val_3',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_key_4',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_key_4',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_val_4',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_val_4',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_key_5',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_key_5',newVal);
-			}
-		});
-
-        $scope.$watch('online.attrf_val_5',function(newVal,oldVal){
-			if (newVal != oldVal) {
-				lhinst.changeUserSettingsIndifferent('oattrf_val_5',newVal);
-			}
-		});
-
         this.departmentChanged = function(listId) {
             OnlineUsersFactory.setLocalSettings(listId+'_online', this[listId]);
         };
@@ -388,7 +319,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			}
 		});
 		
-		$scope.$watch('online.userTimeout + online.department + online.department_dpgroups + online.maxRows + groupByField + online.country + online.time_on_site + online.attrf_key_1 + online.attrf_val_1 + online.attrf_key_2 + online.attrf_val_2 + online.attrf_key_3 + online.attrf_val_3 + online.attrf_key_4 + online.attrf_val_4 + online.attrf_key_5 + online.attrf_val_5', function(newVal,oldVal) {
+		$scope.$watch('online.userTimeout + online.department + online.department_dpgroups + online.maxRows + groupByField + online.country + online.time_on_site', function(newVal,oldVal) {
 			setTimeout(function(){
 				that.updateList();
 			},500);						
@@ -416,7 +347,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			};
 		};
 		
-		this.disableNewUserBNotif = function() {
+		this.disableNewUserBNotif = function() {		
 			that.notificationEnabled = !that.notificationEnabled;		
 			lhinst.changeUserSettings('new_user_bn',that.notificationEnabled == true ? 1 : 0);
 		};
@@ -430,24 +361,9 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 			that.soundEnabled = !that.soundEnabled;
 			lhinst.changeUserSettings('new_user_sound',that.soundEnabled == true ? 1 : 0);
 		};
-
-        this.initController = function() {
-            if ($window['onlineAttributeFilter']) {
-                this.attrf_key_1 = $window['onlineAttributeFilter']['attrf_key_1'];
-                this.attrf_val_1 = $window['onlineAttributeFilter']['attrf_val_1'];
-                this.attrf_key_2 = $window['onlineAttributeFilter']['attrf_key_2'];
-                this.attrf_val_2 = $window['onlineAttributeFilter']['attrf_val_2'];
-                this.attrf_key_3 = $window['onlineAttributeFilter']['attrf_key_3'];
-                this.attrf_val_3 = $window['onlineAttributeFilter']['attrf_val_3'];
-                this.attrf_key_4 = $window['onlineAttributeFilter']['attrf_key_4'];
-                this.attrf_val_4 = $window['onlineAttributeFilter']['attrf_val_4'];
-                this.attrf_key_5 = $window['onlineAttributeFilter']['attrf_key_5'];
-                this.attrf_val_5 = $window['onlineAttributeFilter']['attrf_val_5'];
-            }
-        }
-
-        $scope.$on('$destroy', function disableController() {
-            $interval.cancel(timeoutId);
-        });
-
+		
+		$scope.$on('$destroy', function disableController() {
+			$interval.cancel(timeoutId);	
+		});
+		
 }]);
