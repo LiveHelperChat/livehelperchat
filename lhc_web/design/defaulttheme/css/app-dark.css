@@ -1016,7 +1016,7 @@ input[type="file"]{
 }
 
 .panel-list{
-    max-height:310px;
+    max-height:330px;
     overflow-y:auto;
 }
 

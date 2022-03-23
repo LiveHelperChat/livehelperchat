@@ -1121,6 +1121,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 						$scope[key] = item;
 
+                        if (tabs.length == 0 && (key == 'pending_chat' || key == 'my_chats')) {
+                            item.list.forEach(function (chat) {
+                                if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_chats == 1 && (chat.status !== 1 || (chat.status === 1 && chat.hum === true))) {
+                                    ee.emitEvent('chatTabPreload', [chat.id, {focus: false}]);
+                                }
+                            });
+                        }
+
                         if (tabs.length > 0) {
 							if (key == 'pending_chat' || key == 'my_chats') {
 								item.list.forEach(function (chat) {
@@ -1339,7 +1347,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		var _that = this;
         $interval(function() {
             _that.lhcVersionCounter = _that.lhcVersionCounter - 1;
-            console.log(_that.lhcVersionCounter);
             if (_that.lhcVersionCounter == 0) {
                 document.location.reload(true);
             }

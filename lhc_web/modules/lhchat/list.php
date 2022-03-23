@@ -178,11 +178,6 @@ $tpl->set('can_close_global',$currentUser->hasAccessTo('lhchat','allowcloseremot
 $tpl->set('current_user_id',$currentUser->getUserID());
 
 $Result['content'] = $tpl->fetch();
-$Result['body_class'] = 'h-100 dashboard-height';
-
-/*$Result['path'] = array(
-array('url' =>erLhcoreClassDesign::baseurl('chat/list'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Chats list'))
-);*/
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_path',array('result' => & $Result));
 ?>

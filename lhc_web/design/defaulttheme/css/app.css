@@ -1032,7 +1032,7 @@ input[type="file"]{
 }
 
 .panel-list{
-	max-height:310px;
+	max-height:330px;
 	overflow-y:auto;
 }
 
@@ -1128,11 +1128,11 @@ input[type="file"]{
 }
 
 
-#path-container{
-	margin-top:-15px;
-	margin-right:-15px;
-	margin-left:-15px;
-	margin-bottom:15px;
+#path-container {
+    margin-top:0px;
+    margin-right:-7px;
+    margin-left:-7px;
+    margin-bottom:7px;
 }
 
 #wrapper.toggledr > #page-content-wrapper > .row > .right-column-page-general {

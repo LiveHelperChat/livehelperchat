@@ -22,14 +22,6 @@
             
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>
 
-            <?php if (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) : ?>
-            <li class="li-icon nav-item">
-                <a class="nav-link" ng-click="lhc.toggleList('lmtoggler')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Expand or collapse right menu')?>">
-                    <span class="material-icons">menu</span>
-                </a>
-            </li>
-            <?php endif; ?>
-
         </ul>
     </div>
 

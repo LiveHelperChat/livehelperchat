@@ -12,11 +12,8 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setting.new_dash
 if ($new_dashboard == 1 && $device_type == 0) {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
     $tpl->set('new_dashboard',true);
-    $Result['body_class'] = 'h-100 dashboard-height';
-    $Result['hide_right_column'] = true;
 } else {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default.tpl.php');
-    $Result['hide_right_column'] = erLhcoreClassModelChatConfig::fetch('hide_right_column_frontpage')->current_value == 1;
 }
 
 $tpl->set('geo_location_data',erLhcoreClassModelChatConfig::fetch('geo_location_data')->data);
