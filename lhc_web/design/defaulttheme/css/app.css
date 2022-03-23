@@ -1135,16 +1135,6 @@ input[type="file"]{
     margin-bottom:7px;
 }
 
-#wrapper.toggledr > #page-content-wrapper > .row > .right-column-page-general {
-	display:none;
-}
-
-#wrapper.toggledr > #page-content-wrapper > .row > #middle-column-page {
-	width: 100%;
-	flex: 0 0 100%;
-	max-width: 100%;
-}
-
 #page-content-wrapper {
 	width: 100%;
 	position: relative;

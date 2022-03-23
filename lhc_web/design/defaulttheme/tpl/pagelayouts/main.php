@@ -10,7 +10,7 @@
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div id="wrapper" ng-cloak ng-class="{toggled: lmtoggle, toggledr : lmtoggler}">
+<div id="wrapper" ng-cloak ng-class="{toggled: lmtoggle}">
 
     <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
 
@@ -21,7 +21,7 @@
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
     
         <div class="row">
-            <div id="middle-column-page" class="col-xl-<?php $canUseChat == true && (!isset($Result['hide_right_column']) || $Result['hide_right_column'] == false) ? print '9' : print '12'; ?> pb-1">
+            <div id="middle-column-page" class="col-xl-12 pb-1">
 
                 <?php if (isset($Result['path'])) : ?>
                     <div><div>
