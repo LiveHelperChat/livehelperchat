@@ -226,6 +226,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.timeoutControl = null;
 	$scope.setTimeoutEnabled = true;
 	$scope.lmtoggle = false;
+	$scope.rmtoggle = false;
 
 	// Just for extension reserved keywords
 	$scope.custom_list_1_expanded = true;
@@ -313,6 +314,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	// Main left menu of pagelayout
 	$scope.lmtoggle = this.restoreLocalSetting('lmtoggle','false',false) != 'false';
+	$scope.rmtoggle = this.restoreLocalSetting('rmtoggle','false',false) != 'false';
 
     this.lhcVersion = 0;
     this.lhcVersionCounter = 8;
