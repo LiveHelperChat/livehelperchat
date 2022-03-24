@@ -1163,7 +1163,7 @@ input[type="file"]{
 }
 
 .sidebar ul li a{
-	padding:10px;
+	padding:8px 10px;
 }
 
 .sidebar ul li a.active {
