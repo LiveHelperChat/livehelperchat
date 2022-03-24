@@ -150,15 +150,15 @@ if (isset($outputResponse['theme'])) {
         $outputResponse['theme'] = $theme->alias != '' ? $theme->alias : $theme->id;
 
         if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
-            $outputResponse['chat_ui']['wwidth'] = $theme->bot_configuration_array['wwidth'];
+            $outputResponse['chat_ui']['wwidth'] = (int)$theme->bot_configuration_array['wwidth'];
         }
 
         if (isset($theme->bot_configuration_array['wheight']) && $theme->bot_configuration_array['wheight'] > 0) {
-            $outputResponse['chat_ui']['wheight'] = $theme->bot_configuration_array['wheight'];
+            $outputResponse['chat_ui']['wheight'] = (int)$theme->bot_configuration_array['wheight'];
         }
 
         if (isset($theme->bot_configuration_array['fscreen_embed']) && $theme->bot_configuration_array['fscreen_embed'] == 1) {
-            $outputResponse['chat_ui']['fscreen'] = $theme->bot_configuration_array['fscreen_embed'];
+            $outputResponse['chat_ui']['fscreen'] = (int)$theme->bot_configuration_array['fscreen_embed'];
         }
 
         if (isset($theme->bot_configuration_array['wright']) && is_numeric($theme->bot_configuration_array['wright'])) {
