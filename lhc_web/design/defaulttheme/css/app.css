@@ -1685,7 +1685,7 @@ a:not([href]){
 
 /* new dashboard options */
 .chats-column {
-    flex: 0 0 10%;
+    flex: 0 0 30%;
     max-width: 350px;
     overflow: visible !important;
 }
