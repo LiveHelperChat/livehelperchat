@@ -172,6 +172,7 @@ foreach ($chatsSubjectChats as $index => $chat) {
 }
 
 $response = array(
+    'is_online' => $currentUser->getUserData(true)->hide_online == 0,
     'active_chats' => array('rows' => $activeChats, 'size' => count($activeChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'unread_chats' => array('rows' => $unreadChats, 'size' => count($unreadChats), 'hidden_columns' => $columnsToHide, 'timestamp_delegate' => array('time'),'column_names' => $columnsName),
     'online_users' => array('rows' => $onlineUsers, 'size' => count($onlineUsers), 'hidden_columns' => $onlineuserscolumnsToHide,'column_names' => $onlineuserscolumnsNames, 'timestamp_delegate' => array('last_check_time','last_visit','first_visit')),
