@@ -28,7 +28,7 @@ $message = erLhcoreClassModelMailconvMessage::findOne(array('filter' => array('m
 // Message record is created first
 // We have to check was conversation assigned to a message already
 if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversation_id > 0) {
-    $template = "<a target=\"_blank\" href=\"". erLhcoreClassDesign::baseurl('mailconv/view') . '/' . $message->conversation_id ."\"><span class='material-icons'>open_in_new</span>". $message->conversation_id . "</a>";
+    $template = "<a target=\"_blank\" href=\"". erLhcoreClassDesign::baseurl('front/default') . '/(mid)/' . $message->conversation_id ."/#!#chat-id-mc" . $message->conversation_id ."\"><span class='material-icons'>open_in_new</span>". $message->conversation_id . "</a>";
     echo json_encode(array('found' => true, 'conversation' => $template));
 } else {
 
