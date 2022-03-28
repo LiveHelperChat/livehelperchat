@@ -57,6 +57,17 @@ class erLhcoreClassMailconvMailingValidator {
             'reply_name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'owner_logic' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                    'min_range' => erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR,
+                    'max_range' => erLhcoreClassModelMailconvMailingCampaign::OWNER_USER
+                )
+            ),
+            'owner_user_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array(
+                    'min_range' => 0
+                )
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -72,6 +83,14 @@ class erLhcoreClassMailconvMailingValidator {
             $item->subject = $form->subject;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a subject!');
+        }
+
+        if ($form->hasValidData( 'owner_user_id' )) {
+            $item->owner_user_id = $form->owner_user_id;
+        }
+
+        if ($form->hasValidData( 'owner_logic' )) {
+            $item->owner_logic = $form->owner_logic;
         }
 
         if ($form->hasValidData( 'reply_email' )) {

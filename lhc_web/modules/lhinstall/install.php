@@ -2187,6 +2187,8 @@ try {
   `as_active` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `reply_email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reply_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner_logic` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `owner_user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `status_enabled_starts_at` (`status`,`enabled`,`starts_at`),
   KEY `enabled` (`enabled`)

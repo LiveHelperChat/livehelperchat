@@ -16,6 +16,37 @@
             </datalist>
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Ticket owner workflow');?></label>
+            <select name="owner_logic" class="form-control form-control-sm" onchange="$(this).val() == <?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_USER?> ? $('#id_owner_user_id').show() : $('#id_owner_user_id').hide()">
+                <option <?php if ($item->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR) : ?>selected="selected"<?php endif; ?> value="<?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR?>">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Campaign creator will be an owner of the ticket');?>
+                    <?php if ($item->user_id > 0) : ?>
+                        <?php if (erLhcoreClassUser::instance()->getUserID() == $item->user_id) : ?> (Me)<?php else : ?> <?php echo htmlspecialchars($item->user)?><?php endif; ?>
+                    <?php endif;?>
+                </option>
+                <option <?php if ($item->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_DEFAULT) : ?>selected="selected"<?php endif; ?> value="<?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_DEFAULT?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Ticket will follow standard mailbox rules');?></option>
+                <option <?php if ($item->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_USER) : ?>selected="selected"<?php endif; ?> value="<?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_USER?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Selected user will be assigned as ticket owner');?></option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6" id="id_owner_user_id" <?php if ($item->owner_logic != erLhcoreClassModelMailconvMailingCampaign::OWNER_USER) : ?>style="display: none"<?php endif; ?> >
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Dedicated ticket user');?></label>
+        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+            'input_name'     => 'owner_user_id',
+            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose user'),
+            'selected_id'    => $item->owner_user_id,
+            'type'           => 'radio',
+            'data_prop'      => 'data-limit="1"',
+            'css_class'      => 'form-control',
+            'display_name'   => 'name_official',
+            'show_optional'  => false,
+            'no_selector'  => true,
+            'list_function_params' => array('limit' => false,'sort' => '`name` ASC'),
+            'list_function'  => 'erLhcoreClassModelUser::getList',
+        )); ?>
+    </div>
 </div>
 
 <div class="row">
@@ -64,7 +95,11 @@
         </div>
     </div>
 </div>
-
+<script>
+    $(function() {
+        $('.btn-block-department').makeDropdown();
+    });
+</script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
 

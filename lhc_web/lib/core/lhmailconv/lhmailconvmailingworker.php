@@ -116,7 +116,16 @@ class erLhcoreClassMailConvMailingWorker {
 
         $output = [];
 
-        erLhcoreClassMailconvValidator::sendEmail($itemRecipientData, $output, $campaign->user_id);
+        // erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR = 0
+        $userId = $campaign->user_id;
+
+        if ($campaign->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_DEFAULT) {
+            $userId = 0;
+        } elseif ($campaign->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_USER) {
+            $userId = $campaign->owner_user_id;
+        }
+
+        erLhcoreClassMailconvValidator::sendEmail($itemRecipientData, $output, $userId);
 
         return $output;
     }

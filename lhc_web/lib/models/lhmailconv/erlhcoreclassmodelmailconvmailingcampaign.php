@@ -28,6 +28,8 @@ class erLhcoreClassModelMailconvMailingCampaign
             'as_active' => $this->as_active,
             'reply_email' => $this->reply_email,
             'reply_name' => $this->reply_name,
+            'owner_logic' => $this->owner_logic,
+            'owner_user_id' => $this->owner_user_id,
         );
     }
 
@@ -77,6 +79,10 @@ class erLhcoreClassModelMailconvMailingCampaign
     const STATUS_IN_PROGRESS = 1;
     const STATUS_FINISHED = 2;
 
+    const OWNER_CREATOR = 0;
+    const OWNER_DEFAULT = 1;
+    const OWNER_USER = 2;
+
     public $id = NULL;
     public $name = '';
     public $user_id = 0;
@@ -86,6 +92,8 @@ class erLhcoreClassModelMailconvMailingCampaign
     public $mailbox_id = 0;
     public $body = '';
     public $body_alt = '';
+    public $owner_logic = self::OWNER_CREATOR;
+    public $owner_user_id = 0;
 
     public $subject = '';
     public $as_active = 0;

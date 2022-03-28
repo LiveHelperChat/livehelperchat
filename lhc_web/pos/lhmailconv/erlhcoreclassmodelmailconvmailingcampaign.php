@@ -19,7 +19,7 @@ foreach (array(
 }
 
 foreach (array(
-            'status','starts_at','user_id','enabled','mailbox_id','as_active'
+            'status','starts_at','user_id','enabled','mailbox_id','as_active','owner_logic','owner_user_id'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
