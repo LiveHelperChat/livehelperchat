@@ -54,7 +54,7 @@
                 </td>
                 <td>
                     <?php if ($item->conversation_id > 0) : ?>
-                        <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/view')?>/<?php echo $item->conversation_id?>"><span class="material-icons">open_in_new</span><?php echo $item->conversation_id?></a>
+                        <a target="_blank" href="<?php echo erLhcoreClassDesign::baseurl('front/default')?>/(mid)/<?php echo $item->conversation_id?>/#!#chat-id-mc<?php echo $item->conversation_id?>"><span class="material-icons">open_in_new</span><?php echo $item->conversation_id?></a>
                     <?php else : ?>
                         <span class="text-muted"><span class="material-icons">autorenew</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Pending');?></span>
                     <?php endif; ?>
