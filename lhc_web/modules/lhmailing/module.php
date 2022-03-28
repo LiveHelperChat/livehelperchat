@@ -18,7 +18,7 @@ $ViewList['mailingrecipient'] = array(
 
 $ViewList['campaign'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('id','action'),
     'functions' => array( 'use_admin' )
 );
 

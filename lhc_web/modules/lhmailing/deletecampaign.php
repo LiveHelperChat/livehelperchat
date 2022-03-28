@@ -1,7 +1,7 @@
 <?php
 
-if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
-    die('Invalid CSFR Token');
+if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+    die('Invalid CSRF Token');
     exit;
 }
 
