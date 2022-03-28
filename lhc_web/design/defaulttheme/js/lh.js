@@ -892,8 +892,11 @@ function lh(){
                 inst.addClass('csfr-post-executed');
 
                 if (!inst.attr('data-trans') || confirm(confLH.transLation[inst.attr('data-trans')])){
-                    $.post(inst.attr('href'));
-                    document.location.reload();
+                    $.post(inst.attr('href'), function(){
+                        document.location.reload();
+                    }).fail(function(){
+                        document.location.reload();
+                    });
                 } else {
                     setTimeout(function(){
                         inst.removeClass('csfr-post-executed');

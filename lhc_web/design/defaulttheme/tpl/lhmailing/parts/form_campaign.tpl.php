@@ -23,7 +23,7 @@
                 <option <?php if ($item->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR) : ?>selected="selected"<?php endif; ?> value="<?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_CREATOR?>">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Campaign creator will be an owner of the ticket');?>
                     <?php if ($item->user_id > 0) : ?>
-                        <?php if (erLhcoreClassUser::instance()->getUserID() == $item->user_id) : ?> (Me)<?php else : ?> <?php echo htmlspecialchars($item->user)?><?php endif; ?>
+                        <?php if (erLhcoreClassUser::instance()->getUserID() == $item->user_id) : ?>&nbsp;(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Me');?>)<?php else : ?> <?php echo ' '.htmlspecialchars($item->user)?><?php endif; ?>
                     <?php endif;?>
                 </option>
                 <option <?php if ($item->owner_logic == erLhcoreClassModelMailconvMailingCampaign::OWNER_DEFAULT) : ?>selected="selected"<?php endif; ?> value="<?php echo erLhcoreClassModelMailconvMailingCampaign::OWNER_DEFAULT?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Ticket will follow standard mailbox rules');?></option>
