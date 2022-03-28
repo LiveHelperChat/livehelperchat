@@ -12,7 +12,7 @@ if (isset($data['report_email']) && $data['report_email'] != '') {
 
     $failedMailbox = [];
     foreach (erLhcoreClassModelMailconvMailbox::getList(['filter' => ['active' => 1, 'failed' => 1]]) as $item) {
-        $failedMailbox[] = $item->mail . ' | ID - ' . $item->id;
+        $failedMailbox[] = $item->mail . ' | ID - ' . $item->id . ' | ' . $item->last_sync_log;
     }
 
     if (!empty($failedMailbox)) {
