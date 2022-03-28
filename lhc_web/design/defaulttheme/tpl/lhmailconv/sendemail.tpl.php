@@ -28,15 +28,21 @@
 <?php endif; ?>
 
 <?php if (isset($updated) && isset($outcome['copy']['success']) && $outcome['copy']['success'] == true && isset($outcome['copy']['message_id'])) : ?>
-    <div class="py-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Ticket');?>: <span id="ticket-progress"><span class="material-icons lhc-spin">cached</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Working');?>...</span></div>
+    <div class="py-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Ticket');?>: <span id="ticket-progress"><span class="material-icons lhc-spin">cached</span><span id="ticket-progress-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Working');?>...</span></span></div>
     <script>
         (function intervalStarter() {
                 var counter = 0;
+                var scheduled = 0;
                 var interval = setInterval(function () {
-                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'counter': counter, 'mailbox_id': <?php echo $item->mailbox_id?>, 'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (data) {
+                $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/geticketbymessageid/',{'scheduled': scheduled, 'counter': counter, 'mailbox_id': <?php echo $item->mailbox_id?>, 'message_id': <?php echo json_encode($outcome['copy']['message_id'])?>}, function (data) {
                     if (data.found == true) {
                         $('#ticket-progress').html(data.conversation);
                         clearInterval(interval);
+                    } else {
+                        if (data.scheduled == 1) {
+                            scheduled = 1;
+                        }
+                        $('#ticket-progress-text').html(data.progress);
                     }
                 });
                 counter = counter + 1;

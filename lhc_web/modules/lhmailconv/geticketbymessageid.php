@@ -6,8 +6,12 @@ header ( 'content-type: application/json; charset=utf-8' );
 
 $messageId = $_POST['message_id'];
 $mailboxId = (int)$_POST['mailbox_id'];
+$scheduled = (int)$_POST['scheduled'];
 
-if ($_POST['counter'] == 0) {
+$mailbox = erLhcoreClassModelMailconvMailbox::fetch($mailboxId);
+
+if ($scheduled == 0 && $mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PENDING) {
+    $scheduled = 1;
     $cfg = erConfigClassLhConfig::getInstance();
     $worker = $cfg->getSetting( 'webhooks', 'worker' );
 
@@ -27,7 +31,20 @@ if ($message instanceof erLhcoreClassModelMailconvMessage && $message->conversat
     $template = "<a target=\"_blank\" href=\"". erLhcoreClassDesign::baseurl('mailconv/view') . '/' . $message->conversation_id ."\"><span class='material-icons'>open_in_new</span>". $message->conversation_id . "</a>";
     echo json_encode(array('found' => true, 'conversation' => $template));
 } else {
-    echo json_encode(array('found' => false));
+
+    $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Checking for ticket.') . ' [' . (int)$_POST['counter'] . ']';
+
+    if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PENDING) {
+        $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Scheduling fetching.') . ' [' . (int)$_POST['counter'] . ']';
+    } elseif ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $scheduled == 0) {
+        $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Waiting for previous job to finish.') . ' [' . (int)$_POST['counter'] . ']';
+    } elseif ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $scheduled == 1) {
+        $subStatus = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Fetching in progress.') . ' [' . (int)$_POST['counter'] . ']';
+    }
+
+    $template = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Working') . '. ' . $subStatus;
+
+    echo json_encode(array('found' => false, 'scheduled' => $scheduled, 'progress' => $template));
 }
 
 exit;
