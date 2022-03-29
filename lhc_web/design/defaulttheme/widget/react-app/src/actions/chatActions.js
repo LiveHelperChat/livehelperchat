@@ -499,31 +499,36 @@ export function fetchMessages(obj) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessages", obj, defaultHeaders)
         .then((response) => {
 
-            syncStatus.msg = false;
+            try {
+                dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data});
 
-            dispatch({type: "FETCH_MESSAGES_SUBMITTED", data: response.data});
+                processResponseCheckStatus(response.data, getState, dispatch);
 
-            processResponseCheckStatus(response.data, getState, dispatch);
+                helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
 
-            helperFunctions.emitEvent('chat.fetch_messages',[response.data, dispatch, getState]);
+                if (response.data.cs || (response.data.closed && response.data.closed === true)) {
+                    axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
+                        .then((response) => {
+                            if (response.data.deleted) {
+                                helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                                clearTimeout(syncStatus.auto_close_timeout);
+                            } else {
+                                dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
+                                helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
+                            }
+                            if (response.data.closed && response.data.closed === true && !response.data.deleted) {
+                                setAutoClose(getState);
+                            }
+                        })
+                        .catch((err) => {
+                            dispatch({type: "CHECK_CHAT_STATUS_REJECTED", data: err})
+                        })
+                }
 
-            if (response.data.cs || (response.data.closed && response.data.closed === true)) {
-                axios.post(window.lhcChat['base_url'] + "widgetrestapi/checkchatstatus", obj, defaultHeaders)
-                .then((response) => {
-                    if (response.data.deleted) {
-                        helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
-                        clearTimeout(syncStatus.auto_close_timeout);
-                    } else {
-                        dispatch({type: "CHECK_CHAT_STATUS_FINISHED", data: response.data});
-                        helperFunctions.emitEvent('chat.check_status',[response.data, dispatch, getState]);
-                    }
-                    if (response.data.closed && response.data.closed === true && !response.data.deleted) {
-                        setAutoClose(getState);
-                    }
-                })
-                .catch((err) => {
-                    dispatch({type: "CHECK_CHAT_STATUS_REJECTED", data: err})
-                })
+            } catch (e) {
+                throw e;
+            } finally {
+                syncStatus.msg = false;
             }
 
         })
