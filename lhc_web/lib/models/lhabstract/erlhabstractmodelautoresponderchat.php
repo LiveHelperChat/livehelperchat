@@ -308,6 +308,12 @@ class erLhAbstractModelAutoResponderChat
                     }
 
                 } elseif ($this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
+
+                    // It's a visitor hold turned on. We ignore it.
+                    if (isset($this->chat->chat_variables_array['lhc_hldu'])) {
+                        return;
+                    }
+
                     for ($i = 5; $i >= 1; $i--) {
                         if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_hold_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'onhold')) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
 
@@ -335,6 +341,7 @@ class erLhAbstractModelAutoResponderChat
 
                         }
                     }
+
                 }
             }
         }

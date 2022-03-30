@@ -321,6 +321,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     this.lhcPendingRefresh = false;
     this.lhcConnectivityProblem = false;
     this.lhcConnectivityProblemExplain = '';
+    this.lhcListRequestInProgress = false;
+    this.lhcSettingUpdateProgress = [];
+    this.lhcSettingAllSelected = false;
 
     // Last activity. Like mouse movement etc.
     this.lastd_activity = Math.round(new Date().getTime()/1000);
@@ -455,6 +458,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     });
 
     ee.addListener('angularLoadChatList',function () {
+        // Always process on chat close
+        _that.lhcListRequestInProgress = false;
         $scope.loadChatList();
     });
 
@@ -1000,22 +1005,47 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             }
 		});	
 	};
-			
-	this.departmentChanged = function(listId) {		
+
+    this.removeItemFromProgressList = function(listId) {
+        _that.lhcSettingUpdateProgress.splice(_that.lhcSettingUpdateProgress.indexOf(listId),1);
+    }
+
+    this.persistenStoreSettings = function(listId, listValue) {
+        LiveHelperChatFactory.setLocalSettings(listId, listValue).then(function() {
+            _that.removeItemFromProgressList(listId);
+        }, function() {
+            _that.removeItemFromProgressList(listId);
+        });
+    }
+
+	this.departmentChanged = function(listId) {
+
+        if (_that.lhcSettingUpdateProgress.indexOf(listId) !== -1) {
+            return;
+        }
+
+        _that.lhcSettingUpdateProgress.push(listId);
+
 		if (_that[listId].length > 0) {
-			
-			_that[listId + '_all_departments'] = false;
-			_that.allDepartmentsChanged(listId,false);
+
+            if (_that.lhcSettingAllSelected == false) {
+                _that[listId + '_all_departments'] = false;
+                _that.allDepartmentsChanged(listId,false);
+            }
+
+            _that.lhcSettingAllSelected = false;
 
 			var listValue = _that[listId].join("/");
 
 			if (listValue != '') {
-                LiveHelperChatFactory.setLocalSettings(listId, listValue);
-				_that.setDepartmentNames(listId);
-			}
+                _that.persistenStoreSettings(listId,listValue);
+                _that.setDepartmentNames(listId);
+            } else {
+                _that.removeItemFromProgressList(listId);
+            }
 
 		} else {
-           LiveHelperChatFactory.setLocalSettings(listId, null);
+            _that.persistenStoreSettings(listId, null);
 		}
 		
 		_that.isListLoaded = false;
@@ -1041,13 +1071,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	};
 
 	this.allDepartmentsChanged = function(listId, loadlList) {
-		
+
 		if (_that[listId + '_all_departments'] == true) {
-			_that.storeLocalSetting(listId + '_all_departments', true);	
+			_that.storeLocalSetting(listId + '_all_departments', true);
 		} else {
 			_that.removeLocalSetting(listId + '_all_departments');
 		}
-		
+
 		if (_that[listId+'_hide_hidden'] == true) {
 			_that.storeLocalSetting(listId + '_hide_hidden', true);	
 		} else {
@@ -1084,7 +1114,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		if (_that[listId + '_all_departments'] == true)
 		{
-			_that[listId] = [];
+            var listNew = [];
+
 			angular.forEach(_that.userDepartments, function(department) {
 				if (
 					(_that[listId+'_only_explicit_online'] == false || (_that[listId+'_only_explicit_online'] == true && department.oexp == true)) && 
@@ -1092,14 +1123,18 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					(_that[listId+'_hide_disabled'] == false || (_that[listId+'_hide_disabled'] == true && department.disabled == false)) && 
 					(_that[listId+'_only_online'] == false || (_that[listId+'_only_online'] == true && department.ogen == true))
 				) {
-					_that[listId].push(department.id);					
+                    listNew.push(department.id);
 				}
 			});
-			
-			if (_that[listId].length == 0) {
-				_that[listId].push(-1);
+
+			if (listNew.length == 0) {
+                listNew.push(-1);
 			}
-			
+
+            _that.lhcSettingAllSelected = true;
+
+            _that[listId] = listNew;
+
 		} else {
 			if (loadlList == true) {
 				_that[listId] = [];
@@ -1197,7 +1232,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     }
 
 	$scope.loadChatList = function() {
-		
+
+        if (_that.lhcListRequestInProgress === true) {
+            return;
+        }
+
+        _that.lhcListRequestInProgress = true;
+
 		if (localStorage) {
 			try {
 				$scope.pending_chats_expanded = localStorage.getItem('pending_chats_expanded') != 'false';
@@ -1229,6 +1270,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){
+
+                _that.lhcListRequestInProgress = false;
 
                 if (data.logout || data.error_url) {
                     document.location.reload();
@@ -1487,6 +1530,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                 _that.lhcConnectivityProblem = true;
                 _that.lhcConnectivityProblemExplain = error;
+                _that.lhcListRequestInProgress = false;
 
 				$scope.timeoutControl = setTimeout(function(){
 					$scope.loadChatList();
