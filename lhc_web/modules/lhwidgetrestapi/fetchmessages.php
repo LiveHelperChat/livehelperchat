@@ -34,7 +34,7 @@ $operatorTotalMessages = 0;
 
 $responseArray = array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT, 'status_sub' => erLhcoreClassModelChat::STATUS_SUB_DEFAULT);
 
-if (is_object($chat) && $chat->hash == $requestPayload['hash'])
+if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 {
     erLhcoreClassChat::setTimeZoneByChat($chat);
     $chat->updateIgnoreColumns = array('last_msg_id');

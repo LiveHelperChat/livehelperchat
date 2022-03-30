@@ -29,7 +29,7 @@ try {
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
-    if ($chat->hash == $requestPayload['hash'])
+    if ($chat->hash === $requestPayload['hash'])
     {
         // User online
         if ($chat->user_status != 0) {

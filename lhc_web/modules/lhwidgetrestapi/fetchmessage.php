@@ -16,7 +16,7 @@ try {
 
     $chat = erLhcoreClassModelChat::fetch($requestPayload['id']);
 
-    if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $requestPayload['hash'])
+    if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $requestPayload['hash'])
     {
         $msg = erLhcoreClassModelmsg::fetch($requestPayload['msg_id']);
 

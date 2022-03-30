@@ -1,4 +1,4 @@
-import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked, updateMessage } from "../actions/chatActions"
+import { endChat, initChatUI, pageUnload, storeSubscriber, initProactive, checkChatStatus, fetchMessages, addMessage, updateTriggerClicked, updateMessage, hideInvitation } from "../actions/chatActions"
 import { helperFunctions } from "../lib/helperFunctions";
 import i18n from "../i18n";
 
@@ -75,8 +75,20 @@ export default function (dispatch, getState) {
         }
     }
 
+    console.log('here');
+
     const events = [
-        {id : 'closedWidget', cb : (data) => {dispatch({type: 'closedWidget', data: data})}},
+        {id : 'closedWidget', cb : (data) => {
+
+            if (data && data.mode && data.mode === 'control') {
+                const state = getState();
+                if (state.chatwidget.getIn(['proactive','has']) == true) {
+                    dispatch(hideInvitation());
+                }
+            }
+
+            dispatch({type: 'closedWidget', data: data})
+        }},
         {id : 'endedChat', cb : (data) => {
             dispatch({type: 'endedChat', data: data});
             if (window.lhcChat['mode'] == 'popup') {

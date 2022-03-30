@@ -16,7 +16,7 @@ try {
 
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
-    if ($chat->hash == $requestPayload['hash'])
+    if ($chat->hash === $requestPayload['hash'])
     {
         $outputResponse = array(
             'operator' => 'operator',
