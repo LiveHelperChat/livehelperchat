@@ -1,10 +1,10 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></h1>
 
 <?php if (isset($updated)) :
-    $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was send.');
+    $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was sent.');
 
     if (isset($outcome['copy']) && $outcome['copy']['success'] == true) {
-        $msg .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send e-mail copy was created in a send folder.');
+        $msg .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Sent e-mail copy was created in a sent folder.');
     }
 ?>
 
