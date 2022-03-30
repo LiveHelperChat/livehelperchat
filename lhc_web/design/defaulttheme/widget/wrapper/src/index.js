@@ -529,9 +529,9 @@
                 })
 
                 // Widget Hide event
-                attributesWidget.eventEmitter.addListener('closeWidget', function () {
+                attributesWidget.eventEmitter.addListener('closeWidget', function (params) {
                     attributesWidget.widgetStatus.next(false);
-                    chatEvents.sendChildEvent('closedWidget', [{'sender': 'closeButton'}]);
+                    chatEvents.sendChildEvent('closedWidget', [params]);
                 });
 
                 // Send event to the child instantly

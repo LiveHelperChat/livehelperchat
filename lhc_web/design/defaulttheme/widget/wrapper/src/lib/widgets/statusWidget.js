@@ -108,7 +108,7 @@ export class statusWidget{
                 e.preventDefault();
             } else {
                 if (_inst.controlMode == true) {
-                    attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton'}]);
+                    attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton', 'mode' : 'control'}]);
                     e.preventDefault();
                 } else {
                     attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
@@ -243,6 +243,7 @@ export class statusWidget{
                 if (this.attributes.widgetStatus.value != true) {
                     var icon = this.cont.getElementById("status-icon");
                     helperFunctions.removeClass(icon, "close-status");
+
                     this.controlMode = false;
                 }
             }
