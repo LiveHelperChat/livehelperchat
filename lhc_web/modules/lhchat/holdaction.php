@@ -25,7 +25,7 @@ try {
         exit;
     }
 
-    if ($_POST['sel'] == 'true') {
+    if (isset($_POST['sel']) && $_POST['sel'] == 'true') {
 
         $hold = false;
         $visitorHoldRemove = false;

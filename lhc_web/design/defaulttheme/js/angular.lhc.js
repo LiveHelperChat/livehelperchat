@@ -415,6 +415,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
     });
 
     ee.addListener('angularLoadChatList',function () {
+        // Always process on chat close
+        _that.lhcListRequestInProgress = false;
         $scope.loadChatList();
     });
 
