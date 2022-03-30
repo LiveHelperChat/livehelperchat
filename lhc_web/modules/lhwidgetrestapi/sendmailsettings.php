@@ -6,7 +6,7 @@ $db = ezcDbInstance::get();
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if ($chat instanceof erLhcoreClassModelChat && $chat->hash == $Params['user_parameters']['hash'])
+if ($chat instanceof erLhcoreClassModelChat && $chat->hash === $Params['user_parameters']['hash'])
 {
     if ($Params['user_parameters_unordered']['action'] == 'send') {
 
