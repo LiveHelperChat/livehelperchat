@@ -95,6 +95,19 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
                 $updateFields[] = 'chat_variables';
             }
 
+            // Visitor hold should be removed on visitor message
+            /*if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && isset($chat->chat_variables_array['lhc_hldu'])) {
+                $chat->status_sub = 0;
+                $chat->operation_admin .= ";$('#hold-action-usr-".$chat->id."').removeClass('btn-outline-info')";
+                $chatVariables = $chat->chat_variables_array;
+                unset($chatVariables['lhc_hldu']);
+                $chat->chat_variables_array = $chatVariables;
+                $chat->chat_variables = json_encode($chatVariables);
+                $updateFields[] = 'chat_variables';
+                $updateFields[] = 'status_sub';
+                $updateFields[] = 'operation_admin';
+            }*/
+
             $chat->last_user_msg_time = $msg->time;
             $chat->lsync = time();
             $chat->last_msg_id = $chat->last_msg_id < $msg->id ? $msg->id : $chat->last_msg_id;

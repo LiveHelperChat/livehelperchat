@@ -104,7 +104,7 @@ if (trim($form->msg) != '')
 
     	            $updateFields = array();
 
-    	            if (!$whisper && $Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1) {
+    	            if (!$whisper && $Chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $messageUserId !== -1 && !isset($Chat->chat_variables_array['lhc_hldu'])) {
                         $updateFields[] = 'status_sub';
                         $updateFields[] = 'last_user_msg_time';
                         $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_DEFAULT;
