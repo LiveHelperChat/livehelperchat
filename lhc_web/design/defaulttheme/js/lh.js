@@ -607,14 +607,19 @@ function lh(){
         }
 
     	var _this  = this;
-        $.postJSON(this.wwwDir + 'chat/holdaction/' + chat_id, function(data) {
+        $.postJSON(this.wwwDir + 'chat/holdaction/' + chat_id ,{'sel' : inst.hasClass('btn-outline-info'), 'op' : inst.attr('data-type') }, function(data) {
             if (data.error == false) {
 
                 if (data.hold == true) {
                     inst.addClass('btn-outline-info');
-				} else {
+                    if (inst.attr('data-type') == 'usr') {
+                        $('#hold-action-'+chat_id).removeClass('btn-outline-info');
+                    } else {
+                        $('#hold-action-usr-'+chat_id).removeClass('btn-outline-info');
+                    }
+                } else {
                     inst.removeClass('btn-outline-info');
-				}
+                }
 
 				if (data.msg != '') {
 					$('#messagesBlock-'+chat_id).append(data.msg).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
