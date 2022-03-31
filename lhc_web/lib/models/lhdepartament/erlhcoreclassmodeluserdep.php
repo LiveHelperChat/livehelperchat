@@ -162,7 +162,7 @@ class erLhcoreClassModelUserDep
         max(`active_chats`) as `active_chats`,
         max(`pending_chats`) as `pending_chats`,
         max(`inactive_chats`) as `inactive_chats`,
-        max(`ro`) as `ro`';
+        min(`ro`) as `ro`';
 
         return self::getList($filter);
     }
