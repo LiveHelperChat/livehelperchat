@@ -17,12 +17,16 @@ if ($Params['user_parameters_unordered']['cobrowsemode'] == 'onlineuser'){
 
 $url = parse_url($_GET['base']);
 
+// Only http/https supported
+if (!in_array($url['scheme'],['http','https']) || (isset($url['port']) && !in_array($url['port'],[80,443]))) {
+    exit;
+}
+
 // Some basic validation
 if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], $_SERVER['HTTP_HOST']) === false) {
-    $ch = curl_init();
-        
+
     $urlCSS = parse_url($_GET['css']);
-   
+
     // Just our attempt to fix CSS, BaseURL, Relative path madness
     if (! isset($urlCSS['host']) || $urlCSS['host'] == '') {
         if (strpos($_GET['css'], '../') !== false) {            
@@ -36,17 +40,39 @@ if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], $_SERVER['
         } else {
             $urlCSSDownload = $url['scheme'] . '://' . $url['host'] . '/' . ltrim($_GET['css'], '/');
         }
-    } else { 
+    } else {
+
+        if (!in_array($urlCSS['scheme'],['http','https']) || (isset($urlCSS['port']) && !in_array($urlCSS['port'],[80,443]))) {
+            exit;
+        }
+
         $urlCSSDownload = $_GET['css'];
     }
-    
+
+    $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $urlCSSDownload);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
     curl_setopt($ch, CURLOPT_TIMEOUT, 5);
     curl_setopt($ch, CURLOPT_REFERER, $_GET['base']);
     curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 GTB5');
-    $cssContent = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    $response = curl_exec($ch);
+
+    if (curl_errno($ch)) {   // should be 0
+        curl_close($ch);
+        exit;
+    }
+
+    $curl_info = curl_getinfo($ch);
+    $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+    $header_size = $curl_info['header_size'];
+
+    $cssContent = substr($response, $header_size);
+
+    if ($contentType != 'text/css') {
+        exit;
+    }
 
     if ($cssContent !== false) {        
         if (preg_match_all("/url\(\s*[\'|\"]?([A-Za-z0-9_\-\/\.\\%?&#]+)[\'|\"]?\s*\)/ix", $cssContent, $urlMatches)) {

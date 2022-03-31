@@ -432,9 +432,9 @@ class qqFileUploader {
 		$saveDir = $save_path;
 
     	if (!@move_uploaded_file($file[$upload_name]["tmp_name"], $saveDir.$fileNameNew)) {
-			$errors[] = "File could not be saved.";
-			return $return = array( 'errors' => $errors );
-		}
+            $errors[] = "File could not be saved.";
+            return $return = array( 'errors' => $errors );
+        }
 
         // Clean SVG
         if ($fileSuffix == '.svg') {
@@ -442,6 +442,10 @@ class qqFileUploader {
             $dirtySVG = file_get_contents($saveDir . $fileNameNew);
             $cleanSVG = $sanitizer->sanitize($dirtySVG);
             file_put_contents($saveDir . $fileNameNew, $cleanSVG);
+        } else {
+            erLhcoreClassFileUploadAdmin::removeExif($saveDir . $fileNameNew, $saveDir . $fileNameNew . '_exif');
+            unlink($saveDir . $fileNameNew);
+            rename($saveDir . $fileNameNew . '_exif', $saveDir . $fileNameNew);
         }
 
 		$data = array( 'filename'  		   => $fileNameNew,

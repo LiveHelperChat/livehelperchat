@@ -609,6 +609,11 @@ class erLhcoreClassSearchHandler
                 $dirtySVG = file_get_contents($destination_dir . $fileNamePhysic);
                 $cleanSVG = $sanitizer->sanitize($dirtySVG);
                 file_put_contents($destination_dir . $fileNamePhysic, $cleanSVG);
+            } elseif (in_array($extension,['jpg','jpeg','png','gif'])){
+                erLhcoreClassFileUploadAdmin::removeExif($destination_dir . $fileNamePhysic, $destination_dir . $fileNamePhysic . '_exif');
+                unlink($destination_dir . $fileNamePhysic);
+                rename($destination_dir . $fileNamePhysic . '_exif', $destination_dir . $fileNamePhysic);
+                chmod($destination_dir . $fileNamePhysic, 0644);
             }
 
             return $fileNamePhysic;
@@ -631,6 +636,11 @@ class erLhcoreClassSearchHandler
             $dirtySVG = file_get_contents($destination_dir . $fileNamePhysic);
             $cleanSVG = $sanitizer->sanitize($dirtySVG);
             file_put_contents($destination_dir . $fileNamePhysic, $cleanSVG);
+        } elseif (in_array($extension,['jpg','jpeg','png','gif'])) {
+            erLhcoreClassFileUploadAdmin::removeExif($destination_dir . $fileNamePhysic, $destination_dir . $fileNamePhysic . '_exif');
+            unlink($destination_dir . $fileNamePhysic);
+            rename($destination_dir . $fileNamePhysic . '_exif', $destination_dir . $fileNamePhysic);
+            chmod($destination_dir . $fileNamePhysic, 0644);
         }
 
         return $fileNamePhysic;
