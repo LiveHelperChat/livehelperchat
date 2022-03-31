@@ -1091,12 +1091,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	$scope.loadChatList = function() {
 
-        if (_that.lhcListRequestInProgress === true) {
-            return;
-        }
-
-        _that.lhcListRequestInProgress = true;
-
 		if (localStorage) {
 			try {
 				$scope.pending_chats_expanded = localStorage.getItem('pending_chats_expanded') != 'false';
@@ -1126,7 +1120,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             _that.lhcListRequestInProgress = false;
 			return;
 		}
-		
+
+        if (_that.lhcListRequestInProgress === true) {
+            return;
+        }
+
+        _that.lhcListRequestInProgress = true;
+
 		clearTimeout($scope.timeoutControl);
 		LiveHelperChatFactory.loadChatList($scope.getSyncFilter()).then(function(data){
 
