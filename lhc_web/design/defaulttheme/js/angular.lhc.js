@@ -1263,8 +1263,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			clearTimeout($scope.timeoutControl);
 			$scope.timeoutControl = setTimeout(function(){
                 _that.isListLoaded = false;
+                _that.lhcListRequestInProgress = false;
 				$scope.loadChatList();
 			},confLH.back_office_sinterval);
+            _that.lhcListRequestInProgress = false;
 			return;
 		}
 		
@@ -1756,12 +1758,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                         _that.blockSync = true;
                         lhinst.disableSync = true;
+                        _that.lhcListRequestInProgress = false; // Request can be send either way
 
                         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true, hidecallback: function() {
                             LiveHelperChatFactory.setInactive('false');
 
                             _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
                             _that.blockSync = false;	// Unblock sync
+                            _that.lhcListRequestInProgress = false; // Request can be send either way
                             _that.resetTimeoutActivity(); // Start monitoring activity again
                             lhinst.disableSync = false;
 
