@@ -146,7 +146,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+        $filter['ignore_fields'] = array('exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
@@ -161,7 +161,8 @@ class erLhcoreClassModelUserDep
         max(`last_accepted`) as `last_accepted`,
         max(`active_chats`) as `active_chats`,
         max(`pending_chats`) as `pending_chats`,
-        max(`inactive_chats`) as `inactive_chats`';
+        max(`inactive_chats`) as `inactive_chats`,
+        max(`ro`) as `ro`';
 
         return self::getList($filter);
     }
