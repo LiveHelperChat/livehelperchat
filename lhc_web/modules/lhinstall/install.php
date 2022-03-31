@@ -164,7 +164,7 @@ try {
                 $cfgSite->setSetting( 'db', 'password', $form->DatabasePassword);
                 $cfgSite->setSetting( 'db', 'database', $form->DatabaseDatabaseName);
                 $cfgSite->setSetting( 'db', 'port', $form->DatabasePort);
-                $cfgSite->setSetting( 'site', 'secrethash', (!empty(getenv('LHC_SECRET_HASH')) ? getenv('LHC_SECRET_HASH') : substr(md5(time() . ":" . mt_rand()),0,10)));
+                $cfgSite->setSetting( 'site', 'secrethash', (!empty(getenv('LHC_SECRET_HASH')) ? getenv('LHC_SECRET_HASH') : erLhcoreClassChat::generateHash(80)));
                 $cfgSite->save();
 
                 $tpl->setFile('lhinstall/install3.tpl.php');
