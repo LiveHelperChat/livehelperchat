@@ -179,7 +179,7 @@ class erLhcoreClassUserDep
             $stmt->bindValue(':dep_id', $DepartamentID);
             $stmt->bindValue(':hide_online', $UserData->hide_online);
             $stmt->bindValue(':exclude_autoasign', $UserData->exclude_autoasign);
-            $stmt->bindValue(':ro', in_array($DepartamentID, $readOnly) ? 1 : 0);
+            $stmt->bindValue(':ro', (in_array($DepartamentID, $readOnly) || $DepartamentID == -1) ? 1 : 0);
             $stmt->bindValue(':active_chats', erLhcoreClassChat::getCount(array('filter' => array('user_id' => $UserData->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->bindValue(':always_on',$UserData->always_on);
             $stmt->execute();
