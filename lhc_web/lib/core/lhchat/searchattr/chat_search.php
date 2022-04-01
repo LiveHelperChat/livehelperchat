@@ -31,8 +31,20 @@ $fieldsSearch['email'] = array (
     'trans' => 'Sort by',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'like',
+    'filter_type' => 'likeright',
     'filter_table_field' => 'email',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['phone'] = array (
+    'type' => 'text',
+    'trans' => 'Phone',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'likeright',
+    'filter_table_field' => 'phone',
     'validation_definition' => new ezcInputFormDefinitionElement (
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
     )

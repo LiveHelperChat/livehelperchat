@@ -225,6 +225,7 @@ class Install
 				  KEY `status` (`status`),
                   KEY `nick` (`nick`),
 				  KEY `email` (`email`),
+				  KEY `phone` (`phone`),
 				  KEY `dep_id_status` (`dep_id`,`status`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

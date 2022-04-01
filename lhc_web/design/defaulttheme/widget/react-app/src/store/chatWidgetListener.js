@@ -75,8 +75,6 @@ export default function (dispatch, getState) {
         }
     }
 
-    console.log('here');
-
     const events = [
         {id : 'closedWidget', cb : (data) => {
 
