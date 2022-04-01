@@ -1,3 +1,21 @@
+3.97v
+
+1. Search by phone.
+2. Security fixes. Update highly recommended.
+3. Improvements to dashboard request frequency.
+4. Edge case widget hide/show scenario fixes. Was not possible to close proactive invitation if status widget was acting as close button.
+5. Write operator in text grey if he can't write to any department assigned.
+6. Visitor hold option. You can pouse auto responder for visitor not replying if you know that visitor will take time looking for an info.
+7. Delete action should wait until request is done.
+8. Mobile app supports live online/offline status monitoring.
+9. Dashboard left column will be always visible in any other page of LHC. Possible to hide/show it.
+10. Admin chat interface will render presented buttons for the visitors.
+11. Audit log list will have a quick view option as modal window.
+12. Audit log will store all messages as JSON if not a string passed.
+13. Online operator counter in the online operators widget. Will show exact number of operator whois online and has write permission.
+
+execute doc/update_db/update_269.sql for update
+
 3.96v
 
 1. Proactive chat invitation now supports multiple departments assignment

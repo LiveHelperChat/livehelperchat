@@ -10485,6 +10485,7 @@
       "new" : {
         "nick" : "ALTER TABLE `lh_chat` ADD INDEX `nick` (`nick`);",
         "email" : "ALTER TABLE `lh_chat` ADD INDEX `email` (`email`);",
+        "phone" : "ALTER TABLE `lh_chat` ADD INDEX `phone` (`phone`);",
         "unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);",
         "product_id" : "ALTER TABLE `lh_chat` ADD INDEX `product_id` (`product_id`);",
         "dep_id" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id` (`dep_id`);",
@@ -10496,8 +10497,7 @@
         "has_unread_messages" : "ALTER TABLE `lh_chat` ADD INDEX `has_unread_messages` (`has_unread_messages`);",
         "dep_id_status" : "ALTER TABLE `lh_chat` ADD INDEX `dep_id_status` (`dep_id`,`status`);",
         "status" : "ALTER TABLE `lh_chat` ADD INDEX `status` (`status`);",
-        "status_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `status_user_id` (`status`,`user_id`);",
-        "unread_operator" : "ALTER TABLE `lh_chat` ADD INDEX `unread_operator` (`has_unread_op_messages`, `unread_op_messages_informed`);"
+        "status_user_id" : "ALTER TABLE `lh_chat` ADD INDEX `status_user_id` (`status`,`user_id`);"
       },
       "old" : ["user_id","status_dep_id_id","status_dep_id_priority_id","status_priority_id","has_unread_messages_dep_id_id"]
     },

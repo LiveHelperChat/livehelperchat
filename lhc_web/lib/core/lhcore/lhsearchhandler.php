@@ -340,6 +340,8 @@ class erLhcoreClassSearchHandler
                         
                         $mapObject = call_user_func($field['class'] . '::fetch', $inputParams->$key);
                         $filter['filter'][$mapObject->field] = $mapObject->status;
+                    } elseif ($field['filter_type'] == 'likeright') {
+                        $filter['filterlikeright'][$field['filter_table_field']] = $inputParams->$key;
                     } elseif ($field['filter_type'] == 'like') {
                         $filter['filterlike'][$field['filter_table_field']] = $inputParams->$key;
                     } elseif ($field['filter_type'] == 'filterkeyword') {
