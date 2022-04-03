@@ -15,7 +15,13 @@ if ($Params['user_parameters_unordered']['cobrowsemode'] == 'onlineuser'){
     $browse = erLhcoreClassCoBrowse::getBrowseInstance($chat);
 }
 
-$url = parse_url($_GET['base']);
+$base = trim($_GET['base']);
+
+if (!filter_var($base, FILTER_VALIDATE_URL)) {
+    exit;
+}
+
+$url = parse_url($base);
 
 // Only http/https supported
 if (!in_array($url['scheme'],['http','https']) || (isset($url['port']) && !in_array($url['port'],[80,443]))) {
@@ -42,7 +48,7 @@ if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], $_SERVER['
         }
     } else {
 
-        if (!in_array($urlCSS['scheme'],['http','https']) || (isset($urlCSS['port']) && !in_array($urlCSS['port'],[80,443]))) {
+        if (!filter_var($_GET['css'], FILTER_VALIDATE_URL) || !in_array($urlCSS['scheme'],['http','https']) || (isset($urlCSS['port']) && !in_array($urlCSS['port'],[80,443]))) {
             exit;
         }
 
