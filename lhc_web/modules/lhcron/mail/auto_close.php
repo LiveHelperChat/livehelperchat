@@ -8,9 +8,9 @@ if (!flock($fp, LOCK_EX | LOCK_NB)) {
     echo "Couldn't get the lock! Another process is already running";
     fclose($fp);
     exit;
+} else {
+    echo "Lock acquired. Starting process!";
 }
-
-sleep(5);
 
 foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' => ['active' => 1]]) as $mailbox) {
 
