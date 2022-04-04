@@ -2,6 +2,14 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Quanto tempo nós devemos esperar antes de informar o operador sobre chat não respondido</translation>
     </message>
@@ -5298,6 +5306,10 @@
     <message>
       <source>Chat owner</source>
       <translation>Dono do bate-papo</translation>
+    </message>
+    <message>
+      <source>Operator chats during this conversations.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Location on map</source>
@@ -17064,6 +17076,37 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Deny screen share</source>
       <translation>Negar Compartilhamento de Tela</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/history</name>
+    <message>
+      <source>Operator chats during this chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Present chat was not closed yet. This information will be inaccurate at the moment.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>It shows only chats if they were closed. We show maximum of 10 chats in total.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ended</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>
