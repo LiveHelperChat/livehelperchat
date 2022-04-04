@@ -1,6 +1,16 @@
 <?php
 
 // php cron.php -s site_admin -c cron/mail/auto_close
+$fp = fopen("cache/cron_mail_auto_close.lock", "w+");
+
+// Gain the lock
+if (!flock($fp, LOCK_EX | LOCK_NB)) {
+    echo "Couldn't get the lock! Another process is already running";
+    fclose($fp);
+    exit;
+}
+
+sleep(5);
 
 foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' => ['active' => 1]]) as $mailbox) {
 
@@ -14,7 +24,8 @@ foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' 
         !empty($workflowOptions['close_status'])
     ) {
         foreach (erLhcoreClassModelMailconvConversation::getList([
-            'limit' => 500,
+            'limit' => 100,
+            'filter' => ['mailbox_id' => $mailbox->id],
             'filterlt' => ['udate' => (time() - ($workflowOptions['auto_close'] * 24 * 3600))],
             'filterin' => ['status' => $workflowOptions['close_status']]
         ]) as $conversation) {
@@ -23,5 +34,8 @@ foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' 
         }
     }
 }
+
+flock($fp, LOCK_UN); // release the lock
+fclose($fp);
 
 ?>
