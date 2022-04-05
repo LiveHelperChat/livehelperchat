@@ -20,8 +20,8 @@ class erLhcoreClassModelMailconvMessage
             'conversation_id' => $this->conversation_id,
             'mailbox_id' => $this->mailbox_id,
 
-            'body' => $this->body,
-            'alt_body' => $this->alt_body,
+            'body' => (string)$this->body,
+            'alt_body' => (string)$this->alt_body,
 
             'message_id' => $this->message_id,
             'in_reply_to' => $this->in_reply_to,
