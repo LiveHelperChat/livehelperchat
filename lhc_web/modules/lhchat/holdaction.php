@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 $db = ezcDbInstance::get();
 
 $db->beginTransaction();

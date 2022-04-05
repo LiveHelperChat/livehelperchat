@@ -3,6 +3,8 @@
 // Debug
 //erLhcoreClassLog::write(print_r($_POST,true));
 
+header('Content-type: application/json');
+
 @ini_set('session.cookie_samesite', 'None');
 @ini_set('session.cookie_secure', true);
 

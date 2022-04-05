@@ -13,6 +13,7 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
         $changeStatus = (int) $_POST['ChatStatus'];
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            header('Content-type: application/json');
             echo json_encode(array(
                 'error' => 'true',
                 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Invalid CSRF token!')
@@ -37,13 +38,16 @@ if (erLhcoreClassChat::hasAccessToRead($chat)) {
             ));
             
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed',array('chat' => & $chat, 'user' => $currentUser));
-            
+
+            header('Content-type: application/json');
             echo json_encode(array(
                 'error' => 'false',
                 'is_owner' => $chat->user_id == $userData->id
             ));
             exit();
         } else {
+
+            header('Content-type: application/json');
             echo json_encode(array(
                 'error' => 'true',
                 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Invalid chat status')

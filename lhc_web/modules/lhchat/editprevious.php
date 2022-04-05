@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+header('Content-type: application/json');
 
 try {
     $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);

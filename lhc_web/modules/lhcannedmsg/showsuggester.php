@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 $tpl = erLhcoreClassTemplate::getInstance('lhcannedmsg/showsuggester.tpl.php');
 
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);

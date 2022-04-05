@@ -1,4 +1,5 @@
 <?php
+header('Content-type: application/json');
 
 $currentUser = erLhcoreClassUser::instance();
 $userData = $currentUser->getUserData(true);
