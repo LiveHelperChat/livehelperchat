@@ -85,10 +85,12 @@ if (empty($Errors)) {
     erLhcoreClassModelChatBlockedUser::blockChat($params);
     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
     $tpl->set('msg', erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers', 'Visitor was blocked!'));
+    header('Content-type: application/json');
     echo json_encode(array('error' => false, 'result' => $tpl->fetch()));
 } else {
     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
     $tpl->set('errors', $Errors);
+    header('Content-type: application/json');
     echo json_encode(array('error' => true, 'result' => $tpl->fetch()));
 }
 

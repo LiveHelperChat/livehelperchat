@@ -1,4 +1,7 @@
 <?php
+
+header('Content-type: application/json');
+
 $currentUser = erLhcoreClassUser::instance();
 if (!$currentUser->isLogged() && !$currentUser->authenticate($_POST['username'],$_POST['password']))
 {

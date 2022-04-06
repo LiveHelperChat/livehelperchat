@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 $activated = 'false';
 $result = 'false';
 $ott = '';
