@@ -109,7 +109,7 @@
 		        <label><input type="radio" name="use_standard_xmp" value="1" <?php isset($xmp_data['use_standard_xmp']) && ($xmp_data['use_standard_xmp'] == '1') ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Use GTalk for messaging'); ?></label>
 				<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Information for your google app')?></h4>	
 				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Redirect URL, this url you will have to enter in your google app configuration')?></label>
-				<input class="form-control" type="text" value="<?php echo htmlspecialchars(erLhcoreClassXMP::getBaseHost().$_SERVER['HTTP_HOST'])?><?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>/(gtalkoauth)/true" />
+				<input class="form-control" type="text" value="<?php echo htmlspecialchars(erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurl('xmp/configuration')?>/(gtalkoauth)/true" />
 				
 				
 				<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Enter your app information bellow')?></h4>						

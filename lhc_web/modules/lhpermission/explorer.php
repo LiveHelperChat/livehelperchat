@@ -21,7 +21,7 @@ if ($Params['user_parameters_unordered']['action'] == 1) {
                 $url = [];
                 if (isset($function['url'])) {
                     foreach ($function['url'] as $urlData) {
-                        $url[] = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('/') . preg_replace('/^lh/', '', $urlData);
+                        $url[] = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('/') . preg_replace('/^lh/', '', $urlData);
                     }
                 }
                 fputcsv($fp, [

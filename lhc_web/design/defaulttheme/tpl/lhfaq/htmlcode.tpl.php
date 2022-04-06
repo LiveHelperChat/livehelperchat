@@ -88,7 +88,7 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar <?php echo $faqOptionsVariable;?> = {status_text:'"+textStatus+"',url:'replace_me_with_dynamic_url',identifier:''};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+id_theme+id_disable_responsive+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'faq/getstatus'+id_position+top+topposition+id_theme+id_disable_responsive+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

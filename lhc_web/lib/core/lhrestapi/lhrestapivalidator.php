@@ -713,7 +713,7 @@ class erLhcoreClassRestAPIHandler
 
         if (in_array('link',$prefillFields)) {
             foreach ($chats as $index => $chat) {
-                $chats[$index]->link = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$chat->id));
+                $chats[$index]->link = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$chat->id));
             }
         }
 

@@ -469,7 +469,54 @@ class erLhcoreClassSystem{
     		}    		
     	}
     }
-    
+
+    public static function validHttpHost($host) {
+        return substr_count($host, '.') <= 100
+            && substr_count($host, ':') <= 100
+            && preg_match('/^\[?(?:[a-zA-Z0-9-:\]_]+\.?)+$/', $host)
+            && self::isTrustedHost($host);
+    }
+
+    // Borrowed from Drupal
+    public static function isTrustedHost($host) {
+        $trusted_host_patterns = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false);
+        if (PHP_SAPI !== 'cli' && is_array($trusted_host_patterns) && !empty($trusted_host_patterns)) {
+            foreach ($trusted_host_patterns as $pattern) {
+                $pattern = sprintf('{%s}i', str_replace('}', '\\}', $pattern));
+                if (preg_match($pattern, $host)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public static function getHost() {
+
+        static $site_address = null;
+
+        if ($site_address !== null) {
+            return $site_address;
+        }
+
+        if (isset($_SERVER['HTTP_HOST']) && self::validHttpHost($_SERVER['HTTP_HOST'])) {
+            $site_address = (erLhcoreClassSystem::$httpsMode == true || erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value == 'https:' ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] ;
+        } else if (class_exists('erLhcoreClassInstance')) {
+            $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
+        } else if (($site_address = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false)) && $site_address != '') {
+            return $site_address;
+        } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
+            $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
+        } elseif (isset($_SERVER['HTTP_HOST']) && (!is_array(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)) || empty(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)))) {
+            $site_address = (erLhcoreClassSystem::$httpsMode == true || erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value == 'https:' ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] ; // trust only if match array not set
+        } else {
+            $site_address = 'http://localhost'; // We could not determine any valid host
+        }
+
+        return $site_address;
+    }
+
     function wwwDir()
     {
         return (self::$prependDomain ? (self::$httpsMode == true ? 'https:' : '') . '//' . $_SERVER['HTTP_HOST'] : '') . $this->WWWDir;

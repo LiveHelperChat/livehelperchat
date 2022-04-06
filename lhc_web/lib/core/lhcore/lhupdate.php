@@ -12,6 +12,7 @@ class erLhcoreClassUpdate
         $errorMessages = array();
 
 		try {
+            $db->query('SET GLOBAL innodb_strict_mode = 0;');
             $db->query('SET GLOBAL innodb_file_per_table=1;');
             $db->query('SET GLOBAL innodb_large_prefix=1;');
         } catch (Exception $e) {

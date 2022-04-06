@@ -32,7 +32,7 @@ try {
                 header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($r, '/'));
                 exit;
             } else {
-                echo json_encode(array('error' => false, 'msg' => 'Session started', 'url' => erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($r,'/')));
+                echo json_encode(array('error' => false, 'msg' => 'Session started', 'url' => erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('site_admin').'/'.ltrim($r,'/')));
                 exit;
             }
         } else {

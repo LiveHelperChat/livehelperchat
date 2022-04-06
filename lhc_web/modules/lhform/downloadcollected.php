@@ -42,7 +42,7 @@ foreach ($items as $item) {
 	$y = 0;
 	foreach ($form->xls_columns_data as $data) {					
 		if (isset($item->content_array[$data['attr_name']]['definition']['type']) && $item->content_array[$data['attr_name']]['definition']['type'] == 'file') {			
-			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/download/'.$item->id.'/'.$data['attr_name'])));
+			$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('user/login').'/(r)/'.rawurlencode(base64_encode('form/download/'.$item->id.'/'.$data['attr_name'])));
 		} else {
 			if (strpos($data['attr_name'], ',') === false){
 				$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($y, $i, $item->content_array[$data['attr_name']]['value']);

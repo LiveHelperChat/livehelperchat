@@ -240,16 +240,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $file = erLhcoreClassModelChatFile::fetch($fileID);
                 if (is_object($file) && $hash == $file->security_hash) {
 
-                    if (isset($_SERVER['HTTP_HOST'])) {
-                        $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
-                    } else {
-                        if (class_exists('erLhcoreClassInstance')) {
-                            $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
-                        } else {
-                            $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
-                        }
-                        $url = $site_address . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
-                    }
+                    $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";;
 
                     $media[] = array(
                         'id' => $file->id,
@@ -361,31 +352,13 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if ($mediaFile->remote_file !== true) {
                     $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
-                    if (isset($_SERVER['HTTP_HOST'])) {
-                        $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
-                    } else {
-                        if (class_exists('erLhcoreClassInstance')) {
-                            $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
-                        } else {
-                            $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
-                        }
-                        $file_url = $site_address . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
-                    }
+                    $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                 } else {
                     $file_body = '';
                     if (strpos($file->remote_url,'http://') !== false || strpos($file->remote_url,'https://') !== false) {
                         $file_url = $file->remote_url;
                     } else {
-                        if (isset($_SERVER['HTTP_HOST'])) {
-                            $file_url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . $file->remote_url;
-                        } else {
-                            if (class_exists('erLhcoreClassInstance')) {
-                                $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
-                            } else {
-                                $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
-                            }
-                            $file_url = $site_address . $file->remote_url;
-                        }
+                        $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;;
                     }
                 }
              }

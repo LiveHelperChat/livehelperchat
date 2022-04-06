@@ -6,6 +6,11 @@ $format = (string)$Params['user_parameters_unordered']['format'] == 'xml' ? 'xml
 $hashSecret = erLhcoreClassModelChatConfig::fetch('export_hash')->current_value;
 
 try {
+
+    if (strlen($hashSecret) < 50) {
+        throw new Exception('Export hash to short!');
+    }
+
 	if ( sha1('getchat'.$hashSecret) == $hash ) {
 
 		$chat = erLhcoreClassModelChat::fetch((string)$Params['user_parameters']['chat_id']);

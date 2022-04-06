@@ -831,18 +831,7 @@ class erLhcoreClassBBCodePlain
     }
 
     public static function getHost() {
-
-        if (isset($_SERVER['HTTP_HOST'])) {
-            $site_address = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] ;
-        } else if (class_exists('erLhcoreClassInstance')) {
-            $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
-        } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
-            $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];
-        } else {
-            $site_address = '';
-        }
-
-        return $site_address;
+        return erLhcoreClassSystem::getHost();
     }
 
     public static function _make_url_survey($matches)

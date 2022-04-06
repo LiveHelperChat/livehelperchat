@@ -1438,9 +1438,9 @@ try {
                   PRIMARY KEY (`identifier`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $randomHash = erLhcoreClassModelForgotPassword::randomPassword(9);
+                    $randomHash = erLhcoreClassModelForgotPassword::randomPassword(80);
                     $randomHashLength = strlen($randomHash);
-                    $exportHash = erLhcoreClassModelForgotPassword::randomPassword(9);
+                    $exportHash = erLhcoreClassModelForgotPassword::randomPassword(80);
 
                     if (extension_loaded('bcmath')){
                         $geoRow = "('geo_data','a:5:{i:0;b:0;s:21:\"geo_detection_enabled\";i:1;s:22:\"geo_service_identifier\";s:8:\"max_mind\";s:23:\"max_mind_detection_type\";s:7:\"country\";s:22:\"max_mind_city_location\";s:37:\"var/external/geoip/GeoLite2-City.mmdb\";}',0,'',1)";

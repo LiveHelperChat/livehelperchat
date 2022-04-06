@@ -54,7 +54,7 @@ var lhc_BrowseOffer = {
         var th = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('browseoffer/widgetclosed')?>/<?php echo $invite->hash?>');
+        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('browseoffer/widgetclosed')?>/<?php echo $invite->hash?>');
         th.appendChild(s);
         this.removeById('lhc_container_browseoffer');
         this.removeById('lhc_browseoffer-bg');
@@ -73,7 +73,7 @@ var lhc_BrowseOffer = {
 		
    		  <?php if ($invite->custom_iframe_url != '' || $invite->lhc_iframe_content == 1) : ?>
    		  this.iframe_html = '<iframe id="lhcbrowseoffer_iframe" allowTransparency="true" scrolling="no" frameborder="0" ' +
-                       ' src="<?php if ($invite->custom_iframe_url != '') : ?><?php echo $invite->custom_iframe_url ?><?php else : ?><?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('browseoffer/widget')?>/<?php echo $invite->hash?><?php endif;?>"' +                    
+                       ' src="<?php if ($invite->custom_iframe_url != '') : ?><?php echo $invite->custom_iframe_url ?><?php else : ?><?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('browseoffer/widget')?>/<?php echo $invite->hash?><?php endif;?>"' +
                        ' style="width: 100%; height: <?php echo $size_height?>px;"></iframe>';
          <?php else : ?>
          this.iframe_html = "<div id=\"lhcbrowseoffer_content\">"+<?php echo json_encode($invite->content)?>+"</div>";
@@ -102,7 +102,7 @@ var lhc_BrowseOffer = {
          var th = document.getElementsByTagName('head')[0];
          var s = document.createElement('script');
          s.setAttribute('type','text/javascript');
-         s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('browseoffer/addhit')?>/<?php echo $invite->hash?>');
+         s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('browseoffer/addhit')?>/<?php echo $invite->hash?>');
          th.appendChild(s);
          
          if (<?php echo $browseofferOptionsVariable;?>.openCallback) {

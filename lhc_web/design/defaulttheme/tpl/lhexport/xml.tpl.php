@@ -2,7 +2,7 @@
 <?php echo '<?xml version="1.0" encoding="utf-8"?>';?>
 <chat>
 <id><![CDATA[ <?php echo $chat->id?> ]]></id>
-<url><![CDATA[http://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/single')?>/<?php echo $chat->id?>]]></url>
+<url><![CDATA[<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('chat/single')?>/<?php echo $chat->id?>]]></url>
 <requested_by><![CDATA[ <?php echo htmlspecialchars($chat->email)?> ]]></requested_by>
 <created_at type="datetime"><?php echo date('c',$chat->time)?></created_at>
 <page_url><![CDATA[ <?php echo htmlspecialchars($chat->referrer)?> ]]></page_url>

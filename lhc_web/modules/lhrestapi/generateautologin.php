@@ -57,7 +57,7 @@ try
 
         $hashValidation = sha1($params['secret_hash'].sha1($params['secret_hash'].implode(',', $dataRequest)));
 
-        return $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect("user/autologin") . "/{$hashValidation}".implode('', $dataRequestAppend);
+        return erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect("user/autologin") . "/{$hashValidation}".implode('', $dataRequestAppend);
     }
 
     $requestBody['secret_hash'] = $data['secret_hash'];
