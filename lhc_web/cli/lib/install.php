@@ -1407,7 +1407,7 @@ class Install
                   `current_page` text NOT NULL,
         	   	  `page_title` varchar(250) NOT NULL,
                   `referrer` text NOT NULL,
-                  `chat_id` int(11) NOT NULL,
+                  `chat_id` bigint(20) NOT NULL,
                   `invitation_seen_count` int(11) NOT NULL,
         	   	  `invitation_id` int(11) NOT NULL,
                   `last_visit` int(11) NOT NULL,
