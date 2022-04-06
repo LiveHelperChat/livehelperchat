@@ -35,7 +35,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('restapi.swagger', arr
 
 echo str_replace(
     array('{{base_path}}','{{ts}}','{{host}}','{{append_definitions}}','{{append_paths}}', '{{chats_parameters}}','{{append_elastic_definitions}}','{{append_elastic_mail_definitions}}'),
-    array(erLhcoreClassDesign::baseurldirect(),time(),$_SERVER['HTTP_HOST'], $append_definitions, $append_paths, $chats_parameters,$elastic_definition,$elastic_mail)
+    array(erLhcoreClassDesign::baseurldirect(),time(),str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost()), $append_definitions, $append_paths, $chats_parameters,$elastic_definition,$elastic_mail)
     , $content);
 
 exit;

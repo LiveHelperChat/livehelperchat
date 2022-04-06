@@ -29,7 +29,7 @@ if (!in_array($url['scheme'],['http','https']) || (isset($url['port']) && !in_ar
 }
 
 // Some basic validation
-if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], $_SERVER['HTTP_HOST']) === false) {
+if (isset($url['host']) && $url['host'] != '' && strpos($_GET['css'], erLhcoreClassSystem::getHost()) === false) {
 
     $urlCSS = parse_url($_GET['css']);
 

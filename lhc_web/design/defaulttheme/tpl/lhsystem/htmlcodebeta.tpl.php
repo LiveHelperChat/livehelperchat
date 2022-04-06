@@ -271,7 +271,7 @@
                     var operator = $('#id_operator').val() > 0 ? '/(operator)/'+$('#id_operator').val() : '';
                     var theme = $('#ThemeID').val() != 0 ? '/(theme)/'+$('#ThemeID').val() : '';
 
-                    var baseURL = '<?php echo erLhcoreClassXMP::getBaseHost()?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('restapi/onlineimage')?>' + department + operator + theme + '?' + onlineText + offlineText + width;
+                    var baseURL = '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('restapi/onlineimage')?>' + department + operator + theme + '?' + onlineText + offlineText + width;
 
                     $('#static-image-url').attr('src', baseURL);
                     $('#static-image-code').val('<a href="'+$('#static-url-generated').val()+'">'+'<img src="' + baseURL + '" alt="" /></a>');
@@ -396,15 +396,15 @@
                 "} else {_l = _l[0].toLowerCase() + _l[1].toLowerCase(); if ('<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' )?>' == _l) {_l = ''} else {LHC_API.args.lang = _l + '/';}}\n";
         }
 
-        $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
+        $('#static-url-generated').val($('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccessStatic +'chat/start'+id_survey_static+id_operator_static+id_fresh_status+id_department_static+id_theme_static+id_identifier_static);
         staticImageGeneration();
 
         var script = '<script>'+
-            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'' + $('#HttpMode').val() + '//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+id_position_placement+'};\n'+
+            'var LHC_API = LHC_API||{};'+"\n"+'LHC_API.args = {mode:\''+id_widget_mode+'\',lhc_base_url:\'' + $('#HttpMode').val() + '//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>\',wheight:'+$('#id_widget_height').val()+',wwidth:'+$('#id_widget_width').val()+',pheight:'+$('#id_popup_height').val()+',pwidth:'+$('#id_popup_width').val()+id_operator+id_embed_domain+id_fresh+id_show_leave_form+id_department+id_theme+id_survey+id_widget_position+id_check_messages_operator+id_disable_pro_active_invitations+id_identifier+siteAccess+id_position_placement+'};\n'+
             '(function() {'+"\n"+langDetectScript+
             'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.setAttribute(\'crossorigin\',\'anonymous\'); po.async = true;'+"\n"+
             'var date = new Date();'+
-            'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('js/widgetv2/index.js')?>?\'+(""+date.getFullYear() + date.getMonth() + date.getDate());'+"\n"+
+            'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::design('js/widgetv2/index.js')?>?\'+(""+date.getFullYear() + date.getMonth() + date.getDate());'+"\n"+
             'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
             '})();'+"\n"+
             '</scr'+'ipt>';

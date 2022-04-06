@@ -211,7 +211,7 @@
 
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want your status to appear');?></p>
-<textarea style="width: 100%; height: 200px; font-size: 11px;" class="form-control" id="HMLTContent"><?php echo htmlspecialchars('<script type="text/javascript" src="http://'.$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('chat/getstatus').'"></script>')?></textarea>
+<textarea style="width: 100%; height: 200px; font-size: 11px;" class="form-control" id="HMLTContent"><?php echo htmlspecialchars('<script type="text/javascript" src="'. erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/getstatus') .'"></script>')?></textarea>
 
 <script type="text/javascript">
 
@@ -287,7 +287,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+(id_detect_language == false ? siteAccess : '\'+_l+\'')+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_product+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+(id_detect_language == false ? siteAccess : '\'+_l+\'')+'chat/getstatus<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_internal_popup+id_position+id_ma+id_hide_then_offline+id_disable_online_tracking+id_check_operator_message+top+topposition+id_show_leave_form+id_department+id_operator+id_identifier+id_disable_pro_active_invitations+id_theme+id_product+id_survey+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

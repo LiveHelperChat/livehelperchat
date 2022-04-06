@@ -44,18 +44,18 @@
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','HTTP Host*')?></label>
-        <input type="text" class="form-control" name="http_host" value="<?php (isset($n_settings['http_host']) && !empty($n_settings['http_host'])) ? print htmlspecialchars($n_settings['http_host']) : print $_SERVER['HTTP_HOST']?>">
+        <input type="text" class="form-control" name="http_host" value="<?php (isset($n_settings['http_host']) && !empty($n_settings['http_host'])) ? print htmlspecialchars($n_settings['http_host']) : print str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?>">
         <small><i>You must provide host for notifications images.</i></small>
     </div>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Default Icon')?></label>
-        <input type="text" class="form-control" name="icon" value="<?php if (isset($n_settings['icon'])) : ?><?php print htmlspecialchars($n_settings['icon']); else : ?>https://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/logo.png');?><?php endif;?>">
+        <input type="text" class="form-control" name="icon" value="<?php if (isset($n_settings['icon'])) : ?><?php print htmlspecialchars($n_settings['icon']); else : ?>https://<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::design('images/general/logo.png');?><?php endif;?>">
     </div>
 
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Badge Icon')?></label>
-        <input type="text" class="form-control" name="badge" value="<?php if (isset($n_settings['badge'])) : ?><?php print htmlspecialchars($n_settings['badge']); else : ?>https://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('images/general/logo.png');?><?php endif;?>">
+        <input type="text" class="form-control" name="badge" value="<?php if (isset($n_settings['badge'])) : ?><?php print htmlspecialchars($n_settings['badge']); else : ?>https://<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::design('images/general/logo.png');?><?php endif;?>">
         <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Notification badges are only being used on mobile, at least at the time of writing. It is used to replace the browser icon that is shown by default.')?></p>
     </div>
 

@@ -353,9 +353,9 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
 
         if ($theme->need_help_image_url === false) {
             if ((isset($theme->bot_configuration_array['nh_avatar']) && $theme->bot_configuration_array['nh_avatar'] != '')) {
-                $replaceVars['replace'][8] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] .erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar') . '/' . $theme->bot_configuration_array['nh_avatar'];
+                $replaceVars['replace'][8] = erLhcoreClassSystem::getHost() .erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar') . '/' . $theme->bot_configuration_array['nh_avatar'];
             } else {
-                $replaceVars['replace'][8] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png');
+                $replaceVars['replace'][8] = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::design('images/general/operator.png');
             }
         }
 
@@ -372,7 +372,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
                 '{{need_help_body}}',
             ),
             'replace' => array(
-                '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::design('images/general/operator.png'),
+                erLhcoreClassSystem::getHost() . erLhcoreClassDesign::design('images/general/operator.png'),
                 $translationInstance->getTranslation('chat/getstatus', 'Need help?'),
                 $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!')
             )
@@ -480,13 +480,7 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
     }
 }
 
-$host = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value;
-
-if ($host == '') {
-    $host = erLhcoreClassBBCode::getHost();
-} else {
-    $host .= '//' . $_SERVER['HTTP_HOST'];
-}
+$host = erLhcoreClassSystem::getHost();
 
 $outputResponse['static'] = array(
     'screenshot' =>  $host . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
@@ -506,7 +500,7 @@ $outputResponse['static'] = array(
 );
 
 $outputResponse['chunks_location'] = $host . erLhcoreClassDesign::design('js/widgetv2');
-$outputResponse['domain_lhc'] = $_SERVER['HTTP_HOST'];
+$outputResponse['domain_lhc'] = str_replace(['http://','https://'],'',$host);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings', array('output' => & $outputResponse));
 

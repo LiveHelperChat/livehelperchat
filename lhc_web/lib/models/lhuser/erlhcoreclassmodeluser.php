@@ -120,7 +120,7 @@ class erLhcoreClassModelUser {
        	    	return $this->filename != '' || $this->avatar != '';
 
        	case 'photo_path':
-       			$this->photo_path = ($this->filepath != '' ? '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
+       			$this->photo_path = ($this->filepath != '' ? erLhcoreClassSystem::getHost() . erLhcoreClassSystem::instance()->wwwDir() : erLhcoreClassSystem::instance()->wwwImagesDir() ) .'/'. $this->filepath . $this->filename;
        			return $this->photo_path;
 
        	case 'file_path_server':

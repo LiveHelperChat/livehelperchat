@@ -106,7 +106,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" readonly="readonly" id="copy-url-<?php echo $i?>" data-original-url="<?php echo erLhcoreClassSystem::$httpsMode == 'true' ? 'https://' : 'http://'?><?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('/')?>" value="">
+                                <input type="text" class="form-control" readonly="readonly" id="copy-url-<?php echo $i?>" data-original-url="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('/')?>" value="">
                                 <div class="input-group-append"><span class="input-group-text"><a onclick="copyURL($(this))" data-index="<?php echo $i?>" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copy URL to clipboard')?>"><i class="material-icons mr-0">&#xE14D;</i></a></span></div>
                             </div>
                         </div>

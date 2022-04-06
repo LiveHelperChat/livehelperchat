@@ -9,6 +9,34 @@
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo sprintf("%0.2f", erLhcoreClassUpdate::LHC_RELEASE/100);?></h5>
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="text-success" id="recent-version">...</span></h5>
 
+        <p class="font-weight-bold">Status/security checks</p>
+        <ul>
+            <li>Strong secret hash -
+            <?php if (strlen(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) < 50) : ?>
+                <span class="badge badge-danger">weak</span>
+            <?php else : ?>
+                <span class="badge badge-success">strong</span>
+            <?php endif; ?>
+                <a href="">More information</a>
+            </li>
+            <li>Trusted host -
+            <?php if (!is_array(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false )) || empty(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false ))) : ?>
+                <span class="badge badge-danger">not set</span>
+            <?php else : ?>
+                <span class="badge badge-success">set</span>
+            <?php endif; ?>
+                <a href="">More information</a>
+            </li>
+            <li>Site address -
+            <?php if (!erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false )) : ?>
+                <span class="badge badge-danger">not set</span>
+            <?php else : ?>
+                <span class="badge badge-success">set - <?php echo htmlspecialchars(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false )); ?></span>
+            <?php endif; ?>
+                <a href="">More information</a>
+            </li>
+        </ul>
+
         <p class="font-weight-bold">More information</p>
 
         <ul>

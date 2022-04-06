@@ -51,7 +51,7 @@ var lh_inst  = {
 	is_full_height : <?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ? 'true' : 'false' ?>,
 	online_tracked : false,
     urlopen : function(){
-    	return "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/startchat<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php is_object($theme) ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>"+this.survey_id;
+    	return "<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>"+this.lang+"/chat/startchat<?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php is_object($theme) ? print '/(theme)/'.$theme->id : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>"+this.survey_id;
     },
 	<?php include(erLhcoreClassDesign::designtpl('lhchat/getstatus/custom_get_status_lh_inst_js.tpl.php')); ?>
     hasSurvey : <?php echo $survey !== false ? 'true ': 'false'?>,
@@ -266,7 +266,7 @@ var lh_inst  = {
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatwidgetclosed'+this.getAppendCookieArguments()+'?ts='+Date.now());
+            s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatwidgetclosed'+this.getAppendCookieArguments()+'?ts='+Date.now());
             th.appendChild(s);
             this.toggleStatusWidget(false);
 
@@ -593,7 +593,7 @@ var lh_inst  = {
 
     updateAttribute : function(attributes) {
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updateattribute'+this.getAppendCookieArguments(), true);
+        xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updateattribute'+this.getAppendCookieArguments(), true);
      	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
      	xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(attributes) ) );
     },
@@ -610,7 +610,7 @@ var lh_inst  = {
             var s = document.createElement('script');
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+            s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $theme !== false ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(vid)/'+vid + lh_inst.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+inst.tag+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
             lh_inst.startNewMessageCheck();
         }, <?php echo (int)(erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['check_for_operator_msg']*1000); ?> );*/ ?>
@@ -652,7 +652,7 @@ var lh_inst  = {
 
             s.setAttribute('id','lhc_operator_message');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php is_object($theme) ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+            s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckoperatormessage<?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php is_object($theme) ? print '/(theme)/'.$theme->id : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?= isset($currentPosition['full_height']) && $currentPosition['full_height'] ?  '/(fullheight)/true' : '/(fullheight)/false' ?>/(tz)/' + tzOffset + this.survey_id + '/(count_page)/1/(vid)/'+vid+'/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+dynamic+'?l='+locationCurrent+this.tag+this.parseStorageArguments()+this.parseOptionsOnline()+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
             th.appendChild(s);
         }
     },
@@ -665,13 +665,13 @@ var lh_inst  = {
         var tzOffset = this.getTzOffset();
         s.setAttribute('id','lhc_log_pageview');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>/(tz)/'+tzOffset+'/(vid)/' + vid + this.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
+        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logpageview<?php $department !== false ? print '/(department)/'.$department : ''?><?php $identifier !== false ? print '/(identifier)/'.htmlspecialchars($identifier) : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?>/(tz)/'+tzOffset+'/(vid)/' + vid + this.survey_id + '/(uactiv)/'+lh_inst.userActive+'/(wopen)/'+lh_inst.timeoutStatusWidgetOpen+'?l='+locationCurrent+this.parseStorageArguments()+this.parseOptionsOnline()+'&dt='+encodeURIComponent(document.title)+'&ts='+Date.now());
         th.appendChild(s);
     },
 
     updateJSVars : function(vars){
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updatejsvars'+this.getAppendCookieArguments(), true);
+        xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/updatejsvars'+this.getAppendCookieArguments(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(vars) ) );
     },
@@ -680,7 +680,7 @@ var lh_inst  = {
         if (typeof <?php echo $chatOptionsVariable?>.events != 'undefined') {
             if (<?php echo $chatOptionsVariable?>.events.length > 0) {
                  var xhr = new XMLHttpRequest();
-                 xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logevent'+this.getAppendCookieArguments(), true);
+                 xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/logevent'+this.getAppendCookieArguments(), true);
              	 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
              	 xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(<?php echo $chatOptionsVariable?>.events) ) );
              	 <?php echo $chatOptionsVariable?>.events = new Array();
@@ -724,7 +724,7 @@ var lh_inst  = {
             this.cookieDataPers['ex'] = Math.round(Date.now()/100000000)+10;
             this.storePersistenCookie();
             var xhr = new XMLHttpRequest();
-            xhr.open( "GET", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/extendcookie/'+this.cookieDataPers.vid, true);
+            xhr.open( "GET", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/extendcookie/'+this.cookieDataPers.vid, true);
             xhr.send();
         }
     },
@@ -746,7 +746,7 @@ var lh_inst  = {
 				var inst = this;
 				setTimeout(function(){
 					var xhr = new XMLHttpRequest();
-			        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+inst.lang+'/chat/setnewvid', true);
+			        xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+inst.lang+'/chat/setnewvid', true);
 			     	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			     	xhr.send( "data=" + encodeURIComponent( inst.JSON.stringify({'vid':old,'new':vid}) ) );
 				},1000);
@@ -809,7 +809,7 @@ var lh_inst  = {
 		   		var th = document.getElementsByTagName('head')[0];
 		        var s = document.createElement('script');
 		        s.setAttribute('type','text/javascript');
-		        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::design('js/html2canvas.min.js');?>');
+		        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::design('js/html2canvas.min.js');?>');
 		        th.appendChild(s);
 		        s.onreadystatechange = s.onload = function(){
 		        	inst.makeScreenshot();
@@ -819,7 +819,7 @@ var lh_inst  = {
 				  	html2canvas(document.body, {
 						  onrendered: function(canvas) {
 						         var xhr = new XMLHttpRequest();
-						         xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
+						         xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/file/storescreenshot'+inst.getAppendCookieArguments(), true);
 							     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 							     xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
 						  }
@@ -843,7 +843,7 @@ var lh_inst  = {
         var tzOffset = this.getTzOffset();
         s.setAttribute('id','lhc_finish_shr');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession/(sharemode)/'+lh_inst.sharemode+lh_inst.getAppendCookieArguments());
+        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/cobrowse/finishsession/(sharemode)/'+lh_inst.sharemode+lh_inst.getAppendCookieArguments());
         th.appendChild(s);
         this.cobrowser = null;
     },
@@ -863,7 +863,7 @@ var lh_inst  = {
 			   		var th = document.getElementsByTagName('head')[0];
 			        var s = document.createElement('script');
 			        s.setAttribute('type','text/javascript');
-			        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
+			        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::designJS('js/cobrowse/compiled/cobrowse.visitor.min.js');?>');
 			        th.appendChild(s);
 			        s.onreadystatechange = s.onload = function(){
 			        	inst.startCoBrowse(inst.sharehash,this.sharemode);
@@ -969,7 +969,7 @@ var lh_inst  = {
         var s = document.createElement('script');
         s.setAttribute('id','lhc_check_status');
         s.setAttribute('type','text/javascript');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(uaction)/'+sender+'/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
+        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/chatcheckstatus<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(uaction)/'+sender+'/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
         th.appendChild(s);
     },
 
@@ -986,7 +986,7 @@ var lh_inst  = {
 
     refreshCustomFields : function() {
         var xhr = new XMLHttpRequest();
-        xhr.open( "POST", '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/refreshcustomfields'+this.getAppendCookieArguments() , true);
+        xhr.open( "POST", '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+lh_inst.lang+'/chat/refreshcustomfields'+this.getAppendCookieArguments() , true);
 	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	    xhr.send(this.parseOptions());
     },
@@ -1032,7 +1032,7 @@ var lh_inst  = {
         var s = document.createElement('script');
         s.setAttribute('type','text/javascript');
         var optionsParts = options.split('_');
-        s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/htmlsnippet/'+messageId+'/'+optionsParts[0]+"/"+optionsParts[1]+'<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
+        s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurlsite()?>'+this.lang+'/chat/htmlsnippet/'+messageId+'/'+optionsParts[0]+"/"+optionsParts[1]+'<?php $department !== false ? print '/(department)/'.$department : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : '' ?><?php $disable_online_tracking === true ? print '/(dot)/true' : ''?><?php $hide_offline == 'true' ? print '/(hide_offline)/true' : ''?>/(status)/' + this.isOnline + this.survey_id + (this.cookieDataPers.vid ? '/(vid)/'+this.cookieDataPers.vid : '')+ hashAppend + hashResume + '/(uactiv)/'+this.userActive+'/(wopen)/'+this.timeoutStatusWidgetOpen + '/(isproactive)/'+this.isProactivePending+'/?ts='+Date.now());
         th.appendChild(s);
     },
 
@@ -1045,7 +1045,7 @@ var lh_inst  = {
 
         // We allow to send events only from chat installation or page where script is embeded.
         if (
-            originDomain !== '<?php echo $_SERVER['HTTP_HOST']?>' &&
+            originDomain !== '<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?>' &&
             originDomain !== document.domain &&
             action != 'lhc_sizing_chat_survey' &&
             action != 'lh_survey_runed' &&

@@ -10,7 +10,7 @@
             <?php if ($chat->bot->has_photo) : ?>
             <img class="profile-msg-pic" src="<?php echo $chat->bot->photo_path?>" alt="">
             <?php else : ?>
-            <img class="profile-msg-pic" src="<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($chat->bot->avatar)?>" alt="" />
+            <img class="profile-msg-pic" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($chat->bot->avatar)?>" alt="" />
             <?php endif; ?>
         </i>
     <?php elseif ($msg['user_id'] > 0 && isset($theme) && $theme !== false && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1 &&
@@ -20,7 +20,7 @@
                 <?php if ($userMessage->has_photo) : ?>
                     <img class="profile-msg-pic" src="<?php echo $userMessage->photo_path?>" alt="">
                 <?php else : ?>
-                    <img class="profile-msg-pic" src="<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userMessage->avatar)?>" alt="" />
+                    <img class="profile-msg-pic" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userMessage->avatar)?>" alt="" />
                 <?php endif; ?>
             </i>
     <?php elseif (isset($theme) && $theme !== false && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1 && $theme->operator_image_avatar !== false) : ?>
@@ -28,7 +28,7 @@
             <?php if ($theme->operator_image_url !== false) : ?>
                 <img class="profile-msg-pic" src="<?php echo $theme->operator_image_url?>" alt="">
             <?php else : ?>
-                <img class="profile-msg-pic" src="<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($theme->bot_configuration_array['operator_avatar'])?>" alt="" />
+                <img class="profile-msg-pic" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($theme->bot_configuration_array['operator_avatar'])?>" alt="" />
             <?php endif; ?>
         </i>
     <?php else : ?>
