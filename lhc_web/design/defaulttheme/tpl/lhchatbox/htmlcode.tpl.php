@@ -126,7 +126,7 @@ function generateEmbedCode(){
     var script = '<script type="text/javascript">'+"\nvar <?php echo $chatboxOptionsVariable?> = {hashchatbox:'empty',identifier:'default',status_text:'"+textStatus+"'};\n"+
       '(function() {'+"\n"+
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+id_disable_responsive+topposition+widthwidget+id_theme+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chatbox/getstatus'+id_position+top+id_disable_responsive+topposition+widthwidget+id_theme+heightwidget+chat_height+show_content+show_min+dis_min+"';\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

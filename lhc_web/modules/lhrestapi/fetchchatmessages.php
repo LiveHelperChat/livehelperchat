@@ -120,7 +120,7 @@ try {
                         $file = erLhcoreClassModelChatFile::fetch($fileID);
                         if (is_object($file) && $hash == $file->security_hash) {
 
-                            $url = (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
+                            $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";
 
                             $media[] = array(
                                 'id' => $file->id,

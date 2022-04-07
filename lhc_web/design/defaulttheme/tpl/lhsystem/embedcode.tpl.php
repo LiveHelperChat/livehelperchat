@@ -76,7 +76,7 @@
 
 
 <p class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Copy the code from the text area to the page where you want your status to appear');?></p>
-<textarea style="width: 100%; height: 180px; font-size: 12px;" id="HMLTContent"><?php echo htmlspecialchars('<script type="text/javascript" src="//'.$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('chat/getstatus').'"></script>')?></textarea>
+<textarea style="width: 100%; height: 180px; font-size: 12px;" id="HMLTContent"><?php echo htmlspecialchars('<script type="text/javascript" src="' . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/getstatus').'"></script>')?></textarea>
 
 <script type="text/javascript">
 var default_site_access = '<?php echo erConfigClassLhConfig::getInstance()->getSetting( 'site', 'default_site_access' ); ?>/';
@@ -107,7 +107,7 @@ function generateEmbedCode() {
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'chat/getstatusembed<?php isset($userArgument) ? print $userArgument : ''?>'+uaArguments+id_hide_then_offline+id_theme+id_operator+id_show_leave_form+id_department+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

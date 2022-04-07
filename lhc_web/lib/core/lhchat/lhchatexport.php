@@ -498,7 +498,7 @@ class erLhcoreClassChatExport {
                 	$from = null;
                 }
 
-                $url = erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
+                $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('chat/single/'.$item->id));
 
                 $chat_actions = '';
 

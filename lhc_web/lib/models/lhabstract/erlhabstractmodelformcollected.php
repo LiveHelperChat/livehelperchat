@@ -67,7 +67,7 @@ class erLhAbstractModelFormCollected
         $dataCollected = array();
         foreach ($this->content_array as $nameAttr => $contentArray) {
             if (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'file') {
-                $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . erLhcoreClassXMP::getBaseHost() . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('user/login') . '/(r)/' . rawurlencode(base64_encode('form/download/' . $this->id . '/' . $nameAttr));
+                $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('user/login') . '/(r)/' . rawurlencode(base64_encode('form/download/' . $this->id . '/' . $nameAttr));
             } elseif (isset($contentArray['definition']['type']) && $contentArray['definition']['type'] == 'checkbox') {
                 $dataCollected[] = $contentArray['definition']['name_literal'] . " - " . ($contentArray['value'] == 1 ? 'Y' : 'N');
             } else {

@@ -635,7 +635,7 @@ class erLhcoreClassFormRenderer {
     	} else {
     		if (isset(self::$collectedInfo[$params['name']]['value'])){
     			$valueContent = self::$collectedInfo[$params['name']]['value'];
-    			$downloadLink = "<a href=\"http://".$_SERVER['HTTP_HOST'].erLhcoreClassDesign::baseurl('form/download').'/'.self::$collectedObject->id.'/'.self::$collectedObject->hash.'/'.$params['name']."\">Download (".htmlspecialchars($valueContent['name']).")</a>";
+    			$downloadLink = "<a href=\"".erLhcoreClassSystem::getHost().erLhcoreClassDesign::baseurl('form/download').'/'.self::$collectedObject->id.'/'.self::$collectedObject->hash.'/'.$params['name']."\">Download (".htmlspecialchars($valueContent['name']).")</a>";
     		}
     	}
     	

@@ -96,7 +96,7 @@ function generateEmbedCode(){
         'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;'+"\n"+
         'var referrer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf(\'://\')+1)) : \'\';'+"\n"+
         'var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : \'\';'+"\n"+
-        'po.src = \''+$('#HttpMode').val()+'//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'browseoffer/getstatus'+size+id_size_height+topposition+id_timeout+id_show_overlay+id_identifier+id_canreopen+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
+        'po.src = \''+$('#HttpMode').val()+'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>'+siteAccess+'browseoffer/getstatus'+size+id_size_height+topposition+id_timeout+id_show_overlay+id_identifier+id_canreopen+'?r=\'+referrer+\'&l=\'+location;'+"\n"+
         'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);'+"\n"+
       '})();'+"\n"+
     '</scr'+'ipt>';

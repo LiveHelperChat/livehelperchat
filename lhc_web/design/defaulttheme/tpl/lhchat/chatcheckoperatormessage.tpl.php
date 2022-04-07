@@ -11,7 +11,7 @@ lh_inst.stopCheckNewMessage();
     setTimeout(function() {
     <?php endif; ?>
 
-        var invitationURL =  '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $tag !== false ? print '/(tag)/' . $tag : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>';
+        var invitationURL =  '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $tag !== false ? print '/(tag)/' . $tag : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>';
 
         <?php if (isset($visitor->invitation->design_data_array['mobile_html']) && $visitor->invitation->design_data_array['mobile_html'] != '') : ?>
 
@@ -19,7 +19,7 @@ lh_inst.stopCheckNewMessage();
                 <?php
                     $replaceStyleArray = array();
                     for ($i = 1; $i < 5; $i++) {
-                        $replaceStyleArray['{proactive_img_' . $i . '}'] =  erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . $visitor->invitation->{'design_data_img_' . $i . '_url'};
+                        $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $visitor->invitation->{'design_data_img_' . $i . '_url'};
                     }
                 ?>
                 <?php
@@ -55,7 +55,7 @@ lh_inst.stopCheckNewMessage();
             <?php if ($visitor->invitation instanceof erLhAbstractModelProactiveChatInvitation && (($visitor->invitation_assigned == false && $visitor->invitation->delay > 0) || $visitor->invitation->delay_init > 0)) : ?>
                 setTimeout(function() {
             <?php endif; ?>
-            var urlInvitation = '<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $tag !== false ? print '/(tag)/' . $tag : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>';
+            var urlInvitation = '<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('chat/readoperatormessage')?><?php $department !== false ? print '/(department)/'.$department : '' ?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $tag !== false ? print '/(tag)/' . $tag : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?><?php $survey !== false ? print '/(survey)/'.$survey : ''?>/(vid)/<?php echo $vid;?><?php $visitor->invitation_assigned == true ? print '/(playsound)/true' : ''?>/(fullheight)/<?= $fullheight ? 'true' : 'false' ?>';
             <?php if ($visitor->invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($visitor->invitation->design_data_array['api_do_not_show']) && $visitor->invitation->design_data_array['api_do_not_show'] == 1) : ?>
                 lh_inst.showBasicInvitation(urlInvitation);
             <?php else : ?>

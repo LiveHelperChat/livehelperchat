@@ -26,6 +26,9 @@ return array (
                     'maps_api_key' => false,
                     'default_group' => '',
                     'default_user' => '',
+                    'site_address' => '',
+                    'trusted_host_patterns' => [
+                    ],
                     'extensions' =>
                         array (
                             // 0 => 'customstatus',

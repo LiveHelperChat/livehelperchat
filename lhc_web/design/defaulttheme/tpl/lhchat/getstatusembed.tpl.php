@@ -34,7 +34,7 @@ var lh_inst_page  = {
             var th = document.getElementsByTagName('head')[0];
             var s = document.createElement('script');
             s.setAttribute('type','text/javascript');
-            s.setAttribute('src','<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>/(eclose)/t'+this.getAppendCookieArguments());
+            s.setAttribute('src','<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidgetclosed')?>/(eclose)/t'+this.getAppendCookieArguments());
             th.appendChild(s);
             s.onreadystatechange = s.onload = function(){
                 lh_inst_page.removeCookieAttr('hash');
@@ -178,7 +178,7 @@ var lh_inst_page  = {
         if ( url_to_open != undefined ) {
             this.initial_iframe_url = url_to_open+this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+'&dt='+encodeURIComponent(document.title)+this.parseStorageArguments();
         } else {
-            this.initial_iframe_url = "<?php echo erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value?>//<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $bot_id !== null ? print '/(bot_id)/'.$bot_id : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed" + (mobileFullHeight === false ? '/(mobile)/false' : '') + this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments();
+            this.initial_iframe_url = "<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('chat/chatwidget')?><?php $leaveamessage == true ? print '/(leaveamessage)/true' : ''?><?php $department !== false ? print '/(department)/'.$department : ''?><?php $theme !== false ? print '/(theme)/'.$theme : ''?><?php $operator !== false ? print '/(operator)/'.$operator : ''?><?php $priority !== false ? print '/(priority)/'.$priority : ''?><?php $bot_id !== null ? print '/(bot_id)/'.$bot_id : ''?><?php $uarguments !== false ? print '/(ua)/'.$uarguments : ''?>/(mode)/embed" + (mobileFullHeight === false ? '/(mobile)/false' : '') + this.getAppendCookieArguments()+'?URLReferer='+locationCurrent+this.parseOptions()+this.parseStorageArguments();
         };
 
         if (mobileFullHeight === true) {

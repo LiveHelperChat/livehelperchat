@@ -56,7 +56,7 @@ class erLhcoreClassChatCommand
         $URL = array_shift($paramsURL);
 
         if (is_numeric($URL)) {
-            $URL =  (erLhcoreClassSystem::$httpsMode == true ? 'https:' : 'http:') . '//' . (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '') . erLhcoreClassDesign::baseurldirect('form/formwidget') . '/' . $URL;
+            $URL = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('form/formwidget') . '/' . $URL;
         }
 
         // Store as message to visitor

@@ -127,7 +127,7 @@ if (isset($reopen_chat)) {
                 $replaceStyleArray = array();
 
                 for ($i = 1; $i < 5; $i++) {
-                    $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value . '//' . $_SERVER['HTTP_HOST'] . $userInstance->invitation->{'design_data_img_' . $i . '_url'};
+                    $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $userInstance->invitation->{'design_data_img_' . $i . '_url'};
                 }
 
                 $contentCSS = str_replace(array_keys($replaceStyleArray), array_values($replaceStyleArray), $userInstance->invitation->design_data_array['mobile_style']);
