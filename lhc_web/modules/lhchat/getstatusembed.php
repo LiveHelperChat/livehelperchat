@@ -71,6 +71,10 @@ if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configur
     exit;
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatusembed_old',array(
+    'params' => & $Params,
+));
+
 $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatusembed.tpl.php');
 $tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
 $tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
