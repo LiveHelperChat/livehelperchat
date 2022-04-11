@@ -7,6 +7,10 @@ if ($search->user_id != $currentUser->getUserID()) {
     exit;
 }
 
+if (isset($search->params_array['input_form']['view'])) {
+    unset($search->params_array['input_form']['view']);
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($search->params_array['input_form']);
 
 if ($search->scope == 'chat') {
