@@ -36,6 +36,15 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "description",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
       }
     ],
     "lh_canned_msg_use": [

@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_saved_search` ADD `description` text NOT NULL, COMMENT='';

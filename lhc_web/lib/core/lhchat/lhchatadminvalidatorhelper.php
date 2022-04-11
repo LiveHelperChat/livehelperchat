@@ -11,6 +11,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'description' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'days' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 30)
             ),
@@ -29,6 +32,10 @@ class erLhcoreClassAdminChatValidatorHelper {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a name');
         } else {
             $search->name = $form->name;
+        }
+        
+        if ( $form->hasValidData( 'description' ) ) {
+            $search->description = $form->description;
         }
 
         if ($form->hasValidData( 'position' )) {

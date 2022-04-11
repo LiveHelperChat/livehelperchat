@@ -26,8 +26,24 @@
                             </div>
                         </td>
                         <td nowrap>
-                            <a href="<?php echo erLhcoreClassDesign::baseurl('views/edit')?>/{{view.id}}" class="text-muted"><span class="material-icons mr-0">mode_edit</span></a>
-                            <a ng-click="vctrl.deleteView(view)" class="text-muted"><span class="material-icons mr-0">delete</span></a>
+
+                            <div class="btn-group">
+
+
+                                <i class="material-icons settings text-muted fs14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
+
+                                <div class="dropdown-menu py-0 fs13">
+                                    <a class="dropdown-item text-muted px-2" href="<?php echo erLhcoreClassDesign::baseurl('views/edit')?>/{{view.id}}"><span class="material-icons">share</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Share');?></a>
+                                    <a class="dropdown-item text-muted px-2" href="<?php echo erLhcoreClassDesign::baseurl('views/edit')?>/{{view.id}}"><span class="material-icons">mode_edit</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Edit');?></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-muted px-2" ng-click="vctrl.deleteView(view)"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Delete');?></a>
+                                </div>
+                            </div>
+
+
+
+
+
                         </td>
                     </tr>
                     </tbody>

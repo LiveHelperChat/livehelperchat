@@ -1600,6 +1600,7 @@ class Install
                     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
                   `user_id` bigint(20) unsigned NOT NULL,
                   `position` int(11) unsigned NOT NULL,
                   `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
