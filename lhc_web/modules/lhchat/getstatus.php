@@ -87,6 +87,10 @@ if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configur
     exit;
 }
 
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus_old',array(
+    'params' => & $Params,
+));
+
 $tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
 $tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
 $tpl->set('disable_online_tracking',(string)$Params['user_parameters_unordered']['dot'] == 'true');
