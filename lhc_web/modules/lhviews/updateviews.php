@@ -24,7 +24,7 @@ erLhcoreClassChat::prefillGetAttributes($views, array(
 
 $response = [
     'views' => array_values($views),
-    'invites' => erLhAbstractModelSavedSearch::getCount(['limit' => false, 'filter' => ['status' => erLhAbstractModelSavedSearch::INVITE, 'user_id' =>  erLhcoreClassUser::instance()->getUserID()]])
+    'invites' => (int)erLhAbstractModelSavedSearch::getCount(['limit' => false, 'filter' => ['status' => erLhAbstractModelSavedSearch::INVITE, 'user_id' =>  erLhcoreClassUser::instance()->getUserID()]])
 ];
 
 echo json_encode($response);
