@@ -28,7 +28,9 @@ class erLhAbstractModelSavedSearch {
             'requested_at' => $this->requested_at,
             'total_records' => $this->total_records,
             'passive' => $this->passive,
-            'description' => $this->description
+            'description' => $this->description,
+            'sharer_user_id' => $this->sharer_user_id,
+            'status' => $this->status,
         );
 
         return $stateArray;
@@ -71,6 +73,9 @@ class erLhAbstractModelSavedSearch {
         }
     }
 
+    const ACTIVE = 0;
+    const INVITE = 1;
+
     public $id = null;
     public $name = '';
     public $params = '';
@@ -83,4 +88,6 @@ class erLhAbstractModelSavedSearch {
     public $total_records = 0;
     public $passive = 0;
     public $description = '';
+    public $sharer_user_id = 0;
+    public $status = self::ACTIVE;
 }

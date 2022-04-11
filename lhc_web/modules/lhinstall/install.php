@@ -2063,10 +2063,9 @@ try {
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_saved_search` (
-                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                   `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-                  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
                   `user_id` bigint(20) unsigned NOT NULL,
                   `position` int(11) unsigned NOT NULL,
                   `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2075,11 +2074,14 @@ try {
                   `requested_at` bigint(20) unsigned NOT NULL,
                   `total_records` bigint(20) unsigned NOT NULL,
                   `passive` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                  `sharer_user_id` bigint(20) unsigned NOT NULL,
                   PRIMARY KEY (`id`),
-                  KEY `user_id` (`user_id`),
                   KEY `scope` (`scope`),
                   KEY `updated_at` (`updated_at`),
-                  KEY `requested_at` (`requested_at`)
+                  KEY `requested_at` (`requested_at`),
+                  KEY `user_id_status` (`user_id`,`status`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // API table
@@ -2092,7 +2094,7 @@ try {
                     PRIMARY KEY (`id`),
                     KEY `api_key` (`api_key`),
                     KEY `user_id` (`user_id`)
-                ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_rest_api_key_remote` ( `id` int(11) NOT NULL AUTO_INCREMENT, `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL, `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0', PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
                     $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `var_identifier` varchar(255) NOT NULL,`inv` tinyint(1) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

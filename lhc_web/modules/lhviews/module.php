@@ -14,6 +14,17 @@ $ViewList['loadinitialdata'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['acceptinvites'] = array(
+    'params' => array(),
+    'uparams' => array('view'),
+    'functions' => array( 'use' )
+);
+
+$ViewList['shareview'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['loadview'] = array(
     'params' => array('id'),
     'uparams' => array('mode'),
