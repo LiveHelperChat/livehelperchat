@@ -1,3 +1,11 @@
+3.98v
+
+1. Option to share your views with other operators.
+2. Scroll was at incorrect place in case message area was hidden.
+3. Various other changes including security ones.
+
+execute doc/update_db/update_270.sql for update
+
 3.97v
 
 1. Search by phone.

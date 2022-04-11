@@ -514,7 +514,7 @@ class OnlineChat extends Component {
         var smartScroll = false;
 
         if (
-            (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor) ||
+            (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor && (smartScroll = true) == true) ||
             (this.props.chatwidget.get('msgLoaded') !== prevProps.chatwidget.get('msgLoaded') && (this.props.chatwidget.get('newChat') == false || (smartScroll = true) == true))
         ) {
             if (smartScroll == false) {
