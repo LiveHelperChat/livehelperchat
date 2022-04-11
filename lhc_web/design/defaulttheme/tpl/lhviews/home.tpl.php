@@ -12,7 +12,7 @@
                             <span title="Name" class="material-icons">saved_search</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','My views');?>
                         </th>
                         <th width="1%" nowrap="nowrap">
-                            <a ng-if="vctrl.invites" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'views/acceptinvites'})" class="blink-ani text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','You have shared views with you!');?>"><span class="material-icons">share</span>{{vctrl.invites}}<a>
+                            <a ng-if="vctrl.invites > 0" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'views/acceptinvites'})" class="blink-ani text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','You have shared views with you!');?>"><span class="material-icons">share</span>{{vctrl.invites}}<a>
                         </th>
                     </tr>
                     </thead>
