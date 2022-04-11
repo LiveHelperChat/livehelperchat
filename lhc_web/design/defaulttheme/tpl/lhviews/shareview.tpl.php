@@ -9,6 +9,8 @@ $appendPrintExportURL = '';
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('views/shareview')?>/<?php echo $view->id?>" method="post" ng-non-bindable target="_blank" onsubmit="return lhinst.submitModalForm($(this))">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <div class="modal-body">
         <?php if (isset($updated) && $updated == true) : ?>
             <div role="alert" class="alert alert-info alert-dismissible fade show m-3">
