@@ -11,18 +11,20 @@ $q->update( 'lh_abstract_saved_search' )
 $stmt = $q->prepare();
 $stmt->execute();
 
-$views = erLhAbstractModelSavedSearch::getList(['limit' => false, 'filter' => ['user_id' =>  erLhcoreClassUser::instance()->getUserID()]]);
+$views = erLhAbstractModelSavedSearch::getList(['limit' => false, 'filter' => ['status' => erLhAbstractModelSavedSearch::ACTIVE, 'user_id' =>  erLhcoreClassUser::instance()->getUserID()]]);
 
 erLhcoreClassChat::prefillGetAttributes($views, array(
     'id',
     'name',
+    'description',
     'scope',
     'passive',
     'total_records',
     'updated_ago'), array(), array('remove_all' => true));
 
 $response = [
-    'views' => array_values($views)
+    'views' => array_values($views),
+    'invites' => (int)erLhAbstractModelSavedSearch::getCount(['limit' => false, 'filter' => ['status' => erLhAbstractModelSavedSearch::INVITE, 'user_id' =>  erLhcoreClassUser::instance()->getUserID()]])
 ];
 
 echo json_encode($response);

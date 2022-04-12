@@ -81,12 +81,14 @@ try {
         return this;
     }]);
 
-    lhcAppControllers.controller('LiveHelperChatViewsCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','LiveHelperChatViewsFactory', function($scope, $http, $location, $rootScope, $log, $interval,LiveHelperChatViewsFactory) {
+    lhcAppControllers.controller('LiveHelperChatViewsCtrl',['$scope','$http','$location','$rootScope', '$log','$interval','$window','LiveHelperChatViewsFactory', function($scope, $http, $location, $rootScope, $log, $interval, $window, LiveHelperChatViewsFactory) {
 
         $scope.current_user_id = confLH.user_id;
 
         // Parameters for back office sync
         this.views = [];
+        this.invites = 0;
+        this.default_view_id = 0;
 
         this.currentView = null;
 
@@ -95,13 +97,34 @@ try {
 
         var _that = this;
 
+        ee.addListener('views.updateViews',function (status) {
+            _that.fetchViews();
+        });
+
+        this.shareView = function(view) {
+            lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + 'views/shareview/' + view.id});
+        }
 
         // Bootstraps initial attributes
         this.initLHCData = function() {
             var appendURL = '';
+
             LiveHelperChatViewsFactory.loadInitialData(appendURL).then(function(data) {
                 _that.views = data.views;
-                _that.views.length > 0 && _that.loadView(_that.views[0]);
+                _that.invites = data.invites;
+
+                if (_that.views.length > 0) {
+                    var viewDefault = _that.views[0];
+                    if ($window['vctrl_default_view_id']) {
+                        angular.forEach(_that.views, function(view) {
+                            if (view.id == $window['vctrl_default_view_id']) {
+                                viewDefault = view;
+                            }
+                        });
+                    }
+                    _that.loadView(viewDefault);
+                }
+
                 _that.setUpdateLive();
                 _that.setUpdateLiveViews();
             });
@@ -141,6 +164,7 @@ try {
             this.updateViewsTimeout = setTimeout(function () {
                 LiveHelperChatViewsFactory.updateViewsList().then(function(data){
                     _that.views = data.views;
+                    _that.invites = data.invites;
                 });
                 _that.setUpdateLiveViews();
             },5000);
@@ -160,6 +184,7 @@ try {
             var appendURL = '';
             LiveHelperChatViewsFactory.loadInitialData(appendURL).then(function(data) {
                 _that.views = data.views;
+                _that.invites = data.invites;
             });
         }
 

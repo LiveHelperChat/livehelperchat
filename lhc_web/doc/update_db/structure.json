@@ -200,6 +200,31 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "status",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "sharer_user_id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "description",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
       }
     ],
     "lh_canned_msg_use": [
@@ -10696,6 +10721,14 @@
         "alias" : "ALTER TABLE `lh_abstract_widget_theme` ADD INDEX `alias` (`alias`);"
       },
       "old" : []
+    },
+    "lh_abstract_saved_search" : {
+      "new" : {
+        "user_id_status" : "ALTER TABLE `lh_abstract_saved_search` ADD INDEX `user_id_status` (`user_id`,`status`);"
+      },
+      "old" : [
+        "user_id"
+      ]
     }
   },
   "tables_create": {

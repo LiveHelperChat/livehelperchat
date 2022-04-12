@@ -609,6 +609,40 @@ class erLhcoreClassGenericBotActionRestapi
         $queryArgsString = http_build_query($queryArgs);
         $url = rtrim($host) . str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : '')) . (!empty($queryArgsString) ? '?'.$queryArgsString : '');
 
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            return array(
+                'content' => 'Invalid URL filter_var validation failed',
+                'content_raw' => 'Invalid URL filter_var validation failed',
+                'http_code' => '500',
+                'http_error' => '500',
+                'http_data' => '500',
+                'content_2' => '',
+                'content_3' => '',
+                'content_4' => '',
+                'content_5' => '',
+                'content_6' => '',
+                'meta' => array()
+            );
+        }
+
+        $urlParts = parse_url($url);
+
+        if (!in_array($urlParts['scheme'],['http','https']) || (class_exists('erLhcoreClassInstance') && isset($urlParts['port']) && !in_array($urlParts['port'],[80,443]))) {
+            return array(
+                'content' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
+                'content_raw' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only.',
+                'http_code' => '500',
+                'http_error' => '500',
+                'http_data' => '500',
+                'content_2' => '',
+                'content_3' => '',
+                'content_4' => '',
+                'content_5' => '',
+                'content_6' => '',
+                'meta' => array()
+            );
+        }
+
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
