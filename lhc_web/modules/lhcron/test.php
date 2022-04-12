@@ -6,6 +6,4 @@
  *
  * */
 
-echo erLhcoreClassBBCode::getHost();
-
 ?>

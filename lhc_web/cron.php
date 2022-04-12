@@ -80,12 +80,17 @@ function defaultCronjobFatalHandler($errno, $errstr, $errfile, $errline) {
 
     $msg = 'Unexpected error, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline;
 
+    $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
     if ($errno == E_USER_ERROR || $errno == E_COMPILE_ERROR || $errno == E_PARSE || $errno == E_ERROR || $errno == E_RECOVERABLE_ERROR || $errno == E_WARNING) {
         error_log($msg);
 
         erLhcoreClassLog::write($msg);
         erLhcoreClassLog::write(
-            $msg,
+            json_encode([
+                'msg' => $msg,
+                'trace' => $trace
+            ]),
             ezcLog::SUCCESS_AUDIT,
             array(
                 'source' => 'lhc',
