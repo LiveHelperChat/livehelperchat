@@ -150,12 +150,13 @@ class erLhcoreClassModule{
             	header('Status: 503 Service Temporarily Unavailable');
             	header('Retry-After: 300');
 
-
             	if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'],'application/json') !== false){
                     echo json_encode(array('error' => true, 'message' => $e->getMessage()));
                 } else {
                     include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
                     erLhcoreClassLog::write(print_r($e,true));
+                    // Try to store to DB directly error
+                    self::logException($e);
                 }
 
                 exit;
@@ -190,6 +191,7 @@ class erLhcoreClassModule{
 
     public static function defaultExceptionHandler($e)
     {
+
         if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
             echo "<pre>";
             print_r($e);
@@ -203,6 +205,7 @@ class erLhcoreClassModule{
         header('Status: 503 Service Temporarily Unavailable');
         header('Retry-After: 300');
 
+
         include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
 
         if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200){
@@ -211,24 +214,32 @@ class erLhcoreClassModule{
             file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true), FILE_APPEND);
         }
 
-        @erLhcoreClassLog::write(
-            json_encode([
+        self::logException($e);
+    }
+
+    public static function logException($e) {
+        // Try to store to DB directly error
+        try {
+            $cfg = erConfigClassLhConfig::getInstance();
+            $conn = new PDO("mysql:host=".$cfg->getSetting( 'db', 'host' ).";dbname=".$cfg->getSetting( 'db', 'database' ), $cfg->getSetting( 'db', 'user' ), $cfg->getSetting( 'db', 'password' ));
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES ('web_exception','lhc',:line,:file,0,:message,:severity,:time)");
+            $stmt->bindValue(':line',__LINE__);
+            $stmt->bindValue(':file',__FILE__);
+            $stmt->bindValue(':severity',ezcLog::SUCCESS_AUDIT);
+            $stmt->bindValue(':time',date('Y-m-d H:i:s'));
+            $stmt->bindValue(':message',json_encode([
                 'message' => $e->getMessage(),
                 'file' => $e->getFile(),
                 'line' => $e->getLine(),
-                'trace' => $e->getTrace(),
-                'raw' => (string)$e,
-            ],JSON_PRETTY_PRINT),
-            ezcLog::SUCCESS_AUDIT,
-            array(
-                'source' => 'lhc',
-                'category' => 'web_exception',
-                'line' => __LINE__,
-                'file' => __FILE__,
-                'object_id' => 0
-            )
-        );
+                'server' => $_SERVER,
+                'trace' => $e->getTrace()
+            ],JSON_PRETTY_PRINT));
+            $stmt->execute();
+        } catch(PDOException $e) {
 
+        }
     }
 
     public static function defaultWarningHandler($errno, $errstr, $errfile, $errline) {
