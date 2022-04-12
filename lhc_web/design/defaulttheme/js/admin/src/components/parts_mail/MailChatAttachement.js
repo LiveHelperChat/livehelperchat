@@ -130,7 +130,7 @@ class MailChatAttatchement extends PureComponent {
             const formData = new FormData();
             formData.append("files", file, file.name);
 
-            req.open("POST", WWW_DIR_JAVASCRIPT + 'mailconv/uploadfile');
+            req.open("POST", WWW_DIR_JAVASCRIPT + 'mailconv/uploadfile/(csrf)/' + confLH.csrf_token);
             req.send(formData);
         });
     }

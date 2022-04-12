@@ -6,6 +6,8 @@
 
 <form autocomplete="off" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmailbox')?>" method="post" ng-non-bindable>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form.tpl.php'));?>
 
     <br>

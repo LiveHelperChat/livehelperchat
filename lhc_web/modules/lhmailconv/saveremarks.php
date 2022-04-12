@@ -17,7 +17,7 @@ $errorTpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.p
 
 if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 {
-    if ($form->hasInputField('data') && $form->hasValidData('data')) {
+    if (isset($_SERVER['HTTP_X_CSRFTOKEN']) && $currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']) && $form->hasInputField('data') && $form->hasValidData('data')) {
         $errors = array();
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_save_remarks', array('chat' => & $Chat, 'errors' => & $errors));
 

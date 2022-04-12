@@ -6,6 +6,11 @@ $item =  erLhcoreClassModelMailconvMatchRule::fetch($Params['user_parameters']['
 
 if (ezcInputForm::hasPostData()) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailconv/matchingrules');
+        exit;
+    }
+
     if (isset($_POST['Cancel_page'])) {
         erLhcoreClassModule::redirect('mailconv/matchingrules');
         exit ;

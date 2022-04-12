@@ -4,6 +4,10 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/notifications.tpl.php');
 
 if (ezcInputForm::hasPostData()) {
 
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        throw new Exception('Invalid CSRF token!');
+    }
+
     $definition = array(
         'malarm_pr' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),
         'malarm_p' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int'),

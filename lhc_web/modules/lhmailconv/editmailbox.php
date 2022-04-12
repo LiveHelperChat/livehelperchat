@@ -31,6 +31,11 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
 
 if (isset($_POST['Save_mailbox'])) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailconv/mailbox');
+        exit;
+    }
+
     $mailBoxes = $item->mailbox_sync_array;
 
     foreach ($mailBoxes as $index => $mailBox) {
@@ -62,6 +67,11 @@ if (isset($_POST['Save_mailbox'])) {
     if (isset($_POST['Cancel_action'])) {
         erLhcoreClassModule::redirect('mailconv/mailbox');
         exit ;
+    }
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailconv/mailbox');
+        exit;
     }
 
     $Errors = erLhcoreClassMailconvValidator::validateMailbox($item);

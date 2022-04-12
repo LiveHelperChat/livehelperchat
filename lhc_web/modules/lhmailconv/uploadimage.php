@@ -4,6 +4,11 @@ $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
 $data = (array)$fileData->data;
 
 try {
+
+    if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csrf'])) {
+        throw new Exception('Invalid CSRF Token!');
+    }
+
     $path = 'var/storage/' . date('Y') . 'y/' . date('m') . '/' . date('d') . '/au/';
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.new.file_path', array('path' => & $path));

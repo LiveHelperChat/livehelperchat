@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>" method="post" ng-non-bindable>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_response_template.tpl.php'));?>
 
     <br>

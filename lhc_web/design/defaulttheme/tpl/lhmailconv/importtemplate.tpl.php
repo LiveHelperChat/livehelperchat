@@ -1,5 +1,7 @@
 <form action="" method="post" enctype="multipart/form-data">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php if (isset($errors)) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
     <?php endif; ?>

@@ -10,6 +10,10 @@ if (ezcInputForm::hasPostData()) {
 
     $Errors = erLhcoreClassMailconvValidator::validatePersonalMailboxGroup($item);
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $Errors[] = 'Invalid CSRF Token!';
+    }
+
     if (count($Errors) == 0) {
         try {
             $item->saveThis();

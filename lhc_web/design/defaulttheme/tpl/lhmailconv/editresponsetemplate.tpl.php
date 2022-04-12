@@ -10,6 +10,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" method="post" ng-non-bindable>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_response_template.tpl.php'));?>
 
     <div class="btn-group" role="group" aria-label="...">

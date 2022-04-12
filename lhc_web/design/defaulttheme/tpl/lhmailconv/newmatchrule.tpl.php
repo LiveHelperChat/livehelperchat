@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newmatchrule')?>" method="post" ng-controller="WebhooksCtrl as webhooksctl" ng-submit="webhooksctl.updateContinuous()" ng-init='webhooksctl.conditions = <?php echo json_encode($item->conditions_array,JSON_HEX_APOS & JSON_FORCE_OBJECT)?>'>
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_matchrule.tpl.php'));?>
 
     <br>

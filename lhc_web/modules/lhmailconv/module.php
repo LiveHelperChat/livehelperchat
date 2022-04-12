@@ -11,6 +11,7 @@ $ViewList['index'] = array(
 
 $ViewList['uploadimage'] = array(
     'params' => array(),
+    'uparams' => array('csrf'),
     'functions' => array( 'use_admin' )
 );
 
@@ -31,6 +32,7 @@ $ViewList['geticketbymessageid'] = array(
 
 $ViewList['uploadfile'] = array(
     'params' => array(),
+    'uparams' => array('csrf'),
     'functions' => array( 'use_admin' )
 );
 

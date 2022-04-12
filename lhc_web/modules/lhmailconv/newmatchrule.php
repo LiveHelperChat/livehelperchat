@@ -11,6 +11,11 @@ if (isset($_POST['Cancel_page'])) {
 
 if (ezcInputForm::hasPostData()) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailing/matchingrules');
+        exit;
+    }
+
     $items = array();
 
     $Errors = erLhcoreClassMailconvValidator::validateMatchRule($item);

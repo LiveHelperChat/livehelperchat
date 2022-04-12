@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+    die('Invalid CSRF Token');
+    exit;
+}
+
 $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['message_id']);
 $template = erLhcoreClassModelMailconvResponseTemplate::fetch($Params['user_parameters']['template_id']);
 

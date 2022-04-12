@@ -11,7 +11,7 @@ if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
 
 if (isset($_POST['UploadFileAction'])) {
 
-    if (erLhcoreClassSearchHandler::isFile('files',array('csv'))) {
+    if (isset($_POST['csfr_token']) && $currentUser->validateCSFRToken($_POST['csfr_token']) && erLhcoreClassSearchHandler::isFile('files',array('csv'))) {
 
         $dir = 'var/tmpfiles/';
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath', array('dir' => & $dir));

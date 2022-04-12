@@ -206,7 +206,7 @@ const MailChatReply = props => {
                         height: 320,
                         automatic_uploads: props.moptions.files_enabled,
                         file_picker_types: 'image',
-                        images_upload_url: WWW_DIR_JAVASCRIPT + 'mailconv/uploadimage',
+                        images_upload_url: WWW_DIR_JAVASCRIPT + 'mailconv/uploadimage/(csrf)/' + confLH.csrf_token,
                         templates: WWW_DIR_JAVASCRIPT + 'mailconv/apiresponsetemplates/'+props.message.id,
                         paste_data_images: props.moptions.files_enabled,
                         relative_urls : false,

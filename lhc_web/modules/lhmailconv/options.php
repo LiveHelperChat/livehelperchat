@@ -7,6 +7,11 @@ $data = (array)$mcOptions->data;
 
 if ( isset($_POST['StoreOptions']) ) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('mailconv/options');
+        exit;
+    }
+
     $definition = array(
         'mce_plugins' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'

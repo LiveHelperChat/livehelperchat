@@ -5,7 +5,7 @@ $item = erLhcoreClassModelMailconvResponseTemplate::fetch($Params['user_paramete
 
 if ($item instanceof erLhcoreClassModelMailconvResponseTemplate)
 {
-    if (ezcInputForm::hasPostData()) {
+    if (ezcInputForm::hasPostData() && isset($_SERVER['HTTP_X_CSRFTOKEN']) && $currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
         $db = ezcDbInstance::get();
         $db->beginTransaction();
         $response = array();

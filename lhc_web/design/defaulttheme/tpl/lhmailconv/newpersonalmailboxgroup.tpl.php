@@ -6,6 +6,8 @@
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/newpersonalmailboxgroup')?>" method="post">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/form_personalmailboxgroup.tpl.php'));?>
 
     <br>

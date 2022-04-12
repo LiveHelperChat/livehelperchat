@@ -18,7 +18,7 @@
         $('#list-result-template').on('click', 'a.use-template', function(item) {
             var templateId = $(this).attr('data-id');
             <?php if (isset($message_id)) : ?>
-            $.get(WWW_DIR_JAVASCRIPT + 'mailconv/addsubjectbytemplate/<?php echo $message_id?>/'+templateId, function(data) {
+            $.post(WWW_DIR_JAVASCRIPT + 'mailconv/addsubjectbytemplate/<?php echo $message_id?>/'+templateId, function(data) {
                 window.parent.ee.emitEvent('mailLabelsModified',[<?php echo $conversation_id?>,<?php echo $message_id?>]);
                 window.parent.postMessage({
                     mceAction: 'insertContent',
