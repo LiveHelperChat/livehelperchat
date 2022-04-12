@@ -12,13 +12,16 @@ class erConfigClassLhCacheConfig
 
     public function __construct()
     {
-    	$this->conf = @include('cache/cacheconfig/settings.ini.php');
+        if (file_exists('cache/cacheconfig/settings.ini.php')) {
+            $this->conf = include('cache/cacheconfig/settings.ini.php');
+        }
+
         if ( !is_array($this->conf) ) {
         	// Restore default settings if error accours
         	$this->conf = array (
-			  'settings' => 
+			  'settings' =>
 			  array (
-			    'cachetimestamps' => 
+			    'cachetimestamps' =>
 			    array (
 			      'translationfile' => 0,
 			      'accessfile' => 0,
@@ -65,10 +68,11 @@ class erConfigClassLhCacheConfig
     {
     	// Save only if array
     	if (is_array($this->conf) ) {
-	        file_put_contents('cache/cacheconfig/settings.ini.new.php',"<?php\n return ".var_export($this->conf,true).";\n?>",LOCK_EX);
+            $fileName = 'cache/cacheconfig/settings.ini.new.' . microtime() . rand(0,1000) . '.php';
+	        file_put_contents($fileName,"<?php\n return ".var_export($this->conf,true).";\n?>",LOCK_EX);
 	        // Atomic operation
-            if (file_exists('cache/cacheconfig/settings.ini.new.php')) {
-                @rename('cache/cacheconfig/settings.ini.new.php','cache/cacheconfig/settings.ini.php');
+            if (file_exists($fileName)) {
+                @rename($fileName,'cache/cacheconfig/settings.ini.php');
             }
     	}
     }
