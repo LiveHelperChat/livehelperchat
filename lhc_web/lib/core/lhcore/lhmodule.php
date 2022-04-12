@@ -210,6 +210,25 @@ class erLhcoreClassModule{
         } else {
             file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default] '. print_r($e,true), FILE_APPEND);
         }
+
+        @erLhcoreClassLog::write(
+            json_encode([
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTrace(),
+                'raw' => (string)$e,
+            ],JSON_PRETTY_PRINT),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'web_exception',
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => 0
+            )
+        );
+
     }
 
     public static function defaultWarningHandler($errno, $errstr, $errfile, $errline) {
@@ -219,6 +238,24 @@ class erLhcoreClassModule{
             error_log('Unexpected error, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
             erLhcoreClassLog::write($msg);
             include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
+
+            $trace = debug_backtrace();
+
+            @erLhcoreClassLog::write(
+                json_encode([
+                    'msg' => $msg,
+                    'trace' => $trace
+                ]),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'web_fatal',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'object_id' => 0
+                )
+            );
+
             exit(1);
             return true;
         }
