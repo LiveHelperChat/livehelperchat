@@ -22,6 +22,10 @@ if (isset($_POST['UploadFileAction'])) {
 
     $errors = [];
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','Missing CSRF Token!!');
+    }
+    
     if (empty($errors) && erLhcoreClassSearchHandler::isFile('files',array('csv'))) {
 
         $dir = 'var/tmpfiles/';
