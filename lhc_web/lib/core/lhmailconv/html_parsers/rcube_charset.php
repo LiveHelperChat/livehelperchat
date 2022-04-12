@@ -222,7 +222,7 @@ class rcube_charset
         }
         // UTF
         else if (preg_match('/U[A-Z][A-Z](7|8|16|32)(BE|LE)*/', $str, $m)) {
-            $result = 'UTF-' . $m[1] . $m[2];
+            $result = 'UTF-' . $m[1] . (isset($m[2]) ? $m[2] : '');
         }
         // ISO-8859
         else if (preg_match('/ISO8859([0-9]{0,2})/', $str, $m)) {

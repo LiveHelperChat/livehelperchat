@@ -49,9 +49,10 @@ class rcube_mime
             return self::$default_charset;
         }
 
+        /*
         if ($charset = rcube::get_instance()->config->get('default_charset')) {
             return $charset;
-        }
+        }*/
 
         return RCUBE_CHARSET;
     }
