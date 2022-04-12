@@ -35,7 +35,11 @@ class erLhcoreClassCacheStorage {
 
 	public function restore($identifier) {
 		try {
-			return @include ($this->cacheDir . $identifier.'.cache.php');
+            if (file_exists($this->cacheDir . $identifier.'.cache.php')) {
+                return @include ($this->cacheDir . $identifier.'.cache.php');
+            } else {
+                return false;
+            }
 		} catch (Exception $e) {
 			return false;
 		}
