@@ -47,7 +47,7 @@
     "require": {
         "ext-json": "*",
         "minishlink/web-push": "^6.0",
-        "php-imap/php-imap": "dev-master#eaccad5882e0a5393342b65318509f14f3399ef8",
+        "php-imap/php-imap": "dev-master#7ad74e5f18f649b37b5d98477b42f48c9a43c4a1",
         "php": ">=7.2"
     },
     "type": "project"

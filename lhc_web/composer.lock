@@ -457,7 +457,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/remdex/php-imap.git",
-                "reference": "eaccad5882e0a5393342b65318509f14f3399ef8"
+                "reference": "7ad74e5f18f649b37b5d98477b42f48c9a43c4a1"
             },
             "type": "library",
             "autoload": {
