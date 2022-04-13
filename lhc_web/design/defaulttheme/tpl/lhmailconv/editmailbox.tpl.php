@@ -214,7 +214,7 @@
                             height: 320,
                             automatic_uploads: true,
                             file_picker_types: 'image',
-                            images_upload_url: '<?php echo erLhcoreClassDesign::baseurl('mailconv/uploadimage')?>',
+                            images_upload_url: '<?php echo erLhcoreClassDesign::baseurl('mailconv/uploadimage')?>/(csrf)/'+confLH.csrf_token,
                             paste_data_images: true,
                             relative_urls : false,
                             browser_spellcheck: true,
