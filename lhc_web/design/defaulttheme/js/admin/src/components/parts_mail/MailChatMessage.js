@@ -152,37 +152,35 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         </div>}
 
         {expandBody && message.body_front && !plainBody && <div className="col-12 mail-message-body pt-2 pb-2">
-
          {parse(message.body_front, {
-        replace: domNode => {
-            if (domNode.attribs) {
+            replace: domNode => {
+                if (domNode.attribs) {
 
-                var cloneAttr = Object.assign({}, domNode.attribs);
+                    var cloneAttr = Object.assign({}, domNode.attribs);
 
-                if (domNode.attribs.class) {
-                    domNode.attribs.className = domNode.attribs.class;
-                    delete domNode.attribs.class;
-                }
-
-                if (domNode.name && domNode.name === 'blockquote') {
-                    if (domNode.attribs.style) {
-                        domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                    if (domNode.attribs.class) {
+                        domNode.attribs.className = domNode.attribs.class;
+                        delete domNode.attribs.class;
                     }
 
-                    return <blockquote {...domNode.attribs}><MailChatQuote>{domToReact(domNode.children)}</MailChatQuote></blockquote>
+                    if (domNode.name && domNode.name === 'blockquote') {
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                        }
+
+                        return <blockquote {...domNode.attribs}><MailChatQuote>{domToReact(domNode.children)}</MailChatQuote></blockquote>
+                    }
                 }
             }
-        }
     })}
+    </div>}
 
-        {message.attachments && message.attachments.length > 0 &&
-            <div className="pt-2">{message.attachments.map((file) => (
+        {expandBody && message.attachments && message.attachments.length > 0 &&
+            <div className="pb-2 col-12">{message.attachments.map((file) => (
                 <a className="btn btn-sm btn-outline-info mr-1" href={file.download_url} title={file.description}>{file.name}</a>
             ))}</div>
         }
 
-
-    </div>}
 
         {mode !== 'preview' && moptions.can_write && !fetchingMessages && ((index + 1 == totalMessages) || replyMode || forwardMode) && <MailChatReply setConversationStatus={setConversationStatus} verifyOwner={verifyOwner} fetchingMessages={fetchingMessages} fetchMessages={(e) => fetchMessages()} moptions={moptions} forwardMode={forwardMode} cancelForward={(e) => setForwardMode(false)} cancelReply={(e) => setReplyMode(false)} replyMode={replyMode} lastMessage={index + 1 == totalMessages} message={message} noReplyRequired={() => noReplyRequired(message)} />}
 
