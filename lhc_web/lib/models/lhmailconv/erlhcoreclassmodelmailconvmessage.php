@@ -164,7 +164,7 @@ class erLhcoreClassModelMailconvMessage
 
                     foreach ($this->files as $file) {
                         if ($file->content_id != '') {
-                            $body = str_replace('cid:' . $file->content_id,'https://' . $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id, $body);
+                            $body = str_replace('cid:' . $file->content_id,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id, $body);
                         }
                     }
 
@@ -223,7 +223,7 @@ class erLhcoreClassModelMailconvMessage
             case 'attachments':
                 $this->attachments = [];
                 foreach ($this->files as $file) {
-                    if (strtolower($file->disposition) == 'attachment' || (strtolower($file->disposition) == 'inline' && $file->content_id == '')) {
+                    if (strtolower($file->disposition) == 'attachment' || (strtolower($file->disposition) == 'inline' && ($file->content_id == '' || strpos($this->body,'cid:' . $file->content_id) === false))) {
                         if ($file->content_id == '' || !in_array($file->extension,['jpg','jpeg','png','bmp','gif']) || strpos($this->body,'cid:' . $file->content_id) === false) {
                             $this->attachments[] = [
                                 'id' => $file->id,

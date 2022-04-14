@@ -498,7 +498,7 @@ class erLhcoreClassMailconvValidator {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
-                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
+                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
             }
         }
 
@@ -508,7 +508,7 @@ class erLhcoreClassMailconvValidator {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
-                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassXMP::getBaseHost().  $_SERVER['HTTP_HOST'] . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
+                $content = str_replace($matches[0][$index],'href="' . erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$fileObj->id}/{$fileObj->security_hash}\"",$content);
             }
         }
 
@@ -520,8 +520,13 @@ class erLhcoreClassMailconvValidator {
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
                 $cid = 'lhc-file-' . $fileObj->id . '-' . time();
-                $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->upload_name);
-                $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+                if (strpos($content,$matches[0][$index]) !== false) {
+                    $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->upload_name);
+                    $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+                } else {
+                    $mailReply->AddAttachment($fileObj->file_path_server, $fileObj->upload_name);
+                    erLhcoreClassModule::logException(new Exception('FILE_NOT_FOUND: '.$content));
+                }
             }
         }
 
@@ -532,8 +537,13 @@ class erLhcoreClassMailconvValidator {
             $fileObj = erLhcoreClassModelMailconvFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelMailconvFile) {
                 $cid = 'lhc-mail-file-' . $fileObj->id . '-' . time();
-                $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->name);
-                $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+                if (strpos($content,$matches[0][$index]) !== false) {
+                    $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->name);
+                    $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
+                } else {
+                    $mailReply->AddAttachment($fileObj->file_path_server, $fileObj->name);
+                    erLhcoreClassModule::logException(new Exception('FILE_NOT_FOUND: '.$content));
+                }
             }
         }
 
@@ -591,7 +601,7 @@ class erLhcoreClassMailconvValidator {
                 $params['content'] = self::prepareMailContent($params['content'], $mailReply);
 
                 $mailReply->Body = $params['content'];
-                $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$params['content']));
+                $mailReply->AltBody = trim(strip_tags(html_entity_decode(str_replace(['<br />','<br/>'],"\n",$params['content']))));
 
                 $mailbox = $mail->conversation->mailbox;
 
@@ -689,7 +699,7 @@ class erLhcoreClassMailconvValidator {
             $item->body = self::prepareMailContent($item->body, $mailReply);
 
             $mailReply->Body = $item->body;
-            $mailReply->AltBody = strip_tags(str_replace(['<br />','<br/>'],"\n",$item->body));
+            $mailReply->AltBody = trim(strip_tags(html_entity_decode(str_replace(['<br />','<br/>'],"\n",$item->body))));
 
             if ($user_id > 0) {
                 $mailReply->addCustomHeader('X-LHC-ID', $user_id);
