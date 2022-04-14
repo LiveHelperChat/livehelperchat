@@ -992,9 +992,9 @@ class erLhcoreClassMailconvParser {
         return $message;
     }
 
-    private static function cleanupMailBody($body)
+    public static function cleanupMailBody($body)
     {
-        return preg_replace('/<img src="(.*)\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
+        return preg_replace('/<img src="http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
     }
 
     public static function purgeMessage($message)
