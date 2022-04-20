@@ -2222,6 +2222,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2313,6 +2314,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2402,6 +2404,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2430,6 +2433,8 @@ class erLhcoreClassChatStatistic {
 
                     if ($attr == 'device_type') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                    } elseif ($attr == 'user_id') {
+                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
@@ -2525,6 +2530,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2569,6 +2575,8 @@ class erLhcoreClassChatStatistic {
 
                         if ($attr == 'device_type') {
                             $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                        } elseif ($attr == 'user_id') {
+                            $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
                         } else {
                             $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                         }
@@ -2661,6 +2669,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2745,6 +2754,7 @@ class erLhcoreClassChatStatistic {
                 'uagent' => '`uagent`',
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
+                'user_id' => '`user_id`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2768,6 +2778,8 @@ class erLhcoreClassChatStatistic {
 
                     if ($attr == 'device_type') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                    } elseif ($attr == 'user_id') {
+                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
@@ -2848,6 +2860,7 @@ class erLhcoreClassChatStatistic {
             'uagent' => '`uagent`',
             'device_type' => '`device_type`',
             'department' => '`dep_id`',
+            'user_id' => '`user_id`',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3212,6 +3225,7 @@ class erLhcoreClassChatStatistic {
             'uagent' => '`uagent`',
             'device_type' => '`device_type`',
             'department' => '`dep_id`',
+            'user_id' => '`user_id`',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3238,6 +3252,8 @@ class erLhcoreClassChatStatistic {
 
                     if ($attr == 'device_type') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
+                    } elseif ($attr == 'user_id') {
+                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
