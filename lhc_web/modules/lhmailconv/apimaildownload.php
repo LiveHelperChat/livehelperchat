@@ -59,11 +59,13 @@ try {
 
         if (empty($mail->body)) {
             $mailReply->Body = $mail->alt_body;
-            $mailReply->ContentType = 'text/plain';
             $mailReply->IsHTML(false);
         } else {
             $mailReply->Body = erLhcoreClassMailconvValidator::prepareMailContent($mail->body, $mailReply);
-            $mailReply->AltBody = $mail->alt_body;
+            $mailReply->isHTML(true);
+            if (!empty($mail->alt_body) ) {
+                $mailReply->AltBody = $mail->alt_body;
+            }
         }
 
         if (isset($mail->custom_headers) && is_array($mail->custom_headers)) {
