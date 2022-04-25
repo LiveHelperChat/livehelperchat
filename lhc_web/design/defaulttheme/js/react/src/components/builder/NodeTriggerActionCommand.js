@@ -61,17 +61,26 @@ class NodeTriggerActionCommand extends Component {
                             <label>Command</label>
                             <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['command'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','command'])}>
                                 <option value="">Select action</option>
-                                <option value="stopchat">Stop chat and transfer to human</option>
-                                <option value="transfertobot">Transfer chat to bot</option>
-                                <option value="closechat">Close chat</option>
-                                <option value="chatvariable">Set chat variable [not visible by operator]</option>
-                                <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
-                                <option value="dispatchevent">Dispatch Event</option>
-                                <option value="setchatattribute">Update main chat attribute</option>
-                                <option value="setdepartment">Change department</option>
-                                <option value="setsubject">Set subject</option>
-                                <option value="setliveattr">Set widget live attribute</option>
-                                <option value="removeprocess">Remove any previous process</option>
+                                <optgroup label="Chat related">
+                                    <option value="stopchat">Stop chat and transfer to human</option>
+                                    <option value="transfertobot">Transfer chat to bot</option>
+                                    <option value="closechat">Close chat</option>
+                                    <option value="chatvariable">Set chat variable [not visible by operator]</option>
+                                    <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
+                                    <option value="dispatchevent">Dispatch Event</option>
+                                    <option value="setchatattribute">Update main chat attribute</option>
+                                    <option value="setdepartment">Change department</option>
+                                    <option value="setsubject">Set subject</option>
+                                    <option value="setliveattr">Set widget live attribute</option>
+                                    <option value="removeprocess">Remove any previous process</option>
+                                </optgroup>
+                                <optgroup label="Chat messages aggregation">
+                                    <option value="messageaggregation">Messages aggregation</option>
+                                </optgroup>
+                                <optgroup label="Visitor message related">
+                                    <option value="messageattribute">Update main message attribute</option>
+                                    <option value="metamsg">Set meta_msg attribute</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
@@ -119,9 +128,17 @@ class NodeTriggerActionCommand extends Component {
                     </div>
                 </div>}
 
+                {this.props.action.getIn(['content','command']) == 'metamsg' &&
+                <div>
+                    <div className="form-group">
+                        <label>Set meta_msg variables in JSON format. It will merge with existing one.</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="{&quot;bot_touched&quot;:true}" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                    </div>
+                </div>}
+
                 {this.props.action.getIn(['content','command']) == 'chatvariable' &&
                 <div>
-                    
+
                     <div className="form-group">
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['update_if_empty'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','update_if_empty'])} /> Update only if empty</label>
                     </div>
@@ -175,6 +192,112 @@ class NodeTriggerActionCommand extends Component {
                         <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['remove_subject'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','remove_subject'])} /> Remove subject. Instead of adding we will remove subject.</label>
                     </div>
                 </div>}
+
+                {this.props.action.getIn(['content','command']) == 'messageattribute' &&
+                    <div>
+                        <div className="form-group">
+                            <label>Main message attribute (msg,name_support,user_id,chat_id,time)</label>
+                            <input className="form-control form-control-sm" type="text" placeholder="remarks" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                        </div>
+                        <div className="form-group">
+                            <label>Message attribute value.</label>
+                            <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
+                        </div>
+                    </div>}
+
+                {this.props.action.getIn(['content','command']) == 'messageaggregation' &&
+                    <div>
+                        <div className="row">
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>Chat variable as Group field</label>
+                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>Chat variable value from group method</label>
+                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_cond_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_cond_field'])} />
+                                </div>
+                            </div>
+                            <div className="col-4">
+                                <div className="form-group">
+                                    <label>Group field (sentiment)</label>
+                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_field'])} />
+                                </div>
+                            </div>
+                            <div className="col-4">
+                                <label>Group method</label>
+                                <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload_arg_type'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_type'])}>
+                                    <option value="">Select group logic</option>
+                                    <option value="count">COUNT (total number of messages)</option>
+                                    <option value="avg">AVG</option>
+                                    <option value="sum">SUM</option>
+                                    <option value="sum_avg">SUM as comparator and AVG as value</option>
+                                    <option value="max">MAX</option>
+                                    <option value="min">MIN</option>
+                                    <option value="count_max">COUNT MAX (maximum number of grouped record)</option>
+                                    <option value="count_filter">COUNT FILTER (filtered by group value field)</option>
+                                </select>
+                            </div>
+                            <div className="col-4">
+                                <div className="form-group">
+                                    <label>Group value field (sentiment_value)</label>
+                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val'])} />
+                                </div>
+                            </div>
+                            <div className="col-12">
+                                <label>Messages to include</label>
+                                <div className="form-group">
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_all'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_all'])} /> All messages</label>
+                                        </div>
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_vis'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_vis'])} /> All visitor messages</label>
+                                        </div>
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_vis_bot'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_vis_bot'])} /> Visitor messages with a bot</label>
+                                        </div>
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_vis_op'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_vis_op'])} /> Visitor messages with an operator</label>
+                                        </div>
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_op'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_op'])} /> Operator messages</label>
+                                        </div>
+                                        <div className="col-6">
+                                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['msg_type_bot'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','msg_type_bot'])} /> Bot messages</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label>Number of messages to include</label>
+                                <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload_include_number'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_include_number'])}>
+                                    <option value="">All messages</option>
+                                    <option value="f10">First 10% of the messages</option>
+                                    <option value="f20">First 20% of the messages</option>
+                                    <option value="f30">First 30% of the messages</option>
+                                    <option value="f40">First 40% of the messages</option>
+                                    <option value="f50">First 50% of the messages</option>
+                                    <option value="f60">First 60% of the messages</option>
+                                    <option value="f70">First 70% of the messages</option>
+                                    <option value="f80">First 80% of the messages</option>
+                                    <option value="f90">First 90% of the messages</option>
+                                    <option value="l10">Last 10% of the messages</option>
+                                    <option value="l20">Last 20% of the messages</option>
+                                    <option value="l30">Last 30% of the messages</option>
+                                    <option value="l40">Last 40% of the messages</option>
+                                    <option value="l50">Last 50% of the messages</option>
+                                    <option value="l60">Last 60% of the messages</option>
+                                    <option value="l70">Last 70% of the messages</option>
+                                    <option value="l80">Last 80% of the messages</option>
+                                    <option value="l90">Last 90% of the messages</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                    </div>}
 
                 {this.props.action.getIn(['content','command']) == 'setchatattribute' &&
                 <div>
