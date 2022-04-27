@@ -17,6 +17,12 @@ $ViewList['getchatdata'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['icondetailed'] = array(
+    'params' => array('chat_id','column_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['chathistory'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

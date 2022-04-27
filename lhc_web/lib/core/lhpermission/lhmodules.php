@@ -45,6 +45,31 @@ class erLhcoreClassModules {
         return $ModuleList ;
    }
 
+   public static function getViewsByModule($ModulePath)
+   {
+       $ViewListProcessed = [];
+       if (file_exists('modules/' . $ModulePath . '/module.php')) {
+           include('modules/' . $ModulePath . '/module.php');
+           if (isset($ViewList) && !empty($ViewList)) {
+               $ViewListProcessed = array_merge($ViewListProcessed, array_keys($ViewList));
+           }
+       }
+       $cfg = erConfigClassLhConfig::getInstance();
+       // Append Override functions
+       $extensions = $cfg->getSetting( 'site', 'extensions' );
+       foreach ($extensions as $extension) {
+           if (file_exists("extension/{$extension}/modules/{$ModulePath}/module.php")) {
+               $ViewList = [];
+               include("extension/{$extension}/modules/{$ModulePath}/module.php");
+               if (isset($ViewList) && !empty($ViewList)) {
+                   $ViewListProcessed = array_merge($ViewListProcessed, array_keys($ViewList));
+               }
+           }
+       }
+
+       return $ViewListProcessed;
+   }
+
    public static function getModuleFunctions($ModulePath, $params = array())
    {
    		$FunctionListReturn = array();

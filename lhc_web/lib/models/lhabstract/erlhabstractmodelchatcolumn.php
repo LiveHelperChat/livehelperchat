@@ -25,6 +25,9 @@ class erLhAbstractModelChatColumn
             'column_identifier' => $this->column_identifier,
             'chat_enabled' => $this->chat_enabled,
             'online_enabled' => $this->online_enabled,
+            'icon_mode' => $this->icon_mode,
+            'has_popup' => $this->has_popup,
+            'popup_content' => $this->popup_content,
         );
 
         return $stateArray;
@@ -77,25 +80,18 @@ class erLhAbstractModelChatColumn
     }
 
     public $id = null;
-
     public $column_name = '';
-
     public $column_icon = '';
-    
     public $column_identifier = '';
-
     public $variable = '';
-
     public $position = '';
-
     public $enabled = 1;
-
     public $conditions = '';
-
+    public $popup_content = '';
     public $chat_enabled = 1;
-
     public $online_enabled = 1;
-
+    public $icon_mode = 0;
+    public $has_popup = 0;
     public $hide_delete = false;
 }
 

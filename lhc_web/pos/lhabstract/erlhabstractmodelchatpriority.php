@@ -9,30 +9,19 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['dep_id'] = new ezcPersistentObjectProperty();
-$def->properties['dep_id']->columnName   = 'dep_id';
-$def->properties['dep_id']->propertyName = 'dep_id';
-$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['value'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['value'] = new ezcPersistentObjectProperty();
-$def->properties['value']->columnName   = 'value';
-$def->properties['value']->propertyName = 'value';
-$def->properties['value']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['priority'] = new ezcPersistentObjectProperty();
-$def->properties['priority']->columnName   = 'priority';
-$def->properties['priority']->propertyName = 'priority';
-$def->properties['priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['sort_priority'] = new ezcPersistentObjectProperty();
-$def->properties['sort_priority']->columnName   = 'sort_priority';
-$def->properties['sort_priority']->propertyName = 'sort_priority';
-$def->properties['sort_priority']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['dest_dep_id'] = new ezcPersistentObjectProperty();
-$def->properties['dest_dep_id']->columnName   = 'dest_dep_id';
-$def->properties['dest_dep_id']->propertyName = 'dest_dep_id';
-$def->properties['dest_dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['dep_id','priority','sort_priority','dest_dep_id'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

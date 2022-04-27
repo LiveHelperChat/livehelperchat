@@ -17,6 +17,7 @@ if (isset($Params['user_parameters_unordered']['mode']) && $Params['user_paramet
 }
 
 $Result['content'] = $tpl->fetch();
+$Result['body_class'] = 'h-100 dashboard-height';
 
 $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','System configuration')),
@@ -24,6 +25,7 @@ $Result['path'] = array(
 		array('url' => erLhcoreClassDesign::baseurl('chatarchive/list'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archives list')),
 		array('url' => erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id,'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archived chats')));
 $Result['path'][] = array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/viewarchivedchat','View archived chat'));
+
 
 
 ?>

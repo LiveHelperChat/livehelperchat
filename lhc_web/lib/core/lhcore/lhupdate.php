@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 270;
-	const LHC_RELEASE = 398;
+	const DB_VERSION = 271;
+	const LHC_RELEASE = 399;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -12,7 +12,7 @@ class erLhcoreClassUpdate
         $errorMessages = array();
 
 		try {
-            $db->query('SET GLOBAL innodb_strict_mode = 0;');
+            $db->query('SET GLOBAL innodb_strict_mode=0;');
             $db->query('SET GLOBAL innodb_file_per_table=1;');
             $db->query('SET GLOBAL innodb_large_prefix=1;');
         } catch (Exception $e) {

@@ -214,38 +214,68 @@ class NodeTriggerActionCommand extends Component {
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                                 </div>
                             </div>
-                            <div className="col-6">
+
+                            {this.props.action.getIn(['content','payload_arg_type']) != 'count_filter' && this.props.action.getIn(['content','payload_arg_type']) != 'count' && this.props.action.getIn(['content','payload_arg_type']) != 'ratio' && <div className="col-6">
                                 <div className="form-group">
-                                    <label>Chat variable value from group method</label>
+                                    <label>Calculated value from group method</label>
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_cond_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_cond_field'])} />
                                 </div>
-                            </div>
-                            <div className="col-4">
+                            </div>}
+
+                            <div className="col-12">
                                 <div className="form-group">
-                                    <label>Group field (sentiment)</label>
-                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_field'])} />
+                                    <label>Group method</label>
+                                    <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload_arg_type'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_type'])}>
+                                        <option value="">Select group logic</option>
+                                        <optgroup label="Grouping">
+                                            <option value="avg">AVG</option>
+                                            <option value="sum">SUM</option>
+                                            <option value="sum_avg">SUM as comparator and AVG as value</option>
+                                            <option value="max">MAX</option>
+                                            <option value="min">MIN</option>
+                                            <option value="count_max">COUNT MAX (maximum number of grouped record)</option>
+                                        </optgroup>
+                                        <optgroup label="Counting">
+                                            <option value="count">COUNT (total number of messages)</option>
+                                            <option value="count_filter">COUNT FILTER (filtered by group value field)</option>
+                                            <option value="ratio">RATIO in comparison with all messages</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
                             </div>
-                            <div className="col-4">
-                                <label>Group method</label>
-                                <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload_arg_type'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_type'])}>
-                                    <option value="">Select group logic</option>
-                                    <option value="count">COUNT (total number of messages)</option>
-                                    <option value="avg">AVG</option>
-                                    <option value="sum">SUM</option>
-                                    <option value="sum_avg">SUM as comparator and AVG as value</option>
-                                    <option value="max">MAX</option>
-                                    <option value="min">MIN</option>
-                                    <option value="count_max">COUNT MAX (maximum number of grouped record)</option>
-                                    <option value="count_filter">COUNT FILTER (filtered by group value field)</option>
-                                </select>
-                            </div>
-                            <div className="col-4">
+
+                            {this.props.action.getIn(['content', 'payload_arg_type']) != 'count' &&
+                                <div className="col-6">
+                                    <div className="form-group">
+                                        <label>Group field (sentiment)</label>
+                                        <input className="form-control form-control-sm" type="text"
+                                               onChange={(e) => this.onchangeAttr({
+                                                   'path': ['payload_arg_field'],
+                                                   'value': e.target.value
+                                               })}
+                                               defaultValue={this.props.action.getIn(['content', 'payload_arg_field'])}/>
+                                    </div>
+                                </div>
+                            }
+
+                            {this.props.action.getIn(['content','payload_arg_type']) != 'count' &&
+                            <div className="col-6">
                                 <div className="form-group">
-                                    <label>Group value field (sentiment_value)</label>
+                                    {(this.props.action.getIn(['content','payload_arg_type']) == 'count_filter' || this.props.action.getIn(['content','payload_arg_type']) == 'ratio') && <label>Filter value</label>}
+                                    {this.props.action.getIn(['content','payload_arg_type']) != 'count_filter' && this.props.action.getIn(['content','payload_arg_type']) != 'ratio' && <label>Group value field. Eg (score field of the sentiment)</label>}
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val'])} />
                                 </div>
-                            </div>
+                            </div>}
+
+                            {
+                                ['ratio','avg','sum_avg','max','min','count_max'].indexOf(this.props.action.getIn(['content','payload_arg_type'])) !== -1  &&
+                                <div className="col-12">
+                                    <div className="form-group">
+                                        <label>Use only if value is one of. If not defined all possible values will be used.</label>
+                                        <input className="form-control form-control-sm" placeholder="negative,positive" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val_sum'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val_sum'])} />
+                                    </div>
+                                </div>}
+
                             <div className="col-12">
                                 <label>Messages to include</label>
                                 <div className="form-group">

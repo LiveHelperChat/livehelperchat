@@ -288,9 +288,6 @@ class erLhcoreClassGenericBotActionCommand {
             if (
                 !isset($messages) ||
                 (!isset($action['content']['payload']) || empty($action['content']['payload'])) ||
-                (!isset($action['content']['payload_cond_field']) || empty($action['content']['payload_cond_field'])) ||
-                (!isset($action['content']['payload_arg_field']) || empty($action['content']['payload_arg_field'])) ||
-                (!isset($action['content']['payload_arg_val']) || empty($action['content']['payload_arg_val'])) ||
                 (!isset($action['content']['payload_arg_type']) || empty($action['content']['payload_arg_type']))
             ) {
                 return;
@@ -314,16 +311,16 @@ class erLhcoreClassGenericBotActionCommand {
             $chatVariableName = $action['content']['payload'];
 
             // Group value field (sentiment_value)
-            $chatVariableValue = $action['content']['payload_cond_field'];
+            $chatVariableValue = isset($action['content']['payload_cond_field']) ? $action['content']['payload_cond_field'] : '';
 
             /*
              * Messages attributes
              * */
             // Group field (sentiment)
-            $messagesGroupField = $action['content']['payload_arg_field'];
+            $messagesGroupField = isset($action['content']['payload_arg_field']) ? $action['content']['payload_arg_field'] : '';
 
             // Group value field (sentiment_value)
-            $messagesGroupFieldValue = $action['content']['payload_arg_val'];
+            $messagesGroupFieldValue = isset($action['content']['payload_arg_val']) ? $action['content']['payload_arg_val'] : '';
 
             // Group method
             $groupMethod = $action['content']['payload_arg_type'];
@@ -332,12 +329,41 @@ class erLhcoreClassGenericBotActionCommand {
 
             if ($groupMethod == 'count') {
                 $variablesArray[$chatVariableName] = count($messages);
+            } else if ($groupMethod == 'ratio') {
+
+                if (!isset($action['content']['payload_arg_val_sum'])){
+                    return;
+                }
+
+                $messagesGroupFieldAll = $action['content']['payload_arg_val_sum'];
+
+                $counterTotal = 0;
+                $counterRequired = 0;
+                foreach ($messages as $message) {
+                    $messageVariables = $message->meta_msg_array;
+
+                    if (isset($messageVariables[$messagesGroupField]) &&  in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
+                        $counterRequired++;
+                    }
+
+                    if (isset($messageVariables[$messagesGroupField]) &&  in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldAll))) {
+                        $counterTotal++;
+                    }
+                }
+
+                if ($counterTotal > 0) {
+                    $variablesArray[$chatVariableName] = round($counterRequired/$counterTotal,4);
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+                }
+
             } else if ($groupMethod == 'count_filter') {
 
                 $counter = 0;
                 foreach ($messages as $message) {
                     $messageVariables = $message->meta_msg_array;
-                    if (isset($messageVariables[$messagesGroupField]) && $messageVariables[$messagesGroupField] == $messagesGroupFieldValue) {
+                    if (isset($messageVariables[$messagesGroupField]) &&  in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
                         $counter++;
                     }
                 }
@@ -351,12 +377,18 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $groupedFields = [];
 
+                $messagesGroupFieldAll = isset($action['content']['payload_arg_val_sum']) ? explode(',',$action['content']['payload_arg_val_sum']) : [];
+
                 foreach ($messages as $message) {
                     $messageVariables = $message->meta_msg_array;
                     if (isset($messageVariables[$messagesGroupField])) {
-                        $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                        if (empty($messagesGroupFieldAll) || in_array($messageVariables[$messagesGroupField],$messagesGroupFieldAll)){
+                            $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                        }
                     }
                 }
+
+
 
                 $highestScore = 0;
 

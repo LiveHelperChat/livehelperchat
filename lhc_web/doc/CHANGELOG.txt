@@ -1,3 +1,11 @@
+3.99v
+
+1. Message aggregation for sentiment analysis per message implementation.
+2. Small security fix
+3.
+
+execute doc/update_db/update_271.sql for update
+
 3.98v
 
 1. Option to share your views with other operators.

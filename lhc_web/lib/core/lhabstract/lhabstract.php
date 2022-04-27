@@ -48,7 +48,9 @@ class erLhcoreClassAbstract
                         $ngModel .= " maxlength=\"{$attr['maxlength']}\" ";
                     }
 
-                    return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="AbstractInput_' . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
+                    $nameInputPrepend = (isset($attr['direct_name']) && $attr['direct_name'] == true) ? '' : 'AbstractInput_';
+
+                    return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="' . $nameInputPrepend . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
                 }
                 break;
 
@@ -153,13 +155,20 @@ class erLhcoreClassAbstract
             case 'combobox':
 
                 $onchange = isset($attr['on_change']) ? $attr['on_change'] : '';
-                $return = '<select ng-non-bindable class="form-control form-control-sm" name="AbstractInput_' . $name . '"' . $onchange . '>';
+                $nameInputPrepend = (isset($attr['direct_name']) && $attr['direct_name'] == true) ? '' : 'AbstractInput_';
+
+                $return = '<select ng-non-bindable class="form-control form-control-sm" name="' . $nameInputPrepend . $name . '"' . $onchange . '>';
 
                 if (!isset($attr['hide_optional']) || $attr['hide_optional'] == false) {
-                    $return .= '<option value="0">Choose option</option>';
+                    $optionalValue = isset($attr['optional_value']) ? $attr['optional_value'] : 0;
+                    $return .= '<option value="' . $optionalValue . '">' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose') . '</option>';
                 }
 
-                $items = call_user_func($attr['source'], $attr['params_call']);
+                if ($attr['source'] instanceof Closure) {
+                    $items = $attr['source']();
+                } else {
+                    $items = call_user_func($attr['source'], $attr['params_call']);
+                }
 
                 if (isset($attr['main_attr']) && !empty($attr['main_attr'])) {
                     if (isset($object->{$attr['main_attr']}[$name])) {
