@@ -2,7 +2,7 @@
 
 1. Message aggregation for sentiment analysis per message implementation.
 2. Small security fix
-3.
+3. Possibility in statistic group by operator
 
 execute doc/update_db/update_271.sql for update
 
