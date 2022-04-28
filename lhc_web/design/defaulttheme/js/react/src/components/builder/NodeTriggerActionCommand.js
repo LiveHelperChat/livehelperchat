@@ -210,21 +210,21 @@ class NodeTriggerActionCommand extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <div className="form-group">
-                                    <label>Chat variable as Group field</label>
+                                    <label>Chat variable as Group field*</label>
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                                 </div>
                             </div>
 
                             {this.props.action.getIn(['content','payload_arg_type']) != 'count_filter' && this.props.action.getIn(['content','payload_arg_type']) != 'count' && this.props.action.getIn(['content','payload_arg_type']) != 'ratio' && <div className="col-6">
                                 <div className="form-group">
-                                    <label>Calculated value from group method</label>
+                                    <label>Calculated value from group method*</label>
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_cond_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_cond_field'])} />
                                 </div>
                             </div>}
 
                             <div className="col-12">
                                 <div className="form-group">
-                                    <label>Group method</label>
+                                    <label>Group method*</label>
                                     <select className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['payload_arg_type'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_type'])}>
                                         <option value="">Select group logic</option>
                                         <optgroup label="Grouping">
@@ -247,7 +247,7 @@ class NodeTriggerActionCommand extends Component {
                             {this.props.action.getIn(['content', 'payload_arg_type']) != 'count' &&
                                 <div className="col-6">
                                     <div className="form-group">
-                                        <label>Group field (sentiment)</label>
+                                        <label>Group field (sentiment)*</label>
                                         <input className="form-control form-control-sm" type="text"
                                                onChange={(e) => this.onchangeAttr({
                                                    'path': ['payload_arg_field'],
@@ -260,21 +260,35 @@ class NodeTriggerActionCommand extends Component {
 
                             {this.props.action.getIn(['content','payload_arg_type']) != 'count' &&
                             <div className="col-6">
+                                {this.props.action.getIn(['content','payload_arg_type']) == 'ratio' &&
+                                 <div className="form-group">
+                                    <label>Group value field. Eg (score field of the sentiment)</label>
+                                    <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val_field'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val_field'])} />
+                                </div>}
                                 <div className="form-group">
-                                    {(this.props.action.getIn(['content','payload_arg_type']) == 'count_filter' || this.props.action.getIn(['content','payload_arg_type']) == 'ratio') && <label>Filter value</label>}
-                                    {this.props.action.getIn(['content','payload_arg_type']) != 'count_filter' && this.props.action.getIn(['content','payload_arg_type']) != 'ratio' && <label>Group value field. Eg (score field of the sentiment)</label>}
+                                    {(this.props.action.getIn(['content','payload_arg_type']) == 'count_filter' || this.props.action.getIn(['content','payload_arg_type']) == 'ratio') && <label>Filter value*</label>}
+                                    {this.props.action.getIn(['content','payload_arg_type']) != 'count_filter' && this.props.action.getIn(['content','payload_arg_type']) != 'ratio' && <label>Group value field. Eg (score field of the sentiment)*</label>}
                                     <input className="form-control form-control-sm" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val'])} />
                                 </div>
                             </div>}
 
-                            {
-                                ['ratio','avg','sum_avg','max','min','count_max'].indexOf(this.props.action.getIn(['content','payload_arg_type'])) !== -1  &&
-                                <div className="col-12">
+                            {['ratio','avg','sum_avg','max','min','count_max'].indexOf(this.props.action.getIn(['content','payload_arg_type'])) !== -1  &&
+                                <div className="col-6">
                                     <div className="form-group">
-                                        <label>Use only if value is one of. If not defined all possible values will be used.</label>
+                                        <label>Allowed values. Separated by comma.</label>
                                         <input className="form-control form-control-sm" placeholder="negative,positive" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val_sum'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val_sum'])} />
                                     </div>
-                                </div>}
+                                </div>
+                            }
+
+                            {['ratio','avg','sum_avg','max','min','count_max'].indexOf(this.props.action.getIn(['content','payload_arg_type'])) !== -1  &&
+                                <div className="col-6">
+                                    <div className="form-group">
+                                        <label>Threshold, minimum value. Optional.</label>
+                                        <input className="form-control form-control-sm" placeholder="0.8" type="text" onChange={(e) => this.onchangeAttr({'path':['payload_arg_val_trshl'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg_val_trshl'])} />
+                                    </div>
+                                </div>
+                            }
 
                             <div className="col-12">
                                 <label>Messages to include</label>

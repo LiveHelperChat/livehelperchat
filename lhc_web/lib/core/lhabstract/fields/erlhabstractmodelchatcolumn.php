@@ -17,6 +17,7 @@ return array(
     ),
     'column_icon' => array(
         'type' => 'text',
+        'hidden' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Column icon, material icons text'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
@@ -65,6 +66,7 @@ return array(
     ),
     'popup_content' => array(
         'type' => 'textarea',
+        'hidden' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Popup content, icon will have an option to show a modal window'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(

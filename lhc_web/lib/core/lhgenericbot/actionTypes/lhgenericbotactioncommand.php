@@ -327,6 +327,10 @@ class erLhcoreClassGenericBotActionCommand {
 
             $variablesArray = $chat->chat_variables_array;
 
+            if (isset($variablesArray[$chatVariableName])) {
+                unset($variablesArray[$chatVariableName]);
+            }
+
             if ($groupMethod == 'count') {
                 $variablesArray[$chatVariableName] = count($messages);
             } else if ($groupMethod == 'ratio') {
@@ -336,27 +340,34 @@ class erLhcoreClassGenericBotActionCommand {
                 }
 
                 $messagesGroupFieldAll = $action['content']['payload_arg_val_sum'];
+                $messagesGroupFieldValueScore = isset($action['content']['payload_arg_val_field']) ? (string)$action['content']['payload_arg_val_field'] : '';
+                $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
 
                 $counterTotal = 0;
                 $counterRequired = 0;
                 foreach ($messages as $message) {
                     $messageVariables = $message->meta_msg_array;
 
-                    if (isset($messageVariables[$messagesGroupField]) &&  in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
-                        $counterRequired++;
+                    if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
+                        if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
+                            $counterRequired++;
+                        }
                     }
 
-                    if (isset($messageVariables[$messagesGroupField]) &&  in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldAll))) {
-                        $counterTotal++;
+                    if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldAll))) {
+                        if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
+                            $counterTotal++;
+                        }
                     }
                 }
 
                 if ($counterTotal > 0) {
                     $variablesArray[$chatVariableName] = round($counterRequired/$counterTotal,4);
-                    $chat->chat_variables = json_encode($variablesArray);
-                    $chat->chat_variables_array = $variablesArray;
-                    $chat->updateThis(['update' => ['chat_variables']]);
                 }
+
+                $chat->chat_variables = json_encode($variablesArray);
+                $chat->chat_variables_array = $variablesArray;
+                $chat->updateThis(['update' => ['chat_variables']]);
 
             } else if ($groupMethod == 'count_filter') {
 
@@ -375,20 +386,25 @@ class erLhcoreClassGenericBotActionCommand {
 
             } else if (in_array($groupMethod, ['avg','sum','max','min','count_max','sum_avg'])) {
 
+                if (isset($variablesArray[$chatVariableValue])) {
+                    unset($variablesArray[$chatVariableValue]);
+                }
+
                 $groupedFields = [];
 
                 $messagesGroupFieldAll = isset($action['content']['payload_arg_val_sum']) ? explode(',',$action['content']['payload_arg_val_sum']) : [];
+                $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
 
                 foreach ($messages as $message) {
                     $messageVariables = $message->meta_msg_array;
                     if (isset($messageVariables[$messagesGroupField])) {
-                        if (empty($messagesGroupFieldAll) || in_array($messageVariables[$messagesGroupField],$messagesGroupFieldAll)){
-                            $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                        if (empty($messagesGroupFieldAll) || in_array($messageVariables[$messagesGroupField],$messagesGroupFieldAll)) {
+                            if ($messageVariables[$messagesGroupFieldValue] > $messagesThresholdValue) {
+                                $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                            }
                         }
                     }
                 }
-
-
 
                 $highestScore = 0;
 
