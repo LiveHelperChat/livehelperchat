@@ -453,10 +453,12 @@ class erLhcoreClassGenericBotActionCommand {
                     $params['msg']->updateThis(['update' => [$action['content']['payload']]]);
                 }
 
-                $chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
-                $chat->updateThis(['update' => ['operation']]);
+                if ($action['content']['payload'] == 'msg') {
+                    $chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
+                    $chat->updateThis(['update' => ['operation']]);
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $params['msg'], 'chat' => & $chat));
+                }
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $params['msg'], 'chat' => & $chat));
             }
 
         } elseif ($action['content']['command'] == 'metamsg') { // Meta message attribute
