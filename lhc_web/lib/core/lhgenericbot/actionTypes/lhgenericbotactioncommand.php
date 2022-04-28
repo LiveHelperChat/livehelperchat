@@ -447,7 +447,16 @@ class erLhcoreClassGenericBotActionCommand {
 
             if (isset($params['msg']) && is_object($params['msg'])) {
 
-                $params['msg']->{$action['content']['payload']} = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+                $contentPayload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+
+                if ($action['content']['payload'] == 'meta_msg') {
+                    $meta_msg_array = $params['msg']->meta_msg_array;
+                    $meta_msg_array = array_merge_recursive($meta_msg_array, json_decode($contentPayload,true));
+                    $params['msg']->meta_msg_array = $meta_msg_array;
+                    $params['msg']->meta_msg = json_encode($meta_msg_array);
+                } else {
+                    $params['msg']->{$action['content']['payload']} = $contentPayload;
+                }
 
                 if (in_array($action['content']['payload'],['msg','meta_msg','time','chat_id','user_id','name_support'])) {
                     $params['msg']->updateThis(['update' => [$action['content']['payload']]]);
