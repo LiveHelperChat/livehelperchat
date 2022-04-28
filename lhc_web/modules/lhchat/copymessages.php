@@ -18,7 +18,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
     $tplPlain->set('chat', $chat);
     $tplPlain->set('messages', $messages);
 
-    if (isset($_GET['system'])) {
+    if (isset($_GET['system']) || isset($_GET['meta'])) {
         echo json_encode(array('result' => $tplPlain->fetch()));
         exit;
     }
