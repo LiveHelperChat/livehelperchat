@@ -7,6 +7,7 @@
 <script>
     var rest_api_parameters = <?php isset($item->configuration_array['parameters']) ? print json_encode($item->configuration_array['parameters'],JSON_HEX_APOS) : print "[]"?>;
     var botRestAPIHost = <?php isset($item->configuration_array['host']) ? print json_encode($item->configuration_array['host'], JSON_HEX_APOS) : print "\"\""?>;
+    var botRestAPIECache = <?php isset($item->configuration_array['ecache']) && $item->configuration_array['ecache'] == true ? print 'true' : print 'false'?>;
 </script>
 
 <form action="<?php echo erLhcoreClassDesign::baseurl('genericbot/newrestapi')?>" method="post" ng-controller="BotRestAPIParameters as lhcrestapi" ng-init='lhcrestapi.initParams();'>
