@@ -498,10 +498,9 @@ class erLhcoreClassGenericBotActionCommand {
                 $params['msg']->meta_msg_array = $variablesArray;
                 $params['msg']->updateThis(['update' => ['meta_msg']]);
 
-                $chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
+                /*$chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
                 $chat->updateThis(['update' => ['operation']]);
-
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $params['msg'], 'chat' => & $chat));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $params['msg'], 'chat' => & $chat));*/
             }
 
 
