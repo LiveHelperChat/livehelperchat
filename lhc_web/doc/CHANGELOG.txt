@@ -2,7 +2,7 @@
 
 1. Option to cache Rest API request. Usefull if Rest API behaves just as intent, sentiment analysis because responses are always the same.
 
-execute doc/update_db/update_271.sql for update
+execute doc/update_db/update_272.sql for update
 
 3.99v
 
