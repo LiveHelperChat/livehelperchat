@@ -13,6 +13,17 @@
     <input type="text" class="form-control" name="configuration" ng-model="lhcrestapi.host" value="" />
 </div>
 
+<div class="form-group">
+    <label><input type="checkbox" ng-model="lhcrestapi.ecache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Enable cache');?></label>
+
+    <?php if ($item->id > 0) : ?>
+    <br>
+    <button name="ClearCacheAction" value="clear_cache" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Clear cache');?> (<?php echo erLhcoreClassModelGenericBotRestAPICache::getCount(['filter' => ['rest_api_id' => $item->id]])?>)</button>
+    <?php endif; ?>
+
+    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','We will cache unique request and responses to speed up processing.');?></i></small></p>
+</div>
+
 <input type="hidden" name="configuration" value="{{lhcrestapi.getJSON()}}" />
 
 <button class="btn btn-secondary" ng-click="lhcrestapi.addParameter()" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add request');?></button>

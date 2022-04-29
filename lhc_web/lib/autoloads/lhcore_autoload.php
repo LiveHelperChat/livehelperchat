@@ -307,6 +307,7 @@ return array_merge(array (
         'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',
+        'erLhcoreClassModelGenericBotRestAPICache'  => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapicache.php',
         'erLhcoreClassLHCBotWorker'                 => 'lib/core/lhgenericbot/lhgenericbotworker.php',
 
         // Group chat

@@ -84,7 +84,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'params' => $params
                 ));
 
-                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
@@ -669,17 +669,28 @@ class erLhcoreClassGenericBotActionRestapi
 
         $overridden = false;
 
+        $http_data = json_encode($paramsRequest);
+
         if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
             $content = $commandResponse['http_response'];
             $http_error = $commandResponse['http_error'];
             $httpcode = $commandResponse['http_code'];
             $overridden = true;
         } else {
-            $content = curl_exec($ch);
-            $http_error = '';
+            if (is_object($paramsCustomer['rest_api']) &&
+                isset($paramsCustomer['rest_api']->configuration_array['ecache']) &&
+                $paramsCustomer['rest_api']->configuration_array['ecache'] &&
+                ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($http_data . $url), 'rest_api_id' => $paramsCustomer['rest_api']->id]])) &&
+                $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
+                    $content = $responseCache->response;
+                    $http_error = '';
+                    $httpcode = 200;
+                    $overridden = true;
+            } else {
+                $content = curl_exec($ch);
+                $http_error = '';
+            }
         }
-
-        $http_data = json_encode($paramsRequest);
 
         if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
@@ -687,6 +698,16 @@ class erLhcoreClassGenericBotActionRestapi
 
         if ($overridden == false) {
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if ($httpcode == 200 &&
+                is_object($paramsCustomer['rest_api']) &&
+                isset($paramsCustomer['rest_api']->configuration_array['ecache']) &&
+                $paramsCustomer['rest_api']->configuration_array['ecache']) {
+                    $cacheRequest = new erLhcoreClassModelGenericBotRestAPICache();
+                    $cacheRequest->hash = md5($http_data . $url);
+                    $cacheRequest->response = $content;
+                    $cacheRequest->rest_api_id = $paramsCustomer['rest_api']->id;
+                    $cacheRequest->saveThisOnly();
+            }
         }
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {

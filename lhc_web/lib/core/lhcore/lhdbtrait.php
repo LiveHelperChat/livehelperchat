@@ -18,6 +18,14 @@ trait erLhcoreClassDBTrait
         $this->clearCache();
     }
 
+    public function saveThisOnly($params = array())
+    {
+        $this->beforeSave($params);
+        self::getSession()->save($this, (isset($params['ignore']) ? $params['ignore'] : array()), (isset($params['update']) ? $params['update'] : array()));
+        $this->afterSave($params);
+        $this->clearCache();
+    }
+
     public function saveOrUpdate($params = array())
     {
         $this->beforeSave($params);
