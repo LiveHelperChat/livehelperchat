@@ -2,13 +2,6 @@
     <tr>
         <td colspan="2" >
             <h6 class="font-weight-bold">
-                <?php
-                    $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
-                    $chatItems = [$chat];
-                    erLhcoreClassChat::prefillGetAttributes($chatItems, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));
-                ?>
-                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/icons_additional.tpl.php')); ?>
-
                 <i class="material-icons">chat</i>
                 <?php if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE) : ?>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Proactive chat')?>
