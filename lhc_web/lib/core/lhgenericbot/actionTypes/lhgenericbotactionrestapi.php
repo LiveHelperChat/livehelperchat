@@ -370,7 +370,9 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
+            '{{msg_lowercase}}' => mb_strtolower($msg_text),
             '{{msg_clean}}' => trim($msg_text_cleaned),
+            '{{msg_clean_lowercase}}' => mb_strtolower(trim($msg_text_cleaned)),
             '{{msg_url}}' => erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0)),
             '{{chat_id}}' => $paramsCustomer['chat']->id,
             '{{lhc.nick}}' =>$paramsCustomer['chat']->nick,
@@ -396,7 +398,9 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
+            '{{msg_lowercase}}' => json_encode(mb_strtolower($msg_text)),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
+            '{{msg_clean_lowercase}}' => json_encode(mb_strtolower(trim($msg_text_cleaned))),
             '{{msg_url}}' => json_encode(erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0))),
             '{{chat_id}}' => json_encode($paramsCustomer['chat']->id),
             '{{lhc.nick}}' => json_encode($paramsCustomer['chat']->nick),
@@ -707,7 +711,7 @@ class erLhcoreClassGenericBotActionRestapi
                     $cacheRequest->response = $content;
                     $cacheRequest->rest_api_id = $paramsCustomer['rest_api']->id;
                     $cacheRequest->saveThisOnly();
-                    
+
                     try {
                         $cacheRequest->saveThisOnly();
                     } catch (Exception $e) {
