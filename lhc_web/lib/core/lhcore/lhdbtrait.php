@@ -101,13 +101,15 @@ trait erLhcoreClassDBTrait
 
     public function clearCache()
     {
-
         $cache = CSCacheAPC::getMem();
         $cache->increaseCacheVersion('site_attributes_version_' . strtolower(__CLASS__));
-        $cache->delete('object_' . strtolower(__CLASS__) . '_' . $this->id);
 
-        if (isset($GLOBALS[__CLASS__ . $this->id])) {
-            unset($GLOBALS[__CLASS__ . $this->id]);
+        if (isset($this->id)) {
+            $cache->delete('object_' . strtolower(__CLASS__) . '_' . $this->id);
+
+            if (isset($GLOBALS[__CLASS__ . $this->id])) {
+                unset($GLOBALS[__CLASS__ . $this->id]);
+            }
         }
 
         $this->clearCacheClassLevel();

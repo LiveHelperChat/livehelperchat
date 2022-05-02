@@ -707,6 +707,12 @@ class erLhcoreClassGenericBotActionRestapi
                     $cacheRequest->response = $content;
                     $cacheRequest->rest_api_id = $paramsCustomer['rest_api']->id;
                     $cacheRequest->saveThisOnly();
+                    
+                    try {
+                        $cacheRequest->saveThisOnly();
+                    } catch (Exception $e) {
+                        // Sometimes object already exists
+                    }
             }
         }
 
