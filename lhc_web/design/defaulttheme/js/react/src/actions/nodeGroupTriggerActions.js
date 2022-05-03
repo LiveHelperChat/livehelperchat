@@ -51,6 +51,7 @@ export function fetchNodeGroupTriggerAction(triggerId) {
         axios.get(WWW_DIR_JAVASCRIPT + "genericbot/nodetriggeractions/" + triggerId)
         .then((response) => {
                 dispatch({type: "FETCH_TRIGGER_RESPONSE_FULFILLED", payload: response.data})
+                document.location.hash = '#!#%2Ftrigger-'+triggerId;
         })
         .catch((err) => {
                 dispatch({type: "FETCH_TRIGGER_RESPONSE_REJECTED", payload: err})
