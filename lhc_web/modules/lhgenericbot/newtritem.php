@@ -41,7 +41,7 @@ $Result['additional_footer_js'] = '<script type="text/javascript" src="'.erLhcor
 
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('genericbot/listtranslations'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Translations groups')),
+    array('url' => erLhcoreClassDesign::baseurl('genericbot/listtranslations'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Bot individualization')),
     array('url' => erLhcoreClassDesign::baseurl('genericbot/listtranslationsitems') . '/(group_id)/' . (int)$Params['user_parameters_unordered']['group_id'], 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Translations items')),
     array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','New')));
 

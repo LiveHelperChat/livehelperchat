@@ -58,7 +58,7 @@ $tpl->set('exceptions',$exceptionsFormatted);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('genericbot/listexceptions'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Exceptions')),
+    array('url' => erLhcoreClassDesign::baseurl('genericbot/listexceptions'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','Responses for API error')),
     array('title' => $botException->name));
 
 ?>

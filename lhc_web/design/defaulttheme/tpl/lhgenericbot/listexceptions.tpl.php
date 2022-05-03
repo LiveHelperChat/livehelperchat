@@ -1,4 +1,4 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Bot exceptions groups')?></h1>
+<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Responses for API error')?></h1>
 
 <?php if (isset($items)) : ?>
 
