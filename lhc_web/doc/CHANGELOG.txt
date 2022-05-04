@@ -1,7 +1,7 @@
 4.01v
 
 1. Option to skip event listener.
-2. 
+2. Custom event for Rest API call for external logging.
 
 execute doc/update_db/update_273.sql for update
 
