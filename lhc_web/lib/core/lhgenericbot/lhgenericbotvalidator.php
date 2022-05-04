@@ -34,6 +34,7 @@ class erLhcoreClassGenericBotValidator {
         $triggerEvent->configuration = json_encode($triggerEvent->configuration_array);
         $triggerEvent->on_start_type = (int)$data['on_start_type'];
         $triggerEvent->priority = (int)$data['priority'];
+        $triggerEvent->skip = (int)$data['skip'];
         $triggerEvent->saveThis();
     }
 
@@ -339,6 +340,10 @@ class erLhcoreClassGenericBotValidator {
 
                     if (isset($event['on_start_type'])) {
                         $eventObj->on_start_type = $event['on_start_type'];
+                    }
+
+                    if (isset($event['skip'])) {
+                        $eventObj->skip = (int)$event['skip'];
                     }
 
                     if (isset($event['priority'])) {

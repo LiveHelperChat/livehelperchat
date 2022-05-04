@@ -1,3 +1,10 @@
+4.01v
+
+1. Option to skip event listener.
+2. 
+
+execute doc/update_db/update_273.sql for update
+
 4.00v
 
 1. Option to cache Rest API request. Usefull if Rest API behaves just as intent, sentiment analysis because responses are always the same.

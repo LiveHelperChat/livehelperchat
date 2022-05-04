@@ -850,7 +850,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
                     }
 
-                    return array(
+                    $responseFormatted = array(
                         'content' => $responseValue,
                         'content_raw' => $content,
                         'http_code' => $httpcode,
@@ -863,6 +863,19 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
                         'id' => $outputCombination['id']);
+
+                    if (isset($outputCombination['method_name']) && !empty(trim($outputCombination['method_name']))) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_rest_api_method.' . trim($outputCombination['method_name']),
+                            array(  'method_settings' => $methodSettings,
+                                    'params_customer' => $paramsCustomer,
+                                    'params_request' => $paramsRequest,
+                                    'url' => $url,
+                                    'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
+                                    'response' => $responseFormatted)
+                        );
+                    }
+
+                    return $responseFormatted;
                 }
             }
 

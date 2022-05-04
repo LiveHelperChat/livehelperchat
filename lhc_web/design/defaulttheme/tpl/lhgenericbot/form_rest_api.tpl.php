@@ -416,7 +416,19 @@
                         <input type="text" class="form-control form-control-sm" ng-model="paramOutput.success_location_meta" placeholder="response:msg">
                     </div>
 
-                    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions')?></h5>
+                    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Custom event')?></h6>
+
+                    <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">chat.genericbot_rest_api_method.</div>
+                        </div>
+                        <input type="text" class="form-control" ng-model="paramOutput.method_name" placeholder="method_name">
+                        <input type="text" class="form-control" ng-model="paramOutput.method_name_args" placeholder="<?php echo htmlspecialchars('E.g {"method":1}')?>">
+                    </div>
+
+                    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This event will be dispatched and extension can listen to it. E.g you want additionally log response data.')?></i></small></p>
+
+                    <h6 class="mt-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions')?></h6>
 
                     <div class="row">
 
