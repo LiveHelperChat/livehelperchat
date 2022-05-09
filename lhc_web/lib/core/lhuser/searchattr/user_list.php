@@ -14,6 +14,18 @@ $fieldsSearch['email'] = array (
     )
 );
 
+$fieldsSearch['user_languages'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'id',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', [], FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['name'] = array (
     'type' => 'text',
     'trans' => 'Nick',
