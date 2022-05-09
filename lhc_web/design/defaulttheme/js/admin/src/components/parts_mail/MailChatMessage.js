@@ -75,6 +75,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>
+                    {moptions.mail_links && moptions.mail_links.map((link, index) => <a className="dropdown-item" target="_blank" href={link.link.replace('{msg_id}',message.id)}>{link.icon && <i className="material-icons text-muted">{link.icon}</i>}{link.title}</a>)}
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>}
                     {message.alt_body && <a className="dropdown-item" href="#" onClick={(e) => setPlainBody(!plainBody)}><i className="material-icons text-muted">visibility</i>{t('msg.plain_html')}</a>}
                 </div>

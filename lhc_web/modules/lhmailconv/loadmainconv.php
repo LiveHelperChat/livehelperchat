@@ -113,7 +113,7 @@ try {
             $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
         }
 
-        echo json_encode(array(
+        $editorOptions = array(
             'conv' => $conv,
             'customer_remarks' => $remarks,
             'messages' => array_values($messages),
@@ -127,9 +127,14 @@ try {
                 'send_as_new' => $currentUser->hasAccessTo('lhmailconv', 'send_as_new'),
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar,
+                'mail_links' => [],
                 'tiny_mce_path' => erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js')
             ]
-        ));
+        );
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.editor_options',array('options' => & $editorOptions));
+
+        echo json_encode($editorOptions);
 
         $db->commit();
     } else {

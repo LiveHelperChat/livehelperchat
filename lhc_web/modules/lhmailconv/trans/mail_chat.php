@@ -45,7 +45,7 @@ echo json_encode(array(
     "msg" => [
         "reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply'),
         "forward" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Forward'),
-        "download" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Download'),
+        "download" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Download (eml)'),
         "no_reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No reply required'),
         "info" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message information'),
         "from" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','from'),
