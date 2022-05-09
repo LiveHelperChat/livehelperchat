@@ -68,13 +68,13 @@ class erLhcoreClassModelCannedMsgTagLink
 
         $cannedMessagesAll = erLhcoreClassModelCannedMsg::getCannedMessages($paramsExecution['chat']->dep_id, $paramsExecution['user']->id, array('id' => $cannedMessagesIds));
 
-        if (count($cannedMessagesAll) > 50) {
+        if (count($cannedMessagesAll) > 100) {
             // Preserve keys
             $cannedMessageShirked = [];
 
             $counter = 0;
             foreach ($cannedMessagesAll as $cannedMessage) {
-                if ($counter >= 50) {
+                if ($counter >= 100) {
                     break;
                 }
                 $cannedMessageShirked[$cannedMessage->id] = $cannedMessage;
