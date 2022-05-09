@@ -1,3 +1,24 @@
+4.01v
+
+1. Option to skip event listener.
+2. Custom event for Rest API call for external logging.
+
+execute doc/update_db/update_273.sql for update
+
+4.00v
+
+1. Option to cache Rest API request. Usefull if Rest API behaves just as intent, sentiment analysis because responses are always the same.
+
+execute doc/update_db/update_272.sql for update
+
+3.99v
+
+1. Message aggregation for sentiment analysis per message implementation.
+2. Small security fix
+3. Possibility in statistic group by operator
+
+execute doc/update_db/update_271.sql for update
+
 3.98v
 
 1. Option to share your views with other operators.

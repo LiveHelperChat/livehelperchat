@@ -7,12 +7,27 @@ $id = $Params['user_parameters_unordered']['id'];
 if (is_array($id)) {
     erLhcoreClassChat::validateFilterIn($id);
 
+<<<<<<< HEAD
     $response = array();
 
     if (!empty($id)) {
         $chats = erLhcoreClassModelChat::getList(array('sort' => 'id DESC', 'filterin' => array('id' => $id)));
         foreach ($chats as $chat) {
             $item = array(
+=======
+if (!empty($id)) {
+
+    $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
+
+    $chats = erLhcoreClassModelChat::getList(array('sort' => 'id DESC', 'filterin' => array('id' => $id)));
+
+    if (!empty($icons_additional)) {
+        erLhcoreClassChat::prefillGetAttributes($chats, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));
+    }
+
+    foreach ($chats as $chat) {
+        $item = array(
+>>>>>>> master
                 'id' => $chat->id,
                 'nick' => $chat->nick,
                 'cs' => $chat->status,
@@ -34,7 +49,28 @@ if (is_array($id)) {
                 $item['aicons'] = $aicons;
             }
 
+<<<<<<< HEAD
             $response[] = $item;
+=======
+        $chatIcons = [];
+        foreach ($icons_additional as $iconAdditional) {
+            $columnIconData = json_decode($iconAdditional->column_icon,true);
+            if (isset($chat->{'cc_' . $iconAdditional->id})) {
+                $chatIcons[] = [
+                    'has_popup' => $iconAdditional->has_popup,
+                    'icon_id' => $iconAdditional->id,
+                    'title' => (isset($chat->{'cc_' . $iconAdditional->id . '_tt'})) ? $chat->{'cc_' . $iconAdditional->id . '_tt'} : (isset($chat->{'cc_' . $iconAdditional->id}) ? $chat->{'cc_' . $iconAdditional->id} : ''),
+                    'icon' => ($iconAdditional->column_icon != "" && strpos($iconAdditional->column_icon, '"') !== false) ? $columnIconData[$chat->{'cc_' . $iconAdditional->id}]['icon'] : $iconAdditional->column_icon,
+                    'color' => isset($columnIconData[$chat->{'cc_' . $iconAdditional->id}]['color']) ? $columnIconData[$chat->{'cc_' . $iconAdditional->id}]['color'] : '#CECECE'
+                ];
+            }
+        }
+        $item['adicons'] = $chatIcons;
+
+        $aicons = $chat->aicons;
+        if (!empty($aicons)) {
+            $item['aicons'] = $aicons;
+>>>>>>> master
         }
     }
 }

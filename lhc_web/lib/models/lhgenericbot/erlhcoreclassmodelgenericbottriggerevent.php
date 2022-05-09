@@ -24,6 +24,7 @@ class erLhcoreClassModelGenericBotTriggerEvent {
             'type' => $this->type,
             'on_start_type' => $this->on_start_type,
             'priority' => $this->priority,
+            'skip' => $this->skip,
         );
 
         return $stateArray;
@@ -70,4 +71,5 @@ class erLhcoreClassModelGenericBotTriggerEvent {
     public $bot_id = 0;
     public $on_start_type = 0;
     public $priority = 0;
+    public $skip = 0;
 }

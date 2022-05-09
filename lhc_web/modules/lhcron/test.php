@@ -91,5 +91,9 @@ foreach ($filteredMatchingRules as $rule){
 
 //var_dump($rule);
 
+/*
+$chat = erLhcoreClassModelChat::fetch(	1647599587);
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.close',array('chat' => & $chat));*/
+
 
 ?>

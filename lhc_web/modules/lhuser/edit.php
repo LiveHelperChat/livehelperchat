@@ -108,7 +108,7 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
             $tpl->set('updated',true);
         }
 
-    }  else {
+    } else {
         $tpl->set('errors',$Errors);
     }    
 }

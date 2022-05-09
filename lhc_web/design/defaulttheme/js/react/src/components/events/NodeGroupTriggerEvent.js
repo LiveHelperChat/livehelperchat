@@ -91,11 +91,18 @@ class NodeGroupTriggerEvent extends Component {
                                 <a className="float-right" onClick={this.deleteEvent}><i className="material-icons mr-0">delete</i></a>
                             </div>
                         </div>
-                        <select className="form-control form-control-sm" defaultValue={this.props.event.get('type')} onChange={this.typeChange}>
-                            <option value="0">Text</option>
-                            <option value="1">Click</option>
-                            <option value="2">Custom text matching</option>
-                        </select>
+                        <div className="row">
+                            <div className="col-6">
+                                <select className="form-control form-control-sm" defaultValue={this.props.event.get('type')} onChange={this.typeChange}>
+                                    <option value="0">Text</option>
+                                    <option value="1">Click</option>
+                                    <option value="2">Custom text matching</option>
+                                </select>
+                            </div>
+                            <div className="col-6">
+                                <label><input title="This matching rule will be ignored. Usefull during bot building process." type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['skip'],'value' : e.target.checked})} defaultChecked={this.props.event.get('skip')} /> Skip</label>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="form-group">

@@ -34,7 +34,7 @@ $Result['content'] = $tpl->fetch();
 
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/new','System configuration')),
-    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Translations groups'))
+    array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Bot individualization'))
 );
 
 ?>

@@ -1,7 +1,8 @@
 <?php if ( $chat->department !== false ) : ?>
     <tr>
         <td colspan="2" >
-            <h6 class="font-weight-bold"><i class="material-icons">chat</i>
+            <h6 class="font-weight-bold">
+                <i class="material-icons">chat</i>
                 <?php if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE) : ?>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Proactive chat')?>
                 <?php else : ?>

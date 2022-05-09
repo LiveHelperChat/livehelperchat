@@ -1,5 +1,3 @@
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Bot list')?></h1>
-
 <?php if (isset($items)) : ?>
 
 <table class="table" cellpadding="0" cellspacing="0" width="100%" ng-non-bindable>

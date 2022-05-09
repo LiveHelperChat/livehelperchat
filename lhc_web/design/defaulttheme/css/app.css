@@ -1962,3 +1962,11 @@ html {
 .bg-current {
     background-color: #ffc107 !important
 }
+
+.chat-tab-content.icon-user-status.material-icons:before{
+    content: "\e648"!important;
+}
+
+.chat-tab-content.icon-user-status.icon-user-online.material-icons:before{
+    content: "\e63e"!important;
+}

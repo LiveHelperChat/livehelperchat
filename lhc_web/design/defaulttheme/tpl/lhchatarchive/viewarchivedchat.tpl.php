@@ -1,3 +1,9 @@
+<div role="tabpanel" id="tabs">
+    <ul class="nav nav-pills" role="tablist">
+    </ul>
+    <div class="tab-content pl-1">
+
+        <div class="tab-pane active">
 
 <div class="row" ng-non-bindable>
     <div class="col-sm-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
@@ -34,3 +40,8 @@
     </div>
 </div>
 <script>ee.emitEvent('adminArchiveChatLoaded', [<?php echo $archive->id?>,<?php echo $chat->id;?>]);</script>
+
+    </div>
+
+    </div>
+</div>

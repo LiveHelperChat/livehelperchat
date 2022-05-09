@@ -28,12 +28,12 @@
     				
     				<div class="form-group">
         				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
-        				<select name="language" class="form-control">
+        				<select name="language" class="form-control form-control-sm">
         					<?php
                                 $userLanguage = erLhcoreClassModelUserSetting::getSetting('user_language', erLhcoreClassSystem::instance()->Language);
                                 foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) :
                             ?>
-        						<option value="<?php echo $language['locale']?>" <?php $userLanguage == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
+        						<option value="<?php echo htmlspecialchars($language['locale'])?>" <?php $userLanguage == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($language['locale'])?></option>
         					<?php endforeach;?>
         				</select> 
     				</div>
@@ -49,12 +49,13 @@
 	  <?php if ($currentUser->hasAccessTo('lhsystem','configurelanguages')) : ?>
 	       <div role="tabpanel" class="tab-pane <?php if ($tab == 'generalsettings') : ?>active<?php endif;?>" id="generalsettings">
 			<form action="<?php echo erLhcoreClassDesign::baseurl('system/languages')?>" method="post" name="siteaccess_change">
-				<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Current site access')?> - <strong><?php echo $current_site_access ?></strong>
+				<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Current site access')?> - <strong><?php echo htmlspecialchars($current_site_access) ?></strong>
 				</p>
 
-				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Site access')?></label> <select id="LocaleID" name="siteaccess" onchange="document.siteaccess_change.submit()" class="form-control">
+				<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Site access')?></label>
+                <select id="LocaleID" name="siteaccess" onchange="document.siteaccess_change.submit()" class="form-control form-control-sm">
 				<?php foreach ($locales as $locale) : ?>
-				      <option value="<?php echo $locale?>" <?php $input->siteaccess == $locale ? print 'selected="selected"' : ''?>><?php echo $locale?></option>
+				      <option value="<?php echo htmlspecialchars($locale)?>" <?php $input->siteaccess == $locale ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($locale)?></option>
 				<?php endforeach; ?>
 			    </select>
 
@@ -68,7 +69,7 @@
 
 		      <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-		      <input type="hidden" name="siteaccess" value="<?php echo $input->siteaccess?>" />
+		      <input type="hidden" name="siteaccess" value="<?php echo htmlspecialchars($input->siteaccess)?>" />
 
 		         <?php
                     $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', $input->siteaccess );
@@ -77,24 +78,26 @@
 					
 					<div class="form-group">
     					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Language')?></label> 
-    					<select name="language" class="form-control">
+    					<select name="language" class="form-control form-control-sm">
                 			<?php foreach (erLhcoreClassSiteaccessGenerator::getLanguages() as $language) : ?>
-                				<option value="<?php echo $language['locale']?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo $language['locale']?></option>
+                				<option value="<?php echo htmlspecialchars($language['locale'])?>" <?php $siteAccessOptions['locale'] == $language['locale'] ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($language['locale'])?></option>
                 			<?php endforeach;?>
                 		</select>
                     </div>
                     
 					<div class="form-group">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Theme, separate themes by new line')?></label>
-						<textarea class="form-control" name="theme"><?php echo implode("\n", $siteAccessOptions['theme'])?></textarea>
+						<textarea class="form-control form-control-sm" name="theme"><?php echo htmlspecialchars(implode("\n", $siteAccessOptions['theme']))?></textarea>
 					</div>
 
 					<div class="row form-group">
 						<div class="col-md-3">
-							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Default module')?></label> <input type="text" class="form-control" name="module" value="<?php echo $siteAccessOptions['default_url']['module']?>" />
+							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Default module')?></label>
+                            <input type="text" class="form-control form-control-sm" name="module" value="<?php echo htmlspecialchars($siteAccessOptions['default_url']['module'])?>" />
 						</div>
 						<div class="col-md-3">
-							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Default view')?></label> <input type="text" class="form-control" name="view" value="<?php echo $siteAccessOptions['default_url']['view']?>" />
+							<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/languages','Default view')?></label>
+                            <input type="text" class="form-control form-control-sm" name="view" value="<?php echo htmlspecialchars($siteAccessOptions['default_url']['view'])?>" />
 						</div>
 					</div>
 				
@@ -103,7 +106,7 @@
 			</form>
 
 		</div>
-	  <?php endif;?>	  
+	  <?php endif;?>
 	</div>
 
 </div>

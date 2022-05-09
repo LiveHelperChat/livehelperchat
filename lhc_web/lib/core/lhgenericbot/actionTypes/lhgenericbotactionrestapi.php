@@ -84,7 +84,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'params' => $params
                 ));
 
-                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+                $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
@@ -370,8 +370,11 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
+            '{{msg_lowercase}}' => mb_strtolower($msg_text),
             '{{msg_clean}}' => trim($msg_text_cleaned),
+            '{{msg_clean_lowercase}}' => mb_strtolower(trim($msg_text_cleaned)),
             '{{msg_url}}' => erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0)),
+            '{{msg_url_lowercase}}' => erLhcoreClassBBCodePlain::make_clickable(mb_strtolower($msg_text), array('sender' => 0)),
             '{{chat_id}}' => $paramsCustomer['chat']->id,
             '{{lhc.nick}}' =>$paramsCustomer['chat']->nick,
             '{{lhc.email}}' => $paramsCustomer['chat']->email,
@@ -396,8 +399,11 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
+            '{{msg_lowercase}}' => json_encode(mb_strtolower($msg_text)),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
+            '{{msg_clean_lowercase}}' => json_encode(mb_strtolower(trim($msg_text_cleaned))),
             '{{msg_url}}' => json_encode(erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0))),
+            '{{msg_url_lowercase}}' => json_encode(erLhcoreClassBBCodePlain::make_clickable(mb_strtolower($msg_text), array('sender' => 0))),
             '{{chat_id}}' => json_encode($paramsCustomer['chat']->id),
             '{{lhc.nick}}' => json_encode($paramsCustomer['chat']->nick),
             '{{lhc.email}}' => json_encode($paramsCustomer['chat']->email),
@@ -669,17 +675,28 @@ class erLhcoreClassGenericBotActionRestapi
 
         $overridden = false;
 
+        $http_data = json_encode($paramsRequest);
+
         if (isset($commandResponse['processed']) && $commandResponse['processed'] == true) {
             $content = $commandResponse['http_response'];
             $http_error = $commandResponse['http_error'];
             $httpcode = $commandResponse['http_code'];
             $overridden = true;
         } else {
-            $content = curl_exec($ch);
-            $http_error = '';
+            if (is_object($paramsCustomer['rest_api']) &&
+                isset($paramsCustomer['rest_api']->configuration_array['ecache']) &&
+                $paramsCustomer['rest_api']->configuration_array['ecache'] &&
+                ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($http_data . $url), 'rest_api_id' => $paramsCustomer['rest_api']->id]])) &&
+                $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
+                    $content = $responseCache->response;
+                    $http_error = '';
+                    $httpcode = 200;
+                    $overridden = true;
+            } else {
+                $content = curl_exec($ch);
+                $http_error = '';
+            }
         }
-
-        $http_data = json_encode($paramsRequest);
 
         if ($overridden == false && curl_errno($ch)) {
             $http_error = curl_error($ch);
@@ -687,6 +704,22 @@ class erLhcoreClassGenericBotActionRestapi
 
         if ($overridden == false) {
             $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if ($httpcode == 200 &&
+                is_object($paramsCustomer['rest_api']) &&
+                isset($paramsCustomer['rest_api']->configuration_array['ecache']) &&
+                $paramsCustomer['rest_api']->configuration_array['ecache']) {
+                    $cacheRequest = new erLhcoreClassModelGenericBotRestAPICache();
+                    $cacheRequest->hash = md5($http_data . $url);
+                    $cacheRequest->response = $content;
+                    $cacheRequest->rest_api_id = $paramsCustomer['rest_api']->id;
+                    $cacheRequest->saveThisOnly();
+
+                    try {
+                        $cacheRequest->saveThisOnly();
+                    } catch (Exception $e) {
+                        // Sometimes object already exists
+                    }
+            }
         }
 
         if (isset($methodSettings['output']) && !empty($methodSettings['output'])) {
@@ -817,7 +850,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
                     }
 
-                    return array(
+                    $responseFormatted = array(
                         'content' => $responseValue,
                         'content_raw' => $content,
                         'http_code' => $httpcode,
@@ -830,6 +863,19 @@ class erLhcoreClassGenericBotActionRestapi
                         'content_6' => (isset($responseValueSub[6]) ? $responseValueSub[6] : ''),
                         'meta' => $meta,
                         'id' => $outputCombination['id']);
+
+                    if (isset($outputCombination['method_name']) && !empty(trim($outputCombination['method_name']))) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_rest_api_method.' . trim($outputCombination['method_name']),
+                            array(  'method_settings' => $methodSettings,
+                                    'params_customer' => $paramsCustomer,
+                                    'params_request' => $paramsRequest,
+                                    'url' => $url,
+                                    'custom_args' => str_replace(array_keys($replaceVariables), array_values($replaceVariables), (isset($outputCombination['method_name_args']) ? $outputCombination['method_name_args'] : '')),
+                                    'response' => $responseFormatted)
+                        );
+                    }
+
+                    return $responseFormatted;
                 }
             }
 

@@ -17,6 +17,7 @@ return array(
     ),
     'column_icon' => array(
         'type' => 'text',
+        'hidden' => true,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Column icon, material icons text'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
@@ -40,6 +41,13 @@ return array(
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
+    'icon_mode' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Icon mode'),
+        'required' => false,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
     'chat_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Visible in chat list'),
@@ -48,6 +56,22 @@ return array(
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
+    'has_popup' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Has popup information'),
+        'hidden' => true,
+        'required' => false,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
+    'popup_content' => array(
+        'type' => 'textarea',
+        'hidden' => true,
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Popup content, icon will have an option to show a modal window'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'online_enabled' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Visible in online visitors list'),

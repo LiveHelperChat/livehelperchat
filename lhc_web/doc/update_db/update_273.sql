@@ -1,0 +1,1 @@
+ALTER TABLE `lh_generic_bot_trigger_event` ADD `skip` tinyint(1) NOT NULL DEFAULT '0', COMMENT='';

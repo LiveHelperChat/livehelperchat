@@ -30,7 +30,7 @@ class NodeGroups extends Component {
 
     render() {
 
-        const mappedNodeGroups = this.props.nodegroups.get('nodegroups').sortBy(group => group.get('pos')).map(nodegroup =><NodeGroup botId={this.props.botId} changeTitle={this.changeTitle.bind(this)} key={nodegroup.get('id')} group={nodegroup} />);
+        const mappedNodeGroups = this.props.nodegroups.get('nodegroups').sortBy(group => group.get('pos')).map(nodegroup =><NodeGroup triggerId={this.props.triggerId} botId={this.props.botId} changeTitle={this.changeTitle.bind(this)} key={nodegroup.get('id')} group={nodegroup} />);
 
         return (
             <div>

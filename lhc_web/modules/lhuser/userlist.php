@@ -20,6 +20,11 @@ erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_users', 'id');
     $filterParams['filter']['customfilter'][] = 'p2.id IS NULL';
 }*/
 
+if (is_array($filterParams['input_form']->user_languages) && !empty($filterParams['input_form']->user_languages)) {
+    $filterParams['filter']['innerjoin']['lh_speech_user_language'] = array('`lh_speech_user_language`.`user_id`','`lh_users` . `id`');
+    $filterParams['filter']['filterin']['`lh_speech_user_language`.`language`'] = $filterParams['input_form']->user_languages;
+}
+
 if ($Params['user_parameters_unordered']['export'] == 1) {
     erLhcoreClassChatExport::exportUsers(erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array('limit' => false,'sort' => 'id DESC'))));
 }

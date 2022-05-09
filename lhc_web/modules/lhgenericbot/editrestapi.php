@@ -9,6 +9,19 @@ if ( isset($_POST['Cancel_bot']) ) {
     exit;
 }
 
+if (isset($_POST['ClearCacheAction'])) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('genericbot/editrestapi','/' . $botRestAPI->id);
+        exit;
+    }
+
+    // Rest API Cache
+    $q = ezcDbInstance::get()->createDeleteQuery();
+    $q->deleteFrom('lh_generic_bot_rest_api_cache')->where( $q->expr->eq( 'rest_api_id', $botRestAPI->id ) );
+    $stmt = $q->prepare();
+    $stmt->execute();
+}
+
 if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 {
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {

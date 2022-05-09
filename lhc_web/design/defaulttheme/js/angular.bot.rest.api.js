@@ -1,6 +1,7 @@
 lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location','$rootScope', '$log','$window', function($scope, $http, $location, $rootScope, $log, $window) {
     this.parameters = [];
     this.host = "";
+    this.ecache = "";
 
     var that = this;
 
@@ -36,7 +37,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
     };
 
     this.getJSON = function () {
-        return JSON.stringify({'host' : that.host, 'parameters' : that.parameters});
+        return JSON.stringify({'host' : that.host, 'ecache': that.ecache, 'parameters' : that.parameters});
     }
 
     this.initParams = function () {
@@ -47,6 +48,7 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
            }
         });
         this.host = $window['botRestAPIHost'];
+        this.ecache = $window['botRestAPIECache'];
     }
 
 }]);

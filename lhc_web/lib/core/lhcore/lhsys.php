@@ -506,7 +506,7 @@ class erLhcoreClassSystem{
             $site_address = 'https://' . erLhcoreClassInstance::$instanceChat->address . '.' . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'seller_domain');
         } else if (($site_address = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false)) && $site_address != '') {
             return $site_address;
-        } elseif (isset($_SERVER['HTTP_HOST']) && (!is_array(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)) || empty(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)))) {
+        } elseif (isset($_SERVER['HTTP_HOST']) && (!is_array(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)) || count(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false)) == 0)) {
             $site_address = (erLhcoreClassSystem::$httpsMode == true || erLhcoreClassModelChatConfig::fetch('explicit_http_mode')->current_value == 'https:' ? 'https:' : 'http:') . '//' . $_SERVER['HTTP_HOST'] ; // trust only if match array not set
         } else if (class_exists('erLhcoreClassExtensionLhcphpresque')) {
             $site_address = erLhcoreClassModule::getExtensionInstance('erLhcoreClassExtensionLhcphpresque')->settings['site_address'];

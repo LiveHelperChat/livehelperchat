@@ -47,7 +47,6 @@
                 )); ?>
             </div>
         </div>
-
         <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Account status');?></label>
@@ -56,6 +55,22 @@
                     <option value="0" <?php if ($input->disabled === 0) : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active');?></option>
                     <option value="1" <?php if ($input->disabled === 1) : ?>selected="selected"<?php endif; ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Deactivated');?></option>
                 </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User language');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'user_languages[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select group'),
+                    'selected_id'    => $input->user_languages,
+                    'css_class'      => 'form-control form-control-sm',
+                    'display_name'   => 'dialect_name',
+                    'attr_id'        => 'lang_code',
+                    'no_selector'    => true,
+                    'list_function_params' => array('sort' => '`lang_name` ASC'),
+                    'list_function'  => 'erLhcoreClassModelSpeechLanguageDialect::getList'
+                )); ?>
             </div>
         </div>
         <div class="col-12">

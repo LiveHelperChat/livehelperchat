@@ -17,7 +17,7 @@ class erLhcoreClassGenericBotWorkflow {
             $paramsFilter['filternot']['id'] = self::$currentAlwaysEvent->id;
         }
 
-        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
+        $events = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()),'filter' => array('skip' => 0, 'type' => $type),'filterlikeright' => array('pattern' => $text)),$paramsFilter));
 
         foreach ($events as $event) {
             $configurationMatching = $event->configuration_array;
@@ -63,7 +63,7 @@ class erLhcoreClassGenericBotWorkflow {
             $paramsFilter['filternot']['id'] = self::$currentAlwaysEvent->id;
         }
 
-        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('type' => 2)), $paramsFilter));
+        $rulesMatching = erLhcoreClassModelGenericBotTriggerEvent::getList(array_merge_recursive(array('sort' => 'priority ASC', 'filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('skip' => 0, 'type' => 2)), $paramsFilter));
 
         // We want always want to return trigger with lowest number of typos
         $validRules = []; // trigger id => typos detected
@@ -1612,7 +1612,7 @@ class erLhcoreClassGenericBotWorkflow {
         $recursion_counter++;
 
         // Limit calls only for web calls
-        if (($recursion_counter > 50 && erLhcoreClassSystem::instance()->backgroundMode === false) || $recursion_counter > 1000) {
+        if (($recursion_counter > 50 && erLhcoreClassSystem::instance()->backgroundMode === false) || $recursion_counter > 10000) {
             throw new Exception('To many calls to process trigger! [50]');
         }
 

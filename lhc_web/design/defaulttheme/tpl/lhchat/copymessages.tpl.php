@@ -1,7 +1,14 @@
 <?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Copy messages')?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
-<label><input type="checkbox" onchange="copyMessageContent($(this))" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include system messages')?></label>
+<div class="row">
+    <div class="col-6">
+        <label><input type="checkbox" id="id-copy-messages-system" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include system messages')?></label>
+    </div>
+    <div class="col-6">
+        <label><input type="checkbox" id="id-copy-messages-meta" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include meta messages')?></label>
+    </div>
+</div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Messages')?></label>
@@ -9,16 +16,22 @@
 </div>
 
 <script>
-function copyMessageContent(inst) {
-    if (inst.is(':checked')) {
-        $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>/?system=true',function(data){
-            $('#chat-copy-messages').val(data.result);
-        });
-    } else {
-        $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>/?system=false',function(data){
-            $('#chat-copy-messages').val(data.result);
-        });
-    }
+function copyMessageContent() {
+
+    var args = {'system': 'false', 'meta': 'false'};
+
+    if ($('#id-copy-messages-system').is(':checked')) {
+        args['system'] = 'true';
+    };
+
+    if ($('#id-copy-messages-meta').is(':checked')) {
+        args['meta'] = 'true';
+    };
+
+    $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>', args, function(data){
+        $('#chat-copy-messages').val(data.result);
+    });
+
 }
 </script>
 

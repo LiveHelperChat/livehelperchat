@@ -21,9 +21,7 @@
             <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/switch_language.tpl.php'));?>
          <?php endif; ?>
 
-	    <span><i><?php if ($theme !== false && $theme->intro_operator_text != '') : ?><?php echo htmlspecialchars($theme->intro_operator_text); ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Have a question? Ask us!');?>
-	    <?php endif;?>
-	    </i></span>
+	    <span class="font-italic operator-profile-start-chat"><?php if ($theme !== false && $theme->intro_operator_text != '') : ?><?php echo $theme->intro_operator_text; ?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Have a question? Ask us!');?><?php endif;?></span>
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_start_chat_post.tpl.php'));?>
      </div>
 </div>

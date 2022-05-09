@@ -24,6 +24,10 @@ class NodeGroupTrigger extends Component {
         this.setAsArgumentTrigger = this.setAsArgumentTrigger.bind(this);
         this.changeGroup = this.changeGroup.bind(this);
         this.makeCopy = this.makeCopy.bind(this);
+
+        if (this.props.triggerId == this.props.trigger.get('id')) {
+            this.props.dispatch(fetchNodeGroupTriggerAction(this.props.trigger.get('id')))
+        }
     }
 
     loadTriggerActions() {

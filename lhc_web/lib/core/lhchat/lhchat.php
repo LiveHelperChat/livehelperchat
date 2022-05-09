@@ -1748,7 +1748,14 @@ class erLhcoreClassChat {
    			};
 
             if (isset($params['additional_columns']) && is_array($params['additional_columns']) && !empty($params['additional_columns'])) {
+
                 foreach ($params['additional_columns'] as $column) {
+
+                    // Translatable title
+                    if (strpos($column->column_name,'{args.') !== false) {
+                        $object->{'cc_' . $column->id . '_tt'} = erLhcoreClassGenericBotWorkflow::translateMessage($column->column_name, array('chat' => $object, 'args' => ['chat' => $object]));
+                    }
+
                     if (strpos($column->variable,'additional_data.') !== false) {
                         $additionalDataArray = $object->additional_data_array;
                         if (is_array($additionalDataArray)) {
@@ -1787,7 +1794,6 @@ class erLhcoreClassChat {
 
                 }
             }
-
 
    			foreach ($attrRemove as $attr) {
    				$object->{$attr} = null;
