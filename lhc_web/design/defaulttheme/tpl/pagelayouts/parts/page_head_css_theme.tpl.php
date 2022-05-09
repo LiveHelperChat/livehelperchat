@@ -1,7 +1,17 @@
 <?php if (isset($Result['theme']) && $Result['theme'] !== false) : ?>
 <?php if (!isset($react)) : ?>
     <style>
-<?php endif; ?>
+<?php endif;
+if (isset($theme) && $theme->custom_widget_css != '') {
+    $matchesImport = [];
+    preg_match_all("/@import url\((.*)\);/",$theme->custom_widget_css, $matchesImport);
+    foreach ($matchesImport[0] as $rule) {
+        echo $rule;
+        $theme->custom_widget_css = str_replace($rule,'',$theme->custom_widget_css);
+    }
+}
+?>
+
         <?php if ($Result['theme']->buble_visitor_background != '') : ?>
         #messagesBlock div.message-row.response div.msg-body:not(.msg-body-media):not(.msg-body-widget):not(.msg-body-emoji)
         {background-color:#<?php echo htmlspecialchars($Result['theme']->buble_visitor_background)?>!important;}
