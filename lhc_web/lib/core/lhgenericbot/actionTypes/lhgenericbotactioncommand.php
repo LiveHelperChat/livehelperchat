@@ -447,19 +447,32 @@ class erLhcoreClassGenericBotActionCommand {
 
             if (isset($params['msg']) && is_object($params['msg'])) {
 
-                $contentPayload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+                $db = ezcDbInstance::get();
 
-                if ($action['content']['payload'] == 'meta_msg') {
-                    $meta_msg_array = $params['msg']->meta_msg_array;
-                    $meta_msg_array = array_merge_recursive($meta_msg_array, json_decode($contentPayload,true));
-                    $params['msg']->meta_msg_array = $meta_msg_array;
-                    $params['msg']->meta_msg = json_encode($meta_msg_array);
-                } else {
-                    $params['msg']->{$action['content']['payload']} = $contentPayload;
-                }
+                try {
+                    $db->beginTransaction();
 
-                if (in_array($action['content']['payload'],['msg','meta_msg','time','chat_id','user_id','name_support'])) {
-                    $params['msg']->updateThis(['update' => [$action['content']['payload']]]);
+                    $params['msg']->syncAndLock();
+
+                    $contentPayload = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['payload_arg'], array('chat' => $chat, 'args' => $params));
+
+                    if ($action['content']['payload'] == 'meta_msg') {
+                        $meta_msg_array = $params['msg']->meta_msg_array;
+                        $meta_msg_array = array_merge_recursive($meta_msg_array, json_decode($contentPayload,true));
+                        $params['msg']->meta_msg_array = $meta_msg_array;
+                        $params['msg']->meta_msg = json_encode($meta_msg_array);
+                    } else {
+                        $params['msg']->{$action['content']['payload']} = $contentPayload;
+                    }
+
+                    if (in_array($action['content']['payload'],['msg','meta_msg','time','chat_id','user_id','name_support'])) {
+                        $params['msg']->updateThis(['update' => [$action['content']['payload']]]);
+                    }
+
+                    $db->commit();
+                } catch (Exception $e) {
+                    $db->rollback();
+                    throw $e;
                 }
 
                 if ($action['content']['payload'] == 'msg') {
@@ -474,29 +487,42 @@ class erLhcoreClassGenericBotActionCommand {
 
             if (isset($params['msg']) && is_object($params['msg'])) {
 
-                $variablesArray = (array)$params['msg']->meta_msg_array;
+                $db = ezcDbInstance::get();
 
-                if (isset($params['replace_array']) && is_array($params['replace_array'])) {
-                    $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
-                } else {
-                    $variablesAppend = $action['content']['payload'];
-                }
+                try {
+                    $db->beginTransaction();
 
-                $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
+                    $params['msg']->syncAndLock();
 
-                if (is_array($variablesAppend)) {
-                    foreach ($variablesAppend as $key => $value) {
-                        if (isset($value)) {
-                            $variablesArray[$key] = $value;
-                        } elseif (isset($variablesArray[$key])) {
-                            unset($variablesArray[$key]);
+                    $variablesArray = (array)$params['msg']->meta_msg_array;
+
+                    if (isset($params['replace_array']) && is_array($params['replace_array'])) {
+                        $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
+                    } else {
+                        $variablesAppend = $action['content']['payload'];
+                    }
+
+                    $variablesAppend = json_decode(erLhcoreClassGenericBotWorkflow::translateMessage($variablesAppend, array('as_json' => true, 'chat' => $chat, 'args' => $params)), true);
+
+                    if (is_array($variablesAppend)) {
+                        foreach ($variablesAppend as $key => $value) {
+                            if (isset($value)) {
+                                $variablesArray[$key] = $value;
+                            } elseif (isset($variablesArray[$key])) {
+                                unset($variablesArray[$key]);
+                            }
                         }
                     }
-                }
 
-                $params['msg']->meta_msg = json_encode($variablesArray);
-                $params['msg']->meta_msg_array = $variablesArray;
-                $params['msg']->updateThis(['update' => ['meta_msg']]);
+                    $params['msg']->meta_msg = json_encode($variablesArray);
+                    $params['msg']->meta_msg_array = $variablesArray;
+                    $params['msg']->updateThis(['update' => ['meta_msg']]);
+
+                    $db->commit();
+                } catch (Exception $e) {
+                    $db->rollback();
+                    throw $e;
+                }
 
                 /*$chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
                 $chat->updateThis(['update' => ['operation']]);
