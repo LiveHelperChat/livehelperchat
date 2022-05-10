@@ -4,7 +4,9 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $id = $Params['user_parameters_unordered']['id'];
 
-erLhcoreClassChat::validateFilterIn($id);
+if (is_array($id)) {
+    erLhcoreClassChat::validateFilterIn($id);
+}
 
 $response = array();
 
