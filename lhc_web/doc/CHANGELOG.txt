@@ -1,3 +1,13 @@
+4.02v
+
+1. Visitors can download now chat as txt file. Can be turned off in the chat configuration.
+2. Bot quick reply buttons now have option to set custom css class and icon content. Usefull while developing custom theme and using custom font.
+3. Survey widget state will have an operator profile shown.
+4. Various small changes for the widget modal windows. Paddings, button styles.
+5. Mobile app was not transferring chat to another operator.
+
+execute doc/update_db/update_274.sql for update
+
 4.01v
 
 1. Option to skip event listener.
