@@ -7,7 +7,13 @@
         <?php endif; ?>
     </span>
     <?php if (isset($extraMessage)) : ?>
-        <span class="font-italic op-extra-message"><?php echo $extraMessage;?></span>
+
+    <?php if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['job_new_row']) && $theme->bot_configuration_array['job_new_row'] == true) : ?>
+            <span class="font-italic d-block op-job-title"><?php echo $extraMessage;?></span>
+        <?php else : ?>
+            <span class="font-italic op-job-title"><?php echo $extraMessage;?></span>
+    <?php endif; ?>
+
     <?php elseif ($user->job_title != '' && !(isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['hide_job_title']) && $theme->bot_configuration_array['hide_job_title'] == true)) : ?>
         <?php if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['job_new_row']) && $theme->bot_configuration_array['job_new_row'] == true) : ?>
             <span class="font-italic d-block op-job-title"><?php echo htmlspecialchars($user->job_title);?></span>

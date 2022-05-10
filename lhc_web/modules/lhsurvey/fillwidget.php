@@ -48,7 +48,9 @@ try {
     if ($chat->hash == $hash)
     {
         $survey = erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']);
-        if($survey instanceof erLhAbstractModelSurvey) {
+        $survey->translate();
+
+        if ($survey instanceof erLhAbstractModelSurvey) {
             $surveyItem = erLhAbstractModelSurveyItem::getInstance($chat, $survey);
 
             $collectedSurvey = false;

@@ -9229,6 +9229,13 @@
         "hidden": "0"
       },
       {
+        "identifier": "disable_txt_dwnld",
+        "value": "0",
+        "type": "0",
+        "explain": "Disable chat download",
+        "hidden": "0"
+      },
+      {
         "identifier": "disable_send",
         "value": "0",
         "type": "0",

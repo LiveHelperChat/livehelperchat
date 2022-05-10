@@ -17,10 +17,31 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'survey_title' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey title'),
+        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Please complete this short evaluation survey'),
+        'required' => false,
+        'hidden' => true,
+        'translatable' => true,
+        'main_attr' => 'configuration_array',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'disable_chat_preview' => array(
         'type' => 'checkbox',
         'main_attr' => 'configuration_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Disable chat preview'),
+        'required' => false,
+        'hidden' => true,
+        'nginit' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'disable_chat_download' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Disable chat download'),
         'required' => false,
         'hidden' => true,
         'nginit' => true,

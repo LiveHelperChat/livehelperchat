@@ -20,9 +20,15 @@
 <?php echo erLhcoreClassAbstract::renderInput('feedback_text', $fields['feedback_text'], $object)?>
 </div>
 
+<?php $translatableItem = array('identifier' => 'survey_title'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
 <div class="form-group">
-    <label><?php echo $fields['disable_chat_preview']['trans'];?></label>
-    <?php echo erLhcoreClassAbstract::renderInput('disable_chat_preview', $fields['disable_chat_preview'], $object)?>
+    <label><?php echo erLhcoreClassAbstract::renderInput('disable_chat_preview', $fields['disable_chat_preview'], $object)?> <?php echo $fields['disable_chat_preview']['trans'];?></label>
+</div>
+
+<div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('disable_chat_download', $fields['disable_chat_download'], $object)?> <?php echo $fields['disable_chat_download']['trans'];?></label>
 </div>
 
 <hr>

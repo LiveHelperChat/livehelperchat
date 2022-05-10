@@ -21,7 +21,7 @@
     				<?php elseif ($sortOption['type'] == 'question') : ?>
     				<div class="form-group">
     					<label class="survey-question-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
-    					<textarea class="form-control" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
+    					<textarea class="form-control form-control-sm" rows="2" style="height: 55px" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
     				</div>
     				<?php elseif ($sortOption['type'] == 'question_options') : ?>
                     <label class="survey-question-option-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
@@ -33,7 +33,7 @@
                                     <label class="form-check-label" for="<?php echo $sortOption['field']?>EvaluateOption_<?php echo $key+1?>"><?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?></label>
                                 </div>
                             <?php else : ?>
-                                <label>
+                                <label class="pr-3">
                                     <?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?>
                                     <div align="center">
                                         <input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/>

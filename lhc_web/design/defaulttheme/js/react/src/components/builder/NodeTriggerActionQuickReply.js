@@ -23,6 +23,17 @@ class NodeTriggerActionQuickReply extends Component {
         this.onStoreNameChange = this.onStoreNameChange.bind(this);
         this.onStoreValueChange = this.onStoreValueChange.bind(this);
         this.onButtonIDChange = this.onButtonIDChange.bind(this);
+
+        this.onButtonIconContentChange = this.onButtonIconContentChange.bind(this);
+        this.onButtonCSSClassChange = this.onButtonCSSClassChange.bind(this);
+    }
+
+    onButtonIconContentChange(e) {
+        this.props.onPayloadAttrChange({id : this.props.id, payload : {attr: 'button_icon', value: e.target.value}});
+    }
+
+    onButtonCSSClassChange(e) {
+        this.props.onPayloadAttrChange({id : this.props.id, payload : {attr: 'button_class', value: e.target.value}});
     }
 
     onStoreNameChange(e) {
@@ -134,11 +145,22 @@ class NodeTriggerActionQuickReply extends Component {
                         <div className="col-6">
                             <label><input type="checkbox" onChange={(e) => this.props.onButtonStoreTypeChange({id : this.props.id, value : e.target.checked})} defaultChecked={this.props.reply.getIn(['content','as_variable'])} /> Save value as chat variable.</label> <i className="material-icons" title="This will be invisible for the operator.">info</i>
                         </div>
-
                         <div className="col-6">
                             <div className="form-group">
-                                <label>Button ID</label>
+                                <label>Button ID, element id attribute.</label>
                                 <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>CSS Class element</label>
+                                <input type="text" placeholder="Button CSS class" onChange={this.onButtonCSSClassChange} defaultValue={this.props.reply.getIn(['content','button_class'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Icon name. Based on material icons.</label>
+                                <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
                             </div>
                         </div>
                     </div>

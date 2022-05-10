@@ -58,10 +58,10 @@ class MailModal extends PureComponent {
             <React.Fragment>
                 {this.state.mail !== null && <React.Fragment>
                 <div className="fade modal-backdrop show"></div>
-                <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block" tabIndex="-1">
+                <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block mail-send-modal" tabIndex="-1">
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
-                            <div className="modal-header pt-1 pb-1 pl-2 pr-2"> <h4 className="modal-title" id="myModalLabel"><span className="material-icons">&#xf11a;</span>{t('button.mail')}</h4>
+                            <div className="modal-header"> <h4 className="modal-title" id="myModalLabel"><span className="material-icons">&#xf11a;</span>{t('button.mail')}</h4>
                                 <button type="button" className="close float-right" data-dismiss="modal" onClick={this.dismissModal} aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div className="modal-body">
@@ -70,10 +70,21 @@ class MailModal extends PureComponent {
                                         {this.state.errors && <div className="mb-0" dangerouslySetInnerHTML={{__html:this.state.errors}}></div>}
                                         <div className="mb-0">
                                             <form onSubmit={this.sendMail}>
-                                                <input className="form-control form-group form-control-sm" ref={this.emailRef} required="required" type="email" defaultValue={this.state.mail} onChange={(e) => this.setState({'mail' : e.target.value})} placeholder={t('chat.enter_email')} title={t('chat.enter_email')} />
-                                                <div className="btn-group" role="group" aria-label="...">
-                                                    <button type="submit" disabled={this.state.sending} className="btn btn-secondary btn-sm">{t('button.send')}</button>
-                                                    <button type="button" className="btn btn-secondary btn-sm" onClick={this.dismissModal}>{t('button.cancel')}</button>
+                                                <p className="mail-explain">
+                                                    {t('button.email_explain')}
+                                                </p>
+                                                <div className="form-group">
+                                                    <label className="text-muted">{t('button.email')}</label>
+                                                    <input className="form-control form-group form-control-sm" ref={this.emailRef} required="required" type="email" defaultValue={this.state.mail} onChange={(e) => this.setState({'mail' : e.target.value})} placeholder={t('chat.enter_email')} title={t('chat.enter_email')} />
+                                                </div>
+                                                <div className="row">
+                                                    <div className="col-5">
+                                                        <button type="submit" disabled={this.state.sending || this.state.mail == ''} className="btn btn-primary w-100 btn-sm">{t('button.send')}</button>
+                                                    </div>
+                                                    <div className="col-2"></div>
+                                                    <div className="col-5">
+                                                        <button type="button" className="btn text-muted btn-link btn-sm w-100" onClick={this.dismissModal}>{t('button.cancel')}</button>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>

@@ -269,6 +269,10 @@ try {
             $outputResponse['chat_ui']['print'] = true;
         }
 
+        if ((int)erLhcoreClassModelChatConfig::fetch('disable_txt_dwnld')->current_value == 0) {
+            $outputResponse['chat_ui']['dwntxt'] = true;
+        }
+
         $notificationsSettings = erLhcoreClassModelChatConfig::fetch('notifications_settings')->data_value;
 
         if (isset($notificationsSettings['enabled']) && $notificationsSettings['enabled'] == 1 && (!isset($theme) || $theme === false || (isset($theme->notification_configuration_array['notification_enabled']) && $theme->notification_configuration_array['notification_enabled'] == 1))) {

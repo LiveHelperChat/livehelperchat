@@ -1,4 +1,4 @@
-<div class="fill-survey-container">
+<div class="fill-survey-container px-2">
     <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/parts/header.tpl.php'));?>
     <div class="fill-survey-form">
         <form action="" method="post">
@@ -7,23 +7,31 @@
             <?php endif; ?>
             
             <?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fill.tpl.php'));?>
-            
-            <hr class="mt-1 mb-1">
-            
-            <div class="btn-group" role="group" aria-label="...">
-                <?php if ($survey_item->is_filled == false) : ?>
-                    <input type="submit" class="btn btn-success btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Submit')?>" name="Vote" />
+
+            <div class="row mt-2">
+                <div class="col-6">
+
+                <?php if ($survey_item->is_filled == true && ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
+                    <input type="button" class="btn btn-sm w-100 btn-primary mb-1" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
                 <?php endif;?>
 
-                <?php if (!(isset($survey->configuration_array['disable_chat_preview']) && $survey->configuration_array['disable_chat_preview'] == true)) : ?>
-                <button type="button" class="btn btn-info btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})"><i class="material-icons">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Preview chat')?></button>
-                <?php endif; ?>
+                <?php if ($survey_item->is_filled == false) : ?>
+                    <input type="submit" class="w-100 btn btn-primary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send feedback')?>" name="Vote" />
+                <?php endif;?>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 text-right">
+                    <?php if ((int)erLhcoreClassModelChatConfig::fetch('disable_txt_dwnld')->current_value == 0 && !(isset($survey->configuration_array['disable_chat_download']) && $survey->configuration_array['disable_chat_download'] == true)) : ?>
+                        <a href="<?php echo erLhcoreClassDesign::baseurl('chat/downloadtxt')?>/<?php echo $chat->id,"/",$chat->hash?>" class="btn text-muted btn-link btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Download as txt')?>"><i class="material-icons">cloud_download</i></a>
+                    <?php endif; ?>
+
+                    <?php if (!(isset($survey->configuration_array['disable_chat_preview']) && $survey->configuration_array['disable_chat_preview'] == true)) : ?>
+                    <button type="button" class="btn text-muted btn-link btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Preview chat')?>"><i class="material-icons">preview</i></button>
+                    <?php endif; ?>
+
+                </div>
             </div>
-            
-            <?php if ($survey_item->is_filled == true && ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT || !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED)))) : ?>
-                 <input type="button" class="btn btn-sm btn-success mb-1 float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Close')?>" onclick="lhinst.userclosedchatembed();" />
-            <?php endif;?>
-            
+
             <?php 
             /**
              * Because user filled a survey we have to redirect it back to chat

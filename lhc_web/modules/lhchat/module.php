@@ -545,6 +545,10 @@ $ViewList['printchat'] = array(
     'params' => array('chat_id','hash')
 );
 
+$ViewList['downloadtxt'] = array(
+    'params' => array('chat_id','hash')
+);
+
 $ViewList['readchatmail'] = array(
     'params' => array('chat_id','hash')
 );

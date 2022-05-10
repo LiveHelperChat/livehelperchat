@@ -251,6 +251,67 @@ class erLhAbstractModelSurvey {
         $this->configuration = json_encode($this->configuration_array);
     }
 
+    public function dependFooterJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.theme.js').'"></script>';
+    }
+
+    public function translate() {
+        $chatLocale = null;
+        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
+
+        // Detect user locale
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $languages = explode(',',$parts[0]);
+            if (isset($languages[0])) {
+                $chatLocale = $languages[0];
+            }
+        }
+
+        $attributesDirect = array(
+        );
+
+        $translatableAttributes = array_merge(array(
+            'survey_title'
+        ),$attributesDirect);
+
+        $attributes = $this->configuration_array;
+
+        foreach ($translatableAttributes as $attr) {
+            if (isset($attributes[$attr . '_lang'])) {
+
+                $translated = false;
+
+                if ($chatLocale !== null) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocale, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated == false) {
+                    foreach ($attributes[$attr . '_lang'] as $attrTrans) {
+                        if (in_array($chatLocaleFallback, $attrTrans['languages']) && $attrTrans['content'] != '') {
+                            $attributes[$attr] = $attrTrans['content'];
+                            $translated = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($translated === true && in_array($attr,$attributesDirect)) {
+                    $this->$attr = $attributes[$attr];
+                }
+            }
+        }
+
+        $this->configuration_array = $attributes;
+    }
+
    	public $id = null;
 	public $name = '';
 	

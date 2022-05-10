@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg mx-4">
     <div class="modal-content">
         <div class="modal-body">
             <?php
