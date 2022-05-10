@@ -5,6 +5,7 @@
 3. Survey widget state will have an operator profile shown.
 4. Various small changes for the widget modal windows. Paddings, button styles.
 5. Mobile app was not transferring chat to another operator.
+6. More CSS classes for widget elements to override them with custom CSS.
 
 execute doc/update_db/update_274.sql for update
 
