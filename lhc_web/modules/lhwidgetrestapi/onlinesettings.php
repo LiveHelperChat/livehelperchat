@@ -721,7 +721,7 @@ if ($theme !== false) {
 
         if ($bot instanceof erLhcoreClassModelGenericBotBot)
         {
-            if ($bot->has_photo) {
+            if ($bot->has_photo && $theme->operator_image_url === false) {
                 $theme->operator_image_url = $bot->photo_path;
             }
 

@@ -25,7 +25,11 @@ import {
     MOVE_UP,
     MOVE_DOWN,
     LOAD_USE_CASES_TRIGGER_FULFILLED,
-    INIT_BOT_REST_API_METHODS
+    INIT_BOT_REST_API_METHODS,
+    LOAD_TEMPLATE_FULFILLED,
+    SAVE_TEMPLATE_FULFILLED,
+    SAVE_EVENT_TEMPLATE_FULFILLED,
+    LOAD_EVENT_TEMPLATE_FULFILLED
 } from "../constants/action-types";
 
 import {fromJS} from 'immutable';
@@ -35,6 +39,8 @@ const initialState = fromJS({
     currenttrigger : {},
     payloads : [],
     rest_api_calls : [],
+    templates : [],
+    event_templates : [],
     fetching: false,
     fetched: false,
     error: null
@@ -43,8 +49,16 @@ const initialState = fromJS({
 const nodeGroupTriggerReducer = (state = initialState, action) => {
     switch (action.type) {
 
+        case LOAD_TEMPLATE_FULFILLED: {
+            return state.setIn(['currenttrigger','actions'], fromJS(action.payload.result));
+        }
+
         case FETCH_TRIGGER_RESPONSE_FULFILLED: {
             return state.set('currenttrigger', fromJS(action.payload));
+        }
+
+        case LOAD_EVENT_TEMPLATE_FULFILLED: {
+            return state.setIn(['currenttrigger','events'], fromJS(action.payload.events));
         }
 
         case FETCH_TRIGGER_RESPONSE_REJECTED: {
@@ -168,8 +182,19 @@ const nodeGroupTriggerReducer = (state = initialState, action) => {
             return state.deleteIn(['currenttrigger','events',indexOfListingToUpdate]);
         }
 
-        case INIT_BOT_FULFILLED : {
-            return state.set('payloads',fromJS(action.payload['payloads'])).set('rest_api_calls',fromJS(action.payload['rest_api_calls']));
+        case INIT_BOT_FULFILLED: {
+            return state.set('payloads',fromJS(action.payload['payloads']))
+                .set('rest_api_calls',fromJS(action.payload['rest_api_calls']))
+                .set('event_templates',fromJS(action.payload['event_templates']))
+                .set('templates',fromJS(action.payload['templates']));
+        }
+
+        case SAVE_TEMPLATE_FULFILLED: {
+            return state.set('templates',fromJS(action.payload['templates']));
+        }
+
+        case SAVE_EVENT_TEMPLATE_FULFILLED: {
+            return state.set('event_templates',fromJS(action.payload['templates']));
         }
 
         case INIT_BOT_REST_API_METHODS: {
