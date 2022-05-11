@@ -1,3 +1,11 @@
+4.03v
+
+1. Option to save bot response as template or quickly copy from another trigger.
+2. Option to save trigger events as template.
+3. If widget theme was used and theme has an image it should override bot logo.
+
+execute doc/update_db/update_275.sql for update
+
 4.02v
 
 1. Visitors can download now chat as txt file. Can be turned off in the chat configuration.

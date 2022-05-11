@@ -50,7 +50,6 @@ class NodeTriggerActionText extends Component {
     }
 
     addAnswerVariation() {
-        console.log('add answer validation');
         var newVal = this.props.action.getIn(['content','text'])+" |||\n";
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','text'], value : newVal});
         this.textMessageRef.current.focus();

@@ -162,6 +162,78 @@ export function saveTrigger(obj) {
         }
 }
 
+export function saveEventTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "SAVE_EVENT_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/eventtemplate", obj)
+                .then((response) => {
+                dispatch({type: "SAVE_EVENT_TEMPLATE_FULFILLED", payload: response.data});
+        }).catch((err) => {
+                dispatch({type: "SAVE_EVENT_TEMPLATE_REJECTED", payload: err})
+            })
+        }
+}
+
+export function deleteEventTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "DELETE_EVENT_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/deleteeventtemplate", obj)
+            .then((response) => {
+                dispatch({type: "SAVE_EVENT_TEMPLATE_FULFILLED", payload: response.data});
+            }).catch((err) => {
+            dispatch({type: "DELETE_EVENT_TEMPLATE_REJECTED", payload: err})
+        })
+    }
+}
+
+export function saveTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "SAVE_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/template", obj)
+                .then((response) => {
+                dispatch({type: "SAVE_TEMPLATE_FULFILLED", payload: response.data});
+        }).catch((err) => {
+                dispatch({type: "SAVE_TEMPLATE_REJECTED", payload: err})
+            })
+        }
+}
+
+export function loadTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "LOAD_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/loadtemplate", obj)
+                .then((response) => {
+                dispatch({type: "LOAD_TEMPLATE_FULFILLED", payload: response.data});
+        }).catch((err) => {
+                dispatch({type: "LOAD_TEMPLATE_REJECTED", payload: err})
+            })
+        }
+}
+
+export function loadEventTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "LOAD_EVENT_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/loadeventtemplate", obj)
+            .then((response) => {
+                dispatch({type: "LOAD_EVENT_TEMPLATE_FULFILLED", payload: response.data});
+            }).catch((err) => {
+            dispatch({type: "LOAD_EVENT_TEMPLATE_REJECTED", payload: err})
+        })
+    }
+}
+
+export function deleteTemplate(obj) {
+    return function(dispatch) {
+        dispatch({type: "DELETE_TEMPLATE", payload : obj});
+        axios.post(WWW_DIR_JAVASCRIPT + "genericbot/savetrigger/(method)/deletetemplate", obj)
+                .then((response) => {
+                dispatch({type: "SAVE_TEMPLATE_FULFILLED", payload: response.data});
+        }).catch((err) => {
+                dispatch({type: "DELETE_TEMPLATE_REJECTED", payload: err})
+            })
+        }
+}
+
 export function updatePayload(dispatch, obj) {
         axios.post(WWW_DIR_JAVASCRIPT + "genericbot/getpayloads/" + obj.get('id'))
             .then((response) => {
