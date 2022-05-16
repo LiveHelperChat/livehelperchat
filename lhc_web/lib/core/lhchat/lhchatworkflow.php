@@ -787,7 +787,7 @@ class erLhcoreClassChatWorkflow {
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $user_id));
 
-                        $msg->msg = $previousMessage . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was assigned to') . ' [' . $userNew->id .'] ' . $msg->name_support;
+                        $msg->msg = $previousMessage . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat was assigned to') . ' [' . $userNew->id .'] ' . (isset($tryDefault) && $tryDefault === false ? ' [' . $chat->chat_locale . '] ' : '') . $msg->name_support;
 
                         erLhcoreClassChat::getSession()->save($msg);
 
