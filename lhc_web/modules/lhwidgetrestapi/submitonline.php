@@ -390,7 +390,7 @@ if (empty($Errors)) {
             $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
         }
 
-        if ($responder instanceof erLhAbstractModelAutoResponder) {
+        if (isset($responder) && $responder instanceof erLhAbstractModelAutoResponder) {
             $beforeAutoResponderErrors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_triggered',array('chat' => & $chat, 'errors' => & $beforeAutoResponderErrors));
 
