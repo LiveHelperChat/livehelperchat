@@ -16,8 +16,14 @@ if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhc
         $chat->user_typing = time();
         $chat->user_typing_txt = ($chat->fbst == 1 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Thumbs up') : ($chat->fbst == 2 ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Thumbs down') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voteaction','Removed thumb vote')));
 
-        $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
-        
+        if (strpos($chat->operation_admin,'lhinst.updateVoteStatus') === false) {
+            $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+        }
+
+        if (strlen($chat->operation_admin) > 200) {
+            $chat->operation_admin = "lhinst.updateVoteStatus(".$chat->id.");";
+        }
+
         $chat->updateThis(array('update' => array('fbst','user_typing','user_typing_txt','operation_admin')));
         
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('vote.action', array('chat' => & $chat));
