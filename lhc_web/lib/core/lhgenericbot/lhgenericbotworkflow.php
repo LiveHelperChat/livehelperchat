@@ -2235,12 +2235,9 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         if ($locale === null) {
-            if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-                $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-                $languages = explode(',',$parts[0]);
-                if (isset($languages[0])) {
-                    $locale = $languages[0];
-                }
+            $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
+            if ($chatLocale !== null) {
+                $locale = $chatLocale;
             }
         }
 

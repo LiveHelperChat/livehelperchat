@@ -392,16 +392,7 @@ class erLhAbstractModelProactiveChatInvitation {
 
 	public function translateByLocale()
     {
-        $chatLocale = null;
-
-        // Detect user locale
-        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-            $languages = explode(',',$parts[0]);
-            if (isset($languages[0])) {
-                $chatLocale = $languages[0];
-            }
-        }
+        $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
 
         // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
         if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
