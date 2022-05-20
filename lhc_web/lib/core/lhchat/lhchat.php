@@ -2362,7 +2362,7 @@ class erLhcoreClassChat {
            if (is_numeric($themeId)) {
                $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
                // Don't expose existing theme
-               if ($checkAlias == true && $theme->alias != '') {
+               if ($checkAlias == true && $theme instanceof erLhAbstractModelWidgetTheme && $theme->alias != '') {
                    return false;
                }
            } else {

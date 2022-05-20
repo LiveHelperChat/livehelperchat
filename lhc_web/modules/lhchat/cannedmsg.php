@@ -9,10 +9,14 @@ $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['u
 $tpl->set('tab',$tab);
 
 if ($tab == 'cannedmsg') {
+
     /**
      * Append user departments filter
      * */
     $departmentParams = array();
+
+    $userDepartments = true;
+
     if (!$currentUser->hasAccessTo('lhchat','explorecannedmsg_all')) {
         $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
         if ($userDepartments !== true) {
@@ -35,6 +39,7 @@ if ($tab == 'cannedmsg') {
             }
 
             $Msg = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelCannedMsg', (int)$Params['user_parameters_unordered']['id']);
+
             if ($userDepartments === true || empty(array_diff($Msg->department_ids_front, $userDepartments))) {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg_before_remove',array('msg' => & $Msg));
                 $Msg->removeThis();

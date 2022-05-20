@@ -40,8 +40,10 @@
 <?php include_once(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_start_chat.tpl.php'));?>
 <?php endif;?>
 
-<?php if (isset($errors)) : ?>
-		<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php if (isset($errors['blocked_user'])) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/blocked_user_startchat.tpl.php'));?>
+<?php elseif (isset($errors)) : ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 <?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhchat/chatwidget/chatwidget_pre_form_multiinclude.tpl.php'));?>

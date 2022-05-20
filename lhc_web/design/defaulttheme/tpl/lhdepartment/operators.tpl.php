@@ -4,6 +4,7 @@ $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslati
 $modalBodyClass = 'p-1';
 $modalSize = 'xl';
 ?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
     <div class="modal-body" ng-non-bindable>
         <div class="p-2">
@@ -17,6 +18,13 @@ $modalSize = 'xl';
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Assignment type');?></th>
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department group');?></th>
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Exclude from auto assign workflow');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Max chats');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active chats');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Inactive chats');?></th>
+                    <th class="<?php if ($department->assign_same_language == 0) : ?>text-muted<?php endif;?>">
+                        <span class="material-icons<?php if ($department->assign_same_language == 1) : ?> text-success<?php endif;?>"><?php if ($department->assign_same_language == 1) : ?>done<?php else : ?>remove_done<?php endif; ?></span>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Op. Languages');?>
+                    </th>
                 </tr>
                 </thead>
             <?php foreach (erLhcoreClassModelUserDep::getList(['sort' => 'user_id ASC, type ASC','filter' => ['dep_id' => $department->id], 'limit' => false]) as $member) : ?>
@@ -53,10 +61,21 @@ $modalSize = 'xl';
                             <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
                         <?php endif; ?>
                     </td>
+                    <td><?php echo $member->max_chats?></td>
+                    <td><?php echo $member->active_chats?></td>
+                    <td><?php echo $member->inactive_chats?></td>
+                    <td class="w-20 <?php if ($department->assign_same_language == 0) : ?>text-muted<?php endif;?>">
+                        <div class="abbr-list abbr-list-lang" style="max-width: 150px;" data-toggle="tooltip" data-placement="left" title="<?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $member->user_id]]); foreach ($itemLanguages as $lang) : ?><?php echo htmlspecialchars($lang->language . ' ')?><?php endforeach; ?>">
+                            <?php foreach ($itemLanguages as $lang) : ?><span class="badge badge-<?php if ($department->assign_same_language == 1) : ?>success<?php else : ?>secondary<?php endif;?> mr-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
+                        </div>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </table>
 
         </div>
     </div>
+<script>
+    $('.abbr-list-lang').tooltip();
+</script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

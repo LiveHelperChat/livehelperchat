@@ -125,7 +125,7 @@ class erLhcoreClassLHCMobile {
                 'inst_id' => $inst_id,
                 'type' => 'subject',
                 'user_id' => (isset($params['user_id']) ? $params['user_id'] : 0),
-                'init' => $params['init'],
+                'init' => (isset($params['init']) ? $params['init'] : 'bot'),
                 'subject_id' => (isset($params['subject_id']) ? $params['subject_id'] : 0),
                 'chat_id' => $params['chat']->id));
             return;
