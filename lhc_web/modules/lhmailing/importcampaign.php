@@ -67,9 +67,9 @@ if (isset($_POST['UploadFileAction'])) {
         if ($canned === $header) {
 
             if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
-                $q = ezcDbInstance::get()->createDeleteQuery();
-                $q->deleteFrom(`lhc_mailconv_mailing_campaign_recipient`)->where( $q->expr->eq( 'campaign_id', $campaign->id ) );
-                $stmt = $q->prepare();
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('DELETE FROM `lhc_mailconv_mailing_campaign_recipient` WHERE `campaign_id` = :campaign_id');
+                $stmt->bindValue(':campaign_id', $campaign->id, PDO::PARAM_INT);
                 $stmt->execute();
             }
 

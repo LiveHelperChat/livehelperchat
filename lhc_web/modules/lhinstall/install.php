@@ -2246,12 +2246,12 @@ try {
   `disabled` tinyint(1) NOT NULL DEFAULT 0,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_1` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_2` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_3` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_4` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_5` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attr_str_6` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `disabled` (`disabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");

@@ -515,15 +515,17 @@ class erLhcoreClassMailconvValidator {
         // Parse images
         $string = '/src="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('file/downloadfile')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
         preg_match_all($string,$content,$matches);
+        $replacedImages = [];
         foreach ($matches[1] as $index => $file) {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelChatFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelChatFile && $fileObj->security_hash == $paramsFile[1]) {
                 $cid = 'lhc-file-' . $fileObj->id . '-' . time();
                 if (strpos($content,$matches[0][$index]) !== false) {
+                    $replacedImages[] = $matches[0][$index];
                     $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->upload_name);
                     $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
-                } else {
+                } elseif (!in_array($matches[0][$index],$replacedImages)) {
                     $mailReply->AddAttachment($fileObj->file_path_server, $fileObj->upload_name);
                     erLhcoreClassModule::logException(new Exception('FILE_NOT_FOUND: '.$content));
                 }
@@ -532,15 +534,17 @@ class erLhcoreClassMailconvValidator {
 
         $string = '/src="' . str_replace('/','\/',erLhcoreClassDesign::baseurl('mailconv/inlinedownload')) . '([a-zA-Z0-9-\.-\/\_]+)"/';
         preg_match_all($string,$content,$matches);
+        $replacedImages = [];
         foreach ($matches[1] as $index => $file) {
             $paramsFile = explode('/',trim($file,'/'));
             $fileObj = erLhcoreClassModelMailconvFile::fetch($paramsFile[0]);
             if ($fileObj instanceof erLhcoreClassModelMailconvFile) {
                 $cid = 'lhc-mail-file-' . $fileObj->id . '-' . time();
                 if (strpos($content,$matches[0][$index]) !== false) {
+                    $replacedImages[] = $matches[0][$index];
                     $mailReply->AddEmbeddedImage($fileObj->file_path_server, $cid, $fileObj->name);
                     $content = str_replace($matches[0][$index],'src="' . 'cid:' . $cid .'"', $content);
-                } else {
+                } elseif (!in_array($matches[0][$index],$replacedImages)) {
                     $mailReply->AddAttachment($fileObj->file_path_server, $fileObj->name);
                     erLhcoreClassModule::logException(new Exception('FILE_NOT_FOUND: '.$content));
                 }

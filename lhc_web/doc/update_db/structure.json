@@ -30,8 +30,35 @@
         "extra": "auto_increment"
       },
       {
+        "field": "attr_str_1",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_2",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "attr_str_3",
+        "type": "varchar(200)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "attr_str_4",
-        "type": "varchar(100)",
+        "type": "varchar(200)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -40,7 +67,7 @@
       },
       {
         "field": "attr_str_5",
-        "type": "varchar(100)",
+        "type": "varchar(200)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -49,7 +76,7 @@
       },
       {
         "field": "attr_str_6",
-        "type": "varchar(100)",
+        "type": "varchar(200)",
         "null": "NO",
         "key": "",
         "default": null,
@@ -10929,7 +10956,7 @@
     "lh_abstract_saved_search" : "CREATE TABLE `lh_abstract_saved_search` (\n                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `user_id` bigint(20) unsigned NOT NULL, `passive` tinyint(1) unsigned NOT NULL DEFAULT 0, `position` int(11) unsigned NOT NULL, `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `days` int(11) unsigned NOT NULL,\n                  `updated_at` bigint(20) unsigned NOT NULL,\n                  `requested_at` bigint(20) unsigned NOT NULL,\n                  `total_records` bigint(20) unsigned NOT NULL,\n                  PRIMARY KEY (`id`),\n                  KEY `user_id` (`user_id`),\n                  KEY `scope` (`scope`),\n                  KEY `updated_at` (`updated_at`),\n                  KEY `requested_at` (`requested_at`)\n                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_action" : "CREATE TABLE `lh_chat_action` (\n                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `chat_id` bigint(20) NOT NULL,\n                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `created_at` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lhc_mailconv_mailing_list_recipient" : "CREATE TABLE `lhc_mailconv_mailing_list_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `mailing_list_id` bigint(20) unsigned NOT NULL,\n  `mailing_recipient_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `mailing_list_id` (`mailing_list_id`),\n  KEY `mailing_recipient_id` (`mailing_recipient_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lhc_mailconv_recipient" : "CREATE TABLE `lhc_mailconv_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disabled` tinyint(1) NOT NULL DEFAULT 0,\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `disabled` (`disabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
+    "lhc_mailconv_recipient" : "CREATE TABLE `lhc_mailconv_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disabled` tinyint(1) NOT NULL DEFAULT 0,\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_1` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_2` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_3` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_4` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_5` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL, `attr_str_6` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `disabled` (`disabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_mailing_list" : "CREATE TABLE `lhc_mailconv_mailing_list` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_mailing_campaign_recipient" : "CREATE TABLE `lhc_mailconv_mailing_campaign_recipient` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `message_id` bigint(20) unsigned NOT NULL,`opened_at` bigint(20) unsigned NOT NULL DEFAULT 0,\n  `conversation_id` bigint(20) unsigned NOT NULL, `campaign_id` bigint(20) unsigned NOT NULL,\n  `recipient_id` bigint(20) unsigned NOT NULL,\n  `type` tinyint(1) NOT NULL DEFAULT 0,\n  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `status` tinyint(1) NOT NULL DEFAULT 0,\n  `send_at` bigint(20) unsigned NOT NULL,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_1` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_2` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_3` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_4` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_5` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `attr_str_6` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `log` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `message_id` (`message_id`),KEY `campaign_id_status` (`campaign_id`,`status`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lhc_mailconv_mailing_campaign" : "CREATE TABLE `lhc_mailconv_mailing_campaign` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `user_id` bigint(20) unsigned NOT NULL,\n  `status` tinyint(1) NOT NULL DEFAULT 0,\n  `starts_at` bigint(20) unsigned NOT NULL,\n  `enabled` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `mailbox_id` bigint(20) unsigned NOT NULL,\n  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `body_alt` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `subject` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `as_active` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `reply_email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `reply_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,`owner_logic` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  `owner_user_id` bigint(20) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `status_enabled_starts_at` (`status`,`enabled`,`starts_at`),\n  KEY `enabled` (`enabled`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
