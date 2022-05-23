@@ -438,17 +438,9 @@ class erLhAbstractModelWidgetTheme {
 	}
 
 	public function translate() {
-        $chatLocale = null;
-        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
 
-        // Detect user locale
-        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-            $languages = explode(',',$parts[0]);
-            if (isset($languages[0])) {
-                $chatLocale = $languages[0];
-            }
-        }
+        $chatLocaleFallback = erConfigClassLhConfig::getInstance()->getDirLanguage('content_language');
+        $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
 
         $attributesDirect = array(
             'pending_join_queue',

@@ -85,7 +85,25 @@ class erLhcoreClassChatValidator {
 		
 		return $Errors;
 	}
-	
+
+    public static function getVisitorLocale() {
+        // Detect user locale
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $languages = explode(',',$parts[0]);
+            if (isset($languages[0])) {
+                $partsLanguages = explode('-',$languages[0]);
+                if (count($partsLanguages) >= 2) {
+                    return substr($partsLanguages[0] . '-' . $partsLanguages[1],0,10);
+                } else {
+                    return substr($partsLanguages[0],0,10);
+                }
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Custom form fields validation
      */
@@ -742,12 +760,10 @@ class erLhcoreClassChatValidator {
         }
 
         // Detect user locale
-        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-            $languages = explode(',',$parts[0]);
-            if (isset($languages[0])) {
-                $chat->chat_locale = $languages[0];
-            }
+        $locale = self::getVisitorLocale();
+
+        if ($locale !== null) {
+            $chat->chat_locale = $locale;
         }
 
         // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
@@ -2119,12 +2135,10 @@ class erLhcoreClassChatValidator {
                     }
 
                     // Detect user locale
-                    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-                        $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-                        $languages = explode(',',$parts[0]);
-                        if (isset($languages[0])) {
-                            $chat->chat_locale = $languages[0];
-                        }
+                    $locale = self::getVisitorLocale();
+
+                    if ($locale !== null) {
+                        $chat->chat_locale = $locale;
                     }
 
                     // Detect device

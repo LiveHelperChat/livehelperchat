@@ -72,12 +72,8 @@ class erLhAbstractModelEmailTemplate {
         if ($this->use_chat_locale == 1) {
             if ($locale != '') {
                 $chatLocale = $locale;
-            } else if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-                $parts = explode(';',$_SERVER['HTTP_ACCEPT_LANGUAGE']);
-                $languages = explode(',',$parts[0]);
-                if (isset($languages[0])) {
-                    $chatLocale = $languages[0];
-                }
+            } else {
+                $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
             }
         }
 
