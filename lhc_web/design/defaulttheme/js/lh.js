@@ -716,7 +716,12 @@ function lh(){
     this.removeDialogTabMail = function(chat_id, tabs)
     {
         ee.emitEvent('unloadMailChat', [chat_id]);
+        
         var location = this.smartTabFocus(tabs, chat_id);
+
+        setTimeout(function() {
+            window.location.hash = location;
+        },500);
     };
 
     this.addGroupTab = function(tabs, name, chat_id, background) {
