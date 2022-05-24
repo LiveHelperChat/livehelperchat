@@ -432,6 +432,17 @@ class erLhcoreClassModelCannedMsg
             // Set replace data
             $item->setReplaceData($replaceArray);
 
+            if (strpos($item->msg, '{args.') !== false) {
+                $matchesValues = array();
+                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $item->msg, $matchesValues);
+                if (!empty($matchesValues[0])) {
+                    foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('user' => $user, 'chat' => $chat), $matchesValues[1][$indexElement], '.');
+                        $item->msg = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $item->msg);
+                    }
+                }
+            }
+
             $type = $item->department_id > 0 ? 0 : ($item->user_id > 0 ? 1 : 2);
             $id = $item->department_id > 0 ? $item->department_id : ($item->user_id > 0 ? $item->user_id : 0);
             
