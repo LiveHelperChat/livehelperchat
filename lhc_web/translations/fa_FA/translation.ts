@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -286,6 +294,10 @@
       <translation>آی پی بازدید کننده را پیگیری نکنید.</translation>
     </message>
     <message>
+      <source>Disable chat download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat transcript send</source>
       <translation>غیرفعال کردن ارسال رونوشت چت</translation>
     </message>
@@ -417,6 +429,10 @@
   <context>
     <name>system/buttons</name>
     <message>
+      <source>No</source>
+      <translation>خیر</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>ذخیره</translation>
     </message>
@@ -473,10 +489,6 @@
       <translation>بله</translation>
     </message>
     <message>
-      <source>No</source>
-      <translation>خیر</translation>
-    </message>
-    <message>
       <source>Send message to</source>
       <translation type="unfinished"/>
     </message>
@@ -529,11 +541,19 @@
       <translation>ثبت</translation>
     </message>
     <message>
+      <source>Send feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Test</source>
       <translation>تست</translation>
     </message>
     <message>
       <source>Below saved data is not shown.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1090,7 +1110,19 @@
       <translation>غیرفعال شده</translation>
     </message>
     <message>
+      <source>Survey title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete this short evaluation survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable chat download</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1973,8 +2005,16 @@
       <translation>فعال شده</translation>
     </message>
     <message>
+      <source>Icon mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visible in chat list</source>
       <translation>در لیست گپ قابل مشاهده است</translation>
+    </message>
+    <message>
+      <source>Has popup information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible in online visitors list</source>
@@ -3223,6 +3263,10 @@
       <translation>فقط درخواستهای آفلاین نشان داده شود</translation>
     </message>
     <message>
+      <source>Chats which did not have a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages from visitor</source>
       <translation type="unfinished"/>
     </message>
@@ -3411,6 +3455,10 @@
       <translation>غیرفعال شده</translation>
     </message>
     <message>
+      <source>User language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login date range from</source>
       <translation type="unfinished"/>
     </message>
@@ -3432,6 +3480,14 @@
     </message>
     <message>
       <source>Passive, number of matching records will not be updated in the background.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description of your view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put description for your own purposes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3878,6 +3934,10 @@
     <message>
       <source>Languages</source>
       <translation>زبان</translation>
+    </message>
+    <message>
+      <source>Please choose at-least one user to share your view!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4335,6 +4395,10 @@
       <translation>BB code</translation>
     </message>
     <message>
+      <source>Send to email</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start a chat with us!</source>
       <translation>شروع چت با ما!</translation>
     </message>
@@ -4348,6 +4412,10 @@
     </message>
     <message>
       <source>Back</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4966,6 +5034,18 @@
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Bot list</source>
+      <translation>لیست ربات ها</translation>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation>Bot exceptions groups</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>گروه های ترجمه</translation>
+    </message>
+    <message>
       <source>Login history</source>
       <translation type="unfinished"/>
     </message>
@@ -4982,24 +5062,20 @@
       <translation>جدید</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>لیست ربات ها</translation>
-    </message>
-    <message>
       <source>Import</source>
       <translation>وارد کردن</translation>
     </message>
     <message>
-      <source>Bot exceptions groups</source>
-      <translation>Bot exceptions groups</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
       <translation>Rest API Calls</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations items</source>
@@ -5550,6 +5626,10 @@
     <message>
       <source>Include system messages</source>
       <translation>پیام های سیستم را وارد کنید</translation>
+    </message>
+    <message>
+      <source>Include meta messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
@@ -8198,6 +8278,10 @@
   <context>
     <name>chat/user_settings</name>
     <message>
+      <source>Send chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>End the chat</source>
       <translation>خاتمه دادن به گفتگو</translation>
     </message>
@@ -8230,6 +8314,10 @@
       <translation>فعال/غیرفعال کردن صدا برای چت های در انتظار</translation>
     </message>
     <message>
+      <source>Download as txt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Toggle between dark and white themes</source>
       <translation type="unfinished"/>
     </message>
@@ -8238,7 +8326,11 @@
       <translation>Change my persistent status to online</translation>
     </message>
     <message>
-      <source>Send chat</source>
+      <source>Send chat to your email!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Email</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -9132,6 +9224,18 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Bot list</source>
+      <translation>لیست ربات</translation>
+    </message>
+    <message>
+      <source>Bot exceptions</source>
+      <translation>Bot exceptions</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>گروه های ترجمه</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>درخواست دسترسی به آگاه کننده ها</translation>
     </message>
@@ -9224,16 +9328,16 @@
       <translation>ربات</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>لیست ربات</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Bot exceptions</source>
-      <translation>Bot exceptions</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
@@ -9718,6 +9822,14 @@
   <context>
     <name>chat/pendingchats</name>
     <message>
+      <source>Bots</source>
+      <translation>ربات ها</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>گروههای ترجمه</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>اطلاعات</translation>
     </message>
@@ -9790,16 +9902,20 @@
       <translation>دستورات </translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>ربات ها</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
       <translation>Rest API Calls</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>گروههای ترجمه</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -10852,6 +10968,10 @@
   <context>
     <name>chat/sendnotice</name>
     <message>
+      <source>Invitation expire time, after that period of time invitation will be hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Does not apply</source>
       <translation type="unfinished"/>
     </message>
@@ -10896,7 +11016,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invitation expire time, after that period of time invitation will be hidden</source>
+      <source>Invitation expire time, after that period of time invitation will be hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last sent invitation expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last invitation was seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has active invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>do not have any active invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12119,6 +12259,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Op. Languages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation type="unfinished"/>
     </message>
@@ -12212,18 +12368,6 @@
     </message>
     <message>
       <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inactive chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12920,6 +13064,18 @@
       <translation>Host</translation>
     </message>
     <message>
+      <source>Enable cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will cache unique request and responses to speed up processing.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Add request</source>
       <translation>Add request</translation>
     </message>
@@ -13150,6 +13306,14 @@
     <message>
       <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
       <translation>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</translation>
+    </message>
+    <message>
+      <source>Custom event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This event will be dispatched and extension can listen to it. E.g you want additionally log response data.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If required you can also have condition to check</source>
@@ -14597,6 +14761,14 @@
       <translation>لطفا یک زبان درست انتخاب کنید</translation>
     </message>
     <message>
+      <source>Please choose a valid siteaccess</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter theme</source>
       <translation>لطفا یک قالب وارد کنید</translation>
     </message>
@@ -14899,6 +15071,46 @@
     <message>
       <source>Current version</source>
       <translation>نسخه فعلی</translation>
+    </message>
+    <message>
+      <source>Status/security checks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Weak</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong export hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trusted host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>News</source>
@@ -15556,7 +15768,47 @@
   <context>
     <name>views/view</name>
     <message>
+      <source>Search was accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to my views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View was rejected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shared by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reject a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept a shared views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>My views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have shared views with you!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15569,6 +15821,42 @@
     </message>
     <message>
       <source>This view is passive and is not updated live</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View was shared</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set name for a share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set custom description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share with</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select user</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -16104,6 +16392,10 @@
   </context>
   <context>
     <name>abstract/email_template</name>
+    <message>
+      <source>Popup content, icon will have an option to show a modal window</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name, for personal purposes</source>
       <translation>نام مستعار</translation>
@@ -16971,8 +17263,8 @@
       <translation>تنظیمات سیستم</translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>ربات ها</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
@@ -16981,6 +17273,14 @@
     <message>
       <source>Commands</source>
       <translation>دستورات</translation>
+    </message>
+    <message>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>ربات ها</translation>
     </message>
     <message>
       <source>Translations groups</source>
@@ -17141,20 +17441,28 @@
   <context>
     <name>genericbot/edit</name>
     <message>
+      <source>Bots</source>
+      <translation>ربات ها</translation>
+    </message>
+    <message>
+      <source>Exceptions</source>
+      <translation>استثناها</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>ربات ها</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Commands</source>
       <translation>دستورات</translation>
     </message>
     <message>
-      <source>Exceptions</source>
-      <translation>استثناها</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
@@ -17163,6 +17471,10 @@
     <message>
       <source>Translations groups</source>
       <translation>گروه های ترجمه</translation>
+    </message>
+    <message>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations items</source>
@@ -17394,6 +17706,14 @@
     </message>
     <message>
       <source>whisper</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>at</source>
       <translation type="unfinished"/>
     </message>
   </context>

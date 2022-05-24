@@ -18,6 +18,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cât timp ar trebui să așteptăm înainte de a informa operatorul despre conversația fără răspuns.</translation>
     </message>
@@ -286,6 +294,10 @@
       <translation>Nu urmăriți IP-ul vizitatorilor.</translation>
     </message>
     <message>
+      <source>Disable chat download</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat transcript send</source>
       <translation>Dezactivați transmiterea transcrierii conversației</translation>
     </message>
@@ -417,6 +429,10 @@
   <context>
     <name>system/buttons</name>
     <message>
+      <source>No</source>
+      <translation>Nu</translation>
+    </message>
+    <message>
       <source>Save</source>
       <translation>Salvaţi</translation>
     </message>
@@ -473,10 +489,6 @@
       <translation>Da</translation>
     </message>
     <message>
-      <source>No</source>
-      <translation>Nu</translation>
-    </message>
-    <message>
       <source>Send message to</source>
       <translation>Trimite mesaj la</translation>
     </message>
@@ -529,12 +541,20 @@
       <translation>Trimite</translation>
     </message>
     <message>
+      <source>Send feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Test</source>
       <translation>Test</translation>
     </message>
     <message>
       <source>Below saved data is not shown.</source>
       <translation>Datele de mai jos salvate nu sunt afișate.</translation>
+    </message>
+    <message>
+      <source>Share</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Send test message</source>
@@ -1090,8 +1110,20 @@
       <translation>Dezactivat</translation>
     </message>
     <message>
+      <source>Survey title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete this short evaluation survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat preview</source>
       <translation>Dezactivați previzualizarea conversației</translation>
+    </message>
+    <message>
+      <source>Disable chat download</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Name</source>
@@ -1973,8 +2005,16 @@
       <translation>Activat</translation>
     </message>
     <message>
+      <source>Icon mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visible in chat list</source>
       <translation>Vizibil în lista de conversație</translation>
+    </message>
+    <message>
+      <source>Has popup information</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Visible in online visitors list</source>
@@ -3223,6 +3263,10 @@
       <translation>Afișați numai solicitări offline</translation>
     </message>
     <message>
+      <source>Chats which did not have a bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages from visitor</source>
       <translation>Are mesaje necitite de la vizitator</translation>
     </message>
@@ -3411,6 +3455,10 @@
       <translation>Dezactivat</translation>
     </message>
     <message>
+      <source>User language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Login date range from</source>
       <translation type="unfinished"/>
     </message>
@@ -3433,6 +3481,14 @@
     <message>
       <source>Passive, number of matching records will not be updated in the background.</source>
       <translation>Pasiv, numărul de înregistrări potrivite nu va fi actualizat în fundal.</translation>
+    </message>
+    <message>
+      <source>Description of your view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put description for your own purposes.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Save search</source>
@@ -3878,6 +3934,10 @@
     <message>
       <source>Languages</source>
       <translation>Limbi</translation>
+    </message>
+    <message>
+      <source>Please choose at-least one user to share your view!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -4335,6 +4395,10 @@
       <translation>Cod BB</translation>
     </message>
     <message>
+      <source>Send to email</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start a chat with us!</source>
       <translation>Începeți o discuție cu noi!</translation>
     </message>
@@ -4349,6 +4413,10 @@
     <message>
       <source>Back</source>
       <translation>Înapoi</translation>
+    </message>
+    <message>
+      <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -4966,6 +5034,18 @@
   <context>
     <name>genericbot/list</name>
     <message>
+      <source>Bot list</source>
+      <translation>Listă boți</translation>
+    </message>
+    <message>
+      <source>Bot exceptions groups</source>
+      <translation>Grupuri de excepții bot</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>Grupuri de traduceri</translation>
+    </message>
+    <message>
       <source>Login history</source>
       <translation>Istoricul autentificărilor</translation>
     </message>
@@ -4982,24 +5062,20 @@
       <translation>Nou</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>Listă boți</translation>
-    </message>
-    <message>
       <source>Import</source>
       <translation>Importă</translation>
     </message>
     <message>
-      <source>Bot exceptions groups</source>
-      <translation>Grupuri de excepții bot</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
       <translation>Restul Apelurilor API</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Grupuri de traduceri</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations items</source>
@@ -5550,6 +5626,10 @@
     <message>
       <source>Include system messages</source>
       <translation>Includeți mesaje de sistem</translation>
+    </message>
+    <message>
+      <source>Include meta messages</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Messages</source>
@@ -8198,6 +8278,10 @@
   <context>
     <name>chat/user_settings</name>
     <message>
+      <source>Send chat</source>
+      <translation>Trimite conversația</translation>
+    </message>
+    <message>
       <source>End the chat</source>
       <translation>Încheiați conversația</translation>
     </message>
@@ -8230,6 +8314,10 @@
       <translation>Activați/dezactivați sunetul despre conversațiile noi în așteptare</translation>
     </message>
     <message>
+      <source>Download as txt</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Toggle between dark and white themes</source>
       <translation>Comutați între temele albe și întunecate</translation>
     </message>
@@ -8238,8 +8326,12 @@
       <translation>Schimbați starea mea persistentă la online</translation>
     </message>
     <message>
-      <source>Send chat</source>
-      <translation>Trimite conversația</translation>
+      <source>Send chat to your email!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Email</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9132,6 +9224,18 @@
   <context>
     <name>system/configuration</name>
     <message>
+      <source>Bot list</source>
+      <translation>Listă boți</translation>
+    </message>
+    <message>
+      <source>Bot exceptions</source>
+      <translation>Excepții boți</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>Grupuri traduceri</translation>
+    </message>
+    <message>
       <source>Request notification permission</source>
       <translation>Solicitați permisiunea de notificare</translation>
     </message>
@@ -9224,16 +9328,16 @@
       <translation>Bot</translation>
     </message>
     <message>
-      <source>Bot list</source>
-      <translation>Listă boți</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Bot exceptions</source>
-      <translation>Excepții boți</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Grupuri traduceri</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
@@ -9718,6 +9822,14 @@
   <context>
     <name>chat/pendingchats</name>
     <message>
+      <source>Bots</source>
+      <translation>Boți</translation>
+    </message>
+    <message>
+      <source>Translations groups</source>
+      <translation>Grupuri de traduceri</translation>
+    </message>
+    <message>
       <source>Information</source>
       <translation>Informații</translation>
     </message>
@@ -9790,16 +9902,20 @@
       <translation>Comenzi</translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>Boți</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
       <translation>Restul Apelurilor API</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Grupuri de traduceri</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -10852,6 +10968,10 @@
   <context>
     <name>chat/sendnotice</name>
     <message>
+      <source>Invitation expire time, after that period of time invitation will be hidden</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Does not apply</source>
       <translation type="unfinished"/>
     </message>
@@ -10896,7 +11016,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Invitation expire time, after that period of time invitation will be hidden</source>
+      <source>Invitation expire time, after that period of time invitation will be hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last sent invitation expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last invitation was seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has active invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>do not have any active invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12119,6 +12259,22 @@
       <translation>Excludeți din fluxul de lucru de atribuire automată</translation>
     </message>
     <message>
+      <source>Max chats</source>
+      <translation>Conversații maxime</translation>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>Conversații active</translation>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation>Conversații inactive</translation>
+    </message>
+    <message>
+      <source>Op. Languages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation>Da</translation>
     </message>
@@ -12213,18 +12369,6 @@
     <message>
       <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
       <translation>Limită soft. Operatorul este conectat la partea de administrare în ultimele 10 minute și este online/offline.</translation>
-    </message>
-    <message>
-      <source>Max chats</source>
-      <translation>Conversații maxime</translation>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation>Conversații active</translation>
-    </message>
-    <message>
-      <source>Inactive chats</source>
-      <translation>Conversații inactive</translation>
     </message>
     <message>
       <source>Online</source>
@@ -12920,6 +13064,18 @@
       <translation>Gazdă</translation>
     </message>
     <message>
+      <source>Enable cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will cache unique request and responses to speed up processing.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Add request</source>
       <translation>Adaugă cerere</translation>
     </message>
@@ -13150,6 +13306,14 @@
     <message>
       <source>Meta msg location. If you support Live Helper Chat JSON syntax you can set location of this response.</source>
       <translation>Locație meta msg. Dacă acceptați sintaxa JSON Live Helper Chat, puteți seta locația acestui răspuns.</translation>
+    </message>
+    <message>
+      <source>Custom event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This event will be dispatched and extension can listen to it. E.g you want additionally log response data.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If required you can also have condition to check</source>
@@ -14597,6 +14761,14 @@
       <translation>Vă rugăm să alegeți limba corectă</translation>
     </message>
     <message>
+      <source>Please choose a valid siteaccess</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter theme</source>
       <translation>Vă rugăm să introduceți tema</translation>
     </message>
@@ -14899,6 +15071,46 @@
     <message>
       <source>Current version</source>
       <translation>Versiunea curentă</translation>
+    </message>
+    <message>
+      <source>Status/security checks</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong secret hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Weak</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strong export hash</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Trusted host</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>not set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>set</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Site address</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>News</source>
@@ -15556,8 +15768,48 @@
   <context>
     <name>views/view</name>
     <message>
+      <source>Search was accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Go to my views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View was rejected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shared by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reject a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Accept a shared views</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>My views</source>
       <translation>Vizualizările mele</translation>
+    </message>
+    <message>
+      <source>You have shared views with you!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Updated ago</source>
@@ -15570,6 +15822,42 @@
     <message>
       <source>This view is passive and is not updated live</source>
       <translation>Această vizualizare este pasivă și nu este actualizată live</translation>
+    </message>
+    <message>
+      <source>Share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View was shared</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set name for a share</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Set custom description</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share with</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Share a view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select user</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -16104,6 +16392,10 @@
   </context>
   <context>
     <name>abstract/email_template</name>
+    <message>
+      <source>Popup content, icon will have an option to show a modal window</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Name, for personal purposes</source>
       <translation>Numele, în scopuri personale</translation>
@@ -16971,8 +17263,8 @@
       <translation>Configurarea sistemului</translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>Boți</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New</source>
@@ -16981,6 +17273,14 @@
     <message>
       <source>Commands</source>
       <translation>Comenzi</translation>
+    </message>
+    <message>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bots</source>
+      <translation>Boți</translation>
     </message>
     <message>
       <source>Translations groups</source>
@@ -17141,20 +17441,28 @@
   <context>
     <name>genericbot/edit</name>
     <message>
+      <source>Bots</source>
+      <translation>Boți</translation>
+    </message>
+    <message>
+      <source>Exceptions</source>
+      <translation>Excepții</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configurarea sistemului</translation>
     </message>
     <message>
-      <source>Bots</source>
-      <translation>Boți</translation>
+      <source>Bot constructor</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Commands</source>
       <translation>Comenzi</translation>
     </message>
     <message>
-      <source>Exceptions</source>
-      <translation>Excepții</translation>
+      <source>Responses for API error</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Rest API Calls</source>
@@ -17163,6 +17471,10 @@
     <message>
       <source>Translations groups</source>
       <translation>Grupuri de traduceri</translation>
+    </message>
+    <message>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Translations items</source>
@@ -17394,6 +17706,14 @@
     </message>
     <message>
       <source>whisper</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>at</source>
       <translation type="unfinished"/>
     </message>
   </context>
