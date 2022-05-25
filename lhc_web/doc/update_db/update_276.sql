@@ -1,0 +1,1 @@
+ALTER TABLE `lh_abstract_chat_variable` ADD `old_js_id` varchar(50) NOT NULL, COMMENT='';
