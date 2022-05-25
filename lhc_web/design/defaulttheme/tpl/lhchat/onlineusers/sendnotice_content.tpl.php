@@ -75,8 +75,13 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Canned message')?></label>
                 <select class="form-control form-control-sm" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').text() : '');">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
-                    <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages(0,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
-                        <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->msg))?></option>
+                    <?php
+
+                    $grouped = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages($visitor->dep_id, erLhcoreClassUser::instance()->getUserID()), $visitor, erLhcoreClassUser::instance()->getUserData(true));
+                    $itemsCanned = ezcQuery::arrayFlatten($grouped);
+
+                    foreach ($itemsCanned as $item) : ?>
+                        <option value="<?php echo $item->id?>"><?php echo htmlspecialchars($item->msg_to_user)?></option>
                     <?php endforeach;?>
                 </select>
             </div>
