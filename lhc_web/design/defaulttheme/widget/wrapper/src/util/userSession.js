@@ -71,9 +71,9 @@ export class userSession {
 
         // Try to monitor variable if it's lhc_var
         try {
+
             if (this.attributes.lhc_var !== null)
             {
-
                 var validator = {
                     set: (obj, prop, value) => {
                         // The default behavior to store the value
@@ -98,11 +98,26 @@ export class userSession {
 
                 // Update vars initially
                 this.updateJSVars(this.attributes.lhc_var);
+
+            } else if (typeof LHCChatOptions !== 'undefined' && typeof LHCChatOptions.attr_prefill !== 'undefined') {
+
+                var lhc_var_prefill = {};
+
+                LHCChatOptions.attr_prefill.forEach( (item) => {
+                    if (item.name && item.value) {
+                        lhc_var_prefill['prefill_'+item.name] = item.value;
+                    }
+                });
+
+                var xhr = new XMLHttpRequest();
+                xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(lhc_var_prefill) ) );
             }
+
        } catch(err) {
             console.log(err);
        };
-
     }
 
     getVars() {

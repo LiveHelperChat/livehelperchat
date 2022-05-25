@@ -1,3 +1,22 @@
+4.04v
+
+1. We will be able to read variable passed like this. In additional chat variables `Old way passed variable name` just enter `username`. This will improve compatibility with older embed codes.
+```
+LHCChatOptions =
+  {
+      "attr_prefill": [
+          {
+              "name": "username",
+              "value": "remdex"
+          }
+      ]
+  }
+```
+2. `{args.` will be supported in canned messages and canned messages replace variables. E.g `{args.chat.chat_variables_array.player.firstName}`
+3. Various small bugfixes.
+
+execute doc/update_db/update_276.sql for update
+
 4.03v
 
 1. Option to save bot response as template or quickly copy from another trigger.
