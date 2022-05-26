@@ -235,6 +235,10 @@
                 </select>
             </div>
 
+            <label><input <?php if (!function_exists('pspell_new')) : ?>disabled="disabled"<?php endif; ?> type="checkbox" value="on" ng-model="param.check_word">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for word syntax if only one word is send.')?>
+                <p><small><i>You have to have <span class="badge badge-secondary">aspel</span> php extension installed. Also appropriate dictionary is required.</i></small></p>
+            </label>
+
             <div ng-if="param.body_request_type == 'raw'">
                 <div class="form-group">
                     <label>Request Body</label>

@@ -210,6 +210,30 @@ class erLhcoreClassGenericBotActionRestapi
         }
     }
 
+    public static function isValidMessage($string, $language = 'en') {
+        $temp = preg_split('/(\s+)/', trim($string), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+
+        // More than one word means it's valid string in general
+        if (count($temp) > 1) {
+            return true;
+        }
+
+        $word = [];
+
+        preg_match_all('/^\w+/is', $temp[0], $word);
+
+        if (isset($word[0][0]) && function_exists('pspell_new')) {
+
+            $pspell_link = pspell_new($language);
+
+            if ($pspell_link !== false) {
+                return pspell_check($pspell_link,$word[0][0]);
+            }
+        }
+
+        return true;
+    }
+
     public static function makeRequest($host, $methodSettings, $paramsCustomer)
     {
         $msg_text = '';
@@ -368,6 +392,25 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
 
+        if (isset($methodSettings['check_word']) && $methodSettings['check_word'] == true) {
+
+            $locale = $paramsCustomer['chat']->chat_locale;
+
+            if (empty($locale)) {
+                $locale = 'en';
+            } else {
+                $locale = explode('-',$locale)[0];
+            }
+
+            if (!self::isValidMessage($msg_text, $locale)) {
+                $msg_text = '';
+            }
+
+            if (!self::isValidMessage($msg_text_cleaned, $locale)) {
+                $msg_text_cleaned = '';
+            }
+        }
+
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
             '{{msg_lowercase}}' => mb_strtolower($msg_text),
@@ -434,7 +477,7 @@ class erLhcoreClassGenericBotActionRestapi
                     $validCondition = false;
                 }
 
-                if ($validCondition === true && isset($condition['success_condition']) && $condition['success_condition'] != '' && isset($condition['value']) && $condition['value'] != '') {
+                if ($validCondition === true && isset($condition['success_condition']) && $condition['success_condition'] != '' && isset($condition['value'])) {
                     if ( $condition['success_condition'] == 'eq' && !($condition['key'] == $condition['value'])) {
                         $validCondition = false;
                     } else if ($condition['success_condition'] == 'lt' && !($condition['key'] < $condition['value'])) {
