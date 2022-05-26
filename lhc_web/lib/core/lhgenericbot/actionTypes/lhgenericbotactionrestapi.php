@@ -211,6 +211,11 @@ class erLhcoreClassGenericBotActionRestapi
     }
 
     public static function isValidMessage($string, $language = 'en') {
+
+        if (trim($string) == '') {
+            return true;
+        }
+
         $temp = preg_split('/(\s+)/', trim($string), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
         // More than one word means it's valid string in general
