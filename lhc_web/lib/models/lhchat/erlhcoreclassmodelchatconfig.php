@@ -2,9 +2,10 @@
 
 class erLhcoreClassModelChatConfig {
 
-   
    public static $disableCache = false;
-    
+
+   public $prevAttributes = [];
+
    public function getState()
    {
        return array(
@@ -14,6 +15,10 @@ class erLhcoreClassModelChatConfig {
                'hidden'        => $this->hidden,
                'explain'       => $this->explain
        );
+   }
+
+   public function afterSetState($attr) {
+       $this->prevAttributes = $attr;
    }
 
    public static function fetch($identifier)
@@ -56,7 +61,20 @@ class erLhcoreClassModelChatConfig {
    	   if (isset($_SESSION['lhc_chat_config'][$this->identifier])) {
    	   		unset($_SESSION['lhc_chat_config'][$this->identifier]);
    	   }
-   	   
+
+       if ($this->explain != 'ignore' && json_encode($this->getState()) != json_encode($this->prevAttributes)) {
+           erLhcoreClassLog::logObjectChange(array(
+               'object' => $this,
+               'check_log' => true,
+               'msg' => array(
+                   'curr' => $this->getState(),
+                   'prev' => $this->prevAttributes,
+                   'url' => (isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : ''),
+                   'user_id' => (erLhcoreClassUser::instance()->isLogged() ? erLhcoreClassUser::instance()->getUserID() : 0)
+               )
+           ));
+       }
+
        erLhcoreClassChat::getSession()->saveOrUpdate( $this );
    }
 
@@ -66,6 +84,8 @@ class erLhcoreClassModelChatConfig {
        {
            $this->$key = $val;
        }
+
+       $this->afterSetState($properties);
    }
 
    public function __get($variable)
