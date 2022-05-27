@@ -229,6 +229,10 @@ class erLhcoreClassGenericBotActionRestapi
 
         if (isset($word[0][0]) && function_exists('pspell_new')) {
 
+            if (is_numeric($word[0][0])) {
+                return false;
+            }
+
             $pspell_link = pspell_new($language);
 
             if ($pspell_link !== false) {

@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['user_parameters_unordered']['clear_list'] == 1) {
@@ -122,30 +124,79 @@ if ($is_ajax == true) {
         }
     }
 
-    $items = erLhcoreClassModelChatOnlineUser::getList($filter);
+    $timeoutError = false;
+    $timeoutErrorMessage = '';
 
-	erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
-	erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
+    $db = ezcDbInstance::get();
 
-	// Prefill chat objects so we can determine nick more precisely
-    erLhcoreClassChat::prefillObjects($items, array(
-        array(
-            'chat_id',
-            'chat',
-            'erLhcoreClassModelChat::getList'
-        ),
-    ));
+    try {
+        $db->query("SET SESSION wait_timeout=2");
+    } catch (Exception $e){
+        //
+    }
 
-    $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
-    $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+    try {
+        $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+    } catch (Exception $e) {
+        //
+    }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
+    try {
+        $db->query("SET SESSION innodb_lock_wait_timeout=5");
+    } catch (Exception $e) {
+        //
+    }
 
-	erLhcoreClassChat::prefillGetAttributes($items,$attributes,$attributes_remove,array('do_not_clean' => true, 'additional_columns' => $columnsAdditional));
+    try {
+        $db->query("SET SESSION max_execution_time=5000;");
+    } catch (Exception $e) {
+        //
+    }
+
+    try {
+        $db->query("SET SESSION max_statement_time=5;");
+    } catch (Exception $e) {
+        // Ignore we try to limit how long query can run
+    }
+
+    $items = [];
+    
+    try {
+        $items = erLhcoreClassModelChatOnlineUser::getList($filter);
+    } catch (Exception $e) {
+        $timeoutError = true;
+        $timeoutErrorMessage = 'Request taking to long! Please adjust your queries ['.$e->getMessage().']';
+        $items = [[
+            'page_title' => $timeoutErrorMessage
+        ]];
+    }
+
+    if ($timeoutError === false) {
+        erLhcoreClassChat::$trackActivity = (int)erLhcoreClassModelChatConfig::fetchCache('track_activity')->current_value == 1;
+        erLhcoreClassChat::$trackTimeout = (int)erLhcoreClassModelChatConfig::fetchCache('checkstatus_timeout')->current_value;
+
+        // Prefill chat objects so we can determine nick more precisely
+        erLhcoreClassChat::prefillObjects($items, array(
+            array(
+                'chat_id',
+                'chat',
+                'erLhcoreClassModelChat::getList'
+            ),
+        ));
+
+        $attributes = array('online_attr_system_array','notes_intro','last_check_time_ago','visitor_tz_time','last_visit_seconds_ago','lastactivity_ago','time_on_site_front','can_view_chat','operator_user_send','operator_user_string','first_visit_front','last_visit_front','online_status','nick');
+        $attributes_remove =  array('chat','department','operator_user','notes','online_attr_system','chat_variables_array','additional_data_array','online_attr','dep_id','first_visit','message_seen_ts');
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_attr',array('attr' => & $attributes,'attr_remove' => & $attributes_remove));
+
+        erLhcoreClassChat::prefillGetAttributes($items,$attributes,$attributes_remove,array('do_not_clean' => true, 'additional_columns' => $columnsAdditional));
+    }
 
 	if (isset($_GET['view']) && $_GET['view'] == 'html') {
         $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers/items.tpl.php');
         $tpl->set('items',$items);
+        $tpl->set('timeout_error',$timeoutError);
+        $tpl->set('timeout_error_message',$timeoutErrorMessage);
         echo $tpl->fetch();
     } else {
         header('content-type: application/json; charset=utf-8');
