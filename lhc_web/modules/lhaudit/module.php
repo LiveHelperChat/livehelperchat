@@ -29,6 +29,6 @@ $ViewList['logjserror'] = array(
 );
 
 $FunctionList['use'] = array('explain' => 'Allow operator to configure audit module');
-$FunctionList['logrecord'] = array('explain' => 'Allow operator to preview log record');
+$FunctionList['log_preview'] = array('explain' => 'Allow operator to preview log record');
 
 ?>

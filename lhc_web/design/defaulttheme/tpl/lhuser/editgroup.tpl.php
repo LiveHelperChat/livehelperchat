@@ -95,7 +95,11 @@
 <?php foreach (erLhcoreClassGroupRole::getGroupRoles($group->id) as $UserAssigned) : ?>
 <tr>
     <td><input type="checkbox" name="AssignedID[]" value="<?php echo $UserAssigned['assigned_id']?>" /></td>
-    <td><?php echo htmlspecialchars($UserAssigned['name'])?></td>
+    <td>
+
+        <a href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $UserAssigned['id']?>" target="_blank" ><?php echo htmlspecialchars($UserAssigned['name'])?></a>
+
+    </td>
 </tr>
 <?php endforeach; ?>
 </table>
