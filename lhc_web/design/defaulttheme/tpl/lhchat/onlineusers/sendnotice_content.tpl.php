@@ -14,11 +14,11 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Invitation expire time, after that period of time invitation will be hidden.');?><?php if (isset($visitor->online_attr_system_array['lhcinv_exp']) && $visitor->online_attr_system_array['lhcinv_exp'] > 0) : ?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Last sent invitation expires in');?><br/><span class="badge badge-secondary"><?php echo erLhcoreClassChat::formatSeconds( (int)$visitor->online_attr_system_array['lhcinv_exp'] - time());?></span><?php endif;?>
 
-        <?php if ($visitor->message_seen == 1) : ?>
+        <?php if (isset($visitor) && $visitor->message_seen == 1) : ?>
             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','last invitation was seen');?> <span class="badge badge-success"><?php echo erLhcoreClassChat::formatSeconds( time() - (int)$visitor->message_seen_ts);?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','ago');?>.
         <?php endif; ?>
 
-        <?php if ($visitor->has_message_from_operator) : ?>
+        <?php if (isset($visitor) && $visitor->has_message_from_operator) : ?>
             <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','has active invitation');?></span>
         <?php else : ?>
             <span class="badge badge-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','do not have any active invitation');?></span>
@@ -75,8 +75,13 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Canned message')?></label>
                 <select class="form-control form-control-sm" onchange="$('#sendMessageContent').val(($(this).val() > 0) ? $(this).find(':selected').text() : '');">
                     <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Select a canned message')?></option>
-                    <?php foreach (erLhcoreClassModelCannedMsg::getCannedMessages(0,erLhcoreClassUser::instance()->getUserID()) as $item) : ?>
-                        <option value="<?php echo $item->id?>"><?php echo htmlspecialchars(str_replace('{nick}', (isset($chat) ? $chat->nick : ''), $item->msg))?></option>
+                    <?php
+
+                    $grouped = erLhcoreClassModelCannedMsg::groupItems(erLhcoreClassModelCannedMsg::getCannedMessages((isset($visitor) ? $visitor->dep_id : 0), erLhcoreClassUser::instance()->getUserID()), (isset($visitor) ? $visitor : null), erLhcoreClassUser::instance()->getUserData(true));
+                    $itemsCanned = ezcQuery::arrayFlatten($grouped);
+
+                    foreach ($itemsCanned as $item) : ?>
+                        <option value="<?php echo $item->id?>"><?php echo htmlspecialchars($item->msg_to_user)?></option>
                     <?php endforeach;?>
                 </select>
             </div>

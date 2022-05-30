@@ -19,13 +19,14 @@
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
             <option value="update_active_chats">update_active_chats</option>
-            <option value="Departament">Departament</option>
+            <option value="Departament">Department</option>
             <option value="Subject">Subject</option>
             <option value="User">User</option>
             <option value="AutoResponder">AutoResponder</option>
             <option value="AutoResponderDelete">AutoResponderDelete</option>
             <option value="CannedMsg">CannedMsg</option>
             <option value="CannedMsgDelete">CannedMsgDelete</option>
+            <option value="ChatConfig">ChatConfig</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>

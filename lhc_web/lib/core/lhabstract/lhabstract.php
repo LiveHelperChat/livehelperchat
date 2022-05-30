@@ -228,11 +228,11 @@ class erLhcoreClassAbstract
                 break;
                 
             case 'text_display':
-                return '<p ng-non-bindable>' . htmlspecialchars($object->$name) . '</p>';
+                return '<p ng-non-bindable>' . htmlspecialchars((string)$object->$name) . '</p>';
                 break;
 
             case 'text_pre':
-                return '<pre ng-non-bindable>' . htmlspecialchars($object->$name) . '</pre>';
+                return '<pre ng-non-bindable>' . htmlspecialchars((string)$object->$name) . '</pre>';
                 break;
 
             case 'multi_dropdown':

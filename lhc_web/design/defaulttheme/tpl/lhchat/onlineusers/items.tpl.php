@@ -1,5 +1,11 @@
-<table class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0">
+<?php if (isset($timeout_error) && $timeout_error == true)  : ?>
+    <?php $errors = [
+        $timeout_error_message
+    ]; ?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php else : ?>
 
+<table class="table table-sm mb-0 table-small table-fixed" cellpadding="0" cellspacing="0">
 <?php foreach ($items as $item) : ?>
     <tr class="online-user-filter-row<?php $item->last_visit_seconds_ago < 15 ? print ' recent-visit' : ''?><?php $item->last_check_time_ago < 293 ? print ' online_user' : ''?>" id="mass-uo-vid-<?php echo htmlspecialchars($item->vid)?>">
         <td style="width: 20px"><input name="receivesNotification[]" id="mass-receiver-check-<?php echo htmlspecialchars($item->vid)?>" class="online-user-filter-row-check" type="checkbox" value="<?php echo $item->id?>"></td>
@@ -42,3 +48,5 @@
     </tr>
 <?php endforeach; ?>
 </table>
+
+<?php endif; ?>

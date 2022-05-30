@@ -24,6 +24,7 @@ class erLhAbstractModelChatVariable
             'persistent' => $this->persistent,
             'inv' => $this->inv,
             'change_message' => $this->change_message,
+            'old_js_id' => $this->old_js_id,
         );
 
         return $stateArray;
@@ -121,23 +122,15 @@ class erLhAbstractModelChatVariable
     }
 
     public $id = null;
-
     public $dep_id = 0;
-
     public $js_variable = '';
-
     public $var_name = '';
-
     public $var_identifier = '';
-
     public $type = 0;
-
     public $persistent = 0;
-
     public $inv = 0;
-
     public $change_message = '';
-
+    public $old_js_id = '';
     public $hide_delete = false;
 }
 

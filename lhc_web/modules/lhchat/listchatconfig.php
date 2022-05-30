@@ -25,7 +25,7 @@ if ($currentUser->hasAccessTo('lhchat','administrateconfig')) {
 						break;
 							
 					case erLhcoreClassModelChatConfig::SITE_ACCESS_PARAM_OFF:
-						$ConfigData->value = isset($_POST[$item->identifier.'ValueParam']) ? $_POST[$item->identifier.'ValueParam'] : 0;
+						$ConfigData->value = isset($_POST[$item->identifier.'ValueParam']) ? $_POST[$item->identifier.'ValueParam'] : "0";
 						break;
 			
 					default:

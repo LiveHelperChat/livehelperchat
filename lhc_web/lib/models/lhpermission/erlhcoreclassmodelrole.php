@@ -20,6 +20,11 @@ class erLhcoreClassModelRole
         );
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public $id = null;
     public $name = '';
 

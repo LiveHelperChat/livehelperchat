@@ -40,6 +40,7 @@ if ( isset($_POST['saveSettings']) ) {
 
     $offlineData->explain = '';
     $offlineData->type = 0;
+    $offlineData->hidden = 1;
     $offlineData->identifier = 'offline_settings';
     $offlineData->value = serialize($data);
     $offlineData->saveThis();

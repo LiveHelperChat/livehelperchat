@@ -31,6 +31,7 @@
         array('class' => 'CannedMsg' ,'name' => 'Canned Message'),
         array('class' => 'Subject' ,'name' => 'Subject'),
         array('class' => 'Departament' ,'name' => 'Department'),
+        array('class' => 'ChatConfig' ,'name' => 'Chat configuration'),
     );
     ?>
 
