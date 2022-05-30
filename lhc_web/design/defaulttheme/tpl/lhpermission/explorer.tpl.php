@@ -52,10 +52,10 @@
     <div role="tabpanel" class="tab-pane" id="permissions-url-explorer">
 
         <div class="input-group">
-            <input type="text" class="form-control" value="" id="url-permission-explore" placeholder="Enter URL to see required permissions" />
+            <input type="text" class="form-control" value="" id="url-permission-explore" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Enter URL to see required permissions');?>" />
             <div class="input-group-append">
                 <div class="input-group-text" >
-                    <button type="button" id="explore-permission-button" class="btn btn-sm m-0 p-0">Search</button>
+                    <button type="button" id="explore-permission-button" class="btn btn-sm m-0 p-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Search');?></button>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <input type="text" class="form-control" value="" id="function-explorer" placeholder="use" />
             <div class="input-group-append">
                 <div class="input-group-text" >
-                    <button type="button" id="explore-user-button" class="btn btn-sm m-0 p-0">Find users who can use it</button>
+                    <button type="button" id="explore-user-button" class="btn btn-sm m-0 p-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Find users who can use it');?></button>
                 </div>
             </div>
         </div>
