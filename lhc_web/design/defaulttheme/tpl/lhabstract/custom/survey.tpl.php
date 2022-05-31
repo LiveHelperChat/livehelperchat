@@ -49,11 +49,11 @@ $titleOptions = array (
 
 <div class="form-elements">    
     <?php for ($i = 0; $i < 16; $i++) : ?>    
-    	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>
-    		<?php if ($object->{$keyOption . '_pos'} == $i) : ?>
+    	<?php $counter = 0; foreach ($sortOptions as $keyOption => $sortOption) : $counter++ ?>
+    		<?php  if ($object->{$keyOption . '_pos'} == $i) : ?>
     		<div class="row" id="position-id-<?php echo $counterPosition;?>">    			
-	    		<div class="col-12">
-	    			<label><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo $titleOptions[$sortOption['type']]?></label>
+	    		<div class="col-12 border-top pt-2">
+	    			<label class="font-weight-bold"><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo preg_match('/\d/is',$sortOption['field'])?>. <?php echo $titleOptions[$sortOption['type']]?></label>
 
 	        	    <div class="btn-group float-right" role="group" aria-label="...">
 						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
@@ -79,15 +79,26 @@ $titleOptions = array (
 		        		  </div>
 		        		</div>
 	        		<?php elseif ($sortOption['type'] == 'question') : ?>
-	        			<div ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
-	        				<label><?php echo erLhcoreClassAbstract::renderInput($keyOption . '_req', $fields[$keyOption. '_req'], $object)?> <?php echo $fields[$keyOption . '_req']['trans'];?></label>
-	        			</div>
-	        			<div class="form-group" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
-	        				<label><?php echo $fields[$sortOption['field']]['trans'];?></label>
-	        				<?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
-	        			</div>
-	        		<?php elseif ($sortOption['type'] == 'question_options') : ?>	        			
-	        		    <div class="question-rows-container" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">	
+                        <div class="row" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
+                            <div class="col-12">
+                                <label><?php echo erLhcoreClassAbstract::renderInput($keyOption . '_req', $fields[$keyOption. '_req'], $object)?> <?php echo $fields[$keyOption . '_req']['trans'];?></label>
+                            </div>
+
+                            <div class="col-6 form-group" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
+                                <label><?php echo $fields[$sortOption['field']]['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
+                            </div>
+                            <div class="col-3">
+                                <label>Required only if stars less or equal to</label>
+                                <input type="number" class="form-control form-control-sm" value="" >
+                            </div>
+                            <div class="col-3">
+
+                            </div>
+
+                        </div>
+	        		<?php elseif ($sortOption['type'] == 'question_options') : ?>
+	        		    <div class="question-rows-container" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
     	        		    <div ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
     	        				<label><?php echo erLhcoreClassAbstract::renderInput($keyOption . '_req', $fields[$keyOption. '_req'], $object)?> <?php echo $fields[$keyOption . '_req']['trans'];?></label>
     	        			</div>
@@ -106,7 +117,7 @@ $titleOptions = array (
 	            				<textarea class="form-control" name="AbstractInput_<?php echo $sortOption['field']?>_items" id="id_<?php echo $sortOption['field']?>_items" rows="5" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/form','Enter a possible answer to your question here...')?>"><?php echo htmlspecialchars($object->{$sortOption['field'] . '_items'})?></textarea>
 	                		</div>
 	        		   </div>
-	        		<?php endif;?> 
+	        		<?php endif;?>
 	        	</div>	        	
 	        	<input type="hidden" class="pos-attribute" data-field="<?php echo $sortOption['field']?>" id="id_<?php echo $sortOption['field'] . '_pos'?>" name="AbstractInput_<?php echo $sortOption['field'] . '_pos'?>" value="<?php echo $counterPosition;?>" />
         	</div>
