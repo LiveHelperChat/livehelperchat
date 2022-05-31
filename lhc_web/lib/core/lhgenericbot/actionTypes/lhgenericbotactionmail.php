@@ -42,11 +42,17 @@ class erLhcoreClassGenericBotActionMail {
 
             $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
 
-            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+            if (isset($action['content']['mail_options']['do_not_import']) && $action['content']['mail_options']['do_not_import'] == true) {
+                $mail->addCustomHeader('X-LHC-IGN', 1);
+            }
+
+            if (class_exists('erLhcoreClassModelMailconvMessage') && $chat instanceof erLhcoreClassModelMailconvMessage) {
+                
                 if ($chat->message_id != '') {
                     $mail->addCustomHeader('In-Reply-To', $chat->message_id);
                     $mail->addCustomHeader('References', $chat->message_id);
                 }
+
                 erLhcoreClassMailconvValidator::setSendParameters($chat->mailbox, $mail);
             } else {
                 erLhcoreClassChatMail::setupSMTP($mail);
@@ -70,13 +76,17 @@ class erLhcoreClassGenericBotActionMail {
                 $mail->AddAttachment($params['file']->file_path_server, 'file.'.$params['file']->extension);
             }
 
-            $mail->Send();
-            $mail->ClearAddresses();
+            if (class_exists('erLhcoreClassModelMailconvMessage') && $chat instanceof erLhcoreClassModelMailconvMessage && isset($action['content']['mail_options']['copy_send']) && $action['content']['mail_options']['copy_send'] == true) {
+                $mail->MessageID = sprintf('<%s@%s>', $mail->generateId(), $mail->serverHostname());
+                $mail->Send();
 
-            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
-                erLhcoreClassMailconvParser::syncMailbox($chat->mailbox, array('live' => true));
+                erLhcoreClassMailconvValidator::makeSendCopy($mail, $chat->mailbox);
+            } else {
+                $mail->Send();
             }
 
+
+            $mail->ClearAddresses();
         }
     }
 }
