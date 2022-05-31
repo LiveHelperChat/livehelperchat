@@ -475,6 +475,7 @@ class erLhAbstractModelWidgetTheme {
             'pre_chat_html',
             'pre_offline_chat_html',
             'thank_feedback',
+            'blocked_visitor',
             'placeholder_message',
             'need_help_html',
             'chat_unavailable',
