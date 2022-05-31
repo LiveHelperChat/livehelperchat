@@ -250,6 +250,11 @@ class erLhcoreClassMailconvParser {
                         }
                     }
 
+                    // Ignore, this is set while using bot and sending auto reply. Checked - Do not import send e-mail.
+                    if (\preg_match("/X-LHC-IGN\:(.*)/i", $head->headersRaw, $matches)) {
+                        continue;
+                    }
+
                     // It's a new mail. Store it as new conversation.
                     if (!isset($mailInfo->in_reply_to) || $newConversation == true) {
                         $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid;
