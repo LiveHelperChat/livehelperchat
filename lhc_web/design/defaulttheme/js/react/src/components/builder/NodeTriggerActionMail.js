@@ -104,6 +104,20 @@ class NodeTriggerActionMail extends Component {
                         </div>
                     </div>
 
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['mail_options','do_not_import'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','mail_options','do_not_import'])} /> Do not import send e-mail.</label>
+                            <p><small>This e-mail will be ignored and not imported to system.</small></p>
+                        </div>
+                    </div>
+
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['mail_options','copy_send'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','mail_options','copy_send'])} /> Create a copy in a send folder</label>
+                            <p><small>If send e-mails copies are not created automatically in a send folder, this will create a copy manually.</small></p>
+                        </div>
+                    </div>
+
                     <div className="col-12">
                         <div className="form-group">
                             <label>Mail body</label>
