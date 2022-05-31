@@ -853,6 +853,10 @@ class erLhcoreClassChatValidator {
             $Errors['blocked_user'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','At this moment you can contact us via email only. Sorry for the inconveniences.');
         }
 
+        if (isset($Errors['blocked_user']) && isset($additionalParams['theme']) && $additionalParams['theme'] !== false && isset($additionalParams['theme']->bot_configuration_array['blocked_visitor']) && !empty($additionalParams['theme']->bot_configuration_array['blocked_visitor'])) {
+            $Errors['blocked_user'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($additionalParams['theme']->bot_configuration_array['blocked_visitor'], array('chat' => $chat, 'args' => ['chat' => $chat]))));
+        }
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_start_chat',array('errors' => & $Errors, 'input_form' => & $inputForm, 'start_data_fields' => & $start_data_fields, 'chat' => & $chat,'additional_params' => & $additionalParams));
 
         if (trim($chat->nick) == '') {
