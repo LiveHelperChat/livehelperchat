@@ -485,7 +485,7 @@ class erLhcoreClassMailconvParser {
                             erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
                         }
 
-                        if ($conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
+                        if ($message->undelivered == 0 && $conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(
                                 'mail' => & $message,
                                 'conversation' => & $conversations
