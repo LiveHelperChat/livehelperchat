@@ -231,6 +231,23 @@ class erLhcoreClassMailconvParser {
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
                         $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $vars['in_reply_to']]));
+
+                        if ( !($previousMessage instanceof erLhcoreClassModelMailconvMessage) && isset($vars['references']) && !empty($vars['references']) ) {
+                            $matches = [];
+                            preg_match_all('/\<(.*?)\>/', $vars['references'],$matches);
+                            $relatedMessagesIds = [];
+                            if (isset($matches[0])) {
+                                foreach ($matches[0] as $messageId) {
+                                    if (trim($messageId) != '' && trim($vars['in_reply_to']) != trim($messageId)) {
+                                        $relatedMessagesIds[] = str_replace(' ','',$messageId);
+                                    }
+                                }
+                                if (!empty($relatedMessagesIds)) {
+                                    $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('sort' => '`id` DESC','filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id, 'message_id' => $relatedMessagesIds]));
+                                }
+                            }
+                        }
+
                         if (
                             $previousMessage instanceof erLhcoreClassModelMailconvMessage &&
                             $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation &&
@@ -517,6 +534,24 @@ class erLhcoreClassMailconvParser {
 
                         if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                             $conversation = $previousMessage->conversation;
+                        } else if (isset($vars['references']) && !empty($vars['references'])) { // Handle auto responder logic when it's not imported.
+                            $matches = [];
+                            preg_match_all('/\<(.*?)\>/',$vars['references'],$matches);
+                            $relatedMessagesIds = [];
+                            if (isset($matches[0])) {
+                                foreach ($matches[0] as $messageId) {
+                                    if (trim($messageId) != '' && trim($vars['in_reply_to']) != trim($messageId)) {
+                                        $relatedMessagesIds[] = str_replace(' ','',$messageId);
+                                    }
+                                }
+
+                                if (!empty($relatedMessagesIds)) {
+                                    $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('sort' => '`id` DESC','filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id, 'message_id' => $relatedMessagesIds]));
+                                    if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
+                                        $conversation = $previousMessage->conversation;
+                                    }
+                                }
+                            }
                         }
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation);
