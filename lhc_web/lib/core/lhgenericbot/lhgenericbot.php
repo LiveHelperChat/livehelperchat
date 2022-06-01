@@ -370,9 +370,7 @@ class erLhcoreClassGenericBot {
 
         $data['items'] = $languagesData;
 
-        if ( !$form->hasValidData( 'default_message' ) || $form->default_message == '' ) {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter default translation!');
-        } else {
+        if ( $form->hasValidData( 'default_message' ) ) {
             $data['default'] = $form->default_message;
         }
 
