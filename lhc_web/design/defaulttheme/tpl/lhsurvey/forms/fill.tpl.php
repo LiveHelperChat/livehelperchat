@@ -24,7 +24,7 @@
                                 isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
                                 $survey->configuration_array['min_stars_' . $sortOption['field']] > 0 &&
                                 isset($survey->configuration_array['star_field_' . $sortOption['field']]) &&
-                                $survey->configuration_array['star_field_' . $sortOption['field']] > 1
+                                $survey->configuration_array['star_field_' . $sortOption['field']] > 0
                         ) : ?>
                         <script>
                             (function(){

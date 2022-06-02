@@ -65,7 +65,7 @@ class erLhcoreClassSurveyValidator {
                                 isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
                                 $survey->configuration_array['min_stars_' . $sortOption['field']] > 0 &&
                                 isset($survey->configuration_array['star_field_' . $sortOption['field']]) &&
-                                $survey->configuration_array['star_field_' . $sortOption['field']] > 1 &&
+                                $survey->configuration_array['star_field_' . $sortOption['field']] > 0 &&
                                 (!$form->hasValidData( 'max_stars_' . $survey->configuration_array['star_field_' . $sortOption['field']] . 'Evaluate' ) ||
                                 (int)$form->{'max_stars_' . $survey->configuration_array['star_field_' . $sortOption['field']] . 'Evaluate'} <= (int)$survey->configuration_array['min_stars_' . $sortOption['field']])
                             ) {
@@ -85,9 +85,6 @@ class erLhcoreClassSurveyValidator {
 					}
 				}
 			}
-
-
-
 		}
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('survey.validate', array('survey' => & $survey, 'survey_item' => & $surveyItem, 'errors' => & $Errors));
