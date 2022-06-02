@@ -7,9 +7,8 @@
     	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>    	   		    
     		<?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>    		    		    		    		    				    		
     				<?php if ($sortOption['type'] == 'stars') : ?>
-                    <label class="survey-stars-label"><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
-
-                    <div class="survey-stars-row">
+                    <label class="survey-stars-label"><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
+                    <div class="survey-stars-row" id="survey-stars-items-<?php echo $sortOption['field']?>">
                         <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
                             <label class="survey-star-item <?php $n == 1 ? print 'selected-star' : '' ?>" title="<?php echo $n?>&nbsp;<?php if ($n == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($n == $survey->{$sortOption['field']}) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?>">
                                 <svg width="28" height="28" style="height:28px;width:28px;" fill="currentColor" color="#000000" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"></path></svg>
@@ -17,14 +16,34 @@
                             </label>
                         <?php endfor; ?>
                     </div>
-
     				<?php elseif ($sortOption['type'] == 'question') : ?>
     				<div class="form-group">
-    					<label class="survey-question-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
+    					<label class="survey-question-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><span id="question-required-<?php echo $sortOption['field']?>"><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></span></label>
     					<textarea class="form-control form-control-sm" rows="2" style="height: 55px" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
+                        <?php if (
+                                isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
+                                $survey->configuration_array['min_stars_' . $sortOption['field']] > 0 &&
+                                isset($survey->configuration_array['star_field_' . $sortOption['field']]) &&
+                                $survey->configuration_array['star_field_' . $sortOption['field']] > 1
+                        ) : ?>
+                        <script>
+                            (function(){
+                                $('#survey-stars-items-max_stars_<?php echo $survey->configuration_array['star_field_' . $sortOption['field']];?> input').on('click change',function(){
+                                    if (parseInt($(this).val()) <= <?php echo $survey->configuration_array['min_stars_' . $sortOption['field']]?>) {
+                                        $('#question-required-<?php echo $sortOption['field']?>').text('*');
+                                    } else {
+                                        $('#question-required-<?php echo $sortOption['field']?>').text('');
+                                    }
+                                });
+                                if ($('#survey-stars-items-max_stars_2 input:checked').val() <= <?php echo $survey->configuration_array['min_stars_' . $sortOption['field']]?>){
+                                    $('#question-required-<?php echo $sortOption['field']?>').text('*');
+                                }
+                            })();
+                        </script>
+                        <?php endif; ?>
     				</div>
     				<?php elseif ($sortOption['type'] == 'question_options') : ?>
-                    <label class="survey-question-option-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?> *<?php endif;?></label>
+                    <label class="survey-question-option-label"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
     				<div class="form-group">
     					<?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
                             <?php if (mb_strpos($item['option'],"\n") !== false && mb_strpos($item['option'],"\n") === 1 || mb_strpos($item['option'],"\n") == mb_strlen($item['option'])-1) : ?>
@@ -69,9 +88,9 @@
                     $(_thisCurrent).find('label:lt('+$(_thisCurrent).find('label > input:checked').val()+')').addClass('survey-selected-item');
                 }
             });
+            $(_thisCurrent).find('label:lt('+$(_thisCurrent).find('label > input:checked').val()+')').addClass('survey-selected-item');
         });
     };
-
     $('.survey-stars-row').makeStarsInteractive();
 </script>
 
