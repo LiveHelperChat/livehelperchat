@@ -53,7 +53,7 @@ $titleOptions = array (
     		<?php  if ($object->{$keyOption . '_pos'} == $i) : ?>
     		<div class="row" id="position-id-<?php echo $counterPosition;?>">    			
 	    		<div class="col-12 border-top pt-2">
-	    			<label class="font-weight-bold"><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php echo preg_match('/\d/is',$sortOption['field'])?>. <?php echo $titleOptions[$sortOption['type']]?></label>
+	    			<label class="font-weight-bold"><?php echo erLhcoreClassAbstract::renderInput($sortOption['field'] . '_enabled', $fields[$sortOption['field'] . '_enabled'], $object)?> <?php preg_match_all('/\d+/is',$sortOption['field'], $matches); print_r($matches[0][0])?>. <?php echo $titleOptions[$sortOption['type']]?></label>
 
 	        	    <div class="btn-group float-right" role="group" aria-label="...">
 						<button type="button" class="btn btn-secondary btn-xs" onclick="adminSurvey.moveUp('<?php echo $sortOption['field']?>')"><i class="material-icons">trending_up</i></button>
@@ -83,19 +83,18 @@ $titleOptions = array (
                             <div class="col-12">
                                 <label><?php echo erLhcoreClassAbstract::renderInput($keyOption . '_req', $fields[$keyOption. '_req'], $object)?> <?php echo $fields[$keyOption . '_req']['trans'];?></label>
                             </div>
-
                             <div class="col-6 form-group" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
                                 <label><?php echo $fields[$sortOption['field']]['trans'];?></label>
                                 <?php echo erLhcoreClassAbstract::renderInput($sortOption['field'], $fields[$sortOption['field']], $object)?>
                             </div>
                             <div class="col-3">
-                                <label>Required only if stars less or equal to</label>
-                                <input type="number" class="form-control form-control-sm" value="" >
+                                <label><?php echo $fields['min_stars_' . $sortOption['field']]['trans'];?></label>
+                                <input type="number" name="AbstractInput_min_stars_<?php echo $sortOption['field']?>" class="form-control form-control-sm" value="<?php echo isset($object->configuration_array['min_stars_' . $sortOption['field']]) ? htmlspecialchars($object->configuration_array['min_stars_' . $sortOption['field']]) : ''?>" >
                             </div>
                             <div class="col-3">
-
+                                <label><?php echo $fields['star_field_' . $sortOption['field']]['trans'];?></label>
+                                <input type="number" name="AbstractInput_star_field_<?php echo $sortOption['field']?>" max="5" class="form-control form-control-sm" value="<?php echo isset($object->configuration_array['star_field_' . $sortOption['field']]) ? htmlspecialchars($object->configuration_array['star_field_' . $sortOption['field']]) : ''?>" >
                             </div>
-
                         </div>
 	        		<?php elseif ($sortOption['type'] == 'question_options') : ?>
 	        		    <div class="question-rows-container" ng-show="abstract_checked_<?php echo $sortOption['field'] . '_enabled'?>">
