@@ -49,7 +49,7 @@ $titleOptions = array (
 
 <div class="form-elements">    
     <?php for ($i = 0; $i < 16; $i++) : ?>    
-    	<?php $counter = 0; foreach ($sortOptions as $keyOption => $sortOption) : $counter++ ?>
+    	<?php foreach ($sortOptions as $keyOption => $sortOption) : ?>
     		<?php  if ($object->{$keyOption . '_pos'} == $i) : ?>
     		<div class="row" id="position-id-<?php echo $counterPosition;?>">    			
 	    		<div class="col-12 border-top pt-2">
