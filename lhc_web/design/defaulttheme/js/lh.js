@@ -1227,9 +1227,7 @@ function lh(){
                 }
 
         	}
-    	} else {
-    	    console.log('bbb');
-        }
+    	}
 
     	if (link.attr('href') !== undefined) {
             return link.attr('href').replace('#','#/');
