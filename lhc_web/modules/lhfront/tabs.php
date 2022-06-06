@@ -14,7 +14,7 @@ if (!empty($id)) {
 
     $icons_additional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position', 'conditions', 'column_identifier', 'enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
 
-    $chats = erLhcoreClassModelChat::getList(array('sort' => 'id DESC', 'filterin' => array('id' => $id)));
+    $chats = erLhcoreClassModelChat::getList(array('sort' => 'id ASC', 'filterin' => array('id' => $id)));
 
     if (!empty($icons_additional)) {
         erLhcoreClassChat::prefillGetAttributes($chats, array(), array(), array('additional_columns' => $icons_additional, 'do_not_clean' => true));

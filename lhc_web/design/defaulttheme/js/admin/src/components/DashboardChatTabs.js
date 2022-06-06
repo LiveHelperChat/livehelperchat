@@ -34,7 +34,19 @@ function reducer(state, action) {
         case 'add': {
             var foundIndex = state.chats.findIndex(x => x.id == action.value.id);
             if (foundIndex === -1) {
-                state.chats.unshift(action.value);
+                if (action.static_order === true) {
+
+                    var insertIndex = state.chats.findIndex(x => x.id > action.value.id);
+
+                    if (insertIndex === -1) {
+                        state.chats.push(action.value);
+                    } else {
+                        state.chats.splice(insertIndex, 0, action.value);
+                    }
+
+                } else {
+                    state.chats.unshift(action.value);
+                }
             } else {
                 state.chats[foundIndex].active = true;
                 state.chats[foundIndex].mn = 0;
@@ -98,8 +110,11 @@ function reducer(state, action) {
 
             state.chats[foundIndex].mn = state.chats[foundIndex].active == false ? (state.chats[foundIndex].mn ? (state.chats[foundIndex].mn + action.value.mn) : action.value.mn) : 0;
 
-            // Set last appended messages as first array element
-            state.chats.splice(0, 0, state.chats.splice(foundIndex, 1)[0]);
+            // Push to very first if it's not static order
+            if (action.static_order === false) {
+                // Set last appended messages as first array element
+                state.chats.splice(0, 0, state.chats.splice(foundIndex, 1)[0]);
+            }
 
             return { ...state}
         }
@@ -290,6 +305,7 @@ const DashboardChatTabs = props => {
 
             dispatch({
                 type: 'add',
+                static_order: props.static_order,
                 value: {
                     "id" : chatId,
                     active: params.focus
@@ -303,6 +319,7 @@ const DashboardChatTabs = props => {
                 type: 'add',
                 value: {
                     "id" : chatId,
+                    static_order: props.static_order,
                     active: false,
                     mn : 1
                 }
@@ -398,7 +415,8 @@ const DashboardChatTabs = props => {
                     dispatch({
                         type: 'msg_received',
                         id: data.result[key].chat_id,
-                        value: {msg: data.result[key].msg, mn: data.result[key].mn}
+                        value: {msg: data.result[key].msg, mn: data.result[key].mn},
+                        order_chats: props.static_order
                     })
                 });
             }
@@ -470,7 +488,12 @@ const DashboardChatTabs = props => {
         if (localStorage) {
             var achat_id = localStorage.getItem('achat_id');
             if (achat_id !== null && achat_id !== '') {
-                var ids = achat_id.split(',');
+                var ids = achat_id.split(',').map(Number);
+
+                if (props.static_order == true) {
+                    ids.sort(function(a, b){return a - b});
+                }
+
                 var entries = [];
                 ids.forEach((id) => {
                    var el = document.getElementById('chat-tab-link-'+id);
