@@ -68,9 +68,12 @@ ee.addListener('removeSynchroChat', (chatId) => {
 $(document).ready(function(){
 
     var el = document.getElementById('tabs-dashboard');
+    var elOrderMode = document.getElementById('chats-order-mode');
+    var elOrder = elOrderMode && elOrderMode.getAttribute('data-mode');
+
     if (el !== null) {
         ReactDOM.render(
-            <Suspense fallback="..."><DashboardChatTabs /></Suspense>,
+            <Suspense fallback="..."><DashboardChatTabs static_order={elOrder == 'static'} /></Suspense>,
             el
         );
     }

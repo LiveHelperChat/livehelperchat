@@ -17,7 +17,16 @@
                         <?php endif; ?>
                 </a>
                 <?php endif; ?>
-                
+
+                <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
+                    <a id="chats-order-mode" data-mode="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('static_order', 0) == 1) : ?>static<?php else : ?>dynamic<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch to static/dynamic')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/static_order"><i class="material-icons">sort</i>
+                        <?php if ((int)erLhcoreClassModelUserSetting::getSetting('static_order', 0) == 1) : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In static chats order mode'); ?></aid>
+                        <?php else : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In dynamic chats order mode'); ?></a>
+                        <?php endif; ?>
+                <?php endif; ?>
+
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/options/new_dashboard_options.tpl.php'));?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab_multiinclude.tpl.php'));?>
