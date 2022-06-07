@@ -46,7 +46,7 @@ if (trim($form->msg) != '')
 	                if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
 	                    $ignoreMessage = true;
 	                }
-	                
+
 	                if (isset($statusCommand['info'])) {
 	                    $tpl = erLhcoreClassTemplate::getInstance('lhchat/lists/assistance_message.tpl.php');
 	                    $tpl->set('msg',array('msg' =>  $statusCommand['info'], 'time' => time()));
