@@ -453,6 +453,18 @@ class erLhcoreClassGenericBot {
             'command' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'string'
             ),
+            'sub_command' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'info_msg' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'shortcut_1' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'shortcut_2' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
             'bot_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,'int', array('min_range' => 1)
             ),
@@ -471,6 +483,30 @@ class erLhcoreClassGenericBot {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a command!');
         } else {
             $botCommand->command = $form->command;
+        }
+
+        if ( $form->hasValidData( 'sub_command' )) {
+            $botCommand->sub_command = $form->sub_command;
+        } else {
+            $botCommand->sub_command = '';
+        }
+
+        if ( $form->hasValidData( 'info_msg' )) {
+            $botCommand->info_msg = $form->info_msg;
+        } else {
+            $botCommand->info_msg = '';
+        }
+
+        if ( $form->hasValidData( 'shortcut_1' ) ) {
+            $botCommand->shortcut_1 = $form->shortcut_1;
+        } else {
+            $botCommand->shortcut_1 = '';
+        }
+
+        if ( $form->hasValidData( 'shortcut_2' ) ) {
+            $botCommand->shortcut_2 = $form->shortcut_2;
+        } else {
+            $botCommand->shortcut_2 = '';
         }
 
         if ( $form->hasValidData( 'bot_id' ) ) {

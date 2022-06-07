@@ -2242,7 +2242,7 @@ function lh(){
                         ee.emitEvent('chatAddMsgAdmin', [chat_id]);
 
                         if (data.r != '') {
-                            $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
+                            $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight")).find('.pending-storage').remove();
                         };
 
                         if (data.hold_removed === true) {
@@ -2251,7 +2251,7 @@ function lh(){
                             $('#hold-action-'+chat_id).addClass('btn-outline-info');
                         }
 
-                        if (hasSubjects == true){
+                        if (hasSubjects == true || data.update_status === true) {
                             inst.updateVoteStatus(chat_id);
                         }
 

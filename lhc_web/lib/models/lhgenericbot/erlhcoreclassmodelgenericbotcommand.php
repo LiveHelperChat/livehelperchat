@@ -19,7 +19,11 @@ class erLhcoreClassModelGenericBotCommand {
             'command' => $this->command,
             'dep_id' => $this->dep_id,
             'bot_id' => $this->bot_id,
-            'trigger_id' => $this->trigger_id
+            'trigger_id' => $this->trigger_id,
+            'shortcut_1' => $this->shortcut_1,
+            'shortcut_2' => $this->shortcut_2,
+            'sub_command' => $this->sub_command,
+            'info_msg' => $this->info_msg
         );
 
         return $stateArray;
@@ -59,4 +63,8 @@ class erLhcoreClassModelGenericBotCommand {
     public $dep_id = 0;
     public $bot_id = 0;
     public $trigger_id = 0;
+    public $shortcut_1 = '';
+    public $shortcut_2 = '';
+    public $sub_command = '';
+    public $info_msg = '';
 }
