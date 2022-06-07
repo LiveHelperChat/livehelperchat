@@ -512,13 +512,13 @@ class erLhcoreClassGenericBot {
         if ( $form->hasValidData( 'bot_id' ) ) {
             $botCommand->bot_id = $form->bot_id;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a bot!');
+            $botCommand->bot_id = 0;
         }
 
         if ( $form->hasValidData( 'AbstractInput_trigger_id' ) ) {
             $botCommand->trigger_id = $form->AbstractInput_trigger_id;
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a trigger!');
+            $botCommand->trigger_id = 0;
         }
 
         if ( $form->hasValidData( 'dep_id' ) ) {

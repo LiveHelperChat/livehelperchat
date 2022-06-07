@@ -24,7 +24,7 @@
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'dep_id',
         'display_name'   => 'name',
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control form-control-sm',
         'selected_id'    => $item->dep_id,
         'list_function'  => 'erLhcoreClassModelDepartament::getList',
         'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => false],erLhcoreClassUserDep::conditionalDepartmentFilter()),

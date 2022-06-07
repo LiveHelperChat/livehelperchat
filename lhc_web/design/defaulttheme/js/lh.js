@@ -106,9 +106,6 @@ function lh(){
     // Notifications array
     this.notificationsArray = [];
 
-    // Keyboard shortcuts for message text area
-    this.shortcuts = [];
-
     this.speechHandler = false;
     
     // Block synchronization till message add finished
