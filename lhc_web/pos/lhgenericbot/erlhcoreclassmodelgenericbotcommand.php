@@ -9,25 +9,19 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['command'] = new ezcPersistentObjectProperty();
-$def->properties['command']->columnName   = 'command';
-$def->properties['command']->propertyName = 'command';
-$def->properties['command']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+foreach (['command','sub_command','shortcut_1','shortcut_2','info_msg'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+}
 
-$def->properties['bot_id'] = new ezcPersistentObjectProperty();
-$def->properties['bot_id']->columnName   = 'bot_id';
-$def->properties['bot_id']->propertyName = 'bot_id';
-$def->properties['bot_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['trigger_id'] = new ezcPersistentObjectProperty();
-$def->properties['trigger_id']->columnName   = 'trigger_id';
-$def->properties['trigger_id']->propertyName = 'trigger_id';
-$def->properties['trigger_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['dep_id'] = new ezcPersistentObjectProperty();
-$def->properties['dep_id']->columnName   = 'dep_id';
-$def->properties['dep_id']->propertyName = 'dep_id';
-$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['bot_id','trigger_id','dep_id'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

@@ -198,6 +198,41 @@ function lh(){
                 if (typeof dataElement.action !== 'undefined') {
                     if (dataElement.action == 'hide') {
                         el.hide();
+                    } else if (dataElement.action == 'keyup') {
+
+                        el.bind('keyup', dataElement.event_data.a + '+' + dataElement.event_data.b, function() {
+                            var pdata = {
+                                msg	: '!'+dataElement.event_data.cmd
+                            };
+
+                            $.postJSON(_that.wwwDir + _that.addmsgurl + chat_id, pdata , function(data) {
+
+                                if (LHCCallbacks.addmsgadmin) {
+                                    LHCCallbacks.addmsgadmin(chat_id);
+                                };
+
+                                ee.emitEvent('chatAddMsgAdmin', [chat_id]);
+
+                                if (data.r != '') {
+                                    $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight")).find('.pending-storage').remove();
+                                };
+
+                                if (data.hold_removed === true) {
+                                    $('#hold-action-'+chat_id).removeClass('btn-outline-info');
+                                } else if (data.hold_added === true) {
+                                    $('#hold-action-'+chat_id).addClass('btn-outline-info');
+                                }
+
+                                if (data.update_status === true) {
+                                    _that.updateVoteStatus(chat_id);
+                                }
+
+                                _that.syncadmincall();
+
+                                return true;
+                            });
+                        });
+
                     } else if(dataElement.action == 'show') {
                         el.show();
                     } else if(dataElement.action == 'remove') {
@@ -2383,7 +2418,7 @@ function lh(){
                         ee.emitEvent('chatAddMsgAdmin', [chat_id]);
 
                         if (data.r != '') {
-                            $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight"));
+                            $('#messagesBlock-'+chat_id).append(data.r).scrollTop($("#messagesBlock-"+chat_id).prop("scrollHeight")).find('.pending-storage').remove();
                         };
 
                         if (data.hold_removed === true) {
@@ -2392,7 +2427,7 @@ function lh(){
                             $('#hold-action-'+chat_id).addClass('btn-outline-info');
                         }
 
-                        if (hasSubjects == true){
+                        if (hasSubjects == true || data.update_status === true) {
                             inst.updateVoteStatus(chat_id);
                         }
 
@@ -2557,7 +2592,6 @@ function lh(){
                         $('#chat-tab-link-'+parts[1]).click();
                     }
                 }
-
                 return ;
             }
 

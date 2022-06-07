@@ -1,3 +1,11 @@
+4.05v
+
+1. You can have custom keyboard shortcuts for bot commands.
+2. Commands now have --silent and --update_status options. Read about them on documentation.
+3. Using above new features you can have a custom chat close shortcut add subject etc... Unlimited options.
+
+execute doc/update_db/update_277.sql for update
+
 4.04v
 
 1. We will be able to read variable passed like this. In additional chat variables `Old way passed variable name` just enter `username`. This will improve compatibility with older embed codes.

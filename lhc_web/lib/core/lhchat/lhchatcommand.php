@@ -102,16 +102,26 @@ class erLhcoreClassChatCommand
 
             if ($command instanceof erLhcoreClassModelGenericBotCommand) {
 
+                if ($command->sub_command != '') {
+                    $commandData['argument'] = trim($command->sub_command . ' '.$commandData['argument']);
+                }
+
                 $trigger = $command->trigger;
 
                 $ignore = false;
+                $update_status = false;
 
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
                     $ignore = strpos($commandData['argument'],'--silent') !== false;
+                    $update_status = strpos($commandData['argument'],'--update_status') !== false;
 
                     if ($ignore == true) {
                         $commandData['argument'] = trim(str_replace('--silent','',$commandData['argument']));
+                    }
+
+                    if ($update_status == true) {
+                        $commandData['argument'] = trim(str_replace('--update_status','',$commandData['argument']));
                     }
 
                     $argumentsTrigger = array(
@@ -132,13 +142,22 @@ class erLhcoreClassChatCommand
                     $response = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Assigned trigger could not be found');
                 }
 
-                return array(
+                $responseData = array(
                     'ignore' => $ignore,
                     'processed' => true,
                     'process_status' => '',
                     'raw_message' => $commandData['command'] . ' || ' . $response
                 );
 
+                if ($update_status == true) {
+                    $responseData['custom_args']['update_status'] = true;
+                }
+
+                if ($command->info_msg != '') {
+                    $responseData['info'] = $command->info_msg;
+                }
+
+                return $responseData;
 
             } else {
                 $commandResponse = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.customcommand', array('command' => $commandData['command'], 'argument' => $commandData['argument'], 'params' => $params));
@@ -615,10 +634,18 @@ class erLhcoreClassChatCommand
 
             $params['chat']->updateThis(array('update' => array('operation_admin')));
 
-            return array(
+            $responseData = array(
                 'processed' => true,
                 'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Chat was closed!')
             );
+
+            $ignore = strpos($params['argument'],'--silent') !== false;
+
+            if ($ignore == true) {
+                $responseData['ignore'] = true;
+            }
+
+            return $responseData;
         }
     }
     

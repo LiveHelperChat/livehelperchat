@@ -2041,9 +2041,13 @@ try {
                     $db->query("CREATE TABLE `lh_generic_bot_command` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `command` varchar(50) NOT NULL,
+  `sub_command` varchar(100) NOT NULL,
+  `info_msg` varchar(100) NOT NULL,
   `bot_id` int(11) NOT NULL,
   `trigger_id` int(11) NOT NULL,
   `dep_id` int(11) NOT NULL,
+  `shortcut_1` varchar(10) NOT NULL,
+  `shortcut_2` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `dep_id` (`dep_id`),
   KEY `command` (`command`)
