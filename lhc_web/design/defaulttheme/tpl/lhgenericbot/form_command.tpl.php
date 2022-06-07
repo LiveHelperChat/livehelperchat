@@ -59,7 +59,7 @@
 </div>
 
 <div class="form-group" ng-non-bindable>
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?>*</label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'bot_id',
         'display_name'   => 'name',
@@ -72,7 +72,7 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a trigger');?>*</label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a trigger');?></label>
     <div id="trigger-list-id"></div>
 </div>
 
