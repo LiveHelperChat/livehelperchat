@@ -613,6 +613,10 @@ class erLhcoreClassUserValidator {
 
         $attr = isset($params['read_only']) && $params['read_only'] == true ?  'UserDepartamentGroupRead' : 'UserDepartamentGroup';
 
+        if (isset($params['exclude_auto']) && $params['exclude_auto'] == true) {
+            $attr = 'UserDepartamentGroupAutoExc';
+        }
+
         if ($params['edit_params']['groups']['edit_all'] == true) {
 
             if (isset($_POST[$attr]) && count($_POST[$attr]) > 0) {
@@ -641,6 +645,10 @@ class erLhcoreClassUserValidator {
                 $globalDepartament = $params['edit_params']['groups']['remote_id_read_all'];
             } else {
                 $globalDepartament = $params['edit_params']['groups']['remote_id_write_all'];
+            }
+
+            if (isset($params['exclude_auto']) && $params['exclude_auto'] == true) {
+                $globalDepartament = $params['edit_params']['groups']['remote_id_auto_assign_all'];
             }
         }
 
@@ -1188,6 +1196,10 @@ class erLhcoreClassUserValidator {
                 $departmentEditParams['groups']['remote_id_read_all'] = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
                     $UserData->id,
                     true
+                );
+
+                $departmentEditParams['groups']['remote_id_auto_assign_all'] = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds(
+                    $UserData->id
                 );
             }
 

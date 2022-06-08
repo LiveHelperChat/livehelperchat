@@ -8,6 +8,8 @@ $UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament']
 $userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
 $userDepartamentsGroupRead = isset($_POST['UserDepartamentGroupRead']) ? $_POST['UserDepartamentGroupRead'] : array();
 $userDepartamentsRead = isset($_POST['UserDepartamentRead']) ? $_POST['UserDepartamentRead'] : array();
+$userDepartamentsAutoExc = isset($_POST['UserDepartamentAutoExc']) ? $_POST['UserDepartamentAutoExc'] : array();
+$userDepartamentsGroupAutoExc = isset($_POST['UserDepartamentGroupAutoExc']) ? $_POST['UserDepartamentGroupAutoExc'] : array();
 
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
@@ -44,7 +46,7 @@ if (isset($_POST['Update_account']))
             }
 
             if (count($userParams['global_departament']) > 0) {
-               erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead);
+               erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead, $userDepartamentsAutoExc);
             }
 
             $UserData->setUserGroups();
@@ -56,10 +58,10 @@ if (isset($_POST['Update_account']))
             }
 
             // Write
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'])));
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'])), false, $userDepartamentsGroupAutoExc);
 
             // Read
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'], 'read_only' => true)), true);
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'], 'read_only' => true)), true, $userDepartamentsGroupAutoExc);
 
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
 
@@ -91,6 +93,9 @@ $tpl->set('userDepartaments',$UserDepartaments);
 $tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
 $tpl->set('userDepartamentsGroupRead',$userDepartamentsGroupRead);
 $tpl->set('userDepartamentsRead',$userDepartamentsRead);
+$tpl->set('userDepartamentsAutoExc',$userDepartamentsAutoExc);
+$tpl->set('userDepartamentsGroupAutoExc',$userDepartamentsGroupAutoExc);
+
 $tpl->set('show_all_pending',$userParams['show_all_pending']);
 
 $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit['groups']));

@@ -1624,6 +1624,7 @@ class Install
                   `dep_group_id` int(11) NOT NULL,
                   `user_id` int(11) NOT NULL,
                   `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)
@@ -1899,6 +1900,7 @@ class Install
                   `last_activity` int(11) NOT NULL,
                   `lastd_activity` int(11) NOT NULL DEFAULT '0',
                   `exclude_autoasign` tinyint(1) NOT NULL DEFAULT '0',
+                  `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT '0',
                   `hide_online` int(11) NOT NULL,
                   `last_accepted` int(11) NOT NULL DEFAULT '0',
                   `active_chats` int(11) NOT NULL DEFAULT '0',

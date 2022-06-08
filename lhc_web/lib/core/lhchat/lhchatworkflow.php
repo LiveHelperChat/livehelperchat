@@ -777,7 +777,7 @@ class erLhcoreClassChatWorkflow {
                         }
 
                         if (!isset($params['include_ignored_users']) || $params['include_ignored_users'] == false) {
-                            $appendSQL .= " AND exclude_autoasign = 0";
+                            $appendSQL .= " AND exclude_autoasign = 0 AND exc_indv_autoasign = 0";
                         }
 
                         // Allow limit by provided user_ids
