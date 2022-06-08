@@ -26,7 +26,7 @@ try
     $filter['sort'] = 'active_chats DESC, hide_online ASC';
     $filter['group'] = 'user_id';
     $filter = array_merge_recursive($filter, $params);
-    $filter['ignore_fields'] = array('exclude_autoasign','dep_group_id','type','max_chats','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
+    $filter['ignore_fields'] = array('exclude_autoasign','exc_indv_autoasign','dep_group_id','type','max_chats','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats');
     $filter['select_columns'] = '
         max(`id`) as `id`, 
         max(`dep_id`) as `dep_id`,
