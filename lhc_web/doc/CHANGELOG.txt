@@ -1,3 +1,14 @@
+4.06v
+
+Now there is an option to assign operator to department/department group and at the same time exclude him from auto assignment workflow.
+
+E.g You have operators who works only with VIP department, but when they don't have much to do they want to accept chats manually from lower level departments. With that option you can do that.
+
+* VIP Department chats will be auto assignment.
+* But lower level chats they would need to take manually.
+
+execute doc/update_db/update_278.sql for update
+
 4.05v
 
 1. You can have custom keyboard shortcuts for bot commands.

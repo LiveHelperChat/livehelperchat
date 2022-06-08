@@ -1,0 +1,2 @@
+ALTER TABLE `lh_userdep` ADD `exc_indv_autoasign` tinyint(1) NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_departament_group_user` ADD `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

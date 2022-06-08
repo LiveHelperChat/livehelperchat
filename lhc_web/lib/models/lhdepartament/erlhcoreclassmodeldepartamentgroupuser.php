@@ -20,6 +20,7 @@ class erLhcoreClassModelDepartamentGroupUser
             'dep_group_id' => $this->dep_group_id,
             'user_id' => $this->user_id,
             'read_only' => $this->read_only,
+            'exc_indv_autoasign' => $this->exc_indv_autoasign,
         );
     }
 
@@ -37,8 +38,17 @@ class erLhcoreClassModelDepartamentGroupUser
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
-    
-    public static function addUserDepartmentGroups($userData, $groupsIds, $readOnly = false)
+
+    public static function getUserGroupsExcAutoassignIds($user_id)
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('SELECT dep_group_id FROM lh_departament_group_user WHERE user_id = :user_id AND exc_indv_autoasign = 1');
+        $stmt->bindValue( ':user_id',$user_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public static function addUserDepartmentGroups($userData, $groupsIds, $readOnly = false, $excludeAutoAssign = array())
     {
         $groups = self::getList(array('filter' => array('user_id' => $userData->id, 'read_only' => ($readOnly === false ? 0 : 1))));
         
@@ -61,6 +71,7 @@ class erLhcoreClassModelDepartamentGroupUser
                     $member->user_id = $userData->id;
                     $member->dep_group_id = $groupId;
                     $member->read_only = ($readOnly === false ? 0 : 1);
+                    $member->exc_indv_autoasign = $readOnly == false && in_array($groupId, $excludeAutoAssign) ? 1 : 0;
                     $member->saveThis();
                 }
             }
@@ -82,7 +93,7 @@ class erLhcoreClassModelDepartamentGroupUser
         
         foreach ($this->dep_group->departments_ids as $depId) 
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign)');
             $stmt->bindValue(':user_id',$this->user_id);
             $stmt->bindValue(':dep_id',$depId);
             $stmt->bindValue(':hide_online',$this->user->hide_online);
@@ -90,6 +101,7 @@ class erLhcoreClassModelDepartamentGroupUser
             $stmt->bindValue(':ro',$this->read_only);
             $stmt->bindValue(':max_chats',$this->user->max_active_chats);
             $stmt->bindValue(':exclude_autoasign', $this->user->exclude_autoasign);
+            $stmt->bindValue(':exc_indv_autoasign', $this->exc_indv_autoasign);
             $stmt->bindValue(':always_on', $this->user->always_on);
             $stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $this->user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->execute();
@@ -133,6 +145,7 @@ class erLhcoreClassModelDepartamentGroupUser
     public $dep_group_id = 0;
     public $user_id = 0;
     public $read_only = 0;
+    public $exc_indv_autoasign = 0;
 }
 
 ?>

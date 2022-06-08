@@ -5432,6 +5432,14 @@
         "key": "MUL",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "exc_indv_autoasign",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_speech_user_language": [
@@ -7727,6 +7735,14 @@
       },
       {
         "field": "exclude_autoasign",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "exc_indv_autoasign",
         "type": "tinyint(1)",
         "null": "NO",
         "key": "MUL",

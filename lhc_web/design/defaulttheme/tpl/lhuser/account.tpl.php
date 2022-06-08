@@ -160,8 +160,11 @@
     	<?php 
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
     	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
+           $userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds();
+
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
     	   $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
+    	   $userDepartamentsGroupAutoExc = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds($user->id);
            $departmentEditParams = [
                    'self_edit' => true,
                    'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
