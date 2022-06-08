@@ -202,19 +202,30 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
         $readOnlyDepartments = $departmentEditParams['individual']['remote_id_read_all'];
     }
 
+    $excAutoDepartments = array();
+    if (isset($_POST['UserDepartamentAutoExc']) && count($_POST['UserDepartamentAutoExc']) > 0) {
+        $excAutoDepartments = $_POST['UserDepartamentAutoExc'];
+    }
+
     $UserData->updateThis();
 
     if (count($globalDepartament) > 0) {
-        erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments);
+        erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
     } else {
-        erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments);
+        erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
     }
 
+    $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
+
     // Write
-	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData,array('edit_params' => $departmentEditParams)));
+	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
+        false,
+        $excludeGroups);
 
     // Read
-    erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)), true);
+    erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
+        true,
+        $excludeGroups);
 
 	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
 

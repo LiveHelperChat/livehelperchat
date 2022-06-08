@@ -75,6 +75,21 @@ class erLhcoreClassUserDep
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
+    public static function getUserDepartamentsExcAutoassignIds($userID = false)
+    {
+        $db = ezcDbInstance::get();
+
+        if ($userID === false) {
+            $userID = erLhcoreClassUser::instance()->getUserID();
+        }
+
+        $stmt = $db->prepare('SELECT dep_id FROM lh_userdep WHERE user_id = :user_id AND type = 0 AND exc_indv_autoasign = 1 ORDER BY id ASC');
+        $stmt->bindValue(':user_id', $userID);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public static function conditionalDepartmentGroupFilter($userID = false, $column = 'id') {
 
         if ($userID === false) {
@@ -160,7 +175,7 @@ class erLhcoreClassUserDep
         return $userDepartment;
     }
 
-    public static function addUserDepartaments($Departaments, $userID = false, $UserData = false, $readOnly = array())
+    public static function addUserDepartaments($Departaments, $userID = false, $UserData = false, $readOnly = array(), $excludeAutoAssign = array())
     {
         $db = ezcDbInstance::get();
         if ($userID === false) {
@@ -173,12 +188,13 @@ class erLhcoreClassUserDep
         $stmt->execute();
 
         foreach ($Departaments as $DepartamentID) {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,ro,pending_chats,inactive_chats,exclude_autoasign,always_on) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,0,0,:max_chats,:ro,0,0,:exclude_autoasign,:always_on)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,ro,pending_chats,inactive_chats,exclude_autoasign,always_on,exc_indv_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,0,0,:max_chats,:ro,0,0,:exclude_autoasign,:always_on,:exc_indv_autoasign)');
             $stmt->bindValue(':user_id', $userID);
             $stmt->bindValue(':max_chats', $UserData->max_active_chats);
             $stmt->bindValue(':dep_id', $DepartamentID);
             $stmt->bindValue(':hide_online', $UserData->hide_online);
             $stmt->bindValue(':exclude_autoasign', $UserData->exclude_autoasign);
+            $stmt->bindValue(':exc_indv_autoasign', (in_array($DepartamentID, $excludeAutoAssign) || $DepartamentID == -1) ? 1 : 0);
             $stmt->bindValue(':ro', (in_array($DepartamentID, $readOnly) || $DepartamentID == -1) ? 1 : 0);
             $stmt->bindValue(':active_chats', erLhcoreClassChat::getCount(array('filter' => array('user_id' => $UserData->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
             $stmt->bindValue(':always_on',$UserData->always_on);

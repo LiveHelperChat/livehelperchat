@@ -29,7 +29,7 @@ class erLhcoreClassModelDepartamentGroupMember
     public function afterSave()
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('SELECT `user_id`, `read_only` FROM `lh_departament_group_user` WHERE `dep_group_id` = :dep_group_id');
+        $stmt = $db->prepare('SELECT `user_id`, `read_only`, `exc_indv_autoasign` FROM `lh_departament_group_user` WHERE `dep_group_id` = :dep_group_id');
         $stmt->bindValue( ':dep_group_id', $this->dep_group_id);
         $stmt->execute();
 
@@ -52,7 +52,7 @@ class erLhcoreClassModelDepartamentGroupMember
             $excludeAutoasign = $dataUser['exclude_autoasign'];
             $alwaysOn = $dataUser['always_on'];
 
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign)');
             $stmt->bindValue( ':user_id', $userId);
             $stmt->bindValue( ':dep_id', $this->dep_id);
             $stmt->bindValue( ':hide_online', $hide_online);
@@ -61,6 +61,7 @@ class erLhcoreClassModelDepartamentGroupMember
             $stmt->bindValue( ':max_chats',$maxChats);
             $stmt->bindValue( ':always_on',$alwaysOn);
             $stmt->bindValue( ':ro',$userIdData['read_only']);
+            $stmt->bindValue( ':exc_indv_autoasign',$userIdData['exc_indv_autoasign']);
             $stmt->bindValue( ':exclude_autoasign',$excludeAutoasign);
             $stmt->execute();
 
