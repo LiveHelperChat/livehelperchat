@@ -27,6 +27,7 @@
             <option value="CannedMsg">CannedMsg</option>
             <option value="CannedMsgDelete">CannedMsgDelete</option>
             <option value="ChatConfig">ChatConfig</option>
+            <option value="mail_import_failure">Mail import failure</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>

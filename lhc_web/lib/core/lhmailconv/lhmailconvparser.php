@@ -179,7 +179,7 @@ class erLhcoreClassMailconvParser {
                     // check that we don't have already this e-mail
                     if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
                         $messages[] = $existingMail;
-                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because record found - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
                         continue;
                     }
 
@@ -630,7 +630,27 @@ class erLhcoreClassMailconvParser {
                 }
             }
         } catch (Exception $e) {
+
             $statsImport[] = date('Y-m-d H:i:s').' | ' . $e->getMessage() . ' - ' . $e->getTraceAsString() . ' - ' . $e->getFile() . ' - ' . $e->getLine();
+
+            try {
+                $db->reconnect();
+
+                \erLhcoreClassLog::write(json_encode($statsImport, JSON_PRETTY_PRINT),
+                    \ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'mail_import_failure',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => $mailbox->id
+                    )
+                );
+
+            } catch (Exception $e) {
+                // Ignore
+            }
+
             $mailbox->failed = 1;
         }
 
