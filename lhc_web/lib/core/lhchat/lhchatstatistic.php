@@ -860,7 +860,7 @@ class erLhcoreClassChatStatistic {
             }
 
             $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_canned_msg_use`.`canned_id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` INNER JOIN `lh_canned_msg` ON `lh_canned_msg`.`id` = `lh_canned_msg_use`.`canned_id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id` ORDER BY number_of_chats DESC,`lh_canned_msg_use`.`canned_id` DESC  " . $limit;
-
+             
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
 
