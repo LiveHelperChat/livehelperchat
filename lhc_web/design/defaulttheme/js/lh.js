@@ -2903,11 +2903,11 @@ function lh(){
             var inst = this;
             setTimeout(function(){
                 inst.syncadmininterfacestatic();
+                history.pushState({}, '', '#chatlist');
+                document.location.hash = '#chatlist';
             },1000);
-
             ee.emitEvent('chatStartOpenWindow', [chat_id]);
         }
-
     };
     
     this.setCloseWindowOnEvent = function (value)
