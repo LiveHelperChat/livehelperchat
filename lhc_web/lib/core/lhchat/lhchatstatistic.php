@@ -1102,9 +1102,23 @@ class erLhcoreClassChatStatistic {
         }
     }
 
-    public static function numberOfChatsDialogsByUser($days = 30, $filter = array()) 
-    {    	    
-        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuser',array('days' => $days, 'filter' => $filter));
+    public static function numberOfChatsDialogsByUser($days = 30, $filter = array(), $groupField = 'user_id')
+    {
+        if ($groupField == 'transfer_uid') {
+            if (isset($filter['filterin']['user_id'])) {
+                $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                unset($filter['filterin']['user_id']);
+            }
+            if (isset($filter['filterin']['lh_chat.user_id'])) {
+                $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                unset($filter['filterin']['lh_chat.user_id']);
+            }
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['transfer_uid'] = $filter['filtergt']['user_id'];
+            }
+        }
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuser',array('group_field' => $groupField, 'days' => $days, 'filter' => $filter));
 
         if ($statusWorkflow === false) {
         	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
@@ -1122,8 +1136,14 @@ class erLhcoreClassChatStatistic {
         	if ($generalFilter != '' && $useTimeFilter == true) {
         		$generalFilter = ' AND '.$generalFilter;
         	}
-        	    	
-        	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,user_id FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY user_id ORDER BY number_of_chats DESC LIMIT 40";
+
+            $column = 'user_id';
+
+            if ($groupField == 'transfer_uid') {
+                $column = '`transfer_uid` AS `user_id`';
+            }
+
+        	$sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,{$column} FROM lh_chat {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC LIMIT 40";
         	
         	$db = ezcDbInstance::get();
         	$stmt = $db->prepare($sql);
@@ -1285,6 +1305,8 @@ class erLhcoreClassChatStatistic {
                     $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
     			} elseif ($type == 'filterin') {
     				$returnFilter[] = $field.' IN ( '. implode(',', $value) . ')';
+    			} elseif ($type == 'customfilter') {
+    				$returnFilter[] = $value;
     			}
     		}    		
     	}
@@ -2223,6 +2245,7 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2315,6 +2338,7 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2405,9 +2429,21 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
+            if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields) && $filterParams['group_field'] == 'transfer_uid') {
+                if (isset($filter['filterin']['user_id'])) {
+                    $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                    unset($filter['filterin']['user_id']);
+                }
+                if (isset($filter['filterin']['lh_chat.user_id'])) {
+                    $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                    unset($filter['filterin']['lh_chat.user_id']);
+                }
+            }
 
             for ($day = 1; $day < 8; $day++) {
                 $i = $day;
@@ -2435,6 +2471,13 @@ class erLhcoreClassChatStatistic {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
                     } elseif ($attr == 'user_id') {
                         $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
+                    } elseif ($attr == 'transfer_uid') {
+                        $userTransferrer = erLhcoreClassModelUser::fetch($demoItem->{$attr});
+                        if ($userTransferrer instanceof erLhcoreClassModelUser) {
+                            $returnArray['nick'][] = json_encode($userTransferrer->name_official);
+                        } else {
+                            $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                        }
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
@@ -2531,9 +2574,21 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
+            if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields) && $filterParams['group_field'] == 'transfer_uid') {
+                if (isset($filter['filterin']['user_id'])) {
+                    $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                    unset($filter['filterin']['user_id']);
+                }
+                if (isset($filter['filterin']['lh_chat.user_id'])) {
+                    $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                    unset($filter['filterin']['lh_chat.user_id']);
+                }
+            }
 
             $weekStarted = false;
             for ($i = 0; $i < $limitDays;$i++) {
@@ -2576,7 +2631,14 @@ class erLhcoreClassChatStatistic {
                         if ($attr == 'device_type') {
                             $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
                         } elseif ($attr == 'user_id') {
-                            $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
+                            $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full . ' [' . $demoItem->user_id . ']');
+                        } elseif ($attr == 'transfer_uid') {
+                            $userTransferrer = erLhcoreClassModelUser::fetch($demoItem->{$attr});
+                            if ($userTransferrer instanceof erLhcoreClassModelUser) {
+                                $returnArray['nick'][] = json_encode($userTransferrer->name_official);
+                            } else {
+                                $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                            }
                         } else {
                             $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                         }
@@ -2670,6 +2732,7 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -2755,9 +2818,21 @@ class erLhcoreClassChatStatistic {
                 'device_type' => '`device_type`',
                 'department' => '`dep_id`',
                 'user_id' => '`user_id`',
+                'transfer_uid' => '`transfer_uid`',
             );
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
+
+            if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields) && $filterParams['group_field'] == 'transfer_uid') {
+                if (isset($filter['filterin']['user_id'])) {
+                    $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                    unset($filter['filterin']['user_id']);
+                }
+                if (isset($filter['filterin']['lh_chat.user_id'])) {
+                    $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                    unset($filter['filterin']['lh_chat.user_id']);
+                }
+            }
 
             for ($i = 0; $i < $limitDays;$i++) {
                 $dateUnix = mktime(0,0,0,date('m',$startTimestamp),date('d',$startTimestamp)+$i,date('y',$startTimestamp));
@@ -2779,7 +2854,14 @@ class erLhcoreClassChatStatistic {
                     if ($attr == 'device_type') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
                     } elseif ($attr == 'user_id') {
-                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
+                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full . ' [' . $demoItem->user_id . ']');
+                    } elseif ($attr == 'transfer_uid') {
+                        $userTransferrer = erLhcoreClassModelUser::fetch($demoItem->{$attr});
+                        if ($userTransferrer instanceof erLhcoreClassModelUser) {
+                            $returnArray['nick'][] = json_encode($userTransferrer->name_official);
+                        } else {
+                            $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                        }
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
@@ -2861,6 +2943,7 @@ class erLhcoreClassChatStatistic {
             'device_type' => '`device_type`',
             'department' => '`dep_id`',
             'user_id' => '`user_id`',
+            'transfer_uid' => '`transfer_uid`',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
@@ -3226,7 +3309,19 @@ class erLhcoreClassChatStatistic {
             'device_type' => '`device_type`',
             'department' => '`dep_id`',
             'user_id' => '`user_id`',
+            'transfer_uid' => '`transfer_uid`',
         );
+
+        if (isset($filterParams['group_field']) && key_exists($filterParams['group_field'], $validGroupFields) && $filterParams['group_field'] == 'transfer_uid') {
+            if (isset($filter['filterin']['user_id'])) {
+                $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                unset($filter['filterin']['user_id']);
+            }
+            if (isset($filter['filterin']['lh_chat.user_id'])) {
+                $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                unset($filter['filterin']['lh_chat.user_id']);
+            }
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.validgroupfields', array('type' => 'sql', 'fields' => & $validGroupFields));
 
@@ -3253,7 +3348,14 @@ class erLhcoreClassChatStatistic {
                     if ($attr == 'device_type') {
                         $returnArray['nick'][] = json_encode($demoItem->{$attr} == 0 ? 'PC' : ($demoItem->{$attr} == 1 ? 'Mobile' : 'Table'));
                     } elseif ($attr == 'user_id') {
-                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full.' ['. $demoItem->user_id.']');
+                        $returnArray['nick'][] = json_encode((string)$demoItem->n_off_full . ' [' . $demoItem->user_id . ']');
+                    } elseif ($attr == 'transfer_uid') {
+                        $userTransferrer = erLhcoreClassModelUser::fetch($demoItem->{$attr});
+                        if ($userTransferrer instanceof erLhcoreClassModelUser) {
+                            $returnArray['nick'][] = json_encode($userTransferrer->name_official);
+                        } else {
+                            $returnArray['nick'][] = json_encode($demoItem->{$attr});
+                        }
                     } else {
                         $returnArray['nick'][] = json_encode((string)$demoItem->{$attr});
                     }
@@ -3785,9 +3887,9 @@ class erLhcoreClassChatStatistic {
                     $value['number_of_chats']
                 ]);
             }
-        } else if ($type == 'chatbyuser') {
+        } else if ($type == 'chatbyuser' || $type == 'chatbytransferuser') {
             fputcsv($fp, ['User','Chats number']);
-            foreach ($statistic['userChatsStats'] as $value) {
+            foreach ($statistic[$type == 'chatbyuser' ? 'userChatsStats' : 'userTransferChatsStats'] as $value) {
                 $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
                 $operator = (is_object($obUser) ? $obUser->name_official : $value['user_id']);
                 fputcsv($fp,[

@@ -14,6 +14,18 @@ $fieldsSearch['group_chart_type'] = array (
     )
 );
 
+$fieldsSearch['transfer_happened'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['(`transfer_uid` > 0 AND `transfer_uid` != `user_id`)']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldsSearch['group_limit'] = array (
     'type' => 'text',
     'trans' => 'Group Field',
