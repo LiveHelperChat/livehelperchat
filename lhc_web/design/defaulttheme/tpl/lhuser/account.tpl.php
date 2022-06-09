@@ -270,6 +270,10 @@
             </div>
 
             <div class="form-group">
+                <label><input type="checkbox" name="remove_closed_chats" value="1" <?php erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',0) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label>
+            </div>
+
+            <div class="form-group">
                 <label><input type="checkbox" name="exclude_autoasign" value="1" <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude me from auto assign workflow');?></label>
             </div>
 

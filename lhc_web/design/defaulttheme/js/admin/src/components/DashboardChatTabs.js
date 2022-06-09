@@ -435,7 +435,14 @@ const DashboardChatTabs = props => {
                             {chat.vwa && <span title={chat.vwa} className="material-icons text-danger">timer</span>}
                             {chat.support_chat && <span className="whatshot blink-ani text-warning material-icons">whatshot</span>}<i className={"material-icons "+(typeof chat.live_status === "boolean" ? (chat.live_status === true ? 'icon-user-online' : 'icon-user-offline') : (chat.us == 2 ? "icon-user-away" : (chat.us == 0 ? "icon-user-online" : "icon-user-offline")))}  >{typeof chat.live_status === "boolean" ? (chat.live_status === true ? 'wifi' : 'wifi_off') : (chat.us == 2 ? "wifi_1_bar" : (chat.us == 0 ? "wifi" : "wifi_off"))}</i><i className={"material-icons icon-user-online " + (chat.um == 1 ? "icon-user-offline" : "icon-user-online")}>send</i>{chat.cc && <img title={chat.cn} src={chat.cc} alt="" />} {(state.group_offline == false || !(chat.us != 0)) && <span className={(chat.mn > 0 || chat.cs == 0 ? "font-weight-bold " : '') + (chat.cs == 0 ? 'text-danger' : '')}>{chat.nick || chat.id}</span>}{chat.mn > 0 && <span className="msg-nm pl-1">({chat.mn})</span>}{chat.lmsg && <span className="text-muted"> {chat.lmsg}</span>}
                             <button type="button" onClick={(e) => closeDialog(e,chat)} className="float-right btn-link m-0 ml-1 p-0 btn btn-xs"><i className="material-icons mr-0">close</i></button>
-                            {chat.dep && <span className="float-right text-muted text-truncate mw-80px"><span className="material-icons">home</span>{chat.dep}</span>}
+                            {chat.dep && <span className="float-right text-muted text-truncate mw-80px">
+                                {chat.cs == 0 && <span title={t('chat_tabs.pending_status')} className="material-icons chat-pending">chat</span>}
+                                {chat.cs == 1 && <span title={t('chat_tabs.active_status')} className="material-icons chat-active">chat</span>}
+                                {chat.cs == 5 && <span title={t('chat_tabs.bot_status')} className="material-icons chat-active">android</span>}
+                                {chat.cs == 2 && <span title={t('chat_tabs.closed_status')} className="material-icons chat-closed">chat</span>}
+
+                                <span className="material-icons" title={chat.dep}>home</span>
+                                {chat.dep}</span>}
                             {chat.co == confLH.user_id && <span className="float-right text-muted"><span title={t('chat_tabs.chat_owner')} className="material-icons">account_box</span></span>}
                         </div>
 
