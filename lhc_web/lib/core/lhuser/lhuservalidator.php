@@ -354,6 +354,9 @@ class erLhcoreClassUserValidator {
             'exclude_autoasign' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'remove_closed_chats' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'auto_uppercase' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -385,6 +388,12 @@ class erLhcoreClassUserValidator {
             $result['auto_accept'] = 1;
 		} else {
             $result['auto_accept'] = 0;
+		}
+
+		if ( $form->hasValidData( 'remove_closed_chats' ) && $form->remove_closed_chats == true ) {
+            $result['remove_closed_chats'] = 1;
+		} else {
+            $result['remove_closed_chats'] = 0;
 		}
 		
 		if ( $form->hasValidData( 'auto_join_private' ) && $form->auto_join_private == true ) {

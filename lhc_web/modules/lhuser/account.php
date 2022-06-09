@@ -33,6 +33,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
             'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
             'no_scroll_bottom' =>  erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',  0, $UserData->id),
+            'remove_closed_chats' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',  0, $UserData->id),
         );
         $originalSettings['new'] = $pendingSettings;
 
@@ -58,6 +59,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('auto_preload', 1);
     } else {
         erLhcoreClassModelUserSetting::setSetting('auto_preload', 0);
+    }
+
+    if (isset($_POST['remove_closed_chats']) && $_POST['remove_closed_chats'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', 0);
     }
 
     if (isset($_POST['auto_join_private']) && $_POST['auto_join_private'] == 1) {

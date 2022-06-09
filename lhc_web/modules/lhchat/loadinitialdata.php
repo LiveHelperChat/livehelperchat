@@ -118,7 +118,7 @@ if (is_array($Params['user_parameters_unordered']['chatopen']) && !empty($Params
     }
 
     foreach ($chats as $chat) {
-        if (erLhcoreClassChat::hasAccessToRead($chat)){
+        if (erLhcoreClassChat::hasAccessToRead($chat) && ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT || $chat->user_id != $userData->id || $chat->cls_time > (time() - 5 * 60) || erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',0) == 0)) {
             $chatOpen[] = array(
                 'id' => $chat->id,
                 'nick' => erLhcoreClassDesign::shrt($chat->nick,10,'...',30,ENT_QUOTES)
