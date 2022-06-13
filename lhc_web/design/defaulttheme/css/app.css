@@ -664,9 +664,44 @@ div.pending-storage {
 	font-size: 13px;
 }
 
-div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
+/*div.message-admin+div.message-admin .msg-date,
+div.message-row.response+div.message-row.response .msg-date,*/
 #messagesBlock .message-row .msg-date{
 	display:none;
+}
+
+.msg-date-op,
+.msg-date-vi{
+    background: #f7f7f7;
+    border-radius: 10px;
+    border: 1px solid white;
+    line-height: 9px!important;
+    position: relative;
+    z-index: 99;
+    padding:2px 4px!important;
+    color: #a5a5a5 !important;
+}
+
+.msg-date-vi{
+    left:20px;
+}
+
+.msg-date-op{
+    right:20px;
+}
+
+div.message-row.message-admin+div.message-row.message-admin .msg-date-op{
+    display: block;
+    position: absolute;
+    margin-top:-9px;
+    right:20px;
+}
+
+div.message-row.response+div.message-row.response .msg-date-vi{
+    display: block;
+    position: absolute;
+    margin-top:-9px;
+    left:20px;
 }
 
 .last-user-msg{
