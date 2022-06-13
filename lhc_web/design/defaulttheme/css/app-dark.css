@@ -645,9 +645,50 @@ div.pending-storage {
     font-size: 13px;
 }
 
-div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
 #messagesBlock .message-row .msg-date{
     display:none;
+}
+
+.msg-date-op,
+.msg-date-vi{
+    background: #40464e;
+    border-radius: 10px;
+    border: 1px solid #323232;
+    line-height: 9px!important;
+    position: relative;
+    z-index: 99;
+    padding:2px 4px!important;
+    color: #bcbcbc !important;
+}
+
+.msg-date-vi{
+    left:0px;
+}
+
+.msg-date-op{
+    right:0px;
+}
+
+div.message-row.message-admin+div.message-row.message-admin .msg-date-op{
+    display: block;
+    position: absolute;
+    margin-top:-9px;
+    right:0px;
+}
+
+div.message-row.response+div.message-row.response .msg-date-vi{
+    display: block;
+    position: absolute;
+    margin-top:-9px;
+    left:0px;
+}
+
+div.message-row.response div.msg-body{
+    border-top-left-radius: 0;
+}
+
+div.message-row.message-admin div.msg-body{
+    border-top-right-radius: 0;
 }
 
 .last-user-msg{
