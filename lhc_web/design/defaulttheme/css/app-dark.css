@@ -662,27 +662,34 @@ div.pending-storage {
 }
 
 .msg-date-vi{
-    left:20px;
+    left:0px;
 }
 
 .msg-date-op{
-    right:20px;
+    right:0px;
 }
 
 div.message-row.message-admin+div.message-row.message-admin .msg-date-op{
     display: block;
     position: absolute;
     margin-top:-9px;
-    right:20px;
+    right:0px;
 }
 
 div.message-row.response+div.message-row.response .msg-date-vi{
     display: block;
     position: absolute;
     margin-top:-9px;
-    left:20px;
+    left:0px;
 }
 
+div.message-row.response div.msg-body{
+    border-top-left-radius: 0;
+}
+
+div.message-row.message-admin div.msg-body{
+    border-top-right-radius: 0;
+}
 
 .last-user-msg{
     position:absolute;
