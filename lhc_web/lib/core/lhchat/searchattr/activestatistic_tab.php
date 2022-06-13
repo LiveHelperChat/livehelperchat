@@ -14,6 +14,18 @@ $fieldsSearch['group_chart_type'] = array (
     )
 );
 
+$fieldsSearch['transfer_happened'] = array (
+    'type' => 'boolean',
+    'trans' => 'groupby',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'manual',
+    'filter_table_field' => ['customfilter' => ['(`lh_chat`.`transfer_uid` > 0 AND `lh_chat`.`transfer_uid` != `lh_chat`.`user_id`)']],
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldsSearch['group_limit'] = array (
     'type' => 'text',
     'trans' => 'Group Field',
@@ -347,7 +359,7 @@ $fieldsSearch['abandoned_chat'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `user_id` = 0))']],
+    'filter_table_field' => ['customfilter' => ['((`lsync` < (`pnd_time` + `wait_time`) AND `wait_time` > 1) OR  (`lsync` > (`pnd_time` + `wait_time`) AND `wait_time` > 1 AND `lh_chat`.`user_id` = 0))']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )
@@ -359,7 +371,7 @@ $fieldsSearch['dropped_chat'] = array (
     'required' => false,
     'valid_if_filled' => false,
     'filter_type' => 'manual',
-    'filter_table_field' => ['customfilter' => ['(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `user_id` > 0)']],
+    'filter_table_field' => ['customfilter' => ['(`lsync` > (`pnd_time` + `wait_time`) AND `has_unread_op_messages` = 1 AND `lh_chat`.`user_id` > 0)']],
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
     )

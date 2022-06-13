@@ -45,6 +45,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $Chat->last_msg_id = $msg->id;
                     $Chat->last_user_msg_time = time();
                     $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                    $Chat->transfer_uid = $currentUser->getUserID();
                     $Chat->updateThis();
 
                     $tpl = erLhcoreClassTemplate::getInstance('lhkernel/alert_success.tpl.php');
@@ -97,6 +98,7 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
 
                         $Chat->user_id = $user->id;
                         $Chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_OWNER_CHANGED;
+                        $Chat->transfer_uid = $currentUser->getUserID();
                         $Chat->saveThis();
 
                         erLhcoreClassChat::updateActiveChats($Chat->user_id);

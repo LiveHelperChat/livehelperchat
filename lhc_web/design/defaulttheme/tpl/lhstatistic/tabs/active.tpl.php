@@ -291,6 +291,7 @@
             <div class="col-3"><label><input type="checkbox" name="dropped_chat" value="1" <?php $input->dropped_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Dropped chat')?></label></div>
             <div class="col-3"><label><input type="checkbox" name="proactive_chat" value="<?php echo erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE ?>" <?php $input->proactive_chat == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Proactive chat')?></label></div>
             <div class="col-3"><label><input type="checkbox" name="not_invitation" value="0" <?php $input->not_invitation === 0 ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Not automatic invitation')?></label></div>
+            <div class="col-3"><label><input type="checkbox" name="transfer_happened" value="1" <?php $input->transfer_happened == true ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Transfer happened')?></label></div>
         </div>
     </div>
 
@@ -313,6 +314,7 @@
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="avgduration" <?php if (in_array('avgduration',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbyuser" <?php if (in_array('chatbyuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?></label></div>
+            <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbytransferuser" <?php if (in_array('chatbytransferuser',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by transfer operator')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbydep" <?php if (in_array('chatbydep',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by department')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitbyoperator" <?php if (in_array('waitbyoperator',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?></label></div>
             <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="avgdurationop" <?php if (in_array('avgdurationop',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration by user in seconds')?></label></div>
@@ -578,7 +580,6 @@
 	
 	function drawChartUser() {	
 		<?php if (!empty($userChatsStats)) : ?>
-
                 var barChartData = {
                     labels: [<?php $key = 0; foreach ($userChatsStats as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
                     datasets: [{
@@ -589,7 +590,20 @@
                     }]
                 };
                 drawBasicChart(barChartData,'chart_div_user');
-		  <?php endif;?>						  
+		  <?php endif;?>
+
+        <?php if (!empty($userTransferChatsStats)) : ?>
+                var barChartData = {
+                    labels: [<?php $key = 0; foreach ($userTransferChatsStats as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
+                    datasets: [{
+                        backgroundColor: '#36c',
+                        borderColor: '#36c',
+                        borderWidth: 1,
+                        data: [<?php $key = 0; foreach ($userTransferChatsStats as $data) : echo ($key > 0 ? ',' : ''),$data['number_of_chats']; $key++; endforeach;?>]
+                    }]
+                };
+                drawBasicChart(barChartData,'chart_div_transfer_user');
+		  <?php endif;?>
 	};
 
 	function drawChartDepartmnent() {
@@ -1312,6 +1326,12 @@
 <hr>
 <h5><a class="csv-export" data-scope="chatbyuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></h5>
 <canvas id="chart_div_user"></canvas>
+<?php endif;?>
+
+<?php if (!empty($userTransferChatsStats)) : ?>
+<hr>
+<h5><a class="csv-export" data-scope="chatbytransferuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_transfer_user.tpl.php'));?></h5>
+<canvas id="chart_div_transfer_user"></canvas>
 <?php endif;?>
 
 <?php if (!empty($depChatsStats)) : ?>

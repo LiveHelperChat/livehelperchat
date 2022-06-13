@@ -13,7 +13,7 @@ $ViewList['departmentstatusxls'] = array(
 
 $ViewList['statistic'] = array(
     'params' => array(),
-    'uparams' => array('opened','invitation_ids','wait_time_till','wait_time_from','subject_ids','department_ids','department_group_ids','group_ids','user_ids','timeintervalto_hours', 'timeintervalfrom_hours', 'group_by','xls','tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
+    'uparams' => array('transfer_happened','opened','invitation_ids','wait_time_till','wait_time_from','subject_ids','department_ids','department_group_ids','group_ids','user_ids','timeintervalto_hours', 'timeintervalfrom_hours', 'group_by','xls','tab','timefrom','timeto','department_id','user_id','group_id','department_group_id','timefrom_minutes','timefrom_hours','timeto_hours','timeto_minutes'),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids')
 );
