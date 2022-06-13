@@ -644,21 +644,22 @@ div.pending-storage {
 .message-block{
     font-size: 13px;
 }
-
 #messagesBlock .message-row .msg-date{
     display:none;
 }
 
 .msg-date-op,
 .msg-date-vi{
+    display: inline-block;
     background: #40464e;
-    border-radius: 10px;
+    border-radius: 6px;
     border: 1px solid #323232;
     line-height: 9px!important;
     position: relative;
     z-index: 99;
-    padding:2px 4px!important;
+    padding:2px 3px!important;
     color: #bcbcbc !important;
+    font-size: 10px;
 }
 
 .msg-date-vi{
@@ -681,6 +682,12 @@ div.message-row.response+div.message-row.response .msg-date-vi{
     position: absolute;
     margin-top:-9px;
     left:0px;
+}
+
+div.message-row.operator-changes .msg-date-op{
+    position: relative!important;
+    display: inline-block!important;
+    margin: 0!important;
 }
 
 div.message-row.response div.msg-body{
