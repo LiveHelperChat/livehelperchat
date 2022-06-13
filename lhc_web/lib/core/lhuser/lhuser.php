@@ -18,8 +18,12 @@ class erLhcoreClassUser{
        $options->idKey = 'lhc_ezcAuth_id';
        $options->timestampKey = 'lhc_ezcAuth_timestamp';
 
+       $sessionCookieName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'php_session_cookie_name', false );
+
        $this->session = new ezcAuthenticationSession($options);
-       $this->session->setSessionName('LHC_SESSID');
+       if (!empty($sessionCookieName) && $sessionCookieName !== false){
+           $this->session->setSessionName($sessionCookieName);
+       }
        $this->session->start();
 
        $this->credentials = new ezcAuthenticationPasswordCredentials( $this->session->load(), null );
@@ -62,7 +66,7 @@ class erLhcoreClassUser{
               // Check that session is valid
               if (self::$oneLoginPerAccount == true || erConfigClassLhConfig::getInstance()->getSetting( 'site', 'one_login_per_account', false ) == true) {              
                   $sesid = $this->getUserData(true)->session_id;             
-                  if ($sesid != $_COOKIE['PHPSESSID'] && $sesid != '') {
+                  if ($sesid != $_COOKIE[!empty($sessionCookieName) && $sessionCookieName !== false ? $sessionCookieName : 'PHPSESSID'] && $sesid != '') {
                       $this->authenticated = false;
                       $this->logout();
                       $_SESSION['logout_reason'] = 1;
