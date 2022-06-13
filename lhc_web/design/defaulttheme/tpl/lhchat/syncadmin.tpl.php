@@ -52,8 +52,8 @@ if ($msg['user_id'] == -1) : ?>
     <span class="usr-tit <?php echo $msg['user_id'] == 0 ? ' vis-tit' : ' op-tit'?>">
         <?php echo $msg['user_id'] == 0 ? '<i class="material-icons chat-operators mi-fs15 mr-0 pb-1">'.($chat->device_type == 0 ? '&#xE30A;' : ($chat->device_type == 1 ? '&#xE32C;' : '&#xE32F;')).'</i> '.htmlspecialchars(isset($lhcNickAlias) ? $lhcNickAlias : $chat->nick) : '<i class="material-icons chat-operators mi-fs15 mr-0 pb-1">&#xE851;</i>'.htmlspecialchars($msg['name_support']) ?>
     </span>
-    <?php if ($msg['user_id'] != 0) : ?><span class="msg-date msg-date-op"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><?php endif;?>
-    <?php if ($msg['user_id'] == 0) : ?><span class="msg-date msg-date-vi"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><?php endif;?>
+    <?php if ($msg['user_id'] != 0) : ?><span class="msg-date msg-date-op"><?php echo erLhcoreClassChat::formatDate($msg['time']),"<br/>";?></span><?php endif;?>
+    <?php if ($msg['user_id'] == 0) : ?><span class="msg-date msg-date-vi"><?php echo erLhcoreClassChat::formatDate($msg['time']),"<br/>";?></span><?php endif;?>
 
         <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true);?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
