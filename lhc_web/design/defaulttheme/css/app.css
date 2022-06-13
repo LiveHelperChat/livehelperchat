@@ -267,12 +267,8 @@ textarea[name=ChatMessage]{
 	font-size:11px;
 	line-height:11px;
 	margin-top:0px;
-	/*position:absolute;
-	right:0;
-	top:-8px;*/
 	padding:3px;
 	border-radius:10px;
-	font-style: italic;
 }
 
 .system-response .msg-date{
