@@ -19,6 +19,7 @@ class erLhcoreClassUser{
        $options->timestampKey = 'lhc_ezcAuth_timestamp';
 
        $this->session = new ezcAuthenticationSession($options);
+       $this->session->setSessionName('LHC_SESSID');
        $this->session->start();
 
        $this->credentials = new ezcAuthenticationPasswordCredentials( $this->session->load(), null );

@@ -96,6 +96,11 @@ class ezcAuthenticationSession
     protected $options;
 
     /**
+     * PHP session name
+     */
+    protected $sessionName = null;
+
+    /**
      * Creates a new object of this class.
      *
      * @param ezcAuthenticationSessionOptions $options Options for this class
@@ -201,9 +206,17 @@ class ezcAuthenticationSession
     {
         if ( session_id() === '' && PHP_SAPI !== 'cli' )
         {
-            session_set_cookie_params(0); 
+            session_set_cookie_params(0);
+            if (!empty($this->sessionName)) {
+                session_name($this->sessionName);
+            }
             session_start();
         }
+    }
+
+    public function setSessionName($name)
+    {
+        $this->sessionName = $name;
     }
 
     /**
