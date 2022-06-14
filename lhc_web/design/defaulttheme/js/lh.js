@@ -1820,11 +1820,13 @@ function lh(){
 
 	        		                  lhinst.updateChatLastMessageID(item.chat_id,item.message_id);
 
-
-
 	        		                  if (playSound == false && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false))
                                       {
                                           playSound = true;
+                                      }
+
+                                      if (data.uw == 'false') {
+                                          ee.emitEvent('angularActionHappened',[{'type':'user_wrote','chat_id': item.chat_id, 'msg' : item.msg, 'nick': item.nck}]);
                                       }
 
 	        		                  if ( confLH.new_message_browser_notification == 1 && data.uw == 'false' && (typeof item.ignore === 'undefined' || typeof item.ignore === false)) {
@@ -2095,6 +2097,8 @@ function lh(){
 		if (this.backgroundChats.indexOf(parseInt(chat_id)) != -1) {
 			return ;
 		}
+
+        ee.emitEvent('angularActionHappened',[{'type': identifier, 'chat_id': chat_id, 'msg' : message, 'nick': nick}]);
 
 		if (confLH.new_chat_sound_enabled == 1 && (confLH.sn_off == 1 || $('#online-offline-user').text() == 'flash_on') && (identifier == 'active_chats' || identifier == 'bot_chats' || identifier == 'pending_chat' || identifier == 'transfer_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered')) {
 	    	this.soundPlayedTimes = 0;

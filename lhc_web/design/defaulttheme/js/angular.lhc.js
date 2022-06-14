@@ -229,7 +229,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.current_user_id = confLH.user_id;
 
 	// Parameters for back office sync
-	
+
 	var _that = this;
 
     this.restoreSettingByString = function(value,split) {
@@ -287,6 +287,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.limitmc = "10";
 	this.limitgc = "10";
 	this.limits = "10";
+
 
 	// Active chat's operators filter
 	this.activeu = [];
@@ -494,7 +495,19 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		_that[listId + '_only_online'] = _that.restoreLocalSetting(listId + '_only_online','false',false) != 'false';
 		_that[listId + '_only_explicit_online'] = _that.restoreLocalSetting(listId + '_only_explicit_online','false',false) != 'false';
 	});
-	
+
+    this.last_actions_index = 0;
+    this.last_actions = [];
+
+    this.addAction = function(data) {
+        this.last_actions.unshift(data);
+        this.last_actions = this.last_actions.slice(0, 5);
+    }
+
+    ee.addListener('angularActionHappened',function(data) {
+        _that.addAction(data);
+    });
+
 	this.storeLocalSetting = function(variable, value) {
 		if (localStorage) {
 			try {
@@ -1354,6 +1367,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 					if (tabs.length > 0 && lhinst.disableremember == false) {
 						angular.forEach(data.mac, function(item, key) {
 							lhinst.startChatBackground(item.id,tabs,LiveHelperChatFactory.truncate((item.nick || 'Visitor'),10),false);
+                            _that.addAction({'type':'mac', 'chat_id': item.id, 'nick': item.nick});
 						});
 					}
 				}
@@ -1857,6 +1871,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
             angular.forEach(data.copen, function(chatOpen) {
                 lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate((chatOpen.nick || 'Visitor'),10), (chatOpen.id == chat_id), 0, chatOpen.status);
+                _that.addAction({'type':'mac_history', 'chat_id': chatOpen.id, 'nick': chatOpen.nick});
             });
 
             angular.forEach(data.cgopen, function(chatOpen) {
