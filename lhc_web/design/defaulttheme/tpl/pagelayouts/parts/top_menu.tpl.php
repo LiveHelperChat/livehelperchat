@@ -10,7 +10,7 @@
         <div ng-if="lhc.inActive == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You went offline because of inactivity. Please close other chat windows if you have any');?></div>
     </div>
 
-    <div ng-cloak class="text-muted float-left fs12" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
+    <div ng-cloak class="text-muted float-left fs12 abbr-list" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
             <span class="material-icons action-image" ng-click="lhc.last_actions_index = lhc.last_actions_index + 1" ng-if="lhc.last_actions_index < lhc.last_actions.length - 1">
                 expand_more
             </span>
