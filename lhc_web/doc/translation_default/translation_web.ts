@@ -36,6 +36,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1136,6 +1144,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source> Required only if stars less or equal to 1 - n</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stars field Nr. (1-5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -1457,6 +1473,10 @@
     </message>
     <message>
       <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blocked visitor message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3125,6 +3145,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transfer happened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation type="unfinished"/>
     </message>
@@ -3358,6 +3382,22 @@
     </message>
     <message>
       <source>Day interval to include to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator who transferred a chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3847,6 +3887,10 @@
     </message>
     <message>
       <source>Department, if you do not choose command will be available to all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shortcut, optional</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5171,6 +5215,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Shortcut</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -5499,6 +5547,10 @@
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred by</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6603,6 +6655,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude me from auto assign workflow</source>
       <translation type="unfinished"/>
     </message>
@@ -6639,6 +6695,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude from auto assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation type="unfinished"/>
     </message>
@@ -6660,10 +6720,6 @@
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6700,6 +6756,10 @@
     </message>
     <message>
       <source>Personal canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pending chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7146,6 +7206,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Sub command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -7171,10 +7251,6 @@
     </message>
     <message>
       <source>Translation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8167,6 +8243,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Click to switch to static/dynamic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In static chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In dynamic chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat ID to open</source>
       <translation type="unfinished"/>
     </message>
@@ -8247,6 +8335,10 @@
     </message>
     <message>
       <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10237,6 +10329,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>in chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active chat was opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>previously loaded chat was opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat tabs</source>
       <translation type="unfinished"/>
     </message>
@@ -10383,6 +10487,10 @@
     </message>
     <message>
       <source>Number of chats by user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats by transfer operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10683,6 +10791,10 @@
     </message>
     <message>
       <source>device type's</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of chats transferred by operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17082,6 +17194,18 @@
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter default translation!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a name</source>
       <translation type="unfinished"/>
     </message>
@@ -17114,10 +17238,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter default translation!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please choose a group!</source>
       <translation type="unfinished"/>
     </message>
@@ -17127,14 +17247,6 @@
     </message>
     <message>
       <source>Please enter a command!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a trigger!</source>
       <translation type="unfinished"/>
     </message>
     <message>
