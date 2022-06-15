@@ -15,10 +15,14 @@
 <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
 </div>
 
+<?php /*
 <div class="form-group">
 <label><?php echo $fields['feedback_text']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('feedback_text', $fields['feedback_text'], $object)?>
-</div>
+</div>*/ ?>
+
+<?php $translatableItem = array('identifier' => 'feedback_text'); ?>
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
 <?php $translatableItem = array('identifier' => 'survey_title'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>

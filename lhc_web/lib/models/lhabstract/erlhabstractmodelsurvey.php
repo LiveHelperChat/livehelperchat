@@ -262,6 +262,7 @@ class erLhAbstractModelSurvey {
         $chatLocale = erLhcoreClassChatValidator::getVisitorLocale();
 
         $attributesDirect = array(
+            'feedback_text'
         );
 
         $translatableAttributes = array_merge(array(
