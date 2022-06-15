@@ -15,7 +15,9 @@
 		  <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/list.tpl.php')); ?>
 		</div>
 		<div role="tabpanel" class="tab-pane <?php if ($tab == 'chart') : ?>active<?php endif;?>" id="chart">
-		  <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/chart.tpl.php')); ?>
+            <?php if ($tab == 'chart') : ?>
+		        <?php include(erLhcoreClassDesign::designtpl('lhsurvey/collected/chart.tpl.php')); ?>
+            <?php endif; ?>
 		</div>
 	</div>
 </div>
