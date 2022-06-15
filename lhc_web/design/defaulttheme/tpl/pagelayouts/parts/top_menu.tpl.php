@@ -10,6 +10,7 @@
         <div ng-if="lhc.inActive == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You went offline because of inactivity. Please close other chat windows if you have any');?></div>
     </div>
 
+    <?php if (erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',0) == 0) : ?>
     <div ng-cloak class="text-muted float-left fs12 abbr-list" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
             <span class="material-icons action-image" ng-click="lhc.last_actions_index = lhc.last_actions_index + 1" ng-if="lhc.last_actions_index < lhc.last_actions.length - 1">
                 expand_more
@@ -25,6 +26,7 @@
             <span ng-if="lhc.last_actions[lhc.last_actions_index].type == 'mac'"><b>{{lhc.last_actions[lhc.last_actions_index].nick}}</b> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','active chat was opened');?> - {{lhc.last_actions[lhc.last_actions_index].chat_id}}</span>
             <span ng-if="lhc.last_actions[lhc.last_actions_index].type == 'mac_history'"><b>{{lhc.last_actions[lhc.last_actions_index].nick}}</b> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','previously loaded chat was opened');?> - {{lhc.last_actions[lhc.last_actions_index].chat_id}}</span>
     </div>
+    <?php endif; ?>
 
     <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-icons mr-0">menu</span>
