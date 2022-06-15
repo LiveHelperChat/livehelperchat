@@ -79,8 +79,9 @@ if ($pages->items_total > 0) {
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 $tpl->set('survey',$survey);
-$tpl->set('tab','');
+$tpl->set('tab',isset($_GET['tab']) && $_GET['tab'] == 'chart' ? 'chart' : '');
 $tpl->set('survey_filter',$filterSearch);
+$tpl->set('append_filter',erLhcoreClassDesign::baseurl('survey/collected') . '/' . $survey->id . $append);
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('survey/collected') . '/' . $survey->id;
 

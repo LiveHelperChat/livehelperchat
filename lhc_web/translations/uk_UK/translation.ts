@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -243,7 +251,7 @@
     </message>
     <message>
       <source>Do not store what visitor is typing</source>
-      <translation>Не зберігайте те, що вводить відвідувач</translation>
+      <translation>Не зберігати те, що вводить відвідувач</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
@@ -1279,7 +1287,7 @@
     </message>
     <message>
       <source>If visitor opens a popup keep chat in the widget also</source>
-      <translation>Якщо відвідувач відкриває спливаюче вікно, зберігайте чат також у віджеті</translation>
+      <translation>Якщо відвідувач відкриває спливаюче вікно, зберігати чат також у віджеті</translation>
     </message>
     <message>
       <source>Header height (px)</source>
@@ -2049,6 +2057,10 @@
       <translation>Ідентифікатор змінної</translation>
     </message>
     <message>
+      <source>Old way passed variable name</source>
+      <translation>Ім&apos;я змінної передавалося по-старому</translation>
+    </message>
+    <message>
       <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
       <translation>Змінну змінено з [b]{old_val}[/b] на [b]{new_val}[/b]</translation>
     </message>
@@ -2274,7 +2286,7 @@
     </message>
     <message>
       <source>Do not store event if from last event has passed less than x seconds.</source>
-      <translation>Не зберігайте подію, якщо від останньої події минуло менше x секунд.</translation>
+      <translation>Не зберігати подію, якщо від останньої події минуло менше x секунд.</translation>
     </message>
     <message>
       <source>Filter by value</source>
@@ -2481,7 +2493,7 @@
     </message>
     <message>
       <source>Open popup on mobile devices using mobile layout.</source>
-      <translation>Відкрийте спливаюче вікно на мобільних пристроях за допомогою мобільного макета.</translation>
+      <translation>Відкрити спливаюче вікно на мобільних пристроях за допомогою мобільного макета.</translation>
     </message>
     <message>
       <source>Do not process internal pages and use redirects.</source>
@@ -3412,7 +3424,7 @@
     </message>
     <message>
       <source>Disable operators</source>
-      <translation>Вимкнути оператори</translation>
+      <translation>Вимкнути операторів</translation>
     </message>
     <message>
       <source>Force logout</source>
@@ -3697,7 +3709,7 @@
     </message>
     <message>
       <source>New canned message</source>
-      <translation>Нове підготовлене повідомлення</translation>
+      <translation>Нове шаблонне повідомлення</translation>
     </message>
     <message>
       <source>By default last 30 days statistic is shown.</source>
@@ -3893,7 +3905,7 @@
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
-      <translation>Консервовані теги повідомлення не повинні містити # символ</translation>
+      <translation>Шаблонні теги повідомлення не повинні містити # символ</translation>
     </message>
     <message>
       <source>Please choose a department!</source>
@@ -4699,7 +4711,7 @@
     </message>
     <message>
       <source>Speech language</source>
-      <translation>Мовна мова</translation>
+      <translation>Мова мовлення</translation>
     </message>
     <message>
       <source>Languages</source>
@@ -5272,6 +5284,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Are you sure you want to delete this chat?</source>
+      <translation>Ви впевнені, що хочете видалити цей чат?</translation>
+    </message>
+    <message>
       <source>Strike</source>
       <translation>Страйк</translation>
     </message>
@@ -5661,7 +5677,7 @@
     </message>
     <message>
       <source>Select a canned message</source>
-      <translation>Вибрати фіксоване повідомлення</translation>
+      <translation>Вибрати шаблонне повідомлення</translation>
     </message>
     <message>
       <source>BB Code</source>
@@ -5716,8 +5732,8 @@
       <translation>Надсилання...</translation>
     </message>
     <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation>Ви впевнені, що хочете видалити цей чат?</translation>
+      <source>Are you sure you want to delete this item?</source>
+      <translation>Ви впевнені, що хочете видалити цей елемент?</translation>
     </message>
     <message>
       <source>Mobile</source>
@@ -5858,7 +5874,7 @@
     </message>
     <message>
       <source>Remove old canned messages</source>
-      <translation>Видаліть старі консервовані повідомлення</translation>
+      <translation>Видалити старі шаблонні повідомлення</translation>
     </message>
     <message>
       <source>If you do not check we will try to update existing records without removing all records.</source>
@@ -6318,18 +6334,6 @@
       <translation>Термін дії закінчується</translation>
     </message>
     <message>
-      <source>days (cool off)</source>
-      <translation>днів (охолоджувати)</translation>
-    </message>
-    <message>
-      <source>days</source>
-      <translation>днів</translation>
-    </message>
-    <message>
-      <source>Permanent/unlimited</source>
-      <translation>Постійний/необмежений</translation>
-    </message>
-    <message>
       <source>Block</source>
       <translation>Блокувати</translation>
     </message>
@@ -6340,6 +6344,18 @@
     <message>
       <source>Online user (cookie)</source>
       <translation>Онлайн-користувач (файл cookie)</translation>
+    </message>
+    <message>
+      <source>days (cool off)</source>
+      <translation>днів (охолоджувати)</translation>
+    </message>
+    <message>
+      <source>days</source>
+      <translation>днів</translation>
+    </message>
+    <message>
+      <source>Permanent/unlimited</source>
+      <translation>Постійний/необмежений</translation>
     </message>
     <message>
       <source>Blocked users</source>
@@ -6427,6 +6443,10 @@
     <message>
       <source>URL Explorer</source>
       <translation>URL Explorer</translation>
+    </message>
+    <message>
+      <source>User permissions</source>
+      <translation>Дозволи користувача</translation>
     </message>
     <message>
       <source>Update</source>
@@ -6678,7 +6698,7 @@
     </message>
     <message>
       <source>Personal canned messages</source>
-      <translation>Особисті консервовані повідомлення</translation>
+      <translation>Особисті шаблонні повідомлення</translation>
     </message>
     <message>
       <source>Avatar builder</source>
@@ -8150,7 +8170,7 @@
     </message>
     <message>
       <source>Open a chat</source>
-      <translation>Відкрийте чат</translation>
+      <translation>Відкрити чат</translation>
     </message>
     <message>
       <source>Hide/Show chat tabs</source>
@@ -8158,7 +8178,7 @@
     </message>
     <message>
       <source>Open chats</source>
-      <translation>Відкрийте чати</translation>
+      <translation>Відкриті чати</translation>
     </message>
     <message>
       <source>Tabs/List in left column</source>
@@ -9353,11 +9373,11 @@
     </message>
     <message>
       <source>Canned messages</source>
-      <translation>Фіксовані повідомлення</translation>
+      <translation>Шаблонні повідомлення</translation>
     </message>
     <message>
       <source>Canned replaceable variables</source>
-      <translation>Консервовані змінні змінні</translation>
+      <translation>Стандартні заміняємі змінні</translation>
     </message>
     <message>
       <source>Chat</source>
@@ -9529,7 +9549,7 @@
     </message>
     <message>
       <source>Re-captcha settings</source>
-      <translation>Повторне налаштування капчі</translation>
+      <translation>Налаштування Re-captcha</translation>
     </message>
     <message>
       <source>Rest API</source>
@@ -10052,7 +10072,7 @@
     </message>
     <message>
       <source>Only explicit online</source>
-      <translation>Лише відвертий онлайн</translation>
+      <translation>Лише явний онлайн</translation>
     </message>
     <message>
       <source>Hide hidden</source>
@@ -10148,7 +10168,7 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Питальний</translation>
+      <translation>Запитання</translation>
     </message>
     <message>
       <source>New chat request</source>
@@ -10256,7 +10276,7 @@
     </message>
     <message>
       <source>Based on activity</source>
-      <translation>На основі діяльності</translation>
+      <translation>На основі активності</translation>
     </message>
     <message>
       <source>Invisible</source>
@@ -10317,11 +10337,11 @@
     </message>
     <message>
       <source>Chat numbers by status</source>
-      <translation>Номери чатів за статусом</translation>
+      <translation>Кількість чатів за статусом</translation>
     </message>
     <message>
       <source>Unanswered chat numbers</source>
-      <translation>Номери чату без відповіді</translation>
+      <translation>Кількість чату без відповіді</translation>
     </message>
     <message>
       <source>Message types</source>
@@ -10337,7 +10357,7 @@
     </message>
     <message>
       <source>Canned messages statistic</source>
-      <translation>Статистика консервованих повідомлень</translation>
+      <translation>Статистика шаблонних повідомлень</translation>
     </message>
     <message>
       <source>Number of Thumbs Up/Down</source>
@@ -13204,6 +13224,10 @@
       <translation>x-www-form-urlencoded (використовуйте це, щоб надіслати параметри публікації, закодовані в URL-адресі)</translation>
     </message>
     <message>
+      <source>Check for word syntax if only one word is send.</source>
+      <translation>Перевірте синтаксис слова, якщо надіслано лише одне слово.</translation>
+    </message>
+    <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
       <translation>Вставте ваш запит тут (JSON). Можна ввести повідомлення відвідувачу</translation>
     </message>
@@ -13786,6 +13810,38 @@
       <source>Used by URL</source>
       <translation>Використовується URL-адресою</translation>
     </message>
+    <message>
+      <source>Enter URL to see required permissions</source>
+      <translation>Введіть URL-адресу, щоб переглянути необхідні дозволи</translation>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation>Пошук</translation>
+    </message>
+    <message>
+      <source>Find users who can use it</source>
+      <translation>Знайдіть користувачів, які можуть цим користуватися</translation>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation>Групи</translation>
+    </message>
+    <message>
+      <source>Roles</source>
+      <translation>Ролі</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Користувачі</translation>
+    </message>
+    <message>
+      <source>User</source>
+      <translation>Користувач</translation>
+    </message>
+    <message>
+      <source>No users were found!</source>
+      <translation>Користувачів не знайдено!</translation>
+    </message>
   </context>
   <context>
     <name>permission/getpermissionssummary</name>
@@ -14207,7 +14263,7 @@
     </message>
     <message>
       <source>Questionary</source>
-      <translation>Питальний</translation>
+      <translation>Запитання</translation>
     </message>
     <message>
       <source>Admin themes</source>
@@ -14248,7 +14304,7 @@
     </message>
     <message>
       <source>Question intro</source>
-      <translation>запитання</translation>
+      <translation>Опис запитання</translation>
     </message>
     <message>
       <source>Show questions for all the URLs containing this string E.g /shop/basket</source>
@@ -14271,7 +14327,7 @@
     <name>questionary/votingwidget</name>
     <message>
       <source>Questionary</source>
-      <translation>Питальний</translation>
+      <translation>Запитання</translation>
     </message>
     <message>
       <source>Thank you!</source>
@@ -14804,7 +14860,7 @@
     </message>
     <message>
       <source>Do not save offline chats</source>
-      <translation>Не зберігайте офлайн-чати</translation>
+      <translation>Не зберігати офлайн-чати</translation>
     </message>
     <message>
       <source>Automatically change offline chat status to closed</source>

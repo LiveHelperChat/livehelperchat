@@ -18,6 +18,7 @@ return array (
                     'proxy_mode' => false,
                     'disable_rest_api_by_user' => false,
                     'one_login_per_account' => false,
+                    'php_session_cookie_name' => '',
                     'time_zone' => '',
                     'date_format' => 'Y-m-d',
                     'date_hour_format' => 'H:i:s',

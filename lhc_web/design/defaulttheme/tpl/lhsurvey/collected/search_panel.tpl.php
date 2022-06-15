@@ -93,7 +93,7 @@
     	   </div>
 	   </div>
 	</div>
-	<div class="btn-group" role="group" aria-label="...">
+	<div class="btn-group mb-2" role="group" aria-label="...">
 		<input type="submit"  name="doSearch" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
 		
 		<?php if ($pages->items_total > 0) : ?>

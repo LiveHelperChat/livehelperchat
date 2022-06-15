@@ -26,6 +26,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Quanto tempo nós devemos esperar antes de informar o operador sobre chat não respondido</translation>
     </message>
@@ -2047,6 +2055,10 @@
     <message>
       <source>Variable identifier</source>
       <translation>Identificador da variável</translation>
+    </message>
+    <message>
+      <source>Old way passed variable name</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable changed from [b]{old_val}[/b] to [b]{new_val}[/b]</source>
@@ -5272,6 +5284,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Are you sure you want to delete this chat?</source>
+      <translation>Tem certeza que deseja remover este bate-papo?</translation>
+    </message>
+    <message>
       <source>Strike</source>
       <translation>Trabalhos suspensos</translation>
     </message>
@@ -5716,8 +5732,8 @@
       <translation>Enviando...</translation>
     </message>
     <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation>Tem certeza que deseja remover este bate-papo?</translation>
+      <source>Are you sure you want to delete this item?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mobile</source>
@@ -6318,18 +6334,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>days (cool off)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permanent/unlimited</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Block</source>
       <translation type="unfinished"/>
     </message>
@@ -6339,6 +6343,18 @@
     </message>
     <message>
       <source>Online user (cookie)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days (cool off)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanent/unlimited</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6426,6 +6442,10 @@
     </message>
     <message>
       <source>URL Explorer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User permissions</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13205,6 +13225,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Check for word syntax if only one word is send.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Paste your request here (E.g JSON body). You can put visitor message as placeholder</source>
       <translation>Cole sua solicitação aqui (por exemplo, corpo JSON). Você pode colocar a mensagem do visitante como espaço reservado</translation>
     </message>
@@ -13785,6 +13809,38 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Used by URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter URL to see required permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Find users who can use it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Roles</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No users were found!</source>
       <translation type="unfinished"/>
     </message>
   </context>
