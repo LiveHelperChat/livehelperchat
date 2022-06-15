@@ -67,6 +67,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', 0);
     }
 
+    if (isset($_POST['hide_quick_notifications']) && $_POST['hide_quick_notifications'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', 0);
+    }
+
     if (isset($_POST['auto_join_private']) && $_POST['auto_join_private'] == 1) {
         erLhcoreClassModelUserSetting::setSetting('auto_join_private', 1);
     } else {

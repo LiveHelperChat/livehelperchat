@@ -311,6 +311,10 @@
        </div>
 
        <div class="form-group">
+        <label><input type="checkbox" name="hide_quick_notifications" value="1" <?php erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',0, $user->id) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Hide quick notifications');?></label>
+       </div>
+
+       <div class="form-group">
            <label><input type="checkbox" name="auto_join_private" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_join_private',1, $user->id) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto join private chats');?></label>
        </div>
 
