@@ -10,7 +10,8 @@ $surveyFields = array(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
     'feedback_text' => array(
-        'type' => 'text',
+        'type' => 'textarea',
+        'height' => '86px',
         'main_attr_lang' => 'configuration_array',
         'translatable' => true,
         'hidden' => true,
@@ -20,7 +21,6 @@ $surveyFields = array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-
     'survey_title' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Survey title'),
