@@ -9,16 +9,6 @@ $surveyFields = array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-    /*'feedback_text' => array(
-        'type' => 'textarea',
-        'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Feedback text'),
-        'required' => false,
-        'hidden' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-        )),*/
-
     'feedback_text' => array(
         'type' => 'text',
         'main_attr_lang' => 'configuration_array',
