@@ -96,6 +96,10 @@
 
 <?php else : ?>
 <div class="mb-3" ng-non-bindable>
-    <?php if ($survey->feedback_text != '') : ?><?php echo erLhcoreClassBBCode::make_clickable($survey->feedback_text);?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback...')?><?php endif; ?>
+    <?php if ($survey->feedback_text != '') : ?>
+        <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($survey->feedback_text, array('chat' => $chat, 'args' => ['chat' => $chat])))); ?>
+    <?php else : ?>
+         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback...')?>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
