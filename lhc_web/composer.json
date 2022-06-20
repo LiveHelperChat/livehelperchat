@@ -26,8 +26,8 @@
     "name": "livehelperchat/livehelperchat",
     "require": {
         "ext-json": "*",
-        "minishlink/web-push": "^6.0",
-        "php": ">=7.2"
+        "minishlink/web-push": "^7.0",
+        "php": ">=7.3"
     },
     "type": "project"
 }

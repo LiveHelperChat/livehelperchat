@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "370469fd306437a9b403f99546c8d346",
+    "content-hash": "ede6bfee24874f39979e4e3bf8f53021",
     "packages": [
         {
             "name": "brick/math",
@@ -143,16 +143,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.4.1",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79"
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
-                "reference": "ee0a041b1760e6a53d2a39c8c34115adc2af2c79",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
                 "shasum": ""
             },
             "require": {
@@ -185,12 +185,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -247,7 +247,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.4"
             },
             "funding": [
                 {
@@ -263,7 +263,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-06T18:43:05+00:00"
+            "time": "2022-06-09T21:39:15+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -292,12 +292,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -351,16 +351,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2"
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/c94a94f120803a18554c1805ef2e539f8285f9a2",
-                "reference": "c94a94f120803a18554c1805ef2e539f8285f9a2",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/83260bb50b8fc753c72d14dc1621a2dac31877ee",
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee",
                 "shasum": ""
             },
             "require": {
@@ -384,7 +384,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -446,7 +446,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.2.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.3.0"
             },
             "funding": [
                 {
@@ -462,20 +462,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-20T21:55:58+00:00"
+            "time": "2022-06-09T08:26:02+00:00"
         },
         {
             "name": "minishlink/web-push",
-            "version": "v6.0.7",
+            "version": "v7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-push-libs/web-push-php.git",
-                "reference": "23a78b8585bdcecaa323f1dd1acdc548e28892fe"
+                "reference": "8b023f2f5c6df846c0cfb87e13fb7ddf5e62c340"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-push-libs/web-push-php/zipball/23a78b8585bdcecaa323f1dd1acdc548e28892fe",
-                "reference": "23a78b8585bdcecaa323f1dd1acdc548e28892fe",
+                "url": "https://api.github.com/repos/web-push-libs/web-push-php/zipball/8b023f2f5c6df846c0cfb87e13fb7ddf5e62c340",
+                "reference": "8b023f2f5c6df846c0cfb87e13fb7ddf5e62c340",
                 "shasum": ""
             },
             "require": {
@@ -484,11 +484,12 @@
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
                 "guzzlehttp/guzzle": "^7.0.1|^6.2",
-                "php": ">=7.2",
-                "web-token/jwt-key-mgmt": "^2.0",
-                "web-token/jwt-signature": "^2.0",
-                "web-token/jwt-signature-algorithm-ecdsa": "^2.0",
-                "web-token/jwt-util-ecc": "^2.0"
+                "php": ">=7.3",
+                "spomky-labs/base64url": "^2.0",
+                "web-token/jwt-key-mgmt": "^2.0|^3.0.2",
+                "web-token/jwt-signature": "^2.0|^3.0.2",
+                "web-token/jwt-signature-algorithm-ecdsa": "^2.0|^3.0.2",
+                "web-token/jwt-util-ecc": "^2.0|^3.0.2"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14",
@@ -523,9 +524,76 @@
             ],
             "support": {
                 "issues": "https://github.com/web-push-libs/web-push-php/issues",
-                "source": "https://github.com/web-push-libs/web-push-php/tree/v6.0.7"
+                "source": "https://github.com/web-push-libs/web-push-php/tree/v7.0.0"
             },
-            "time": "2021-11-22T17:36:01+00:00"
+            "time": "2022-03-29T13:54:20+00:00"
+        },
+        {
+            "name": "paragonie/constant_time_encoding",
+            "version": "v2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/constant_time_encoding.git",
+                "reference": "58c3f47f650c94ec05a151692652a868995d2938"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/58c3f47f650c94ec05a151692652a868995d2938",
+                "reference": "58c3f47f650c94ec05a151692652a868995d2938",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7|^8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6|^7|^8|^9",
+                "vimeo/psalm": "^1|^2|^3|^4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ParagonIE\\ConstantTime\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Steve 'Sc00bz' Thomas",
+                    "email": "steve@tobtu.com",
+                    "homepage": "https://www.tobtu.com",
+                    "role": "Original Developer"
+                }
+            ],
+            "description": "Constant-time Implementations of RFC 4648 Encoding (Base-64, Base-32, Base-16)",
+            "keywords": [
+                "base16",
+                "base32",
+                "base32_decode",
+                "base32_encode",
+                "base64",
+                "base64_decode",
+                "base64_encode",
+                "bin2hex",
+                "encoding",
+                "hex",
+                "hex2bin",
+                "rfc4648"
+            ],
+            "support": {
+                "email": "info@paragonie.com",
+                "issues": "https://github.com/paragonie/constant_time_encoding/issues",
+                "source": "https://github.com/paragonie/constant_time_encoding"
+            },
+            "time": "2022-06-14T06:56:20+00:00"
         },
         {
             "name": "psr/http-client",
@@ -798,25 +866,25 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.5.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
+                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
+                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=8.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.5-dev"
+                    "dev-main": "3.1-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -845,7 +913,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.0"
             },
             "funding": [
                 {
@@ -861,29 +929,29 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-12T14:48:14+00:00"
+            "time": "2022-02-25T11:15:52+00:00"
         },
         {
             "name": "web-token/jwt-core",
-            "version": "v2.2.11",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-core.git",
-                "reference": "53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678"
+                "reference": "99205a4eb4c383fea2afa526b79eeb0967ad1491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678",
-                "reference": "53beb6f6c1eec4fa93c1c3e5d9e5701e71fa1678",
+                "url": "https://api.github.com/repos/web-token/jwt-core/zipball/99205a4eb4c383fea2afa526b79eeb0967ad1491",
+                "reference": "99205a4eb4c383fea2afa526b79eeb0967ad1491",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.8.17|^0.9",
+                "brick/math": "^0.9",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "fgrosse/phpasn1": "^2.0",
-                "php": ">=7.2",
-                "spomky-labs/base64url": "^1.0|^2.0"
+                "paragonie/constant_time_encoding": "^2.4",
+                "php": ">=8.1"
             },
             "conflict": {
                 "spomky-labs/jose": "*"
@@ -929,7 +997,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-core/tree/v2.2.11"
+                "source": "https://github.com/web-token/jwt-core/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -937,27 +1005,28 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-17T14:55:52+00:00"
+            "time": "2022-05-30T12:05:48+00:00"
         },
         {
             "name": "web-token/jwt-key-mgmt",
-            "version": "v2.2.11",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-key-mgmt.git",
-                "reference": "0b116379515700d237b4e5de86879078ccb09d8a"
+                "reference": "6f0e3ab1a0158d0de0cc5930e7a0a2e89b2b35ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-key-mgmt/zipball/0b116379515700d237b4e5de86879078ccb09d8a",
-                "reference": "0b116379515700d237b4e5de86879078ccb09d8a",
+                "url": "https://api.github.com/repos/web-token/jwt-key-mgmt/zipball/6f0e3ab1a0158d0de0cc5930e7a0a2e89b2b35ee",
+                "reference": "6f0e3ab1a0158d0de0cc5930e7a0a2e89b2b35ee",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
+                "php": ">=8.1",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
-                "web-token/jwt-core": "^2.0"
+                "web-token/jwt-core": "^3.0"
             },
             "suggest": {
                 "ext-sodium": "Sodium is required for OKP key creation, EdDSA signature algorithm and ECDH-ES key encryption with OKP keys",
@@ -1006,7 +1075,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-key-mgmt/tree/v2.2.11"
+                "source": "https://github.com/web-token/jwt-key-mgmt/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -1014,24 +1083,25 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-17T14:55:52+00:00"
+            "time": "2022-05-30T12:19:12+00:00"
         },
         {
             "name": "web-token/jwt-signature",
-            "version": "v2.2.11",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-signature.git",
-                "reference": "015b59aaf3b6e8fb9f5bd1338845b7464c7d8103"
+                "reference": "6006f38d2166414ff8d9ccc2f43dd5b1ecddc7ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-signature/zipball/015b59aaf3b6e8fb9f5bd1338845b7464c7d8103",
-                "reference": "015b59aaf3b6e8fb9f5bd1338845b7464c7d8103",
+                "url": "https://api.github.com/repos/web-token/jwt-signature/zipball/6006f38d2166414ff8d9ccc2f43dd5b1ecddc7ea",
+                "reference": "6006f38d2166414ff8d9ccc2f43dd5b1ecddc7ea",
                 "shasum": ""
             },
             "require": {
-                "web-token/jwt-core": "^2.1"
+                "php": ">=8.1",
+                "web-token/jwt-core": "^3.0"
             },
             "suggest": {
                 "web-token/jwt-signature-algorithm-ecdsa": "ECDSA Based Signature Algorithms",
@@ -1082,7 +1152,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-signature/tree/v2.2.11"
+                "source": "https://github.com/web-token/jwt-signature/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -1090,25 +1160,26 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-01T19:55:28+00:00"
+            "time": "2022-05-30T12:05:48+00:00"
         },
         {
             "name": "web-token/jwt-signature-algorithm-ecdsa",
-            "version": "v2.2.11",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-signature-algorithm-ecdsa.git",
-                "reference": "44cbbb4374c51f1cf48b82ae761efbf24e1a8591"
+                "reference": "9c5b51bd91a83fab8c82668a7046ec8af4bdca61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-signature-algorithm-ecdsa/zipball/44cbbb4374c51f1cf48b82ae761efbf24e1a8591",
-                "reference": "44cbbb4374c51f1cf48b82ae761efbf24e1a8591",
+                "url": "https://api.github.com/repos/web-token/jwt-signature-algorithm-ecdsa/zipball/9c5b51bd91a83fab8c82668a7046ec8af4bdca61",
+                "reference": "9c5b51bd91a83fab8c82668a7046ec8af4bdca61",
                 "shasum": ""
             },
             "require": {
                 "ext-openssl": "*",
-                "web-token/jwt-signature": "^2.0"
+                "php": ">=8.1",
+                "web-token/jwt-signature": "^3.0"
             },
             "type": "library",
             "autoload": {
@@ -1151,7 +1222,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-signature-algorithm-ecdsa/tree/v2.2.11"
+                "source": "https://github.com/web-token/jwt-signature-algorithm-ecdsa/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -1159,24 +1230,25 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-01-21T19:18:03+00:00"
+            "time": "2022-02-27T09:13:59+00:00"
         },
         {
             "name": "web-token/jwt-util-ecc",
-            "version": "v2.2.11",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-util-ecc.git",
-                "reference": "915f3fde86f5236c205620d61177b9ef43863deb"
+                "reference": "b90ffa27b976fe152b1fc7f2d781b2a95dba59fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/915f3fde86f5236c205620d61177b9ef43863deb",
-                "reference": "915f3fde86f5236c205620d61177b9ef43863deb",
+                "url": "https://api.github.com/repos/web-token/jwt-util-ecc/zipball/b90ffa27b976fe152b1fc7f2d781b2a95dba59fb",
+                "reference": "b90ffa27b976fe152b1fc7f2d781b2a95dba59fb",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.8.17|^0.9"
+                "brick/math": "^0.9",
+                "php": ">=8.1"
             },
             "suggest": {
                 "ext-bcmath": "GMP or BCMath is highly recommended to improve the library performance",
@@ -1223,7 +1295,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-util-ecc/tree/v2.2.11"
+                "source": "https://github.com/web-token/jwt-util-ecc/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -1231,7 +1303,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-24T13:35:17+00:00"
+            "time": "2022-05-30T12:05:48+00:00"
         }
     ],
     "packages-dev": [],
@@ -1242,7 +1314,7 @@
     "prefer-lowest": false,
     "platform": {
         "ext-json": "*",
-        "php": ">=7.2"
+        "php": ">=7.3"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
