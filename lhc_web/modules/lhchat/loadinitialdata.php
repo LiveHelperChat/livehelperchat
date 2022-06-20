@@ -164,6 +164,11 @@ foreach ($columns as $column) {
     $columnsAdd[$column->column_identifier]['oenabl'] = $column->online_enabled == 1;
     $columnsAdd[$column->column_identifier]['iconm'] = $column->icon_mode == 1;
     $columnsAdd[$column->column_identifier]['iconp'] = $column->has_popup == 1;
+
+    if ($column->sort_enabled == 1) {
+        $columnsAdd[$column->column_identifier]['sorten'] = true;
+    }
+
     if ($columnsAdd[$column->column_identifier]['iconp'] === true) {
         $columnsAdd[$column->column_identifier]['id'] = $column->id;
     }

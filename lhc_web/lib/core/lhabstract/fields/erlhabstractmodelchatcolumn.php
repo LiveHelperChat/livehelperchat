@@ -6,10 +6,12 @@ return array(
         'placeholder' => 'Column name at the top of chat lists tables',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Column name'),
         'required' => false,
+        'maxlength' => 255,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'column_identifier' => array(
         'type' => 'text',
+        'maxlength' => 255,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Column identifier'),
         'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'If same identifier used for two columns, both values will be represented in single column.'),
         'required' => true,
@@ -18,12 +20,14 @@ return array(
     'column_icon' => array(
         'type' => 'text',
         'hidden' => true,
+        'maxlength' => 255,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Column icon, material icons text'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'variable' => array(
         'type' => 'text',
+        'maxlength' => 255,
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Variable name'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
@@ -63,6 +67,23 @@ return array(
         'required' => false,
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
+    'sort_enabled' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Sort enabled, you can define custom column also.'),
+        'hidden' => true,
+        'required' => false,
+        'hide_optional' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+    ),
+    'sort_column' => array(
+        'type' => 'text',
+        'hidden' => true,
+        'maxlength' => 200,
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Sort column from lh_chat table, or JSON syntax'),
+        'placeholder' => 'JSON_EXTRACT(`lh_chat`.`chat_variables`, \'$.playerClass\') OR `dep_id` or any other field',
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'popup_content' => array(
         'type' => 'textarea',
