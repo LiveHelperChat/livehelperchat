@@ -19,7 +19,26 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
         $chatVariables = $chat->chat_variables_array;
 
+        $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
+        $dataLog = (array)$auditOptions->data;
+
         if (!(isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true || (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1))) {
+            echo json_encode(array('error' => 'true', 'error_msg' => 'Upload disabled!'));
+            $db->rollback();
+
+            if (isset($dataLog['log_files']) && $dataLog['log_files'] == 1) {
+                erLhcoreClassLog::write('Upload disabled!',
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'files',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => (int)$Params['user_parameters']['chat_id']
+                    )
+                );
+            }
+
             // Make sure nothing changed since last request
             exit;
         }
@@ -68,8 +87,23 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                     $chat->user_typing_txt = '100%';
 
                 } elseif (is_object($upload_handler->uploadedFile)) {
+                    $db->rollback();
+
                     $chat->user_typing_txt = $upload_handler->uploadedFile->error;
-                    echo json_encode(array('error' => 'true', 'error_msg' => $upload_handler->uploadedFile->error ));
+                    echo json_encode(array('error' => 'true', 'error_msg' => $upload_handler->uploadedFile->error));
+
+                    if (isset($dataLog['log_files']) && $dataLog['log_files'] == 1) {
+                        erLhcoreClassLog::write($upload_handler->uploadedFile->error,
+                            ezcLog::SUCCESS_AUDIT,
+                            array(
+                                'source' => 'lhc',
+                                'category' => 'files',
+                                'line' => __LINE__,
+                                'file' => __FILE__,
+                                'object_id' => (int)$Params['user_parameters']['chat_id']
+                            )
+                        );
+                    }
                     exit;
                 }
 
@@ -87,6 +121,19 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
     } catch (Exception $e) {
         echo json_encode(array('error' => 'true', 'error_msg' => $e->getMessage()));
         $db->rollback();
+
+        if (isset($dataLog['log_files']) && $dataLog['log_files'] == 1) {
+            erLhcoreClassLog::write($e->getMessage() . $e->getTraceAsString(),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'files',
+                    'line' => $e->getLine(),
+                    'file' => $e->getFile(),
+                    'object_id' => (int)$Params['user_parameters']['chat_id']
+                )
+            );
+        }
     }
 }
 
