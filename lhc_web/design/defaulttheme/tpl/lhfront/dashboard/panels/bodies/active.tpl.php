@@ -9,7 +9,8 @@
 			 <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
 			 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'u_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'u_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by visitor nick')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'u_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'u_asc' ? 'trending_up' : 'trending_down'}}</i>
 			</a>
-			</th>           
+			</th>
+            <?php $additionalChatColumnOptions = ['enable_sort' => true, 'sort_field' => 'active_chats_sort'];?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
 			<th width="20%">
     			<a ng-click="lhc.toggleWidgetSort('active_chats_sort','lmt_dsc','lmt_asc',true)">
