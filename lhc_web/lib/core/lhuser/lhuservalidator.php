@@ -357,9 +357,6 @@ class erLhcoreClassUserValidator {
             'remove_closed_chats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
-            'hide_quick_notifications' => new ezcInputFormDefinitionElement(
-				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-			),
             'auto_uppercase' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -398,13 +395,7 @@ class erLhcoreClassUserValidator {
 		} else {
             $result['remove_closed_chats'] = 0;
 		}
-        
-		if ( $form->hasValidData( 'hide_quick_notifications' ) && $form->hide_quick_notifications == true ) {
-            $result['hide_quick_notifications'] = 1;
-		} else {
-            $result['hide_quick_notifications'] = 0;
-		}
-		
+
 		if ( $form->hasValidData( 'auto_join_private' ) && $form->auto_join_private == true ) {
             $result['auto_join_private'] = 1;
 		} else {
@@ -608,7 +599,10 @@ class erLhcoreClassUserValidator {
 	        ),
             'show_alert_transfer' => new ezcInputFormDefinitionElement(
 	            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
-	        )
+	        ),
+            'hide_quick_notifications' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
 	    );
 	    
 	    $form = new ezcInputForm( INPUT_POST, $definition );
@@ -621,6 +615,7 @@ class erLhcoreClassUserValidator {
 	    $data['trackactivity'] = ( $form->hasValidData( 'trackactivity' ) && $form->trackactivity == true ) ? 1 : 0;
 	    $data['trackactivitytimeout'] = ( $form->hasValidData( 'trackactivitytimeout' )) ? (int)$form->trackactivitytimeout : -1;
 	    $data['show_alert_transfer'] = ( $form->hasValidData( 'show_alert_transfer' ) && $form->show_alert_transfer == true) ? (int)$form->show_alert_transfer : 0;
+	    $data['hide_quick_notifications'] = ( $form->hasValidData( 'hide_quick_notifications' ) && $form->hide_quick_notifications == true) ? (int)$form->hide_quick_notifications : 0;
 
 	    return $data;
 	}
