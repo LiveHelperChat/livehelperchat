@@ -613,8 +613,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,(typeof defaultValue === 'undefined' ? 'false' : defaultValue), false) == 'false' ? false : true;
 	};
 	
-	this.getToggleWidgetSort = function(variable) {
-		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,'',false);
+	this.getToggleWidgetSort = function(variable, defaultValue) {
+		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,(typeof defaultValue === 'undefined' ? '' : defaultValue),false);
 	};
 	
 	$scope.getSyncFilter = function()
@@ -846,8 +846,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 				}
 			}
 			
-			if (typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] == true) {
-				filter += '/(psort)/asc';	
+			if (typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] !== '') {
+				filter += '/(psort)/' + _that.toggleWidgetData['pending_chats_sort'];
 			}
 		}
 		
@@ -1398,7 +1398,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 							var chatsSkipped = 0; // Do not show notification for chats if they appear at the bottom, only applies to unassigned chats
 
 							var itemsList = item.list;
-							if (item.last_id_identifier == 'pending_chat' && typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] == true) {
+							if (item.last_id_identifier == 'pending_chat' && typeof _that.toggleWidgetData['pending_chats_sort'] !== 'undefined' && _that.toggleWidgetData['pending_chats_sort'] == 'id_asc') {
                                 itemsList = item.list.slice().reverse();
 							}
 

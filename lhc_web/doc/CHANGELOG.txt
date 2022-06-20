@@ -1,3 +1,9 @@
+4.07v
+
+1. Additional chat columns can be sorted [Pending chats, Active chats] widgets supports
+
+execute doc/update_db/update_279.sql for update
+
 4.06v
 
 Now there is an option to assign operator to department/department group and at the same time exclude him from auto assignment workflow.

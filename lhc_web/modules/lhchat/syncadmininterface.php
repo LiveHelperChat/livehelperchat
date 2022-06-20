@@ -293,8 +293,20 @@ if ($activeTabEnabled == true) {
 
     if (!empty($Params['user_parameters_unordered']['acs']) && key_exists($Params['user_parameters_unordered']['acs'], $sortArray)) {
         $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['acs']];
+    } elseif (!empty($Params['user_parameters_unordered']['acs'])) {
+        $matchesSort = [];
+        preg_match_all('/^cc_([0-9]+)_(asc|dsc)$/',$Params['user_parameters_unordered']['acs'],$matchesSort);
+        if (!empty($matchesSort[1])) {
+            if (isset($columnsAdditional[$matchesSort[1][0]])) {
+                $sort = $columnsAdditional[$matchesSort[1][0]]->getSort($matchesSort[2][0] == 'asc');
+                if ($sort) {
+                    $filter['sort'] = $sort;
+                }
+            }
+        }
     }
-    
+
+
 	$chats = erLhcoreClassChat::getActiveChats($limitList,0,$filter);
 
     $chatsListAll = $chatsListAll+$chats;
@@ -536,9 +548,22 @@ if ($pendingTabEnabled == true) {
 	$limitList = is_numeric($Params['user_parameters_unordered']['limitp']) ? (int)$Params['user_parameters_unordered']['limitp'] : 10;
 
 	$filterAdditionalMainAttr = array();
-	if ($Params['user_parameters_unordered']['psort'] == 'asc') {
+	if ($Params['user_parameters_unordered']['psort'] == 'id_asc') {
 	    $filterAdditionalMainAttr['sort'] = 'priority DESC, id ASC';
-	}
+	} else if (!empty($Params['user_parameters_unordered']['psort'])) {
+        $matchesSort = [];
+        preg_match_all('/^cc_([0-9]+)_(asc|dsc)$/',$Params['user_parameters_unordered']['psort'],$matchesSort);
+        if (!empty($matchesSort[1])) {
+            if (isset($columnsAdditional[$matchesSort[1][0]])) {
+                $sort = $columnsAdditional[$matchesSort[1][0]]->getSort($matchesSort[2][0] == 'asc');
+                if ($sort) {
+                    $filterAdditionalMainAttr['sort'] = $sort;
+                }
+            }
+        }
+    }
+
+
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface.pendingchats',array('additional_filter' => & $additionalFilter));
 
