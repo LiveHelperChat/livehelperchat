@@ -29,10 +29,6 @@
 
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/personal_auto_responder_tab.tpl.php'));?>
 
-	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
-	<li role="presentation" class="nav-item"><a href="#pending" class="nav-link<?php if ($tab == 'tab_pending') : ?> active<?php endif;?>" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chats');?></a></li>
-	<?php endif;?>
-	
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhspeech','changedefaultlanguage')) : ?>
 	<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_speech') : ?> active<?php endif;?>" href="#speech" aria-controls="speech" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Speech');?></a></li>
 	<?php endif;?>	
@@ -40,7 +36,11 @@
 	<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhpermission','see_permissions')) : ?>
 	<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_permission') : ?> active<?php endif;?>" href="#permission" aria-controls="permission" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Permissions');?></a></li>
 	<?php endif;?>
-	
+
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode')) : ?>
+        <li role="presentation" class="nav-item"><a href="#pending" class="nav-link<?php if ($tab == 'tab_pending') : ?> active<?php endif;?>" aria-controls="pending" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chats');?></a></li>
+    <?php endif;?>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/notifications_tab.tpl.php'));?>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>

@@ -363,6 +363,12 @@ class erLhcoreClassUserValidator {
             'auto_join_private' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'auto_preload' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+            'no_scroll_bottom' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'maximumChats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
@@ -382,6 +388,18 @@ class erLhcoreClassUserValidator {
             $result['auto_uppercase'] = 1;
 		} else {
             $result['auto_uppercase'] = 0;
+		}
+
+		if ( $form->hasValidData( 'no_scroll_bottom' ) && $form->no_scroll_bottom == true ) {
+            $result['no_scroll_bottom'] = 1;
+		} else {
+            $result['no_scroll_bottom'] = 0;
+		}
+
+		if ( $form->hasValidData( 'auto_preload' ) && $form->auto_preload == true ) {
+            $result['auto_preload'] = 1;
+		} else {
+            $result['auto_preload'] = 0;
 		}
 
 		if ( $form->hasValidData( 'autoAccept' ) && $form->autoAccept == true ) {
@@ -480,12 +498,16 @@ class erLhcoreClassUserValidator {
 		if (isset($params['show_all_pending'])) {
 			$paramsPending = self::validateShowAllPendingOption();
             $params = array_merge($params,$paramsPending);
+
+            $paramsNotifications = erLhcoreClassUserValidator::validateNotifications();
+            $params = array_merge($params,$paramsNotifications);
 		}
 
         $userData->auto_accept = $params['auto_accept'];
         $userData->max_active_chats = $params['max_chats'];
+        $userData->exclude_autoasign = $params['exclude_autoasign'];
         $userData->pswd_updated = time();
-        
+
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user', array('userData' => & $userData, 'errors' => & $Errors));
 		
 		return $Errors;
@@ -606,9 +628,7 @@ class erLhcoreClassUserValidator {
 	    );
 	    
 	    $form = new ezcInputForm( INPUT_POST, $definition );
-	    
-	    $Errors = array();
-	    
+
 	    $data['show_alert_chat'] = ( $form->hasValidData( 'show_alert_chat' ) && $form->show_alert_chat == true ) ? 1 : 0;
 	    $data['sn_off'] = ( $form->hasValidData( 'sn_off' ) && $form->sn_off == true ) ? 1 : 0;
 	    $data['ownntfonly'] = ( $form->hasValidData( 'ownntfonly' ) && $form->ownntfonly == true ) ? 1 : 0;
