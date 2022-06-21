@@ -19,6 +19,7 @@
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
             <option value="update_active_chats">update_active_chats</option>
+            <option value="files">files - failed visitors files upload</option>
             <option value="Departament">Department</option>
             <option value="Subject">Subject</option>
             <option value="User">User</option>
