@@ -8,12 +8,14 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
+        <th width="1%">&nbsp;</th>
     </tr>
     </thead>
     <?php foreach ($items as $item) : ?>
         <tr>
             <td><?php echo htmlspecialchars($item->identifier)?></td>
             <td><?php echo htmlspecialchars(mb_substr($item->default,0,100))?></td>
+            <td nowrap ng-non-bindable><a class="btn btn-secondary csfr-required btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/clonereplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cannedmsg/deletereplace','Clone');?></a></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/editreplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit');?></a></td>
             <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/deletereplace')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete');?></a></td>
         </tr>
