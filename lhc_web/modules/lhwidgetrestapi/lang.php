@@ -61,7 +61,10 @@ $translations = array(
     "file" => [
         "uploading" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Uploading'),
         "incorrect_type" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Incorrect file type!'),
-        "to_big_file" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','File too big!')
+        "to_big_file" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','File too big!'),
+        "processing" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Processing...'),
+        "upload_failed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Upload failed!'),
+        "completed" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/file','Completed.'),
     ],
     "notifications" => [
         "subscribing" =>  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/notifications','Subscribing...')

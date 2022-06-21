@@ -85,7 +85,10 @@ class ChatFileUploader extends PureComponent {
         const { t } = this.props;
 
         return new Promise((resolve, reject) => {
-            const req = new XMLHttpRequest();
+            var req = new XMLHttpRequest();
+
+            const formData = new FormData();
+            formData.append("files", file, file.name);
 
             req.upload.addEventListener("progress", event => {
                 if (event.lengthComputable) {
@@ -94,30 +97,42 @@ class ChatFileUploader extends PureComponent {
                         state: "pending",
                         percentage: (event.loaded / event.total) * 100
                     };
-                    this.props.progress(t('file.uploading') + Math.round((event.loaded / event.total) * 100) + '%');
+                    this.props.progress(t('file.uploading')+ ' ' + Math.round((event.loaded / event.total) * 100) + '%');
                 }
             });
 
             req.upload.addEventListener("load", event => {
                 const copy = { ...this.state.uploadProgress };
                 copy[file.name] = { state: "done", percentage: 100 };
-                //this.setState({ uploadProgress: copy });
-                this.props.progress('100%');
-                this.props.onCompletion();
-                resolve(req.response);
+                this.props.progress(t('file.processing'));
             });
+
+            req.onload = () => {
+                let status = JSON.parse(req.response);
+                if (status && status.error && status.error == 'true') {
+                    if (status.error_msg) {
+                        this.props.progress(status.error_msg);
+                    } else {
+                        this.props.progress(t('file.upload_failed'));
+                    }
+                } else {
+                    this.props.progress(t('file.completed'));
+                    this.props.onCompletion();
+                }
+                resolve(req.response);
+            }
 
             req.upload.addEventListener("error", event => {
                 const copy = { ...this.state.uploadProgress };
                 copy[file.name] = { state: "error", percentage: 0 };
                 this.setState({ uploadProgress: copy });
-                reject(req.response);
+                reject(req);
             });
 
-            const formData = new FormData();
-            formData.append("files", file, file.name);
+
 
             req.open("POST", this.props.base_url + '/file/uploadfile/' + this.props.chat_id + '/' + this.props.hash);
+
             req.send(formData);
         });
     }
