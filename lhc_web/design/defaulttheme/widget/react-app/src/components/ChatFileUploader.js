@@ -119,7 +119,7 @@ class ChatFileUploader extends PureComponent {
                     this.props.progress(t('file.completed'));
                     this.props.onCompletion();
                 }
-                resolve(req.response);
+                resolve(req);
             }
 
             req.upload.addEventListener("error", event => {
@@ -129,10 +129,7 @@ class ChatFileUploader extends PureComponent {
                 reject(req);
             });
 
-
-
             req.open("POST", this.props.base_url + '/file/uploadfile/' + this.props.chat_id + '/' + this.props.hash);
-
             req.send(formData);
         });
     }
