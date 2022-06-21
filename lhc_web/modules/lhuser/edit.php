@@ -113,6 +113,26 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
     }    
 }
 
+if (isset($_POST['UpdateNotifications_account']) && $can_edit_groups === true) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('user/edit','/' . $UserData->id);
+        exit;
+    }
+
+    $validateNotificationsData = erLhcoreClassUserValidator::validateNotifications();
+
+    erLhcoreClassModelUserSetting::setSetting('show_alert_chat', $validateNotificationsData['show_alert_chat'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('sn_off', $validateNotificationsData['sn_off'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('ownntfonly', $validateNotificationsData['ownntfonly'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('trackactivity', $validateNotificationsData['trackactivity'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', $validateNotificationsData['hide_quick_notifications'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $validateNotificationsData['trackactivitytimeout'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('show_alert_transfer', $validateNotificationsData['show_alert_transfer'], $UserData->id);
+
+    $tpl->set('account_updated','done');
+    $tpl->set('tab','tab_notifications');
+}
+
 if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('user/edit', '/'.$UserData->id);
@@ -146,10 +166,12 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
         ));
     }
 
-	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
-	erLhcoreClassModelUserSetting::setSetting('auto_join_private', $pendingSettings['auto_join_private'], $UserData->id);
-	erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', $pendingSettings['remove_closed_chats'], $UserData->id);
-	erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', $pendingSettings['hide_quick_notifications'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('auto_join_private', $pendingSettings['auto_join_private'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', $pendingSettings['remove_closed_chats'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('auto_preload', $pendingSettings['auto_preload'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', $pendingSettings['no_scroll_bottom'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase'], $UserData->id);
 
     $UserData->auto_accept = $pendingSettings['auto_accept'];
     $UserData->max_active_chats = $pendingSettings['max_chats'];
@@ -164,11 +186,8 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
     $stmt->bindValue(':exclude_autoasign', $UserData->exclude_autoasign, PDO::PARAM_INT);
     $stmt->execute();
 
-	$tpl->set('account_updated','done');
-	$tpl->set('tab','tab_pending');
-
-
-	
+    $tpl->set('account_updated','done');
+    $tpl->set('tab','tab_pending');
 }
 
 if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {

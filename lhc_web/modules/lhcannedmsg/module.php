@@ -16,6 +16,12 @@ $ViewList['subject'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['clonereplace'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'use_replace' ),
+);
+
 $ViewList['filter'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),
