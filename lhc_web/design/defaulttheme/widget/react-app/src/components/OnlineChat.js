@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -32,6 +32,7 @@ class OnlineChat extends Component {
     state = {
         value: '',
         valueSend: false,
+        changeLanguage: false,
         showBBCode : null,
         mailChat : false,
         dragging : false,
@@ -85,6 +86,8 @@ class OnlineChat extends Component {
         this.onScrollMessages = this.onScrollMessages.bind(this);
         this.scrollToMessage = this.scrollToMessage.bind(this);
         this.changeFontAction = this.changeFontAction.bind(this);
+        this.setLanguageAction = this.setLanguageAction.bind(this);
+        this.changeLanguage = this.changeLanguage.bind(this);
 
         // Messages Area
         this.messagesAreaRef = React.createRef();
@@ -182,6 +185,20 @@ class OnlineChat extends Component {
         });
         helperFunctions.setLocalStorage('_dfs',this.state.fontSize);
         this.scrollBottom();
+    }
+
+    setLanguageAction(lng) {
+        helperFunctions.setLocalStorage('_lng',lng);
+        this.setState({
+            changeLanguage: false
+        });
+        setSiteAccess({
+            'lng' : lng,
+            'id': this.props.chatwidget.getIn(['chatData','id']),
+            'hash' : this.props.chatwidget.getIn(['chatData','hash']),
+        });
+        helperFunctions.emitEvent('change_language', [lng]);
+        this.updateStatus();
     }
 
     componentDidMount() {
@@ -708,6 +725,12 @@ class OnlineChat extends Component {
         });
     }
 
+    changeLanguage() {
+        this.setState({
+            changeLanguage: !this.state.changeLanguage
+        });
+    }
+
     changeFont() {
         this.setState({
             changeFontSize: !this.state.changeFontSize
@@ -912,6 +935,8 @@ class OnlineChat extends Component {
 
                     {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
+                    {this.state.changeLanguage && <ChatModal showModal={this.state.changeLanguage} setLanguage={this.setLanguageAction} insertText={this.insertText} toggle={this.changeLanguage} dataUrl={"/widgetrestapi/chooselanguage/(id)/"+this.props.chatwidget.getIn(['chatData','id'])+"/(hash)/"+this.props.chatwidget.getIn(['chatData','hash'])} />}
+
                     {this.state.showMail && <Suspense fallback="..."><MailModal showModal={this.state.showMail} changeFont={this.changeFont} toggle={this.mailChat} chatHash={this.props.chatwidget.getIn(['chatData','hash'])} chatId={this.props.chatwidget.getIn(['chatData','id'])} /></Suspense>}
 
                     {this.state.changeFontSize && <Suspense fallback="..."><FontSizeModal showModal={this.state.changeFontSize} toggle={this.changeFont} changeFont={this.changeFontAction} /></Suspense>}
@@ -951,6 +976,7 @@ class OnlineChat extends Component {
                                         {this.props.chatwidget.hasIn(['chat_ui','mail']) && <a onClick={this.mailChat} title={t('button.mail')} ><i className="material-icons chat-setting-item text-muted mail-ico">&#xf11a;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','font_size']) && <a onClick={(event) => this.changeFont(event)}><i className="material-icons chat-setting-item text-muted fs-ico">&#xf11d;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','close_btn']) && <a onClick={this.endChat} title={endTitle} ><i className="material-icons chat-setting-item text-muted close-ico">&#xf10a;</i></a>}
+                                        {this.props.chatwidget.hasIn(['chat_ui','lng_btnh']) && <a onClick={this.changeLanguage} title={t('button.lang')} ><i className="material-icons chat-setting-item text-muted lang-ico">&#xf11e;</i></a>}
                                     </div>
                                 </div>
                             </div>

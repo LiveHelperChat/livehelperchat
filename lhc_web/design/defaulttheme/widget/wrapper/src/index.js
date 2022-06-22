@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 196;
+            lhc.version = 197;
 
             var init = () => {
 
@@ -115,6 +115,12 @@
                 storageHandler.setSessionReferer(referrer);
 
                 referrer = referrer ? encodeURIComponent(referrer) : '';
+
+                var languageOverride = '';
+
+                if (storageHandler.getLocalStorage(prefixStorage+'_lng')) {
+                    languageOverride = LHC_API.args.lang = storageHandler.getLocalStorage(prefixStorage+'_lng');
+                }
 
                 if (LHC_API.args.lang) {
                     LHC_API.args.lang = LHC_API.args.lang.replace('/', '') + '/';
@@ -177,6 +183,7 @@
                     identifier: LHC_API.args.identifier || '',
                     proactive_interval: null,
                     lang: LHC_API.args.lang || '',
+                    langOverride: languageOverride,
                     bot_id: LHC_API.args.bot_id || '',
                     trigger_id: LHC_API.args.trigger_id || '',
                     priority: LHC_API.args.priority || null,
@@ -819,6 +826,10 @@
 
                 attributesWidget.originalTitle = document.title;
                 attributesWidget.blinkInterval = null;
+
+                attributesWidget.eventEmitter.addListener('change_language', (data) => {
+                    attributesWidget.lang = data.lng.replace('/', '') + '/';
+                });
 
                 attributesWidget.eventEmitter.addListener('unread_message_title', (data) => {
                     clearInterval(attributesWidget.blinkInterval);

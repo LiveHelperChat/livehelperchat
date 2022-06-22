@@ -4,6 +4,16 @@ $Module = array( "name" => "Live helper Chat REST API service");
 
 $ViewList = array();
 
+$ViewList['chooselanguage'] = array(
+    'params' => array(),
+    'uparams' => array('id','hash')
+);
+
+$ViewList['setsiteaccess'] = array(
+    'params' => array(),
+    'uparams' => array('id','hash','vid')
+);
+
 $ViewList['getproducts'] = array(
     'params' => array('id','product_id')
 );

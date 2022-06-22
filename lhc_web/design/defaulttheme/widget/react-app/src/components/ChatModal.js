@@ -69,7 +69,7 @@ class ChatModal extends PureComponent {
 
     generalDataActionClick = (e) => {
         if (e['data-action'] && this.props[e['data-action']]) {
-            this.props[e['data-action']]();
+            this.props[e['data-action']](e['data-action-arg'] || null);
         }
     }
 
@@ -83,6 +83,16 @@ class ChatModal extends PureComponent {
 
                             if (domNode.attribs && domNode.attribs.id === 'react-close-modal') {
                                 return <button type="button" className="close float-right" data-dismiss="modal" onClick={this.dismissModal} aria-label="Close"><span aria-hidden="true">&times;</span></button>;
+                            } else if (domNode.attribs && domNode.attribs.linkaction) {
+
+                                if (domNode.attribs.class) {
+                                    domNode.attribs.className = domNode.attribs.class;
+                                    delete domNode.attribs.class;
+                                }
+                                return (
+                                    <a {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs)}>{domToReact(domNode.children)}</a>
+                                );
+
                             } else if (domNode.attribs && domNode.attribs.bbitem) {
                                 if (domNode.attribs.class) {
                                     domNode.attribs.className = domNode.attribs.class;

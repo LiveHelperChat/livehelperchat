@@ -175,7 +175,14 @@ export default function (dispatch, getState) {
                         helperFunctions.sendMessageParent('unread_message_title',[{'status':true}]);
                     }
                 }
-        }}
+        }},
+        {
+            id : 'change_language', cb : (data) => {
+                window.lhcChat['base_url'] =  window.lhcChat['base_url_direct'] + (data != '' ? data.replace('/','') + '/' : '');
+                data != '' && i18n.changeLanguage(data);
+                helperFunctions.sendMessageParent('change_language',[{'lng':data}]);
+            }
+        }
     ];
 
     // Event listeners
@@ -281,6 +288,7 @@ export default function (dispatch, getState) {
 
             window.lhcChat = {};
             window.lhcChat['base_url'] = paramsInit['base_url'] + (paramsInit['lang'] && paramsInit['lang'] != '' ? paramsInit['lang'].replace('/','') + '/' : '');
+            window.lhcChat['base_url_direct'] = paramsInit['base_url']; // We will use it for language change workflow
             window.lhcChat['staticJS'] = paramsInit['staticJS'];
             window.lhcChat['mode'] = paramsInit['mode'];
             window.lhcChat['is_focused'] = true;

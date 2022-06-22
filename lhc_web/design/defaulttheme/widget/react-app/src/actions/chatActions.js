@@ -88,6 +88,10 @@ export function endChat(obj, action) {
     }
 }
 
+export function setSiteAccess(payload) {
+    return axios.post(window.lhcChat['base_url'] + "widgetrestapi/setsiteaccess/", payload, defaultHeaders);
+}
+
 export function getProducts(obj) {
     return function(dispatch) {
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/getproducts/" + obj['dep_id'], null, defaultHeaders)

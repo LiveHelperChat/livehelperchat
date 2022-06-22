@@ -27,7 +27,7 @@ class StartChat extends Component {
         this.apiLoaded = false;
         this.customHTMLPriority = false;
 
-        this.state = {showBBCode : null, Question:''};
+        this.state = {showBBCode : null, Question:'', changeLanguage: false};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -35,8 +35,25 @@ class StartChat extends Component {
         this.handleContentChangeCustom = this.handleContentChangeCustom.bind(this);
         this.setBotPayload = this.setBotPayload.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.setLanguageAction = this.setLanguageAction.bind(this);
+        this.changeLanguage = this.changeLanguage.bind(this);
+
         this.textMessageRef = React.createRef();
         this.messagesAreaRef = React.createRef();
+    }
+
+    changeLanguage() {
+        this.setState({
+            changeLanguage: !this.state.changeLanguage
+        });
+    }
+
+    setLanguageAction(lng) {
+        helperFunctions.setLocalStorage('_lng',lng);
+        this.setState({
+            changeLanguage: false
+        });
+        helperFunctions.emitEvent('change_language', [lng]);
     }
 
     toggleModal() {
@@ -451,6 +468,8 @@ class StartChat extends Component {
 
                         {this.state.showBBCode && <ChatModal showModal={this.state.showBBCode} insertText={this.insertText} toggle={this.toggleModal} dataUrl={"/chat/bbcodeinsert?react=1"} />}
 
+                        {this.state.changeLanguage && <ChatModal showModal={this.state.changeLanguage} setLanguage={this.setLanguageAction} toggle={this.changeLanguage} dataUrl={"/widgetrestapi/chooselanguage"} />}
+
                         {this.props.chatwidget.hasIn(['validationErrors','blocked_user']) && <ChatAbort closeText={t('button.close')} as_html={true} close={(e) => this.props.dispatch(minimizeWidget(true))} text={this.props.chatwidget.getIn(['validationErrors','blocked_user'])} />}
 
                         {
@@ -481,7 +500,8 @@ class StartChat extends Component {
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white pl-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
 
                             {this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 && <React.Fragment>
-                                {!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <ChatStartOptions toggleModal={this.toggleModal} />}
+                                {(!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])) && <ChatStartOptions bbEnabled={!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh'])} langEnabled={this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])} changeLanguage={this.changeLanguage} toggleModal={this.toggleModal} />}
+
                                 <div className="mx-auto w-100">
                                     <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>

@@ -44,9 +44,23 @@
     <?php endif; ?>
 
     <?php if ($departmentEditParams['groups']['edit_all'] == true || $departmentEditParams['groups']['edit_personal'] == true || $departmentEditParams['groups']['read_all'] == true) : ?>
+
+
+
         <?php $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('sort' => 'name ASC', 'limit' => false)); ?>
         <?php if (!empty($departmentsGroups)) : ?>
         <div class="col-<?php if ($seeDepartments == true) : ?>6<?php else: ?>12<?php endif; ?>">
+
+            <?php if ($departmentEditParams['groups']['read_all'] == false) : ?>
+                <div class="alert alert-warning" role="alert">
+                    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions')?>. <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Changes will not be saved!')?></b></p>
+                    <ul>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For account page')?> - <span class="badge badge-info">see_assigned_departments_groups</span></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For user edit page')?> - <span class="badge badge-info">see_user_assigned_departments_groups</span></li>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
             <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?></h5>
             <div class="row" style="max-height: 600px;overflow: auto">
             <?php foreach ($departmentsGroups as $departamentGroup) :

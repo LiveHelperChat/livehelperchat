@@ -32,6 +32,12 @@ if (isset($_GET['ua'])) {
     $uarguments = false;
 }
 
+// Override language by user settings
+if (isset($_GET['lang']) && in_array((string)$_GET['lang'],erConfigClassLhConfig::getInstance()->getSetting( 'site', 'available_site_access' ))) {
+    $settings = erConfigClassLhConfig::getInstance()->getSetting( 'site_access_options', (string)$_GET['lang']);
+    $_SERVER['HTTP_ACCEPT_LANGUAGE'] = $settings['content_language'];
+}
+
 $proactiveInviteActive = erLhcoreClassModelChatConfig::fetch('pro_active_invite')->current_value;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
