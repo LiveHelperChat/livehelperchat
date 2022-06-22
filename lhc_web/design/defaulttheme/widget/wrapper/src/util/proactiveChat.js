@@ -139,6 +139,10 @@ class _proactiveChat {
                 params['tag'] = this.attributes['tag']
             }
 
+            if (this.attributes['langOverride']) {
+                params['lang'] = this.attributes['langOverride']
+            }
+
             params['l'] = encodeURIComponent(window.location.href.substring(window.location.protocol.length));
             params['dt'] = encodeURIComponent(document.title);
             params['init'] = this.initCall == true ? 1 : init;

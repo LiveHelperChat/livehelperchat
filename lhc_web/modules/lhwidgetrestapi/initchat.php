@@ -95,6 +95,10 @@ try {
             $outputResponse['chat_ui']['bbc_btnh'] = true;
         }
 
+        if ((int)erLhcoreClassModelChatConfig::fetch('show_language_switcher')->current_value == 1) {
+            $outputResponse['chat_ui']['lng_btnh'] = true;
+        }
+
         $outputResponse['chat_ui']['header_buttons'] = array(
             array(
                 'pos' => 'left',

@@ -192,6 +192,10 @@ if ((int)erLhcoreClassModelChatConfig::fetch('bbc_button_visible')->value != 1) 
     $chat_ui['bbc_btnh'] = true;
 }
 
+if ((int)erLhcoreClassModelChatConfig::fetch('show_language_switcher')->current_value == 1){
+    $chat_ui['lng_btnh'] = true;
+}
+
 if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if (isset($start_data_fields['pre_offline_chat_html']) && $start_data_fields['pre_offline_chat_html'] != '') {
