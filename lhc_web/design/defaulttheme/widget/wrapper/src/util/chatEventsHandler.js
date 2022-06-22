@@ -163,8 +163,6 @@ class chatEventsHandler {
 
         let args = this.getInitAttributes();
 
-        console.log(args);
-
         if (!(popup === true) && this.attributes.mainWidget.cont.elmDom && this.attributes.mainWidget.cont.elmDom.contentWindow)
         {
             this.attributes.mainWidget.cont.elmDom.contentWindow.postMessage('lhc_init:' + JSON.stringify(args), (this.attributes.isIE ? '*' : '/'));
