@@ -130,13 +130,16 @@ class NodeTriggerActionList extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-12">
-            
-                    <div className="float-right">
-                          <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('no_highlight',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','no_highlight'])} /> No Highlight Top Element</label>
+                    <div className="col-6">
+                        <div>
+                            <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('no_highlight', e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','no_highlight'])} /> No Highlight Top Element</label>
+                        </div>
+                        <div role="group">
+                            <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('auto_translate', e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','auto_translate'])} /> Automatic translations.</label> <i className="material-icons" title="If you have enabled automatic translations for translation group we will translate this message. You can't mix manual and automatic translations in the same message. Before final save we will translate all response including buttons to visitor language.">info</i>
+                        </div>
                     </div>
-                          <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
-
+                    <div className="col-6">
+                          <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area', e.target.checked)} defaultChecked={this.props.action.getIn(['content','list_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
                     </div>
                 </div>
 

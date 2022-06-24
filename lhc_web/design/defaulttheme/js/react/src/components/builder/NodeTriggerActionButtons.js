@@ -90,8 +90,17 @@ class NodeTriggerActionButtons extends Component {
                     </div>
                 </div>
 
-                <div>
-                    <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','buttons_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                <div className="row">
+                    <div className="col-6">
+                        <div role="group">
+                            <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('hide_text_area',e.target.checked)} defaultChecked={this.props.action.getIn(['content','buttons_options','hide_text_area'])} /> Hide text area on response.</label> <i className="material-icons" title="Textarea to enter user message will be disabled. Make sure you include buttons for user to click.">info</i>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div role="group">
+                            <label><input type="checkbox" onChange={(e) => this.onChangeMainAttr('auto_translate', e.target.checked)} defaultChecked={this.props.action.getIn(['content','buttons_options','auto_translate'])} /> Automatic translations.</label> <i className="material-icons" title="If you have enabled automatic translations for translation group we will translate this message. You can't mix manual and automatic translations in the same message. Before final save we will translate all response including buttons to visitor language.">info</i>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="row">

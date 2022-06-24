@@ -32,5 +32,5 @@ class erLhcoreClassModelGenericBotRestAPICache {
     public $hash = '';
     public $response = '';
     public $ctime = 0;
-    public $rest_api_id = 0;
+    public $rest_api_id = 0; // 0 - Translation cache
 }

@@ -49,6 +49,14 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('translation/configuration')?>" method="post" autocomplete="off">
 
 <div class="form-group">
+    <label><input type="checkbox" name="use_cache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enable translation response cache');?>
+        <i>
+        (<?php echo erLhcoreClassModelGenericBotRestAPICache::getCount(['filter' => ['rest_api_id' => 0]])?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','cache items');?>)</i>
+        <a class="csfr-required csfr-post btn btn-xs btn-danger" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('translation/configuration')?>/(action)/clearcache"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Clear cache');?></a>
+    </label>
+</div>
+
+<div class="form-group">
     <label><input ng-init="enable_translations=<?php if (isset($translation_data['enable_translations']) && $translation_data['enable_translations'] == true ) : ?>true<?php else : ?>false<?php endif;?>" type="checkbox" ng-model="enable_translations" name="enable_translations" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enable translation service');?></label>
 </div>
  
@@ -124,7 +132,7 @@
 
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','AWS Region');?></label>
-				    <input class="form-control" type="text" name="aws_region" value="<?php (isset($translation_data['aws_region']) && $translation_data['eu-aws_region-1'] != '') ? print htmlspecialchars($translation_data['aws_region']) : print 'eu-central-1' ?>" />
+				    <input class="form-control" type="text" name="aws_region" value="<?php (isset($translation_data['aws_region']) && $translation_data['aws_region'] != '') ? print htmlspecialchars($translation_data['aws_region']) : print 'eu-central-1' ?>" />
 				</div>
 
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Below saved data is not shown.'); ?></p>

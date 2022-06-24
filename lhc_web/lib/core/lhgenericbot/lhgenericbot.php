@@ -315,6 +315,12 @@ class erLhcoreClassGenericBot {
             'Nick' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'bot_lang' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'use_translation_service' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -332,6 +338,18 @@ class erLhcoreClassGenericBot {
             $botTranslation->nick = '';
         }
 
+        if ( $form->hasValidData( 'bot_lang' )  ) {
+            $botTranslation->bot_lang = $form->bot_lang;
+        } else {
+            $botTranslation->bot_lang = '';
+        }
+
+        if ( $form->hasValidData( 'use_translation_service' ) && $form->use_translation_service == true ) {
+            $botTranslation->use_translation_service = 1;
+        } else {
+            $botTranslation->use_translation_service = 0;
+        }
+
         return $Errors;
     }
 
@@ -343,7 +361,8 @@ class erLhcoreClassGenericBot {
             'default_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw' ),
             'message_item' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY ),
             'languages' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
-            'group_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1))
+            'group_id' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
+            'auto_translate' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -381,6 +400,12 @@ class erLhcoreClassGenericBot {
             $botTranslationItem->group_id = $form->group_id;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please choose a group!');
+        }
+
+        if ( $form->hasValidData( 'auto_translate' ) ) {
+            $botTranslationItem->auto_translate = 1;
+        } else {
+            $botTranslationItem->auto_translate = 0;
         }
 
         return $Errors;

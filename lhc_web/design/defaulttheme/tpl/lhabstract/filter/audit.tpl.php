@@ -20,6 +20,8 @@
             <option value="slow_view">slow_view</option>
             <option value="update_active_chats">update_active_chats</option>
             <option value="files">files - failed visitors files upload</option>
+            <option value="translation">translation - translations failures</option>
+            <option value="translation_item">translation_item - translating translation item failed</option>
             <option value="Departament">Department</option>
             <option value="Subject">Subject</option>
             <option value="User">User</option>

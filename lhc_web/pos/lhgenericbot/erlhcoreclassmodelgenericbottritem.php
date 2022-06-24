@@ -14,6 +14,11 @@ $def->properties['group_id']->columnName   = 'group_id';
 $def->properties['group_id']->propertyName = 'group_id';
 $def->properties['group_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['auto_translate'] = new ezcPersistentObjectProperty();
+$def->properties['auto_translate']->columnName   = 'auto_translate';
+$def->properties['auto_translate']->propertyName = 'auto_translate';
+$def->properties['auto_translate']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';

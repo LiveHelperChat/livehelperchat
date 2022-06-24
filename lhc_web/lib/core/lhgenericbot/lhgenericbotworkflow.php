@@ -315,8 +315,7 @@ class erLhcoreClassGenericBotWorkflow {
 
         if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
             $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat, 'msg' => $msg)));
-
-            if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+            if (isset($message) && $message instanceof erLhcoreClassModelmsg && $message->id > 0) {
                 self::setLastMessageId($chat, $message->id, true);
             }
         }
