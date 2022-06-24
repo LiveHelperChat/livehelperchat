@@ -21,6 +21,23 @@ if ( isset($_POST['TranslateToLanguage']) ) {
      }
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'clearcache') {
+
+    if (!isset($Params['user_parameters_unordered']['csfr']) || !$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+        erLhcoreClassModule::redirect('translation/configuration');
+        exit;
+    }
+
+    // Rest API Cache
+    $q = ezcDbInstance::get()->createDeleteQuery();
+    $q->deleteFrom('lh_generic_bot_rest_api_cache')->where( $q->expr->eq( 'rest_api_id', 0 ) );
+    $stmt = $q->prepare();
+    $stmt->execute();
+    
+    erLhcoreClassModule::redirect('translation/configuration');
+    exit;
+}
+
 if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettingsTest']) ) {
 
     $definition = array(
@@ -28,6 +45,9 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
         'enable_translations' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'use_cache' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
         'bing_client_secret' => new ezcInputFormDefinitionElement(
@@ -77,6 +97,12 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         $data['enable_translations'] = true;
     } else {
         $data['enable_translations'] = false;
+    }
+
+    if ( $form->hasValidData( 'use_cache' ) && $form->use_cache == true) {
+        $data['use_cache'] = true;
+    } else {
+        $data['use_cache'] = false;
     }
     
     if ( $form->hasValidData( 'bing_region' ) && $form->bing_region != '' && $form->bing_region != '0') {

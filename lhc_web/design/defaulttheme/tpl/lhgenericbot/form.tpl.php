@@ -8,12 +8,12 @@
     <div role="tabpanel" class="tab-pane active" id="general">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-            <input maxlength="20" type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
+            <input maxlength="100" type="text" class="form-control" name="name"  value="<?php echo htmlspecialchars($item->name);?>" />
         </div>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Nick, what should be operator nick. E.g Support Bot');?></label>
-            <input maxlength="250" type="text" class="form-control" name="nick"  value="<?php echo htmlspecialchars($item->nick);?>" />
+            <input maxlength="100" type="text" class="form-control" name="nick"  value="<?php echo htmlspecialchars($item->nick);?>" />
         </div>
 
         <div class="row">

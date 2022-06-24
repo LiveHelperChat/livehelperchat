@@ -18,7 +18,8 @@ class erLhcoreClassModelGenericBotTrItem {
             'id' => $this->id,
             'group_id' => $this->group_id,
             'identifier' => $this->identifier,
-            'translation' => $this->translation
+            'translation' => $this->translation,
+            'auto_translate' => $this->auto_translate
         );
 
         return $stateArray;
@@ -81,6 +82,27 @@ class erLhcoreClassModelGenericBotTrItem {
                 return;
             }
         }
+
+        if ($this->auto_translate == 1) {
+            $translationGroup = erLhcoreClassModelGenericBotTrGroup::fetch($this->group_id);
+            if ($translationGroup instanceof erLhcoreClassModelGenericBotTrGroup && $translationGroup->bot_lang != '') {
+                try {
+                    $this->translation_front = erLhcoreClassTranslate::translateTo($this->translation_front, $translationGroup->bot_lang, $localeShort);
+                } catch (Exception $e) {
+                    erLhcoreClassLog::write( $e->getMessage() . "\n" . $e->getTraceAsString(),
+                        ezcLog::SUCCESS_AUDIT,
+                        array(
+                            'source' => 'lhc',
+                            'category' => 'translation_item',
+                            'line' => $e->getLine(),
+                            'file' => $e->getFile(),
+                            'object_id' => $this->id
+                        )
+                    );
+                }
+            }
+        }
+
     }
 
     public $id = null;
@@ -88,5 +110,6 @@ class erLhcoreClassModelGenericBotTrItem {
     public $identifier = '';
     public $translation = '';
     public $group_id = 0;
+    public $auto_translate = 0;
     public $translation_front = '';
 }

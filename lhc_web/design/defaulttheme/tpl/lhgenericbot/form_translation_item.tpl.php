@@ -11,7 +11,7 @@
     $params = array (
         'input_name'     => 'group_id',
         'display_name'   => 'name',
-        'css_class'      => 'form-control',
+        'css_class'      => 'form-control form-control-sm',
         'selected_id'    => $item->group_id,
         'list_function'  => 'erLhcoreClassModelGenericBotTrGroup::getList',
         'list_function_params'  => array('limit' => false)
@@ -22,7 +22,12 @@
 
 <div class="form-group" ng-non-bindable>
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Identifier');?></label>
-    <input type="text" class="form-control" name="identifier"  value="<?php echo htmlspecialchars($item->identifier);?>" />
+    <input type="text" class="form-control form-control-sm" name="identifier" value="<?php echo htmlspecialchars($item->identifier);?>" />
+</div>
+
+<div class="form-group">
+    <label><input type="checkbox" name="auto_translate" <?php $item->auto_translate == 1 ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','If translation is not found use translation service')?></label>
+    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you have configured Automatic Translations we will use it for untranslated items.');?></small></i></p>
 </div>
 
 <div role="tabpanel">

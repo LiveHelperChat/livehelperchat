@@ -18,9 +18,11 @@ class erLhcoreClassModelGenericBotTrGroup {
             'id' => $this->id,
             'name' => $this->name,
             'nick' => $this->nick,
+            'use_translation_service' => $this->use_translation_service,
             'filepath' => $this->filepath,
             'filename' => $this->filename,
             'configuration' => $this->configuration,
+            'bot_lang' => $this->bot_lang,
         );
         return $stateArray;
     }
@@ -101,5 +103,7 @@ class erLhcoreClassModelGenericBotTrGroup {
     public $nick = '';
     public $filepath = '';
     public $filename = '';
+    public $use_translation_service = 0;
     public $configuration = '';
+    public $bot_lang = '';
 }
