@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','For automatic translations we have to know what is the main bot language. From this langauge we will translate bot messages.');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
         'input_name'     => 'bot_lang',
         'css_class'      => 'form-control form-control-sm',
