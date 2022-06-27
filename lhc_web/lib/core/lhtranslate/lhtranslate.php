@@ -772,7 +772,7 @@ class erLhcoreClassTranslate
 
         if (isset($translationData['translation_handler'])) {
 
-            $key = erLhcoreClassModelChat::multi_implode(',', $text);
+            $key = erLhcoreClassModelChat::multi_implode(',', $text) . $translateFrom . '_' . $translateTo;
             $useCache = isset($translationData['use_cache']) && $translationData['use_cache'] == true;
 
             if ($useCache && ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($key), 'rest_api_id' => 0]])) && $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
