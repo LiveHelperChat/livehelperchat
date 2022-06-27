@@ -34,6 +34,8 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
             'no_scroll_bottom' =>  erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',  0, $UserData->id),
             'remove_closed_chats' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',  0, $UserData->id),
+            'remove_closed_chats_remote' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats_remote',  0, $UserData->id),
+            'remove_close_timeout' =>  erLhcoreClassModelUserSetting::getSetting('remove_close_timeout',  5, $UserData->id),
         );
         $originalSettings['new'] = $pendingSettings;
 
@@ -65,6 +67,18 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', 1);
     } else {
         erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', 0);
+    }
+
+    if (isset($_POST['remove_closed_chats_remote']) && $_POST['remove_closed_chats_remote'] == 1) {
+        erLhcoreClassModelUserSetting::setSetting('remove_closed_chats_remote', 1);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('remove_closed_chats_remote', 0);
+    }
+
+    if (isset($_POST['remove_close_timeout']) && (int)$_POST['remove_close_timeout'] >= 1 || (int)$_POST['remove_close_timeout'] <= 60 ) {
+        erLhcoreClassModelUserSetting::setSetting('remove_close_timeout', (int)$_POST['remove_close_timeout']);
+    } else {
+        erLhcoreClassModelUserSetting::setSetting('remove_close_timeout', 5);
     }
 
     if (isset($_POST['auto_join_private']) && $_POST['auto_join_private'] == 1) {

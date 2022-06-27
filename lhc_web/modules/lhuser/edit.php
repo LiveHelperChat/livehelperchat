@@ -169,9 +169,13 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
     erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('auto_join_private', $pendingSettings['auto_join_private'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', $pendingSettings['remove_closed_chats'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('remove_closed_chats_remote', $pendingSettings['remove_closed_chats_remote'], $UserData->id);
+    erLhcoreClassModelUserSetting::setSetting('remove_close_timeout', $pendingSettings['remove_close_timeout'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('auto_preload', $pendingSettings['auto_preload'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', $pendingSettings['no_scroll_bottom'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase'], $UserData->id);
+
+
 
     $UserData->auto_accept = $pendingSettings['auto_accept'];
     $UserData->max_active_chats = $pendingSettings['max_chats'];

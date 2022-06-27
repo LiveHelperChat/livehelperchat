@@ -23,6 +23,8 @@ $userParams = array(
     'auto_join_private' => 1,
     'no_scroll_bottom' => 0,
     'remove_closed_chats' => 0,
+    'remove_closed_chats_remote' => 0,
+    'remove_close_timeout' => 5,
     'auto_preload' => 0,
     'auto_uppercase' => 1,
     
@@ -89,6 +91,9 @@ if (isset($_POST['Update_account']))
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('auto_join_private', $userParams['auto_join_private'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('remove_closed_chats', $userParams['remove_closed_chats'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('remove_closed_chats_remote', $userParams['remove_closed_chats_remote'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('remove_close_timeout', $userParams['remove_close_timeout'], $UserData->id);
+
             erLhcoreClassModelUserSetting::setSetting('auto_preload', $userParams['auto_preload'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', $userParams['no_scroll_bottom'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $userParams['auto_uppercase'], $UserData->id);
