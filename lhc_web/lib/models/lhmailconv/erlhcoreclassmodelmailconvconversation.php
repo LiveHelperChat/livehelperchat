@@ -145,7 +145,7 @@ class erLhcoreClassModelMailconvConversation
             case 'mailbox_front':
                 $this->mailbox_front = [
                     'name' => '',
-                    'email' => '',
+                    'mail' => '',
                 ];
 
                 if ($this->mailbox instanceof erLhcoreClassModelMailconvMailbox) {
