@@ -212,9 +212,9 @@ if ($Params['user_parameters_unordered']['online'] == '0') {
 
     if ($Params['user_parameters_unordered']['online'] == '0') {
 
-        if ($theme instanceof erLhAbstractModelWidgetTheme){
+        if ($theme instanceof erLhAbstractModelWidgetTheme) {
             if (isset($theme->bot_configuration_array['thank_feedback']) && !empty($theme->bot_configuration_array['thank_feedback'])) {
-                $chat_ui['thank_feedback'] = $theme->bot_configuration_array['thank_feedback'];
+                $chat_ui['thank_feedback'] = erLhcoreClassBBCode::make_clickable(htmlspecialchars($theme->bot_configuration_array['thank_feedback']));
             }
 
             if (isset($theme->bot_configuration_array['chat_unavailable']) && !empty($theme->bot_configuration_array['chat_unavailable'])) {
