@@ -54,6 +54,14 @@ class NodeTriggerActionTyping extends Component {
                         </button>
                     </div>
                 </div>
+                
+                <div className="row">
+                    <div className="col-6">
+                        <div role="group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['auto_translate'], 'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','auto_translate'])} /> Automatic translations.</label> <i className="material-icons" title="If you have enabled automatic translations for translation group we will translate this message. You can't mix manual and automatic translations in the same message. Before final save we will translate all response including buttons to visitor language.">info</i>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="row">
                     <div className="col-12">

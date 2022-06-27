@@ -48,6 +48,10 @@ class erLhcoreClassTranslateBing {
                         
             $languageCode = '';
 
+            if (isset($data['error']['message'])) {
+                throw new Exception($data['error']['message']);
+            }
+
             if(array_key_exists('language', $data[0]) && $data[0]['language'] != ''){
                 $languageCode = $data[0]['language'];
             }
@@ -62,12 +66,21 @@ class erLhcoreClassTranslateBing {
         public static function translate($access_token, $word, $from, $to)
         {
             $url = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from='.$from.'&to='.$to;
-            $postParams = json_encode(array(array('Text' => $word)));
 
             if (empty($word)) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Missing text to translate'));
             }
-            
+
+            if (is_array($word)) {
+                $postParams = [];
+                foreach ($word as $wordItem) {
+                    $postParams[] = ['Text' => $wordItem['source']];
+                }
+                $postParams = json_encode($postParams);
+            } else {
+                $postParams = json_encode(array(array('Text' => $word)));
+            }
+
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$access_token,
@@ -83,6 +96,10 @@ class erLhcoreClassTranslateBing {
 
             $data = json_decode($rsp, true);
 
+            if (isset($data['error']['message'])) {
+                throw new Exception($data['error']['message']);
+            }
+
             if(!array_key_exists('translations', $data[0])){
                 throw new Exception($rsp);
             }
@@ -93,7 +110,16 @@ class erLhcoreClassTranslateBing {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
             }
 
-            return $data[0]["translations"][0]["text"]; 
+            if (is_array($word)) {
+                foreach ($data as $index => $translationData) {
+                    if (isset($translationData['translations'][0]['text'])) {
+                        $word[$index]['target'] = $translationData['translations'][0]['text'];
+                    }
+                }
+                return $word;
+            } else {
+                return $data[0]["translations"][0]["text"];
+            }
         }
     }
 ?>

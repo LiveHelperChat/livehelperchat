@@ -35,6 +35,21 @@ class erLhcoreClassGenericBotActionList {
             $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
         }
 
+        // Automatic translations
+        if (isset($action['content']['list_options']['auto_translate']) && $action['content']['list_options']['auto_translate'] == true && $chat->dep_id > 0) {
+            $department = erLhcoreClassModelDepartament::fetch($chat->dep_id,true);
+            if ($department instanceof erLhcoreClassModelDepartament) {
+                $configurationDep = $department->bot_configuration_array;
+                if (isset($configurationDep['bot_tr_id']) && $configurationDep['bot_tr_id'] > 0) {
+                    $translationGroup = erLhcoreClassModelGenericBotTrGroup::fetch($configurationDep['bot_tr_id']);
+                    if ($translationGroup instanceof erLhcoreClassModelGenericBotTrGroup && $translationGroup->use_translation_service == 1 && $translationGroup->bot_lang != '') {
+                        erLhcoreClassTranslate::translateBotMessage($chat, $msg, $translationGroup);
+                    }
+                }
+            }
+        }
+
+
         $msg->chat_id = $chat->id;
         if (isset($params['override_nick']) && !empty($params['override_nick'])) {
             $msg->name_support = (string)$params['override_nick'];

@@ -7,11 +7,11 @@ $ViewList = array();
 $ViewList['configuration'] = array(
 		'params' => array(),
 		'functions' => array('configuration'),
-		'uparams' => array()
+		'uparams' => array('csfr', 'action')
 );
 
 $ViewList['starttranslation'] = array(
-		'params' => array('chat_id','visitor_language','operator_language'),
+		'params' => array('chat_id', 'visitor_language', 'operator_language'),
 		'functions' => array('use'),
 		'uparams' => array()
 );
@@ -23,7 +23,7 @@ $ViewList['translateoperatormessage'] = array(
 );
 
 $ViewList['translatevisitormessage'] = array(
-		'params' => array('chat_id','msg_id'),
+		'params' => array('chat_id', 'msg_id'),
 		'functions' => array('use'),
 		'uparams' => array()
 );

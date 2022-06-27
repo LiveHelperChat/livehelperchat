@@ -125,7 +125,10 @@ class chatEventsHandler {
                     prefilOptionsList.push({'Question' : item.value});
                 }
             })
+            prefilOptionsList = prefilOptionsList.concat(this.attributes['userSession'].getPrefillVars());
             attr['attr_prefill'] = prefilOptionsList;
+        } else {
+            attr['attr_prefill'] = this.attributes['userSession'].getPrefillVars();
         }
 
         if (this.attributes.LHCChatOptions && this.attributes.LHCChatOptions.attr_prefill_admin) {

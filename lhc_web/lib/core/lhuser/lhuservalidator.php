@@ -357,6 +357,9 @@ class erLhcoreClassUserValidator {
             'remove_closed_chats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'remove_closed_chats_remote' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
             'auto_uppercase' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
@@ -371,6 +374,9 @@ class erLhcoreClassUserValidator {
 			),
             'maximumChats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
+			),
+            'remove_close_timeout' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 5, 'max_range' => 60)
 			),
 		);
 	
@@ -414,6 +420,12 @@ class erLhcoreClassUserValidator {
             $result['remove_closed_chats'] = 0;
 		}
 
+		if ( $form->hasValidData( 'remove_closed_chats_remote' ) && $form->remove_closed_chats_remote == true ) {
+            $result['remove_closed_chats_remote'] = 1;
+		} else {
+            $result['remove_closed_chats_remote'] = 0;
+		}
+
 		if ( $form->hasValidData( 'auto_join_private' ) && $form->auto_join_private == true ) {
             $result['auto_join_private'] = 1;
 		} else {
@@ -430,6 +442,12 @@ class erLhcoreClassUserValidator {
             $result['max_chats'] = $form->maximumChats;
 		} else {
             $result['max_chats'] = 0;
+		}
+        
+		if ( $form->hasValidData( 'remove_close_timeout' )) {
+            $result['remove_close_timeout'] = $form->remove_close_timeout;
+		} else {
+            $result['remove_close_timeout'] = 5;
 		}
 	
 		return $result;

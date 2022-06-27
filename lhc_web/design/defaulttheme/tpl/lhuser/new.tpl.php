@@ -222,6 +222,21 @@
         </div>
 
         <div class="form-group">
+            <fieldset class="border p-2">
+                <legend class="w-auto fs16 mb-0"><label class="fs16 m-0 p-0"><input type="checkbox" name="remove_closed_chats" value="1" <?php $quick_settings['remove_closed_chats'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label></legend>
+                <label><input type="checkbox" name="remove_closed_chats_remote" value="1" <?php $quick_settings['remove_closed_chats_remote'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Include not only my chats');?>
+                    <span class="d-block"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Other operators chats also will be closed on page refresh');?></i></small></span>
+                </label>
+                <div class="form-group mb-0">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','How much time has to be passed after chat close before chat is removed. Time in minutes.');?></label>
+                    <input name="remove_close_timeout" value="<?php echo (int)$quick_settings['remove_close_timeout']?>" class="form-control form-control-sm" type="number" max="60" min="1" >
+                </div>
+            </fieldset>
+        </div>
+
+
+
+        <div class="form-group">
             <label><input type="checkbox" name="exclude_autoasign" value="1" <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assign workflow');?></label>
         </div>
 

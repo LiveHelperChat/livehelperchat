@@ -2,7 +2,7 @@
 
 class erLhcoreClassTranslateGoogle {
     
-        public static function executeRequest($url, $referer = '')
+        public static function executeRequest($url, $bodyPayload = '', $referer = '')
         {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -11,6 +11,16 @@ class erLhcoreClassTranslateGoogle {
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT , 5);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+            if ($bodyPayload != '') {
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyPayload);
+                curl_setopt($ch, CURLOPT_HTTPHEADER,
+                    array(
+                        'Content-Type:application/json'
+                    )
+                );
+            }
 
             if ($referer != '') {
                 curl_setopt($ch, CURLOPT_REFERER, $referer);
@@ -41,7 +51,7 @@ class erLhcoreClassTranslateGoogle {
             
             $url = "https://www.googleapis.com/language/translate/v2/detect?key={$apiKey}&q=".urlencode($text);
                                 
-            $rsp = self::executeRequest($url, $referer);
+            $rsp = self::executeRequest($url,'', $referer);
             
             $data = json_decode($rsp,true);
                         
@@ -62,23 +72,55 @@ class erLhcoreClassTranslateGoogle {
         }
         } */
         public static function translate($apiKey, $word, $from, $to, $referer = '')
-        {            
-            $url = "https://www.googleapis.com/language/translate/v2?key={$apiKey}&q=".urlencode($word)."&source={$from}&target={$to}&format=text";
-            
-            $rsp = self::executeRequest($url, $referer);
-            
+        {
+            $postParams = [
+                'target' => $to,
+                'q' => []
+            ];
+
+            if (is_array($word)) {
+                foreach ($word as $wordItem) {
+                    $postParams['q'][] = $wordItem['source'];
+                }
+            } else {
+                $postParams['q'][] = $word;
+            }
+
+            $url = "https://www.googleapis.com/language/translate/v2?key={$apiKey}";
+
+            $rsp = self::executeRequest($url, json_encode($postParams), $referer);
+
             $data = json_decode($rsp,true);
             
-            if (isset($data['data']['translations'][0]['translatedText'])){
-                $errors = array();
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_google_translate', array('word' => & $word, 'errors' => & $errors));
-                if(!empty($errors)) {
-                    throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
-                }
+            if (isset($data['data']['translations'][0]['translatedText'])) {
 
-                return htmlspecialchars_decode($data['data']['translations'][0]['translatedText']);
-            };
-            
+                if (is_array($word)) {
+
+                    foreach ($data['data']['translations'] as $index => $translationData) {
+                        if (isset($translationData['translatedText'])) {
+                            $word[$index]['target'] = $translationData['translatedText'];
+                        }
+                    }
+
+                    $errors = array();
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_google_translate', array('word' => & $word, 'errors' => & $errors));
+                    if(!empty($errors)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
+                    }
+
+                    return $word;
+
+                } else {
+                    $errors = array();
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.after_google_translate', array('word' => & $word, 'errors' => & $errors));
+                    if(!empty($errors)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
+                    }
+
+                    return htmlspecialchars_decode($data['data']['translations'][0]['translatedText']);
+                }
+            }
+
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.$rsp);
         }
     }

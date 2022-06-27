@@ -120,6 +120,21 @@ export class userSession {
        };
     }
 
+    getPrefillVars() {
+        let varsReturn = [];
+        if (this.jsVars.length > 0) {
+            var varsSet = this.getVars();
+            for (var jsVarData in this.jsVars) {
+                if (this.jsVars[jsVarData].type && varsSet[this.jsVars[jsVarData].id]) {
+                    var item = {};
+                    item[this.jsVars[jsVarData].type] = varsSet[this.jsVars[jsVarData].id];
+                    varsReturn.push(item);
+                }
+            }
+        }
+        return varsReturn;
+    }
+
     getVars() {
         if (this.jsVars.length > 0) {
             var js_args = {};

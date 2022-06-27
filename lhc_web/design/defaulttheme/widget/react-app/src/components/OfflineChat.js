@@ -214,7 +214,7 @@ class OfflineChat extends Component {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-12">
-                                <p className="pt-2">{this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}</p>
+                                <p className="pt-2" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','thank_feedback']) || t('start_chat.thank_you_for_feedback')}}></p>
                             </div>
                         </div>
                     </div>

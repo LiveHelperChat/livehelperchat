@@ -54,7 +54,7 @@ class NodeTriggerActionProgress extends Component {
                         </button>
                     </div>
                 </div>
-
+                
                 <div className="row">
                     <div className="col-6">
                         <div className="form-group">

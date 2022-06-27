@@ -44,6 +44,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -2044,6 +2052,14 @@
     </message>
     <message>
       <source>Has popup information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort enabled, you can define custom column also.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort column from lh_chat table, or JSON syntax</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4201,6 +4217,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose your language</source>
       <translation type="unfinished"/>
     </message>
@@ -4474,6 +4494,10 @@
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5074,6 +5098,10 @@
     </message>
     <message>
       <source>Log users changes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log failed files uploads</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6447,6 +6475,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -6535,15 +6567,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Speech</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6711,6 +6743,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Changes will not be saved!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For account page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For user edit page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments groups</source>
       <translation type="unfinished"/>
     </message>
@@ -6720,6 +6768,10 @@
     </message>
     <message>
       <source>Chat status will not change upon pending chat opening</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Notifications</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6747,10 +6799,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Personal auto responder</source>
       <translation type="unfinished"/>
     </message>
@@ -6759,7 +6807,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Pending chats</source>
+      <source>Hide quick notifications</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9782,6 +9830,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Quick notifications are the ones that you see at the top left corner of the application.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
       <translation type="unfinished"/>
     </message>
@@ -9823,6 +9875,42 @@
     </message>
     <message>
       <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notification only if user is an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if user is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will not receive notifications if he is not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activity tracking is set at global level. User settings will be be ignored. Timeout value still will be taken from account settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change user online/offline status based on his activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After certain period of time if no actions are detected user will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select after how long of inactivity user will be marked as offline automatically</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12800,6 +12888,14 @@
     </message>
     <message>
       <source>Maximum file size in KB</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max file size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max post size</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17776,6 +17872,18 @@
       <source>File too big!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Processing...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Completed.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/notifications</name>
@@ -17910,6 +18018,13 @@
     </message>
     <message>
       <source>Only from defined IP/IP range request will be permitted.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>cannedmsg/deletereplace</name>
+    <message>
+      <source>Clone</source>
       <translation type="unfinished"/>
     </message>
   </context>

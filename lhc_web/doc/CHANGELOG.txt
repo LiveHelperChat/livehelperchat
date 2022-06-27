@@ -1,3 +1,15 @@
+4.08v
+
+1. Bot messages can be automatically translated using Translation services.
+2. Passed additional chat variables will prefill nick, email, phone.
+3. Visitor now can switch his language in the widget.
+4. Alert message will be shown if department groups permission is misconfiguration. Operator can edit them, but can't read.
+5. Option to clone replaceable variable.
+6. Now as admin I can edit more fields of the operator.
+7. Files upload UX fixes. Messages not always was fetched after files upload.
+
+execute doc/update_db/update_280.sql for update
+
 4.07v
 
 1. Additional chat columns can be sorted [Pending chats, Active chats] widgets supports

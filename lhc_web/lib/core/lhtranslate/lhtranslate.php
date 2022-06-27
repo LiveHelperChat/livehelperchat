@@ -708,6 +708,11 @@ class erLhcoreClassTranslate
      */
     public static function detectLanguage($text)
     {
+        // If batch translation extract very first text
+        if (is_array($text)) {
+            $text = $text[0]['source'];
+        }
+
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
             $translationData = $response['data'];
@@ -755,7 +760,7 @@ class erLhcoreClassTranslate
      *
      *
      */
-    public static function translateTo($text, $translateFrom = false, $translateTo)
+    public static function translateTo($text, $translateFrom, $translateTo)
     {
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
@@ -764,8 +769,18 @@ class erLhcoreClassTranslate
             $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
             $translationData = $translationConfig->data;
         }
-        
+
         if (isset($translationData['translation_handler'])) {
+
+            $key = erLhcoreClassModelChat::multi_implode(',', $text) . $translateFrom . '_' . $translateTo;
+            $useCache = isset($translationData['use_cache']) && $translationData['use_cache'] == true;
+
+            if ($useCache && ($responseCache = erLhcoreClassModelGenericBotRestAPICache::findOne(['sort' => false, 'filter' => ['hash' => md5($key), 'rest_api_id' => 0]])) && $responseCache instanceof erLhcoreClassModelGenericBotRestAPICache) {
+                return json_decode($responseCache->response,true);
+            }
+
+            $translatedItem = null;
+
             if ($translationData['translation_handler'] == 'bing') {
             
                 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
@@ -787,8 +802,8 @@ class erLhcoreClassTranslate
                         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
                     }
                 }
-                
-                return erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
+
+                $translatedItem = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
                 
             } elseif ($translationData['translation_handler'] == 'google') {
 
@@ -806,7 +821,7 @@ class erLhcoreClassTranslate
                     throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Visitor language is not supported by Google translation service!'). ' [' . $translateTo . ']' );
                 }
 
-                return erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
+                $translatedItem = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $text, $translateFrom, $translateTo, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
             } elseif ($translationData['translation_handler'] == 'aws') {
 
                 if ($translateFrom == false) {
@@ -819,7 +834,7 @@ class erLhcoreClassTranslate
                     }
                 }
 
-                return erLhcoreClassTranslateAWS::translate([
+                $translatedItem =  erLhcoreClassTranslateAWS::translate([
                     'aws_region' => $translationData['aws_region'],
                     'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
                     'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
@@ -837,9 +852,17 @@ class erLhcoreClassTranslate
                     }
                 }
 
-
-                return erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
+                $translatedItem =  erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
             }
+
+            if ($useCache) {
+                $translationCache = new erLhcoreClassModelGenericBotRestAPICache();
+                $translationCache->hash = md5($key);
+                $translationCache->response = json_encode($translatedItem);
+                $translationCache->saveThis();
+            }
+
+            return $translatedItem;
         }
     }
 
@@ -930,6 +953,183 @@ class erLhcoreClassTranslate
                 $msg->msg .= "[translation]{$translation}[/translation]";
             }
         } catch (Exception $e) {}
+    }
+    
+    public static function translateBotMessage(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg, erLhcoreClassModelGenericBotTrGroup $translationGroup)
+    {
+        $supportedLanguages = self::getSupportedLanguages(true);
+
+        // Unsupported
+        if (!key_exists($translationGroup->bot_lang, $supportedLanguages)) {
+            return;
+        }
+
+        $chatLocale = explode('-',$chat->chat_locale)[0];
+
+        // Unsupported
+        if (!key_exists($chatLocale, $supportedLanguages)) {
+            return;
+        }
+
+        try {
+
+            if ($msg->meta_msg != '') {
+                self::collectPathsToTranslate($msg, $translationGroup->bot_lang, $chatLocale);
+            }
+
+            if (!empty($msg->msg)) {
+                $msg->msg = self::translateTo($msg->msg, $translationGroup->bot_lang, $chatLocale);
+            }
+
+        } catch (Exception $e) {
+            erLhcoreClassLog::write( $e->getMessage() . "\n" . $e->getTraceAsString(),
+                ezcLog::SUCCESS_AUDIT,
+                array(
+                    'source' => 'lhc',
+                    'category' => 'translation',
+                    'line' => $e->getLine(),
+                    'file' => $e->getFile(),
+                    'object_id' => (int)$chat->id
+                )
+            );
+        }
+    }
+
+    public static function arrayPath(&$array, $path = array(), &$value = null)
+    {
+        $args = func_get_args();
+        $ref = &$array;
+        foreach ($path as $key) {
+            if (!is_array($ref)) {
+                $ref = array();
+            }
+            $ref = &$ref[$key];
+        }
+        $prev = $ref;
+        if (array_key_exists(2, $args)) {
+            // value param was passed -> we're setting
+            $ref = $value;  // set the value
+        }
+        return $prev;
+    }
+
+    public static function collectPathsToTranslate($msg, $fromLanguage, $toLanguage)
+    {
+        $elements = json_decode($msg->meta_msg, true);
+
+        if ($elements === null) {
+            return;
+        }
+
+        $pathsTranslate = [];
+
+        if (isset($elements['content']['quick_replies']) && is_array($elements['content']['quick_replies']) &&!empty($elements['content']['quick_replies'])) {
+            foreach ($elements['content']['quick_replies'] as $index => $item) {
+                if (isset($item['content']['name']) && !empty($item['content']['name'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.quick_replies.{$index}.content.name",
+                        'source' => $item['content']['name'],
+                        'target' => $item['content']['name']
+                    ];
+                }
+            }
+        }
+
+        if (isset($elements['content']['buttons_generic']) && is_array($elements['content']['buttons_generic']) &&!empty($elements['content']['buttons_generic'])) {
+            foreach ($elements['content']['buttons_generic'] as $index => $item) {
+                if (isset($item['content']['name']) && !empty($item['content']['name'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.buttons_generic.{$index}.content.name",
+                        'source' => $item['content']['name'],
+                        'target' => $item['content']['name']
+                    ];
+                }
+            }
+        }
+
+        if (isset($elements['content']['list']['items']) && is_array($elements['content']['list']['items']) &&!empty($elements['content']['list']['items'])) {
+            foreach ($elements['content']['list']['items'] as $index => $item) {
+                if (isset($item['content']['title']) && !empty($item['content']['title'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.list.items.{$index}.content.title",
+                        'source' => $item['content']['title'],
+                        'target' => $item['content']['title']
+                    ];
+                }
+                if (isset($item['content']['subtitle']) && !empty($item['content']['subtitle'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.list.items.{$index}.content.subtitle",
+                        'source' => $item['content']['subtitle'],
+                        'target' => $item['content']['subtitle']
+                    ];
+                }
+            }
+        }
+
+        if (isset($elements['content']['list']['list_quick_replies']) && is_array($elements['content']['list']['list_quick_replies']) &&!empty($elements['content']['list']['list_quick_replies'])) {
+            foreach ($elements['content']['list']['list_quick_replies'] as $index => $item) {
+                if (isset($item['content']['name']) && !empty($item['content']['name'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.list.list_quick_replies.{$index}.content.name",
+                        'source' => $item['content']['name'],
+                        'target' => $item['content']['name']
+                    ];
+                }
+            }
+        }
+
+        if (isset($elements['content']['generic']['items']) && is_array($elements['content']['generic']['items']) &&!empty($elements['content']['generic']['items'])) {
+            foreach ($elements['content']['generic']['items'] as $index => $item) {
+
+                if (isset($item['content']['title']) && !empty($item['content']['title'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.generic.items.{$index}.content.title",
+                        'source' => $item['content']['title'],
+                        'target' => $item['content']['title']
+                    ];
+                }
+
+                if (isset($item['content']['subtitle']) && !empty($item['content']['subtitle'])) {
+                    $pathsTranslate[] = [
+                        'path' => "content.generic.items.{$index}.content.subtitle",
+                        'source' => $item['content']['subtitle'],
+                        'target' => $item['content']['subtitle']
+                    ];
+                }
+
+                if (isset($item['buttons']) && !empty($item['buttons'])) {
+                    foreach ($item['buttons'] as $indexSub => $button) {
+                        if (isset($button['content']['name']) && !empty($button['content']['name'])) {
+                            $pathsTranslate[] = [
+                                'path' => "content.generic.items.{$index}.buttons.{$indexSub}.content.name",
+                                'source' => $button['content']['name'],
+                                'target' => $button['content']['name']
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+
+        if (isset($elements['content']['typing']['text']) && $elements['content']['typing']['text'] != '') {
+            $pathsTranslate[] = [
+                'path' => "content.typing.text",
+                'source' => $elements['content']['typing']['text'],
+                'target' => $elements['content']['typing']['text']
+            ];
+        }
+
+        if (empty($pathsTranslate)) {
+            return;
+        }
+
+        $translatedItems = self::translateTo($pathsTranslate, $fromLanguage, $toLanguage);
+
+        foreach ($translatedItems as $translatedItem) {
+            self::arrayPath($elements, explode('.',$translatedItem['path']), $translatedItem['target']);
+        }
+
+        $msg->meta_msg = json_encode($elements);
     }
 }
 

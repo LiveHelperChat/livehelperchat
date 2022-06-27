@@ -51,13 +51,29 @@ class erLhcoreClassTranslateAWS {
 
         $awsTranslate = new Aws\Translate\TranslateClient($params);
 
-        $result = $awsTranslate->translateText([
-            'SourceLanguageCode' => $from, // REQUIRED
-            'TargetLanguageCode' => $to, // REQUIRED
-            'Text' => $text, // REQUIRED
-        ]);
+        if (is_array($text)) {
 
-        return $result->get('TranslatedText');
+            foreach ($text as $index => $wordItem) {
+
+                $result = $awsTranslate->translateText([
+                    'SourceLanguageCode' => $from, // REQUIRED
+                    'TargetLanguageCode' => $to, // REQUIRED
+                    'Text' => $wordItem['source'], // REQUIRED
+                ]);
+
+                $text[$index]['target'] = $result->get('TranslatedText');
+            }
+
+            return $text;
+
+        } else {
+            $result = $awsTranslate->translateText([
+                'SourceLanguageCode' => $from, // REQUIRED
+                'TargetLanguageCode' => $to, // REQUIRED
+                'Text' => $text, // REQUIRED
+            ]);
+            return $result->get('TranslatedText');
+        }
     }
 }
 ?>
