@@ -49,7 +49,7 @@
 <form action="<?php echo erLhcoreClassDesign::baseurl('translation/configuration')?>" method="post" autocomplete="off">
 
 <div class="form-group">
-    <label><input type="checkbox" name="use_cache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enable translation response cache');?>
+    <label><input <?php if (isset($translation_data['use_cache']) && $translation_data['use_cache'] == true ) : ?>checked="checked"<?php endif;?> type="checkbox" name="use_cache" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Enable translation response cache');?>
         <i>
         (<?php echo erLhcoreClassModelGenericBotRestAPICache::getCount(['filter' => ['rest_api_id' => 0]])?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','cache items');?>)</i>
         <a class="csfr-required csfr-post btn btn-xs btn-danger" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('translation/configuration')?>/(action)/clearcache"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Clear cache');?></a>
