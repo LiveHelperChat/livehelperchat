@@ -132,6 +132,32 @@ class erLhAbstractModelSurveyItem {
 	{
 	    $items = self::getList(array('filter' => array('chat_id' => $chat->id, 'survey_id' => $survey->id)));
 	    
+        foreach ([
+            'max_stars_1_title',
+            'max_stars_2_title',
+            'max_stars_3_title',
+            'max_stars_4_title',
+            'max_stars_5_title',
+            'question_options_1',
+            'question_options_1_items',
+            'question_options_2',
+            'question_options_2_items',
+            'question_options_3',
+            'question_options_3_items',
+            'question_options_4',
+            'question_options_4_items',
+            'question_options_5',
+            'question_options_5_items',
+            'question_plain_1',
+            'question_plain_2',
+            'question_plain_3',
+            'question_plain_4',
+            'question_plain_5'] as $fieldTranslate) {
+            if (isset($survey->{$fieldTranslate}) && $survey->{$fieldTranslate} != '') {
+                $survey->{$fieldTranslate} = erLhcoreClassGenericBotWorkflow::translateMessage($survey->{$fieldTranslate}, array('chat' => $chat));
+            }
+        }
+        
 	    if (!empty($items)){
 	        return array_shift($items);
 	    } else {
