@@ -34,6 +34,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1134,6 +1150,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source> Required only if stars less or equal to 1 - n</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Stars field Nr. (1-5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
     </message>
@@ -1456,6 +1480,10 @@ CSS pagina personalizzata (solo nuovo widget)</translation>
     </message>
     <message>
       <source>Thank you for your feedback text</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Blocked visitor message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2026,6 +2054,14 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Has popup information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort enabled, you can define custom column also.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort column from lh_chat table, or JSON syntax</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3129,6 +3165,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Transfer happened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Stampa</translation>
     </message>
@@ -3363,6 +3403,22 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Day interval to include to</source>
       <translation>intervallo di giorni per includere a</translation>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator who transferred a chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Date range from to</source>
@@ -3854,6 +3910,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Shortcut, optional</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group</source>
       <translation>Gruppo</translation>
     </message>
@@ -4161,6 +4221,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Scegli un prodotto</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose your language</source>
       <translation>Scegli la tua lingua</translation>
     </message>
@@ -4434,6 +4498,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change language</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5037,6 +5105,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Log failed files uploads</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>What objects changes log?</source>
       <translation>Quali modifiche agli oggetti vanno registrate?</translation>
     </message>
@@ -5172,6 +5244,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Shortcut</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5503,6 +5579,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Transferred by</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6399,6 +6479,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>user/account</name>
     <message>
+      <source>Pending chats</source>
+      <translation>Chat in attesa </translation>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -6487,16 +6571,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Liste Visibili</translation>
     </message>
     <message>
-      <source>Chats</source>
-      <translation>Chat</translation>
-    </message>
-    <message>
       <source>Speech</source>
       <translation>Discorso</translation>
     </message>
     <message>
       <source>Permissions</source>
       <translation>Permessi</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Chat</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6607,6 +6691,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude me from auto assign workflow</source>
       <translation>Escludi dall&apos;assegnazione automatica del flusso di lavoro</translation>
     </message>
@@ -6643,6 +6731,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Exclude from auto assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation>Solo lettura</translation>
     </message>
@@ -6652,6 +6744,22 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Show archived departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Changes will not be saved!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For account page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For user edit page</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6667,8 +6775,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Lo stato della chat non cambierà in caso di apertura della chat in sospeso</translation>
     </message>
     <message>
-      <source>Pending chats</source>
-      <translation>Chat in attesa </translation>
+      <source>Notifications</source>
+      <translation>Notifiche</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -6695,16 +6803,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Creata</translation>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation>Notifiche</translation>
-    </message>
-    <message>
       <source>Personal auto responder</source>
       <translation>Risponditore automatico personale</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
       <translation>Messaggi personali predefiniti</translation>
+    </message>
+    <message>
+      <source>Hide quick notifications</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Avatar builder</source>
@@ -7150,6 +7258,26 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Sub command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Scegli</translation>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation type="unfinished"/>
     </message>
@@ -7176,10 +7304,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Translation</source>
       <translation>Traduzione</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation>Scegli</translation>
     </message>
     <message>
       <source>Private</source>
@@ -8171,6 +8295,18 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Click to switch to static/dynamic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In static chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In dynamic chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat ID to open</source>
       <translation type="unfinished"/>
     </message>
@@ -8251,6 +8387,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Thank you for your feedback</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9694,6 +9834,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Riceverai una notifica di avviso se la chat viene trasferita direttamente a te. Sarai in grado di accettarlo direttamente dall&apos;avviso.</translation>
     </message>
     <message>
+      <source>Quick notifications are the ones that you see at the top left corner of the application.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
       <translation>Il monitoraggio delle attività è impostato a livello globale. Le tue impostazioni saranno ignorate. Il valore di timeout verrà comunque prelevato dalle impostazioni dell&apos;account.</translation>
     </message>
@@ -9735,6 +9879,42 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notification only if user is an owner pending chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show notifications if user is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will not receive notifications if he is not online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activity tracking is set at global level. User settings will be be ignored. Timeout value still will be taken from account settings.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change user online/offline status based on his activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>After certain period of time if no actions are detected user will be marked as offline automatically</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select after how long of inactivity user will be marked as offline automatically</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10241,6 +10421,18 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>in chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active chat was opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>previously loaded chat was opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat tabs</source>
       <translation>Schede di chat</translation>
     </message>
@@ -10388,6 +10580,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Number of chats by user</source>
       <translation>Numero di chat per utente</translation>
+    </message>
+    <message>
+      <source>Number of chats by transfer operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by department</source>
@@ -10688,6 +10884,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>device type&apos;s</source>
       <translation>Tipologia di dispositivo</translation>
+    </message>
+    <message>
+      <source>Number of chats transferred by operator</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
@@ -12693,6 +12893,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Maximum file size in KB</source>
       <translation>Dimensione massima in KB</translation>
+    </message>
+    <message>
+      <source>Max file size</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max post size</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>ClamAV antivirus configuration</source>
@@ -17086,6 +17294,18 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter default translation!</source>
+      <translation>Inserire la traduzione predefinita!</translation>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a name</source>
       <translation type="unfinished"/>
     </message>
@@ -17118,10 +17338,6 @@ Icona colonna, testo icone materiale</translation>
       <translation>Inserire il nome del gruppo di traduzioni!</translation>
     </message>
     <message>
-      <source>Please enter default translation!</source>
-      <translation>Inserire la traduzione predefinita!</translation>
-    </message>
-    <message>
       <source>Please choose a group!</source>
       <translation>Selezionare un gruppo!</translation>
     </message>
@@ -17131,14 +17347,6 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Please enter a command!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a bot!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a trigger!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17668,6 +17876,18 @@ Icona colonna, testo icone materiale</translation>
       <source>File too big!</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Processing...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload failed!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Completed.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/notifications</name>
@@ -17804,6 +18024,13 @@ Iscrizione ...
     </message>
     <message>
       <source>Only from defined IP/IP range request will be permitted.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>cannedmsg/deletereplace</name>
+    <message>
+      <source>Clone</source>
       <translation type="unfinished"/>
     </message>
   </context>
