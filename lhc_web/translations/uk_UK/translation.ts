@@ -34,6 +34,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -1134,6 +1150,14 @@
       <translation>Вимкнути завантаження чату</translation>
     </message>
     <message>
+      <source> Required only if stars less or equal to 1 - n</source>
+      <translation>Обов&apos;язковий, тільки якщо зірочок менше або дорівнює 1 - n</translation>
+    </message>
+    <message>
+      <source>Stars field Nr. (1-5)</source>
+      <translation>Зіркове поле № (1-5)</translation>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Ім&apos;я</translation>
     </message>
@@ -1456,6 +1480,10 @@
     <message>
       <source>Thank you for your feedback text</source>
       <translation>Дякуємо за текст відгуку</translation>
+    </message>
+    <message>
+      <source>Blocked visitor message</source>
+      <translation>Заблоковане повідомлення відвідувача</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -2023,6 +2051,14 @@
     <message>
       <source>Has popup information</source>
       <translation>Має спливаючу інформацію</translation>
+    </message>
+    <message>
+      <source>Sort enabled, you can define custom column also.</source>
+      <translation>Сортування ввімкнено, ви також можете визначити спеціальний стовпець.</translation>
+    </message>
+    <message>
+      <source>Sort column from lh_chat table, or JSON syntax</source>
+      <translation>Стовпець сортування з таблиці lh_chat або синтаксису JSON</translation>
     </message>
     <message>
       <source>Visible in online visitors list</source>
@@ -3123,6 +3159,10 @@
       <translation>Не автоматичне запрошення</translation>
     </message>
     <message>
+      <source>Transfer happened</source>
+      <translation>Передача відбулася</translation>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Друк</translation>
     </message>
@@ -3357,6 +3397,22 @@
     <message>
       <source>Day interval to include to</source>
       <translation>Денний інтервал для включення</translation>
+    </message>
+    <message>
+      <source>User Agent</source>
+      <translation>Агент користувача</translation>
+    </message>
+    <message>
+      <source>Device type</source>
+      <translation>Тип пристрою</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Оператор</translation>
+    </message>
+    <message>
+      <source>Operator who transferred a chat</source>
+      <translation>Оператор, який переніс чат</translation>
     </message>
     <message>
       <source>Date range from to</source>
@@ -3848,6 +3904,10 @@
       <translation>Відділ, якщо ви не виберете, команда буде доступна для всіх відділів.</translation>
     </message>
     <message>
+      <source>Shortcut, optional</source>
+      <translation>Ярлик, необов’язковий</translation>
+    </message>
+    <message>
       <source>Group</source>
       <translation>Група</translation>
     </message>
@@ -4155,6 +4215,10 @@
       <translation>Виберіть продукт</translation>
     </message>
     <message>
+      <source>Your language</source>
+      <translation>Ваша мова</translation>
+    </message>
+    <message>
       <source>Choose your language</source>
       <translation>Виберіть вашу мову</translation>
     </message>
@@ -4429,6 +4493,10 @@
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
       <translation>Ми надішлемо вам стенограму вашого чату з агентом, щоб ви могли переглянути його пізніше.</translation>
+    </message>
+    <message>
+      <source>Change language</source>
+      <translation>Змінити мову</translation>
     </message>
     <message>
       <source>This chat is closed now. You can close window.</source>
@@ -5031,6 +5099,10 @@
       <translation>Записувати зміни користувачів</translation>
     </message>
     <message>
+      <source>Log failed files uploads</source>
+      <translation>Журнал невдалого завантаження файлів</translation>
+    </message>
+    <message>
       <source>What objects changes log?</source>
       <translation>Журнал змін яких об&apos;єктів?</translation>
     </message>
@@ -5167,6 +5239,10 @@
     <message>
       <source>Trigger</source>
       <translation>Тригер</translation>
+    </message>
+    <message>
+      <source>Shortcut</source>
+      <translation>Ярлик</translation>
     </message>
     <message>
       <source>Name</source>
@@ -5498,6 +5574,10 @@
     <message>
       <source>Operator chats during this conversations.</source>
       <translation>Під час цих розмов оператор спілкується.</translation>
+    </message>
+    <message>
+      <source>Transferred by</source>
+      <translation>Передано</translation>
     </message>
     <message>
       <source>Concurrent chats.</source>
@@ -6393,6 +6473,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Pending chats</source>
+      <translation>Чати в очікуванні</translation>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation>Підготовлені повідомлення</translation>
     </message>
@@ -6481,16 +6565,16 @@
       <translation>Видимі чати</translation>
     </message>
     <message>
-      <source>Chats</source>
-      <translation>Чати</translation>
-    </message>
-    <message>
       <source>Speech</source>
       <translation>Мовлення</translation>
     </message>
     <message>
       <source>Permissions</source>
       <translation>Дозволи</translation>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation>Чати</translation>
     </message>
     <message>
       <source>Do not enter a password unless you want to change it</source>
@@ -6601,6 +6685,10 @@
       <translation>Не прокручуйте вниз у відкритому чаті</translation>
     </message>
     <message>
+      <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation>Видалити мої закриті чати з відкритого списку чатів під час оновлення сторінки</translation>
+    </message>
+    <message>
       <source>Exclude me from auto assign workflow</source>
       <translation>Виключити мене з процесу автоматичного призначення</translation>
     </message>
@@ -6637,6 +6725,10 @@
       <translation>Призначити оператором</translation>
     </message>
     <message>
+      <source>Exclude from auto assignment workflow</source>
+      <translation>Виключити з процесу автоматичного призначення</translation>
+    </message>
+    <message>
       <source>Read only</source>
       <translation>Лише для читання</translation>
     </message>
@@ -6647,6 +6739,22 @@
     <message>
       <source>Show archived departments</source>
       <translation>Показати архівні відділи</translation>
+    </message>
+    <message>
+      <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
+      <translation>Ви маєте дозвіл редагувати групу відділів, але не маєте дозволу читати їх. Відсутній один із цих дозволів</translation>
+    </message>
+    <message>
+      <source>Changes will not be saved!</source>
+      <translation>Зміни не будуть збережені!</translation>
+    </message>
+    <message>
+      <source>For account page</source>
+      <translation>Для сторінки облікового запису</translation>
+    </message>
+    <message>
+      <source>For user edit page</source>
+      <translation>Для сторінки редагування користувача</translation>
     </message>
     <message>
       <source>Departments groups</source>
@@ -6661,8 +6769,8 @@
       <translation>Статус чату не зміниться після очікування відкриття чату</translation>
     </message>
     <message>
-      <source>Pending chats</source>
-      <translation>Чати в очікуванні</translation>
+      <source>Notifications</source>
+      <translation>Сповіщення</translation>
     </message>
     <message>
       <source>User receives other operators permissions request</source>
@@ -6689,16 +6797,16 @@
       <translation>Створено</translation>
     </message>
     <message>
-      <source>Notifications</source>
-      <translation>Сповіщення</translation>
-    </message>
-    <message>
       <source>Personal auto responder</source>
       <translation>Персональний автовідповідач</translation>
     </message>
     <message>
       <source>Personal canned messages</source>
       <translation>Особисті шаблонні повідомлення</translation>
+    </message>
+    <message>
+      <source>Hide quick notifications</source>
+      <translation>Приховати швидкі сповіщення</translation>
     </message>
     <message>
       <source>Avatar builder</source>
@@ -7144,6 +7252,26 @@
       <translation>Команда, не додавайте! префікс</translation>
     </message>
     <message>
+      <source>Sub command</source>
+      <translation>Підкоманда</translation>
+    </message>
+    <message>
+      <source>Info message</source>
+      <translation>Інформаційне повідомлення</translation>
+    </message>
+    <message>
+      <source>Subject added!</source>
+      <translation>Тема додана!</translation>
+    </message>
+    <message>
+      <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
+      <translation>Інформаційне повідомлення корисне, якщо ви хочете показати оператору, що команда була виконана без збереження реального повідомлення в чаті.</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Обрати</translation>
+    </message>
+    <message>
       <source>Please choose a bot</source>
       <translation>Оберіть бота</translation>
     </message>
@@ -7170,10 +7298,6 @@
     <message>
       <source>Translation</source>
       <translation>Переклад</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation>Обрати</translation>
     </message>
     <message>
       <source>Private</source>
@@ -8165,6 +8289,18 @@
       <translation>Нова панель</translation>
     </message>
     <message>
+      <source>Click to switch to static/dynamic</source>
+      <translation>Натисніть, щоб перейти до статичного/динамічного</translation>
+    </message>
+    <message>
+      <source>In static chats order mode</source>
+      <translation>У режимі замовлення статичних чатів</translation>
+    </message>
+    <message>
+      <source>In dynamic chats order mode</source>
+      <translation>У режимі замовлення динамічних чатів</translation>
+    </message>
+    <message>
       <source>Chat ID to open</source>
       <translation>Ідентифікатор чату, щоб відкрити</translation>
     </message>
@@ -8246,6 +8382,10 @@
     <message>
       <source>Thank you for your feedback</source>
       <translation>Спасибі за ваш відгук</translation>
+    </message>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
+      <translation>На даний момент ви можете зв’язатися з нами лише електронною поштою. Вибачте за незручності.</translation>
     </message>
     <message>
       <source>Type your message here and hit enter to send...</source>
@@ -9688,6 +9828,10 @@
       <translation>Ви отримаєте сповіщення, якщо чат буде передано безпосередньо вам. Ви зможете прийняти це безпосередньо з оповіщення.</translation>
     </message>
     <message>
+      <source>Quick notifications are the ones that you see at the top left corner of the application.</source>
+      <translation>Швидкі сповіщення – це ті, які ви бачите у верхньому лівому куті програми.</translation>
+    </message>
+    <message>
       <source>Activity tracking is set at global level. Your settings will be be ignored. Timeout value still will be taken from your account settings.</source>
       <translation>Відстеження активності налаштовано на глобальному рівні. Ваші налаштування будуть ігноровані. Значення часу очікування все одно буде взято з налаштувань вашого облікового запису.</translation>
     </message>
@@ -9730,6 +9874,42 @@
     <message>
       <source>days</source>
       <translation>днів</translation>
+    </message>
+    <message>
+      <source>Show notification only if user is an owner pending chat</source>
+      <translation>Показувати сповіщення, лише якщо користувач є власником, який очікує на розмову</translation>
+    </message>
+    <message>
+      <source>User will stop receive notifications for pending chats if he is not an owner</source>
+      <translation>Користувач перестане отримувати сповіщення про незавершені чати, якщо він не є власником</translation>
+    </message>
+    <message>
+      <source>Show notifications if user is offline</source>
+      <translation>Показувати сповіщення, якщо користувач не в мережі</translation>
+    </message>
+    <message>
+      <source>User will not receive notifications if he is not online</source>
+      <translation>Користувач не отримуватиме сповіщення, якщо він не в мережі</translation>
+    </message>
+    <message>
+      <source>User will receive alert notification if chat is transferred directly to him. He will be able to accept it directly from alert.</source>
+      <translation>Користувач отримає сповіщення, якщо чат буде передано безпосередньо йому. Він зможе прийняти це безпосередньо з оповіщення.</translation>
+    </message>
+    <message>
+      <source>Activity tracking is set at global level. User settings will be be ignored. Timeout value still will be taken from account settings.</source>
+      <translation>Відстеження активності налаштовано на глобальному рівні. Налаштування користувача буде проігноровано. Значення часу очікування все одно буде взято з налаштувань облікового запису.</translation>
+    </message>
+    <message>
+      <source>Change user online/offline status based on his activity</source>
+      <translation>Змініть статус користувача онлайн/офлайн залежно від його активності</translation>
+    </message>
+    <message>
+      <source>After certain period of time if no actions are detected user will be marked as offline automatically</source>
+      <translation>Після певного періоду часу, якщо не буде виявлено жодних дій, користувач автоматично буде позначено як офлайн</translation>
+    </message>
+    <message>
+      <source>Select after how long of inactivity user will be marked as offline automatically</source>
+      <translation>Виберіть, через який час бездіяльності користувач автоматично позначатиметься як офлайн</translation>
     </message>
     <message>
       <source>File configuration</source>
@@ -10235,6 +10415,18 @@
       <translation>Ви вийшли з мережі через неактивність. Будь ласка, закрийте інші вікна чату, якщо такі є</translation>
     </message>
     <message>
+      <source>in chat</source>
+      <translation>в чаті</translation>
+    </message>
+    <message>
+      <source>active chat was opened</source>
+      <translation>відкрито активний чат</translation>
+    </message>
+    <message>
+      <source>previously loaded chat was opened</source>
+      <translation>було відкрито раніше завантажений чат</translation>
+    </message>
+    <message>
       <source>Chat tabs</source>
       <translation>Вкладки чату</translation>
     </message>
@@ -10382,6 +10574,10 @@
     <message>
       <source>Number of chats by user</source>
       <translation>Кількість чатів за користувачами</translation>
+    </message>
+    <message>
+      <source>Number of chats by transfer operator</source>
+      <translation>Кількість чатів по оператору передачі</translation>
     </message>
     <message>
       <source>Number of chats by department</source>
@@ -10682,6 +10878,10 @@
     <message>
       <source>device type&apos;s</source>
       <translation>типи пристрою</translation>
+    </message>
+    <message>
+      <source>Number of chats transferred by operator</source>
+      <translation>Кількість чатів, переданих оператором</translation>
     </message>
     <message>
       <source>Average number of chats &amp; peak per hour</source>
@@ -12687,6 +12887,14 @@
     <message>
       <source>Maximum file size in KB</source>
       <translation>Максимальний розмір файлу в КБ</translation>
+    </message>
+    <message>
+      <source>Max file size</source>
+      <translation>Максимальний розмір файлу</translation>
+    </message>
+    <message>
+      <source>Max post size</source>
+      <translation>Максимальний розмір публікації</translation>
     </message>
     <message>
       <source>ClamAV antivirus configuration</source>
@@ -17080,6 +17288,18 @@
   <context>
     <name>departament/edit</name>
     <message>
+      <source>Please enter default translation!</source>
+      <translation>Будь ласка, введіть переклад за замовчуванням!</translation>
+    </message>
+    <message>
+      <source>Please choose a bot!</source>
+      <translation>Будь ласка, виберіть бота!</translation>
+    </message>
+    <message>
+      <source>Please choose a trigger!</source>
+      <translation>Будь ласка, виберіть тригер!</translation>
+    </message>
+    <message>
       <source>Please enter a name</source>
       <translation>Будь-ласка, введіть ім&apos;я</translation>
     </message>
@@ -17112,10 +17332,6 @@
       <translation>Будь ласка, введіть назву групи перекладів!</translation>
     </message>
     <message>
-      <source>Please enter default translation!</source>
-      <translation>Будь ласка, введіть переклад за замовчуванням!</translation>
-    </message>
-    <message>
       <source>Please choose a group!</source>
       <translation>Будь ласка, виберіть групу!</translation>
     </message>
@@ -17126,14 +17342,6 @@
     <message>
       <source>Please enter a command!</source>
       <translation>Будь ласка, введіть команду!</translation>
-    </message>
-    <message>
-      <source>Please choose a bot!</source>
-      <translation>Будь ласка, виберіть бота!</translation>
-    </message>
-    <message>
-      <source>Please choose a trigger!</source>
-      <translation>Будь ласка, виберіть тригер!</translation>
     </message>
     <message>
       <source>Please enter chat id!</source>
@@ -17662,6 +17870,18 @@
       <source>File too big!</source>
       <translation>Файл завеликий!</translation>
     </message>
+    <message>
+      <source>Processing...</source>
+      <translation>Обробка...</translation>
+    </message>
+    <message>
+      <source>Upload failed!</source>
+      <translation>Помилка завантаження!</translation>
+    </message>
+    <message>
+      <source>Completed.</source>
+      <translation>Завершено.</translation>
+    </message>
   </context>
   <context>
     <name>chat/notifications</name>
@@ -17797,6 +18017,13 @@
     <message>
       <source>Only from defined IP/IP range request will be permitted.</source>
       <translation>Буде дозволено запит лише з визначеного діапазону IP/IP.</translation>
+    </message>
+  </context>
+  <context>
+    <name>cannedmsg/deletereplace</name>
+    <message>
+      <source>Clone</source>
+      <translation>Клон</translation>
     </message>
   </context>
 </TS>
