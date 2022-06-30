@@ -2565,6 +2565,7 @@ try {
                         array('module' => 'lhchat',  'function' => 'allowchattabs'),
                         array('module' => 'lhchat',  'function' => 'use_onlineusers'),
                         array('module' => 'lhchat',  'function' => 'take_screenshot'),
+                        array('module' => 'lhchat',  'function' => 'editprevious'),
                         array('module' => 'lhfront', 'function' => 'use'),
                         array('module' => 'lhsystem','function' => 'use'),
                         array('module' => 'lhtranslation','function' => 'use'),

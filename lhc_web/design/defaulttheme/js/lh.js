@@ -291,7 +291,7 @@ function lh(){
             }
 
             var msgId = $(this).attr('id').replace('msg-','');
-            var isOwner = $(this).attr('data-op-id') == confLH.user_id;
+            var isOwner = $('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && $(this).attr('data-op-id') == confLH.user_id;
 
             var quoteParams = {
                 placement:'right',
@@ -2475,7 +2475,7 @@ function lh(){
 
 	this.editPrevious = function(chat_id) {
 		var textArea = $('#CSChatMessage-'+chat_id);
-		if (textArea.val() == '') {
+		if (textArea.val() == '' && textArea.attr('disable-edit') !== "true") {
 			$.getJSON(this.wwwDir + 'chat/editprevious/'+chat_id, function(data){
 				if (data.error == 'f') {
 					textArea.val(data.msg);
