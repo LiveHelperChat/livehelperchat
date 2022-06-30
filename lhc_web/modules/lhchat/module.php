@@ -133,7 +133,7 @@ $ViewList['changestatus'] = array(
 $ViewList['editprevious'] = array(
     'params' => array('chat_id','msg_id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'editprevious' )
 );
 
 $ViewList['quotemessage'] = array(
@@ -734,5 +734,6 @@ $FunctionList['export_chats'] = array('explain' => 'Allow operator to export fil
 $FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [html] bbcode.');
 $FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
 $FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
+$FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his previous messages');
 
 ?>
