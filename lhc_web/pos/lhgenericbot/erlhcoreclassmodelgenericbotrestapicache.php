@@ -8,7 +8,7 @@ $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'hash';
 $def->idProperty->propertyName = 'hash';
 $def->idProperty->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentManualGenerator' );
+$def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentManualGenerator', ['check_persistent' => false]);
 
 $def->properties['rest_api_id'] = new ezcPersistentObjectProperty();
 $def->properties['rest_api_id']->columnName   = 'rest_api_id';
