@@ -158,6 +158,9 @@ class erLhcoreClassMailconvMailingValidator {
             'email' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
             ),
+            'mailbox' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+            ),
             'name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -188,6 +191,12 @@ class erLhcoreClassMailconvMailingValidator {
             $item->email = $form->email;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter an e-mail!');
+        }
+
+        if ($form->hasValidData( 'mailbox' )) {
+            $item->mailbox = $form->mailbox;
+        } else {
+            $item->mailbox = '';
         }
 
         if ($form->hasValidData( 'name' )) {
@@ -230,6 +239,9 @@ class erLhcoreClassMailconvMailingValidator {
             'email' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
             ),
+            'mailbox' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
+            ),
             'disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
@@ -266,6 +278,10 @@ class erLhcoreClassMailconvMailingValidator {
             $item->email = $form->email;
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter an e-mail!');
+        }
+
+        if ($form->hasValidData( 'mailbox' )) {
+            $item->mailbox = $form->mailbox;
         }
 
         if ($form->hasValidData( 'name' )) {

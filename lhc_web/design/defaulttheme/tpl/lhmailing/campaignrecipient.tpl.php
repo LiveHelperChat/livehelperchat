@@ -26,6 +26,11 @@
                     <?php else : ?>
                         <button class="m-0 p-0 btn btn-sm btn-link" href="#" onclick="return lhc.revealModal({'title' : 'Import', 'height':350, backdrop:true, 'url': WWW_DIR_JAVASCRIPT + '/mailing/editmailingrecipient/<?php echo $item->recipient_id?>'})"><?php echo htmlspecialchars($item->recipient)?></button>
                     <?php endif; ?>&nbsp;
+
+                    <?php if ($item->mailbox_front != '') : ?>
+                        <small class="pl-2 text-muted"><span class="material-icons">mail_outline</span><?php echo htmlspecialchars($item->mailbox_front)?></small>
+                    <?php endif; ?>
+
                     <a class="csfr-required text-muted border rounded px-1" href="<?php echo erLhcoreClassDesign::baseurl('mailing/sendtestemail')?>/<?php echo $item->id?>" onclick="return confirm('Are you sure?')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Send test e-mail');?></a>
                 </td>
                 <td>

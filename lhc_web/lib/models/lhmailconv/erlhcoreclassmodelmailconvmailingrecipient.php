@@ -18,6 +18,7 @@ class erLhcoreClassModelMailconvMailingRecipient
             'id' => $this->id,
             'data' => $this->data,
             'email' => $this->email,
+            'mailbox' => $this->mailbox,
             'disabled' => $this->disabled,
             'name' => $this->name,
             'attr_str_1' => $this->attr_str_1,
@@ -94,6 +95,7 @@ class erLhcoreClassModelMailconvMailingRecipient
     public $id = NULL;
     public $data = '';
     public $email = '';
+    public $mailbox = '';
     public $disabled = 0;
     public $ml_ids = [];
     

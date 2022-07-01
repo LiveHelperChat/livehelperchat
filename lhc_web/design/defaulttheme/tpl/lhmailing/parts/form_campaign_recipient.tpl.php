@@ -7,6 +7,17 @@
     </div>
     <div class="col-6">
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?>, <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','you can set a mailbox to send from per recipient');?></i></small></label>
+            <input type="text" list="mailbox_list_item" autocomplete="new-password" maxlength="50" class="form-control form-control-sm" name="mailbox" value="<?php echo htmlspecialchars($item->mailbox)?>" />
+            <datalist id="mailbox_list_item" autocomplete="new-password">
+                <?php foreach (erLhcoreClassModelMailconvMailbox::getList(array('filter' => array('active' => 1))) as $mailbox) : ?>
+                    <option value="<?php echo htmlspecialchars($mailbox->mail)?>"><?php echo htmlspecialchars($mailbox->name)?></option>
+                <?php endforeach; ?>
+            </datalist>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Name');?>. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use in campaign body - {args.recipient.name}');?></label>
             <input type="text" maxlength="50" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
         </div>

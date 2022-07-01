@@ -29,6 +29,7 @@ class erLhcoreClassMailconvExport {
 
         $firstRow = [
             'email',
+            'mailbox',
             'name',
             'attr_str_1',
             'attr_str_2',
@@ -64,6 +65,7 @@ class erLhcoreClassMailconvExport {
             foreach (erLhcoreClassModelMailconvMailingCampaignRecipient::getList($filterChunk) as $item) {
                 $itemCSV = [];
                 $itemCSV[] = (string)$item->recipient;
+                $itemCSV[] = (string)$item->mailbox_front;
                 $itemCSV[] = (string)$item->name;
                 $itemCSV[] = (string)$item->attr_str_1;
                 $itemCSV[] = (string)$item->attr_str_2;

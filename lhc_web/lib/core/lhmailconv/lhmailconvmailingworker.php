@@ -78,8 +78,22 @@ class erLhcoreClassMailConvMailingWorker {
     public static function sendEmail($recipient, $campaign) {
 
         $itemRecipientData = new erLhcoreClassModelMailconvMessage();
-        $itemRecipientData->mailbox = $campaign->mailbox;
-        $itemRecipientData->mailbox_id = $campaign->mailbox_id;
+
+        // Custom mailbox per recipient
+        if ($recipient->mailbox_front == '') {
+            $mailbox = $itemRecipientData->mailbox = $campaign->mailbox;
+            $itemRecipientData->mailbox_id = $campaign->mailbox_id;
+        } else {
+            $mailbox = erLhcoreClassModelMailconvMailbox::findOne(['filter' => ['mail' => $recipient->mailbox_front]]);
+            if (!($mailbox instanceof erLhcoreClassModelMailconvMailbox)) {
+                $mailbox = $itemRecipientData->mailbox = $campaign->mailbox;
+                $itemRecipientData->mailbox_id = $campaign->mailbox_id;
+            } else {
+                $itemRecipientData->mailbox = $mailbox;
+                $itemRecipientData->mailbox_id = $mailbox->id;
+            }
+        }
+
         $itemRecipientData->to_data = $campaign->reply_email;
         $itemRecipientData->reply_to_data = $campaign->reply_name;
 
@@ -90,7 +104,7 @@ class erLhcoreClassMailConvMailingWorker {
         $itemRecipientData->from_name = $recipient->recipient_name;
 
         $conv = new erLhcoreClassModelMailconvConversation();
-        $conv->dep_id = $campaign->mailbox->dep_id;
+        $conv->dep_id = $mailbox->dep_id;
 
         $recipientData = new stdClass();
         $recipientData->email = $recipient->recipient;

@@ -34,6 +34,7 @@
 
     <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('canned/import','First row in CSV is skipped. Columns order');?> - </small>
         <span class="badge badge-secondary mr-2">email</span>
+        <span class="badge badge-secondary mr-2">mailbox</span>
         <span class="badge badge-secondary mr-2">name</span>
         <span class="badge badge-secondary mr-2">attr_str_1</span>
         <span class="badge badge-secondary mr-2">attr_str_2</span>

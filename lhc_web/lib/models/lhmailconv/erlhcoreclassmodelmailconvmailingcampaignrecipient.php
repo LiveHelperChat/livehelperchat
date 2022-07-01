@@ -20,6 +20,7 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
             'recipient_id' => $this->recipient_id,
             'type' => $this->type,
             'email' => $this->email,
+            'mailbox' => $this->mailbox,
             'status' => $this->status,
             'send_at' => $this->send_at,
             'opened_at' => $this->opened_at,
@@ -56,7 +57,18 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
                     $this->user = erLhcoreClassModelUser::fetch($this->user_id);
                 }
                 return $this->user;
-                break;
+
+            case 'mailbox_front':
+                $this->mailbox_front = '';
+                if ($this->type == self::TYPE_MANUAL) {
+                    $this->mailbox_front = $this->mailbox;
+                } else {
+                    $recipient = erLhcoreClassModelMailconvMailingRecipient::fetch($this->recipient_id);
+                    if ($recipient instanceof erLhcoreClassModelMailconvMailingRecipient) {
+                        $this->mailbox_front = $recipient->mailbox;
+                    }
+                }
+                return $this->mailbox_front;
 
             case 'recipient':
                 $this->recipient = '';
@@ -108,6 +120,7 @@ class erLhcoreClassModelMailconvMailingCampaignRecipient
     public $send_at = 0;
     public $type = self::TYPE_MAILING_LIST;
     public $email = '';
+    public $mailbox = '';
     public $status = self::PENDING;
     public $log = '';
     public $message_id = 0;
