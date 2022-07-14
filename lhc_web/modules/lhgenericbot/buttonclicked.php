@@ -44,6 +44,8 @@ try {
             throw new Exception('Payload not provided');
         }
 
+        $updateMessage = false;
+
         if ($Params['user_parameters_unordered']['type'] == 'valueclicked') {
             erLhcoreClassGenericBotWorkflow::processValueClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
         } elseif ($Params['user_parameters_unordered']['type'] == 'manualtrigger') {
@@ -52,6 +54,58 @@ try {
             erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
         } elseif ($Params['user_parameters_unordered']['type'] == 'editgenericstep') {
             erLhcoreClassGenericBotWorkflow::processStepEdit($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
+        } elseif ($Params['user_parameters_unordered']['type'] == 'reactions') {
+
+            $metaMessage = $message->meta_msg_array;
+
+            if (isset($metaMessage['content']['reactions']['content'])) {
+
+                $currentPart = isset($metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']]) ? $metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']] : null;
+
+                $action = 'remove';
+                $identifier = '';
+                $valueAction = '';
+
+                // Same reaction icon was clicked unselect if it was selected
+                if ($currentPart === $paramsPayload['payload']) {
+                    unset($metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']]);
+                    if (empty($metaMessage['content']['reactions']['current'])) {
+                        unset($metaMessage['content']['reactions']['current']);
+                    }
+                    $identifier = $paramsPayload['payload-id'];
+                } else { // New reaction was selected
+                    $validIdentifiers = [];
+                    $parts = explode("\n",trim($metaMessage['content']['reactions']['content']));
+                    foreach ($parts as $part) {
+                        $iconParams = explode("|",$part);
+                        $validIdentifiers[$iconParams[2]][] = $iconParams[1];
+                    }
+                    if (key_exists($paramsPayload['payload-id'],$validIdentifiers) && in_array($paramsPayload['payload'],$validIdentifiers[$paramsPayload['payload-id']])) {
+                        $metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']] = (string)$paramsPayload['payload'];
+                        $action = 'add';
+                        $valueAction = (string)$paramsPayload['payload'];
+                    }
+                }
+
+                $message->meta_msg_array = $metaMessage;
+                $message->meta_msg = json_encode($message->meta_msg_array);
+                $message->updateThis(['update' => ['meta_msg']]);
+
+                // Dispatch reaction action for extensions
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.reaction_visitor', array(
+                    'reaction_identifier' => $identifier,
+                    'reaction_value' => $valueAction,
+                    'action' => $action,
+                    'msg' => & $message,
+                    'chat' => & $chat
+                ));
+
+                $chat->operation_admin = "lhinst.updateMessageRowAdmin({$chat->id},{$message->id});\n";
+                $chat->updateThis(['update' => ['operation_admin']]);
+
+                $updateMessage = true;
+            }
+
         } else {
             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $paramsPayload['payload'], array('processed' => (isset($paramsPayload['processed']) && $paramsPayload['processed'] == true)));
         }
@@ -72,7 +126,7 @@ try {
             }
         }
 
-        echo json_encode(array('error' => false, 't' => erLhcoreClassGenericBotWorkflow::$triggerName));
+        echo json_encode(array('update_message' => $updateMessage, 'error' => false, 't' => erLhcoreClassGenericBotWorkflow::$triggerName));
 
     } else {
         throw new Exception('You do not have permission!');

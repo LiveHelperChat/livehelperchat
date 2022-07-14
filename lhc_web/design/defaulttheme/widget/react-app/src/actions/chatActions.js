@@ -386,7 +386,7 @@ function processResponseCheckStatus(response, getState, dispatch) {
                 updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             } else if (action.indexOf('lhinst.updateMessageRow') !== -1) {
                 const state = getState();
-                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')','') ,'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+                updateMessage({'msg_id' : action.replace('lhinst.updateMessageRow(','').replace(')',''), 'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']), 'mode' :  state.chatwidget.get('mode'), 'theme' : state.chatwidget.get('theme'), 'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
             }
         });
     }
@@ -407,14 +407,17 @@ export function updateMessage(obj) {
             elm.className = classNameRow;
 
             // Just adjust a scroll
-            let elmScroll = document.getElementById('messages-scroll');
-            if (elmScroll !== null) {
-                elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
+            if (!obj.no_scroll) {
+                let elmScroll = document.getElementById('messages-scroll');
+                if (elmScroll !== null) {
+                    elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
+                }
             }
 
             let elmUpdated = document.getElementById('msg-'+response.data.id);
             let collection = elmUpdated.getElementsByTagName('script');
             let collectionButton = elmUpdated.getElementsByTagName('button');
+            let collectionA = elmUpdated.getElementsByTagName('a');
 
             for (let item of collection) {
                 var attribs = {};
@@ -442,6 +445,21 @@ export function updateMessage(obj) {
                 }
             }
 
+            for (let item of collectionA) {
+                var attribs = {};
+                if (item.hasAttributes()) {
+                    var attrs = item.attributes;
+                    for (var i = attrs.length - 1; i >= 0; i--) {
+                        attribs[attrs[i].name] = attrs[i].value;
+                    }
+                }
+                item.attribs = attribs;
+
+                if (item.onclick) {
+                    item.onclick = () => parseScript(item, this, obj, dispatch, getState);
+                }
+            }
+
         })
         .catch((err) => {
             console.log(err);
@@ -449,15 +467,37 @@ export function updateMessage(obj) {
     }
 }
 
-
-
-export function parseScript(domNode, inst) {
+export function parseScript(domNode, inst, obj, dispatch, getState) {
     const attr = domNode.attribs || domNode;
 
     if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
         inst.disableEditor = true;
     } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
         inst.delayData.push(JSON.parse(attr['data-bot-args']));
+    } else if (attr['data-bot-action'] == 'button-click') {
+
+        dispatch(updateTriggerClicked({'type' : '/(type)/'+attr['data-action-type']}, {
+            "payload-id": (typeof attr['data-identifier'] === 'undefined' ? null : attr['data-identifier']),
+            payload: attr['data-payload'],
+            id : attr['data-id'],
+            processed : (typeof attr['data-keep'] === 'undefined')})).then((data) => {
+            if (data.data.t) {
+                helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
+            }
+            if (data.data.update_message) {
+                const state = getState();
+                updateMessage({'no_scroll' : true, 'msg_id' : attr['data-id'], 'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']), 'mode' :  state.chatwidget.get('mode'), 'theme' : state.chatwidget.get('theme'), 'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);
+            } else {
+                fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+                checkChatStatus({
+                    'chat_id': obj.id,
+                    'hash' : obj.hash,
+                    'theme' : obj.theme,
+                    'mode' : obj.mode
+                })
+            }
+        });
+
     } else if (attr['data-bot-action'] == 'execute-js') {
         if (attr['data-bot-extension']) {
             var args = {};

@@ -11,6 +11,7 @@ class NodeTriggerActionText extends Component {
         this.changeType = this.changeType.bind(this);
         this.setText = this.setText.bind(this);
         this.setHTML = this.setHTML.bind(this);
+        this.setReactions = this.setReactions.bind(this);
         this.addQuickReply = this.addQuickReply.bind(this);
         this.addAction = this.addAction.bind(this);
         this.removeAction = this.removeAction.bind(this);
@@ -39,6 +40,7 @@ class NodeTriggerActionText extends Component {
 
         // Text area focys
         this.textMessageRef = React.createRef();
+        this.reactionMessageRef = React.createRef();
     }
 
     changeType(e) {
@@ -58,6 +60,10 @@ class NodeTriggerActionText extends Component {
 
     setHTML(e) {
         this.props.onChangeContent({id : this.props.id, 'path' : ['content','html'], value : e.target.value});
+    }
+
+    setReactions(e) {
+        this.props.onChangeContent({id : this.props.id, 'path' : ['content','reactions'], value : e.target.value});
     }
 
     addQuickReply(e) {
@@ -197,15 +203,19 @@ class NodeTriggerActionText extends Component {
 
                     <div className="form-group">
                         <label>Enter text</label>
-
                         <a title="Add answer variation" className="float-right" onClick={this.addAnswerVariation}><i className="material-icons mr-0">question_answer</i></a>
-
                         <textarea rows="3" placeholder="Write your response here!" onChange={this.setText} ref={this.textMessageRef} defaultValue={this.props.action.getIn(['content','text'])} className="form-control form-control-sm"></textarea>
                     </div>
 
                     <div className="form-group">
                         <label>Enter HTML</label>
                         <textarea placeholder="Write your response here!" onChange={this.setHTML} defaultValue={this.props.action.getIn(['content','html'])} className="form-control form-control-sm"></textarea>
+                    </div>
+
+                    <div className="form-group">
+                        <label className="mb-0">Reaction options <button onClick={(e) => {this.reactionMessageRef.current.value = "thumb_up|1|thumb|Thumbs up"+"\n"+"thumb_down|0|thumb|Thumbs down";this.props.onChangeContent({id : this.props.id, 'path' : ['content','reactions'], value : this.reactionMessageRef.current.value})}} className="btn btn-secondary btn-xs">Set thumbs sample</button> </label>
+                        <p><small><i>Icon from material icons or Unicode Character&lt;required&gt;|internal value&lt;required&gt;|identifier&lt;required&gt;|Title&lt;optional&gt;</i></small></p>
+                        <textarea rows="3" ref={this.reactionMessageRef} placeholder={"E.g"+"\n"+"thumb_up|1|thumb|Thumbs up"+"\n"+"thumb_down|0|thumb|Thumbs down"} onChange={this.setReactions} defaultValue={this.props.action.getIn(['content','reactions'])} className="form-control form-control-sm"></textarea>
                     </div>
 
                     <div className="row">
@@ -232,6 +242,9 @@ class NodeTriggerActionText extends Component {
                             </div>
                             <div role="group">
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','as_log_msg'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','as_log_msg'])} /> Save as a log message.</label> <i className="material-icons" title="Message will be saved in audit log only.">info</i>
+                            </div>
+                            <div role="group">
+                                <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','reactions_visible'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','reactions_visible'])} /> Reactions always visible.</label> <i className="material-icons" title="Make reactions icons always visible. By default they are visible on mouse over.">info</i>
                             </div>
                         </div>
                         <div className="col-12 text-right">
