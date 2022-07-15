@@ -6,7 +6,7 @@ class erLhcoreClassMailconvExport {
         if ($params['csv'] == true){
             self::exportCSV($filter, $params);
         } else {
-            self::exportXLS(erLhcoreClassModelMailconvConversation::getList($filter));
+            self::exportXLS(erLhcoreClassModelMailconvConversation::getList($filter), $params);
         }
     }
 
