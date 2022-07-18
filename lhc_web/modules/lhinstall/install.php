@@ -2241,7 +2241,7 @@ try {
 
                     $db->query("CREATE TABLE `lhc_mailconv_mailing_list` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
