@@ -2318,7 +2318,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $startEnd = explode(':',str_replace(']','',$partArg[1]));
 
                             if (isset($params['chat']) && $params['chat']->user_tz_identifier != '') {
-                                $date = new DateTime(null, new DateTimeZone($params['chat']->user_tz_identifier));
+                                $date = new DateTime('now', new DateTimeZone($params['chat']->user_tz_identifier));
                             } else {
                                 $date = new DateTime();
                             }

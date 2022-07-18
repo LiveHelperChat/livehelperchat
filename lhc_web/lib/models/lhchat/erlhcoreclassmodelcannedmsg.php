@@ -247,7 +247,7 @@ class erLhcoreClassModelCannedMsg
             }
         }
         
-        $this->tags = $tag;
+        $this->tags = $tagsArrayObj;
         $this->tags_plain = implode(', ', $tagsArray);        
     }
     

@@ -207,18 +207,12 @@ class erLhcoreClassModelCannedMsgReplace
             }
         }
 
-        if (strpos($value, '{args.') !== false) {
-            $matchesValues = array();
-            preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $value, $matchesValues);
-            if (!empty($matchesValues[0])) {
-                foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('user' => $params['user'], 'chat' => $params['chat']), $matchesValues[1][$indexElement], '.');
-                    $value = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : 0, $value);
-                }
-            }
+        if (strpos($value,'{') !== false) {
+            return erLhcoreClassGenericBotWorkflow::translateMessage($value, array('chat' => $params['chat'], 'args' => $params));
+        } else {
+            return $value;
         }
 
-        return $value;
     }
 
     public $id = null;
