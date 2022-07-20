@@ -50,6 +50,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -6521,6 +6529,10 @@
       <translation>Не зараховувати натискання кнопки як повідомлення відвідувача</translation>
     </message>
     <message>
+      <source>If translation is not found use translation service</source>
+      <translation>Якщо переклад не знайдено, скористайтеся послугою перекладу</translation>
+    </message>
+    <message>
       <source>Explorer</source>
       <translation>Explorer</translation>
     </message>
@@ -6687,6 +6699,18 @@
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
       <translation>Видалити мої закриті чати з відкритого списку чатів під час оновлення сторінки</translation>
+    </message>
+    <message>
+      <source>Include not only my chats</source>
+      <translation>Включати не тільки мої чати</translation>
+    </message>
+    <message>
+      <source>Other operators chats also will be closed on page refresh</source>
+      <translation>Чати інших операторів також будуть закриті після оновлення сторінки</translation>
+    </message>
+    <message>
+      <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
+      <translation>Скільки часу має пройти після закриття чату, перш ніж чат буде видалено. Час у хвилинах.</translation>
     </message>
     <message>
       <source>Exclude me from auto assign workflow</source>
@@ -7292,6 +7316,14 @@
       <translation>Спеціальне повідомлення</translation>
     </message>
     <message>
+      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
+      <translation>Якщо ви налаштували автоматичний переклад, ми використовуватимемо його для неперекладених елементів.</translation>
+    </message>
+    <message>
+      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
+      <translation>Для автоматичного перекладу ми повинні знати, яка основна мова бота. З цієї мови ми будемо перекладати повідомлення бота.</translation>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Ідентифікатор</translation>
     </message>
@@ -7883,6 +7915,18 @@
     <message>
       <source>Translate</source>
       <translation>Перекладіть</translation>
+    </message>
+    <message>
+      <source>Enable translation response cache</source>
+      <translation>Увімкнути кеш відповідей на переклад</translation>
+    </message>
+    <message>
+      <source>cache items</source>
+      <translation>елементи кешу</translation>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation>Очистити кеш</translation>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -12388,6 +12432,10 @@
   <context>
     <name>department/new</name>
     <message>
+      <source>New translation group</source>
+      <translation>Нова група перекладів</translation>
+    </message>
+    <message>
       <source>New department</source>
       <translation>Новий відділ</translation>
     </message>
@@ -12416,8 +12464,8 @@
       <translation>Новий виклик Rest API</translation>
     </message>
     <message>
-      <source>New translation group</source>
-      <translation>Нова група перекладів</translation>
+      <source>New individualization</source>
+      <translation>Нова індивідуалізація</translation>
     </message>
     <message>
       <source>New translation item</source>
@@ -17523,6 +17571,10 @@
   <context>
     <name>genericbot/new</name>
     <message>
+      <source>Translations groups</source>
+      <translation>Групи перекладів</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Системні налаштування</translation>
     </message>
@@ -17547,8 +17599,8 @@
       <translation>Боти</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Групи перекладів</translation>
+      <source>Bot individualization</source>
+      <translation>Індивідуалізація бота</translation>
     </message>
   </context>
   <context>
@@ -17713,6 +17765,10 @@
       <translation>Винятки</translation>
     </message>
     <message>
+      <source>Translations groups</source>
+      <translation>Групи перекладів</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Системні налаштування</translation>
     </message>
@@ -17731,10 +17787,6 @@
     <message>
       <source>Rest API Calls</source>
       <translation>Виклики Rest API</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Групи перекладів</translation>
     </message>
     <message>
       <source>Bot individualization</source>

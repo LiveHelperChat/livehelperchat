@@ -80,6 +80,8 @@ class ChatMessage extends PureComponent {
                     this.removeMetaMessage(attrs['data-id']);
                 }, 500);
 
+            } else if (attrs.onclick.indexOf('lhinst.reactionsClicked') !== -1) {
+                this.updateTriggerClicked({type:'/(type)/reactions'}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
                 this.updateTriggerClicked({type:''}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.startVoiceCall') !== -1) {
@@ -117,7 +119,6 @@ class ChatMessage extends PureComponent {
                 console.log('Unknown click event: ' + attrs.onclick);
             }
         }
-
         e.preventDefault();
 
         // Why did we previously auto focused on button click?
@@ -141,7 +142,7 @@ class ChatMessage extends PureComponent {
     }
 
     updateTriggerClicked(paramsType, attrs, target) {
-        this.props.dispatch(updateTriggerClicked(paramsType, {payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then((data) => {
+        this.props.dispatch(updateTriggerClicked(paramsType, {"payload-id": (typeof attrs['data-identifier'] === 'undefined' ? null : attrs['data-identifier']) ,payload: attrs['data-payload'], id : attrs['data-id'], processed : (typeof attrs['data-keep'] === 'undefined')})).then((data) => {
             if (!attrs['data-keep']) {
                 this.removeMetaMessage(attrs['data-id']);
             }
@@ -150,8 +151,12 @@ class ChatMessage extends PureComponent {
                 helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
             }
 
-            this.props.updateMessages();
-            this.props.updateStatus();
+            if (data.data.update_message) {
+                this.props.updateMessage(attrs['data-id']);
+            } else {
+                this.props.updateMessages();
+                this.props.updateStatus();
+            }
         });
     }
 

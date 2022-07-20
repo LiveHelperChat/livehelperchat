@@ -2005,3 +2005,14 @@ html {
 .chat-tab-content.icon-user-status.icon-user-online.material-icons:before{
     content: "\e63e"!important;
 }
+
+.reactions-holder {
+    color:#fff;
+    position: absolute;
+    z-index:1;
+    text-decoration: none;
+    border-radius:20px;
+    padding: 0px 5px 5px;
+    border:1px solid #fff;
+    background: #3267e4;
+}

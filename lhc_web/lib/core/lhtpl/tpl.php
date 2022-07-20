@@ -399,7 +399,7 @@ class erLhcoreClassTemplate {
 			    } elseif (is_array($valueConfig)) {
 			        $valueReplace = var_export($valueConfig,true);
 			    } else {
-			        $valueReplace = $valueConfig;
+			        $valueReplace = (string)$valueConfig;
 			    }
 
 				$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);

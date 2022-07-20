@@ -351,6 +351,7 @@ div.message-admin div.msg-body{
     display:inline-block;
     text-align: left;
     max-width:85%;
+    position: relative;
 }
 
 div.message-admin div.msg-body a.link{
@@ -404,9 +405,17 @@ div.message-row.response div.msg-body{
     color:#FFF;
 }
 
+.reactions-holder,
 .bottom-message div.message-admin div.msg-body{
     background-color: #ededed;
     color:#212529;
+}
+
+
+
+/* For reaction icons avoid scrolling up and down if operator is the last message */
+.bottom-message div.message-row.message-admin:last-child {
+    min-height: 55px;
 }
 
 .bottom-message div.response div.msg-body a.link{
@@ -433,11 +442,50 @@ div.message-row.response div.msg-body{
     position: relative;
 }
 
-.msg-body:hover .hidden-download::after{
+.reaction-item:hover,
+.reaction-item{
+    color:#212529;
+    opacity: 0.4;
+    text-decoration: none;
+    margin: 1px 2px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.reaction-selected,
+.reaction-item:hover{
+    opacity: 1;
+}
+
+.reactions-holder{
+    display: none;
+    position: absolute;
+    right: -22px;
+    bottom: -18px;
+    z-index:1;
+    text-decoration: none;
+    border-radius:20px;
+    padding: 0px 5px 5px;
+    border:1px solid #fff;
+}
+
+.reactions-selected .reaction-item:not(.reaction-selected) {
+    display: none;
+}
+
+.reactions-holder.d-block .reaction-item, /* Remove this rule if you want once selected reaction only selected reaction would be shown */
+.reactions-selected:hover .reaction-item,
+.reactions-selected {
+    display: inline-block;
+}
+
+.msg-body:hover .hidden-download::after,
+.message-admin:hover .reactions-holder
+{
     display: block;
 }
 
-.hidden-download{
+.hidden-download {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -511,7 +559,7 @@ div.message-row.operator-changes .usr-tit{
     overflow:inherit!important;
     height:auto!important;
     margin-right:5px!important;
-    padding:0px 0px!important;
+    /*padding:0px 0px!important;*/
     /*margin-top:-25px!important;*/
     display:block!important;
 }
@@ -991,6 +1039,7 @@ textarea[name=ChatMessage] {
     text-align: center;
     width: 90%;
     margin-left: 5%;
+    z-index: 2;
 }
 
 .btn-bottom-scroll > button{

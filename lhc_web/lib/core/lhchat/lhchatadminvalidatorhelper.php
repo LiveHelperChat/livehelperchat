@@ -66,11 +66,45 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'conditions' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            )
+            ),
+            'repetitiveness' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 0,'max_range' => 3)
+            ),
+            'active_from' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'active_to' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'time_zone' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
+
+        foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+            $definition[$dayShort] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            );
+
+            $key = $dayShort.'StartTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+
+            $key = $dayShort.'EndTime';
+            $definition[$key] = new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            );
+        }
 
         $form = new ezcInputForm( INPUT_POST, $definition );
         $Errors = array();
+
+        if ( $form->hasValidData( 'time_zone' ) && $form->time_zone != '') {
+            $replace->time_zone = $form->time_zone;
+        } else {
+            $replace->time_zone = '';
+        }
 
         if ( !$form->hasValidData( 'identifier' ) || $form->identifier == '' ) {
             $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter a identifier');
@@ -88,6 +122,71 @@ class erLhcoreClassAdminChatValidatorHelper {
             $replace->conditions = $form->conditions;
         } else {
             $replace->conditions = '';
+        }
+
+        if ( $form->hasValidData( 'repetitiveness' ) ) {
+            $replace->repetitiveness = $form->repetitiveness;
+        } else {
+            $replace->repetitiveness = 0;
+        }
+
+        if ($replace->repetitiveness == erLhcoreClassModelCannedMsg::REP_DAILY) {
+            $activeDays = [];
+            foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
+                if ($form->hasValidData( $dayShort ) && $form->{$dayShort} == true) {
+
+                    if ($form->hasValidData( $dayShort . 'StartTime' ) && $form->{$dayShort . 'StartTime'} != '') {
+                        $activeDays[$dayShort]['start'] = (int)str_replace(':','',$form->{$dayShort . 'StartTime'});
+                    }
+
+                    if ($form->hasValidData( $dayShort . 'EndTime' ) && $form->{$dayShort . 'EndTime'} != '') {
+                        $activeDays[$dayShort]['end'] = (int)str_replace(':','',$form->{$dayShort . 'EndTime'});
+                    }
+
+                    if (
+                        !isset($activeDays[$dayShort]['start']) ||
+                        !isset($activeDays[$dayShort]['end']) ||
+                        !is_numeric($activeDays[$dayShort]['start']) ||
+                        !is_numeric($activeDays[$dayShort]['end']) ||
+                        $activeDays[$dayShort]['end'] <= $activeDays[$dayShort]['start']
+                    ) {
+                        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter from and to time. To has to be greater than from.');
+                    }
+                }
+            }
+            $replace->days_activity = json_encode($activeDays, JSON_FORCE_OBJECT);
+            $replace->days_activity_array = $activeDays;
+        }
+
+        if (
+            $replace->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD ||
+            $replace->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD_REP
+        ) {
+
+            if ( $form->hasValidData( 'active_from' ) && !empty($form->active_from) )
+            {
+                $d = new DateTime($form->active_from,$replace->time_zone != '' ? new DateTimeZone($replace->time_zone) : null);
+                $replace->active_from = $d->getTimestamp();
+            }
+
+            if ( $form->hasValidData( 'active_to' ) && !empty($form->active_to) )
+            {
+                $d = new DateTime($form->active_to,$replace->time_zone != '' ? new DateTimeZone($replace->time_zone) : null);
+                $replace->active_to = $d->getTimestamp();
+                //$replace->active_to = strtotime($form->active_to);
+            }
+
+            if (!is_numeric($replace->active_to)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity to period');
+            }
+
+            if (!is_numeric($replace->active_from)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity from period');
+            }
+
+            if (empty($Errors) && $replace->active_from > $replace->active_to) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity to period has to be bigger than activity from');
+            }
         }
 
         return $Errors;
