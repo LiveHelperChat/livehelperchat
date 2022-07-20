@@ -8,6 +8,48 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "active_from",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_to",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "repetitiveness",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "days_activity",
+        "type": "text",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "time_zone",
+        "type": "varchar(100)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
       }
     ],
     "lh_chat_action": [

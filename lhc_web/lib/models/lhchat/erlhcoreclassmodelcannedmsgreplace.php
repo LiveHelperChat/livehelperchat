@@ -18,7 +18,12 @@ class erLhcoreClassModelCannedMsgReplace
             'id' => $this->id,
             'identifier' => $this->identifier,
             'default' => $this->default,
-            'conditions' => $this->conditions
+            'conditions' => $this->conditions,
+            'active_from' => $this->active_from,
+            'active_to' => $this->active_to,
+            'repetitiveness' => $this->repetitiveness,
+            'days_activity' => $this->days_activity,
+            'time_zone' => $this->time_zone,
         );
     }
 
@@ -26,19 +31,85 @@ class erLhcoreClassModelCannedMsgReplace
     {
         switch ($var) {
 
+            case 'days_activity_array':
             case 'conditions_array':
-                $jsonData = json_decode($this->conditions, true);
+                $varSystem = str_replace('_array','', $var);
+                $jsonData = json_decode($this->{$varSystem},true);
                 if ($jsonData !== null) {
-                    $this->conditions_array = $jsonData;
+                    $this->$var = $jsonData;
                 } else {
-                    $this->conditions_array = $this->conditions;
+                    $this->$var = $this->$varSystem;
                 }
 
-                if (!is_array($this->conditions_array)) {
-                    $this->conditions_array = array();
+                if (!is_array($this->$var)) {
+                    $this->$var = array();
                 }
 
-                return $this->conditions_array;
+                return $this->$var;
+
+            case 'is_active':
+                $this->is_active = false;
+
+                if ($this->repetitiveness == 0) {
+                    $this->is_active = true;
+                } elseif ($this->repetitiveness == 1) {
+
+                    $dayShort = array(
+                        1 => 'mod',
+                        2 => 'tud',
+                        3 => 'wed',
+                        4 => 'thd',
+                        5 => 'frd',
+                        6 => 'sad',
+                        7 => 'sud'
+                    );
+
+                    $daysActivity = $this->days_activity_array;
+
+                    $dateTime = new DateTime('now',($this->time_zone != '' ? new DateTimeZone($this->time_zone) : null));
+
+                    if (
+                        isset($daysActivity[$dayShort[$dateTime->format('N')]]['start']) &&
+                        isset($daysActivity[$dayShort[$dateTime->format('N')]]['end']) &&
+                        (int)$daysActivity[$dayShort[$dateTime->format('N')]]['start'] <= (int)$dateTime->format('Hi') &&
+                        (int)$daysActivity[$dayShort[$dateTime->format('N')]]['end'] >= (int)$dateTime->format('Hi')
+                    ) {
+                        $this->is_active = true;
+                    }
+
+                } elseif ($this->repetitiveness == 2) {
+                    $this->is_active = $this->active_from <= time() && $this->active_to >= time();
+                } elseif ($this->repetitiveness == 3) {
+
+                    $dateTime = new DateTime('now',($this->time_zone != '' ? new DateTimeZone($this->time_zone) : null));
+
+                    $dateTime->setTimestamp((int)$this->active_from);
+                    $fromCompare = $dateTime->format('mdHi');
+
+                    $dateTime->setTimestamp((int)$this->active_to);
+                    $toCompare = $dateTime->format('mdHi');
+
+                    $dateTime->setTimestamp(time());
+                    $currentCompare = $dateTime->format('mdHi');
+
+                    $this->is_active = (int)$fromCompare <= (int)$currentCompare && (int)$toCompare >= (int)$currentCompare;
+                }
+
+                return $this->is_active;
+
+            case 'active_from_edit':
+                $activeFromTS = $this->active_from > 0 ? $this->active_from : time();
+                $dateTime = new DateTime('now',($this->time_zone != '' ? new DateTimeZone($this->time_zone) : null));
+                $dateTime->setTimestamp((int)$activeFromTS);
+                $this->active_from_edit = $dateTime->format('Y-m-d\TH:i');
+                return $this->active_from_edit;
+
+            case 'active_to_edit':
+                $activeFromTS = $this->active_to > 0 ? $this->active_to : time();
+                $dateTime = new DateTime('now',($this->time_zone != '' ? new DateTimeZone($this->time_zone) : null));
+                $dateTime->setTimestamp((int)$activeFromTS);
+                $this->active_to_edit = $dateTime->format('Y-m-d\TH:i');
+                return $this->active_to_edit;
 
             default:
                 break;
@@ -219,6 +290,16 @@ class erLhcoreClassModelCannedMsgReplace
     public $identifier = '';
     public $default = '';
     public $conditions = '';
+
+    // Activity data
+    public $active_from = '';
+    public $active_to = '';
+    public $repetitiveness = '';
+    public $days_activity = '';
+    public $time_zone = '';
+
+
+
 }
 
 ?>
