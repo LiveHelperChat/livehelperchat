@@ -1,3 +1,10 @@
+4.09v
+
+1. Optional reactions to bot messages. https://doc.livehelperchat.com/docs/bot/bot-text#reaction-options
+2. Replaceable variables activity period.
+
+execute doc/update_db/update_281.sql for update
+
 4.08v
 
 1. Bot messages can be automatically translated using Translation services.

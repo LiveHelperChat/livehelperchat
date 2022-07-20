@@ -1,5 +1,7 @@
 <?php
 
+    $visitorRender = true;
+
     $metaMessageDataByBBCode = erLhcoreClassBBCode::extractMetaByMessage($msg['msg']);
 
     if (isset($msg['meta_msg']) && $msg['meta_msg'] != '') {

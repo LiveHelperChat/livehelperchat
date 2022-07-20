@@ -60,6 +60,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -209,10 +217,6 @@
     </message>
     <message>
       <source>On chat close exit chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3702,6 +3706,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Activity period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default value</source>
       <translation type="unfinished"/>
     </message>
@@ -3726,11 +3734,55 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Variable Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Replaceable variables</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In-Active</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3810,10 +3862,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Activity period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Title</source>
       <translation type="unfinished"/>
     </message>
@@ -3847,34 +3895,6 @@
     </message>
     <message>
       <source>HTML Snippet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can make this canned message available only for certain period of times.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Week day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>One time period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Annually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3954,10 +3974,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Please enter from and to time. To has to be greater than from.</source>
       <translation type="unfinished"/>
     </message>
@@ -3971,6 +3987,10 @@
     </message>
     <message>
       <source>Activity to period has to be bigger than activity from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6894,11 +6914,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>These hours will be using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>time zone</source>
+      <source>Your time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6915,6 +6931,14 @@
     </message>
     <message>
       <source>Time to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10241,6 +10265,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Home</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation type="unfinished"/>
     </message>
@@ -10370,10 +10398,6 @@
     </message>
     <message>
       <source>Offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Home</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13230,6 +13254,10 @@
   </context>
   <context>
     <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Photo</source>
       <translation type="unfinished"/>

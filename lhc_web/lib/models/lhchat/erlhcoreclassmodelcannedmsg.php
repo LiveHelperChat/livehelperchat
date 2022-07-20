@@ -247,7 +247,7 @@ class erLhcoreClassModelCannedMsg
             }
         }
         
-        $this->tags = $tag;
+        $this->tags = $tagsArrayObj;
         $this->tags_plain = implode(', ', $tagsArray);        
     }
     
@@ -416,14 +416,22 @@ class erLhcoreClassModelCannedMsg
         if (!empty($replaceCustomArgs)) {
 
             $identifiers = [];
+            $identifiersApplied = [];
             foreach ($replaceCustomArgs as $replaceArg) {
                 $identifiers[] = str_replace(['{','}'],'', $replaceArg);
             }
 
-            $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array('limit' => false, 'filterin' => array('identifier' => $identifiers)));
+            $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
+                'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+                'limit' => false,
+                'filterin' => array('identifier' => $identifiers))
+            );
 
             foreach ($replaceRules as $replaceRule) {
-                $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $chat, 'user' => $user]);
+                if ($replaceRule->is_active && !in_array($replaceRule->identifier,$identifiersApplied)) {
+                    $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $chat, 'user' => $user]);
+                    $identifiersApplied[] = $replaceRule->identifier;
+                }
             }
         }
 

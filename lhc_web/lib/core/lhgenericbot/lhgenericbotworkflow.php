@@ -2318,7 +2318,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $startEnd = explode(':',str_replace(']','',$partArg[1]));
 
                             if (isset($params['chat']) && $params['chat']->user_tz_identifier != '') {
-                                $date = new DateTime(null, new DateTimeZone($params['chat']->user_tz_identifier));
+                                $date = new DateTime('now', new DateTimeZone($params['chat']->user_tz_identifier));
                             } else {
                                 $date = new DateTime();
                             }
@@ -2420,12 +2420,19 @@ class erLhcoreClassGenericBotWorkflow {
                 foreach ($replaceCustomArgs as $replaceArg) {
                     $identifiers[] = str_replace(['{','}'],'', $replaceArg);
                 }
-                $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array('limit' => false, 'filterin' => array('identifier' => $identifiers)));
+                //
+                $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
+                    'limit' => false,
+                    'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+                    'filterin' => array('identifier' => $identifiers)
+                ));
                 foreach ($replaceRules as $replaceRule) {
-                    $message = str_replace(
-                        '{' . $replaceRule->identifier . '}',
-                        ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($replaceRule->getValueReplace(['chat' => $params['chat']])) : $replaceRule->getValueReplace(['chat' => $params['chat']]))
-                        ,$message);
+                    if ($replaceRule->is_active) {
+                        $message = str_replace(
+                            '{' . $replaceRule->identifier . '}',
+                            ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($replaceRule->getValueReplace(['chat' => $params['chat']])) : $replaceRule->getValueReplace(['chat' => $params['chat']]))
+                            ,$message);
+                    }
                 }
             }
         }

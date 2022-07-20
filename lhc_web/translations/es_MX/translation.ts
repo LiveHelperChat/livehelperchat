@@ -50,8 +50,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <translation>Que tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -319,7 +327,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Desabilitar la descarga del chat</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -494,15 +502,15 @@
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>Bloquear IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Bloquear correo electrónico</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>Bloquear país</translation>
     </message>
     <message>
       <source>Close</source>
@@ -514,15 +522,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Enviar mensaje a</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>visitantes</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Enviar el mensaje e iniciar un chat</translation>
     </message>
     <message>
       <source>Send</source>
@@ -530,7 +538,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Revisar todo</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -566,7 +574,7 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Enviar retroalimentación</translation>
     </message>
     <message>
       <source>Test</source>
@@ -574,7 +582,7 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>Los datos guardados abajo no son mostrados</translation>
     </message>
     <message>
       <source>Share</source>
@@ -6521,6 +6529,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If translation is not found use translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Explorer</source>
       <translation type="unfinished"/>
     </message>
@@ -6686,6 +6698,18 @@
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include not only my chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other operators chats also will be closed on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7292,6 +7316,14 @@
       <translation>Mensaje personalizado</translation>
     </message>
     <message>
+      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Identificador</translation>
     </message>
@@ -7883,6 +7915,18 @@
     <message>
       <source>Translate</source>
       <translation>Traducir</translation>
+    </message>
+    <message>
+      <source>Enable translation response cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>cache items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -12388,6 +12432,10 @@
   <context>
     <name>department/new</name>
     <message>
+      <source>New translation group</source>
+      <translation>Nuevo grupo de traducción</translation>
+    </message>
+    <message>
       <source>New department</source>
       <translation>Nuevo departamento</translation>
     </message>
@@ -12416,8 +12464,8 @@
       <translation>New Rest API Call</translation>
     </message>
     <message>
-      <source>New translation group</source>
-      <translation>Nuevo grupo de traducción</translation>
+      <source>New individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New translation item</source>
@@ -17523,6 +17571,10 @@
   <context>
     <name>genericbot/new</name>
     <message>
+      <source>Translations groups</source>
+      <translation>Grupos de traducciones</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuracion del Sistema</translation>
     </message>
@@ -17547,8 +17599,8 @@
       <translation>Bots</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Grupos de traducciones</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -17713,6 +17765,10 @@
       <translation>Excepciones</translation>
     </message>
     <message>
+      <source>Translations groups</source>
+      <translation>Grupos de traducciones</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configuración del sistema</translation>
     </message>
@@ -17731,10 +17787,6 @@
     <message>
       <source>Rest API Calls</source>
       <translation>Rest API Calls</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Grupos de traducciones</translation>
     </message>
     <message>
       <source>Bot individualization</source>

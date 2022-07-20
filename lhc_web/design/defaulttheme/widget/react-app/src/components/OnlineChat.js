@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -94,6 +94,7 @@ class OnlineChat extends Component {
         this.textMessageRef = React.createRef();
 
         this.updateMessages = this.updateMessages.bind(this);
+        this.updateMessage = this.updateMessage.bind(this);
         this.updateStatus = this.updateStatus.bind(this);
         this.abstractAction = this.abstractAction.bind(this);
         this.updateMetaAutoHide = this.updateMetaAutoHide.bind(this);
@@ -627,6 +628,18 @@ class OnlineChat extends Component {
          helperFunctions.emitEvent(action, params);
     }
 
+    updateMessage(messageId) {
+        this.props.dispatch(updateMessage({
+            'msg_id' : messageId,
+            'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
+            'mode' :  this.props.chatwidget.get('mode'),
+            'theme' : this.props.chatwidget.get('theme'),
+            'id' : this.props.chatwidget.getIn(['chatData','id']),
+            'hash' : this.props.chatwidget.getIn(['chatData','hash']),
+            'no_scroll' : true
+        }));
+    }
+
     updateMessages() {
         var params = {
             'chat_id': this.props.chatwidget.getIn(['chatData','id']),
@@ -821,7 +834,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage profilePic={this.props.chatwidget.get('profile_pic')} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage profilePic={this.props.chatwidget.get('profile_pic')} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessage={this.updateMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }

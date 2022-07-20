@@ -2067,6 +2067,11 @@ try {
                     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                     `identifier` varchar(50) NOT NULL,
                     `default` text NOT NULL, `conditions` longtext NOT NULL,
+                    `active_from` int(11) unsigned NOT NULL DEFAULT 0,
+                    `active_to` int(11) unsigned NOT NULL DEFAULT 0,
+                    `repetitiveness` int(11) unsigned NOT NULL DEFAULT 0,
+                    `days_activity` text COLLATE utf8mb4_unicode_ci NOT NULL,
+                    `time_zone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
                     PRIMARY KEY (`id`),
                    KEY `identifier` (`identifier`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
