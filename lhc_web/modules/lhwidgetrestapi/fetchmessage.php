@@ -28,6 +28,10 @@ try {
             $tpl->set('react',true);
             $tpl->set('sync_mode','');
             $tpl->set('async_call',true);
+            
+            if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
+                $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']));
+            }
 
             echo json_encode(array('id' => $msg->id, 'msg' => trim($tpl->fetch())));
             exit;

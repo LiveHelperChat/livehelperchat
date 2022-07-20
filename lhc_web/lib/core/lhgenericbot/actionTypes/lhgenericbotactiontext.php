@@ -48,6 +48,10 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
+        if (isset($action['content']['reactions']) && !empty($action['content']['reactions'])) {
+            $metaMessage['content']['reactions']['content'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['reactions'], array('chat' => $chat, 'args' => $params));
+        }
+
         if (isset($action['content']['quick_replies']) && !empty($action['content']['quick_replies']))
         {
 
