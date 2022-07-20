@@ -50,6 +50,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -6521,6 +6529,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If translation is not found use translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Explorer</source>
       <translation type="unfinished"/>
     </message>
@@ -6686,6 +6698,18 @@
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include not only my chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other operators chats also will be closed on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7292,6 +7316,14 @@
       <translation>Özel mesaj</translation>
     </message>
     <message>
+      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>belirlemek</translation>
     </message>
@@ -7883,6 +7915,18 @@
     <message>
       <source>Translate</source>
       <translation>Çevir</translation>
+    </message>
+    <message>
+      <source>Enable translation response cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>cache items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -12390,6 +12434,10 @@
   <context>
     <name>department/new</name>
     <message>
+      <source>New translation group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New department</source>
       <translation>Yeni departman</translation>
     </message>
@@ -12418,7 +12466,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>New translation group</source>
+      <source>New individualization</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17525,6 +17573,10 @@
   <context>
     <name>genericbot/new</name>
     <message>
+      <source>Translations groups</source>
+      <translation>Çeviri grupları</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -17549,8 +17601,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Çeviri grupları</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -17715,6 +17767,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Translations groups</source>
+      <translation>Çeviri grupları</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -17733,10 +17789,6 @@
     <message>
       <source>Rest API Calls</source>
       <translation>REST API</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Çeviri grupları</translation>
     </message>
     <message>
       <source>Bot individualization</source>

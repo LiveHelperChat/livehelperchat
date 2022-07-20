@@ -50,6 +50,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -6527,6 +6535,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>If translation is not found use translation service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Explorer</source>
       <translation type="unfinished"/>
     </message>
@@ -6692,6 +6704,18 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Include not only my chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Other operators chats also will be closed on page refresh</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How much time has to be passed after chat close before chat is removed. Time in minutes.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7298,6 +7322,14 @@ Icona colonna, testo icone materiale</translation>
       <translation>Messaggio personalizzato</translation>
     </message>
     <message>
+      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Identifier</source>
       <translation>Identificatore</translation>
     </message>
@@ -7889,6 +7921,18 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Translate</source>
       <translation>Traduci</translation>
+    </message>
+    <message>
+      <source>Enable translation response cache</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>cache items</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cache</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Enable translation service</source>
@@ -12394,6 +12438,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>department/new</name>
     <message>
+      <source>New translation group</source>
+      <translation>Nuovo gruppo traduzioni</translation>
+    </message>
+    <message>
       <source>New department</source>
       <translation>Nuovo reparto</translation>
     </message>
@@ -12422,8 +12470,8 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>New translation group</source>
-      <translation>Nuovo gruppo traduzioni</translation>
+      <source>New individualization</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New translation item</source>
@@ -17529,6 +17577,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>genericbot/new</name>
     <message>
+      <source>Translations groups</source>
+      <translation>Gruppi di traduzioni</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configurazione di sistema</translation>
     </message>
@@ -17553,8 +17605,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Bot</translation>
     </message>
     <message>
-      <source>Translations groups</source>
-      <translation>Gruppi di traduzioni</translation>
+      <source>Bot individualization</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -17719,6 +17771,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Eccezioni</translation>
     </message>
     <message>
+      <source>Translations groups</source>
+      <translation>Gruppo traduzioni</translation>
+    </message>
+    <message>
       <source>System configuration</source>
       <translation>Configurazione di sistema</translation>
     </message>
@@ -17737,10 +17793,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Rest API Calls</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>Gruppo traduzioni</translation>
     </message>
     <message>
       <source>Bot individualization</source>
