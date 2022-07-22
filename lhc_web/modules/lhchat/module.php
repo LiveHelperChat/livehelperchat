@@ -368,6 +368,11 @@ $ViewList['saveremarks'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['reaction'] = array(
+    'params' => array('msg_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['saveonlinenotes'] = array(
     'params' => array('online_user_id'),
     'functions' => array( 'use' )

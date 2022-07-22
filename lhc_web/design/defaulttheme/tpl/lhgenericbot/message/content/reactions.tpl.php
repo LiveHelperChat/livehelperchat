@@ -1,4 +1,5 @@
 <?php
+if (isset($metaMessage['content'])) :
 $reactions = explode("\n",trim($metaMessage['content']));
 $reactionsOutput = '';
 $hasReactionsSelected = false;
@@ -24,3 +25,17 @@ foreach ($reactions as $reaction) {
 <div class="reactions-holder <?php if ($hasReactionsSelected == true) : ?>reactions-selected<?php endif;?> <?php if (isset($metaMessageData['content']['attr_options']['reactions_visible']) && $metaMessageData['content']['attr_options']['reactions_visible'] == true) : ?>d-block<?php endif;?>">
     <?php echo $reactionsOutput?>
 </div>
+<?php else : ?>
+
+    <div class="reactions-holder reactions-selected d-block">
+
+        <?php if (isset($metaMessageData['content']['reactions']['current']['thumb']) && $metaMessageData['content']['reactions']['current']['thumb'] == 1) : ?>
+            <span title="Thumbs up" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf109;</span>
+        <?php endif;?>
+
+        <?php if (isset($metaMessageData['content']['reactions']['current']['thumb']) && $metaMessageData['content']['reactions']['current']['thumb'] == 0) : ?>
+            <span title="Thumbs down" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf108;</span>
+        <?php endif; ?>
+
+    </div>
+<?php endif; ?>

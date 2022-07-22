@@ -116,6 +116,9 @@ div.response div.msg-body,
 div.response div.meta-message{
     margin-right:29px!important;
 }
+.message-row.response .reactions-holder {
+    right:29px!important;
+}
 <?php endif; ?>
 
 

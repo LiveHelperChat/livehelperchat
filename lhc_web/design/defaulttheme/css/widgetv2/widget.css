@@ -469,6 +469,10 @@ div.message-row.response div.msg-body{
     border:1px solid #fff;
 }
 
+.message-row.response .reactions-holder {
+    right:0;
+}
+
 .reactions-selected .reaction-item:not(.reaction-selected) {
     display: none;
 }
