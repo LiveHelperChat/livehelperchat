@@ -1,4 +1,5 @@
 <?php
+if (isset($metaMessage['content'])) :
 $reactions = explode("\n",trim($metaMessage['content']));
 $reactionsOutput = '';
 $hasReactionsSelected = false;
@@ -15,4 +16,4 @@ foreach ($reactions as $reaction) {
 <div class="reactions-holder">
     <?php echo $reactionsOutput?>
 </div>
-<?php endif; ?>
+<?php endif; endif; ?>
