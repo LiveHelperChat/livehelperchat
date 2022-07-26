@@ -148,6 +148,22 @@ class erLhcoreClassLHCBotWorker
                                 erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
                             }
 
+                            $chatVariables = $chat->chat_variables_array;
+
+                            // Log executed triggers if required
+                            if (!empty(erLhcoreClassGenericBotWorkflow::$triggerNameDebug) && isset($chatVariables['gbot_debug']) && $chatVariables['gbot_debug'] == 1) {
+                                erLhcoreClassLog::write(json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug,JSON_PRETTY_PRINT),
+                                    ezcLog::SUCCESS_AUDIT,
+                                    array(
+                                        'source' => 'lhc',
+                                        'category' => 'bot',
+                                        'line' => 0,
+                                        'file' => 'lhgenericbotworker.php',
+                                        'object_id' => $chat->id
+                                    )
+                                );
+                            }
+
                             return;
 
                         } else {
@@ -210,6 +226,22 @@ class erLhcoreClassLHCBotWorker
 
                         if ($msgLast instanceof erLhcoreClassModelmsg) {
                             erLhcoreClassChatWebhookIncoming::sendBotResponse($chat, $msgLast, ['init' => true]);
+                        }
+
+                        $chatVariables = $chat->chat_variables_array;
+
+                        // Log executed triggers if required
+                        if (!empty(erLhcoreClassGenericBotWorkflow::$triggerNameDebug) && isset($chatVariables['gbot_debug']) && $chatVariables['gbot_debug'] == 1) {
+                            erLhcoreClassLog::write(json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug,JSON_PRETTY_PRINT),
+                                ezcLog::SUCCESS_AUDIT,
+                                array(
+                                    'source' => 'lhc',
+                                    'category' => 'bot',
+                                    'line' => 0,
+                                    'file' => 'lhgenericbotworker.php',
+                                    'object_id' => $chat->id
+                                )
+                            );
                         }
 
                         return;

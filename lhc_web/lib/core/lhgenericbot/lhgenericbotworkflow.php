@@ -1632,7 +1632,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         self::$triggerName[] = $trigger->name;
-        self::$triggerNameDebug[] = $trigger->name . '[' . $trigger->id . ']';
+        self::$triggerNameDebug[] = $trigger->name . ' [ID - ' . $trigger->id . ']';
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
@@ -1653,7 +1653,7 @@ class erLhcoreClassGenericBotWorkflow {
                 continue;
             }
 
-            self::$triggerNameDebug[] = ucfirst($action['type']) . (isset($action['_id']) ?  ' [' . $action['_id'] . ']' : '');
+            self::$triggerNameDebug[] = ucfirst($action['type']) . (isset($action['_id']) ?  ' [TID - ' . $action['_id'] . ']' : '[TID - N/A]');
 
             $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
