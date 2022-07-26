@@ -2023,3 +2023,30 @@ html {
     border:1px solid #fff;
     background: #3267e4;
 }
+
+.reactions-holder-admin {
+    right:-55px;
+    margin-top: -5px;
+    background: #EAEAEAFF;
+    display:none;
+}
+
+.message-row.response:hover .reactions-holder-admin.reactions-selected,
+.message-row.response:hover .reactions-holder-admin {
+    display:inline-block;
+}
+
+.message-row.response .reaction-item.reaction-selected {
+    color: #3267e4;
+}
+
+/*.reactions-selected .reaction-item:not(.reaction-selected) {
+    display: none;
+}*/
+
+.message-row.response:hover .reaction-item,
+.reactions-holder.d-block .reaction-item,
+.reactions-selected:hover .reaction-item,
+.reactions-selected {
+    display: inline-block;
+}
