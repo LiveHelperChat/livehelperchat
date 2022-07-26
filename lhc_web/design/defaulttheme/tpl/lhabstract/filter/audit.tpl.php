@@ -18,6 +18,7 @@
             <option value="cronjob_exception">cronjob_exception</option>
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
+            <option value="bot">bot - bot related logged actions</option>
             <option value="update_active_chats">update_active_chats</option>
             <option value="files">files - failed visitors files upload</option>
             <option value="translation">translation - translations failures</option>

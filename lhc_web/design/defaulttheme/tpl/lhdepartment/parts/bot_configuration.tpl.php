@@ -38,4 +38,9 @@
             <label><input type="checkbox" name="bot_foh" <?php if (isset($departament->bot_configuration_array['bot_foh']) && $departament->bot_configuration_array['bot_foh'] == true) : ?>checked="checked"<?php endif?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot follows online hours. Department will be offline if there is no online operators or it is outside work hours.')?></label>
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" name="bot_debug" <?php if (isset($departament->bot_configuration_array['bot_debug']) && $departament->bot_configuration_array['bot_debug'] == true) : ?>checked="checked"<?php endif?>> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Enable debug logging')?></label>
+        </div>
+    </div>
 </div>

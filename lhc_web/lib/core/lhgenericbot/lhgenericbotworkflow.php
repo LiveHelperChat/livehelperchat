@@ -169,6 +169,7 @@ class erLhcoreClassGenericBotWorkflow {
     public static $currentAlwaysEvent = null;
 
     public static $triggerName = [];
+    public static $triggerNameDebug = [];
 
     public static function userMessageAdded(& $chat, $msg) {
 
@@ -1631,6 +1632,7 @@ class erLhcoreClassGenericBotWorkflow {
         }
 
         self::$triggerName[] = $trigger->name;
+        self::$triggerNameDebug[] = $trigger->name . '[' . $trigger->id . ']';
 
         $message = null;
         foreach ($trigger->actions_front as $action) {
@@ -1651,7 +1653,9 @@ class erLhcoreClassGenericBotWorkflow {
                 continue;
             }
 
-        	$messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
+            self::$triggerNameDebug[] = ucfirst($action['type']) . (isset($action['_id']) ?  ' [' . $action['_id'] . ']' : '');
+
+            $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
 
             if ($messageNew instanceof erLhcoreClassModelmsg) {
 

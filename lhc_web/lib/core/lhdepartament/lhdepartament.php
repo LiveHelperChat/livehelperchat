@@ -174,6 +174,9 @@ class erLhcoreClassDepartament{
                 'auto_delay_var' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 ),
+                'bot_debug' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
                 'survey_id' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
@@ -587,6 +590,12 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_foh'] = true;
        } else {
            $botConfiguration['bot_foh'] = false;
+       }
+
+       if ( $form->hasValidData( 'bot_debug' ) ) {
+           $botConfiguration['bot_debug'] = true;
+       } elseif (isset($botConfiguration['bot_debug'])) {
+           unset($botConfiguration['bot_debug']);
        }
 
        if ( $form->hasValidData( 'auto_delay_timeout' ) ) {
