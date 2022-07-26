@@ -55,6 +55,8 @@ class erLhcoreClassGenericBotActionMatch_actions {
                 }
             }
 
+            erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = 'Match action - ' . $payload;
+
             $filter = array();
 
             if (isset($action['content']['on_start_type']) && is_numeric($action['content']['on_start_type']) && $action['content']['on_start_type'] != 5) {
