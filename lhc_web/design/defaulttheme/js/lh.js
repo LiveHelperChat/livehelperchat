@@ -1522,11 +1522,8 @@ function lh(){
 		}
 	};
 
-	this.redirectToURL = function(chat_id,trans) {
-		var url = prompt(trans, "");
-		if (url != null) {
-			lhinst.addRemoteCommand(chat_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
-		}
+	this.redirectToURL = function(chat_id) {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/'+chat_id + '/redirecttourl'});
 	};
 
 	this.redirectToURLOnline = function(online_user_id,trans) {

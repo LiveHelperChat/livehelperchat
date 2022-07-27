@@ -10,6 +10,32 @@
 </div>
 
 
+<?php elseif ($singleAction == 'redirecttourl') : ?>
+
+<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Please enter a URL')?>
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
+
+<div class="form-group">
+    <label>URL</label>
+    <input type="text" id="redirect-url-<?php echo $chat->id?>" class="form-control form-control-sm" placeholder="https://example.com" value="" />
+</div>
+
+<div class="btn-group" role="group" aria-label="...">
+    <input type="button" id="action-redirect-<?php echo $chat->id?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/screenshot','Redirect to URL')?>" class="btn btn-sm btn-secondary" />
+</div>
+
+<script>
+    $('#action-redirect-<?php echo $chat->id?>').click(function() {
+        var url = $('#redirect-url-<?php echo $chat->id?>').val();
+        if (url != '') {
+            lhinst.addRemoteCommand(<?php echo $chat->id?>,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
+            $('#myModal').modal('hide');
+        } else {
+            alert(<?php echo json_encode(htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'Please enter an URL!')))?>);
+        }
+    });
+</script>
+
 <?php elseif ($singleAction == 'screenshot') : ?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/operator_screenshot_pre.tpl.php')); ?>
