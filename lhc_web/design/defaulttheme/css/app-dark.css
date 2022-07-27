@@ -479,6 +479,7 @@ div.message-row.response div.msg-body{
     display:inline-block;
     text-align: left;
     max-width:90%;
+    position: relative;
 }
 
 
@@ -2041,6 +2042,33 @@ html {
     text-decoration: none;
     border-radius:20px;
     padding: 0px 5px 5px;
-    border:1px solid #fff;
+    border:1px solid #3f3f3f;
     background: #3267e4;
+}
+
+.reactions-holder-admin {
+    right:-55px;
+    margin-top: -5px;
+    background: #4e4e4e;
+    display:none;
+}
+
+.message-row.response:hover .reactions-holder-admin.reactions-selected,
+.message-row.response:hover .reactions-holder-admin {
+    display:inline-block;
+}
+
+.message-row.response .reaction-item.reaction-selected {
+    color: #3267e4;
+}
+
+/*.reactions-selected .reaction-item:not(.reaction-selected) {
+    display: none;
+}*/
+
+.message-row.response:hover .reaction-item,
+.reactions-holder.d-block .reaction-item,
+.reactions-selected:hover .reaction-item,
+.reactions-selected {
+    display: inline-block;
 }

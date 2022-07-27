@@ -16,7 +16,7 @@ if ($user instanceof erLhcoreClassModelUser && $hash == sha1($user->id . '_' . $
 
         $user->hide_online = 1;
 
-        erLhcoreClassUser::getSession()->update($user);
+        erLhcoreClassUser::getSession()->update($user, ['session_id']);
 
         erLhcoreClassUserDep::setHideOnlineStatus($user);
 

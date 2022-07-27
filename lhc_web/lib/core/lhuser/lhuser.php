@@ -83,7 +83,9 @@ class erLhcoreClassUser{
         session_regenerate_id(true);
 
 		$this->session->destroy();
-       
+
+        $sessionCookieName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'php_session_cookie_name', false );
+
 		$user = erLhcoreClassModelUser::findOne(array(
 			'filterlor' => array(
 				'username' => array($username),
@@ -149,7 +151,7 @@ class erLhcoreClassUser{
 
 
                 // Limit number per of logins under same user
-                if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
+                if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE[!empty($sessionCookieName) && $sessionCookieName !== false ? $sessionCookieName : 'PHPSESSID'] !='') {
                     $db = ezcDbInstance::get();
                     $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
                     $stmt->bindValue(':session_id',session_id(),PDO::PARAM_STR);
@@ -219,6 +221,7 @@ class erLhcoreClassUser{
 	   		$this->filter->registerFetchData(array('id','username','email','disabled','cache_version'));
 	   		$this->authentication->addFilter( $this->filter );
 
+            $sessionCookieName = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'php_session_cookie_name', false );
 	   		$this->authentication->session = $this->session;
 
 	   		if ( !$this->authentication->run() ) {
@@ -247,7 +250,7 @@ class erLhcoreClassUser{
    					$cfgSite = erConfigClassLhConfig::getInstance();
    					
    					// Limit number per of logins under same user
-   					if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE['PHPSESSID'] !='') {
+   					if ((self::$oneLoginPerAccount == true || $cfgSite->getSetting( 'site', 'one_login_per_account', false ) == true) && $_COOKIE[!empty($sessionCookieName) && $sessionCookieName !== false ? $sessionCookieName : 'PHPSESSID'] !='') {
    					    $db = ezcDbInstance::get();
    					    $stmt = $db->prepare('UPDATE lh_users SET session_id = :session_id WHERE id = :id');
    					    $stmt->bindValue(':session_id',session_id(),PDO::PARAM_STR);

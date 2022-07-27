@@ -29,6 +29,8 @@ class erLhcoreClassGenericBotActionConditions {
                 }
             }
 
+            $conditionsDebug = [];
+
             foreach ($action['content']['conditions'] as $condition) {
 
                 if (isset($multiAttr)) {
@@ -165,6 +167,8 @@ class erLhcoreClassGenericBotActionConditions {
                         $valAttr = (string)$valAttr;
                     }
 
+                    $conditionsDebug[] = json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . json_encode($valAttr);
+
                     if ($condition['content']['comp'] == 'eq' && !((isset($multiAttr) && in_array($valAttr,$multiAttr)) || (!isset($multiAttr) && $attr == $valAttr))) {
                         $conditionsMet = false;
                         break;
@@ -203,6 +207,8 @@ class erLhcoreClassGenericBotActionConditions {
                     }
                 }
             }
+
+            erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
 
             if ($conditionsMet == true) {
 

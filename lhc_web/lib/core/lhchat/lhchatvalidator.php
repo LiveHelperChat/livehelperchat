@@ -818,6 +818,16 @@ class erLhcoreClassChatValidator {
             }
         }
 
+        if ($department !== false) {
+            $botData = $department->bot_configuration_array;
+            if (isset($botData['bot_debug']) && $botData['bot_debug'] == true) {
+                $chatVariables = $chat->chat_variables_array;
+                $chatVariables['gbot_debug'] = 1;
+                $chat->chat_variables = json_encode($chatVariables);
+                $chat->chat_variables_array = $chatVariables;
+            }
+        }
+
         if ( $form->hasValidData( 'tag' ) && !empty($form->tag))
         {
             $stringParts[] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => $form->tag);

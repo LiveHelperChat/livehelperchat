@@ -1032,16 +1032,27 @@ function lh(){
     	$('#remarks-status-'+chat_id).addClass('text-warning');
     	$('#main-user-info-remarks-'+chat_id+' .alert').remove();
     	var inst = this;
-    	this.remarksTimeout = setTimeout(function(){
-    		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data){
-				if(data.error == 'false') {
+    	this.remarksTimeout = setTimeout(function() {
+    		$.postJSON(inst.wwwDir + 'chat/saveremarks/' + chat_id,{'data':$('#ChatRemarks-'+chat_id).val()}, function(data) {
+				if (data.error == 'false') {
 					$('#remarks-status-'+chat_id).removeClass('text-warning');
 				} else {
 					$('#main-user-info-remarks-'+chat_id).prepend(data.result);
 				}
     		});
-    	},500);    	
+    	},500);
     };
+
+    this.reaction = function(inst) {
+        $.postJSON(this.wwwDir + 'chat/reaction/' + inst.attr('data-msg-id'), {'identifier' :inst.attr('data-identifier'), 'data': + inst.attr('data-value')}, function(data) {
+
+            if (data.error == 'false') {
+                $('#reaction-message-'+inst.attr('data-msg-id')).replaceWith(data.result);
+            } else {
+                alert(data.result);
+            }
+        });
+    }
     
     this.saveNotes = function(chat_id) {
     	clearTimeout(this.remarksTimeout);    	    	

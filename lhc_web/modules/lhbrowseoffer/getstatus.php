@@ -18,10 +18,10 @@ $ignorable_ip = erLhcoreClassModelChatConfig::fetch('ignorable_ip')->current_val
 if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
 	$matched = erLhAbstractModelBrowseOfferInvitation::processInvitation(array('l' => $location,'r' => $referer, 'identifier' => (string)$Params['user_parameters_unordered']['identifier']));
 	
-	if ($matched !== false) {		
+	if ($matched !== false) {
 		$tpl = erLhcoreClassTemplate::getInstance('lhbrowseoffer/getstatus.tpl.php');
 		$tpl->set('size',$matched->width > 0 ? $matched->width : ((!is_null($Params['user_parameters_unordered']['size']) && (int)$Params['user_parameters_unordered']['size'] >= 0) ? (int)$Params['user_parameters_unordered']['size'] : 450));
-		$tpl->set('size_height',$matched->height > 0 ? $matched->height : (!is_null($Params['user_parameters_unordered']['height']) && (int)$Params['user_parameters_unordered']['height'] >= 0) ? (int)$Params['user_parameters_unordered']['height'] : 450);
+		$tpl->set('size_height',$matched->height > 0 ? $matched->height : ((!is_null($Params['user_parameters_unordered']['height']) && (int)$Params['user_parameters_unordered']['height'] >= 0) ? (int)$Params['user_parameters_unordered']['height'] : 450));
 		$tpl->set('units',key_exists((string)$matched->unit, $validUnits) ? $validUnits[$matched->unit] : (key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px'));
 		$tpl->set('invite',$matched);
 		$tpl->set('showoverlay',(string)$Params['user_parameters_unordered']['showoverlay'] == 'true' ? true : false);	
