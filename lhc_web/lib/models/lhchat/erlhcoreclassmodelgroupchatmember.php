@@ -45,6 +45,7 @@ class erLhcoreClassModelGroupChatMember
             break;
 
         case 'hide_online':
+                $this->hide_online = true;
                 if ($this->user !== false) {
                     $this->hide_online = (string)$this->user->hide_online != 0;
                 }

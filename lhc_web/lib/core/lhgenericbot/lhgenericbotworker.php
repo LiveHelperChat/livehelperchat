@@ -42,7 +42,7 @@ class erLhcoreClassLHCBotWorker
                         'category' => 'missing_event',
                         'line' => __LINE__,
                         'file' => __FILE__,
-                        'object_id' => $event->id
+                        'object_id' => $this->args['event_id']
                     )
                 );
 
