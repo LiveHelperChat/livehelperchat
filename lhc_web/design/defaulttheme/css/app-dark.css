@@ -2023,6 +2023,7 @@ html {
     padding: 0px 5px 5px;
     border:1px solid #3f3f3f;
     background: #3267e4;
+    user-select: none;
 }
 
 .reactions-holder-admin {
