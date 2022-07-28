@@ -98,7 +98,7 @@ class erLhcoreClassTranslateGoogle {
 
                     foreach ($data['data']['translations'] as $index => $translationData) {
                         if (isset($translationData['translatedText'])) {
-                            $word[$index]['target'] = $translationData['translatedText'];
+                            $word[$index]['target'] = html_entity_decode($translationData['translatedText'],ENT_QUOTES);
                         }
                     }
 
@@ -117,7 +117,7 @@ class erLhcoreClassTranslateGoogle {
                         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Could not translate').' - '.implode('; ', $errors));
                     }
 
-                    return htmlspecialchars_decode($data['data']['translations'][0]['translatedText']);
+                    return html_entity_decode($data['data']['translations'][0]['translatedText'],ENT_QUOTES);
                 }
             }
 
