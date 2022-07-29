@@ -24,6 +24,7 @@ try {
     if ($item->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT) {
         if (erLhcoreClassModelGroupChatMember::getCount(array('filtergt' => array('jtime' => 0), 'filter' => array('group_id' => $item->id))) == 0) {
             $item->removeThis();
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.remove_group_chat', array('chat' => & $item));
         }
     }
 
