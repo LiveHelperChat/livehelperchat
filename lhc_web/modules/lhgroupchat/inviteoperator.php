@@ -39,14 +39,6 @@ try {
 
     $item->updateMembersCount();
 
-    $newMember = new erLhcoreClassModelGroupChatMember();
-    $newMember->user_id = $userInvited->id;
-    $newMember->group_id = $item->id;
-    $newMember->last_activity = time();
-    $newMember->jtime = time();
-    $newMember->saveThis();
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_member', array('member' => & $newMember));
-
     $db->commit();
 
     echo json_encode("ok");
