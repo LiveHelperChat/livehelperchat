@@ -22,12 +22,12 @@ class erLhcoreClassChatWebhookHttp {
                 if (self::isValidConditions($webhook, $params['chat']) === true) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id);
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                        erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
+                        erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
                     }
                 } elseif ($webhook->trigger_id_alt > 0) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
-                        erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $params));
+                        erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
                     }
                 }
             }
