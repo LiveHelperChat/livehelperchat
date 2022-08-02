@@ -2037,6 +2037,7 @@ html {
     padding: 0px 5px 5px;
     border:1px solid #fff;
     background: #3267e4;
+    user-select: none;
 }
 
 .reactions-holder-admin {

@@ -53,27 +53,19 @@ HAVING
         }
 
         $letterName[] = getLetters($operator->name_official);
-        $letterName[] = '&';
+        $letterName[] = ',';
         $letterName[] = getLetters($currentUser->getUserData()->name_official);
 
         // Create a group chat
         $groupChat = new erLhcoreClassModelGroupChat();
-        $groupChat->name = implode(' ',$letterName);
+        $groupChat->name = implode('',$letterName);
         $groupChat->type = 1;
         $groupChat->user_id = $currentUser->getUserID();
         $groupChat->time = time();
         $groupChat->tm = 2;
         $groupChat->saveThis();
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_room', array('chat' => & $groupChat));
 
-        $msg = new erLhcoreClassModelGroupMsg();
-        $msg->msg = (string)$currentUser->getUserData(true)->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $operator->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
-        $msg->chat_id = $groupChat->id;
-        $msg->user_id = -1;
-        $msg->time = time();
-        $msg->saveThis();
-
-        $groupChat->last_msg_id = $msg->id;
-        $groupChat->updateThis(array('update' => array('last_msg_id')));
 
         // Create a member
         $newMember = new erLhcoreClassModelGroupChatMember();
@@ -82,6 +74,7 @@ HAVING
         $newMember->last_activity = time();
         $newMember->jtime = time();
         $newMember->saveThis();
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_member', array('member' => & $newMember));
 
         // Invite another operator
         $newMember = new erLhcoreClassModelGroupChatMember();
@@ -90,9 +83,18 @@ HAVING
         $newMember->last_activity = time();
         $newMember->jtime = 0;
         $newMember->saveThis();
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_member', array('member' => & $newMember));
 
-
-
+        // Send invite message
+        $msg = new erLhcoreClassModelGroupMsg();
+        $msg->msg = (string)$currentUser->getUserData(true)->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has invited') . ' ' . $operator->name_official . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','for the private chat.');
+        $msg->chat_id = $groupChat->id;
+        $msg->user_id = -1;
+        $msg->time = time();
+        $msg->saveThis();
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_message', array('member' => & $newMember));
+        $groupChat->last_msg_id = $msg->id;
+        $groupChat->updateThis(array('update' => array('last_msg_id')));
     }
 
     $db->commit();

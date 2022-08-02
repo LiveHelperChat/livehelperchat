@@ -60,6 +60,12 @@ $q->deleteFrom( 'lh_departament_group_user' )->where( $q->expr->eq( 'user_id', $
 $stmt = $q->prepare();
 $stmt->execute();
 
+// Group chat member
+$q = ezcDbInstance::get()->createDeleteQuery();
+$q->deleteFrom( 'lh_group_chat_member' )->where( $q->expr->eq( 'user_id', $Params['user_parameters']['user_id'] ) );
+$stmt = $q->prepare();
+$stmt->execute();
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.deleted',array('userData' => $departament));
 
 erLhcoreClassModule::redirect('user/userlist');

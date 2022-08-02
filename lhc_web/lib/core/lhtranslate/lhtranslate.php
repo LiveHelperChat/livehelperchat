@@ -1119,6 +1119,14 @@ class erLhcoreClassTranslate
             ];
         }
 
+        if (isset($elements['content']['html']['content']) && $elements['content']['html']['content'] != '' && trim(strip_tags($elements['content']['html']['content'])) == trim($elements['content']['html']['content'])) {
+            $pathsTranslate[] = [
+                'path' => "content.html.content",
+                'source' => $elements['content']['html']['content'],
+                'target' => $elements['content']['html']['content']
+            ];
+        }
+
         if (empty($pathsTranslate)) {
             return;
         }
