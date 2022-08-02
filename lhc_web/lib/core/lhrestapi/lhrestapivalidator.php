@@ -477,7 +477,7 @@ class erLhcoreClassRestAPIHandler
             $filter['filtergt']['id'] = (int)$_GET['filtergt']['id'];
         }
 
-        if (isset($_GET['departament_ids'])) {
+        if (isset($_GET['departament_ids']) && !empty($_GET['departament_ids'])) {
             $idDep = explode(',',$_GET['departament_ids']);
             erLhcoreClassChat::validateFilterIn($idDep);
             if (!empty($idDep)){
@@ -485,7 +485,7 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
-        if (isset($_GET['user_ids'])) {
+        if (isset($_GET['user_ids']) && !empty($_GET['user_ids'])) {
             $uidDep = explode(',',$_GET['user_ids']);
             erLhcoreClassChat::validateFilterIn($uidDep);
             if (!empty($uidDep)){
@@ -493,7 +493,7 @@ class erLhcoreClassRestAPIHandler
             }
         }
 
-        if (isset($_GET['status_ids'])) {
+        if (isset($_GET['status_ids']) && !empty($_GET['status_ids'])) {
             $statusIds = explode(',',$_GET['status_ids']);
             erLhcoreClassChat::validateFilterIn($statusIds);
             if (!empty($statusIds)){

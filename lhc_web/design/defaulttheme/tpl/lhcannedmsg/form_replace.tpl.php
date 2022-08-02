@@ -17,7 +17,7 @@
         <li ng-repeat="lang in crc.combinations" class="nav-item" role="presentation">
 
             <a href="#cmb-{{$index}}" class="nav-link" aria-controls="cmb-{{$index}}" role="tab" data-toggle="tab" >
-                <i class="material-icons">find_replace</i>Nr. {{$index + 1}}
+                <i class="material-icons">find_replace</i>{{lang.name || 'Nr. ' + ($index + 1)}}
                 <span ng-click="crc.deleteElement(lang, crc.combinations)" class="material-icons icon-close-chat">close</span>
             </a>
         </li>
@@ -32,6 +32,11 @@
             </div>
         </div>
         <div ng-repeat="combination in crc.combinations track by $index" role="tabpanel" class="tab-pane" id="cmb-{{$index}}">
+
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Tab custom name');?></label>
+                <input type="text" ng-trim="false" placeholder="Custom tab title" ng-model="combination.name" class="form-control form-control-sm" />
+            </div>
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Value');?></label>
