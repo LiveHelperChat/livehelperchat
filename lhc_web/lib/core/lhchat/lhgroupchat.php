@@ -45,6 +45,7 @@ class erLhcoreClassGroupChat {
             $newMember->jtime = 0;
             $newMember->type = $type;
             $newMember->saveThis();
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('group_chat.new_group_chat_member', array('member' => & $newMember));
         }
     }
 
