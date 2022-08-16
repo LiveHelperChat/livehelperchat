@@ -21,6 +21,7 @@ const initialState = fromJS({
     department: [],
     product: [],
     jsVars: [],
+    jsVarsPrefill: [],
     offlineData: {'fetched' : false},
     onlineData: {'fetched' : false},
     customData: {'fields' : []},
@@ -96,6 +97,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'base_url':
         case 'theme':
         case 'jsVars':
+        case 'jsVarsPrefill':
         case 'bot_id':
         case 'trigger_id':
         case 'priority':

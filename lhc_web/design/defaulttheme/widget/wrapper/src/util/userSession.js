@@ -186,7 +186,7 @@ export class userSession {
         xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
 
         if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
-            cb(varsJSON);
+            cb(varsJSON, this.getPrefillVars());
         }
     }
 
