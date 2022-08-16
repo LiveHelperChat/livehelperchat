@@ -325,6 +325,8 @@ class erLhcoreClassGenericBotActionCommand {
             // Group method
             $groupMethod = $action['content']['payload_arg_type'];
 
+            $chat->refreshThis();
+
             $variablesArray = $chat->chat_variables_array;
 
             if (isset($variablesArray[$chatVariableName])) {
