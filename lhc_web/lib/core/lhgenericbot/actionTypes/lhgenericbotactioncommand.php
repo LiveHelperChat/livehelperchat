@@ -325,123 +325,161 @@ class erLhcoreClassGenericBotActionCommand {
             // Group method
             $groupMethod = $action['content']['payload_arg_type'];
 
-            $chat->refreshThis();
+            $db = ezcDbInstance::get();
 
-            $variablesArray = $chat->chat_variables_array;
+            try {
 
-            if (isset($variablesArray[$chatVariableName])) {
-                unset($variablesArray[$chatVariableName]);
-            }
+                $db->beginTransaction();
+                $chat->syncAndLock();
 
-            if ($groupMethod == 'count') {
-                $variablesArray[$chatVariableName] = count($messages);
-            } else if ($groupMethod == 'ratio') {
+                $variablesArray = [];
 
-                if (!isset($action['content']['payload_arg_val_sum'])){
-                    return;
+                if (!empty($chat->chat_variables)) {
+                    $variablesArray = json_decode($chat->chat_variables,true);
                 }
 
-                $messagesGroupFieldAll = $action['content']['payload_arg_val_sum'];
-                $messagesGroupFieldValueScore = isset($action['content']['payload_arg_val_field']) ? (string)$action['content']['payload_arg_val_field'] : '';
-                $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
+                if (!is_array($variablesArray)) {
+                    $variablesArray = array();
+                }
 
-                $counterTotal = 0;
-                $counterRequired = 0;
-                foreach ($messages as $message) {
-                    $messageVariables = $message->meta_msg_array;
+                $updateRequired = false;
 
-                    if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
-                        if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
-                            $counterRequired++;
+                if (isset($variablesArray[$chatVariableName])) {
+                    unset($variablesArray[$chatVariableName]);
+                    $updateRequired = true;
+                }
+
+                if ($groupMethod == 'count') {
+                    $variablesArray[$chatVariableName] = count($messages);
+
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+
+                    $updateRequired = false;
+
+                } else if ($groupMethod == 'ratio' && isset($action['content']['payload_arg_val_sum'])) {
+
+                    $messagesGroupFieldAll = $action['content']['payload_arg_val_sum'];
+                    $messagesGroupFieldValueScore = isset($action['content']['payload_arg_val_field']) ? (string)$action['content']['payload_arg_val_field'] : '';
+                    $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
+
+                    $counterTotal = 0;
+                    $counterRequired = 0;
+                    foreach ($messages as $message) {
+                        $messageVariables = $message->meta_msg_array;
+
+                        if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
+                            if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
+                                $counterRequired++;
+                            }
                         }
-                    }
 
-                    if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldAll))) {
-                        if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
-                            $counterTotal++;
-                        }
-                    }
-                }
-
-                if ($counterTotal > 0) {
-                    $variablesArray[$chatVariableName] = round($counterRequired/$counterTotal,4);
-                }
-
-                $chat->chat_variables = json_encode($variablesArray);
-                $chat->chat_variables_array = $variablesArray;
-                $chat->updateThis(['update' => ['chat_variables']]);
-
-            } else if ($groupMethod == 'count_filter') {
-
-                $counter = 0;
-                foreach ($messages as $message) {
-                    $messageVariables = $message->meta_msg_array;
-                    if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
-                        $counter++;
-                    }
-                }
-
-                $variablesArray[$chatVariableName] = $counter;
-                $chat->chat_variables = json_encode($variablesArray);
-                $chat->chat_variables_array = $variablesArray;
-                $chat->updateThis(['update' => ['chat_variables']]);
-
-            } else if (in_array($groupMethod, ['avg','sum','max','min','count_max','sum_avg'])) {
-
-                if (isset($variablesArray[$chatVariableValue])) {
-                    unset($variablesArray[$chatVariableValue]);
-                }
-
-                $groupedFields = [];
-
-                $messagesGroupFieldAll = isset($action['content']['payload_arg_val_sum']) && !empty($action['content']['payload_arg_val_sum']) ? explode(',',$action['content']['payload_arg_val_sum']) : [];
-                $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) && !empty($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
-
-                foreach ($messages as $message) {
-                    $messageVariables = $message->meta_msg_array;
-                    if (isset($messageVariables[$messagesGroupField])) {
-                        if (empty($messagesGroupFieldAll) || in_array($messageVariables[$messagesGroupField],$messagesGroupFieldAll)) {
-                            if ($messageVariables[$messagesGroupFieldValue] > $messagesThresholdValue) {
-                                $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                        if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldAll))) {
+                            if ($messagesGroupFieldValueScore == '' || (isset($messageVariables[$messagesGroupFieldValueScore]) && $messageVariables[$messagesGroupFieldValueScore] > $messagesThresholdValue)) {
+                                $counterTotal++;
                             }
                         }
                     }
-                }
 
-                $highestScore = 0;
-
-                foreach ($groupedFields as $sentiment => $values) {
-
-                    $avgScore = 0;
-                    $avgScoreVal = 0;
-
-                    if ($groupMethod == 'avg') {
-                        $avgScoreVal = $avgScore = array_sum($values) / count($values);
-                    } else if ($groupMethod == 'sum_avg') {
-                        $avgScore = array_sum($values);
-                        $avgScoreVal = array_sum($values) / count($values);
-                    } else if ($groupMethod == 'count_max') {
-                        $avgScoreVal = $avgScore = count($values);
-                    } else if ($groupMethod == 'max') {
-                        $avgScoreVal = $avgScore = max($values);
-                    } else if ($groupMethod == 'min') {
-                        $avgScoreVal = $avgScore = min($values);
-                    } else if ($groupMethod == 'sum') {
-                        $avgScoreVal = $avgScore = array_sum($values);
+                    if ($counterTotal > 0) {
+                        $variablesArray[$chatVariableName] = round($counterRequired/$counterTotal,4);
                     }
 
-                    if ($avgScore > $highestScore) {
-                        $highestScore = $avgScore;
-                        $variablesArray[$chatVariableName] = $sentiment;
-                        $variablesArray[$chatVariableValue] = $avgScoreVal;
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+
+                    $updateRequired = false;
+
+                } else if ($groupMethod == 'count_filter') {
+
+                    $counter = 0;
+                    foreach ($messages as $message) {
+                        $messageVariables = $message->meta_msg_array;
+                        if (isset($messageVariables[$messagesGroupField]) && in_array($messageVariables[$messagesGroupField],explode(',',$messagesGroupFieldValue))) {
+                            $counter++;
+                        }
                     }
+
+                    $variablesArray[$chatVariableName] = $counter;
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+
+                    $updateRequired = false;
+
+                } else if (in_array($groupMethod, ['avg','sum','max','min','count_max','sum_avg'])) {
+
+                    if (isset($variablesArray[$chatVariableValue])) {
+                        unset($variablesArray[$chatVariableValue]);
+                    }
+
+                    $groupedFields = [];
+
+                    $messagesGroupFieldAll = isset($action['content']['payload_arg_val_sum']) && !empty($action['content']['payload_arg_val_sum']) ? explode(',',$action['content']['payload_arg_val_sum']) : [];
+                    $messagesThresholdValue = isset($action['content']['payload_arg_val_trshl']) && !empty($action['content']['payload_arg_val_trshl']) ? (double)$action['content']['payload_arg_val_trshl'] : 0;
+
+                    foreach ($messages as $message) {
+                        $messageVariables = $message->meta_msg_array;
+                        if (isset($messageVariables[$messagesGroupField])) {
+                            if (empty($messagesGroupFieldAll) || in_array($messageVariables[$messagesGroupField],$messagesGroupFieldAll)) {
+                                if ($messageVariables[$messagesGroupFieldValue] > $messagesThresholdValue) {
+                                    $groupedFields[$messageVariables[$messagesGroupField]][] = $messageVariables[$messagesGroupFieldValue];
+                                }
+                            }
+                        }
+                    }
+
+                    $highestScore = 0;
+
+                    foreach ($groupedFields as $sentiment => $values) {
+
+                        $avgScore = 0;
+                        $avgScoreVal = 0;
+
+                        if ($groupMethod == 'avg') {
+                            $avgScoreVal = $avgScore = array_sum($values) / count($values);
+                        } else if ($groupMethod == 'sum_avg') {
+                            $avgScore = array_sum($values);
+                            $avgScoreVal = array_sum($values) / count($values);
+                        } else if ($groupMethod == 'count_max') {
+                            $avgScoreVal = $avgScore = count($values);
+                        } else if ($groupMethod == 'max') {
+                            $avgScoreVal = $avgScore = max($values);
+                        } else if ($groupMethod == 'min') {
+                            $avgScoreVal = $avgScore = min($values);
+                        } else if ($groupMethod == 'sum') {
+                            $avgScoreVal = $avgScore = array_sum($values);
+                        }
+
+                        if ($avgScore > $highestScore) {
+                            $highestScore = $avgScore;
+                            $variablesArray[$chatVariableName] = $sentiment;
+                            $variablesArray[$chatVariableValue] = $avgScoreVal;
+                        }
+                    }
+
+                    // Update chat variables array
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+
+                    $updateRequired = false;
                 }
+
+                if ($updateRequired === true) {
+                    $chat->chat_variables = json_encode($variablesArray);
+                    $chat->chat_variables_array = $variablesArray;
+                    $chat->updateThis(['update' => ['chat_variables']]);
+                }
+
+                $db->commit();
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
             }
-
-            // Update chat variables array
-            $chat->chat_variables = json_encode($variablesArray);
-            $chat->chat_variables_array = $variablesArray;
-            $chat->updateThis(['update' => ['chat_variables']]);
 
         } elseif ($action['content']['command'] == 'messageattribute') { // Main message attribute
 
