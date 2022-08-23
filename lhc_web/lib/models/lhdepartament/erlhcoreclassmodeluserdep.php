@@ -37,6 +37,7 @@ class erLhcoreClassModelUserDep
             'exclude_autoasign_mails' => $this->exclude_autoasign_mails,
             'exc_indv_autoasign' => $this->exc_indv_autoasign,
             'max_chats' => $this->max_chats,
+            'max_mails' => $this->max_mails,
         );
     }
 
@@ -151,12 +152,13 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('last_accepted_mail,exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+        $filter['ignore_fields'] = array('max_mails','last_accepted_mail,exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
         max(`ro`) as `ro`,
         max(`max_chats`) as `max_chats`,
+        max(`max_mails`) as `max_mails`,
         max(`dep_id`) as `dep_id`,
         max(`hide_online_ts`) as `hide_online_ts`,
         max(`hide_online`) as `hide_online`,
@@ -197,6 +199,7 @@ class erLhcoreClassModelUserDep
     public $exclude_autoasign_mails = 0;
     public $exc_indv_autoasign = 0;
     public $max_chats = 0;
+    public $max_mails = 0;
 }
 
 ?>
