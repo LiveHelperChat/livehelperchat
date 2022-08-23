@@ -29,7 +29,9 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
         $originalSettings['old'] = array(
             'auto_accept' => $UserData->auto_accept,
             'max_chats' => $UserData->max_active_chats,
+            'max_mails' => $UserData->max_active_mails,
             'exclude_autoasign' => $UserData->exclude_autoasign,
+            'exclude_autoasign_mails' => $UserData->exclude_autoasign_mails,
             'show_all_pending' => erLhcoreClassModelUserSetting::getSetting('show_all_pending',  1, $UserData->id),
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
             'no_scroll_bottom' =>  erLhcoreClassModelUserSetting::getSetting('no_scroll_bottom',  0, $UserData->id),
@@ -53,8 +55,10 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 	erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase']);
 
     $UserData->exclude_autoasign = $pendingSettings['exclude_autoasign'];
+    $UserData->exclude_autoasign_mails = $pendingSettings['exclude_autoasign_mails'];
     $UserData->auto_accept = $pendingSettings['auto_accept'];
     $UserData->max_active_chats = $pendingSettings['max_chats'];
+    $UserData->max_active_mails = $pendingSettings['max_mails'];
     $UserData->saveThis();
 
     if (isset($_POST['auto_preload']) && $_POST['auto_preload'] == 1) {
@@ -101,10 +105,12 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 
     // Update max active chats directly
     $db = ezcDbInstance::get();
-    $stmt = $db->prepare('UPDATE lh_userdep SET max_chats = :max_chats, exclude_autoasign = :exclude_autoasign WHERE user_id = :user_id');
+    $stmt = $db->prepare('UPDATE lh_userdep SET max_mails = :max_mails, max_chats = :max_chats, exclude_autoasign = :exclude_autoasign, exclude_autoasign_mails = :exclude_autoasign_mails WHERE user_id = :user_id');
     $stmt->bindValue(':max_chats', $UserData->max_active_chats, PDO::PARAM_INT);
+    $stmt->bindValue(':max_mails', $UserData->max_active_mails, PDO::PARAM_INT);
     $stmt->bindValue(':user_id', $UserData->id, PDO::PARAM_INT);
     $stmt->bindValue(':exclude_autoasign', $UserData->exclude_autoasign, PDO::PARAM_INT);
+    $stmt->bindValue(':exclude_autoasign_mails', $UserData->exclude_autoasign_mails, PDO::PARAM_INT);
     $stmt->execute();
 
 	$tpl->set('account_updated','done');

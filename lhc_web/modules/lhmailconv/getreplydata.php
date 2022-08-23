@@ -108,8 +108,16 @@ try {
                 erLhcoreClassTransfer::handleTransferredChatOpen($conv, $currentUser->getUserID(), erLhcoreClassModelTransfer::SCOPE_MAIL);
             }
 
-            ($chatAccepted || $operatorChanged) && erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
+            if ($chatAccepted || $operatorChanged) {
+                erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
 
+                erLhcoreClassChat::updateActiveChats($conv->user_id);
+
+                if ($conv->department !== false) {
+                    erLhcoreClassChat::updateDepartmentStats($conv->department);
+                }
+            }
+            
             $conv->updateThis();
         }
 

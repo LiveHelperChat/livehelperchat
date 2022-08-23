@@ -201,56 +201,73 @@
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" id="pending">
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-        <div class="form-group">
-            <label><input type="checkbox" name="showAllPendingEnabled" value="1" <?php $quick_settings['show_all_pending'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User can see all pending chats, not only assigned to him');?></label><br>
-        </div>
+        <div class="row">
+            <div class="col-6">
 
-        <div class="form-group">
-            <label><input type="checkbox" name="autoAccept" value="1" <?php $user->auto_accept == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Automatically accept assigned chats');?></label>
-        </div>
-
-        <div class="form-group">
-            <label><input type="checkbox" name="auto_join_private" value="1" <?php $quick_settings['auto_join_private'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto join private chats');?></label>
-        </div>
-
-        <div class="form-group">
-            <label><input type="checkbox" name="no_scroll_bottom" value="1" <?php $quick_settings['no_scroll_bottom'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not scroll to the bottom on chat open');?></label>
-        </div>
-
-        <div class="form-group">
-            <label><input type="checkbox" name="remove_closed_chats" value="1" <?php $quick_settings['remove_closed_chats'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label>
-        </div>
-
-        <div class="form-group">
-            <fieldset class="border p-2">
-                <legend class="w-auto fs16 mb-0"><label class="fs16 m-0 p-0"><input type="checkbox" name="remove_closed_chats" value="1" <?php $quick_settings['remove_closed_chats'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label></legend>
-                <label><input type="checkbox" name="remove_closed_chats_remote" value="1" <?php $quick_settings['remove_closed_chats_remote'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Include not only my chats');?>
-                    <span class="d-block"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Other operators chats also will be closed on page refresh');?></i></small></span>
-                </label>
-                <div class="form-group mb-0">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','How much time has to be passed after chat close before chat is removed. Time in minutes.');?></label>
-                    <input name="remove_close_timeout" value="<?php echo (int)$quick_settings['remove_close_timeout']?>" class="form-control form-control-sm" type="number" max="60" min="1" >
+                <div class="form-group">
+                    <label><input type="checkbox" name="showAllPendingEnabled" value="1" <?php $quick_settings['show_all_pending'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','User can see all pending chats, not only assigned to him');?></label><br>
                 </div>
-            </fieldset>
-        </div>
 
+                <div class="form-group">
+                    <label><input type="checkbox" name="autoAccept" value="1" <?php $user->auto_accept == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Automatically accept assigned chats');?></label>
+                </div>
 
+                <div class="form-group">
+                    <label><input type="checkbox" name="auto_join_private" value="1" <?php $quick_settings['auto_join_private'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto join private chats');?></label>
+                </div>
 
-        <div class="form-group">
-            <label><input type="checkbox" name="exclude_autoasign" value="1" <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assign workflow');?></label>
-        </div>
+                <div class="form-group">
+                    <label><input type="checkbox" name="no_scroll_bottom" value="1" <?php $quick_settings['no_scroll_bottom'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Do not scroll to the bottom on chat open');?></label>
+                </div>
 
-        <div class="form-group">
-            <label><input type="checkbox" name="auto_preload" value="1" <?php $quick_settings['auto_preload']== 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></label>
-        </div>
+                <div class="form-group">
+                    <label><input type="checkbox" name="remove_closed_chats" value="1" <?php $quick_settings['remove_closed_chats'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label>
+                </div>
 
-        <div class="form-group">
-            <label><input type="checkbox" name="auto_uppercase" value="1" <?php $quick_settings['auto_uppercase'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?></label>
-        </div>
+                <div class="form-group">
+                    <fieldset class="border p-2">
+                        <legend class="w-auto fs16 mb-0"><label class="fs16 m-0 p-0"><input type="checkbox" name="remove_closed_chats" value="1" <?php $quick_settings['remove_closed_chats'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove my closed chats from opened chat list on page refresh');?></label></legend>
+                        <label><input type="checkbox" name="remove_closed_chats_remote" value="1" <?php $quick_settings['remove_closed_chats_remote'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Include not only my chats');?>
+                            <span class="d-block"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Other operators chats also will be closed on page refresh');?></i></small></span>
+                        </label>
+                        <div class="form-group mb-0">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','How much time has to be passed after chat close before chat is removed. Time in minutes.');?></label>
+                            <input name="remove_close_timeout" value="<?php echo (int)$quick_settings['remove_close_timeout']?>" class="form-control form-control-sm" type="number" max="60" min="1" >
+                        </div>
+                    </fieldset>
+                </div>
 
-        <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active chats');?></label>
-            <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
+                <div class="form-group">
+                    <label><input type="checkbox" name="exclude_autoasign" value="1" <?php $user->exclude_autoasign == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assign workflow');?></label>
+                </div>
+
+                <div class="form-group">
+                    <label><input type="checkbox" name="auto_preload" value="1" <?php $quick_settings['auto_preload']== 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto preload previous visitor chat messages');?></label>
+                </div>
+
+                <div class="form-group">
+                    <label><input type="checkbox" name="auto_uppercase" value="1" <?php $quick_settings['auto_uppercase'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?></label>
+                </div>
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active chats');?></label>
+                    <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><input type="checkbox" name="auto_accept_mail" value="1"  <?php $quick_settings['auto_accept_mail'] == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Automatically accept assigned mails');?></label>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" name="exclude_autoasign_mails" value="1" <?php $user->exclude_autoasign_mails == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from mails auto assign workflow');?></label>
+                </div>
+
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active mails');?></label>
+                    <input type="text" ng-non-bindable class="form-control" name="maximumMails" value="<?php echo $user->max_active_mails?>" />
+                </div>
+            </div>
         </div>
 
         <input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />

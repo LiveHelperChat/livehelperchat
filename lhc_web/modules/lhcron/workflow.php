@@ -35,7 +35,7 @@ if ($assignWorkflowTimeout > 0) {
         }
     }
 
-    /*foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterlt' => array('pnd_time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+    foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterlt' => array('pnd_time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
         try {
             $db->beginTransaction();
             $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
@@ -47,7 +47,7 @@ if ($assignWorkflowTimeout > 0) {
             $db->rollback();
             throw $e;
         }
-    }*/
+    }
 }
 
 foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT))) as $chat) {
@@ -65,7 +65,7 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     }
 }
 
-/*foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
     try {
         $db->beginTransaction();
             $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
@@ -77,7 +77,8 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
         $db->rollback();
         throw $e;
     }
-}*/
+}
+
 
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);

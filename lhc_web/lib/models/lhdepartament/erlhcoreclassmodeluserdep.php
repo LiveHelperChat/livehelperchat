@@ -21,9 +21,12 @@ class erLhcoreClassModelUserDep
             'last_activity' => $this->last_activity,
             'hide_online' => $this->hide_online,
             'last_accepted' => $this->last_accepted,
+            'last_accepted_mail' => $this->last_accepted_mail,
             'active_chats' => $this->active_chats,
             'pending_chats' => $this->pending_chats,
             'inactive_chats' => $this->inactive_chats,
+            'active_mails' => $this->active_mails,
+            'pending_mails' => $this->pending_mails,
             'hide_online_ts' => $this->hide_online_ts,
             'always_on' => $this->always_on,
             'lastd_activity' => $this->lastd_activity,
@@ -31,6 +34,7 @@ class erLhcoreClassModelUserDep
             'type' => $this->type,
             'dep_group_id' => $this->dep_group_id,
             'exclude_autoasign' => $this->exclude_autoasign,
+            'exclude_autoasign_mails' => $this->exclude_autoasign_mails,
             'exc_indv_autoasign' => $this->exc_indv_autoasign,
             'max_chats' => $this->max_chats,
         );
@@ -147,7 +151,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('exc_indv_autoasign','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+        $filter['ignore_fields'] = array('last_accepted_mail,exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
         $filter['select_columns'] = '
         max(`id`) as `id`, 
@@ -160,9 +164,12 @@ class erLhcoreClassModelUserDep
         max(`lastd_activity`) as `lastd_activity`, 
         max(`always_on`) as `always_on`, 
         max(`last_accepted`) as `last_accepted`,
+        max(`last_accepted_mail`) as `last_accepted_mail`,
         max(`active_chats`) as `active_chats`,
         max(`pending_chats`) as `pending_chats`,
         max(`inactive_chats`) as `inactive_chats`,
+        max(`active_mails`) as `active_mails`,
+        max(`pending_mails`) as `pending_mails`,
         min(`ro`) as `ro`';
 
         return self::getList($filter);
@@ -176,14 +183,18 @@ class erLhcoreClassModelUserDep
     public $last_activity = 0;
     public $lastd_activity = 0;
     public $last_accepted = 0;
+    public $last_accepted_mail = 0;
     public $active_chats = 0;
     public $pending_chats = 0;
     public $inactive_chats = 0;
+    public $active_mails = 0;
+    public $pending_mails = 0;
     public $always_on = 0;
     public $ro = 0;
     public $type = 0;
     public $dep_group_id = 0;
     public $exclude_autoasign = 0;
+    public $exclude_autoasign_mails = 0;
     public $exc_indv_autoasign = 0;
     public $max_chats = 0;
 }
