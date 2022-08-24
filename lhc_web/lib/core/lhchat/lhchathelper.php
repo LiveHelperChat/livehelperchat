@@ -166,12 +166,14 @@ class erLhcoreClassChatHelper
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
 
-                $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
-
                 $user_id = 0;
                 if (!(isset($params['bot']) && $params['bot'] == true) && is_object($params['user'])) {
                     $msg->name_support = (string)$params['user']->name_support;
                     $user_id = $params['user']->id;
+                }
+
+                if (empty($msg->name_support)) {
+                    $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat'], 'user_id' => $user_id));
