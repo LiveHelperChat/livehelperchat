@@ -166,6 +166,8 @@ class erLhcoreClassChatHelper
                 $msg->chat_id = $params['chat']->id;
                 $msg->user_id = - 1;
 
+                $msg->name_support = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+
                 $user_id = 0;
                 if (!(isset($params['bot']) && $params['bot'] == true) && is_object($params['user'])) {
                     $msg->name_support = (string)$params['user']->name_support;
