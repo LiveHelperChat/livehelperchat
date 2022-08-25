@@ -681,7 +681,7 @@ class erLhcoreClassBBCode
             $append = '</a>';
         }
 
-        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage()' class='action-image img-fluid' src=\"".$url."\" alt=\"\" />{$append}</div>";
+        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid' src=\"".$url."\" alt=\"\" />{$append}</div>";
    }
 
    public static function _make_embed_map($matches)
@@ -855,11 +855,10 @@ class erLhcoreClassBBCode
                             }
                             
                             if (isset($displayType) && $displayType == 'rawimg') {
-                                return '<img onclick="lhinst.zoomImage()" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
+                                return '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />';
                             } else {
-                                return $prepend . '<img onclick="lhinst.zoomImage()" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
+                                return $prepend . '<img onclick="lhinst.zoomImage(this)" id="img-file-' . $file->id . '" title="'.htmlspecialchars($file->upload_name).'" class="action-image img-fluid" src="' . self::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . "/{$file->id}/{$hash}" . '" alt="'.htmlspecialchars($file->upload_name).'" />' . $append;
                             }
-
                         }
 
                         $audio = '';
