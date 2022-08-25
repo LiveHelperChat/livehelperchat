@@ -209,7 +209,7 @@ class OfflineChat extends Component {
 
                 {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
-                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
                     <div className="container-fluid">
                         <div className="row">

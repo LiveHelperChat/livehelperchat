@@ -38,6 +38,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
             'remove_closed_chats' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',  0, $UserData->id),
             'remove_closed_chats_remote' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats_remote',  0, $UserData->id),
             'remove_close_timeout' =>  erLhcoreClassModelUserSetting::getSetting('remove_close_timeout',  5, $UserData->id),
+            'chat_text_rows' =>  erLhcoreClassModelUserSetting::getSetting('chat_text_rows',  2, $UserData->id),
         );
         $originalSettings['new'] = $pendingSettings;
 
@@ -53,6 +54,7 @@ if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmod
 
 	erLhcoreClassModelUserSetting::setSetting('show_all_pending', $pendingSettings['show_all_pending']);
 	erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase']);
+	erLhcoreClassModelUserSetting::setSetting('chat_text_rows', $pendingSettings['chat_text_rows']);
 
     $UserData->exclude_autoasign = $pendingSettings['exclude_autoasign'];
     $UserData->exclude_autoasign_mails = $pendingSettings['exclude_autoasign_mails'];

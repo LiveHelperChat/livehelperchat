@@ -254,6 +254,13 @@
                     <input type="text" class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />
                 </div>
 
+                <div class="form-group">
+                    <label>
+                        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Default number of rows for chat text area');?>
+                    </label>
+                    <input class="form-control form-control-sm" type="number" name="chat_text_rows" value="<?php echo (int)$quick_settings['chat_text_rows'] ?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Number of rows');?>">
+                </div>
+                
             </div>
             <div class="col-6">
                 <div class="form-group">
@@ -262,7 +269,6 @@
                 <div class="form-group">
                     <label><input type="checkbox" name="exclude_autoasign_mails" value="1" <?php $user->exclude_autoasign_mails == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from mails auto assign workflow');?></label>
                 </div>
-
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active mails');?></label>
                     <input type="text" ng-non-bindable class="form-control" name="maximumMails" value="<?php echo $user->max_active_mails?>" />

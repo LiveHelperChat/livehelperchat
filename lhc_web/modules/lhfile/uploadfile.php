@@ -118,6 +118,11 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
         $db->commit();
 
+        if (isset($upload_handler) && $upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.after_save', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
+        }
+
+
     } catch (Exception $e) {
         echo json_encode(array('error' => 'true', 'error_msg' => $e->getMessage()));
         $db->rollback();

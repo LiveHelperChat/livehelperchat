@@ -327,7 +327,26 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
    			'chat' => $chat,
    			'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-            erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question));
+            try {
+                $db = ezcDbInstance::get();
+                $db->beginTransaction();
+                
+                $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'question' => $inputData->question));
+
+                $db->commit();
+
+                // Remove out of transaction scope
+                // Same as start chat workflow
+                if ($requestSaved === true) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
+                        'chat' =>  & $chat
+                    ));
+                }
+
+            } catch (Exception $e) {
+                $db->rollback();
+                throw $e;
+            }
 
 	   		$tpl->set('request_send',true);
 	   	} else {
