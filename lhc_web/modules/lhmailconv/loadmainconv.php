@@ -61,8 +61,20 @@ try {
             }
 
             if (!isset($mcOptionsData['disable_auto_owner']) || $mcOptionsData['disable_auto_owner'] == 0) {
-                ($chatAccepted || $operatorChanged) && erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
+
                 $conv->updateThis();
+
+                if ($chatAccepted || $operatorChanged) {
+                    erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv, $conv->user_id);
+
+                    $conv->updateThis();
+
+                    erLhcoreClassChat::updateActiveChats($conv->user_id);
+
+                    if ($conv->department !== false) {
+                        erLhcoreClassChat::updateDepartmentStats($conv->department);
+                    }
+                }
             }
         }
 

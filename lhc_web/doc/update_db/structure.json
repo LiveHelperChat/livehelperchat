@@ -6258,6 +6258,14 @@
         "extra": ""
       },
       {
+        "field": "max_ac_dep_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "pending_group_max",
         "type": "int(11)",
         "null": "NO",
@@ -6275,6 +6283,14 @@
       },
       {
         "field": "delay_before_assign",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "delay_before_assign_mail",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -6346,7 +6362,23 @@
         "extra": ""
       },
       {
+        "field": "max_active_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "max_timeout_seconds",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "max_timeout_seconds_mail",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -6507,6 +6539,14 @@
       },
       {
         "field": "active_balancing",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "active_mail_balancing",
         "type": "tinyint(1)",
         "null": "NO",
         "key": "",
@@ -8081,6 +8121,14 @@
         "extra": ""
       },
       {
+        "field": "exclude_autoasign_mails",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "exc_indv_autoasign",
         "type": "tinyint(1)",
         "null": "NO",
@@ -8137,6 +8185,30 @@
         "extra": ""
       },
       {
+        "field": "last_accepted_mail",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "active_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "pending_mails",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "active_chats",
         "type": "int(11)",
         "null": "NO",
@@ -8162,6 +8234,14 @@
       },
       {
         "field": "max_chats",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "max_mails",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -8403,7 +8483,23 @@
         "extra": ""
       },
       {
+        "field": "exclude_autoasign_mails",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      },
+      {
         "field": "max_active_chats",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "max_active_mails",
         "type": "int(11)",
         "null": "NO",
         "key": "MUL",

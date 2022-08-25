@@ -83,6 +83,8 @@ if (empty($Errors)) {
         'chat' => $chat,
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
+
+    
     if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
         erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
     }
@@ -96,20 +98,39 @@ if (empty($Errors)) {
         'chat' => $chat,
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-    erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+    try {
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
 
-    // Assign chat to user
-    if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {
-        // To track online users
-        $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $inputData->vid));
-        
-        if ($userInstance !== false) {
-            $userInstance->chat_id = $chat->id;
-            $userInstance->dep_id = $chat->dep_id;
-            $userInstance->saveThis();
-            $chat->online_user_id = $userInstance->id;
-            $chat->saveThis();
+        $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chat' => & $chat, 'input_data' => $inputData, 'question' => (isset($inputData->question) ? $inputData->question : '')));
+
+        // Assign chat to user
+        if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {
+            // To track online users
+            $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('vid' => $inputData->vid));
+
+            if ($userInstance !== false) {
+                $userInstance->chat_id = $chat->id;
+                $userInstance->dep_id = $chat->dep_id;
+                $userInstance->saveThis();
+                $chat->online_user_id = $userInstance->id;
+                $chat->saveThis();
+            }
         }
+
+        $db->commit();
+
+        // Remove out of transaction scope
+        // Same as start chat workflow
+        if ($requestSaved === true) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
+                'chat' =>  & $chat
+            ));
+        }
+
+    } catch (Exception $e) {
+        $db->rollback();
+        throw $e;
     }
 
     $outputResponse = array (

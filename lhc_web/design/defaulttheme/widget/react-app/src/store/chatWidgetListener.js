@@ -133,7 +133,12 @@ export default function (dispatch, getState) {
         {id : 'onlineStatus',cb : (data) => {dispatch({type: 'onlineStatus', data: data})}},
         {id : 'toggleSound',cb : (data) => {dispatch({type: 'toggleSound', data: data})}},
         {id : 'widgetStatus',cb : (data) => {dispatch({type: 'widgetStatus', data: data})}},
-        {id : 'jsVars',cb : (data) => {dispatch({type: 'jsVars', data: data})}},
+        {id : 'jsVars',cb : (data, data2) => {
+            dispatch({type: 'jsVars', data: data});
+            if (typeof data2 !== 'undefined') {
+                dispatch({type: 'jsVarsPrefill', data: data2});
+            }
+        }},
         {id : 'ext_modules',cb : (data) => {
                 extensions = data;
         }},

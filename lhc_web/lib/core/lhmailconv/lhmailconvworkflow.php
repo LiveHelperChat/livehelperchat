@@ -68,6 +68,12 @@ class erLhcoreClassMailconvWorkflow {
 
             $message->updateThis();
         }
+
+        $conv->user_id > 0 && erLhcoreClassChat::updateActiveChats($conv->user_id);
+
+        if ($conv->department !== false) {
+            erLhcoreClassChat::updateDepartmentStats($conv->department);
+        }
     }
 
     public static function getConversationDuration($messages, $attr = 'ctime') {

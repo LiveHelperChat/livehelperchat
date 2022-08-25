@@ -334,56 +334,85 @@
 			
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment')) : ?>
 			<div role="tabpanel" class="tab-pane" id="autoassignment">
-			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" ng-init="AutoAssignActive=<?php if ($departament->active_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignActive" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
 
-		    	<div ng-show="AutoAssignActive">
+                <div class="row">
+                    <div class="col-6">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active chats auto-assignment');?> <input type="checkbox" ng-init="AutoAssignActive=<?php if ($departament->active_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignActive" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
+                        <div ng-show="AutoAssignActive">
 
-                    <div class="form-group">
-					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
-					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active chats, 0 - unlimited');?></label>
+                                <input type="text"  ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new chats will not be assigned to any operator.')?></i></small></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between chat assignment to operator');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next chat can be assigned to operator.')?></i></small></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label><input type="checkbox" name="ExcludeInactiveChats" value="on" <?php if ($departament->exclude_inactive_chats == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Exclude inactive chats');?></label>
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded')?></i></small></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label><input type="checkbox" name="AutoAssignLowerLimit" value="on" <?php if (isset($departament->bot_configuration_array['auto_lower_limit']) && $departament->bot_configuration_array['auto_lower_limit'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat to lowest number of chats having operator');?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><input type="checkbox" name="assign_same_language" value="on" <?php if ($departament->assign_same_language == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Try to assign chats first to the same language speaking operators');?></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Check for presence of variable');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Resume auto assign if chat remains pending for n seconds');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
+                            </div>
+
+                        </div>
                     </div>
-
-                    <div class="form-group">
-					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active chats, 0 - unlimited');?></label>
-					    <input type="text"  ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
-                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new chats will not be assigned to any operator.')?></i></small></p>
+                    <div class="col-6">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active mails auto-assignment');?> <input type="checkbox" ng-init="AutoMailAssignActive=<?php if ($departament->active_mail_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoMailAssignActive" name="active_mail_balancing" value="on" <?php if ($departament->active_mail_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
+                        <div ng-show="AutoMailAssignActive">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active mails user can have at a time, 0 - unlimited');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="max_active_mails" value="<?php echo htmlspecialchars($departament->max_active_mails);?>" />
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active mails, 0 - unlimited');?></label>
+                                <input type="text"  ng-non-bindable class="form-control form-control-sm" name="max_ac_dep_mails" value="<?php echo htmlspecialchars($departament->max_ac_dep_mails);?>" />
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new mails will not be assigned to any operator.')?></i></small></p>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign mail to another operator if operator did not accepted mail in seconds, 0 - disabled');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="max_timeout_seconds_mail" value="<?php echo htmlspecialchars($departament->max_timeout_seconds_mail);?>" />
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between mail assignment to operator');?></label>
+                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_before_assign_mail" value="<?php echo htmlspecialchars($departament->delay_before_assign_mail);?>" />
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next mail can be assigned to operator.')?></i></small></p>
+                            </div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
-					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
-                    </div>
 
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between chat assignment to operator');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
-                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next chat can be assigned to operator.')?></i></small></p>
-                    </div>
-
-                    <div class="form-group">
-                        <label><input type="checkbox" name="ExcludeInactiveChats" value="on" <?php if ($departament->exclude_inactive_chats == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Exclude inactive chats');?></label>
-                        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Pending and active chats which visitors has closed chats explicitly or visitors being redirected to survey will be excluded')?></i></small></p>
-                    </div>
-
-                    <div class="form-group">
-                        <label><input type="checkbox" name="AutoAssignLowerLimit" value="on" <?php if (isset($departament->bot_configuration_array['auto_lower_limit']) && $departament->bot_configuration_array['auto_lower_limit'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat to lowest number of chats having operator');?></label>
-                    </div>
-
-                    <div class="form-group">
-                        <label><input type="checkbox" name="assign_same_language" value="on" <?php if ($departament->assign_same_language == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Try to assign chats first to the same language speaking operators');?></label>
-                    </div>
-
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Check for presence of variable');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
-                    </div>
-
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Resume auto assign if chat remains pending for n seconds');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
-                    </div>
-
-				</div> 
 		    </div>
 			<?php endif;?>
 

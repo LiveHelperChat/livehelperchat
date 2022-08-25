@@ -99,9 +99,16 @@ class erLhcoreClassModelMailconvConversation
     }
 
     public function afterRemove() {
+        
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation.after_remove',array(
             'conversation' => & $this
         ));
+
+        erLhcoreClassChat::updateActiveChats($this->user_id);
+
+        if ($this->department !== false) {
+            erLhcoreClassChat::updateDepartmentStats($this->department);
+        }
     }
 
     public function beforeRemove()

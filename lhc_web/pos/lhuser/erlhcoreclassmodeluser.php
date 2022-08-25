@@ -16,7 +16,7 @@ foreach (['username','avatar','password','email','name','chat_nickname','skype',
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['hide_online','all_departments','invisible_mode','inactive_mode','rec_per_req','max_active_chats','auto_accept','exclude_autoasign','attr_int_1','attr_int_2','attr_int_3','pswd_updated','always_on','cache_version','llogin','force_logout'] as $posAttr) {
+foreach (['max_active_mails','exclude_autoasign_mails','hide_online','all_departments','invisible_mode','inactive_mode','rec_per_req','max_active_chats','auto_accept','exclude_autoasign','attr_int_1','attr_int_2','attr_int_3','pswd_updated','always_on','cache_version','llogin','force_logout'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

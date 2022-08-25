@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 197;
+            lhc.version = 198;
 
             var init = () => {
 
@@ -489,8 +489,8 @@
 
                         // Monitor js vars if required
                         if (data.js_vars.length > 0) {
-                            attributesWidget.userSession.setupVarsMonitoring(data.js_vars, (vars) => {
-                                chatEvents.sendChildEvent('jsVars', [vars]);
+                            attributesWidget.userSession.setupVarsMonitoring(data.js_vars, (vars, prefillVars) => {
+                                chatEvents.sendChildEvent('jsVars', [vars, prefillVars]);
                             });
                         }
                     }

@@ -2011,6 +2011,9 @@ class erLhcoreClassChat {
        $pendingChats = null;
        $inactiveChats = null;
 
+       $activeMails = null;
+       $pendingMails = null;
+
        if (!empty($ids)) {
 
            // Try 3 times to update table
@@ -2018,22 +2021,32 @@ class erLhcoreClassChat {
            {
                try {
 
-                   if ($activeChats === null){
-                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));// + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_ACTIVE)));
+                   if ($activeChats === null) {
+                       $activeChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
                    }
 
                    if ($pendingChats === null) {
-                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT)));// + erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING)));
+                       $pendingChats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelChat::STATUS_PENDING_CHAT)));
                    }
 
                    if ($inactiveChats === null) {
                        $inactiveChats = erLhcoreClassChat::getCount(array('filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT, erLhcoreClassModelChat::STATUS_ACTIVE_CHAT), 'status_sub' => array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW)), 'filter' => array('user_id' => $user_id)));
                    }
 
-                   $stmt = $db->prepare('UPDATE lh_userdep SET active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
+                   if ($activeMails === null) {
+                       $activeMails = erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_ACTIVE)));
+                   }
+
+                   if ($pendingMails === null) {
+                       $pendingMails = erLhcoreClassModelMailconvConversation::getCount(array('filter' => array('user_id' => $user_id, 'status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING)));
+                   }
+
+                   $stmt = $db->prepare('UPDATE lh_userdep SET active_mails = :active_mails, pending_mails = :pending_mails, active_chats = :active_chats, pending_chats = :pending_chats, inactive_chats = :inactive_chats WHERE id IN (' . implode(',', $ids) . ');');
                    $stmt->bindValue(':active_chats',(int)$activeChats,PDO::PARAM_INT);
                    $stmt->bindValue(':pending_chats',(int)$pendingChats,PDO::PARAM_INT);
                    $stmt->bindValue(':inactive_chats',(int)$inactiveChats,PDO::PARAM_INT);
+                   $stmt->bindValue(':active_mails',(int)$activeMails,PDO::PARAM_INT);
+                   $stmt->bindValue(':pending_mails',(int)$pendingMails,PDO::PARAM_INT);
                    $stmt->execute();
 
                    // Finish cycle

@@ -1778,23 +1778,23 @@ class erLhcoreClassChatValidator {
 
             if (isset($params['input_data']) && $params['input_data']->has_file == true) {
                 $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
-                $data = (array)$fileData->data;
+                $dataFile = (array)$fileData->data;
                 $path = 'var/storage/' . date('Y') . 'y/' . date('m') . '/' . date('d') . '/' . $params['chat']->id . '/';
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_path', array('path' => & $path, 'storage_id' => $params['chat']->id));
 
                 $clamav = false;
 
-                if (isset($data['clamav_enabled']) && $data['clamav_enabled'] == true) {
+                if (isset($dataFile['clamav_enabled']) && $dataFile['clamav_enabled'] == true) {
 
                     $opts = array();
 
-                    if (isset($data['clamd_sock']) && !empty($data['clamd_sock'])) {
-                        $opts['clamd_sock'] = $data['clamd_sock'];
+                    if (isset($dataFile['clamd_sock']) && !empty($dataFile['clamd_sock'])) {
+                        $opts['clamd_sock'] = $dataFile['clamd_sock'];
                     }
 
-                    if (isset($data['clamd_sock_len']) && !empty($data['clamd_sock_len'])) {
-                        $opts['clamd_sock_len'] = $data['clamd_sock_len'];
+                    if (isset($dataFile['clamd_sock_len']) && !empty($dataFile['clamd_sock_len'])) {
+                        $opts['clamd_sock_len'] = $dataFile['clamd_sock_len'];
                     }
 
                     $clamav = new Clamav($opts);
@@ -1804,8 +1804,8 @@ class erLhcoreClassChatValidator {
                     'antivirus' => $clamav,
                     'user_id' => 0,
                     'param_name' => 'File',
-                    'max_file_size' => $data['fs_max'] * 1024,
-                    'accept_file_types_lhc' => '/\.(' . $data['ft_us'] . ')$/i',
+                    'max_file_size' => $dataFile['fs_max'] * 1024,
+                    'accept_file_types_lhc' => '/\.(' . $dataFile['ft_us'] . ')$/i',
                     'chat' => $params['chat'],
                     'download_via_php' => true,
                     'upload_dir' => $path));
@@ -1822,10 +1822,10 @@ class erLhcoreClassChatValidator {
                 ));
             }
 
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request_saved', array(
-                'chat' =>  & $params['chat']
-            ));
+            return true;
         }
+
+        return false;
     }
 
     // Set's chat as a bot
