@@ -2431,10 +2431,10 @@ function lh(){
             });
         }
 
-		$textarea.bind('keydown', 'return', function (evt){
+		$textarea.bind('keydown', 'return', function (evt) {
 				_that.addmsgadmin(chat_id);
 				ee.emitEvent('afterAdminMessageSent',[chat_id]);
-				$textarea[0].rows = 2;
+				$textarea[0].rows = $textarea.attr('data-rows-default');
 				return false;
 		});
 
@@ -2466,7 +2466,12 @@ function lh(){
                 return ;
             }
 
-			var ta = $textarea[0];
+            var ta = $textarea[0];
+
+            if ((evt.which == 38 || evt.which == 8 || evt.which == 46) && ta.value.split(/\r\n|\r|\n/).length <= ta.rows && parseInt($textarea.attr('data-rows-default')) <= ta.value.split(/\r\n|\r|\n/).length) {
+                ta.rows = ta.value.split(/\r\n|\r|\n/).length;
+            }
+
 			var maxrows = 30;
 			var lh = ta.clientHeight / ta.rows;
 			while (ta.scrollHeight > ta.clientHeight && !window.opera && ta.rows < maxrows) {
@@ -2475,8 +2480,6 @@ function lh(){
 			}
 			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
 		});
-
-
 
 		// Resize by user
 		$messageBlock = $('#messagesBlock-'+chat_id);

@@ -339,6 +339,13 @@
            <label><input type="checkbox" name="auto_uppercase" value="1" <?php erLhcoreClassModelUserSetting::getSetting('auto_uppercase',1, $user->id) == 1 ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Auto uppercase sentences');?></label>
        </div>
 
+       <div class="form-group">
+           <label>
+               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Default number of rows for chat text area');?>
+           </label>
+           <input class="form-control form-control-sm" type="number" name="chat_text_rows" value="<?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_text_rows',2, $user->id) ?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Number of rows');?>">
+       </div>
+
         <div class="form-group">
            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Maximum active chats');?></label>
            <input type="text" ng-non-bindable class="form-control" name="maximumChats" value="<?php echo $user->max_active_chats?>" />

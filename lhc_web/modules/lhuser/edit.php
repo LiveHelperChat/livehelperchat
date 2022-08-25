@@ -153,6 +153,7 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
             'auto_join_private' =>  erLhcoreClassModelUserSetting::getSetting('auto_join_private',  1, $UserData->id),
             'remove_closed_chats' =>  erLhcoreClassModelUserSetting::getSetting('remove_closed_chats',  1, $UserData->id),
             'hide_quick_notifications' =>  erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',  1, $UserData->id),
+            'chat_text_rows' =>  erLhcoreClassModelUserSetting::getSetting('chat_text_rows',  2, $UserData->id),
         );
         $originalSettings['new'] = $pendingSettings;
 
@@ -174,7 +175,7 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
     erLhcoreClassModelUserSetting::setSetting('auto_preload', $pendingSettings['auto_preload'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('no_scroll_bottom', $pendingSettings['no_scroll_bottom'], $UserData->id);
     erLhcoreClassModelUserSetting::setSetting('auto_uppercase', $pendingSettings['auto_uppercase'], $UserData->id);
-
+    erLhcoreClassModelUserSetting::setSetting('chat_text_rows', $pendingSettings['chat_text_rows'], $UserData->id);
 
 
     $UserData->auto_accept = $pendingSettings['auto_accept'];

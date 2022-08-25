@@ -372,6 +372,9 @@ class erLhcoreClassUserValidator {
             'no_scroll_bottom' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			),
+            'chat_text_rows' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 2, 'max_range' => 50)
+			),
             'maximumChats' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int'
 			),
@@ -400,6 +403,12 @@ class erLhcoreClassUserValidator {
             $result['no_scroll_bottom'] = 1;
 		} else {
             $result['no_scroll_bottom'] = 0;
+		}
+
+		if ($form->hasValidData( 'chat_text_rows' )) {
+            $result['chat_text_rows'] = $form->chat_text_rows;
+		} else {
+            $result['chat_text_rows'] = 2;
 		}
 
 		if ( $form->hasValidData( 'auto_preload' ) && $form->auto_preload == true ) {

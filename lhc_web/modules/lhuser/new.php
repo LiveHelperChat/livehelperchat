@@ -27,7 +27,8 @@ $userParams = array(
     'remove_close_timeout' => 5,
     'auto_preload' => 0,
     'auto_uppercase' => 1,
-    
+    'chat_text_rows' => 2,
+
     // Notifications
     'ownntfonly' => 0,
     'sn_off' => 1,
@@ -106,6 +107,7 @@ if (isset($_POST['Update_account']))
             erLhcoreClassModelUserSetting::setSetting('hide_quick_notifications', $userParams['hide_quick_notifications'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('trackactivitytimeout', $userParams['trackactivitytimeout'], $UserData->id);
             erLhcoreClassModelUserSetting::setSetting('show_alert_transfer', $userParams['show_alert_transfer'], $UserData->id);
+            erLhcoreClassModelUserSetting::setSetting('chat_text_rows', $userParams['chat_text_rows'], $UserData->id);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created',array('userData' => & $UserData, 'password' => $UserData->password_front));
 
