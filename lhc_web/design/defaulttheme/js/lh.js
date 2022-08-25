@@ -2929,6 +2929,10 @@ function lh(){
     {
         this.closeWindowOnChatCloseDelete = value;
     };
+
+    this.zoomImage = function(e) {
+        lhc.revealModal({'url':e.src + '?modal=true'})
+    }
 }
 
 function chatMapLoaded()
