@@ -555,12 +555,19 @@ class erLhcoreClassChatCommand
 
     public static function blockUser($params)
     {
-        erLhcoreClassModelChatBlockedUser::blockChat(array('user' => $params['user'], 'chat' => $params['chat']));
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowblockusers')) {
+            erLhcoreClassModelChatBlockedUser::blockChat(array('user' => $params['user'], 'chat' => $params['chat']));
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')
+            );
+        } else {
+            return array(
+                'processed' => true,
+                'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'You do not have permission to block user!')
+            );
+        }
 
-        return array(
-            'processed' => true,
-            'process_status' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'User was blocked!')
-        );
     }
     
     public static function info($params)
