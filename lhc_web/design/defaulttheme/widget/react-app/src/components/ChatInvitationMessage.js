@@ -44,7 +44,7 @@ class ChatInvitationMessage extends PureComponent {
                              </div>
                              <div className="p-1 pl-2 w-100">
                                  {this.props.invitation.name_support && !this.props.invitation.hide_name && <div className="font-weight-bold">{this.props.invitation.name_support}</div>}
-                                 {this.props.invitation.extra_profile && <i>{this.props.invitation.extra_profile}</i>}
+                                 {this.props.invitation.extra_profile && <div dangerouslySetInnerHTML={{__html:this.props.invitation.extra_profile}}></div>}
                             </div>
                         </div>
                     </div>
