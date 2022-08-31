@@ -23,22 +23,22 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_new_multiinclude.tpl.php'));?>
 		
 		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Username');?></label>
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Username');?>*</label>
 		  <input class="form-control" type="text" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
 		</div>
 		
 		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','E-mail');?></label>
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','E-mail');?>*</label>
 		  <input type="text" ng-non-bindable class="form-control" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
 		</div>
 					
 		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?></label>
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Password');?>*</label>
 		  <input type="password" ng-non-bindable class="form-control" autocomplete="new-password" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
 		</div>
 		
 		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?></label>
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Repeat the new password');?>*</label>
 		  <input type="password" ng-non-bindable class="form-control" autocomplete="new-password" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
 		</div>
 
@@ -52,7 +52,7 @@
 		</div>
 		
 		<div class="form-group">
-		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Name');?></label>
+		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Name');?>*</label>
 		  <input class="form-control" ng-non-bindable type="text" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
 		</div>
 		
@@ -65,7 +65,12 @@
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Job title');?></label>
 		  <input type="text" ng-non-bindable class="form-control" name="JobTitle" value="<?php echo htmlspecialchars($user->job_title);?>"/>
 		</div>
-		
+
+        <?php
+        $timeZoneSettings = [
+                'force_choose' => true
+        ];
+        ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/parts/time_zone.tpl.php'));?>
 		
 		<div class="row">

@@ -61,7 +61,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?></label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> type="text" ng-non-bindable class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?>*</label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> type="text" ng-non-bindable class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
         </div>
 
         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>
@@ -74,7 +74,7 @@
          <?php endif; ?>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?>*</label>
             <input type="text" ng-non-bindable class="form-control" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> value="<?php echo $user->email;?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
         </div>
 
@@ -84,7 +84,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?></label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_name_surname')) : ?>disabled<?php endif?> ng-non-bindable type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>*</label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_name_surname')) : ?>disabled<?php endif?> ng-non-bindable type="text" class="form-control" name="Name" value="<?php echo htmlspecialchars($user->name);?>" />
         </div>
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Surname');?></label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_name_surname')) : ?>disabled<?php endif?> ng-non-bindable type="text" class="form-control" name="Surname" value="<?php echo htmlspecialchars($user->surname);?>" />
