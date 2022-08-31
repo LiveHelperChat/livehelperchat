@@ -55,7 +55,12 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 198;
+            lhc.version = 199;
+
+            const isMobileItem = require('ismobilejs');
+            var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
+
+            lhc.isMobile = isMobile;
 
             var init = () => {
 
@@ -76,14 +81,10 @@
                 var chatNotifications = require('./lib/chatNotifications').chatNotifications;
                 var chatEventsHandler = require('./util/chatEventsHandler').chatEventsHandler;
 
-                const isMobileItem = require('ismobilejs');
-
-                var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
-
                 LHC_API.args = LHC_API.args || {};
 
                 if (typeof LHC_API.args.mobile_view !== 'undefined') {
-                    isMobile = LHC_API.args.mobile_view;
+                    lhc.isMobile = isMobile = LHC_API.args.mobile_view;
                 }
 
                 const prefixLowercase = scopeScript.toLowerCase();
