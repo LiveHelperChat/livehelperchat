@@ -21,7 +21,7 @@
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="main-<?php echo $translatableItem['identifier']?>">
-            <label><?php echo $fields[$translatableItem['identifier']]['trans'];?></label>
+            <label ng-non-bindable><?php echo $fields[$translatableItem['identifier']]['trans'];?></label>
             <div class="form-group">
                 <?php if (isset($translatableItem['bb_code_selected'])) : ?>
                     <?php $bbcodeOptions = array('selector' => $translatableItem['bb_code_selected']); ?>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <label><?php echo $fields[$translatableItem['identifier']]['trans'];?></label>
+            <label ng-non-bindable><?php echo $fields[$translatableItem['identifier']]['trans'];?></label>
             <div class="form-group">
                 <?php if ($fields[$translatableItem['identifier']]['type'] == 'textarea') : ?>
                     <?php if (isset($translatableItem['bb_code_selected'])) : ?>

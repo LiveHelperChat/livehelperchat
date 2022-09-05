@@ -298,6 +298,8 @@ export default function (dispatch, getState) {
             window.lhcChat['mode'] = paramsInit['mode'];
             window.lhcChat['is_focused'] = true;
             window.lhcChat['domain_lhc'] = paramsInit['domain_lhc'] || null;
+            window.lhcChat['theme'] = paramsInit['theme'] || null;
+            window.lhcChat['theme_v'] = paramsInit['theme_v'] || null;
 
             __webpack_public_path__ = window.lhcChat['staticJS']['chunk_js'] + "/";
 

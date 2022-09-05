@@ -37,6 +37,7 @@ class chatEventsHandler {
             'department' : this.attributes['department'],
             'product' : this.attributes['product'],
             'theme' : this.attributes['theme'],
+            'theme_v' : this.attributes['theme_v'],
             'base_url' : this.attributes['base_url'],
             'mode' : this.attributes['mode'],
             'captcha' : this.attributes['captcha'],

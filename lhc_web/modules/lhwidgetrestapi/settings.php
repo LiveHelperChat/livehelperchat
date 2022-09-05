@@ -423,10 +423,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 199;
+$outputResponse['wv'] = 200;
 
 // React APP versions
-$outputResponse['v'] = 252;
+$outputResponse['v'] = 253;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
