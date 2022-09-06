@@ -44,6 +44,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             $search->position = 0;
         }
 
+        if ($form->hasValidData( 'days' )) {
+            $search->days = $form->days;
+        } else {
+            $search->days = 30;
+        }
+
         if ($form->hasValidData( 'passive' ) && $form->passive == true) {
             $search->passive = 1;
         } else {
