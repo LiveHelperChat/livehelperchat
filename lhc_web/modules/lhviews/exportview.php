@@ -18,9 +18,15 @@ if ($search->scope == 'chat') {
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . $append);
     echo $tpl->fetch();
     exit;
+} else if ($search->scope == 'mail') {
+    $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/export_config.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . $append);
+    echo $tpl->fetch();
+    exit;
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.export', array(
-        'search' => $search
+        'search' => $search,
+        'append' => $append
     ));
 }
 
