@@ -26,6 +26,8 @@
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
+        		<li role="presentation" class="nav-item d-none"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
+                <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_multiinclude.tpl.php'));?>
         	</ul>
         
         	<!-- Tab panes -->
@@ -857,6 +859,72 @@
 
         		</div>
 
+
+
+                <div role="tabpanel" class="tab-pane pt-2" id="reactions">
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('enable_react_for_vi', $fields['enable_react_for_vi'], $object)?> <?php echo $fields['enable_react_for_vi']['trans'];?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('always_visible_reactions', $fields['always_visible_reactions'], $object)?> <?php echo $fields['always_visible_reactions']['trans'];?></label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label><?php echo $fields['custom_tb_reactions']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('custom_tb_reactions', $fields['custom_tb_reactions'], $object)?>
+                                <div>
+                                    <small>
+                                        E.g 1. <br/><i>thumb_up|1|thumb|Thumbs up=thumb_down|0|thumb|Thumbs down</i><br/>
+                                        E.g 2. <br/><i>😍=😙=😁=thumb_up|1|thumb|Thumbs up</i>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <?php
+                                $bbcodeParams['hide_modal'] = true;
+                                $bbcodeParams['tab_prefix'] = '-ct';
+                                $bbcodeParams['editor_id'] = 'textarea[name=AbstractInput_custom_tb_reactions]';
+                            ?>
+                            <?php include(erLhcoreClassDesign::designtpl('lhchat/bbcodeinsert.tpl.php'));?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label><?php echo $fields['custom_mw_reactions']['trans'];?></label>
+                                <?php echo erLhcoreClassAbstract::renderInput('custom_mw_reactions', $fields['custom_mw_reactions'], $object)?>
+                                <div>
+                                    <small>
+                                        E.g 1. <br/><i>thumb_up|1|thumb|Thumbs up=thumb_down|0|thumb|Thumbs down</i><br/>
+                                        E.g 2. <br/><i>😍=😙=😁=thumb_up|1|thumb|Thumbs up</i>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <?php
+                                    $bbcodeParams['hide_modal'] = true;
+                                    $bbcodeParams['tab_prefix'] = '-mw';
+                                    $bbcodeParams['editor_id'] = 'textarea[name=AbstractInput_custom_mw_reactions]';
+                                ?>
+                                <?php include(erLhcoreClassDesign::designtpl('lhchat/bbcodeinsert.tpl.php'));?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                        // If checked always visible toolbar it will be at the bottom as is now
+                        // If not checked always visible it will be at the right side of the message
+                        // If modal window content is filled additional icon will be shown
+                    ?>
+
+
+                </div>
+
                 <div role="tabpanel" class="tab-pane" id="customcontent">
 
                     <?php $translatableItem = array('identifier' => 'custom_html'); ?>
@@ -1002,6 +1070,7 @@
 
                 </div>
 
+                <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_content_multiinclude.tpl.php'));?>
 
         	</div>
         </div>

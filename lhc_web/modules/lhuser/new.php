@@ -60,6 +60,10 @@ if (isset($_POST['Update_account']))
 
             $db->beginTransaction();
 
+            if ($UserData->time_zone == 'default') {
+                $UserData->time_zone = '';
+            }
+
             erLhcoreClassUser::getSession()->save($UserData);
 
             if ( isset($_POST['ForceResetPassword']) ) {

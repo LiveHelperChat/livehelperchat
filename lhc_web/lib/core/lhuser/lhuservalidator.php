@@ -566,7 +566,11 @@ class erLhcoreClassUserValidator {
         $userData->pswd_updated = time();
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.new_user', array('userData' => & $userData, 'errors' => & $Errors));
-		
+
+        if ($userData->time_zone == '') {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Please choose a user Time Zone!');
+        }
+
 		return $Errors;
 	}
 
