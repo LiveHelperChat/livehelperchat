@@ -41,6 +41,11 @@ $ViewList['edit'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['exportview'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['deleteview'] = array(
     'params' => array('id'),
     'functions' => array( 'use' )

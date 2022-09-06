@@ -227,6 +227,10 @@ try {
                 }
             })
         }
+        
+        this.exportView = function(view) {
+            lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':WWW_DIR_JAVASCRIPT + '/views/exportview/' + view.id})
+        }
 
         this.protectCSFR = function () {
             $('#view-content a.csfr-required').click(function() {
