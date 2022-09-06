@@ -80,6 +80,7 @@ if ($search->scope == 'chat') {
     $search->requested_at = time();
     $search->updateThis(['update' => ['total_records','updated_at','requested_at']]);
     $content = $tpl->fetch();
+
 } else {
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('views.loadview', array(
         'total_records' => & $totalRecords,
