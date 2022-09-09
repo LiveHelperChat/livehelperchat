@@ -63,7 +63,6 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
-
 /**
  * Departments filter
  * */
@@ -76,6 +75,14 @@ if ($limitation !== false) {
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
+
+// Merged id's support
+if (isset($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'])) {
+    $idsRelated = array_unique(erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id_old' => $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`']]], '', false, 'conversation_id', false, true, true));
+    if (!empty($idsRelated)) {
+        $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'] = array_merge($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'],$idsRelated);
+    }
+}
 
 if (in_array($Params['user_parameters_unordered']['export'], array(1))) {
     if (ezcInputForm::hasPostData()) {
@@ -119,6 +126,8 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
+
+
 if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3 && $currentUser->hasAccessTo('lhmailconv','quick_actions')) {
     $tpl = erLhcoreClassTemplate::getInstance('lhviews/quick_actions.tpl.php');
     $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
@@ -140,8 +149,6 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
             $tpl->set('errors', ['Please choose an operator']);
         }
     }
-
-
     echo $tpl->fetch();
     exit;
 }
