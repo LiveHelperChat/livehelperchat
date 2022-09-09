@@ -348,6 +348,7 @@ const MailChat = props => {
 
         ee.addListener('mailChatModified', mailChatModified);
         ee.addListener('mailLabelsModified', mailLabelsModified);
+        ee.addListener('mailMerged', mailChatModified);
 
         return function cleanup() {
            ee.removeListener('mailChatModified', mailChatModified);
@@ -380,7 +381,7 @@ const MailChat = props => {
 
                     <div>
                         {state.messages.map((message, index) => (
-                            <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} />
+                            <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} updateMessages={(e) => loadMainData()}/>
                         ))}
 
                         {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">{t('mail.send_fetching')}</div>}
@@ -424,6 +425,9 @@ const MailChat = props => {
                                                 </div>
                                                 {state.moptions.can_write && <div className="col-6">
                                                     <span className="action-image" onClick={() => showModal({url: "mailconv/transfermail/" + props.chatId})}><i className="material-icons">supervisor_account</i>{t('mail.transfer_chat')}</span>
+                                                </div>}
+                                                {state.moptions.can_write && <div className="col-6">
+                                                    <span className="action-image" onClick={() => showModal({url: "mailconv/merge/" + props.chatId})}><i className="material-icons">merge_type</i>{t('mail.merge_chat')}</span>
                                                 </div>}
                                                 <div className="col-6">
                                                     <a className="text-dark" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} ><i className="material-icons">print</i>{t('mail.print')}</a>

@@ -33,6 +33,7 @@ echo json_encode(array(
         "exc_pending_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Exc. pending time'),
         "conv_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Conversation duration'),
         "phone" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'),
+        "merge_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
@@ -66,6 +67,8 @@ echo json_encode(array(
         "send_as_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as New'),
         "send_as_active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Active'),
         "opened_at_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message was seen by customer first time at'),
+        "merged_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','This is a merged message'),
+        "unmerge" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Un-merge')
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),

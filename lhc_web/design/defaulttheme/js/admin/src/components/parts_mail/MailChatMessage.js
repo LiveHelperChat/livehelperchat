@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import MailChatQuote from "./MailChatQuote";
 import MailChatReply from "./MailChatReply";
 import {useTranslation} from 'react-i18next';
+import axios from "axios";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages}) => {
 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
@@ -38,6 +39,26 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         return style;
     };
 
+    const processRestAPIError = (err) => {
+        if (!!err.isAxiosError && !err.response) {
+            alert(t('system.error'));
+        } else {
+            if (err.response.data.error) {
+                alert(err.response.data.error);
+            } else {
+                alert(JSON.stringify(err.response.data));
+            }
+        }
+    }
+
+    const unMerge = message => {
+        if (confirm(t('status.are_you_sure'))) {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apiunmerge/" + message.id).then(result => {
+                updateMessages();
+            }).catch((error) => processRestAPIError(error));
+        }
+    }
+
     if (fetchingMessages == true && (replyMode == true || forwardMode == true)) {
         setReplyMode(false);
         setForwardMode(false);
@@ -55,6 +76,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 <i className="material-icons">mail_outline</i>
                 {!message.status || message.status == 1 ? 'Pending response' : 'Responded'}
             </small>
+            {message.conversation_id_old && <small className="text-muted" title={t('msg.merged_message')} ><span className="material-icons mr-0">merge_type</span>{message.conversation_id_old}</small>}
         </div>
         <div className="col-5 text-right text-muted">
             <small className="pr-1">
@@ -73,6 +95,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>}
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
+                    {message.conversation_id_old && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();unMerge(message);}} ><i className="material-icons">alt_route</i>{t('msg.unmerge')}</a>}
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>
                     {moptions.mail_links && moptions.mail_links.map((link, index) => <a className="dropdown-item" target="_blank" href={link.link.replace('{msg_id}',message.id)}>{link.icon && <i className="material-icons text-muted">{link.icon}</i>}{link.title}</a>)}

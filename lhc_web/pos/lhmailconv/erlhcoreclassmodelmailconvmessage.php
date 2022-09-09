@@ -11,7 +11,8 @@ $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersist
 
 foreach (array(
     'conv_duration','dep_id','status','conversation_id','mailbox_id','response_type',
-     'lr_time','user_id','size','uid','msgno','recent','flagged','udate','ctime','undelivered','priority','opened_at'
+     'lr_time','user_id','size','uid','msgno','recent','flagged','udate','ctime','undelivered','priority','opened_at',
+     'conversation_id_old'
     ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;

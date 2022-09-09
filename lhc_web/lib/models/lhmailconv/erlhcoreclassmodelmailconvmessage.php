@@ -18,6 +18,7 @@ class erLhcoreClassModelMailconvMessage
             'id' => $this->id,
             'status' => $this->status,
             'conversation_id' => $this->conversation_id,
+            'conversation_id_old' => $this->conversation_id_old,
             'mailbox_id' => $this->mailbox_id,
 
             'body' => (string)$this->body,
@@ -315,6 +316,7 @@ class erLhcoreClassModelMailconvMessage
     public $status = self::STATUS_PENDING;
     public $mailbox_id = 0;
     public $conversation_id = 0;
+    public $conversation_id_old = 0;
     public $message_id = '';
     public $in_reply_to = '';
     public $references = '';
