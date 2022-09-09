@@ -34,8 +34,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary"><?php erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge selected');?></button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Close');?></button>
+                <button type="submit" class="btn btn-primary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge selected');?></button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Close');?></button>
             </div>
         </form>
     </div>
