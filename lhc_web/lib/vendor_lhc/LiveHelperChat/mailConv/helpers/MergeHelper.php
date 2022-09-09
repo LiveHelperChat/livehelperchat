@@ -34,10 +34,10 @@ class MergeHelper
                 $sourceMail->removeThis();
             }
 
+            $db->commit();
+
             $target->total_messages = \erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id' => $target->id]]);
             $target->updateThis(['update' => ['total_messages']]);
-
-            $db->commit();
 
         } catch (\Exception $e) {
             $db->rollback();
@@ -168,15 +168,15 @@ class MergeHelper
 
             $conversation->id = $newConversationId;
 
+            // remarks - We don't have this
+            $db->commit();
+
             // Just to trigger internal update event
             $conversation->updateThis(['update' => ['total_messages']]);
 
             // Update total messages of old conversation
             $conversationOld->total_messages = \erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id' => $conversationOld->id]]);
             $conversationOld->updateThis(['update' => ['total_messages']]);
-
-            // remarks - We don't have this
-            $db->commit();
 
         } catch (\Exception $e) {
             $db->rollback();
