@@ -30,7 +30,7 @@ const initialState = fromJS({
     attr_prefill_admin: [],
     extension: {}, // Holds extensions data for reuse
     chat_ui : {}, // Settings from themes, UI
-    chat_ui_state : {'confirm_close': 0, 'show_survey' : 0}, // Settings from themes, UI we store our present state here
+    chat_ui_state : {'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}, // Settings from themes, UI we store our present state here
     processStatus : 0,
     chatData : {}, // Stores only chat id and hash
     chatLiveData : {'lmsop':0, 'vtm':0,'otm':0, 'msop':0, 'uid' : 0, 'error' : '','lfmsgid':0, 'lmsgid' : 0, 'operator' : '', 'messages' : [], 'closed' : false, 'ott' : '', 'status_sub' : 0, 'status' : 0}, // Stores live chat data
@@ -149,7 +149,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['onlineData','fetched'],false)
                 .set('chatLiveData',fromJS({'lmsop':0, 'vtm':0, 'otm':0, 'msop':0, 'uid':0, 'status' : 0, 'status_sub' : 0, 'uw' : false, 'ott' : '', 'closed' : false, 'lfmsgid': 0, 'lmsgid' : 0, 'operator' : '', 'messages' : []}))
                 .set('chatStatusData',fromJS({}))
-                .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0}))
+                .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}))
                 .set('initClose',false)
                 .set('initLoaded',false);
         }
