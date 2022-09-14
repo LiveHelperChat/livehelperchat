@@ -26,7 +26,7 @@
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
-        		<li role="presentation" class="nav-item d-none"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
                 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_multiinclude.tpl.php'));?>
         	</ul>
         

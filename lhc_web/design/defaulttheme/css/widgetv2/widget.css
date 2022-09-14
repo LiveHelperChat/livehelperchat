@@ -447,7 +447,7 @@ div.message-row.response div.msg-body{
     color:#212529;
     opacity: 0.4;
     text-decoration: none;
-    margin: 1px 2px;
+    margin: 1px 1px 1px 1px;
     display: inline-block;
     text-decoration: none;
 }
@@ -460,13 +460,33 @@ div.message-row.response div.msg-body{
 .reactions-holder{
     display: none;
     position: absolute;
-    right: -22px;
     bottom: -18px;
     z-index:1;
     text-decoration: none;
     border-radius:20px;
-    padding: 0px 5px 5px;
+    padding: 0px 3px 0px;
     border:1px solid #fff;
+    margin-left: 50%;
+    white-space: nowrap;
+    /*right: -22px;*/
+}
+
+.reactions-holder-plus{
+    bottom: 0;
+    margin-left: auto;
+    right: -31px;
+    background: none;
+    border: 0;
+    font-size: 18px;
+    top: 5px;
+    filter: grayscale(1);
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.reactions-holder-plus:hover{
+    filter: grayscale(0);
+    opacity: 1;
 }
 
 .message-row.response .reactions-holder {
@@ -1093,3 +1113,4 @@ textarea[name=ChatMessage] {
 #widget-header-content:empty{
     background: none!important;
 }
+

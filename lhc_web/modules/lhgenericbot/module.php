@@ -360,8 +360,8 @@ $ViewList['notifications'] = array(
 );
 
 $ViewList['buttonclicked'] = array(
-    'params' => array('chat_id', 'hash'),
-    'uparams' => array('type')
+    'params' => array('chat_id', 'hash' ),
+    'uparams' => array('type','theme')
 );
 
 $ViewList['updatebuttonclicked'] = array(

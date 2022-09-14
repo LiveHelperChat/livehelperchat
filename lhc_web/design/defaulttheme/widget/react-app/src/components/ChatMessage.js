@@ -81,7 +81,7 @@ class ChatMessage extends PureComponent {
                 }, 500);
 
             } else if (attrs.onclick.indexOf('lhinst.reactionsClicked') !== -1) {
-                this.updateTriggerClicked({type:'/(type)/reactions'}, attrs, e.target);
+                this.updateTriggerClicked({type:'/(type)/reactions' + (this.props.themeId ? '/(theme)/' + this.props.themeId : '')}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
                 this.updateTriggerClicked({type:''}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.startVoiceCall') !== -1) {

@@ -476,7 +476,7 @@ export function parseScript(domNode, inst, obj, dispatch, getState) {
         inst.delayData.push(JSON.parse(attr['data-bot-args']));
     } else if (attr['data-bot-action'] == 'button-click') {
 
-        dispatch(updateTriggerClicked({'type' : '/(type)/'+attr['data-action-type']}, {
+        dispatch(updateTriggerClicked({'type' : '/(type)/'+attr['data-action-type'] + (obj.theme ? '/(theme)/' + obj.theme : '')}, {
             "payload-id": (typeof attr['data-identifier'] === 'undefined' ? null : attr['data-identifier']),
             payload: attr['data-payload'],
             id : attr['data-id'],
