@@ -719,7 +719,7 @@ class OnlineChat extends Component {
     }
 
     endChat() {
-        this.props.endChat();
+        this.props.endChat({"show_start": this.props.chatwidget.get('shown')});
     }
 
     toggleModal() {
