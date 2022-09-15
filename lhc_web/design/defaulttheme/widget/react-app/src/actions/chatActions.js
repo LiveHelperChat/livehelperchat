@@ -76,9 +76,10 @@ export function cancelPresurvey(confirm) {
 
         axios.post(window.lhcChat['base_url'] + state.chatwidget.getIn(['chat_ui','pre_survey_url']) + state.chatwidget.getIn(['chatData','id']) + '/' +  state.chatwidget.getIn(['chatData','hash']) + args, null, defaultHeaders).then((response) => {
             if (confirm === false || response.data.confirmed) {
-                dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 1}});
-            } else {
-                // @todo perhaps rerender modal in the future?
+                dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 2}});
+                if (!state.chatwidget.hasIn(['chat_ui','survey_id'])) {
+                    helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                }
             }
         })
         .catch((err) => {

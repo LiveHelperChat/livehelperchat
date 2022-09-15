@@ -14,7 +14,7 @@ class erLhcoreClassInputForm extends ezcInputForm {
         $this->definition = $definition;
         $this->inputSource = $inputSource;
         $this->inputData   = $inputData;
-       
+
         if ( $inputData === null || count($inputData) == 0 )
             $this->parseInput();
         else 

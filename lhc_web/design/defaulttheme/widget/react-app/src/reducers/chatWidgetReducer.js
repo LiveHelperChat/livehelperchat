@@ -248,6 +248,11 @@ const chatWidgetReducer = (state = initialState, action) => {
         }
 
         case 'INIT_CHAT_SUBMITTED' : {
+
+            if (action.data.chat_ui_state) {
+                state = state.set('chat_ui_state', state.get('chat_ui_state').merge(fromJS(action.data.chat_ui_state)));
+            }
+
             return state.setIn(['chatLiveData','operator'], action.data.operator)
                 .set('chat_ui', state.get('chat_ui').merge(fromJS(action.data.chat_ui)))
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub)
