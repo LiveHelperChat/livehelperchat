@@ -60,6 +60,34 @@ export function minimizeWidget(forceClose) {
     }
 }
 
+export function cancelPresurvey(confirm) {
+    return function(dispatch, getState) {
+        const state = getState();
+
+        let args = '';
+
+        if (state.chatwidget.get('theme')) {
+            args = args + '/(theme)/' + state.chatwidget.get('theme');
+        }
+
+        if (confirm === true) {
+            args = args + '/(confirm)/true';
+        }
+
+        axios.post(window.lhcChat['base_url'] + state.chatwidget.getIn(['chat_ui','pre_survey_url']) + state.chatwidget.getIn(['chatData','id']) + '/' +  state.chatwidget.getIn(['chatData','hash']) + args, null, defaultHeaders).then((response) => {
+            if (confirm === false || response.data.confirmed) {
+                dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 2}});
+                if (!state.chatwidget.hasIn(['chat_ui','survey_id'])) {
+                    helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                }
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
+
 export function endChat(obj, action) {
     action = action || "t";
     return function(dispatch, getState) {

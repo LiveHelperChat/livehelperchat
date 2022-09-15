@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage, cancelPresurvey} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -934,6 +934,8 @@ class OnlineChat extends Component {
                 <React.Fragment>
 
                     {this.props.chatwidget.getIn(['chatLiveData','abort']) && <ChatAbort closeText={t('button.close')} close={(e) => this.props.dispatch(minimizeWidget(true))} text={this.props.chatwidget.getIn(['chatLiveData','abort'])} />}
+
+                    {this.props.chatwidget.hasIn(['chat_ui','pre_survey_url']) && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 && this.props.chatwidget.getIn(['chat_ui_state','pre_survey_done']) !== 2 && (this.props.chatwidget.getIn(['chat_ui_state','pre_survey_done']) === 1 || validSurveyState) && <ChatModal cancelClose={(e) => this.props.dispatch(cancelPresurvey(false))} confirmClose={(e) => this.props.dispatch(cancelPresurvey(true))} toggle={this.props.cancelPresurvey} dataUrl={this.props.chatwidget.getIn(['chat_ui','pre_survey_url']) + this.props.chatwidget.getIn(['chatData','id'])+"/"+this.props.chatwidget.getIn(['chatData','hash']) + (this.props.chatwidget.hasIn(['chat_ui','survey_id']) ? '/(hassurvey)/true' : '') + (this.props.chatwidget.get('theme') ? '/(theme)/' + this.props.chatwidget.get('theme') : null)} />}
 
                     {preloadSurvey && <React.Fragment>
                         {showChat == false && this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
