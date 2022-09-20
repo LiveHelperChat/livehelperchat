@@ -472,6 +472,15 @@ export function parseScript(domNode, inst, obj, dispatch, getState) {
 
     if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
         inst.disableEditor = true;
+    } else if (attr['data-bot-action'] == 'lhinst.reactionsToolbar') {
+        const reactionsToolbar = document.getElementById('reactions-toolbar-' + attr['data-id']);
+        if (reactionsToolbar) {
+            if (reactionsToolbar.classList.contains('d-none')) {
+                reactionsToolbar.classList.remove('d-none');
+            } else {
+                reactionsToolbar.classList.add('d-none');
+            }
+        }
     } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
         inst.delayData.push(JSON.parse(attr['data-bot-args']));
     } else if (attr['data-bot-action'] == 'button-click') {

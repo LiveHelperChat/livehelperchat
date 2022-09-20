@@ -4,11 +4,14 @@ import { connect } from "react-redux";
 import { updateTriggerClicked, subscribeNotifications, parseScript } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
+import ChatModal from './ChatModal';
 
 class ChatMessage extends PureComponent {
 
     state = {
-        jsExecuted : false
+        jsExecuted : false,
+        moreReactions : false,
+        reactToMessageId : 0
     }
 
     constructor(props) {
@@ -80,6 +83,17 @@ class ChatMessage extends PureComponent {
                     this.removeMetaMessage(attrs['data-id']);
                 }, 500);
 
+            } else if (attrs.onclick.indexOf('lhinst.moreReactions') !== -1) {
+                this.setState({moreReactions : true, reactToMessageId: attrs['data-id']});
+            } else if (attrs.onclick.indexOf('lhinst.reactionsToolbar') !== -1) {
+                const reactionsToolbar = document.getElementById('reactions-toolbar-' + attrs['data-id']);
+                if (reactionsToolbar) {
+                    if (reactionsToolbar.classList.contains('d-none')) {
+                        reactionsToolbar.classList.remove('d-none');
+                    } else {
+                       reactionsToolbar.classList.add('d-none');
+                    }
+                }
             } else if (attrs.onclick.indexOf('lhinst.reactionsClicked') !== -1) {
                 this.updateTriggerClicked({type:'/(type)/reactions' + (this.props.themeId ? '/(theme)/' + this.props.themeId : '')}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
@@ -330,7 +344,7 @@ class ChatMessage extends PureComponent {
             }
         });
 
-        return <React.Fragment>{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
+        return <React.Fragment>{this.state.moreReactions && <ChatModal setReaction={(attrs) => {this.updateTriggerClicked({type:'/(type)/reactions' + (this.props.themeId ? '/(theme)/' + this.props.themeId : '')}, JSON.parse(attrs), null);this.setState({moreReactions : false})}} confirmClose={(e) => {this.setState({moreReactions : false})}} cancelClose={(e) => {this.setState({moreReactions : false})}} toggle={(e) => {this.setState({moreReactions : false})}} dataUrl={"/chat/reacttomessagemodal/"+this.state.reactToMessageId + (this.props.themeId ? '/(theme)/' + this.props.themeId : '') } />}{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
     }
 }
 

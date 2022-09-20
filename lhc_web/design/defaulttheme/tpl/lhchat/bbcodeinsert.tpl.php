@@ -36,7 +36,7 @@
                 <div class="col-12">
 
                     <?php if (!(isset($bbcodeParams['hide_modal']) && $bbcodeParams['hide_modal'] === true)) : ?>
-                        <button type="button" <?php if ($react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" <?php if (isset($react) && $react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <?php endif; ?>
 
                     <ul class="nav nav-pills nav-pills-bbcode"  role="tablist">
@@ -46,10 +46,10 @@
                     </ul>
                     <div class="tab-content nav-pills-bbcode-content bbtab-content<?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">
                         <?php foreach ($icons as $index => $iconGroup) : ?>
-                            <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if ($chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">
+                            <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if (isset($chat_id) && $chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">
                                     <?php if ($index == 0) : ?>
-                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0"><?php if ($react == true) : ?>&#xf114;<?php else : ?>image<?php endif; ?></i></a>
-                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0"><?php if ($react == true) : ?>&#xf115;<?php else : ?>link<?php endif; ?></i></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf114;<?php else : ?>image<?php endif; ?></i></a>
+                                        <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf115;<?php else : ?>link<?php endif; ?></i></a>
                                         <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
                                         <a bbitem="true" class="rounded d-inline-block badge-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
                                     <?php endif; ?>
@@ -62,16 +62,16 @@
                 </div>
             </div>
 
-            <?php if ($react != true) : ?>
+            <?php if (!isset($react) || $react != true) : ?>
             <script>
                 $('.bbtab-content<?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?> > .bb-list a').click(function () {
 
-                    <?php if ($mode == 'editor') : ?>
+                    <?php if (isset($mode) && $mode == 'editor') : ?>
                         var selectorInsert = window.lhcSelector;
                     <?php elseif (isset($bbcodeParams['editor_id'])) : ?>
                         var selectorInsert = <?php echo json_encode($bbcodeParams['editor_id'])?>;
                     <?php else : ?>
-                        var selectorInsert = "#CSChatMessage<?php $chat_id !== null ? print '-' . $chat_id : null?>";
+                        var selectorInsert = "#CSChatMessage<?php isset($chat_id) && $chat_id !== null ? print '-' . $chat_id : null?>";
                     <?php endif; ?>
 
                     var textAreaElement = jQuery(selectorInsert);

@@ -471,7 +471,7 @@ div.message-row.response div.msg-body{
     /*right: -22px;*/
 }
 
-.reactions-holder-plus{
+.reactions-holder-plus {
     bottom: 0;
     margin-left: auto;
     right: -31px;
@@ -479,15 +479,46 @@ div.message-row.response div.msg-body{
     border: 0;
     font-size: 18px;
     top: 5px;
-    filter: grayscale(1);
-    opacity: 0.2;
     cursor: pointer;
 }
 
-.reactions-holder-plus:hover{
+/*.reactions-holder-plus-icon:hover {
     filter: grayscale(0);
     opacity: 1;
+    text-decoration: none;
+}*/
+
+.reactions-holder-plus-icon:hover{
+    text-decoration: none;
 }
+
+.reactions-holder-plus-icon {
+    filter: grayscale(1);
+    opacity: 0.2;
+}
+
+.reactions-toolbar {
+    display: block;
+    position: absolute;
+    margin-top: -33px;
+    background: white;
+    border-radius: 19px;
+    padding: 2px 5px;
+    box-shadow: 0px 0px 7px grey;
+    margin-left:-20%;
+}
+
+.reactions-modal-expand{
+    transform: rotate(45deg);
+    background: #EBEBECFF;
+    border-radius:15px;
+    width: 23px;
+    height: 23px;
+    padding-top: 3px;
+    padding-left: 2px;
+    font-weight: bold;
+}
+
 
 .message-row.response .reactions-holder {
     right:0;

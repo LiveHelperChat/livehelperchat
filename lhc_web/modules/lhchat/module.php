@@ -667,6 +667,11 @@ $ViewList['confirmleave'] = array(
     'params' => array('chat_id','hash')
 );
 
+$ViewList['reacttomessagemodal'] = array(
+    'params' => array('message_id'),
+    'uparams' => array('theme')
+);
+
 $ViewList['sendchat'] = array(
 		'params' => array('chat_id','hash')
 );
