@@ -9,6 +9,7 @@ if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcore
         $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/reacttomessagesmodal.tpl.php');
         $tpl->set('theme', $theme);
         $tpl->set('messageId', $Params['user_parameters']['message_id']);
+        $tpl->set('message', erLhcoreClassModelmsg::fetch($Params['user_parameters']['message_id']));
         echo $tpl->fetch();
     }
 }

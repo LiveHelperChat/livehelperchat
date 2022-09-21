@@ -60,6 +60,34 @@ export function minimizeWidget(forceClose) {
     }
 }
 
+export function cancelPresurvey(confirm) {
+    return function(dispatch, getState) {
+        const state = getState();
+
+        let args = '';
+
+        if (state.chatwidget.get('theme')) {
+            args = args + '/(theme)/' + state.chatwidget.get('theme');
+        }
+
+        if (confirm === true) {
+            args = args + '/(confirm)/true';
+        }
+
+        axios.post(window.lhcChat['base_url'] + state.chatwidget.getIn(['chat_ui','pre_survey_url']) + state.chatwidget.getIn(['chatData','id']) + '/' +  state.chatwidget.getIn(['chatData','hash']) + args, null, defaultHeaders).then((response) => {
+            if (confirm === false || response.data.confirmed) {
+                dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 2}});
+                if (!state.chatwidget.hasIn(['chat_ui','survey_id'])) {
+                    helperFunctions.sendMessageParent('endChat',[{'sender' : 'endButton'}]);
+                }
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
+
 export function endChat(obj, action) {
     action = action || "t";
     return function(dispatch, getState) {
@@ -398,13 +426,24 @@ export function updateMessage(obj) {
 
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/fetchmessage", obj, defaultHeaders)
         .then((response) => {
+
+            // Get present className of the row
             let elm = document.getElementById('msg-'+response.data.id);
-            if (elm === null) {
-                return;
+            let classNameRow = null;
+            if (elm !== null) {
+                classNameRow = elm.className;
             }
-            const classNameRow = elm.className;
-            elm.outerHTML = response.data.msg;
-            elm.className = classNameRow;
+
+            // Now we can update as we know a class
+            dispatch({type: "FETCH_MESSAGE_SUBMITTED", data: response.data});
+
+            // Reselect updated row
+            elm = document.getElementById('msg-'+response.data.id);
+
+            // Update className
+            if (classNameRow !== null) {
+                elm.className = classNameRow;
+            }
 
             // Just adjust a scroll
             if (!obj.no_scroll) {
@@ -414,6 +453,8 @@ export function updateMessage(obj) {
                 }
             }
 
+
+/*
             let elmUpdated = document.getElementById('msg-'+response.data.id);
             let collection = elmUpdated.getElementsByTagName('script');
             let collectionButton = elmUpdated.getElementsByTagName('button');
@@ -458,7 +499,7 @@ export function updateMessage(obj) {
                 if (item.onclick) {
                     item.onclick = () => parseScript(item, this, obj, dispatch, getState);
                 }
-            }
+            }*/
 
         })
         .catch((err) => {
@@ -472,19 +513,9 @@ export function parseScript(domNode, inst, obj, dispatch, getState) {
 
     if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
         inst.disableEditor = true;
-    } else if (attr['data-bot-action'] == 'lhinst.reactionsToolbar') {
-        const reactionsToolbar = document.getElementById('reactions-toolbar-' + attr['data-id']);
-        if (reactionsToolbar) {
-            if (reactionsToolbar.classList.contains('d-none')) {
-                reactionsToolbar.classList.remove('d-none');
-            } else {
-                reactionsToolbar.classList.add('d-none');
-            }
-        }
     } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
         inst.delayData.push(JSON.parse(attr['data-bot-args']));
     } else if (attr['data-bot-action'] == 'button-click') {
-
         dispatch(updateTriggerClicked({'type' : '/(type)/'+attr['data-action-type'] + (obj.theme ? '/(theme)/' + obj.theme : '')}, {
             "payload-id": (typeof attr['data-identifier'] === 'undefined' ? null : attr['data-identifier']),
             payload: attr['data-payload'],

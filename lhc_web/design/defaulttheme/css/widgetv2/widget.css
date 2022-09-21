@@ -474,7 +474,7 @@ div.message-row.response div.msg-body{
 .reactions-holder-plus {
     bottom: 0;
     margin-left: auto;
-    right: -31px;
+    right: -30px;
     background: none;
     border: 0;
     font-size: 18px;
@@ -495,17 +495,23 @@ div.message-row.response div.msg-body{
 .reactions-holder-plus-icon {
     filter: grayscale(1);
     opacity: 0.2;
+    user-select: none;
 }
 
 .reactions-toolbar {
-    display: block;
+    display: none;
     position: absolute;
     margin-top: -33px;
     background: white;
     border-radius: 19px;
     padding: 2px 5px;
     box-shadow: 0px 0px 7px grey;
-    margin-left:-20%;
+    z-index: 2;
+}
+
+.current-reacting-to .reactions-toolbar{
+    display: block;
+    transform: translate(0px, 0px) translate(-45%, 0%);
 }
 
 .reactions-modal-expand{
@@ -519,6 +525,28 @@ div.message-row.response div.msg-body{
     font-weight: bold;
 }
 
+.reactions-selected-info{
+    position: absolute;
+    z-index: 1;
+    margin-top: -5px;
+    white-space: nowrap;
+    right:0;
+    user-select: none;
+}
+
+.reactions-selected-info span {
+    box-shadow: 0 0 6px #ababab;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: #f9f7f7;
+}
+
+.reactions-selected-info span.material-icons{
+    width: 16px;
+    height: 16px;
+    padding-left: 2px;
+    line-height: 1.5;
+}
 
 .message-row.response .reactions-holder {
     right:0;

@@ -115,6 +115,8 @@ try {
                         $action = 'remove';
                         $identifier = '';
                         $valueAction = '';
+                        $oneReactionPerMessage = isset($theme->bot_configuration_array['one_reaction_per_msg']) && $theme->bot_configuration_array['one_reaction_per_msg'] == true;
+
 
                         if (isset($theme->bot_configuration_array['enable_react_for_vi']) && $theme->bot_configuration_array['enable_react_for_vi'] == true) {
                             $updateMessage = true;
@@ -151,7 +153,13 @@ try {
                                     unset($metaMessage['content']['reactions']['current']);
                                 }
                                 $identifier = $paramsPayload['payload-id'];
+                                if ($oneReactionPerMessage) {
+                                    unset($metaMessage['content']['reactions']['current']);
+                                }
                             } else {
+                                if ($oneReactionPerMessage) {
+                                    unset($metaMessage['content']['reactions']['current']);
+                                }
                                 if (key_exists($paramsPayload['payload-id'],$validIdentifiers) && in_array($paramsPayload['payload'],$validIdentifiers[$paramsPayload['payload-id']])) {
                                     $metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']] = (string)$paramsPayload['payload'];
                                     $action = 'add';

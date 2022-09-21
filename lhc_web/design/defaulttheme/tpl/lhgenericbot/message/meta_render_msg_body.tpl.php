@@ -2,6 +2,7 @@
 /*
  * Render reactions to visitor messages in the widget
  * */
+$metaMessage = [];
 if (isset($msg['user_id']) && $msg['user_id'] == 0) : $reactionsOperator = '';?>
     <?php if (isset($metaMessageData['content']) && is_array($metaMessageData['content'])) : foreach ($metaMessageData['content'] as $type => $metaMessage) : ?>
         <?php if ($type == 'reactions') : ?>
@@ -9,19 +10,19 @@ if (isset($msg['user_id']) && $msg['user_id'] == 0) : $reactionsOperator = '';?>
                 <?php foreach ($metaMessageData['content']['reactions']['current'] as $reactionItem => $reactionValue) : ?>
                     <?php if ($reactionItem == 'thumb') : ?>
                         <?php if ($reactionValue == 1) : ?>
-                            <?php $reactionsOperator .= '<span title="Thumbs up" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf109;</span>';?>
+                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs up') . '" class="reaction-item mr-0 material-icons reaction-selected">&#xf109;</span>';?>
                         <?php else : ?>
-                            <?php $reactionsOperator .= '<span title="Thumbs down" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf108;</span>';?>
+                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs down') . '" class="reaction-item mr-0 material-icons reaction-selected">&#xf108;</span>';?>
                         <?php endif;?>
                     <?php else : ?>
-                        <?php $reactionsOperator .= '<span class="reaction-item pt-1 mr-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
+                        <?php $reactionsOperator .= '<span class="mr-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
                     <?php endif; ?>
                 <?php endforeach;?>
             <?php endif; ?>
         <?php endif; ?>
     <?php endforeach;endif; ?>
     <?php if (!empty($reactionsOperator)) : ?>
-    <div class="reactions-holder reactions-selected d-block">
+    <div class="reactions-selected-info">
         <?php echo $reactionsOperator?>
     </div>
     <?php endif; ?>

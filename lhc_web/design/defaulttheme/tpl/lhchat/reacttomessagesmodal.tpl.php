@@ -7,6 +7,8 @@
 
     <?php
 
+    $metaMessage = isset($message->meta_msg_array['content']['reactions']) ? $message->meta_msg_array['content']['reactions'] : [];
+
     $partsReaction = explode("=",$theme->bot_configuration_array['custom_mw_reactions']);
     $reactionsOutput = '';
 
