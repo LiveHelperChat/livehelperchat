@@ -1485,6 +1485,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 $('#menu-chat-options').dropdown('toggle');
                 var _that = this;
                 LiveHelperChatFactory.getChatData(chat_id).then(function(data) {
+                    if (data.r) {
+                        document.location = WWW_DIR_JAVASCRIPT + data.r;
+                        return;
+                    }
                     if (!background) {
                         _that.startChat(parseInt(chat_id),LiveHelperChatFactory.truncate((data.nick || 'Visitor'),10));
                     } else {
