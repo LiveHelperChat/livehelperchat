@@ -127,6 +127,11 @@ class erLhAbstractModelEmailTemplate {
         return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.theme.js').'"></script>';
     }
 
+    public function dependJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/ace/ace.js').'"></script>';
+    }
+
 	public function __get($var)
 	{
 	   switch ($var) {

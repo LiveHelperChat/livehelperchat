@@ -9,6 +9,7 @@
 
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules.tpl.php'));?>
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/preconditions.tpl.php'));?>
+           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/emailtemplates.tpl.php'));?>
 
             <?php if ($context == 'text') : ?>
                 <ul>
