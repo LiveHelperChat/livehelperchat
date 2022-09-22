@@ -828,6 +828,13 @@ class erLhcoreClassChatValidator {
             }
         }
 
+        if (isset($additionalParams['theme']) && $additionalParams['theme'] instanceof erLhAbstractModelWidgetTheme) {
+            $chatVariables = $chat->chat_variables_array;
+            $chatVariables['theme_id'] = 1;
+            $chat->chat_variables = json_encode($chatVariables);
+            $chat->chat_variables_array = $chatVariables;
+        }
+
         if ( $form->hasValidData( 'tag' ) && !empty($form->tag))
         {
             $stringParts[] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => $form->tag);
