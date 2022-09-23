@@ -26,7 +26,7 @@
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
         		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
-        		<li role="presentation" class="nav-item d-none"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
                 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_multiinclude.tpl.php'));?>
         	</ul>
         
@@ -859,8 +859,6 @@
 
         		</div>
 
-
-
                 <div role="tabpanel" class="tab-pane pt-2" id="reactions">
 
                     <div class="form-group">
@@ -869,6 +867,14 @@
 
                     <div class="form-group">
                         <label><?php echo erLhcoreClassAbstract::renderInput('always_visible_reactions', $fields['always_visible_reactions'], $object)?> <?php echo $fields['always_visible_reactions']['trans'];?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('one_reaction_per_msg', $fields['one_reaction_per_msg'], $object)?> <?php echo $fields['one_reaction_per_msg']['trans'];?></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?php echo erLhcoreClassAbstract::renderInput('reactions_always_visible_under', $fields['reactions_always_visible_under'], $object)?> <?php echo $fields['reactions_always_visible_under']['trans'];?></label>
                     </div>
 
                     <div class="row">

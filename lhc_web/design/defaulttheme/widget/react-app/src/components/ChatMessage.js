@@ -4,11 +4,14 @@ import { connect } from "react-redux";
 import { updateTriggerClicked, subscribeNotifications, parseScript } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
+import ChatModal from './ChatModal';
 
 class ChatMessage extends PureComponent {
 
     state = {
-        jsExecuted : false
+        jsExecuted : false,
+        moreReactions : false,
+        reactToMessageId : 0
     }
 
     constructor(props) {
@@ -80,8 +83,15 @@ class ChatMessage extends PureComponent {
                     this.removeMetaMessage(attrs['data-id']);
                 }, 500);
 
+            } else if (attrs.onclick.indexOf('lhinst.moreReactions') !== -1) {
+                this.setState({moreReactions : true, reactToMessageId: attrs['data-id']});
+                e.stopPropagation();
+            } else if (attrs.onclick.indexOf('lhinst.reactionsToolbar') !== -1) {
+                this.props.setReactingTo(attrs['data-id'] != this.props.reactToMessageId ? attrs['data-id'] : 0);
+                e.stopPropagation();
             } else if (attrs.onclick.indexOf('lhinst.reactionsClicked') !== -1) {
-                this.updateTriggerClicked({type:'/(type)/reactions'}, attrs, e.target);
+                this.updateTriggerClicked({type:'/(type)/reactions' + (this.props.themeId ? '/(theme)/' + this.props.themeId : '')}, attrs, e.target);
+                this.props.setReactingTo(0);
             } else if (attrs.onclick.indexOf('lhinst.buttonClicked') !== -1) {
                 this.updateTriggerClicked({type:''}, attrs, e.target);
             } else if (attrs.onclick.indexOf('lhinst.startVoiceCall') !== -1) {
@@ -152,7 +162,7 @@ class ChatMessage extends PureComponent {
             }
 
             if (data.data.update_message) {
-                this.props.updateMessage(attrs['data-id']);
+                this.props.updateMessage(attrs['data-id'], this);
             } else {
                 this.props.updateMessages();
                 this.props.updateStatus();
@@ -163,6 +173,31 @@ class ChatMessage extends PureComponent {
     imageLoaded(attrs) {
         if (this.props.scrollBottom) {
             this.props.scrollBottom(true, true);
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.reactToMessageId != 0) {
+
+            var elm = document.getElementById('reactions-toolbar-'+this.props.reactToMessageId);
+            var elmMessage = document.getElementById('msg-'+this.props.reactToMessageId);
+
+            if (!elm || !elmMessage) {
+                return;
+            }
+
+            // Only half of the width goes to the right
+            var halfWidth = elm.clientWidth / 2;
+
+            var messageMaxWidth = elmMessage.offsetWidth;
+
+            var offsetContainer = elm.parentNode.offsetLeft;
+
+            if ((offsetContainer + halfWidth) > messageMaxWidth) {
+                elm.style.right = '-'+ (halfWidth - 10) +'px';
+            } else if (offsetContainer < halfWidth - 30) {
+                elm.style.left = (halfWidth - 30) +'px';
+            }
         }
     }
 
@@ -224,6 +259,10 @@ class ChatMessage extends PureComponent {
 
                     if (domNode.attribs.class) {
                         domNode.attribs.className = domNode.attribs.class;
+
+                        if (domNode.attribs.className.indexOf('message-row') !== -1 && parseInt(this.props.reactToMessageId) == parseInt(domNode.attribs.id.replace("msg-",""))){
+                            domNode.attribs.className += ' current-reacting-to';
+                        }
 
                         // Animate only if it's not first sync call
                         if (domNode.attribs.className.indexOf('message-row') !== -1 && this.props.id > 0) {
@@ -330,7 +369,7 @@ class ChatMessage extends PureComponent {
             }
         });
 
-        return <React.Fragment>{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
+        return <React.Fragment>{this.state.moreReactions && <ChatModal setReaction={(attrs) => {this.updateTriggerClicked({type:'/(type)/reactions' + (this.props.themeId ? '/(theme)/' + this.props.themeId : '')}, JSON.parse(attrs), null);this.setState({moreReactions : false});this.props.setReactingTo(0);}} confirmClose={(e) => {this.setState({moreReactions : false})}} cancelClose={(e) => {this.setState({moreReactions : false})}} toggle={(e) => {this.setState({moreReactions : false})}} dataUrl={"/chat/reacttomessagemodal/"+this.state.reactToMessageId + (this.props.themeId ? '/(theme)/' + this.props.themeId : '') } />}{this.props.hasNew == true && this.props.id == this.props.newId && <div id="scroll-to-message" className="message-admin border-bottom new-msg-holder border-danger text-center"><span className="new-msg bg-danger text-white d-inline-block fs12 rounded-top">{this.props.newTitle}</span></div>}{messages}</React.Fragment>
     }
 }
 

@@ -2049,6 +2049,14 @@ html {
     display:none;
 }
 
+.reactions-holder-visitor{
+    position: relative;
+    margin:2px 0px 0px 0px;
+    border-radius: 0;
+    border:0px;
+    border-top: 1px solid #ababab;;
+}
+
 .message-row.response:hover .reactions-holder-admin.reactions-selected,
 .message-row.response:hover .reactions-holder-admin {
     display:inline-block;

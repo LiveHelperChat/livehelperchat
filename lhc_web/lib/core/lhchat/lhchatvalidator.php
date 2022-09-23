@@ -312,7 +312,7 @@ class erLhcoreClassChatValidator {
             )
             {
                 if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['name_hidden_bot']) && $start_data_fields['name_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
-                    $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+                    $Errors['username'] = $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
                 }
 
             } elseif ($form->hasValidData( 'Username' )) {
@@ -321,7 +321,7 @@ class erLhcoreClassChatValidator {
 
             if ($form->hasValidData( 'Username' ) && $form->Username != '' && mb_strlen($form->Username) > 100 && !isset($additionalParams['ignore_required']))
             {
-                $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters');
+                $Errors['username'] = $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters');
             }
         }
 
@@ -475,7 +475,7 @@ class erLhcoreClassChatValidator {
                         $chat->dep_id = $form->DepartamentID;
                     } elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {
                         $chat->dep_id == 0;
-                    
+
                         if (isset($additionalParams['theme']) && $additionalParams['theme'] !== false && $additionalParams['theme']->department_title != '') {
                             $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($additionalParams['theme']->department_title).'!';
                         } else {
@@ -520,12 +520,12 @@ class erLhcoreClassChatValidator {
             }
 
         } else {
-            
+
             if ($form->hasValidData( 'DepartamentID' ) && erLhcoreClassModelDepartament::getCount(array('filter' => array('id' => $form->DepartamentID, 'disabled' => 0))) > 0) {
             	$chat->dep_id = $form->DepartamentID;
             } elseif ($form->hasValidData( 'DepartamentID' ) && $form->DepartamentID == -1) {
                 $chat->dep_id == 0;
-                
+
                 if (isset($additionalParams['theme']) && $additionalParams['theme'] !== false && $additionalParams['theme']->department_title != '') {
                     $Errors['department'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please choose').' '.htmlspecialchars($additionalParams['theme']->department_title).'!';
                 } else {
@@ -826,6 +826,13 @@ class erLhcoreClassChatValidator {
                 $chat->chat_variables = json_encode($chatVariables);
                 $chat->chat_variables_array = $chatVariables;
             }
+        }
+
+        if (isset($additionalParams['theme']) && $additionalParams['theme'] instanceof erLhAbstractModelWidgetTheme) {
+            $chatVariables = $chat->chat_variables_array;
+            $chatVariables['theme_id'] = 1;
+            $chat->chat_variables = json_encode($chatVariables);
+            $chat->chat_variables_array = $chatVariables;
         }
 
         if ( $form->hasValidData( 'tag' ) && !empty($form->tag))

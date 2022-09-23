@@ -104,6 +104,92 @@ try {
                 $chat->updateThis(['update' => ['operation_admin']]);
 
                 $updateMessage = true;
+            } elseif (isset($Params['user_parameters_unordered']['theme'])) { // Reaction by theme to add support
+
+                $themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme']);
+                if ($themeId !== false) {
+                    $theme = erLhAbstractModelWidgetTheme::fetch($themeId);
+                    if ($theme instanceof erLhAbstractModelWidgetTheme) {
+
+                        $validIdentifiers = [];
+                        $action = 'remove';
+                        $identifier = '';
+                        $valueAction = '';
+                        $oneReactionPerMessage = isset($theme->bot_configuration_array['one_reaction_per_msg']) && $theme->bot_configuration_array['one_reaction_per_msg'] == true;
+
+
+                        if (isset($theme->bot_configuration_array['enable_react_for_vi']) && $theme->bot_configuration_array['enable_react_for_vi'] == true) {
+                            $updateMessage = true;
+                            if (isset($theme->bot_configuration_array['custom_tb_reactions'])) {
+                                $partsReaction = explode("=",$theme->bot_configuration_array['custom_tb_reactions']);
+                                foreach ($partsReaction as $reaction) {
+                                    $iconParams = explode("|",$reaction);
+                                    if (!isset($iconParams[2]) || !isset($iconParams[1])) {
+                                        $iconParams[2] = strtoupper(preg_replace("/^[0]+/","",bin2hex(mb_convert_encoding($iconParams[0], 'UTF-32', 'UTF-8'))));
+                                        $iconParams[1] = 1;
+                                    }
+                                    $validIdentifiers[$iconParams[2]][] = $iconParams[1];
+                                }
+                            }
+                        }
+
+                        if (isset($theme->bot_configuration_array['custom_mw_reactions'])) {
+                            $partsReaction = explode("=",$theme->bot_configuration_array['custom_mw_reactions']);
+                            foreach ($partsReaction as $reaction) {
+                                $iconParams = explode("|",$reaction);
+                                if (!isset($iconParams[2]) || !isset($iconParams[1])) {
+                                    $iconParams[2] = strtoupper(preg_replace("/^[0]+/","",bin2hex(mb_convert_encoding($iconParams[0], 'UTF-32', 'UTF-8'))));
+                                    $iconParams[1] = 1;
+                                }
+                                $validIdentifiers[$iconParams[2]][] = $iconParams[1];
+                            }
+                        }
+
+                        if (isset($validIdentifiers[$paramsPayload['payload-id']])) {
+                            $currentPart = isset($metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']]) ? $metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']] : null;
+                            if ($currentPart === $paramsPayload['payload']) {
+                                unset($metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']]);
+                                if (empty($metaMessage['content']['reactions']['current'])) {
+                                    unset($metaMessage['content']['reactions']['current']);
+                                }
+                                $identifier = $paramsPayload['payload-id'];
+                                if ($oneReactionPerMessage) {
+                                    unset($metaMessage['content']['reactions']['current']);
+                                }
+                            } else {
+                                if ($oneReactionPerMessage) {
+                                    unset($metaMessage['content']['reactions']['current']);
+                                }
+                                if (key_exists($paramsPayload['payload-id'],$validIdentifiers) && in_array($paramsPayload['payload'],$validIdentifiers[$paramsPayload['payload-id']])) {
+                                    $metaMessage['content']['reactions']['current'][$paramsPayload['payload-id']] = (string)$paramsPayload['payload'];
+                                    $action = 'add';
+                                    $valueAction = (string)$paramsPayload['payload'];
+                                }
+                            }
+                        }
+
+                        // Dispatch reaction action for extensions
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.reaction_visitor', array(
+                            'reaction_identifier' => $identifier,
+                            'reaction_value' => $valueAction,
+                            'action' => $action,
+                            'msg' => & $message,
+                            'chat' => & $chat
+                        ));
+
+                        $message->meta_msg_array = $metaMessage;
+                        $message->meta_msg = json_encode($message->meta_msg_array);
+                        $message->updateThis(['update' => ['meta_msg']]);
+
+
+                        $chat->operation_admin = "lhinst.updateMessageRowAdmin({$chat->id},{$message->id});\n";
+                        $chat->updateThis(['update' => ['operation_admin']]);
+
+                        $updateMessage = true;
+                    }
+                }
+                // <?php $reactionsOutput = ''; if (isset($theme->bot_configuration_array['custom_tb_reactions'])) :
+                // @todo continbue herer validate request to add message
             }
 
         } else {

@@ -110,6 +110,8 @@ return array(
         'type' => 'textarea',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/email_template','Content'),
         'required' => false,
+        'height' => '600px',
+        'ace_editor' => 'html',
         'translatable' => true,
         'main_attr_lang' => 'translations_array',
         'hidden' => true,

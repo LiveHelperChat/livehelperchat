@@ -44,8 +44,9 @@ class ChatModal extends PureComponent {
         })
     }
 
-    dismissModal = () => {
-        this.props.toggle()
+    dismissModal = (e) => {
+        this.props.toggle();
+        e && e.stopPropagation();
     }
 
     generalOnClick = (e) => {
@@ -67,10 +68,11 @@ class ChatModal extends PureComponent {
         this.props.toggle();
     }
 
-    generalDataActionClick = (e) => {
+    generalDataActionClick = (e, event) => {
         if (e['data-action'] && this.props[e['data-action']]) {
             this.props[e['data-action']](e['data-action-arg'] || null);
         }
+        event && event.stopPropagation();
     }
 
     render() {
@@ -90,7 +92,7 @@ class ChatModal extends PureComponent {
                                     delete domNode.attribs.class;
                                 }
                                 return (
-                                    <a {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs)}>{domToReact(domNode.children)}</a>
+                                    <a {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs, e)}>{domToReact(domNode.children)}</a>
                                 );
 
                             } else if (domNode.attribs && domNode.attribs.bbitem) {
@@ -108,7 +110,7 @@ class ChatModal extends PureComponent {
                                     delete domNode.attribs.class;
                                 }
 
-                                return (<input {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs)} />);
+                                return (<input {...domNode.attribs} onClick={(e) => this.generalDataActionClick(domNode.attribs, e)} />);
 
                             } else if (domNode.type && domNode.type === 'script') {
                                 if (domNode.children.length > 0)

@@ -1,5 +1,21 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/cannedmsg.tpl.php'));?>
 
+<?php if (isset($messsages_error)) : $errors = [$messsages_error];?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+<?php endif; ?>
+
+<?php if (isset($messsages_copied) || isset($messsages_skipped)) : ?>
+    <div role="alert" class="alert alert-success alert-dismissible fade show" ng-non-bindable>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <ul class="my-0 pl-3">
+            <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copied');?> - <?php echo $messsages_copied?></li>
+            <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Skipped');?> - <?php echo $messsages_skipped?></li>
+        </ul>
+    </div>
+<?php endif; ?>
+
 <ul class="nav nav-tabs mb-3" role="tablist">
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>" class="nav-link<?php if ($tab == '' || $tab == 'cannedmsg') : ?> active<?php endif;?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Canned messages');?></a></li>
     <li role="presentation" class="nav-item"><a href="<?php echo erLhcoreClassDesign::baseurl('chat/cannedmsg')?>/(tab)/statistic" class="nav-link<?php if ($tab == 'statistic') : ?> active<?php endif;?>" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Statistic');?></a></li>
@@ -10,9 +26,14 @@
     <div role="tabpanel" class="tab-pane active" id="cannedmsg">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/search_panel.tpl.php')); ?>
         <br/>
+
+        <form action="<?php echo $input->form_action?>" method="post">
         <table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
             <thead>
             <tr>
+                <th width="1%">
+                    <input type="checkbox" onclick="$('.canned-item-id').prop('checked',$(this).is(':checked'))">
+                </th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
@@ -26,6 +47,9 @@
             </thead>
             <?php foreach ($items as $item) : ?>
                 <tr class="<?php $item->disabled == 1 ? print 'text-muted' : ''?>">
+                    <td>
+                        <input class="canned-item-id" type="checkbox" name="canned_id[]" value="<?php echo $item->id?>">
+                    </td>
                     <td title="<?php echo htmlspecialchars($item->unique_id)?>">
                         <?php if ($item->disabled == 1) : ?><i class="text-danger material-icons">block</i><?php endif; ?>
                         <?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?>
@@ -68,9 +92,17 @@
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
         <?php endif;?>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
-            <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
-        <?php endif; ?>
+        <div class="btn-group" role="group" aria-label="...">
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
+            <a class="btn btn-sm btn-primary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>">
+                <span class="material-icons">add</span>
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?>
+            </a>
+            <?php endif; ?>
+            <button name="CopyAsEmailTemplates" type="submit" class="btn btn-sm btn-secondary"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copy selected as e-mail templates');?></button>
+        </div>
+
+        </form>
 
     </div>
     <?php endif; ?>

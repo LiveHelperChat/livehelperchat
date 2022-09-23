@@ -241,6 +241,8 @@ $ViewList['syncadmininterface'] = array(
         'mmd',
         'mmdgroups',
         'limitmm',
+        'oopu',
+        'oopugroups',
         'subjectd',
         'limits',
         'sdgroups',
@@ -253,6 +255,8 @@ $ViewList['syncadmininterface'] = array(
     'multiple_arguments' => array (
         'mmd',
         'mmdgroups',
+        'oopu',
+        'oopugroups',
         'subjectd',
         'sdgroups',
         'subjectdprod',
@@ -668,6 +672,11 @@ $ViewList['accept'] = array(
 
 $ViewList['confirmleave'] = array(
     'params' => array('chat_id','hash')
+);
+
+$ViewList['reacttomessagemodal'] = array(
+    'params' => array('message_id'),
+    'uparams' => array('theme')
 );
 
 $ViewList['sendchat'] = array(

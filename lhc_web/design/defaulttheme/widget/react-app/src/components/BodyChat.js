@@ -61,6 +61,7 @@ class BodyChat extends Component {
 
         let surveyMode = false;
         let navigateToSurvey = false;
+        let tipMode = false;
 
         let surveyByVisitor = (this.props.chatwidget.hasIn(['chatLiveData','status_sub']) && (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_CONTACT_FORM || this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_SURVEY_SHOW || (this.props.chatwidget.getIn(['chatLiveData','status_sub']) == STATUS_SUB_USER_CLOSED_CHAT && (
             this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 ||
@@ -91,6 +92,16 @@ class BodyChat extends Component {
             this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'confirm_close', 'val': 2}});
         }
 
+        // User has confirmed/or denied pre-survey
+        if (this.props.chatwidget.getIn(['chat_ui_state','pre_survey_done']) === 1) {
+            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 2}});
+        }
+
+        if (this.props.chatwidget.hasIn(['chat_ui','pre_survey_url']) && this.props.chatwidget.getIn(['chat_ui_state','pre_survey_done']) === 0 && this.props.chatwidget.getIn(['chatLiveData','uid']) > 0) {
+            this.props.dispatch({'type' : 'UI_STATE', 'data' : {'attr': 'pre_survey_done', 'val': 1}});
+            tipMode = true;
+        }
+
         if (navigateToSurvey === true) {
             // Forward user to survey on close
             // Means chat was closed by operator but visitor is still not in survey mode
@@ -99,9 +110,9 @@ class BodyChat extends Component {
         }
 
         if (this.props.chatwidget.get('initClose') === false && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && surveyMode == false && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT)) {
-            this.props.dispatch(endChat({'show_start' : params['show_start'],'noCloseReason' : 'SHOW_SURVEY', 'noClose' : true, 'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
-        } else {
-            this.props.dispatch(endChat({'show_start' : params['show_start'],'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
+            this.props.dispatch(endChat({'show_start' : (params && params['show_start'] ? params['show_start'] : false),'noCloseReason' : 'SHOW_SURVEY', 'noClose' : true, 'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
+        } else if (tipMode == false) {
+            this.props.dispatch(endChat({'show_start' : (params && params['show_start'] ? params['show_start'] : false),'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
         }
     }
 

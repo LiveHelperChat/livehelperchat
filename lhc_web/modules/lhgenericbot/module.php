@@ -128,13 +128,13 @@ $ViewList['listexceptions'] = array(
 $ViewList['listtranslations'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['listtranslationsitems'] = array(
     'params' => array(),
     'uparams' => array('group_id'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['new'] = array(
@@ -158,25 +158,25 @@ $ViewList['newexception'] = array(
 $ViewList['newtrgroup'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['newtritem'] = array(
     'params' => array(),
     'uparams' => array('group_id'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['edittrgroup'] = array(
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['edittritem'] = array(
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['editrestapi'] = array(
@@ -224,13 +224,13 @@ $ViewList['deleteexception'] = array(
 $ViewList['deletetritem'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['deletetrgroup'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
-    'functions' => array( 'use' )
+    'functions' => array( 'use_individualization' )
 );
 
 $ViewList['nodegrouptriggers'] = array(
@@ -360,8 +360,8 @@ $ViewList['notifications'] = array(
 );
 
 $ViewList['buttonclicked'] = array(
-    'params' => array('chat_id', 'hash'),
-    'uparams' => array('type')
+    'params' => array('chat_id', 'hash' ),
+    'uparams' => array('type','theme')
 );
 
 $ViewList['updatebuttonclicked'] = array(
@@ -378,5 +378,6 @@ $ViewList['chatactions'] = array(
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
 $FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot notifications settings');
 $FunctionList['see_actions'] = array('explain' => 'Allow operator to see chat actions');
+$FunctionList['use_individualization'] = array('explain' => 'Allow operator to change bot individualisation');
 
 ?>
