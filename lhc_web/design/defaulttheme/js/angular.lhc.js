@@ -293,6 +293,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.activeu = [];
 	this.pendingu = [];
 	this.subjectu = [];
+	this.oopu = [];
 
 
 	// Main left menu of pagelayout
@@ -331,6 +332,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	
 	this.operatord = [];
 	this.operatord_dpgroups = [];
+    this.operatord_ugroups = [];
 	this.operatordNames = [];
 
 	// Chats with products filters
@@ -621,6 +623,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(pendingu)/'+_that.pendingu.join('/');			
 		}
 
+		if (typeof _that.oopu == 'object' && _that.oopu.length > 0) {
+			filter += '/(oopu)/'+_that.oopu.join('/');
+		}
+
 		if (typeof _that.subjectu == 'object' && _that.subjectu.length > 0) {
 			filter += '/(subjectu)/'+_that.subjectu.join('/');
 		}
@@ -763,6 +769,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 		if (typeof _that.pendingd_ugroups == 'object' && _that.pendingd_ugroups.length > 0) {
 			filter += '/(pugroups)/'+_that.pendingd_ugroups.join('/');
+		}
+
+		if (typeof _that.operatord_ugroups == 'object' && _that.operatord_ugroups.length > 0) {
+			filter += '/(oopugroups)/'+_that.operatord_ugroups.join('/');
 		}
 
 		if (typeof _that.subjectd_ugroups == 'object' && _that.subjectd_ugroups.length > 0) {
@@ -1085,6 +1095,14 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.$watch('lhc.pendingu', function(newVal,oldVal) {       
 		if (newVal != oldVal) {	
             LiveHelperChatFactory.setLocalSettings('pendingu', newVal);
+			_that.isListLoaded = false;
+			$scope.loadChatList();
+		};
+	});
+
+	$scope.$watch('lhc.oopu', function(newVal,oldVal) {
+		if (newVal != oldVal) {
+            LiveHelperChatFactory.setLocalSettings('oopu', newVal);
 			_that.isListLoaded = false;
 			$scope.loadChatList();
 		};
@@ -1671,7 +1689,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             userProductNames.push(value.id);
         });
 
-        LiveHelperChatFactory.searchProvider('users_ids',_that.pendingu.join(',') +','+ _that.activeu.join(',')+','+ _that.subjectu.join(',')).then(function(data){
+        LiveHelperChatFactory.searchProvider('users_ids',_that.pendingu.join(',') +','+ _that.activeu.join(',')+','+ _that.subjectu.join(',')+','+ _that.oopu.join(',')).then(function(data){
 
             _that.userList = data.items;
 
@@ -1686,7 +1704,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'actived_dpgroups' : userDepartmentsGroups,
 
                 'pendingu' : userList,
+                'oopu' : userList,
                 'pendingd_ugroups' : userGroups,
+                'operatord_ugroups' : userGroups,
                 'pendingd_dpgroups' : userDepartmentsGroups,
                 'pendingd_products' : userProductNames,
 
@@ -1806,6 +1826,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                 'activeu',
                 'pendingu',
+                'oopu',
                 'subjectu',
 
                 'closedd',
@@ -1839,6 +1860,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'departmentd',
 
                 'operatord_dpgroups',
+                'operatord_ugroups',
                 'operatord',
             ];
 

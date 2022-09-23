@@ -238,6 +238,8 @@ $ViewList['delete'] = array(
 $ViewList['syncadmininterface'] = array(
     'params' => array(),
     'uparams' => array(
+        'oopu',
+        'oopugroups',
         'subjectd',
         'limits',
         'subjectd',
@@ -249,6 +251,8 @@ $ViewList['syncadmininterface'] = array(
     'ajax' => true,
     'functions' => array( 'use' ),
     'multiple_arguments' => array (
+        'oopu',
+        'oopugroups',
         'subjectd',
         'subjectd',
         'sdgroups',
