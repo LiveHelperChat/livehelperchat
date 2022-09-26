@@ -454,6 +454,7 @@ div.message-admin div.msg-body{
 	display:inline-block;
 	text-align: left;
 	max-width:85%;
+    position: relative;
 }
 
 div.other-operator div.msg-body{
@@ -2029,12 +2030,25 @@ html {
 }
 
 .reactions-holder-visitor{
-    position: relative;
+    position: absolute;
     margin:2px 0px 0px 0px;
     border-radius: 0;
     border:0px;
-    border-top: 1px solid #ababab;;
+    left: 0;
+    z-index:99;
 }
+
+.reactions-holder-visitor:hover{
+    z-index:999;
+}
+
+.reactions-selected-info span {
+    box-shadow: 0 0 6px #ababab;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: #f9f7f7;
+}
+
 
 .message-row.response:hover .reactions-holder-admin.reactions-selected,
 .message-row.response:hover .reactions-holder-admin {
