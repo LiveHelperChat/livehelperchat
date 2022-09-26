@@ -33,7 +33,16 @@ class erLhcoreClassChatMail {
 			$phpMailer->IsSMTP();
 			$phpMailer->Host = $data['host'];
 			$phpMailer->Port = $data['port'];
-			
+
+            // To work with various SMTP servers
+            $phpMailer->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+
 			if ($data['username'] != '' && $data['password'] != '') {			
 				$phpMailer->Username = $data['username'];
 				$phpMailer->Password = $data['password'];
