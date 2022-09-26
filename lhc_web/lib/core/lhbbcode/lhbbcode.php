@@ -748,7 +748,7 @@ class erLhcoreClassBBCode
      */
    public static function _make_email_clickable_cb( $matches ) {
     	$email = $matches[2] . '@' . $matches[3];
-    	return $matches[1] . "<a rel=\"noreferrer\" class=\"link\" href=\"mailto:$email\">$email</a>";
+    	return $matches[1] . "<a rel=\"noreferrer\" target=\"_blank\" class=\"link\" href=\"mailto:$email\">$email</a>";
    }
 
    
