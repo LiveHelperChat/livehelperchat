@@ -36,12 +36,15 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
                 'payload-id' => $form->identifier,
                 'payload' => $form->data
             ]);
-                        
-            $reactions = new erLhcoreClassTemplate( 'lhgenericbot/message/reaction_to_visitor.tpl.php');
-            $reactions->set('msg',$msg->getState());
-            $reactions->set('metaMessageData',$msg->meta_msg_array);
 
-            echo json_encode(array('error' => 'false','result' => $reactions->fetch()));
+            $reactions = new erLhcoreClassTemplate( 'lhgenericbot/message/reaction_to_visitor.tpl.php');
+            $reactions->set('msg', $msg->getState());
+            $reactions->set('metaMessageData', $msg->meta_msg_array);
+            $reactions->set('chat', $chat);
+            $reactions->set('messageId', $msg->id);
+            $reactionBody = $reactions->fetch();
+
+            echo json_encode(array('error' => 'false','result' => $reactionBody));
             exit;
         } else {
             $errorTpl->set('errors', $errors);

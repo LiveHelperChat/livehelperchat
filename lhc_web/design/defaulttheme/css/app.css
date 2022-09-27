@@ -454,6 +454,7 @@ div.message-admin div.msg-body{
 	display:inline-block;
 	text-align: left;
 	max-width:85%;
+    position: relative;
 }
 
 div.other-operator div.msg-body{
@@ -703,14 +704,14 @@ div.message-row.message-admin+div.message-row.message-admin .msg-date-op{
     display: block;
     position: absolute;
     margin-top:-9px;
-    right:0px;
+    right:48%;
 }
 
 div.message-row.response+div.message-row.response .msg-date-vi{
     display: block;
     position: absolute;
     margin-top:-9px;
-    left:0px;
+    left:48.5%;
 }
 
 div.message-row.operator-changes .msg-date-op{
@@ -1984,6 +1985,7 @@ html {
     text-align: center;
     width: 90%;
     margin-left: 5%;
+    z-index:99;
 }
 
 .btn-bottom-scroll > button{
@@ -2033,7 +2035,7 @@ html {
 .reactions-holder {
     color:#fff;
     position: absolute;
-    z-index:1;
+    z-index:99;
     text-decoration: none;
     border-radius:20px;
     padding: 0px 5px 5px;
@@ -2049,13 +2051,80 @@ html {
     display:none;
 }
 
+.reactions-holder-admin-info,
 .reactions-holder-visitor{
-    position: relative;
+    position: absolute;
     margin:2px 0px 0px 0px;
     border-radius: 0;
     border:0px;
-    border-top: 1px solid #ababab;;
+    z-index:1;
+    right: 0;
+    white-space: nowrap;
 }
+
+.reactions-holder-admin-info{
+    left: 0;
+    right: auto;
+    display: block;
+    bottom:-10px;
+    white-space: nowrap;
+}
+
+.reactions-holder-visitor:hover{
+    z-index:999;
+}
+
+.reactions-selected-info span {
+    box-shadow: 0 0 6px #ababab;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color: #f9f7f7;
+}
+
+.reactions-toolbar {
+    display: none;
+    position: absolute;
+    margin-top: -33px;
+    background: white;
+    border-radius: 19px;
+    padding: 4px 8px;
+    box-shadow: 0 0 7px grey;
+    z-index: 2;
+    white-space: nowrap;
+    transform: translate(50px,0px) translate(-45%,0%);
+}
+
+.reaction-item {
+    opacity: 0.4;
+}
+
+.reaction-item.material-icons {
+    color: #000;
+}
+
+.reaction-item.reaction-selected,
+.reaction-item:hover,
+.reaction-selected{
+    opacity: 1;
+}
+
+.reactions-holder-plus {
+    bottom: 0;
+    margin-left: auto;
+    right: -30px;
+    background: none;
+    border: 0;
+    font-size: 18px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.reactions-holder-plus-icon {
+    filter: grayscale(1);
+    opacity: 0.2;
+    user-select: none;
+}
+
 
 .message-row.response:hover .reactions-holder-admin.reactions-selected,
 .message-row.response:hover .reactions-holder-admin {

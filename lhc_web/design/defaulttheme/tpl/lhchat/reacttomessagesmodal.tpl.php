@@ -3,6 +3,13 @@
 <div class="modal-dialog modal-<?php isset($modalSize) ? print $modalSize : print 'lg'?> modal-confirm-leave mx-4">
     <div class="modal-content">
 
+    <?php if (isset($admin_mode)) : ?>
+    <div ng-non-bindable class="modal-header">
+        <h4 class="modal-title" id="myModalLabel"><span class="material-icons">info_outline</span>React to visitor message</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <?php endif; ?>
+
 <div class="modal-body<?php (isset($modalBodyClass)) ? print ' '.$modalBodyClass : ''?>">
 
     <?php
@@ -35,7 +42,11 @@
             $partsReaction[0] = '&#xf108;';
         }
 
-        $reactionsOutput .= "<a linkaction=\"true\" data-action=\"setReaction\" data-action-arg='{\"data-identifier\":\"{$partsReaction[2]}\",\"data-payload\":\"{$partsReaction[1]}\",\"data-id\":{$messageId}}' title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+        if (isset($admin_mode)) {
+            $reactionsOutput .= "<a data-dismiss=\"modal\" onclick=\"lhinst.reaction($(this));\" data-identifier=\"{$partsReaction[2]}\" data-value=\"{$partsReaction[1]}\" data-msg-id=\"{$messageId}\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+        } else {
+            $reactionsOutput .= "<a linkaction=\"true\" data-action=\"setReaction\" data-action-arg='{\"data-identifier\":\"{$partsReaction[2]}\",\"data-payload\":\"{$partsReaction[1]}\",\"data-id\":{$messageId}}' title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+        }
     }
 
     echo $reactionsOutput;
@@ -43,7 +54,7 @@
     ?>
 
     <hr/>
-
+    <?php if (!isset($admin_mode)) : ?>
     <div class="mb-0" style="padding:0px 0 10px 0;">
         <div class="row">
             <div class="col-5">
@@ -52,4 +63,6 @@
             <div class="col-2"></div>
         </div>
     </div>
+    <?php endif;?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
