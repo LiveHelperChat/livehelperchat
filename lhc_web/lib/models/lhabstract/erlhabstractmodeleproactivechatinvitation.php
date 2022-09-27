@@ -378,7 +378,9 @@ class erLhAbstractModelProactiveChatInvitation {
                 $item->online_attr_system_array = $onlineAttrSystem;
                 $item->online_attr_system = json_encode($onlineAttrSystem);
             }
-	    }
+	    } else {
+            $item->operator_user_id = 0;
+        }
 
         $message->executed_times += 1;
         $message->updateThis(array('update' => array(
@@ -617,6 +619,8 @@ class erLhAbstractModelProactiveChatInvitation {
 
                 if ($message->show_random_operator == 1) {
                     $item->operator_user_id = erLhcoreClassChat::getRandomOnlineUserID(array('operators' => (isset($operatorsOnlineId) && !empty($operatorsOnlineId)) ? $operatorsOnlineId : explode(',',trim($message->operator_ids))));
+                } else {
+                    $item->operator_user_id = 0;
                 }
 
                 $onlineAttrSystem = $item->online_attr_system_array;
