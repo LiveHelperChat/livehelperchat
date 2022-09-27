@@ -2074,6 +2074,10 @@ html {
     opacity: 0.4;
 }
 
+.reaction-item.material-icons {
+    color: #000;
+}
+
 .reaction-item.reaction-selected,
 .reaction-item:hover,
 .reaction-selected{
