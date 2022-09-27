@@ -684,14 +684,14 @@ div.message-row.message-admin+div.message-row.message-admin .msg-date-op{
     display: block;
     position: absolute;
     margin-top:-9px;
-    right:0px;
+    right:48%;
 }
 
 div.message-row.response+div.message-row.response .msg-date-vi{
     display: block;
     position: absolute;
     margin-top:-9px;
-    left:0px;
+    left:48.5%;
 }
 
 div.message-row.operator-changes .msg-date-op{
@@ -1958,6 +1958,7 @@ html {
     text-align: center;
     width: 90%;
     margin-left: 5%;
+    z-index:99;
 }
 
 .btn-bottom-scroll > button{
@@ -2041,15 +2042,17 @@ html {
     margin:2px 0px 0px 0px;
     border-radius: 0;
     border:0px;
-    left: 0;
     z-index:1;
+    right: 0;
+    white-space: nowrap;
 }
 
 .reactions-holder-admin-info{
-    right: 0;
+    left: 0;
+    right: auto;
     display: block;
-    left: auto;
     bottom:-10px;
+    white-space: nowrap;
 }
 
 .reactions-holder-visitor:hover{
