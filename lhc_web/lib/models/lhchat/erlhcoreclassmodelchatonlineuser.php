@@ -234,6 +234,12 @@ class erLhcoreClassModelChatOnlineUser
                 if ($this->operator_user_id > 0) {
                     try {
                         $this->operator_user = erLhcoreClassModelUser::fetch($this->operator_user_id);
+                        // Operator is disabled, update attributes
+                        if ($this->operator_user instanceof erLhcoreClassModelUser && $this->operator_user->disabled == 1) {
+                            $this->operator_user = false;
+                            $this->operator_user_id = 0;
+                            $this->updateThis(['update' => ['operator_user_id']]);
+                        }
                     } catch (Exception $e) {
 
                     }
@@ -713,6 +719,7 @@ class erLhcoreClassModelChatOnlineUser
                         $item->message_seen = 0;
                         $item->message_seen_ts = 0;
                         $item->operator_message = '';
+                        $item->operator_user_id = 0;
                     }
 
                     // Visit duration less than 30m. Same as google analytics

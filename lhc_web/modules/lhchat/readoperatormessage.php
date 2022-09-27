@@ -486,7 +486,7 @@ if (isset($_POST['askQuestion']))
 
        $ignoreResponder = isset($onlineAttrSystem['lhc_ignore_autoresponder']) && $onlineAttrSystem['lhc_ignore_autoresponder'] == 1;
 
-       if (isset($onlineAttrSystem['lhc_assign_to_me']) && $onlineAttrSystem['lhc_assign_to_me'] == 1 && $userInstance->operator_user_id > 0) {
+       if (isset($onlineAttrSystem['lhc_assign_to_me']) && $onlineAttrSystem['lhc_assign_to_me'] == 1 && $userInstance->operator_user !== false && $userInstance->operator_user_id > 0) {
            $chat->user_id = $userInstance->operator_user_id;
            $chat->tslasign = time();
        }
