@@ -26,7 +26,7 @@ if (isset($msg['user_id']) && $msg['user_id'] != 0) : $reactionsOperator = '';?>
         <div class=" reactions-holder-visitor reactions-selected-info d-block">
             <?php echo $reactionsOperator?>
         </div>
-    <?php endif; /*reactions-holder*/ ?>
+    <?php endif; ?>
 
 <?php else : ?>
 

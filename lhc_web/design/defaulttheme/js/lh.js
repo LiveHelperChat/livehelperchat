@@ -992,8 +992,8 @@ function lh(){
 
     this.reaction = function(inst) {
         $.postJSON(this.wwwDir + 'chat/reaction/' + inst.attr('data-msg-id'), {'identifier' :inst.attr('data-identifier'), 'data': + inst.attr('data-value')}, function(data) {
-
             if (data.error == 'false') {
+                $('#reaction-message-info-'+inst.attr('data-msg-id')).remove();
                 $('#reaction-message-'+inst.attr('data-msg-id')).replaceWith(data.result);
             } else {
                 alert(data.result);
