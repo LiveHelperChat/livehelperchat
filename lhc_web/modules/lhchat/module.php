@@ -342,6 +342,11 @@ $ViewList['addmsgadmin'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['reactmodal'] = array(
+    'params' => array('msg_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['updatechatstatus'] = array(
     'params' => array('chat_id'),
     'functions' => array( 'use' )

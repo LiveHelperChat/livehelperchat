@@ -2070,12 +2070,13 @@ html {
     transform: translate(50px,0px) translate(-45%,0%);
 }
 
-.reactions-toolbar .reaction-item {
+.reaction-item {
     opacity: 0.4;
 }
 
-.reactions-toolbar .reaction-item:hover,
-.reactions-toolbar .reaction-selected{
+.reaction-item.reaction-selected,
+.reaction-item:hover,
+.reaction-selected{
     opacity: 1;
 }
 

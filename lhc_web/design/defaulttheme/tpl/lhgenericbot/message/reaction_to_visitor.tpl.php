@@ -57,9 +57,9 @@
         <div class="reactions-holder reactions-holder-plus d-block" id="reaction-message-<?php echo $msg['id']?>">
             <div class="reactions-toolbar" id="reactions-toolbar-<?php echo $messageId?>" style="display: none">
                 <?php echo $reactionsOutput?>
-                <?php /*if (isset($chatTheme->bot_configuration_array['custom_mw_reactions']) && $chatTheme->bot_configuration_array['custom_mw_reactions'] != '') : ?>
-                    <a class="action-image reaction-item reactions-modal-expand material-icons" data-bot-action="lhinst.moreReactions" data-id="<?php echo $messageId?>" onclick="lhinst.moreReactions()">add</a>
-                <?php endif;*/ ?>
+                <?php if (isset($chatTheme->bot_configuration_array['custom_mw_reactions']) && $chatTheme->bot_configuration_array['custom_mw_reactions'] != '') : ?>
+                    <a class="action-image reaction-item reactions-modal-expand material-icons" data-bot-action="lhinst.moreReactions" data-id="<?php echo $messageId?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + 'chat/reactmodal/<?php echo $msg['id']?>'})">add</a>
+                <?php endif; ?>
             </div>
             <a class="reactions-holder-plus-icon" data-bot-action="lhinst.reactionsToolbar" data-id="<?php echo $messageId?>" onclick="$('#reactions-toolbar-<?php echo $messageId?>').toggle()" title="React">😊</a>
         </div>
