@@ -25,7 +25,7 @@
 
             $className .= ($selectedReaction === true && $hasReactionsSelected = true) ? ' reaction-selected' : '';
 
-            $reactionsOutput .= "<a onclick=\"lhinst.reaction($(this))\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" data-identifier=\"{$partsReaction[2]}\" data-value=\"{$partsReaction[1]}\" data-msg-id=\"{$messageId}\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+            $reactionsOutput .= "<a onclick=\"lhinst.reaction($(this))\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" data-identifier=\"{$partsReaction[2]}\" data-value=\"{$partsReaction[1]}\" data-msg-id=\"{$msg['id']}\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
         }
 
         if (isset($metaMessageData['content']['reactions']['current']) && isset($chatTheme->bot_configuration_array['reactions_always_visible_under']) && $chatTheme->bot_configuration_array['reactions_always_visible_under'] == true) {
@@ -55,13 +55,13 @@
         ?>
 
         <div class="reactions-holder reactions-holder-plus d-block" id="reaction-message-<?php echo $msg['id']?>">
-            <div class="reactions-toolbar" id="reactions-toolbar-<?php echo $messageId?>" style="display: none">
+            <div class="reactions-toolbar" id="reactions-toolbar-<?php echo $msg['id']?>" style="display: none">
                 <?php echo $reactionsOutput?>
                 <?php if (isset($chatTheme->bot_configuration_array['custom_mw_reactions']) && $chatTheme->bot_configuration_array['custom_mw_reactions'] != '') : ?>
-                    <a class="action-image reaction-item reactions-modal-expand material-icons" data-bot-action="lhinst.moreReactions" data-id="<?php echo $messageId?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + 'chat/reactmodal/<?php echo $msg['id']?>'})">add</a>
+                    <a class="action-image reaction-item reactions-modal-expand material-icons" data-bot-action="lhinst.moreReactions" data-id="<?php echo $msg['id']?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + 'chat/reactmodal/<?php echo $msg['id']?>'})">add</a>
                 <?php endif; ?>
             </div>
-            <a class="reactions-holder-plus-icon" data-bot-action="lhinst.reactionsToolbar" data-id="<?php echo $messageId?>" onclick="$('#reactions-toolbar-<?php echo $messageId?>').toggle()" title="React">😊</a>
+            <a class="reactions-holder-plus-icon" data-bot-action="lhinst.reactionsToolbar" data-id="<?php echo $msg['id']?>" onclick="$('#reactions-toolbar-<?php echo $msg['id']?>').toggle()" title="React">😊</a>
         </div>
         <?php if (isset($chatTheme->bot_configuration_array['reactions_always_visible_under']) && $chatTheme->bot_configuration_array['reactions_always_visible_under'] == true && isset($hasAnyReactionSelected) && $hasAnyReactionSelected == true) : ?>
             <div class="reactions-holder-admin-info reactions-selected-info" id="reaction-message-info-<?php echo $msg['id']?>">
