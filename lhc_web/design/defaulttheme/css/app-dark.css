@@ -410,7 +410,6 @@ div.message-row > div,div.message-row > span,div.message-row > i {
     -webkit-border-top-left-radius: 0px!important;
     -moz-border-radius-topleft: 0px!important;
     border-top-left-radius: 0px!important;
-
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-bottomleft: 10px;
     border-bottom-left-radius: 10px;
@@ -440,6 +439,7 @@ div.message-admin div.msg-body{
     display:inline-block;
     text-align: left;
     max-width:85%;
+    position: relative;
 }
 
 div.other-operator div.msg-body{
@@ -2019,7 +2019,7 @@ html {
 .reactions-holder {
     color:#fff;
     position: absolute;
-    z-index:1;
+    z-index:99;
     text-decoration: none;
     border-radius:20px;
     padding: 0px 5px 5px;
@@ -2035,6 +2035,74 @@ html {
     display:none;
 }
 
+.reactions-holder-admin-info,
+.reactions-holder-visitor{
+    position: absolute;
+    margin:2px 0px 0px 0px;
+    border-radius: 0;
+    border:0px;
+    left: 0;
+    z-index:1;
+}
+
+.reactions-holder-admin-info{
+    right: 0;
+    display: block;
+    left: auto;
+    bottom:-10px;
+}
+
+.reactions-holder-visitor:hover{
+    z-index:999;
+}
+
+.reactions-selected-info span {
+    box-shadow: 0 0 6px #363636;
+    border-radius: 8px;
+    font-size: 12px;
+    background-color:#363636;
+}
+
+.reactions-toolbar {
+    display: none;
+    position: absolute;
+    margin-top: -33px;
+    background: #343a40;
+    border-radius: 19px;
+    padding: 4px 8px;
+    box-shadow: 0 0 7px grey;
+    z-index: 2;
+    white-space: nowrap;
+    transform: translate(50px,0px) translate(-45%,0%);
+}
+
+.reactions-toolbar .reaction-item {
+    opacity: 0.4;
+}
+
+.reactions-toolbar .reaction-item:hover,
+.reactions-toolbar .reaction-selected{
+    opacity: 1;
+}
+
+.reactions-holder-plus {
+    bottom: 0;
+    margin-left: auto;
+    right: -30px;
+    background: none;
+    border: 0;
+    font-size: 18px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.reactions-holder-plus-icon {
+    filter: grayscale(1);
+    opacity: 0.2;
+    user-select: none;
+}
+
+
 .message-row.response:hover .reactions-holder-admin.reactions-selected,
 .message-row.response:hover .reactions-holder-admin {
     display:inline-block;
@@ -2043,10 +2111,6 @@ html {
 .message-row.response .reaction-item.reaction-selected {
     color: #3267e4;
 }
-
-/*.reactions-selected .reaction-item:not(.reaction-selected) {
-    display: none;
-}*/
 
 .message-row.response:hover .reaction-item,
 .reactions-holder.d-block .reaction-item,
