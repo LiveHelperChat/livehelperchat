@@ -138,7 +138,10 @@
 </div>
 
 <div class="form-group">		
-<label><?php echo $fields['tag']['trans'];?></label>
+<label>
+    <?php echo $fields['tag']['trans'];?>
+    <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/invitationtag'});" class="material-icons text-muted">help</a>
+</label>
 <?php echo erLhcoreClassAbstract::renderInput('tag', $fields['tag'], $object)?>
 </div>
 
