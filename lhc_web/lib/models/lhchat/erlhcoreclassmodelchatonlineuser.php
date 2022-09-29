@@ -936,10 +936,23 @@ class erLhcoreClassModelChatOnlineUser
                 }
             }
 
+            if (isset($paramsHandle['tag']) && $paramsHandle['tag'] != '') {
+                $paramsHandle['tag'] = implode(',',array_unique(explode(',',$paramsHandle['tag'])));
+                // Special tags format can force always to be shown
+                if (strpos($paramsHandle['tag'],'__reset') !== false) {
+                    $paramsHandle['tag'] = str_replace('__reset','',$paramsHandle['tag']);
+                    if ($item->operator_message != '' || $item->message_seen == 1) {
+                        $item->operator_message = '';
+                        $item->message_seen = 0;
+                        $item->updateThis(['update' => ['message_seen','operator_message']]);
+                    }
+                }
+            }
+
             if ((!isset($paramsHandle['wopen']) || $paramsHandle['wopen'] == 0) && $item->operator_message == '' && isset($paramsHandle['pro_active_invite']) && $paramsHandle['pro_active_invite'] == 1 && isset($paramsHandle['pro_active_limitation']) && ($paramsHandle['pro_active_limitation'] == -1 || erLhcoreClassChat::getPendingChatsCountPublic($item->dep_id > 0 ? $item->dep_id : false) <= $paramsHandle['pro_active_limitation'])) {
                 $errors = array();
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_proactive_triggered', array('ou' => & $item, 'errors' => & $errors));
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.before_proactive_triggered', array('ou' => & $item, 'errors' => & $errors));
                 if (empty($errors)) {
                     //Process pro active chat invitation if this visitor matches any rules
                     if ($item->id == null) { $item->saveThis(); }
