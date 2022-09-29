@@ -2125,4 +2125,7 @@ html {
     display: inline-block;
 }
 
-
+@keyframes blinker { to { opacity: 50%; } }
+.msg-updated .msg-body {
+    animation: blinker 1s ease-in-out 2 alternate;
+}
