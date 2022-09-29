@@ -2786,9 +2786,9 @@ function lh(){
 
     			$('#msg-'+msgid).replaceWith(data.msg);
                 lhinst.addQuateHandler(chat_id);
-    			$('#msg-'+msgid).addClass('bg-success');
+    			$('#msg-'+msgid).addClass('msg-updated');
     			setTimeout(function(){
-    				$('#msg-'+msgid).removeClass('bg-success');
+    				$('#msg-'+msgid).removeClass('msg-updated');
     			},2000);
                 needScroll && messagesBlock.scrollTop(messagesBlock.prop('scrollHeight'));
     		}
