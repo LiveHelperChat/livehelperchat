@@ -869,7 +869,7 @@ class erLhcoreClassMailconvParser {
                     $mustCombinations = explode('&&',$fromNameRule);
                     $wordsFound = true;
                     foreach ($mustCombinations as $mustCombination) {
-                        if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$message->from_name)) {
+                        if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$message->from_name,0)) {
                             $wordsFound = false;
                             break;
                         }
@@ -893,7 +893,7 @@ class erLhcoreClassMailconvParser {
                     $mustCombinations = explode('&&',$fromNameRule);
                     $wordsFound = true;
                     foreach ($mustCombinations as $mustCombination) {
-                        if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$message->subject)) {
+                        if (!erLhcoreClassGenericBotWorkflow::checkPresence(explode(',',$mustCombination),$message->subject,0)) {
                             $wordsFound = false;
                             break;
                         }
