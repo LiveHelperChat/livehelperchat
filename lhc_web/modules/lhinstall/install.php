@@ -2280,7 +2280,8 @@ try {
   `attr_str_5` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attr_str_6` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `disabled` (`disabled`)
+  KEY `disabled` (`disabled`),
+  KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lhc_mailconv_mailing_list_recipient` (
