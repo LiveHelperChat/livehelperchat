@@ -398,7 +398,29 @@ class erLhcoreClassMailconvParser {
                             }
                         }
 
-                        $message->saveThis();
+                        try {
+                            $message->saveThis();
+                        } catch (\ezcPersistentQueryException $e) { // Handle incorrect encoding for body/alt_body
+                            if (strpos($e->getMessage(),'SQLSTATE[22007]') !== false && strpos($e->getMessage(),'`lhc_mailconv_msg`.`alt_body`') !== false) {
+                                $message->alt_body = '';
+                                try {
+                                    $message->saveThis();
+                                } catch (\ezcPersistentQueryException $e) {
+                                    $message->body = '';
+                                    $message->saveThis();
+                                }
+                            } elseif (strpos($e->getMessage(),'SQLSTATE[22007]') !== false && strpos($e->getMessage(),'`lhc_mailconv_msg`.`body`') !== false) {
+                                $message->body = '';
+                                try {
+                                    $message->saveThis();
+                                } catch (\ezcPersistentQueryException $e) {
+                                    $message->alt_body = '';
+                                    $message->saveThis();
+                                }
+                            } else {
+                                throw $e;
+                            }
+                        }
 
                         $conversations = new erLhcoreClassModelMailconvConversation();
                         $conversations->dep_id = $matchingRuleSelected->dep_id;
@@ -1043,7 +1065,29 @@ class erLhcoreClassMailconvParser {
             $message->cls_time = time();
         }
 
-        $message->saveThis();
+        try {
+            $message->saveThis();
+        } catch (\ezcPersistentQueryException $e) { // Handle incorrect encoding for body/alt_body
+            if (strpos($e->getMessage(),'SQLSTATE[22007]') !== false && strpos($e->getMessage(),'`lhc_mailconv_msg`.`alt_body`') !== false) {
+                $message->alt_body = '';
+                try {
+                    $message->saveThis();
+                } catch (\ezcPersistentQueryException $e) {
+                    $message->body = '';
+                    $message->saveThis();
+                }
+            } elseif (strpos($e->getMessage(),'SQLSTATE[22007]') !== false && strpos($e->getMessage(),'`lhc_mailconv_msg`.`body`') !== false) {
+                $message->body = '';
+                try {
+                    $message->saveThis();
+                } catch (\ezcPersistentQueryException $e) {
+                    $message->alt_body = '';
+                    $message->saveThis();
+                }
+            } else {
+                throw $e;
+            }
+        }
 
         if ($mail->hasAttachments() == true) {
               self::saveAttatchements($mail, $message);
