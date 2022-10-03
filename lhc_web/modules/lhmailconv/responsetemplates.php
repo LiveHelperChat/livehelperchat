@@ -41,6 +41,7 @@ if ($pages->items_total > 0) {
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailconv/responsetemplates');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
+$tpl->set('currentUser',$currentUser);
 
 $Result['content'] = $tpl->fetch();
 

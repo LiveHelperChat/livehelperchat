@@ -278,7 +278,7 @@ $ViewList['deletematchingrule'] = array(
 $ViewList['responsetemplates'] = array(
     'params' => array(),
     'uparams' => array('name','template_plain','template','dep_id','subject_id'),
-    'functions' => array( 'rtemplates_manage' ),
+    'functions' => array( 'rtemplates_see' ),
     'multiple_arguments' => array(
         'dep_id',
         'subject_id'
@@ -313,6 +313,11 @@ $ViewList['editresponsetemplate'] = array(
     'functions' => array( 'rtemplates_manage' )
 );
 
+$ViewList['previewresponsetemplate'] = array(
+    'params' => array('id'),
+    'functions' => array( 'rtemplates_see' )
+);
+
 $ViewList['notifications'] = array(
     'params' => array(),
     'functions' => array( 'use_alarms' )
@@ -339,6 +344,7 @@ $FunctionList['use_admin'] = array('explain' => 'Permission to use mail conversa
 $FunctionList['mailbox_manage'] = array('explain' => 'Permission to manage mailbox');
 $FunctionList['mrules_manage'] = array('explain' => 'Permission to manage matching rules');
 $FunctionList['rtemplates_manage'] = array('explain' => 'Permission to manage response templates');
+$FunctionList['rtemplates_see'] = array('explain' => 'Permission to see response templates');
 $FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget');
 $FunctionList['delete_conversation'] = array('explain' => 'Permission to delete conversation');
 $FunctionList['close_all_conversation'] = array('explain' => 'Permission to close conversation even if operator is not an owner of it');

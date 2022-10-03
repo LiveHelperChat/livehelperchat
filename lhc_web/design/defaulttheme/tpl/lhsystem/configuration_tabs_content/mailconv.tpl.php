@@ -17,7 +17,7 @@
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/matchingrules')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Matching rules');?></a></li>
                 <?php endif; ?>
 
-                <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
+                <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_see')) : ?>
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/responsetemplates')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Response templates');?></a></li>
                 <?php endif; ?>
 

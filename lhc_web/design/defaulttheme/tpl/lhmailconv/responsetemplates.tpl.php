@@ -7,18 +7,26 @@
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrp','Name');?></th>
-            <th width="1%"></th>
+            <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?><th width="1%"></th><?php endif; ?>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td><a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a></td>
+                <td>
+                    <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
+                        <a class="action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span></a><a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
+                    <?php else : ?>
+                         <a class="action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span><?php echo htmlspecialchars($item->name)?></a>
+                    <?php endif; ?>
+                </td>
+                <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
                 <td>
                     <div class="btn-group" role="group" aria-label="..." style="width:60px;">
                         <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE254;</i></a>
                         <a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteresponsetemplate')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
                     </div>
                 </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </table>
@@ -29,5 +37,6 @@
         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
     <?php endif;?>
 <?php endif; ?>
-
+<?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/newresponsetemplate')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+<?php endif; ?>
