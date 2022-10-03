@@ -2255,7 +2255,8 @@ try {
   `log` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message_id` (`message_id`),
-  KEY `campaign_id_status` (`campaign_id`,`status`)
+  KEY `campaign_id_status` (`campaign_id`,`status`),
+  KEY `campaign_id_email` (`campaign_id`, `email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lhc_mailconv_mailing_list` (
