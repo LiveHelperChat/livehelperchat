@@ -475,9 +475,15 @@ const MailChat = props => {
                                     <tr>
                                         <td>{t('mail.department')}</td>
                                         <td>
-                                            <span title={state.conv.dep_id}>{state.conv.department_name}</span>, <span title={state.conv.mailbox_id}>{state.conv.mailbox_front.name} ({state.conv.mailbox_front.mail})</span>
+                                            <span title={state.conv.dep_id}><span className="material-icons">home</span>{state.conv.department_name}</span> <span className="action-image" onClick={() => showModal({url: "mailconv/changemailbox/" + props.chatId})} title={state.conv.mailbox_id}>
+                                            <span className="material-icons">email</span>
+                                            {state.conv.mailbox_front.name} ({state.conv.mailbox_front.mail})
+                                            </span>
                                         </td>
                                     </tr>
+
+
+
                                     <tr>
                                         <td>{t('mail.received')}</td>
                                         <td>{state.conv.udate_front}</td>

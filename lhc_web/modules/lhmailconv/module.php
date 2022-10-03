@@ -77,6 +77,11 @@ $ViewList['transfermail'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['changemailbox'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['merge'] = array(
     'params' => array('id'),
     'functions' => array( 'use_admin' )

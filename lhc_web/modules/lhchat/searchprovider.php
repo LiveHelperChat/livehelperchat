@@ -54,6 +54,24 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = array('id' => $item->id, 'name' => $item->name_official);
         }
     }
+} else if ($Params['user_parameters']['scope'] == 'mailbox') {
+
+    $db = ezcDbInstance::get();
+
+    $filter = array('sort' => 'name ASC', 'limit' => 50);
+
+    if (!empty($search)) {
+        $filter['customfilter'] = array('(`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `mail` LIKE ('. $db->quote('%'.$search.'%')  .'))');
+    }
+
+    $filter['filter']['active'] = 1;
+
+    $items = erLhcoreClassModelMailconvMailbox::getList($filter);
+
+    foreach ($items as $item) {
+        $return[] = array('id' => $item->id, 'name' => $item->name, 'mail' => $item->mail);
+    }
+
 } else if ($Params['user_parameters']['scope'] != '') {
 
     $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.searchprovider', array('search' => $search, 'scope' => $Params['user_parameters']['scope']));
