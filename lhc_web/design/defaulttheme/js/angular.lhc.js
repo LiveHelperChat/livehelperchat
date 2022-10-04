@@ -1898,6 +1898,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             angular.forEach(data.copen, function(chatOpen) {
                 lhinst.startChat(chatOpen.id,$('#tabs'),LiveHelperChatFactory.truncate((chatOpen.nick || 'Visitor'),10), (chatOpen.id == chat_id), 0, chatOpen.status);
                 _that.addAction({'type':'mac_history', 'chat_id': chatOpen.id, 'nick': chatOpen.nick});
+                if (chatOpen.id == chat_id) {
+                    document.getElementById('tabs').classList.add('chat-tab-selected');
+                }
             });
 
             angular.forEach(data.cgopen, function(chatOpen) {
@@ -1911,6 +1914,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             angular.forEach(data.cgdel, function(chatOpen) {
                 lhinst.forgetChat(chatOpen,'gachat_id');
             });
+
+
 
             ee.emitEvent('eventLoadInitialData', [data, $scope, _that]);
 

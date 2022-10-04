@@ -49,7 +49,7 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
-                    <div class="tab-content<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-0' : ''?>" ng-cloak>
+                    <div class="tab-content<?php (int)erLhcoreClassModelUserSetting::getSetting('column_chats',0) == 1 ? print ' tabs-column' : ''?><?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-0' : ''?>" ng-cloak>
                         <?php foreach ($frontTabsOrder as $frontTab) : ?>
                             <?php if (trim($frontTab) == 'online_users' && $online_visitors_enabled_pre == true) : ?>
                                 <div role="tabpanel" class="tab-pane form-group<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-3' : ''?>" id="onlineusers">
@@ -130,9 +130,15 @@
 
     <script>
         $(document).ready(function () {
-            //lhinst.attachTabNavigator();
             $('#right-column-page').removeAttr('id');
-            $('#tabs a:first').tab('show')
+            $('#tabs a:first').tab('show');
+            $('#tabs').on('shown.bs.tab', function (event) {
+                if ($(event.target).hasClass('chat-nav-item')){
+                    $(this).addClass('chat-tab-selected');
+                } else {
+                    $(this).removeClass('chat-tab-selected');
+                }
+            })
         });
     </script>
 <?php else : ?>

@@ -510,7 +510,7 @@ function lh(){
 
     	var hideTabs = confLH.new_dashboard && confLH.hide_tabs && document.getElementById('tabs-dashboard') !== null ? ' d-none' : '';
 
-    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><a class="nav-link" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="chat-tab-content '+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
+    	var contentLi = '<li role="presentation" id="chat-tab-li-'+chat_id+'" class="nav-item'+hideTabs+'"><a class="nav-link chat-nav-item" href="#chat-id-'+chat_id+'" id="chat-tab-link-'+chat_id+'" aria-controls="chat-id-'+chat_id+'" role="tab" data-toggle="tab"><i id="msg-send-status-'+chat_id+'" class="material-icons send-status-icon icon-user-online">send</i><i id="user-chat-status-'+chat_id+'" class="chat-tab-content '+this.tabIconClass+'">'+this.tabIconContent+'</i><span class="ntab" id="ntab-chat-'+chat_id+'">' + name.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span><span onclick="return lhinst.removeDialogTab('+chat_id+',$(\'#tabs\'),true)" class="material-icons icon-close-chat">close</span></a></li>';
 
     	if (typeof position === 'undefined' || parseInt(position) == 0) {
     		tabs.find('> ul').append(contentLi);
@@ -561,14 +561,18 @@ function lh(){
 	    		tabs.find('> ul > li > a.active').removeClass("active");
 	    		tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
 	    		tabs.find('> div.tab-content > div.active').removeClass('active');
-	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>'); 
-	    		window.location.hash = '#/chat-id-'+chat_id;	
+	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active chat-tab-pane" id="chat-id-'+chat_id+'"></div>');
+	    		window.location.hash = '#/chat-id-'+chat_id;
+                tabs.addClass('chat-tab-selected');
 	    	} else {
-	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');  
+	    		tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane chat-tab-pane" id="chat-id-'+chat_id+'"></div>');
 	    	}
     		 		
-    		$('#chat-id-'+chat_id).html(data);  
-    		$('#CSChatMessage-'+chat_id).focus();
+    		$('#chat-id-'+chat_id).html(data);
+
+            if (typeof focusTab === 'undefined' || focusTab === true || hash == '#chat-id-'+chat_id) {
+                $('#CSChatMessage-' + chat_id).focus();
+            }
 
             if (inst.disableremember == false) {
                 inst.rememberTab(chat_id);
@@ -2430,6 +2434,19 @@ function lh(){
                 colorP.setValue($(this).attr('data-color'));
             });
         }
+
+        $textarea.bind('click', function (evt) {
+            $('.dropdown-menu-main').removeClass('show').find('> .dropdown-menu').removeClass('show');
+            $('#CSChatMessage-'+chat_id).focus();
+            if (!$('#chat-tab-link-'+chat_id).hasClass('active')) {
+                $('#chat-tab-link-'+chat_id).click();
+            }
+        });
+
+        $('#dropdown-menu-main-action-'+chat_id).click(function(){
+            $(this).parent().toggleClass('show');
+            $(this).parent().find('> div.dropdown-menu').toggleClass('show');
+        });
 
 		$textarea.bind('keydown', 'return', function (evt) {
 				_that.addmsgadmin(chat_id);
