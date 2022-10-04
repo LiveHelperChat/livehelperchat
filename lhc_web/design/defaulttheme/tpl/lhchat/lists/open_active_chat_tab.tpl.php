@@ -7,6 +7,7 @@
                 <a class="dropdown-item" href="#" ng-click="lhc.toggleWidget('track_open_chats')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Last 10 your active chats will be always visible')?>"><i class="material-icons" ng-class="{'chat-active': lhc.toggleWidgetData['track_open_chats'] === true, 'chat-closed': lhc.toggleWidgetData['track_open_chats'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Keep my active chats'); ?></a>
                 <a class="dropdown-item" href="#" ng-click="lhc.toggleWidget('group_offline_chats')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide nicknames for offline chats')?>"><i class="material-icons" id="group-chats-status" ng-class="{'chat-active': lhc.toggleWidgetData['group_offline_chats'] === true, 'chat-closed': lhc.toggleWidgetData['group_offline_chats'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Hide nicknames for offline chats'); ?></a>
                 <a class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/settings')?>/(action)/reset" ><i class="material-icons">search_off</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Reset widget filters'); ?></a>
+
                 <?php if ($currentUser->hasAccessTo('lhfront','switch_dashboard')) : ?>
                 <a class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>" >
                         <i class="material-icons">home</i>
@@ -25,6 +26,15 @@
                         <?php else : ?>
                             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In dynamic chats order mode'); ?></a>
                         <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
+                <a data-mode="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>static<?php else : ?>dynamic<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch modes')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/column_chats">
+                    <?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>
+                        <i class="material-icons">view_column</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Multiple chats view'); ?></a>
+                    <?php else : ?>
+                        <i class="material-icons">view_sidebar</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Single chat view'); ?></a>
+                    <?php endif; ?>
                 <?php endif; ?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/options/new_dashboard_options.tpl.php'));?>

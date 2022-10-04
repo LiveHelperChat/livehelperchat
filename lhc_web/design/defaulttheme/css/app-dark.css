@@ -1780,6 +1780,9 @@ html {
 .dashboard-height #tabs > .tab-content{
     display: flex!important;
     flex-grow: 1!important;
+}
+
+.dashboard-height #tabs > .tab-content:not(.tabs-column):not(.chat-tab-selected) {
     flex-direction: column!important;
 }
 
@@ -2147,4 +2150,51 @@ html {
 @keyframes blinker { to { opacity: 50%; } }
 .msg-updated .msg-body {
     animation: blinker 1s ease-in-out 2 alternate;
+}
+
+/*Tabs column interface*/
+.chat-tab-selected > .tabs-column{
+    display: flex!important;
+}
+
+.chat-tab-selected > .tabs-column .chat-main-left-column{
+    width: 100% !important;
+    flex: 0 0 100%!important;
+    max-width: 100%!important;
+}
+
+.chat-tab-selected > .tabs-column .chat-main-right-column{
+    position: absolute;
+    flex: 0 0 100%;
+    left: 0px;
+    max-width: 100%;
+    z-index: 9999;
+    height: 100%;
+    right: 7px;
+    background: white;
+}
+
+.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard) > .row{
+    position: relative;
+}
+
+.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard){
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    padding-right: 5px;
+    padding-left: 13px;
+    margin-right: 7px;
+    box-shadow: 0 11px 3px 2px rgb(0 0 0 / 5%);
+    max-width: 1024px;
+}
+
+.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard):first-child{
+    padding-left:0px;
+}
+
+.tabs-column > .tab-pane:not(#dashboard) > .row{
+    flex-grow: 1;
+    min-width: 400px;
 }
