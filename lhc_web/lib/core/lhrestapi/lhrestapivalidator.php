@@ -904,7 +904,7 @@ class erLhcoreClassRestAPIHandler
         $createArrayImporter = function (SimpleXMLElement $subject) {
             $add = function (SimpleXMLElement $subject, $key, $value) use (&$add) {
                 
-                $addChildCdata = function ($name, $value = NULL, & $parent) {
+                $addChildCdata = function ($name, $value, & $parent) {
                     $new_child = $parent->addChild($name);
                 
                     if ($new_child !== NULL) {
