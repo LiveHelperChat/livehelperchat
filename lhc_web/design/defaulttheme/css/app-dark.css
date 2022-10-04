@@ -2171,14 +2171,14 @@ html {
     z-index: 9999;
     height: 100%;
     right: 7px;
-    background: white;
+    background: #343a40;
 }
 
-.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard) > .row{
+.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row{
     position: relative;
 }
 
-.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard){
+.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane{
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
@@ -2190,11 +2190,11 @@ html {
     max-width: 1024px;
 }
 
-.chat-tab-selected > .tabs-column > .tab-pane:not(#dashboard):first-child{
+.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane:first-child{
     padding-left:0px;
 }
 
-.tabs-column > .tab-pane:not(#dashboard) > .row{
+.tabs-column > .tab-pane.chat-tab-pane > .row{
     flex-grow: 1;
     min-width: 400px;
 }
