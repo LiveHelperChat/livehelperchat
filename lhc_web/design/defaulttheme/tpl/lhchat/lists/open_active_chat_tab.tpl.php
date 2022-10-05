@@ -22,14 +22,14 @@
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
                     <a id="chats-order-mode" data-mode="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('static_order', 0) == 1) : ?>static<?php else : ?>dynamic<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch to static/dynamic')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/static_order"><i class="material-icons">sort</i>
                         <?php if ((int)erLhcoreClassModelUserSetting::getSetting('static_order', 0) == 1) : ?>
-                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In static chats order mode'); ?></aid>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In static chats order mode'); ?></a>
                         <?php else : ?>
                             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'In dynamic chats order mode'); ?></a>
                         <?php endif; ?>
                 <?php endif; ?>
 
                 <?php if ((int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1) == 1) : ?>
-                <a data-mode="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>static<?php else : ?>dynamic<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch modes')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/column_chats">
+                <a ng-click="<?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>lhc.removeLocalSetting('lhc_rch')<?php else : ?>lhc.storeLocalSetting('lhc_rch',1)<?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Click to switch modes')?>" class="dropdown-item csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('front/switchdashboard')?>/(action)/column_chats">
                     <?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) : ?>
                         <i class="material-icons">view_column</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Multiple chats view'); ?></a>
                     <?php else : ?>
