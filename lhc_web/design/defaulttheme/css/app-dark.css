@@ -2202,4 +2202,5 @@ html {
 .dropdown-result{
     max-height: 255px;
     overflow: auto;
+    max-width: 300px;
 }
