@@ -224,7 +224,7 @@ class erLhcoreClassRenderHelper {
                         <li class="btn-block-department-filter">
                             <input data-scope="' . str_replace('[]','',$params['input_name']) . '" ' . (isset($params['ajax']) ? 'ajax-provider="' . $params['ajax'] . '"' : '') . ' type="text" class="form-control input-sm" value="" />
                             <div class="selected-items-filter">'.$selectedOptions.'</div>
-                        </li>';
+                        </li><li class="dropdown-result"><ul class="list-unstyled dropdown-lhc">';
 
         $items = call_user_func($params['list_function'],isset($params['list_function_params']) ? $params['list_function_params'] : array());
         $ngModel = isset($params['ng-model']) ? ' ng-model="'.$params['ng-model'].'" ' : '';
@@ -250,7 +250,7 @@ class erLhcoreClassRenderHelper {
             $template .= '<li data-stoppropagation="true" class="search-option-item"><label><input title="'. htmlspecialchars($item->$attrId) . '" class="mr-1" '. (((is_numeric($params['selected_id']) && $item->$attrId == $params['selected_id']) || (is_array($params['selected_id']) && in_array($item->$attrId,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="'. $item->$attrId .'">' . $valueItem. '</label></li>';
         }
 
-        $template .= '</ul></li></ul></div>';
+        $template .= '</ul></li></ul></li></ul></div>';
 
         return $template;
     }

@@ -101,11 +101,11 @@ $.fn.makeDropdown = function() {
                     append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="checkbox" '+(isSelected ? ' checked="checked" ' : '')+' name="selector-'+data.props.list_id+'[]" value="'+item.id+'"> ' + item.name +'</label></li>';
                 });
                 parent.find('.search-option-item').remove();
-                parent.append(append);
+                parent.find('.dropdown-result > .dropdown-lhc').append(append);
             })
         } else {
             var filter = $(this).val();
-            $(this).parent().parent().children('li').each(function(i) {
+            $(this).parent().parent().find('li.dropdown-result > ul').children('li').each(function(i) {
                 if (i > 0) {
                     if (!$(this).text().toLowerCase().includes(filter) && filter != ''){
                         $(this).hide();

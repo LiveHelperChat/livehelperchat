@@ -2200,3 +2200,9 @@ html {
     flex-grow: 1;
     min-width: 400px;
 }
+
+.dropdown-result{
+    max-height: 255px;
+    overflow: auto;
+    max-width: 300px;
+}
