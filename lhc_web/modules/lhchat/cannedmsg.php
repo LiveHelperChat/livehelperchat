@@ -2,6 +2,20 @@
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg', array());
 
+if (isset($_POST['DeleteSelected']) && !empty($_POST['canned_id']) && $currentUser->hasAccessTo('lhchat','administratecannedmsg')) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chat/cannedmsg');
+        exit;
+    }
+    $db = ezcDbInstance::get();
+    foreach ($_POST['canned_id'] as $canned_id) {
+        $cannedMessage = erLhcoreClassModelCannedMsg::fetch($canned_id);
+        if ($cannedMessage instanceof erLhcoreClassModelCannedMsg) {
+            $cannedMessage->removeThis();
+        }
+    }
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/cannedmsg.tpl.php');
 
 $validTabs = array('cannedmsg','statistic');
