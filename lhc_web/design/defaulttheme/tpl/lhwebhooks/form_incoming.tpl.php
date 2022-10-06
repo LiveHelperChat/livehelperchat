@@ -56,6 +56,7 @@
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments" aria-controls="img-attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 1')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments_2" aria-controls="img-attachments_2" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 2')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments_3" aria-controls="img-attachments_3" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 3')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments_4" aria-controls="img-attachments_4" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 4')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#chat_options" aria-controls="chat_options" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat options')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#wh_attributes" aria-controls="wh_attributes" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes')?></a></li>
 </ul>
@@ -144,6 +145,12 @@
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Additional field location');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.add_field_value" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Invisible additional field');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.add_field_2_value" value="" />
                 </div>
             </div>
         </div>
@@ -243,8 +250,22 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content headers');?></label>
+            <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_headers_content"></textarea>
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_decode_output" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_remote_location" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Returned response is location to download file');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remote request additional headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_url_remote_headers_content"></textarea>
         </div>
 
         <div class="form-group">
@@ -292,9 +313,24 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_headers_content"></textarea>
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_decode_output" value="" />
         </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_remote_location" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Returned response is location to download image');?></label>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remote request additional headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_url_remote_headers_content"></textarea>
+        </div>
+
+        <hr>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
@@ -341,9 +377,25 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_url_headers_content"></textarea>
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_url_decode_output" value="" />
         </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_url_remote_location" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Returned response is location to download image');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remote request additional headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_url_remote_headers_content"></textarea>
+        </div>
+
+        <hr>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
@@ -389,9 +441,25 @@
         </div>
 
         <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_url_headers_content"></textarea>
+        </div>
+
+        <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_url_decode_output" value="" />
         </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_url_remote_location" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Returned response is location to download image');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remote request additional headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_url_remote_headers_content"></textarea>
+        </div>
+
+        <hr>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
@@ -401,6 +469,71 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_op" value="" />
+        </div>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane form-group" id="img-attachments_4">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
+            <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_img_4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_img_4_download" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Download image instead of using external URL');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Image body attributes. URL or base64 encoded content');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_body" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file name. Optional');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_name" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_file_name" value="" />
+        </div>
+
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL To make request to get content');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_decode" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content');?></label>
+            <textarea class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_decode_content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Request content headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_headers_content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Response location');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_decode_output" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_remote_location" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Returned response is location to download image');?></label>
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Remote request additional headers');?></label>
+            <textarea placeholder="Authorization: Bearer {{'{'+'{msg.incoming_webhook.attributes.access_token}'+'}'}}" class="form-control" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_url_remote_headers_content"></textarea>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered images message should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_4" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_op" value="" />
         </div>
 
     </div>
