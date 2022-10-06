@@ -10,6 +10,7 @@
     <div role="tabpanel" class="tab-pane active" id="cannedmsg">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/search_panel.tpl.php')); ?>
         <br/>
+        <form action="<?php echo $input->form_action?>" method="post">
         <table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
             <thead>
             <tr>
@@ -78,7 +79,10 @@
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
                 <a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
             <?php endif; ?>
+                <button type="submit" name="DeleteSelected" class="btn btn-sm btn-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete selected');?></button>
         </div>
+
+        </form>
 
     </div>
     <?php endif; ?>
