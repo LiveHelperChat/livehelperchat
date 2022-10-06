@@ -13,6 +13,9 @@
         <table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
             <thead>
             <tr>
+                <th width="1%">
+                    <input type="checkbox" onclick="$('.canned-item-id').prop('checked',$(this).is(':checked'))">
+                </th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Title/Message');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','User');?></th>
@@ -26,6 +29,9 @@
             </thead>
             <?php foreach ($items as $item) : ?>
                 <tr class="<?php $item->disabled == 1 ? print 'text-muted' : ''?>">
+                    <td>
+                        <input class="canned-item-id" type="checkbox" name="canned_id[]" value="<?php echo $item->id?>">
+                    </td>
                     <td title="<?php echo htmlspecialchars($item->unique_id)?>">
                         <?php if ($item->disabled == 1) : ?><i class="text-danger material-icons">block</i><?php endif; ?>
                         <?php echo nl2br(htmlspecialchars($item->title != '' ? $item->title : $item->msg))?>
@@ -68,9 +74,11 @@
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
         <?php endif;?>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
-            <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
-        <?php endif; ?>
+        <div class="btn-group" role="group" aria-label="...">
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
+                <a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chat/newcannedmsg')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?></a>
+            <?php endif; ?>
+        </div>
 
     </div>
     <?php endif; ?>
