@@ -1551,17 +1551,28 @@ function lh(){
 		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
+    this.hideOnTransferHappen = function(chat_id){
+        var inst = this;
+        var intervalChecker = setInterval( function() {
+            if (parseInt(confLH.user_id) != parseInt($('#chat-owner-'+chat_id).attr('user-id'))) {
+                if ($('#tabs').length > 0) {
+                    inst.removeDialogTab(chat_id,$('#tabs'),true)
+                }
+                clearInterval(intervalChecker);
+            }
+        },1000);
+    };
+
 	this.hideTransferModal = function(chat_id, obj)
 	{
 		var inst = this;
-
         setTimeout(function(){
             $('#myModal').modal('hide');
             if ($('#tabs').length > 0) {
                 if (obj === 'mail') {
                     inst.removeDialogTabMail('mc'+chat_id,$('#tabs'),true)
                 } else {
-                    inst.removeDialogTab(chat_id,$('#tabs'),true)
+                    inst.hideOnTransferHappen(chat_id);
                 }
             } else {
                 if (obj === 'mail') {

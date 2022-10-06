@@ -98,9 +98,12 @@
                 <span class="material-icons">add</span>
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','New canned message');?>
             </a>
+            <button type="submit" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" name="DeleteSelected" class="btn btn-sm btn-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete selected');?></button>
             <?php endif; ?>
             <button name="CopyAsEmailTemplates" type="submit" class="btn btn-sm btn-secondary"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copy selected as e-mail templates');?></button>
         </div>
+
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
         </form>
 

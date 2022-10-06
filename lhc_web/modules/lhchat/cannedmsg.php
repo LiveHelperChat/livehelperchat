@@ -2,9 +2,28 @@
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.cannedmsg', array());
 
+if (isset($_POST['DeleteSelected']) && !empty($_POST['canned_id']) && $currentUser->hasAccessTo('lhchat','administratecannedmsg')) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chat/cannedmsg');
+        exit;
+    }
+    $db = ezcDbInstance::get();
+    foreach ($_POST['canned_id'] as $canned_id) {
+        $cannedMessage = erLhcoreClassModelCannedMsg::fetch($canned_id);
+        if ($cannedMessage instanceof erLhcoreClassModelCannedMsg) {
+            $cannedMessage->removeThis();
+        }
+    }
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/cannedmsg.tpl.php');
 
 if (isset($_POST['CopyAsEmailTemplates']) && !empty($_POST['canned_id'])) {
+
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        erLhcoreClassModule::redirect('chat/cannedmsg');
+        exit;
+    }
 
     $messagesCopied = 0;
     $messagesSkipped = 0;
@@ -114,7 +133,12 @@ if ($tab == 'cannedmsg') {
             // Do nothing
         }
 
-        erLhcoreClassModule::redirect('chat/cannedmsg');
+        if (isset($_SERVER['HTTP_REFERER'])){
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            erLhcoreClassModule::redirect('chat/cannedmsg');
+        }
+
         exit;
     }
 
