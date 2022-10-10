@@ -886,10 +886,11 @@ class erLhcoreClassChatValidator {
     public static function validateJSVarsVisitor($visitor, $data) {
 
         $onlineAttr = $visitor->online_attr_array;
+        $variableSet = [];
 
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$visitor->dep_id))) as $jsVar) {
 
-            if (isset($onlineAttr[$jsVar->var_identifier]) && $jsVar->persistent == 0) {
+            if (isset($onlineAttr[$jsVar->var_identifier]) && $jsVar->persistent == 0 && !in_array($jsVar->var_identifier,$variableSet)) {
                 unset($onlineAttr[$jsVar->var_identifier]);
             }
 
@@ -904,6 +905,7 @@ class erLhcoreClassChatValidator {
             }
 
             if (!empty($val)) {
+                $variableSet[] = $jsVar->var_identifier;
                 if ($jsVar->type == 0 || $jsVar->type == 4) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
