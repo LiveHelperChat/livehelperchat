@@ -325,6 +325,8 @@ class erLhcoreClassChatValidator {
             }
         }
 
+
+
         if ( isset($validationFields['Email']) ) {
             if ( (!$form->hasValidData( 'Email' ) && $start_data_fields['email_require_option'] == 'required' && !isset($additionalParams['offline'])) || (!$form->hasValidData( 'Email' ) && isset($additionalParams['offline']) && (!isset($start_data_fields['offline_email_require_option']) || $start_data_fields['offline_email_require_option'] == 'required'))) {
 
@@ -786,9 +788,34 @@ class erLhcoreClassChatValidator {
 
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
-                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
-                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
+
+                        $val = $form->jsvar[$jsVar->id];
+                        $secure = false;
+                        if ($jsVar->type == 3) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
+                            } catch (Exception $e) {
+                                $val = $e->getMessage();
+                            }
                         }
+                        
+                        $chatVariables = $chat->chat_variables_array;
+
+                        if ($secure === true) {
+                            $chatVariables[$lhcVar . '_secure'] = true;
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
+                        } elseif (isset($chatVariables[$lhcVar . '_secure'])) {
+                            unset($chatVariables[$lhcVar . '_secure']);
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
+                        }
+
+                        if ($chat->{$lhcVar} != $val && $val != '') {
+                            $chat->{$lhcVar} = $val;
+                        }
+
                     } else {
                         $secure = false;
                         $val = $form->jsvar[$jsVar->id];
@@ -1007,6 +1034,18 @@ class erLhcoreClassChatValidator {
                 if (!empty($val)) {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+
+                        $secure = false;
+
+                        if ($val != '' && $jsVar->type == 3) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
+                            } catch (Exception $e) {
+                                $val = $e->getMessage();
+                            }
+                        }
+
                         if (
                             ($jsVar->type != 4 && $chat->{$lhcVar} != $val && $val != '') ||
                             ($jsVar->type == 4 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($val) && $val != '')
@@ -1017,6 +1056,15 @@ class erLhcoreClassChatValidator {
                             }
 
                             $chat->{$lhcVar} = $val;
+
+                            if ($secure === true) {
+                                $chatVariablesDataArray[$lhcVar . '_secure'] = true;
+                                $variablesUpdates = true;
+                            } elseif (isset($chatVariablesDataArray[$lhcVar . '_secure'])) {
+                                unset($chatVariablesDataArray[$lhcVar . '_secure']);
+                                $variablesUpdates = true;
+                            }
+
                             $updateColumns[] = $lhcVar;
                             $needUpdate = true;
                         }
@@ -1089,6 +1137,8 @@ class erLhcoreClassChatValidator {
                             }
 
                             $item['value'] = $newItem['value'];
+                            $item['secure'] = $newItem['secure'];
+
                             $needUpdate = true;
                         }
                         $identifiersUpdated[] = $newItem['identifier'];
