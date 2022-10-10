@@ -652,16 +652,17 @@ class erLhcoreClassChatValidator {
         		}
         		
         		$valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
-        		
+        		$secure = false;
         		if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
         		    try {
         		        $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                        $secure = true;
         		    } catch (Exception $e) {
         		        $Errors[] = $e->getMessage();
         		    }
         		}
         		
-        		$stringParts[] = array('h' => (isset($inputForm->value_types[$key]) && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
+        		$stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->value_types[$key]) && $inputForm->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
         	}
         }
 
@@ -713,16 +714,17 @@ class erLhcoreClassChatValidator {
             		if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
 
             		    $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
-
+                        $secure = false;
             		    if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
             		        try {
             		            $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                $secure = true;
             		        } catch (Exception $e) {
             		            $valueStore = $e->getMessage();
             		        }
             		    }
 
-            		    $stringParts[] = array('h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+            		    $stringParts[] = array('secure' => $secure, 'h' => (isset($inputForm->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
             		}
                 }
             }
@@ -788,7 +790,7 @@ class erLhcoreClassChatValidator {
                             $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
                         }
                     } else {
-
+                        $secure = false;
                         $val = $form->jsvar[$jsVar->id];
                         if ($jsVar->type == 0) {
                             $val = (string)$val;
@@ -799,6 +801,7 @@ class erLhcoreClassChatValidator {
                         } elseif ($jsVar->type == 3) {
                             try {
                                 $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
                             } catch (Exception $e) {
                                 $val = $e->getMessage();
                             }
@@ -807,10 +810,15 @@ class erLhcoreClassChatValidator {
                         if ($jsVar->inv == 1) {
                             $chatVariables = $chat->chat_variables_array;
                             $chatVariables[$jsVar->var_identifier] = $val;
+                            if ($secure === true) {
+                                $chatVariables[$jsVar->var_identifier . '_secure'] = true;
+                            } elseif (isset($chatVariables[$jsVar->var_identifier . '_secure'])) {
+                                unset($chatVariables[$jsVar->var_identifier . '_secure']);
+                            }
                             $chat->chat_variables_array = $chatVariables;
                             $chat->chat_variables = json_encode($chatVariables);
                         } else {
-                            $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                            $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
 
@@ -905,6 +913,7 @@ class erLhcoreClassChatValidator {
             }
 
             if (!empty($val)) {
+                $secure = false;
                 $variableSet[] = $jsVar->var_identifier;
                 if ($jsVar->type == 0 || $jsVar->type == 4) {
                     $val = (string)$val;
@@ -915,6 +924,7 @@ class erLhcoreClassChatValidator {
                 } elseif ($jsVar->type == 3) {
                     try {
                         $val = self::decryptAdditionalField($val);
+                        $secure = true;
                     } catch (Exception $e) {
                         $val = $e->getMessage();
                     }
@@ -923,6 +933,11 @@ class erLhcoreClassChatValidator {
                 if ($jsVar->var_identifier == 'lhc.nick' && $val != '') {
                     $onlineAttrSystem = $visitor->online_attr_system_array;
                     $onlineAttrSystem['username'] = $val;
+                    if ($secure === true) {
+                        $onlineAttrSystem['username_secure'] = true;
+                    } elseif (isset($onlineAttrSystem['username_secure'])) {
+                        unset($onlineAttrSystem['username_secure']);
+                    }
                     $visitor->online_attr_system = json_encode($onlineAttrSystem);
                     $visitor->online_attr_system_array = $onlineAttrSystem;
                 }
@@ -931,11 +946,16 @@ class erLhcoreClassChatValidator {
                     if ($val != '') {
                         $onlineAttrSystem = $visitor->online_attr_system_array;
                         $onlineAttrSystem[$jsVar->var_identifier] = $val;
+                        if ($secure === true) {
+                            $onlineAttrSystem[$jsVar->var_identifier . '_secure'] = true;
+                        } elseif (isset($onlineAttrSystem[$jsVar->var_identifier . '_secure'])) {
+                            unset($onlineAttrSystem[$jsVar->var_identifier . '_secure']);
+                        }
                         $visitor->online_attr_system = json_encode($onlineAttrSystem);
                         $visitor->online_attr_system_array = $onlineAttrSystem;
                     }
                 } else {
-                    $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    $onlineAttr[$jsVar->var_identifier] =  array('h' => false, 'secure' => $secure, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                 }
             }
         }
@@ -1001,6 +1021,7 @@ class erLhcoreClassChatValidator {
                             $needUpdate = true;
                         }
                     } else {
+                        $secure = false;
                         if ($jsVar->type == 0 || $jsVar->type == 4) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
@@ -1010,6 +1031,7 @@ class erLhcoreClassChatValidator {
                         } elseif ($jsVar->type == 3) {
                             try {
                                 $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
                             } catch (Exception $e) {
                                 $val = $e->getMessage();
                             }
@@ -1026,6 +1048,11 @@ class erLhcoreClassChatValidator {
                                 }
 
                                 $chatVariablesDataArray[$jsVar->var_identifier] = $val;
+                                if ($secure === true) {
+                                    $chatVariablesDataArray[$jsVar->var_identifier . '_secure'] = true;
+                                } elseif (isset($chatVariablesDataArray[$jsVar->var_identifier . '_secure'])){
+                                    unset($chatVariablesDataArray[$jsVar->var_identifier . '_secure']);
+                                }
                                 $variablesUpdates = true;
                                 $needUpdate = true;
                             }
@@ -1036,7 +1063,7 @@ class erLhcoreClassChatValidator {
                                 $logMessage[$jsVar->var_identifier] = $jsVar->change_message;
                             }
 
-                            $stringParts[] = array('t' => $jsVar->type, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                            $stringParts[] = array('secure' => $secure, 't' => $jsVar->type, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                         }
                     }
                 }
@@ -1418,16 +1445,17 @@ class erLhcoreClassChatValidator {
                 if (isset($inputForm->type[$key]) && $inputForm->type[$key] == 'hidden') {
 
                     $valueStore = isset($inputForm->value[$key]) ? trim($inputForm->value[$key]) : '';
-
+                    $secure = false;
                     if (isset($inputForm->encattr[$key]) && $inputForm->encattr[$key] == 't' && $valueStore != '') {
                         try {
                             $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                            $secure = true;
                         } catch (Exception $e) {
                             $valueStore = $e->getMessage();
                         }
                     }
 
-                    $currentChatData[] = array('h' => true, 'key' => $name_item,'value' => $valueStore);
+                    $currentChatData[] = array('secure' => $secure, 'h' => true, 'key' => $name_item,'value' => $valueStore);
                 }
             }
         }
@@ -1508,16 +1536,17 @@ class erLhcoreClassChatValidator {
                         if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
             
                             $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
-            
+                            $secure = false;
                             if (isset($inputForm->via_encrypted[$key]) && $inputForm->via_encrypted[$key] == 't' && $valueStore != '') {
                                 try {
                                     $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                    $secure = true;
                                 } catch (Exception $e) {
                                     $valueStore = $e->getMessage();
                                 }
                             }
 
-                            $currentChatData[] = array('h' => true, 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                            $currentChatData[] = array('secure' => $secure, 'h' => true, 'identifier' => $adminField['fieldidentifier'], 'key' => $adminField['fieldname'], 'value' => $valueStore);
                         }
                     }
                 }
@@ -1539,14 +1568,22 @@ class erLhcoreClassChatValidator {
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];
+                        $secure = false;
                         if ($jsVar->type == 0) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
                         } elseif ($jsVar->type == 2) {
                             $val = (float)$val;
+                        } elseif ($jsVar->type == 3) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
+                            } catch (Exception $e) {
+                                $val = $e->getMessage();
+                            }
                         }
-                        $stringParts[] = array('h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                        $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
                     }
                 }
             }
@@ -1710,17 +1747,19 @@ class erLhcoreClassChatValidator {
     			
     			$valueStore = $attrValue['val'];
     			$hiddenField = false;
-    			
+    			$secure = false;
+
     			if (isset($attrValue['enc']) && $attrValue['enc'] == true) {
     				$hiddenField = true;
 	    			try {
 	                     $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                         $secure = true;
 	                } catch (Exception $e) {
 	                     $valueStore = $e->getMessage();
 	                }
     			}
     			
-    			$currentChatData[] = array('h' => $hiddenField, 'key' => $field, 'value' => $valueStore);
+    			$currentChatData[] = array('secure' => $secure, 'h' => $hiddenField, 'key' => $field, 'value' => $valueStore);
     		}
     		
     		// To reset index
@@ -2109,16 +2148,18 @@ class erLhcoreClassChatValidator {
                             }
 
                             $valueStore = isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '';
+                            $secure = false;
 
                             if (isset($params['inputData']->encattr[$key]) && $params['inputData']->encattr[$key] == 't' && $valueStore != '') {
                                 try {
                                     $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                    $secure = true;
                                 } catch (Exception $e) {
                                     $Errors[] = $e->getMessage();
                                 }
                             }
 
-                            $stringParts[] = array('h' => ($params['inputData']->value_types[$key] && $params['inputData']->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
+                            $stringParts[] = array('secure' => $secure, 'h' => ($params['inputData']->value_types[$key] && $params['inputData']->value_types[$key] == 'hidden' ? true : false), 'key' => $name_item, 'value' => $valueStore);
                         }
                     }
 
@@ -2139,16 +2180,17 @@ class erLhcoreClassChatValidator {
                                     if (isset($valuesArray[$key]) && $valuesArray[$key] != '') {
 
                                         $valueStore = (isset($valuesArray[$key]) ? trim($valuesArray[$key]) : '');
-
+                                        $secure = false;
                                         if (isset($params['inputData']->via_encrypted[$key]) && $params['inputData']->via_encrypted[$key] == 't' && $valueStore != '') {
                                             try {
                                                 $valueStore = self::decryptAdditionalField($valueStore, $chat);
+                                                $secure = true;
                                             } catch (Exception $e) {
                                                 $valueStore = $e->getMessage();
                                             }
                                         }
 
-                                        $stringParts[] = array('h' => (isset($params['inputData']->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
+                                        $stringParts[] = array('secure' => $secure, 'h' => (isset($params['inputData']->via_hidden[$key]) || $adminField['fieldtype'] == 'hidden'), 'identifier' => (isset($adminField['fieldidentifier'])) ? $adminField['fieldidentifier'] : null, 'key' => $adminField['fieldname'], 'value' => $valueStore);
                                     }
                                 }
                             }
