@@ -800,7 +800,7 @@ class erLhcoreClassMailconvParser {
             $mailAttatchement->content_id = (string)$attachment->contentId;
             $mailAttatchement->disposition = (string)$attachment->disposition;
             $mailAttatchement->size = (int)$attachment->sizeInBytes;
-            $mailAttatchement->name = (string)$attachment->name;
+            $mailAttatchement->name = mb_substr((string)$attachment->name,-250);
             $mailAttatchement->description = (string)$attachment->description;
             $mailAttatchement->extension = mb_substr((string)strtolower($attachment->subtype),0,10);
             $mailAttatchement->type = (string)$attachment->mime;
