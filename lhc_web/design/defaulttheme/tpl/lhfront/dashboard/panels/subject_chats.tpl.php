@@ -1,5 +1,5 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-    <div class="card card-dashboard" data-panel-id="subject_chats" ng-init="lhc.getToggleWidget('subjectc_widget_exp');">
+    <div class="card card-dashboard card-subject" data-panel-id="subject_chats" ng-init="lhc.getToggleWidget('subjectc_widget_exp');">
         <div class="card-header">
 
         <?php if ($currentUser->hasAccessTo('lhchat','subject_chats_options')) : ?>

@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field replace_ ule');?></label>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field replace rule');?></label>
                             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_preg_rule" value="" />
                         </div>
                     </div>
