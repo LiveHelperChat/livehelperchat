@@ -62,6 +62,12 @@ const CannedMessages = props => {
 
             formData.append('canned_id',message.id);
 
+            let element = document.getElementById('CSChatMessage-'+props.chatId);
+
+            if (element && element.getAttribute('mode-write')) {
+                formData.append('mode_write',element.getAttribute('mode-write'));
+            }
+
             axios.post(WWW_DIR_JAVASCRIPT  + 'chat/addmsgadmin/' + props.chatId, formData,{
                 headers: {'X-CSRFToken': confLH.csrf_token}
             }).then(result => {

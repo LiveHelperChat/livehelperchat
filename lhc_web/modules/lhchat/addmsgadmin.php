@@ -33,6 +33,7 @@ if (trim($form->msg) != '')
 	        $returnBody = '';
 	        $customArgs = array();
             $whisper = isset($_POST['whisper']);
+            $asChatOwner = isset($_POST['mode_write']) && $_POST['mode_write'] == 'op' && $Chat->user_id > 0 && $Chat->user_id != $messageUserId && erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate');
 
 	        if (!$whisper && strpos($msgText, '!') === 0) {
 	            $statusCommand = erLhcoreClassChatCommand::processCommand(array('user' => $userData, 'msg' => $msgText, 'chat' => & $Chat));
@@ -66,6 +67,11 @@ if (trim($form->msg) != '')
     	        $msg->user_id = $messageUserId;
     	        $msg->time = time();
     	        $msg->name_support = $userData->name_support;
+
+                if ($msg->user_id > 0 && $asChatOwner == true) {
+                    $messageUserId = $msg->user_id = $Chat->user_id;
+                    $msg->name_support = $Chat->plain_user_name;
+                }
 
                 if (strpos($msg->msg,'[html]') !== false && !$currentUser->hasAccessTo('lhchat','htmlbbcodeenabled')) {
                     $msg->msg = '[html] is disabled for you!';

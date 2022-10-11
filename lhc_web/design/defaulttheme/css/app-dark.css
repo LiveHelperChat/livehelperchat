@@ -2183,3 +2183,7 @@ html {
     overflow: auto;
     max-width: 300px;
 }
+
+.mode-write-chat.mode-chosen{
+    display: none;
+}

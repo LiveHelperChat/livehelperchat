@@ -1603,6 +1603,11 @@ function lh(){
 	        		var pdata = {
 		    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').attr('data-msg')
 		    		};
+
+                    if ($('#CSChatMessage-'+chat_id).attr('mode-write')) {
+                        pdata.mode_write = $('#CSChatMessage-'+chat_id).attr('mode-write');
+                    }
+
 		    		$('#CSChatMessage-'+chat_id).val('');
 		    		$.postJSON(www_dir + inst.addmsgurl + chat_id, pdata , function(data){
 		    			if (LHCCallbacks.addmsgadmin) {
@@ -1617,6 +1622,9 @@ function lh(){
 	        	var pdata = {
 	    				msg	: $('#id_CannedMessage-'+chat_id).find(':selected').attr('data-msg')
 	    		};
+                if ($('#CSChatMessage-'+chat_id).attr('mode-write')) {
+                    pdata.mode_write = $('#CSChatMessage-'+chat_id).attr('mode-write');
+                }
 	    		$('#CSChatMessage-'+chat_id).val('');
 	    		$.postJSON(this.wwwDir + this.addmsgurl + chat_id, pdata , function(data){
 	    			if (LHCCallbacks.addmsgadmin) {
@@ -2223,6 +2231,10 @@ function lh(){
             textArea.removeAttr('meta-msg');
         }
 
+        if (textArea.attr('mode-write')) {
+            pdata.mode_write = textArea.attr('mode-write');
+        }
+
 		if (pdata.msg == '') {
 		    return;
         }
@@ -2588,12 +2600,14 @@ function lh(){
             $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
             $('#chat-preview-button-'+chat_id+',#chat-whisper-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
             $('#chat-preview-container-'+chat_id).hide();
+            $('#chat-join-as-container-'+chat_id).removeClass('hide');
         });
 
         $('#chat-preview-button-'+chat_id).click(function() {
             $('#chat-preview-container-'+chat_id).html('...').show();
             $('#CSChatMessage-'+chat_id).hide();
             $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
+            $('#chat-join-as-container-'+chat_id).addClass('hide');
             $('#chat-write-button-'+chat_id+',#chat-whisper-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
             jQuery.post(WWW_DIR_JAVASCRIPT +'chat/previewmessage', {msg_body: true, 'msg' : $('#CSChatMessage-'+chat_id).val()}, function(data){
                 $('#chat-preview-container-'+chat_id).html(data);
@@ -2603,9 +2617,21 @@ function lh(){
         $('#chat-whisper-button-'+chat_id).click(function() {
             $('#CSChatMessage-'+chat_id).show().focus().attr('whisper','1').addClass('bg-light').attr('placeholder',$(this).attr('data-plc'));
             $('#chat-preview-container-'+chat_id).hide();
-
             $(this).removeClass('btn-outline-secondary').addClass('btn-outline-primary');
             $('#chat-write-button-'+chat_id+',#chat-preview-button-'+chat_id).removeClass('btn-outline-primary').addClass('btn-outline-secondary');
+            $('#chat-join-as-container-'+chat_id).addClass('hide');
+        });
+
+        $('#chat-join-as-'+chat_id).click(function(){
+            $('#chat-join-as-container-'+chat_id).addClass('hide mode-chosen');
+            $('chat-write-button-'+chat_id).attr('data-plc',$('#chat-mode-selected-'+chat_id).find(":selected").attr('data-plc'));
+            $('#CSChatMessage-'+chat_id).attr('placeholder',$('#chat-mode-selected-'+chat_id).find(":selected").attr('data-plc'));
+            $('#CSChatMessage-'+chat_id).attr('mode-write',$('#chat-mode-selected-'+chat_id).val()).focus();
+        });
+
+        $('#chat-impersonate-option-'+chat_id).click(function(){
+            $('#chat-write-button-'+chat_id).click();
+            $('#chat-join-as-container-'+chat_id).removeClass('hide mode-chosen');
         });
 
 		ee.emitEvent('adminChatLoaded', [chat_id,last_message_id,arg]);

@@ -69,6 +69,9 @@
                     <button type="button" data-plc="<?php echo $placeholderValue?>" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-secondary' : print ' btn-outline-primary';?>" id="chat-write-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?>"><i class="material-icons mr-0">create</i></button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?>"><i class="material-icons mr-0">visibility</i></button>
                     <button type="button" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-primary' : print ' btn-outline-secondary';?>" id="chat-whisper-button-<?php echo $chat->id?>" data-plc="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are in whisper mode!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Whisper')?>"><i class="material-icons mr-0">hearing</i></button>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate') && $chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="chat-impersonate-option-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Impersonate')?>"><i class="material-icons mr-0">supervisor_account</i></button>
+                    <?php endif; ?>
                 </div>
                 </div>
 
@@ -79,6 +82,16 @@
             </div>
 
             <?php if ($whisperMode) {$placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are in whisper mode!'); } ?>
+
+            <?php if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && !(isset($writeRemoteDisabled) && $writeRemoteDisabled === true) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate') && $chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?>
+            <div id="chat-join-as-container-<?php echo $chat->id?>" class="btn-group btn-group-sm mode-write-chat position-absolute<?php $whisperMode == true ? print ' hide' : ''?>" role="group">
+                <select class="form-control form-control-sm rounded-0" id="chat-mode-selected-<?php echo $chat->id?>">
+                    <option data-plc="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are not chat owner, type with caution.')?>" value="me"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Me')?></option>
+                    <option data-plc="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are working as a chat owner.')?>" value="op"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Chat owner')?></option>
+                </select>
+                <button class="btn btn-sm btn-secondary rounded-0" type="button" id="chat-join-as-<?php echo $chat->id?>" style="white-space: nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Join as')?></button>
+            </div>
+            <?php endif; ?>
 
 		    <textarea <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','editprevious')) : ?>disable-edit="true"<?php endif;?> <?php if ($whisperMode) : ?>whisper="1"<?php endif;?> <?php !erLhcoreClassChat::hasAccessToWrite($chat) || ($chat->status != erLhcoreClassModelChat::STATUS_OPERATORS_CHAT && $chat->user_id != 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID() && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','writeremotechat') && $writeRemoteDisabled = true) ? print 'readonly="readonly"'  : '' ?> title="<?php echo $placeholderValue?>" placeholder="<?php echo $placeholderValue?>" class="form-control form-control-sm form-send-textarea form-group<?php if ($chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?> form-control-warning<?php endif;?>" data-rows-default="<?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_text_rows',2)?>" rows="<?php echo (int)erLhcoreClassModelUserSetting::getSetting('chat_text_rows',2)?>" <?php if ($chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) : ?>readonly="readonly"<?php endif;?> name="ChatMessage" id="CSChatMessage-<?php echo $chat->id?>"></textarea>
             <div id="chat-preview-container-<?php echo $chat->id?>" style="display: none; min-height: 59px"></div>
