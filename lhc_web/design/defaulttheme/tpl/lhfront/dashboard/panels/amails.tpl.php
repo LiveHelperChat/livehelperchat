@@ -1,5 +1,5 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) : ?>
-<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard<?php endif; ?>" data-panel-id="amails" ng-init="lhc.getToggleWidget('amails_widget_exp');">
+<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard card-active-mails<?php endif; ?>" data-panel-id="amails" ng-init="lhc.getToggleWidget('amails_widget_exp');">
     <div class="card-header">
         <i class="material-icons chat-active">mail_outline</i>
         <span class="title-card-header">

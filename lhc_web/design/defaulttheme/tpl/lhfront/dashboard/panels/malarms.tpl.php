@@ -1,5 +1,5 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) : ?>
-<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard<?php endif; ?>" data-panel-id="malarms" ng-init="lhc.getToggleWidget('malarms_widget_exp');">
+<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard card-mail-alarms<?php endif; ?>" data-panel-id="malarms" ng-init="lhc.getToggleWidget('malarms_widget_exp');">
     <div class="card-header">
         <i class="material-icons mr-0 action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'mailconv/notifications'})">settings_applications</i><i class="material-icons chat-closed">mail_outline</i>
         <span class="title-card-header">

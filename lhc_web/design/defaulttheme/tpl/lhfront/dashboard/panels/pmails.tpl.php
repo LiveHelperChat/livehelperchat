@@ -1,5 +1,5 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_admin')) : ?>
-<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard<?php endif; ?>" data-panel-id="pmails" ng-init="lhc.getToggleWidget('pmails_widget_exp');">
+<div class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard card-pending-mails<?php endif; ?>" data-panel-id="pmails" ng-init="lhc.getToggleWidget('pmails_widget_exp');">
 
     <div class="card-header">
         <i class="material-icons chat-pending">mail_outline</i><span class="title-card-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails')?> ({{pending_mails.list.length}}{{pending_mails.list.length == lhc.limitpm ? '+' : ''}})</span>
