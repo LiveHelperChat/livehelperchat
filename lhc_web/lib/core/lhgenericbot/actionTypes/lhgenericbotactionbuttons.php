@@ -22,6 +22,10 @@ class erLhcoreClassGenericBotActionButtons {
              $metaMessage['content']['attr_options']['hide_text_area'] = true;
         }
 
+        if (isset($action['content']['buttons_options']['btn_title']) && $action['content']['buttons_options']['btn_title'] != '') {
+             $metaMessage['content']['attr_options']['btn_title'] = $action['content']['buttons_options']['btn_title'];
+        }
+
         $msgText = isset($action['content']['buttons_options']['message']) && !empty($action['content']['buttons_options']['message']) ? $action['content']['buttons_options']['message'] : '';
 
         if ($msgText != '') {

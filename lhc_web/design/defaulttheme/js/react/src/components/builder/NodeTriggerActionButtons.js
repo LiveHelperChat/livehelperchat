@@ -107,7 +107,11 @@ class NodeTriggerActionButtons extends Component {
                     <div className="col-12">
                         <div className="form-group">
                             <label>Default message</label>
-                            <input type="text" className="form-control" onChange={(e) => this.onChangeMainAttr('message',e.target.value)} defaultValue={this.props.action.getIn(['content','buttons_options','message'])} />
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('message',e.target.value)} defaultValue={this.props.action.getIn(['content','buttons_options','message'])} />
+                        </div>
+                        <div className="form-group">
+                            <label>Button list title</label>
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onChangeMainAttr('btn_title',e.target.value)} defaultValue={this.props.action.getIn(['content','buttons_options','btn_title'])} />
                         </div>
                     </div>
                 </div>

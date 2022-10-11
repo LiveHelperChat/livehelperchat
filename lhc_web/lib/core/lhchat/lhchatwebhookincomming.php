@@ -302,6 +302,118 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
+        // Button payload 1
+        if ($typeMessage == 'unknown' && (
+                (isset($conditions['msg_btn_payload_1']) && $conditions['msg_btn_payload_1'] != '') ||
+                (isset($conditions['msg_btn_body_1']) && $conditions['msg_btn_body_1'] != '')
+            )
+        )
+        {
+            $msgBody = isset($conditions['msg_btn_body_1']) ? $conditions['msg_btn_body_1'] : '';
+            $buttonBody = isset($conditions['msg_btn_payload_1']) ? $conditions['msg_btn_payload_1'] : '';
+
+            if (isset($conditions['msg_btn_cond_1']) && $conditions['msg_btn_cond_1'] != "") {
+                $typeMessage = 'button';
+                $conditionsPairs = explode("||",$conditions['msg_btn_cond_1']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
+                    $messageValue = $messageData['value'];
+
+                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'button') {
+                    $conditionsOperator = "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown' && (
+                (isset($conditions['msg_btn_payload_2']) && $conditions['msg_btn_payload_2'] != '') ||
+                (isset($conditions['msg_btn_body_2']) && $conditions['msg_btn_body_2'] != '')
+            )
+        )
+        {
+            $msgBody = isset($conditions['msg_btn_body_2']) ? $conditions['msg_btn_body_2'] : '';
+            $buttonBody = isset($conditions['msg_btn_payload_2']) ? $conditions['msg_btn_payload_2'] : '';
+
+            if (isset($conditions['msg_btn_cond_2']) && $conditions['msg_btn_cond_2'] != "") {
+                $typeMessage = 'button';
+                $conditionsPairs = explode("||",$conditions['msg_btn_cond_2']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
+                    $messageValue = $messageData['value'];
+
+                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'button') {
+                    $conditionsOperator = "";
+                }
+            }
+        }
+
+        if ($typeMessage == 'unknown' && (
+                (isset($conditions['msg_btn_payload_3']) && $conditions['msg_btn_payload_3'] != '') ||
+                (isset($conditions['msg_btn_body_3']) && $conditions['msg_btn_body_3'] != '')
+            )
+        )
+        {
+            $msgBody = isset($conditions['msg_btn_body_3']) ? $conditions['msg_btn_body_3'] : '';
+            $buttonBody = isset($conditions['msg_btn_payload_3']) ? $conditions['msg_btn_payload_3'] : '';
+
+            if (isset($conditions['msg_btn_cond_3']) && $conditions['msg_btn_cond_3'] != "") {
+                $typeMessage = 'button';
+                $conditionsPairs = explode("||",$conditions['msg_btn_cond_3']);
+                foreach ($conditionsPairs as $conditionsPair) {
+                    $conditionsPairData = explode('=', $conditionsPair);
+
+                    if ($conditionsPairData[1] === 'false') {
+                        $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === 'true') {
+                        $conditionsPairData[1] = true;
+                    } elseif (strpos($conditionsPairData[1], ',') !== false) {
+                        $conditionsPairData[1] = explode(',', $conditionsPairData[1]);
+                    }
+
+                    $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
+                    $messageValue = $messageData['value'];
+
+                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                        $typeMessage = 'unknown';
+                    }
+                }
+
+                if ($typeMessage == 'button') {
+                    $conditionsOperator = "";
+                }
+            }
+        }
+
         if ($typeMessage == 'unknown')
         {
             $msgBody = $conditions['msg_body'];
@@ -366,6 +478,10 @@ class erLhcoreClassChatWebhookIncoming {
 
         if ($chatIdExternal == '') {
             $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
+        }
+
+        if ($chatIdExternal != '' && isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
+            $chatIdExternal = preg_replace($conditions['chat_id_preg_rule'], $conditions['chat_id_preg_value'], $chatIdExternal);
         }
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
@@ -458,13 +574,15 @@ class erLhcoreClassChatWebhookIncoming {
                 $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
                 $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
 
-                erLhcoreClassChat::getSession()->save($msg);
+                if ($msg->msg != '') {
+                    erLhcoreClassChat::getSession()->save($msg);
 
-                $chat->last_user_msg_time = $msg->time;
-                $chat->last_msg_id = $msg->id;
+                    $chat->last_user_msg_time = $msg->time;
+                    $chat->last_msg_id = $msg->id;
 
-                if ($renotify == true) {
-                    erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+                    if ($renotify == true) {
+                        erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+                    }
                 }
 
                 // Create auto responder if there is none
@@ -585,7 +703,57 @@ class erLhcoreClassChatWebhookIncoming {
                 ));
             }
 
-            self::sendBotResponse($chat, $msg, array('init' => $renotify));
+            // Button payload message type
+            if ($typeMessage == 'button') {
+                $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                if ($messageData['found'] == true && $messageData['value'] != '') {
+
+                    $buttonPayload = $messageData['value'];
+
+                    if (strpos($buttonPayload, 'trigger__') === 0) {
+                        $payloadParts = explode('__',$buttonPayload);
+                        $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
+                        self::sendBotResponse($chat, $message, array(
+                            'type' => 'trigger',
+                            'payload' => $payloadParts[1] . '__' . $payloadParts[2],
+                            'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
+                        ));
+                    } else if (strpos($buttonPayload, 'bpayload__') === 0) {
+                        $payloadParts = explode('__',$buttonPayload);
+                        $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
+                        self::sendBotResponse($chat, $message, array(
+                            'type' => 'payload',
+                            'payload' => $payloadParts[1] . '__' . $payloadParts[2],
+                            'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
+                        ));
+                    } else {
+
+                        $event = erLhcoreClassGenericBotWorkflow::findEvent($buttonPayload, $chat->gbot_id, 0, array(), array('dep_id' => $chat->dep_id));
+
+                        if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
+                            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($buttonPayload, $chat->gbot_id, array(), array('dep_id' => $chat->dep_id));
+                        }
+
+                        if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent){
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $event->trigger);
+                        } else {
+                            // Send default message for unknown button click
+                            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
+
+                            $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
+
+                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                            }
+                       }
+
+                       self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+                    }
+                }
+
+            } else {
+                self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => $renotify));
+            }
 
             // Standard event on unread chat messages
             if ($chat->has_unread_messages == 1 && $chat->last_user_msg_time < (time() - 5)) {
@@ -597,23 +765,26 @@ class erLhcoreClassChatWebhookIncoming {
             // We dispatch same event as we were using desktop client, because it force admins and users to resync chat for new messages
             // This allows NodeJS users to know about new message. In this particular case it's admin users
             // If operator has opened chat instantly sync
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
-                'chat' => & $chat,
-                'msg' => $msg
-            ));
+            if ($msg->id > 0) {
 
-            // If operator has closed a chat we need force back office sync
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nodjshelper_notify_delay', array(
-                'chat' => & $chat,
-                'msg' => $msg
-            ));
-
-            if ($renotify == true) {
-                // General module signal that it has received an sms
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restart_chat',array(
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
                     'chat' => & $chat,
-                    'msg' => $msg,
+                    'msg' => $msg
                 ));
+
+                // If operator has closed a chat we need force back office sync
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nodjshelper_notify_delay', array(
+                    'chat' => & $chat,
+                    'msg' => $msg
+                ));
+
+                if ($renotify == true) {
+                    // General module signal that it has received an sms
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restart_chat',array(
+                        'chat' => & $chat,
+                        'msg' => $msg,
+                    ));
+                }
             }
 
         } else {
@@ -725,10 +896,12 @@ class erLhcoreClassChatWebhookIncoming {
                 $msg->chat_id = $chat->id;
                 $msg->user_id = $sender;
 
-                $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
-                $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
+                if ($msg->msg != '') {
+                    $timeValue = self::extractAttribute('time', $conditions, $payloadMessage, time());
+                    $msg->time = is_numeric($timeValue) ? $timeValue : strtotime($timeValue);
 
-                erLhcoreClassChat::getSession()->save($msg);
+                    erLhcoreClassChat::getSession()->save($msg);
+                }
 
                 // Save external chat
                 $eChat = ($eChat instanceof erLhcoreClassModelChatIncoming) ? $eChat : (new erLhcoreClassModelChatIncoming());
@@ -747,6 +920,10 @@ class erLhcoreClassChatWebhookIncoming {
                     throw new Exception('ChatId attribute could not be found!');
                 }
 
+                if (isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
+                    $eChat->chat_external_id = preg_replace($conditions['chat_id_preg_rule'], $conditions['chat_id_preg_value'], $eChat->chat_external_id);
+                }
+
                 $eChat->incoming_id = $incomingWebhook->id;
                 $eChat->chat_id = $chat->id;
                 $eChat->utime = time();
@@ -756,14 +933,21 @@ class erLhcoreClassChatWebhookIncoming {
                 /**
                  * Set appropriate chat attributes
                  */
-                $chat->last_msg_id = $msg->id;
-                $chat->last_user_msg_time = $msg->time;
+                if ($msg->id > 0) {
+                    $chat->last_msg_id = $msg->id;
+                    $chat->last_user_msg_time = $msg->time;
+                }
+
                 $chat->incoming_chat = $eChat;
 
                 $chat->updateThis(['update' => ['last_msg_id', 'last_user_msg_time']]);
 
                 // Set bot
-                erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+                if ($msg->id > 0) {
+                    erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg, 'ignore_default' => ($typeMessage == 'button')));
+                } else {
+                    erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => ($typeMessage == 'button')));
+                }
 
                 $db->commit();
 
@@ -772,7 +956,58 @@ class erLhcoreClassChatWebhookIncoming {
                 throw $e;
             }
 
-            self::sendBotResponse($chat, $msg, array('init' => true));
+            if ($typeMessage == 'button') {
+                $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                if ($messageData['found'] == true && $messageData['value'] != '') {
+
+                    $buttonPayload = $messageData['value'];
+
+                    if (strpos($buttonPayload, 'trigger__') === 0) {
+                        $payloadParts = explode('__',$buttonPayload);
+                        $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
+                        self::sendBotResponse($chat, $message, array(
+                            'init' => true,
+                            'type' => 'trigger',
+                            'payload' => $payloadParts[1] . '__' . $payloadParts[2],
+                            'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
+                        ));
+                    } else if (strpos($buttonPayload, 'bpayload__') === 0) {
+                        $payloadParts = explode('__',$buttonPayload);
+                        $message = erLhcoreClassModelmsg::fetch($payloadParts[3]);
+                        self::sendBotResponse($chat, $message, array(
+                            'init' => true,
+                            'type' => 'payload',
+                            'payload' => $payloadParts[1] . '__' . $payloadParts[2],
+                            'msg_last_id' => $chat->last_msg_id // Message visitor is clicking is not necessary the last message
+                        ));
+                    } else {
+
+                        $event = erLhcoreClassGenericBotWorkflow::findEvent($buttonPayload, $chat->gbot_id, 0, array(), array('dep_id' => $chat->dep_id));
+
+                        if (!($event instanceof erLhcoreClassModelGenericBotTriggerEvent)){
+                            $event = erLhcoreClassGenericBotWorkflow::findTextMatchingEvent($buttonPayload, $chat->gbot_id, array(), array('dep_id' => $chat->dep_id));
+                        }
+
+                        if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent){
+                            erLhcoreClassGenericBotWorkflow::processTrigger($chat, $event->trigger);
+                        } else {
+                            // Send default message for unknown button click
+                            $bot = erLhcoreClassModelGenericBotBot::fetch($chat->gbot_id);
+
+                            $trigger = erLhcoreClassModelGenericBotTrigger::findOne(array('filterin' => array('bot_id' => $bot->getBotIds()), 'filter' => array('default_unknown_btn' => 1)));
+
+                            if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+                                erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, array('args' => array('msg_text' => $buttonPayload)));
+                            }
+                        }
+
+                        self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+                    }
+                }
+
+            } else {
+                self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => true));
+            }
 
             // Process auto responder
             $responder = erLhAbstractModelAutoResponder::processAutoResponder($chat);
@@ -923,11 +1158,22 @@ class erLhcoreClassChatWebhookIncoming {
             $lastMessageIdNew = $lastMessageId = $chat->last_msg_id;
 
             if (!isset($params['init']) || $params['init'] == false) {
-                erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                if (isset($params['type']) && $params['type'] == 'payload' && $msg instanceof erLhcoreClassModelmsg) {
+                    erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $msg, $params['payload'], array('processed' => false));
+                } else if (isset($params['type']) && $params['type'] == 'trigger' && $msg instanceof erLhcoreClassModelmsg) {
+                    erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $msg, $params['payload'], array('processed' => false));
+                } else {
+                    erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
+                }
+            }
+
+
+            if (!isset($params['msg_last_id'])) {
+                $params['msg_last_id'] = $msg->id;
             }
 
             // Find a new messages
-            $botMessages = erLhcoreClassModelmsg::getList(array('filter' => array('user_id' => -2, 'chat_id' => $chat->id), 'filtergt' => array('id' => $msg->id)));
+            $botMessages = erLhcoreClassModelmsg::getList(array('filter' => array('user_id' => -2, 'chat_id' => $chat->id), 'filtergt' => array('id' => $params['msg_last_id'])));
             foreach ($botMessages as $botMessage) {
 
                 $lastMessageIdNew = $botMessage->id;
