@@ -397,6 +397,73 @@ class erLhcoreClassGenericBotActionRestapi
              }
         }
 
+        if (isset($paramsCustomer['params']['msg']) &&
+            is_object($paramsCustomer['params']['msg']) &&
+            isset($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies']) &&
+            !empty($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies'])) {
+            $methodSettings['body_raw'] = preg_replace('/\{plain_api\}(.*?)\{\/plain_api\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = preg_replace('/\{buttons_generic\}(.*?)\{\/buttons_generic\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = trim(str_replace(['{interactive_api}','{/interactive_api}'],'', $methodSettings['body_raw']));
+
+            $matchCycles = [];
+            preg_match_all('/{button_template}(.*?){\/button_template}/is',$methodSettings['body_raw'],$matchCycles);
+            $buttonsArray = [];
+
+            foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies'] as $quickReplyButton) {
+                if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
+                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
+                        json_encode($quickReplyButton['content']['name'])
+                    ],$matchCycles[1][0]);
+                } elseif ($quickReplyButton['type'] == 'url') {
+                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        json_encode($quickReplyButton['content']['payload']),
+                        json_encode($quickReplyButton['content']['name'])
+                    ],$matchCycles[1][0]);
+                }
+            }
+
+            $methodSettings['body_raw'] = preg_replace('/{button_template}(.*?){\/button_template}/is',implode(',',$buttonsArray),$methodSettings['body_raw']);
+
+        } elseif (isset($paramsCustomer['params']['msg']) &&
+            is_object($paramsCustomer['params']['msg']) &&
+            isset($paramsCustomer['params']['msg']->meta_msg_array['content']['buttons_generic']) &&
+            !empty($paramsCustomer['params']['msg']->meta_msg_array['content']['buttons_generic'])) {
+
+            $methodSettings['body_raw'] = preg_replace('/\{plain_api\}(.*?)\{\/plain_api\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = preg_replace('/\{interactive_api\}(.*?)\{\/interactive_api\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = trim(str_replace(['{buttons_generic}','{/buttons_generic}'],'', $methodSettings['body_raw']));
+
+            $matchCycles = [];
+            preg_match_all('/{button_template_generic}(.*?){\/button_template_generic}/is',$methodSettings['body_raw'],$matchCycles);
+            $buttonsArray = [];
+
+            $methodSettings['body_raw'] = trim(str_replace('{{button_more_information}}',
+                json_encode(isset($paramsCustomer['params']['msg']->meta_msg_array['content']['attr_options']['btn_title']) ? $paramsCustomer['params']['msg']->meta_msg_array['content']['attr_options']['btn_title'] : 'More information')
+                , $methodSettings['body_raw']));
+
+            foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['buttons_generic'] as $quickReplyButton) {
+                if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
+                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
+                        json_encode($quickReplyButton['content']['name'])
+                    ],$matchCycles[1][0]);
+                } elseif ($quickReplyButton['type'] == 'url') {
+                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                        json_encode($quickReplyButton['content']['payload']),
+                        json_encode($quickReplyButton['content']['name'])
+                    ],$matchCycles[1][0]);
+                }
+            }
+
+            $methodSettings['body_raw'] = preg_replace('/{button_template_generic}(.*?){\/button_template_generic}/is',implode(',',$buttonsArray),$methodSettings['body_raw']);
+
+        } else {
+            $methodSettings['body_raw'] = preg_replace('/\{interactive_api\}(.*?)\{\/interactive_api\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = preg_replace('/\{buttons_generic\}(.*?)\{\/buttons_generic\}/ms','',$methodSettings['body_raw']);
+            $methodSettings['body_raw'] = trim(str_replace(['{plain_api}','{/plain_api}'],'', $methodSettings['body_raw']));
+        }
+
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);

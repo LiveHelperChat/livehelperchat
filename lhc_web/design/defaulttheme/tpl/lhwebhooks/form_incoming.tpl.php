@@ -52,6 +52,9 @@
     <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages_2" aria-controls="text_messages_2" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 2')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages_3" aria-controls="text_messages_3" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 3')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#text_messages_4" aria-controls="text_messages_4" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Text messages 4')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#button_payload_1" aria-controls="button_payload_1" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload 1')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#button_payload_2" aria-controls="button_payload_2" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload 2')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#button_payload_3" aria-controls="button_payload_3" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload 3')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attachments')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments" aria-controls="img-attachments" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 1')?></a></li>
     <li role="presentation" class="nav-item"><a class="nav-link" href="#img-attachments_2" aria-controls="img-attachments_2" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Images/Video 2')?></a></li>
@@ -132,6 +135,23 @@
                     <input type="text" class="form-control form-control-sm" title="{chat_id}@c.us" placeholder="E.g {chat_id}@c.us" ng-model="webhookincomingsctl.conditions.chat_id_template" value="" />
                 </div>
             </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field replace_ ule');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_preg_rule" value="" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field replace value');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_preg_value" value="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="row">
@@ -277,7 +297,51 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered bot/operator messages should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_op" value="" />
         </div>
+    </div>
 
+    <div role="tabpanel" class="tab-pane form-group" id="button_payload_1">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
+            <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_body_1"></textarea>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload location');?></label>
+            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_1" value="" />
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_1" value="" />
+        </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane form-group" id="button_payload_2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
+            <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_body_2"></textarea>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload location');?></label>
+            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_2" value="" />
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_2" value="" />
+        </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane form-group" id="button_payload_3">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Message body content');?></label>
+            <textarea class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_body_3"></textarea>
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Button payload location');?></label>
+            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_3" value="" />
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_3" value="" />
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="img-attachments">
