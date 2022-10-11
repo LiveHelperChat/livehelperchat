@@ -1,11 +1,14 @@
 <div class="btn-toolbar pb-2">
 
+    <?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) :  ?>
     <div class="dropdown dropup dropdown-menu-main mr-1">
         <button id="dropdown-menu-main-action-<?php echo $chat->id?>" class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Styling options')?>" type="button"  aria-haspopup="true" aria-expanded="false">
             <i class="material-icons mr-0">wysiwyg</i>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
+    <?php endif; ?>
             <div class="btn-group btn-group-sm mx-2" role="group">
+
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="b" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Bold')?>"><b>B</b></button>
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="i" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Italic')?>"><i>I</i></button>
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="u" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Underline')?>"><u>U</u></button>
@@ -54,11 +57,11 @@
                     <i class="material-icons mr-0">&#xE24E;</i>
                 </button>
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="return lhc.revealModal({'loadmethod':'post', 'datapost':{'msg':$($(this).attr('data-selector')).val()}, 'url':WWW_DIR_JAVASCRIPT +'chat/previewmessage'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Preview')?>"><i class="material-icons mr-0">visibility</i></button>
-
-
             </div>
+                <?php if ((int)erLhcoreClassModelUserSetting::getSetting('column_chats', 0) == 1) :  ?>
         </div>
     </div>
+    <?php endif; ?>
 
     <?php if (isset($chat)) : ?>
 

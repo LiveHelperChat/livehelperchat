@@ -757,5 +757,6 @@ $FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [
 $FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
 $FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
 $FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his previous messages');
+$FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
 
 ?>
