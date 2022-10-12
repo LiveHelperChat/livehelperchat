@@ -1288,8 +1288,8 @@ input[type="file"]{
 }
 
 .btn-block-department .dropdown-menu {
-    max-height:300px;
-    overflow-y:auto;
+    /*max-height:300px;
+    overflow-y:auto;*/
 	padding:0;
 }
 

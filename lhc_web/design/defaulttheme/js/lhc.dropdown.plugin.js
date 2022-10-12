@@ -85,24 +85,38 @@ $.fn.makeDropdown = function() {
                 _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
             }
         });
+
+        if (_thisItem.find('.btn-block-department-filter > input').attr('ajax-provider')) {
+            _thisItem.find('.dropdown-result').scroll(function(e){
+                if ((parseInt($(this)[0].scrollHeight) - parseInt($(this)[0].clientHeight)) == parseInt($(this).scrollTop())) {
+                    ajaxScroll($(this).parent().find('.btn-block-department-filter > input'),$(this).find('li').length);
+                }
+            });
+        }
     });
 
     // @todo add timout funtion
     var timeoutSearch = null;
 
+    var ajaxScroll = function(itemElm, offset) {
+        var parent = itemElm.parent().parent();
+        var parentHolder = itemElm.parent();
+        $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + itemElm.attr('ajax-provider') + '/?q=' + encodeURIComponent(itemElm.val()) + (offset ? '&offset=' + parseInt(offset) : ''), function(data) {
+            var append = '';
+            data.items.forEach(function(item) {
+                var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
+                append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="checkbox" '+(isSelected ? ' checked="checked" ' : '')+' name="selector-'+data.props.list_id+'[]" value="'+item.id+'"> ' + item.name +'</label></li>';
+            });
+            if (!offset) {
+                parent.find('.search-option-item').remove();
+            }
+            parent.find('.dropdown-result > .dropdown-lhc').append(append);
+        })
+    }
+
     filterInput.keyup(function() {
         if ($(this).attr('ajax-provider')) {
-            var parent = $(this).parent().parent();
-            var parentHolder = $(this).parent();
-            $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + $(this).attr('ajax-provider') + '/?q=' + encodeURIComponent($(this).val()), function(data) {
-                var append = '';
-                data.items.forEach(function(item) {
-                    var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
-                    append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="checkbox" '+(isSelected ? ' checked="checked" ' : '')+' name="selector-'+data.props.list_id+'[]" value="'+item.id+'"> ' + item.name +'</label></li>';
-                });
-                parent.find('.search-option-item').remove();
-                parent.find('.dropdown-result > .dropdown-lhc').append(append);
-            })
+            ajaxScroll($(this));
         } else {
             var filter = $(this).val();
             $(this).parent().parent().find('li.dropdown-result > ul').children('li').each(function(i) {
