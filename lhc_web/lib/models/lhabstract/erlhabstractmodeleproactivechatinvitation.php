@@ -550,30 +550,117 @@ class erLhAbstractModelProactiveChatInvitation {
             }
 
             $design_data_array = $messageToUser->design_data_array;
+            $conditionsValid = true;
 
             for ($i = 1; $i <= 10; $i++) {
-                if (
-                    (
-                        isset($design_data_array['attrf_key_' . $i]) &&
-                        $design_data_array['attrf_key_' . $i] != '' &&
-                        !isset($onlineAttrSystem[$design_data_array['attrf_key_' . $i]])
-                    ) || (
-                        isset($design_data_array['attrf_key_' . $i]) &&
-                        isset($design_data_array['attrf_val_' . $i]) &&
-                        $design_data_array['attrf_key_' . $i] != '' &&
-                        !in_array(
-                            strtolower($onlineAttrSystem[$design_data_array['attrf_key_' . $i]]),
-                            explode('||',strtolower($design_data_array['attrf_val_' . $i]))
-                        )
-                    )
+                 if ( isset($design_data_array['attrf_key_' . $i]) &&
+                    $design_data_array['attrf_key_' . $i] != '' &&
+                    isset($design_data_array['attrf_val_' . $i]) &&
+                    $design_data_array['attrf_val_' . $i] != ''
                 ) {
-                    continue 2;
+
+                     if (!isset($onlineAttrSystem[$design_data_array['attrf_key_' . $i]])){
+                         $conditionsValid = false;
+                         break;
+                     }
+
+                     $valuesExpected = explode('||',strtolower($design_data_array['attrf_val_' . $i]));
+                     $conditionAttr = strtolower($design_data_array['attrf_val_' . $i]);
+                     $valueAttr = strtolower($onlineAttrSystem[$design_data_array['attrf_key_' . $i]]);
+
+                     $replaceArray = array(
+                         '{time}' => time()
+                     );
+
+                     // Remove internal variables
+                     $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$conditionAttr);
+                     $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray),$valueAttr);
+
+                     if (isset($design_data_array['attrf_cond_' . $i]) && !in_array($design_data_array['attrf_cond_' . $i],['like','notlike','contains'])) {
+                         // Remove spaces
+                         $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
+                         $valueAttr = preg_replace('/\s+/', '', $valueAttr);
+
+                         // Allow only mathematical operators
+                         $conditionAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $conditionAttr);
+                         $valueAttrMath = preg_replace("/[^\(\)\.\*\-\/\+0-9]+/", "", $valueAttr);
+
+                         if ($conditionAttrMath != '' && $conditionAttrMath == $conditionAttr) {
+                             // Evaluate if there is mathematical rules
+                             try {
+                                 eval('$conditionAttr = ' . $conditionAttrMath . ";");
+                             } catch (ParseError $e) {
+                                 // Do nothing
+                             }
+                         }
+
+                         if ($valueAttrMath != '' && $valueAttrMath == $valueAttr) {
+                             // Evaluate if there is mathematical rules
+                             try {
+                                 eval('$valueAttr = ' . $valueAttrMath . ";");
+                             } catch (ParseError $e) {
+                                 // Do nothing
+                             }
+                         }
+                     }
+
+                     if (isset($design_data_array['attrf_cond_' . $i]) && in_array($design_data_array['attrf_cond_' . $i],['lt','lte','gt','gte'])) {
+                         $conditionAttr = round((float)$conditionAttr,3);
+                         $valueAttr = round((float)$valueAttr,3);
+                     } elseif ((is_string($conditionAttr) || is_numeric($conditionAttr)) && (is_string($valueAttr) || is_numeric($valueAttr))) {
+                         $conditionAttr = (string)$conditionAttr;
+                         $valueAttr = (string)$valueAttr;
+                     }
+
+                     if (!isset($design_data_array['attrf_cond_' . $i]) || ($design_data_array['attrf_cond_' . $i] == 'eq' && !in_array(
+                                 $valueAttr,
+                             $valuesExpected
+                         ))) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'neq' && in_array(
+                             $valueAttr,
+                             $valuesExpected
+                         )) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'gt' && !($valueAttr > $conditionAttr)) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'gte' && !($valueAttr >= $conditionAttr)) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'lt' && !($valueAttr < $conditionAttr)) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'lte' && !($valueAttr <= $conditionAttr)) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                             'pattern' => $conditionAttr,
+                             'msg' => $valueAttr,
+                             'words_typo' => 0,
+                         ))['found'] !== true) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                             'pattern' => $conditionAttr,
+                             'msg' => $valueAttr,
+                             'words_typo' => 0,
+                         ))['found'] === true) {
+                         $conditionsValid = false;
+                         break;
+                     } elseif ($design_data_array['attrf_cond_' . $i] == 'contains' && strrpos($valueAttr, $conditionAttr) === false) {
+                         $conditionsValid = false;
+                         break;
+                     }
                 }
             }
 
-            $messagesToUser[] = $messageToUser;
+            if ($conditionsValid === true) {
+                $messagesToUser[] = $messageToUser;
+            }
         }
-
 
 		if ( !empty($messagesToUser) ) {
 
