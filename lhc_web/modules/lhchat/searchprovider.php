@@ -2,7 +2,9 @@
 header ( 'content-type: application/json; charset=utf-8' );
 
 $search = isset($_GET['q']) ? rawurldecode($_GET['q']) : '';
+$offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 $return = array();
+$listId = 'user_ids';
 
 if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     if (isset($_GET['d']) && is_numeric($_GET['d'])) {
@@ -14,7 +16,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
 
     $db = ezcDbInstance::get();
 
-    $filter = array('sort' => 'name ASC', 'limit' => 20);
+    $filter = array('sort' => 'name ASC', 'limit' => 50, 'offset' => $offset);
 
     if (!empty($search)) {
         $filter['filterlike']['name'] = $search;
@@ -26,10 +28,12 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
         $return[] = array('id' => $item->id, 'name' => $item->name);
     }
 
+    $listId = 'department_ids';
+
 } else if ($Params['user_parameters']['scope'] == 'users') {
     $db = ezcDbInstance::get();
 
-    $filter = array('sort' => 'name ASC', 'limit' => 50);
+    $filter = array('sort' => 'name ASC', 'limit' => 50, 'offset' => $offset);
 
     if (!empty($search)) {
         $filter['customfilter'] = array('(`chat_nickname` LIKE ('. $db->quote('%'.$search.'%')  .') OR `name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `surname` LIKE ('. $db->quote('%'.$search.'%').'))');
@@ -56,7 +60,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     }
 } else if ($Params['user_parameters']['scope'] != '') {
 
-    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.searchprovider', array('search' => $search, 'scope' => $Params['user_parameters']['scope']));
+    $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.searchprovider', array('offset' => $offset, 'search' => $search, 'scope' => $Params['user_parameters']['scope']));
 
     // There was no callbacks or file not found etc, we try to download from standard location
     if ($response !== false) {
@@ -65,7 +69,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     }
 }
 
-echo json_encode(array('items' => $return, 'props' => array('list_id' => 'user_ids')));
+echo json_encode(array('items' => $return, 'props' => array('list_id' => $listId)));
 
 exit;
 
