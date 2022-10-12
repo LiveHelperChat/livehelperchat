@@ -567,24 +567,6 @@ $proactiveAttr = array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'callback','erLhcoreClassSearchHandler::isImageFile()'
     )),
-    'attrf_key_1' => array(
-        'type' => 'text',
-        'main_attr' => 'design_data_array',
-        'trans' => '',
-        'required' => false,
-        'hidden' => true,
-        'nginit' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
-    'attrf_val_1' => array(
-        'type' => 'text',
-        'main_attr' => 'design_data_array',
-        'trans' => '',
-        'required' => false,
-        'hidden' => true,
-        'nginit' => true,
-        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
-    ),
 );
 
 for ($ai = 0; $ai < 10; $ai++) {
@@ -597,6 +579,14 @@ for ($ai = 0; $ai < 10; $ai++) {
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     );
     $proactiveAttr['attrf_val_' . ($ai  + 1)] = array(
+        'type' => 'text',
+        'main_attr' => 'design_data_array',
+        'trans' => '',
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    );
+    $proactiveAttr['attrf_cond_' . ($ai  + 1)] = array(
         'type' => 'text',
         'main_attr' => 'design_data_array',
         'trans' => '',

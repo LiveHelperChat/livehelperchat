@@ -85,18 +85,18 @@ $.fn.makeDropdown = function() {
                 _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
             }
         });
+
+        if (_thisItem.find('.btn-block-department-filter > input').attr('ajax-provider')) {
+            _thisItem.find('.dropdown-result').scroll(function(e){
+                if ((parseInt($(this)[0].scrollHeight) - parseInt($(this)[0].clientHeight)) == parseInt($(this).scrollTop())) {
+                    ajaxScroll($(this).parent().find('.btn-block-department-filter > input'),$(this).find('li').length);
+                }
+            });
+        }
     });
 
     // @todo add timout funtion
     var timeoutSearch = null;
-
-    if (filterInput.attr('ajax-provider')) {
-        filterInput.parent().parent().find('.dropdown-result').scroll(function(e){
-            if ((parseInt($(this)[0].scrollHeight) - parseInt($(this)[0].clientHeight)) == parseInt($(this).scrollTop())) {
-                ajaxScroll($(this).parent().find('.btn-block-department-filter > input'),$(this).find('li').length);
-            }
-        });
-    }
 
     var ajaxScroll = function(itemElm, offset) {
         var parent = itemElm.parent().parent();
