@@ -12,6 +12,7 @@
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/emailtemplates.tpl.php'));?>
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/invitationhelp.tpl.php'));?>
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/proactiveconditions.tpl.php'));?>
+           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/timefilter.tpl.php'));?>
 
             <?php if ($context == 'text') : ?>
                 <ul>

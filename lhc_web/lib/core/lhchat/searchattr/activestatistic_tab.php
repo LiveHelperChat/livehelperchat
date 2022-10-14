@@ -14,6 +14,17 @@ $fieldsSearch['group_chart_type'] = array (
     )
 );
 
+$fieldsSearch['report'] = array (
+    'type' => 'text',
+    'trans' => 'Report',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+    )
+);
+
 $fieldsSearch['transfer_happened'] = array (
     'type' => 'boolean',
     'trans' => 'groupby',

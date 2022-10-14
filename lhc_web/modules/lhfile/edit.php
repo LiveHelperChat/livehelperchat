@@ -20,7 +20,7 @@ if (ezcInputForm::hasPostData()) {
     $form = new ezcInputForm( INPUT_POST, $definition );
     $Errors = array();
 
-    if ( $form->hasValidData( 'persistent' ) && $form->persistent == true)	{
+    if ( $form->hasValidData( 'persistent' ) && $form->persistent == true) {
         $file->persistent = 1;
     } else {
         $file->persistent = 0;
