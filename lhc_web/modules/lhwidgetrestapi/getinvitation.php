@@ -123,7 +123,9 @@ if ($outputResponse['invitation_id'] > 0) {
         $chat->gbot_id = $bot->id;
         $chat->additional_data_array = $onlineUser->online_attr_array;
         $chat->chat_variables_array = $onlineUser->chat_variables_array;
-
+        if ($onlineUser->dep_id > 0) {
+            $chat->dep_id = $onlineUser->dep_id;
+        }
         $tpl->set('chat',$chat);
         $tpl->set('react',true);
         $tpl->set('no_wrap_intro',true);
