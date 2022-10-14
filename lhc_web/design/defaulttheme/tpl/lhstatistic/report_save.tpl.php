@@ -19,7 +19,7 @@ $appendPrintExportURL = '';
                 <script>
                     setTimeout(function(){
                         document.location.reload();
-                    },2000);
+                    },1000);
                 </script>
             </div>
         <?php else : ?>
@@ -45,8 +45,11 @@ $appendPrintExportURL = '';
                         <span data-data_type="ndays" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Day')?></span>
                         <span data-data_type="lweek" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Week')?></span>
                         <span data-data_type="lmonth" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current month')?></span>
+                        <br/>
+                        <button onclick="$('.advanced-date-filter').toggle()" class="btn btn-sm btn-link pl-0" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show advanced')?></button>
                     </div>
-                    <div class="col-4">
+
+                    <div class="col-4 advanced-date-filter" style="display: none">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range start value')?></label>
                             <select name="date_type" id="report-date_type" class="form-control form-control-sm">
@@ -56,7 +59,7 @@ $appendPrintExportURL = '';
                             </select>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-8 advanced-date-filter" style="display: none">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">

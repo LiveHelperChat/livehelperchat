@@ -455,7 +455,7 @@
             });
         }
     });
-    
+
     Chart.Legend.prototype.afterFit = function() {
         this.height = this.height + 10;
     };
@@ -589,8 +589,8 @@
       <?php endif; ?>
 
 	};
-	
-	function drawChartCountry() {	
+
+	function drawChartCountry() {
 		<?php if (!empty($countryStats)) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($countryStats as $data) : echo ($key > 0 ? ',' : ''),'\''.$data['country_name'].'\'';$key++; endforeach;?>],
@@ -602,10 +602,10 @@
             }]
         };
         drawBasicChart(barChartData,'chart_div_country');
-		<?php endif;?>					  
+		<?php endif;?>
 	};
-	
-	function drawChartUser() {	
+
+	function drawChartUser() {
 		<?php if (!empty($userChatsStats)) : ?>
                 var barChartData = {
                     labels: [<?php $key = 0; foreach ($userChatsStats as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
@@ -647,8 +647,8 @@
             drawBasicChart(barChartData,'chart_div_dep');
 		  <?php endif;?>
 	};
-	
-	function drawChartUserAverage() {	
+
+	function drawChartUserAverage() {
 		<?php if (!empty($userChatsAverageStats)) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($userChatsAverageStats as $data) :  $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
@@ -664,7 +664,7 @@
         <?php endif;?>
 	};
 
-	function drawChartUserAVGWaitTime() {	
+	function drawChartUserAVGWaitTime() {
 		<?php if (!empty($userWaitTimeByOperator)) : ?>
 
 
@@ -681,7 +681,7 @@
 		drawBasicChart(barChartData,'chart_div_user_wait_time');
 		<?php endif;?>
 	};
-	
+
 	function drawChartUserMessages() {
 		<?php if (!empty($numberOfMsgByUser)) : ?>
 
@@ -711,7 +711,7 @@
         };
 
         drawBasicChart(barChartData,'chart_div_user_msg');
-		<?php endif;?>					  
+		<?php endif;?>
 	};
 
 	function drawChartByNickMonth() {
@@ -840,7 +840,7 @@
 	  <?php endif; ?>
 	}
 
-	function drawChartPerMonth() {	
+	function drawChartPerMonth() {
 
 	    <?php if (isset($numberOfChatsPerMonth) && !empty($numberOfChatsPerMonth)) : ?>
 
@@ -1143,7 +1143,7 @@
         drawBasicChart(barChartData,'chart_div_per_month_wait_time');
         <?php endif; ?>
 	}
-	
+
 	function drawChartWorkload() {
 	    <?php if (isset($numberOfChatsPerHour['total'])) : ?>
         var barChartData = {
@@ -1273,8 +1273,8 @@
 	$( document ).ready(function() {
 		redrawAllCharts();
 	});
-				
-</script> 
+
+</script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_active_content_multiinclude.tpl.php'));?>
 

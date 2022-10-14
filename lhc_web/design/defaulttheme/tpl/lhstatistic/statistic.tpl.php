@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
 <div class="row">
-    <div translate="no" class="col chats-column border-right pr-0 pl-0">
+    <div translate="no" class="col-2 border-right pr-0 pl-0">
         <div class="w-100 d-flex flex-column flex-grow-1">
             <table class="table table-sm mb-0 table-small" ng-non-bindable>
                 <thead>
@@ -34,7 +34,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
         </div>
     </div>
-    <div class="col" id="view-content">
+    <div class="col-10" id="view-content">
         <div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
