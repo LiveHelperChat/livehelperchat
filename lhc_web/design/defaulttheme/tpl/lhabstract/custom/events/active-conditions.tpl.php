@@ -47,6 +47,10 @@
     </select>
 </div>
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Attributes conditions conditions')?></h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Attributes conditions conditions')?>
+
+    <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/proactiveconditions'});" class="material-icons text-muted">help</a>
+
+</h5>
 <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("abstract/widgettheme","You can filter by `online_attr_system` attribute key and it's value. Multiple values can be separated by ||")?></i></small></p>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/events/attributes_conditions.tpl.php'));?>

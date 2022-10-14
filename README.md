@@ -27,6 +27,7 @@ http://livehelperchat.com/demo-12c.html
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
  * [Facebook messenger](https://github.com/LiveHelperChat/fbmessenger)
+ * [Facebook WhatsApp](https://github.com/LiveHelperChat/fbmessenger#whatsapp-configuration)
  * [Insult detection](https://github.com/LiveHelperChat/lhcinsult) powered by [DeepPavlov.ai](https://demo.deeppavlov.ai/#/en/insult) and [NudeNet](https://github.com/notAI-tech/NudeNet)
  * [SMS, WhatsApp](https://github.com/LiveHelperChat/twilio) (Twilio based)
  * [WhatsApp](https://doc.livehelperchat.com/docs/integrating/whatsapp) open-wa based.
