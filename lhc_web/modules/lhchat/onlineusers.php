@@ -93,32 +93,37 @@ if ($is_ajax == true) {
     $columnsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_name','column_name','column_identifier','enabled'), 'sort' => false, 'filter' => array('enabled' => 1)));
 
     $onlineAttributeFilter = [
-        'attrf_key_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_1',''),
-        'attrf_val_1' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_1',''),
-        'attrf_key_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_2',''),
-        'attrf_val_2' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_2',''),
-        'attrf_key_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_3',''),
-        'attrf_val_3' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_3',''),
-        'attrf_key_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_4',''),
-        'attrf_val_4' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_4',''),
-        'attrf_key_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_key_5',''),
-        'attrf_val_5' => (string)erLhcoreClassModelUserSetting::getSetting('oattrf_val_5','')
+        'oattrf_key_1' => '',
+        'oattrf_val_1' => '',
+        'oattrf_key_2' => '',
+        'oattrf_val_2' => '',
+        'oattrf_key_3' => '',
+        'oattrf_val_3' => '',
+        'oattrf_key_4' => '',
+        'oattrf_val_4' => '',
+        'oattrf_key_5' => '',
+        'oattrf_val_5' => ''
     ];
 
+    foreach (erLhcoreClassModelUserSetting::getList([
+        'filter' => ['user_id' => $currentUser->getUserID()],
+        'filterin' => ['identifier' => array_keys($onlineAttributeFilter)]]) as $userSettingFilter) {
+        $onlineAttributeFilter[$userSettingFilter->identifier] = (string)$userSettingFilter->value;
+    }
 
     $db = ezcDbInstance::get();
 
     for ($i = 1; $i <= 5; $i++) {
         if (
-            isset($onlineAttributeFilter['attrf_key_' . $i]) &&
-            $onlineAttributeFilter['attrf_key_' . $i] != '' &&
-            isset($onlineAttributeFilter['attrf_val_' . $i]) &&
-            $onlineAttributeFilter['attrf_val_' . $i] != ''
+            isset($onlineAttributeFilter['oattrf_key_' . $i]) &&
+            $onlineAttributeFilter['oattrf_key_' . $i] != '' &&
+            isset($onlineAttributeFilter['oattrf_val_' . $i]) &&
+            $onlineAttributeFilter['oattrf_val_' . $i] != ''
         ) {
-            $values = explode('||',$onlineAttributeFilter['attrf_val_' . $i]);
+            $values = explode('||',$onlineAttributeFilter['oattrf_val_' . $i]);
             $valuesFilter = [];
             foreach ($values as $val) {
-                $valuesFilter[] = '( JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['attrf_key_' . $i]).' ) )';
+                $valuesFilter[] = '( JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['oattrf_key_' . $i]).' ) )';
             }
             $filter['customfilter'][] = '('.implode(' OR ',$valuesFilter).')';
         }
