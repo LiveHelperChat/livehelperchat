@@ -58,8 +58,16 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <translation>Wie lange soll gewartet werden, bevor der Operator über nicht beantwortete Chats benachrichtigt wird?</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -67,7 +75,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation>Domänen, auf denen das Script eingebunden werden kann (z.B. beispiel.com, google.de)</translation>
+      <translation>Domänen, auf denen das Skript eingebunden werden kann, z.B. example.com, google.de</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -214,10 +222,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Cookie should be valid only for domain where Javascript is embedded</source>
       <translation>Das Cookie darf nur für die Domain gültig sein, in der das JavaScript eingebettet wird</translation>
     </message>
@@ -263,7 +267,7 @@
     </message>
     <message>
       <source>Default number of online operators to show</source>
-      <translation type="unfinished"/>
+      <translation>Standardanzahl der anzuzeigenden Online-Operatoren</translation>
     </message>
     <message>
       <source>Inform visitor about unread messages from operator, value in minutes. 0 - disabled</source>
@@ -299,7 +303,7 @@
     </message>
     <message>
       <source>Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Footprint-Aktualisierungen sollten im Hintergrund verarbeitet werden. Es muss sichergestellt sein, dass der Workflow-Hintergrund-Cronjob ausgeführt wird.</translation>
     </message>
     <message>
       <source>Is visitor e-mail required for FAQ</source>
@@ -327,7 +331,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Deaktivieren des Downloads für Chats</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -343,7 +347,7 @@
     </message>
     <message>
       <source>Disable live auto assign</source>
-      <translation type="unfinished"/>
+      <translation>Automatische Live-Zuweisung deaktivieren</translation>
     </message>
     <message>
       <source>Disable JS execution in Co-Browsing operator window</source>
@@ -359,7 +363,7 @@
     </message>
     <message>
       <source>How long department availability statistic should be kept? (days)</source>
-      <translation type="unfinished"/>
+      <translation>Wie lange sollte die Verfügbarkeitsstatistik der Abteilung aufbewahrt werden? (Tage)</translation>
     </message>
     <message>
       <source>Home page dashboard widgets order</source>
@@ -375,7 +379,7 @@
     </message>
     <message>
       <source>Cleanup should should be done only using cronjob.</source>
-      <translation type="unfinished"/>
+      <translation>Die Bereinigung sollte nur mit einem Cronjob durchgeführt werden.</translation>
     </message>
     <message>
       <source>Interval between chat status checks in seconds, 0 disabled.</source>
@@ -502,15 +506,15 @@
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>IP blockieren</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail-Adresse blockieren</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>Land blockieren</translation>
     </message>
     <message>
       <source>Close</source>
@@ -522,15 +526,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Nachricht senden an</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>Besucher</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Eine Nachricht schicken und Chat beginnen</translation>
     </message>
     <message>
       <source>Send</source>
@@ -538,7 +542,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Alle auswählen</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -574,7 +578,7 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Feedback senden</translation>
     </message>
     <message>
       <source>Test</source>
@@ -582,11 +586,11 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>Die unten gespeicherten Daten werden nicht angezeigt.</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Teilen</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -3700,6 +3704,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Activity period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default value</source>
       <translation type="unfinished"/>
     </message>
@@ -3724,11 +3732,55 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Variable Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Replaceable variables</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In-Active</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3808,10 +3860,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Activity period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Title</source>
       <translation>Titel</translation>
     </message>
@@ -3845,34 +3893,6 @@
     </message>
     <message>
       <source>HTML Snippet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can make this canned message available only for certain period of times.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Week day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>One time period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Annually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3952,10 +3972,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation>Bitte eine vorgefertigte Nachricht eingeben</translation>
-    </message>
-    <message>
       <source>Please enter from and to time. To has to be greater than from.</source>
       <translation type="unfinished"/>
     </message>
@@ -3970,6 +3986,10 @@
     <message>
       <source>Activity to period has to be bigger than activity from</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
+      <translation>Bitte eine vorgefertigte Nachricht eingeben</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
@@ -6892,11 +6912,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>These hours will be using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>time zone</source>
+      <source>Your time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6913,6 +6929,14 @@
     </message>
     <message>
       <source>Time to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10239,6 +10263,10 @@
       <translation>Abteilung zugewiesene Chats</translation>
     </message>
     <message>
+      <source>Home</source>
+      <translation>Startseite</translation>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation>Gruppenchats</translation>
     </message>
@@ -10369,10 +10397,6 @@
     <message>
       <source>Offline</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Startseite</translation>
     </message>
     <message>
       <source>Modules</source>
@@ -13228,6 +13252,10 @@
   </context>
   <context>
     <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Photo</source>
       <translation>Foto</translation>

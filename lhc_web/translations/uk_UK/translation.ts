@@ -58,6 +58,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -208,10 +216,6 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>У чаті закрийте вихід із чату</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -3700,6 +3704,10 @@
       <translation>Додайте комбінацію</translation>
     </message>
     <message>
+      <source>Activity period</source>
+      <translation>Період діяльності</translation>
+    </message>
+    <message>
       <source>Default value</source>
       <translation>Значення за замовчуванням</translation>
     </message>
@@ -3724,12 +3732,56 @@
       <translation>Додати умову</translation>
     </message>
     <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation>Ви можете зробити це готове повідомлення доступним лише протягом певного періоду часу.</translation>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation>Не активний</translation>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation>День тижня</translation>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation>Один період часу</translation>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation>Щорічно</translation>
+    </message>
+    <message>
+      <source>Variable Time Zone</source>
+      <translation>Змінний часовий пояс</translation>
+    </message>
+    <message>
+      <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
+      <translation>Якщо ви не виберете часовий пояс у бек-офісі, заміна буде відбуватися на основі часового поясу оператора. Змінна, що використовується в інтерфейсі віджета – ми будемо використовувати часовий пояс відвідувача.</translation>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation>Активний від</translation>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation>Активний до</translation>
+    </message>
+    <message>
       <source>Replaceable variables</source>
       <translation>Замінні змінні</translation>
     </message>
     <message>
       <source>Identifier</source>
       <translation>Ідентифікатор</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Активно</translation>
+    </message>
+    <message>
+      <source>In-Active</source>
+      <translation>Неактивно</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -3808,10 +3860,6 @@
       <translation>Активуйте це</translation>
     </message>
     <message>
-      <source>Activity period</source>
-      <translation>Період діяльності</translation>
-    </message>
-    <message>
       <source>Title</source>
       <translation>Назва</translation>
     </message>
@@ -3846,34 +3894,6 @@
     <message>
       <source>HTML Snippet</source>
       <translation>Фрагмент HTML</translation>
-    </message>
-    <message>
-      <source>You can make this canned message available only for certain period of times.</source>
-      <translation>Ви можете зробити це готове повідомлення доступним лише протягом певного періоду часу.</translation>
-    </message>
-    <message>
-      <source>Not active</source>
-      <translation>Не активний</translation>
-    </message>
-    <message>
-      <source>Week day</source>
-      <translation>День тижня</translation>
-    </message>
-    <message>
-      <source>One time period</source>
-      <translation>Один період часу</translation>
-    </message>
-    <message>
-      <source>Annually</source>
-      <translation>Щорічно</translation>
-    </message>
-    <message>
-      <source>Active from</source>
-      <translation>Активний від</translation>
-    </message>
-    <message>
-      <source>Active to</source>
-      <translation>Активний до</translation>
     </message>
     <message>
       <source>Tag&apos;s</source>
@@ -3952,10 +3972,6 @@
       <translation>Будь ласка, введіть значення за замовчуванням</translation>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation>Будь ласка введіть підготовлене повідомлення</translation>
-    </message>
-    <message>
       <source>Please enter from and to time. To has to be greater than from.</source>
       <translation>Будь ласка, введіть час і час. До має бути більше, ніж від.</translation>
     </message>
@@ -3970,6 +3986,10 @@
     <message>
       <source>Activity to period has to be bigger than activity from</source>
       <translation>Активність до періоду має бути більшою за активність від</translation>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
+      <translation>Будь ласка введіть підготовлене повідомлення</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
@@ -6892,12 +6912,8 @@
       <translation>Робочий час, 24-годинний формат, 0-23, хвилинний формат 0-59</translation>
     </message>
     <message>
-      <source>These hours will be using</source>
-      <translation>Ці години будуть використані</translation>
-    </message>
-    <message>
-      <source>time zone</source>
-      <translation>часовий пояс</translation>
+      <source>Your time zone</source>
+      <translation>Ваш часовий пояс</translation>
     </message>
     <message>
       <source>Period type</source>
@@ -6914,6 +6930,14 @@
     <message>
       <source>Time to</source>
       <translation>Час до</translation>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation>Ці години будуть використані</translation>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation>часовий пояс</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -10239,6 +10263,10 @@
       <translation>Передані до вашого відділу</translation>
     </message>
     <message>
+      <source>Home</source>
+      <translation>Головна</translation>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation>Групові чати</translation>
     </message>
@@ -10369,10 +10397,6 @@
     <message>
       <source>Offline</source>
       <translation>Offline</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Головна</translation>
     </message>
     <message>
       <source>Modules</source>
@@ -13228,6 +13252,10 @@
   </context>
   <context>
     <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation>Часовий пояс програми за замовчуванням</translation>
+    </message>
     <message>
       <source>Photo</source>
       <translation>Фото</translation>

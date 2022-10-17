@@ -58,6 +58,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cât timp ar trebui să așteptăm înainte de a informa operatorul despre conversația fără răspuns.</translation>
     </message>
@@ -208,10 +216,6 @@
     <message>
       <source>On chat close exit chat</source>
       <translation>În conversație, închideți părăsirea din conversație</translation>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source/>
@@ -3700,6 +3704,10 @@
       <translation>Adăugați o combinație</translation>
     </message>
     <message>
+      <source>Activity period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default value</source>
       <translation>Valoare implicită</translation>
     </message>
@@ -3724,12 +3732,56 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>You can make this canned message available only for certain period of times.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Not active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Week day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One time period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Annually</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Variable Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not choose time zone in the back office replacement will be happening based on operator time zone. Variable used on widget interface - we will use visitor time zone.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Replaceable variables</source>
       <translation>Variabile înlocuibile</translation>
     </message>
     <message>
       <source>Identifier</source>
       <translation>Identificator</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>In-Active</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Delete</source>
@@ -3808,10 +3860,6 @@
       <translation>Activează-l</translation>
     </message>
     <message>
-      <source>Activity period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Title</source>
       <translation>Titlu</translation>
     </message>
@@ -3846,34 +3894,6 @@
     <message>
       <source>HTML Snippet</source>
       <translation>Fragment HTML</translation>
-    </message>
-    <message>
-      <source>You can make this canned message available only for certain period of times.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Not active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Week day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>One time period</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Annually</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active to</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Tag&apos;s</source>
@@ -3952,10 +3972,6 @@
       <translation>Vă rugăm să introduceți o valoare implicită</translation>
     </message>
     <message>
-      <source>Please enter a canned message</source>
-      <translation>Vă rugăm să introduceţi un mesaj conserve</translation>
-    </message>
-    <message>
       <source>Please enter from and to time. To has to be greater than from.</source>
       <translation type="unfinished"/>
     </message>
@@ -3970,6 +3986,10 @@
     <message>
       <source>Activity to period has to be bigger than activity from</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a canned message</source>
+      <translation>Vă rugăm să introduceţi un mesaj conserve</translation>
     </message>
     <message>
       <source>Canned message tags should not contain # character</source>
@@ -6892,12 +6912,8 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>These hours will be using</source>
-      <translation>Aceste ore vor fi folosite</translation>
-    </message>
-    <message>
-      <source>time zone</source>
-      <translation>fus orar</translation>
+      <source>Your time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Period type</source>
@@ -6914,6 +6930,14 @@
     <message>
       <source>Time to</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation>Aceste ore vor fi folosite</translation>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation>fus orar</translation>
     </message>
     <message>
       <source>Edit department</source>
@@ -10239,6 +10263,10 @@
       <translation>Transferate la departamentul dvs.</translation>
     </message>
     <message>
+      <source>Home</source>
+      <translation>Acasă</translation>
+    </message>
+    <message>
       <source>Group chats</source>
       <translation>Grupuri de conversații</translation>
     </message>
@@ -10369,10 +10397,6 @@
     <message>
       <source>Offline</source>
       <translation>Deconectat</translation>
-    </message>
-    <message>
-      <source>Home</source>
-      <translation>Acasă</translation>
     </message>
     <message>
       <source>Modules</source>
@@ -13228,6 +13252,10 @@
   </context>
   <context>
     <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Photo</source>
       <translation>Poza</translation>
