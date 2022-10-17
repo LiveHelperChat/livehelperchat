@@ -1,3 +1,10 @@
+4.10v
+
+1. Reports various fixes.
+2. Now you can save report for future reference.
+
+execute doc/update_db/update_282.sql for update
+
 4.09v
 
 1. Optional reactions to bot messages. https://doc.livehelperchat.com/docs/bot/bot-text#reaction-options

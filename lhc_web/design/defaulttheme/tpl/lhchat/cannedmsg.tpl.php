@@ -10,7 +10,7 @@
     <div role="tabpanel" class="tab-pane active" id="cannedmsg">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/search_panel.tpl.php')); ?>
         <br/>
-        <form action="<?php echo $input->form_action?>" method="post">
+        <form action="<?php echo $input->form_action . $inputAppend?>" method="post">
         <table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
             <thead>
             <tr>

@@ -1,6 +1,41 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
-<div role="tabpanel" ng-non-bindable>
+<div class="row">
+    <div translate="no" class="col-2 border-right pr-0 pl-0">
+        <div class="w-100 d-flex flex-column flex-grow-1">
+            <table class="table table-sm mb-0 table-small" ng-non-bindable>
+                <thead>
+                <tr>
+                    <th width="99%">
+                        <span title="Name" class="material-icons">saved_search</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','My reports');?>
+                    </th>
+                    <th width="1%" nowrap="nowrap">
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach (\LiveHelperChat\Models\Statistic\SavedReport::getList(['limit' => false, 'filter' => ['user_id' =>  erLhcoreClassUser::instance()->getUserID()]]) as $report) : ?>
+                    <tr>
+                        <td>
+                            <a <?php if (isset($input->report) && $input->report == $report->id) : ?>class="font-weight-bold"<?php endif; ?> href="<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $report->id?>" title="<?php echo htmlspecialchars($report->description)?>"><?php echo htmlspecialchars($report->name)?></a>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <i class="material-icons settings text-muted fs14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
+                                <div class="dropdown-menu py-0 fs13">
+                                    <a class="dropdown-item text-muted px-2 csfr-required csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('statistic/deletereport')?>/<?php echo $report->id?>"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete');?></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
+        </div>
+    </div>
+    <div class="col-10" id="view-content">
+        <div role="tabpanel" ng-non-bindable>
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'active') : ?> active<?php endif;?>" onclick="redrawAllCharts(500)" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active"><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/tab_statistic.tpl.php'));?></a></li>
@@ -79,4 +114,6 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_tab_content_multiinclude.tpl.php')); ?>
 		
 	</div>
+</div>
+    </div>
 </div>
