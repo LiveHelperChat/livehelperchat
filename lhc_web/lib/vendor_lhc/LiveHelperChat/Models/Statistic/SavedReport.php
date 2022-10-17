@@ -67,7 +67,7 @@ class SavedReport {
                         ))
                 );
             }
-        } elseif ($params['input_form']['timeto_hours'] >= 0) {
+        } elseif ($params['input_form']['timeto_hours'] != '' && is_numeric($params['input_form']['timeto_hours']) && $params['input_form']['timeto_hours'] >= 0) {
             $params['input_form']['timeto'] = date('Y-m-d');
         } else {
             $params['input_form']['timeto'] = null;
