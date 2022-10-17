@@ -18,7 +18,7 @@ $appendPrintExportURL = '';
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Report was saved')?>.
                 <script>
                     setTimeout(function(){
-                        document.location.reload();
+                        document.location = '<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $item->id?>';
                     },1000);
                 </script>
             </div>
