@@ -12,6 +12,8 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
+erLhcoreClassChatStatistic::formatUserFilter($filterParams,'lh_abstract_survey_item');
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 $filterParams['filter']['filter']['survey_id'] = $survey->id;
 

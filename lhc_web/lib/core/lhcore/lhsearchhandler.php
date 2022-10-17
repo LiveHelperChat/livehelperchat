@@ -27,8 +27,8 @@ class erLhcoreClassSearchHandler
 
         $inputParams = new stdClass();
         $inputFrom = new stdClass();
-        
-        $form = new erLhcoreClassInputForm(INPUT_GET, $definition, null, $uparams, isset($params['use_override']) ? $params['use_override'] : false);
+
+        $form = new erLhcoreClassInputForm((isset($params['use_post']) && $params['use_post'] === true ? INPUT_POST : INPUT_GET), $definition, null, $uparams, isset($params['use_override']) ? $params['use_override'] : false);
         $Errors = array();
         
         foreach ($fields as $key => $field) {
@@ -155,6 +155,17 @@ class erLhcoreClassSearchHandler
                             } else {
                                 $inputFrom->{$key.'_minutes'} = null;
                                 $minutes = 0;
+                            }
+
+                            if (isset($_GET[$key.'_seconds'])){
+                                $seconds = isset($_GET[$key.'_seconds']) && is_numeric($_GET[$key.'_seconds']) ? (int)$_GET[$key.'_seconds'] : 0;
+                                $inputFrom->{$key.'_seconds'} = (isset($_GET[$key.'_seconds']) && is_numeric($_GET[$key.'_seconds'])) ? (int)$_GET[$key.'_seconds'] : null;
+                            } elseif (isset($uparams[$key.'_seconds']) && is_numeric($uparams[$key.'_seconds'])) {
+                                $seconds = $uparams[$key.'_seconds'];
+                                $inputFrom->{$key.'_seconds'} = (int)$uparams[$key.'_seconds'];
+                            } else {
+                                $inputFrom->{$key.'_seconds'} = null;
+                                $seconds = 0;
                             }
 
                             $hours = $hours - ($dateTime->getOffset() / 60 / 60);

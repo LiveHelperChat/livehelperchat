@@ -43,9 +43,14 @@ $ViewList['collected'] = array(
     'question_options_3',
     'question_options_4',
     'question_options_5',
+    'department_ids',
+    'department_group_ids',
     ),
     'functions' => array( 'manage_survey' ),
-    'multiple_arguments' => array('max_stars_1','max_stars_2','max_stars_3','max_stars_4','max_stars_5')
+    'multiple_arguments' => array('max_stars_1','max_stars_2','max_stars_3','max_stars_4','max_stars_5',
+        'department_ids',
+        'department_group_ids'
+    )
 );
 
 $ViewList['collecteditem'] = array(

@@ -28,14 +28,61 @@ $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['u
 // We do not need a session anymore
 session_write_close();
 
+function reportModal($filterParams, $Params, $tab, $currentUser) {
+    $savedSearch = new \LiveHelperChat\Models\Statistic\SavedReport();
+
+    if ($Params['user_parameters_unordered']['report'] > 0) {
+        $savedSearchPresent = \LiveHelperChat\Models\Statistic\SavedReport::fetch($Params['user_parameters_unordered']['report']);
+        if (is_object($savedSearchPresent) && $savedSearchPresent->user_id == $currentUser->getUserID()) {
+            $savedSearch = $savedSearchPresent;
+        }
+    }
+
+    $tpl = erLhcoreClassTemplate::getInstance('lhstatistic/report_save.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('statistic/statistic').'/(tab)/'. $tab . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+    if (ezcInputForm::hasPostData()) {
+
+        $Errors = \LiveHelperChat\Validators\ReportValidator::validateReport($savedSearch, array(
+                'filter' => $filterParams['filter'],
+                'tab' => $tab,
+                'input_form' => $filterParams['input_form'])
+        );
+
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            $Errors[] = 'Invalid CSRF token!';
+        }
+
+        if (empty($Errors)) {
+            $savedSearch->user_id = $currentUser->getUserID();
+            $savedSearch->saveThis();
+            $tpl->set('updated', true);
+        } else {
+            $tpl->set('errors', $Errors);
+        }
+
+    } elseif ($savedSearch->id === null) {
+        $savedSearch->params = json_encode(array(
+                'filter' => $filterParams['filter'],
+                'tab' => 'active',
+                'input_form' => $filterParams['input_form'])
+        );
+    }
+
+    $tpl->set('item', $savedSearch);
+    echo $tpl->fetch();
+    exit;
+}
+
 if ($tab == 'active') {
     
     if (isset($_GET['doSearch'])) {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
-        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-        $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : array();
+        if (empty($filterParams['input_form']->chart_type)) {
+            $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+            $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : array();
+        }
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -71,6 +118,10 @@ if ($tab == 'active') {
     if (isset($_GET['xmlavguser'])) {
         erLhcoreClassChatStatistic::exportAverageOfChatsDialogsByUser(30,$filterParams['filter']);
         exit;
+    }
+
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+        reportModal($filterParams, $Params, 'active', $currentUser);
     }
 
     if (isset($_GET['doSearch'])) {
@@ -125,8 +176,10 @@ if ($tab == 'active') {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'mailconv','module_file' => 'mailstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
-        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+        if (empty($filterParams['input_form']->chart_type)) {
+            $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+        }
     }
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -163,6 +216,10 @@ if ($tab == 'active') {
 
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
     $tpl->set('input',$filterParams['input_form']);
+
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+        reportModal($filterParams, $Params, 'mail', $currentUser);
+    }
 
     if (isset($_GET['doSearch'])) {
         $activeStats = array(
@@ -213,8 +270,10 @@ if ($tab == 'active') {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chatsstatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
-        $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
-        $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+        if (empty($filterParams['input_form']->chart_type)) {
+            $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+            $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
+        }
     }
     
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
@@ -247,6 +306,10 @@ if ($tab == 'active') {
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
+
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+        reportModal($filterParams, $Params, 'chatsstatistic', $currentUser);
+    }
 
     if (isset($_GET['doSearch'])) {
 
@@ -402,6 +465,10 @@ if ($tab == 'active') {
         exit;
     }
 
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+        reportModal($filterParams, $Params, 'agentstatistic', $currentUser);
+    }
+
     if (isset($_GET['doSearch'])) {
         $agentStatistic = erLhcoreClassChatStatistic::getAgentStatistic(30, $filterParams['filter']);
     } else {
@@ -427,6 +494,10 @@ if ($tab == 'active') {
 
     if (!empty($departmentFilter)){
         $filterParams['filter']['customfilter'][] = '(`lh_chat`.`dep_id` IN (' . implode(',',$departmentFilter['filterin']['id']) .'))';
+    }
+
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 1) {
+        reportModal($filterParams, $Params, 'performance', $currentUser);
     }
 
     if (isset($_GET['doSearch'])) {

@@ -207,7 +207,9 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="row">
 	<div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
@@ -221,21 +223,33 @@
 
 	<div class="col-md-2">
 	  <div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?></label>
+		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?>
+
+            <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/timefilter'});" class="material-icons text-muted">help</a>
+
+        </label>
 		<div class="row">				
-			<div class="col-md-6">
+			<div class="col-md-4">
 			    <select name="timefrom_hours" class="form-control form-control-sm">
-			        <option value="">Select hour</option>
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
 			        <?php for ($i = 0; $i <= 23; $i++) : ?>
 			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 			        <?php endfor;?>
 			    </select>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 			    <select name="timefrom_minutes" class="form-control form-control-sm">
-			        <option value="">Select minute</option>
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
 			        <?php for ($i = 0; $i <= 59; $i++) : ?>
 			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+			        <?php endfor;?>
+			    </select>
+			</div>
+            <div class="col-md-4">
+			    <select name="timefrom_seconds" class="form-control form-control-sm">
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+			        <?php for ($i = 0; $i <= 59; $i++) : ?>
+			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_seconds) && $input->timefrom_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
 			        <?php endfor;?>
 			    </select>
 			</div>
@@ -253,31 +267,37 @@
 			</div>
 		</div>
 	</div>
-	
 	<div class="col-md-2">
 	  <div class="form-group">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
-	    <div class="row">				
-			<div class="col-md-6">
+	    <div class="row">
+			<div class="col-md-4">
 			    <select name="timeto_hours" class="form-control form-control-sm">
-			        <option value="">Select hour</option>
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
 			        <?php for ($i = 0; $i <= 23; $i++) : ?>
 			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
 			        <?php endfor;?>
 			    </select>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 			    <select name="timeto_minutes" class="form-control form-control-sm">
-			        <option value="">Select minute</option>
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
 			        <?php for ($i = 0; $i <= 59; $i++) : ?>
 			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+			        <?php endfor;?>
+			    </select>
+			</div>
+            <div class="col-md-4">
+			    <select name="timeto_seconds" class="form-control form-control-sm">
+			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+			        <?php for ($i = 0; $i <= 59; $i++) : ?>
+			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_seconds) && $input->timeto_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
 			        <?php endfor;?>
 			    </select>
 			</div>
 	    </div>
 	  </div>
 	</div>
-
     <div class="col-md-12">
         <div class="row">
             <div class="col-3"><label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;</div>
@@ -332,9 +352,16 @@
     </div>*/
 	?>
 </div>
-	
-	<input type="submit" name="doSearch" onclick="$('#id-report-type').val('live')" class="btn btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-	
+
+    <div class="btn-group mr-2" role="group" aria-label="...">
+        <button type="submit" name="doSearch" onclick="$('#id-report-type').val('live')" class="btn btn-sm btn-primary" >
+            <span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>
+        </button>
+        <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?>/(tab)/active"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
+        <?php $tabStatistic = 'active'; ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhstatistic/report_button.tpl.php'));?>
+    </div>
+    
 	<script>
 	$(function() {
         $('.btn-block-department').makeDropdown();
@@ -428,7 +455,7 @@
             });
         }
     });
-    
+
     Chart.Legend.prototype.afterFit = function() {
         this.height = this.height + 10;
     };
@@ -562,8 +589,8 @@
       <?php endif; ?>
 
 	};
-	
-	function drawChartCountry() {	
+
+	function drawChartCountry() {
 		<?php if (!empty($countryStats)) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($countryStats as $data) : echo ($key > 0 ? ',' : ''),'\''.$data['country_name'].'\'';$key++; endforeach;?>],
@@ -575,10 +602,10 @@
             }]
         };
         drawBasicChart(barChartData,'chart_div_country');
-		<?php endif;?>					  
+		<?php endif;?>
 	};
-	
-	function drawChartUser() {	
+
+	function drawChartUser() {
 		<?php if (!empty($userChatsStats)) : ?>
                 var barChartData = {
                     labels: [<?php $key = 0; foreach ($userChatsStats as $data) : $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
@@ -620,8 +647,8 @@
             drawBasicChart(barChartData,'chart_div_dep');
 		  <?php endif;?>
 	};
-	
-	function drawChartUserAverage() {	
+
+	function drawChartUserAverage() {
 		<?php if (!empty($userChatsAverageStats)) : ?>
         var barChartData = {
             labels: [<?php $key = 0; foreach ($userChatsAverageStats as $data) :  $obUser = erLhcoreClassModelUser::fetch($data['user_id'],true); echo ($key > 0 ? ',' : ''),'\''.htmlspecialchars((is_object($obUser) ? $obUser->name_official : $data['user_id']),ENT_QUOTES).'\'';$key++; endforeach;?>],
@@ -637,7 +664,7 @@
         <?php endif;?>
 	};
 
-	function drawChartUserAVGWaitTime() {	
+	function drawChartUserAVGWaitTime() {
 		<?php if (!empty($userWaitTimeByOperator)) : ?>
 
 
@@ -654,7 +681,7 @@
 		drawBasicChart(barChartData,'chart_div_user_wait_time');
 		<?php endif;?>
 	};
-	
+
 	function drawChartUserMessages() {
 		<?php if (!empty($numberOfMsgByUser)) : ?>
 
@@ -684,7 +711,7 @@
         };
 
         drawBasicChart(barChartData,'chart_div_user_msg');
-		<?php endif;?>					  
+		<?php endif;?>
 	};
 
 	function drawChartByNickMonth() {
@@ -813,7 +840,7 @@
 	  <?php endif; ?>
 	}
 
-	function drawChartPerMonth() {	
+	function drawChartPerMonth() {
 
 	    <?php if (isset($numberOfChatsPerMonth) && !empty($numberOfChatsPerMonth)) : ?>
 
@@ -1116,7 +1143,7 @@
         drawBasicChart(barChartData,'chart_div_per_month_wait_time');
         <?php endif; ?>
 	}
-	
+
 	function drawChartWorkload() {
 	    <?php if (isset($numberOfChatsPerHour['total'])) : ?>
         var barChartData = {
@@ -1258,8 +1285,8 @@
 	$( document ).ready(function() {
 		redrawAllCharts();
 	});
-				
-</script> 
+
+</script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_active_content_multiinclude.tpl.php'));?>
 
