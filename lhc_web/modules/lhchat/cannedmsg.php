@@ -14,6 +14,11 @@ if (isset($_POST['DeleteSelected']) && !empty($_POST['canned_id']) && $currentUs
             $cannedMessage->removeThis();
         }
     }
+
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/cannedmsg.tpl.php');
@@ -73,7 +78,7 @@ if ($tab == 'cannedmsg') {
             // Do nothing
         }
 
-        if (isset($_SERVER['HTTP_REFERER'])){
+        if (isset($_SERVER['HTTP_REFERER'])) {
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         } else {
             erLhcoreClassModule::redirect('chat/cannedmsg');
@@ -82,8 +87,8 @@ if ($tab == 'cannedmsg') {
         exit;
     }
 
-    if (isset($_GET['doSearch'])) {
-        $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'canned_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
+    if (isset($_GET['doSearch']) || isset($_POST['DeleteSelected'])) {
+        $filterParams = erLhcoreClassSearchHandler::getParams(array('use_post' => isset($_POST['DeleteSelected']), 'module' => 'chat','module_file' => 'canned_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
         $filterParams['is_search'] = true;
     } else {
         $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'canned_search','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));

@@ -49,19 +49,19 @@
 	</div>
 
 	<div class="col-md-2">
-	<div class="form-group">
-	    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
-        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
-            'input_name'     => 'department_ids[]',
-            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
-            'selected_id'    => $input->department_ids,
-            'css_class'      => 'form-control',
-            'display_name'   => 'name',
-            'ajax'           => 'deps',
-            'list_function_params' => array_merge(['sort' => '`name` ASC','limit' => 50],erLhcoreClassUserDep::conditionalDepartmentFilter()),
-            'list_function'  => 'erLhcoreClassModelDepartament::getList'
-        )); ?>
-    </div>   
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'department_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                'selected_id'    => $input->department_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'ajax'           => 'deps',
+                'list_function_params' => array_merge(['sort' => '`name` ASC','limit' => 50],erLhcoreClassUserDep::conditionalDepartmentFilter()),
+                'list_function'  => 'erLhcoreClassModelDepartament::getList'
+            )); ?>
+        </div>
     </div>
 
     <div class="col-md-2">

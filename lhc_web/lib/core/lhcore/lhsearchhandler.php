@@ -27,8 +27,8 @@ class erLhcoreClassSearchHandler
 
         $inputParams = new stdClass();
         $inputFrom = new stdClass();
-        
-        $form = new erLhcoreClassInputForm(INPUT_GET, $definition, null, $uparams, isset($params['use_override']) ? $params['use_override'] : false);
+
+        $form = new erLhcoreClassInputForm((isset($params['use_post']) && $params['use_post'] === true ? INPUT_POST : INPUT_GET), $definition, null, $uparams, isset($params['use_override']) ? $params['use_override'] : false);
         $Errors = array();
         
         foreach ($fields as $key => $field) {
