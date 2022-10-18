@@ -285,7 +285,7 @@ $ViewList['list'] = array(
         'country_ids',
         'chat_status_ids',
         'cf',
-        'country_ids',
+        'country_ids'
     )
 );
 
