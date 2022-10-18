@@ -6,6 +6,9 @@
  * */
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
 
+// Custom Unordered Parameters
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.uparams_append',array('uparams' => & $Params['user_parameters_unordered']));
+
 try {
     $dt = new DateTime();
     $offset = $dt->format("P");
@@ -114,7 +117,7 @@ if ($tab == 'active') {
         }
     }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
     $tpl->set('input',$filterParams['input_form']);
 
