@@ -255,11 +255,15 @@ class lhCountries {
         foreach (self::$countries as $countryCode => $data) {
             $item = new stdClass();
             $item->id = strtolower($countryCode);
-            $item->name = '['.$countryCode.'] ' . $data['country'] . '(' . $data['continent'] . ')';
+            $item->name = '['.$countryCode.'] ' . $data['country'] . ' (' . $data['continent'] . ')';
             $items[] = $item;
         }
 
         return $items;
+    }
+
+    public static function getStates() {
+        return json_decode(file_get_contents('doc/list/states.json'), true);
     }
 }
 

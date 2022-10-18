@@ -499,7 +499,7 @@ class erLhcoreClassModelChatOnlineUser
                     $normalizedObject->country_name = $responseData->country_name;
                     $normalizedObject->lat = substr($responseData->latitude,0,10);
                     $normalizedObject->lon = substr($responseData->longitude,0,10);
-                    $normalizedObject->city = $responseData->city . ($responseData->region_name != '' ? ', ' . $responseData->region_name : '');
+                    $normalizedObject->city = $responseData->city . ($responseData->region_name != '' ? ' || ' . $responseData->region_name : '');
 
                     return $normalizedObject;
                 }
@@ -519,7 +519,7 @@ class erLhcoreClassModelChatOnlineUser
                         $normalizedObject->country_name = $responseData->countryName;
                         $normalizedObject->lat = substr($responseData->latitude,0,10);
                         $normalizedObject->lon = substr($responseData->longitude,0,10);
-                        $normalizedObject->city = $responseData->cityName . ($responseData->regionName != '' ? ', ' . $responseData->regionName : '');
+                        $normalizedObject->city = $responseData->cityName . ($responseData->regionName != '' ? ' || ' . $responseData->regionName : '');
                         return $normalizedObject;
                     }
                 }
@@ -541,7 +541,7 @@ class erLhcoreClassModelChatOnlineUser
                     $normalizedObject->country_name = $responseData->countryName;
                     $normalizedObject->lat = substr($responseData->latitude,0,10);
                     $normalizedObject->lon = substr($responseData->longitude,0,10);
-                    $normalizedObject->city = $responseData->city . ($responseData->region != '' ? ', ' . $responseData->region : '');
+                    $normalizedObject->city = $responseData->city . ($responseData->region != '' ? ' || ' . $responseData->region : '');
 
                     return $normalizedObject;
                 }
@@ -564,7 +564,7 @@ class erLhcoreClassModelChatOnlineUser
                         $normalizedObject->country_name = $responseData['country'];
                         $normalizedObject->lat = substr($responseData['lat'],0,10);
                         $normalizedObject->lon = substr($responseData['lon'],0,10);
-                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . ($responseData['org'] != '' ? ' || ' . $responseData['org'] : '');
+                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ' || ' . $responseData['region'] : '') . ($responseData['org'] != '' ? ' || ' . $responseData['org'] : '');
 
                         return $normalizedObject;
                     }
@@ -586,7 +586,7 @@ class erLhcoreClassModelChatOnlineUser
                         $normalizedObject->country_name = $responseData['country'];
                         $normalizedObject->lat = substr($responseData['latitude'],0,10);
                         $normalizedObject->lon = substr($responseData['longitude'],0,10);
-                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ', ' . $responseData['region'] : '') . (isset($responseData['connection']['autonomous_system_organization']) && $responseData['connection']['autonomous_system_organization'] != '' ? ' || abstract' . $responseData['connection']['autonomous_system_organization'] : '');
+                        $normalizedObject->city = $responseData['city'] . ($responseData['region'] != '' ? ' || ' . $responseData['region'] : '') . (isset($responseData['connection']['autonomous_system_organization']) && $responseData['connection']['autonomous_system_organization'] != '' ? ' || ' . $responseData['connection']['autonomous_system_organization'] : '');
                         return $normalizedObject;
                     }
                 }

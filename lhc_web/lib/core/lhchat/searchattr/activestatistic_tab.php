@@ -255,6 +255,18 @@ $fieldsSearch['not_invitation'] = array(
 	)
 );
 
+$fieldsSearch['region'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'city',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['department_ids'] = array (
     'type' => 'text',
     'trans' => 'Department',
@@ -264,6 +276,18 @@ $fieldsSearch['department_ids'] = array (
     'filter_table_field' => 'dep_id',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['country_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Country',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'country_code',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', array(), FILTER_REQUIRE_ARRAY
     )
 );
 

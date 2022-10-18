@@ -2,6 +2,30 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['region'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'city',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['country_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Country',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'country_code',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string', array(), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['group_chart_type'] = array (
     'type' => 'text',
     'trans' => 'Sort by',

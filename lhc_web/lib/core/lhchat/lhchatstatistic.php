@@ -1327,7 +1327,11 @@ class erLhcoreClassChatStatistic {
                 } elseif ($type == 'filterlike') {
                     $returnFilter[] = $field.' LIKE (' . $db->quote('%'.$value.'%') . ')';
     			} elseif ($type == 'filterin') {
-    				$returnFilter[] = $field.' IN ( '. implode(',', $value) . ')';
+                    $valuesEscaped = [];
+                    foreach ($value as $valueItem) {
+                        $valuesEscaped[] = $db->quote($valueItem);
+                    }
+    				$returnFilter[] = $field.' IN ( '. implode(',', $valuesEscaped) . ')';
     			} elseif ($type == 'customfilter') {
     				$returnFilter[] = $value;
     			}

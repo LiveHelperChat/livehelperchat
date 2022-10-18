@@ -2,6 +2,18 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['region'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => 'city',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['proactive_chat'] = array(
     'type' => 'text',
     'trans' => 'Proactive chat',

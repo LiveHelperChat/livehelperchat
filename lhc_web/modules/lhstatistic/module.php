@@ -28,9 +28,11 @@ $ViewList['statistic'] = array(
         'bot_ids',
         'cls_us',
         'has_unread_op_messages',
+        'country_ids',
+        'region',
         ),
     'functions' => array( 'viewstatistic' ),
-    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type')
+    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids')
 );
 
 $ViewList['loadreport'] = array(
