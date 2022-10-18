@@ -661,7 +661,7 @@ class erLhcoreClassChatWorkflow {
                         $chat->user_id = $user_id;
                         $chat->updateThis(array('update' => array('tslasign','user_id')));
 
-                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time());
+                        erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, time(), '_mail');
 
                         // Update fresh user statistic
                         erLhcoreClassChat::updateActiveChats($chat->user_id);
