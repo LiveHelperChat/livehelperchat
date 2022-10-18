@@ -54,6 +54,9 @@ function reportModal($filterParams, $Params, $tab, $currentUser) {
 
         if (empty($Errors)) {
             $savedSearch->user_id = $currentUser->getUserID();
+            if (isset($_POST['report_save_action']) && $_POST['report_save_action'] == 'new') {
+                $savedSearch->id = null;
+            }
             $savedSearch->saveThis();
             $tpl->set('updated', true);
         } else {

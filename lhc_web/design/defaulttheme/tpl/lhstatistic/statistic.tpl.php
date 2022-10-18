@@ -23,6 +23,7 @@
                             <div class="btn-group">
                                 <i class="material-icons settings text-muted fs14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
                                 <div class="dropdown-menu py-0 fs13">
+                                    <a class="dropdown-item text-muted px-2 csfr-required csfr-post" href="<?php echo erLhcoreClassDesign::baseurl('statistic/copyreport')?>/<?php echo $report->id?>"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Make a copy');?></a>
                                     <a class="dropdown-item text-muted px-2 csfr-required csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('statistic/deletereport')?>/<?php echo $report->id?>"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete');?></a>
                                 </div>
                             </div>

@@ -182,14 +182,18 @@ $appendPrintExportURL = '';
                 </div>
             </div>
             <input type="hidden" name="export_action" value="doExport">
+            <input type="hidden" id="id_save_action" name="report_save_action" value="update">
         <?php endif; ?>
 
         <div class="modal-footer">
             <div class="btn-group mr-2">
                 <?php if (!(isset($updated) && $updated == true)) : ?>
-                    <button type="submit" name="XLS" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save')?></button>
+                    <button type="submit" name="savePresent" onclick="$('#id_save_action').val('update')" class="btn btn-primary btn-sm"><span class="material-icons">save</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save')?></button>
+                    <?php if ($item->id > 0) : ?>
+                        <button type="submit" onclick="$('#id_save_action').val('new')" name="saveNew" class="btn btn-secondary btn-sm"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as new')?></button>
+                    <?php endif; ?>
                 <?php endif; ?>
-                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><span class="material-icons">close</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
             </div>
         </div>
 
