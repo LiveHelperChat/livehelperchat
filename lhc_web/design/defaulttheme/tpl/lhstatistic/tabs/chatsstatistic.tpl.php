@@ -307,6 +307,33 @@
         </div>
     </div>
 
+    <div class="col-md-1">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Country');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'country_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select country'),
+                'selected_id'    => $input->country_ids,
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'list_function_params' => [],
+                'list_function'  => 'lhCountries::getCountries'
+            )); ?>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Region');?></label>
+            <input type="text" list="regions" class="form-control form-control-sm" name="region" value="<?php echo htmlspecialchars($input->region)?>">
+        </div>
+        <datalist id="regions">
+            <?php foreach (lhCountries::getStates() as $stateCode => $stateName) : ?>
+            <option value="<?php echo htmlspecialchars($stateName)?>">
+                <?php endforeach; ?>
+        </datalist>
+    </div>
+
     <div class="col-md-12">
         <div class="row">
             <div class="col-4"><label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label></div>
