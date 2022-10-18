@@ -1,4 +1,4 @@
-$.fn.makeDropdown = function() {
+$.fn.makeDropdown = function(paramsDropdown) {
     var filterInput = this.find('.btn-block-department-filter > input');
 
     this.click(function(){
@@ -74,7 +74,8 @@ $.fn.makeDropdown = function() {
         })
 
         $(this).on('click','.delete-item',function () {
-            _thisItem.find('input[value='+$(this).attr('data-value')+']').prop('checked',false);
+            var itemDelete = _thisItem.find('input[value='+$(this).attr('data-value')+']');
+            itemDelete.prop('checked',false);
             $(this).parent().remove();
 
             var itemsSelectedCount = _thisItem.find('li input:checked').length;
@@ -83,6 +84,10 @@ $.fn.makeDropdown = function() {
                 _thisItem.find('.btn-department-dropdown').text('['+itemsSelectedCount+'] '+_thisItem.find('.btn-department-dropdown').attr('data-text'));
             } else {
                 _thisItem.find('.btn-department-dropdown').text(_thisItem.find('.btn-department-dropdown').attr('data-text'));
+            }
+
+            if (paramsDropdown && paramsDropdown.on_delete) {
+                paramsDropdown.on_delete(itemDelete);
             }
         });
 

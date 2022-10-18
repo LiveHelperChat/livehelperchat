@@ -21,7 +21,7 @@
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Nick')?></h5>
     <p><?php if (isset($online_user->chat_variables_array['username_secure']) && $online_user->chat_variables_array['username_secure'] == true) : ?><i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Passed as encrypted variable')?>">enhanced_encryption</i><?php endif;?><?php echo htmlspecialchars($online_user->nick)?></p>
 <?php endif; ?>
-
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/parts/after_nick_information.tpl.php')); ?>
 <?php if ($online_user->online_attr != '') : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Additional information')?></h5>
     <ul class="circle">

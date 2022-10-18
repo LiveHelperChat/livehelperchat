@@ -81,6 +81,12 @@ $ViewList['deletereport'] = array(
     'functions' => array( 'viewstatistic' ),
 );
 
+$ViewList['copyreport'] = array(
+    'params' => array('report_id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'viewstatistic' ),
+);
+
 $ViewList['reportrange'] = array(
     'params' => array(),
     'functions' => array( 'viewstatistic' ),

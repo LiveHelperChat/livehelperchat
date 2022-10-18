@@ -28,9 +28,8 @@
 		    	<option value="identifier"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Identifier');?></option>
 		    	<option value="dep_id"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></option>
 		</select>
-	</div>	
+	</div>
 	<div class="col-2 pr-0">
-
         <?php $optinsPanel = array(
                 'panelid' => 'department',
                 'limitid' => 'limitod',
@@ -42,17 +41,6 @@
                 'controller_panel' => 'online'
         ); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
-
-		<?php /*echo erLhcoreClassRenderHelper::renderCombobox( array (
-	                    'input_name'     => 'department_id',
-						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select department'),
-	                    'selected_id'    => 0,	
-		                'css_class'      => 'form-control form-control-sm',
-						'ng-model'		 => 'online.department',
-	                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
-						'list_function_params' => $departmentParams
-	    ));*/ ?>
-
 	</div>
 
     <?php $columnCountrySize = 1?>

@@ -6,6 +6,9 @@
  * */
 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.statistic', array());
 
+// Custom Unordered Parameters
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.uparams_append',array('uparams' => & $Params['user_parameters_unordered']));
+
 try {
     $dt = new DateTime();
     $offset = $dt->format("P");
@@ -54,6 +57,9 @@ function reportModal($filterParams, $Params, $tab, $currentUser) {
 
         if (empty($Errors)) {
             $savedSearch->user_id = $currentUser->getUserID();
+            if (isset($_POST['report_save_action']) && $_POST['report_save_action'] == 'new') {
+                $savedSearch->id = null;
+            }
             $savedSearch->saveThis();
             $tpl->set('updated', true);
         } else {
@@ -111,7 +117,7 @@ if ($tab == 'active') {
         }
     }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.active_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
     $tpl->set('input',$filterParams['input_form']);
 
@@ -302,7 +308,7 @@ if ($tab == 'active') {
         }
     }
 
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',array('filter' => & $filterParams));
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.chatsstatistic_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
