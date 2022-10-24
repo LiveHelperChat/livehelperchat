@@ -345,7 +345,7 @@ class erLhcoreClassMailconvValidator {
         if ( $form->hasValidData( 'port' )) {
             $item->port = $form->port;
         } else {
-            $item->port = '';
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter an smtp port!');
         }
 
         if ( $form->hasValidData( 'mail_smtp' )) {
