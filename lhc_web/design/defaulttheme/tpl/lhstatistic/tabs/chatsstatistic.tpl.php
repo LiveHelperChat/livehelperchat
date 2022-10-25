@@ -998,7 +998,8 @@
 
 <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdatenick.tpl.php'));?></h5>
+<h5>
+<a class="csv-export" data-scope="cs_nickgroupingdatenick" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdatenick.tpl.php'));?></h5>
 <canvas id="chart_nickgroupingdatenick"></canvas>
 <?php endif; ?>
 

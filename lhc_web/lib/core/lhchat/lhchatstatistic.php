@@ -3887,15 +3887,34 @@ class erLhcoreClassChatStatistic {
                    (is_object($obUser) ? $obUser->name_official : $value['user_id'])
                 ]);
             }
-        } else if ($type == 'nickgroupingdatenick') {
-            $counter = 0;
-            foreach ($statistic['nickgroupingdatenick']['labels'] as $date => $value) {
-                if ($counter == 0) {
-                    fputcsv($fp,array_merge(array('Date'),$value['nick']));
-                }
-                fputcsv($fp,array_merge(array(date('Y-m-d H:i:s',$date)),$value['data']));
-                $counter++;
+        } else if ($type == 'cs_nickgroupingdatenick' || $type == 'nickgroupingdatenick') {
+
+            $groupField = 'nickgroupingdatenick';
+
+            $dates = ['Entity'];
+            foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                $dates[] = date('Y-m-d H:i:s',$date);
             }
+
+            fputcsv($fp, array_merge($dates,['Total']));
+            $agents = [];
+            foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                $agents = array_unique(array_merge($agents,(isset($value['nick']) ? $value['nick'] : [])));
+            }
+
+            foreach ($agents as $agent) {
+                $agentRow = [];
+                foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                    $index = array_search($agent, (isset($value['nick']) ? $value['nick'] : []));
+                    if ($index !== false) {
+                        $agentRow[] = $value['data'][$index];
+                    } else {
+                        $agentRow[] = 0;
+                    }
+                }
+                fputcsv($fp,array_merge([(string)json_decode($agent)],$agentRow,[array_sum($agentRow)]));
+            }
+
         } else if ($type == 'unanswered') {
             fputcsv($fp, ['Date','Chats number']);
             foreach ($statistic['numberOfChatsPerMonth'] as $date => $value) {
