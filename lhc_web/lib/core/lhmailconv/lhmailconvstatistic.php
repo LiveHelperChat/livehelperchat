@@ -521,7 +521,7 @@ class erLhcoreClassMailconvStatistic {
                         $agentRow[] = 0;
                     }
                 }
-                fputcsv($fp,array_merge([$agent],$agentRow,[array_sum($agentRow)]));
+                fputcsv($fp,array_merge([(string)json_decode($agent)],$agentRow,[array_sum($agentRow)]));
             }
 
         } else if ($type == 'cs_mattrgroup') {
