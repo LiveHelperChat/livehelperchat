@@ -10,6 +10,8 @@ if (isset($_GET['doSearch'])) {
     $filterParams['is_search'] = false;
 }
 
+erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lhc_mailconv_match_rule');
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();
@@ -24,7 +26,7 @@ if ($pages->items_total > 0) {
     $tpl->set('items',$items);
 }
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailconv/mailbox');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailconv/matchingrules');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 

@@ -2,15 +2,39 @@
 
 $fieldsSearch = array();
 
-$fieldsSearch['name'] = array (
+$fieldsSearch['mailbox_ids'] = array (
     'type' => 'text',
-    'trans' => 'Name',
+    'trans' => 'Mailbox',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'like',
-    'filter_table_field' => 'name',
-    'validation_definition' => new ezcInputFormDefinitionElement (
-        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    'filter_type' => 'filterinjson',
+    'filter_table_field' => 'mailbox_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['department_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'dep_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['department_group_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'dep_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
     )
 );
 
