@@ -496,6 +496,34 @@ class erLhcoreClassMailconvStatistic {
                     $data['interaction_time'],
                 ]);
             }
+        } else if ($type == 'cs_mattrgroupvert') {
+
+            $groupField = 'nickgroupingdatenick';
+
+            $dates = ['Entity'];
+            foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                $dates[] = date('Y-m-d H:i:s',$date);
+            }
+
+            fputcsv($fp, array_merge($dates,['Total']));
+            $agents = [];
+            foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                $agents = array_unique(array_merge($agents,(isset($value['nick']) ? $value['nick'] : [])));
+            }
+
+            foreach ($agents as $agent) {
+                $agentRow = [];
+                foreach ($statistic[$groupField]['labels'] as $date => $value) {
+                    $index = array_search($agent, (isset($value['nick']) ? $value['nick'] : []));
+                    if ($index !== false) {
+                        $agentRow[] = $value['data'][$index];
+                    } else {
+                        $agentRow[] = 0;
+                    }
+                }
+                fputcsv($fp,array_merge([$agent],$agentRow,[array_sum($agentRow)]));
+            }
+
         } else if ($type == 'cs_mattrgroup') {
             $counter = 0;
             foreach ($statistic['nickgroupingdatenick']['labels'] as $date => $value) {

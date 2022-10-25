@@ -844,7 +844,10 @@
 
 <?php if (in_array('mattrgroup',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
     <hr>
-    <h5><a class="csv-export" data-scope="cs_mattrgroup" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages grouped by attribute')?></h5>
+    <h5>
+        <a class="csv-export" data-scope="cs_mattrgroup" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Horizontal view')?></a>
+        <a class="csv-export" data-scope="cs_mattrgroupvert" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Vertical view')?></a>
+        <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of messages grouped by attribute')?></h5>
     <canvas id="mattrgroup"></canvas>
 <?php endif; ?>
 
