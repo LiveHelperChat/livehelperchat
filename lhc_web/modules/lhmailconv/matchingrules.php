@@ -12,6 +12,14 @@ if (isset($_GET['doSearch'])) {
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lhc_mailconv_match_rule');
 
+if (!empty($filterParams['input_form']->mailbox_ids)) {
+    $conditions = [];
+    foreach ($filterParams['input_form']->mailbox_ids as $mailboxId) {
+        $conditions[] = "JSON_CONTAINS(`mailbox_id`," . (int)($mailboxId) . ",'$')";
+    }
+    $filterParams['filter']['filter_custom'][] = '(' . implode(' OR ', $conditions) . ')';
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $pages = new lhPaginator();

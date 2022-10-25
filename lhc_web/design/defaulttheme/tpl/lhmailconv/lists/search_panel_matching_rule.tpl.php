@@ -48,6 +48,29 @@
                 )); ?>
             </div>
         </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','From name');?></label>
+                <input type="text" class="form-control form-control-sm" name="from_name" value="<?php echo htmlspecialchars($input->from_name)?>" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','From mail');?></label>
+                <input type="text" class="form-control form-control-sm" name="from_mail" value="<?php echo htmlspecialchars($input->from_mail)?>" />
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Subject contains');?></label>
+                <input type="text" class="form-control form-control-sm" name="subject_contains" value="<?php echo htmlspecialchars($input->subject_contains)?>" />
+            </div>
+        </div>
+
+
     </div>
 
     <div class="row">

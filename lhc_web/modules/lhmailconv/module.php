@@ -237,7 +237,7 @@ $ViewList['syncmailbox'] = array(
 
 $ViewList['matchingrules'] = array(
     'params' => array(),
-    'uparams' => array('department_ids','department_group_ids','mailbox_ids'),
+    'uparams' => array('department_ids','department_group_ids','mailbox_ids','from_name','from_mail','subject_contains'),
     'functions' => array( 'mrules_manage' ),
     'multiple_arguments' => array(
         'department_ids',
