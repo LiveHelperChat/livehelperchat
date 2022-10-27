@@ -1,3 +1,9 @@
+4.11v
+
+Statistic saved reports can be send daily/weekly/monthly
+
+execute doc/update_db/update_283.sql for update
+
 4.10v
 
 1. Reports various fixes.

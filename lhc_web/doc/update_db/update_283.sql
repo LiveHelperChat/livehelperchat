@@ -1,0 +1,4 @@
+ALTER TABLE `lh_abstract_saved_report` ADD `recurring_options` longtext NOT NULL, COMMENT='';
+ALTER TABLE `lh_abstract_saved_report` ADD `send_log` longtext NOT NULL, COMMENT='';
+INSERT INTO `lh_abstract_email_template` (`id`, `name`, `from_name`, `from_name_ac`, `from_email`, `from_email_ac`, `content`, `subject`, `subject_ac`, `reply_to`, `reply_to_ac`, `recipient`, `bcc_recipients`, `user_mail_as_sender`, `translations`, `use_chat_locale`) VALUES
+    (13,	'Report prepared',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nReport prepared - {report_name}, {date_range}\r\n\r\n{report_description}\r\n\r\nView report at:\r\n{url_report}',	'Report prepared - {report_name}',	0,	'',	0,	'',	'',	0,	'[]',	0);

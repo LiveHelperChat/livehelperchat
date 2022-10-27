@@ -29,6 +29,8 @@ class SavedReport {
             'date_type' => $this->date_type,
             'updated_at' => $this->updated_at,
             'description' => $this->description,
+            'recurring_options' => $this->recurring_options,
+            'send_log' => $this->send_log,
         );
 
         return $stateArray;
@@ -76,37 +78,38 @@ class SavedReport {
         return $params;
     }
 
-    public function generateURL()
+    public function generateURL($baseURLDirect = false)
     {
         $params = $this->getParamsURL();
+
         if (isset($params['input_form']['report'])) {
             unset($params['input_form']['report']);
         }
 
-        //return \erLhcoreClassDesign::baseurl('statistic/statistic'). '/(report)/'. $this->id . (isset($this->params_array['tab']) ? '/(tab)/'.$this->params_array['tab'] : '') . \erLhcoreClassSearchHandler::getURLAppendFromInput($params['input_form']);
-        return \erLhcoreClassDesign::baseurl('statistic/statistic'). '/(report)/'. $this->id . (isset($this->params_array['tab']) ? '/(tab)/'.$this->params_array['tab'] : '') .'?'.  http_build_query($params['input_form']).'&doSearch=on';
+        return ($baseURLDirect === true ? \erLhcoreClassDesign::baseurldirect('statistic/statistic') : \erLhcoreClassDesign::baseurl('statistic/statistic') ). '/(report)/'. $this->id . (isset($this->params_array['tab']) ? '/(tab)/'.$this->params_array['tab'] : '') .'?'.  http_build_query($params['input_form']).'&doSearch=on';
     }
 
     public function __get($var)
     {
         switch ($var) {
 
+            case 'send_log_array':
             case 'params_array':
-                $jsonData = json_decode($this->params, true);
+            case 'recurring_options_array':
+                $varObject = str_replace('_array','', $var);
+                $jsonData = json_decode($this->{$varObject}, true);
                 if ($jsonData !== null) {
-                    $this->params_array = $jsonData;
+                    $this->{$var} = $jsonData;
                 } else {
-                    $this->params_array = $this->params;
+                    $this->{$var} = $this->{$varObject};
                 }
-
-                if (!is_array($this->params_array)) {
-                    $this->params_array = array();
+                if (!is_array($this->{$var})) {
+                    $this->{$var} = array();
                 }
-
-                return $this->params_array;
+                return $this->{$var};
 
             case 'user':
-                $this->user = $this->user_id;
+                $this->user = \erLhcoreClassModelUser::fetch($this->user_id);
                 return $this->user;
 
             case 'updated_ago':
@@ -122,6 +125,7 @@ class SavedReport {
     public $id = null;
     public $name = '';
     public $params = '';
+    public $send_log = '';
     public $date_type = 'ndays';
     public $days = 0;
     public $days_end = 0;
@@ -129,4 +133,5 @@ class SavedReport {
     public $position = 0;
     public $updated_at = 0;
     public $description = '';
+    public $recurring_options = '';
 }

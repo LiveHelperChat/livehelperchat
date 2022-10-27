@@ -50,7 +50,7 @@ class erLhcoreClassAbstract
 
                     $nameInputPrepend = (isset($attr['direct_name']) && $attr['direct_name'] == true) ? '' : 'AbstractInput_';
 
-                    return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="' . $nameInputPrepend . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars($value) . '" />';
+                    return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="' . $nameInputPrepend . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars((string)$value) . '" />';
                 }
                 break;
 

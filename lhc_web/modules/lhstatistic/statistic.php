@@ -31,6 +31,13 @@ $tab = isset($Params['user_parameters_unordered']['tab']) && in_array($Params['u
 // We do not need a session anymore
 session_write_close();
 
+if ($Params['user_parameters_unordered']['report'] > 0) {
+    $savedSearchPresent = \LiveHelperChat\Models\Statistic\SavedReport::fetch($Params['user_parameters_unordered']['report']);
+    if (!is_object($savedSearchPresent) || $savedSearchPresent->user_id != $currentUser->getUserID()) {
+        $Params['user_parameters_unordered']['report'] = null;
+    }
+}
+
 function reportModal($filterParams, $Params, $tab, $currentUser) {
     $savedSearch = new \LiveHelperChat\Models\Statistic\SavedReport();
 
