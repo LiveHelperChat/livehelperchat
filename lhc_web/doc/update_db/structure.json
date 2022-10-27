@@ -113,6 +113,24 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "recurring_options",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "send_log",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
       }
     ],
     "lh_canned_msg_use": [
@@ -10000,6 +10018,23 @@
         "recipient": "",
         "user_mail_as_sender": "0",
         "translations": ""
+      },
+      {
+        "id": "13",
+        "name": "Report prepared",
+        "from_name": "Live Helper Chat",
+        "from_name_ac": "0",
+        "from_email": "",
+        "from_email_ac": "0",
+        "content": "Hello,\r\n\r\nVisitor information\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\nCreated:{created}\r\nUser left:{user_left}\r\nWaited:{waited}\r\nChat duration:{chat_duration}\r\n\r\nSee more information at\r\n{url_accept}\r\n\r\nLast chat:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nSincerely,\r\nLive Support Team",
+        "subject": "Report prepared - {report_name}",
+        "bcc_recipients": "",
+        "subject_ac": "0",
+        "reply_to": "",
+        "reply_to_ac": "0",
+        "recipient": "",
+        "user_mail_as_sender": "0",
+        "translations": ""
       }
     ]
   },
@@ -10423,7 +10458,7 @@
     "lh_canned_msg_use" : "CREATE TABLE `lh_canned_msg_use` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `canned_id` int(11) unsigned NOT NULL, `chat_id` bigint(20) unsigned NOT NULL, `ctime` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `ctime` (`ctime`),   KEY `canned_id` (`canned_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_canned_msg_replace" : "CREATE TABLE `lh_canned_msg_replace` (    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,    `identifier` varchar(50) NOT NULL,    `default` text NOT NULL, `conditions` longtext NOT NULL,    PRIMARY KEY (`id`),    KEY `identifier` (`identifier`)    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_saved_search" : "CREATE TABLE `lh_abstract_saved_search` (\n                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`description` text COLLATE utf8mb4_unicode_ci NOT NULL, `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `user_id` bigint(20) unsigned NOT NULL, `passive` tinyint(1) unsigned NOT NULL DEFAULT 0, `position` int(11) unsigned NOT NULL, `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `days` int(11) unsigned NOT NULL,\n                  `updated_at` bigint(20) unsigned NOT NULL,\n                  `requested_at` bigint(20) unsigned NOT NULL,\n                  `total_records` bigint(20) unsigned NOT NULL,\n                  PRIMARY KEY (`id`),\n                  KEY `user_id` (`user_id`),\n                  KEY `scope` (`scope`),\n                  KEY `updated_at` (`updated_at`),\n                  KEY `requested_at` (`requested_at`)\n                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_abstract_saved_report" : "CREATE TABLE `lh_abstract_saved_report` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `description` text COLLATE utf8mb4_unicode_ci NOT NULL,\n    `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n    `user_id` bigint(20) unsigned NOT NULL,\n    `position` int(11) unsigned NOT NULL,\n    `days` int(11) unsigned NOT NULL,\n    `date_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `days_end` int(11) unsigned NOT NULL,\n    `updated_at` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_abstract_saved_report" : "CREATE TABLE `lh_abstract_saved_report` (\n    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n    `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `description` text COLLATE utf8mb4_unicode_ci NOT NULL,\n    `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `send_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `recurring_options` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n    `user_id` bigint(20) unsigned NOT NULL,\n    `position` int(11) unsigned NOT NULL,\n    `days` int(11) unsigned NOT NULL,\n    `date_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,\n    `days_end` int(11) unsigned NOT NULL,\n    `updated_at` bigint(20) unsigned NOT NULL,\n    PRIMARY KEY (`id`),\n    KEY `user_id` (`user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_action" : "CREATE TABLE `lh_chat_action` (\n                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `chat_id` bigint(20) NOT NULL,\n                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `created_at` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_proactive_chat_invitation_dep" : "CREATE TABLE `lh_abstract_proactive_chat_invitation_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`invitation_id` int(11) NOT NULL,`dep_id` int(11) NOT NULL,PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`),KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_generic_bot_rest_api_cache" : "CREATE TABLE `lh_generic_bot_rest_api_cache` (\n  `hash` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `rest_api_id` bigint(20) unsigned NOT NULL,\n  `response` text NOT NULL,\n  `ctime` bigint(20) NOT NULL,\n  UNIQUE KEY `rest_api_id_hash` (`rest_api_id`,`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"

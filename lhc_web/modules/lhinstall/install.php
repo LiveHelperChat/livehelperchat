@@ -2103,6 +2103,8 @@ try {
     `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
     `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
     `params` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+    `recurring_options` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+    `send_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
     `user_id` bigint(20) unsigned NOT NULL,
     `position` int(11) unsigned NOT NULL,
     `days` int(11) unsigned NOT NULL,
