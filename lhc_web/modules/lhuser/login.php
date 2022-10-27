@@ -44,6 +44,9 @@ if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
 
     header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login').$redirectFull );
     exit;
+} elseif ($currentUser->isLogged() && !empty($Params['user_parameters_unordered']['r'])) {
+    header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin').'/'.base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])));
+    exit;
 }
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
