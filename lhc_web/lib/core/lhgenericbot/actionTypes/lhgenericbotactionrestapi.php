@@ -503,7 +503,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{media}}' => json_encode($media),
             '{{file_body}}' => $file_body,
             '{{file_url}}' => $file_url,
-            '{{file_name}}' => $file_name
+            '{{file_name}}' => $file_name,
+            '{{timestamp}}' => time()
         );
 
         $replaceVariables = array_merge($replaceVariables, $dynamicReplaceVariables);
@@ -532,7 +533,8 @@ class erLhcoreClassGenericBotActionRestapi
             '{{media}}' => json_encode($media),
             '{{file_body}}' => json_encode($file_body),
             '{{file_url}}' => json_encode($file_url),
-            '{{file_name}}' =>json_encode($file_name)
+            '{{file_name}}' =>json_encode($file_name),
+            '{{timestamp}}' => time()
         );
 
         foreach ($dynamicReplaceVariables as $keyDynamic => $valueDynamic) {
