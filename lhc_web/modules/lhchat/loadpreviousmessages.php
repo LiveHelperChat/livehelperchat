@@ -5,7 +5,7 @@ $db->beginTransaction();
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
-if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) )
+if ($chat instanceof erLhcoreClassModelChat)
 {
         $userData = $currentUser->getUserData();
 
