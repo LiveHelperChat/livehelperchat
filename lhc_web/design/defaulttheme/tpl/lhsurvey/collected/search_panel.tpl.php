@@ -45,19 +45,38 @@
         </div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-		   <div class="form-group">
-			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User');?></label>
-			<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-	                    'input_name'     => 'user_id',
-                        'display_name' => 'name_official',
-						'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select user'),
-	                    'selected_id'    => $input->user_id,
-			            'css_class'      => 'form-control form-control-sm',
-	                    'list_function'  => 'erLhcoreClassModelUser::getUserList'
-	            )); ?>            	
-		  </div>
-		</div>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_title.tpl.php')); ?>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo $userTitle['user'];?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'user_ids[]',
+                    'optional_field' => $userTitle['user_select'],
+                    'selected_id'    => $input->user_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name_official',
+                    'ajax'           => 'users',
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC', 'limit' => 50)),
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                )); ?>
+            </div>
+        </div>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_group_title.tpl.php')); ?>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo $userGroupTitle['user_group'];?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'group_ids[]',
+                    'optional_field' => $userGroupTitle['user_group_select'],
+                    'selected_id'    => $input->group_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array_merge(array('sort' => '`name` ASC'),erLhcoreClassGroupUser::getConditionalUserFilter(false, true)),
+                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+                )); ?>
+            </div>
+        </div>
+
 	</div>
 	<?php include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));?>
 	

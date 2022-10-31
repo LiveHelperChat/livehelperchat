@@ -1513,7 +1513,7 @@ class erLhcoreClassChatValidator {
         /**
          * Admin custom fields
          * */
-        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
+        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$chat->dep_id . ",'$') OR department_id = " . (int)$chat->dep_id . ")" )));
         
         if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
             $start_data_fields = $startDataDepartment->data_array;
@@ -1678,7 +1678,7 @@ class erLhcoreClassChatValidator {
         if ($valueStore != '') {
 
             if ($chat !== null) {
-                $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $chat->dep_id)));
+                $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$chat->dep_id . ",'$') OR department_id = " . (int)$chat->dep_id . ")" )));
 
                 if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
                     $startData = $startDataDepartment->data_array;

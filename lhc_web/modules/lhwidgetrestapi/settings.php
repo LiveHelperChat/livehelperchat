@@ -286,7 +286,7 @@ $startDataDepartment = false;
 
 if (is_array($department) && !empty($department) && count($department) == 1) {
     $dep_id = $department[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$dep_id . ",'$') OR department_id = " . (int)$dep_id . ")" )));
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }
@@ -426,7 +426,7 @@ $ts = time();
 $outputResponse['wv'] = 200;
 
 // React APP versions
-$outputResponse['v'] = 256;
+$outputResponse['v'] = 257;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;

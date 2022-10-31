@@ -14,6 +14,11 @@ $def->properties['data']->columnName   = 'data';
 $def->properties['data']->propertyName = 'data';
 $def->properties['data']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
+$def->properties['dep_ids'] = new ezcPersistentObjectProperty();
+$def->properties['dep_ids']->columnName   = 'dep_ids';
+$def->properties['dep_ids']->propertyName = 'dep_ids';
+$def->properties['dep_ids']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
 $def->properties['department_id'] = new ezcPersistentObjectProperty();
 $def->properties['department_id']->columnName   = 'department_id';
 $def->properties['department_id']->propertyName = 'department_id';

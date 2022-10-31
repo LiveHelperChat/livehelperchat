@@ -24,7 +24,17 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig'])) {
     } else {
         $startSettings->name = $_POST['name'];
     }
+
+    $depIds = [];
     
+    if (isset($_POST['dep_ids']) && is_array($_POST['dep_ids']) && !empty($_POST['dep_ids'])) {
+        $depIds = $_POST['dep_ids'];
+        erLhcoreClassChat::validateFilterIn($depIds);
+    }
+
+    $startSettings->dep_ids_array = $depIds;
+    $startSettings->dep_ids = json_encode($depIds);
+
     if (count($Errors) == 0) {
         
         $startSettings->data = serialize($data);

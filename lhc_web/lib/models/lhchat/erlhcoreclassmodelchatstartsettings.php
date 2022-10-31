@@ -17,6 +17,7 @@ class erLhcoreClassModelChatStartSettings
         return array(
             'id' => $this->id,
             'data' => $this->data,
+            'dep_ids' => $this->dep_ids,
             'name' => $this->name,
             'department_id' => $this->department_id
         );
@@ -35,12 +36,17 @@ class erLhcoreClassModelChatStartSettings
                 }
                 
                 return $this->department;
-                break;
-            
+
             case 'data_array':
                 $this->data_array = unserialize($this->data);                                
                 return $this->data_array;
-                break;
+
+            case 'dep_ids_array':
+                $this->dep_ids_array = json_decode($this->dep_ids, true);
+                if (!is_array($this->dep_ids_array)) {
+                    $this->dep_ids_array = [];
+                }
+                return $this->dep_ids_array;
             
             default:
                 break;
@@ -50,7 +56,9 @@ class erLhcoreClassModelChatStartSettings
     public $id = null;
 
     public $data = '';
-    
+
+    public $dep_ids = '';
+
     public $name = '';
 
     public $department_id = 0;

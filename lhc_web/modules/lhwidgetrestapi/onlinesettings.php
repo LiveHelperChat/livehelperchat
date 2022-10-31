@@ -150,7 +150,7 @@ if (!(is_numeric($departament_id) && $departament_id > 0)) {
     $department_id_form = $departament_id;
 }
 
-if (is_numeric($department_id_form) && $department_id_form > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $department_id_form)))) !== false) {
+if (is_numeric($department_id_form) && $department_id_form > 0 && ($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$department_id_form . ",'$') OR department_id = " . (int)$department_id_form . ")" )))) !== false) {
     $start_data_fields = $startDataFields = $startDataDepartment->data_array;
 } else {
     // Start chat field options
@@ -553,15 +553,27 @@ if (isset($start_data_fields['custom_fields']) && $start_data_fields['custom_fie
                     $defaultValue = null;
                     foreach ($optionsRaw as $optionRaw) {
                         $itemData = explode('=>',$optionRaw);
+
                         if ($defaultValue === null) {
-                            $defaultValue = trim($itemData[0]);
+                            $defaultValue = explode('||',trim($itemData[0]))[0];
                         }
+
+                        $nameParts = explode('||',trim(isset($itemData[1]) ? $itemData[1] : $itemData[0]));
+                        $nameValue = $nameParts[0];
+
+                        $depValue = isset($nameParts[1]) ? (int)$nameParts[1] : null;
+
+                        $valueItem = explode('||',trim($itemData[0]));
+
                         $fieldData['options'][] = array(
-                            'name' => trim(isset($itemData[1]) ? $itemData[1] : $itemData[0]),
-                            'value' => trim($itemData[0])
+                            'name' => $nameValue,
+                            'dep_id' => $depValue,
+                            'value' => $valueItem[0]
                         );
                     }
-                    $fieldData['value'] = $defaultValue;
+                    if (empty($fieldData['value'])) {
+                        $fieldData['value'] = $defaultValue;
+                    }
                 }
 
                 $fields[] = $fieldData;
