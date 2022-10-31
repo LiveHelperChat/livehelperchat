@@ -393,6 +393,7 @@ try {
         	       `id` int(11) NOT NULL AUTO_INCREMENT, 
         	       `name` varchar(50) NOT NULL, 
         	       `data` longtext NOT NULL, 
+        	       `dep_ids` text NOT NULL, 
         	       `department_id` int(11) NOT NULL, 
         	       PRIMARY KEY (`id`), 
         	       KEY `department_id` (`department_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

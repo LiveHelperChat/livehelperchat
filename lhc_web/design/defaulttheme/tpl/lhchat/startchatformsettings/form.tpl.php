@@ -5,19 +5,43 @@
     <input type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Name');?>" name="name" value="<?php echo htmlspecialchars($start_chat_item->name);?>" />
 </div>
 
-<div class="form-group">
-<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>		
-<?php 
-$params = array (
-		'input_name'     => 'DepartmentID',			
-		'display_name'   => 'name',
-        'css_class'      => 'form-control form-control-sm',
-		'selected_id'    => $start_chat_item->department_id,
-		'list_function'  => 'erLhcoreClassModelDepartament::getList',
-		'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
-);
-echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
+            <?php
+            $params = array (
+                'input_name'     => 'DepartmentID',
+                'display_name'   => 'name',
+                'css_class'      => 'form-control form-control-sm',
+                'selected_id'    => $start_chat_item->department_id,
+                'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                'list_function_params'  => array('limit' => false,'sort' => '`name` ASC')
+            );
+            echo erLhcoreClassRenderHelper::renderCombobox( $params ); ?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Apply this configuration also to these departments');?></label>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'dep_ids[]',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                'selected_id'    => $start_chat_item->dep_ids_array,
+                'ajax'           => 'deps',
+                'css_class'      => 'form-control',
+                'display_name'   => 'name',
+                'list_function_params' => ['sort' => '`name` ASC', 'limit' => 50],
+                'list_function'  => 'erLhcoreClassModelDepartament::getList'
+            )); ?>
+        </div>
+    </div>
 </div>
+<script>
+    $(function() {
+        $('.btn-block-department').makeDropdown();
+    });
+</script>
 <?php endif; ?>
 
 <div class="row">

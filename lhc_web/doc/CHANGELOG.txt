@@ -1,3 +1,11 @@
+4.12v
+
+* Start chat form settings can be assigned to more than one department.
+* Custom start chat settings can switch department from dropdown option.
+* Left dashboard menu will show alert icons also. https://github.com/LiveHelperChat/livehelperchat/pull/1796
+
+execute doc/update_db/update_284.sql for update
+
 4.11v
 
 Statistic saved reports can be send daily/weekly/monthly

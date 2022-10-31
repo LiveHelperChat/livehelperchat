@@ -110,7 +110,8 @@ var revealM = {
                 }
 
                 modalContent.draggabilly({
-                    handle: ".modal-header"
+                    handle: ".modal-header",
+                    containment: '#admin-body'
                 }).css({
                     top: parseInt(prevPos[0]),
                     left: parseInt(prevPos[1])

@@ -174,7 +174,7 @@
             </div>
 
             <div class="form-group">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Options')?></label>
+                <label><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/dropdownoptions'});" class="material-icons text-muted">help</a><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Options')?></label>
                 <textarea name="customFieldOptions[]" class="form-control" ng-model="field.options" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Each option in new line')?>"></textarea>
             </div>
 

@@ -21,7 +21,7 @@ $startDataDepartment = false;
 
 if (is_array($dep) && !empty($dep) && count($dep) == 1) {
     $dep_id = $dep[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('filter' => array('department_id' => $dep_id)));
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$dep_id . ",'$') OR department_id = " . (int)$dep_id . ")" )));
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }

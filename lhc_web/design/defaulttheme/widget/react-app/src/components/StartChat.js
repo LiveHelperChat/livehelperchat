@@ -178,6 +178,11 @@ class StartChat extends Component {
         this.setState(currentState);
 
         if (obj.id == 'DepartamentID') {
+
+            if (obj.set_default) {
+                this.props.dispatch({'type' : 'dep_default', data : obj.value});
+            }
+
             if (this.props.chatwidget.getIn(['onlineData','department','departments']).size > 0){
                 this.props.chatwidget.getIn(['onlineData','department','departments']).map(dep => {
                     if (dep.get('value') == obj.value) {
