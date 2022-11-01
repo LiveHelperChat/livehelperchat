@@ -268,7 +268,9 @@ if (trim($form->msg) != '')
 	        }
 	        
 	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody) + $customArgs);
-	        
+
+            $Chat->last_message = $msg;
+
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
 
 	    } else {

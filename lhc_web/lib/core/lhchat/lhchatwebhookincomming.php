@@ -1501,6 +1501,8 @@ class erLhcoreClassChatWebhookIncoming {
 
             $db->commit();
 
+            $chat->last_message = $msg;
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('wh_worker' => $worker, 'msg' => & $msg, 'chat' => & $chat));
 
             if ($item->create_chat == true) {
