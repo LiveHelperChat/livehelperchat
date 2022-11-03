@@ -17,6 +17,12 @@ class NodeActionListItem extends Component {
         this.onPayloadButtonAttrChange = this.onPayloadButtonAttrChange.bind(this);
         this.onQuickReplyPayloadChange = this.onQuickReplyPayloadChange.bind(this);
         this.onQuickReplyPayloadTypeChange = this.onQuickReplyPayloadTypeChange.bind(this);
+
+        this.onStoreNameChange = this.onStoreNameChange.bind(this);
+        this.onStoreValueChange = this.onStoreValueChange.bind(this);
+        this.onButtonIDChange = this.onButtonIDChange.bind(this);
+        this.onButtonStoreTypeChange = this.onButtonStoreTypeChange.bind(this);
+        this.onButtonNoName = this.onButtonNoName.bind(this);
     }
 
     changeType(e) {
@@ -41,6 +47,26 @@ class NodeActionListItem extends Component {
 
     addElementButton() {
         this.props.addSubelement({'path':[this.props.id,'buttons'], 'default':{'_id':shortid.generate(), 'type': 'url', 'content' : {'name':'New button', 'payload' : ''}}});
+    }
+
+    onStoreNameChange(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons',e.id,'content','store_name'], value : e.value});
+    }
+
+    onStoreValueChange(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons',e.id,'content','store_value'], value : e.value});
+    }
+
+    onButtonIDChange(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons',e.id,'content','button_id'], value : e.value});
+    }
+
+    onButtonStoreTypeChange(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons',e.id,'content','as_variable'], value : e.value});
+    }
+    
+    onButtonNoName(e) {
+        this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['buttons',e.id,'content','no_name'], value : e.value});
     }
 
     deleteField() {
@@ -81,7 +107,14 @@ class NodeActionListItem extends Component {
 
         if (this.props.item.hasIn(['buttons'])) {
             button_list = this.props.item.getIn(['buttons']).map((field, index) => {
-                return <NodeTriggerActionQuickReply id={index} key={field.get('_id')} onPayloadTypeChange={this.onQuickReplyPayloadTypeChange} onPayloadChange={this.onQuickReplyPayloadChange} onPayloadAttrChange={this.onPayloadButtonAttrChange} reply={field} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}/>
+                return <NodeTriggerActionQuickReply id={index} key={field.get('_id')}                                                             
+                                                    onButtonStoreTypeChange={this.onButtonStoreTypeChange}
+                                                    onButtonNoName={this.onButtonNoName}
+                                                    onStoreValueChange={this.onStoreValueChange}
+                                                    onStoreNameChange={this.onStoreNameChange}
+                                                    onPayloadTypeChange={this.onQuickReplyPayloadTypeChange}
+                                                    onButtonIDChange={this.onButtonIDChange}
+                                                    onPayloadChange={this.onQuickReplyPayloadChange} onPayloadAttrChange={this.onPayloadButtonAttrChange} reply={field} deleteReply={this.onDeleteQuickReply} onNameChange={this.onQuickReplyNameChange}/>
             });
         }
 

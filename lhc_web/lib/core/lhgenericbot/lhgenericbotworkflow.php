@@ -1762,6 +1762,26 @@ class erLhcoreClassGenericBotWorkflow {
                     return $returnAll == false ? $reply['content']['name'] : $reply['content'];
                 }
             }
+        } elseif (isset($metaData['content']['list']['items'])) {
+            foreach ($metaData['content']['list']['items'] as $item) {
+                if (isset($item['buttons'])){
+                    foreach ($item['buttons'] as $reply){
+                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                            return $returnAll == false ? $reply['content']['name'] : $reply['content'];
+                        }
+                    }
+                }
+            }
+        } elseif (isset($metaData['content']['generic']['items'])) {
+            foreach ($metaData['content']['generic']['items'] as $item) {
+                if (isset($item['buttons'])) {
+                    foreach ($item['buttons'] as $reply) {
+                        if ($reply['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($reply['content']['name']) == $paramsExecution['payload_hash'])) {
+                            return $returnAll == false ? $reply['content']['name'] : $reply['content'];
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -1949,7 +1969,10 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            $message = self::sendAsUser($chat, $messageClick);
+
+                            if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
+                                $message = self::sendAsUser($chat, $messageClick);
+                            }
                         }
 
                         $argsTrigger =  array('msg' => $messageClick, 'chat' => $chat);
@@ -2097,7 +2120,10 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                             $messageContext->meta_msg = json_encode($messageContext->meta_msg_array);
                             $messageContext->saveThis();
-                            $message = self::sendAsUser($chat, $messageClick);
+                            
+                            if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
+                                $message = self::sendAsUser($chat, $messageClick);
+                            }
                         }
 
                         if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
