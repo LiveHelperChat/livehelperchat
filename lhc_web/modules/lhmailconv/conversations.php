@@ -74,6 +74,8 @@ if ($limitation !== false) {
     }
 }
 
+erLhcoreClassChatStatistic::formatUserFilter($filterParams,'lhc_mailconv_conversation');
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
 
 // Merged id's support
