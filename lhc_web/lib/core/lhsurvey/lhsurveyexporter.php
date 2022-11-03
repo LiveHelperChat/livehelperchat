@@ -255,7 +255,7 @@ class erLhcoreClassSurveyExporter {
         }
     }
 
-    public static function exportCSV($filter){
+    public static function exportCSV($filter, $survey) {
 
         $now = gmdate("D, d M Y H:i:s");
         header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
@@ -300,6 +300,44 @@ class erLhcoreClassSurveyExporter {
         // First row
         fputcsv($df, $firstRow);
 
+        $chunks = ceil(erLhAbstractModelSurveyItem::getCount($filter)/300);
+
+        for($i = 0; $i < $chunks; $i ++) {
+            $filterChunk = $filter;
+            $filterChunk['offset'] = $i * 300;
+            $filterChunk['limit'] = 300;
+
+            foreach (erLhAbstractModelSurveyItem::getList($filterChunk) as $item) {
+                $row = [];
+                $row[] = $survey->id;
+                $row[] = $item->chat_id;
+                $row[] = $item->department_name;
+                $row[] = $item->user->name_official;
+
+                foreach ($enabledStars as $n) {
+                    $row[] = $item->{'max_stars_' . $n};
+                }
+
+                foreach ($enabledFields as $enabledField) {
+                    $options = $survey->{'question_options_' . $enabledField . '_items_front'};
+                    if (isset($options[$item->{'question_options_' . $enabledField}-1])) {
+                        $row[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($options[$item->{'question_options_' . $enabledField}-1]['option']));
+                    } else {
+                        $row[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($item->{'question_options_' . $enabledField}));
+                    }
+                }
+
+                foreach ($enabledFieldsPlain as $enabledFieldPlain) {
+                    $row[] = $item->{'question_plain_' . $enabledFieldPlain};
+                }
+
+                $row[] = $item->ftime_front;
+
+                fputcsv($df, $row);
+            }
+        }
+
+        fclose($df);
 
     }
 }

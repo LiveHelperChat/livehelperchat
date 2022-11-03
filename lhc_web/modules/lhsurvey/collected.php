@@ -34,6 +34,11 @@ if ($Params['user_parameters_unordered']['xls'] == 1) {
 	exit;
 }
 
+if ($Params['user_parameters_unordered']['csvlist'] == 1) {
+    erLhcoreClassSurveyExporter::exportCSV(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000)), $survey);
+	exit;
+}
+
 if ($Params['user_parameters_unordered']['xlslist'] == 1) {
     erLhcoreClassSurveyExporter::exportXLSList(erLhAbstractModelSurveyItem::getList(array_merge($filterSearch,array('offset' => 0, 'limit' => 100000))),$survey);
 	exit;
