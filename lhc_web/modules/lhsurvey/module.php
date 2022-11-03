@@ -46,7 +46,8 @@ $ViewList['collected'] = array(
     'department_ids',
     'department_group_ids',
     'user_ids',
-    'group_ids'
+    'group_ids',
+    'csvlist'
     ),
     'functions' => array( 'manage_survey' ),
     'multiple_arguments' => array('max_stars_1','max_stars_2','max_stars_3','max_stars_4','max_stars_5',

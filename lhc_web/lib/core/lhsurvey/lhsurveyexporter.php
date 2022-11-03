@@ -253,8 +253,91 @@ class erLhcoreClassSurveyExporter {
             header('Content-Disposition: attachment; filename="report.xml"');
             erLhcoreClassRestAPIHandler::outputResponse(array('header' => $header, 'items' => $rows), $format);
         }
+    }
 
+    public static function exportCSV($filter, $survey) {
 
+        $now = gmdate("D, d M Y H:i:s");
+        header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+        header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+        header("Last-Modified: {$now} GMT");
+
+        // force download
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+
+        // disposition / encoding on response body
+        header("Content-Disposition: attachment;filename=report.csv");
+        header("Content-Transfer-Encoding: binary");
+
+        $df = fopen("php://output", 'w');
+
+        include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names.tpl.php'));
+        include(erLhcoreClassDesign::designtpl('lhsurvey/forms/fields_names_enabled.tpl.php'));
+
+        $firstRow = [
+            erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Survey ID'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Chat'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Department name'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Operator')
+        ];
+
+        foreach ($starFields as $starField) {
+            $firstRow[] = $starField;
+        }
+
+        foreach ($enabledOptions as $optionField) {
+            $firstRow[] = $optionField;
+        }
+
+        foreach ($enabledOptionsPlain as $optionFieldPlain) {
+            $firstRow[] = $optionFieldPlain;
+        }
+
+        $firstRow[] = erTranslationClassLhTranslation::getInstance()->getTranslation('survey/collected','Time');
+        
+        // First row
+        fputcsv($df, $firstRow);
+
+        $chunks = ceil(erLhAbstractModelSurveyItem::getCount($filter)/300);
+
+        for($i = 0; $i < $chunks; $i ++) {
+            $filterChunk = $filter;
+            $filterChunk['offset'] = $i * 300;
+            $filterChunk['limit'] = 300;
+
+            foreach (erLhAbstractModelSurveyItem::getList($filterChunk) as $item) {
+                $row = [];
+                $row[] = $survey->id;
+                $row[] = $item->chat_id;
+                $row[] = $item->department_name;
+                $row[] = $item->user->name_official;
+
+                foreach ($enabledStars as $n) {
+                    $row[] = $item->{'max_stars_' . $n};
+                }
+
+                foreach ($enabledFields as $enabledField) {
+                    $options = $survey->{'question_options_' . $enabledField . '_items_front'};
+                    if (isset($options[$item->{'question_options_' . $enabledField}-1])) {
+                        $row[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($options[$item->{'question_options_' . $enabledField}-1]['option']));
+                    } else {
+                        $row[] = strip_tags(erLhcoreClassSurveyValidator::parseAnswer($item->{'question_options_' . $enabledField}));
+                    }
+                }
+
+                foreach ($enabledFieldsPlain as $enabledFieldPlain) {
+                    $row[] = $item->{'question_plain_' . $enabledFieldPlain};
+                }
+
+                $row[] = $item->ftime_front;
+
+                fputcsv($df, $row);
+            }
+        }
+
+        fclose($df);
 
     }
 }

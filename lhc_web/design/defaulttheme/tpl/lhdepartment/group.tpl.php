@@ -13,6 +13,7 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Max chats');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
+        <th width="1%">&nbsp;</th>
     </tr>
 </thead>
 <?php foreach ($items as $item) : ?>
@@ -25,6 +26,9 @@
         <td><?php echo htmlspecialchars($item->acopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->inopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->max_load)?></td>
+        <td nowrap ng-non-bindable>
+            <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/editgroup/<?php echo htmlspecialchars($item->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
+        </td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>
         <td nowrap><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('department/deletegroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
     </tr>
