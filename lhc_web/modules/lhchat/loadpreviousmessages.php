@@ -16,6 +16,7 @@ if ($chat instanceof erLhcoreClassModelChat)
             $tpl = erLhcoreClassTemplate::getInstance('lhchat/loadpreviousmessages.tpl.php');
             $tpl->set('messages', $result['messages']);
             $tpl->set('chat_id_original', $Params['user_parameters_unordered']['original']);
+            $tpl->set('chat_id_messages', $result['last_message_chat_id']);
             $tpl->set('chat', $chat);
             $tpl->set('chat_history', $result['chat']);
             $tpl->set('initial', $Params['user_parameters_unordered']['initial'] == 1);

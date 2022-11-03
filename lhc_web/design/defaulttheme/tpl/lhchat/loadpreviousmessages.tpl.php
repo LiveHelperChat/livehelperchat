@@ -9,8 +9,8 @@
 <?php if ($initial == true) : ?>
     <div class="alert alert-info my-3" role="alert" style="padding:5px" id="scroll-to-chat-<?php echo $chat->id?>-<?php echo $message_start?>">
         <p class="mb-0 text-center"><b><i class="material-icons">&#xE316;</i><i class="material-icons">&#xE316;</i><i class="material-icons">&#xE316;</i> <i class="material-icons fs24">&#xE889;</i>
-            <?php if (isset($chat) && isset($chat_history) && is_object($chat) && is_object($chat_history) && $chat->id == $chat_history->id && $chat_id_original == $chat->id) : ?>
-                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/loadprevious','Continue of the chat')?> - <?php echo $chat->id?>
+            <?php if (isset($chat) && isset($chat_id_messages) && is_object($chat) && $chat_id_messages == $chat->id) : ?>
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/loadprevious','Continue of the chat')?> - <span class="material-icons user-select-none">vpn_key</span><?php echo $chat->id?>
             <?php else : ?>
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/loadprevious','End of the chat')?> - <i class="material-icons">query_builder</i><?php echo $chat->time_created_front?> - <span class="material-icons user-select-none">vpn_key</span><?php echo $chat->id?> - <i class="material-icons">home</i><?php echo htmlspecialchars($chat->department)?>
             <?php endif; ?><i class="material-icons">&#xE316;</i><i class="material-icons">&#xE316;</i><i class="material-icons">&#xE316;</i></b>
