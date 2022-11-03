@@ -59,6 +59,7 @@ $ViewList['editlimitgroup'] = array(
 
 $ViewList['editgroup'] = array(
     'params' => array('id'),
+    'uparams' => array('action'),
     'functions' => array( 'managegroups' )
 );
 

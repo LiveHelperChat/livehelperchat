@@ -21,6 +21,13 @@ if ( isset($_POST['Delete_departament']) ) {
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'operators') {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/operators_group.tpl.php');
+    $tpl->set('department_group', $Departament_group);
+    echo $tpl->fetch();
+    exit;
+}
+
 if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
