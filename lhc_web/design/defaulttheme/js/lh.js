@@ -2487,6 +2487,7 @@ function lh(){
             if ($textarea.val() == '') {
                 $textarea.removeAttr('subjects_ids');
                 $textarea.removeAttr('canned_id');
+                $textarea.removeAttr('content_modified');
             }
 
             if ($textarea.val() == '' && evt.altKey && (evt.which == 38 || evt.which == 40)) {
@@ -2519,6 +2520,11 @@ function lh(){
 				ta.rows += 1;
 			}
 			if (ta.scrollHeight > ta.clientHeight) ta.style.overflow = 'auto';
+
+            if ($textarea.val() != '') {
+                $textarea.attr('content_modified',true);
+            }
+
 		});
 
 		// Resize by user
