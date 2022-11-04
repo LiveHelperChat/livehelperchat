@@ -21,8 +21,6 @@
 <?php endforeach; ?>
 </table>
 
-<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
-
 <?php if (isset($pages)) : ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
 <?php endif;?>
@@ -30,6 +28,8 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','create')) : ?>
 <div class="btn-group" role="group" aria-label="...">
     <a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/newstartsettings')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','New');?></a>
-    <a class="btn btn-sm btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/copyfrom/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Create a copy from default settings');?></a>
+    <a class="btn btn-sm btn-outline-secondary csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/copyfrom/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Create a copy from default settings');?></a>
 </div>
 <?php endif;?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
