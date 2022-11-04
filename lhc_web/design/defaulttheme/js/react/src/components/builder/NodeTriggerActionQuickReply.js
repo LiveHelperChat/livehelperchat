@@ -144,6 +144,7 @@ class NodeTriggerActionQuickReply extends Component {
                         </div>
                         <div className="col-6">
                             <label><input type="checkbox" onChange={(e) => this.props.onButtonStoreTypeChange({id : this.props.id, value : e.target.checked})} defaultChecked={this.props.reply.getIn(['content','as_variable'])} /> Save value as chat variable.</label> <i className="material-icons" title="This will be invisible for the operator.">info</i>
+                            <label><input type="checkbox" onChange={(e) => this.props.onButtonNoName({id : this.props.id, value : e.target.checked})} defaultChecked={this.props.reply.getIn(['content','no_name'])} /> Do not print button name on click</label> <i className="material-icons" title="This will avoid sending visitor message as button name.">info</i>
                         </div>
                         <div className="col-6">
                             <div className="form-group">

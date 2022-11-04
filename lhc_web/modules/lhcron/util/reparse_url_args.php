@@ -35,7 +35,7 @@ for ($i = 0; $i < 100000; $i++) {
 
     foreach ($chats as $chat) {
 
-        if (($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`," . (int)$chat->dep_id . ",'$') OR department_id = " . (int)$chat->dep_id . ")" )))) !== false) {
+        if (($startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$chat->dep_id . "','$') OR department_id = " . (int)$chat->dep_id . ")" )))) !== false) {
             $start_data_fields = $startDataDepartment->data_array;
         } else {
             $start_data_fields = $startDataFieldsDefault;

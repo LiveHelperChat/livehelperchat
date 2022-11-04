@@ -36,7 +36,7 @@ const CannedMessages = props => {
 
     const fillMessage = (message) => {
         let element = document.getElementById('CSChatMessage-'+props.chatId);
-        element.value = message.msg;
+        element.value = element.getAttribute('content_modified') ? element.value + message.msg : message.msg ;
         element.focus();
         message.subject_ids && element.setAttribute('subjects_ids',message.subject_ids);
         element.setAttribute('canned_id',message.id);

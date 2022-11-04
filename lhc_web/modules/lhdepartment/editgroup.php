@@ -24,6 +24,7 @@ if ( isset($_POST['Delete_departament']) ) {
 if ($Params['user_parameters_unordered']['action'] == 'operators') {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/operators_group.tpl.php');
     $tpl->set('department_group', $Departament_group);
+    $tpl->set('group_op', isset($_GET['group']) && $_GET['group'] === 'true' ? true : (isset($_GET['group']) ? false : null));
     echo $tpl->fetch();
     exit;
 }

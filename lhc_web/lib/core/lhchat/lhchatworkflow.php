@@ -1013,6 +1013,7 @@ class erLhcoreClassChatWorkflow {
     public static function getChatHistory($chat, $lastMessageId)
     {
         $messages = erLhcoreClassChat::getChatMessages($chat->id, erLhcoreClassChat::$limitMessages, $lastMessageId);
+        $chatMessages = $chat->id;
 
         $messageId = 0;
         $hasMessages = true;
@@ -1045,6 +1046,7 @@ class erLhcoreClassChatWorkflow {
         return array(
             'chat_id' => (is_object($chat) ? $chat->id : null),
             'chat' => (is_object($chat) ? $chat : null),
+            'last_message_chat_id' => $chatMessages,
             'message_id' => $messageId,
             'messages' => $messages,
             'has_messages' => $hasMessages
