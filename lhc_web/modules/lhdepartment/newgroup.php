@@ -24,6 +24,8 @@ if (isset($_POST['Save_departament']))
 
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
+        erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+
         erLhcoreClassModule::redirect('department/group');
         exit ;
 

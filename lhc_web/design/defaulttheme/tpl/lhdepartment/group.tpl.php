@@ -14,6 +14,7 @@
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
+        <th width="1%">&nbsp;</th>
     </tr>
 </thead>
 <?php foreach ($items as $item) : ?>
@@ -26,6 +27,9 @@
         <td><?php echo htmlspecialchars($item->acopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->inopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->max_load)?></td>
+        <td nowrap ng-non-bindable>
+            <a class="btn btn-secondary btn-xs action-image text-white csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $item->id?>/(action)/updatestats"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Update stats');?></a>
+        </td>
         <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/editgroup/<?php echo htmlspecialchars($item->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
         </td>
