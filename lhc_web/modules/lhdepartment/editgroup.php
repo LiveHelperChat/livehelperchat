@@ -29,6 +29,12 @@ if ($Params['user_parameters_unordered']['action'] == 'operators') {
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'updatestats') {
+    erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
+    erLhcoreClassModule::redirect('department/group');
+    exit;
+}
+
 if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 {
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -47,6 +53,8 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('department.edit_department_group',array('department_group' => & $Departament_group));
+
+        erLhcoreClassChatStatsResque::updateDepartmentGroupStats($Departament_group);
 
         if (isset($_POST['Save_departament'])) {
             erLhcoreClassModule::redirect('department/group');
