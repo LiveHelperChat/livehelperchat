@@ -7,11 +7,11 @@ class erLhcoreClassRoleFunction{
  
    }
       
-   public static function getRoleFunctions($role_id)
+   public static function getRoleFunctions($role_id, $sort = '`id` ASC')
    {
         $db = ezcDbInstance::get();
                  
-        $stmt = $db->prepare('SELECT * FROM lh_rolefunction WHERE role_id = :role_id ORDER BY id ASC');   
+        $stmt = $db->prepare('SELECT * FROM lh_rolefunction WHERE role_id = :role_id ORDER BY '.$sort);
         $stmt->bindValue( ':role_id',$role_id);                 
         $stmt->execute();
         $rows = $stmt->fetchAll();

@@ -3,7 +3,7 @@
 	$canEdit = $currentUser->hasAccessTo('lhuser','editgroup');
 	$canDelete = $currentUser->hasAccessTo('lhuser','deletegroup');
 ?>
-<table class="table" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
+<table class="table table-sm" cellpadding="0" ng-non-bindable cellspacing="0" width="100%">
 <thead>
 <tr>
     <th>ID</th>
@@ -32,5 +32,5 @@
 <?php endif;?>
 
 <?php if ($currentUser->hasAccessTo('lhuser','creategroup')) : ?>
-<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/newgroup')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','New group');?></a>
+<a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/newgroup')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','New group');?></a>
 <?php endif;?>

@@ -22,7 +22,11 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
         if ($userInstance->conversion_id > 0) {
             $conversionUser = erLhAbstractModelProactiveChatCampaignConversion::fetch($userInstance->conversion_id);
             if ($conversionUser instanceof erLhAbstractModelProactiveChatCampaignConversion) {
-                $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN;
+                if ($Params['user_parameters_unordered']['conversion'] === 'true') {
+                    $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED;
+                } else {
+                    $conversionUser->invitation_status = erLhAbstractModelProactiveChatCampaignConversion::INV_SEEN;
+                }
                 $conversionUser->con_time = time();
                 $conversionUser->saveThis();
             }
