@@ -53,6 +53,12 @@ for ($i = 1; $i < 5; $i++) {
 
     <div class="col-12">
         <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('hide_on_open', $fields['hide_on_open'], $object)?> <?php echo $fields['hide_on_open']['trans'];?></label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-group">
             <label><?php echo erLhcoreClassAbstract::renderInput('std_header', $fields['std_header'], $object)?> <?php echo $fields['std_header']['trans'];?></label>
         </div>
     </div>
@@ -84,7 +90,12 @@ for ($i = 1; $i < 5; $i++) {
         </div>
     </div>
 
-
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo $fields['custom_on_click']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/customonclick'});" class="material-icons text-muted">help</a></label>
+            <?php echo erLhcoreClassAbstract::renderInput('custom_on_click', $fields['custom_on_click'], $object)?>
+        </div>
+    </div>
 
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Old widget options');?></h5>
     <div class="col-12">

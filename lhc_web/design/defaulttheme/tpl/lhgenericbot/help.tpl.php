@@ -14,6 +14,7 @@
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/proactiveconditions.tpl.php'));?>
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/timefilter.tpl.php'));?>
            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/dropdownoptions.tpl.php'));?>
+           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/customonclick.tpl.php'));?>
 
             <?php if ($context == 'text') : ?>
                 <ul>

@@ -11,7 +11,7 @@
 
 		<div class="form-group">
 		  <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Title');?></label>
-		  <input class="form-control" type="text" name="Name"  value="<?php echo htmlspecialchars($group->name);?>" />
+		  <input class="form-control form-control-sm" type="text" name="Name"  value="<?php echo htmlspecialchars($group->name);?>" />
         </div>
 
         <div class="form-group">
@@ -43,11 +43,12 @@
           <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','If group is required, at least one group of required groups has to be selected.')?></p>
         </div>
         
-		<input type="submit" class="btn btn-secondary" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/>
+		<input type="submit" class="btn btn-sm btn-secondary" name="Update_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Update');?>"/>
 
 	</form>
 </div>
 
+<hr>
 
 <h4 ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assigned users');?> - <?php echo htmlspecialchars($group->name)?></h4>
 
@@ -55,7 +56,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">&nbsp;</th>
@@ -75,8 +76,8 @@
 <?php endif;?>
 
 
-<input type="submit" class="btn btn-danger" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from the group');?>" /> 
-<input class="btn btn-secondary" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="lhc.revealModal({'iframe':true,'height':600,'url':'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'})" />
+<input type="submit" class="btn btn-sm btn-danger" name="Remove_user_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove user from the group');?>" />
+<input class="btn btn-sm btn-secondary" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign user');?>" onclick="lhc.revealModal({'iframe':true,'height':600,'url':'<?php echo erLhcoreClassDesign::baseurl('user/groupassignuser')?>/<?php echo $group->id?>'})" />
 
 </form>
 
@@ -85,7 +86,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-<table class="table" cellpadding="0" cellspacing="0">
+<table class="table table-sm" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
     <th width="1%">&nbsp;</th>
@@ -104,8 +105,8 @@
 <?php endforeach; ?>
 </table>
 
-<input type="submit" class="btn btn-danger" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" />
-<input class="btn btn-secondary" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole')?>/<?php echo $group->id?>'});" />
+<input type="submit" class="btn btn-sm btn-danger" name="Remove_role_from_group" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Remove role from group');?>" />
+<input class="btn btn-sm btn-secondary" type="button" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/editgroup','Assign role');?>" onclick="lhc.revealModal({'url':'<?php echo erLhcoreClassDesign::baseurl('permission/groupassignrole')?>/<?php echo $group->id?>'});" />
 
 </form>
 

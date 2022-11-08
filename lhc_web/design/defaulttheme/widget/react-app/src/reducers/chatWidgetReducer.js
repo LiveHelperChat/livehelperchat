@@ -111,6 +111,11 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.setIn(['proactive','pending'],false);
             }
 
+            // This type of invitation should not be ever appended to content
+            if (action.data == true && state.hasIn(['proactive','data','hide_on_open'])) {
+                state = state.set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}));
+            }
+
             return state.set('shown',action.data);
         }
 
