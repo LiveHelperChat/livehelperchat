@@ -290,6 +290,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionCommand'      => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioncommand.php',
         'erLhcoreClassGenericBotActionPredefined'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionpredefined.php',
         'erLhcoreClassGenericBotActionTyping'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactiontyping.php',
+        'erLhcoreClassGenericBotActionPauseBot'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionpausebot.php',
         'erLhcoreClassGenericBotActionProgress'     => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionprogress.php',
         'erLhcoreClassGenericBotActionVideo'        => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionvideo.php',
         'erLhcoreClassGenericBotActionExecute_js'     => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionexecute_js.php',
