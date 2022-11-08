@@ -147,6 +147,10 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['close_above_msg'] = true;
         }
 
+        if (isset($invitation->design_data_array['hide_on_open']) && $invitation->design_data_array['hide_on_open'] == true) {
+            $outputResponse['hide_on_open'] = true;
+        }
+
         if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
             $outputResponse['full_widget'] = true;
         }

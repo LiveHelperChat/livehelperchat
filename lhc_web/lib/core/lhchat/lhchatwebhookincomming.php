@@ -655,9 +655,9 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
-                if (!isset($_SERVER['HTTP_USER_AGENT'])) {
-                    $_SERVER['HTTP_USER_AGENT'] = 'API, Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36';
-                }
+                // Some agents triggers to terminate LHC, because we think it's a bot
+                // GoogleBusinessMessage Scenario
+                $_SERVER['HTTP_USER_AGENT'] = 'API, Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36';
 
                 // Store online visitor record so previous chat workflow works
                 self::assignOnlineVisitor($chat, $eChat);

@@ -60,16 +60,20 @@ class ProactiveInvitation extends Component {
     }
 
     hideInvitation(e) {
-        this.props.dispatch(hideInvitation());
+        this.props.dispatch(hideInvitation( this.props.chatwidget.hasIn(['proactive','data','hide_on_open']) ));
         e.preventDefault();
         e.stopPropagation();
     }
 
     fullInvitation() {
-        helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true, name: this.props.chatwidget.getIn(['proactive','data','invitation_name'])}]);
-        this.props.dispatch({
-            'type' : 'FULL_INVITATION'
-        });
+        if (this.props.chatwidget.hasIn(['proactive','data','hide_on_open'])){
+            this.props.dispatch(hideInvitation(true, true));
+        } else {
+            helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true, name: this.props.chatwidget.getIn(['proactive','data','invitation_name'])}]);
+            this.props.dispatch({
+                'type' : 'FULL_INVITATION'
+            });
+        }
     }
 
     setBotPayload(params) {

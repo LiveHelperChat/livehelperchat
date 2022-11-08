@@ -3,14 +3,14 @@
 	$canEdit = $currentUser->hasAccessTo('lhpermission','edit');
 	$canDelete = $currentUser->hasAccessTo('lhpermission','delete');
 ?>
-<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
+<table class="table table-sm" cellpadding="0" cellspacing="0" ng-non-bindable>
 <thead>
 <tr>
     <th width="1%">ID</th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Title');?></th>
-    <?php if ($canEdit) : ?><th width="5%">&nbsp;</th><?php endif;?>
-    <?php if ($canEdit) : ?><th width="5%">&nbsp;</th><?php endif;?>
-    <?php if ($canDelete) : ?><th width="5%">&nbsp;</th><?php endif;?>
+    <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
+    <?php if ($canEdit) : ?><th width="1%">&nbsp;</th><?php endif;?>
+    <?php if ($canDelete) : ?><th width="1%">&nbsp;</th><?php endif;?>
 </tr>
 </thead>
 <?php foreach (erLhcoreClassRole::getRoleList() as $departament) : ?>
@@ -23,10 +23,9 @@
     </tr>
 <?php endforeach; ?>
 </table>
-<br />
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
 <?php if ($currentUser->hasAccessTo('lhpermission','new')) : ?>
-<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','New role');?></a>
+<a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('permission/newrole')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','New role');?></a>
 <?php endif;?>

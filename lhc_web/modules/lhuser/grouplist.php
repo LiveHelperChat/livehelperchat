@@ -4,7 +4,7 @@ $tpl = erLhcoreClassTemplate::getInstance('lhuser/grouplist.tpl.php');
 
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelGroup::getCount();
-$pages->setItemsPerPage(10);
+$pages->setItemsPerPage(50);
 $pages->serverURL = erLhcoreClassDesign::baseurl('user/grouplist');
 $pages->paginate();
 
