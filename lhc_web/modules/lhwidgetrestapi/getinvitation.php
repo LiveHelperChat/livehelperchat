@@ -151,6 +151,13 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['hide_on_open'] = true;
         }
 
+        if (isset($invitation->design_data_array['custom_on_click']) && $invitation->design_data_array['custom_on_click'] != '') {
+            $outputResponse['on_click'] = [
+                'src' => erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('widgetrestapi/proactiveonclick') .'/' . $invitation->id . '?ts='. md5($invitation->design_data_array['custom_on_click']),
+                'id' => md5($invitation->design_data_array['custom_on_click'])
+            ];
+        }
+
         if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {
             $outputResponse['full_widget'] = true;
         }

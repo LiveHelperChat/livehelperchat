@@ -147,6 +147,11 @@ $ViewList['getinvitation'] = array(
     'uparams' => array()
 );
 
+$ViewList['proactiveonclick'] = array(
+    'params' => array('id'),
+    'uparams' => array()
+);
+
 $ViewList['screensharesettings'] = array(
     'params' => array(),
     'uparams' => array()
