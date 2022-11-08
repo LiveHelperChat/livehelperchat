@@ -11,18 +11,14 @@ class erLhcoreClassGenericBotActionPauseBot {
         if (!isset($params['first_trigger'])) {
             $params['first_trigger'] = $params['current_trigger'];
         }
-        
-        $msg = new erLhcoreClassModelmsg();
 
-        $metaMessage = array();
-
-        if (
-            (isset($action['content']['duration']) && !empty($action['content']['duration']) && $action['content']['duration'] > 0)
-        )
+        // We do not want to have that feature for automated hosting as it might take all php-fpm workers...
+        if (isset($action['content']['duration']) && !empty($action['content']['duration']) && (int)$action['content']['duration'] > 0 && !class_exists('erLhcoreClassInstance'))
         {
-            sleep($action["content"]["duration"]);
+            sleep(min((int)$action["content"]["duration"],10));
         }
-        return $msg;
+        
+        return null;
     }
 }
 
