@@ -1,7 +1,33 @@
-<div class="form-group">		
-<label><?php echo $fields['name']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['name']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <label><?php echo $fields['parent_id']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/parentinvitation'});" class="material-icons text-muted">help</a>
+        </label>
+        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+            'input_name'     => 'AbstractInput_parent_id',
+            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a parent invitation'),
+            'selected_id'    => [$object->parent_id],
+            'data_prop'      => 'data-limit="1"',
+            'css_class'      => 'form-control',
+            'type'           => 'radio',
+            'display_name'   => 'name',
+            'no_selector'    => true,
+            'list_function_params' => ($object->id > 0 ? array('limit' => false,'filternot' => ['id' => $object->id]) : ['limit' => false]),
+            'list_function'  => 'erLhAbstractModelProactiveChatInvitation::getList',
+        )); ?>
+    </div>
+    <script>
+        $(function() {
+            $('.btn-block-department').makeDropdown();
+        });
+    </script>
 </div>
+
 
 <div class="form-group">
 <label><?php echo erLhcoreClassAbstract::renderInput('disabled', $fields['disabled'], $object)?> <?php echo $fields['disabled']['trans'];?></label>

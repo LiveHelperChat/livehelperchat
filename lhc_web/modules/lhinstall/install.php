@@ -1362,11 +1362,12 @@ try {
 				  `ctime` int(11) NOT NULL,
 				  `con_time` int(11) NOT NULL,
 				  `vid_id` bigint(20) DEFAULT NULL,
+				  `variation_id` int(11) NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `ctime` (`ctime`),
 				  KEY `campaign_id` (`campaign_id`),
-				  KEY `invitation_id` (`invitation_id`),
-				  KEY `invitation_status` (`invitation_status`)
+				  KEY `invitation_status` (`invitation_status`),
+				  KEY `invitation_id_variation_id` (`invitation_id`, `variation_id`)
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
 
@@ -1663,6 +1664,7 @@ try {
         	   	  `requires_email` int(11) NOT NULL,
         	   	  `iddle_for` int(11) NOT NULL,
         	   	  `event_type` int(11) NOT NULL,
+                  `parent_id` int(11) NOT NULL DEFAULT '0',
         	   	  `requires_username` int(11) NOT NULL,
         	   	  `requires_phone` int(11) NOT NULL,        	   	  
         	   	  `design_data` longtext NOT NULL,        	   	  
@@ -1671,6 +1673,7 @@ try {
         	      KEY `identifier` (`identifier`),
         	      KEY `dynamic_invitation` (`dynamic_invitation`),
         	      KEY `tag` (`tag`),
+        	      KEY `parent_id` (`parent_id`),
         	      KEY `show_on_mobile` (`show_on_mobile`),
         	      KEY `dep_id` (`dep_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");

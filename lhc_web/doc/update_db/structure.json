@@ -1393,6 +1393,14 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "variation_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_incoming_webhook": [
@@ -2686,6 +2694,14 @@
         "null": "NO",
         "key": "MUL",
         "default": null,
+        "extra": ""
+      },
+      {
+        "field": "parent_id",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
         "extra": ""
       },
       {
@@ -10312,15 +10328,19 @@
       "new" : {
         "tag" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `tag` (`tag`);",
         "dynamic_invitation" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `dynamic_invitation` (`dynamic_invitation`);",
-        "show_on_mobile" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `show_on_mobile` (`show_on_mobile`)"
+        "show_on_mobile" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `show_on_mobile` (`show_on_mobile`)",
+        "parent_id" : "ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD INDEX `parent_id` (`parent_id`)"
       },
       "old" : []
     },
     "lh_abstract_proactive_chat_campaign_conv" : {
       "new" : {
-        "ctime" : "ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `ctime` (`ctime`);"
+        "ctime" : "ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `ctime` (`ctime`);",
+        "invitation_id_variation_id" : "ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD INDEX `invitation_id_variation_id` (`invitation_id`, `variation_id`);"
       },
-      "old" : []
+      "old" : [
+        "invitation_id"
+      ]
     },
     "lh_group_chat" : {
       "new" : {
