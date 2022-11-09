@@ -51,7 +51,8 @@ class erLhAbstractModelProactiveChatInvitation {
 			'disabled' => $this->disabled,
 			'campaign_id' => $this->campaign_id,
 			'design_data' => $this->design_data,
-			'inject_only_html' => $this->inject_only_html
+			'inject_only_html' => $this->inject_only_html,
+			'parent_id' => $this->parent_id
 		);
 			
 		return $stateArray;
@@ -985,6 +986,7 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $campaign_id = 0;
 	public $design_data = '';
 	public $inject_only_html = 0;
+	public $parent_id = 0;
 
 	public $next_reschedule = 0;
 	public $hide_add = false;

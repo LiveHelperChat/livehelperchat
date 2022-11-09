@@ -1,0 +1,2 @@
+ALTER TABLE `lh_abstract_proactive_chat_invitation` ADD `parent_id` int(11) NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_abstract_proactive_chat_campaign_conv` ADD `variation_id` int(11) NOT NULL DEFAULT '0', COMMENT='';

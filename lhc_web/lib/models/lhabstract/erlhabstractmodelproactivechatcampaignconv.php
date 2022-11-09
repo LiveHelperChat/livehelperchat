@@ -25,7 +25,8 @@ class erLhAbstractModelProactiveChatCampaignConversion
             'department_id'     => $this->department_id,
             'ctime'             => $this->ctime,
             'con_time'          => $this->con_time,
-            'vid_id'            => $this->vid_id
+            'vid_id'            => $this->vid_id,
+            'variation_id'      => $this->variation_id
         );
 
         return $stateArray;
@@ -56,6 +57,7 @@ class erLhAbstractModelProactiveChatCampaignConversion
     public $ctime = 0;
     public $con_time = 0;
     public $vid_id = 0;
+    public $variation_id = 0;
 }
 
 ?>
