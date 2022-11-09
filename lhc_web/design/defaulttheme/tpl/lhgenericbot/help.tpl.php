@@ -7,11 +7,6 @@
         <div class="modal-body">
             <p>
 
-           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/preconditions.tpl.php'));?>
-           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/emailtemplates.tpl.php'));?>
-           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/invitationhelp.tpl.php'));?>
-           <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/timefilter.tpl.php'));?>
-
             <?php if (preg_match('/^[a-z0-9-]+/i', $context) &&($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhgenericbot/helpattributes/' . $context . '.tpl.php')) && $pathDynamic !== null ) : ?>
                 <?php include $pathDynamic;?>
             <?php endif; ?>
