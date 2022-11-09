@@ -46,6 +46,7 @@ const initialState = fromJS({
     lang : '',
     bot_id : '',
     trigger_id : '',
+    subject_id : '',
     operator : '',
     priority : null,
     ses_ref : null,
@@ -98,6 +99,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'theme':
         case 'jsVars':
         case 'jsVarsPrefill':
+        case 'subject_id':
         case 'bot_id':
         case 'trigger_id':
         case 'priority':

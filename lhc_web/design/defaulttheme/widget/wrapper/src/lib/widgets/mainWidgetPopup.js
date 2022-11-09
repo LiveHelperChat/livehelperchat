@@ -110,6 +110,10 @@ export class mainWidgetPopup {
                 urlArgumetns = urlArgumetns + "/(trigger)/" + this.attributes['trigger_id'];
             }
 
+            if (this.attributes['subject_id']) {
+                urlArgumetns = urlArgumetns + "/(subject)/" + this.attributes['subject_id'];
+            }
+
             if (this.attributes['priority']) {
                 urlArgumetns = urlArgumetns + "/(priority)/" + this.attributes['priority'];
             }

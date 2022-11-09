@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 200;
+            lhc.version = 201;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -185,6 +185,7 @@
                     proactive_interval: null,
                     lang: LHC_API.args.lang || '',
                     langOverride: languageOverride,
+                    subject_id: LHC_API.args.subject_id || '',
                     bot_id: LHC_API.args.bot_id || '',
                     trigger_id: LHC_API.args.trigger_id || '',
                     priority: LHC_API.args.priority || null,

@@ -21,7 +21,7 @@ class ChatField extends Component {
             if (selectedOption > 0) {
                 // Maybe we should add product and custom start chat form dependency
                 // Now we just assume different departments will have same start chat form settings
-                this.props.onChangeContent({id : 'DepartamentID', value : selectedOption});
+                this.props.onChangeContent({id : 'DepartamentID', value : selectedOption, subject_id: e.target.options[e.target.selectedIndex].getAttribute('subject-id')});
             }
         }
     }
@@ -65,7 +65,7 @@ class ChatField extends Component {
             this.props.onChangeContent({id : this.props.field.get('name'), value : this.props.defaultValueField});
             this.props.field.get('options').map((dep) => {
                 if (dep.get('value') == this.props.defaultValueField && dep.get('dep_id')) {
-                    this.props.onChangeContent({set_default: true, id : 'DepartamentID', value : dep.get('dep_id')});
+                    this.props.onChangeContent({set_default: true, id : 'DepartamentID', subject_id: (dep.has('subject_id') ? dep.get('subject_id') : null), value : dep.get('dep_id')});
                 }
             });
         }
@@ -152,7 +152,7 @@ class ChatField extends Component {
         } else if (this.props.field.get('type') == 'hidden') {
             return <input type="hidden" className={classNameInput.join(' ')} required={required} onChange={(e) => this.onchangeAttr({'value' : e.target.value})} name={this.props.field.get('name')} defaultValue={this.props.defaultValueField} placeholder={this.props.field.get('placeholder')} />
         } else if (this.props.field.get('type') == 'dropdown') {
-           var options = this.props.field.get('options').map(dep => <option key={'opt-drop-'+dep.get('value')} dep-id={dep.get('dep_id')} selected={this.props.defaultValueField == dep.get('value')} value={dep.get('value')}>{dep.get('name')}</option>);
+           var options = this.props.field.get('options').map(dep => <option key={'opt-drop-'+dep.get('value')} subject-id={dep.has('subject_id') ? dep.get('subject_id') : null} dep-id={dep.get('dep_id')} selected={this.props.defaultValueField == dep.get('value')} value={dep.get('value')}>{dep.get('name')}</option>);
            return (<div className={className}>
                 <div className="form-group">
                     <label className="control-label">{this.props.field.get('label')}{required === true ? '*' : ''}</label>
