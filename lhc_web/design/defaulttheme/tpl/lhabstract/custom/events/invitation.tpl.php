@@ -6,7 +6,8 @@
         </div>
     </div>
     <div class="col-6">
-        <label><?php echo $fields['parent_id']['trans'];?></label>
+        <label><?php echo $fields['parent_id']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/parentinvitation'});" class="material-icons text-muted">help</a>
+        </label>
         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
             'input_name'     => 'AbstractInput_parent_id',
             'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a parent invitation'),

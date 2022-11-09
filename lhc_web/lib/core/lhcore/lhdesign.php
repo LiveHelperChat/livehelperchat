@@ -82,6 +82,10 @@ class erLhcoreClassDesign
             ));
     }
 
+    public static function designtpldynamic($path) {
+        return self::designtpl($path);
+    }
+
     public static function designtpl($path)
     {
         $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
