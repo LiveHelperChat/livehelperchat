@@ -71,7 +71,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
             $chat->updateThis(array('update' => array(
                 'status_sub'
             )));
-            
+
             $explicitClosed = true;
         }
 
@@ -99,13 +99,6 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                     if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
-                        $informVisitorLeft = true;
-                    }
-
-                    if ($chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT && $Params['user_parameters_unordered']['close'] == '1') {
-                        $message = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has exited chat/survey explicitly!'), ENT_QUOTES);
-                    } else {
-                        $message = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES);
                     }
 
                     // It is close widget action with permanent close
@@ -120,7 +113,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
 
                         $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.
 
-                            $message
+                            htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES)
 
                             .'[/level] [button_action=send_manual_message]'.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'invite to chat'), ENT_QUOTES).'[/button_action]';
 
