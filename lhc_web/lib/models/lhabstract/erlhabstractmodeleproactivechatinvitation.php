@@ -73,7 +73,8 @@ class erLhAbstractModelProactiveChatInvitation {
 		$departmentParams = array();
 		$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
 		if ($userDepartments !== true) {
-			if (!in_array($this->dep_id, $userDepartments) && $this->dep_id != 0) {
+            $depIDS = $this->dep_ids_front;
+			if (!empty($depIDS) && count(array_diff($depIDS, $userDepartments)) > 0) {
 				return false;
 			}
 		}
