@@ -22,7 +22,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
     $filterDep = [];
 
-    foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd','pendingmd','activemd','alarmmd','mmd'] as $list) {
+    foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd','pendingmd','activemd','alarmmd','mmd','department_online'] as $list) {
         if (isset($dwFilters[$list]) && !empty($dwFilters[$list])) {
             $filterDep = array_unique(array_merge($filterDep,explode("/",$dwFilters[$list])));
         }
