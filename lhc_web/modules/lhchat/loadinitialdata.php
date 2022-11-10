@@ -50,6 +50,7 @@ foreach ($departments as $department) {
         'disabled' => $department->disabled == 1,
         'ogen' => in_array($department->id, $loggedDepartments),            // Online general
         'oexp' => in_array($department->id, $loggedDepartmentsExplicit),    // Online explicit
+        'slc' => in_array($department->id, $filterDep)
     );
 
     $filterProducts[] = $department->id;

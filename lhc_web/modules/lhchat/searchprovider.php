@@ -58,6 +58,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             'disabled' => $department->disabled == 1,
             'ogen' => in_array($department->id, $loggedDepartments),            // Online general
             'oexp' => in_array($department->id, $loggedDepartmentsExplicit),    // Online explicit
+            'slc' => in_array($department->id, $filterDep)
         );
     }
 
