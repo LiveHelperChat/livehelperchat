@@ -16,6 +16,23 @@ $departmentParams['filter']['archive'] = 0;
 
 $departmentNames = array();
 $departmentList = array();
+
+// Always include selected departments
+$dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
+$filterDep = [];
+
+foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd'] as $list) {
+    if (isset($dwFilters[$list]) && !empty($dwFilters[$list])) {
+        $filterDep = array_unique(array_merge($filterDep,explode("/",$dwFilters[$list])));
+    }
+}
+
+if (!empty($filterDep)) {
+    $departmentParams['filterin']['id'] = $filterDep;
+} else {
+    $departmentParams['limit'] = 20;
+}
+
 $departments = erLhcoreClassModelDepartament::getList($departmentParams);
 
 $loggedDepartments = erLhcoreClassChat::getLoggedDepartmentsIds(array_keys($departments), false);
@@ -194,7 +211,7 @@ $widgets = erLhcoreClassChat::array_flatten($widgets);
 
 $dwic = json_decode(erLhcoreClassModelUserSetting::getSetting('dwic', ''),true);
 $not_ic = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_nic', ''),true);
-$dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
+
 
 $response = array(
     'widgets' => $widgets,
