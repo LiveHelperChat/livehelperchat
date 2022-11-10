@@ -20,7 +20,7 @@ if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser) || $onlineUser->v
 }
 
 if (is_numeric($payload['invitation']) && $payload['invitation'] > 0) {
-    erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
+    $invitationData = erLhAbstractModelProactiveChatInvitation::setInvitation($onlineUser, (int)$payload['invitation']);
 }
 
 // Make conversion if any exists
@@ -93,7 +93,7 @@ if (isset($payload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($pay
 // Bot message as full widget body
 if ($outputResponse['invitation_id'] > 0) {
 
-    $invitation = erLhAbstractModelProactiveChatInvitation::fetch($outputResponse['invitation_id']);
+    $invitation = $invitationData['variation'];// erLhAbstractModelProactiveChatInvitation::fetch($outputResponse['invitation_id']);
 
     if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
 
@@ -149,6 +149,13 @@ if ($outputResponse['invitation_id'] > 0) {
 
         if (isset($invitation->design_data_array['hide_on_open']) && $invitation->design_data_array['hide_on_open'] == true) {
             $outputResponse['hide_on_open'] = true;
+        }
+
+        if (isset($invitation->design_data_array['custom_on_click']) && $invitation->design_data_array['custom_on_click'] != '') {
+            $outputResponse['on_click'] = [
+                'src' => erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('widgetrestapi/proactiveonclick') .'/' . $invitation->id . '?ts='. md5($invitation->design_data_array['custom_on_click']),
+                'id' => md5($invitation->design_data_array['custom_on_click'])
+            ];
         }
 
         if (isset($invitation->design_data_array['full_on_invitation']) && $invitation->design_data_array['full_on_invitation'] == true) {

@@ -478,7 +478,6 @@ trait erLhcoreClassDBTrait
             }
 
             $conditions[] = $q->expr->lOr($conditionsLor);
-
         }
 
         if (isset($params['filterlorf']) && count($params['filterlorf']) > 0) {

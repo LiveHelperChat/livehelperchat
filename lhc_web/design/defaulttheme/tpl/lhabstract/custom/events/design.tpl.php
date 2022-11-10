@@ -92,7 +92,7 @@ for ($i = 1; $i < 5; $i++) {
 
     <div class="col-12">
         <div class="form-group">
-            <label><?php echo $fields['custom_on_click']['trans'];?></label>
+            <label><?php echo $fields['custom_on_click']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/customonclick'});" class="material-icons text-muted">help</a></label>
             <?php echo erLhcoreClassAbstract::renderInput('custom_on_click', $fields['custom_on_click'], $object)?>
         </div>
     </div>

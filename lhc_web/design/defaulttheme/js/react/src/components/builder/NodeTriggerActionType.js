@@ -27,6 +27,10 @@ export default ({onChange, type}) => {
             'value':'typing',
             'text' : 'Send Typing',
         },
+        {            
+            'value':'pauseBot',
+            'text' : 'Pause bot',
+        },
         {
             'value':'video',
             'text' : 'Send Video',

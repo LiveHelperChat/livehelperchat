@@ -52,11 +52,27 @@ class ProactiveInvitation extends Component {
                 this.props.dispatch(hideInvitation(true));
             },this.props.chatwidget.getIn(['proactive','data','inv_expires'])*1000);
         }
+
+        if (this.props.chatwidget.hasIn(['proactive','data','on_click'])) {
+            this.appendScript(this.props.chatwidget.getIn(['proactive','data','on_click','src']), this.props.chatwidget.getIn(['proactive','data','on_click','id']));
+        }
+    }
+
+    appendScript(src, id) {
+        const script = document.createElement('script');
+        script.src = src;
+        script.id = id;
+        script.async = true;
+        document.body.appendChild(script);
     }
 
     componentWillUnmount() {
         clearTimeout(this.expireTimeout);
         helperFunctions.sendMessageParent('widgetHeight', [{'reset_height' : true}]);
+        if (this.props.chatwidget.hasIn(['proactive','data','on_click'])) {
+            var EObj = null;
+            (EObj = document.getElementById(this.props.chatwidget.getIn(['proactive','data','on_click','id']))) ? EObj.parentNode.removeChild(EObj) : false;
+        }
     }
 
     hideInvitation(e) {
@@ -68,6 +84,9 @@ class ProactiveInvitation extends Component {
     fullInvitation() {
         if (this.props.chatwidget.hasIn(['proactive','data','hide_on_open'])){
             this.props.dispatch(hideInvitation(true, true));
+            if (this.props.chatwidget.hasIn(['proactive','data','on_click'])) {
+                window['callback_'+this.props.chatwidget.getIn(['proactive','data','on_click','id'])]();
+            }
         } else {
             helperFunctions.sendMessageParentDirect('hideInvitation', [{'full' : true, name: this.props.chatwidget.getIn(['proactive','data','invitation_name'])}]);
             this.props.dispatch({

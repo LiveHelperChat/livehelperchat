@@ -343,8 +343,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
 	this.departmentd = [];
 	this.departmentd_dpgroups = [];
-	this.departmentdNames = [];	
-	
+	this.departmentdNames = [];
+
 	this.operatord = [];
 	this.operatord_dpgroups = [];
     this.operatord_ugroups = [];
@@ -388,36 +388,29 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	this.unreadd = [];
 	this.unreadd_products = [];
 	this.unreadd_dpgroups = [];
-
 	this.unreaddNames = [];
 
 	this.pendingd = [];
 	this.pendingd_products = [];
 	this.pendingd_dpgroups = [];
 	this.pendingd_ugroups = [];
-
-
 	this.pendingdNames = [];
 
 	this.botd = [];
 	this.botd_products = [];
 	this.botd_dpgroups = [];
 	this.botd_ugroups = [];
-
 	this.botdNames = [];
 
     this.subjectd = [];
 	this.subjectd_products = [];
 	this.subjectd_dpgroups = [];
 	this.subjectd_ugroups = [];
-
 	this.subjectdNames = [];
 
 	this.closedd = [];
 	this.closedd_products = [];
 	this.closedd_dpgroups = [];
-
-
 	this.closeddNames = [];
 	
     // Storage for notifications
@@ -1917,6 +1910,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
         if (newVal != oldVal) {
             LiveHelperChatFactory.searchProvider('users',newVal).then(function(data){
                 _that.userList = data.items;
+            });
+        };
+    });
+
+    $scope.$watch('lhc.depFilterText', function(newVal,oldVal) {
+        if (newVal != oldVal) {
+            LiveHelperChatFactory.searchProvider('depswidget',newVal).then(function(data){
+                _that.userDepartments = data.items;
+                _that.userDepartmentsNames=data.items_names;
             });
         };
     });

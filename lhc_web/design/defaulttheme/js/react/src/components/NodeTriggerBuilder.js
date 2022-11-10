@@ -9,6 +9,7 @@ import NodeTriggerActionButtons from './builder/NodeTriggerActionButtons';
 import NodeTriggerActionCommand from './builder/NodeTriggerActionCommand';
 import NodeTriggerActionPredefined from './builder/NodeTriggerActionPredefined';
 import NodeTriggerActionTyping from './builder/NodeTriggerActionTyping';
+import NodeTriggerActionPause from './builder/NodeTriggerActionPause';
 import NodeTriggerActionProgress from './builder/NodeTriggerActionProgress';
 import NodeTriggerActionVideo from './builder/NodeTriggerActionVideo';
 import NodeTriggerActionAttribute from './builder/NodeTriggerActionAttribute';
@@ -210,6 +211,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionPredefined upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'typing') {
                     return <NodeTriggerActionTyping upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
+                } else if (action.get('type') == 'pauseBot') {
+                    return <NodeTriggerActionPause upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'progress') {
                     return <NodeTriggerActionProgress upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} />
                 } else if (action.get('type') == 'video') {

@@ -4,6 +4,7 @@ header ( 'content-type: application/json; charset=utf-8' );
 $search = isset($_GET['q']) ? rawurldecode($_GET['q']) : '';
 $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
 $return = array();
+$returnNames = array();
 $listId = 'user_ids';
 
 if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
@@ -12,6 +13,61 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = $depMember->dep_id;
         }
     }
+} else if ($Params['user_parameters']['scope'] == 'depswidget') {
+
+    $db = ezcDbInstance::get();
+
+    $filter = array('sort' => 'sort_priority ASC, name ASC', 'limit' => 20, 'offset' => $offset);
+
+    $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true);
+    $filterDep = [];
+
+    foreach (['actived','departmentd','unreadd','pendingd','operatord','closedd','mcd','botd','subjectd','pendingmd','activemd','alarmmd','mmd'] as $list) {
+        if (isset($dwFilters[$list]) && !empty($dwFilters[$list])) {
+            $filterDep = array_unique(array_merge($filterDep,explode("/",$dwFilters[$list])));
+        }
+    }
+
+    $orConditions = [];
+
+    if (!empty($search)) {
+        $orConditions[] = '`name` LIKE ' . $db->quote('%'.$search.'%');
+    }
+
+    // Always return already selected departments
+    if (!empty($filterDep)) {
+        erLhcoreClassChat::validateFilterIn($filterDep);
+        $orConditions[] = '`id` IN ('.implode(',',$filterDep).')';
+        $filter['limit'] = $filter['limit'] + count($filterDep);
+    }
+
+    if (!empty($orConditions)){
+        $filter['customfilter'][] = '('.implode(' OR ',$orConditions).')';
+    }
+
+    $items = erLhcoreClassModelDepartament::getList(array_merge_recursive(erLhcoreClassUserDep::conditionalDepartmentFilter(),$filter));
+
+    $loggedDepartments = erLhcoreClassChat::getLoggedDepartmentsIds(array_keys($items), false);
+    $loggedDepartmentsExplicit = erLhcoreClassChat::getLoggedDepartmentsIds(array_keys($items), true);
+
+    foreach ($items as $department) {
+        $returnNames[$department->id] = $department->name;
+        $return[] = array(
+            'id' => $department->id,
+            'name' => $department->name,
+            'hidden' => $department->hidden,
+            'disabled' => $department->disabled == 1,
+            'ogen' => in_array($department->id, $loggedDepartments),            // Online general
+            'oexp' => in_array($department->id, $loggedDepartmentsExplicit),    // Online explicit
+        );
+    }
+
+    usort($return, function($a, $b) use ($filterDep) {
+        return  in_array($a['id'],$filterDep) ? 1 : (!strcmp($a['name'],$b['name']) ? 1 : 0);
+    });
+
+    $listId = 'department_ids';
+
 } else if ($Params['user_parameters']['scope'] == 'deps') {
 
     $db = ezcDbInstance::get();
@@ -87,7 +143,7 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
     }
 }
 
-echo json_encode(array('items' => $return, 'props' => array('list_id' => $listId)));
+echo json_encode(array('items' => $return, 'items_names' => $returnNames, 'props' => array('list_id' => $listId)));
 
 exit;
 

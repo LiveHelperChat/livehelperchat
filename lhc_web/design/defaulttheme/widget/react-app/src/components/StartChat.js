@@ -119,6 +119,10 @@ class StartChat extends Component {
 
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
+        if (this.props.chatwidget.get('subject_id') != '') {
+            fields['subject_id'] = this.props.chatwidget.get('subject_id');
+        }
+
         if (this.props.chatwidget.get('bot_id') != '') {
             fields['bot_id'] = this.props.chatwidget.get('bot_id');
         }
@@ -181,6 +185,12 @@ class StartChat extends Component {
 
             if (obj.set_default) {
                 this.props.dispatch({'type' : 'dep_default', data : obj.value});
+            }
+
+            if (obj.subject_id) {
+                this.props.dispatch({'type' : 'subject_id', data : obj.subject_id});
+            } else {
+                this.props.dispatch({'type' : 'subject_id', data : ''});
             }
 
             if (this.props.chatwidget.getIn(['onlineData','department','departments']).size > 0){
@@ -355,6 +365,10 @@ class StartChat extends Component {
 
             if (props.chatwidget.get('bot_id') != '') {
                 fields['bot_id'] = props.chatwidget.get('bot_id');
+            }
+
+            if (props.chatwidget.get('subject_id') != '') {
+                fields['subject_id'] = props.chatwidget.get('subject_id');
             }
 
             if (props.chatwidget.get('trigger_id') != '') {

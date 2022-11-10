@@ -46,6 +46,7 @@ const initialState = fromJS({
     lang : '',
     bot_id : '',
     trigger_id : '',
+    subject_id : '',
     operator : '',
     priority : null,
     ses_ref : null,
@@ -98,6 +99,7 @@ const chatWidgetReducer = (state = initialState, action) => {
         case 'theme':
         case 'jsVars':
         case 'jsVarsPrefill':
+        case 'subject_id':
         case 'bot_id':
         case 'trigger_id':
         case 'priority':
@@ -109,10 +111,11 @@ const chatWidgetReducer = (state = initialState, action) => {
             // Visitor clicked widget and it has invitation shown. We leave invitation mode
             if (action.data == true && state.getIn(['proactive','pending']) === true) {
                 state = state.setIn(['proactive','pending'],false);
-                // This type of invitation should not be ever appended to content
-                if (state.hasIn(['proactive','data','hide_on_open'])) {
-                    state = state.set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}));
-                }
+            }
+
+            // This type of invitation should not be ever appended to content
+            if (action.data == true && state.hasIn(['proactive','data','hide_on_open'])) {
+                state = state.set('proactive',fromJS({'pending' : false, 'has' : false, data : {}}));
             }
 
             return state.set('shown',action.data);

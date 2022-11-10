@@ -9,7 +9,7 @@ It's an open-source powered application, which brings simplicity and usability i
 
 ## Need help?
 * Documentation - https://doc.livehelperchat.com
-* Forum - https://forum.livehelperchat.com/
+* Forum/Discussions - https://github.com/LiveHelperChat/livehelperchat/discussions
 * Chat (Discord) https://discord.gg/YsZXQVh
 * [Laravel version of Live Helper Chat](https://github.com/LiveHelperChat/livehelperchat_laravel)
 

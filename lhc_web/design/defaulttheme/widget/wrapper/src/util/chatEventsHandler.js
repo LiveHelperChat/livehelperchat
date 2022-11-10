@@ -65,6 +65,10 @@ class chatEventsHandler {
         if (this.attributes['trigger_id'] != '') {
             attr['trigger_id'] = this.attributes['trigger_id'];
         }
+        
+        if (this.attributes['subject_id'] != '') {
+            attr['subject_id'] = this.attributes['subject_id'];
+        }
 
         if (this.attributes['priority'] != '') {
             attr['priority'] = this.attributes['priority'];

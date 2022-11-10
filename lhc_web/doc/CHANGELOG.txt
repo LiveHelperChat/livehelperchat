@@ -1,3 +1,19 @@
+4.13v
+
+* Proactive invitations can have child invitation which works as A/B testing workflow.
+    * Once you define a parent invitation. Present invitation is considered as child invitation.
+    * Only main display attributes are taken as variation.
+    * Parent invitation statistic window will show child invitation performance.
+* Bot pause trigger. https://github.com/LiveHelperChat/livehelperchat/pull/1797
+* Proactive invitation have two new options
+    * Hide content on click - clicking it will close invitation without triggering widget open. E.g you have some sale running and want to share some code with users.
+    * Custom on click event - in combination with above option can work as independent and just execute javascript on click.
+* Users/Groups/Roles list/edit windows UX improvements. Sorts by module etc.
+* Modifying department group will update it stats also now.
+* Export CSV for survey option.
+
+execute doc/update_db/update_285.sql for update
+
 4.12v
 
 * Start chat form settings can be assigned to more than one department.

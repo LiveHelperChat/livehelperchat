@@ -421,6 +421,8 @@ class erLhcoreClassAbstract
                     $object->$key = $form->{'AbstractInput_' . $key};
                 }
 
+            } elseif (!$form->hasValidData('AbstractInput_' . $key) && ($field['type'] == 'combobox' || $field['type'] == 'text' || $field['type'] == 'number') && isset($field['default_value']) && $field['default_value'] != '') {
+                $object->$key = $field['default_value'];
             } elseif ($form->hasValidData('AbstractInput_' . $key) && (($field['required'] == false) || ($field['type'] == 'combobox') || ($field['required'] == true && ($field['type'] == 'text' || $field['type'] == 'number') && $form->{'AbstractInput_' . $key} != ''))) {
 
                 if (isset($field['multilanguage']) && $field['multilanguage'] == true) {

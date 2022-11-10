@@ -168,6 +168,17 @@ if (empty($Errors)) {
 
         $paramsExecution = array();
 
+        // Handle subject
+        if (isset($requestPayload['fields']['subject_id']) && is_numeric($requestPayload['fields']['subject_id'])) {
+            $subject = erLhAbstractModelSubject::fetch($requestPayload['fields']['subject_id']);
+            if ($subject instanceof erLhAbstractModelSubject) {
+                $subjectChat = new erLhAbstractModelSubjectChat();
+                $subjectChat->subject_id = (int)$requestPayload['fields']['subject_id'];
+                $subjectChat->chat_id =$chat->id;
+                $subjectChat->saveThis();
+            }
+        }
+
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
             // To track online users
