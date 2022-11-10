@@ -94,9 +94,6 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $Params['user_parameters_unordered']['close'] == '1') {
                     erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
-                    $informVisitorLeft = false;
-                    $surveyRedirect = false;
-
                     if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
                     }
@@ -105,10 +102,7 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                     // In that case we set as it was closed as survey completed
                     if ($Params['user_parameters_unordered']['close'] == '1') {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
-                        $surveyRedirect = true;
-                    }
 
-                    if ($informVisitorLeft == true) {
                         $msg = new erLhcoreClassModelmsg();
 
                         $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.
@@ -188,11 +182,9 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 // From now chat will be closed explicitly
                 $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
 
-                $surveyRedirect = false;
                 if ($Params['user_parameters_unordered']['close'] == '1') {
                     $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
-                    $surveyRedirect = true;
-                }
+                  }
 
                 $msg = new erLhcoreClassModelmsg();
                 $msg->msg = '[level=system-warning exit-visitor]'.($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'has closed the chat explicitly!'), ENT_QUOTES).'[/level] [button_action=send_manual_message]' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'invite to chat'), ENT_QUOTES) . '[/button_action]';
