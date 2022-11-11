@@ -50,6 +50,12 @@ for ($i = 1; $i < 5; $i++) {
             <label><?php echo erLhcoreClassAbstract::renderInput('hide_op_name', $fields['hide_op_name'], $object)?> <?php echo $fields['hide_op_name']['trans'];?></label>
         </div>
     </div>
+    
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erLhcoreClassAbstract::renderInput('hide_op_img', $fields['hide_op_img'], $object)?> <?php echo $fields['hide_op_img']['trans'];?></label>
+        </div>
+    </div>
 
     <div class="col-12">
         <div class="form-group">

@@ -170,7 +170,11 @@ if ($outputResponse['invitation_id'] > 0) {
         if (isset($invitation->design_data_array['hide_op_name']) && $invitation->design_data_array['hide_op_name'] == true) {
             $outputResponse['hide_op_name'] = true;
         }
-        
+
+        if (isset($invitation->design_data_array['hide_op_img']) && $invitation->design_data_array['hide_op_img'] == true && isset($outputResponse['photo'])) {
+            unset($outputResponse['photo']);
+        }
+
         if (isset($invitation->design_data_array['message_width']) && is_numeric($invitation->design_data_array['message_width']) && $invitation->design_data_array['message_width'] > 0) {
             $outputResponse['message_width'] = (int)$invitation->design_data_array['message_width'];
         }
@@ -191,6 +195,16 @@ if ($outputResponse['invitation_id'] > 0) {
             $outputResponse['play_sound'] = true;
         } else {
             $outputResponse['play_sound'] = false;
+        }
+
+        // Replace images
+        if (strpos($outputResponse['message'],'{proactive_img_') !== false) {
+            $replaceStyleArray = [];
+            for ($i = 1; $i < 5; $i++) {
+                $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $invitation->{'design_data_img_' . $i . '_url'};
+            }
+            $outputResponse['message'] = $onlineUser->operator_message = str_replace(array_keys($replaceStyleArray), array_values($replaceStyleArray), $onlineUser->operator_message);
+            $onlineUser->updateThis(['update' => ['operator_message']]);
         }
 
         $outputResponse['invitation_name'] = $invitation->name;
@@ -256,6 +270,9 @@ if (
 
     $onlineUser->updateThis(['update' => ['operator_message']]);
 }
+
+
+
 
 if (!isset($outputResponse['invitation_name'])) {
     $outputResponse['invitation_name'] = 'Manual';
