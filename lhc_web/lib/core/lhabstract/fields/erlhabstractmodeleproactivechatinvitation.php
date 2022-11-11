@@ -523,9 +523,11 @@ $proactiveAttr = array(
     ),
     'mobile_style' => array(
         'type' => 'textarea',
+        'ace_editor' => 'css',
+        'placeholder' => '.proactive-need-help{background-color:black!important;padding:0px!important;}',
         'main_attr' => 'design_data_array',
         'height' => '200px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Mobile style'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS, applies also to invitation bubble'),
         'required' => false,
         'hidden' => true,
         'nginit' => true,

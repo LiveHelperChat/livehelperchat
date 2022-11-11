@@ -203,8 +203,18 @@ if ($outputResponse['invitation_id'] > 0) {
             for ($i = 1; $i < 5; $i++) {
                 $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $invitation->{'design_data_img_' . $i . '_url'};
             }
-            $outputResponse['message'] = $onlineUser->operator_message = str_replace(array_keys($replaceStyleArray), array_values($replaceStyleArray), $onlineUser->operator_message);
-            $onlineUser->updateThis(['update' => ['operator_message']]);
+            $outputResponse['message'] = str_replace(array_keys($replaceStyleArray), array_values($replaceStyleArray), $outputResponse['message']);
+        }
+
+        if (isset($invitation->design_data_array['mobile_style']) && $invitation->design_data_array['mobile_style'] != '') {
+            $replaceStyleArray = array();
+            for ($i = 1; $i < 5; $i++) {
+                $replaceStyleArray['{proactive_img_' . $i . '}'] = erLhcoreClassSystem::getHost() . $invitation->{'design_data_img_' . $i . '_url'};
+            }
+            $contentCSS = str_replace(array_keys($replaceStyleArray), array_values($replaceStyleArray), $invitation->design_data_array['mobile_style']);
+            $contentCSS = str_replace(array("\n", "\r"), '', $contentCSS);
+            $outputResponse['site_css'] = $contentCSS;
+            $outputResponse['site_css_id'] = md5($contentCSS);
         }
 
         $outputResponse['invitation_name'] = $invitation->name;

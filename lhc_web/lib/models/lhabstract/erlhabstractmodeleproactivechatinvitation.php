@@ -831,7 +831,12 @@ class erLhAbstractModelProactiveChatInvitation {
 	public function customForm(){
 	    return 'proactive_invitation.tpl.php';
 	}
-	
+
+    public function dependJs()
+    {
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/ace/ace.js').'"></script>';
+    }
+
 	public function dependFooterJs(){
 	    return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular-sanitize.min.js;js/angular.lhc.events.js;js/angular.lhc.theme.js').'"></script>';
 	}

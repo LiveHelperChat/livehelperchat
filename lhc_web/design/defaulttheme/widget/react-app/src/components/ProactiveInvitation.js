@@ -56,6 +56,10 @@ class ProactiveInvitation extends Component {
         if (this.props.chatwidget.hasIn(['proactive','data','on_click'])) {
             this.appendScript(this.props.chatwidget.getIn(['proactive','data','on_click','src']), this.props.chatwidget.getIn(['proactive','data','on_click','id']));
         }
+
+        if (this.props.chatwidget.hasIn(['proactive','data','site_css'])) {
+            this.appendCSS(this.props.chatwidget.getIn(['proactive','data','site_css']), this.props.chatwidget.getIn(['proactive','data','site_css_id']));
+        }
     }
 
     appendScript(src, id) {
@@ -66,12 +70,24 @@ class ProactiveInvitation extends Component {
         document.body.appendChild(script);
     }
 
+    appendCSS(styleContent, id) {
+        const style = document.createElement('style');
+        style.innerHTML = styleContent;
+        style.id = id;
+        document.body.appendChild(style);
+    }
+
     componentWillUnmount() {
         clearTimeout(this.expireTimeout);
         helperFunctions.sendMessageParent('widgetHeight', [{'reset_height' : true}]);
         if (this.props.chatwidget.hasIn(['proactive','data','on_click'])) {
             var EObj = null;
             (EObj = document.getElementById(this.props.chatwidget.getIn(['proactive','data','on_click','id']))) ? EObj.parentNode.removeChild(EObj) : false;
+        }
+
+        if (this.props.chatwidget.hasIn(['proactive','data','site_css_id'])) {
+            var EObj = null;
+            (EObj = document.getElementById(this.props.chatwidget.getIn(['proactive','data','site_css_id']))) ? EObj.parentNode.removeChild(EObj) : false;
         }
     }
 
