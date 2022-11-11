@@ -1081,7 +1081,7 @@ if ($outputResponse['disabled'] === true) {
 $outputResponse['department'] = $departmentsOptions;
 $outputResponse['dep_forms'] = $department_id_form;
 
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('output' => & $outputResponse));
+erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('ou' => (isset($onlineUser) && $onlineUser instanceof erLhcoreClassModelChatOnlineUser ? $onlineUser : null), 'output' => & $outputResponse));
 
 erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
 exit();
