@@ -94,15 +94,20 @@ if ($Params['user_parameters_unordered']['hash'] != '') {
                 if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || $Params['user_parameters_unordered']['close'] == '1') {
                     erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
 
-                    if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED) {
+                    $informVisitorLeft = false;
+
+                    if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED && $chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT;
+                        $informVisitorLeft = true;
                     }
 
                     // It is close widget action with permanent close
                     // In that case we set as it was closed as survey completed
                     if ($Params['user_parameters_unordered']['close'] == '1') {
                         $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED;
+                    }
 
+                    if ($informVisitorLeft === true) {
                         $msg = new erLhcoreClassModelmsg();
 
                         $msg->msg = '[level=system-warning exit-visitor]' . ($chat->nick != 'Visitor' ? $chat->nick : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/userleftchat', 'Visitor'), ENT_QUOTES)) .' '.
