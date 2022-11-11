@@ -38,7 +38,13 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
             $userInstance->operator_message = '';
             $userInstance->message_seen = 0;
             $userInstance->message_seen_ts = 0;
-            $onlineAttributes['qinv'] = 1; // Next time show quite invitation
+            if (isset($userInstance->invitation->design_data_array['hide_on_open'])){
+                if (isset($onlineAttributes['qinv'])) {
+                    unset($onlineAttributes['qinv']); // Next time show normal invitation
+                }
+            } else {
+                $onlineAttributes['qinv'] = 1; // Next time show quite invitation
+            }
         } else {
             $userInstance->message_seen = 1;
             $userInstance->message_seen_ts = time();

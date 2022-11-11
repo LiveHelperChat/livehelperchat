@@ -842,8 +842,14 @@ class erLhAbstractModelProactiveChatInvitation {
 	    erLhcoreClassChatEvent::validateProactive($params);
 	}
 	
-	public function afterUpdate()
+	public function afterUpdate($params)
 	{
+        // Only one field was updated
+        // We can ignore these type of events
+        if (isset($params['update'])) {
+            return ;
+        }
+
 	    $ids = array();
 
 	    // Save events and collect id's

@@ -1,5 +1,6 @@
 <?php
 
+
 erLhcoreClassRestAPIHandler::setHeaders();
 
 if (!empty($_GET) && $_SERVER['REQUEST_METHOD'] === 'GET') {
