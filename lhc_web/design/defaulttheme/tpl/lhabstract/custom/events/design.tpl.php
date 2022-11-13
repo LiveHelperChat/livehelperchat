@@ -103,6 +103,13 @@ for ($i = 1; $i < 5; $i++) {
         </div>
     </div>
 
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo $fields['mobile_style']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/invitation_mobile_style'});" class="material-icons text-muted">help</a></label>
+            <?php echo erLhcoreClassAbstract::renderInput('mobile_style', $fields['mobile_style'], $object)?>
+        </div>
+    </div>
+
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Old widget options');?></h5>
     <div class="col-12">
         <div class="form-group">
@@ -123,10 +130,7 @@ for ($i = 1; $i < 5; $i++) {
                 <?php echo erLhcoreClassAbstract::renderInput('mobile_html', $fields['mobile_html'], $object)?>
             </div>
         </div>
-        <div class="form-group">
-            <label><?php echo $fields['mobile_style']['trans'];?></label>
-            <?php echo erLhcoreClassAbstract::renderInput('mobile_style', $fields['mobile_style'], $object)?>
-        </div>
+
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
