@@ -286,6 +286,7 @@ $proactiveAttr = array(
     ),
     'message' => array(
         'type' => 'textarea',
+        'help' => 'inv_message',
         'translatable' => true,
         'main_attr_lang' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to user'),
