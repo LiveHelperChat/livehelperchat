@@ -65,7 +65,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
