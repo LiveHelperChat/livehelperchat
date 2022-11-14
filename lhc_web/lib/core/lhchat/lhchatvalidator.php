@@ -920,6 +920,8 @@ class erLhcoreClassChatValidator {
 
     public static function validateJSVarsVisitor($visitor, $data) {
 
+        $hashData = md5($visitor->online_attr_system . '_' . $visitor->online_attr);
+
         $onlineAttr = $visitor->online_attr_array;
         $variableSet = [];
 
@@ -990,10 +992,13 @@ class erLhcoreClassChatValidator {
         $visitor->online_attr = json_encode($onlineAttr);
         $visitor->online_attr_array = $onlineAttr;
 
-        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.update_js_vars', array('ou' => & $visitor));
+        $hashChanged = md5($visitor->online_attr_system . '_' . $visitor->online_attr) != $hashData;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.update_js_vars', array('data_changed' => $hashChanged, 'ou' => & $visitor));
 
-        $visitor->saveThis(array('update' => array('online_attr', 'online_attr_system')));
-
+        // Update only if data has changed
+        if ($hashChanged) {
+            $visitor->saveThis(array('update' => array('online_attr', 'online_attr_system')));
+        }
     }
 
     public static function isValidTimezoneId2($tzid) {
