@@ -66,6 +66,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -694,6 +698,10 @@
       <translation>Ключ атрибута</translation>
     </message>
     <message>
+      <source>Comparison operator</source>
+      <translation>Оператор порівняння</translation>
+    </message>
+    <message>
       <source>Attribute value</source>
       <translation>Значення атрибута</translation>
     </message>
@@ -784,6 +792,10 @@
     <message>
       <source>Notification</source>
       <translation>Повідомлення</translation>
+    </message>
+    <message>
+      <source>Reactions</source>
+      <translation>Реакції</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
@@ -1720,6 +1732,30 @@
     <message>
       <source>Show go to survey button on chat close</source>
       <translation>Показати кнопку перейти до опитування при закритті чату</translation>
+    </message>
+    <message>
+      <source>Enable reactions for visitor</source>
+      <translation>Увімкнути реакції для відвідувача</translation>
+    </message>
+    <message>
+      <source>Only one reaction can be chosen per message</source>
+      <translation>На одне повідомлення можна вибрати лише одну реакцію</translation>
+    </message>
+    <message>
+      <source>Selected reactions should be always visible under a message</source>
+      <translation>Вибрані реакції мають бути завжди видимі під повідомленням</translation>
+    </message>
+    <message>
+      <source>Always visible reactions</source>
+      <translation>Завжди помітні реакції</translation>
+    </message>
+    <message>
+      <source>Custom toolbar icons</source>
+      <translation>Спеціальні піктограми панелі інструментів</translation>
+    </message>
+    <message>
+      <source>Custom modal window icons</source>
+      <translation>Спеціальні модальні іконки вікон</translation>
     </message>
     <message>
       <source>Try to expand widget to full screen in page embed mode</source>
@@ -2835,6 +2871,10 @@
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Minimum chats</source>
+      <translation>Мінімум чатів</translation>
+    </message>
+    <message>
       <source>Select event</source>
       <translation>Виберіть подію</translation>
     </message>
@@ -2977,6 +3017,14 @@
     <message>
       <source>Delete selected</source>
       <translation>Видалити обране</translation>
+    </message>
+    <message>
+      <source>Abandoned chats</source>
+      <translation>Залишені чати</translation>
+    </message>
+    <message>
+      <source>Dropped chat</source>
+      <translation>Закинув чат</translation>
     </message>
     <message>
       <source>Nick</source>
@@ -3155,14 +3203,6 @@
       <translation>Чати, у яких не було бота</translation>
     </message>
     <message>
-      <source>Abandoned chats</source>
-      <translation>Залишені чати</translation>
-    </message>
-    <message>
-      <source>Dropped chat</source>
-      <translation>Закинув чат</translation>
-    </message>
-    <message>
       <source>Proactive chat</source>
       <translation>Проактивний чат</translation>
     </message>
@@ -3267,6 +3307,10 @@
       <translation>Бот стежить за режимом онлайн. Відділ буде в автономному режимі, якщо немає онлайн-операторів або це неробочий час.</translation>
     </message>
     <message>
+      <source>Enable debug logging</source>
+      <translation>Увімкнути журнал налагодження</translation>
+    </message>
+    <message>
       <source>Select translations</source>
       <translation>Виберіть переклади</translation>
     </message>
@@ -3303,6 +3347,98 @@
       <translation>Будь ласка виберіть</translation>
     </message>
     <message>
+      <source>Please click search first</source>
+      <translation>Будь ласка, спочатку натисніть пошук</translation>
+    </message>
+    <message>
+      <source>Update report</source>
+      <translation>Звіт про оновлення</translation>
+    </message>
+    <message>
+      <source>Save as report</source>
+      <translation>Зберегти як звіт</translation>
+    </message>
+    <message>
+      <source>Description of your report</source>
+      <translation>Опис вашого звіту</translation>
+    </message>
+    <message>
+      <source>Put description for your own purposes.</source>
+      <translation>Додайте опис для власних цілей.</translation>
+    </message>
+    <message>
+      <source>Date filter templates</source>
+      <translation>Шаблони фільтрів дат</translation>
+    </message>
+    <message>
+      <source>Previous Day</source>
+      <translation>Попередній день</translation>
+    </message>
+    <message>
+      <source>Previous Week</source>
+      <translation>Попередній тиждень</translation>
+    </message>
+    <message>
+      <source>Previous Month</source>
+      <translation>Попередній місяць</translation>
+    </message>
+    <message>
+      <source>Current Day</source>
+      <translation>Поточний день</translation>
+    </message>
+    <message>
+      <source>Current Week</source>
+      <translation>Поточний тиждень</translation>
+    </message>
+    <message>
+      <source>Current month</source>
+      <translation>Поточний місяць</translation>
+    </message>
+    <message>
+      <source>Show advanced</source>
+      <translation>Показати розширені</translation>
+    </message>
+    <message>
+      <source>Date range start value</source>
+      <translation>Початкове значення діапазону дат</translation>
+    </message>
+    <message>
+      <source>Last n days.</source>
+      <translation>Останні n днів.</translation>
+    </message>
+    <message>
+      <source>Last n weeks.</source>
+      <translation>Останні n тижнів.</translation>
+    </message>
+    <message>
+      <source>Last n months.</source>
+      <translation>Останні n місяців.</translation>
+    </message>
+    <message>
+      <source>Start from Days/Weeks/Months ago</source>
+      <translation>Почніть із днів/тижнів/місяців тому</translation>
+    </message>
+    <message>
+      <source>Ends from Days/Weeks/Months ago</source>
+      <translation>Закінчується з днів/тижнів/місяців тому</translation>
+    </message>
+    <message>
+      <source>The higher number the higher in the report list it will appear</source>
+      <translation>Чим більше число, тим вище у списку звітів воно відображатиметься</translation>
+    </message>
+    <message>
+      <source>Save report</source>
+      <translation>Зберегти звіт</translation>
+    </message>
+    <message>
+      <source>My reports</source>
+      <translation>Мої звіти</translation>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation>Видалити</translation>
+    </message>
+    <message>
       <source>Invitation</source>
       <translation>Запрошення</translation>
     </message>
@@ -3333,10 +3469,6 @@
     <message>
       <source>Has unread messages from visitor</source>
       <translation>Має непрочитані повідомлення від відвідувача</translation>
-    </message>
-    <message>
-      <source>Abandoned chat</source>
-      <translation>Покинутий чат</translation>
     </message>
     <message>
       <source>Compare to past</source>
@@ -3411,6 +3543,10 @@
       <translation>Денний інтервал для включення</translation>
     </message>
     <message>
+      <source>Abandoned chat</source>
+      <translation>Покинутий чат</translation>
+    </message>
+    <message>
       <source>User Agent</source>
       <translation>Агент користувача</translation>
     </message>
@@ -3471,8 +3607,8 @@
       <translation>Групувати результати за оператором</translation>
     </message>
     <message>
-      <source>Minimum chats</source>
-      <translation>Мінімум чатів</translation>
+      <source>Minimum operator chats</source>
+      <translation>Мінімум операторських чатів</translation>
     </message>
     <message>
       <source>Optional</source>
@@ -3567,16 +3703,16 @@
       <translation>Опис вашого погляду</translation>
     </message>
     <message>
-      <source>Put description for your own purposes.</source>
-      <translation>Додайте опис для власних цілей.</translation>
-    </message>
-    <message>
       <source>Save search</source>
       <translation>Зберегти пошук</translation>
     </message>
     <message>
       <source>Choose</source>
       <translation>Виберіть</translation>
+    </message>
+    <message>
+      <source>Till now</source>
+      <translation>Дотепер</translation>
     </message>
   </context>
   <context>
@@ -3712,6 +3848,10 @@
       <translation>Значення за замовчуванням</translation>
     </message>
     <message>
+      <source>Tab custom name</source>
+      <translation>Користувацька назва вкладки</translation>
+    </message>
+    <message>
       <source>Value</source>
       <translation>Значення</translation>
     </message>
@@ -3826,6 +3966,10 @@
     <message>
       <source>New canned message</source>
       <translation>Нове шаблонне повідомлення</translation>
+    </message>
+    <message>
+      <source>Delete selected</source>
+      <translation>Видалити вибране</translation>
     </message>
     <message>
       <source>By default last 30 days statistic is shown.</source>
@@ -5484,10 +5628,6 @@
       <translation>Перенаправити на контактну форму</translation>
     </message>
     <message>
-      <source>Please enter a URL</source>
-      <translation>Будь ласка введіть URL</translation>
-    </message>
-    <message>
       <source>Redirect to another url</source>
       <translation>Переспрямування на іншу URL-адресу</translation>
     </message>
@@ -5522,6 +5662,10 @@
     <message>
       <source>Hidden field</source>
       <translation>Приховане поле</translation>
+    </message>
+    <message>
+      <source>Passed as encrypted variable</source>
+      <translation>Передається як зашифрована змінна</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -5658,6 +5802,10 @@
     <message>
       <source>Screenshot</source>
       <translation>Скріншот</translation>
+    </message>
+    <message>
+      <source>Theme</source>
+      <translation>Тема</translation>
     </message>
     <message>
       <source>Computer</source>
@@ -5816,6 +5964,10 @@
       <translation>Відправити</translation>
     </message>
     <message>
+      <source>Styling options</source>
+      <translation>Варіанти укладання</translation>
+    </message>
+    <message>
       <source>Created</source>
       <translation>Створено</translation>
     </message>
@@ -5826,6 +5978,14 @@
     <message>
       <source>Visitor ID</source>
       <translation>ID відвідувача</translation>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Будь ласка введіть URL</translation>
+    </message>
+    <message>
+      <source>Please enter an URL!</source>
+      <translation>Будь ласка, введіть URL!</translation>
     </message>
     <message>
       <source>Automatic translation</source>
@@ -6046,16 +6206,36 @@
       <translation>Шепіт</translation>
     </message>
     <message>
+      <source>Impersonate</source>
+      <translation>Видавати себе за іншу особу</translation>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution.</source>
+      <translation>Ви не власник чату, вводьте текст обережно.</translation>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation>Я</translation>
+    </message>
+    <message>
+      <source>You are working as a chat owner.</source>
+      <translation>Ви працюєте власником чату.</translation>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation>Власник чату</translation>
+    </message>
+    <message>
+      <source>Join as</source>
+      <translation>Приєднатися як</translation>
+    </message>
+    <message>
       <source>This chat was closed. You can not write messages anymore.</source>
       <translation>Цей чат був закритий. Ви більше не можете писати повідомлення.</translation>
     </message>
     <message>
       <source>You can only read a messages.</source>
       <translation>Ви можете читати лише повідомлення.</translation>
-    </message>
-    <message>
-      <source>You are not chat owner, type with caution.</source>
-      <translation>Ви не власник чату, вводьте текст обережно.</translation>
     </message>
     <message>
       <source>Switch between chats using Alt+</source>
@@ -6743,6 +6923,14 @@
     <message>
       <source>Auto uppercase sentences</source>
       <translation>Автоматичні речення у верхньому регістрі</translation>
+    </message>
+    <message>
+      <source>Default number of rows for chat text area</source>
+      <translation>Типова кількість рядків для текстової області чату</translation>
+    </message>
+    <message>
+      <source>Number of rows</source>
+      <translation>Кількість рядів</translation>
     </message>
     <message>
       <source>Maximum active chats</source>
@@ -7473,6 +7661,10 @@
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
       <translation>Повідомте мене, якщо відвідувач пише більше, ніж визначене число повідомлень.</translation>
+    </message>
+    <message>
+      <source>Report was saved</source>
+      <translation>Звіт збережено</translation>
     </message>
     <message>
       <source>online status</source>
@@ -8243,6 +8435,10 @@
       <translation>Скріншот</translation>
     </message>
     <message>
+      <source>Redirect to URL</source>
+      <translation>Переспрямувати на URL</translation>
+    </message>
+    <message>
       <source>Screenshot store error</source>
       <translation>Помилка зберігання знімків екрана</translation>
     </message>
@@ -8264,6 +8460,10 @@
     <message>
       <source>Send chat</source>
       <translation>Відправити чат</translation>
+    </message>
+    <message>
+      <source>Image preview</source>
+      <translation>Попередній перегляд зображення</translation>
     </message>
   </context>
   <context>
@@ -8367,6 +8567,18 @@
     <message>
       <source>In dynamic chats order mode</source>
       <translation>У режимі замовлення динамічних чатів</translation>
+    </message>
+    <message>
+      <source>Click to switch modes</source>
+      <translation>Натисніть, щоб переключити режими</translation>
+    </message>
+    <message>
+      <source>Multiple chats view</source>
+      <translation>Перегляд кількох чатів</translation>
+    </message>
+    <message>
+      <source>Single chat view</source>
+      <translation>Перегляд одного чату</translation>
     </message>
     <message>
       <source>Chat ID to open</source>
@@ -8628,6 +8840,14 @@
     <message>
       <source>Typing...</source>
       <translation>Набирає текст...</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation>Палець вгору</translation>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation>Палець вниз</translation>
     </message>
     <message>
       <source>Transferred to</source>
@@ -11193,6 +11413,10 @@
       <translation>Користувача заблокували!</translation>
     </message>
     <message>
+      <source>You do not have permission to block user!</source>
+      <translation>У вас немає дозволу на блокування користувача!</translation>
+    </message>
+    <message>
       <source>Started chat from</source>
       <translation>Розпочато чат із</translation>
     </message>
@@ -13315,6 +13539,10 @@
     <message>
       <source>User time zone</source>
       <translation>Часовий пояс користувача</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>Виберіть</translation>
     </message>
     <message>
       <source>Application default time zone</source>
@@ -16172,6 +16400,10 @@
       <translation>Редагувати</translation>
     </message>
     <message>
+      <source>Export</source>
+      <translation>Експорт</translation>
+    </message>
+    <message>
       <source>Delete</source>
       <translation>Видалити</translation>
     </message>
@@ -16461,6 +16693,18 @@
       <translation>Текстові повідомлення 4</translation>
     </message>
     <message>
+      <source>Button payload 1</source>
+      <translation>Корисне навантаження кнопки 1</translation>
+    </message>
+    <message>
+      <source>Button payload 2</source>
+      <translation>Корисне навантаження кнопки 2</translation>
+    </message>
+    <message>
+      <source>Button payload 3</source>
+      <translation>Корисне навантаження кнопки 3</translation>
+    </message>
+    <message>
       <source>Attachments</source>
       <translation>Вкладення</translation>
     </message>
@@ -16475,6 +16719,10 @@
     <message>
       <source>Images/Video 3</source>
       <translation>Зображення/відео 3</translation>
+    </message>
+    <message>
+      <source>Images/Video 4</source>
+      <translation>Зображення/відео 4</translation>
     </message>
     <message>
       <source>Chat options</source>
@@ -16525,12 +16773,24 @@
       <translation>Шаблон ідентифікатора чату для надсилання повідомлень вручну. Використовуйте {chat_id} як заповнювач</translation>
     </message>
     <message>
+      <source>Chat ID field replace rule</source>
+      <translation>Правило заміни поля ID чату</translation>
+    </message>
+    <message>
+      <source>Chat ID field replace value</source>
+      <translation>Поле ID чату замінює значення</translation>
+    </message>
+    <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
       <translation>Загальні умови повідомлень, що обробляються. Це атрибути першого рівня</translation>
     </message>
     <message>
       <source>Additional field location</source>
       <translation>Додаткове розташування поля</translation>
+    </message>
+    <message>
+      <source>Invisible additional field</source>
+      <translation>Невидиме додаткове поле</translation>
     </message>
     <message>
       <source>Message body content</source>
@@ -16569,16 +16829,36 @@
       <translation>Запит вмісту</translation>
     </message>
     <message>
+      <source>Request content headers</source>
+      <translation>Заголовки вмісту запиту</translation>
+    </message>
+    <message>
       <source>Response location</source>
       <translation>Місце відповіді</translation>
+    </message>
+    <message>
+      <source>Returned response is location to download file</source>
+      <translation>Повернена відповідь – це місце для завантаження файлу</translation>
+    </message>
+    <message>
+      <source>Remote request additional headers</source>
+      <translation>Віддалений запит додаткових заголовків</translation>
     </message>
     <message>
       <source>For message being considered attachment message should have attribute value equal to</source>
       <translation>Для того, щоб повідомлення вважається вкладеним, повідомлення повинно мати значення атрибута, рівне</translation>
     </message>
     <message>
+      <source>Button payload location</source>
+      <translation>Розташування корисного навантаження кнопки</translation>
+    </message>
+    <message>
       <source>Download image instead of using external URL</source>
       <translation>Завантажте зображення замість зовнішньої URL-адреси</translation>
+    </message>
+    <message>
+      <source>Returned response is location to download image</source>
+      <translation>Повернена відповідь – це місце для завантаження зображення</translation>
     </message>
     <message>
       <source>For message being considered images message should have attribute value equal to</source>
@@ -17527,6 +17807,10 @@
     <message>
       <source>User action type not set</source>
       <translation>Тип дії користувача не встановлено</translation>
+    </message>
+    <message>
+      <source>Please choose a user Time Zone!</source>
+      <translation>Виберіть часовий пояс користувача!</translation>
     </message>
     <message>
       <source>Password has to be at least %d characters length</source>
