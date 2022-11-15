@@ -1181,25 +1181,31 @@ class Install
             $db->query("CREATE TABLE `lh_abstract_chat_alert_icon` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`name` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_abstract_proactive_chat_campaign_conv` (
-                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-				  `device_type` tinyint(11) NOT NULL,
-				  `invitation_type` tinyint(1) NOT NULL,
-				  `invitation_status` tinyint(1) NOT NULL,
-				  `chat_id` bigint(20) NOT NULL,
-				  `campaign_id` int(11) NOT NULL,
-				  `invitation_id` int(11) NOT NULL,
-				  `department_id` int(11) NOT NULL,
-				  `ctime` int(11) NOT NULL,
-				  `con_time` int(11) NOT NULL,
-				  `vid_id` bigint(20) DEFAULT NULL,
-				  `variation_id` int(11) NOT NULL DEFAULT '0',
-				  PRIMARY KEY (`id`),
-				  KEY `ctime` (`ctime`),
-				  KEY `campaign_id` (`campaign_id`),
-				  KEY `invitation_status` (`invitation_status`),
-				  KEY `invitation_id_variation_id` (`invitation_id`, `variation_id`)
-				) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-
+              `id` bigint(20) NOT NULL AUTO_INCREMENT,
+              `device_type` tinyint(11) NOT NULL,
+              `invitation_type` tinyint(1) NOT NULL,
+              `invitation_status` tinyint(1) NOT NULL,
+              `chat_id` bigint(20) NOT NULL,
+              `campaign_id` int(11) NOT NULL,
+              `invitation_id` int(11) NOT NULL,
+              `department_id` int(11) NOT NULL,
+              `ctime` int(11) NOT NULL,
+              `con_time` int(11) NOT NULL,
+              `vid_id` bigint(20) DEFAULT NULL,
+              `variation_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+              `conv_int_expires` bigint(20) unsigned NOT NULL DEFAULT 0,
+              `conv_int_time` bigint(20) unsigned NOT NULL DEFAULT 0,
+              `conv_event` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+              `unique_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+              PRIMARY KEY (`id`),
+              KEY `campaign_id` (`campaign_id`),
+              KEY `invitation_status` (`invitation_status`),
+              KEY `ctime` (`ctime`),
+              KEY `invitation_id_variation_id` (`invitation_id`,`variation_id`),
+              KEY `unique_id` (`unique_id`),
+              KEY `conv_int_time` (`conv_int_time`),
+              KEY `conv_event_vid_id` (`conv_event`,`vid_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE IF NOT EXISTS `lh_users_setting` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,

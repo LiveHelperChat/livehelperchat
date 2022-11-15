@@ -1,6 +1,24 @@
 <?php
 
 $proactiveAttr = array(
+    'event_id' => array(
+        'type' => 'text',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Event id to receive from website for conversion to finish.'),
+        'required' => false,
+        'hidden' => true,
+        'maxlength' => 20,
+        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','E.g ordered'),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'conversion_expires_in' => array(
+        'type' => 'text',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Conversion has to happen within this period of time after invitation was send/clicked.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
     'name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name for personal purposes'),

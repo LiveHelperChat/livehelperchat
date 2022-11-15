@@ -25,6 +25,12 @@ class erLhAbstractModelProactiveChatCampaignConversion
             'department_id'     => $this->department_id,
             'ctime'             => $this->ctime,
             'con_time'          => $this->con_time,
+
+            'conv_int_expires'  => $this->conv_int_expires, // Time when conversion expires. time() + invitation conv expire time
+            'conv_int_time'     => $this->conv_int_time,    // Time conversion happened
+            'conv_event'        => $this->conv_event,       // E.g `ordered`
+            'unique_id'         => $this->unique_id,        // Unique ID
+
             'vid_id'            => $this->vid_id,
             'variation_id'      => $this->variation_id
         );
@@ -38,6 +44,16 @@ class erLhAbstractModelProactiveChatCampaignConversion
 
             default:
                 break;
+        }
+    }
+
+    public static function addConversion($onlineUser, $eventId) {
+        $campaignConversion = self::findOne(['sort' => '`id` DESC', 'filter' => ['conv_event' => $eventId, 'vid_id' => $onlineUser->id]]);
+
+        // Check always only last one conversion record
+        if ($campaignConversion instanceof erLhAbstractModelProactiveChatCampaignConversion && $campaignConversion->conv_int_expires > time() && $campaignConversion->conv_int_time == 0) {
+            $campaignConversion->conv_int_time = time();
+            $campaignConversion->updateThis(['update' => ['conv_int_time']]);
         }
     }
 
@@ -58,6 +74,11 @@ class erLhAbstractModelProactiveChatCampaignConversion
     public $con_time = 0;
     public $vid_id = 0;
     public $variation_id = 0;
+
+    public $conv_int_expires = 0;
+    public $conv_int_time = 0;
+    public $conv_event = '';
+    public $unique_id = '';
 }
 
 ?>

@@ -29,6 +29,10 @@ class _proactiveChat {
             this.initInvitation();
         }
 
+        if (this.attributes.conversion != '') {
+            this.storeConversion(this.attributes.conversion);
+        }
+
         // check invitaiton then tag is added
         this.attributes.eventEmitter.addListener('tagAdded', () => {
             this.initInvitation({init: 0});
@@ -36,6 +40,10 @@ class _proactiveChat {
 
         this.attributes.eventEmitter.addListener('eventAdded', () => {
             this.storeEvents(this.attributes.events);
+        });
+
+        this.attributes.eventEmitter.addListener('conversionAdded', () => {
+            this.storeConversion(this.attributes.conversion);
         });
 
         this.attributes.eventEmitter.addListener('checkMessageOperator', () => {
@@ -99,6 +107,15 @@ class _proactiveChat {
             helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'chat/logevent/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(events)}}, (data) => {
                 this.initInvitation({init: 0});
             })
+        }
+    }
+
+    storeConversion(conversion) {
+        const chatParams = this.attributes['userSession'].getSessionAttributes();
+        if (!chatParams['id'] && this.attributes['onlineStatus'].value == true) {
+            helperFunctions.makeRequest(this.attributes.LHC_API.args.lhc_base_url + this.attributes['lang'] + 'widgetrestapi/logconversions/(vid)/' + this.attributes.userSession.getVID(), {params: {'data' : JSON.stringify(conversion)}}, (data) => {
+
+            });
         }
     }
 
