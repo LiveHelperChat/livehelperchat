@@ -76,7 +76,7 @@ http://livehelperchat.com/demo-12c.html
 https://github.com/LiveHelperChat
 
 ## Translations contribution
-https://www.transifex.com/projects/p/live-helper-chat/
+https://explore.transifex.com/remigijus-kiminas/live-helper-chat/
 
 ## Folders structure
 
