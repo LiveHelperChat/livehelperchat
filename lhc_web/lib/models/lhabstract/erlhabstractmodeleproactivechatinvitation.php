@@ -575,15 +575,15 @@ class erLhAbstractModelProactiveChatInvitation {
             $conditionsValid = true;
 
             for ($i = 1; $i <= 10; $i++) {
-                 if ( isset($design_data_array['attrf_key_' . $i]) &&
-                    $design_data_array['attrf_key_' . $i] != '' &&
-                    isset($design_data_array['attrf_val_' . $i]) &&
-                    $design_data_array['attrf_val_' . $i] != ''
-                ) {
+                 if ( isset($design_data_array['attrf_key_' . $i]) &&  $design_data_array['attrf_key_' . $i] != '' ) {
 
-                     if (!isset($onlineAttrSystem[$design_data_array['attrf_key_' . $i]])){
+                     if (!isset($onlineAttrSystem[$design_data_array['attrf_key_' . $i]])) {
                          $conditionsValid = false;
                          break;
+                     }
+
+                     if (!isset($design_data_array['attrf_val_' . $i])) {
+                         $design_data_array['attrf_val_' . $i] = '';
                      }
 
                      $valuesExpected = explode('||',strtolower($design_data_array['attrf_val_' . $i]));
