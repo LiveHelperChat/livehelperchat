@@ -1,4 +1,4 @@
-Samples how to change bubble background
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Samples how to change bubble background');?>
 <div class="alert alert-success" role="alert">
 <?php echo nl2br('/* Widget bubble style adjust */
 .proactive-need-help {

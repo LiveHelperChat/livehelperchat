@@ -2,11 +2,7 @@
 <div ng-controller="ProactiveEventsFormCtrl as proev" <?php if (!empty($events)) : ?> ng-init='proev.events = <?php echo erLhcoreClassChatEvent::getEventJson($events)?>'<?php endif;?>>
 
     <input type="button" class="btn btn-secondary" ng-click="proev.addEvent()" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add event')?>" />
-    
-    <?php /*
-    <p>All conditions has to be met for invitation to be triggered.</p>
-    */ ?>
-    
+
     <hr>
     
     <div class="row">
@@ -14,7 +10,7 @@
             <div class="row">
                 <div class="col-4">
                     <div class="form-group">
-                        <label>Event</label>
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Event')?></label>
                         <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                                 'input_name'     => 'event_variable[]',
                 				'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select event'),

@@ -66,8 +66,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <source/>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How long we should wait before we inform operator about unanswered chat.</source>
+      <translation>Quanto dovremmo aspettare prima di informare l&apos;operatore in merito alla chat non risposta.</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -75,7 +79,7 @@
     </message>
     <message>
       <source>Domains where script can be embedded. E.g example.com, google.com</source>
-      <translation type="unfinished"/>
+      <translation>I domini su cui lo script può essere incorporato. Ad esempio: example.com, google.com</translation>
     </message>
     <message>
       <source>Use secure cookie, check this if you want to force SSL all the time</source>
@@ -191,7 +195,7 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>Lo username dovrebbe essere ricordato la prossima che il visitatore inizierà una chat?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -279,7 +283,7 @@
     </message>
     <message>
       <source>Do not store what visitor is typing</source>
-      <translation type="unfinished"/>
+      <translation>Non salvare quello che il visitatore sta digitando</translation>
     </message>
     <message>
       <source>Which ip should be ignored in online users list, separate by comma</source>
@@ -331,7 +335,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Disabilita il download della chat</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -502,23 +506,23 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
+      <translation>Cerca</translation>
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>Blocca IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Blocca e-mail</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>Blocca nazione</translation>
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Chiudi</translation>
     </message>
     <message>
       <source>Yes</source>
@@ -526,15 +530,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>Invia messaggio a</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>visitatori</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Invia il messaggio ed inizia una chat</translation>
     </message>
     <message>
       <source>Send</source>
@@ -542,7 +546,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>Seleziona tutti</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -578,7 +582,7 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Invia feedback</translation>
     </message>
     <message>
       <source>Test</source>
@@ -586,11 +590,11 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>I dati salvati di seguito non vengono mostrati.</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Condividi</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -598,7 +602,7 @@
     </message>
     <message>
       <source>Voice call</source>
-      <translation type="unfinished"/>
+      <translation>Chiamata vocale</translation>
     </message>
   </context>
   <context>
@@ -659,7 +663,7 @@
     </message>
     <message>
       <source>Multi-language chat</source>
-      <translation type="unfinished"/>
+      <translation>Chat multi-lingua</translation>
     </message>
     <message>
       <source>Add translation</source>
@@ -667,7 +671,7 @@
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
-      <translation type="unfinished"/>
+      <translation>L&apos;invito è attivo se una di queste è &quot;true&quot;</translation>
     </message>
     <message>
       <source>If operator has 3 max chats, and you enter here 2. Means proactive invitation will be active only if operator has less than 5 chats assigned to him.</source>
@@ -675,7 +679,7 @@
     </message>
     <message>
       <source>Other conditions</source>
-      <translation type="unfinished"/>
+      <translation>Altre condizioni</translation>
     </message>
     <message>
       <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
@@ -694,8 +698,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Comparison operator</source>
+      <translation>Operatore di confronto</translation>
+    </message>
+    <message>
       <source>Attribute value</source>
-      <translation type="unfinished"/>
+      <translation>Valore dell&apos;attributo</translation>
     </message>
     <message>
       <source>For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.</source>
@@ -786,20 +794,24 @@
       <translation>Notifica</translation>
     </message>
     <message>
+      <source>Reactions</source>
+      <translation>Reazioni</translation>
+    </message>
+    <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Online status options</source>
-      <translation type="unfinished"/>
+      <translation>Opzioni dello stato online</translation>
     </message>
     <message>
       <source>Offline status options</source>
-      <translation type="unfinished"/>
+      <translation>Opzioni dello stato offline</translation>
     </message>
     <message>
       <source>Images</source>
-      <translation type="unfinished"/>
+      <translation>Immagini</translation>
     </message>
     <message>
       <source>Live preview</source>
@@ -815,27 +827,27 @@
     </message>
     <message>
       <source>New message separator style</source>
-      <translation type="unfinished"/>
+      <translation>Stile del separatore di un nuovo messaggio</translation>
     </message>
     <message>
       <source>Scroll to the bottom style</source>
-      <translation type="unfinished"/>
+      <translation>Stile del pulsante &quot;scrolla in basso&quot;</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Altro</translation>
     </message>
     <message>
       <source>Override embed code settings</source>
-      <translation type="unfinished"/>
+      <translation>Sovrascrivi impostazioni di incorporazione del codice</translation>
     </message>
     <message>
       <source>Build your own need help widget layout</source>
-      <translation type="unfinished"/>
+      <translation>Costruisci il tuo layout personale per il widget &quot;Serve aiuto&quot;</translation>
     </message>
     <message>
       <source>Set default HTML</source>
-      <translation type="unfinished"/>
+      <translation>Imposta l&apos;HTML di default</translation>
     </message>
     <message>
       <source>If you want to get nerdy you can build your own eye catcher using default template as starting point. You can adjust need help widget dimensions above. Also see what placeholders we support.</source>
@@ -1071,7 +1083,7 @@
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
-      <translation type="unfinished"/>
+      <translation>Se la variabile non viene passata, mantenere il valore precedente?</translation>
     </message>
     <message>
       <source>This variable is invisible for operator and will be stored in chat_variables attribute</source>
@@ -1147,19 +1159,19 @@
     </message>
     <message>
       <source>Survey title</source>
-      <translation type="unfinished"/>
+      <translation>Titolo del sondaggio</translation>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
-      <translation type="unfinished"/>
+      <translation>Per favore, completa questo breve sondaggio di valutazione</translation>
     </message>
     <message>
       <source>Disable chat preview</source>
-      <translation type="unfinished"/>
+      <translation>Disabilita l&apos;anteprima della chat</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Disabilita il download della chat</translation>
     </message>
     <message>
       <source> Required only if stars less or equal to 1 - n</source>
@@ -1207,19 +1219,19 @@
     </message>
     <message>
       <source>Need help widget width</source>
-      <translation type="unfinished"/>
+      <translation>Larghezza del widget &quot;Serve aiuto&quot;</translation>
     </message>
     <message>
       <source>Need help widget height</source>
-      <translation type="unfinished"/>
+      <translation>Altezza del widget &quot;Serve aiuto&quot;</translation>
     </message>
     <message>
       <source>Position from right</source>
-      <translation type="unfinished"/>
+      <translation>Distanza da destra</translation>
     </message>
     <message>
       <source>Position from bottom</source>
-      <translation type="unfinished"/>
+      <translation>Distanza dal basso</translation>
     </message>
     <message>
       <source>Show need help tooltip?</source>
@@ -1227,15 +1239,15 @@
     </message>
     <message>
       <source>Hide need help widget for mobile devices.</source>
-      <translation type="unfinished"/>
+      <translation>Nascondi il widget &quot;Serve aiuto&quot; su dispositivi mobile</translation>
     </message>
     <message>
       <source>Always visible. Usefull if you make custom HTML and want that need help would be always visible.</source>
-      <translation type="unfinished"/>
+      <translation>Sempre visibile. Utile se scrivi il tuo HTML personalizzato e desideri che il widget &quot;Serve aiuto&quot; sia sempre visibile.</translation>
     </message>
     <message>
       <source>Hide close button</source>
-      <translation type="unfinished"/>
+      <translation>Nascondi il bottone &quot;Chiudi&quot;</translation>
     </message>
     <message>
       <source>Hide message time from visitor</source>
@@ -1243,7 +1255,7 @@
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
-      <translation type="unfinished"/>
+      <translation>Usa il look moderno. Funziona solo sul vecchio widget.</translation>
     </message>
     <message>
       <source>Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.</source>
@@ -1283,7 +1295,7 @@
     </message>
     <message>
       <source>Text/Icon color</source>
-      <translation type="unfinished"/>
+      <translation>Colore del testo/icona</translation>
     </message>
     <message>
       <source>Operator image in chat widget</source>
@@ -1311,11 +1323,11 @@
     </message>
     <message>
       <source>Disable sound for the visitor by default</source>
-      <translation type="unfinished"/>
+      <translation>Disabilita suoni per i visitatori di default</translation>
     </message>
     <message>
       <source>Terminate script if parent window already has live help script</source>
-      <translation type="unfinished"/>
+      <translation>Termina lo script se la window esterna ha già lo script di LiveHelper</translation>
     </message>
     <message>
       <source>Terminate script in parent window if any child iframe has already live helper script</source>
@@ -1722,6 +1734,30 @@ Chiudi la chat se la pagina viene aggiornata. Utile se hai incorporato il codice
     <message>
       <source>Show go to survey button on chat close</source>
       <translation>Mostrare il sondaggio alla chiusura della chat</translation>
+    </message>
+    <message>
+      <source>Enable reactions for visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only one reaction can be chosen per message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Selected reactions should be always visible under a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always visible reactions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom toolbar icons</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom modal window icons</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Try to expand widget to full screen in page embed mode</source>
@@ -2841,6 +2877,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/lists/search_panel</name>
     <message>
+      <source>Minimum chats</source>
+      <translation>Chat minime</translation>
+    </message>
+    <message>
       <source>Select event</source>
       <translation>Seleziona evento</translation>
     </message>
@@ -2983,6 +3023,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Delete selected</source>
       <translation>Cancella selezionato</translation>
+    </message>
+    <message>
+      <source>Abandoned chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dropped chat</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Nick</source>
@@ -3161,14 +3209,6 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Abandoned chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dropped chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Proactive chat</source>
       <translation type="unfinished"/>
     </message>
@@ -3273,6 +3313,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Enable debug logging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Select translations</source>
       <translation>Seleziona traduzione</translation>
     </message>
@@ -3309,6 +3353,98 @@ Icona colonna, testo icone materiale</translation>
       <translation>Selezionare</translation>
     </message>
     <message>
+      <source>Please click search first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save as report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Description of your report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put description for your own purposes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date filter templates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous Day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous Week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous Month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current Day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current Week</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show advanced</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range start value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last n days.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last n weeks.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last n months.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start from Days/Weeks/Months ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ends from Days/Weeks/Months ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The higher number the higher in the report list it will appear</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>My reports</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invitation</source>
       <translation>Invito</translation>
     </message>
@@ -3338,10 +3474,6 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Has unread messages from visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Abandoned chat</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3417,6 +3549,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>intervallo di giorni per includere a</translation>
     </message>
     <message>
+      <source>Abandoned chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User Agent</source>
       <translation type="unfinished"/>
     </message>
@@ -3477,8 +3613,8 @@ Icona colonna, testo icone materiale</translation>
       <translation>Raggruppa risultati per operatore</translation>
     </message>
     <message>
-      <source>Minimum chats</source>
-      <translation>Chat minime</translation>
+      <source>Minimum operator chats</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Optional</source>
@@ -3573,15 +3709,15 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Put description for your own purposes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Save search</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Till now</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -3718,6 +3854,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Tab custom name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Value</source>
       <translation type="unfinished"/>
     </message>
@@ -3832,6 +3972,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>New canned message</source>
       <translation>Nuovo messaggio predefinito</translation>
+    </message>
+    <message>
+      <source>Delete selected</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>By default last 30 days statistic is shown.</source>
@@ -5490,10 +5634,6 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Please enter a URL</source>
-      <translation>Inserire un URL</translation>
-    </message>
-    <message>
       <source>Redirect to another url</source>
       <translation type="unfinished"/>
     </message>
@@ -5528,6 +5668,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Hidden field</source>
       <translation>Campo nascosto</translation>
+    </message>
+    <message>
+      <source>Passed as encrypted variable</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Identifier</source>
@@ -5663,6 +5807,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Screenshot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5822,6 +5970,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Invia</translation>
     </message>
     <message>
+      <source>Styling options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation>Creata</translation>
     </message>
@@ -5831,6 +5983,14 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Visitor ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter a URL</source>
+      <translation>Inserire un URL</translation>
+    </message>
+    <message>
+      <source>Please enter an URL!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6052,15 +6212,35 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Impersonate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are not chat owner, type with caution.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Me</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You are working as a chat owner.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat owner</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Join as</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>This chat was closed. You can not write messages anymore.</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>You can only read a messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You are not chat owner, type with caution.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6749,6 +6929,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Auto uppercase sentences</source>
       <translation>Frasi maiuscole automatiche</translation>
+    </message>
+    <message>
+      <source>Default number of rows for chat text area</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of rows</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Maximum active chats</source>
@@ -7478,6 +7666,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Notify me if visitor writes more than defined number messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Report was saved</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8249,6 +8441,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Screenshot</translation>
     </message>
     <message>
+      <source>Redirect to URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Screenshot store error</source>
       <translation>Errore salvataggio screenshot</translation>
     </message>
@@ -8270,6 +8466,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Send chat</source>
       <translation>Invia chat</translation>
+    </message>
+    <message>
+      <source>Image preview</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8372,6 +8572,18 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>In dynamic chats order mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to switch modes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multiple chats view</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Single chat view</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8634,6 +8846,14 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Typing...</source>
       <translation>Digitando...</translation>
+    </message>
+    <message>
+      <source>Thumbs up</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thumbs down</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Transferred to</source>
@@ -11199,6 +11419,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>L&apos;utente è stato bloccato!</translation>
     </message>
     <message>
+      <source>You do not have permission to block user!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Started chat from</source>
       <translation>Chat iniziata da</translation>
     </message>
@@ -13321,6 +13545,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>User time zone</source>
       <translation>Fuso orario dell&apos;utente</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Application default time zone</source>
@@ -16178,6 +16406,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Export</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -16467,6 +16699,18 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Button payload 1</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button payload 2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Button payload 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Attachments</source>
       <translation type="unfinished"/>
     </message>
@@ -16480,6 +16724,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Images/Video 3</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images/Video 4</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16531,11 +16779,23 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat ID field replace rule</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID field replace value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Additional field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invisible additional field</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16575,7 +16835,19 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Request content headers</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Response location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returned response is location to download file</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remote request additional headers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16583,7 +16855,15 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Button payload location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download image instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returned response is location to download image</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17533,6 +17813,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>User action type not set</source>
       <translation>Tipo di azione utente non impostata</translation>
+    </message>
+    <message>
+      <source>Please choose a user Time Zone!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Password has to be at least %d characters length</source>

@@ -1,12 +1,12 @@
 <?php if ($context == 'timefilter') : ?>
-    <p>To choose yesterday.</p>
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'To choose yesterday.');?></p>
     <ul>
         <li>
-            As start day choose yesterday day<br>
-            Hour and minute from <span class="badge badge-secondary">00 h.</span> <span class="badge badge-secondary">00 m.</span> <span class="badge badge-secondary">00 s.</span><br>
-            <span class="badge badge-secondary">Date range to</span> choose today and choose
-            <span class="badge badge-secondary">Hour and minute to</span> <span class="badge badge-secondary">23 h.</span> <span class="badge badge-secondary">59 m.</span> <span class="badge badge-secondary">59 s.</span>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'As start day choose yesterday day');?><br>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Hour and minute from');?> <span class="badge badge-secondary">00 h.</span> <span class="badge badge-secondary">00 m.</span> <span class="badge badge-secondary">00 s.</span><br>
+            <span class="badge badge-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Date range to');?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'choose today and choose');?>
+            <span class="badge badge-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Hour and minute to');?></span> <span class="badge badge-secondary">23 h.</span> <span class="badge badge-secondary">59 m.</span> <span class="badge badge-secondary">59 s.</span>
         </li>
     </ul>
-    <p>Date from and to are always inclusive.</p>
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Date from and to are always inclusive.');?></p>
 <?php endif; ?>

@@ -2221,6 +2221,10 @@ class erLhcoreClassChatStatistic {
             'INV_CHAT_STARTED' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'],array('filterin' => array('invitation_status' => array(
                 erLhAbstractModelProactiveChatCampaignConversion::INV_CHAT_STARTED,
             ))))),
+
+            'INV_CONVERSIONS' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filtergt' => array('conv_int_time' => 0)))),
+
+            'INV_CONVERSIONS_INIT' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filternot' => array('conv_event' => '')))),
         );
 
         return $stats;

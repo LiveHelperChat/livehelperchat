@@ -1,3 +1,9 @@
+4.14v
+
+* Proactive invitation now have user initiated conversions https://doc.livehelperchat.com/docs/proactive#conversion
+
+execute doc/update_db/update_285.sql for update
+
 4.13v
 
 * Proactive invitations can have child invitation which works as A/B testing workflow.
