@@ -32,6 +32,8 @@ try {
 
                     $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject selected!'));
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.subject_add',array('user_id' => $currentUser->getUserID(), 'message' => & $message, 'init' => 'op', 'subject_id' => $Params['user_parameters_unordered']['subject']));
+
                 } else {
                     $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array('message_id' => $message->id, 'subject_id' => $Params['user_parameters_unordered']['subject'])));
 
@@ -40,6 +42,8 @@ try {
                     }
 
                     $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Subject unselected!'));
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.subject_remove',array('user_id' => $currentUser->getUserID(), 'message' => & $message, 'init' => 'op', 'subject_id' => $Params['user_parameters_unordered']['subject']));
                 }
             } else {
                 $response = array('error' => false, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Please choose a subject'));
