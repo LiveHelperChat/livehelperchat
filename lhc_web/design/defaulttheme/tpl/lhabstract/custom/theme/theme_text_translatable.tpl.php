@@ -21,7 +21,12 @@
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="main-<?php echo $translatableItem['identifier']?>">
-            <label ng-non-bindable><?php echo $fields[$translatableItem['identifier']]['trans'];?></label>
+            <label ng-non-bindable>
+                <?php echo $fields[$translatableItem['identifier']]['trans'];?>
+                <?php if (isset($fields[$translatableItem['identifier']]['help'])) : ?>
+                    <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/<?php echo $fields[$translatableItem['identifier']]['help']?>'});" class="material-icons text-muted">help</a>
+                <?php endif; ?>
+            </label>
             <div class="form-group">
                 <?php if (isset($translatableItem['bb_code_selected'])) : ?>
                     <?php $bbcodeOptions = array('selector' => $translatableItem['bb_code_selected']); ?>

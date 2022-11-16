@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 201;
+            lhc.version = 202;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -190,6 +190,7 @@
                     trigger_id: LHC_API.args.trigger_id || '',
                     priority: LHC_API.args.priority || null,
                     events: LHC_API.args.events || [],
+                    conversion: LHC_API.args.conversion || '',
                     hhtml: LHC_API.args.hhtml || '',
                     survey: LHC_API.args.survey || null,
                     operator: LHC_API.args.operator || null,
@@ -682,6 +683,12 @@
                 attributesWidget.eventEmitter.addListener('addEvent', function (events) {
                     attributesWidget.events = events;
                     attributesWidget.eventEmitter.emitEvent('eventAdded');
+                });
+
+                // Conversions
+                attributesWidget.eventEmitter.addListener('addConversion', function (conversion) {
+                    attributesWidget.conversion = conversion;
+                    attributesWidget.eventEmitter.emitEvent('conversionAdded');
                 });
 
                 // Popup open event

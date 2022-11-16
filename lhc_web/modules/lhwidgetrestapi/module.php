@@ -91,6 +91,11 @@ $ViewList['fetchmessage'] = array(
     'uparams' => array(),
 );
 
+$ViewList['logconversions'] = array(
+    'params' => array(),
+    'uparams' => array('vid'),
+);
+
 $ViewList['addmsguser'] = array(
     'params' => array('chat_id','hash'),
     'uparams' => array('mode'),

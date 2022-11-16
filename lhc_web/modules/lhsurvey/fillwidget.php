@@ -71,7 +71,12 @@ try {
                     $tpl->set('errors', $errors);
                 }
             }
-            
+
+            if ($collectedSurvey === false) {
+                $chat->user_status = erLhcoreClassModelChat::USER_STATUS_CLOSED_CHAT;
+                $chat->updateThis(['update' => ['user_status']]);
+            }
+
             if (($collectedSurvey === true || $surveyItem->is_filled == true) && $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
                 $chat->status_sub = erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED;
                 // They are equal now in priority for the auto responder

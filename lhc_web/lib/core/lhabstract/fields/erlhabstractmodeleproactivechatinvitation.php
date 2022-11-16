@@ -1,6 +1,24 @@
 <?php
 
 $proactiveAttr = array(
+    'event_id' => array(
+        'type' => 'text',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Event id to receive from website for conversion to finish.'),
+        'required' => false,
+        'hidden' => true,
+        'maxlength' => 20,
+        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','E.g ordered'),
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'conversion_expires_in' => array(
+        'type' => 'text',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Conversion has to happen within this period of time after invitation was send/clicked.'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
     'name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name for personal purposes'),
@@ -286,6 +304,7 @@ $proactiveAttr = array(
     ),
     'message' => array(
         'type' => 'textarea',
+        'help' => 'inv_message',
         'translatable' => true,
         'main_attr_lang' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to user'),
@@ -393,6 +412,14 @@ $proactiveAttr = array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Hide operator name in invitation widget'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
+    'hide_op_img' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Hide operator profile image'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
@@ -515,9 +542,11 @@ $proactiveAttr = array(
     ),
     'mobile_style' => array(
         'type' => 'textarea',
+        'ace_editor' => 'css',
+        'placeholder' => '.proactive-need-help{background-color:black!important;padding:0px!important;}',
         'main_attr' => 'design_data_array',
         'height' => '200px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Mobile style'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS, applies also to invitation bubble'),
         'required' => false,
         'hidden' => true,
         'nginit' => true,
