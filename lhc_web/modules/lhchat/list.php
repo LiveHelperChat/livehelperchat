@@ -175,7 +175,7 @@ if ($pages->items_total > 0) {
         array(
             'subject_id',
             'subject',
-            'erLhcoreClassModelChat::getList'
+            'erLhAbstractModelSubject::getList'
         ),
     ));
     foreach ($subjectsChats as $chatSubject) {
