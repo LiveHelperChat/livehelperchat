@@ -282,6 +282,7 @@ $ViewList['list'] = array(
         'user_ids',
         'group_ids',
         'bot_ids',
+        'subject_id',
         'country_ids',
         'chat_status_ids',
         'cf',

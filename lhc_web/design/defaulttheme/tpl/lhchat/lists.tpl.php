@@ -19,8 +19,9 @@
                             <tr>
                             	<th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
-                                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
-                                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Department');?></th>
+                                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Subjects');?></th>
+                                <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
+                                <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Department');?></th>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/column_after_department_multiinclude.tpl.php'));?>
                                 <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Status');?></th>
                                 <th width="1%"></th>
@@ -75,10 +76,17 @@
                     	      ?> | <b><?php echo $hours?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','h.');?> <?php echo $minits ?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','m.');?> <?php echo $seconds?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','s.');?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','ago');?>.</b>
                     	      <?php endif;?>
                             </td>
-                            <td ng-non-bindable>
+                            <td>
+                                <?php if (is_array($chat->subjects)) : ?>
+                                    <?php foreach ($chat->subjects as $subject) : ?>
+                                        <span class="badge badge-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td ng-non-bindable nowrap>
                                 <?php echo htmlspecialchars($chat->user);?>
                             </td>
-                            <td ng-non-bindable>
+                            <td ng-non-bindable nowrap>
                                 <?php echo htmlspecialchars($chat->department);?>
                             </td>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/column_value_after_department_multiinclude.tpl.php'));?>
