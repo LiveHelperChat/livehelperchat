@@ -79,8 +79,11 @@
         if (isset($prefill_admin)) {
             $params['attr_prefill_admin'] = $prefill_admin;
         }
+        ?>
+        
+        <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/init_params_widget2_js_extension_multiinclude.tpl.php'));?>
 
-        echo json_encode($params); ?>;
+        <?php echo json_encode($params); ?>;
 
     var hash = window.location.hash;
     if (hash != '') {

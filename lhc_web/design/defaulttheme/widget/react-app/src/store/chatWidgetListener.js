@@ -351,6 +351,15 @@ export default function (dispatch, getState) {
                     setTimeout(() => {
                         dispatch(initProactive(value))
                     }, readyReceived === true ? 0 : 700);
+                } else if (key === 'lhc_event') {
+                    Object.keys(value).forEach(keyEvent => {
+                        let argsEvent = value[keyEvent];
+                        if (Array.isArray(argsEvent)) {
+                            argsEvent.push(dispatch);
+                            argsEvent.push(getState);
+                        }
+                        helperFunctions.emitEvent(keyEvent,[argsEvent]);
+                    });
                 } else {
                     dispatch({
                         type: key,

@@ -69,11 +69,11 @@ if (isset($_GET['doSearch'])) {
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
-if ($filterParams['input_form']->subject_id > 0){
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
     $filterParams['filter']['innerjoin']['lh_abstract_subject_chat'] = array('`lh_abstract_subject_chat`.`chat_id`','`lh_chat` . `id`');
-    $filterParams['filter']['filter']['`lh_abstract_subject_chat`.`subject_id`'] = $filterParams['input_form']->subject_id;
+    $filterParams['filter']['filterin']['`lh_abstract_subject_chat`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
-
 
 /**
  * Departments filter
@@ -169,6 +169,22 @@ if ($pages->items_total > 0) {
     erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
     $tpl->set('icons_additional',$iconsAdditional);
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_items',array('filter' => & $items, 'uparams' => $Params['user_parameters_unordered']));
+
+    $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
+    erLhcoreClassChat::prefillObjects($subjectsChats, array(
+        array(
+            'subject_id',
+            'subject',
+            'erLhcoreClassModelChat::getList'
+        ),
+    ));
+    foreach ($subjectsChats as $chatSubject) {
+        if (!is_array($items[$chatSubject->chat_id]->subjects)) {
+            $items[$chatSubject->chat_id]->subjects = [];
+        }
+        $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
+    }
+
 	$tpl->set('items',$items);
 }
 
