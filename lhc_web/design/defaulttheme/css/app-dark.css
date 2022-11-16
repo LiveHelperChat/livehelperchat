@@ -2187,3 +2187,7 @@ html {
 .mode-write-chat.mode-chosen{
     display: none;
 }
+
+pre{
+    color: #fff;
+}

@@ -911,6 +911,11 @@ class erLhAbstractModelProactiveChatInvitation {
         $this->design_data = json_encode($this->design_data_array);
     }
 
+    public function beforeSave()
+    {
+        $this->beforeUpdate();
+    }
+
     public function getContentAttribute($attr)
     {
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.download_image.'.$attr, array('theme' => $this, 'attr' => $attr));
@@ -984,7 +989,7 @@ class erLhAbstractModelProactiveChatInvitation {
         }
     }
 
-    public function afterSave()
+    public function afterSave($params)
     {
         $movePhotos = array(
             'design_data_img_1',
@@ -1000,6 +1005,8 @@ class erLhAbstractModelProactiveChatInvitation {
 
         if ($pendingUpdate == true) {
             $this->updateThis();
+        } else {
+            $this->afterUpdate($params);
         }
     }
 
