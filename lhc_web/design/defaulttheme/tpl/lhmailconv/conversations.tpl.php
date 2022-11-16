@@ -69,6 +69,13 @@
                                 <?php endif; ?>
 
                                 <span class="mr-2"><?php echo $item->id; ?></span><a class="user-select-none" onclick='lhinst.startMailChat(<?php echo $item->id?>,$("#tabs"),<?php echo json_encode($item->subject_front,JSON_HEX_APOS)?>)' href="#!#chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
+
+                                <?php if (is_array($item->subjects)) : ?>
+                                    <?php foreach ($item->subjects as $subject) : ?>
+                                        <span class="badge badge-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+
                             </td>
                             <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
                             <td><?php echo htmlspecialchars($item->priority)?></td>

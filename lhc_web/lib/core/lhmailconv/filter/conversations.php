@@ -95,7 +95,7 @@ $fieldsSearch['subject_id'] = array (
     'filter_type' => false,
     'filter_table_field' => 'id',
     'validation_definition' => new ezcInputFormDefinitionElement (
-        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
     )
 );
 
@@ -325,10 +325,10 @@ $fieldSortAttr = array (
     'default'    => 'iddesc',
     'serialised' => true,
     'options'    => array(
-        'iddesc' => array('sort_column' => 'id DESC'),
-        'idasc' => array('sort_column' => 'id ASC'),
-        'highprioritynew' => array('sort_column' => 'priority DESC, id DESC'),
-        'lowpriorityold' => array('sort_column' => 'priority_asc ASC, id ASC'),
+        'iddesc' => array('sort_column' => '`lhc_mailconv_conversation`.`id` DESC'),
+        'idasc' => array('sort_column' => '`lhc_mailconv_conversation`.`id` ASC'),
+        'highprioritynew' => array('sort_column' => 'priority DESC, `lhc_mailconv_conversation`.`id` DESC'),
+        'lowpriorityold' => array('sort_column' => 'priority_asc ASC, `lhc_mailconv_conversation`.`id` ASC'),
         'statuspriority' => array('sort_column' => 'status DESC, priority DESC'),
         'lastupdateasc' => array('sort_column' => 'udate ASC'),
         'lastupdatedesc' => array('sort_column' => 'udate DESC'),

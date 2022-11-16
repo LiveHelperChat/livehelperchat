@@ -175,9 +175,10 @@ if (is_numeric($filterParams['input_form']->has_attachment)) {
     }
 }
 
-if ($filterParams['input_form']->subject_id > 0) {
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
     $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
-    $filterParams['filter']['filter']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
+    $filterParams['filter']['filterin']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
@@ -200,6 +201,22 @@ $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
     $items = erLhcoreClassModelMailconvConversation::getList(array_merge(array('limit' => $pages->items_per_page, 'offset' => $pages->low),$filterParams['filter']));
+
+    $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
+    erLhcoreClassChat::prefillObjects($subjectsChats, array(
+        array(
+            'subject_id',
+            'subject',
+            'erLhAbstractModelSubject::getList'
+        ),
+    ));
+    foreach ($subjectsChats as $chatSubject) {
+        if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
+            $items[$chatSubject->conversation_id]->subjects = [];
+        }
+        $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
+    }
+
     $tpl->set('items',$items);
 }
 

@@ -221,7 +221,8 @@ $ViewList['conversations'] = array(
         'bot_ids',
         'mailbox_ids',
         'conversation_status_ids',
-        'lang_ids'
+        'lang_ids',
+        'subject_id'
     )
 );
 
