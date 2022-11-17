@@ -69,7 +69,8 @@ class erLhcoreClassChatWorkflow {
             }
 
             // Our new department also has a transfer rule
-            if ($departmentTransfer->department_transfer !== false) {
+            // Check if further transfer is possible because of priority condition
+            if ($departmentTransfer->department_transfer !== false && !(isset($departmentTransfer->bot_configuration_array['transfer_min_priority']) && is_numeric($departmentTransfer->bot_configuration_array['transfer_min_priority']) && (int)$departmentTransfer->bot_configuration_array['transfer_min_priority'] > $chat->priority)) {
                 $chat->transfer_if_na = 1;
                 $chat->transfer_timeout_ac = $departmentTransfer->transfer_timeout;
             }
