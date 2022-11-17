@@ -283,19 +283,30 @@
 			
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow')) : ?>
 			<div role="tabpanel" class="tab-pane" id="chattransfer">
-			     <div class="form-group">
-    			     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transferred if it is not accepted');?></label>
-    				<?php echo erLhcoreClassRenderHelper::renderCombobox( array (
-    										'input_name'     => 'TansferDepartmentID',
-    										'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','None'),
-    										'display_name'   => 'name',
-    				                        'css_class'      => 'form-control form-control-sm',
-    										'selected_id'    => $departament->department_transfer_id,
-    										'list_function'  => 'erLhcoreClassModelDepartament::getList',
-    										'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments),
-    				)); ?>
-				</div>
-				
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','To what department chat should be transferred if it is not accepted');?></label>
+                            <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
+                                'input_name'     => 'TansferDepartmentID',
+                                'optional_field' =>  erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','None'),
+                                'display_name'   => 'name',
+                                'css_class'      => 'form-control form-control-sm',
+                                'selected_id'    => $departament->department_transfer_id,
+                                'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                                'list_function_params'  => array_merge(array('limit' => '1000000'),$limitDepartments),
+                            )); ?>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minimum chat priority for transfer to happen.');?></label>
+                            <input type="text" placeholder="E.g 10" ng-non-bindable class="form-control form-control-sm" name="transfer_min_priority" value="<?php if (isset($departament->bot_configuration_array['transfer_min_priority'])) : ?><?php echo htmlspecialchars($departament->bot_configuration_array['transfer_min_priority'])?><?php endif;?>" />
+                        </div>
+                    </div>
+                </div>
+
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.');?></label>
 				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
