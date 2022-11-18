@@ -791,7 +791,8 @@ class erLhcoreClassGenericBotActionRestapi
             'method_settings' => $methodSettings,
             'params_customer' => $paramsCustomer,
             'params_request' => $paramsRequest,
-            'url' => $url
+            'url' => $url,
+            'ch'  => & $ch
         ));
 
         $overridden = false;
