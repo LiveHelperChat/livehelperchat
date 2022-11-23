@@ -459,9 +459,11 @@ class erLhcoreClassGenericBotActionRestapi
             $methodSettings['body_raw'] = preg_replace('/{button_template_generic}(.*?){\/button_template_generic}/is',implode(',',$buttonsArray),$methodSettings['body_raw']);
 
         } else {
-            $methodSettings['body_raw'] = preg_replace('/\{interactive_api\}(.*?)\{\/interactive_api\}/ms','',$methodSettings['body_raw']);
-            $methodSettings['body_raw'] = preg_replace('/\{buttons_generic\}(.*?)\{\/buttons_generic\}/ms','',$methodSettings['body_raw']);
-            $methodSettings['body_raw'] = trim(str_replace(['{plain_api}','{/plain_api}'],'', $methodSettings['body_raw']));
+            if (isset($methodSettings['body_raw'])) {
+                $methodSettings['body_raw'] = preg_replace('/\{interactive_api\}(.*?)\{\/interactive_api\}/ms','',$methodSettings['body_raw']);
+                $methodSettings['body_raw'] = preg_replace('/\{buttons_generic\}(.*?)\{\/buttons_generic\}/ms','',$methodSettings['body_raw']);
+                $methodSettings['body_raw'] = trim(str_replace(['{plain_api}','{/plain_api}'],'', $methodSettings['body_raw']));
+            }
         }
 
         $dynamicParamsVariables = self::extractDynamicParams($methodSettings, $paramsCustomer['params']);

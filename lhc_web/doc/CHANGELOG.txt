@@ -1,3 +1,9 @@
+4.15v
+
+1. Incoming webhooks now can be represented in the chat list with an icon.
+
+execute doc/update_db/update_286.sql for update
+
 4.14v
 
 * Proactive invitation now have user initiated conversions https://doc.livehelperchat.com/docs/proactive#conversion

@@ -1518,7 +1518,13 @@ class erLhcoreClassAdminChatValidatorHelper {
             ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
-            )
+            ),
+            'icon' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'icon_color' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -1548,6 +1554,18 @@ class erLhcoreClassAdminChatValidatorHelper {
             $webhook->scope = $form->scope;
         } else {
             $webhook->scope = '';
+        }
+
+        if ( $form->hasValidData( 'icon' )) {
+            $webhook->icon = $form->icon;
+        } else {
+            $webhook->icon = '';
+        }
+
+        if ( $form->hasValidData( 'icon_color' )) {
+            $webhook->icon_color = $form->icon_color;
+        } else {
+            $webhook->icon_color = '';
         }
 
         if ($form->hasValidData('disabled') && $form->disabled == true)
