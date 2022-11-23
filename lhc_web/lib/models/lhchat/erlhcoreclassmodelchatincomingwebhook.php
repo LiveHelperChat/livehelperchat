@@ -21,8 +21,14 @@ class erLhcoreClassModelChatIncomingWebhook {
             'disabled'      => $this->disabled,
             'identifier'    => $this->identifier,
             'scope'         => $this->scope,
-            'configuration' => $this->configuration
+            'configuration' => $this->configuration,
+            'icon'          => $this->icon,
+            'icon_color'    => $this->icon_color,
         );
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 
     public function __get($var) {
@@ -63,6 +69,8 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $configuration = '';
     public $scope = '';
     public $identifier = '';
+    public $icon = '';
+    public $icon_color = '';
 }
 
 ?>

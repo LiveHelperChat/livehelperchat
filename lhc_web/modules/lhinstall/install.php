@@ -345,6 +345,7 @@ try {
         	   	  `na_cb_executed` int(11) NOT NULL,
         	   	  `device_type` int(11) NOT NULL,
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
+                  `iwh_id` int(11) NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `status_user_id` (`status`,`user_id`),
 				  KEY `unanswered_chat` (`unanswered_chat`),
@@ -358,6 +359,7 @@ try {
 				  KEY `has_unread_messages` (`has_unread_messages`),
 				  KEY `status` (`status`),
 				  KEY `nick` (`nick`),
+				  KEY `iwh_id` (`iwh_id`),
 				  KEY `email` (`email`),
 				  KEY `phone` (`phone`),
 				  KEY `dep_id_status` (`dep_id`,`status`)
