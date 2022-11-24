@@ -122,16 +122,14 @@ class _helperFunctions {
             };
         } else {
             try {
-                html2canvas(document.body, {
-                    onrendered: function(canvas) {
-                        var xhr = new XMLHttpRequest();
-                        xhr.open( "POST", url, true);
-                        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
-                    }
+                html2canvas(document.body).then(function(canvas) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open( "POST", url, true);
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhr.send( "data=" + encodeURIComponent( canvas.toDataURL() ) );
                 });
             } catch(err) {
-
+                console.log(err);
             }
         }
     }
