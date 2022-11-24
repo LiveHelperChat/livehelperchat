@@ -237,6 +237,27 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.current_user_id = confLH.user_id;
 
 	// Parameters for back office sync
+    lhinst.channel =
+        this.channel =
+        new BroadcastChannel('lhc_dashboard');
+
+    this.channel.addEventListener("message", function(event) {
+        if (event.isTrusted && event.data.action) {
+            if (event.data.args.chat_id && lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
+                if (event.data.action == 'close_chat') {
+                    lhinst.removeDialogTab(event.data.args.chat_id,$('#tabs'),true);
+                } else if (event.data.action == 'update_chat') {
+                    lhinst.updateVoteStatus(event.data.args.chat_id, true);
+                } else if (event.data.action == 'reload_chat') {
+                    lhinst.reloadTab(event.data.args.chat_id,$('#tabs'),event.data.args.nick, true);
+                }
+            } else if (event.data.args.mail_id) {
+                if (event.data.action == 'close_mail') {
+                    lhinst.removeDialogTabMail(event.data.args.mail_id,$('#tabs'), true, true);
+                }
+            }
+        }
+    });
 
 	var _that = this;
 
