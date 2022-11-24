@@ -632,7 +632,9 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
-                $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, $chat->nick);
+                if ($chat->nick == 'Visitor' || $chat->nick == '') {
+                    $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, $chat->nick);
+                }
 
                 if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
                     if (!preg_match($conditions['nick_pregmatch'], $chat->nick)) {
