@@ -141,6 +141,66 @@ $modalSize = 'xl';
             <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Number of times conversions has happened from total initiated');?></i></small>
         </td>
     </tr>
+    <tr>
+        <td>
+            <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Unique conversions');?></strong>
+        </td>
+        <td>
+            <?php echo $stats['INV_UNIQ_CONVERSIONS'];?> (<?php echo $stats['INV_UNIQ_CONVERSIONS_INIT'];?>)
+        </td>
+        <td>
+            <?php $total = 0;$totalInit = 0; foreach ($statsChild as $statChild) {$total+=$statChild['INV_UNIQ_CONVERSIONS']; $totalInit+=$statChild['INV_UNIQ_CONVERSIONS_INIT'];} echo $stats['INV_UNIQ_CONVERSIONS'] - $total; ?> (<?php echo $stats['INV_UNIQ_CONVERSIONS_INIT'] - $totalInit;?>)
+        </td>
+        <?php foreach (erLhAbstractModelProactiveChatInvitation::getList(['filter' => ['parent_id' => $invitation->id]]) as $childInvitation) : ?>
+            <td>
+                <?php echo $statsChild[$childInvitation->id]['INV_UNIQ_CONVERSIONS'];?> (<?php echo $statsChild[$childInvitation->id]['INV_UNIQ_CONVERSIONS_INIT'];?>)
+            </td>
+        <?php endforeach; ?>
+        <td>
+            <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Multiple invitations to the same online visitor is considered as a one record');?></i></small>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"><i>unique_id</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','field based statistic. Field has to be not empty.');?></td>
+    </tr>
+    <tr>
+        <td>
+            <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Conversions');?></strong>
+        </td>
+        <td>
+            <?php echo $stats['INV_CUSTOM_CONVERSIONS'];?> (<?php echo $stats['INV_CUSTOM_CONVERSIONS_INIT'];?>)
+        </td>
+        <td>
+            <?php $total = 0;$totalInit = 0; foreach ($statsChild as $statChild) {$total+=$statChild['INV_CUSTOM_CONVERSIONS']; $totalInit+=$statChild['INV_CUSTOM_CONVERSIONS_INIT'];} echo $stats['INV_CUSTOM_CONVERSIONS'] - $total; ?> (<?php echo $stats['INV_CUSTOM_CONVERSIONS_INIT'] - $totalInit;?>)
+        </td>
+        <?php foreach (erLhAbstractModelProactiveChatInvitation::getList(['filter' => ['parent_id' => $invitation->id]]) as $childInvitation) : ?>
+            <td>
+                <?php echo $statsChild[$childInvitation->id]['INV_CUSTOM_CONVERSIONS'];?> (<?php echo $statsChild[$childInvitation->id]['INV_CUSTOM_CONVERSIONS_INIT'];?>)
+            </td>
+        <?php endforeach; ?>
+        <td>
+            <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Number of times conversions has happened from total initiated');?></i></small>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Unique conversions');?></strong>
+        </td>
+        <td>
+            <?php echo $stats['INV_CUSTOM_UNIQ_CONVERSIONS'];?> (<?php echo $stats['INV_CUSTOM_UNIQ_CONVERSIONS_INIT'];?>)
+        </td>
+        <td>
+            <?php $total = 0;$totalInit = 0; foreach ($statsChild as $statChild) {$total+=$statChild['INV_CUSTOM_UNIQ_CONVERSIONS']; $totalInit+=$statChild['INV_CUSTOM_UNIQ_CONVERSIONS_INIT'];} echo $stats['INV_CUSTOM_UNIQ_CONVERSIONS'] - $total; ?> (<?php echo $stats['INV_CUSTOM_UNIQ_CONVERSIONS_INIT'] - $totalInit;?>)
+        </td>
+        <?php foreach (erLhAbstractModelProactiveChatInvitation::getList(['filter' => ['parent_id' => $invitation->id]]) as $childInvitation) : ?>
+        <td>
+            <?php echo $statsChild[$childInvitation->id]['INV_CUSTOM_UNIQ_CONVERSIONS'];?> (<?php echo $statsChild[$childInvitation->id]['INV_CUSTOM_UNIQ_CONVERSIONS_INIT'];?>)
+        </td>
+        <?php endforeach; ?>
+        <td>
+            <small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/campaign','Multiple invitation of the same unique_id value is considered as a one record.');?></i></small>
+        </td>
+    </tr>
 </table>
 
 

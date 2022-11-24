@@ -122,6 +122,7 @@ class erLhcoreClassModelChat {
                'anonymized'    	        => $this->anonymized,
                'gbot_id'    	        => $this->gbot_id,
                'cls_us'    	            => $this->cls_us,
+               'iwh_id'    	            => $this->iwh_id,
        );
    }
 
@@ -479,6 +480,14 @@ class erLhcoreClassModelChat {
                    $this->aicons[$icon] = $iconParams;
                }
            }
+           if ($this->iwh_id > 0 && is_object($this->iwh) && $this->iwh->icon != '') {
+               $iconParams = ['i' => $this->iwh->icon];
+               if ($this->iwh->icon_color != '') {
+                   $iconParams['c'] = $this->iwh->icon_color ;
+               }
+               $iconParams['t'] = (string)$this->iwh;
+               $this->aicons[$this->iwh->icon] = $iconParams;
+           }
            return $this->aicons;
 
        case 'aalert':
@@ -546,7 +555,10 @@ class erLhcoreClassModelChat {
        case 'incoming_chat':
            $this->incoming_chat = erLhcoreClassModelChatIncoming::findOne(array('filter' => array('chat_id' => $this->id)));
            return $this->incoming_chat;
-           break;
+
+       case 'iwh':
+           $this->iwh = $this->iwh_id > 0 ? erLhcoreClassModelChatIncomingWebhook::fetch($this->iwh_id) : null;
+           return $this->iwh;
 
        	default:
        		break;
@@ -794,6 +806,8 @@ class erLhcoreClassModelChat {
    // 0 - online
    // 1 - offline
    public $cls_us = 0;
+
+   public $iwh_id = 0;
 
    public $updateIgnoreColumns = array();
 }

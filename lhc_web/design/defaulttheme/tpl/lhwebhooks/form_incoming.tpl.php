@@ -23,6 +23,22 @@
     <input type="text" ng-non-bindable class="form-control form-control-sm" id="api-incoming-url" data-base="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/<?php echo htmlspecialchars($item->identifier);?>">
 </div>
 
+<div class="row">
+    <div class="col-6">
+        <div class="form-group" ng-non-bindable>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="E.g sms" name="icon" value="<?php echo htmlspecialchars($item->icon);?>" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group" ng-non-bindable>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon color');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="E.g green, #2bd4a8" name="icon_color" value="<?php echo htmlspecialchars($item->icon_color);?>" />
+        </div>
+    </div>
+</div>
+
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (

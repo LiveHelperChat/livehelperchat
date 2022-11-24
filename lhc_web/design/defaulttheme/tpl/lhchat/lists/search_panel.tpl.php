@@ -416,7 +416,22 @@
                         )); ?>
                     </div>
                 </div>
-                <div class="col-md-2">
+
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Channel');?></label>
+                        <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                            'input_name'     => 'iwh_ids[]',
+                            'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose a channel'),
+                            'selected_id'    => $input->iwh_ids,
+                            'css_class'      => 'form-control',
+                            'display_name'   => 'name',
+                            'list_function'  => 'erLhcoreClassModelChatIncomingWebhook::getList'
+                        )); ?>
+                    </div>
+                </div>
+
+                <div class="col-md-1">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Visitor status on chat close');?></label>
                     <div class="form-group">
                         <select name="cls_us" class="form-control form-control-sm">
@@ -428,7 +443,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Has unread operator messages');?></label>
                     <div class="form-group">
                         <select name="has_unread_op_messages" class="form-control form-control-sm">

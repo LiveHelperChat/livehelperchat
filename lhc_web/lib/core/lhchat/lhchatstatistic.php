@@ -2255,6 +2255,33 @@ class erLhcoreClassChatStatistic {
             'INV_CONVERSIONS' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filtergt' => array('conv_int_time' => 0)))),
 
             'INV_CONVERSIONS_INIT' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filternot' => array('conv_event' => '')))),
+
+            'INV_UNIQ_CONVERSIONS' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('limit' => false,  'filtergt' => array('conv_int_time' => 0))),
+                'count',
+                false,
+                'count(distinct vid_id)'),
+
+            'INV_UNIQ_CONVERSIONS_INIT' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('limit' => false, 'filternot' => array('conv_event' => ''))),
+                'count',
+                false,
+                'count(distinct vid_id)'),
+
+            // Statistic based on unique_id field
+            'INV_CUSTOM_CONVERSIONS' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filternot' => array('unique_id' => ''), 'filtergt' => array('conv_int_time' => 0)))),
+
+            'INV_CUSTOM_CONVERSIONS_INIT' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('filternot' => array('unique_id' => '','conv_event' => '')))),
+
+            'INV_CUSTOM_UNIQ_CONVERSIONS' => erLhAbstractModelProactiveChatCampaignConversion::getCount(array_merge_recursive($params['filter'], array('limit' => false,  'filternot' => array('unique_id' => ''), 'filtergt' => array('conv_int_time' => 0))),
+                'count',
+                false,
+                'count(distinct unique_id)'
+            ),
+            'INV_CUSTOM_UNIQ_CONVERSIONS_INIT' => erLhAbstractModelProactiveChatCampaignConversion::getCount(
+                array_merge_recursive($params['filter'], array('limit' => false, 'filternot' => array('unique_id' => '', 'conv_event' => ''))),
+                'count',
+                false,
+                'count(distinct unique_id)'
+            ),
         );
 
         return $stats;

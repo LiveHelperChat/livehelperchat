@@ -1677,6 +1677,22 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "icon",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "icon_color",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ],
     "lh_chat_incoming": [
@@ -4331,6 +4347,14 @@
       },
       {
         "field": "status",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "iwh_id",
         "type": "int(11)",
         "null": "NO",
         "key": "MUL",
@@ -10993,6 +11017,7 @@
     "lh_chat" : {
       "new" : {
         "nick" : "ALTER TABLE `lh_chat` ADD INDEX `nick` (`nick`);",
+        "iwh_id" : "ALTER TABLE `lh_chat` ADD INDEX `iwh_id` (`iwh_id`);",
         "email" : "ALTER TABLE `lh_chat` ADD INDEX `email` (`email`);",
         "phone" : "ALTER TABLE `lh_chat` ADD INDEX `phone` (`phone`);",
         "unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);",
