@@ -243,19 +243,22 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
     this.channel.addEventListener("message", function(event) {
         if (event.isTrusted && event.data.action) {
+            var tabs = $('#tabs');
             if (event.data.args.chat_id && lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
                 if (event.data.action == 'close_chat') {
-                    lhinst.removeDialogTab(event.data.args.chat_id,$('#tabs'),true);
-                } else if (event.data.action == 'update_chat') {
-                    lhinst.updateVoteStatus(event.data.args.chat_id, true);
+                    tabs.length > 0 && lhinst.removeDialogTab(event.data.args.chat_id,$('#tabs'),true);
+                } else if (event.data.action == 'update_chat' || event.data.action == 'startbackground_chat') {
+                    tabs.length > 0 && lhinst.updateVoteStatus(event.data.args.chat_id, true);
                 } else if (event.data.action == 'reload_chat') {
-                    lhinst.reloadTab(event.data.args.chat_id,$('#tabs'),event.data.args.nick, true);
+                    tabs.length > 0 && lhinst.reloadTab(event.data.args.chat_id, $('#tabs'), event.data.args.nick, true);
                 }
+            } else if (event.data.action == 'startbackground_chat') {
+                (tabs.length > 0 && lhinst.startChatBackground(event.data.args.chat_id, $('#tabs'), event.data.args.nick)) || ee.emitEvent('chatTabPreload', [event.data.args.chat_id, {focus: false}]);;
             } else if (event.data.args.mail_id) {
                 if (event.data.action == 'close_mail') {
                     lhinst.removeDialogTabMail(event.data.args.mail_id,$('#tabs'), true, true);
                 }
-            }
+           }
         }
     });
 
@@ -1368,6 +1371,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 											if (tabs.length > 0 && lhinst.disableremember == false) {
                                                 lhinst.removeSynchroChat(chat.id);
                                                 lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10));
+                                                // We auto open only auto assigned chats
+                                                _that.channel.postMessage({'action':'startbackground_chat','args':{'nick': LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10), 'chat_id' : parseInt(chat.id)}});
 											}
 
 											if (lhinst.disableremember == false) {
