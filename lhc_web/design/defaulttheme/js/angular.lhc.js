@@ -242,6 +242,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                     lhinst.updateVoteStatus(event.data.args.chat_id, true);
                 } else if (event.data.action == 'reload_chat') {
                     lhinst.reloadTab(event.data.args.chat_id,$('#tabs'),event.data.args.nick, true);
+                } else if (event.data.action == 'startbackground_chat') {
+                    lhinst.startChatBackground(event.data.args.chat_id, $('#tabs'), event.data.args.nick);
                 }
             }
         }
@@ -1222,6 +1224,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 											if (tabs.length > 0 && lhinst.disableremember == false) {
                                                 lhinst.removeSynchroChat(chat.id);
                                                 lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10));
+                                                // We auto open only auto assigned chats
+                                                _that.channel.postMessage({'action':'startbackground_chat','args':{'nick': LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10), 'chat_id' : parseInt(chat.id)}});
 											}
 
 											if (lhinst.disableremember == false) {
