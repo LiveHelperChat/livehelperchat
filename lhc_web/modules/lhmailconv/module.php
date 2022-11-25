@@ -79,7 +79,7 @@ $ViewList['transfermail'] = array(
 
 $ViewList['changemailbox'] = array(
     'params' => array('id'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'change_mailbox' )
 );
 
 $ViewList['merge'] = array(
@@ -370,6 +370,7 @@ $FunctionList['use_import'] = array('explain' =>'Allow user import response temp
 $FunctionList['send_as_new'] = array('explain' =>'Allow user to reply an email as SEnd as New');
 $FunctionList['export_mails'] = array('explain' => 'Allow operator to export filtered mails');
 $FunctionList['quick_actions'] = array('explain' => 'Allow operator to user quick actions module');
+$FunctionList['change_mailbox'] = array('explain' => 'Allow operator to change mail mailbox');
 
 
 ?>

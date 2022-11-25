@@ -132,6 +132,7 @@ try {
             'moptions' => [
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),
                 'can_write' => $canWrite,
+                'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
