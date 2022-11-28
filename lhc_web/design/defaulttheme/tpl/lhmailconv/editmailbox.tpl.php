@@ -239,7 +239,11 @@
                         });
                     });
                 </script>
-                <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Supported replaceable variable.');?> {operator}, {department}</small></p>
+                <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Supported replaceable variable.');?>
+                        {operator} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Real operator Name and Surname')?>,
+                        {department},
+                        {operator_chat_name} - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Operator chat Nick name if filled, otherwise real  Name and Surname')?>
+                    </small></p>
             </div>
 
             <div class="btn-group" role="group" aria-label="...">

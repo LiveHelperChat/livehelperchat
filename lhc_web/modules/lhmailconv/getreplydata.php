@@ -16,10 +16,12 @@ try {
 
         $signature = str_replace([
             '{operator}',
-            '{department}'
+            '{department}',
+            '{operator_chat_name}'
         ],[
             $currentUser->getUserData()->name_official,
-            $conv->department_name
+            $conv->department_name,
+            $currentUser->getUserData()->name_support
             ],$signature);
 
         $replyRecipients = [];
