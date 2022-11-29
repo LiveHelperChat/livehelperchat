@@ -276,6 +276,8 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
         $db->rollback();
         $tpl->set('account_updated_departaments','failed');
     }
+    
+    $tpl->set('tab','tab_departments');
 }
 
 if (isset($_POST['UpdateSpeech_account']) && $can_edit_groups === true) {
