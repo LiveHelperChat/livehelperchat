@@ -1564,7 +1564,8 @@ function lh(){
         var intervalChecker = setInterval( function() {
             if (parseInt(confLH.user_id) != parseInt($('#chat-owner-'+chat_id).attr('user-id'))) {
                 if ($('#tabs').length > 0) {
-                    inst.removeDialogTab(chat_id,$('#tabs'),true)
+                    inst.removeDialogTab(chat_id,$('#tabs'),true);
+                    inst.channel && inst.channel.postMessage({'action':'close_chat','args':{'chat_id' : parseInt(chat_id)}});
                 }
                 clearInterval(intervalChecker);
             }
