@@ -231,6 +231,10 @@
 			<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 		<?php endif; ?>
 
+		<?php if (isset($account_updated_departaments) && $account_updated_departaments == 'failed') : $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Account update failed! Please try again!'); ?>
+			<?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
+		<?php endif; ?>
+
 		<?php
 		  $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
 		  $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
