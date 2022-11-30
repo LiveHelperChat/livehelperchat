@@ -447,11 +447,11 @@ div.other-operator div.msg-body{
 }
 
 div.whisper-msg div.msg-body{
-    background-color:#767676
+    background-color:#767676!important;
 }
 
 div.whisper-msg span.op-tit{
-    color:#767676
+    color:#767676!important;
 }
 
 div.message-admin div.msg-body a.link{

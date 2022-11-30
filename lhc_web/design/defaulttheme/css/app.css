@@ -462,11 +462,11 @@ div.other-operator div.msg-body{
 }
 
 div.whisper-msg div.msg-body{
-    background-color: #bcbcbc;
+    background-color: #bcbcbc!important;
 }
 
 div.whisper-msg span.op-tit{
-    color: #bcbcbc;
+    color: #bcbcbc!important;
 }
 
 div.message-admin div.msg-body a.link{

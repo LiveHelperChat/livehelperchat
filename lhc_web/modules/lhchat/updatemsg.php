@@ -32,9 +32,17 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	        
 	        $msg = erLhcoreClassModelmsg::fetch($form->msgid);
 	        	        
-	        if ($msg->chat_id == $Chat->id && $msg->user_id == $currentUser->getUserID()) {
+	        if ($msg->chat_id == $Chat->id && (
+                    $msg->user_id == $currentUser->getUserID() ||
+                    ($msg->user_id == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||
+                    ($msg->user_id > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
+                )
+            ) {
+                $originalMessage = $msg->msg;
 		        $msg->msg = trim($form->msg);
-		        
+
+                $contentChanged = $msg->msg !== $originalMessage;
+
 		        if ($Chat->chat_locale != '' && $Chat->chat_locale_to != '' && isset($Chat->chat_variables_array['lhc_live_trans']) && $Chat->chat_variables_array['lhc_live_trans'] === true) {
 		            erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
 		        }
@@ -42,14 +50,25 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_update',array('msg' => & $msg,'chat' => & $Chat));
 
 		        erLhcoreClassChat::getSession()->update($msg);
-		        
+
+                if ($contentChanged == true && $msg->user_id != $currentUser->getUserID()) {
+                    $metaData = $msg->meta_msg_array;
+                    if (!isset($metaData['content']['notice']['content'])) {
+                        $metaData['content']['notice']['content'] =  '[' . $currentUser->getUserID() . '] ' . $currentUser->getUserData()->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has modified a message.')) . ' '.
+                        htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Original message')).' - [b]'.$originalMessage.'[/b]';
+                        $msg->meta_msg_array = $metaData;
+                        $msg->meta_msg = json_encode($metaData);
+                        $msg->updateThis(['update' => ['meta_msg']]);
+                    }
+                }
+
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
 		        $tpl->set('messages',array((array)$msg));
 			    $tpl->set('chat',$Chat);
 		        
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
 			    $Chat->updateThis(array('update' => array('operation')));
-			    
+
 		        echo erLhcoreClassChat::safe_json_encode(array('error' => 'f', 'msg' => trim($tpl->fetch())));
 	        } else {
                 echo erLhcoreClassChat::safe_json_encode(array('error' => 't', 'result' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','You can edit only your own messages!')));
@@ -57,7 +76,11 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	    }   
 	     	    
 	    $db->commit();
-	    
+
+        if (isset($msg) && isset($Chat) && isset($contentChanged) && $contentChanged == true) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msg, 'chat' => & $Chat));
+        }
+
 	} catch (Exception $e) {
    		$db->rollback();
     }
