@@ -293,7 +293,12 @@ function lh(){
             }
 
             var msgId = $(this).attr('id').replace('msg-','');
-            var isOwner = $('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && $(this).attr('data-op-id') == confLH.user_id;
+            var isOwner = ($('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && (
+                        $(this).attr('data-op-id') == confLH.user_id ||
+                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-op') === "true" && parseInt($(this).attr('data-op-id')) > 0) ||
+                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-vis') === "true" && parseInt($(this).attr('data-op-id')) === 0)
+                    )
+             );
 
             var quoteParams = {
                 placement:'right',
