@@ -77,7 +77,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 	     	    
 	    $db->commit();
 
-        if (isset($msg) && isset($Chat)) {
+        if (isset($msg) && isset($Chat) && isset($contentChanged) && $contentChanged == true) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $msg, 'chat' => & $Chat));
         }
 
