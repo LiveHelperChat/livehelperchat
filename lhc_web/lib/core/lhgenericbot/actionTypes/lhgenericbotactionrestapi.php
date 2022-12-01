@@ -488,9 +488,10 @@ class erLhcoreClassGenericBotActionRestapi
                 $msg_text_cleaned = '';
             }
         }
-
+        
         $replaceVariables = array(
             '{{msg}}' => $msg_text,
+            '{{msg_shortened_256}}' => substr($msg_text,0,254),
             '{{msg_lowercase}}' => mb_strtolower($msg_text),
             '{{msg_clean}}' => trim($msg_text_cleaned),
             '{{msg_clean_lowercase}}' => mb_strtolower(trim($msg_text_cleaned)),
@@ -521,6 +522,7 @@ class erLhcoreClassGenericBotActionRestapi
 
         $replaceVariablesJSON = array(
             '{{msg}}' => json_encode($msg_text),
+            '{{msg_shortened_256}}' => json_encode(substr($msg_text,0,254)),
             '{{msg_lowercase}}' => json_encode(mb_strtolower($msg_text)),
             '{{msg_clean}}' => json_encode(trim($msg_text_cleaned)),
             '{{msg_clean_lowercase}}' => json_encode(mb_strtolower(trim($msg_text_cleaned))),
