@@ -767,5 +767,6 @@ $FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his p
 $FunctionList['editpreviousop'] = array('explain' => 'Allow operator to edit other operators previous messages');
 $FunctionList['editpreviouvis'] = array('explain' => 'Allow operator to edit visitors previous messages');
 $FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
+$FunctionList['allowtransfertoanydep'] = array('explain' => 'Allow operator to transfer chat to any department.');
 
 ?>
