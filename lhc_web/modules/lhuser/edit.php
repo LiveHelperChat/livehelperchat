@@ -235,30 +235,43 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
         $excAutoDepartments = $_POST['UserDepartamentAutoExc'];
     }
 
-    $UserData->updateThis();
+    try {
+        $db = ezcDbInstance::get();
 
-    if (count($globalDepartament) > 0) {
-        erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
-    } else {
-        erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
+        $db->beginTransaction();
+
+        $UserData->updateThis();
+
+        if (count($globalDepartament) > 0) {
+            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
+        } else {
+            erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
+        }
+
+        $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
+
+        // Write
+        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
+            false,
+            $excludeGroups);
+
+        // Read
+        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
+            true,
+            $excludeGroups);
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
+
+        $tpl->set('account_updated_departaments','done');
+
+        $db->commit();
+
+    } catch (Exception $e) {
+        $db->rollback();
+        $tpl->set('account_updated_departaments','failed');
     }
-
-    $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
-
-    // Write
-	erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
-        false,
-        $excludeGroups);
-
-    // Read
-    erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
-        true,
-        $excludeGroups);
-
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
-
-	$tpl->set('account_updated_departaments','done');
-
+    
+    $tpl->set('tab','tab_departments');
 }
 
 if (isset($_POST['UpdateSpeech_account']) && $can_edit_groups === true) {

@@ -274,7 +274,9 @@ $ViewList['list'] = array(
     'params' => array(),
     'uparams' => array('timefromts','transfer_happened','phone','not_invitation','proactive_chat','view','dropped_chat','abandoned_chat','country_ids','has_unread_op_messages','cls_us','export','chat_status_ids','cf','with_bot','no_operator','has_operator','without_bot','bot_ids','ip','department_ids','department_group_ids','user_ids','group_ids','subject_id','anonymized','una','chat_duration_from','chat_duration_till','wait_time_from','wait_time_till','chat_id','nick','email','timefrom','timeto','department_id','user_id','print','xls','fbst','chat_status','hum','product_id','timefrom','timefrom_seconds','timefrom_minutes','timefrom_hours','timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours', 'department_group_id', 'group_id', 'invitation_id',
         'country_ids',
-        'region',),
+        'region',
+        'iwh_ids'
+        ),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(
         'department_ids',
@@ -286,7 +288,8 @@ $ViewList['list'] = array(
         'country_ids',
         'chat_status_ids',
         'cf',
-        'country_ids'
+        'country_ids',
+        'iwh_ids'
     )
 );
 
@@ -758,6 +761,8 @@ $FunctionList['htmlbbcodeenabled'] = array('explain' => 'Allow operator to use [
 $FunctionList['metamsgenabled'] = array('explain' => 'Allow operator to use meta_msg in message add interface.');
 $FunctionList['seeip'] = array('explain' => 'Allow operator to see full IP');
 $FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his previous messages');
+$FunctionList['editpreviousop'] = array('explain' => 'Allow operator to edit other operators previous messages');
+$FunctionList['editpreviouvis'] = array('explain' => 'Allow operator to edit visitors previous messages');
 $FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
 
 ?>

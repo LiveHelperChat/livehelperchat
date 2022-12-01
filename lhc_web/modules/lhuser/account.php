@@ -223,60 +223,72 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
         exit;
     }
 
-    if ($currentUser->hasAccessTo('lhuser','see_assigned_departments')) {
-        $departmentEditParams = [
-            'individual' => [
-                'edit_all' => $currentUser->hasAccessTo('lhuser','see_assigned_departments'),
-            ],
-            'groups' => [
-                'edit_all' => $currentUser->hasAccessTo('lhuser','see_assigned_departments_groups')
-            ]
-        ];
+    try {
+        $db = ezcDbInstance::get();
 
-        $globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, [
-            'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
-            'edit_params' => $departmentEditParams
-        ]);
+        $db->beginTransaction();
 
-        $readOnlyDepartments = array();
-        if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
-            $readOnlyDepartments = $_POST['UserDepartamentRead'];
+        if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments')) {
+            $departmentEditParams = [
+                'individual' => [
+                    'edit_all' => $currentUser->hasAccessTo('lhuser', 'see_assigned_departments'),
+                ],
+                'groups' => [
+                    'edit_all' => $currentUser->hasAccessTo('lhuser', 'see_assigned_departments_groups')
+                ]
+            ];
+
+            $globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, [
+                'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'self_all_departments'),
+                'edit_params' => $departmentEditParams
+            ]);
+
+            $readOnlyDepartments = array();
+            if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
+                $readOnlyDepartments = $_POST['UserDepartamentRead'];
+            }
+
+            $excAutoDepartments = array();
+            if (isset($_POST['UserDepartamentAutoExc']) && count($_POST['UserDepartamentAutoExc']) > 0) {
+                $excAutoDepartments = $_POST['UserDepartamentAutoExc'];
+            }
+
+            $UserData->updateThis();
+
+            if (count($globalDepartament) > 0) {
+                erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments, $excAutoDepartments);
+            } else {
+                erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments, $excAutoDepartments);
+            }
         }
 
-        $excAutoDepartments = array();
-        if (isset($_POST['UserDepartamentAutoExc']) && count($_POST['UserDepartamentAutoExc']) > 0) {
-            $excAutoDepartments = $_POST['UserDepartamentAutoExc'];
+        if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments_groups')) {
+
+            $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
+
+            // Write mode
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
+                false,
+                $excludeGroups);
+
+            // Read mode
+            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
+                true,
+                $excludeGroups);
         }
 
-        $UserData->updateThis();
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
 
-        if (count($globalDepartament) > 0) {
-            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments, $excAutoDepartments);
-        } else {
-            erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments, $excAutoDepartments);
-        }
+        $tpl->set('account_updated_departaments', 'done');
+        $tpl->set('tab', 'tab_departments');
+
+        $db->commit();
+
+    } catch (Exception $e) {
+        $db->rollback();
+        $tpl->set('account_updated_departaments','failed');
+        $tpl->set('tab', 'tab_departments');
     }
-
-    if ($currentUser->hasAccessTo('lhuser','see_assigned_departments_groups')) {
-
-        $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
-
-        // Write mode
-        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
-            false,
-            $excludeGroups);
-
-        // Read mode
-        erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
-            true,
-            $excludeGroups);
-    }
-
-	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update',array('user' => & $UserData));
-
-	$tpl->set('account_updated_departaments','done');
-	$tpl->set('tab','tab_departments');
-   
 }
 
 

@@ -411,6 +411,7 @@ const DashboardChatTabs = props => {
         e.preventDefault();
         e.stopPropagation();
         lhinst.removeDialogTab(chat.id,$('#tabs'),true);
+        lhinst.channel && lhinst.channel.postMessage({'action':'close_chat','args':{'chat_id' : chat.id}});
     }
 
     const iconClick = (e,icon,chat) => {

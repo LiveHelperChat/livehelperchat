@@ -59,6 +59,8 @@ function lh(){
     this.accepttransfer = "chat/accepttransfer/";
     this.trasnsferuser = "chat/transferuser/";
 
+    this.channel = null;
+
     this.disableremember = false;
     this.operatorTyping = false;
     this.forceBottomScroll = false;
@@ -151,7 +153,7 @@ function lh(){
         this.audio.autoplay = 'autoplay';
     }
 
-    this.reloadTab = function(chat_id, tabs, nick)
+    this.reloadTab = function(chat_id, tabs, nick, internal)
     {
         $('#ntab-chat-'+chat_id).text(nick);
 
@@ -172,6 +174,8 @@ function lh(){
             inst.loadMainData(chat_id);
             ee.emitEvent('chatTabLoaded', [chat_id]);
             ee.emitEvent('chatStartTab', [chat_id, {name: nick, focus: true}]);
+
+            !internal && inst.channel && inst.channel.postMessage({'action':'reload_chat','args':{'nick': nick, 'chat_id' : parseInt(chat_id)}});
         });
     }
 
@@ -289,7 +293,12 @@ function lh(){
             }
 
             var msgId = $(this).attr('id').replace('msg-','');
-            var isOwner = $('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && $(this).attr('data-op-id') == confLH.user_id;
+            var isOwner = ($('#CSChatMessage-'+e.data.chat_id).attr('disable-edit') !== "true" && (
+                        $(this).attr('data-op-id') == confLH.user_id ||
+                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-op') === "true" && parseInt($(this).attr('data-op-id')) > 0) ||
+                        ($('#CSChatMessage-'+e.data.chat_id).attr('edit-vis') === "true" && parseInt($(this).attr('data-op-id')) === 0)
+                    )
+             );
 
             var quoteParams = {
                 placement:'right',
@@ -1148,6 +1157,8 @@ function lh(){
             window.opener.postMessage("lhc_ch:chatclosed:"+chat_id, '*');
         };
 
+        that.channel && that.channel.postMessage({'action':'close_chat','args':{'chat_id' : chat_id}});
+
         that.removeSynchroChat(chat_id);
 
         if (hidetab == true) {
@@ -1167,7 +1178,6 @@ function lh(){
         if (LHCCallbacks.chatClosedCallback) {
             LHCCallbacks.chatClosedCallback(chat_id);
         };
-
 	};
 
 	this.smartTabFocus = function(tabs, chat_id, params) {
@@ -1252,6 +1262,8 @@ function lh(){
 
 	this.removeDialogTab = function(chat_id, tabs, hidetab)
 	{
+        this.channel && this.chatUnderSynchronization(chat_id) === true && this.channel.postMessage({'action':'close_chat','args':{'chat_id' : chat_id}});
+
 	    if ($('#CSChatMessage-'+chat_id).length != 0){
 	    	$('#CSChatMessage-'+chat_id).unbind('keydown', function(){});
 	       $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
@@ -1272,7 +1284,6 @@ function lh(){
 	            window.close();
 	        };
 	    };
-
 
 	    this.syncadmininterfacestatic();
 	};
@@ -1460,7 +1471,8 @@ function lh(){
         var intervalChecker = setInterval( function() {
             if (parseInt(confLH.user_id) != parseInt($('#chat-owner-'+chat_id).attr('user-id'))) {
                 if ($('#tabs').length > 0) {
-                    inst.removeDialogTab(chat_id,$('#tabs'),true)
+                    inst.removeDialogTab(chat_id,$('#tabs'),true);
+                    inst.channel && inst.channel.postMessage({'action':'close_chat','args':{'chat_id' : parseInt(chat_id)}});
                 }
                 clearInterval(intervalChecker);
             }
@@ -2003,7 +2015,10 @@ function lh(){
 	    }
 	};
 
-	this.updateVoteStatus = function(chat_id) {
+	this.updateVoteStatus = function(chat_id, internal) {
+
+        var that = this;
+
 		$.getJSON(this.wwwDir + 'chat/updatechatstatus/'+chat_id ,{ }, function(data){
 			$('#main-user-info-tab-'+chat_id).html(data.result);
 
@@ -2015,6 +2030,8 @@ function lh(){
             $('#ntab-chat-'+chat_id).text(data.nick);
 
             ee.emitEvent('chatTabInfoReload', [chat_id]);
+
+            !internal && that.channel && that.channel.postMessage({'action':'update_chat','args':{'chat_id' : parseInt(chat_id)}});
 		});
 	};
 

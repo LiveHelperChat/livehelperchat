@@ -632,7 +632,9 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
-                $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, $chat->nick);
+                if ($chat->nick == 'Visitor' || $chat->nick == '') {
+                    $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, $chat->nick);
+                }
 
                 if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
                     if (!preg_match($conditions['nick_pregmatch'], $chat->nick)) {
@@ -830,10 +832,9 @@ class erLhcoreClassChatWebhookIncoming {
                 $chat->referrer = '';
                 $chat->session_referrer = '';
                 $chat->dep_id = $incomingWebhook->dep_id;
+                $chat->iwh_id = $incomingWebhook->id;
 
-                $chatVariables = array(
-                    'iwh_id' => $incomingWebhook->id,
-                );
+                $chatVariables = [];
 
                 if (isset($conditions['add_field_value']) && $conditions['add_field_value'] != '') {
                     $chatVariables['iwh_field'] = self::extractAttribute('add_field_value', $conditions, $payloadMessage, '');
@@ -843,7 +844,10 @@ class erLhcoreClassChatWebhookIncoming {
                     $chatVariables['iwh_field_2'] = self::extractAttribute('add_field_2_value', $conditions, $payloadMessage, '');
                 }
 
-                $chat->chat_variables = json_encode($chatVariables);
+                if (!empty($chatVariables)) {
+                    $chat->chat_variables = json_encode($chatVariables);
+                }
+
                 $chat->saveThis();
                 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_started', array(
@@ -1459,9 +1463,7 @@ class erLhcoreClassChatWebhookIncoming {
             $chat->hash = erLhcoreClassChat::generateHash();
             $chat->referrer = '';
             $chat->session_referrer = '';
-            $chat->chat_variables = json_encode(array(
-                'iwh_id' => $incomingWebhook->id
-            ));
+            $chat->iwh_id = $incomingWebhook->id;
 
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = $item->message;

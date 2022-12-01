@@ -229,6 +229,28 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 	$scope.current_user_id = confLH.user_id;
 
 	// Parameters for back office sync
+    lhinst.channel =
+        this.channel =
+        new BroadcastChannel('lhc_dashboard');
+
+    this.channel.addEventListener("message", function(event) {
+        if (event.isTrusted && event.data.action) {
+            var tabs = $('#tabs');
+            if (lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
+                if (event.data.action == 'close_chat') {
+                    tabs.length > 0 && lhinst.removeDialogTab(event.data.args.chat_id,$('#tabs'),true);
+                } else if (event.data.action == 'update_chat' || event.data.action == 'startbackground_chat') {
+                    tabs.length > 0 && lhinst.updateVoteStatus(event.data.args.chat_id, true);
+                } else if (event.data.action == 'reload_chat') {
+                    tabs.length > 0 && lhinst.reloadTab(event.data.args.chat_id, $('#tabs'), event.data.args.nick, true);
+                }
+            } else if (event.data.action == 'startbackground_chat') {
+                (tabs.length > 0 && lhinst.startChatBackground(event.data.args.chat_id, $('#tabs'), event.data.args.nick)) || ee.emitEvent('chatTabPreload', [event.data.args.chat_id, {focus: false}]);;
+            } else if (event.data.action == 'close_chat') {
+                ee.emitEvent('removeSynchroChat', [parseInt(event.data.args.chat_id)]);
+            }
+        }
+    });
 
 	var _that = this;
 
@@ -1205,6 +1227,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 											if (tabs.length > 0 && lhinst.disableremember == false) {
                                                 lhinst.removeSynchroChat(chat.id);
                                                 lhinst.startChatBackground(chat.id, tabs, LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10));
+                                                // We auto open only auto assigned chats
+                                                _that.channel.postMessage({'action':'startbackground_chat','args':{'nick': LiveHelperChatFactory.truncate((chat.nick || 'Visitor'), 10), 'chat_id' : parseInt(chat.id)}});
 											}
 
 											if (lhinst.disableremember == false) {
@@ -1218,6 +1242,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                                     if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && (confLH.accept_chats == 1 || $('#chat-tab-link-' + chat.id).length > 0)) {
                                         if (tabs.length > 0 && lhinst.disableremember == false) {
                                             lhinst.startChatTransfer(chat.id,tabs,LiveHelperChatFactory.truncate((chat.nick || 'Visitor'),10),chat.transfer_id, $('#chat-tab-link-' + chat.id).length == 0);
+
+                                            // Auto open transfered chats in all tabs
+                                            _that.channel.postMessage({'action':'startbackground_chat','args':{'nick': LiveHelperChatFactory.truncate((chat.nick || 'Visitor'),10), 'chat_id' : parseInt(chat.id)}});
                                         }
                                         if (lhinst.disableremember == false) {
                                             notificationDataAccept.push(chat.id);

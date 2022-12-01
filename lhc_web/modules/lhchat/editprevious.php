@@ -17,13 +17,17 @@ try {
         }
 
 		if (isset($lastMessage['msg'])) {
-		    if ($lastMessage['user_id'] == $currentUser->getUserID()) {
+		    if (
+                ($lastMessage['user_id'] == $currentUser->getUserID()) ||
+                ($lastMessage['user_id'] == 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviouvis')) ||
+                ($lastMessage['user_id'] > 0 && erLhcoreClassUser::instance()->hasAccessTo('lhchat','editpreviousop'))
+            ) {
                 $array = array();
                 $array['id'] = $lastMessage['id'];
                 $array['msg'] = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $lastMessage['msg']);
                 $array['error'] = 'f';
 
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_edit_previous_admin_returned',array('response' => & $array));
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_edit_previous_admin_returned', array('response' => & $array));
 
                 echo json_encode($array);
             } else {

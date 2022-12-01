@@ -774,7 +774,7 @@ class erLhcoreClassModelChatOnlineUser
                 } else {
                     $item = new erLhcoreClassModelChatOnlineUser();
                     $item->ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
-                    $item->vid = $paramsHandle['vid'];
+                    $item->vid = mb_substr($paramsHandle['vid'],0,50);
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
                     $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
                     $item->total_visits = 1;
