@@ -553,6 +553,10 @@ class erLhcoreClassChat {
     	{
     		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId, $userData->cache_version);
 
+            if (isset($params['explicit']) && $params['explicit'] === true && in_array(-1,$userDepartaments)) {
+                unset($userDepartaments[array_search(-1, $userDepartaments)]);
+            }
+
     		if (count($userDepartaments) == 0) return false;
 
     		$LimitationDepartament = '('.$tableName.'.dep_id IN ('.implode(',',$userDepartaments).'))';
@@ -1069,7 +1073,7 @@ class erLhcoreClassChat {
 
        if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfertoanyuser')){
 	       // User can see online only his department users
-	       $limitation = self::getDepartmentLimitation('lh_userdep');
+	       $limitation = self::getDepartmentLimitation('lh_userdep', array('explicit' => true));
 
 	       // Does not have any assigned department
 	       if ($limitation === false) { return array(); }
