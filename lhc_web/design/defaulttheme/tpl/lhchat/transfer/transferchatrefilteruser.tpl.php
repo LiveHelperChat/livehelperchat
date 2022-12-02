@@ -1,3 +1,3 @@
 <?php foreach (erLhcoreClassChat::getOnlineUsers(array($user_id), $user_filter) as $key => $user) : ?>
-    <label><input type="radio" name="TransferTo<?php echo $chat->id?>" value="<?php echo $user['id']?>" <?php echo $key == 0 ? 'checked="checked"' : ''?>> <?php echo htmlspecialchars($user['name'])?> <?php echo htmlspecialchars($user['surname'])?><?php if ($user['chat_nickname'] != '') : ?>&nbsp;|&nbsp;<?php echo htmlspecialchars($user['chat_nickname'])?><?php endif;?></label><br/>
+    <label><input type="radio" name="TransferTo<?php echo $chat->id?>" value="<?php echo $user['id']?>" <?php echo $key == 0 ? 'checked="checked"' : ''?>>&nbsp;<?php echo htmlspecialchars($user['name'].' '.$user['surname'])?><?php if ($user['chat_nickname'] != '') : ?>&nbsp;|&nbsp;<?php echo htmlspecialchars($user['chat_nickname'])?><?php endif;?></label><br/>
 <?php endforeach; ?>
