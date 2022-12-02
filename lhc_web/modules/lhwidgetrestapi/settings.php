@@ -184,9 +184,9 @@ if (isset($outputResponse['theme'])) {
 
         $outputResponse['theme'] = $theme->alias != '' ? $theme->alias : $theme->id;
 
-        if ($setTheme === true && isset($theme->bot_configuration_array['theme_expires']) && $theme->bot_configuration_array['theme_expires'] > 0 && isset($userInstance) && $userInstance !== false) {
+        if ($setTheme === true && isset($theme->bot_configuration_array['theme_expires']) && (int)$theme->bot_configuration_array['theme_expires'] > 0 && isset($userInstance) && $userInstance !== false) {
             $userAttributes['lhc_theme'] = $outputResponse['theme'];
-            $userAttributes['lhc_theme_exp'] = $theme->bot_configuration_array['theme_expires'];
+            $userAttributes['lhc_theme_exp'] = time() + $theme->bot_configuration_array['theme_expires'];
             $userInstance->online_attr_system_array = $userAttributes;
             $userInstance->online_attr_system = json_encode($userAttributes);
             $userInstance->updateThis(['update' => ['online_attr_system']]);
@@ -451,7 +451,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 203;
+$outputResponse['wv'] = 204;
 
 // React APP versions
 $outputResponse['v'] = 263;

@@ -1,5 +1,12 @@
 <?php    // Reactions to visitor messages in admin interface ?>
-<?php if (isset($chat->chat_variables_array['theme_id']) && ($chatTheme = erLhAbstractModelWidgetTheme::fetch($chat->chat_variables_array['theme_id'])) && $chatTheme instanceof erLhAbstractModelWidgetTheme && isset($chatTheme->bot_configuration_array['custom_tb_reactions']) && $chatTheme->bot_configuration_array['custom_tb_reactions'] != '') : ?>
+<?php if (
+
+        (
+            (isset($chat->chat_variables_array['theme_id']) && ($chatTheme = erLhAbstractModelWidgetTheme::fetch($chat->chat_variables_array['theme_id']))) ||
+            ($chat->theme_id > 0 && ($chatTheme = erLhAbstractModelWidgetTheme::fetch($chat->theme_id)))
+        )
+
+        && $chatTheme instanceof erLhAbstractModelWidgetTheme && isset($chatTheme->bot_configuration_array['custom_tb_reactions']) && $chatTheme->bot_configuration_array['custom_tb_reactions'] != '') : ?>
 
         <?php
 
