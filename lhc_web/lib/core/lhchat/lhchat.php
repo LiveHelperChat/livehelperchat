@@ -63,6 +63,7 @@ class erLhcoreClassChat {
 			'uagent',
 			'user_tz_identifier',
 			'invitation_id',
+			'theme_id',
 	);
 
 	public static $limitMessages = 50;
@@ -703,6 +704,10 @@ class erLhcoreClassChat {
     	{
     		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId, $userData->cache_version);
 
+            if (isset($params['explicit']) && $params['explicit'] === true && in_array(-1,$userDepartaments)) {
+                unset($userDepartaments[array_search(-1, $userDepartaments)]);
+            }
+
     		if (count($userDepartaments) == 0) return false;
 
     		$LimitationDepartament = '('.$tableName.'.dep_id IN ('.implode(',',$userDepartaments).'))';
@@ -1219,7 +1224,7 @@ class erLhcoreClassChat {
 
        if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfertoanyuser')){
 	       // User can see online only his department users
-	       $limitation = self::getDepartmentLimitation('lh_userdep');
+	       $limitation = self::getDepartmentLimitation('lh_userdep', array('explicit' => true));
 
 	       // Does not have any assigned department
 	       if ($limitation === false) { return array(); }
@@ -1227,9 +1232,23 @@ class erLhcoreClassChat {
 	       if ($limitation !== true) {
 	       		$limitationSQL = ' AND '.$limitation;
 	       }
+       } else {
+           $limitation = erLhcoreClassUser::instance()->hasAccessTo('lhchat','allowtransfertoanyuser', true);
+           if ($limitation !== true) {
+               $limitationParams = json_decode($limitation, true);
+               if (isset($limitationParams['group'])) {
+                   erLhcoreClassChat::validateFilterIn($limitationParams['group']);
+                   $userIDValid = erLhcoreClassModelGroupUser::getCount(['filterin' => ['group_id' => $limitationParams['group']]],false,'user_id', 'user_id', false, true, true);
+                   if (!empty($userIDValid)) {
+                       $NotUser .= " AND `lh_users`.`id` IN(" . implode(',',$userIDValid) . ')';
+                   } else {
+                       return [];
+                   }
+               }
+           }
        }
 
-       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) '.$NotUser.$limitationSQL.$onlyOnline.$sameDepartment.' GROUP BY lh_users.id';
+       $SQL = 'SELECT lh_users.* FROM lh_users INNER JOIN lh_userdep ON lh_userdep.user_id = lh_users.id WHERE (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) '.$NotUser.$limitationSQL.$onlyOnline.$sameDepartment.' GROUP BY `lh_users`.`id`';
        $stmt = $db->prepare($SQL);
        $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 

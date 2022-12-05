@@ -346,6 +346,7 @@ try {
         	   	  `device_type` int(11) NOT NULL,
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
                   `iwh_id` int(11) NOT NULL DEFAULT '0',
+                  `theme_id` int(11) unsigned NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `status_user_id` (`status`,`user_id`),
 				  KEY `unanswered_chat` (`unanswered_chat`),
@@ -360,6 +361,7 @@ try {
 				  KEY `status` (`status`),
 				  KEY `nick` (`nick`),
 				  KEY `iwh_id` (`iwh_id`),
+				  KEY `theme_id` (`theme_id`),
 				  KEY `email` (`email`),
 				  KEY `phone` (`phone`),
 				  KEY `dep_id_status` (`dep_id`,`status`)

@@ -1,3 +1,13 @@
+4.16v
+
+1. Theme attribute will be saved directly in the chat table. So we can use search from now.
+2. You now can pass more than one theme at once. Theme will be chosen randomly from passed one. You can fixate period from widget theme itself how long same theme would be applied. If one theme is passed it will be always used.
+3. Fixed bug once permission `'lhchat', 'allowtransfertoanyuser'` was removed, operator still saw operators from other departments.
+4. `'lhdepartment', 'see_all'` permission now can have limitation like 	{"group":[1,2,3,9,10],"department":[45,46]}
+5. `'lhchat','allowtransfertoanyuser'` permission now can have limitation like 	{"group":[1,2,3,9,10]}
+
+execute doc/update_db/update_288.sql for update
+
 4.15v
 
 1. Incoming webhooks now can be represented in the chat list with an icon.

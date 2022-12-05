@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 203;
+            lhc.version = 204;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -164,7 +164,7 @@
                     department: LHC_API.args.department || [],
                     dep_default: LHC_API.args.dep_default || null,
                     product: LHC_API.args.product || [],
-                    theme: LHC_API.args.theme || null,
+                    theme: typeof LHC_API.args.theme !== 'undefined' ? (typeof LHC_API.args.theme === 'object' ? LHC_API.args.theme.join(',') : LHC_API.args.theme) :  null,
                     theme_v: null,
                     domain: LHC_API.args.domain || null,
                     domain_lhc: null,

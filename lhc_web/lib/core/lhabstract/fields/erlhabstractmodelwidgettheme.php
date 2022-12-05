@@ -1,6 +1,14 @@
 <?php 
 
 $fields = array(
+                'theme_expires' => array(
+                    'type' => 'text',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If more than one theme is passed, randomly chosen theme is fixed for selected period of time.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+                ),
    				'name' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Name'),
@@ -12,7 +20,7 @@ $fields = array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Alias for argument. No spaces or slashes.'),
    						'required' => false,
-                    'hidden' => true,
+                        //'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),

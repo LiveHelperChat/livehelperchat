@@ -2,20 +2,23 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/transfer/transfer_custom_multiinclude.tpl.php'));?>
 
-    <?php foreach (erLhcoreClassModelDepartamentGroup::getList() as $depGroupItem) : $idsUnique = [];?>
+    <?php foreach (erLhcoreClassModelDepartamentGroup::getList() as $depGroupItem) :
+        $idsUnique = [];
+        $membersDeps = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_group_id' => $depGroupItem->id)));
+        foreach ($membersDeps as $memberDep) {$idsUnique[] = $memberDep->dep_id; }
+        if (isset($departments_filter['filter']['filterin']['id'])) {
+            $idsUnique = array_intersect($idsUnique, $departments_filter['filter']['filterin']['id']);
+        }
+        if (!empty($idsUnique)) : ?>
         <h6>
             <input type="button" class="btn btn-xs btn-secondary" value="Show/Hide" onclick="$('#dep-group-filter-id-<?php echo $depGroupItem->id?>').toggle()">&nbsp;<?php echo htmlspecialchars($depGroupItem->name)?>
         </h6>
         <div id="dep-group-filter-id-<?php echo $depGroupItem->id?>" style="display: none">
-            <?php $membersDeps = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_group_id' => $depGroupItem->id))); ?>
-            <?php foreach ($membersDeps as $memberDep) {$idsUnique[] = $memberDep->dep_id; } ?>
-            <?php if (!empty($idsUnique)) : ?>
-                <?php foreach (erLhcoreClassModelDepartament::getList(array('sort' => 'sort_priority ASC, name ASC','filterin' => array('id' => $idsUnique))) as $depGroup) : ?>
-                    <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/> <?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?> <b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
-                <?php endforeach; ?>
-            <?php endif;?>
+            <?php foreach (erLhcoreClassModelDepartament::getList(array('sort' => 'sort_priority ASC, name ASC','filterin' => array('id' => $idsUnique))) as $depGroup) : ?>
+                <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/>&nbsp;<?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?>&nbsp;<b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+    <?php endif; endforeach; ?>
 
     <?php $memberOf = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_id' => $departments_filter['dep_id'])));$hasMembers = !empty($memberOf); ?>
     <?php if (!empty($memberOf)) : ?>
@@ -28,11 +31,16 @@
     <?php foreach ($memberOf as $member) : $idsUnique = [];?>
         <div class="member-of-dep-filter" style="display: none">
         <?php $membersDeps = erLhcoreClassModelDepartamentGroupMember::getList(array('filter' => array('dep_group_id' => $member->dep_group_id))); ?>
-        <?php foreach ($membersDeps as $memberDep) {$idsUnique[] = $memberDep->dep_id; } ?>
+        <?php
+            foreach ($membersDeps as $memberDep) {$idsUnique[] = $memberDep->dep_id; }
+            if (isset($departments_filter['filter']['filterin']['id'])) {
+                $idsUnique = array_intersect($idsUnique, $departments_filter['filter']['filterin']['id']);
+            }
+        ?>
         <?php if (!empty($idsUnique)) : ?>
         <label><b><?php echo htmlspecialchars(erLhcoreClassModelDepartamentGroup::fetch($member->dep_group_id))?></b></label>
         <?php foreach (erLhcoreClassModelDepartament::getList(array('sort' => 'sort_priority ASC, name ASC','filterin' => array('id' => $idsUnique))) as $depGroup) : ?>
-            <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/> <?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?> <b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
+            <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $depGroup->id?>"/>&nbsp;<?php echo htmlspecialchars($depGroup->name)?><?php if ($depGroup->id == $departments_filter['dep_id']) : ?>&nbsp;<b>[<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferchat','current');?>]</b><?php endif;?></label></div>
         <?php endforeach; ?>
         <?php endif;?>
         </div>
@@ -55,7 +63,7 @@
     </h6>
     <div id="offline-transfer-dep" style="display: none">
     <?php foreach ($departments as $departament) : if (!in_array($departament->id, $onlineDepartments)) : ?>
-       <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $departament->id?>"/> <?php echo htmlspecialchars($departament->name)?></label></div>
+       <div class="checkbox"><label><input type="radio" name="DepartamentID<?php echo $departments_filter['chat_id']?>" value="<?php echo $departament->id?>"/>&nbsp;<?php echo htmlspecialchars($departament->name)?></label></div>
     <?php endif; endforeach; ?>
     </div>
 

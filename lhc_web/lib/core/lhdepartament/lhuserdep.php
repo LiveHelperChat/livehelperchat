@@ -92,11 +92,37 @@ class erLhcoreClassUserDep
 
     public static function conditionalDepartmentGroupFilter($userID = false, $column = 'id') {
 
+        $useUser = false;
+
         if ($userID === false) {
             $userID = erLhcoreClassUser::instance()->getUserID();
+            $useUser = true;
         }
 
         if (erLhcoreClassRole::hasAccessTo($userID, 'lhdepartment', 'see_all') === true) {
+            if ($useUser === true) {
+                $limitation = erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'see_all', true);
+                if ($limitation !== true) {
+                    $limitationParams = json_decode($limitation, true);
+
+                    $departments = [];
+                    $limitsApplied = false;
+
+                    if (isset($limitationParams['group'])) {
+                        erLhcoreClassChat::validateFilterIn($limitationParams['group']);
+                        $departments = $limitationParams['group'];
+                        $limitsApplied = true;
+                    }
+
+                    if ($limitsApplied === true && empty($departments)) {
+                        return array('filterin' => array($column => [-1]));
+                    } elseif ($limitsApplied === true) {
+                        erLhcoreClassChat::validateFilterIn($departments);
+                        return array('filterin' => array($column => $departments));
+                    }
+                }
+            }
+
             return array();
         }
 
@@ -115,14 +141,44 @@ class erLhcoreClassUserDep
 
     public static function conditionalDepartmentFilter($userID = false, $column = 'id', $cacheVersion = 0) {
 
+        $useUser = false;
+
         if ($userID === false) {
             $userID = erLhcoreClassUser::instance()->getUserID();
             $cacheVersion = erLhcoreClassUser::instance()->cache_version;
+            $useUser = true;
         }
 
         if (erLhcoreClassRole::hasAccessTo($userID, 'lhdepartment', 'see_all') === true) {
+            if ($useUser === true) {
+                $limitation = erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'see_all', true);
+                if ($limitation !== true) {
+                    $limitationParams = json_decode($limitation, true);
+
+                    $departments = [];
+                    $limitsApplied = false;
+
+                    if (isset($limitationParams['group'])) {
+                        erLhcoreClassChat::validateFilterIn($limitationParams['group']);
+                        $departments = erLhcoreClassModelDepartamentGroupMember::getCount(['filterin' => ['dep_group_id' => $limitationParams['group']]],false,'dep_id', 'dep_id', false, true, true);
+                        $limitsApplied = true;
+                    }
+
+                    if (isset($limitationParams['department'])) {
+                        $departments = array_merge($departments, $limitationParams['department']);
+                        $limitsApplied = true;
+                    }
+
+                    if ($limitsApplied === true && empty($departments)) {
+                        return array('filterin' => array($column => [-1]));
+                    } elseif ($limitsApplied === true) {
+                        erLhcoreClassChat::validateFilterIn($departments);
+                        return array('filterin' => array($column => $departments));
+                    }
+                }
+            }
             return array();
-        };
+        }
 
         $departments = self::parseUserDepartmetnsForFilter($userID, $cacheVersion);
 
