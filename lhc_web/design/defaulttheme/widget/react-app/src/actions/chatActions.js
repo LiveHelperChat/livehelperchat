@@ -730,7 +730,7 @@ export function addMessage(obj) {
                     dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: response.data.r, msg: obj.msg}});
                 }
 
-                fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
+                fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
 
                 if (response.data.t) {
                     helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
