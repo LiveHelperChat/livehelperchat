@@ -4144,6 +4144,14 @@
         "extra": ""
       },
       {
+        "field": "theme_id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "invitation_id",
         "type": "int(11)",
         "null": "NO",
@@ -10257,6 +10265,7 @@
       "new" : {
         "nick" : "ALTER TABLE `lh_chat` ADD INDEX `nick` (`nick`);",
         "iwh_id" : "ALTER TABLE `lh_chat` ADD INDEX `iwh_id` (`iwh_id`);",
+        "theme_id" : "ALTER TABLE `lh_chat` ADD INDEX `theme_id` (`theme_id`);",
         "email" : "ALTER TABLE `lh_chat` ADD INDEX `email` (`email`);",
         "phone" : "ALTER TABLE `lh_chat` ADD INDEX `phone` (`phone`);",
         "unanswered_chat" : "ALTER TABLE `lh_chat` ADD INDEX `unanswered_chat` (`unanswered_chat`);",

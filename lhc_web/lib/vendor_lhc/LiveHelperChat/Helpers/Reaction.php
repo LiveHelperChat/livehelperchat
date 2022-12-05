@@ -30,7 +30,12 @@ class Reaction
             $identifier = $paramsPayload['payload-id'];
         } else {
 
-            if (isset($chat->chat_variables_array['theme_id']) && ($theme = \erLhAbstractModelWidgetTheme::fetch($chat->chat_variables_array['theme_id'])) && $theme instanceof \erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['custom_tb_reactions']) && $theme->bot_configuration_array['custom_tb_reactions'] != '') {
+            if (
+                (
+                    (isset($chat->chat_variables_array['theme_id']) && ($theme = \erLhAbstractModelWidgetTheme::fetch($chat->chat_variables_array['theme_id']))) ||
+                    ($chat->theme_id > 0 && ($theme = \erLhAbstractModelWidgetTheme::fetch($chat->theme_id)))
+                )
+                && $theme instanceof \erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['custom_tb_reactions']) && $theme->bot_configuration_array['custom_tb_reactions'] != '') {
                 $validIdentifiers = [];
                 $action = 'remove';
                 $identifier = '';

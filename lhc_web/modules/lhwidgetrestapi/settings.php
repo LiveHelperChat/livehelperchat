@@ -146,6 +146,26 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
     }
 }
 
+$themeArray = [];
+
+if (isset($_GET['theme'])) {
+    $themeArray = explode(',', $_GET['theme']);
+}
+
+$setTheme = false;
+
+if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
+    $userAttributes = $userInstance->online_attr_system_array;
+    if (isset($userAttributes['lhc_theme']) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+        $_GET['theme'] = $userAttributes['lhc_theme'];
+    } else {
+        $setTheme = true;
+        $_GET['theme'] = $themeArray[array_rand($themeArray)];
+    }
+} elseif (count($themeArray) > 1) {
+    $_GET['theme'] = $themeArray[array_rand($themeArray)];
+}
+
 if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
     $outputResponse['theme'] = $themeId;
 } else {
@@ -163,6 +183,14 @@ if (isset($outputResponse['theme'])) {
     if ($theme instanceof erLhAbstractModelWidgetTheme) {
 
         $outputResponse['theme'] = $theme->alias != '' ? $theme->alias : $theme->id;
+
+        if ($setTheme === true && isset($theme->bot_configuration_array['theme_expires']) && (int)$theme->bot_configuration_array['theme_expires'] > 0 && isset($userInstance) && $userInstance !== false) {
+            $userAttributes['lhc_theme'] = $outputResponse['theme'];
+            $userAttributes['lhc_theme_exp'] = time() + $theme->bot_configuration_array['theme_expires'];
+            $userInstance->online_attr_system_array = $userAttributes;
+            $userInstance->online_attr_system = json_encode($userAttributes);
+            $userInstance->updateThis(['update' => ['online_attr_system']]);
+        }
 
         if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
             $outputResponse['chat_ui']['wwidth'] = (int)$theme->bot_configuration_array['wwidth'];
@@ -423,7 +451,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 203;
+$outputResponse['wv'] = 204;
 
 // React APP versions
 $outputResponse['v'] = 263;

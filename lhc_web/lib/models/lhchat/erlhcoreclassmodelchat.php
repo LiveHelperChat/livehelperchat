@@ -123,6 +123,7 @@ class erLhcoreClassModelChat {
                'gbot_id'    	        => $this->gbot_id,
                'cls_us'    	            => $this->cls_us,
                'iwh_id'    	            => $this->iwh_id,
+               'theme_id'    	        => $this->theme_id,
        );
    }
 
