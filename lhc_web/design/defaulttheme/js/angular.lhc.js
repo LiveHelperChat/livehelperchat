@@ -235,6 +235,13 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
     this.channel.addEventListener("message", function(event) {
         if (event.isTrusted && event.data.action) {
+
+            if (event.data.action == 'went_active') {
+                $('#myModal').modal('hide');
+                _that.setActiveInterface();
+                return;
+            }
+
             var tabs = $('#tabs');
             if (lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
                 if (event.data.action == 'close_chat') {
@@ -1653,16 +1660,8 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                         _that.lhcListRequestInProgress = false; // Request can be send either way
 
                         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/wentinactive/false','backdrop': true, hidecallback: function() {
-                            LiveHelperChatFactory.setInactive('false');
-
-                            _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
-                            _that.blockSync = false;	// Unblock sync
-                            _that.lhcListRequestInProgress = false; // Request can be send either way
-                            _that.resetTimeoutActivity(); // Start monitoring activity again
-                            lhinst.disableSync = false;
-
-                            $scope.loadChatList();
-                             _that.inActive = false;
+                            _that.setActiveInterface();
+                            _that.channel.postMessage({'action':'went_active','args':{}});
                         }});
 
                     });
@@ -1671,6 +1670,19 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
             }
         }
     };
+
+    this.setActiveInterface = function() {
+        LiveHelperChatFactory.setInactive('false');
+
+        _that.isListLoaded = false; // Because inactive visitor can be for some quite time, make sure new chat's does not trigger flood of sound notifications
+        _that.blockSync = false;	// Unblock sync
+        _that.lhcListRequestInProgress = false; // Request can be send either way
+        _that.resetTimeoutActivity(); // Start monitoring activity again
+        lhinst.disableSync = false;
+
+        $scope.loadChatList();
+        _that.inActive = false;
+    }
 
 	this.getOpenedChatIds = function (listId) {
         if (localStorage) {
