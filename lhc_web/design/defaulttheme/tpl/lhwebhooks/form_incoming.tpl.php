@@ -139,10 +139,24 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.time" value="" />
                 </div>
             </div>
+
             <div class="col-6">
-                <div class="form-group">
-                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
-                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id" value="" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID field location');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id" value="" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID 2 field location');?></label>
+                            <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.chat_id_2" value="" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        We will combine both fields into single identifier <span class="badge badge-secondary">chat_id__chat_id_2</span>
+                    </div>
                 </div>
             </div>
             <div class="col-6">

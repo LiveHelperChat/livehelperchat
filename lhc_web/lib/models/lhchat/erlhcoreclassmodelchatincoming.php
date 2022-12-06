@@ -32,6 +32,10 @@ class erLhcoreClassModelChatIncoming {
                 $this->chat = erLhcoreClassModelChat::fetch($this->chat_id);
                 return $this->chat;
 
+            case 'chat_external_first':
+                $this->chat_external_first = explode('__',$this->chat_external_id)[0];
+                return $this->chat_external_first;
+
             case 'incoming':
                 $this->incoming = erLhcoreClassModelChatIncomingWebhook::fetch($this->incoming_id);
                 return $this->incoming;

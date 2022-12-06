@@ -802,6 +802,9 @@ class erLhcoreClassModelChat {
    // Bot ID assigned to the chat
    public $gbot_id = 0;
 
+   // Theme ID
+   public $theme_id = 0;
+
    // User status on close event
 
    // 0 - online
