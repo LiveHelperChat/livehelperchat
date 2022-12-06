@@ -804,6 +804,8 @@ export function addMessage(obj) {
 
                         dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
 
+                        syncStatus.add_msg = false;
+
                         // Try to send message again
                         addMessage(obj)(dispatch, getState);
                     }
