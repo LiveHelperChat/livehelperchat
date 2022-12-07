@@ -2,10 +2,17 @@
        if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
            echo htmlspecialchars($chat->ip);
        } else {
-           $parts = explode('.',$chat->ip);
-           if (isset($parts[0]) && $parts[1]) {
-               echo htmlspecialchars($parts[0] . '.' . $parts[1] . '.xxx.xxx');
-           }
+           echo htmlspecialchars(preg_replace(
+               [
+                   '/(\.\d){2}$/',
+                   '/(:[\da-f]*){2,4}$/'
+               ],
+               [
+                   '.XXX.XXX',
+                   ':XXXX:XXXX:XXXX:XXXX'
+               ],
+               $chat->ip
+           ));
        }
        ?>)</small><?php endif;?></label></br>
 <?php if (!isset($chat) || $chat->nick != 'Visitor') : ?>

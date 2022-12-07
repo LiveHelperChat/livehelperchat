@@ -137,10 +137,17 @@
             if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
                 echo htmlspecialchars($item->ip);
             } else {
-                $parts = explode('.',$item->ip);
-                if (isset($parts[0]) && $parts[1]) {
-                    echo htmlspecialchars($parts[0] . '.' . $parts[1] . '.xxx.xxx');
-                }
+                echo htmlspecialchars(preg_replace(
+                    [
+                        '/(\.\d){2}$/',
+                        '/(:[\da-f]*){2,4}$/'
+                    ],
+                    [
+                        '.XXX.XXX',
+                        ':XXXX:XXXX:XXXX:XXXX'
+                    ],
+                    $item->ip
+                ));
             }
             ?>
         </td>

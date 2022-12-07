@@ -641,10 +641,17 @@ class erLhcoreClassModelChatOnlineUser
 
         $hideIp = erLhcoreClassModelChatConfig::fetch('do_no_track_ip');
         if ($hideIp->value == 1) {
-            $parts = explode('.',$instance->ip);
-            if (isset($parts[0]) && $parts[1]) {
-                $instance->ip = $parts[0] . '.' . $parts[1] . '.xxx.xxx';
-            }
+            $instance->ip = preg_replace(
+                [
+                    '/(\.\d){2}$/',
+                    '/(:[\da-f]*){2,4}$/'
+                ],
+                [
+                    '.XXX.XXX',
+                    ':XXXX:XXXX:XXXX:XXXX'
+                ],
+                $instance->ip
+            );
         }
     }
 

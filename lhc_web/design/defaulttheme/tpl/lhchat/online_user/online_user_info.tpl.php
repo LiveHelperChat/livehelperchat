@@ -4,10 +4,17 @@
     if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
         echo htmlspecialchars($online_user->ip);
     } else {
-        $parts = explode('.',$online_user->ip);
-        if (isset($parts[0]) && $parts[1]) {
-            echo htmlspecialchars($parts[0] . '.' . $parts[1] . '.xxx.xxx');
-        }
+        echo htmlspecialchars(preg_replace(
+            [
+                '/(\.\d){2}$/',
+                '/(:[\da-f]*){2,4}$/'
+            ],
+            [
+                '.XXX.XXX',
+                ':XXXX:XXXX:XXXX:XXXX'
+            ],
+            $online_user->ip
+        ));
     }
 ?>)
 <?php if ( !empty($online_user->city) ) :?><br/><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','City');?>: <?php echo htmlspecialchars($online_user->city) ?><?php endif;?>
