@@ -2439,8 +2439,25 @@ class erLhcoreClassGenericBotWorkflow {
             preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $message,$matchesValues);
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
-                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $matchesValues[1][$indexElement], '.');
-                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ? json_encode($valueAttribute['value']) : $valueAttribute['value']) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : ''), $message);
+                    $urlEncode = str_replace('__url','',$matchesValues[1][$indexElement]);
+                    $urlEncodeOutput = false;
+                    if ($urlEncode != $matchesValues[1][$indexElement]) {
+                        $urlEncodeOutput = true;
+                    }
+
+                    $escapeOutput = str_replace('__escape','', $urlEncode);
+                    $escapeProcess = false;
+                    if ($escapeOutput != $urlEncode) {
+                        $escapeProcess = true;
+                    }
+
+                    $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['args'], $escapeOutput, '.');
+                    $message = str_replace($elementValue,  $valueAttribute['found'] == true ? ((isset($params['as_json']) && $params['as_json'] == true) ?
+                        json_encode($valueAttribute['value']) :
+                        ($urlEncodeOutput === true ? rawurlencode($valueAttribute['value']) : (
+                            $escapeProcess === true ? htmlspecialchars($valueAttribute['value']) : $valueAttribute['value']
+                        ))
+                    ) : (isset($params['as_json']) && $params['as_json'] == true ? "null" : ''), $message);
                 }
             }
         }
