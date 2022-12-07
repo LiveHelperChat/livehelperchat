@@ -11,13 +11,15 @@ $.fn.makeDropdown = function(paramsDropdown) {
         e.stopPropagation();
     })
 
-    var limitMax = this.attr('data-limit') ? parseInt(this.attr('data-limit')) : 0;
-
     var selectedItems = [];
 
     var _this = this;
 
     _this.each(function () {
+
+        var limitMax = $(this).attr('data-limit') ? parseInt($(this).attr('data-limit')) : 0;
+
+
         var selectedItems = $(this).find('.selected-items-filter');
 
         $(this).find('.btn-department-dropdown').attr('data-text',$(this).find('.btn-department-dropdown').text());
@@ -70,6 +72,8 @@ $.fn.makeDropdown = function(paramsDropdown) {
         _thisItem.on("change","li input:radio",function() {
             if ($(this).is(':checked')) {
                 _thisItem.find('.btn-department-dropdown').text($(this).parent().text());
+                selectedItems.find('.delete-item').parent().remove();
+                selectedItems.prepend('<div class="fs12"><a data-stoppropagation="true" class="delete-item" data-value="' + $(this).val() + '"><input type="hidden" value="' + $(this).val() + '" name="'+_thisItem.find('.btn-block-department-filter > input').attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" /><i class="material-icons chat-unread">delete</i>' + $(this).parent().text().trim() + "</a></div>");
             }
         })
 
@@ -106,11 +110,15 @@ $.fn.makeDropdown = function(paramsDropdown) {
     var ajaxScroll = function(itemElm, offset) {
         var parent = itemElm.parent().parent();
         var parentHolder = itemElm.parent();
+        var typeElement = itemElm.parent().parent().parent().parent().parent().attr('data-type') ? itemElm.parent().parent().parent().parent().parent().attr('data-type') : 'checkbox';
+        var noSelector = itemElm.parent().parent().parent().parent().parent().attr('data-noselector') ? true : false;
+        var limitMax = itemElm.parent().parent().parent().parent().parent().attr('data-limit') ? parseInt(itemElm.parent().parent().parent().parent().parent().attr('data-limit')) : 0;
+
         $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/' + itemElm.attr('ajax-provider') + '/?q=' + encodeURIComponent(itemElm.val()) + (offset ? '&offset=' + parseInt(offset) : ''), function(data) {
             var append = '';
             data.items.forEach(function(item) {
                 var isSelected = parentHolder.find('.delete-item[data-value="' + item.id + '"]').length == 1;
-                append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="checkbox" '+(isSelected ? ' checked="checked" ' : '')+' name="selector-'+data.props.list_id+'[]" value="'+item.id+'"> ' + item.name +'</label></li>';
+                append += '<li class="search-option-item" data-stoppropagation="true"><label><input type="' + typeElement +'" '+(isSelected ? ' checked="checked" ' : '')+' name="'+(noSelector === true ? '' : 'selector-')+itemElm.attr('data-scope')+(limitMax == 0 || limitMax > 1 ? '[]' : '')+'" value="'+item.id+'"> ' + item.name +'</label></li>';
             });
             if (!offset) {
                 parent.find('.search-option-item').remove();

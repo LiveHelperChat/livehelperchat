@@ -130,13 +130,13 @@
                         'input_name'     => 'user_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Choose a user'),
                         'selected_id'    => [$item->user_id],
-                        //'ajax'           => 'users',
-                        'data_prop'      => 'data-limit="1"',
+                        'ajax'           => 'users',
+                        'data_prop'      => 'data-limit="1" data-type="radio" data-noselector="1"',
                         'css_class'      => 'form-control',
                         'type'           => 'radio',
                         'display_name'   => 'name_official',
                         'no_selector'    => true,
-                        'list_function_params' => array('limit' => false),
+                        'list_function_params' => array('limit' => 20),
                         'list_function'  => 'erLhcoreClassModelUser::getList',
                     )); ?>
                 </div>
@@ -145,13 +145,13 @@
                         'input_name'     => 'dep_id',
                         'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb', 'Default department'),
                         'selected_id'    => [$item->dep_id],
-                        //'ajax'           => 'deps',
-                        'data_prop'      => 'data-limit="1"',
+                        'ajax'           => 'deps',
+                        'data_prop'      => 'data-limit="1" data-type="radio" data-noselector="1"',
                         'css_class'      => 'form-control',
                         'display_name'   => 'name',
                         'type'           => 'radio',
                         'no_selector'    => true,
-                        'list_function_params' => array('limit' => false, 'sort' => '`name` ASC'),
+                        'list_function_params' => array('limit' => 20, 'sort' => '`name` ASC'),
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
                     )); ?>
                     <p><small><i>Default department is only used for replaceable variables support at the moment.</i></small></p>
