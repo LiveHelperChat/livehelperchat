@@ -111,6 +111,8 @@ class erLhcoreClassChatCommand
                 $ignore = false;
                 $update_status = false;
 
+                $responseData = [];
+
                 if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
 
                     $ignore = strpos($commandData['argument'],'--silent') !== false;
@@ -134,7 +136,7 @@ class erLhcoreClassChatCommand
                         $argumentsTrigger['arg_'.($indexArgument + 1)] = trim($argumentValue);                       // For {args.arg_3} to work
                     }
 
-                    erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
+                    $responseData['last_message'] = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
 
                     $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
 
@@ -142,12 +144,12 @@ class erLhcoreClassChatCommand
                     $response = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'Assigned trigger could not be found');
                 }
 
-                $responseData = array(
+                $responseData = array_merge(array(
                     'ignore' => $ignore,
                     'processed' => true,
                     'process_status' => '',
                     'raw_message' => $commandData['command'] . ' || ' . $response
-                );
+                ),$responseData);
 
                 if ($update_status == true) {
                     $responseData['custom_args']['update_status'] = true;
