@@ -13,6 +13,21 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = $depMember->dep_id;
         }
     }
+} else if ($Params['user_parameters']['scope'] == 'canned') {
+
+    $db = ezcDbInstance::get();
+
+    $filter = array('filter' => ['department_id' => 0], 'sort' => 'title ASC', 'limit' => 10, 'offset' => $offset);
+
+    if (!empty($search)) {
+        $filter['customfilter'] = array('(`title` LIKE ('. $db->quote('%'.$search.'%')  .') OR `explain` LIKE ('. $db->quote('%'.$search.'%')  .') OR `fallback_msg` LIKE ('. $db->quote('%'.$search.'%')  .') OR `msg` LIKE ('. $db->quote('%'.$search.'%').'))');
+    }
+
+    $items = erLhcoreClassModelCannedMsg::getList($filter);
+    foreach ($items as $item) {
+        $return[] = array('id' => $item->id, 'name' => $item->title);
+    }
+
 } else if ($Params['user_parameters']['scope'] == 'depswidget') {
 
     $db = ezcDbInstance::get();
