@@ -6,6 +6,8 @@ window.lhcAxios = axios;
 
 let syncStatus = {
     'msg' : false,
+    'add_msg': false,
+    'add_msg_pending': [],
     'status' : false,
     'error_counter' : 0,
     'auto_close_timeout': null
@@ -714,6 +716,13 @@ function checkErrorCounter() {
 export function addMessage(obj) {
     return function(dispatch, getState) {
 
+        if (syncStatus.add_msg == true) {
+            syncStatus.add_msg_pending.push(obj);
+            return;
+        }
+
+        syncStatus.add_msg = true;
+
         try {
             helperFunctions.eventEmitter.emitEvent('messageSend', [{'chat_id':obj.id, 'hash': obj.hash, msg: obj.msg}]);
         } catch (error) {
@@ -724,36 +733,44 @@ export function addMessage(obj) {
 
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj, defaultHeaders)
             .then((response) => {
-
-                // Update error state if it changed
-                if (response.data.error || getState().chatwidget.getIn(['chatLiveData','error'])) {
-                    dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: response.data.r, msg: obj.msg}});
-                }
-
-                fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : obj.lmgsid, 'hash' : obj.hash})(dispatch, getState);
-
-                if (response.data.t) {
-                    helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
-                }
-
-                if (typeof response.data.r === 'undefined' || (response.data.error === true && response.data.system === true)) {
-
-                    syncStatus.error_counter++;
-
-                    // Log error only if it happens two times in a row
-                    if (syncStatus.error_counter == 2) {
-                        helperFunctions.logJSError({
-                            'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
-                        });
-
-                        checkErrorCounter();
+                try {
+                    // Update error state if it changed
+                    if (response.data.error || getState().chatwidget.getIn(['chatLiveData','error'])) {
+                        dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: response.data.r, msg: obj.msg}});
                     }
 
-                    helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: JSON.stringify(response.data)}]);
-                } else {
-                    syncStatus.error_counter = 0;
-                }
+                    fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
 
+                    if (response.data.t) {
+                        helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
+                    }
+
+                    if (typeof response.data.r === 'undefined' || (response.data.error === true && response.data.system === true)) {
+
+                        syncStatus.error_counter++;
+
+                        // Log error only if it happens two times in a row
+                        if (syncStatus.error_counter == 2) {
+                            helperFunctions.logJSError({
+                                'stack' :  JSON.stringify(JSON.stringify(response) + "\nRD:"+JSON.stringify(response.data) +"\nRH:"+ JSON.stringify(response.headers) +"\nRS:"+ JSON.stringify(response.status))
+                            });
+
+                            checkErrorCounter();
+                        }
+
+                        helperFunctions.eventEmitter.emitEvent('messageSendError', [{'chat_id':obj.id, 'hash': obj.hash, msg: JSON.stringify(response.data)}]);
+                    } else {
+                        syncStatus.error_counter = 0;
+                    }
+                } catch (e) {
+                    throw e;
+                } finally {
+                    syncStatus.add_msg = false;
+                    // There is pending message to be added
+                    if (syncStatus.add_msg_pending.length > 0) {
+                        addMessage(syncStatus.add_msg_pending.shift())(dispatch, getState);
+                    }
+                }
             })
             .catch((error) => {
                 if (isNetworkError(error)) {
@@ -787,10 +804,14 @@ export function addMessage(obj) {
 
                         dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: "SEND_FAILED", "msg" : obj.msg}});
 
+                        syncStatus.add_msg = false;
+
                         // Try to send message again
                         addMessage(obj)(dispatch, getState);
                     }
                 }
+
+                syncStatus.add_msg = false;
             })
     }
 }

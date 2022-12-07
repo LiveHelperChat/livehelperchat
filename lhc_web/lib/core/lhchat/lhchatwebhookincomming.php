@@ -474,14 +474,24 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
+        $chatIdExternal2 = self::extractAttribute('chat_id_2',$conditions,$payloadMessage);
+
         $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadMessage);
 
         if ($chatIdExternal == '') {
             $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
         }
 
+        if ($chatIdExternal2 == '') {
+            $chatIdExternal2 = self::extractAttribute('chat_id_2',$conditions,$payloadAll);
+        }
+
         if ($chatIdExternal != '' && isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
             $chatIdExternal = preg_replace($conditions['chat_id_preg_rule'], $conditions['chat_id_preg_value'], $chatIdExternal);
+        }
+
+        if ($chatIdExternal2 != '') {
+            $chatIdExternal = $chatIdExternal . '__' . $chatIdExternal2;
         }
 
         $eChat = erLhcoreClassModelChatIncoming::findOne(array(
@@ -914,10 +924,16 @@ class erLhcoreClassChatWebhookIncoming {
                     $previousChat = erLhcoreClassModelChat::fetch($eChat->chat_id);
                 }
 
+                $chatIdExternal2 = self::extractAttribute('chat_id_2', $conditions, $payloadMessage);
+
                 $eChat->chat_external_id = self::extractAttribute('chat_id', $conditions, $payloadMessage);
 
                 if ($eChat->chat_external_id == '') {
                     $eChat->chat_external_id = self::extractAttribute('chat_id', $conditions, $payloadAll);
+                }
+
+                if ($chatIdExternal2 == '') {
+                    $chatIdExternal2 = self::extractAttribute('chat_id_2', $conditions, $payloadAll);
                 }
 
                 if ($eChat->chat_external_id == '') {
@@ -926,6 +942,10 @@ class erLhcoreClassChatWebhookIncoming {
 
                 if (isset($conditions['chat_id_preg_rule']) && $conditions['chat_id_preg_rule'] != '') {
                     $eChat->chat_external_id = preg_replace($conditions['chat_id_preg_rule'], $conditions['chat_id_preg_value'], $eChat->chat_external_id);
+                }
+
+                if ($chatIdExternal2 != '') {
+                    $eChat->chat_external_id = $eChat->chat_external_id . '__' . $chatIdExternal2;
                 }
 
                 $eChat->incoming_id = $incomingWebhook->id;
@@ -1170,7 +1190,6 @@ class erLhcoreClassChatWebhookIncoming {
                     erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
                 }
             }
-
 
             if (!isset($params['msg_last_id'])) {
                 $params['msg_last_id'] = $msg->id;

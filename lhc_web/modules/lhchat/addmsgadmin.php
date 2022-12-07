@@ -46,6 +46,13 @@ if (trim($form->msg) != '')
 	                
 	                if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
 	                    $ignoreMessage = true;
+                        if (isset($statusCommand['last_message'])) {
+                            $msg = $statusCommand['last_message'];
+                            if (is_object($msg)){
+                                $Chat->last_msg_id = $msg->id;
+                                $Chat->updateThis(['update' => ['last_msg_id']]);
+                            }
+                        }
 	                }
 
 	                if (isset($statusCommand['info'])) {
@@ -269,8 +276,10 @@ if (trim($form->msg) != '')
 	        
 	        echo erLhcoreClassChat::safe_json_encode(array('error' => 'false','r' => $returnBody) + $customArgs);
 
-            $Chat->last_message = $msg;
-
+            if (isset($msg)) {
+                $Chat->last_message = $msg;
+            }
+            
 	        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg,'chat' => & $Chat, 'ou' => (isset($onlineuser) ? $onlineuser : null)));
 
 	    } else {
