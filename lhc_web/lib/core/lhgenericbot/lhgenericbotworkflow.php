@@ -2305,6 +2305,17 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        if (strpos($message,'{random_') !== false) {
+            $matchesCycle = array();
+            preg_match_all('/{random_([0-9]+)}/is', $message, $matchesCycle);
+            if (isset($matchesCycle[0]) && is_array($matchesCycle[0])) {
+                foreach ($matchesCycle[0] as $foreachCounter => $foreachCycle) {
+                    $lengthRandom = $matchesCycle[1][$foreachCounter];
+                    $message = str_replace($foreachCycle, erLhcoreClassChat::generateHash($lengthRandom), $message);
+                }
+            }
+        }
+
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
 

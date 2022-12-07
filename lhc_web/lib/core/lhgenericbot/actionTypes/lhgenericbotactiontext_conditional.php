@@ -10,7 +10,9 @@ class erLhcoreClassGenericBotActionText_conditional {
         if (!isset($params['first_trigger'])) {
             $params['first_trigger'] = $params['current_trigger'];
         }
-        
+
+
+
         $msg = new erLhcoreClassModelmsg();
 
         $metaMessage = array();
@@ -22,6 +24,8 @@ class erLhcoreClassGenericBotActionText_conditional {
                 $action['content'][$attr] = null;
             }
         }
+
+
 
         if (isset($params['error_code'])) {
             $bot = erLhcoreClassModelGenericBotBot::fetch($trigger->bot_id);
@@ -38,12 +42,16 @@ class erLhcoreClassGenericBotActionText_conditional {
 
         if (isset($params['replace_array'])) {
             foreach (['intro_us','full_us','readmore_us','intro_op','full_op','readmore_op'] as $attr) {
-                $action['content'][$attr] = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $action['content'][$attr]);
+                if ($action['content'][$attr] !== null) {
+                    $action['content'][$attr] = str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $action['content'][$attr]);
+                }
             }
 
             // We need to translate again because some error messages can have translatable strings themself
             foreach (['intro_us','full_us','readmore_us','intro_op','full_op','readmore_op'] as $attr) {
-                $action['content'][$attr] = erLhcoreClassGenericBotWorkflow::translateMessage($attr, array('chat' => $chat, 'args' => $params));
+                if ($action['content'][$attr] !== null) {
+                    $action['content'][$attr] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content'][$attr], array('chat' => $chat, 'args' => $params));
+                }
             }
         }
 
