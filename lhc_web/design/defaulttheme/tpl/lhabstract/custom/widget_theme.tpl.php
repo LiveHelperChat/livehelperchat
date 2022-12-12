@@ -1003,7 +1003,7 @@
 
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose manually bot ant trigger')?></h5>
 
-                    <p><i>For it to work, trigger has to have checked</i>&nbsp;<span class="badge badge-info">Can be passed as argument</span></p>
+                    <p><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For it to work, trigger has to have checked')?></i>&nbsp;<span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Can be passed as argument')?></span></p>
 
                     <div class="row">
                         <div class="col-6">
