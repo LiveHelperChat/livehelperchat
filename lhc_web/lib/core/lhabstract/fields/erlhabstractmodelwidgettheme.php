@@ -658,7 +658,7 @@ $fields = array(
                         'frontend' => 'name',
    						'hidden' => true,
                         'source' => 'erLhcoreClassModelGenericBotBot::getList',
-                        'params_call' => array(),
+                        'params_call' => array('sort' => '`name` ASC'),
    						'main_attr' => 'bot_configuration_array',
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'string'

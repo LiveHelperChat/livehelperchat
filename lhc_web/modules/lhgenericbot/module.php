@@ -79,7 +79,7 @@ $ViewList['botimportgroup'] = array(
 
 $ViewList['triggersbybot'] = array(
     'params' => array('id','trigger_id'),
-    'uparams' => array('preview','element'),
+    'uparams' => array('preview','element','asarg'),
     'functions' => array( 'use_operator' )
 );
 
