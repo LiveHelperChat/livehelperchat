@@ -70,7 +70,7 @@ class erLhcoreClassModelChatConfig {
                    'curr' => $this->getState(),
                    'prev' => $this->prevAttributes,
                    'url' => (isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : ''),
-                   'user_id' => (erLhcoreClassUser::instance()->isLogged() ? erLhcoreClassUser::instance()->getUserID() : 0)
+                   'user_id' => (PHP_SAPI !== 'cli' && erLhcoreClassUser::instance()->isLogged() ? erLhcoreClassUser::instance()->getUserID() : 0)
                )
            ));
        }
