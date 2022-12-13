@@ -533,6 +533,10 @@ class erLhcoreClassChatWebhookIncoming {
 
                         $chat->pnd_time = time();
                         $renotify = true;
+
+                        if (isset($conditions['reset_dep']) && $conditions['reset_dep'] == true) {
+                            $chat->dep_id = $incomingWebhook->dep_id;
+                        }
                     }
                 }
 
@@ -593,6 +597,24 @@ class erLhcoreClassChatWebhookIncoming {
                 }
 
                 if ($renotify == true) {
+
+                    $department = $chat->department;
+
+                    if ($department !== false) {
+                        $chat->priority = $department->priority;
+                    }
+
+                    if ($department !== false && $department->department_transfer_id > 0) {
+                        if (
+                            !(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true) &&
+                            !(isset($department->bot_configuration_array['transfer_min_priority']) && is_numeric($department->bot_configuration_array['transfer_min_priority']) && (int)$department->bot_configuration_array['transfer_min_priority'] > $chat->priority)
+                        ) {
+                            $chat->transfer_if_na = 1;
+                            $chat->transfer_timeout_ts = time();
+                            $chat->transfer_timeout_ac = $department->transfer_timeout;
+                        }
+                    }
+
                     if ($msg->msg != '') {
                         erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
                     } else {
@@ -695,7 +717,12 @@ class erLhcoreClassChatWebhookIncoming {
                     'user_id',
                     'chat_variables',
                     'status_sub_sub',
-                    'last_msg_id')));
+                    'last_msg_id',
+                    'transfer_if_na',
+                    'transfer_timeout_ts',
+                    'transfer_timeout_ac',
+                    'priority'
+                )));
 
                 if (empty($eChat->payload)) {
                     $eChat->payload = json_encode($payloadAll);
@@ -969,7 +996,32 @@ class erLhcoreClassChatWebhookIncoming {
 
                 $chat->incoming_chat = $eChat;
 
-                $chat->updateThis(['update' => ['last_msg_id', 'last_user_msg_time']]);
+                $department = $chat->department;
+
+                if ($department !== false) {
+                    $chat->priority = $department->priority;
+                }
+
+                if ($department !== false && $department->department_transfer_id > 0) {
+                    if (
+                        !(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true) &&
+                        !(isset($department->bot_configuration_array['transfer_min_priority']) && is_numeric($department->bot_configuration_array['transfer_min_priority']) && (int)$department->bot_configuration_array['transfer_min_priority'] > $chat->priority)
+                    ) {
+                        $chat->transfer_if_na = 1;
+                        $chat->transfer_timeout_ts = time();
+                        $chat->transfer_timeout_ac = $department->transfer_timeout;
+                    }
+                }
+
+                $chat->updateThis(['update' => [
+                    'last_msg_id',
+                    'last_user_msg_time',
+                    'dep_id',
+                    'priority',
+                    'transfer_if_na',
+                    'transfer_timeout_ts',
+                    'transfer_timeout_ac'
+                ]]);
 
                 // Set bot
                 if ($msg->id > 0) {

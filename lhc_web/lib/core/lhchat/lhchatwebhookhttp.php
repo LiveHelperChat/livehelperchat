@@ -11,6 +11,9 @@ class erLhcoreClassChatWebhookHttp {
         }
 
         if (!empty($webhooks)) {
+
+            $db = ezcDbInstance::get();
+
             foreach ($webhooks as $webhook) {
 
                 // processTrigger always requires a chat so fake it.
@@ -22,17 +25,44 @@ class erLhcoreClassChatWebhookHttp {
                 if (self::isValidConditions($webhook, $params['chat']) === true) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id);
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                        $db->beginTransaction();
+
+                        // Not always passed argument is synced to update
+                        // So we can't just refresh object
+                        // $params['chat'] = erLhcoreClassModelChat::fetchAndLock($params['chat']->id);
+
+                        $paramsExecution = ['msg_last_id' => $params['chat']->last_msg_id];
+
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
+
+                        erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
+
+                        $db->commit();
                     }
                 } elseif ($webhook->trigger_id_alt > 0) {
                     $trigger = erLhcoreClassModelGenericBotTrigger::fetch($webhook->trigger_id_alt);
                     if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
+
+                        $db->beginTransaction();
+
+                        // Not always passed argument is synced to update
+                        // So we can't just refresh object
+                        // $params['chat'] = erLhcoreClassModelChat::fetchAndLock($params['chat']->id);
+
+                        $paramsExecution = ['msg_last_id' => $params['chat']->last_msg_id];
+
                         erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, true, array('args' => $params));
+
+                        erLhcoreClassChatWebhookContinuous::dispatchEvents($params['chat'], $paramsExecution);
+
+                        $db->commit();
                     }
                 }
             }
         }
     }
+
 
     public static function isValidConditions($continuousHook, $chat) {
 
