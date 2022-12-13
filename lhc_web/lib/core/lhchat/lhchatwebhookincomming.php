@@ -523,6 +523,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
                         $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
                     } else {
+
                         $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                         $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
 
@@ -589,9 +590,13 @@ class erLhcoreClassChatWebhookIncoming {
 
                     $chat->last_user_msg_time = $msg->time;
                     $chat->last_msg_id = $msg->id;
+                }
 
-                    if ($renotify == true) {
+                if ($renotify == true) {
+                    if ($msg->msg != '') {
                         erLhcoreClassChatValidator::setBot($chat, array('msg' => $msg));
+                    } else {
+                        erLhcoreClassChatValidator::setBot($chat, array('ignore_default' => ($typeMessage == 'button')));
                     }
                 }
 
