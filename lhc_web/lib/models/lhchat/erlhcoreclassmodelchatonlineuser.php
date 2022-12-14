@@ -643,7 +643,7 @@ class erLhcoreClassModelChatOnlineUser
         if ($hideIp->value == 1) {
             $instance->ip = preg_replace(
                 [
-                    '/(\.\d){2}$/',
+                    '/(\.\d+){2}$/',
                     '/(:[\da-f]*){2,4}$/'
                 ],
                 [
