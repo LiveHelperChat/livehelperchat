@@ -70,6 +70,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -630,6 +634,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Mobile style</source>
+      <translation>Мобільний стиль</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Вітальне повідомлення</translation>
     </message>
@@ -744,6 +752,10 @@
     <message>
       <source>Inject HTML</source>
       <translation>Введіть HTML</translation>
+    </message>
+    <message>
+      <source>Conversion</source>
+      <translation>Перетворення</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
@@ -1090,6 +1102,18 @@
       <translation>Ця змінна невидима для оператора і буде збережена в атрибуті chat_variables</translation>
     </message>
     <message>
+      <source>Event id to receive from website for conversion to finish.</source>
+      <translation>Ідентифікатор події, який потрібно отримати від веб-сайту для завершення перетворення.</translation>
+    </message>
+    <message>
+      <source>E.g ordered</source>
+      <translation>Наприклад, замовив</translation>
+    </message>
+    <message>
+      <source>Conversion has to happen within this period of time after invitation was send/clicked.</source>
+      <translation>Перетворення має відбутися протягом цього періоду часу після надсилання/клацання запрошення.</translation>
+    </message>
+    <message>
       <source>Invitation expire time, after that period of time invitation will be hidden</source>
       <translation>Термін дії запрошення закінчується, після цього періоду часу запрошення буде приховано</translation>
     </message>
@@ -1130,8 +1154,12 @@
       <translation>Мобільний HTML</translation>
     </message>
     <message>
-      <source>Mobile style</source>
-      <translation>Мобільний стиль</translation>
+      <source>Custom on click event</source>
+      <translation>Спеціальна подія натискання</translation>
+    </message>
+    <message>
+      <source>Custom CSS, applies also to invitation bubble</source>
+      <translation>Спеціальний CSS, також застосовується до запрошення</translation>
     </message>
     <message>
       <source>Custom image 1</source>
@@ -1873,6 +1901,14 @@
       <translation>Якщо відділ офлайн і відвідувач починає чат, це повідомлення буде надіслано замість привітального повідомлення за замовчуванням. Якщо це повідомлення порожнє - буде надіслано вітальне повідомлення.</translation>
     </message>
     <message>
+      <source>Internal conversion parameters. Internal conversion is used to track covnersion where final step is done by user executing specific action and letting website to know us it happened.</source>
+      <translation>Внутрішні параметри перетворення. Внутрішнє перетворення використовується для відстеження конерції, де останній крок виконується користувачем, який виконує певну дію та повідомляє веб-сайту про це.</translation>
+    </message>
+    <message>
+      <source>Sample javascript to finish conversion</source>
+      <translation>Зразок JavaScript для завершення перетворення</translation>
+    </message>
+    <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
       <translation>Ви також можете використовувати 5 зображень із такими ключовими словами, як {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. Ви можете використовувати ці події. Ці події слід використовувати для події onclick.</translation>
     </message>
@@ -2265,6 +2301,10 @@
       <translation>Автовідповідач, щоб застосувати</translation>
     </message>
     <message>
+      <source>Parent invitation</source>
+      <translation>Запрошення батьківське</translation>
+    </message>
+    <message>
       <source>Campaign</source>
       <translation>Кампанія</translation>
     </message>
@@ -2339,6 +2379,14 @@
     <message>
       <source>Hide operator name in invitation widget</source>
       <translation>Приховати ім’я оператора у віджеті запрошення</translation>
+    </message>
+    <message>
+      <source>Hide operator profile image</source>
+      <translation>Приховати зображення профілю оператора</translation>
+    </message>
+    <message>
+      <source>Hide content on click</source>
+      <translation>Приховати вміст після натискання</translation>
     </message>
     <message>
       <source>Show default header on proactive widget open event</source>
@@ -2454,6 +2502,10 @@
     <message>
       <source>Add event</source>
       <translation>Додати подію</translation>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation>Подія</translation>
     </message>
     <message>
       <source>Remove</source>
@@ -3135,6 +3187,14 @@
       <translation>До</translation>
     </message>
     <message>
+      <source>Country</source>
+      <translation>Країна</translation>
+    </message>
+    <message>
+      <source>Region</source>
+      <translation>Регіон</translation>
+    </message>
+    <message>
       <source>Proactive invitation</source>
       <translation>Активне запрошення</translation>
     </message>
@@ -3275,6 +3335,10 @@
       <translation>Виберіть продукт</translation>
     </message>
     <message>
+      <source>Choose country</source>
+      <translation>Виберіть країну</translation>
+    </message>
+    <message>
       <source>Choose proactive invitation</source>
       <translation>Виберіть активне запрошення</translation>
     </message>
@@ -3283,16 +3347,16 @@
       <translation>Виберіть бота</translation>
     </message>
     <message>
-      <source>Choose country</source>
-      <translation>Виберіть країну</translation>
-    </message>
-    <message>
       <source>Select department</source>
       <translation>Вибір відділу</translation>
     </message>
     <message>
       <source>Type to search</source>
       <translation>Введіть для пошуку</translation>
+    </message>
+    <message>
+      <source>Apply this configuration also to these departments</source>
+      <translation>Застосуйте цю конфігурацію також до цих відділів</translation>
     </message>
     <message>
       <source>Search for a user.  First 50 users are shown.</source>
@@ -3427,12 +3491,48 @@
       <translation>Чим більше число, тим вище у списку звітів воно відображатиметься</translation>
     </message>
     <message>
+      <source>Send report to</source>
+      <translation>Надіслати звіт до</translation>
+    </message>
+    <message>
+      <source>Daily report</source>
+      <translation>Щоденний звіт</translation>
+    </message>
+    <message>
+      <source>Weekly report</source>
+      <translation>Тижневий звіт</translation>
+    </message>
+    <message>
+      <source>Monthly report</source>
+      <translation>Місячний звіт</translation>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Активно</translation>
+    </message>
+    <message>
+      <source>Day of the month</source>
+      <translation>День місяця</translation>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation>Час</translation>
+    </message>
+    <message>
+      <source>Save as new</source>
+      <translation>Зберегти як новий</translation>
+    </message>
+    <message>
       <source>Save report</source>
       <translation>Зберегти звіт</translation>
     </message>
     <message>
       <source>My reports</source>
       <translation>Мої звіти</translation>
+    </message>
+    <message>
+      <source>Make a copy</source>
+      <translation>Зробити копію</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -3455,6 +3555,18 @@
       <translation>Групова діаграма</translation>
     </message>
     <message>
+      <source>More than</source>
+      <translation>Більш ніж</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>секунди</translation>
+    </message>
+    <message>
+      <source>Less than</source>
+      <translation>Менше ніж</translation>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Виключити офлайн-запити з діаграм</translation>
     </message>
@@ -3473,6 +3585,10 @@
     <message>
       <source>Compare to past</source>
       <translation>Порівняйте з минулим</translation>
+    </message>
+    <message>
+      <source>Select country</source>
+      <translation>Виберіть країну</translation>
     </message>
     <message>
       <source>Agent</source>
@@ -3663,10 +3779,6 @@
       <translation>Активні та деактивовані</translation>
     </message>
     <message>
-      <source>Active</source>
-      <translation>Активно</translation>
-    </message>
-    <message>
       <source>Deactivated</source>
       <translation>Вимкнено</translation>
     </message>
@@ -3713,6 +3825,10 @@
     <message>
       <source>Till now</source>
       <translation>Дотепер</translation>
+    </message>
+    <message>
+      <source>Copy of</source>
+      <translation>Копія</translation>
     </message>
   </context>
   <context>
@@ -6691,6 +6807,14 @@
     <message>
       <source>Statistic</source>
       <translation>Статистика</translation>
+    </message>
+    <message>
+      <source>Copy nick</source>
+      <translation>Копіювати нік</translation>
+    </message>
+    <message>
+      <source>Copied</source>
+      <translation>Скопійовано</translation>
     </message>
     <message>
       <source>Name</source>
@@ -11263,6 +11387,10 @@
   <context>
     <name>chat/loadprevious</name>
     <message>
+      <source>Chat messages were hidden. You do not have permission to access department</source>
+      <translation>Повідомлення чату приховано. Ви не маєте дозволу на доступ до відділу</translation>
+    </message>
+    <message>
       <source>Continue of the chat</source>
       <translation>Продовжуйте чат</translation>
     </message>
@@ -11506,6 +11634,10 @@
     <message>
       <source>day</source>
       <translation>день</translation>
+    </message>
+    <message>
+      <source>Choose duration</source>
+      <translation>Виберіть тривалість</translation>
     </message>
     <message>
       <source>Permanent (visitor has to close invitation)</source>
@@ -12504,6 +12636,10 @@
       <translation>Максимум чатів</translation>
     </message>
     <message>
+      <source>Update stats</source>
+      <translation>Оновити статистику</translation>
+    </message>
+    <message>
       <source>Departments limit groups</source>
       <translation>Відділи: ліміти груп</translation>
     </message>
@@ -12805,6 +12941,18 @@
     <message>
       <source>Department operators</source>
       <translation>Оператори відділу</translation>
+    </message>
+    <message>
+      <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
+      <translation>Ми показуємо лише групам призначених операторів. Ми не показуємо напряму призначеним операторам відділу.</translation>
+    </message>
+    <message>
+      <source>Group by operator</source>
+      <translation>Групування за оператором</translation>
+    </message>
+    <message>
+      <source>Department group operators</source>
+      <translation>Оператори групи відділу</translation>
     </message>
     <message>
       <source>Chats</source>
@@ -14970,12 +15118,20 @@
   <context>
     <name>statistic/campaign</name>
     <message>
+      <source>Value</source>
+      <translation>Значення</translation>
+    </message>
+    <message>
       <source>Parameter</source>
       <translation>Параметр</translation>
     </message>
     <message>
-      <source>Value</source>
-      <translation>Значення</translation>
+      <source>Total value</source>
+      <translation>Загальнезначення</translation>
+    </message>
+    <message>
+      <source>Parent</source>
+      <translation>Батьківський</translation>
     </message>
     <message>
       <source>Explanation</source>
@@ -15012,6 +15168,22 @@
     <message>
       <source>Visitor started chat by online invitation</source>
       <translation>Відвідувач почав чат за онлайн-запрошенням</translation>
+    </message>
+    <message>
+      <source>Matched</source>
+      <translation>Збіг</translation>
+    </message>
+    <message>
+      <source>Total times invitation was matched</source>
+      <translation>Загальна кількість співпадінь для запрошення</translation>
+    </message>
+    <message>
+      <source>Conversions</source>
+      <translation>Перетворення</translation>
+    </message>
+    <message>
+      <source>Number of times conversions has happened from total initiated</source>
+      <translation>Кількість конверсій із загальної кількості ініційованих</translation>
     </message>
   </context>
   <context>
@@ -18388,6 +18560,188 @@
     <message>
       <source>Clone</source>
       <translation>Клон</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvmb</name>
+    <message>
+      <source>Choose a parent invitation</source>
+      <translation>Виберіть батьківське запрошення</translation>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/helpattributes</name>
+    <message>
+      <source>Page where chat started</source>
+      <translation>Сторінка, на якій почався чат</translation>
+    </message>
+    <message>
+      <source>Referer from where visitor come to site.</source>
+      <translation>Реферер, звідки відвідувач перейшов на сайт.</translation>
+    </message>
+    <message>
+      <source>You can have custom JS execution on click event. In combination with</source>
+      <translation>Ви можете мати спеціальне виконання JS під час події клацання. У поєднанні з</translation>
+    </message>
+    <message>
+      <source>Hide content on click</source>
+      <translation>Приховати вміст після натискання</translation>
+    </message>
+    <message>
+      <source>you can have your own invitation workflow.</source>
+      <translation>ви можете мати власний робочий процес із запрошеннями.</translation>
+    </message>
+    <message>
+      <source>Some examples of JS</source>
+      <translation>Деякі приклади JS</translation>
+    </message>
+    <message>
+      <source>Call page function where widget is embedded</source>
+      <translation>Функція сторінки виклику, де вбудований віджет</translation>
+    </message>
+    <message>
+      <source>If you are passing department make sure. This is highly recommended as chat might not be able to start if you have custom required fields by department.</source>
+      <translation>Якщо ви проходите відділення, переконайтеся. Це настійно рекомендовано, оскільки чат може не запуститися, якщо у вас є власні обов’язкові поля для відділів.</translation>
+    </message>
+    <message>
+      <source>You pass it for all options</source>
+      <translation>Ви проходите його для всіх варіантів</translation>
+    </message>
+    <message>
+      <source>All options have to be assigned to same start chat configuration</source>
+      <translation>Усі параметри мають бути призначені для однієї початкової конфігурації чату</translation>
+    </message>
+    <message>
+      <source>You have chosen that department in department options.</source>
+      <translation>Ви вибрали цей відділ у параметрах відділу.</translation>
+    </message>
+    <message>
+      <source>Apply this configuration also to these departments</source>
+      <translation>Застосуйте цю конфігурацію також до цих відділів</translation>
+    </message>
+    <message>
+      <source>or</source>
+      <translation>або</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Відділ</translation>
+    </message>
+    <message>
+      <source>JSON based options.</source>
+      <translation>Опції на основі JSON.</translation>
+    </message>
+    <message>
+      <source>Regular syntax. Depreciated.</source>
+      <translation>Звичайний синтаксис. Знецінена.</translation>
+    </message>
+    <message>
+      <source>Sample how to use uploaded image from Design section</source>
+      <translation>Приклад використання завантаженого зображення з розділу «Дизайн».</translation>
+    </message>
+    <message>
+      <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
+      <translation>Підтримувані замінні змінні. Вони взяті зі змінних, переданих відвідувачем онлайн.</translation>
+    </message>
+    <message>
+      <source>visitor nick if we know it from previous chats</source>
+      <translation>нік відвідувача, якщо ми знаємо його з попередніх чатів</translation>
+    </message>
+    <message>
+      <source>invisible by operator</source>
+      <translation>невидимий для оператора</translation>
+    </message>
+    <message>
+      <source>visible by operator</source>
+      <translation>видимий оператором</translation>
+    </message>
+    <message>
+      <source>Samples how to change bubble background</source>
+      <translation>Приклади того, як змінити фон бульбашки</translation>
+    </message>
+    <message>
+      <source>Tag structure examples</source>
+      <translation>Приклади структури тегів</translation>
+    </message>
+    <message>
+      <source>simple tag example</source>
+      <translation>приклад простого тегу</translation>
+    </message>
+    <message>
+      <source>If in embed code</source>
+      <translation>Якщо в коді вбудовування</translation>
+    </message>
+    <message>
+      <source>suffix is appended invitation will be shown always independently was there any other invitation active or not.</source>
+      <translation>суфікс додається, запрошення завжди відображатиметься незалежно від того, чи було будь-яке інше активне запрошення чи ні.</translation>
+    </message>
+    <message>
+      <source>Once you define a parent invitation. Present invitation is considered as child invitation.</source>
+      <translation>Після визначення батьківського запрошення. Нинішнє запрошення вважається дитячим запрошенням.</translation>
+    </message>
+    <message>
+      <source>Only main display attributes are taken as variation.</source>
+      <translation>Лише основні атрибути відображення беруться як варіанти.</translation>
+    </message>
+    <message>
+      <source>Parent invitation statistic window will show child invitation performance.</source>
+      <translation>У вікні статистики батьківських запрошень відображатиметься ефективність запрошень дітей.</translation>
+    </message>
+    <message>
+      <source>These conditions you can check and control widget state. More attributes</source>
+      <translation>Ці умови ви можете перевірити та контролювати стан віджета. Більше атрибутів</translation>
+    </message>
+    <message>
+      <source>here</source>
+      <translation>тут</translation>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States</source>
+      <translation>дозволити запуск лише відвідувачам зі Сполучених Штатів</translation>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States and Lithuania</source>
+      <translation>дозволити розпочати лише відвідувачам зі США та Литви</translation>
+    </message>
+    <message>
+      <source>allow to start only for visitors whois attribute is VIP</source>
+      <translation>дозволити запуск тільки для відвідувачів, хто має атрибут VIP</translation>
+    </message>
+    <message>
+      <source>Department ID</source>
+      <translation>ID відділу</translation>
+    </message>
+    <message>
+      <source>are we online</source>
+      <translation>ми онлайн</translation>
+    </message>
+    <message>
+      <source>To choose yesterday.</source>
+      <translation>Щоб вибрати вчора.</translation>
+    </message>
+    <message>
+      <source>As start day choose yesterday day</source>
+      <translation>Як день початку виберіть вчорашній день</translation>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation>Година і хвилина від</translation>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation>Діапазон дат до</translation>
+    </message>
+    <message>
+      <source>choose today and choose</source>
+      <translation>вибирайте сьогодні і вибирайте</translation>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation>Година і хвилина до</translation>
+    </message>
+    <message>
+      <source>Date from and to are always inclusive.</source>
+      <translation>Дати від і до завжди включають.</translation>
     </message>
   </context>
 </TS>

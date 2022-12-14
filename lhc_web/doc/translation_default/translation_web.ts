@@ -76,6 +76,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -884,7 +888,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>For it to work, trigger has to have checked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can be passed as argument</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requires - `Can be passed as argument` option to be checked.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1209,6 +1225,10 @@
     </message>
     <message>
       <source>Stars field Nr. (1-5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If more than one theme is passed, randomly chosen theme is fixed for selected period of time.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3205,6 +3225,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor status on chat close</source>
       <translation type="unfinished"/>
     </message>
@@ -3230,6 +3254,10 @@
     </message>
     <message>
       <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3341,11 +3369,23 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose proactive invitation</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Select bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6178,6 +6218,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>has modified a message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Original message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has invited</source>
       <translation type="unfinished"/>
     </message>
@@ -7071,6 +7119,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Account update failed! Please try again!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All departments</source>
       <translation type="unfinished"/>
     </message>
@@ -7519,6 +7571,10 @@
     </message>
     <message>
       <source>To what department chat should be transferred if it is not accepted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chat priority for transfer to happen.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10274,6 +10330,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>hour</source>
       <translation type="unfinished"/>
     </message>
@@ -11642,11 +11702,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Permanent (visitor has to close invitation)</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Follows system default settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15187,6 +15255,22 @@
       <source>Number of times conversions has happened from total initiated</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Unique conversions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multiple invitations to the same online visitor is considered as a one record</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>field based statistic. Field has to be not empty.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multiple invitation of the same unique_id value is considered as a one record.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/choosesurvey</name>
@@ -16843,6 +16927,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Icon color</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show integration information.</source>
       <translation type="unfinished"/>
     </message>
@@ -16940,6 +17032,10 @@
     </message>
     <message>
       <source>Chat ID field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID 2 field location</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17056,6 +17152,10 @@
     </message>
     <message>
       <source>Operator should be reset if chat being transferred to pending state.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat should be reset to default department. Bot also will be set to default.</source>
       <translation type="unfinished"/>
     </message>
     <message>
