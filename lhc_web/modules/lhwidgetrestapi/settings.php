@@ -417,7 +417,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
             'replace' => array(
                 erLhcoreClassSystem::getHost() . erLhcoreClassDesign::design('images/general/operator.png'),
                 $translationInstance->getTranslation('chat/getstatus', 'Need help?'),
-                $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!')
+                $translationInstance->getTranslation('chat/getstatus', 'Our staff are always ready to help!')
             )
         );
     }
