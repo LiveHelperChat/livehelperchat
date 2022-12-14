@@ -209,8 +209,12 @@ class erLhcoreClassChatWebhookContinuous {
                             $db->beginTransaction();
                             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
                             if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,$statusValid)) {
+                                $paramsExecution = ['msg_last_id' => $chat->last_msg_id];
+
                                 // processTrigger always requires a chat so fake it.
                                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+
+                                self::dispatchEvents($chat, $paramsExecution);
                             }
                             $db->commit();
                         }
@@ -227,8 +231,13 @@ class erLhcoreClassChatWebhookContinuous {
                             $db->beginTransaction();
                             $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
                             if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,$statusValid)) {
+
+                                $paramsExecution = ['msg_last_id' => $chat->last_msg_id];
+
                                 // processTrigger always requires a chat so fake it.
                                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('chat' => $chat)));
+
+                                self::dispatchEvents($chat, $paramsExecution);
                             }
                             $db->commit();
                         }
@@ -239,6 +248,27 @@ class erLhcoreClassChatWebhookContinuous {
             if (isset($chatsApplied[$continuousHook->id])) {
                 unset($chatsApplied[$continuousHook->id]);
             }
+        }
+    }
+    
+    public static function dispatchEvents($chat, $params)
+    {
+        $lastMessageIdNew = $lastMessageId = $params['msg_last_id'];
+
+        $botMessages = erLhcoreClassModelmsg::getList(array('filter' => array('user_id' => -2, 'chat_id' => $chat->id), 'filtergt' => array('id' => $params['msg_last_id'])));
+        foreach ($botMessages as $botMessage) {
+
+            $lastMessageIdNew = $botMessage->id;
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
+                'chat' => & $chat,
+                'msg' => $botMessage
+            ));
+        }
+
+        if ($lastMessageId < $lastMessageIdNew) {
+            $chat->last_msg_id = $lastMessageIdNew;
+            $chat->updateThis(['update' => ['last_msg_id']]);
         }
     }
 }

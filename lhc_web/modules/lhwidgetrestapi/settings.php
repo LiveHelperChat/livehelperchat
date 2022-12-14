@@ -406,7 +406,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
         $replaceVars['search'][] = '{{need_help_body}}';
 
         $replaceVars['replace'][] = $theme->need_help_header != '' ? $theme->need_help_header : $translationInstance->getTranslation('chat/getstatus', 'Need help?');
-        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!');
+        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : $translationInstance->getTranslation('chat/getstatus', 'Our staff are always ready to help!');
     } else {
         $replaceVars = array(
             'search' => array(
@@ -417,7 +417,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
             'replace' => array(
                 erLhcoreClassSystem::getHost() . erLhcoreClassDesign::design('images/general/operator.png'),
                 $translationInstance->getTranslation('chat/getstatus', 'Need help?'),
-                $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!')
+                $translationInstance->getTranslation('chat/getstatus', 'Our staff are always ready to help!')
             )
         );
     }
@@ -451,7 +451,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 204;
+$outputResponse['wv'] = 205;
 
 // React APP versions
 $outputResponse['v'] = 266;

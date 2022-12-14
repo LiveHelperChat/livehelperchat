@@ -94,7 +94,7 @@ if (isset($payload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($pay
 // Bot message as full widget body
 if ($outputResponse['invitation_id'] > 0) {
 
-    $invitation = $invitationData['variation'];// erLhAbstractModelProactiveChatInvitation::fetch($outputResponse['invitation_id']);
+    $invitation = $invitationData['variation'];
 
     if ($invitation instanceof erLhAbstractModelProactiveChatInvitation && isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1 && $invitation->bot_id > 0 && $invitation->trigger_id > 0) {
 

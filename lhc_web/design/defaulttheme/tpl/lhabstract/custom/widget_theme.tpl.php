@@ -1003,6 +1003,8 @@
 
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose manually bot ant trigger')?></h5>
 
+                    <p><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For it to work, trigger has to have checked')?></i>&nbsp;<span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Can be passed as argument')?></span></p>
+
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -1206,21 +1208,19 @@
 		});
 
         $('select[name="AbstractInput_bot_id"]').change(function(){
-            $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1', { }, function(data) {
-
+            $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $(this).val() + '/0/(preview)/1/(asarg)/1', { }, function(data) {
                 if (data != '') {
                     $('#trigger-list-id').html(data);
                     renderPreview($('select[name="AbstractInput_trigger_id"]'));
                 } else {
                     $('#trigger-list-id').html('<input type="hidden" value="0" name="AbstractInput_trigger_id" />');
                 }
-
             }).fail(function() {
 
             });
         });
 
-        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_bot_id"]').val() + '/<?php echo (isset($object->bot_configuration_array['trigger_id'])) ? $object->bot_configuration_array['trigger_id'] : 0 ?>/(preview)/1', { }, function(data) {
+        $.get(WWW_DIR_JAVASCRIPT + 'genericbot/triggersbybot/' + $('select[name="AbstractInput_bot_id"]').val() + '/<?php echo (isset($object->bot_configuration_array['trigger_id'])) ? $object->bot_configuration_array['trigger_id'] : 0 ?>/(preview)/1/(asarg)/1', { }, function(data) {
             if (data != '') {
                 $('#trigger-list-id').html(data);
                 renderPreview($('select[name="AbstractInput_trigger_id"]'));

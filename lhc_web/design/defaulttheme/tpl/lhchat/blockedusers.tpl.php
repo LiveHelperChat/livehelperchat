@@ -139,7 +139,7 @@
             } else {
                 echo htmlspecialchars(preg_replace(
                     [
-                        '/(\.\d){2}$/',
+                        '/(\.\d+){2}$/',
                         '/(:[\da-f]*){2,4}$/'
                     ],
                     [

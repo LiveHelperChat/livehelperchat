@@ -70,6 +70,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Quanto tempo nós devemos esperar antes de informar o operador sobre chat não respondido</translation>
     </message>
@@ -630,6 +634,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Mobile style</source>
+      <translation>Estilo CSS para versões móveis</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Mensagem de boas vindas</translation>
     </message>
@@ -744,6 +752,10 @@
     <message>
       <source>Inject HTML</source>
       <translation>Injetar HTML</translation>
+    </message>
+    <message>
+      <source>Conversion</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
@@ -1090,6 +1102,18 @@
       <translation>Esta variável é invisível para o operador e será armazenada no atributo chat_variables</translation>
     </message>
     <message>
+      <source>Event id to receive from website for conversion to finish.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g ordered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversion has to happen within this period of time after invitation was send/clicked.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invitation expire time, after that period of time invitation will be hidden</source>
       <translation type="unfinished"/>
     </message>
@@ -1130,8 +1154,12 @@
       <translation>Versão móvel em HTML</translation>
     </message>
     <message>
-      <source>Mobile style</source>
-      <translation>Estilo CSS para versões móveis</translation>
+      <source>Custom on click event</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom CSS, applies also to invitation bubble</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Custom image 1</source>
@@ -1873,6 +1901,14 @@
       <translation>Se o departamento estiver offline e o visitante iniciar um chat, esta mensagem será enviada com uma mensagem de boas-vindas padrão. Se esta mensagem estiver vazia - será enviada uma mensagem de boas-vindas.</translation>
     </message>
     <message>
+      <source>Internal conversion parameters. Internal conversion is used to track covnersion where final step is done by user executing specific action and letting website to know us it happened.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample javascript to finish conversion</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
       <translation>Você pode utilizar 5 imagens usando palavras chaves como: {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. Estes eventos devem ser utilizados no evento onclick.</translation>
     </message>
@@ -2265,6 +2301,10 @@
       <translation>Ativar o atendedor automático</translation>
     </message>
     <message>
+      <source>Parent invitation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Campaign</source>
       <translation>Campanha</translation>
     </message>
@@ -2339,6 +2379,14 @@
     <message>
       <source>Hide operator name in invitation widget</source>
       <translation>Ocultar o nome do operador no widget de convite</translation>
+    </message>
+    <message>
+      <source>Hide operator profile image</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide content on click</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Show default header on proactive widget open event</source>
@@ -2454,6 +2502,10 @@
     <message>
       <source>Add event</source>
       <translation>Adicionar evento</translation>
+    </message>
+    <message>
+      <source>Event</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Remove</source>
@@ -3135,6 +3187,14 @@
       <translation>Até</translation>
     </message>
     <message>
+      <source>Country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Region</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Proactive invitation</source>
       <translation>Convite proativo</translation>
     </message>
@@ -3275,6 +3335,10 @@
       <translation>Selecionar produto</translation>
     </message>
     <message>
+      <source>Choose country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose proactive invitation</source>
       <translation>Escolha convite proativo</translation>
     </message>
@@ -3283,16 +3347,16 @@
       <translation>Selecionar robô</translation>
     </message>
     <message>
-      <source>Choose country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Select department</source>
       <translation>Selecionar departamento</translation>
     </message>
     <message>
       <source>Type to search</source>
       <translation>Digite para pesquisar</translation>
+    </message>
+    <message>
+      <source>Apply this configuration also to these departments</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Search for a user.  First 50 users are shown.</source>
@@ -3427,11 +3491,47 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Send report to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Daily report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Weekly report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monthly report</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active</source>
+      <translation>Ativo</translation>
+    </message>
+    <message>
+      <source>Day of the month</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save as new</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Save report</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>My reports</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make a copy</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3455,6 +3555,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>More than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Less than</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Excluir solicitações offline dos gráficos</translation>
     </message>
@@ -3473,6 +3585,10 @@
     <message>
       <source>Compare to past</source>
       <translation>Comparar com o passado</translation>
+    </message>
+    <message>
+      <source>Select country</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Agent</source>
@@ -3663,10 +3779,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Active</source>
-      <translation>Ativo</translation>
-    </message>
-    <message>
       <source>Deactivated</source>
       <translation>Desativado</translation>
     </message>
@@ -3712,6 +3824,10 @@
     </message>
     <message>
       <source>Till now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy of</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -4644,7 +4760,7 @@
     </message>
     <message>
       <source>Send to email</source>
-      <translation type="unfinished"/>
+      <translation>Enviar por e-mail</translation>
     </message>
     <message>
       <source>Start a chat with us!</source>
@@ -4664,7 +4780,7 @@
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
-      <translation type="unfinished"/>
+      <translation>Enviaremos uma transcrição do chat com o atendente para o seu e-mail, para que você possa consultá-la mais tarde.</translation>
     </message>
     <message>
       <source>Change language</source>
@@ -6690,6 +6806,14 @@
     </message>
     <message>
       <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copy nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Copied</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11264,6 +11388,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>chat/loadprevious</name>
     <message>
+      <source>Chat messages were hidden. You do not have permission to access department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Continue of the chat</source>
       <translation type="unfinished"/>
     </message>
@@ -11506,6 +11634,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose duration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12505,6 +12637,10 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Update stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments limit groups</source>
       <translation>Limite de grupos de departamentos</translation>
     </message>
@@ -12805,6 +12941,18 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     </message>
     <message>
       <source>Department operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group operators</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14971,12 +15119,20 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
   <context>
     <name>statistic/campaign</name>
     <message>
+      <source>Value</source>
+      <translation>Valor</translation>
+    </message>
+    <message>
       <source>Parameter</source>
       <translation>Parâmetro</translation>
     </message>
     <message>
-      <source>Value</source>
-      <translation>Valor</translation>
+      <source>Total value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parent</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Explanation</source>
@@ -15013,6 +15169,22 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Visitor started chat by online invitation</source>
       <translation>O visitante iniciou o bate-papo por convite on-line</translation>
+    </message>
+    <message>
+      <source>Matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total times invitation was matched</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conversions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Number of times conversions has happened from total initiated</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -18389,6 +18561,188 @@ dashboard,online_map,online_users,pending_chats,online_map,active_chats,unread_c
     <message>
       <source>Clone</source>
       <translation>Clonar</translation>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvmb</name>
+    <message>
+      <source>Choose a parent invitation</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>genericbot/helpattributes</name>
+    <message>
+      <source>Page where chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referer from where visitor come to site.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can have custom JS execution on click event. In combination with</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide content on click</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you can have your own invitation workflow.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Some examples of JS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Call page function where widget is embedded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are passing department make sure. This is highly recommended as chat might not be able to start if you have custom required fields by department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You pass it for all options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All options have to be assigned to same start chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have chosen that department in department options.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply this configuration also to these departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>or</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON based options.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Regular syntax. Depreciated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample how to use uploaded image from Design section</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>visitor nick if we know it from previous chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>invisible by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>visible by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Samples how to change bubble background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag structure examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>simple tag example</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If in embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>suffix is appended invitation will be shown always independently was there any other invitation active or not.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Once you define a parent invitation. Present invitation is considered as child invitation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only main display attributes are taken as variation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parent invitation statistic window will show child invitation performance.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These conditions you can check and control widget state. More attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States and Lithuania</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors whois attribute is VIP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>are we online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To choose yesterday.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As start day choose yesterday day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>choose today and choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

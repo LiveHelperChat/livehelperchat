@@ -368,8 +368,12 @@ class erLhAbstractModelProactiveChatInvitation {
 	    }
 
 	    $item->operator_user_proactive = $messageContent->operator_name;
-	    $item->invitation_id = $message->id;
-	    $item->invitation_seen_count = 1;
+
+        if ($item->invitation_id != $message->id) {
+            $item->invitation_seen_count = 1;
+        }
+
+        $item->invitation_id = $message->id;
 	    $item->requires_email = $message->requires_email;
 	    $item->requires_username = $message->requires_username;
 	    $item->requires_phone = $message->requires_phone;

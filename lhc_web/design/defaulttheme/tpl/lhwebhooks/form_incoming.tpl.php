@@ -644,6 +644,9 @@
         <div class="form-group">
             <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.reset_op" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Operator should be reset if chat being transferred to pending state.');?></label>
         </div>
+        <div class="form-group">
+            <label><input type="checkbox" ng-model="webhookincomingsctl.conditions.reset_dep" value="on" > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat should be reset to default department. Bot also will be set to default.');?></label>
+        </div>
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="wh_attributes">
