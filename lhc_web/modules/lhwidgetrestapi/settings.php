@@ -406,7 +406,7 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
         $replaceVars['search'][] = '{{need_help_body}}';
 
         $replaceVars['replace'][] = $theme->need_help_header != '' ? $theme->need_help_header : $translationInstance->getTranslation('chat/getstatus', 'Need help?');
-        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : $translationInstance->getTranslation('chat/getstatus', 'Our staff are ready to help!');
+        $replaceVars['replace'][] = $theme->need_help_text != '' ? $theme->need_help_text : $translationInstance->getTranslation('chat/getstatus', 'Our staff are always ready to help!');
     } else {
         $replaceVars = array(
             'search' => array(
