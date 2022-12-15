@@ -63,9 +63,26 @@ if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcore
 }
 
 if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
-    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-    if ($defaultTheme > 0) {
-        $Params['user_parameters_unordered']['theme'] = (int)$defaultTheme;
+
+    if (isset($dep_id) && $dep_id > 0) {
+        $departmentObject = erLhcoreClassModelDepartament::fetch($dep_id);
+        if (is_object($departmentObject)) {
+
+            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] > 0) {
+                $Params['user_parameters_unordered']['theme'] = $departmentObject->bot_configuration_array['theme_ind'];
+            }
+
+            if (!is_numeric($Params['user_parameters_unordered']['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] > 0) {
+                $Params['user_parameters_unordered']['theme'] = $departmentObject->bot_configuration_array['theme_default'];
+            }
+        }
+    }
+
+    if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
+        $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+        if ($defaultTheme > 0) {
+            $Params['user_parameters_unordered']['theme'] = (int)$defaultTheme;
+        }
     }
 }
 

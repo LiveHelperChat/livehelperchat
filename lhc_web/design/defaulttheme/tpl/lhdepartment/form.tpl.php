@@ -78,7 +78,11 @@
             <li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Survey');?></a></li>
             <?php endif; ?>
 
-			<?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managedesign')) : ?>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Design');?></a></li>
+            <?php endif; ?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>
 		</ul>
 		
 		<div class="tab-content">
@@ -435,6 +439,12 @@
 			<div role="tabpanel" class="tab-pane" id="survey">
                 <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/survey_configuration.tpl.php'));?>
 		    </div>
+            <?php endif; ?>
+
+            <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managedesign')) : ?>
+                <div role="tabpanel" class="tab-pane" id="design">
+                    <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/design_configuration.tpl.php'));?>
+                </div>
             <?php endif; ?>
 
 			<div role="tabpanel" class="tab-pane" id="miscellaneous">

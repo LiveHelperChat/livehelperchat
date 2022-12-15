@@ -177,6 +177,9 @@ class erLhcoreClassDepartament{
                 'bot_tr_id' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
+                'theme_ind' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                ),
                 'bot_only_offline' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
                 ),
@@ -624,6 +627,13 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_tr_id'] = $form->bot_tr_id;
        } else {
            $botConfiguration['bot_tr_id'] = 0;
+       }
+
+       if ( $form->hasValidData( 'theme_ind' ) )
+       {
+           $botConfiguration['theme_ind'] = $form->theme_ind;
+       } else {
+           $botConfiguration['theme_ind'] = 0;
        }
 
        if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'managesurvey')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment', 'managesurvey')) {
