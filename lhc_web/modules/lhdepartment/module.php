@@ -86,6 +86,7 @@ $FunctionList['manageall'] = array('explain' => 'Allow user to manage all depart
 $FunctionList['managegroups'] = array('explain' => 'Allow user to manage all department groups, not only assigned to him');
 $FunctionList['managesurvey'] = array('explain' => 'Allow operator to change department surveys');
 $FunctionList['managealias'] = array('explain' => 'Allow operator to change department alias');
+$FunctionList['managedesign'] = array('explain' => 'Allow operator to change design section');
 
 
 ?>
