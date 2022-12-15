@@ -17,7 +17,13 @@
     		<?php endforeach; ?>
     	</select>
 	</div>
-	
+
+    <div class="form-group" ng-non-bindable>
+        <label>
+            <input type="checkbox" name="department_default" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','As default department theme')?>
+        </label>
+    </div>
+
 	<input type="submit" name="ImportTheme" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('theme/default','Set as default theme')?>" />
 	
 </form>

@@ -15,23 +15,36 @@ if (ezcInputForm::hasPostData()) {
 			'ThemeID' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
 			),
+            'department_default' => new ezcInputFormDefinitionElement(
+					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
 	);
 	
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	
-	if ( $form->hasValidData( 'ThemeID' ) )	{
+	if ( $form->hasValidData( 'ThemeID' ) ) {
 		$themeData->value = $form->ThemeID;
 	} else {
 		$themeData->value = 0;
 	}
 
-	$themeData->saveThis();
-	
+    $themeData->saveThis();
+
+    if ( $form->hasValidData( 'department_default' ) ) {
+        foreach (erLhcoreClassModelDepartament::getList(['limit' => false]) as $item) {
+            $configurationArray = $item->bot_configuration_array;
+            $configurationArray['theme_default'] = $themeData->value;
+            $item->bot_configuration_array = $configurationArray;
+            $item->bot_configuration = json_encode($configurationArray);
+            $item->updateThis(['update' => ['bot_configuration']]);
+        }
+    }
+
 	// Cleanup cache to recompile templates etc.
 	$CacheManager = erConfigClassLhCacheConfig::getInstance();
 	$CacheManager->expireCache();
 	
-	$tpl->set('updated',true);	
+	$tpl->set('updated',true);
 }
 
 $tpl->set('default_theme_id',$themeData->value);

@@ -166,12 +166,39 @@ if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
     $_GET['theme'] = $themeArray[array_rand($themeArray)];
 }
 
+$startDataDepartment = false;
+
+if (is_array($department) && !empty($department) && count($department) == 1) {
+    $dep_id = $department[0];
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$') OR department_id = " . (int)$dep_id . ")" )));
+    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+        $startDataFields = $startDataDepartment->data_array;
+    }
+}
+
 if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
     $outputResponse['theme'] = $themeId;
 } else {
-    $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-    if ($defaultTheme > 0) {
-        $outputResponse['theme'] = (int)$defaultTheme;
+
+    if (isset($dep_id) && $dep_id > 0) {
+        $departmentObject = erLhcoreClassModelDepartament::fetch($dep_id);
+        if (is_object($departmentObject)) {
+
+            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] > 0) {
+                $outputResponse['theme'] = $departmentObject->bot_configuration_array['theme_ind'];
+            }
+            
+            if (!isset($outputResponse['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] > 0) {
+                $outputResponse['theme'] = $departmentObject->bot_configuration_array['theme_default'];
+            }
+        }
+    }
+
+    if (!isset($outputResponse['theme'])) {
+        $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+        if ($defaultTheme > 0) {
+            $outputResponse['theme'] = (int)$defaultTheme;
+        }
     }
 }
 
@@ -310,15 +337,7 @@ if (($domain = erLhcoreClassModelChatConfig::fetch('track_domain')->current_valu
     $outputResponse['domain'] = $domain;
 }
 
-$startDataDepartment = false;
 
-if (is_array($department) && !empty($department) && count($department) == 1) {
-    $dep_id = $department[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$') OR department_id = " . (int)$dep_id . ")" )));
-    if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
-        $startDataFields = $startDataDepartment->data_array;
-    }
-}
 
 if ($startDataDepartment === false) {
     $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
