@@ -1521,6 +1521,10 @@ class erLhcoreClassChat {
            $group_id_by_group[$key] = $depIds;
        }
 
+       if (empty($group_id_by_group[$key])) {
+           return [-1];
+       }
+       
        return $group_id_by_group[$key];
    }
 
