@@ -576,7 +576,7 @@ function isNetworkError(err) {
 export function fetchMessages(obj) {
     return function(dispatch, getState) {
 
-        if (syncStatus.msg == true) {
+        if (syncStatus.msg == true || syncStatus.add_msg == true) {
             return;
         }
 
@@ -738,7 +738,9 @@ export function addMessage(obj) {
                     if (response.data.error || getState().chatwidget.getIn(['chatLiveData','error'])) {
                         dispatch({type: "ADD_MESSAGES_SUBMITTED", data: {r: response.data.r, msg: obj.msg}});
                     }
-
+                    
+                    syncStatus.add_msg = false;
+                    
                     fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
 
                     if (response.data.t) {
