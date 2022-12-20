@@ -58,47 +58,6 @@ if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_s
     return $Result;
 }
 
-if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
-    $Params['user_parameters_unordered']['theme'] = $themeId;
-}
-
-if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
-
-    if (isset($dep_id) && $dep_id > 0) {
-        $departmentObject = erLhcoreClassModelDepartament::fetch($dep_id);
-        if (is_object($departmentObject)) {
-
-            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] > 0) {
-                $Params['user_parameters_unordered']['theme'] = $departmentObject->bot_configuration_array['theme_ind'];
-            }
-
-            if (!is_numeric($Params['user_parameters_unordered']['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] > 0) {
-                $Params['user_parameters_unordered']['theme'] = $departmentObject->bot_configuration_array['theme_default'];
-            }
-        }
-    }
-
-    if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
-        $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-        if ($defaultTheme > 0) {
-            $Params['user_parameters_unordered']['theme'] = (int)$defaultTheme;
-        }
-    }
-}
-
-$online = erLhcoreClassChat::isOnline($dep, false, array(
-    'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
-    'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
-));
-
-$leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
-$tpl->set('leaveamessage',$leaveamessage);
-$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : array());
-$tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
-$tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
-$tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');
-$tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : null);
-
 $vid = $Params['user_parameters_unordered']['vid'] != '' ? $Params['user_parameters_unordered']['vid'] : null;
 
 if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value != 1)) {
@@ -116,11 +75,96 @@ if (empty($vid) && !((isset($_GET['cd']) && $_GET['cd'] == 1) || erLhcoreClassMo
     } else {
         $vid = substr(sha1(mt_rand() . microtime()),0,20);
     }
-    
+
     setcookie("lhc_vid", $vid, time()+60*60*24*365, '/', '', erLhcoreClassSystem::$httpsMode, true);
-    erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
+    $userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('tag' => isset($_GET['tag']) ? $_GET['tag'] : false, 'uactiv' => 1, 'wopen' => 0, 'tpl' => & $tpl, 'tz' => (isset($_GET['tz']) ? $_GET['tz'] : null), 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' =>( is_array($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : array()), 'identifier' => (isset($_GET['idnt']) ? (string)$_GET['idnt'] : ''), 'pages_count' => true, 'vid' => $vid, 'check_message_operator' => false, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => false));
+} elseif (!empty($vid)) {
+    $userInstance = erLhcoreClassModelChatOnlineUser::fetchByVid($vid);
 }
 
+$themeArray = [];
+
+if (isset($Params['user_parameters_unordered']['theme'])) {
+    $themeArray = explode(',', $Params['user_parameters_unordered']['theme']);
+}
+
+$setTheme = false;
+
+if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
+    $userAttributes = $userInstance->online_attr_system_array;
+    if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'], $themeArray) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+        $Params['user_parameters_unordered']['theme'] = $userAttributes['lhc_theme'];
+    } else {
+        $setTheme = true;
+        $Params['user_parameters_unordered']['theme'] = $themeArray[array_rand($themeArray)];
+    }
+} elseif (count($themeArray) > 1) {
+    $Params['user_parameters_unordered']['theme'] = $themeArray[array_rand($themeArray)];
+}
+
+if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
+    $Params['user_parameters_unordered']['theme'] = $themeId;
+}
+
+if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
+
+    if (isset($dep_id) && $dep_id > 0) {
+        $departmentObject = erLhcoreClassModelDepartament::fetch($dep_id);
+        if (is_object($departmentObject)) {
+
+            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] != 0) {
+                $Params['user_parameters_unordered']['theme'] = explode(',', $departmentObject->bot_configuration_array['theme_ind']);
+            }
+
+            if (!isset($Params['user_parameters_unordered']['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] != 0) {
+                $Params['user_parameters_unordered']['theme'] = explode(',', $departmentObject->bot_configuration_array['theme_default']);
+            }
+
+            if (isset($Params['user_parameters_unordered']['theme']) && count($Params['user_parameters_unordered']['theme']) > 1 && isset($userInstance) && $userInstance !== false) {
+                $userAttributes = $userInstance->online_attr_system_array;
+                if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'],$Params['user_parameters_unordered']['theme']) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+                    $Params['user_parameters_unordered']['theme'] = $userAttributes['lhc_theme'];
+                } else {
+                    $setTheme = true;
+                    $Params['user_parameters_unordered']['theme'] =$Params['user_parameters_unordered']['theme'][array_rand($Params['user_parameters_unordered']['theme'])];
+                }
+            } elseif (isset($Params['user_parameters_unordered']['theme'])) {
+                $Params['user_parameters_unordered']['theme'] = $Params['user_parameters_unordered']['theme'][array_rand($Params['user_parameters_unordered']['theme'])];
+            }
+        }
+    }
+
+    if (!is_numeric($Params['user_parameters_unordered']['theme'])) {
+        $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
+        if ($defaultTheme != '0' && $defaultTheme != '') {
+            $themeArray = explode(',', $defaultTheme);
+            if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
+                $userAttributes = $userInstance->online_attr_system_array;
+                if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'], $themeArray) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+                    $Params['user_parameters_unordered']['theme'] = $userAttributes['lhc_theme'];
+                } else {
+                    $setTheme = true;
+                    $Params['user_parameters_unordered']['theme'] = $themeArray[array_rand($themeArray)];
+                }
+            } else {
+                $Params['user_parameters_unordered']['theme'] = $themeArray[array_rand($themeArray)];
+            }
+        }
+    }
+}
+
+$online = erLhcoreClassChat::isOnline($dep, false, array(
+    'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+    'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
+));
+
+$leaveamessage = $Params['user_parameters_unordered']['leaveamessage'] === 'true' || (isset($startDataFields['force_leave_a_message']) && $startDataFields['force_leave_a_message'] == true);
+$tpl->set('leaveamessage',$leaveamessage);
+$tpl->set('department',is_array($Params['user_parameters_unordered']['department']) ? $parametersDepartment['argument'] : array());
+$tpl->set('id',$Params['user_parameters_unordered']['id'] > 0 ? (int)$Params['user_parameters_unordered']['id'] : null);
+$tpl->set('hash',$Params['user_parameters_unordered']['hash'] != '' ? $Params['user_parameters_unordered']['hash'] : null);
+$tpl->set('isMobile',$Params['user_parameters_unordered']['mobile'] == 'true');
+$tpl->set('theme',$Params['user_parameters_unordered']['theme'] > 0 ? (int)$Params['user_parameters_unordered']['theme'] : null);
 $tpl->set('vid',$vid);
 $tpl->set('identifier',$Params['user_parameters_unordered']['identifier'] != '' ? $Params['user_parameters_unordered']['identifier'] : null);
 $tpl->set('inv',$Params['user_parameters_unordered']['inv'] != '' ? $Params['user_parameters_unordered']['inv'] : null);
@@ -212,6 +256,15 @@ if (isset($Params['user_parameters_unordered']['theme']) && is_numeric($Params['
     $themeObject = erLhAbstractModelWidgetTheme::fetch($Params['user_parameters_unordered']['theme']);
 
     if ($themeObject instanceof erLhAbstractModelWidgetTheme) {
+
+        if ($setTheme === true && isset($themeObject->bot_configuration_array['theme_expires']) && (int)$themeObject->bot_configuration_array['theme_expires'] > 0 && isset($userInstance) && $userInstance !== false) {
+            $userAttributes['lhc_theme'] = $Params['user_parameters_unordered']['theme'];
+            $userAttributes['lhc_theme_exp'] = time() + $themeObject->bot_configuration_array['theme_expires'];
+            $userInstance->online_attr_system_array = $userAttributes;
+            $userInstance->online_attr_system = json_encode($userAttributes);
+            $userInstance->updateThis(['update' => ['online_attr_system']]);
+        }
+
         $Result['theme'] = $themeObject;
         $Result['theme_v'] = $themeObject->modified;
     } else {

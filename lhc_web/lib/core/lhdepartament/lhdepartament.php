@@ -163,7 +163,7 @@ class erLhcoreClassDepartament{
                         ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
                 ),
                 'theme_ind' => new ezcInputFormDefinitionElement(
-                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+                        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
                 ),
                 'bot_only_offline' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -586,7 +586,7 @@ class erLhcoreClassDepartament{
 
        if ( $form->hasValidData( 'theme_ind' ) )
        {
-           $botConfiguration['theme_ind'] = $form->theme_ind;
+           $botConfiguration['theme_ind'] = implode(',',$form->theme_ind);
        } else {
            $botConfiguration['theme_ind'] = 0;
        }
