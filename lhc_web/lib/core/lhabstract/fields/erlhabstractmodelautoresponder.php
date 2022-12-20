@@ -403,7 +403,7 @@ return array(
         'timeout_op_reply_message_1' => array(
             'type' => 'textarea',
             'height' => '86px',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [1]'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [1], use ||| to separate random messages.'),
             'required' => false,
             'hidden' => true,
             'main_attr' => 'bot_configuration_array',
@@ -413,7 +413,7 @@ return array(
        'timeout_op_reply_message_2' => array(
             'type' => 'textarea',
             'height' => '86px',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [2]'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [2], use ||| to separate random messages.'),
             'required' => false,
             'hidden' => true,
             'main_attr' => 'bot_configuration_array',
@@ -423,7 +423,7 @@ return array(
        'timeout_op_reply_message_3' => array(
             'type' => 'textarea',
             'height' => '86px',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [3]'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [3], use ||| to separate random messages.'),
             'required' => false,
             'hidden' => true,
             'main_attr' => 'bot_configuration_array',
@@ -433,7 +433,7 @@ return array(
        'timeout_op_reply_message_4' => array(
             'type' => 'textarea',
             'height' => '86px',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [4]'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [4], use ||| to separate random messages.'),
             'required' => false,
             'hidden' => true,
             'main_attr' => 'bot_configuration_array',
@@ -443,7 +443,7 @@ return array(
        'timeout_op_reply_message_5' => array(
             'type' => 'textarea',
             'height' => '86px',
-            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [5]'),
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [5], use ||| to separate random messages.'),
             'required' => false,
             'hidden' => true,
             'main_attr' => 'bot_configuration_array',
@@ -498,7 +498,7 @@ return array(
         )),
         'close_message' => array(
         'type' => 'textarea',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor on chat close'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor on chat close. Use ||| to separate random messages.'),
         'height' => '86px',
         'required' => false,
         'hidden' => true,
@@ -508,7 +508,7 @@ return array(
         )),
         'offline_message' => array(
         'type' => 'textarea',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor if department is offline'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor if department is offline. Use ||| to separate random messages.'),
         'height' => '86px',
         'required' => false,
         'hidden' => true,
@@ -518,7 +518,7 @@ return array(
         )),
         'multilanguage_message' => array(
         'type' => 'textarea',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor if operator speaks same language as visitor.'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message to visitor if operator speaks same language as visitor. Use ||| to separate random messages.'),
         'height' => '86px',
         'required' => false,
         'hidden' => true,

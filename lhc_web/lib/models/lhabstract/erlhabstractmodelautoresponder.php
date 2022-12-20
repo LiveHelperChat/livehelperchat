@@ -145,7 +145,16 @@ class erLhAbstractModelAutoResponder {
            case 'multilanguage_message':
                $this->{$var} = null;
                if (isset($this->bot_configuration_array[$var])) {
-                   $this->{$var} = $this->bot_configuration_array[$var];
+
+                   $msgData = explode('|||', $this->bot_configuration_array[$var]);
+
+                   if (count($msgData) > 1) {
+                       $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
+                   } else {
+                       $item = $this->bot_configuration_array[$var];
+                   }
+
+                   $this->{$var} = $item;
                }
                return $this->{$var};
                break;
