@@ -133,8 +133,10 @@ $modalSize = 'xl';
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <?php if ($operator['exclude_autoasign'] == 1) : ?>
-                                        <span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
+                                    <?php if ($operator['exclude_autoasign'] == 1 || $operator['exc_indv_autoasign'] == 1) : ?>
+                                        <span class="text-danger">
+                                            <span class="material-icons"><?php if ($operator['exclude_autoasign'] == 1) : ?>home<?php else : ?>account_balance<?php endif;?></span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?>
+                                        </span>
                                     <?php else : ?>
                                         <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
                                     <?php endif; ?>

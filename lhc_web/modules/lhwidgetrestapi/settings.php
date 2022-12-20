@@ -156,7 +156,7 @@ $setTheme = false;
 
 if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
     $userAttributes = $userInstance->online_attr_system_array;
-    if (isset($userAttributes['lhc_theme']) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+    if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'],$themeArray) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
         $_GET['theme'] = $userAttributes['lhc_theme'];
     } else {
         $setTheme = true;
@@ -184,20 +184,43 @@ if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
         $departmentObject = erLhcoreClassModelDepartament::fetch($dep_id);
         if (is_object($departmentObject)) {
 
-            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] > 0) {
-                $outputResponse['theme'] = $departmentObject->bot_configuration_array['theme_ind'];
+            if (isset($departmentObject->bot_configuration_array['theme_ind']) && $departmentObject->bot_configuration_array['theme_ind'] != 0) {
+                $outputResponse['theme'] = explode(',', $departmentObject->bot_configuration_array['theme_ind']);
             }
             
-            if (!isset($outputResponse['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] > 0) {
-                $outputResponse['theme'] = $departmentObject->bot_configuration_array['theme_default'];
+            if (!isset($outputResponse['theme']) && isset($departmentObject->bot_configuration_array['theme_default']) && $departmentObject->bot_configuration_array['theme_default'] != 0) {
+                $outputResponse['theme'] = explode(',', $departmentObject->bot_configuration_array['theme_default']);
+            }
+
+            if (isset($outputResponse['theme']) && count($outputResponse['theme']) > 1 && isset($userInstance) && $userInstance !== false) {
+                $userAttributes = $userInstance->online_attr_system_array;
+                if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'],$outputResponse['theme']) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+                    $outputResponse['theme'] = $userAttributes['lhc_theme'];
+                } else {
+                    $setTheme = true;
+                    $outputResponse['theme'] = $outputResponse['theme'][array_rand($outputResponse['theme'])];
+                }
+            } elseif (isset($outputResponse['theme'])) {
+                $outputResponse['theme'] = $outputResponse['theme'][array_rand($outputResponse['theme'])];
             }
         }
     }
 
     if (!isset($outputResponse['theme'])) {
         $defaultTheme = erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value;
-        if ($defaultTheme > 0) {
-            $outputResponse['theme'] = (int)$defaultTheme;
+        if ($defaultTheme != '0' && $defaultTheme != '') {
+            $themeArray = explode(',', $defaultTheme);
+            if (count($themeArray) > 1 && isset($userInstance) && $userInstance !== false) {
+                $userAttributes = $userInstance->online_attr_system_array;
+                if (isset($userAttributes['lhc_theme']) && in_array($userAttributes['lhc_theme'],$themeArray) && isset($userAttributes['lhc_theme_exp']) && $userAttributes['lhc_theme_exp'] > time()) {
+                    $outputResponse['theme']  = $userAttributes['lhc_theme'];
+                } else {
+                    $setTheme = true;
+                    $outputResponse['theme']  = $themeArray[array_rand($themeArray)];
+                }
+            } else {
+                $outputResponse['theme']  = $themeArray[array_rand($themeArray)];
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ if (ezcInputForm::hasPostData()) {
 	
 	$definition = array(
 			'ThemeID' => new ezcInputFormDefinitionElement(
-					ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1)
+					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
 			),
             'department_default' => new ezcInputFormDefinitionElement(
 					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
@@ -23,7 +23,7 @@ if (ezcInputForm::hasPostData()) {
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	
 	if ( $form->hasValidData( 'ThemeID' ) ) {
-		$themeData->value = $form->ThemeID;
+		$themeData->value = implode(',',$form->ThemeID);
 	} else {
 		$themeData->value = 0;
 	}
@@ -47,6 +47,6 @@ if (ezcInputForm::hasPostData()) {
 	$tpl->set('updated',true);
 }
 
-$tpl->set('default_theme_id',$themeData->value);
+$tpl->set('default_theme_id',explode(',',$themeData->value));
 $Result['path'] = array(array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),array('url' => erLhcoreClassDesign::baseurl('theme/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Themes')),array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('theme/index','Default theme')));
 $Result['content'] = $tpl->fetch();
