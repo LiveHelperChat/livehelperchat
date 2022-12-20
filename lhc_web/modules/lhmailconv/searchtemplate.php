@@ -30,7 +30,7 @@ if (count($filter) > 0) {
     $q->where($filter);
 }
 
-$q->limit(10, 0);
+$q->limit(50, 0);
 $q->orderBy('name ASC');
 $items = $session->find($q);
 
