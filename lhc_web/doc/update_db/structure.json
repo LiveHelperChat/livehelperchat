@@ -9042,6 +9042,14 @@
         "extra": ""
       },
       {
+        "field": "auth_method",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "import_priority",
         "type": "int(11) unsigned",
         "null": "NO",

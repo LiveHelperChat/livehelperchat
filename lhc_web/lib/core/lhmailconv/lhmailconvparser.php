@@ -6,6 +6,11 @@ class erLhcoreClassMailconvParser {
 
     public static function getMailBox($mailbox) {
 
+        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            \LiveHelperChat\mailConv\OAuth\OAuth::setupFolder($mailbox);
+            return;
+        }
+
         $mail_con = imap_open($mailbox->imap, $mailbox->username,  $mailbox->password);
 
         if ($mail_con === false) {
@@ -121,18 +126,29 @@ class erLhcoreClassMailconvParser {
                     continue;
                 }
 
-                $mailboxHandler = new PhpImap\Mailbox(
-                    $mailboxFolder['path'], // IMAP server incl. flags and optional mailbox folder
-                    $mailbox->username, // Username for the before configured mailbox
-                    $mailbox->password, // Password for the before configured username
-                    false
-                );
+                if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                    $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+                    $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mailboxFolder['path']);
+                } else {
+                    $mailboxHandler = new PhpImap\Mailbox(
+                        $mailboxFolder['path'], // IMAP server incl. flags and optional mailbox folder
+                        $mailbox->username, // Username for the before configured mailbox
+                        $mailbox->password, // Password for the before configured username
+                        false
+                    );
+                }
 
                 $uuidStatusArray = $mailbox->uuid_status_array;
 
                 // We can survive this
                 try {
-                    $statusMailbox = $mailboxHandler->statusMailbox();
+
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $statusMailbox = json_decode(json_encode($mailboxFolderOAuth->getStatus()),false);
+                    } else {
+                        $statusMailbox = $mailboxHandler->statusMailbox();
+                    }
+
                     if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
                         $statsImport[] = 'Skipping check '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
                         // Nothing has changed since last check

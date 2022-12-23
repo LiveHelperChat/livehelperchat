@@ -45,10 +45,11 @@
     "minimum-stability": "stable",
     "name": "livehelperchat/livehelperchat",
     "require": {
+        "php": ">=7.3",
         "ext-json": "*",
         "minishlink/web-push": "^7.0",
         "php-imap/php-imap": "dev-master#500dc8a9a83ebf91cbd06ac50021f9940c15fed8",
-        "php": ">=7.3"
+        "webklex/php-imap": "^4.1"
     },
     "type": "project"
 }

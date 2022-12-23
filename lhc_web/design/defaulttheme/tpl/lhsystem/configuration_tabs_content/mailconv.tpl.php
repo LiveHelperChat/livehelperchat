@@ -26,6 +26,10 @@
                     <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','General options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/optionsgeneral')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','General options');?></a></li>
                 <?php endif; ?>
 
+                <?php if ($currentUser->hasAccessTo('lhmailconvoauth','manage_oauth')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','OAuth options')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconvoauth/options')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','OAuth options');?></a></li>
+                <?php endif; ?>
+
                 <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
             </ul>
         </div>

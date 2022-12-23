@@ -221,6 +221,9 @@ class erLhcoreClassMailconvValidator {
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'auth_method' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
+            ),
             'import_since' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -250,6 +253,12 @@ class erLhcoreClassMailconvValidator {
             $item->username = $form->username;
         } else {
             $item->username = '';
+        }
+
+        if ( $form->hasValidData( 'auth_method' )) {
+            $item->auth_method = $form->auth_method;
+        } else {
+            $item->auth_method = 0;
         }
 
         if ( $form->hasValidData( 'signature_under' ) && $form->signature_under == true) {

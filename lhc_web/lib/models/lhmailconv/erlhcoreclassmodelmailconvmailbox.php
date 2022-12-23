@@ -49,6 +49,7 @@ class erLhcoreClassModelMailconvMailbox
             'user_id' => $this->user_id,
             'dep_id' => $this->dep_id,
             'workflow_options' => $this->workflow_options,
+            'auth_method' => $this->auth_method,
         );
     }
 
@@ -167,6 +168,11 @@ class erLhcoreClassModelMailconvMailbox
     public $user_id = 0;
     public $dep_id = 0;
     public $delete_mode = self::DELETE_ALL;
+
+    const AUTH_NORMAL_PASSWORD = 0;
+    const AUTH_OAUTH2 = 1;
+
+    public $auth_method = self::AUTH_NORMAL_PASSWORD;
 
 }
 
