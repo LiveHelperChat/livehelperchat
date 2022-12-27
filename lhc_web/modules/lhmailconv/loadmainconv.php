@@ -131,6 +131,8 @@ try {
             'messages' => array_values($messages),
             'moptions' => [
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),
+                'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
+                'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
                 'can_write' => $canWrite,
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],

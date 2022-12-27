@@ -22,7 +22,19 @@
         <label>
             <input type="checkbox" name="disable_auto_owner" value="on" <?php if (isset($mc_options['disable_auto_owner']) && ($mc_options['disable_auto_owner'] == true)) : ?>checked="checked"<?php endif;?> />
             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Disable becoming owner automatically on conversation open event')?>
-        <p><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Operator will become an owner if he clicks reply button.')?></small></p>
+        <p class="mb-0"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Operator will become an owner if he clicks reply button.')?></small></p>
+    </div>
+    
+    <div class="form-group">
+        <label>
+            <input type="checkbox" name="skip_images" value="on" <?php if (isset($mc_options['skip_images']) && ($mc_options['skip_images'] == true)) : ?>checked="checked"<?php endif;?> />
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skip directly included images while replying to e-mail')?>
+        <p class="mb-0"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Image will be replaced with Image skipped text')?></small></p>
+    </div>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skipped image replacement text. You can use emoji also e.g')?> &#128444;&#65039;&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Copy')?>&nbsp;<span class="badge badge-secondary"><?php echo htmlspecialchars('&#128444;&#65039;')?></span></label>
+        <input type="text" class="form-control form-control-sm" name="image_skipped_text" value="<?php isset($mc_options['image_skipped_text']) ? print htmlspecialchars($mc_options['image_skipped_text']) : ''?>" placeholder="[img]"/>
     </div>
 
     <input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />

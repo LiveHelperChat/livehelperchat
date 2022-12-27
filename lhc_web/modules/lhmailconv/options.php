@@ -19,7 +19,13 @@ if ( isset($_POST['StoreOptions']) ) {
         'mce_toolbar' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'image_skipped_text' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'disable_auto_owner' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'skip_images' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
@@ -43,6 +49,17 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['disable_auto_owner'] = 1 ;
     } else {
         $data['disable_auto_owner'] = 0;
+    }
+
+    if ($form->hasValidData( 'skip_images' ) && $form->skip_images == true) {
+        $data['skip_images'] = 1 ;
+    } else {
+        $data['skip_images'] = 0;
+    }
+    if ($form->hasValidData( 'image_skipped_text' ) &&  $form->image_skipped_text != '') {
+        $data['image_skipped_text'] = $form->image_skipped_text;
+    } else {
+        $data['image_skipped_text'] = '[img]';
     }
 
     $mcOptions->explain = '';

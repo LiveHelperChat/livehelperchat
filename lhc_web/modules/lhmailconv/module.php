@@ -371,6 +371,7 @@ $FunctionList['send_as_new'] = array('explain' =>'Allow user to reply an email a
 $FunctionList['export_mails'] = array('explain' => 'Allow operator to export filtered mails');
 $FunctionList['quick_actions'] = array('explain' => 'Allow operator to user quick actions module');
 $FunctionList['change_mailbox'] = array('explain' => 'Allow operator to change mail mailbox');
+$FunctionList['include_images'] = array('explain' => 'Allow operator include images from the original e-mail');
 
 
 ?>
