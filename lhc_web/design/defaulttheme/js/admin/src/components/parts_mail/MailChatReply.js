@@ -175,6 +175,8 @@ const MailChatReply = props => {
 
     const { t, i18n } = useTranslation('mail_chat');
 
+    console.log(props.message.body_front);
+
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
 
@@ -196,7 +198,7 @@ const MailChatReply = props => {
 
                 <Editor
                     tinymceScriptSrc={props.moptions.tiny_mce_path}
-                    initialValue={"<p></p>" + replyIntro + "<blockquote>" + props.message.body_front + "</blockquote>" + (underReplySignature == false ? replySignature : "")}
+                    initialValue={"<p></p>" + replyIntro + "<blockquote>" + (props.moptions.skip_images == true ? props.message.body_front.replace(/\<img([^>]*)\ssrc=('|")([^>]*)\2\s([^>]*)\/\>/gi, props.moptions.image_skipped_text ) : props.message.body_front) + "</blockquote>" + (underReplySignature == false ? replySignature : "")}
                     onInit={() => {
                         tinyMCE.get("reply-to-mce-"+props.message.id).focus();
                     }}
