@@ -14,7 +14,7 @@ $departmentList = erLhcoreClassModelDepartament::getList(array('limit' => false)
 $ts = time();
 
 // Store hour as UTC for easier grouping
-$date_utc = new \DateTime(null, new \DateTimeZone("UTC"));
+$date_utc = new \DateTime("", new \DateTimeZone("UTC"));
 $minuteData = $date_utc->format('YmdHi');
 $ymd = $date_utc->format('Ymd');
 
