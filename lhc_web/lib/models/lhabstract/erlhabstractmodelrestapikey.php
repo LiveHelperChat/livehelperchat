@@ -62,7 +62,7 @@ class erLhAbstractModelRestAPIKey
                 $this->username = null;
 
                 if ($this->user instanceof erLhcoreClassModelUser) {
-                    $this->username = $this->user->username;
+                    $this->username = $this->user->username != '' ? $this->user->username : $this->user->email;
                 }
                 
                 return $this->username;
