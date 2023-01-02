@@ -41,6 +41,33 @@ class erLhcoreClassMailconvParser {
         $mailbox->saveThis();
     }
 
+    public static function convertToRawIMAP($mail) {
+
+        $converted = new stdClass();
+        $converted->message_id = '<' . $mail->get('message_id') . '>';
+        $converted->udate = $mail->get('date')->toDate()->timestamp;
+
+        if ($mail->get('in_reply_to') !== null) {
+            $converted->in_reply_to = '<' . $mail->get('in_reply_to') . '>'; // @todo test
+        }
+
+        if ($mail->get('references') !== null) {
+            $referenceArray = [];
+            foreach ($mail->get('references')->get() as $reference) {
+                $referenceArray[] = '<' . $reference .'>';
+            }
+            $converted->references = implode(' ', $referenceArray); // @todo test
+        }
+
+        $converted->uid = (int)$mail->get('uid');
+        $converted->head = $mail->header;
+        $converted->subject = (string)$mail->getSubject();
+        $converted->msgno = (int)$mail->get('msgn');
+        $converted->size = strlen(json_decode(json_encode($mail->getHeader()), true)['raw'] .  $mail->getRawBody());
+
+        return $converted;
+    }
+
     public static function syncMailbox($mailbox, $params = []) {
 
         $statsImport = array();
@@ -164,18 +191,33 @@ class erLhcoreClassMailconvParser {
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
 
-                // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
+                if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                    $mailsInfo = $mailboxFolderOAuth->search()->since('15.03.2018')->get();
 
-                if (empty($mailsIds)) {
-                    continue;
+                    if (empty($mailsInfo)) {
+                        continue;
+                    }
+
+                } else {
+                    // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
+                    $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
+
+                    if (empty($mailsIds)) {
+                        continue;
+                    }
+
+                    $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
                 }
-
-                $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
 
                 $db->reconnect();
 
-                foreach ($mailsInfo as $mailInfo) {
+                foreach ($mailsInfo as $mailInfoRaw) {
+
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $mailInfo = self::convertToRawIMAP($mailInfoRaw);
+                    } else {
+                        $mailInfo = $mailInfoRaw;
+                    }
 
                     $vars = get_object_vars($mailInfo);
 
@@ -191,7 +233,6 @@ class erLhcoreClassMailconvParser {
                         continue;
                     }
 
-
                     $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id], 'filter' => ['message_id' => $vars['message_id']]));
 
                     // check that we don't have already this e-mail
@@ -201,21 +242,41 @@ class erLhcoreClassMailconvParser {
                         continue;
                     }
 
-                    $head = $mailboxHandler->getMailHeader($mailInfo->uid);
+                    $existingMail = null;
 
-                    if (isset($head->Subject)) {
-                        $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['subject' => (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandler->decodeMimeStr($head->Subject)), 'message_id' => $vars['message_id']]));
-                        if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
-                            $messages[] = $existingMail;
-                            $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because of same message_id and subject - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
-                            continue;
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $head = $mailInfo->head;
+                        if ($head->subject != '') {
+                            $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['subject' => (string)erLhcoreClassMailconvEncoding::toUTF8($head->subject), 'message_id' => $vars['message_id']]));
                         }
+                    } else {
+                        $head = $mailboxHandler->getMailHeader($mailInfo->uid);
+                        if (isset($head->Subject)) {
+                            $existingMail = erLhcoreClassModelMailconvMessage::findOne(array('filter' => ['subject' => (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandler->decodeMimeStr($head->Subject)), 'message_id' => $vars['message_id']]));
+                        }
+                    }
+
+                    if ($existingMail instanceof erLhcoreClassModelMailconvMessage) {
+                        $messages[] = $existingMail;
+                        $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail because of same message_id and subject - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                        continue;
                     }
 
                     $presentPriority = $mailbox->import_priority;
 
-                    // Handle multiple TO's
-                    if (isset($head->to)) {
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        if ($head->to !== null) {
+                            foreach ($head->to->get() as $recipient) {
+                                if ($mailbox->mail != $recipient->mail && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient->mail))) > 0) {
+                                    $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail TO - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient->mail . ' - ' . $mailInfo->uid;
+
+                                    // Skip this e-mail
+                                    continue 2;
+                                }
+                            }
+                        }
+
+                    } elseif (isset($head->to)) {
                         foreach (array_keys($head->to) as $recipient) {
                             // Check is there any mailbox with higher priority
                             if ($mailbox->mail != $recipient && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient))) > 0) {
@@ -227,8 +288,19 @@ class erLhcoreClassMailconvParser {
                         }
                     }
 
-                    // Handle multiple CC's
-                    if (isset($head->cc)) {
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        if ($head->cc !== null) {
+                            foreach ($head->cc->get() as $recipient) {
+                                // Check is there any mailbox with higher priority
+                                if ($mailbox->mail != $recipient->mail && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient->mail))) > 0) {
+                                    $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail CC - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient->mail . ' - ' . $mailInfo->uid;
+
+                                    // Skip this e-mail
+                                    continue 2;
+                                }
+                            }
+                        }
+                    } else if (isset($head->cc)) { // Handle multiple CC's
                         foreach (array_keys($head->cc) as $recipient) {
                             // Check is there any mailbox with higher priority
                             if ($mailbox->mail != $recipient && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient))) > 0) {
@@ -285,8 +357,14 @@ class erLhcoreClassMailconvParser {
                         }
                     }
 
+                    $attributeToUse = 'headersRaw';
+
+                    if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                        $attributeToUse = 'raw';
+                    }
+
                     // Ignore, this is set while using bot and sending auto reply. Checked - Do not import send e-mail.
-                    if (\preg_match("/X-LHC-IGN\:(.*)/i", $head->headersRaw, $matches)) {
+                    if (\preg_match("/X-LHC-IGN\:(.*)/i", $head->{$attributeToUse}, $matches)) {
                         continue;
                     }
 
@@ -295,51 +373,103 @@ class erLhcoreClassMailconvParser {
                         $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid;
 
                         $message = new erLhcoreClassModelMailconvMessage();
+
                         $message->setState($vars);
                         $message->mb_folder = $mailboxFolder['path'];
 
-                        $message->from_host = (string)$head->fromHost;
-                        $message->from_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName),0,250);
-                        $message->from_address = mb_substr((string)$head->fromAddress,0,250);
+                        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
-                        $message->sender_host = (string)$head->senderHost;
-                        $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
-                        $message->sender_address = (string)$head->senderAddress;
+                            $message->from_host = (string)$head->from->first()->host;
+                            $message->from_name = mb_substr($head->from->first()->personal,0,250);
+                            $message->from_address = mb_substr($head->from->first()->mail,0,250);
+
+                            $message->sender_host = $head->sender->first()->host;
+                            $message->sender_name = $head->sender->first()->personal;
+                            $message->sender_address = $head->sender->first()->mail;
+
+                        } else {
+                            $message->from_host = (string)$head->fromHost;
+                            $message->from_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromName),0,250);
+                            $message->from_address = mb_substr((string)$head->fromAddress,0,250);
+
+                            $message->sender_host = (string)$head->senderHost;
+                            $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
+                            $message->sender_address = (string)$head->senderAddress;
+                        }
+
                         $message->mailbox_id = $mailbox->id;
 
                         // Perhaps it was initial message
-                        $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+                        $message->user_id = (\preg_match("/X-LHC-ID\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
-                        $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+                        $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
-                        if (isset($head->to)) {
-                            $message->to_data = json_encode($head->to);
+
+                        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+
+                            $attributesDirect = [
+                                'to' => 'to_data',
+                                'reply_to' => 'reply_to_data',
+                                'cc' => 'cc_data',
+                                'bcc' => 'bcc_data',
+                            ];
+
+                            foreach ($attributesDirect as $key => $objAttribute) {
+                                if ($head->get($key) !== null) {
+                                    $dataItems = [];
+                                    foreach ($head->get($key)->toArray() as $dataItem) {
+                                        $dataItems[$dataItem->mail] = (string)$dataItem->personal;
+                                    }
+
+                                    if (!empty($dataItems)) {
+                                        $message->{$objAttribute} = json_encode($dataItems);
+                                    }
+                                }
+                            }
+
+                        } else {
+                            if (isset($head->to)) {
+                                $message->to_data = json_encode($head->to);
+                            }
+
+                            if (isset($head->replyTo)) {
+                                $message->reply_to_data = json_encode($head->replyTo);
+                            }
+
+                            if (isset($head->cc)) {
+                                $message->cc_data = json_encode($head->cc);
+                            }
+
+                            if (isset($head->bcc)) {
+                                $message->bcc_data = json_encode($head->bcc);
+                            }
                         }
 
-                        if (isset($head->replyTo)) {
-                            $message->reply_to_data = json_encode($head->replyTo);
+                        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+
+                            if ($mailInfoRaw->hasHTMLBody()) {
+                                $message->body = self::cleanupMailBody($mailInfoRaw->getHTMLBody());
+                            }
+
+                            $message->alt_body = $mailInfoRaw->getTextBody();
+
+                            // Same object
+                            $mail = $mailInfoRaw;
+
+                        } else {
+                            // Parse body
+                            $mail = $mailboxHandler->getMail($mailInfo->uid, false);
+
+                            if ($mail->textHtml) {
+                                $message->body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8($mail->textHtml));
+                            }
+
+                            if ($mail->textPlain) {
+                                $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
+                            }
                         }
 
-                        if (isset($head->cc)) {
-                            $message->cc_data = json_encode($head->cc);
-                        }
-
-                        if (isset($head->bcc)) {
-                            $message->bcc_data = json_encode($head->bcc);
-                        }
-
-                        // Parse body
-                        $mail = $mailboxHandler->getMail($mailInfo->uid, false);
-
-                        if ($mail->textHtml) {
-                            $message->body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8($mail->textHtml));
-                        }
-
-                        if ($mail->textPlain) {
-                            $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
-                        }
-
-                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->headersRaw));
+                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
 
                         $matchingRuleSelected = self::getMatchingRuleByMessage($message, $filteredMatchingRules);
 
@@ -356,15 +486,21 @@ class erLhcoreClassMailconvParser {
                             $priorityConversation = $matchingPriorityRuleSelected->priority;
                         }
 
-                        if ($mail->deliveryStatus) {
-                            $message->delivery_status_array = self::parseDeliveryStatus($mail->deliveryStatus);
-                            $message->delivery_status = json_encode($message->delivery_status_array);
-                            $message->undelivered = 1;
+                        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                            // Not supported at the moment
+                            // @todo
+                        } else {
+                            if ($mail->deliveryStatus) {
+                                $message->delivery_status_array = self::parseDeliveryStatus($mail->deliveryStatus);
+                                $message->delivery_status = json_encode($message->delivery_status_array);
+                                $message->undelivered = 1;
+                            }
+
+                            if ($mail->RFC822) {
+                                $message->rfc822_body = erLhcoreClassMailconvEncoding::toUTF8($mail->RFC822);
+                            }
                         }
 
-                        if ($mail->RFC822) {
-                            $message->rfc822_body = erLhcoreClassMailconvEncoding::toUTF8($mail->RFC822);
-                        }
 
                         // Message was undelivered
                         // But there is returned message data
@@ -484,7 +620,7 @@ class erLhcoreClassMailconvParser {
                         if ($internalInit == true) {
 
                             // Operator send a message as closed
-                            $statusMessage = (\preg_match("/X-LHC-ST\:(.*)/i", $head->headersRaw, $matches)) ? (int)\trim($matches[1]) : 0;
+                            $statusMessage = (\preg_match("/X-LHC-ST\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
                             $conversations->status = $statusMessage == erLhcoreClassModelMailconvMessage::STATUS_ACTIVE ? erLhcoreClassModelMailconvMessage::STATUS_ACTIVE : erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
 
@@ -526,7 +662,7 @@ class erLhcoreClassMailconvParser {
                         $messages[] = $message;
 
                         if ($mail->hasAttachments() == true) {
-                            self::saveAttatchements($mail, $message);
+                            self::saveAttatchements($mail, $message, $mailbox);
                         }
 
                         // Update attachment status
@@ -567,6 +703,12 @@ class erLhcoreClassMailconvParser {
 
                     // It's an reply
                     } else {
+
+                        // @todo simulate underlivered e-mail
+                        // @todo parse reply
+                        // @todo process sending-email
+                        echo "parse reply";
+                        exit;
 
                         $conversation = null;
 
@@ -802,11 +944,35 @@ class erLhcoreClassMailconvParser {
         }
     }
 
-    public static function saveAttatchements($mail, & $message) {
+    public static function saveAttatchements($mail, & $message, $mailbox) {
 
         $dispositions = [];
 
-        foreach ($mail->getAttachments() as $attachment) {
+        foreach ($mail->getAttachments() as $attachmentRaw) {
+
+            if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+
+                $attributesOAuth['disposition'] = (string)$attachmentRaw->getDisposition();
+                $attributesOAuth['name'] = (string)$attachmentRaw->getName();
+                $attributesOAuth['description'] = (string)$attachmentRaw->getName();
+                $attributesOAuth['sizeInBytes'] = (int)$attachmentRaw->getSize();
+                $attributesOAuth['contentId'] = (string)$attachmentRaw->getId();
+                $attributesOAuth['mime'] = (string)$attachmentRaw->getMimeType();
+                $attributesOAuth['subtype'] = (string)$attachmentRaw->getExtension();
+                $attributesOAuth['id'] = md5(microtime() . $attachmentRaw->getId() . $attachmentRaw->getName() . $attachmentRaw->getSize());
+
+                if ($attributesOAuth['subtype'] == '') {
+                    $extension = \erLhcoreClassChatWebhookIncoming::getExtensionByMime($attributesOAuth['mime']);
+                    if ($extension !== false) {
+                        $attributesOAuth['subtype'] = $extension;
+                    }
+                }
+
+                $attachment = json_decode(json_encode($attributesOAuth)); // Just convert to object
+
+            } else {
+                $attachment = $attachmentRaw;
+            }
 
             if ((int)$attachment->sizeInBytes == 0) {
                 continue;
@@ -829,7 +995,11 @@ class erLhcoreClassMailconvParser {
                 $dispositions[] = strtolower($mailAttatchement->disposition);
             }
 
-            $fileBody = $attachment->getContents();
+            if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                $fileBody = $attachmentRaw->getContent();
+            } else {
+                $fileBody = $attachment->getContents();
+            }
 
             $dir = 'var/tmpfiles/';
             $fileName = md5($mailAttatchement->id . '_' . $mailAttatchement->name . '_' . $mailAttatchement->attachment_id);
@@ -1025,6 +1195,7 @@ class erLhcoreClassMailconvParser {
 
     public static function importMessage($mailInfo, $mailbox, $mailboxHandler, $conversation = null)
     {
+        // @todo migrate to oauth flow
         $message = new erLhcoreClassModelMailconvMessage();
         $message->setState($mailInfo);
 
@@ -1108,7 +1279,7 @@ class erLhcoreClassMailconvParser {
         }
 
         if ($mail->hasAttachments() == true) {
-              self::saveAttatchements($mail, $message);
+              self::saveAttatchements($mail, $message, $mailbox);
         }
 
         return $message;

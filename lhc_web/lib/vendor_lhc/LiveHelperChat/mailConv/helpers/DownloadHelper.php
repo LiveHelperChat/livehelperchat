@@ -8,17 +8,35 @@ class DownloadHelper
     {
         $mailbox = \erLhcoreClassModelMailconvMailbox::fetch($mail->mailbox_id);
 
-        $mailboxHandler = new \PhpImap\Mailbox(
-            $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
-            $mailbox->username, // Username for the before configured mailbox
-            $mailbox->password, // Password for the before configured username
-            false
-        );
+        if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
-        try {
-            $bodyRaw = $mailboxHandler->getRawMail($mail->uid);
-        } catch (\Exception $e) {
-            $bodyRaw = '';
+            $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+            $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
+
+            $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
+
+            if ($messagesCollection->total() == 1) {
+                $email = $messagesCollection->shift();
+                $bodyRaw = "";
+                $bodyRaw .= json_decode(json_encode($email->getHeader()), true)['raw'];
+                $bodyRaw .= $email->getRawBody();
+            } else {
+                $bodyRaw = '';
+            }
+
+        } else {
+            $mailboxHandler = new \PhpImap\Mailbox(
+                $mailbox->imap, // IMAP server incl. flags and optional mailbox folder
+                $mailbox->username, // Username for the before configured mailbox
+                $mailbox->password, // Password for the before configured username
+                false
+            );
+
+            try {
+                $bodyRaw = $mailboxHandler->getRawMail($mail->uid);
+            } catch (\Exception $e) {
+                $bodyRaw = '';
+            }
         }
 
         // Construct manually *.eml file

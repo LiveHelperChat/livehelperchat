@@ -30,11 +30,17 @@ class OAuth
                         throw new \Exception($reply->error_description);
                     }
 
-                    $idToken = base64_decode(explode('.', $reply['id_token'])[1]);
+                    $idToken = '';
+
+                    if (isset($reply['id_token'])){
+                        $idToken = base64_decode(explode('.', $reply['id_token'])[1]);
+                    }
 
                     $oauth->txtToken = $reply['access_token'];
                     $oauth->txtRefreshToken = $reply['refresh_token'];
+
                     $oauth->txtIDToken = $idToken;
+
                     $oauth->dtExpires = time() + $reply['expires_in'];
                     $oauth->saveThis();
                 }
