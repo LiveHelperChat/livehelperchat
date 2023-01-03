@@ -1,5 +1,7 @@
 <?php
 
+session_write_close();
+
 try {
 	$file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['file_id']);
 	$hash = $Params['user_parameters']['hash'];
