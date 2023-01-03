@@ -1,5 +1,15 @@
 <?php
 
+include 'lib/vendor/autoload.php';
+
+// This way we don't have to modify php-mailer at all
+class OAuth extends \LiveHelperChat\mailConv\OAuth\OAuth {
+    public function getOauth64() {
+        $password = self::getPassword($this->mailbox);
+        return base64_encode("user={$this->mailbox->username_smtp}\1auth=Bearer $password\1\1");
+    }
+}
+
 class erLhcoreClassMailconvValidator {
 
     public static function validatePersonalMailboxGroup($item) {
@@ -482,7 +492,23 @@ class erLhcoreClassMailconvValidator {
 
         if ($mailbox->username_smtp != '') {
             $phpmailer->Username = $mailbox->username_smtp;
-            $phpmailer->Password = $mailbox->password_smtp;
+
+            if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+
+                //Whether to use SMTP authentication
+                $phpmailer->SMTPAuth = true;
+
+                //Set AuthType to use XOAUTH2
+                $phpmailer->AuthType = 'XOAUTH2';
+
+                $phpmailer->setOAuth(
+                    new \OAuth($mailbox)
+                );
+
+            } else {
+                $phpmailer->Password = $mailbox->password_smtp;
+            }
+
             $phpmailer->SMTPAuth = true;
             return;
         }
@@ -741,6 +767,7 @@ class erLhcoreClassMailconvValidator {
             }
 
         } catch (Exception $e) {
+
             $response['send'] = false;
             $response['errors']['general'] = $e->getMessage();
         }
@@ -777,15 +804,21 @@ class erLhcoreClassMailconvValidator {
             return ['success' => false, 'reason' => 'No send folder defined!'];
         }
 
-        \imap_errors();
+        if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+            $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+            $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($path);
+            $mailboxFolderOAuth->appendMessage($mail->getSentMIMEMessage());
+        } else {
+            \imap_errors();
 
-        // Create a copy in send folder
-        $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
-        $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
-        imap_close($imapStream);
+            // Create a copy in send folder
+            $imapStream = imap_open($path, $mailbox->username, $mailbox->password);
+            $result = imap_append($imapStream, $path, $mail->getSentMIMEMessage());
+            imap_close($imapStream);
 
-        if ($result !== true) {
-            return ['success' => false, 'reason' => implode("\n",imap_errors())];
+            if ($result !== true) {
+                return ['success' => false, 'reason' => implode("\n",imap_errors())];
+            }
         }
 
         $messageId = $mail->getLastMessageID();
