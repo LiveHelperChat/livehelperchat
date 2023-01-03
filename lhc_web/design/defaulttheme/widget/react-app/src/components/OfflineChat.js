@@ -57,7 +57,35 @@ class OfflineChat extends Component {
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['user_timezone'] = helperFunctions.getTimeZone();
-        fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
+        fields['URLRefer'] = '';
+        try {
+            var iframeMode = window.parent.location !== window.parent.parent.location;
+            var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
+
+            if (iframeMode) {
+                fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
+            } else {
+                var instWindow = null;
+                if (window.opener !== null) {
+                    instWindow = window.opener;
+                } else {
+                    instWindow = window.parent;
+                }
+                fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
+            }
+
+        } catch (e) {
+            try {
+                fields['URLRefer'] = String(window.document.location);
+            } catch (e) {
+                // Do nothing
+            }
+        }
+
+        if (fields['URLRefer'] == 'blank') {
+            fields['URLRefer'] = ''
+        }
+
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
         if (this.props.chatwidget.get('operator') != '') {
