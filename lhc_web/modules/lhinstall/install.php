@@ -2472,6 +2472,27 @@ try {
   KEY `hash` (`hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
+                    $db->query("CREATE TABLE `lhc_mailconv_oauth_ms` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `mailbox_id` bigint(20) unsigned NOT NULL,
+  `oauth_uid` varchar(50) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `surname` varchar(200) NOT NULL,
+  `display_name` varchar(200) NOT NULL,
+  `txtSessionKey` varchar(255) NOT NULL,
+  `txtCodeVerifier` varchar(255) NOT NULL,
+  `dtExpires` bigint(20) unsigned NOT NULL,
+  `txtRefreshToken` text NOT NULL,
+  `txtToken` text NOT NULL,
+  `txtIDToken` text NOT NULL,
+  `completed` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_uid` (`oauth_uid`),
+  KEY `user_id_completed` (`mailbox_id`,`completed`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4
+;");
+
                     $db->query("CREATE TABLE `lhc_mailconv_msg` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `status` int(11) unsigned NOT NULL,
