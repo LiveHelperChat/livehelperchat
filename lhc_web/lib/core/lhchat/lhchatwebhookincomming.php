@@ -1260,7 +1260,8 @@ class erLhcoreClassChatWebhookIncoming {
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                     'chat' => & $chat,
-                    'msg' => $botMessage
+                    'msg' => $botMessage,
+                    'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
                 ));
             }
 
