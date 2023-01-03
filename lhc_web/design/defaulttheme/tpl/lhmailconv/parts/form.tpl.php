@@ -103,7 +103,7 @@
 </div>
 <div class="col-6">
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Password');?>*</label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Password');?></label>
         <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password" value="<?php echo htmlspecialchars($item->password)?>" />
     </div>
 </div>
