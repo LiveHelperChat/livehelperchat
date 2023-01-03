@@ -8823,6 +8823,15 @@
         "extra": ""
       },
       {
+        "field": "body",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "opened_at",
         "type": "bigint(20) unsigned",
         "null": "NO",
