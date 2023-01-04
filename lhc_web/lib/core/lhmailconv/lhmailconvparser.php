@@ -287,7 +287,7 @@ class erLhcoreClassMailconvParser {
                         $message->from_address = mb_substr((string)$head->fromAddress,0,250);
 
                         $message->sender_host = (string)$head->senderHost;
-                        $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
+                        $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
                         $message->sender_address = (string)$head->senderAddress;
                         $message->mailbox_id = $mailbox->id;
 
@@ -1019,7 +1019,7 @@ class erLhcoreClassMailconvParser {
         $message->from_address = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromAddress),0,250);
 
         $message->sender_host = (string)$head->senderHost;
-        $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
+        $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
         $message->sender_address = $head->senderAddress;
         $message->mailbox_id = $mailbox->id;
 
