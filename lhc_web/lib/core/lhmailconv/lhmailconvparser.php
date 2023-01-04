@@ -393,7 +393,7 @@ class erLhcoreClassMailconvParser {
                             $message->from_address = mb_substr($head->from->first()->mail,0,250);
 
                             $message->sender_host = $head->sender->first()->host;
-                            $message->sender_name = $head->sender->first()->personal;
+                            $message->sender_name = mb_substr($head->sender->first()->personal,0,250);
                             $message->sender_address = $head->sender->first()->mail;
 
                         } else {
@@ -402,7 +402,7 @@ class erLhcoreClassMailconvParser {
                             $message->from_address = mb_substr((string)$head->fromAddress,0,250);
 
                             $message->sender_host = (string)$head->senderHost;
-                            $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
+                            $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
                             $message->sender_address = (string)$head->senderAddress;
                         }
 
@@ -1220,7 +1220,7 @@ class erLhcoreClassMailconvParser {
             $message->from_address = mb_substr($head->from->first()->mail,0,250);
 
             $message->sender_host = $head->sender->first()->host;
-            $message->sender_name = $head->sender->first()->personal;
+            $message->sender_name =  mb_substr($head->sender->first()->personal,0,250);
             $message->sender_address = $head->sender->first()->mail;
 
             $attributeToUse = 'raw';
@@ -1230,7 +1230,7 @@ class erLhcoreClassMailconvParser {
             $message->from_address = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->fromAddress), 0, 250);
 
             $message->sender_host = (string)$head->senderHost;
-            $message->sender_name = erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName);
+            $message->sender_name = mb_substr(erLhcoreClassMailconvEncoding::toUTF8((string)$head->senderName),0,250);
             $message->sender_address = $head->senderAddress;
         }
 
