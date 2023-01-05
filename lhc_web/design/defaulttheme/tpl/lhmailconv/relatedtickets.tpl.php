@@ -6,7 +6,7 @@
             <span class="material-icons user-select-none">mail</span><span><?php echo $mail->id?></span><span class="ml-1 mr-1 badge <?php if ($mail->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>badge-warning<?php else : ?>badge-success<?php endif; ?>">
                 <?php if ($mail->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','pending')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','active')?><?php endif; ?>
             </span>
-            <?php if (!erLhcoreClassChat::hasAccessToWrite($mail)) : ?>
+            <?php if (erLhcoreClassChat::hasAccessToWrite($mail)) : ?>
             <a onclick="lhc.previewMail(<?php echo $mail->id?>);" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Preview')?>" class="material-icons text-muted">info_outline</a>
             <?php endif;?>
             <i title="<?php echo htmlspecialchars($mail->department)?>" class="material-icons">home</i>
