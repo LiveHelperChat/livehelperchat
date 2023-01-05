@@ -24,6 +24,9 @@ if ( isset($_POST['StoreOptions']) ) {
         ),
         'report_email' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'subject_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         )
     );
 
@@ -52,6 +55,11 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['active_lang_detect'] = 1 ;
     } else {
         $data['active_lang_detect'] = 0;
+    }
+    if ($form->hasValidData( 'subject_id' )) {
+        $data['subject_id'] = $form->subject_id;
+    } else {
+        $data['subject_id'] = 0;
     }
 
     $mcOptions->explain = '';

@@ -11,7 +11,7 @@ class erLhcoreClassMailconvWorkflow {
         }
 
         if (isset($params['user_id']) && is_numeric($params['user_id'])) {
-            if ($conv->user_id == 0) {
+            if ($conv->user_id == 0 || (isset($params['force_user_change']) && $params['force_user_change'] === true)) {
                 $conv->user_id = $params['user_id'];
             }
         }

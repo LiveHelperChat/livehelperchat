@@ -45,7 +45,7 @@ var revealM = {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
 				{
-					jQuery.post(params['url'], params['datapost'], function(data){
+					jQuery.post(params['url'], params['datapost'], function(data) {
 							if (typeof params['showcallback'] !== 'undefined') {
 								$('#myModal').on('shown.bs.modal',params['showcallback']);
 							}
@@ -54,8 +54,14 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal(mparams);
-                            revealM.setCenteredDraggable();
+                            if (data != "") {
+                                $('#myModal').html(data).modal(mparams);
+                                revealM.setCenteredDraggable();
+                            } else if (typeof params['on_empty'] !== 'undefined') {
+                                params['on_empty']();
+                            } else {
+                                alert('Empty content was returned!');
+                            }
 					});
 				} else {
 					jQuery.get(params['url'], function(data){
@@ -68,9 +74,14 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal(mparams);
-
-                            revealM.setCenteredDraggable();
+                            if (data != "") {
+                                $('#myModal').html(data).modal(mparams);
+                                revealM.setCenteredDraggable();
+                            } else if (typeof params['on_mepty'] !== 'undefined') {
+                                params['on_mepty']();
+                            } else {
+                                alert('Empty content was returned!');
+                            }
 					});
 				}
 			} else {

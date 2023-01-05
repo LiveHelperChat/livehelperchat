@@ -23,6 +23,12 @@ $ViewList['icondetailed'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['relatedactions'] = array(
+    'params' => array('chat_id'),
+    'uparams' => array(),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['chathistory'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

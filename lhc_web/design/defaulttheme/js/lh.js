@@ -1186,18 +1186,37 @@ function lh(){
         return false;
     };
 
-	this.closeActiveChatDialog = function(chat_id, tabs, hidetab)
+	this.closeActiveChatDialog = function(chat_id, tabs, hidetab, ignoreRelated)
 	{
 	    var that = this;
+        var attribute = '{}';
+
+        $('#CSChatMessage-'+chat_id).length != 0 && (attribute = $('#CSChatMessage-'+chat_id).attr('related-actions'));
+
+        if ($('#CSChatMessage-'+chat_id).length != 0 && $('#CSChatMessage-'+chat_id).attr('close-related') !== "false" && !ignoreRelated) {
+            lhc.revealModal({
+                'url': WWW_DIR_JAVASCRIPT+'chat/relatedactions/'+chat_id,
+                'loadmethod' : 'post',
+                'datapost' : attribute,
+                'backdrop': true,
+                'on_empty': function() {
+                    that.closeActiveChatDialog(chat_id, tabs, hidetab, true); // If no related actions close it instantly
+                }
+            });
+            return;
+        }
 
         ee.emitEvent('angularSyncDisabled', [true]);
-	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, function (data) {
+	    $.postJSON(this.wwwDir + this.closechatadmin + chat_id, attribute, function (data) {
             ee.emitEvent('angularSyncDisabled', [false]);
 	        if (data.error == false) {
                 ee.emitEvent('angularLoadChatList');
             } else {
 	            alert(data.result);
             }
+
+            $('#myModal').modal('hide');
+
         }).fail(function(jqXHR, textStatus, errorThrown) {
             ee.emitEvent('angularSyncDisabled', [false]);
             console.dir(jqXHR);
@@ -1663,6 +1682,48 @@ function lh(){
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/'+chat_id + '/redirecttourl'});
 	};
 
+    this.setAreaAttrByCheckbox = function(chat_id, action) {
+
+        var array = [];
+        var checkboxes = document.querySelectorAll('input[name='+action+'-'+chat_id+']:checked');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            array.push(checkboxes[i].value);
+        }
+
+        var attribute = $('#CSChatMessage-'+chat_id).attr('related-actions');
+
+        var attributeSet = {};
+
+        if (attribute) {
+            attributeSet = JSON.parse(attribute);
+        }
+
+        attributeSet[action] = array;
+
+        $('#CSChatMessage-'+chat_id).attr('related-actions', JSON.stringify(attributeSet));
+    }
+
+    this.explandCollapse = function (type, object_id, provider) {
+        var expandIcon = document.getElementById('expand-action-' + type + '-' + object_id);
+        expandIcon.innerText = expandIcon.innerText == 'expand_less' ? 'expand_more' : 'expand_less';
+        document.getElementById('lhc-list-' + type + '-' + object_id).style.display = expandIcon.innerText == 'expand_less' ? 'block' : 'none';
+
+        // Load if data not loaded yet
+        if (expandIcon.getAttribute('data-loaded') == 'false') {
+            expandIcon.setAttribute('data-loaded','true');
+            $.postJSON(this.wwwDir + provider, function(data) {
+                var elm = document.getElementById('lhc-list-' + type + '-' + object_id);
+
+                if (!elm) {
+                    return;
+                }
+
+                elm.innerHTML = data.data;
+            });
+        }
+    };
+    
 	this.redirectToURLOnline = function(online_user_id,trans) {
 		var url = prompt(trans, "");
 		if (url != null) {

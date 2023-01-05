@@ -2210,3 +2210,7 @@ html {
 .mode-write-chat.mode-chosen{
     display: none;
 }
+
+.opacity-50{
+    opacity: 50%;
+}

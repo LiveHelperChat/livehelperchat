@@ -351,6 +351,12 @@ $ViewList['importtemplate'] = array(
     'functions' => array( 'use_import' ),
 );
 
+$ViewList['relatedtickets'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'closerelated' ),
+);
+
 $FunctionList = array();
 $FunctionList['use_admin'] = array('explain' => 'Permission to use mail conversation module');
 $FunctionList['mailbox_manage'] = array('explain' => 'Permission to manage mailbox');
@@ -372,6 +378,7 @@ $FunctionList['export_mails'] = array('explain' => 'Allow operator to export fil
 $FunctionList['quick_actions'] = array('explain' => 'Allow operator to user quick actions module');
 $FunctionList['change_mailbox'] = array('explain' => 'Allow operator to change mail mailbox');
 $FunctionList['include_images'] = array('explain' => 'Allow operator include images from the original e-mail');
+$FunctionList['closerelated'] = array('explain' => 'Allow operator to close related e-mail tickets based on e-mail');
 
 
 ?>

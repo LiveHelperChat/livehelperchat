@@ -2212,3 +2212,7 @@ html {
 pre{
     color: #fff;
 }
+
+.opacity-50{
+    opacity: 50%;
+}
