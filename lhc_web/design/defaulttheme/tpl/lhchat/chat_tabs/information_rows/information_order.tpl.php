@@ -4,6 +4,10 @@ $orderInformation = array(
         'item' => 'chat',
         'enabled' => true
     ),
+    'mail' => array(
+        'item' => 'mail',
+        'enabled' => true
+    ),
     'department' => array(
         'item' => 'department',
         'enabled' => true
