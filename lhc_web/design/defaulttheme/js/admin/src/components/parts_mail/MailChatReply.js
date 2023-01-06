@@ -175,8 +175,6 @@ const MailChatReply = props => {
 
     const { t, i18n } = useTranslation('mail_chat');
 
-    console.log(props.message.body_front);
-
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
 
