@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save search');
 $modalSize = 'md';
 $modalBodyClass = 'p-1';

@@ -471,7 +471,7 @@ const GroupChat = props => {
 
                                 <ul className="list-group list-group-flush border-0 mw-100 mx275">
                                     {state.operators.map((operator, index) => (
-                                        <li className="list-group-item pl-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-right fs11">
+                                        <li className="list-group-item pl-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-end fs11">
                                             {!operator.jtime && <span className="badge badge-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
                                         </span>
                                         </li>
@@ -498,9 +498,9 @@ const GroupChat = props => {
                                         {state.operators_invite.map((operator, index) => (
                                             <li className="list-group-item p-2 fs13" title={operator.id}>
                                                 {operator.name_official}
-                                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
-                                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
-                                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                                {!operator.member && !operator.invited && <button className="float-end btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                                {!operator.member && operator.invited && <button className="float-end btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                                {operator.member && <button disabled="disabled" className="float-end btn btn-xs btn-success">{t('operator.already_member')}</button>}
                                             </li>
                                         ))}
                                     </ul>
@@ -540,9 +540,9 @@ const GroupChat = props => {
                         {state.operators_invite.map((operator, index) => (
                             <li className="list-group-item p-2 fs13" title={operator.id}>
                                 {operator.name_official}
-                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
-                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
-                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                {!operator.member && !operator.invited && <button className="float-end btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                {!operator.member && operator.invited && <button className="float-end btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                {operator.member && <button disabled="disabled" className="float-end btn btn-xs btn-success">{t('operator.already_member')}</button>}
                             </li>
                         ))}
                     </ul>

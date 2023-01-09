@@ -1,10 +1,10 @@
 <div class="form-group">
 
 <div class="d-flex">
-    <div class="d-inline pr-2">
+    <div class="d-inline pe-2">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
     </div>
-    <div class="d-inline pr-2">
+    <div class="d-inline pe-2">
         <?php
             $params = array (
                 'input_name'     => 'cannedDepartmentGroup',

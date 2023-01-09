@@ -3,7 +3,7 @@
         <div class="card-header">
 
         <?php if ($currentUser->hasAccessTo('lhchat','subject_chats_options')) : ?>
-                <i class="material-icons mr-0 action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/subjectwidget'})">settings_applications</i>
+                <i class="material-icons me-0 action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/subjectwidget'})">settings_applications</i>
         <?php endif; ?>
 
             <i class="material-icons chat-active">label</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats.tpl.php'));?>&nbsp;<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats_counter.tpl.php'));?>

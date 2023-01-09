@@ -9,25 +9,25 @@
         <div id="call-status-<?php echo $chat->id?>">
             <?php if (($voiceCallInstance = erLhcoreClassModelChatVoiceVideo::getInstance($chat->id,false)) instanceof erLhcoreClassModelChatVoiceVideo && $voiceCallInstance->id !== null) : ?>
                     <?php if ($voiceCallInstance->status == erLhcoreClassModelChatVoiceVideo::STATUS_PENDING) : ?>
-                    <span class="badge badge-secondary fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Has not started')?></span>
+                    <span class="badge badge-secondary fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Has not started')?></span>
                     <?php elseif ($voiceCallInstance->status == erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRM) : ?>
-                    <span class="badge badge-warning fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor - waiting for permission to join the call')?></span>
+                    <span class="badge badge-warning fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor - waiting for permission to join the call')?></span>
                     <?php elseif ($voiceCallInstance->status == erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRMED) : ?>
-                    <span class="badge badge-success fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor - permission granted')?></span>
+                    <span class="badge badge-success fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor - permission granted')?></span>
                     <?php endif; ?>
 
                     <?php if ($voiceCallInstance->op_status == erLhcoreClassModelChatVoiceVideo::STATUS_OP_PENDING) : ?>
-                    <span class="badge badge-warning fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Pending operator to join the call')?></span>
+                    <span class="badge badge-warning fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Pending operator to join the call')?></span>
                     <?php elseif ($voiceCallInstance->op_status == erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED) : ?>
-                    <span class="badge badge-success fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Operator has joined the call')?></span>
+                    <span class="badge badge-success fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Operator has joined the call')?></span>
                     <?php endif; ?>
 
                     <?php if ($voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_PENDING) : ?>
-                    <span class="badge badge-warning fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Pending visitor to join the call')?></span>
+                    <span class="badge badge-warning fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Pending visitor to join the call')?></span>
                     <?php elseif ($voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_REQUESTED) : ?>
-                    <span class="badge badge-warning fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor requested to join a call')?></span>
+                    <span class="badge badge-warning fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor requested to join a call')?></span>
                     <?php elseif ($voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) : ?>
-                    <span class="badge badge-success fs12 mr-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor has joined a call')?></span>
+                    <span class="badge badge-success fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor has joined a call')?></span>
                     <?php endif; ?>
             <?php endif; ?>
         </div>

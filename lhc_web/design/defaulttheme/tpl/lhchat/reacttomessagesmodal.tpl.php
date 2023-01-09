@@ -22,7 +22,7 @@
     foreach ($partsReaction as $reaction) {
         $partsReaction = explode("|",$reaction);
 
-        $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' pt-0 mr-0 material-icons' : '';
+        $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' pt-0 me-0 material-icons' : '';
 
         if (isset($partsReaction[2]) && isset($partsReaction[1])) {
             $className .= htmlspecialchars(' reaction-id-' . $partsReaction[2] . '-' . $partsReaction[1]);

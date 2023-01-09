@@ -36,7 +36,7 @@ $langArray = array(
 
 <div class="btn-group float-end dropstart me-auto" role="group">
     <button type="button" class="btn btn-secondary btn-xs dropdown-toggle" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Choose your language');?>" data-toggle="dropdown" aria-expanded="false">
-      <i class="material-icons mr-0">language</i>
+      <i class="material-icons me-0">language</i>
     </button>
     <ul class="dropdown-menu f-dropdown-lang" role="menu">
       <?php foreach ($enabledLanguages as $siteAccess) : ?>

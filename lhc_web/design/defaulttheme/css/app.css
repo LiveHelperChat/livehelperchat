@@ -2155,7 +2155,9 @@ html {
     background: white;
 }
 
-.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row{
+.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row,
+.tab-pane.chat-tab-pane > .row > div
+{
     position: relative;
 }
 

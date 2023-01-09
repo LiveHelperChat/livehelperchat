@@ -199,7 +199,7 @@
                             <div class="msgBlock" style="" id="messagesBlock">       
                                 <div class="message-row response" id="msg-10459" data-op-id="0">
                                     <div class="msg-date">10:14:39</div>
-                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>
+                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 me-0">face</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile">Visitor</span>
                                     </span>
                                     <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -207,10 +207,10 @@
             		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>
@@ -222,10 +222,10 @@
                                 <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>

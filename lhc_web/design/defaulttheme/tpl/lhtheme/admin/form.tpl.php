@@ -53,7 +53,7 @@
                     <div class="msgBlock msgBlock-admin" style="height:330px;background-color: #{{bactract_bg_color_chat_bg}}">
                         <div class="message-row response">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:14:39</div>
-                            <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>Visitor</span>
+                            <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 me-0">face</i>Visitor</span>
                             <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                         <div class="message-row system-response">
@@ -64,12 +64,12 @@
                         <div class="message-row message-admin operator-changes">
                             <div id="unread-separator-10487909" class="new-msg-holder border-bottom border-danger text-center" style="border-color:#{{bactract_bg_color_newm_color}}!important;"><span class="new-msg bg-danger text-white d-inline-block fs12 rounded-top" style="background-color:#{{bactract_bg_color_newm_color}}!important;">New</span></div>
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
-                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator 1</span>
+                            <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 me-0">account_box</i>Operator 1</span>
                             <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_text_color}};background-color: #{{bactract_bg_color_buble_operator_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                         <div class="message-row message-admin operator-changes">
                             <div class="msg-date" style="color:#{{bactract_bg_color_time_color}}">10:18:22</div>
-                            <span style="color:#{{bactract_bg_color_buble_operator_other_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 mr-0">account_box</i>Operator 2</span>
+                            <span style="color:#{{bactract_bg_color_buble_operator_other_title_color}}" class="usr-tit op-tit" ><i class="material-icons chat-operators mi-fs15 me-0">account_box</i>Operator 2</span>
                             <div class="msg-body" style="color:#{{bactract_bg_color_buble_operator_other_text_color}};background-color: #{{bactract_bg_color_buble_operator_other_background}};">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                     </div>

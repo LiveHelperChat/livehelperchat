@@ -5,7 +5,7 @@
     <span aria-hidden="true">&times;</span>
 </button>
 <?php endif;?>
-<ul class="pl-1 m-0">
+<ul class="ps-1 m-0">
 <?php foreach ($errors as $err) : ?>
     <li><?php echo $err?></li>
 <?php endforeach;?>

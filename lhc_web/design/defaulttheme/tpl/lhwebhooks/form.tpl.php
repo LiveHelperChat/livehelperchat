@@ -11,7 +11,7 @@
             <label><input type="radio" value="0" name="type" <?php if ($item->type == 0) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is hook event');?></label>
         </div>
         <div class="form-group" ng-non-bindable>
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
             <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
         </div>
     </div>
@@ -27,7 +27,7 @@
 
 <hr class="border-top">
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
 
 <div class="row mb-2">
     <div class="col-6">
@@ -110,7 +110,7 @@
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" ng-if="$index > 0" ng-click="webhooksctl.moveUp(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
                 <button type="button" ng-if="webhooksctl.conditions.length > 0 && webhooksctl.conditions.length != $index + 1" ng-click="webhooksctl.moveDown(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
-                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
             </div>
         </div>
     </div>
@@ -127,7 +127,7 @@
 
 <div class="row">
     <div class="col-6">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are valid');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required');?>)</span></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are valid');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required');?>)</span></h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
@@ -148,7 +148,7 @@
         </div>
     </div>
     <div class="col-6">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>

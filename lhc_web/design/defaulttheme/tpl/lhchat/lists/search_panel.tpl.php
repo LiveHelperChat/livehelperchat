@@ -511,7 +511,7 @@
     <div class="row mb-2">
         <div class="col-12">
 
-            <div class="btn-group mr-2" role="group" aria-label="...">
+            <div class="btn-group me-2" role="group" aria-label="...">
                     <button type="submit" class="btn btn-primary btn-sm" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
             </div>
 

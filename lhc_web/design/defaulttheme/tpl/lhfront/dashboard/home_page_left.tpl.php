@@ -1,21 +1,21 @@
-<div translate="no" ng-class="{hide: rmtoggle}" class="col-2 chats-column d-flex border-right pr-0 pl-0"">
+<div translate="no" ng-class="{hide: rmtoggle}" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
 <?php /*col chats-column*/ ?>
     <div class="w-100 d-flex flex-column flex-grow-1">
         <div class="clearfix bg-light">
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/open_active_chat_tab.tpl.php')); ?>
 
-            <div class="text-muted p-2 float-start"><i class="material-icons mr-0">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?></span></div>
-            <a class="d-inline-block pt-2 pr-1 float-end text-secondary"  onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons mr-0">&#xE871;</i></a>
+            <div class="text-muted p-2 float-start"><i class="material-icons me-0">list</i><span class="fs13 font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?></span></div>
+            <a class="d-inline-block pt-2 pe-1 float-end text-secondary"  onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/dashboardwidgets'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Configure dashboard')?>"><i class="material-icons me-0">&#xE871;</i></a>
 
             <?php if (in_array('online_users',$frontTabsOrder)) : ?>
-                <a class="d-inline-block pt-2 pr-1 float-end text-secondary" onclick="$('#tabs a[href=\'#onlineusers\']').tab('show')"><i class="material-icons md-18">face</i></a>
+                <a class="d-inline-block pt-2 pe-1 float-end text-secondary" onclick="$('#tabs a[href=\'#onlineusers\']').tab('show')"><i class="material-icons md-18">face</i></a>
             <?php endif; ?>
 
             <?php if (in_array('online_map',$frontTabsOrder)) : ?>
-                <a class="d-inline-block pt-2 pr-1 float-end text-secondary" onclick="$('#tabs a[href=\'#map\']').tab('show')"><i class="material-icons md-18">place</i></a>
+                <a class="d-inline-block pt-2 pe-1 float-end text-secondary" onclick="$('#tabs a[href=\'#map\']').tab('show')"><i class="material-icons md-18">place</i></a>
             <?php endif; ?>
 
-            <a class="d-inline-block pt-2 pr-1 float-end text-secondary" onclick="$('#tabs a[href=\'#dashboard\']').tab('show')"><i class="material-icons md-18">home</i></a>
+            <a class="d-inline-block pt-2 pe-1 float-end text-secondary" onclick="$('#tabs a[href=\'#dashboard\']').tab('show')"><i class="material-icons md-18">home</i></a>
 
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/icons/icons_multiinclude.tpl.php')); ?>
         </div>

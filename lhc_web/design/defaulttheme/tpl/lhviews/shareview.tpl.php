@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Share a view');
 $modalSize = 'xl';
 $modalBodyClass = 'p-1';

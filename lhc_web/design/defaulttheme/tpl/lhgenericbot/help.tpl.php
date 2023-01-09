@@ -1,6 +1,6 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-        <div class="modal-header pt-1 pb-1 pl-2 pr-2">
+        <div class="modal-header pt-1 pb-1 ps-2 pe-2">
             <h4 class="modal-title" id="myModalLabel">Usage Help</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>

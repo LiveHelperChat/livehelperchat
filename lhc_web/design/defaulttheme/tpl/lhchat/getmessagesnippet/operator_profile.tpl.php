@@ -6,10 +6,10 @@
             <img width="20" height="20" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($user->avatar)?>" alt="<?php echo htmlspecialchars($user->name_support)?>" />
         <?php endif; ?>
     <?php else : ?>
-        <i class="icon-assistant material-icons mr-0"><?php if (isset($react) && $react === true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?></i>
+        <i class="icon-assistant material-icons me-0"><?php if (isset($react) && $react === true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?></i>
     <?php endif;?>
 </div>
-<div class="p-1 pl-2">
+<div class="p-1 ps-2">
     <span class="font-weight-bold op-name-widget">
         <?php if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['custom_op_name']) && $theme->bot_configuration_array['custom_op_name'] != '') : ?>
             <?php echo htmlspecialchars(str_replace(['{nick}', '{name}', '{surname}'], [$user->name_support, $user->name, $user->surname], $theme->bot_configuration_array['custom_op_name']));?>

@@ -377,7 +377,7 @@
 	?>
 </div>
 
-    <div class="btn-group mr-2" role="group" aria-label="...">
+    <div class="btn-group me-2" role="group" aria-label="...">
         <button type="submit" name="doSearch" onclick="$('#id-report-type').val('live')" class="btn btn-sm btn-primary" >
             <span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>
         </button>
@@ -1305,117 +1305,117 @@
 
 <?php if (in_array('active',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="numberOfChatsPerMonth" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="numberOfChatsPerMonth" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chats_number_by_statuses.tpl.php'));?></h5>
 <canvas id="chart_div_per_month"></canvas>
 <?php endif;?>
 
 <?php if (in_array('nickgroupingdate',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="nickgroupingdate" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdate.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="nickgroupingdate" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdate.tpl.php'));?></h5>
 <canvas id="chart_nickgroupingdate"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('nickgroupingdatenick',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="nickgroupingdatenick" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdatenick.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="nickgroupingdatenick" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/nickgroupingdatenick.tpl.php'));?></h5>
 <canvas id="chart_nickgroupingdatenick"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('proactivevsdefault',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="proactivevsdefault" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="proactivevsdefault" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/proactive_chats_number_vs_visitors_initiated.tpl.php'));?></h5>
 <canvas id="chart_type_div_per_month"></canvas>
 <?php endif;?>
 
 <?php if (in_array('msgtype',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="msgtype" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="msgtype" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/messages_types.tpl.php'));?></h5>
 <canvas id="chart_type_div_msg_type"></canvas>
 <?php endif;?>
 
 <?php if (isset($numberOfChatsPerWaitTimeMonth) && !empty($numberOfChatsPerWaitTimeMonth)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="waitmonth" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="waitmonth" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_wait_time_in_seconds_max_10_mininutes.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_wait_time"></canvas>
 <?php endif; ?>
 
 <?php if (in_array('unanswered',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="unanswered" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="unanswered" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/unanswered_chats_numbers.tpl.php'));?></h5>
 <canvas id="chart_div_per_month_unanswered"></canvas>
 <?php endif; ?>
 
 <?php if (isset($numberOfChatsPerHour['byday'])) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="hourbyhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
+<h5><a class="csv-export" data-scope="hourbyhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration_hour.tpl.php'));?><h5>
 <canvas id="chart_div_per_hour_by_hour"></canvas>
 
 <hr>
-<h5><a class="csv-export" data-scope="chatperhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
+<h5><a class="csv-export" data-scope="chatperhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
 <canvas id="chart_div_per_hour"></canvas>
 <?php endif; ?>
 
 <?php if (!empty($countryStats)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="country" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="country" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_country.tpl.php'));?></h5>
 <canvas id="chart_div_country"></canvas>
 <?php endif;?>
 
 <?php if (!empty($userChatsStats)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="chatbyuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="chatbyuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_user.tpl.php'));?></h5>
 <canvas id="chart_div_user"></canvas>
 <?php endif;?>
 
 <?php if (!empty($userTransferChatsStats)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="chatbytransferuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_transfer_user.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="chatbytransferuser" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_transfer_user.tpl.php'));?></h5>
 <canvas id="chart_div_transfer_user"></canvas>
 <?php endif;?>
 
 <?php if (!empty($depChatsStats)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="chatbydep" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_dep.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="chatbydep" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_dep.tpl.php'));?></h5>
 <canvas id="chart_div_dep"></canvas>
 <?php endif;?>
 
 <?php if (!empty($numberOfMsgByUser)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="usermsg" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_messages_by_user.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="usermsg" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_messages_by_user.tpl.php'));?></h5>
 <canvas id="chart_div_user_msg"></canvas>
 <?php endif;?>
 
 <?php if (!empty($userChatsAverageStats)) : ?>
 <hr>
-<h5><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/average_chat_duration_by_user.tpl.php'));?></h5>
+<h5><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/statistic')?><?php echo $urlappend?>?xmlavguser=1" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/average_chat_duration_by_user.tpl.php'));?></h5>
 <canvas id="chart_div_avg_user"></canvas>
 <?php endif;?>
 
 <?php if (!empty($userWaitTimeByOperator)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="waitbyoperator" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="waitbyoperator" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/avg_visitor_wait_time_by_operator.tpl.php'));?></h5>
 <canvas id="chart_div_user_wait_time"></canvas>
 <?php endif;?>
 
 <?php if (!empty($subjectsStatistic)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="subject" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="subject" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_subject.tpl.php'));?></h5>
 <canvas id="chart_div_subjects_statistic"></canvas>
 <?php endif; ?>
 
 <?php if (!empty($cannedStatistic)) : ?>
 <hr>
-<h5><a class="csv-export" data-scope="canned" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_canned.tpl.php'));?></h5>
+<h5><a class="csv-export" data-scope="canned" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_by_canned.tpl.php'));?></h5>
 <canvas id="chart_div_canned_statistic"></canvas>
 <?php endif; ?>
 
 <?php if (!empty($userStats['thumbsup'])) : ?>
-<a class="csv-export" data-scope="thumbsup" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a>
+<a class="csv-export" data-scope="thumbsup" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a>
 <canvas id="chart_div_upvotes_canvas"></canvas>
 <?php endif; ?>
 
 <?php if (!empty($userStats['thumbdown'])) : ?>
-<a class="csv-export" data-scope="thumbdown" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons mr-0">file_download</i></a>
+<a class="csv-export" data-scope="thumbdown" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a>
 <canvas id="chart_div_downvotes_canvas"></canvas>
 <?php endif; ?>
 

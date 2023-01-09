@@ -13,7 +13,7 @@
                 <input readonly class="form-control" type="password" id="new-password" value="<?php echo htmlspecialchars($new_password)?>" />
                 <div class="input-group-append">
                     <span class="input-group-text">
-                        <span data-success="Copied" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy');?>" data-copy="<?php echo htmlspecialchars($new_password)?>" onclick="lhinst.copyContent($(this))" class="material-icons mr-0 action-image">content_copy</span>
+                        <span data-success="Copied" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy');?>" data-copy="<?php echo htmlspecialchars($new_password)?>" onclick="lhinst.copyContent($(this))" class="material-icons me-0 action-image">content_copy</span>
                     </span>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-6">
                     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Password requirements')?></h6>
-                    <ul class="text-muted fs13 pl-3">
+                    <ul class="text-muted fs13 ps-3">
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Both passwords must match');?></li>
                         <?php if (isset($minimum_length)) : ?>
                             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Minimal password length');?> - <?php echo htmlspecialchars($minimum_length)?></li>

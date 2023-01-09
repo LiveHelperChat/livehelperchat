@@ -7,7 +7,7 @@
         <?php elseif ($type == 'button_message') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/button_message_admin.tpl.php'));?>
         <?php elseif ($type == 'quick_replies' || $type == 'buttons_generic') : ?>
-        <div class="pb-2 pl-1">
+        <div class="pb-2 ps-1">
             <?php foreach ($metaMessage as $item) : ?>
                 <button disabled class="btn btn-outline-secondary btn-xs mb-1" type="button"><?php echo htmlspecialchars($item['content']['name'])?></button>
             <?php endforeach; ?>

@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-8">
                     <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge badge-secondary m-1 action-image">
-                        {{crc.departments[dep_id]}} <span class="material-icons text-warning mr-0">delete</span>
+                        {{crc.departments[dep_id]}} <span class="material-icons text-warning me-0">delete</span>
                     </span>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" ng-if="combination.conditions.length > 0 && combination.conditions.length != $index + 1" ng-click="crc.moveDown(conditionItem,combination.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
                         <button type="button" ng-if="$index > 0" ng-click="crc.moveUp(conditionItem,combination.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
-                        <button type="button" ng-click="crc.deleteElement(conditionItem,combination.conditions)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                        <button type="button" ng-click="crc.deleteElement(conditionItem,combination.conditions)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
                     </div>
                 </div>
             </div>

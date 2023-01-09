@@ -70,7 +70,7 @@ if ($pages->items_total > 0) {
 
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
         <li class="nav-item" role="presentation" ><a class="nav-link active"href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Main');?></a></li>
-        <li class="nav-item" ng-repeat="lang in cmsg.languages" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
+        <li class="nav-item" ng-repeat="lang in cmsg.languages" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
         <li class="nav-item" ><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Add translation');?></a></li>
     </ul>
 

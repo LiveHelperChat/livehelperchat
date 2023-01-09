@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
 <div class="row">
-    <div translate="no" class="col-2 border-right pr-0 pl-0">
+    <div translate="no" class="col-2 border-right pe-0 ps-0">
         <div class="w-100 d-flex flex-column flex-grow-1">
             <table class="table table-sm mb-0 table-small" ng-non-bindable>
                 <thead>

@@ -106,7 +106,7 @@
         <td title="<?php echo $item->btype?>">
 
             <?php if (isset($enabled_log)) : ?>
-                <a class="text-danger" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc/(object_id)/<?php echo $item->id?>"><span class="material-icons mr-0">history</span></a>
+                <a class="text-danger" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc/(object_id)/<?php echo $item->id?>"><span class="material-icons me-0">history</span></a>
             <?php endif; ?>
 
             <?php if (in_array($item->btype, [erLhcoreClassModelChatBlockedUser::BLOCK_IP,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK,erLhcoreClassModelChatBlockedUser::BLOCK_ALL_IP_NICK_DEP])) : ?>

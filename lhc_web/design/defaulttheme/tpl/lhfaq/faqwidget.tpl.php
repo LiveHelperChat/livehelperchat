@@ -12,7 +12,7 @@
                 <form method="get" class="mt-2" action="">
                     <div class="row">
                         <div class="col-8">
-                            <input type="text" value="<?php echo htmlspecialchars($keyword)?>" name="search" class="form-control form-control-sm mb-2 mr-sm-2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Keyword');?>">
+                            <input type="text" value="<?php echo htmlspecialchars($keyword)?>" name="search" class="form-control form-control-sm mb-2 me-sm-2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Keyword');?>">
 
                         </div>
                         <div class="col-4">
