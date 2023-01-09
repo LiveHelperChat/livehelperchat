@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12 text-center ml-2 pb-0 pr-2">
                         <?php foreach ($colorItems as $colorItem) : ?>
-                            <div class="float-left ml-1 mb-1 color-item" data-color="<?php echo $colorItem?>" style="background-color: #<?php echo $colorItem?>"></div>
+                            <div class="float-start ml-1 mb-1 color-item" data-color="<?php echo $colorItem?>" style="background-color: #<?php echo $colorItem?>"></div>
                         <?php endforeach; ?>
                     </div>
                 </div>

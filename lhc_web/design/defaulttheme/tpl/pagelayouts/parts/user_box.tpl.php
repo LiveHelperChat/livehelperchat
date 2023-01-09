@@ -11,7 +11,7 @@ if ($UserData->force_logout == 1) {
 }
 
 ?>
-<li class="nav-item dropleft">
+<li class="nav-item dropstart">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" ng-non-bindable><?php echo htmlspecialchars($UserData->name),' ',htmlspecialchars($UserData->surname)?></a>
     <div class="dropdown-menu" style="min-width: 25rem;" role="menu">
 

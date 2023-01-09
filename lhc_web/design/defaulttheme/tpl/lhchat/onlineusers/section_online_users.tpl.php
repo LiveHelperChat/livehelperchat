@@ -4,7 +4,7 @@
 	<div class="col-sm-2 form-group col-6">
 		<label id="online-users-count" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','online users');?>">{{online.onlineusers.length}}</label>
 		
-		<div class="float-right">
+		<div class="float-end">
         <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/online_settings.tpl.php')); ?>
             <li class="li-icon list-inline-item">
                 <a href="#" ng-click="online.showConnected()">

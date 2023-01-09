@@ -2,7 +2,7 @@
     <div class="card card-dashboard card-group-chat" data-panel-id="group_chats" ng-init="lhc.getToggleWidget('group_chat_widget_exp')">
         <div class="card-header">
             <i class="material-icons chat-active">group</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats');?> ({{group_chats.list.length}}{{group_chats.list.length == lhc.limitgc ? '+' : ''}})
-            <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+            <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
         </div>
 
         <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">

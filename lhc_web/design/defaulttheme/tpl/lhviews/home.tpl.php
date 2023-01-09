@@ -21,9 +21,9 @@
                         <td>
                             <div class="p-1 fs13" title="{{view.description}}">
                                 <a class="d-block" ng-class="{'font-weight-bold':view.id == vctrl.currentView.id}" ng-click="vctrl.loadView(view)">
-                                    <span ng-if="view.id != vctrl.currentView.id" class="float-right text-muted fs12" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Updated ago');?>">{{view.updated_ago || '0 s.'}}</span>
-                                    <span ng-if="view.id == vctrl.currentView.id" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Live updating');?>, {{view.updated_ago || '0 s.'}}" class="float-right text-muted material-icons">update</span>
-                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','This view is passive and is not updated live');?>" class="text-warning material-icons float-right ml-2" ng-if="view.id != vctrl.currentView.id && view.passive">timer</span>
+                                    <span ng-if="view.id != vctrl.currentView.id" class="float-end text-muted fs12" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Updated ago');?>">{{view.updated_ago || '0 s.'}}</span>
+                                    <span ng-if="view.id == vctrl.currentView.id" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Live updating');?>, {{view.updated_ago || '0 s.'}}" class="float-end text-muted material-icons">update</span>
+                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','This view is passive and is not updated live');?>" class="text-warning material-icons float-end ml-2" ng-if="view.id != vctrl.currentView.id && view.passive">timer</span>
                                     <?php include(erLhcoreClassDesign::designtpl('lhviews/custom_type_multiinclude.tpl.php')); ?>
                                     <span class="material-icons" ng-if="view.scope == 'chat'">chat</span>
                                     {{view.name}}

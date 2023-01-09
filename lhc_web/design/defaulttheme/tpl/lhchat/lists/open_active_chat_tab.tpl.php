@@ -1,6 +1,6 @@
-<nav class="float-right" ng-init="lhc.getToggleWidget('track_open_chats');lhc.getToggleWidget('group_offline_chats')">
+<nav class="float-end" ng-init="lhc.getToggleWidget('track_open_chats');lhc.getToggleWidget('group_offline_chats')">
     <ul class="nav">
-        <li class="nav-item dropleft">
+        <li class="nav-item dropstart">
             <a class="nav-link dropdown-toggle text-secondary" id="menu-chat-options" data-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons mr-0">settings_applications</i></a>
             <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" href="#" ng-click="lhc.appendActiveChats()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open last 10 my active chats')?>"><i class="material-icons chat-active">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open my active chats'); ?></a>

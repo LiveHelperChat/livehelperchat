@@ -5,7 +5,7 @@
         <button id="dropdown-menu-main-action-<?php echo $chat->id?>" class="btn btn-outline-secondary dropdown-toggle btn-sm" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Styling options')?>" type="button"  aria-haspopup="true" aria-expanded="false">
             <i class="material-icons mr-0">wysiwyg</i>
         </button>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-end">
     <?php endif; ?>
             <div class="btn-group btn-group-sm mx-2" role="group">
 
@@ -18,7 +18,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>"><i class="material-icons mr-0">code</i></button>
 
                 <div class="dropdown dropup">
-                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm border-left-0 rounded-0"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons mr-0">format_size</i>
                     </button>
                     <div class="dropdown-menu">
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="dropdown dropup">
-                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm border-left-0 rounded-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons mr-0">palette</span>
                     </button>
                     <div class="dropdown-menu keepopen downdown-menu-color-<?php echo $chat->id?>" style="width: 128px;">
@@ -38,7 +38,7 @@
                         <div class="row">
                             <div class="col-12 text-center ml-2 pb-0 pr-2">
                                 <?php foreach ($colorItems as $colorItem) : ?>
-                                    <div class="float-left ml-1 mb-1 color-item" data-color="<?php echo $colorItem?>" style="background-color: #<?php echo $colorItem?>"></div>
+                                    <div class="float-start ml-1 mb-1 color-item" data-color="<?php echo $colorItem?>" style="background-color: #<?php echo $colorItem?>"></div>
                                 <?php endforeach; ?>
                             </div>
                         </div>

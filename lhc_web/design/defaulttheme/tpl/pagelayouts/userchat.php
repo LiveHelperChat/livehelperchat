@@ -22,7 +22,7 @@
             <?php if (!isset($Result['hide_modal_header'])) : ?>
 			<div class="modal-header">
             		  <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo.tpl.php'));?>
-                <div class="btn-group float-right" role="group" aria-label="...">
+                <div class="btn-group float-end" role="group" aria-label="...">
                     <?php if (!isset($Result['hide_close_window'])) : ?>
 
                         <?php if (isset($Result['chat']) && is_numeric($Result['chat']->id) && isset($Result['er']) && $Result['er'] == true) : ?>

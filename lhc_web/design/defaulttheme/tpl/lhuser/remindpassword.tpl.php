@@ -66,7 +66,7 @@
 
             <button type="submit" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Reset password')?></button>
 
-            <a class="btn btn-outline-secondary float-right btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('user/login')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Login')?></a>
+            <a class="btn btn-outline-secondary float-end btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('user/login')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/remindpassword','Login')?></a>
         </form>
     <?php endif; ?>
 

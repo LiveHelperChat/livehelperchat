@@ -63,7 +63,7 @@
             <?php endif;?>
 
             <div class="d-flex flex-nowrap" translate="no">
-                <div class="mr-auto">
+                <div class="me-auto">
                 <div class="btn-group btn-group-sm mr-2 " role="group">
                     <?php $whisperMode = ($chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT; ?>
                     <button type="button" data-plc="<?php echo $placeholderValue?>" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-secondary' : print ' btn-outline-primary';?>" id="chat-write-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?>"><i class="material-icons mr-0">create</i></button>
@@ -75,7 +75,7 @@
                 </div>
                 </div>
 
-                <div class="ml-auto">
+                <div class="ms-auto">
                     <?php $bbcodeOptions = array('selector' => '#CSChatMessage-' . $chat->id) ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/part/toolbar_text_area.tpl.php')); ?>
                 </div>

@@ -36,7 +36,7 @@
                 <div class="col-12">
 
                     <?php if (!(isset($bbcodeParams['hide_modal']) && $bbcodeParams['hide_modal'] === true)) : ?>
-                        <button type="button" <?php if (isset($react) && $react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" <?php if (isset($react) && $react == true) : ?>id="react-close-modal"<?php endif;?> class="close float-end" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <?php endif; ?>
 
                     <ul class="nav nav-pills nav-pills-bbcode"  role="tablist">
