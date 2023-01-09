@@ -192,13 +192,13 @@ $appendPrintExportURL = '';
                         <div role="tabepanel">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" data-toggle="tab" href="#daily"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Daily report')?></a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#daily"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Daily report')?></a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-toggle="tab" href="#weekly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Weekly report')?></a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#weekly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Weekly report')?></a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-toggle="tab" href="#monthly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monthly report')?></a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#monthly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monthly report')?></a>
                                 </li>
                             </ul>
                             <div class="tab-content pt-2" id="myTabContent">

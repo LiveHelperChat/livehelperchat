@@ -40,7 +40,7 @@ $appendPrintExportURL = '';
                 <?php echo htmlspecialchars($view->description ? $view->description : '-')?>
             </div>
             <div class="col-12 pt-2">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
                     <input type="hidden" name="ActionView" id="id_ActionView" value="0">
                     <button type="submit" value="AcceptAction" name="AcceptAction" onclick="$('#id_ActionView').val(0)" class="btn btn-xs btn-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Accept a view')?></button>
                     <button type="submit" value="RejectAction" name="RejectAction" onclick="$('#id_ActionView').val(1)" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Reject a view')?></button>

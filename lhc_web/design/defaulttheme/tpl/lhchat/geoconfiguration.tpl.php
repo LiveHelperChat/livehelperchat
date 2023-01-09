@@ -13,8 +13,8 @@
 
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="nav-item"><a class="active nav-link" href="#geoconfiguration" aria-controls="geoconfiguration" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
-		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#mapoptions" aria-controls="mapoptions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></li>
+		<li role="presentation" class="nav-item"><a class="active nav-link" href="#geoconfiguration" aria-controls="geoconfiguration" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#mapoptions" aria-controls="mapoptions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Map location')?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
@@ -30,14 +30,14 @@
 
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs mb-2" role="tablist">
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a class="nav-link" href="#freegeoip" aria-controls="freegeoip" role="tab" data-toggle="tab">https://ipstack.com</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>"><a class="nav-link" href="#mod_geoip2" aria-controls="mod_geoip2" role="tab" data-toggle="tab">mod_geoip2</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>"><a class="nav-link" href="#maxmind" aria-controls="maxmind" role="tab" data-toggle="tab">MaxMind</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'active' : ''?>"><a class="nav-link" href="#phpgeoip" aria-controls="phpgeoip" role="tab" data-toggle="tab">PHP-GeoIP</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'active' : ''?>"><a class="nav-link" href="#panel3" aria-controls="panel3" role="tab" data-toggle="tab">http://ipinfodb.com</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'locatorhq') ? print 'active' : ''?>"><a class="nav-link" href="#panel4" aria-controls="panel4" role="tab" data-toggle="tab">http://www.locatorhq.com</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipapi') ? print 'active' : ''?>"><a class="nav-link" href="#ipapi" aria-controls="ipapi" role="tab" data-toggle="tab">https://ip-api.com</a></li>
-						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'abstractapi') ? print 'active' : ''?>"><a class="nav-link" href="#abstractapi" aria-controls="abstractapi" role="tab" data-toggle="tab">https://www.abstractapi.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'freegeoip') ? print 'active' : ''?>"><a class="nav-link" href="#freegeoip" aria-controls="freegeoip" role="tab" data-bs-toggle="tab">https://ipstack.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'mod_geoip2') ? print 'active' : ''?>"><a class="nav-link" href="#mod_geoip2" aria-controls="mod_geoip2" role="tab" data-bs-toggle="tab">mod_geoip2</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'max_mind') ? print 'active' : ''?>"><a class="nav-link" href="#maxmind" aria-controls="maxmind" role="tab" data-bs-toggle="tab">MaxMind</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'php_geoip') ? print 'active' : ''?>"><a class="nav-link" href="#phpgeoip" aria-controls="phpgeoip" role="tab" data-bs-toggle="tab">PHP-GeoIP</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipinfodbcom') ? print 'active' : ''?>"><a class="nav-link" href="#panel3" aria-controls="panel3" role="tab" data-bs-toggle="tab">http://ipinfodb.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'locatorhq') ? print 'active' : ''?>"><a class="nav-link" href="#panel4" aria-controls="panel4" role="tab" data-bs-toggle="tab">http://www.locatorhq.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'ipapi') ? print 'active' : ''?>"><a class="nav-link" href="#ipapi" aria-controls="ipapi" role="tab" data-bs-toggle="tab">https://ip-api.com</a></li>
+						<li role="presentation" class="nav-item <?php isset($geo_data['geo_detection_enabled']) && ($geo_data['geo_service_identifier'] == 'abstractapi') ? print 'active' : ''?>"><a class="nav-link" href="#abstractapi" aria-controls="abstractapi" role="tab" data-bs-toggle="tab">https://www.abstractapi.com</a></li>
 					</ul>
 
 					<!-- Tab panes -->

@@ -4,9 +4,9 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="nav-item"><a class="active nav-link" href="#general" aria-controls="general" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','General');?></a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Design');?></a></li>
-        <li role="presentation" class="nav-item"><a class="nav-link" href="#staticimage" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Static image');?></a></li>
+        <li role="presentation" class="nav-item"><a class="active nav-link" href="#general" aria-controls="general" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','General');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Design');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#staticimage" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Static image');?></a></li>
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/htmlcode_tab_multiinclude.tpl.php'));?>
     </ul>
 

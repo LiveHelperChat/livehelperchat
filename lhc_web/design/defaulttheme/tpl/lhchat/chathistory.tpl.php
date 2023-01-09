@@ -6,8 +6,8 @@
             <?php endif; ?>
 
             <ul class="nav nav-pills mb-3" role="tablist">
-                <li role="presentation" class="nav-item"><a href="#chats-history" class="nav-link active" aria-controls="user-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Concurrent chats');?></a></li>
-                <li role="presentation" class="nav-item"><a href="#live-chats" class="nav-link" aria-controls="online-hours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active operator chats');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#chats-history" class="nav-link active" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Concurrent chats');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#live-chats" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Active operator chats');?></a></li>
             </ul>
             <div class="tab-content" ng-non-bindable>
                 <div role="tabpanel" class="tab-pane active" id="chats-history" style="max-height: 550px;overflow-y: auto">

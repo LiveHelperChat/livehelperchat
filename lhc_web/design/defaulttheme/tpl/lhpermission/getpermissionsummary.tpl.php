@@ -4,7 +4,7 @@
   <?php $moduleFunctions = erLhcoreClassModules::getModuleFunctions($key); ?>
   <div class="panel panel-default">
     <div class="card-header" role="tab" id="heading<?php echo $key?>One">     
-        <a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $key?>One" aria-expanded="true" aria-controls="collapseOne">
+        <a data-bs-toggle="collapse" data-parent="#accordion" href="#<?php echo $key?>One" aria-expanded="true" aria-controls="collapseOne">
             <?php if (count($moduleFunctions) > 0) : $hasFunctions = true;?>
             <?php include(erLhcoreClassDesign::designtpl('lhpermission/gerpermissionsummary_module.tpl.php'));?>                      
             <?php else : $hasFunctions = false; // There is no custom functions that means user can use all module functions ?>                       

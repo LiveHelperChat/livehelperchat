@@ -1,7 +1,7 @@
 
 <ul class="nav nav-tabs mb-3" role="tablist">
-    <li role="presentation" class="nav-item"><a href="#general" class="nav-link active" aria-controls="general" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','General');?></a></li>
-    <li role="presentation" class="nav-item"><a href="#interface" class="nav-link" aria-controls="interface" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Interface');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#general" class="nav-link active" aria-controls="general" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','General');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#interface" class="nav-link" aria-controls="interface" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Interface');?></a></li>
 </ul>
 
 <div class="tab-content">

@@ -18,7 +18,7 @@
                 <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>"><i class="material-icons me-0">code</i></button>
 
                 <div class="dropdown dropup">
-                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons me-0">format_size</i>
                     </button>
                     <div class="dropdown-menu">
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="dropdown dropup">
-                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons me-0">palette</span>
                     </button>
                     <div class="dropdown-menu keepopen downdown-menu-color-<?php echo $chat->id?>" style="width: 128px;">

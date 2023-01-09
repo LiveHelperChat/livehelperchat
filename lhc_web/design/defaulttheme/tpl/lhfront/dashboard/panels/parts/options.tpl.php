@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print (!isset($optinsPanel['hide_limits']) ? 10 : 12)?> pe-0">
 			<div class="btn-group btn-block btn-block-department">
-				<button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
+				<button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
 					{{<?php echo isset($optinsPanel['controller_panel']) ? $optinsPanel['controller_panel'] : 'lhc'?>.<?php echo $optinsPanel['panelid']?>.length == 0 ? "<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','All departments');?>" : (<?php echo isset($optinsPanel['controller_panel']) ? $optinsPanel['controller_panel'] : 'lhc'?>.<?php echo $optinsPanel['panelid']?>.length == 1 && <?php echo isset($optinsPanel['no_names_department']) &&$optinsPanel['no_names_department'] == true ? 'false'  : 'true' ?> ? <?php echo isset($optinsPanel['controller_panel']) ? $optinsPanel['controller_panel'] : 'lhc'?>.<?php echo $optinsPanel['panelid']?>Names.join(", ") : '['+<?php echo isset($optinsPanel['controller_panel']) ? $optinsPanel['controller_panel'] : 'lhc'?>.<?php echo $optinsPanel['panelid']?>.length+'] '+'<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','departments');?>')}}
 				</button>
 				<ul class="dropdown-menu" role="menu">
@@ -50,7 +50,7 @@
 		<?php if (isset($optinsPanel['userid'])) : ?>
 		<div class="col-4 pe-0">
             <div class="btn-group btn-block btn-block-department">
-                <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Users')?>
                 </button>
                 <ul class="dropdown-menu dropdown-lhc" role="menu">

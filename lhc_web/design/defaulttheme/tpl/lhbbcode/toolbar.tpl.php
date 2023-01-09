@@ -11,7 +11,7 @@
 
     <div class="btn-group btn-group-sm me-2" role="group">
         <div class="dropdown me-2">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>
             </button>
             <div class="dropdown-menu">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>
             </button>
             <div class="dropdown-menu keepopen downdown-menu-color-<?php echo md5($bbcodeOptions['selector'])?>" style="width: 128px;">

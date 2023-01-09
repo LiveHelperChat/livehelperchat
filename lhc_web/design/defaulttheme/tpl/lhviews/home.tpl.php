@@ -33,7 +33,7 @@
                         </td>
                         <td nowrap>
                             <div class="btn-group">
-                                <i class="material-icons settings text-muted fs14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
+                                <i class="material-icons settings text-muted fs14" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
                                 <div class="dropdown-menu py-0 fs13">
                                     <a class="dropdown-item text-muted action-image px-2" ng-click="vctrl.shareView(view)"><span class="material-icons">share</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Share');?></a>
                                     <a class="dropdown-item text-muted px-2" href="<?php echo erLhcoreClassDesign::baseurl('views/edit')?>/{{view.id}}"><span class="material-icons">mode_edit</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Edit');?></a>

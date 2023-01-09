@@ -26,28 +26,28 @@
             <?php if ($left_list_option == 0) : ?>
                 <ul class="nav nav-underline nav-small nav-fill mb-0 pb-0 border-bottom" role="tablist" id="sub-tabs">
                     <li role="presentation" class="nav-item">
-                        <a class="nav-link active" href="#sub-tabs-open" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?>" aria-controls="sub-tabs-open" role="tab" data-toggle="tab" aria-selected="true">
+                        <a class="nav-link active" href="#sub-tabs-open" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open chats'); ?>" aria-controls="sub-tabs-open" role="tab" data-bs-toggle="tab" aria-selected="true">
                             <i class="material-icons chat-active">question_answer</i>
                         </a>
                     </li>
                     <?php if ($basicChatEnabled == true) : ?>
                         <li role="presentation" class="nav-item">
-                            <a class="nav-link" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/my_chats.tpl.php'));?>" href="#sub-tabs-my-assigned" aria-controls="sub-tabs-my-assigned" role="tab" data-toggle="tab" aria-selected="true">
+                            <a class="nav-link" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/my_chats.tpl.php'));?>" href="#sub-tabs-my-assigned" aria-controls="sub-tabs-my-assigned" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">account_box</i><span class="text-muted fs11 font-weight-bold">({{my_chats.list.length}}{{my_chats.list.length == 10 ? '+' : ''}})</span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="#sub-tabs-pending" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/pending_chats.tpl.php'));?>" aria-controls="sub-tabs-pending" role="tab" data-toggle="tab" aria-selected="true">
+                            <a class="nav-link" href="#sub-tabs-pending" title="<?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/titles/pending_chats.tpl.php'));?>" aria-controls="sub-tabs-pending" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-pending">chat</i><span class="text-muted fs11 font-weight-bold">({{pending_chats.list.length}}{{pending_chats.list.length == 10 ? '+' : ''}})</span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="#sub-tabs-active" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?>" aria-controls="sub-tabs-active" role="tab" data-toggle="tab" aria-selected="true">
+                            <a class="nav-link" href="#sub-tabs-active" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?>" aria-controls="sub-tabs-active" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">chat</i><span class="text-muted fs11 font-weight-bold">({{active_chats.list.length}}{{active_chats.list.length == 10 ? '+' : ''}})</span>
                             </a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="#sub-tabs-bot" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/bot_chats.tpl.php'));?>" aria-controls="sub-tabs-bot" role="tab" data-toggle="tab" aria-selected="true">
+                            <a class="nav-link" href="#sub-tabs-bot" title="<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/bot_chats.tpl.php'));?>" aria-controls="sub-tabs-bot" role="tab" data-bs-toggle="tab" aria-selected="true">
                                 <i class="material-icons chat-active">android</i><span class="text-muted fs11 font-weight-bold">({{bot_chats.list.length}}{{bot_chats.list.length == lhc.limitb ? '+' : ''}})</span>
                             </a>
                         </li>
