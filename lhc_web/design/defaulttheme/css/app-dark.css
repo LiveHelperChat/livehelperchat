@@ -8,6 +8,23 @@
 ::-webkit-scrollbar-thumb:hover{background-color:#bbb}
 ::-webkit-scrollbar-thumb:active{background-color:#888}
 
+[data-bs-theme=dark]{
+    --bs-light-rgb: 59,66,72;
+    --bs-body-bg:#343a40;
+    --bs-link-color-rgb: 232,232,232;
+    --bs-link-color: 232,232,232;
+    --bs-link-hover-color-rgb: 194,194,194;
+    --bs-nav-link-hover-color: #2a2d31;
+
+
+
+}
+
+.btn-light{
+    --bs-btn-color: #fff;
+    --bs-btn-active-color:  #fff;
+    --bs-btn-hover-color: #fff;
+}
 
 .btn-group-xs > .btn, .btn-xs {
     padding  : .25rem .30rem 0.35rem 0.30rem;
@@ -1275,6 +1292,12 @@ input[type="file"]{
 
 .form-control{
     padding-left:.375rem;
+    color: #FFF;
+}
+
+.form-control:focus,
+.form-control:active{
+    color: #FFF;
 }
 
 .form-control-warning:focus {
@@ -1845,6 +1868,11 @@ html {
     flex-grow: 1!important;
 }
 
+.card-header{
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+}
+
 .dashboard-panels .card-header .title-card-header{
     font-size: 14px;
 }
@@ -2153,7 +2181,9 @@ html {
     background: #343a40;
 }
 
-.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row{
+.chat-tab-selected > .tabs-column > .tab-pane.chat-tab-pane > .row,
+.tab-pane.chat-tab-pane > .row > div
+{
     position: relative;
 }
 
