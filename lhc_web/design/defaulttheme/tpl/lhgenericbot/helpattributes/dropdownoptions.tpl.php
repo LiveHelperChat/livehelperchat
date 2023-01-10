@@ -4,7 +4,7 @@
             <ul>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'You pass it for all options');?></li>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'All options have to be assigned to same start chat configuration');?></li>
-                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'You have chosen that department in department options.');?> <span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Apply this configuration also to these departments');?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'or');?> <span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Department');?></span></li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'You have chosen that department in department options.');?> <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Apply this configuration also to these departments');?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'or');?> <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Department');?></span></li>
             </ul>
         </li>
     </ul>

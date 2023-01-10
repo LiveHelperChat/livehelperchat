@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        We will combine both fields into single identifier <span class="badge badge-secondary">chat_id__chat_id_2</span>
+                        We will combine both fields into single identifier <span class="badge bg-secondary">chat_id__chat_id_2</span>
                     </div>
                 </div>
             </div>

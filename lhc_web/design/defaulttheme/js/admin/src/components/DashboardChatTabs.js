@@ -402,7 +402,8 @@ const DashboardChatTabs = props => {
     const chatTabClick = (chat) => {
         if (document.getElementById('chat-tab-link-'+chat.id) !== null) {
             $('#chat-tab-link-'+chat.id).click();
-        } else {
+            (new bootstrap.Tab(document.querySelector('#chat-tab-link-'+chat.id))).show();
+            } else {
             document.location = WWW_DIR_JAVASCRIPT + 'front/default/(cid)/' + chat.id + '/#!#chat-id-' + chat.id;
         }
     }

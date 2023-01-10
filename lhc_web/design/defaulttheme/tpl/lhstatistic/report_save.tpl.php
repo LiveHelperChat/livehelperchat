@@ -42,12 +42,12 @@ $appendPrintExportURL = '';
                             </div>
                             <div class="col-12" id="report-presets">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date filter templates')?></h6>
-                                <span data-data_type="ndays" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Day')?></span>
-                                <span data-data_type="lweek" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Week')?></span>
-                                <span data-data_type="lmonth" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Month')?></span>
-                                <span data-data_type="ndays" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Day')?></span>
-                                <span data-data_type="lweek" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Week')?></span>
-                                <span data-data_type="lmonth" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current month')?></span>
+                                <span data-data_type="ndays" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Day')?></span>
+                                <span data-data_type="lweek" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Week')?></span>
+                                <span data-data_type="lmonth" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Month')?></span>
+                                <span data-data_type="ndays" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Day')?></span>
+                                <span data-data_type="lweek" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Week')?></span>
+                                <span data-data_type="lmonth" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current month')?></span>
                                 <br/>
                                 <button onclick="$('.advanced-date-filter').toggle()" class="btn btn-sm btn-link ps-0" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show advanced')?></button>
                             </div>
@@ -333,7 +333,7 @@ $appendPrintExportURL = '';
                         <button type="submit" onclick="$('#id_save_action').val('new')" name="saveNew" class="btn btn-secondary btn-sm"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as new')?></button>
                     <?php endif; ?>
                 <?php endif; ?>
-                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><span class="material-icons">close</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><span class="material-icons">close</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
             </div>
         </div>
 

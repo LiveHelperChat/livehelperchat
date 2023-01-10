@@ -23,7 +23,7 @@
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','In-Active');?>
                 <?php endif; ?>
                 <?php if ($item->time_zone != '') : ?>
-                <span class="badge badge-info">
+                <span class="badge bg-info">
                     <?php
                         echo (new DateTime('now',($item->time_zone != '' ? new DateTimeZone($item->time_zone) : null)))->format('Y-m-d H:i:s'),', ',$item->time_zone;
                     ?>

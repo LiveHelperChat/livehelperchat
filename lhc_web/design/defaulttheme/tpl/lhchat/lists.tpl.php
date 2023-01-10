@@ -77,7 +77,7 @@
 
                                 <?php if (is_array($chat->subjects)) : ?>
                                     <?php foreach ($chat->subjects as $subject) : ?>
-                                        <span class="badge badge-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
+                                        <span class="badge bg-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>

@@ -47,9 +47,7 @@
             <div ng-if="condition.type == 1">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Visitor message contains');?></label>
                 <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">{{$index +1}}</span>
-                    </div>
+                    <span class="input-group-text">{{$index +1}}</span>
                     <input type="text" ng-model="condition.message_contains" class="form-control form-control-sm" value="" />
                 </div>
             </div>
@@ -59,9 +57,7 @@
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute');?></label>
                             <div class="input-group input-group-sm">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">{{$index +1}}</span>
-                                </div>
+                                <span class="input-group-text">{{$index +1}}</span>
                                 <input type="text" ng-model="condition.attr" placeholder="yes, thanks" class="form-control form-control-sm" value="">
                             </div>
                         </div>
@@ -117,11 +113,11 @@
 </div>
 
 <span ng-repeat="transactionItem in webhooksctl.conditions track by $index">
-        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
+        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
         {{(transactionItem.logic == 'or') ? ' or ' : ((transactionItem.type != 4 && $index+1 != webhooksctl.conditions.length && webhooksctl.conditions[$index + 1].type != 4) ? ' and ' : '')}}
-        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge badge-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
+        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge bg-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
         </span>
-<span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
+<span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
 
 <hr class="border-top">
 

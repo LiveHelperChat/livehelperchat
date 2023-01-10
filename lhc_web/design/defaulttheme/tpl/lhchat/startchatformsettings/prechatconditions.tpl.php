@@ -63,10 +63,10 @@
 
 <div class="pt-2">
     <span ng-repeat="transactionItem in preconditions.conditions.online track by $index">
-        {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.online[$index - 1].logic == 'and' || !preconditions.conditions.online[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.online[$index - 1].logic == 'or') ? ' ) ' : ''}}
+        {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.online[$index - 1].logic == 'and' || !preconditions.conditions.online[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.online[$index - 1].logic == 'or') ? ' ) ' : ''}}
         {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.online.length) ? ' and ' : '')}}
     </span>
-    <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
+    <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
 </div>
 
 <hr>
@@ -119,10 +119,10 @@
         </div>
         <div class="pt-2">
                         <span ng-repeat="transactionItem in preconditions.conditions.offline track by $index">
-                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.offline[$index - 1].logic == 'and' || !preconditions.conditions.offline[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.offline[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.offline[$index - 1].logic == 'and' || !preconditions.conditions.offline[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.offline[$index - 1].logic == 'or') ? ' ) ' : ''}}
                             {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.offline.length) ? ' and ' : '')}}
                         </span>
-            <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success">Success</span>
+            <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success">Success</span>
         </div>
     </div>
 <hr>
@@ -174,10 +174,10 @@
         </div>
         <div class="pt-2">
                         <span ng-repeat="transactionItem in preconditions.conditions.disable track by $index">
-                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.disable[$index - 1].logic == 'and' || !preconditions.conditions.disable[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.disable[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.disable[$index - 1].logic == 'and' || !preconditions.conditions.disable[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.disable[$index - 1].logic == 'or') ? ' ) ' : ''}}
                             {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.disable.length) ? ' and ' : '')}}
                         </span>
-            <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
+            <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
         </div>
 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?></label>

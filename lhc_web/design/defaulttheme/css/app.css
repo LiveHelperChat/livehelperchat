@@ -1731,7 +1731,7 @@ a:not([href]){
 }
 
 #admin-body .modal-header{
-    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: move;  fallback if grab cursor is unsupported
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
@@ -1873,6 +1873,11 @@ html {
 
 .dashboard-panels .card-header .title-card-header{
     font-size: 14px;
+}
+
+.card-header{
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
 }
 
 .dashboard-panels .card-header{

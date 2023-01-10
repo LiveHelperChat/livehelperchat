@@ -43,9 +43,7 @@
                 <div class="dropdown-item">
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control" ng-model="lhc.chat_to_open" ng-keyup="$event.keyCode == 13 ? lhc.startChatByID(lhc.chat_to_open) : ''" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open')?>" aria-describedby="inputGroupPrepend" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" ng-click="lhc.startChatByID(lhc.chat_to_open)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open a chat')?>" type="button"><i class="material-icons me-0">chat</i></button>
-                        </div>
+                        <button class="btn btn-secondary" ng-click="lhc.startChatByID(lhc.chat_to_open)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open a chat')?>" type="button"><i class="material-icons me-0">chat</i></button>
                     </div>
                 </div>
             </div>

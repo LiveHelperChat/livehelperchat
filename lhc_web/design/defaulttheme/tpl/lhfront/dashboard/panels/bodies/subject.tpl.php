@@ -25,7 +25,7 @@
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_body.tpl.php'));?>
         <td>
-            <span ng-if="chat.subject_list" class="badge badge-info fs12 me-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
+            <span ng-if="chat.subject_list" class="badge bg-info fs12 me-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
         </td>
         <td>
             <div class="abbr-list" title="{{chat.time_created_front}}">

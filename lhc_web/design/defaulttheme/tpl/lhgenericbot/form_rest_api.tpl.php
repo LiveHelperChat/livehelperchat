@@ -236,7 +236,7 @@
             </div>
 
             <label><input <?php if (!function_exists('pspell_new')) : ?>disabled="disabled"<?php endif; ?> type="checkbox" value="on" ng-model="param.check_word">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Check for word syntax if only one word is send.')?>
-                <p><small><i>You have to have <span class="badge badge-secondary">aspel</span> php extension installed. Also appropriate dictionary is required.</i></small></p>
+                <p><small><i>You have to have <span class="badge bg-secondary">aspel</span> php extension installed. Also appropriate dictionary is required.</i></small></p>
             </label>
 
             <div ng-if="param.body_request_type == 'raw'">
@@ -423,9 +423,7 @@
                     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Custom event')?></h6>
 
                     <div class="input-group input-group-sm">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">chat.genericbot_rest_api_method.</div>
-                        </div>
+                        <div class="input-group-text">chat.genericbot_rest_api_method.</div>
                         <input type="text" class="form-control" ng-model="paramOutput.method_name" placeholder="method_name">
                         <input type="text" class="form-control" ng-model="paramOutput.method_name_args" placeholder="<?php echo htmlspecialchars('E.g {"method":1}')?>">
                     </div>

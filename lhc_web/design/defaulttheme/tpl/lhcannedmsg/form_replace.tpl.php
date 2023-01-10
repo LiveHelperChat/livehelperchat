@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge badge-secondary m-1 action-image">
+                    <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge bg-secondary m-1 action-image">
                         {{crc.departments[dep_id]}} <span class="material-icons text-warning me-0">delete</span>
                     </span>
                 </div>
@@ -123,10 +123,10 @@
 
             <div class="pt-2">
                     <span ng-repeat="transactionItem in combination.conditions track by $index">
-                        {{((transactionItem.logic == 'or') && ($index == 0 || combination.conditions[$index - 1].logic == 'and' || !combination.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (combination.conditions[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                        {{((transactionItem.logic == 'or') && ($index == 0 || combination.conditions[$index - 1].logic == 'and' || !combination.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (combination.conditions[$index - 1].logic == 'or') ? ' ) ' : ''}}
                         {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != combination.conditions.length) ? ' and ' : '')}}
                     </span>
-                <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success">Success</span>
+                <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success">Success</span>
             </div>
 
         </div>

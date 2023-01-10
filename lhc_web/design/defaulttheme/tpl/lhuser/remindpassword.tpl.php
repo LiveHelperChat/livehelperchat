@@ -11,11 +11,9 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New password was set, copy it or');?>&nbsp;<a href="#" class="action-image" onclick="$('#new-password').get(0).type = 'text';return false;"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','click to show');?>.</a></label>
             <div class="input-group input-group-sm mb-3">
                 <input readonly class="form-control" type="password" id="new-password" value="<?php echo htmlspecialchars($new_password)?>" />
-                <div class="input-group-append">
-                    <span class="input-group-text">
-                        <span data-success="Copied" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy');?>" data-copy="<?php echo htmlspecialchars($new_password)?>" onclick="lhinst.copyContent($(this))" class="material-icons me-0 action-image">content_copy</span>
-                    </span>
-                </div>
+                <span class="input-group-text">
+                    <span data-success="Copied" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy');?>" data-copy="<?php echo htmlspecialchars($new_password)?>" onclick="lhinst.copyContent($(this))" class="material-icons me-0 action-image">content_copy</span>
+                </span>
             </div>
         </div>
 

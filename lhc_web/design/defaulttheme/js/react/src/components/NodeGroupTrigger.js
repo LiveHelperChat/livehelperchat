@@ -134,7 +134,7 @@ class NodeGroupTrigger extends Component {
                 <li>
                     <div class="btn-group trigger-btn">
                         <button onClick={this.loadTriggerActions.bind(this)} className={classNameCurrent}>{this.props.trigger.get('name')}</button>
-                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-trigger">
                             <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>

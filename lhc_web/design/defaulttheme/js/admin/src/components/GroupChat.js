@@ -271,7 +271,7 @@ const GroupChat = props => {
             if (!props.chatPublicId){
                 var container = tabsContainer.current;
                 var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-                var tabs = container.querySelectorAll('[data-toggle="tab"]');
+                var tabs = container.querySelectorAll('[data-bs-toggle="tab"]');
 
                 if (tabs.length > 0) {
                     Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
@@ -463,8 +463,8 @@ const GroupChat = props => {
                 {!props.chatPublicId && <div className="chat-main-right-column col-5">
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
-                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
-                            <li className="nav-item" role="presentation"><a className="nav-link " href={"#group-chat-info-"+props.chatId} aria-controls={"#group-chat-info-"+props.chatId} title="Information" role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-bs-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
+                            <li className="nav-item" role="presentation"><a className="nav-link " href={"#group-chat-info-"+props.chatId} aria-controls={"#group-chat-info-"+props.chatId} title="Information" role="tab" data-bs-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id={"group-chat-"+props.chatId}>

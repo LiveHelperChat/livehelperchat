@@ -14,7 +14,7 @@ $modalSize = 'xl';
                 <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>/(user_id)/<?php echo $user->id?>" class="pe-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator online hours');?></a>
                 <a href="<?php echo erLhcoreClassDesign::baseurl('audit/loginhistory')?>/(user_id)/<?php echo $user->id?>" class="pe-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a>
                 <div>
-                    <?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $user->id]]);foreach ($itemLanguages as $lang) : ?><span class="badge badge-success me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
+                    <?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $user->id]]);foreach ($itemLanguages as $lang) : ?><span class="badge bg-success me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
                 </div>
             </div>
             <ul class="nav nav-pills mb-3" role="tablist">

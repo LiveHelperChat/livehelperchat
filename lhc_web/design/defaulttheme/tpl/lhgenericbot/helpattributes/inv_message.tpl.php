@@ -7,7 +7,7 @@
 
 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Supported replaceable variables. They are taken from online visitor passed variables.');?>
 <ul>
-    <li><span class="badge badge-secondary">{nick}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visitor nick if we know it from previous chats');?></li>
-    <li><span class="badge badge-secondary">{lhc.var.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'invisible by operator');?></li>
-    <li><span class="badge badge-secondary">{lhc.add.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visible by operator');?></li>
+    <li><span class="badge bg-secondary">{nick}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visitor nick if we know it from previous chats');?></li>
+    <li><span class="badge bg-secondary">{lhc.var.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'invisible by operator');?></li>
+    <li><span class="badge bg-secondary">{lhc.add.&lt;variable key&gt;}</span> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'visible by operator');?></li>
 </ul>

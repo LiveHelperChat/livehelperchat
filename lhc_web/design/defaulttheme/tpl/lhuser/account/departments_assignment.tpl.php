@@ -55,8 +55,8 @@
                 <div class="alert alert-warning" role="alert">
                     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions')?>. <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Changes will not be saved!')?></b></p>
                     <ul>
-                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For account page')?> - <span class="badge badge-info">see_assigned_departments_groups</span></li>
-                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For user edit page')?> - <span class="badge badge-info">see_user_assigned_departments_groups</span></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For account page')?> - <span class="badge bg-info">see_assigned_departments_groups</span></li>
+                        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','For user edit page')?> - <span class="badge bg-info">see_user_assigned_departments_groups</span></li>
                     </ul>
                 </div>
             <?php endif; ?>
