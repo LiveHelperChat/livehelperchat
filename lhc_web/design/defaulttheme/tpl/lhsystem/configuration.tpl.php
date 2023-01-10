@@ -80,6 +80,6 @@
     </div>
 </div>
 <script>
-var hash = window.location.hash;
-$('#system-tabs a[href="' + hash.replace('#!','') + '"]').tab('show');
+/*var hash = window.location.hash;
+$('#system-tabs a[href="' + hash.replace('#!','') + '"]').tab('show');*/
 </script>
