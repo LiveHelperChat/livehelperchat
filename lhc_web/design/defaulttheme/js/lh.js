@@ -335,9 +335,11 @@ function lh(){
                 $.getJSON(e.data.that.wwwDir + 'chat/quotemessage/' + msgId, function(data){
                     if (!$('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded')) {
                         $('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded',true).click();
+                        (new bootstrap.Tab(document.querySelector('#private-chat-tab-link-'+e.data.chat_id))).show();
                         ee.emitEvent('privateChatStart', [e.data.chat_id,{'default_message':data.msg}]);
                     } else {
                         $('#private-chat-tab-link-'+e.data.chat_id).attr('private-loaded',true).click();
+                        (new bootstrap.Tab(document.querySelector('#private-chat-tab-link-'+e.data.chat_id))).show();
                         ee.emitEvent('groupChatPrefillMessage', [e.data.chat_id,data.msg]);
                     }
                     e.data.that.hidePopover();
