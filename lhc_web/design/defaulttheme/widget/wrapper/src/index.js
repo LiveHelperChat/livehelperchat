@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 207;
+            lhc.version = 208;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -175,6 +175,7 @@
                     base_url: LHC_API.args.lhc_base_url,
                     mode: LHC_API.args.mode || 'widget',
                     tag: LHC_API.args.tag || '',
+                    status_delay: LHC_API.args.status_delay || 0,
                     proactive: {},
                     captcha: null,
                     focused: true,
@@ -415,6 +416,10 @@
 
                         if (data.chat_ui.hhtml) {
                             attributesWidget.hhtml = data.chat_ui.hhtml;
+                        }
+
+                        if (data.chat_ui.status_delay) {
+                            attributesWidget.status_delay = data.chat_ui.status_delay;
                         }
 
                         if (data.chat_ui.kcw) {

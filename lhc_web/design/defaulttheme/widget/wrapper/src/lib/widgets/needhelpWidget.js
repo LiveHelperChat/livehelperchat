@@ -150,7 +150,7 @@ export class needhelpWidget{
                 }
             });
 
-        }, settings.delay);
+        }, settings.delay + this.attributes['status_delay']);
 
         attributes.eventEmitter.addListener('reloadWidget',() => {
             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, id : "lhc-theme-needhelp", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themeneedhelp/' + this.attributes.theme + '?v=' + Date.now()}, true);

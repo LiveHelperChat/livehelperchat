@@ -174,7 +174,7 @@ class _proactiveChat {
                     const params = {'vid_id' : data.vid_id, 'invitation' : data.invitation, 'inject_html' :  data.inject_html, 'qinv' : data.qinv};
                     setTimeout(() => {
                         this.showInvitation(params, init);
-                    }, this.attributes.widgetStatus.value === true ? 0 : (data.delay || 0));
+                    }, this.attributes.widgetStatus.value === true ? 0 : (data.delay ? data.delay + this.attributes['status_delay'] : this.attributes['status_delay']));
                 } else {
                     if (this.attributes.LHC_API.args.check_messages) {
                         this.checkMessageTimeout = setTimeout(() => {
