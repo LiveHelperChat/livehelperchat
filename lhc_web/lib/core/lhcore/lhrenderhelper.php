@@ -217,7 +217,7 @@ class erLhcoreClassRenderHelper {
         $template = '<div class="btn-block-department ' . (isset($params['wrapper_class']) ? $params['wrapper_class'] : '') . '"' . (isset($params['data_prop']) ? $params['data_prop'] : '') . '>
                 <ul class="nav">
                     <li class="dropdown w-100">
-                        <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-toggle="dropdown" aria-expanded="false">' .
+                        <button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-bs-toggle="dropdown" aria-expanded="false">' .
                         $params['optional_field']. '
                         </button>
                         <ul class="dropdown-menu" role="menu">
