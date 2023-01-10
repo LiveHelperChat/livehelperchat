@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 206;
+            lhc.version = 207;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -780,6 +780,14 @@
                     attributesWidget.widgetDimesions.nextProperty('bottom_override', 75);
                     attributesWidget.widgetDimesions.nextProperty('right_override', 75);
                     attributesWidget.mainWidget.showInvitation();
+                });
+
+                attributesWidget.eventEmitter.addListener('hideAction', (data) => {
+                    attributesWidget.mainWidget.hide();
+                });
+
+                attributesWidget.eventEmitter.addListener('showAction', (data) => {
+                    attributesWidget.mainWidget.show();
                 });
 
                 attributesWidget.eventEmitter.addListener('zoomImage', (data) => {
