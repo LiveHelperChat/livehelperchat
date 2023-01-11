@@ -2482,6 +2482,7 @@ function lh(){
             $('#CSChatMessage-'+chat_id).focus();
             if (!$('#chat-tab-link-'+chat_id).hasClass('active')) {
                 $('#chat-tab-link-'+chat_id).click();
+                (new bootstrap.Tab(document.querySelector('#chat-tab-link-'+chat_id))).show();
             }
         });
 
@@ -2521,6 +2522,7 @@ function lh(){
                     var parts = tab.split('chat-id-');
                     if (parts[1] && !isNaN(parts[1])) {
                         $('#chat-tab-link-'+parts[1]).click();
+                        (new bootstrap.Tab(document.querySelector('#chat-tab-link-'+parts[1]))).show();
                     }
                 }
                 return ;
