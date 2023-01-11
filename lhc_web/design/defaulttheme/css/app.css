@@ -2202,3 +2202,7 @@ html {
 .mode-write-chat.mode-chosen{
     display: none;
 }
+
+.border-right {
+    border-right: 1px solid var(--lhc-sidebar-wrapper-br)!important;
+}
