@@ -148,3 +148,7 @@ div.message-row-typing div.msg-body {
 .edit-mode {
     background-color:#000000 !important;
 }
+
+.nav-underline a.nav-link.active {
+    border-bottom: 3px solid #63676b;
+}

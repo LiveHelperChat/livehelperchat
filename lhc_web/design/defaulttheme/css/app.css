@@ -1966,7 +1966,7 @@ html {
 }
 
 .nav-underline a.nav-link.active{
-    border-bottom: 3px solid var(----lhc-nav-underline-nav-link-active-border);
+    border-bottom: 3px solid var(--lhc-nav-underline-nav-link-active-border);
 }
 
 .nav-small a.nav-link{
