@@ -1,14 +1,14 @@
 <?php if ( $chat->department !== false ) : ?>
     <tr>
         <td colspan="2" >
-            <h6 class="font-weight-bold">
+            <h6 class="fw-bold">
                 <i class="material-icons">chat</i>
                 <?php if ($chat->chat_initiator == erLhcoreClassModelChat::CHAT_INITIATOR_PROACTIVE) : ?>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Proactive chat')?>
                 <?php else : ?>
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?>
                 <?php endif; ?>
-                <span class="fs11 ps-1 text-muted font-weight-normal">
+                <span class="fs11 ps-1 text-muted fw-normal">
                     <?php if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Bot')?>
                     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Active')?>
                     <?php elseif ($chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Operators')?>

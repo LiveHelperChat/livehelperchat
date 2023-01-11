@@ -29,9 +29,9 @@ $appendPrintExportURL = '';
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
             <div class="col-4 fs13">
                 <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Name') ?>:</div>
-                <div class="font-weight-bold pb-2"><?php echo htmlspecialchars($view->name)?></div>
+                <div class="fw-bold pb-2"><?php echo htmlspecialchars($view->name)?></div>
                 <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Shared by') ?>:</div>
-                <div class="font-weight-bold">
+                <div class="fw-bold">
                     <?php echo htmlspecialchars(($user = erLhcoreClassModelUser::fetch($view->sharer_user_id)) && is_object($user) ? $user->name_official : $view->sharer_user_id)?>
                 </div>
             </div>

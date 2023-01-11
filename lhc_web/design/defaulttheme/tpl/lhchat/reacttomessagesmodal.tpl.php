@@ -6,7 +6,7 @@
     <?php if (isset($admin_mode)) : ?>
     <div ng-non-bindable class="modal-header">
         <h4 class="modal-title" id="myModalLabel"><span class="material-icons">info_outline</span>React to visitor message</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <?php endif; ?>
 

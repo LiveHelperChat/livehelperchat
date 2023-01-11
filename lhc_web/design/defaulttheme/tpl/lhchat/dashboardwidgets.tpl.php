@@ -43,7 +43,7 @@
                 </div>
                 <div role="tabpanel" class="tab-pane form-group" id="alerti-settings">
 
-                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
+                    <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
                     <div class="row">
                         <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
                             'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
@@ -57,7 +57,7 @@
                         ?>
                     </div>
 
-                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
+                    <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
                     <div class="form-group">
                         <div class="row">
                             <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(

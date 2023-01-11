@@ -45,7 +45,7 @@
                 <div class="row">
                     <?php foreach ($enabledLanguages as $siteAccess) : ?>
                         <div class="col-4">
-                            <a class="badge fs13 badge-secondary m-1 action-image<?php if (erLhcoreClassSystem::instance()->SiteAccess == $siteAccess) : ?> font-weight-bold<?php endif; ?>" linkaction="true" data-action="setLanguage" data-action-arg="<?php echo $siteAccess?>"><?php echo $langArray[$siteAccess]?></a>
+                            <a class="badge fs13 badge-secondary m-1 action-image<?php if (erLhcoreClassSystem::instance()->SiteAccess == $siteAccess) : ?> fw-bold<?php endif; ?>" linkaction="true" data-action="setLanguage" data-action-arg="<?php echo $siteAccess?>"><?php echo $langArray[$siteAccess]?></a>
                         </div>
                     <?php endforeach;?>
                 </div>

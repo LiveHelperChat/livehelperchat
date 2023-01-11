@@ -71,7 +71,7 @@ $modalBodyClass = 'p-1'
                                 <li>
                                     <span class="badge bg-secondary">max_load_h</span> - ( <span class="badge bg-secondary">acop_chats_cnt</span> - <span class="badge bg-secondary">inop_chats_cnt</span> )
                                 </li>
-                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger font-weight-bold' : ''?>">
+                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger fw-bold' : ''?>">
                                     <?php echo (int)$department->max_load_h. ' - ('. (int)$department->acop_chats_cnt . ' - ' . (int)$department->inop_chats_cnt . ')'; ?> = <?php echo (int)$department->max_load_h  - ( (int)$department->acop_chats_cnt  -  (int)$department->inop_chats_cnt ); ?>
                                     <br/><?php echo (int)$department_live->max_load_h. ' - ('. (int)$department_live->acop_chats_cnt . ' - ' . (int)$department_live->inop_chats_cnt . ')'; ?> = <?php echo (int)$department_live->max_load_h  - ( (int)$department_live->acop_chats_cnt  -  (int)$department_live->inop_chats_cnt ); ?> <span class="material-icons">autorenew</span>
                                 </li>
@@ -83,7 +83,7 @@ $modalBodyClass = 'p-1'
                                 <li>
                                     <span class="badge bg-secondary">max_load</span> - ( <span class="badge bg-secondary">active_chats_counter</span> - <span class="badge bg-secondary">inactive_chats_cnt</span> )
                                 </li>
-                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger font-weight-bold' : ''?>">
+                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger fw-bold' : ''?>">
                                     <?php echo (int)$department->max_load. ' - ('. (int)$department->active_chats_counter . ' - ' . (int)$department->inactive_chats_cnt . ')'; ?> = <?php echo (int)$department->max_load  - ( (int)$department->active_chats_counter  -  (int)$department->inactive_chats_cnt ); ?>
                                     <br/><?php echo (int)$department_live->max_load. ' - ('. (int)$department_live->active_chats_counter . ' - ' . (int)$department_live->inactive_chats_cnt . ')'; ?> = <?php echo (int)$department_live->max_load  - ( (int)$department_live->active_chats_counter  -  (int)$department_live->inactive_chats_cnt ); ?> <span class="material-icons">autorenew</span>
                                 </li>

@@ -10,7 +10,7 @@
     <?php endif;?>
 </div>
 <div class="p-1 ps-2">
-    <span class="font-weight-bold op-name-widget">
+    <span class="fw-bold op-name-widget">
         <?php if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['custom_op_name']) && $theme->bot_configuration_array['custom_op_name'] != '') : ?>
             <?php echo htmlspecialchars(str_replace(['{nick}', '{name}', '{surname}'], [$user->name_support, $user->name, $user->surname], $theme->bot_configuration_array['custom_op_name']));?>
         <?php else : ?>

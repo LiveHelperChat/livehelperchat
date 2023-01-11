@@ -17,7 +17,7 @@
                 <?php foreach (\LiveHelperChat\Models\Statistic\SavedReport::getList(['limit' => false, 'filter' => ['user_id' =>  erLhcoreClassUser::instance()->getUserID()]]) as $report) : ?>
                     <tr>
                         <td>
-                            <a <?php if (isset($input->report) && $input->report == $report->id) : ?>class="font-weight-bold"<?php endif; ?> href="<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $report->id?>" title="<?php echo htmlspecialchars($report->description)?>"><?php echo htmlspecialchars($report->name)?></a>
+                            <a <?php if (isset($input->report) && $input->report == $report->id) : ?>class="fw-bold"<?php endif; ?> href="<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $report->id?>" title="<?php echo htmlspecialchars($report->description)?>"><?php echo htmlspecialchars($report->name)?></a>
                         </td>
                         <td>
                             <div class="btn-group">

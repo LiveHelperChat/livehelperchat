@@ -2,7 +2,7 @@
 <?php $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data; if (isset($voiceData['voice']) && $voiceData['voice'] == true) : ?>
 <tr>
     <td colspan="2" >
-        <h6 class="font-weight-bold"><i class="material-icons">call</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Voice & Video & ScreenShare')?></h6>
+        <h6 class="fw-bold"><i class="material-icons">call</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Voice & Video & ScreenShare')?></h6>
 
         <a onclick="window.open('<?php echo erLhcoreClassDesign::baseurl('voicevideo/joinoperator')?>/<?php echo $chat->id?>','lhc_voice_call','scrollbars=yes,menubar=1,resizable=1,width=800,height=600')" class="text-muted"><i class="material-icons">call</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Start a call')?></a>
 

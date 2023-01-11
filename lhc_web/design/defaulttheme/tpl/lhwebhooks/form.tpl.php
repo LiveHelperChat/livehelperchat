@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div ng-if="condition.type == 4">
-                <div class="text-center font-weight-bold mt-4">
+                <div class="text-center fw-bold mt-4">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?>
                 </div>
             </div>

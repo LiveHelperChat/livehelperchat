@@ -173,7 +173,7 @@ $appendPrintExportURL = '';
                                     updateDateRange();
                                 })();
                             </script>
-                            <div class="col-12 font-weight-bold" id="report-sample-date-range">
+                            <div class="col-12 fw-bold" id="report-sample-date-range">
 
                             </div>
                             <div class="col-12">

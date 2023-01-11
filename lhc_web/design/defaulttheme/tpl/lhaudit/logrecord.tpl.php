@@ -18,7 +18,7 @@ $modalBodyClass = 'p-1'
                 <?php if (($fieldEdit = erLhcoreClassAbstract::renderInput($fieldName, $attr, $object)) != '' || $attr['trans'] != '') : ?>
                 <div class="form-group">
                     <?php if ($attr['trans'] != '') : ?>
-                    <label class="font-weight-bold"><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
+                    <label class="fw-bold"><?php echo $attr['trans'];?><?php echo $attr['required'] == true ? ' *' : ''?></label>
                     <?php endif; ?>
                     <?php echo $fieldEdit?>
                     <?php if (isset($attr['trans_sub'])) : ?><p><small><i><?php echo $attr['trans_sub'];?></i></small></p><?php endif; ?>

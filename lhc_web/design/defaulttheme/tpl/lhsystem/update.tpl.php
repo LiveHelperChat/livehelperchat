@@ -9,7 +9,7 @@
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo sprintf("%0.2f", erLhcoreClassUpdate::LHC_RELEASE/100);?></h5>
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="text-success" id="recent-version">...</span></h5>
 
-        <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Status/security checks')?></p>
+        <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Status/security checks')?></p>
         <ul>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong secret hash')?> -
             <?php if (strlen(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) < 50) : ?>
@@ -45,7 +45,7 @@
             </li>
         </ul>
 
-        <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></p>
+        <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></p>
 
         <ul>
             <li><a rel="noreferrer" href="http://livehelperchat.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a></li>
