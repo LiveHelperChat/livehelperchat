@@ -136,3 +136,15 @@ div.message-row-typing div.msg-body {
 .reactions-toolbar{
     background: #9ea5ad;
 }
+
+.long-response-chat{
+    background: #440d0e!important;
+}
+
+.online_user {
+    background-color:#314a2d !important;
+}
+
+.edit-mode {
+    background-color:#000000 !important;
+}
