@@ -416,6 +416,7 @@ const MailChat = props => {
                                 <div id={"mail-external-details-"+props.chatId}></div>
 
                                 {state.conv && <table className="table table-sm">
+                                    <tbody>
                                     <tr>
                                         <td colSpan="2">
 
@@ -526,6 +527,7 @@ const MailChat = props => {
                                         <td title={state.conv.user_id}>{t('mail.chat_owner')}</td>
                                         <td>{state.conv.plain_user_name}</td>
                                     </tr>
+                                    </tbody>
                                 </table>}
 
                                 <div id={"mail-external-below-"+props.chatId}></div>
