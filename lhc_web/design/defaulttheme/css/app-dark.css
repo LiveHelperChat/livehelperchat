@@ -152,3 +152,14 @@ div.message-row-typing div.msg-body {
 .nav-underline a.nav-link.active {
     border-bottom: 3px solid #63676b;
 }
+
+.icon-user-online,
+.icon-user-online a{
+    color:#509646;
+}
+
+.user-online-row td{
+    background-color:#314a2d;
+}
+
+
