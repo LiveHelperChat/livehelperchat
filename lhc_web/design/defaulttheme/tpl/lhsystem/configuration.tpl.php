@@ -80,6 +80,9 @@
     </div>
 </div>
 <script>
-/*var hash = window.location.hash;
-$('#system-tabs a[href="' + hash.replace('#!','') + '"]').tab('show');*/
+(function(){
+    var hash = window.location.hash;
+    let tab = document.querySelector('#system-tabs a[href="' + hash.replace('#!','') + '"]');
+    tab && (new bootstrap.Tab(tab)).show();
+})();
 </script>
