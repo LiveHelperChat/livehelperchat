@@ -83,7 +83,7 @@
                             <td nowrap="nowrap" ng-non-bindable>
                                 <?php echo htmlspecialchars($item->department),', ',htmlspecialchars($item->mailbox_front['mail'])?>
                             </td>
-                            <td ng-non-bindable>
+                            <td ng-non-bindable nowrap>
                                 <?php if ($item->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING) : ?>
                                     <i class="material-icons chat-pending">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','New');?>
                                 <?php elseif ($item->status == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) : ?>
@@ -92,7 +92,7 @@
                                     <i class="material-icons chat-closed">mail_outline</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Closed');?>
                                 <?php endif; ?>
                             </td>
-                            <td ng-non-bindable title="<?php echo $item->udate_front_ago;?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','ago');?>">
+                            <td nowrap ng-non-bindable title="<?php echo $item->udate_front_ago;?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','ago');?>">
                                 <?php echo $item->udate_front;?>
                             </td>
                             <?php if ($can_delete === true) : ?>
