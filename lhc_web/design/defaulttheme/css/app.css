@@ -2206,3 +2206,9 @@ html {
 .border-right {
     border-right: 1px solid var(--lhc-sidebar-wrapper-br)!important;
 }
+
+
+
+.table td, .table th {
+    border-top: 1px solid #dee2e6;
+}
