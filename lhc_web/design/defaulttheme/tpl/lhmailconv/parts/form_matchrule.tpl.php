@@ -110,9 +110,7 @@
             <div ng-if="condition.type == 1">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Visitor message contains');?></label>
                 <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">{{$index +1}}</span>
-                    </div>
+                    <span class="input-group-text">{{$index +1}}</span>
                     <input type="text" ng-model="condition.message_contains" class="form-control form-control-sm" value="" />
                 </div>
             </div>
@@ -122,9 +120,7 @@
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute');?></label>
                             <div class="input-group input-group-sm">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">{{$index +1}}</span>
-                                </div>
+                                <span class="input-group-text">{{$index +1}}</span>
                                 <input type="text" ng-model="condition.attr" placeholder="yes, thanks" class="form-control form-control-sm" value="">
                             </div>
                         </div>
