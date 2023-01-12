@@ -454,13 +454,11 @@ const MailChat = props => {
                                             {(!state.conv.status || state.conv.status == 1) && state.conv.opened_at && <span><span className="ms-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
 
                                             {(state.conv.status == 2 || state.conv.status == 1) && <div className="input-group input-group-sm">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text">
-                                                        {!state.conv.status && <i className="material-icons chat-pending me-0">mail_outline</i>}
-                                                        {state.conv.status == 1 && <i className="material-icons chat-active me-0">mail_outline</i>}
-                                                        {state.conv.status == 2 && <i className="material-icons chat-closed me-0">mail_outline</i>}
-                                                    </span>
-                                                </div>
+                                                <span className="input-group-text">
+                                                    {!state.conv.status && <i className="material-icons chat-pending me-0">mail_outline</i>}
+                                                    {state.conv.status == 1 && <i className="material-icons chat-active me-0">mail_outline</i>}
+                                                    {state.conv.status == 2 && <i className="material-icons chat-closed me-0">mail_outline</i>}
+                                                </span>
                                                 <select className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
                                                     <option value="">{t('status.pending')}</option>
                                                     <option value="1">{t('status.active')}</option>

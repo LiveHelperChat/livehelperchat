@@ -78,10 +78,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             </small>
             {message.conversation_id_old && <small className="text-muted" title={t('msg.merged_message')} ><span className="material-icons me-0">merge_type</span>{message.conversation_id_old}</small>}
         </div>
-        <div className="col-5 text-right text-muted">
+        <div className="col-5 text-end text-muted">
             <small className="pe-1">
                 {message.subjects && message.subjects.map((label, index) => (
-                        <span className="badge badge-info me-1">{label.name}</span>
+                        <span className="badge bg-info me-1">{label.name}</span>
                     ))}
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
@@ -125,6 +125,9 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                 {message.cc_data_front && <li>
                                     <span className="text-muted">cc:</span> {message.cc_data_front}
                                 </li>}
+                                <li>
+                                    <span className="text-muted">id:</span> {message.message_id}
+                                </li>
                                 {message.bcc_data_front && <li>
                                     <span className="text-muted">bcc:</span> {message.bcc_data_front}
                                 </li>}

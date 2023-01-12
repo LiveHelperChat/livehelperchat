@@ -1948,6 +1948,10 @@ html {
     min-height:32px
 }
 
+.chat-main-right-column{
+    position:relative;
+}
+
 .dashboard-height .chat-main-right-column > div{
     position: absolute;
     top: 0;

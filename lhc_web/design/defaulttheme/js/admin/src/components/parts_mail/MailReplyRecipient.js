@@ -59,9 +59,7 @@ const MailReplyRecipient = props => {
                     <div className="col-1 text-secondary fs13 pt-1">{t('r.to')}:</div>
                     <div className="col-5">
                         <div className="input-group input-group-sm">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
-                            </div>
+                            <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
                             <input disabled={props.readOnly} type="text" className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                         </div>
                     </div>
@@ -77,9 +75,7 @@ const MailReplyRecipient = props => {
                 <div className="col-1 text-secondary fs13 pt-1">Cc:</div>
                 <div className="col-5">
                     <div className="input-group input-group-sm">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
-                        </div>
+                        <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
                         <input type="text" disabled={props.readOnly} className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                     </div>
                 </div>
@@ -95,9 +91,7 @@ const MailReplyRecipient = props => {
                 <div className="col-1 text-secondary fs13 pt-1">Bcc:</div>
                 <div className="col-5">
                     <div className="input-group input-group-sm">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
-                        </div>
+                        <span className="input-group-text" ><i className="material-icons me-0">mail_outline</i></span>
                         <input type="text" disabled={props.readOnly} className="form-control form-control-sm" placeholder="E-mail" onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "email"}})} value={mail.email} placeholder={t('r.email')} aria-describedby="validationTooltipUsernamePrepend" />
                     </div>
                 </div>
