@@ -4,8 +4,8 @@
             <h4 class="modal-title" id="myModalLabel">
                 <span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/avatarbuilder','Build your avatar')?>
             </h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                
             </button>
         </div>
         <div class="modal-body">

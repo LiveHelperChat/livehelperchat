@@ -6,9 +6,9 @@
 <div id="canned-controller" ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='cmsg.initController();<?php if ($canned_message->languages != '') : ?>cmsg.initLanguage(<?php echo $canned_message->id?>);<?php endif;?>'>
 
 <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
-    <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
-    <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
-    <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a href="#lang-{{$index}}" class="nav-link" aria-controls="lang-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
+    <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
+    <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
+    <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a href="#lang-{{$index}}" class="nav-link" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
     <li class="nav-item"><a href="#addlanguage" class="nav-link" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add translation');?></a></li>
     <?php endif;?>
@@ -31,7 +31,7 @@
 
         <?php if ($canned_message->id > 0) : ?>
         <label>
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?><button type="button" class="btn btn-xs btn-outline-secondary pb-1 pl-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/cannedmsg/subject/<?php echo $canned_message->id?>'})"><i class="material-icons mr-0"></i></button><?php endif;?>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?><button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/cannedmsg/subject/<?php echo $canned_message->id?>'})"><i class="material-icons me-0"></i></button><?php endif;?>
             <div id="canned-message-subjects-<?php echo $canned_message->id?>"></div>
             <script>
                 $.get(WWW_DIR_JAVASCRIPT + 'cannedmsg/subject/<?php echo $canned_message->id?>/?getsubjects=1', function(data) {
@@ -60,7 +60,7 @@
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?>
-                <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
+                <a class="live-help-tooltip" data-placement="top" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','The smaller the position value the higher the canned message will appear in the list')?>" data-bs-toggle="tooltip" ><i class="material-icons">&#xE887;</i></a>
             </label>
             <input type="text" ng-non-bindable class="form-control form-control-sm" ng-non-bindable name="Position" value="<?php echo $canned_message->position?>" />
         </div>
@@ -71,7 +71,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_cannedmsgform_multiinclude.tpl.php')); ?>
 
         <ul class="nav nav-pills" role="tablist" id="canned-main-extension">
-            <li role="presentation" class="nav-item"><a class="active nav-link" href="#main-extension" aria-controls="main-extension" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+            <li role="presentation" class="nav-item"><a class="active nav-link" href="#main-extension" aria-controls="main-extension" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_tab_multiinclude.tpl.php')); ?>
         </ul>
 
@@ -192,7 +192,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/language_choose.tpl.php'));?>
 
         <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="nav-item"><a class="active nav-link" href="#main-extension-lang-{{$index}}" aria-controls="main-extension-lang-{{$index}}" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
+            <li role="presentation" class="nav-item"><a class="active nav-link" href="#main-extension-lang-{{$index}}" aria-controls="main-extension-lang-{{$index}}" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages');?></a></li>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_multiinclude.tpl.php')); ?>
         </ul>
 

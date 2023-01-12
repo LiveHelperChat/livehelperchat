@@ -1,6 +1,6 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
 
-<div class="btn-group float-right" role="group" aria-label="...">
+<div class="btn-group float-end" role="group" aria-label="...">
       <?php if ($currentUser->hasAccessTo('lhchat','administrateconfig')) : ?>
       <a href="<?php echo erLhcoreClassDesign::baseurl('chat/geoconfiguration')?>" class="btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','GEO detection configuration');?></a></li>
       <?php endif; ?>
@@ -23,8 +23,8 @@
 <div role="tabpanel" id="tabs">
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
-		<li role="presentation" class="nav-item"><a class="active nav-link" href="#onlineusers" aria-controls="onlineusers" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors list');?>"><i class="material-icons">face</i></a></li>
-		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#map" aria-controls="map" role="tab" data-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors on map');?>"><i class="material-icons">place</i></a></li>
+		<li role="presentation" class="nav-item"><a class="active nav-link" href="#onlineusers" aria-controls="onlineusers" role="tab" data-bs-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors list');?>"><i class="material-icons">face</i></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link" id="map-activator" href="#map" aria-controls="map" role="tab" data-bs-toggle="tab" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Online visitors on map');?>"><i class="material-icons">place</i></a></li>
 	</ul>
 
 	<!-- Tab panes -->

@@ -1,17 +1,17 @@
 <?php $currentUser = erLhcoreClassUser::instance(); ?>
-<nav class="navbar navbar-expand-lg border-bottom p-0 pl-1 top-menu-bar-lhc" translate="no">
+<nav class="navbar navbar-expand-lg border-bottom p-0 ps-1 top-menu-bar-lhc" translate="no">
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_logo_back_office.tpl.php'));?>
 
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_side_control.tpl.php'));?>
 
-    <div ng-cloak class="version-updated float-left" ng-if="lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true">
+    <div ng-cloak class="version-updated float-start" ng-if="lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true">
         <div ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.');?></div>
         <div ng-if="lhc.lhcConnectivityProblem == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}');?></div>
         <div ng-if="lhc.inActive == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You went offline because of inactivity. Please close other chat windows if you have any');?></div>
     </div>
 
     <?php if (erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',0) == 0) : ?>
-    <div ng-cloak class="text-muted float-left fs12 abbr-list" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
+    <div ng-cloak class="text-muted float-start fs12 abbr-list" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
             <span class="material-icons action-image" ng-click="lhc.last_actions_index = lhc.last_actions_index + 1" ng-if="lhc.last_actions_index < lhc.last_actions.length - 1">
                 expand_more
             </span>
@@ -28,11 +28,12 @@
     </div>
     <?php endif; ?>
 
-    <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="material-icons mr-0">menu</span>
+    <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-bs-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-icons me-0">menu</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ms-auto">
+
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
 
             <?php if ($currentUser->hasAccessTo('lhchat','use') && $currentUser->hasAccessTo('lhuser','changeonlinestatus'))  : ?>

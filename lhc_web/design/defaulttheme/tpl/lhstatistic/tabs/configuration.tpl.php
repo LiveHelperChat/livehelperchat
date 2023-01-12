@@ -93,7 +93,7 @@
 
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic'); ?></h5>
     <div class="row">
-        <div class="col-12"><label><input class="mr-1" type="checkbox" name="canned_stats" value="on" <?php if (isset($configuration['canned_stats']) && $configuration['canned_stats'] == 1) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic')?></label></div>
+        <div class="col-12"><label><input class="me-1" type="checkbox" name="canned_stats" value="on" <?php if (isset($configuration['canned_stats']) && $configuration['canned_stats'] == 1) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic')?></label></div>
     </div>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>

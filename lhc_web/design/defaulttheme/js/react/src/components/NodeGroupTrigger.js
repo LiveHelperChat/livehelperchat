@@ -134,7 +134,7 @@ class NodeGroupTrigger extends Component {
                 <li>
                     <div class="btn-group trigger-btn">
                         <button onClick={this.loadTriggerActions.bind(this)} className={classNameCurrent}>{this.props.trigger.get('name')}</button>
-                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-trigger">
                             <li className="dropdown-item"><a href="#" onClick={this.removeTrigger}><i class="material-icons">delete</i> Delete</a></li>
@@ -151,11 +151,11 @@ class NodeGroupTrigger extends Component {
                     </div>
 
 
-                    {this.state.changingGroup && <div className="btn-group ml-1">
+                    {this.state.changingGroup && <div className="btn-group ms-1">
 
                         <select className="form-control form-control-sm" onChange={(e) => this.changeGroup(false, e.currentTarget.value)} value={this.props.trigger.get('group_id')}>{list}</select>
 
-                        <button type="button" className="btn btn-sm btn-warning" onClick={(e) => this.changeGroup(false)}><span className="material-icons mr-0">close</span></button>
+                        <button type="button" className="btn btn-sm btn-warning" onClick={(e) => this.changeGroup(false)}><span className="material-icons me-0">close</span></button>
 
                     </div>}
 

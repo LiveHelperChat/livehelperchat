@@ -10,12 +10,12 @@ if (isset($msg['user_id']) && $msg['user_id'] == 0) : $reactionsOperator = '';?>
                 <?php foreach ($metaMessageData['content']['reactions']['current'] as $reactionItem => $reactionValue) : ?>
                     <?php if ($reactionItem == 'thumb') : ?>
                         <?php if ($reactionValue == 1) : ?>
-                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs up') . '" class="reaction-item mr-0 material-icons reaction-selected">&#xf109;</span>';?>
+                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs up') . '" class="reaction-item me-0 material-icons reaction-selected">&#xf109;</span>';?>
                         <?php else : ?>
-                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs down') . '" class="reaction-item mr-0 material-icons reaction-selected">&#xf108;</span>';?>
+                            <?php $reactionsOperator .= '<span title="' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Thumbs down') . '" class="reaction-item me-0 material-icons reaction-selected">&#xf108;</span>';?>
                         <?php endif;?>
                     <?php else : ?>
-                        <?php $reactionsOperator .= '<span class="mr-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
+                        <?php $reactionsOperator .= '<span class="me-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
                     <?php endif; ?>
                 <?php endforeach;?>
             <?php endif; ?>

@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Statistic') . ' - ' . (isset($department) ? htmlspecialchars($department) : htmlspecialchars($department_group));
 $modalBodyClass = 'p-1'
 ?>
@@ -7,9 +7,9 @@ $modalBodyClass = 'p-1'
 <div class="modal-body" ng-non-bindable>
     <div class="p-2">
         <ul class="nav nav-pills mb-3" role="tablist">
-            <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link active" aria-controls="dep-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
-            <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link" aria-controls="user-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
-            <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#dep-status" class="nav-link active" aria-controls="dep-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operators');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#dep-chats-users" class="nav-link" aria-controls="dep-chats-users" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats operators');?></a></li>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="dep-status">
@@ -19,20 +19,20 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->active_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->active_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active chats');?><br/><span class="badge badge-light">active_chats_counter</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->active_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->active_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active chats');?><br/><span class="badge bg-secondary">active_chats_counter</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->bot_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->bot_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','bot chats');?><br/><span class="badge badge-light">bot_chats_counter</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->bot_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->bot_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','bot chats');?><br/><span class="badge bg-secondary">bot_chats_counter</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->pending_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->pending_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','pending chats');?><br/><span class="badge badge-light">pending_chats_counter</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->pending_chats_counter?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->pending_chats_counter?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','pending chats');?><br/><span class="badge bg-secondary">pending_chats_counter</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->inactive_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->inactive_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','in-active chats');?><br/><span class="badge badge-light">inactive_chats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->inactive_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->inactive_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','in-active chats');?><br/><span class="badge bg-secondary">inactive_chats_cnt</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat is active/pending and user has closed widget or has been redirected to survey');?></small>
                                 </li>
                             </ul>
@@ -44,11 +44,11 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->max_load?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->max_load?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','soft limit');?><br/><span class="badge badge-light">max_load</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','soft limit');?><br/><span class="badge bg-secondary">max_load</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator is logged to back office during last 10 minutes and is online/offline');?></small>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->max_load_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','hard limit');?><br/><span class="badge badge-light">max_load_h</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->max_load_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->max_load_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','hard limit');?><br/><span class="badge bg-secondary">max_load_h</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator is logged to back office during last 10 minutes and is in online status');?></small>
                                 </li>
                             </ul>
@@ -56,10 +56,10 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->acop_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->acop_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active operators chats');?><br/><span class="badge badge-light">acop_chats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->acop_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->acop_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active operators chats');?><br/><span class="badge bg-secondary">acop_chats_cnt</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department->inop_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_live->inop_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','inactive operators chats');?><br/><span class="badge badge-light">inop_chats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department->inop_chats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_live->inop_chats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','inactive operators chats');?><br/><span class="badge bg-secondary">inop_chats_cnt</span>
                                 </li>
                             </ul>
                         </div>
@@ -69,9 +69,9 @@ $modalBodyClass = 'p-1'
                             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Summary statistic [Hard limit]');?></h6>
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="badge badge-light">max_load_h</span> - ( <span class="badge badge-light">acop_chats_cnt</span> - <span class="badge badge-light">inop_chats_cnt</span> )
+                                    <span class="badge bg-secondary">max_load_h</span> - ( <span class="badge bg-secondary">acop_chats_cnt</span> - <span class="badge bg-secondary">inop_chats_cnt</span> )
                                 </li>
-                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger font-weight-bold' : ''?>">
+                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger fw-bold' : ''?>">
                                     <?php echo (int)$department->max_load_h. ' - ('. (int)$department->acop_chats_cnt . ' - ' . (int)$department->inop_chats_cnt . ')'; ?> = <?php echo (int)$department->max_load_h  - ( (int)$department->acop_chats_cnt  -  (int)$department->inop_chats_cnt ); ?>
                                     <br/><?php echo (int)$department_live->max_load_h. ' - ('. (int)$department_live->acop_chats_cnt . ' - ' . (int)$department_live->inop_chats_cnt . ')'; ?> = <?php echo (int)$department_live->max_load_h  - ( (int)$department_live->acop_chats_cnt  -  (int)$department_live->inop_chats_cnt ); ?> <span class="material-icons">autorenew</span>
                                 </li>
@@ -81,9 +81,9 @@ $modalBodyClass = 'p-1'
                             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Summary statistic [Soft limit]');?></h6>
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="badge badge-light">max_load</span> - ( <span class="badge badge-light">active_chats_counter</span> - <span class="badge badge-light">inactive_chats_cnt</span> )
+                                    <span class="badge bg-secondary">max_load</span> - ( <span class="badge bg-secondary">active_chats_counter</span> - <span class="badge bg-secondary">inactive_chats_cnt</span> )
                                 </li>
-                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger font-weight-bold' : ''?>">
+                                <li class="<?php echo $department->max_load_h && $department->max_load_h - ($department->acop_chats_cnt - ($department->inop_chats_cnt ? $department->inop_chats_cnt : 0)) <= 3 ? 'text-danger fw-bold' : ''?>">
                                     <?php echo (int)$department->max_load. ' - ('. (int)$department->active_chats_counter . ' - ' . (int)$department->inactive_chats_cnt . ')'; ?> = <?php echo (int)$department->max_load  - ( (int)$department->active_chats_counter  -  (int)$department->inactive_chats_cnt ); ?>
                                     <br/><?php echo (int)$department_live->max_load. ' - ('. (int)$department_live->active_chats_counter . ' - ' . (int)$department_live->inactive_chats_cnt . ')'; ?> = <?php echo (int)$department_live->max_load  - ( (int)$department_live->active_chats_counter  -  (int)$department_live->inactive_chats_cnt ); ?> <span class="material-icons">autorenew</span>
                                 </li>
@@ -98,20 +98,20 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->achats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->achats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active chats');?><br/><span class="badge badge-light">achats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->achats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->achats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active chats');?><br/><span class="badge bg-secondary">achats_cnt</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->bchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->bchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','bot chats');?><br/><span class="badge badge-light">bchats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->bchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->bchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','bot chats');?><br/><span class="badge bg-secondary">bchats_cnt</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->pchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->pchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','pending chats');?><br/><span class="badge badge-light">pchats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->pchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->pchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','pending chats');?><br/><span class="badge bg-secondary">pchats_cnt</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->inachats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->inachats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','in-active chats');?><br/><span class="badge badge-light">inachats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->inachats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->inachats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','in-active chats');?><br/><span class="badge bg-secondary">inachats_cnt</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat is active/pending and user has closed widget or has been redirected to survey');?></small>
                                 </li>
                             </ul>
@@ -123,11 +123,11 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->max_load?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','soft limit');?><br/><span class="badge badge-light">max_load</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','soft limit');?><br/><span class="badge bg-secondary">max_load</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator is logged to back office during last 10 minutes and is online/offline');?></small>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->max_load_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','hard limit');?><br/><span class="badge badge-light">max_load_h</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->max_load_h?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->max_load_h?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','hard limit');?><br/><span class="badge bg-secondary">max_load_h</span>
                                     <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator is logged to back office during last 10 minutes and is in online status');?></small>
                                 </li>
                             </ul>
@@ -135,10 +135,10 @@ $modalBodyClass = 'p-1'
                         <div class="col-6">
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->acopchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->acopchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active operators chats');?><br/><span class="badge badge-light">acopchats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->acopchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->acopchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','active operators chats');?><br/><span class="badge bg-secondary">acopchats_cnt</span>
                                 </li>
                                 <li>
-                                    <span class="material-icons">history</span><strong><?php echo $department_group->inopchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="pl-1">[<?php echo $department_group_live->inopchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','inactive operators chats');?><br/><span class="badge badge-light">inopchats_cnt</span>
+                                    <span class="material-icons">history</span><strong><?php echo $department_group->inopchats_cnt?></strong><small title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Live data');?>" class="ps-1">[<?php echo $department_group_live->inopchats_cnt?>]</small> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','inactive operators chats');?><br/><span class="badge bg-secondary">inopchats_cnt</span>
                                 </li>
                             </ul>
                         </div>
@@ -149,7 +149,7 @@ $modalBodyClass = 'p-1'
                             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Summary statistic [Hard limit]');?></h6>
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="badge badge-light">max_load_h</span> - ( <span class="badge badge-light">acopchats_cnt</span> - <span class="badge badge-light">inopchats_cnt</span> )
+                                    <span class="badge bg-secondary">max_load_h</span> - ( <span class="badge bg-secondary">acopchats_cnt</span> - <span class="badge bg-secondary">inopchats_cnt</span> )
                                 </li>
                                 <li>
                                     <?php echo (int)$department_group->max_load_h. ' - ('. (int)$department_group->acopchats_cnt . ' - ' . (int)$department_group->inopchats_cnt . ')'; ?> = <?php echo (int)$department_group->max_load_h  - ( (int)$department_group->acopchats_cnt  -  (int)$department_group->inopchats_cnt ); ?>
@@ -161,7 +161,7 @@ $modalBodyClass = 'p-1'
                             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Summary statistic [Soft limit]');?></h6>
                             <ul class="list-unstyled">
                                 <li>
-                                    <span class="badge badge-light">max_load</span> - ( <span class="badge badge-light">achats_cnt</span> - <span class="badge badge-light">inachats_cnt</span> )
+                                    <span class="badge bg-secondary">max_load</span> - ( <span class="badge bg-secondary">achats_cnt</span> - <span class="badge bg-secondary">inachats_cnt</span> )
                                 </li>
                                 <li>
                                     <?php echo (int)$department_group->max_load. ' - ('. (int)$department_group->achats_cnt . ' - ' . (int)$department_group->inachats_cnt . ')'; ?> = <?php echo (int)$department_group->max_load  - ( (int)$department_group->achats_cnt  -  (int)$department_group->inachats_cnt ); ?>
@@ -221,13 +221,13 @@ $modalBodyClass = 'p-1'
                         <tr>
                             <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Total');?></td>
                             <td>
-                                <?php echo $totalStats['max_chats']?> <span class="badge badge-light">max_load</span>
+                                <?php echo $totalStats['max_chats']?> <span class="badge bg-secondary">max_load</span>
                             </td>
                             <td>
-                                <?php echo $totalStats['active_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
+                                <?php echo $totalStats['active_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
                             </td>
                             <td colspan="2">
-                                <?php echo $totalStats['inactive_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
+                                <?php echo $totalStats['inactive_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
                             </td>
                         </tr>
                     </table>
@@ -263,13 +263,13 @@ $modalBodyClass = 'p-1'
                         <tr>
                             <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Total');?></td>
                             <td>
-                                <?php echo $totalStats['max_chats']?> <span class="badge badge-light">max_load_h</span>
+                                <?php echo $totalStats['max_chats']?> <span class="badge bg-secondary">max_load_h</span>
                             </td>
                             <td>
-                                <?php echo $totalStats['active_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
+                                <?php echo $totalStats['active_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
                             </td>
                             <td colspan="2">
-                                <?php echo $totalStats['inactive_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
+                                <?php echo $totalStats['inactive_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
                             </td>
                         </tr>
                     </table>
@@ -328,13 +328,13 @@ $modalBodyClass = 'p-1'
                     <tr>
                         <td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Total');?></td>
                         <td>
-                            <?php echo $totalStats['max_chats']?> <span class="badge badge-light">max_load</span>
+                            <?php echo $totalStats['max_chats']?> <span class="badge bg-secondary">max_load</span>
                         </td>
                         <td>
-                            <?php echo $totalStats['active_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
+                            <?php echo $totalStats['active_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>acop_chats_cnt<?php else : ?>acopchats_cnt<?php endif; ?></span>
                         </td>
                         <td colspan="3">
-                            <?php echo $totalStats['inactive_chats']?> <span class="badge badge-light"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
+                            <?php echo $totalStats['inactive_chats']?> <span class="badge bg-secondary"><?php if (isset($department)) : ?>inop_chats_cnt<?php else : ?>inopchats_cnt<?php endif; ?></span>
                         </td>
                     </tr>
                 </table>

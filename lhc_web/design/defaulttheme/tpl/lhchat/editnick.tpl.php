@@ -1,5 +1,5 @@
 <?php 
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editnick','Your information');
 $modalSize = 'md';
 ?>
@@ -12,7 +12,7 @@ $modalSize = 'md';
 <?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/editnick','Updated!'); ?>
 
 <script>
-$('#messages .usr-tit.vis-tit').text(<?php echo json_encode($chat->nick)?>).prepend('<i class="material-icons chat-operators mi-fs15 mr-0">face</i>');
+$('#messages .usr-tit.vis-tit').text(<?php echo json_encode($chat->nick)?>).prepend('<i class="material-icons chat-operators mi-fs15 me-0">face</i>');
 setTimeout(function(){
     $('#myModal').modal('hide');
 },100);

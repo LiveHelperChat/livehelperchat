@@ -191,7 +191,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/statistic_performance_multiinclude.tpl.php')); ?>
     
     <div class="col-12">
-        <div class="btn-group mr-2" role="group" aria-label="...">
+        <div class="btn-group me-2" role="group" aria-label="...">
             <button type="submit" name="doSearch" class="btn btn-sm btn-primary" >
                 <span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>
             </button>
@@ -199,7 +199,7 @@
             <?php $tabStatistic = 'performance'; ?>
             <?php include(erLhcoreClassDesign::designtpl('lhstatistic/report_button.tpl.php'));?>
             <?php if (!empty($agentStatistic)) : ?>
-                <a class="btn btn-outline-secondary btn-sm" id="xmlagentstatistic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons mr-0">file_download</i></a>
+                <a class="btn btn-outline-secondary btn-sm" id="xmlagentstatistic" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','All operators statistic will be downloaded')?>"><i class="material-icons me-0">file_download</i></a>
             <?php endif;?>
         </div>
     </div>

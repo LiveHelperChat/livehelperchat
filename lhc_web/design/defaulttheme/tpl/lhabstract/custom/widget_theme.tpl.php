@@ -1,5 +1,5 @@
 <?php if ($object->id != null) : ?>
-<a href="<?php echo erLhcoreClassDesign::baseurl('theme/export')?>/<?php echo $object->id?>" class="float-right btn btn-success btn-md"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Download theme')?></a>
+<a href="<?php echo erLhcoreClassDesign::baseurl('theme/export')?>/<?php echo $object->id?>" class="float-end btn btn-success btn-md"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Download theme')?></a>
 <?php endif;?>
 
 <div class="row">
@@ -17,16 +17,16 @@
 		<div role="tabpanel">
         	<!-- Nav tabs -->
         	<ul class="nav nav-tabs" role="tablist">
-        		<li role="presentation" class="nav-item"><a class="active nav-link" href="#statuswidget" aria-controls="statuswidget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#needhelp" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgettexts" aria-controls="widgettexts" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcontent" aria-controls="customcontent" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
-        		<li role="presentation" class="nav-item"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="active nav-link" href="#statuswidget" aria-controls="statuswidget" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Status widget style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgetcontainer" aria-controls="widgetcontainer" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Widget container');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#messagesstyle" aria-controls="messagesstyle" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Messages style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#needhelp" aria-controls="needhelp" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Need help widget');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#widgettexts" aria-controls="widgettexts" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat widget');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcontent" aria-controls="customcontent" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom content');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customcss" aria-controls="customcss" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom CSS');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#custombot" aria-controls="custombot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom bot style');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#customnotification" aria-controls="customnotification" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Notification');?></a></li>
+        		<li role="presentation" class="nav-item"><a class="nav-link" href="#reactions" aria-controls="reactions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Reactions');?></a></li>
                 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/custom_tab_multiinclude.tpl.php'));?>
         	</ul>
         
@@ -44,7 +44,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label>
-                                        <a class="live-help-tooltip" data-placement="top" title="" data-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a><?php echo $fields['alias']['trans'];?>
+                                        <a class="live-help-tooltip" data-placement="top" title="" data-bs-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a><?php echo $fields['alias']['trans'];?>
                                     </label>
                                     <?php echo erLhcoreClassAbstract::renderInput('alias', $fields['alias'], $object)?>
                                 </div>
@@ -199,7 +199,7 @@
                             <div class="msgBlock" style="" id="messagesBlock">       
                                 <div class="message-row response" id="msg-10459" data-op-id="0">
                                     <div class="msg-date">10:14:39</div>
-                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 mr-0">face</i>
+                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 me-0">face</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile">Visitor</span>
                                     </span>
                                     <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -207,10 +207,10 @@
             		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>
@@ -222,10 +222,10 @@
                                 <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 mr-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
-                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 mr-0">
+                                        <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
                                             <img class="profile-msg-pic" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
                                         </i>
                                     </span>
@@ -1003,7 +1003,7 @@
 
                     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Choose manually bot ant trigger')?></h5>
 
-                    <p><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For it to work, trigger has to have checked')?></i>&nbsp;<span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Can be passed as argument')?></span></p>
+                    <p><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','For it to work, trigger has to have checked')?></i>&nbsp;<span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Can be passed as argument')?></span></p>
 
                     <div class="row">
                         <div class="col-6">

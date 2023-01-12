@@ -10,14 +10,14 @@
 <div role="tabpanel">
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs mb-2" role="tablist">
-    		<li role="presentation" class="nav-item"><a class="active nav-link" href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#active-conditions" aria-controls="active-conditions" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Activity conditions');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#bot" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#dynamic" aria-controls="dynamic" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#events" aria-controls="events" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#injecthtml" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Inject HTML');?></a></li>
-    		<li role="presentation" class="nav-item"><a class="nav-link" href="#conversion" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Conversion');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="active nav-link" href="#invitation" aria-controls="invitation" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Invitation');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#active-conditions" aria-controls="active-conditions" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Activity conditions');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#bot" aria-controls="bot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Bot');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#dynamic" aria-controls="dynamic" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Dynamic');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#events" aria-controls="events" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Events');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Design');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#injecthtml" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Inject HTML');?></a></li>
+    		<li role="presentation" class="nav-item"><a class="nav-link" href="#conversion" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Conversion');?></a></li>
     	</ul>
     
     	<!-- Tab panes -->

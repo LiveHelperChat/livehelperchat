@@ -10,12 +10,12 @@ if (isset($msg['user_id']) && $msg['user_id'] != 0) : $reactionsOperator = '';?>
                 <?php foreach ($metaMessageData['content']['reactions']['current'] as $reactionItem => $reactionValue) : ?>
                     <?php if ($reactionItem == 'thumb') : ?>
                         <?php if ($reactionValue == 1) : ?>
-                            <?php $reactionsOperator .= '<span title="Thumbs up" class="pt-0 mr-0 material-icons reaction-selected">thumb_up</span>';?>
+                            <?php $reactionsOperator .= '<span title="Thumbs up" class="pt-0 me-0 material-icons reaction-selected">thumb_up</span>';?>
                         <?php else : ?>
-                            <?php $reactionsOperator .= '<span title="Thumbs down" class="pt-0 mr-0 material-icons reaction-selected">thumb_down</span>';?>
+                            <?php $reactionsOperator .= '<span title="Thumbs down" class="pt-0 me-0 material-icons reaction-selected">thumb_down</span>';?>
                         <?php endif;?>
                     <?php else : ?>
-                        <?php $reactionsOperator .= '<span class="reaction-item pt-0 mr-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
+                        <?php $reactionsOperator .= '<span class="reaction-item pt-0 me-0 reaction-selected">&#x'. $reactionItem . ';</span>';?>
                     <?php endif; ?>
                 <?php endforeach;?>
             <?php endif; ?>

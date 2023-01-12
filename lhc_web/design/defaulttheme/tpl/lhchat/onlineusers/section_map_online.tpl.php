@@ -2,9 +2,9 @@
 <?php if ($chat_onlineusers_section_map_online_enabled == true) : ?>
 <div class="row form-group">
 	<div class="col-6">
-		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
-		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-unsend.png')?>" />
-		<img data-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-send.png')?>" />
+		<img data-bs-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User is chatting');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-chat.png')?>" />
+		<img data-bs-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-unsend.png')?>" />
+		<img data-bs-toggle="tooltip" data-placement="bottom" class="tip-right" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has message from operator');?>" src="<?php echo erLhcoreClassDesign::design('images/icons/home-send.png')?>" />
 	</div>
 	<div class="col-3">
 	<?php echo erLhcoreClassRenderHelper::renderCombobox( array (

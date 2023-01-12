@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Share a view');
 $modalSize = 'xl';
 $modalBodyClass = 'p-1';
@@ -53,7 +53,7 @@ $appendPrintExportURL = '';
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary btn-sm pull-left"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Share')?></button>
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
     </div>
 </form>
 

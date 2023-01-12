@@ -5,7 +5,7 @@ $reactionsOutput = '';
 $hasReactionsSelected = false;
 foreach ($reactions as $reaction) {
     $partsReaction = explode("|",$reaction);
-    $className = strpos($partsReaction[0],'&#') === false ? ' pt-1 mr-0 material-icons' : '';
+    $className = strpos($partsReaction[0],'&#') === false ? ' pt-1 me-0 material-icons' : '';
     $className .= (isset($metaMessage['current'][$partsReaction[2]]) && $metaMessage['current'][$partsReaction[2]] == $partsReaction[1] && $hasReactionsSelected = true) ? ' reaction-selected' : '';
     if (isset($metaMessage['current'][$partsReaction[2]]) && $metaMessage['current'][$partsReaction[2]] == $partsReaction[1] ){
         $reactionsOutput .= "<span title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\"  class=\"reaction-item{$className}\">{$partsReaction[0]}</span>";

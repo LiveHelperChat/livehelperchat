@@ -7,7 +7,7 @@
     </div>
     <div class="col-6">
         <div class="form-group">
-            <label><a class="live-help-tooltip" data-placement="top" title="" data-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a>
+            <label><a class="live-help-tooltip" data-placement="top" title="" data-bs-toggle="tooltip" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a>
 
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
             <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?>  ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
@@ -57,29 +57,29 @@
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs mb-2" role="tablist">
-			<li role="presentation" class="nav-item"><a class="nav-link active" href="#onlinehours" aria-controls="onlinehours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Automate online hours');?></a></li>
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Notifications');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link active" href="#onlinehours" aria-controls="onlinehours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Automate online hours');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#notifications" aria-controls="notifications" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Notifications');?></a></li>
 			
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow')) : ?>
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#chattransfer" aria-controls="chattransfer" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Chat transfer worklow');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#chattransfer" aria-controls="chattransfer" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Chat transfer worklow');?></a></li>
 			<?php endif;?>
 			
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment')) : ?>
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#autoassignment" aria-controls="autoassignment" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Auto assignment');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#autoassignment" aria-controls="autoassignment" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Auto assignment');?></a></li>
 			<?php endif;?>
 			
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#product" aria-controls="product" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Product');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#product" aria-controls="product" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Product');?></a></li>
 			
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#miscellaneous" aria-controls="miscellaneous" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Miscellaneous');?></a></li>
 
-            <li role="presentation" class="nav-item"><a class="nav-link" href="#genericbot" aria-controls="genericbot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot configuration');?></a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#genericbot" aria-controls="genericbot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Bot configuration');?></a></li>
 
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managesurvey')) : ?>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Survey');?></a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#survey" aria-controls="survey" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Survey');?></a></li>
             <?php endif; ?>
 
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managedesign')) : ?>
-            <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Design');?></a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link" href="#design" aria-controls="design" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Design');?></a></li>
             <?php endif; ?>
 
             <?php include(erLhcoreClassDesign::designtpl('lhdepartment/parts/tab_multiinclude.tpl.php'));?>

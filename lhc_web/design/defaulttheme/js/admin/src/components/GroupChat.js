@@ -271,7 +271,7 @@ const GroupChat = props => {
             if (!props.chatPublicId){
                 var container = tabsContainer.current;
                 var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-                var tabs = container.querySelectorAll('[data-toggle="tab"]');
+                var tabs = container.querySelectorAll('[data-bs-toggle="tab"]');
 
                 if (tabs.length > 0) {
                     Array.prototype.forEach.call(tabs, function(element){ new bsn.Tab( element) });
@@ -439,8 +439,8 @@ const GroupChat = props => {
                 {props.chatPublicId && state.chat.type == 2 && <div className="col-12 pb-1">
 
                     {state.operators.map((operator, index) => (
-                        <button className="btn btn-sm fs12 btn-outline-secondary mb-1 mr-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}
-                                            {!operator.jtime && <span className="ml-1 badge badge-info fs11">{t('operator.pending_join')}</span>} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>{operator.last_activity_ago}</button>
+                        <button className="btn btn-sm fs12 btn-outline-secondary mb-1 me-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}
+                                            {!operator.jtime && <span className="ms-1 badge badge-info fs11">{t('operator.pending_join')}</span>} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>{operator.last_activity_ago}</button>
                     ))}
 
                 </div>}
@@ -463,15 +463,15 @@ const GroupChat = props => {
                 {!props.chatPublicId && <div className="chat-main-right-column col-5">
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
-                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-toggle="tab" title="Operators"><i className="material-icons mr-0">face</i></a></li>
-                            <li className="nav-item" role="presentation"><a className="nav-link " href={"#group-chat-info-"+props.chatId} aria-controls={"#group-chat-info-"+props.chatId} title="Information" role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#group-chat-"+props.chatId} aria-controls={"#group-chat-"+props.chatId} role="tab" data-bs-toggle="tab" title="Operators"><i className="material-icons me-0">face</i></a></li>
+                            <li className="nav-item" role="presentation"><a className="nav-link " href={"#group-chat-info-"+props.chatId} aria-controls={"#group-chat-info-"+props.chatId} title="Information" role="tab" data-bs-toggle="tab"><i className="material-icons me-0">info_outline</i></a></li>
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane active" id={"group-chat-"+props.chatId}>
 
                                 <ul className="list-group list-group-flush border-0 mw-100 mx275">
                                     {state.operators.map((operator, index) => (
-                                        <li className="list-group-item pl-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-right fs11">
+                                        <li className="list-group-item ps-1 py-1">{props.userId != operator.user_id && <i title="Start chat with an operator directly" onClick={(e) => startChatWithOperator(operator)} className="material-icons action-image">chat</i>} {state.chat.user_id == operator.user_id && <i title="Group owner" className="material-icons">account_balance</i>} {operator.n_off_full}<span className="float-end fs11">
                                             {!operator.jtime && <span className="badge badge-info fs11">{t('operator.pending_join')}</span>} {operator.last_activity_ago} <i className="material-icons">{operator.hide_online ? 'flash_off' : 'flash_on'}</i>
                                         </span>
                                         </li>
@@ -498,9 +498,9 @@ const GroupChat = props => {
                                         {state.operators_invite.map((operator, index) => (
                                             <li className="list-group-item p-2 fs13" title={operator.id}>
                                                 {operator.name_official}
-                                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
-                                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
-                                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                                {!operator.member && !operator.invited && <button className="float-end btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                                {!operator.member && operator.invited && <button className="float-end btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                                {operator.member && <button disabled="disabled" className="float-end btn btn-xs btn-success">{t('operator.already_member')}</button>}
                                             </li>
                                         ))}
                                     </ul>
@@ -540,9 +540,9 @@ const GroupChat = props => {
                         {state.operators_invite.map((operator, index) => (
                             <li className="list-group-item p-2 fs13" title={operator.id}>
                                 {operator.name_official}
-                                {!operator.member && !operator.invited && <button className="float-right btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
-                                {!operator.member && operator.invited && <button className="float-right btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
-                                {operator.member && <button disabled="disabled" className="float-right btn btn-xs btn-success">{t('operator.already_member')}</button>}
+                                {!operator.member && !operator.invited && <button className="float-end btn btn-xs btn-secondary" onClick={(e) => inviteOperator(operator)}>{t('operator.invite')}</button>}
+                                {!operator.member && operator.invited && <button className="float-end btn btn-xs btn-warning" onClick={(e) => cancelInvite(operator)}>{t('operator.cancel_invite')}</button>}
+                                {operator.member && <button disabled="disabled" className="float-end btn btn-xs btn-success">{t('operator.already_member')}</button>}
                             </li>
                         ))}
                     </ul>

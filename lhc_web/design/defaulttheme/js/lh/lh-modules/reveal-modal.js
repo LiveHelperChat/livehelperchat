@@ -13,7 +13,7 @@ var revealM = {
 				} else {
 					prependTo = $('#widget-layout');
 				};
-				prependTo.prepend('<div id="'+modelSelector+'" style="padding-right:0px !important;" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>');
+				prependTo.prepend('<div id="'+modelSelector+'" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"></div>');
 			};
 		},
 
@@ -54,7 +54,8 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal(mparams);
+							$('#myModal').html(data);
+                            const myModal = new bootstrap.Modal('#myModal', mparams).show();
                             revealM.setCenteredDraggable();
 					});
 				} else {
@@ -68,8 +69,8 @@ var revealM = {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
 
-							$('#myModal').html(data).modal(mparams);
-
+							$('#myModal').html(data);//.modal(mparams).show();
+                            const myModal = new bootstrap.Modal('#myModal', mparams).show();
                             revealM.setCenteredDraggable();
 					});
 				}
@@ -77,7 +78,7 @@ var revealM = {
 				var header = '';
 				var prependeBody = '';
 				if (typeof params['hideheader'] === 'undefined') {
-					header = '<div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="material-icons">info</span>'+(typeof params['title'] === 'undefined' ? '' : params['title'])+'</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+					header = '<div class="modal-header"><h4 class="modal-title" id="myModalLabel"><span class="material-icons">info</span>'+(typeof params['title'] === 'undefined' ? '' : params['title'])+'</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>';
 				} else {
 					prependeBody = (typeof params['title'] === 'undefined' ? '' : '<b>'+params['title']+'</b>') + '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
 				}
@@ -91,7 +92,8 @@ var revealM = {
                     $('#myModal').on('hide.bs.modal',params['hidecallback']);
                 }
                 
-				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>').modal(mparams);
+				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>');
+                const myModal = new bootstrap.Modal('#myModal', mparams).show();
 
 				revealM.setCenteredDraggable();
 				

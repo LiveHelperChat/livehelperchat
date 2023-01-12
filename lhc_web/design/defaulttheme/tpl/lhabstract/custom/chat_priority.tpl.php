@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-1">
-                    <button class="btn btn-danger btn-block" ng-click="pchat.removeFilter(filter)"><i class="material-icons mr-0">&#xE872;</i></button>
+                    <button class="btn btn-danger btn-block" ng-click="pchat.removeFilter(filter)"><i class="material-icons me-0">&#xE872;</i></button>
                 </div>
             </div>
         </div>

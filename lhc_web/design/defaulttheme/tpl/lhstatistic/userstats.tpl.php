@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2 ';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Statistic');
 $modalBodyClass = 'p-1';
 $modalSize = 'xl';
@@ -9,18 +9,18 @@ $modalSize = 'xl';
         <div class="p-2">
 
             <div class="pb-2">
-                <a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" class="pr-2"><span class="material-icons">edit</span> <?php echo htmlspecialchars($user->name_official)?> [<?php echo $user->id?>]</a>
-                <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $user->id?>/(chat_status_ids)/0/1" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?></a>
-                <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>/(user_id)/<?php echo $user->id?>" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator online hours');?></a>
-                <a href="<?php echo erLhcoreClassDesign::baseurl('audit/loginhistory')?>/(user_id)/<?php echo $user->id?>" class="pr-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>" class="pe-2"><span class="material-icons">edit</span> <?php echo htmlspecialchars($user->name_official)?> [<?php echo $user->id?>]</a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $user->id?>/(chat_status_ids)/0/1" class="pe-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?>" class="material-icons">chat</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator active/pending chats');?></a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>/(user_id)/<?php echo $user->id?>" class="pe-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Operator online hours');?></a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('audit/loginhistory')?>/(user_id)/<?php echo $user->id?>" class="pe-2"><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?>" class="material-icons">schedule</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a>
                 <div>
-                    <?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $user->id]]);foreach ($itemLanguages as $lang) : ?><span class="badge badge-success mr-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
+                    <?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $user->id]]);foreach ($itemLanguages as $lang) : ?><span class="badge bg-success me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
                 </div>
             </div>
             <ul class="nav nav-pills mb-3" role="tablist">
-                <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link active" aria-controls="user-status" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User stats');?></a></li>
-                <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
-                <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#user-status" class="nav-link active" aria-controls="user-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User stats');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" id="online-hours" style="max-height: 550px;overflow-y: auto">

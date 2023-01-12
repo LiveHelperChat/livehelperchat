@@ -12,14 +12,14 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/send_order.tpl.php'));?>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Invitation expire time, after that period of time invitation will be hidden.');?><?php if (isset($visitor->online_attr_system_array['lhcinv_exp']) && $visitor->online_attr_system_array['lhcinv_exp'] > 0) : ?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Last sent invitation expires in');?><br/><span class="badge badge-secondary"><?php echo erLhcoreClassChat::formatSeconds( (int)$visitor->online_attr_system_array['lhcinv_exp'] - time());?></span><?php endif;?>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Invitation expire time, after that period of time invitation will be hidden.');?><?php if (isset($visitor->online_attr_system_array['lhcinv_exp']) && $visitor->online_attr_system_array['lhcinv_exp'] > 0) : ?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Last sent invitation expires in');?><br/><span class="badge bg-secondary"><?php echo erLhcoreClassChat::formatSeconds( (int)$visitor->online_attr_system_array['lhcinv_exp'] - time());?></span><?php endif;?>
 
         <?php if (isset($visitor) && $visitor->message_seen == 1) : ?>
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','last invitation was seen');?> <span class="badge badge-success"><?php echo erLhcoreClassChat::formatSeconds( time() - (int)$visitor->message_seen_ts);?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','ago');?>.
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','last invitation was seen');?> <span class="badge bg-success"><?php echo erLhcoreClassChat::formatSeconds( time() - (int)$visitor->message_seen_ts);?></span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','ago');?>.
         <?php endif; ?>
 
         <?php if (isset($visitor) && $visitor->has_message_from_operator) : ?>
-            <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','has active invitation');?></span>
+            <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','has active invitation');?></span>
         <?php else : ?>
             <span class="badge badge-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','do not have any active invitation');?></span>
         <?php endif; ?>
@@ -44,9 +44,9 @@
 <ul class="nav nav-tabs mb-2" role="tablist">
     <?php foreach ($sendMessageOrder as $inviteType => $inviteOption) : ?>
         <?php if ($inviteType == 'invite') : ?>
-            <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Invitation')?></a></li>
+            <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Invitation')?></a></li>
         <?php elseif ($inviteType == 'chat') : ?>
-            <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?></a></li>
+            <li role="presentation" class="nav-item" ><a class="<?php if ($inviteOption['active'] === true) :?>active<?php endif;?> nav-link" href="#panel2" aria-controls="panel2" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat')?></a></li>
         <?php endif; ?>
     <?php endforeach; ?>
 </ul>
