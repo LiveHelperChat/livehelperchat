@@ -52,7 +52,7 @@
                                     <label class="form-check-label" for="<?php echo $sortOption['field']?>EvaluateOption_<?php echo $key+1?>"><?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?></label>
                                 </div>
                             <?php else : ?>
-                                <label class="pr-3">
+                                <label class="pe-3">
                                     <?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?>
                                     <div align="center">
                                         <input type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/>

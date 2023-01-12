@@ -38,7 +38,7 @@
 <?php endif; ?>
 
 <form action="" method="post" class="form-inline" autocomplete="off" enctype="multipart/form-data">
-    <div class="form-group mr-2">
+    <div class="form-group me-2">
         <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/newincoming')?>" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
     </div>
 

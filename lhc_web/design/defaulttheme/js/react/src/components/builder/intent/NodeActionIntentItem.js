@@ -92,7 +92,7 @@ class NodeActionIntentItem extends Component {
                 </div>
 
                 <div className="col-12">
-                    <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                    <div className="btn-group float-end" role="group" aria-label="Trigger actions">
                         <button className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</button>
                     </div>
                 </div>

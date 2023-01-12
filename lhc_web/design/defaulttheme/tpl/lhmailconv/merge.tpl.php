@@ -27,7 +27,7 @@
                         <hr class="mt-1"/>
                         <?php foreach ($communications as $communication) : ?>
                             <div class="form-group my-0">
-                                <label style="max-width: 500px;" class="fs13 mb-1 text-truncate <?php if ($mail->id == $communication->id) : ?>font-weight-bold<?php endif;?>" ><input <?php if ($input_data['merge_destination'] == $communication->id) : ?>checked="checked"<?php endif;?> type="radio" name="merge_destination" value="<?php echo $communication->id?>" /> <?php echo $communication->id?> | <?php echo htmlspecialchars($communication->subject);?></label>
+                                <label style="max-width: 500px;" class="fs13 mb-1 text-truncate <?php if ($mail->id == $communication->id) : ?>fw-bold<?php endif;?>" ><input <?php if ($input_data['merge_destination'] == $communication->id) : ?>checked="checked"<?php endif;?> type="radio" name="merge_destination" value="<?php echo $communication->id?>" /> <?php echo $communication->id?> | <?php echo htmlspecialchars($communication->subject);?></label>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge selected');?></button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Close');?></button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Close');?></button>
             </div>
         </form>
     </div>

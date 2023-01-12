@@ -3,13 +3,13 @@
     <div class="col-6">
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Groups');?></h5>
         <?php foreach ($groups as $group) : ?>
-            <a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" target="_blank" class="badge badge-secondary mr-1"><?php echo htmlspecialchars($group)?></a>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" target="_blank" class="badge bg-secondary me-1"><?php echo htmlspecialchars($group)?></a>
         <?php endforeach; ?>
     </div>
     <div class="col-6">
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/explorer','Roles');?></h5>
         <?php foreach ($roles as $role) : ?>
-            <a href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" target="_blank" class="badge badge-secondary mr-1"><?php echo htmlspecialchars($role)?></a>
+            <a href="<?php echo erLhcoreClassDesign::baseurl('permission/editrole')?>/<?php echo $role->id?>" target="_blank" class="badge bg-secondary me-1"><?php echo htmlspecialchars($role)?></a>
         <?php endforeach; ?>
     </div>
 </div>
@@ -30,7 +30,7 @@
             <td>
                 <?php foreach (erLhcoreClassModelGroup::getList(['filterin' => ['id' => $user->user_groups_id]]) as $group) : ?>
                     <?php if (key_exists($group->id,$groups)) : ?>
-                        <a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" target="_blank" class="badge badge-secondary mr-1"><?php echo htmlspecialchars($group)?></a>
+                        <a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>" target="_blank" class="badge bg-secondary me-1"><?php echo htmlspecialchars($group)?></a>
                     <?php endif; ?>
                 <?php endforeach ; ?>
             </td>

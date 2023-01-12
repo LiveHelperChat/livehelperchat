@@ -4,8 +4,8 @@
             <h4 class="modal-title" id="myModalLabel">
                 <span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Filter chats by subject')?>
             </h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                
             </button>
         </div>
         <div class="modal-body">
@@ -32,12 +32,12 @@
                 <div class="fs14 pb-3">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','On mobile I should receive notification only if chat is one of these states. If you do not choose, you will receive mobile notification in all cases.')?> </div>
                 <div>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_PENDING_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_PENDING_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats')?></label>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_ACTIVE_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats')?></label>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_BOT_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_BOT_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot chats')?></label>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_CLOSED_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_CLOSED_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats')?></label>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_CHATBOX_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_CHATBOX_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chatbox chats')?></label>
-                    <label class="mr-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_OPERATORS_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_OPERATORS_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operators chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_PENDING_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_PENDING_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Pending chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_ACTIVE_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Active chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_BOT_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_BOT_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Bot chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_CLOSED_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_CLOSED_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Closed chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_CHATBOX_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_CHATBOX_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Chatbox chats')?></label>
+                    <label class="me-2"><input name="chat_status_id[]" <?php if (in_array(erLhcoreClassModelChat::STATUS_OPERATORS_CHAT,$status_id)) : ?>checked="checked"<?php endif; ?> type="checkbox" value="<?php echo erLhcoreClassModelChat::STATUS_OPERATORS_CHAT?>"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Operators chats')?></label>
                 </div>
 
                 <input type="hidden" name="Update_action" value="on">

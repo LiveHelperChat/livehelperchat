@@ -4,8 +4,7 @@
             <h4 class="modal-title" id="myModalLabel">
                 <span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvdashboard','Notifications about mails')?>
             </h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             </button>
         </div>
         <div class="modal-body">
@@ -22,8 +21,8 @@
             <form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/notifications')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
                 <ul class="nav nav-tabs mb-3" role="tablist">
-                    <li role="presentation" class="nav-item"><a href="#subject-filter" class="nav-link active" aria-controls="subject-filter" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Subject filter');?></a></li>
-                    <li role="presentation" class="nav-item"><a href="#time-filter" class="nav-link" aria-controls="time-filter" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Time filter');?></a></li>
+                    <li role="presentation" class="nav-item"><a href="#subject-filter" class="nav-link active" aria-controls="subject-filter" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Subject filter');?></a></li>
+                    <li role="presentation" class="nav-item"><a href="#time-filter" class="nav-link" aria-controls="time-filter" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Time filter');?></a></li>
                 </ul>
 
                 <div class="tab-content">

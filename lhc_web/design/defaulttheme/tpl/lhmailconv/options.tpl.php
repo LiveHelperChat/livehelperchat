@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group">
-        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skipped image replacement text. You can use emoji also e.g')?> &#128444;&#65039;&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Copy')?>&nbsp;<span class="badge badge-secondary"><?php echo htmlspecialchars('&#128444;&#65039;')?></span></label>
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Skipped image replacement text. You can use emoji also e.g')?> &#128444;&#65039;&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Copy')?>&nbsp;<span class="badge bg-secondary"><?php echo htmlspecialchars('&#128444;&#65039;')?></span></label>
         <input type="text" class="form-control form-control-sm" name="image_skipped_text" value="<?php isset($mc_options['image_skipped_text']) ? print htmlspecialchars($mc_options['image_skipped_text']) : ''?>" placeholder="[img]"/>
     </div>
 

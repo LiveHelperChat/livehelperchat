@@ -88,7 +88,7 @@ class NodeGroupTriggerEvent extends Component {
                                 <label>Type</label>
                             </div>
                             <div className="col-2">
-                                <a className="float-right" onClick={this.deleteEvent}><i className="material-icons mr-0">delete</i></a>
+                                <a className="float-end" onClick={this.deleteEvent}><i className="material-icons me-0">delete</i></a>
                             </div>
                         </div>
                         <div className="row">

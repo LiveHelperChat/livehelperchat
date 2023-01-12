@@ -1,11 +1,11 @@
 <?php if (isset($errors)) : ?>
 <div data-alert class="alert alert-danger alert-dismissible fade show" ng-non-bindable>
 <?php if (!isset($hideErrorButton)) : ?>
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+   
 </button>
 <?php endif;?>
-<ul class="pl-1 m-0">
+<ul class="ps-1 m-0">
 <?php foreach ($errors as $err) : ?>
     <li><?php echo $err?></li>
 <?php endforeach;?>

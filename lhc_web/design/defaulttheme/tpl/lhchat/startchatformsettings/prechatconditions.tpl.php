@@ -19,7 +19,7 @@
 <br>
 <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','If these conditions are met widget will become online')?></small>
 </p>
-<button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('online')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add condition')?></button><span class="text-muted pl-2"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','conditions are optional')?>.</small></span>
+<button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('online')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add condition')?></button><span class="text-muted ps-2"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','conditions are optional')?>.</small></span>
 
 <div class="row pt-2" ng-repeat="conditionItem in preconditions.conditions.online track by $index" >
     <div class="col-9">
@@ -56,17 +56,17 @@
         <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" ng-if="preconditions.conditions.online.length > 0 && preconditions.conditions.online.length != $index + 1" ng-click="preconditions.moveDown(conditionItem,preconditions.conditions.online)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
             <button type="button" ng-if="$index > 0" ng-click="preconditions.moveUp(conditionItem,preconditions.conditions.online)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
-            <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.online)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+            <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.online)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
         </div>
     </div>
 </div>
 
 <div class="pt-2">
     <span ng-repeat="transactionItem in preconditions.conditions.online track by $index">
-        {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.online[$index - 1].logic == 'and' || !preconditions.conditions.online[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.online[$index - 1].logic == 'or') ? ' ) ' : ''}}
+        {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.online[$index - 1].logic == 'and' || !preconditions.conditions.online[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.online[$index - 1].logic == 'or') ? ' ) ' : ''}}
         {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.online.length) ? ' and ' : '')}}
     </span>
-    <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
+    <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
 </div>
 
 <hr>
@@ -77,7 +77,7 @@
 </p>
     <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.offline_enabled" name="prec_enable_offline" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable offline mode');?></label>
     <div ng-show="preconditions.conditions.offline_enabled">
-        <button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('offline')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add condition')?></button><span class="text-muted pl-2"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','conditions are optional.')?></small></span>
+        <button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('offline')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add condition')?></button><span class="text-muted ps-2"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','conditions are optional.')?></small></span>
         <div class="row pt-2" ng-repeat="conditionItem in preconditions.conditions.offline track by $index" >
             <div class="col-9">
                 <div class="row">
@@ -113,16 +113,16 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" ng-if="preconditions.conditions.offline.length > 0 && preconditions.conditions.offline.length != $index + 1" ng-click="preconditions.moveDown(conditionItem,preconditions.conditions.offline)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
                     <button type="button" ng-if="$index > 0" ng-click="preconditions.moveUp(conditionItem,preconditions.conditions.offline)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
-                    <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.offline)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                    <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.offline)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
                 </div>
             </div>
         </div>
         <div class="pt-2">
                         <span ng-repeat="transactionItem in preconditions.conditions.offline track by $index">
-                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.offline[$index - 1].logic == 'and' || !preconditions.conditions.offline[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.offline[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.offline[$index - 1].logic == 'and' || !preconditions.conditions.offline[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.offline[$index - 1].logic == 'or') ? ' ) ' : ''}}
                             {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.offline.length) ? ' and ' : '')}}
                         </span>
-            <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success">Success</span>
+            <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success">Success</span>
         </div>
     </div>
 <hr>
@@ -132,7 +132,7 @@
 </p>
 <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.disable_enabled" name="prec_enable_disable" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable disable mode');?></label>
     <div ng-show="preconditions.conditions.disable_enabled">
-        <button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('disable')">Add condition</button><span class="text-muted pl-2"><small>conditions are optional.</small></span>
+        <button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('disable')">Add condition</button><span class="text-muted ps-2"><small>conditions are optional.</small></span>
         <div class="row pt-2" ng-repeat="conditionItem in preconditions.conditions.disable track by $index" >
             <div class="col-9">
                 <div class="row">
@@ -168,16 +168,16 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" ng-if="preconditions.conditions.disable.length > 0 && preconditions.conditions.disable.length != $index + 1" ng-click="preconditions.moveDown(conditionItem,preconditions.conditions.disable)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
                     <button type="button" ng-if="$index > 0" ng-click="preconditions.moveUp(conditionItem,preconditions.conditions.disable)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
-                    <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.disable)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                    <button type="button" ng-click="preconditions.deleteElement(conditionItem,preconditions.conditions.disable)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
                 </div>
             </div>
         </div>
         <div class="pt-2">
                         <span ng-repeat="transactionItem in preconditions.conditions.disable track by $index">
-                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.disable[$index - 1].logic == 'and' || !preconditions.conditions.disable[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.disable[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                            {{((transactionItem.logic == 'or') && ($index == 0 || preconditions.conditions.disable[$index - 1].logic == 'and' || !preconditions.conditions.disable[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (preconditions.conditions.disable[$index - 1].logic == 'or') ? ' ) ' : ''}}
                             {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != preconditions.conditions.disable.length) ? ' and ' : '')}}
                         </span>
-            <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
+            <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Success')?></span>
         </div>
 
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Show this message to the visitors who opens a chat widget.')?></label>

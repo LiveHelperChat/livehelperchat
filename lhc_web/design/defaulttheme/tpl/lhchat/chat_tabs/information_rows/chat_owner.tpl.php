@@ -1,6 +1,6 @@
 <tr>
     <td colspan="2">
-        <h6 class="font-weight-bold"><i class="material-icons">account_box</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?></h6>
+        <h6 class="fw-bold"><i class="material-icons">account_box</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?></h6>
         <div class="row">
             <div class="col-6 pb-1">
                 <div class="text-muted" id="chat-owner-<?php echo $chat->id?>" user-id="<?php echo $chat->user_id?>">

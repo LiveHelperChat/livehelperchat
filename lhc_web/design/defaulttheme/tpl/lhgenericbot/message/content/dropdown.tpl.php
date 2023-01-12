@@ -1,5 +1,5 @@
 <div class="meta-message meta-message-<?php echo $messageId?>">
-    <div class="meta-auto-hide pt-1 pb-1 pr-1 pl-2">
+    <div class="meta-auto-hide pt-1 pb-1 pe-1 ps-2">
         <div class="form-group mb-1">
             <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                 'input_name'     => 'generic_list-' . $messageId,

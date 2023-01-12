@@ -9,43 +9,43 @@
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Your version')?> - <?php echo sprintf("%0.2f", erLhcoreClassUpdate::LHC_RELEASE/100);?></h5>
 		<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Current version')?> - <span class="text-success" id="recent-version">...</span></h5>
 
-        <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Status/security checks')?></p>
+        <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Status/security checks')?></p>
         <ul>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong secret hash')?> -
             <?php if (strlen(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' )) < 50) : ?>
-                <span class="badge badge-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak')?></span>
+                <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak')?></span>
             <?php else : ?>
-                <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong')?></span>
+                <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong')?></span>
             <?php endif; ?>
                 <a target="_blank" href="https://doc.livehelperchat.com/docs/security#secret-hash"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></a>
             </li>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong export hash')?> -
             <?php if (strlen(erLhcoreClassModelChatConfig::fetch('export_hash')->current_value) < 50) : ?>
-                <span class="badge badge-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak')?></span>
+                <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak')?></span>
             <?php else : ?>
-                <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong')?></span>
+                <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong')?></span>
             <?php endif; ?>
                 <a target="_blank" href="https://doc.livehelperchat.com/docs/security#export-hash"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></a>
             </li>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Trusted host')?> -
             <?php if (!is_array(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false )) || empty(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'trusted_host_patterns', false ))) : ?>
-                <span class="badge badge-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','not set')?></span>
+                <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','not set')?></span>
             <?php else : ?>
-                <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','set')?></span>
+                <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','set')?></span>
             <?php endif; ?>
                 <a target="_blank" href="https://doc.livehelperchat.com/docs/security#trusted-hosts-and-site-address"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></a>
             </li>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Site address')?> -
             <?php if (!erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false )) : ?>
-                <span class="badge badge-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','not set')?></span>
+                <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','not set')?></span>
             <?php else : ?>
-                <span class="badge badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','set')?> - <?php echo htmlspecialchars(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false )); ?></span>
+                <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','set')?> - <?php echo htmlspecialchars(erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false )); ?></span>
             <?php endif; ?>
                 <a target="_blank" href="https://doc.livehelperchat.com/docs/security#trusted-hosts-and-site-address"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></a>
             </li>
         </ul>
 
-        <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></p>
+        <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information')?></p>
 
         <ul>
             <li><a rel="noreferrer" href="http://livehelperchat.com/news-5c.html" target="_blank"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','News')?></a></li>

@@ -30,7 +30,7 @@
 </div>
 
 <div class="form-group">
-    <label class="mb-1"><input class="input-checkbox mr-1" type="checkbox" name="rememberMe" value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Remember me');?></label>
+    <label class="mb-1"><input class="input-checkbox me-1" type="checkbox" name="rememberMe" value="1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Remember me');?></label>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhuser/oauth_login_multiinclude_tab.tpl.php'));?>

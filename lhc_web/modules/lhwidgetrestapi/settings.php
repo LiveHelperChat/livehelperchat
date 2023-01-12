@@ -227,6 +227,8 @@ if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
 
 $pageCSS = false;
 
+$outputResponse['chat_ui']['status_delay'] = 0;
+
 if (isset($outputResponse['theme'])) {
     $theme = erLhAbstractModelWidgetTheme::fetch($outputResponse['theme']);
 
@@ -244,6 +246,10 @@ if (isset($outputResponse['theme'])) {
 
         if (isset($theme->bot_configuration_array['wwidth']) && $theme->bot_configuration_array['wwidth'] > 0) {
             $outputResponse['chat_ui']['wwidth'] = (int)$theme->bot_configuration_array['wwidth'];
+        }
+
+        if ($theme->show_status_delay > 0) {
+            $outputResponse['chat_ui']['status_delay'] = (int)$theme->show_status_delay * 1000;
         }
 
         if (isset($theme->bot_configuration_array['wheight']) && $theme->bot_configuration_array['wheight'] > 0) {
@@ -493,10 +499,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 206;
+$outputResponse['wv'] = 208;
 
 // React APP versions
-$outputResponse['v'] = 267;
+$outputResponse['v'] = 269;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;

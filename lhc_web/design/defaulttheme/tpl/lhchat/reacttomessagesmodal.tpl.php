@@ -6,7 +6,7 @@
     <?php if (isset($admin_mode)) : ?>
     <div ng-non-bindable class="modal-header">
         <h4 class="modal-title" id="myModalLabel"><span class="material-icons">info_outline</span>React to visitor message</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <?php endif; ?>
 
@@ -22,7 +22,7 @@
     foreach ($partsReaction as $reaction) {
         $partsReaction = explode("|",$reaction);
 
-        $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' pt-0 mr-0 material-icons' : '';
+        $className = preg_match('/^[a-zA-Z0-9_]+$/', $partsReaction[0]) ? ' pt-0 me-0 material-icons' : '';
 
         if (isset($partsReaction[2]) && isset($partsReaction[1])) {
             $className .= htmlspecialchars(' reaction-id-' . $partsReaction[2] . '-' . $partsReaction[1]);
@@ -43,7 +43,7 @@
         }
 
         if (isset($admin_mode)) {
-            $reactionsOutput .= "<a data-dismiss=\"modal\" onclick=\"lhinst.reaction($(this));\" data-identifier=\"{$partsReaction[2]}\" data-value=\"{$partsReaction[1]}\" data-msg-id=\"{$messageId}\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+            $reactionsOutput .= "<a data-bs-dismiss=\"modal\" onclick=\"lhinst.reaction($(this));\" data-identifier=\"{$partsReaction[2]}\" data-value=\"{$partsReaction[1]}\" data-msg-id=\"{$messageId}\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
         } else {
             $reactionsOutput .= "<a linkaction=\"true\" data-action=\"setReaction\" data-action-arg='{\"data-identifier\":\"{$partsReaction[2]}\",\"data-payload\":\"{$partsReaction[1]}\",\"data-id\":{$messageId}}' title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
         }

@@ -42,17 +42,17 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
 </div>
 
 <ul class="nav nav-tabs mb-3" role="tablist" ng-non-bindable>
-    <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Widget');?></a></li>
-    <li role="presentation" class="nav-item"><a href="#chat" class="nav-link<?php if ($tab == 'chat') : ?> active<?php endif;?>" aria-controls="chat" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Chat');?></a></li>
-    <li role="presentation" class="nav-item"><a href="#invitation" class="nav-link<?php if ($tab == 'invitation') : ?> active<?php endif;?>" aria-controls="invitation" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Invitation');?></a></li>
-    <li role="presentation" class="nav-item"><a href="#needhelp" class="nav-link<?php if ($tab == 'needhelp') : ?> active<?php endif;?>" aria-controls="needhelp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Need help');?></a></li>
-    <li role="presentation" class="nav-item"><a href="#bot" class="nav-link<?php if ($tab == 'bot') : ?> active<?php endif;?>" aria-controls="bot" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Bot');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#widget" class="nav-link<?php if ($tab == '') : ?> active<?php endif;?>" aria-controls="widget" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Widget');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#chat" class="nav-link<?php if ($tab == 'chat') : ?> active<?php endif;?>" aria-controls="chat" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Chat');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#invitation" class="nav-link<?php if ($tab == 'invitation') : ?> active<?php endif;?>" aria-controls="invitation" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Invitation');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#needhelp" class="nav-link<?php if ($tab == 'needhelp') : ?> active<?php endif;?>" aria-controls="needhelp" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Need help');?></a></li>
+    <li role="presentation" class="nav-item"><a href="#bot" class="nav-link<?php if ($tab == 'bot') : ?> active<?php endif;?>" aria-controls="bot" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking','Bot');?></a></li>
 </ul>
 
 <div class="tab-content" ng-non-bindable>
     <div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="widget">
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [clickAction]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['clickAction_on']) && $ga_options['clickAction_on'] == 1) : ?>checked="checked"<?php endif;?> name="clickAction_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Status was clicked')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [clickAction]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['clickAction_on']) && $ga_options['clickAction_on'] == 1) : ?>checked="checked"<?php endif;?> name="clickAction_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Status was clicked')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -74,7 +74,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [showWidget]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['showWidget_on']) && $ga_options['showWidget_on'] == 1) : ?>checked="checked"<?php endif;?> name="showWidget_on"> Widget was shown</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [showWidget]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['showWidget_on']) && $ga_options['showWidget_on'] == 1) : ?>checked="checked"<?php endif;?> name="showWidget_on"> Widget was shown</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -96,7 +96,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [closeWidget]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['closeWidget_on']) && $ga_options['closeWidget_on'] == 1) : ?>checked="checked"<?php endif;?> name="closeWidget_on"> Widget was closed/minimized</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [closeWidget]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['closeWidget_on']) && $ga_options['closeWidget_on'] == 1) : ?>checked="checked"<?php endif;?> name="closeWidget_on"> Widget was closed/minimized</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -118,7 +118,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [openPopup]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['openPopup_on']) && $ga_options['openPopup_on'] == 1) : ?>checked="checked"<?php endif;?> name="openPopup_on"> Popup opened</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [openPopup]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['openPopup_on']) && $ga_options['openPopup_on'] == 1) : ?>checked="checked"<?php endif;?> name="openPopup_on"> Popup opened</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -144,7 +144,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     </div>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'chat') : ?>active<?php endif;?>" id="chat">
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [endChat]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['endChat_on']) && $ga_options['endChat_on'] == 1) : ?>checked="checked"<?php endif;?> name="endChat_on"> Chat ended</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [endChat]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['endChat_on']) && $ga_options['endChat_on'] == 1) : ?>checked="checked"<?php endif;?> name="endChat_on"> Chat ended</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -166,7 +166,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [chatStarted]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['chatStarted_on']) && $ga_options['chatStarted_on'] == 1) : ?>checked="checked"<?php endif;?> name="chatStarted_on"> Chat started</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [chatStarted]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['chatStarted_on']) && $ga_options['chatStarted_on'] == 1) : ?>checked="checked"<?php endif;?> name="chatStarted_on"> Chat started</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -188,7 +188,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [offlineMessage]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['offlineMessage_on']) && $ga_options['offlineMessage_on'] == 1) : ?>checked="checked"<?php endif;?> name="offlineMessage_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Offline message')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [offlineMessage]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['offlineMessage_on']) && $ga_options['offlineMessage_on'] == 1) : ?>checked="checked"<?php endif;?> name="offlineMessage_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Offline message')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -213,7 +213,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     </div>
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'invitation') : ?>active<?php endif;?>" id="invitation">
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [showInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['showInvitation_on']) && $ga_options['showInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="showInvitation_on"> Invitation shown</label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [showInvitation]" class="fw-bold"><input type="checkbox" <?php if (isset($ga_options['showInvitation_on']) && $ga_options['showInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="showInvitation_on"> Invitation shown</label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -236,7 +236,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation hide')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [hideInvitation]" class="fw-bold"><input type="checkbox" <?php if (isset($ga_options['hideInvitation_on']) && $ga_options['hideInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="hideInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation hide')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -259,7 +259,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [cancelInvitation]" class="font-weight-bold"><input type="checkbox" <?php if (isset($ga_options['cancelInvitation_on']) && $ga_options['cancelInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="cancelInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Cancel invitation')?>.  <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', ' Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [cancelInvitation]" class="fw-bold"><input type="checkbox" <?php if (isset($ga_options['cancelInvitation_on']) && $ga_options['cancelInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> value="on" name="cancelInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Cancel invitation')?>.  <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', ' Called if invitation was in full widget and widget was minimised or visitor clicked close icon in invitation tooltip')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -282,7 +282,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [fullInvitation]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['fullInvitation_on']) && $ga_options['fullInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> name="fullInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [fullInvitation]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['fullInvitation_on']) && $ga_options['fullInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> name="fullInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation clicked. Visitor clicked invitation tooltip. It is not triggered if it just clicks status icon while invitation tooltip is shown.')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -305,7 +305,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [readInvitation]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['readInvitation_on']) && $ga_options['readInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> name="readInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [readInvitation]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['readInvitation_on']) && $ga_options['readInvitation_on'] == 1) : ?>checked="checked"<?php endif;?> name="readInvitation_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Invitation was read. Means visitor opened widget with an invitation either by clicking invitation tooltip or status icon.')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -333,7 +333,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
 
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'needhelp') : ?>active<?php endif;?>" id="needhelp">
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhShow]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhShow_on']) && $ga_options['nhShow_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhShow_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was shown')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhShow]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhShow_on']) && $ga_options['nhShow_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhShow_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was shown')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -355,7 +355,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhHide]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhHide_on']) && $ga_options['nhHide_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhHide_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was hidden')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhHide]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhHide_on']) && $ga_options['nhHide_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhHide_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was hidden')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -377,7 +377,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhClicked]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClicked_on']) && $ga_options['nhClicked_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClicked_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was clicked')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhClicked]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClicked_on']) && $ga_options['nhClicked_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClicked_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help was clicked')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -399,7 +399,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
             </div>
         </div>
 
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhClosed]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClosed_on']) && $ga_options['nhClosed_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClosed_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help close icon was clicked')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [nhClosed]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['nhClosed_on']) && $ga_options['nhClosed_on'] == 1) : ?>checked="checked"<?php endif;?> name="nhClosed_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Need help close icon was clicked')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
@@ -423,7 +423,7 @@ gtag('event', {{eventAction}}, {  'event_category': {{eventCategory}},  'event_l
     </div>
 
     <div role="tabpanel" class="tab-pane <?php if ($tab == 'bot') : ?>active<?php endif;?>" id="bot">
-        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [botTrigger]" class="font-weight-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['botTrigger_on']) && $ga_options['botTrigger_on'] == 1) : ?>checked="checked"<?php endif;?> name="botTrigger_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Bot trigger was executed')?></label>
+        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Track this event')?> [botTrigger]" class="fw-bold"><input type="checkbox" value="on" <?php if (isset($ga_options['botTrigger_on']) && $ga_options['botTrigger_on'] == 1) : ?>checked="checked"<?php endif;?> name="botTrigger_on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/etracking', 'Bot trigger was executed')?></label>
         <div class="row">
             <div class="col-4">
                 <div class="form-group">

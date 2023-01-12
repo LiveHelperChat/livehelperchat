@@ -44,7 +44,7 @@
         <td><?php echo htmlspecialchars($user->email)?></td>
         <td>
             <?php if ($user->exclude_autoasign == 1) : ?>
-                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Excluded from auto assign workflow');?>" class="material-icons chat-closed mr-1">block</span>
+                <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Excluded from auto assign workflow');?>" class="material-icons chat-closed me-1">block</span>
             <?php endif; ?>
             <?php if ($user->max_active_chats == 0) : ?>
                 &#8734;

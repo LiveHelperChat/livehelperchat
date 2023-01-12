@@ -14,7 +14,7 @@
             </i>
      	<?php endif;?> 
      </div>
-     <div class="p-1 pl-2 w-100">
+     <div class="p-1 ps-2 w-100">
 
          <?php if (!isset($react)) : ?>
             <?php $rightLanguage = true;?>

@@ -6,7 +6,7 @@ $hasReactionsSelected = false;
 foreach ($reactions as $reaction) {
     $partsReaction = explode("|",$reaction);
 
-    $className = strpos($partsReaction[0],'&#') === false ? ' pt-1 mr-0 material-icons' : '';
+    $className = strpos($partsReaction[0],'&#') === false ? ' pt-1 me-0 material-icons' : '';
     $className .= (isset($metaMessage['current'][$partsReaction[2]]) && $metaMessage['current'][$partsReaction[2]] == $partsReaction[1] && $hasReactionsSelected = true) ? ' reaction-selected' : '';
     $className .= htmlspecialchars(' reaction-id-' . $partsReaction[2] . '-' . $partsReaction[1]);
 
@@ -30,11 +30,11 @@ foreach ($reactions as $reaction) {
     <div class="reactions-holder reactions-selected d-block">
 
         <?php if (isset($metaMessageData['content']['reactions']['current']['thumb']) && $metaMessageData['content']['reactions']['current']['thumb'] == 1) : ?>
-            <span title="Thumbs up" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf109;</span>
+            <span title="Thumbs up" class="reaction-item pt-1 me-0 material-icons reaction-selected">&#xf109;</span>
         <?php endif;?>
 
         <?php if (isset($metaMessageData['content']['reactions']['current']['thumb']) && $metaMessageData['content']['reactions']['current']['thumb'] == 0) : ?>
-            <span title="Thumbs down" class="reaction-item pt-1 mr-0 material-icons reaction-selected">&#xf108;</span>
+            <span title="Thumbs down" class="reaction-item pt-1 me-0 material-icons reaction-selected">&#xf108;</span>
         <?php endif; ?>
 
     </div>

@@ -255,12 +255,12 @@ class NodeCollectableField extends Component {
 
                     <div className="row">
                         <div className="col-12">
-                            <div className="btn-group float-left" role="group" aria-label="Trigger actions">
-                                {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_up</i></a>}
-                                {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons mr-0">keyboard_arrow_down</i></a>}
+                            <div className="btn-group float-start" role="group" aria-label="Trigger actions">
+                                {this.props.isFirst == false && <a className="btn btn-secondary btn-sm" onClick={this.upField.bind(this)}><i className="material-icons me-0">keyboard_arrow_up</i></a>}
+                                {this.props.isLast == false && <a className="btn btn-secondary btn-sm" onClick={this.downField.bind(this)}><i className="material-icons me-0">keyboard_arrow_down</i></a>}
                             </div>
 
-                            <div className="btn-group float-right" role="group" aria-label="Trigger actions">
+                            <div className="btn-group float-end" role="group" aria-label="Trigger actions">
                                 <a className="btn btn-warning btn-sm" onClick={this.deleteField.bind(this)}>Delete</a>
                             </div>
                         </div>

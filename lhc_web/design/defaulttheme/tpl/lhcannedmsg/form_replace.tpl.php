@@ -13,16 +13,16 @@
     <textarea class="hide" name="conditions">{{crc.combinations | json : 0}}</textarea>
 
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
-        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#default" aria-controls="default" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></a></li>
+        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#default" aria-controls="default" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Default');?></a></li>
         <li ng-repeat="lang in crc.combinations" class="nav-item" role="presentation">
 
-            <a href="#cmb-{{$index}}" class="nav-link" aria-controls="cmb-{{$index}}" role="tab" data-toggle="tab" >
+            <a href="#cmb-{{$index}}" class="nav-link" aria-controls="cmb-{{$index}}" role="tab" data-bs-toggle="tab" >
                 <i class="material-icons">find_replace</i>{{lang.name || 'Nr. ' + ($index + 1)}}
                 <span ng-click="crc.deleteElement(lang, crc.combinations)" class="material-icons icon-close-chat">close</span>
             </a>
         </li>
         <li class="nav-item"><a href="#addcombination" class="nav-link" ng-click="crc.addCombination()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add combination');?></a></li>
-        <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
+        <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="default">
@@ -72,8 +72,8 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge badge-secondary m-1 action-image">
-                        {{crc.departments[dep_id]}} <span class="material-icons text-warning mr-0">delete</span>
+                    <span ng-repeat="dep_id in combination.dep_ids track by $index" role="tabpanel" ng-click="crc.deleteElement(dep_id,combination.dep_ids)" title="Click to remove" class="badge bg-secondary m-1 action-image">
+                        {{crc.departments[dep_id]}} <span class="material-icons text-warning me-0">delete</span>
                     </span>
                 </div>
             </div>
@@ -116,17 +116,17 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" ng-if="combination.conditions.length > 0 && combination.conditions.length != $index + 1" ng-click="crc.moveDown(conditionItem,combination.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
                         <button type="button" ng-if="$index > 0" ng-click="crc.moveUp(conditionItem,combination.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
-                        <button type="button" ng-click="crc.deleteElement(conditionItem,combination.conditions)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                        <button type="button" ng-click="crc.deleteElement(conditionItem,combination.conditions)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
                     </div>
                 </div>
             </div>
 
             <div class="pt-2">
                     <span ng-repeat="transactionItem in combination.conditions track by $index">
-                        {{((transactionItem.logic == 'or') && ($index == 0 || combination.conditions[$index - 1].logic == 'and' || !combination.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (combination.conditions[$index - 1].logic == 'or') ? ' ) ' : ''}}
+                        {{((transactionItem.logic == 'or') && ($index == 0 || combination.conditions[$index - 1].logic == 'and' || !combination.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (combination.conditions[$index - 1].logic == 'or') ? ' ) ' : ''}}
                         {{(transactionItem.logic == 'or') ? ' or ' : (($index+1 != combination.conditions.length) ? ' and ' : '')}}
                     </span>
-                <span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success">Success</span>
+                <span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success">Success</span>
             </div>
 
         </div>

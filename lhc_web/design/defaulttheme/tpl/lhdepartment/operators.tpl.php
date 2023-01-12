@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2 ';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department operators');
 $modalBodyClass = 'p-1';
 $modalSize = 'xl';
@@ -65,8 +65,8 @@ $modalSize = 'xl';
                     <td><?php echo $member->active_chats?></td>
                     <td><?php echo $member->inactive_chats?></td>
                     <td class="w-20 <?php if ($department->assign_same_language == 0) : ?>text-muted<?php endif;?>">
-                        <div class="abbr-list abbr-list-lang" style="max-width: 150px;" data-toggle="tooltip" data-placement="left" title="<?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $member->user_id]]); foreach ($itemLanguages as $lang) : ?><?php echo htmlspecialchars($lang->language . ' ')?><?php endforeach; ?>">
-                            <?php foreach ($itemLanguages as $lang) : ?><span class="badge badge-<?php if ($department->assign_same_language == 1) : ?>success<?php else : ?>secondary<?php endif;?> mr-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
+                        <div class="abbr-list abbr-list-lang" style="max-width: 150px;" data-bs-toggle="tooltip" data-placement="left" title="<?php $itemLanguages = erLhcoreClassModelSpeechUserLanguage::getList(['filter' => ['user_id' => $member->user_id]]); foreach ($itemLanguages as $lang) : ?><?php echo htmlspecialchars($lang->language . ' ')?><?php endforeach; ?>">
+                            <?php foreach ($itemLanguages as $lang) : ?><span class="badge badge-<?php if ($department->assign_same_language == 1) : ?>success<?php else : ?>secondary<?php endif;?> me-1"><?php echo htmlspecialchars($lang->language)?></span><?php endforeach; ?>
                         </div>
                     </td>
                 </tr>

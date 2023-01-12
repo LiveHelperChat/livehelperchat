@@ -22,7 +22,7 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Default theme applied per department');?></label>
         <?php foreach (explode(',',$departament->bot_configuration_array['theme_default']) as $themeDefault) : if ((int)$themeDefault > 0) : ?>
-            <span class="badge badge-success ml-1"> <?php print htmlspecialchars(erLhAbstractModelWidgetTheme::fetch((int)$themeDefault)) ?></span>
+            <span class="badge bg-success ms-1"> <?php print htmlspecialchars(erLhAbstractModelWidgetTheme::fetch((int)$themeDefault)) ?></span>
         <?php endif; endforeach; ?>
     </b>
     <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This theme is set from');?> <a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Default theme');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','section and checking As default department theme.');?></i></small></p>
@@ -32,7 +32,7 @@
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Theme global');?></label> -
 
     <?php foreach (explode(',',erLhcoreClassModelChatConfig::fetch('default_theme_id')->current_value) as $themeDefault) : if ((int)$themeDefault > 0) : ?>
-        <span class="badge badge-success ml-1"> <?php print htmlspecialchars(erLhAbstractModelWidgetTheme::fetch((int)$themeDefault)) ?></span>
+        <span class="badge bg-success ms-1"> <?php print htmlspecialchars(erLhAbstractModelWidgetTheme::fetch((int)$themeDefault)) ?></span>
     <?php endif; endforeach; ?>
 
     <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you are using only');?> <a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>">Default theme</a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','option and you have more than one server you might get inconsistent theme pickup. Apply');?> <a href="<?php echo erLhcoreClassDesign::baseurl('theme/default')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Default theme');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','to department as default or choose individual theme.');?></i></small></p>

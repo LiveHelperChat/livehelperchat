@@ -1,10 +1,10 @@
 <div id="tabs" role="tabpanel">
 
     <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="nav-item"><a class="nav-link active" href="#chats" aria-controls="chats" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link active" href="#chats" aria-controls="chats" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
     </ul>
 
-    <div class="tab-content pl-2">
+    <div class="tab-content ps-2">
         <div role="tabpanel" class="tab-pane active" id="chats">
             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
@@ -68,11 +68,11 @@
                                     <span class="material-icons">image</span>
                                 <?php endif; ?>
 
-                                <span class="mr-2"><?php echo $item->id; ?></span><a class="user-select-none" onclick='lhinst.startMailChat(<?php echo $item->id?>,$("#tabs"),<?php echo json_encode($item->subject_front,JSON_HEX_APOS)?>)' href="#!#chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
+                                <span class="me-2"><?php echo $item->id; ?></span><a class="user-select-none" onclick='lhinst.startMailChat(<?php echo $item->id?>,$("#tabs"),<?php echo json_encode($item->subject_front,JSON_HEX_APOS)?>)' href="#!#chat-id-mc<?php echo $item->id?>"><?php echo htmlspecialchars($item->subject)?>&nbsp;<small><?php echo $item->total_messages?></small></a>
 
                                 <?php if (is_array($item->subjects)) : ?>
                                     <?php foreach ($item->subjects as $subject) : ?>
-                                        <span class="badge badge-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
+                                        <span class="badge bg-info mx-1" ng-non-bindable><?php echo htmlspecialchars($subject)?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
 
@@ -97,7 +97,7 @@
                             </td>
                             <?php if ($can_delete === true) : ?>
                                 <td ng-non-bindable>
-                                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons mr-0">&#xE872;</i></a>
+                                    <a class="text-danger csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/messages','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/deleteconversation')?>/<?php echo $item->id?>" ><i class="material-icons me-0">&#xE872;</i></a>
                                 </td>
                             <?php endif; ?>
                             </tr>

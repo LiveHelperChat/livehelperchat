@@ -14,7 +14,7 @@
 
     <ul class="nav nav-pills" role="tablist">
     </ul>
-    <div class="tab-content pl-1">
+    <div class="tab-content ps-1">
 
         <div class="tab-pane active">
 
