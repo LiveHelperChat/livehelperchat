@@ -55,8 +55,8 @@ $modalSize = 'xl';
                         <?php echo htmlspecialchars(erLhcoreClassModelDepartamentGroup::fetch($member->dep_group_id));?> [<?php echo $member->dep_group_id?>]
                     </td>
                     <td>
-                        <?php if ($member->exclude_autoasign == 1) : ?>
-                            <span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
+                        <?php if ($member->exclude_autoasign == 1 || $member->exc_indv_autoasign == 1) : ?>
+                            <span class="material-icons"><?php if ($member->exclude_autoasign == 1) : ?>home<?php else : ?>account_balance<?php endif;?></span><span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
                         <?php else : ?>
                             <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
                         <?php endif; ?>
