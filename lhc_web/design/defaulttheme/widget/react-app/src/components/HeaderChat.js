@@ -34,8 +34,8 @@ class HeaderChat extends Component {
     componentDidMount() {
         var dropdown = document.getElementById('headerDropDown');
         if (dropdown) {
-            var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
-            new bsn.Dropdown(dropdown);
+            var bsn = require("bootstrap.native/dist/components/dropdown-native");
+            new bsn(dropdown);
         }
     }
 
@@ -51,9 +51,10 @@ class HeaderChat extends Component {
 
         const headerIcons = this.props.chatwidget.hasIn(['chat_ui','header_buttons']) && this.props.chatwidget.getIn(['chat_ui','header_buttons']).map((btn, index) => {
                 let position = btn.get('pos');
-                if (window.lhcChat['staticJS']['dir'] == 'rtl') {
-                    position = position == 'left' ? 'right' : 'left';
-                }
+                /*if (window.lhcChat['staticJS']['dir'] == 'rtl') {
+                    position = position == 'left' ? 'end' : 'start';
+                }*/
+                position = position == 'left'  ? 'start' : (position == 'right' ? 'end' : position);
                 if (btn.get('btn') == 'min' && closeInst) {
                     iconsNumber++;
                     return <a className={"minimize-icon header-link float-"+position} title={this.props.chatwidget.getIn(['chat_ui','min_text']) || t('button.minimize')} onClick={this.closeWidget}>

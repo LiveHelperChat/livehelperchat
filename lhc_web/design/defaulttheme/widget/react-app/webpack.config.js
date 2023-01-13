@@ -38,16 +38,7 @@ const config = {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         include: /node_modules\/socketcluster-client/
-      },
-      {
-        test: /bootstrap\.native/,
-        use: {
-            loader: 'bootstrap.native-loader',
-            options: {
-                only: ['modal', 'dropdown', 'tab']
-            }
-        }
-       }
+      }
     ]
   },
   resolve: {
