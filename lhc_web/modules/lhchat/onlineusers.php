@@ -123,7 +123,7 @@ if ($is_ajax == true) {
             $values = explode('||',$onlineAttributeFilter['oattrf_val_' . $i]);
             $valuesFilter = [];
             foreach ($values as $val) {
-                $valuesFilter[] = '( JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['oattrf_key_' . $i]).' ) )';
+                $valuesFilter[] = '(`lh_chat_online_user`.`online_attr_system` != \'\' AND JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['oattrf_key_' . $i]).' ) )';
             }
             $filter['customfilter'][] = '('.implode(' OR ',$valuesFilter).')';
         }
