@@ -408,8 +408,8 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
-          <span class="px-1" aria-hidden="true">&times;</span>
+        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="btn-close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+          
         </button>') . '
         <div class="d-flex">
           <div class="p-1"><img style="min-width: 50px;" alt="Customer service" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
