@@ -24,17 +24,17 @@ class ChatModal extends PureComponent {
 
             if (tabs.length > 0) {
                 var activeTab = 0;
-                Array.prototype.forEach.call(tabs, function(element){ new bsn( element) });
+                Array.prototype.forEach.call(tabs, function(element){element.tabItem = new bsn( element) });
 
                 const xwiper = new Xwiper('.tab-content');
                 xwiper.onSwipeLeft(() => {
                     activeTab = activeTab < (tabs.length - 1) ? (activeTab + 1) : 0;
-                    tabs[activeTab].Tab.show();
+                    tabs[activeTab].tabItem.show();
                 });
 
                 xwiper.onSwipeRight(() => {
                     activeTab = activeTab > 0 ? (activeTab - 1) : (tabs.length - 1);
-                    tabs[activeTab].Tab.show();
+                    tabs[activeTab].tabItem.show();
                 });
             }
 
