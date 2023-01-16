@@ -5,7 +5,7 @@
                 <span class="material-icons">&#xf11e;</span>
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your language')?>
             </h5>
-            <button type="button" id="react-close-modal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" id="react-close-modal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="mb-0" >
@@ -45,7 +45,7 @@
                 <div class="row">
                     <?php foreach ($enabledLanguages as $siteAccess) : ?>
                         <div class="col-4">
-                            <a class="badge fs13 badge-secondary m-1 action-image<?php if (erLhcoreClassSystem::instance()->SiteAccess == $siteAccess) : ?> fw-bold<?php endif; ?>" linkaction="true" data-action="setLanguage" data-action-arg="<?php echo $siteAccess?>"><?php echo $langArray[$siteAccess]?></a>
+                            <a class="badge fs13 bg-secondary m-1 action-image<?php if (erLhcoreClassSystem::instance()->SiteAccess == $siteAccess) : ?> fw-bold<?php endif; ?>" linkaction="true" data-action="setLanguage" data-action-arg="<?php echo $siteAccess?>"><?php echo $langArray[$siteAccess]?></a>
                         </div>
                     <?php endforeach;?>
                 </div>

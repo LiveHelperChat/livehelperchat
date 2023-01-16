@@ -170,7 +170,7 @@ $startDataDepartment = false;
 
 if (is_array($department) && !empty($department) && count($department) == 1) {
     $dep_id = $department[0];
-    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$') OR department_id = " . (int)$dep_id . ")" )));
+    $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$dep_id . "','$')) OR department_id = " . (int)$dep_id . ")" )));
     if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
         $startDataFields = $startDataDepartment->data_array;
     }
@@ -408,8 +408,8 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
     $outputResponse['nh']['html'] = '<div class="container-fluid overflow-auto fade-in p-3 pb-4 {dev_type}" >
 <div class="shadow rounded bg-white nh-background">
     <div class="p-2" id="start-chat-btn" style="cursor: pointer">
-        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
-          <span class="px-1" aria-hidden="true">&times;</span>
+        ' . ($nhCloseVisible === false ? '' : '<button type="button" id="close-need-help-btn" class="btn-close position-absolute" style="' . ($configInstance->getDirLanguage('dir_language') == 'ltr' ? 'right' : 'left') . ':30px;top:25px;" aria-label="Close">
+          
         </button>') . '
         <div class="d-flex">
           <div class="p-1"><img style="min-width: 50px;" alt="Customer service" class="img-fluid rounded-circle" src="{{need_help_image_url}}"/></div>
@@ -502,7 +502,7 @@ $ts = time();
 $outputResponse['wv'] = 208;
 
 // React APP versions
-$outputResponse['v'] = 269;
+$outputResponse['v'] = 271;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -576,7 +576,7 @@ $host = erLhcoreClassSystem::getHost();
 $outputResponse['static'] = array(
     'screenshot' =>  $host . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
-    'vendor' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js') . '?v=a2' : erLhcoreClassDesign::design('js/widgetv2/vendor.js') . '?v=a2'),
+    'vendor' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/vendor.ie.js') . '?v=a3' : erLhcoreClassDesign::design('js/widgetv2/vendor.js') . '?v=a3'),
     'widget_css' => $host . (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' ? erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.css;css/widgetv2/widget.css;css/widgetv2/widget_override.css') : erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.rtl.css;css/widgetv2/widget.css;css/widgetv2/widget_rtl.css;css/widgetv2/widget_override_rtl.css')),
     'dir' => erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language'),
     'cl' => erConfigClassLhConfig::getInstance()->getDirLanguage('content_language'),

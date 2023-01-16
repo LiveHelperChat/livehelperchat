@@ -28,7 +28,7 @@ try {
     }
 
     if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0) {
-        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$') OR department_id = " . (int)$inputData->departament_id . ")" )));
+        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$inputData->departament_id . "','$')) OR department_id = " . (int)$inputData->departament_id . ")" )));
         if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
             $startDataFields = $startDataDepartment->data_array;
         }

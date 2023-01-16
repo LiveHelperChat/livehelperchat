@@ -44,20 +44,20 @@ class FontSizeModal extends PureComponent {
                <React.Fragment>
                     <div role="dialog" id="dialog-content" aria-modal="true" className="fade modal show d-block p-1 pt-0 pb-0" tabIndex="-1" style={style}>
                         <div className="modal-content radius-0 border-0">
-                            <div className="modal-body pl-2 pr-2 pt-0 pb-0">
+                            <div className="modal-body ps-2 pe-2 pt-1 pb-1">
                                 <div className="mb-0">
                                     <div className="row">
-                                        <div className="col-5 mr-0 pr-1 text-center">
-                                            <a href="#" onClick={() => this.changeFont(false)} className="d-block font-weight-bold font-button">
+                                        <div className="col-5 me-0 pe-1 text-center">
+                                            <span onClick={() => this.changeFont(false)} className="d-block fw-bold action-image font-button">
                                                 -<i className="material-icons chat-setting-item">&#xf11d;</i>
-                                            </a>
+                                            </span>
                                         </div>
-                                        <div className="col-5 ml-0 pl-1 pr-1 text-center">
-                                            <a href="#" onClick={() => this.changeFont(true)} className="d-block font-weight-bold font-button">+<i className="material-icons chat-setting-item">&#xf11d;</i>
-                                            </a>
+                                        <div className="col-5 ms-0 ps-1 pe-1 text-center">
+                                            <span onClick={() => this.changeFont(true)} className="d-block fw-bold action-image font-button">+<i className="material-icons chat-setting-item">&#xf11d;</i>
+                                            </span>
                                         </div>
-                                        <div className="col-2 pl-1">
-                                            <button type="button" className="close w-100 text-success" data-dismiss="modal" onClick={this.dismissModal} aria-label="Close"><span aria-hidden="true">&#x2713;</span></button>
+                                        <div className="col-2 ps-1">
+                                            <button type="button" className="btn-close w-100 text-success" data-bs-dismiss="modal" onClick={this.dismissModal} aria-label="Close"></button>
                                         </div>
                                     </div>
                                 </div>

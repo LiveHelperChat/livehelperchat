@@ -138,17 +138,17 @@ class VoiceMessage extends PureComponent {
         return <div className="text-nowrap">
             <i className="material-icons pointer text-danger fs25" title={t('voice.cancel_voice_message')} onClick={() => this.props.cancel()}>&#xf10a;</i>
 
-            {!isRecording && <i className="material-icons fs25 pointer text-danger mr-0" title={t('voice.record_voice_message')} onClick={this.startRecording}>&#xf10f;</i>}
+            {!isRecording && <i className="material-icons fs25 pointer text-danger me-0" title={t('voice.record_voice_message')} onClick={this.startRecording}>&#xf10f;</i>}
 
-            {isRecording && <i className="material-icons fs25 pointer text-danger mr-0" title={t('voice.stop_recording')} onClick={this.stopRecording}>&#xf112;</i>}
+            {isRecording && <i className="material-icons fs25 pointer text-danger me-0" title={t('voice.stop_recording')} onClick={this.stopRecording}>&#xf112;</i>}
 
-            {recording && isPlaying === false && <i className="material-icons pointer text-success mr-0 fs25" title={t('voice.play_recorded')} onClick={this.playRecord}>&#xf111;</i>}
+            {recording && isPlaying === false && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.play_recorded')} onClick={this.playRecord}>&#xf111;</i>}
 
-            {recording && isPlaying === true && <i className="material-icons pointer text-success mr-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</i>}
+            {recording && isPlaying === true && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</i>}
 
             <span className="fs12 px-1">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
 
-            {recording && <i className="material-icons pointer text-success mr-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</i>}
+            {recording && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</i>}
 
         </div>;
     }
