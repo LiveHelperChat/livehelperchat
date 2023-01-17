@@ -1,4 +1,4 @@
-<?php if ($group_op === null && $only_online === null && $only_logged === null) : ?>
+<?php if ($group_op === null && $only_online === null && $only_logged === null && $only_offline === null) : ?>
 <?php
 $modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department operators');
@@ -11,6 +11,7 @@ $modalSize = 'xl';
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','We show only directly or group assigned operators.');?></p>
             <label class="mr-2"><input type="checkbox" id="id_group_user" name="group_user"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Group by operator');?></label>
             <label class="mr-2"><input type="checkbox" id="id_only_online" name="only_online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only online');?></label>
+            <label class="mr-2"><input type="checkbox" id="id_only_offline" name="only_offline"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only offline');?></label>
             <label><input type="checkbox" id="id_only_logged" name="only_logged"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only logged');?></label>
             <?php endif; ?>
             <table class="table table-sm table-hover" id="table-operators">
@@ -46,6 +47,10 @@ $modalSize = 'xl';
 
                 if ($only_logged === true) {
                     $paramsGroup['customfilter'][] = '(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')';
+                }
+
+                if ($only_offline === true) {
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 1 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
                 }
 
                 ?>
@@ -100,11 +105,12 @@ $modalSize = 'xl';
     </div>
 <script>
     $('.abbr-list-lang').tooltip();
-    $('#id_group_user,#id_only_online,#id_only_logged').change(function(){
+    $('#id_group_user,#id_only_online,#id_only_logged,#id_only_offline').change(function(){
         var groupItem = $('#id_group_user');
         var onlyOnline = $('#id_only_online');
         var onlyLogged = $('#id_only_logged');
-        $.get(WWW_DIR_JAVASCRIPT + 'department/edit/<?php echo $department->id?>/(action)/operators?group=' + groupItem.is(':checked') + '&only_online=' + onlyOnline.is(':checked') + '&only_logged=' + onlyLogged.is(':checked'), function(data){
+        var onlyOffline = $('#id_only_offline');
+        $.get(WWW_DIR_JAVASCRIPT + 'department/edit/<?php echo $department->id?>/(action)/operators?group=' + groupItem.is(':checked') + '&only_online=' + onlyOnline.is(':checked') + '&only_logged=' + onlyLogged.is(':checked') + '&only_offline=' + onlyOffline.is(':checked'), function(data){
             $('#table-operators').replaceWith(data);
         });
     });
