@@ -1,15 +1,19 @@
+<?php if ($group_op === null && $only_online === null && $only_logged === null) : ?>
 <?php
 $modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department operators');
 $modalBodyClass = 'p-1';
 $modalSize = 'xl';
 ?>
-
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
     <div class="modal-body" ng-non-bindable>
         <div class="p-2">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','We show only directly or group assigned operators.');?></p>
-            <table class="table table-sm table-hover">
+            <label><input type="checkbox" id="id_group_user" name="group_user"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Group by operator');?></label>
+            <label><input type="checkbox" id="id_only_online" name="only_online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only online');?></label>
+            <label><input type="checkbox" id="id_only_logged" name="only_logged"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only logged');?></label>
+            <?php endif; ?>
+            <table class="table table-sm table-hover" id="table-operators">
                 <thead>
                 <tr>
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','User ID');?></th>
@@ -27,7 +31,26 @@ $modalSize = 'xl';
                     </th>
                 </tr>
                 </thead>
-            <?php foreach (erLhcoreClassModelUserDep::getList(['sort' => 'user_id ASC, type ASC','filter' => ['dep_id' => $department->id], 'limit' => false]) as $member) : ?>
+
+                <?php
+
+                $paramsGroup = ['sort' => 'user_id ASC, type ASC','filter' => ['dep_id' => $department->id], 'limit' => false];
+
+                if ($group_op === true) {
+                    $paramsGroup['group'] = 'user_id';
+                }
+
+                if ($only_online === true) {
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
+                }
+
+                if ($only_logged === true) {
+                    $paramsGroup['customfilter'][] = '(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')';
+                }
+
+                ?>
+
+            <?php foreach (erLhcoreClassModelUserDep::getList($paramsGroup) as $member) : ?>
                 <tr>
                     <td id="<?php echo $member->user_id?>">
                         <a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $member->user_id?>" target="_blank"><span class="material-icons">open_in_new</span><?php echo htmlspecialchars($member->name_official)?></a>
@@ -72,10 +95,19 @@ $modalSize = 'xl';
                 </tr>
             <?php endforeach; ?>
             </table>
-
+            <?php if ($group_op === null && $only_online === null && $only_logged === null) : ?>
         </div>
     </div>
 <script>
     $('.abbr-list-lang').tooltip();
+    $('#id_group_user,#id_only_online,#id_only_logged').change(function(){
+        var groupItem = $('#id_group_user');
+        var onlyOnline = $('#id_only_online');
+        var onlyLogged = $('#id_only_logged');
+        $.get(WWW_DIR_JAVASCRIPT + 'department/edit/<?php echo $department->id?>/(action)/operators?group=' + groupItem.is(':checked') + '&only_online=' + onlyOnline.is(':checked') + '&only_logged=' + onlyLogged.is(':checked'), function(data){
+            $('#table-operators').replaceWith(data);
+        });
+    });
 </script>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+<?php endif; ?>
