@@ -92,7 +92,7 @@ var revealM = {
                     $('#myModal').on('hide.bs.modal',params['hidecallback']);
                 }
                 
-				$('#myModal').html('<div class="modal-dialog modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>');
+				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>');
                 const myModal = new bootstrap.Modal('#myModal', mparams).show();
 
 				revealM.setCenteredDraggable();
