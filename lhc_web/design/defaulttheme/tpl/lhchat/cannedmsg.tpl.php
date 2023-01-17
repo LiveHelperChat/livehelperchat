@@ -6,9 +6,7 @@
 
 <?php if (isset($messsages_copied) || isset($messsages_skipped)) : ?>
     <div role="alert" class="alert alert-success alert-dismissible fade show" ng-non-bindable>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         <ul class="my-0 pl-3">
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Copied');?> - <?php echo $messsages_copied?></li>
             <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Skipped');?> - <?php echo $messsages_skipped?></li>
