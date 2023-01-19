@@ -1297,11 +1297,11 @@ class erLhcoreClassChatWebhookIncoming {
             $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest($url, $headers);
 
             // File name
-            $partsFilename = explode('/',$url);
+            $partsFilename = explode('/',strtok($url, '?'));
             $upload_name = (isset($overrideAttributes['upload_name']) && $overrideAttributes['upload_name'] != '') ? $overrideAttributes['upload_name'] : array_pop($partsFilename);
 
             // File extension
-            $partsExtension = explode('.',$url);
+            $partsExtension = explode('.',strtok($url, '?'));
             $file_extension = array_pop($partsExtension);
 
         } else {
