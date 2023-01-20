@@ -105,6 +105,7 @@
             <option value="cronjob_exception">cronjob_exception</option>
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
+            <option value="slow_request">slow_request</option>
             <option value="web_exception">Internal web error has accoured</option>
             <option value="bot">bot - bot related logged actions</option>
             <option value="update_active_chats">update_active_chats</option>

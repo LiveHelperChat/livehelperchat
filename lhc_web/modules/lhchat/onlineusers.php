@@ -2,6 +2,8 @@
 
 session_write_close();
 
+$startTimeRequest = microtime();
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['user_parameters_unordered']['clear_list'] == 1) {
@@ -207,6 +209,9 @@ if ($is_ajax == true) {
         header('content-type: application/json; charset=utf-8');
         echo json_encode(array_values($items));
     }
+
+    erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['action' => 'onlineusers']);
+
 	exit;
 }
 
