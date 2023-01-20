@@ -145,3 +145,10 @@
     </div>
 </div>
 </form>
+<script>
+    $(function() {
+        $('#id_timefrom,#id_timeto').fdatepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+</script>
