@@ -411,15 +411,19 @@ class erLhcoreClassGenericBotActionRestapi
 
             foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies'] as $quickReplyButton) {
                 if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
-                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
-                        json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
-                        json_encode($quickReplyButton['content']['name'])
-                    ],$matchCycles[1][0]);
+                    if (isset($matchCycles[1][0])) {
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
+                            json_encode($quickReplyButton['content']['name'])
+                        ],$matchCycles[1][0]);
+                    }
                 } elseif ($quickReplyButton['type'] == 'url') {
-                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
-                        json_encode($quickReplyButton['content']['payload']),
-                        json_encode($quickReplyButton['content']['name'])
-                    ],$matchCycles[1][0]);
+                    if (isset($matchCycles[1][0])) {
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                            json_encode($quickReplyButton['content']['payload']),
+                            json_encode($quickReplyButton['content']['name'])
+                        ],$matchCycles[1][0]);
+                    }
                 }
             }
 
@@ -444,15 +448,19 @@ class erLhcoreClassGenericBotActionRestapi
 
             foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['buttons_generic'] as $quickReplyButton) {
                 if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
-                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
-                        json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
-                        json_encode($quickReplyButton['content']['name'])
-                    ],$matchCycles[1][0]);
+                    if (isset($matchCycles[1][0])) {
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                            json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
+                            json_encode($quickReplyButton['content']['name'])
+                        ],$matchCycles[1][0]);
+                    }
                 } elseif ($quickReplyButton['type'] == 'url') {
-                    $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
-                        json_encode($quickReplyButton['content']['payload']),
-                        json_encode($quickReplyButton['content']['name'])
-                    ],$matchCycles[1][0]);
+                    if (isset($matchCycles[1][0])) {
+                        $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
+                            json_encode($quickReplyButton['content']['payload']),
+                            json_encode($quickReplyButton['content']['name'])
+                        ],$matchCycles[1][0]);
+                    }
                 }
             }
 

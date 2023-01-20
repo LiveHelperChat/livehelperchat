@@ -1,5 +1,92 @@
-<form action="" method="get" ng-non-bindable>
+<form action="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit" method="get" ng-non-bindable>
 <div class="row">
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input_form->timefrom)?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?> <small>[<?php echo date('H:i:s')?>]</small></label>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="timefrom_hours" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
+                        <?php for ($i = 0; $i <= 23; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timefrom_hours) && $input_form->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timefrom_minutes" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timefrom_minutes) && $input_form->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timefrom_seconds" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timefrom_seconds) && $input_form->timefrom_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input_form->timeto)?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?> <small>[<?php echo date('H:i:s')?>]</small></label>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="timeto_hours" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
+                        <?php for ($i = 0; $i <= 23; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timeto_hours) && $input_form->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timeto_minutes" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timeto_minutes) && $input_form->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timeto_seconds" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input_form->timeto_seconds) && $input_form->timeto_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-2">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Object ID');?></label>
@@ -18,6 +105,7 @@
             <option value="cronjob_exception">cronjob_exception</option>
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
+            <option value="web_exception">Internal web error has accoured</option>
             <option value="bot">bot - bot related logged actions</option>
             <option value="update_active_chats">update_active_chats</option>
             <option value="files">files - failed visitors files upload</option>
@@ -47,6 +135,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/source_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>
+
+
 
     <div class="col-md-12">
         <div class="form-group">

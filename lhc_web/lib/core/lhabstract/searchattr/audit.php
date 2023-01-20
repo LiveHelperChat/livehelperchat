@@ -38,6 +38,34 @@ $fieldsSearch['object_id'] = array (
     )
 );
 
+$fieldsSearch['timefrom'] = array (
+    'type' => 'text',
+    'trans' => 'Timefrom',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'datetime',
+    'datetype_sub' => 'mysql_ts',
+    'filter_type' => 'filtergte',
+    'filter_table_field' => 'time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['timeto'] = array (
+    'type' => 'text',
+    'trans' => 'Timeto',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'datetime',
+    'datetype_sub' => 'mysql_ts',
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'time',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => false,
     'default'    => false,
