@@ -2,6 +2,8 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+session_write_close();
+
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 $totalRecords = 0;
 $content = '';

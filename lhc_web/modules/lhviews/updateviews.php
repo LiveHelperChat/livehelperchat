@@ -2,6 +2,8 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+session_write_close();
+
 $q = ezcDbInstance::get()->createUpdateQuery();
 $q->update( 'lh_abstract_saved_search' )
       ->set( 'requested_at', time() )
