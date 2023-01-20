@@ -195,7 +195,7 @@ class erLhcoreClassModule{
         $end = explode(' ', $end_time);
         $time = $end[0] + $end[1] - $start[0] - $start[1];
 
-        if ($time > 1) {
+        if ($time > 2) {
 
             $message['post'] = $_POST;
             $message['get'] = $_GET;
