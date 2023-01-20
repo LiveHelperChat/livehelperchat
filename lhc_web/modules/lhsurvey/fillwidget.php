@@ -48,6 +48,11 @@ try {
     if ($chat->hash == $hash)
     {
         $survey = erLhAbstractModelSurvey::fetch($Params['user_parameters_unordered']['survey']);
+        
+        if (!($survey instanceof erLhAbstractModelSurvey)) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Provided survey does not exists!'));
+        }
+        
         $survey->translate();
 
         if ($survey instanceof erLhAbstractModelSurvey) {
