@@ -230,7 +230,13 @@ class erLhcoreClassSearchHandler
                                     $seconds = 0;
                                 }
 
-                                $filter[$filterType][$field['filter_table_field']] = $dateFormated + $hours + $minutes + $seconds;
+                                $valueFilter = $dateFormated + $hours + $minutes + $seconds;
+
+                                if (isset($field['datetype_sub']) && $field['datetype_sub'] == 'mysql_ts') {
+                                    $valueFilter = date('\'Y-m-d H:i:s\'',$valueFilter);
+                                }
+
+                                $filter[$filterType][$field['filter_table_field']] = $valueFilter;
                             }
                             
                         } else {
@@ -335,7 +341,13 @@ class erLhcoreClassSearchHandler
                                         $seconds = 0;
                                     }
 
-                                    $filter[$filterType][$field['filter_table_field']] = $dateFormated + $hours + $minutes + $seconds;
+                                    $valueFilter = $dateFormated + $hours + $minutes + $seconds;
+
+                                    if (isset($field['datetype_sub']) && $field['datetype_sub'] == 'mysql_ts') {
+                                        $valueFilter = date('\'Y-m-d H:i:s\'',$valueFilter);
+                                    }
+
+                                    $filter[$filterType][$field['filter_table_field']] = $valueFilter;
                                 }
                             } else {
                                 $filter[$filterType][$field['filter_table_field']] = $inputParams->$key;

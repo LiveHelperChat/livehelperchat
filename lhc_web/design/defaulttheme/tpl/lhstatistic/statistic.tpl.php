@@ -1,7 +1,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_titles/statistic.tpl.php'));?>
 
 <div class="row">
-    <div translate="no" class="col-2 border-right pr-0 pl-0">
+    <div translate="no" class="col-2 border-right pe-0 ps-0">
         <div class="w-100 d-flex flex-column flex-grow-1">
             <table class="table table-sm mb-0 table-small" ng-non-bindable>
                 <thead>
@@ -17,11 +17,11 @@
                 <?php foreach (\LiveHelperChat\Models\Statistic\SavedReport::getList(['limit' => false, 'filter' => ['user_id' =>  erLhcoreClassUser::instance()->getUserID()]]) as $report) : ?>
                     <tr>
                         <td>
-                            <a <?php if (isset($input->report) && $input->report == $report->id) : ?>class="font-weight-bold"<?php endif; ?> href="<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $report->id?>" title="<?php echo htmlspecialchars($report->description)?>"><?php echo htmlspecialchars($report->name)?></a>
+                            <a <?php if (isset($input->report) && $input->report == $report->id) : ?>class="fw-bold"<?php endif; ?> href="<?php echo erLhcoreClassDesign::baseurl('statistic/loadreport')?>/<?php echo $report->id?>" title="<?php echo htmlspecialchars($report->description)?>"><?php echo htmlspecialchars($report->name)?></a>
                         </td>
                         <td>
                             <div class="btn-group">
-                                <i class="material-icons settings text-muted fs14" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
+                                <i class="material-icons settings text-muted fs14" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">menu</i>
                                 <div class="dropdown-menu py-0 fs13">
                                     <a class="dropdown-item text-muted px-2 csfr-required csfr-post" href="<?php echo erLhcoreClassDesign::baseurl('statistic/copyreport')?>/<?php echo $report->id?>"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Make a copy');?></a>
                                     <a class="dropdown-item text-muted px-2 csfr-required csfr-post" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('statistic/deletereport')?>/<?php echo $report->id?>"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete');?></a>

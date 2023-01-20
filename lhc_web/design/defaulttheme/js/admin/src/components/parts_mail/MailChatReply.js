@@ -175,8 +175,6 @@ const MailChatReply = props => {
 
     const { t, i18n } = useTranslation('mail_chat');
 
-    console.log(props.message.body_front);
-
     return <React.Fragment>
         <div className="col-12 mt-2 pt-3 pb-2">
 
@@ -222,11 +220,11 @@ const MailChatReply = props => {
                     }}
                 />
 
-                {replyMode && <div className="float-right">
+                {replyMode && <div className="float-end">
                     <a className="action-image" onClick={() => {setReplyMode(false); props.cancelReply()}}><i className="material-icons">delete</i></a>
                 </div>}
 
-                {forwardMode && <div className="float-right">
+                {forwardMode && <div className="float-end">
                     <a className="action-image" onClick={() => {setForwardMode(false); props.cancelForward()}}><i className="material-icons">delete</i></a>
                 </div>}
 
@@ -242,7 +240,7 @@ const MailChatReply = props => {
 
                 {attachedFiles && attachedFiles.length > 0 &&
                 <div className="pt-2">{attachedFiles.map((file, index) => (
-                    <button title={t('msg.click_to_remove')} onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info mr-1 mb-1" title={file.id}>{file.name}</button>
+                    <button title={t('msg.click_to_remove')} onClick={() => removeAttatchedFile(file, index)} className="btn btn-sm btn-outline-info me-1 mb-1" title={file.id}>{file.name}</button>
                 ))}</div>}
 
             </div>}

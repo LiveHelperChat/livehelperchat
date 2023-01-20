@@ -50,7 +50,7 @@ $appendPrintExportURL = '';
                     <button type="submit" name="AssignAction" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Assign from selected list')?></button>
                     <button type="submit" name="UnassignedAction" onclick="$('#id_export_action').val('unassign')" class="btn btn-warning btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Un-assign from selected list')?></button>
                 <?php endif; ?>
-                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
             </div>
         </div>
     </form>

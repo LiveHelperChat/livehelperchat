@@ -21,6 +21,9 @@ if ($lastOperatorId !== false && ($lastOperatorId != $msg['user_id'] || $msg['na
 $lastOperatorId = $msg['user_id'];
 $lastOperatorNick = $msg['name_support'];
 
+if ($msg['meta_msg'] == '') {
+    $msg['meta_msg'] = '{}';
+}
 
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>

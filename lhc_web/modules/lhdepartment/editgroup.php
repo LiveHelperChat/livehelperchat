@@ -25,6 +25,9 @@ if ($Params['user_parameters_unordered']['action'] == 'operators') {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhdepartment/operators_group.tpl.php');
     $tpl->set('department_group', $Departament_group);
     $tpl->set('group_op', isset($_GET['group']) && $_GET['group'] === 'true' ? true : (isset($_GET['group']) ? false : null));
+    $tpl->set('only_online', isset($_GET['only_online']) && $_GET['only_online'] === 'true' ? true : (isset($_GET['only_online']) ? false : null));
+    $tpl->set('only_logged', isset($_GET['only_logged']) && $_GET['only_logged'] === 'true' ? true : (isset($_GET['only_logged']) ? false : null));
+    $tpl->set('only_offline', isset($_GET['only_offline']) && $_GET['only_offline'] === 'true' ? true : (isset($_GET['only_offline']) ? false : null));
     echo $tpl->fetch();
     exit;
 }

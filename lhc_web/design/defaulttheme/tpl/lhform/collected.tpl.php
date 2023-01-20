@@ -5,7 +5,7 @@
 	<div class="col-6">
 	
 	<div class="input-group">
-        <div class="input-group-prepend"><span class="input-group-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></span></div>
+       <span class="input-group-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></span>
       <input type="text" class="form-control" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('form/fill')?>/<?php echo $form->id?>">
     </div>
     

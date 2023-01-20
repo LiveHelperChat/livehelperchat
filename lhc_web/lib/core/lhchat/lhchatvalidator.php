@@ -1520,7 +1520,7 @@ class erLhcoreClassChatValidator {
         /**
          * Admin custom fields
          * */
-        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("(JSON_CONTAINS(`dep_ids`,'" . (int)$chat->dep_id . "','$') OR department_id = " . (int)$chat->dep_id . ")" )));
+        $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$chat->dep_id . "','$')) OR department_id = " . (int)$chat->dep_id . ")" )));
         
         if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
             $start_data_fields = $startDataDepartment->data_array;

@@ -9,13 +9,13 @@
     <div role="tabpanel">
     	<!-- Nav tabs -->
     	<ul class="nav nav-tabs mb-2" role="tablist">
-    		<li role="presentation" class="nav-item" ><a class="<?php if (!isset($tab) || empty($tab)) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
+    		<li role="presentation" class="nav-item" ><a class="<?php if (!isset($tab) || empty($tab)) :?>active<?php endif;?> nav-link" href="#panel1" aria-controls="panel1" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor')?></a></li>
 
             <?php if ($online_user->id > 0) : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/footprint_tab_tab_pre.tpl.php')); ?>
 
                 <?php if ($chat_chat_tabs_footprint_tab_tab_enabled == true && erLhcoreClassModelChatConfig::fetch('track_footprint')->current_value == 1) : ?>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#panel2" aria-controls="panel2" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Footprint')?></a></li>
                 <?php endif;?>
     		<?php endif;?>
 
@@ -34,7 +34,7 @@
             <?php endif; ?>
 
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="#chatdebug" aria-controls="chatdebug" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Debug');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#chatdebug" aria-controls="chatdebug" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Debug');?></a></li>
             <?php endif; ?>
 
     	</ul>

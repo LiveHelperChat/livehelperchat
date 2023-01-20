@@ -102,11 +102,16 @@ class erLhcoreClassModule{
             	}
 
                 $fileLocation = self::getModuleFile();
-                if (file_exists($fileLocation)){
+                if (file_exists($fileLocation)) {
+                    $startTime = microtime();
+
                     $includeStatus = include($fileLocation);
+
+                    self::logSlowRequest($startTime, microtime(),(isset($currentUser) && $currentUser->isLogged() ? $currentUser->getUserID() : 0));
                 } else {
                     $includeStatus = false;
                 }
+
 
             	            	
             	// Inclusion failed
@@ -180,6 +185,27 @@ class erLhcoreClassModule{
         }
     }
 
+    public static function logSlowRequest( $start_time, $end_time, $object_id, $message = [])
+    {
+        if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'log_slow_request', false ) !== true) {
+            return;
+        }
+        
+        $start = explode(' ', $start_time);
+        $end = explode(' ', $end_time);
+        $time = $end[0] + $end[1] - $start[0] - $start[1];
+
+        if ($time > 2) {
+
+            $message['post'] = $_POST;
+            $message['get'] = $_GET;
+            $message['payload'] = file_get_contents('php://input');
+            $message['taken_Time'] = $time;
+
+            self::logException(new Exception(json_encode($message, JSON_PRETTY_PRINT)), 'slow_request', $object_id);
+        }
+    }
+
     public static function reRun($url) {
               
         $sysConfiguration = erLhcoreClassSystem::instance()->RequestURI = $url;
@@ -217,14 +243,16 @@ class erLhcoreClassModule{
         self::logException($e);
     }
 
-    public static function logException($e) {
+    public static function logException($e, $category = 'web_exception', $object_id = 0) {
         // Try to store to DB directly error
         try {
             $cfg = erConfigClassLhConfig::getInstance();
             $conn = new PDO("mysql:host=".$cfg->getSetting( 'db', 'host' ).";dbname=".$cfg->getSetting( 'db', 'database' ), $cfg->getSetting( 'db', 'user' ), $cfg->getSetting( 'db', 'password' ));
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES ('web_exception','lhc',:line,:file,0,:message,:severity,:time)");
+            $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES (:category, 'lhc',:line,:file, :object_id, :message,:severity,:time)");
+            $stmt->bindValue(':category', $category);
+            $stmt->bindValue(':object_id', $object_id);
             $stmt->bindValue(':line',__LINE__);
             $stmt->bindValue(':file',__FILE__);
             $stmt->bindValue(':severity',ezcLog::SUCCESS_AUDIT);

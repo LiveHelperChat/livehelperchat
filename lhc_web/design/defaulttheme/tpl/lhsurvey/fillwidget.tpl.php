@@ -20,7 +20,7 @@
                 <?php endif;?>
                 </div>
                 <div class="col-1"></div>
-                <div class="col-5 text-right">
+                <div class="col-5 text-end">
                     <?php if ((int)erLhcoreClassModelChatConfig::fetch('disable_txt_dwnld')->current_value == 0 && !(isset($survey->configuration_array['disable_chat_download']) && $survey->configuration_array['disable_chat_download'] == true)) : ?>
                         <a href="<?php echo erLhcoreClassDesign::baseurl('chat/downloadtxt')?>/<?php echo $chat->id,"/",$chat->hash?>" class="btn text-muted btn-link btn-sm" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/chatpreview/<?php echo $chat->id?>/<?php echo $chat->hash?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Download as txt')?>"><i class="material-icons">cloud_download</i></a>
                     <?php endif; ?>
@@ -37,7 +37,7 @@
              * Because user filled a survey we have to redirect it back to chat
              * */
             if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT && in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_SURVEY_COLLECTED))) : ?>
-                 <input type="button" class="btn btn-sm btn-success mb-1 float-right" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Back to chat')?>" onclick="return lhinst.continueChatFromSurvey('<?php echo $survey->id?>');" />
+                 <input type="button" class="btn btn-sm btn-success mb-1 float-end" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Back to chat')?>" onclick="return lhinst.continueChatFromSurvey('<?php echo $survey->id?>');" />
             <?php endif;?>
             
         </form>

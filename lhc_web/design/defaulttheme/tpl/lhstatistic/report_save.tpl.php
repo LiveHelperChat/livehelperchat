@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save report');
 $modalSize = 'xl';
 $modalBodyClass = 'p-1';
@@ -42,14 +42,14 @@ $appendPrintExportURL = '';
                             </div>
                             <div class="col-12" id="report-presets">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date filter templates')?></h6>
-                                <span data-data_type="ndays" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Day')?></span>
-                                <span data-data_type="lweek" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Week')?></span>
-                                <span data-data_type="lmonth" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Month')?></span>
-                                <span data-data_type="ndays" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Day')?></span>
-                                <span data-data_type="lweek" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Week')?></span>
-                                <span data-data_type="lmonth" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="badge-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current month')?></span>
+                                <span data-data_type="ndays" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Day')?></span>
+                                <span data-data_type="lweek" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Week')?></span>
+                                <span data-data_type="lmonth" data-days="1" data-days_end="1" data-hour="23" data-minute="59" data-seconds="59" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Previous Month')?></span>
+                                <span data-data_type="ndays" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Day')?></span>
+                                <span data-data_type="lweek" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current Week')?></span>
+                                <span data-data_type="lmonth" data-days="0" data-days_end="0" data-hour="" data-minute="" data-seconds="" class="bg-secondary badge action-image"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Current month')?></span>
                                 <br/>
-                                <button onclick="$('.advanced-date-filter').toggle()" class="btn btn-sm btn-link pl-0" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show advanced')?></button>
+                                <button onclick="$('.advanced-date-filter').toggle()" class="btn btn-sm btn-link ps-0" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Show advanced')?></button>
                             </div>
 
                             <div class="col-4 advanced-date-filter" style="display: none">
@@ -173,7 +173,7 @@ $appendPrintExportURL = '';
                                     updateDateRange();
                                 })();
                             </script>
-                            <div class="col-12 font-weight-bold" id="report-sample-date-range">
+                            <div class="col-12 fw-bold" id="report-sample-date-range">
 
                             </div>
                             <div class="col-12">
@@ -192,13 +192,13 @@ $appendPrintExportURL = '';
                         <div role="tabepanel">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" data-toggle="tab" href="#daily"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Daily report')?></a>
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#daily"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Daily report')?></a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-toggle="tab" href="#weekly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Weekly report')?></a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#weekly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Weekly report')?></a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" data-toggle="tab" href="#monthly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monthly report')?></a>
+                                    <a class="nav-link" data-bs-toggle="tab" href="#monthly"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Monthly report')?></a>
                                 </li>
                             </ul>
                             <div class="tab-content pt-2" id="myTabContent">
@@ -326,14 +326,14 @@ $appendPrintExportURL = '';
         <?php endif; ?>
 
         <div class="modal-footer">
-            <div class="btn-group mr-2">
+            <div class="btn-group me-2">
                 <?php if (!(isset($updated) && $updated == true)) : ?>
                     <button type="submit" name="savePresent" onclick="$('#id_save_action').val('update')" class="btn btn-primary btn-sm"><span class="material-icons">save</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save')?></button>
                     <?php if ($item->id > 0) : ?>
                         <button type="submit" onclick="$('#id_save_action').val('new')" name="saveNew" class="btn btn-secondary btn-sm"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Save as new')?></button>
                     <?php endif; ?>
                 <?php endif; ?>
-                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><span class="material-icons">close</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><span class="material-icons">close</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
             </div>
         </div>
 

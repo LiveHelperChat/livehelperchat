@@ -384,14 +384,14 @@ const MailChat = props => {
                             <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} updateMessages={(e) => loadMainData()}/>
                         ))}
 
-                        {state.fetching_messages && <div className="alert alert-success p-1 pl-2" role="alert">{t('mail.send_fetching')}</div>}
+                        {state.fetching_messages && <div className="alert alert-success p-1 ps-2" role="alert">{t('mail.send_fetching')}</div>}
                     </div>
                 </div>
                 <div className={"chat-main-right-column " + (props.mode == 'preview' ? 'd-none' : 'col-5')}>
                     <div role="tabpanel">
                         <ul className="nav nav-pills" role="tablist" ref={tabsContainer}>
-                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#mail-chat-info-"+props.chatId} aria-controls={"#mail-chat-info-"+props.chatId} title={t('mail.information')} role="tab" data-toggle="tab"><i className="material-icons mr-0">info_outline</i></a></li>
-                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-remarks-"+props.chatId} aria-controls={"#mail-chat-remarks-"+props.chatId} role="tab" data-toggle="tab" title={t('mail.remarks')}><i className="material-icons mr-0">mode_edit</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link active" href={"#mail-chat-info-"+props.chatId} aria-controls={"#mail-chat-info-"+props.chatId} title={t('mail.information')} role="tab" data-bs-toggle="tab"><i className="material-icons me-0">info_outline</i></a></li>
+                            <li role="presentation" className="nav-item"><a className="nav-link" href={"#mail-chat-remarks-"+props.chatId} aria-controls={"#mail-chat-remarks-"+props.chatId} role="tab" data-bs-toggle="tab" title={t('mail.remarks')}><i className="material-icons me-0">mode_edit</i></a></li>
                         </ul>
                         <div className="tab-content">
                             <div role="tabpanel" className="tab-pane" id={"mail-chat-remarks-"+props.chatId}>
@@ -416,6 +416,7 @@ const MailChat = props => {
                                 <div id={"mail-external-details-"+props.chatId}></div>
 
                                 {state.conv && <table className="table table-sm">
+                                    <tbody>
                                     <tr>
                                         <td colSpan="2">
 
@@ -433,7 +434,7 @@ const MailChat = props => {
                                                     <a className="text-dark" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprintcovnersation/" + props.chatId} ><i className="material-icons">print</i>{t('mail.print')}</a>
                                                 </div>
                                                 {state.moptions.can_write && state.conv.can_delete && <div className="col-6">
-                                                    <span className="action-image mr-0" onClick={(e) => deleteConversation()}><i className="material-icons">delete</i>{t('mail.delete')}</span>
+                                                    <span className="action-image me-0" onClick={(e) => deleteConversation()}><i className="material-icons">delete</i>{t('mail.delete')}</span>
                                                 </div>}
                                            </div>
                                         </td>
@@ -451,22 +452,20 @@ const MailChat = props => {
 
                                             {!state.conv.status && <span><i className="material-icons chat-pending">mail_outline</i>{t('status.pending')}</span>}
 
-                                            {(!state.conv.status || state.conv.status == 1) && state.conv.opened_at && <span><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
+                                            {(!state.conv.status || state.conv.status == 1) && state.conv.opened_at && <span><span className="ms-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
 
                                             {(state.conv.status == 2 || state.conv.status == 1) && <div className="input-group input-group-sm">
-                                                <div className="input-group-prepend">
-                                                    <span className="input-group-text">
-                                                        {!state.conv.status && <i className="material-icons chat-pending mr-0">mail_outline</i>}
-                                                        {state.conv.status == 1 && <i className="material-icons chat-active mr-0">mail_outline</i>}
-                                                        {state.conv.status == 2 && <i className="material-icons chat-closed mr-0">mail_outline</i>}
-                                                    </span>
-                                                </div>
+                                                <span className="input-group-text">
+                                                    {!state.conv.status && <i className="material-icons chat-pending me-0">mail_outline</i>}
+                                                    {state.conv.status == 1 && <i className="material-icons chat-active me-0">mail_outline</i>}
+                                                    {state.conv.status == 2 && <i className="material-icons chat-closed me-0">mail_outline</i>}
+                                                </span>
                                                 <select className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
                                                     <option value="">{t('status.pending')}</option>
                                                     <option value="1">{t('status.active')}</option>
                                                     {state.conv.status == 2 && <option value="2">{t('status.closed')}</option>}
                                                 </select>
-                                                {state.conv.opened_at && <div className="input-group-append"><span className="input-group-text"><span className="ml-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span></div>}
+                                                {state.conv.opened_at && <div className="input-group-append"><span className="input-group-text"><span className="ms-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span></div>}
                                             </div>}
 
 
@@ -492,7 +491,7 @@ const MailChat = props => {
                                         <td>ID</td>
                                         <td>
                                             <button data-success={t('mail.copied')}
-                                                    className="btn pl-0 btn-xs btn-link py-0"
+                                                    className="btn ps-0 btn-xs btn-link py-0"
                                                     data-copy={window.location.origin + WWW_DIR_JAVASCRIPT + "front/default/(mid)/" + state.conv.id + "/#!#chat-id-mc"+state.conv.id}
                                                     onClick={(e) => {lhinst.copyContent($(e.target))}} type="button"><i className="material-icons">link</i>{t('mail.copy_link')}
                                             </button>
@@ -528,6 +527,7 @@ const MailChat = props => {
                                         <td title={state.conv.user_id}>{t('mail.chat_owner')}</td>
                                         <td>{state.conv.plain_user_name}</td>
                                     </tr>
+                                    </tbody>
                                 </table>}
 
                                 <div id={"mail-external-below-"+props.chatId}></div>

@@ -36,7 +36,7 @@
 
 if ($msg['user_id'] == -1) : ?>
 <div class="message-row system-response" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
-    <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date text-white pl-2 font-weight-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
+    <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date text-white ps-2 fw-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
 
         <?php if ($msg['msg'] != '') : ?>
             <div class="text-muted"><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
@@ -50,7 +50,7 @@ if ($msg['user_id'] == -1) : ?>
 <?php else : ?>
 <div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ' message-admin'.($lastOperatorChanged == true ? ' operator-changes' : '') ?><?php echo $otherOperator == true ? ' other-operator' : ''?><?php if (isset($metaMessageData['content']['whisper'])) : ?> whisper-msg<?php endif;?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>" id="msg-<?php echo $msg['id']?>">
     <span class="usr-tit <?php echo $msg['user_id'] == 0 ? ' vis-tit' : ' op-tit'?>">
-        <?php echo $msg['user_id'] == 0 ? '<i class="material-icons chat-operators mi-fs15 mr-0 pb-1">'.($chat->device_type == 0 ? '&#xE30A;' : ($chat->device_type == 1 ? '&#xE32C;' : '&#xE32F;')).'</i> '.htmlspecialchars(isset($lhcNickAlias) ? $lhcNickAlias : $chat->nick) : '<i class="material-icons chat-operators mi-fs15 mr-0 pb-1">&#xE851;</i>'.htmlspecialchars($msg['name_support']) ?>
+        <?php echo $msg['user_id'] == 0 ? '<i class="material-icons chat-operators mi-fs15 me-0 pb-1">'.($chat->device_type == 0 ? '&#xE30A;' : ($chat->device_type == 1 ? '&#xE32C;' : '&#xE32F;')).'</i> '.htmlspecialchars(isset($lhcNickAlias) ? $lhcNickAlias : $chat->nick) : '<i class="material-icons chat-operators mi-fs15 me-0 pb-1">&#xE851;</i>'.htmlspecialchars($msg['name_support']) ?>
     </span>
     <?php if ($msg['user_id'] != 0) : ?><span class="msg-date msg-date-op"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>
     <?php if ($msg['user_id'] == 0) : ?><span class="msg-date msg-date-vi"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>

@@ -3,7 +3,7 @@
 <div class="modal-dialog modal-<?php isset($modalSize) ? print $modalSize : print 'lg'?> modal-confirm-leave mx-4">
     <div class="modal-content">
     <div class="modal-header<?php (isset($modalHeaderClass)) ? print ' '.$modalHeaderClass : ''?>">
-        <?php if (!isset($hideModalClose)) : ?><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php endif;?>
+        <?php if (!isset($hideModalClose)) : ?><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php endif;?>
         <h4 class="modal-title" id="myModalLabel"><?php isset($modalHeaderTitle) ? print $modalHeaderTitle : ''?></h4>
     </div>
 

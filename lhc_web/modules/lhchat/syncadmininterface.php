@@ -15,6 +15,8 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_online_operators')->current_v
 	$canListOnlineUsersAll = $currentUser->hasAccessTo('lhuser','userlistonlineall');
 }
 
+$startTimeRequest = microtime();
+
 // Update last visit
 $currentUser->updateLastVisit((int)$Params['user_parameters_unordered']['lda']);
 
@@ -955,6 +957,8 @@ if (!empty($mainSyncAttributes)) {
 }
 
 echo erLhcoreClassChat::safe_json_encode($responseSync);
+
+erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['action' => 'syncadmininterface']);
 
 exit;
 ?>

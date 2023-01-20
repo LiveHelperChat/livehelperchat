@@ -2,6 +2,8 @@
 
 session_write_close();
 
+$startTimeRequest = microtime();
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/onlineusers.tpl.php');
 
 if (is_numeric($Params['user_parameters_unordered']['clear_list']) && $Params['user_parameters_unordered']['clear_list'] == 1) {
@@ -123,7 +125,7 @@ if ($is_ajax == true) {
             $values = explode('||',$onlineAttributeFilter['oattrf_val_' . $i]);
             $valuesFilter = [];
             foreach ($values as $val) {
-                $valuesFilter[] = '( JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['oattrf_key_' . $i]).' ) )';
+                $valuesFilter[] = '(`lh_chat_online_user`.`online_attr_system` != \'\' AND JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$val.'"') . ', '.$db->quote('$.'.$onlineAttributeFilter['oattrf_key_' . $i]).' ) )';
             }
             $filter['customfilter'][] = '('.implode(' OR ',$valuesFilter).')';
         }
@@ -207,6 +209,9 @@ if ($is_ajax == true) {
         header('content-type: application/json; charset=utf-8');
         echo json_encode(array_values($items));
     }
+
+    erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['action' => 'onlineusers']);
+
 	exit;
 }
 

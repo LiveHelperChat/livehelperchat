@@ -62,7 +62,7 @@ class MailModal extends PureComponent {
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header"> <h4 className="modal-title" id="myModalLabel"><span className="material-icons">&#xf11a;</span>{t('button.mail')}</h4>
-                                <button type="button" className="close float-right" data-dismiss="modal" onClick={this.dismissModal} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" className="btn-close float-end" data-bs-dismiss="modal" onClick={this.dismissModal} aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">

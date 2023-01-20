@@ -36,7 +36,7 @@
 <?php endif; ?>
 
 <form action="" method="post" class="form-inline" autocomplete="off" enctype="multipart/form-data">
-    <div class="form-group mr-2">
+    <div class="form-group me-2">
         <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/newrestapi')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','New')?></a>
     </div>
 

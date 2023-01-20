@@ -1,8 +1,8 @@
 	<div role="tabpanel">
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="nav-item"><a class="nav-link fs13 <?php if(!isset($edittab)) {echo 'active';} ?>" href="#panel1" aria-controls="panel1" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','FAQ');?></a></li>
-			<li role="presentation" class="nav-item"><a class="nav-link fs13 <?php if(isset($edittab)) {echo 'active';} ?>" href="#panel2" aria-controls="panel2" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Ask a question');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link fs13 <?php if(!isset($edittab)) {echo 'active';} ?>" href="#panel1" aria-controls="panel1" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','FAQ');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link fs13 <?php if(isset($edittab)) {echo 'active';} ?>" href="#panel2" aria-controls="panel2" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Ask a question');?></a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -12,7 +12,7 @@
                 <form method="get" class="mt-2" action="">
                     <div class="row">
                         <div class="col-8">
-                            <input type="text" value="<?php echo htmlspecialchars($keyword)?>" name="search" class="form-control form-control-sm mb-2 mr-sm-2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Keyword');?>">
+                            <input type="text" value="<?php echo htmlspecialchars($keyword)?>" name="search" class="form-control form-control-sm mb-2 me-sm-2" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('faq/faqwidget','Keyword');?>">
 
                         </div>
                         <div class="col-4">
@@ -30,7 +30,7 @@
             	  <?php foreach ($items as $item) : ?>
             	  <div class="card">
                     <div class="card-header px-2 py-1" role="tab" id="heading-faq-<?php echo $item->id ?>">
-                        <a data-toggle="collapse" class="d-block" data-parent="#accordion" href="#collapse-faq-<?php echo $item->id ?>" aria-expanded="true" aria-controls="collapse-faq-<?php echo $item->id ?>">
+                        <a data-bs-toggle="collapse" class="d-block" data-parent="#accordion" href="#collapse-faq-<?php echo $item->id ?>" aria-expanded="true" aria-controls="collapse-faq-<?php echo $item->id ?>">
                           <?php echo htmlspecialchars($item->question); ?>
                         </a>
                     </div>

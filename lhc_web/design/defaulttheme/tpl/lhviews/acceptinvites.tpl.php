@@ -1,5 +1,5 @@
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Accept a shared views');
 $modalSize = 'xl';
 $modalBodyClass = 'p-1';
@@ -29,9 +29,9 @@ $appendPrintExportURL = '';
             <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
             <div class="col-4 fs13">
                 <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Name') ?>:</div>
-                <div class="font-weight-bold pb-2"><?php echo htmlspecialchars($view->name)?></div>
+                <div class="fw-bold pb-2"><?php echo htmlspecialchars($view->name)?></div>
                 <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Shared by') ?>:</div>
-                <div class="font-weight-bold">
+                <div class="fw-bold">
                     <?php echo htmlspecialchars(($user = erLhcoreClassModelUser::fetch($view->sharer_user_id)) && is_object($user) ? $user->name_official : $view->sharer_user_id)?>
                 </div>
             </div>
@@ -40,7 +40,7 @@ $appendPrintExportURL = '';
                 <?php echo htmlspecialchars($view->description ? $view->description : '-')?>
             </div>
             <div class="col-12 pt-2">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div class="btn-group btn-group-toggle" data-bs-toggle="buttons">
                     <input type="hidden" name="ActionView" id="id_ActionView" value="0">
                     <button type="submit" value="AcceptAction" name="AcceptAction" onclick="$('#id_ActionView').val(0)" class="btn btn-xs btn-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Accept a view')?></button>
                     <button type="submit" value="RejectAction" name="RejectAction" onclick="$('#id_ActionView').val(1)" class="btn btn-xs btn-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Reject a view')?></button>
@@ -52,7 +52,7 @@ $appendPrintExportURL = '';
 </div>
 
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
+    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Close')?></button>
 </div>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

@@ -5,7 +5,7 @@
 <div role="tabpanel" id="system-tabs">
 
 	<ul class="nav nav-tabs mb-3" role="tablist">
-		<li role="presentation" class="nav-item"><a href="#system" class="nav-link active" aria-controls="system" role="tab" data-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
+		<li role="presentation" class="nav-item"><a href="#system" class="nav-link active" aria-controls="system" role="tab" data-bs-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
         
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/generate_js.tpl.php'));?>
         
@@ -84,6 +84,9 @@
     </div>
 </div>
 <script>
-var hash = window.location.hash;
-$('#system-tabs a[href="' + hash.replace('#!','') + '"]').tab('show');
+(function(){
+    var hash = window.location.hash;
+    let tab = document.querySelector('#system-tabs a[href="' + hash.replace('#!','') + '"]');
+    tab && (new bootstrap.Tab(tab)).show();
+})();
 </script>

@@ -12,7 +12,7 @@
             <div class="col-3" ng-repeat="langDialtect in cmsg.dialects" ng-init="cmsg.isSelectedDialect(cmsg.ignoreLanguages,langDialtect)" ng-show="cmsg.query == '*' || (cmsg.ignoreLanguages.dialect[langDialtect.lang.id] && cmsg.query == '') || (cmsg.query != '' && langDialtect.lang.name.toLowerCase().includes(cmsg.query.toLowerCase()) === true)">
                 <div>
                     <label class="fs12 mb-0"><input type="checkbox" value="" ng-model="cmsg.ignoreLanguages.dialect[langDialtect.lang.id]" ng-click="cmsg.changeSelection(cmsg.ignoreLanguages,langDialtect)">{{langDialtect.lang.name}}</label>
-                    <a ng-click="formDataLang['lang-show-'+langDialtect.lang.id] = !formDataLang['lang-show-'+langDialtect.lang.id]" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations');?>"><i class="material-icons mr-0">list</i></a>
+                    <a ng-click="formDataLang['lang-show-'+langDialtect.lang.id] = !formDataLang['lang-show-'+langDialtect.lang.id]" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations');?>"><i class="material-icons me-0">list</i></a>
                 </div>
                 <div id="lang-content-{{langDialtect.lang.id}}" ng-repeat="langDialtectItem in langDialtect.items" ng-show="formDataLang['lang-show-'+langDialtect.lang.id]">
                     <label class="fs12 mb-0">

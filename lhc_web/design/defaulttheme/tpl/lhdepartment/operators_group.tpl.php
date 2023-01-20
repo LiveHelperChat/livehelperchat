@@ -1,6 +1,6 @@
-<?php if ($group_op === null) : ?>
+<?php if ($group_op === null && $only_online === null && $only_logged === null && $only_offline === null) : ?>
 <?php
-$modalHeaderClass = 'pt-1 pb-1 pl-2 pr-2 ';
+$modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department group operators');
 $modalBodyClass = 'p-1';
 $modalSize = 'xl';
@@ -10,7 +10,10 @@ $modalSize = 'xl';
     <div class="modal-body" ng-non-bindable>
         <div class="p-2">
             <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','We show only to group assigned operators. We do not show directly to department assigned operators.');?></p>
-            <label><input type="checkbox" id="id_group_user" name="group_user"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Group by operator');?></label>
+            <label class="me-2"><input type="checkbox" id="id_group_user" name="group_user"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Group by operator');?></label>
+            <label class="me-2"><input type="checkbox" id="id_only_online" name="only_online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only online');?></label>
+            <label class="me-2"><input type="checkbox" id="id_only_offline" name="only_offline"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only offline');?></label>
+            <label><input type="checkbox" id="id_only_logged" name="only_logged"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Only logged');?></label>
             <?php endif;?>
             <table id="table-operators" class="table table-sm table-hover">
                 <thead>
@@ -32,6 +35,19 @@ $modalSize = 'xl';
                 if ($group_op === true) {
                     $paramsGroup['group'] = 'user_id';
                 }
+
+                if ($only_online === true) {
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
+                }
+
+                if ($only_logged === true) {
+                    $paramsGroup['customfilter'][] = '(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')';
+                }
+
+                if ($only_offline === true) {
+                    $paramsGroup['customfilter'][] = '(`hide_online` = 1 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))';
+                }
+
                 foreach (erLhcoreClassModelUserDep::getList($paramsGroup) as $member) : ?>
                     <tr>
                         <td id="<?php echo $member->user_id?>">
@@ -63,8 +79,8 @@ $modalSize = 'xl';
                             <?php echo htmlspecialchars(erLhcoreClassModelDepartamentGroup::fetch($member->dep_group_id));?> [<?php echo $member->dep_group_id?>]
                         </td>
                         <td>
-                            <?php if ($member->exclude_autoasign == 1) : ?>
-                                <span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
+                            <?php if ($member->exclude_autoasign == 1 || $member->exc_indv_autoasign == 1) : ?>
+                                <span class="material-icons"><?php if ($member->exclude_autoasign == 1) : ?>home<?php else : ?>account_balance<?php endif;?></span><span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
                             <?php else : ?>
                                 <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
                             <?php endif; ?>
@@ -77,13 +93,17 @@ $modalSize = 'xl';
                 <?php endforeach; ?>
             </table>
 
-            <?php if ($group_op === null) : ?>
+            <?php if ($group_op === null && $only_online === null) : ?>
         </div>
     </div>
     <script>
         $('.abbr-list-lang').tooltip();
-        $('#id_group_user').change(function(){
-            $.get(WWW_DIR_JAVASCRIPT + 'department/editgroup/<?php echo $department_group->id?>/(action)/operators?group='+$(this).is(':checked'), function(data){
+        $('#id_group_user,#id_only_online,#id_only_logged,#id_only_offline').change(function(){
+            var groupItem = $('#id_group_user');
+            var onlyOnline = $('#id_only_online');
+            var onlyLogged = $('#id_only_logged');
+            var onlyOffline = $('#id_only_offline');
+            $.get(WWW_DIR_JAVASCRIPT + 'department/editgroup/<?php echo $department_group->id?>/(action)/operators?group=' + groupItem.is(':checked') + '&only_online=' + onlyOnline.is(':checked') + '&only_logged=' + onlyLogged.is(':checked') + '&only_offline=' + onlyOffline.is(':checked'), function(data){
                 $('#table-operators').replaceWith(data);
             });
         });

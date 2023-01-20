@@ -2,6 +2,10 @@ body {
     background-color: transparent!important;
 }
 
+a {
+    text-decoration: none;
+}
+
 @font-face {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
@@ -96,8 +100,12 @@ div.message-row {
 }
 
 .reset-container-margins{
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.form-group{
+    padding-bottom: 5px;
 }
 
 .bottom-message{
@@ -1099,8 +1107,7 @@ textarea[name=ChatMessage] {
 }
 
 .bb-list > a.p-1:hover{
-    text-decoration: none;
-    background-color: #eaeaea;
+    background-color: #b2b2b2!important;
 }
 
 .new-msg-holder {

@@ -25,12 +25,12 @@
         </td>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_body.tpl.php'));?>
         <td>
-            <span ng-if="chat.subject_list" class="badge badge-info fs12 mr-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
+            <span ng-if="chat.subject_list" class="badge bg-info fs12 me-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
         </td>
         <td>
             <div class="abbr-list" title="{{chat.time_created_front}}">
                 <span class="material-icons text-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Receive or send indicator and time since it happened');?>" ng-class="{'text-danger' : chat.pnd_rsp}"}>{{chat.pnd_rsp === true ? 'call_received' : 'call_made'}}</span>
-                {{chat.last_msg_time_front ? chat.last_msg_time_front : '&#x2709;'}}<span class="pl-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Wait time or time since chat was started')?>" ng-if="chat.status == 1 || !chat.status">| {{chat.start_last_action_front}}</span>
+                {{chat.last_msg_time_front ? chat.last_msg_time_front : '&#x2709;'}}<span class="ps-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Wait time or time since chat was started')?>" ng-if="chat.status == 1 || !chat.status">| {{chat.start_last_action_front}}</span>
             </div>
         </td>
         <td>

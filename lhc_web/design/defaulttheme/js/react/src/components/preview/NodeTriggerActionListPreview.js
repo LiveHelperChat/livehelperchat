@@ -39,7 +39,7 @@ class NodeTriggerActionListPreview extends Component {
                             </div>
                             <div className="col-3">
                                 {item.getIn(['content','img']) != '' && (index !== 0 || compactStyle == true)  &&
-                                    <img className="float-right img-fluid" src={item.getIn(['content','img'])} />
+                                    <img className="float-end img-fluid" src={item.getIn(['content','img'])} />
                                 }
                             </div>
                         </div>

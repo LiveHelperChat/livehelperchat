@@ -12,8 +12,8 @@
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="nav-item"><a class="nav-link active" href="#autologinsettings" aria-controls="autologinsettings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
-			<li role="presentation" class="nav-item"><a class="nav-link" href="#autologincustom" aria-controls="autologincustom" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Custom auto logins');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link active" href="#autologinsettings" aria-controls="autologinsettings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Auto login settings');?></a></li>
+			<li role="presentation" class="nav-item"><a class="nav-link" href="#autologincustom" aria-controls="autologincustom" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Custom auto logins');?></a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -107,7 +107,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <input type="text" class="form-control" readonly="readonly" id="copy-url-<?php echo $i?>" data-original-url="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('/')?>" value="">
-                                <div class="input-group-append"><span class="input-group-text"><a onclick="copyURL($(this))" data-index="<?php echo $i?>" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copy URL to clipboard')?>"><i class="material-icons mr-0">&#xE14D;</i></a></span></div>
+                                <span class="input-group-text"><a onclick="copyURL($(this))" data-index="<?php echo $i?>" data-original-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copied!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Copy URL to clipboard')?>"><i class="material-icons me-0">&#xE14D;</i></a></span>
                             </div>
                         </div>
                     </div>

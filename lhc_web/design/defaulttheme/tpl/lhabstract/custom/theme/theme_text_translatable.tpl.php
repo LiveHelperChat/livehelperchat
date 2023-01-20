@@ -15,8 +15,8 @@
 
 <div class="mt-2" ng-controller="ThemeAttrTranslatableCtrl as attrTranslatable" ng-init='attrTranslatable.identifier = "<?php echo $translatableItem['identifier']?>";<?php if (isset($object->{$fields[$translatableItem['identifier']][$mainAttribute]}[$translatableItem['identifier'] . '_lang'])) : ?>attrTranslatable.setLanguage("<?php echo $translatableItem['identifier']?>");<?php endif;?>attrTranslatable.setDialects();'>
     <ul class="nav nav-tabs" role="tablist" id="translate-tabs-<?php echo $translatableItem['identifier']?>">
-        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
-        <li ng-repeat="lang in attrTranslatable.languages" class="nav-item" role="presentation"><a href="#lang-<?php echo $translatableItem['identifier']?>-{{$index}}" class="nav-link" aria-controls="lang-<?php echo $translatableItem['identifier']?>-{{$index}}" role="tab" data-toggle="tab" ><i class="material-icons mr-0">&#xE894;</i> [{{attrTranslatable.getLanguagesChecked(lang)}}]</a></li>
+        <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main-<?php echo $translatableItem['identifier']?>" aria-controls="main-<?php echo $translatableItem['identifier']?>" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
+        <li ng-repeat="lang in attrTranslatable.languages" class="nav-item" role="presentation"><a href="#lang-<?php echo $translatableItem['identifier']?>-{{$index}}" class="nav-link" aria-controls="lang-<?php echo $translatableItem['identifier']?>-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{attrTranslatable.getLanguagesChecked(lang)}}]</a></li>
         <li class="nav-item"><a href="#addlanguage" class="nav-link" ng-click="attrTranslatable.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add translation');?></a></li>
     </ul>
     <div class="tab-content">
@@ -38,7 +38,7 @@
         <div ng-repeat="lang in attrTranslatable.languages" role="tabpanel" class="tab-pane pt-2" id="lang-<?php echo $translatableItem['identifier']?>-{{$index}}">
 
             <div class="row mb-1">
-                <div class="col-1"><a class="btn btn-sm btn-danger d-block" ng-click="attrTranslatable.deleteLanguage(lang)"><i class="material-icons mr-0">&#xE15B;</i></a></div>
+                <div class="col-1"><a class="btn btn-sm btn-danger d-block" ng-click="attrTranslatable.deleteLanguage(lang)"><i class="material-icons me-0">&#xE15B;</i></a></div>
                 <div class="col-11"><input type="text" ng-init="attrTranslatable.query = lang.languages.length == 0 ? '*' : ''" ng-model="attrTranslatable.query" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Search for language. Enter * to see all.');?>" class="form-control form-control-sm"></div>
             </div>
 
@@ -47,7 +47,7 @@
                     <div class="col-3" ng-repeat="langDialtect in attrTranslatable.dialects" ng-init="attrTranslatable.isSelectedDialect(lang,langDialtect)" ng-show="attrTranslatable.query == '*' || (lang.dialect[langDialtect.lang.id] && attrTranslatable.query == '') || (attrTranslatable.query != '' && langDialtect.lang.name.toLowerCase().includes(attrTranslatable.query.toLowerCase()) === true)">
                         <div>
                             <label class="fs12 mb-0"><input type="checkbox" value="" ng-model="lang.dialect[langDialtect.lang.id]" ng-click="attrTranslatable.changeSelection(lang,langDialtect)">{{langDialtect.lang.name}}</label>
-                            <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations');?>" ng-click="formDataLang['lang-show-'+langDialtect.lang.id] = !formDataLang['lang-show-'+langDialtect.lang.id]"><i class="material-icons mr-0">list</i></a>
+                            <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations');?>" ng-click="formDataLang['lang-show-'+langDialtect.lang.id] = !formDataLang['lang-show-'+langDialtect.lang.id]"><i class="material-icons me-0">list</i></a>
                         </div>
                         <div id="lang-content-<?php echo $translatableItem['identifier']?>-{{langDialtect.lang.id}}" ng-repeat="langDialtectItem in langDialtect.items" ng-show="formDataLang['lang-show-'+langDialtect.lang.id]">
                             <label class="fs12 mb-0">

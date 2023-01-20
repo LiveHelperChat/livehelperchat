@@ -57,7 +57,35 @@ class OfflineChat extends Component {
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['user_timezone'] = helperFunctions.getTimeZone();
-        fields['URLRefer'] = window.location.href.substring(window.location.protocol.length);
+        fields['URLRefer'] = '';
+        try {
+            var iframeMode = window.parent.location !== window.parent.parent.location;
+            var popupMode = typeof window.lhcChat != 'undefined' && (window.lhcChat['mode'] == 'popup' || window.lhcChat['mode'] == 'embed') && (window.opener !== null || window.parent.opener !== null);
+
+            if (iframeMode) {
+                fields['URLRefer'] = parent.location.href.substring(parent.location.protocol.length);
+            } else {
+                var instWindow = null;
+                if (window.opener !== null) {
+                    instWindow = window.opener;
+                } else {
+                    instWindow = window.parent;
+                }
+                fields['URLRefer'] = instWindow.location.href.substring(instWindow.location.protocol.length);
+            }
+
+        } catch (e) {
+            try {
+                fields['URLRefer'] = String(window.document.location);
+            } catch (e) {
+                // Do nothing
+            }
+        }
+
+        if (fields['URLRefer'] == 'blank') {
+            fields['URLRefer'] = ''
+        }
+
         fields['r'] = this.props.chatwidget.get('ses_ref');
 
         if (this.props.chatwidget.get('operator') != '') {
@@ -179,9 +207,9 @@ class OfflineChat extends Component {
                   <div id="id-container-fluid">
                     {this.props.chatwidget.get('leave_message') && (this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div>}
 
-                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+                    {this.props.chatwidget.get('leave_message') && this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
-                    {!this.props.chatwidget.get('leave_message') && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro">{this.props.chatwidget.getIn(['chat_ui','chat_unavailable'])}</p>}
+                    {!this.props.chatwidget.get('leave_message') && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro">{this.props.chatwidget.getIn(['chat_ui','chat_unavailable'])}</p>}
 
                     {this.props.chatwidget.get('leave_message') &&
                     <div className="container-fluid" >
@@ -194,7 +222,7 @@ class OfflineChat extends Component {
                             {(!this.props.chatwidget.hasIn(['chat_ui','hstr_btn']) || mappedFieldsCustom !== "" || mappedFields !== "") && <div className="row">
                                 <div className="col-12 pb-2">
                                     <button type="submit" disabled={this.props.chatwidget.get('processStatus') == 1} className="btn btn-secondary btn-sm">{this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons">&#xf113;</i>}{this.props.chatwidget.getIn(['chat_ui','custom_start_button']) || t('start_chat.leave_a_message')}</button>
-                                    {this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-right btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
+                                    {this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === true && <button type="button" onClick={this.goToChat} className="float-end btn btn-sm btn-link text-muted">&laquo; {t('button.back_to_chat')}</button>}
                                 </div>
                             </div>}
                         </form>
@@ -209,7 +237,7 @@ class OfflineChat extends Component {
 
                 {this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className="py-2 px-3 offline-intro-operator" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>}
 
-                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 font-weight-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
+                {this.props.chatwidget.hasIn(['chat_ui','offline_intro']) && this.props.chatwidget.getIn(['chat_ui','offline_intro']) != '' && <p className="pb-1 mb-0 pt-2 px-3 fw-bold offline-intro offline-intro-filled" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','offline_intro'])}}></p>}
 
                     <div className="container-fluid">
                         <div className="row">

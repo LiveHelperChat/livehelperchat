@@ -76,22 +76,22 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 <i className="material-icons">mail_outline</i>
                 {!message.status || message.status == 1 ? 'Pending response' : 'Responded'}
             </small>
-            {message.conversation_id_old && <small className="text-muted" title={t('msg.merged_message')} ><span className="material-icons mr-0">merge_type</span>{message.conversation_id_old}</small>}
+            {message.conversation_id_old && <small className="text-muted" title={t('msg.merged_message')} ><span className="material-icons me-0">merge_type</span>{message.conversation_id_old}</small>}
         </div>
-        <div className="col-5 text-right text-muted">
-            <small className="pr-1">
+        <div className="col-5 text-end text-muted">
+            <small className="pe-1">
                 {message.subjects && message.subjects.map((label, index) => (
-                        <span className="badge badge-info mr-1">{label.name}</span>
+                        <span className="badge bg-info me-1">{label.name}</span>
                     ))}
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
-            <small className="pr-2">{message.opened_at && <span className="material-icons" title={t('msg.opened_at_message') + message.opened_at_front}>visibility</span>}{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
+            <small className="pe-2">{message.opened_at && <span className="material-icons" title={t('msg.opened_at_message') + message.opened_at_front}>visibility</span>}{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
             {mode !== 'preview' && <i onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
 
             <i onClick={(e) => {e.stopPropagation(); setExpandHeader(!expandHeader)}} className="material-icons settings text-muted">{expandHeader ? 'expand_less' : 'expand_more'}</i>
 
-            {mode !== 'preview' && <div className="dropdown float-right">
-                <i className="material-icons settings text-muted" id={"message-id-"+message.id} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_vert</i>
+            {mode !== 'preview' && <div className="dropdown float-end">
+                <i className="material-icons settings text-muted" id={"message-id-"+message.id} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_vert</i>
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>}
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
@@ -125,6 +125,9 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                 {message.cc_data_front && <li>
                                     <span className="text-muted">cc:</span> {message.cc_data_front}
                                 </li>}
+                                <li>
+                                    <span className="text-muted">id:</span> {message.message_id}
+                                </li>
                                 {message.bcc_data_front && <li>
                                     <span className="text-muted">bcc:</span> {message.bcc_data_front}
                                 </li>}
@@ -157,7 +160,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id}>Download sent message.</a>
 
             <div className="text-danger border-bottom my-2 py-2 fs13">
-                <ul className="m-0 pl-3">
+                <ul className="m-0 ps-3">
                 {message.delivery_status_keyed.Diagnostic_Code && <li>{message.delivery_status_keyed.Diagnostic_Code}</li>}
                 {message.delivery_status_keyed.taken && <li>{message.delivery_status_keyed.taken}</li>}
                 </ul>
@@ -201,7 +204,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
         {expandBody && message.attachments && message.attachments.length > 0 &&
             <div className="pb-2 col-12">{message.attachments.map((file) => (
-                <a className="btn btn-sm btn-outline-info mr-1" href={file.download_url} title={file.description}>{file.name}</a>
+                <a className="btn btn-sm btn-outline-info me-1" href={file.download_url} title={file.description}>{file.name}</a>
             ))}</div>
         }
 

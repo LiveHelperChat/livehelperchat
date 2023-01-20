@@ -2,6 +2,10 @@
 
 header ( 'content-type: application/json; charset=utf-8' );
 
+session_write_close();
+
+$startTimeRequest = microtime();
+
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
 $totalRecords = 0;
 $content = '';
@@ -91,6 +95,8 @@ if ($search->scope == 'chat') {
 }
 
 echo json_encode(['body' => $content, 'view_id' => $search->id, 'total_records' => (int)$totalRecords]);
+
+erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['loadview' => $Params['user_parameters']['id']]);
 
 exit;
 

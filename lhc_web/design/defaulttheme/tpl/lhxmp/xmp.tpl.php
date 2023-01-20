@@ -40,8 +40,8 @@
 <div role="tabpanel">
 	<!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) : ?>active<?php endif;?>" href="#xmp" aria-controls="xmp" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP');?></a></li>
-		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '1' ) : ?>active<?php endif;?>" href="#gtalk" aria-controls="gtalk" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','GTalk');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if ( (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '0') || !isset($xmp_data['use_standard_xmp']) ) : ?>active<?php endif;?>" href="#xmp" aria-controls="xmp" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','XMPP');?></a></li>
+		<li role="presentation" class="nav-item"><a class="nav-link <?php if (isset($xmp_data['use_standard_xmp']) && $xmp_data['use_standard_xmp'] == '1' ) : ?>active<?php endif;?>" href="#gtalk" aria-controls="gtalk" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','GTalk');?></a></li>
 	</ul>
 
 	<!-- Tab panes -->
@@ -132,7 +132,7 @@
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Please enter to what gmail address test message should be send?');?></label>
 			    <input class="form-control" type="text" name="test_recipients_gtalk" value="<?php (isset($test_gmail_email) && $test_gmail_email != '') ? print htmlspecialchars($test_gmail_email) : print '' ?>" />
 				</div>			
-				<input type="submit" class="btn btn-primary float-right" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
+				<input type="submit" class="btn btn-primary float-end" name="StoreXMPGTalkSendeMessage" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','This message will be send to test e-mail'); ?>" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/xmpp','Send test message'); ?>" />
 				<?php endif;?>
 									
 				<div class="btn-group" role="group" aria-label="...">

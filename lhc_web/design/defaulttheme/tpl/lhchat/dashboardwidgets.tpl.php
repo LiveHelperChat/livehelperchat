@@ -4,8 +4,8 @@
             <h4 class="modal-title" id="myModalLabel">
                 <span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what widgets you want to see')?>
             </h4>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+				
 			</button>
 		</div>
 		<div class="modal-body">
@@ -22,8 +22,8 @@
 		<form action="<?php echo erLhcoreClassDesign::baseurl('chat/dashboardwidgets')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
 
             <ul class="nav nav-tabs mb-3" role="tablist">
-                <li role="presentation" class="nav-item"><a href="#widgets-settings" class="nav-link active" aria-controls="widgets-settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Widgets')?></a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link" href="#alerti-settings" aria-controls="alerti-settings" role="tab" data-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Alert icons')?></a></li>
+                <li role="presentation" class="nav-item"><a href="#widgets-settings" class="nav-link active" aria-controls="widgets-settings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Widgets')?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" href="#alerti-settings" aria-controls="alerti-settings" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Alert icons')?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane form-group active" id="widgets-settings">
@@ -43,7 +43,7 @@
                 </div>
                 <div role="tabpanel" class="tab-pane form-group" id="alerti-settings">
 
-                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
+                    <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose for what icons we should show notification.')?></p>
                     <div class="row">
                         <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(
                             'list_function' => 'erLhAbstractModelChatAlertIcon::getList',
@@ -57,7 +57,7 @@
                         ?>
                     </div>
 
-                    <p class="font-weight-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
+                    <p class="fw-bold"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Choose what icons you want to exclude from the list.')?></p>
                     <div class="form-group">
                         <div class="row">
                             <?php echo erLhcoreClassRenderHelper::renderCheckbox(array(

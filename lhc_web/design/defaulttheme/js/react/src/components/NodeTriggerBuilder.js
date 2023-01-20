@@ -275,7 +275,7 @@ class NodeTriggerBuilder extends Component {
 
                         {this.state.viewCode == true ? (
                             <div className="form-group">
-                                <div className="float-right"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} /> Compressed version</label></div>
+                                <div className="float-end"><label><input type="checkbox" value="on" onChange={(e) => this.setState({compressCode : !this.state.compressCode})} defaultChecked={this.state.compressCode} /> Compressed version</label></div>
                                 <label>JSON body you can use for REST API</label>
 
                                 <div className="row">

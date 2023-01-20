@@ -1,7 +1,7 @@
-<nav class="float-right" ng-init="lhc.getToggleWidget('track_open_chats');lhc.getToggleWidget('group_offline_chats')">
+<nav class="float-end" ng-init="lhc.getToggleWidget('track_open_chats');lhc.getToggleWidget('group_offline_chats')">
     <ul class="nav">
-        <li class="nav-item dropleft">
-            <a class="nav-link dropdown-toggle text-secondary" id="menu-chat-options" data-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons mr-0">settings_applications</i></a>
+        <li class="nav-item dropstart">
+            <a class="nav-link dropdown-toggle text-secondary" id="menu-chat-options" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="material-icons me-0">settings_applications</i></a>
             <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item" href="#" ng-click="lhc.appendActiveChats()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open last 10 my active chats')?>"><i class="material-icons chat-active">chat</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open my active chats'); ?></a>
                 <a class="dropdown-item" href="#" ng-click="lhc.toggleWidget('track_open_chats')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Last 10 your active chats will be always visible')?>"><i class="material-icons" ng-class="{'chat-active': lhc.toggleWidgetData['track_open_chats'] === true, 'chat-closed': lhc.toggleWidgetData['track_open_chats'] !== true}">done</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Keep my active chats'); ?></a>
@@ -43,9 +43,7 @@
                 <div class="dropdown-item">
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control" ng-model="lhc.chat_to_open" ng-keyup="$event.keyCode == 13 ? lhc.startChatByID(lhc.chat_to_open) : ''" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Chat ID to open')?>" aria-describedby="inputGroupPrepend" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" ng-click="lhc.startChatByID(lhc.chat_to_open)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open a chat')?>" type="button"><i class="material-icons mr-0">chat</i></button>
-                        </div>
+                        <button class="btn btn-secondary" ng-click="lhc.startChatByID(lhc.chat_to_open)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'Open a chat')?>" type="button"><i class="material-icons me-0">chat</i></button>
                     </div>
                 </div>
             </div>

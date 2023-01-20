@@ -95,24 +95,22 @@ class NodeGroup extends Component {
                     <div className="d-flex">
                         <div className="flex-grow-1">
                             <div className="input-group">
-                                <div className="input-group-prepend">
-                                    <span><i className={classNameCurrent} title={'Bot Id - '+this.props.group.get('bot_id')}>home</i></span>
-                                </div>
+                                <span><i className={classNameCurrent} title={'Bot Id - '+this.props.group.get('bot_id')}>home</i></span>
                                 <input className="form-control form-control-sm gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                             </div>
                         </div>
                         <div>
                             <div className="btn-toolbar">
-                                <div className="input-group input-group-sm mr-2">
+                                <div className="input-group input-group-sm me-2">
                                     <input type="number" title="Position" onChange={(e) => this.setState({position: parseInt(e.target.value)})} className="form-control" style={{"width" : "65px"}} defaultValue={this.props.group.get('pos')} placeholder="Position" aria-label="Input group example" aria-describedby="btnGroupAddon" />
                                     <div className="input-group-append">
-                                        <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons mr-0">done</span></button>
+                                        <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons me-0">done</span></button>
                                     </div>
                                 </div>
                                 <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-right" onClick={this.handleCollapse.bind(this)} ><span className="material-icons mr-0">{this.props.group.get('is_collapsed') ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>
-                                    <a className="btn btn-sm btn-secondary float-right" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons mr-0">cloud_download</i></a>
-                                    <button className="btn btn-sm btn-danger float-right" onClick={this.deleteGroup.bind(this)}><i className="material-icons mr-0">delete</i></button>
+                                    <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-end" onClick={this.handleCollapse.bind(this)} ><span className="material-icons me-0">{this.props.group.get('is_collapsed') ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>
+                                    <a className="btn btn-sm btn-secondary float-end" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons me-0">cloud_download</i></a>
+                                    <button className="btn btn-sm btn-danger float-end" onClick={this.deleteGroup.bind(this)}><i className="material-icons me-0">delete</i></button>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +122,7 @@ class NodeGroup extends Component {
                             <div className="col-12">
                                 <ul className="gbot-trglist">
                                     {mappedNodeGroupTriggers}
-                                    <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons mr-0">add</i></button></li>
+                                    <li><button className="btn btn-sm btn-secondary" onClick={this.addTrigger.bind(this)} ><i className="material-icons me-0">add</i></button></li>
                                 </ul>
                             </div>
                         </div>

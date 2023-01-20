@@ -1,6 +1,6 @@
-<div class="modal-dialog modal-dialog-scrollable modal-xl">
+<div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <div class="modal-header pt-1 pb-1 pl-2 pr-2">
+      <div class="modal-header pt-1 pb-1 ps-2 pe-2">
 
         <h4 class="modal-title" id="myModalLabel"><span class="material-icons">info_outline</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Chat owner')?> <?php $user = $chat->getChatOwner();  if ($user !== false) : ?>
 
@@ -9,7 +9,7 @@
 	-
 <?php endif; ?><?php if ($chat->department != '') : ?>&nbsp;|&nbsp;<?php echo htmlspecialchars($chat->department)?><?php endif;?><?php if ($chat->product != '') : ?>&nbsp;|&nbsp;<?php echo htmlspecialchars($chat->product)?><?php endif;?>
 </h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           
       </div>
         <div class="p-1 border-bottom">
@@ -20,7 +20,7 @@
             <?php if ($chat->online_user_id > 0) : ?><i class="material-icons">label</i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Visitor ID')?> - <?php echo $chat->online_user_id?></small><?php endif; ?>
 
             <?php foreach (erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) : ?>
-                <span class="badge badge-info fs12 mr-1" ><?php echo htmlspecialchars($subject->subject)?></span>
+                <span class="badge bg-info fs12 me-1" ><?php echo htmlspecialchars($subject->subject)?></span>
             <?php endforeach; ?>
 
         </div>

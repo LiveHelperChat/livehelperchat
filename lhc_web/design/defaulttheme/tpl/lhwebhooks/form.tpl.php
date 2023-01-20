@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs mb-3" role="tablist">
-    <li role="presentation" class="nav-item"><a href="#hooks-settings" class="nav-link active" aria-controls="hooks-settings" role="tab" data-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Hooks events')?></a></li>
-    <li role="presentation" class="nav-item"><a class="nav-link" href="#chooks-settings" aria-controls="chooks-settings" role="tab" data-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous events')?></a></li>
+    <li role="presentation" class="nav-item"><a href="#hooks-settings" class="nav-link active" aria-controls="hooks-settings" role="tab" data-bs-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Hooks events')?></a></li>
+    <li role="presentation" class="nav-item"><a class="nav-link" href="#chooks-settings" aria-controls="chooks-settings" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Continuous events')?></a></li>
 </ul>
 
 <textarea name="configuration" class="hide" ng-model="webhooksctl.conditions_json"></textarea>
@@ -11,7 +11,7 @@
             <label><input type="radio" value="0" name="type" <?php if ($item->type == 0) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','This is hook event');?></label>
         </div>
         <div class="form-group" ng-non-bindable>
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Event');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required if it is hook event');?>)</span></label>
             <input type="text" class="form-control form-control-sm" name="event" value="<?php echo htmlspecialchars($item->event);?>" />
         </div>
     </div>
@@ -27,7 +27,7 @@
 
 <hr class="border-top">
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
 
 <div class="row mb-2">
     <div class="col-6">
@@ -47,9 +47,7 @@
             <div ng-if="condition.type == 1">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Visitor message contains');?></label>
                 <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">{{$index +1}}</span>
-                    </div>
+                    <span class="input-group-text">{{$index +1}}</span>
                     <input type="text" ng-model="condition.message_contains" class="form-control form-control-sm" value="" />
                 </div>
             </div>
@@ -59,9 +57,7 @@
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute');?></label>
                             <div class="input-group input-group-sm">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">{{$index +1}}</span>
-                                </div>
+                                <span class="input-group-text">{{$index +1}}</span>
                                 <input type="text" ng-model="condition.attr" placeholder="yes, thanks" class="form-control form-control-sm" value="">
                             </div>
                         </div>
@@ -93,7 +89,7 @@
                 </div>
             </div>
             <div ng-if="condition.type == 4">
-                <div class="text-center font-weight-bold mt-4">
+                <div class="text-center fw-bold mt-4">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?>
                 </div>
             </div>
@@ -110,24 +106,24 @@
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" ng-if="$index > 0" ng-click="webhooksctl.moveUp(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
                 <button type="button" ng-if="webhooksctl.conditions.length > 0 && webhooksctl.conditions.length != $index + 1" ng-click="webhooksctl.moveDown(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
-                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
             </div>
         </div>
     </div>
 </div>
 
 <span ng-repeat="transactionItem in webhooksctl.conditions track by $index">
-        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
+        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
         {{(transactionItem.logic == 'or') ? ' or ' : ((transactionItem.type != 4 && $index+1 != webhooksctl.conditions.length && webhooksctl.conditions[$index + 1].type != 4) ? ' and ' : '')}}
-        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge badge-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
+        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge bg-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
         </span>
-<span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
+<span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
 
 <hr class="border-top">
 
 <div class="row">
     <div class="col-6">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are valid');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required');?>)</span></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are valid');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','required');?>)</span></h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>
@@ -148,7 +144,7 @@
         </div>
     </div>
     <div class="col-6">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Execute if conditions are NOT valid');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please choose a bot');?></label>

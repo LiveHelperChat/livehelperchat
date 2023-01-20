@@ -88,7 +88,7 @@
 <textarea name="conditions" class="hide" ng-model="webhooksctl.conditions_json"></textarea>
 
 <h6>
-    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes conditions');?><span class="text-muted fs13 pl-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attributes conditions');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span>
     <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/matchingruleconditions'});" class="material-icons text-muted">help</a>
 </h6>
 
@@ -110,9 +110,7 @@
             <div ng-if="condition.type == 1">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Visitor message contains');?></label>
                 <div class="input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">{{$index +1}}</span>
-                    </div>
+                    <span class="input-group-text">{{$index +1}}</span>
                     <input type="text" ng-model="condition.message_contains" class="form-control form-control-sm" value="" />
                 </div>
             </div>
@@ -122,9 +120,7 @@
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute');?></label>
                             <div class="input-group input-group-sm">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">{{$index +1}}</span>
-                                </div>
+                                <span class="input-group-text">{{$index +1}}</span>
                                 <input type="text" ng-model="condition.attr" placeholder="yes, thanks" class="form-control form-control-sm" value="">
                             </div>
                         </div>
@@ -155,7 +151,7 @@
                 </div>
             </div>
             <div ng-if="condition.type == 4">
-                <div class="text-center font-weight-bold mt-4">
+                <div class="text-center fw-bold mt-4">
                     <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?>
                 </div>
             </div>
@@ -172,18 +168,18 @@
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" ng-if="$index > 0" ng-click="webhooksctl.moveUp(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_up</i></button>
                 <button type="button" ng-if="webhooksctl.conditions.length > 0 && webhooksctl.conditions.length != $index + 1" ng-click="webhooksctl.moveDown(condition,webhooksctl.conditions)" class="btn btn-sm btn-secondary"><i class="material-icons">keyboard_arrow_down</i></button>
-                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons mr-0">delete</i></button>
+                <button type="button" ng-click="webhooksctl.deleteCondition(condition)" class="btn btn-sm btn-danger"><i class="material-icons me-0">delete</i></button>
             </div>
         </div>
     </div>
 </div>
 
 <span ng-repeat="transactionItem in webhooksctl.conditions track by $index">
-        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'badge-success':!transactionItem.exclude,'badge-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
+        {{((transactionItem.logic == 'or') && ($index == 0 || webhooksctl.conditions[$index - 1].logic == 'and' || !webhooksctl.conditions[$index - 1].logic)) ? ' ( ' : ''}}<span class="badge" ng-if="transactionItem.type != '4'" ng-class="{'bg-success':!transactionItem.exclude,'bg-danger':transactionItem.exclude}">{{$index + 1}}.</span>{{transactionItem.logic == 'and' && (webhooksctl.conditions[$index - 1].logic == 'or' ) ? ' ) ' : ''}}
         {{(transactionItem.logic == 'or') ? ' or ' : ((transactionItem.type != 4 && $index+1 != webhooksctl.conditions.length && webhooksctl.conditions[$index + 1].type != 4) ? ' and ' : '')}}
-        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge badge-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
+        <span ng-if="transactionItem.type == '4'" class="mt-1 p-2 mb-1 badge bg-info fs14 d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','OR');?></span>
         </span>
-<span class="mt-1 mb-1 p-2 badge fs14 d-block badge-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
+<span class="mt-1 mb-1 p-2 badge fs14 d-block bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Success');?></span>
 
 <hr class="border-top">
 

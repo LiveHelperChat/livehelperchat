@@ -7,6 +7,8 @@ export class statusWidget{
 
         this.attributes = {};
         this.controlMode = false;
+        this.showDelay = null;
+        this.statusDelayProcessed = false;
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_status_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483640",
@@ -205,6 +207,8 @@ export class statusWidget{
             }
         }
 
+        clearTimeout(this.showDelay);
+        this.statusDelayProcessed = true;
         this.cont.hide();
     }
 
@@ -250,7 +254,16 @@ export class statusWidget{
 
             // show status icon only if we are not in api mode or chat is going now
             if (this.attributes['position'] != 'api' || (this.attributes['position'] == 'api' && this.attributes['hide_status'] !== true && chatParams['id'] && chatParams['hash'])) {
-                this.cont.show();
+
+                clearTimeout(this.showDelay);
+                
+                const chatParams = this.attributes['userSession'].getSessionAttributes();
+
+                this.showDelay = setTimeout(() => {
+                    this.cont.show();
+                    this.statusDelayProcessed = true;
+                }, (this.statusDelayProcessed == true || (chatParams['id'] && chatParams['hash'])) ? 0 : this.attributes['status_delay']);
+
             } else if (this.attributes.clinst === true) {
                 if (this.attributes.widgetStatus.value != true) {
                     this.cont.hide();

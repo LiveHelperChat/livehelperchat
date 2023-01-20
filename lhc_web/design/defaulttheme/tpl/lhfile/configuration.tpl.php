@@ -49,7 +49,7 @@
 <div class="row form-group">
 	<div class="col-md-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Maximum file size in KB'); ?>
-            <span class="badge badge-info mr-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Max file size'); ?> - <?php echo ini_get('upload_max_filesize')?></span><span class="badge badge-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Max post size'); ?> - <?php echo ini_get('post_max_size')?></span>
+            <span class="badge bg-info me-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Max file size'); ?> - <?php echo ini_get('upload_max_filesize')?></span><span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/configuration','Max post size'); ?> - <?php echo ini_get('post_max_size')?></span>
         </label>
 		<input type="text" class="form-control" name="MaximumFileSize" value="<?php isset($file_data['fs_max']) ? print $file_data['fs_max'] : '' ?>" />
 	</div>

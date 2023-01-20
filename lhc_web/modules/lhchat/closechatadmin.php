@@ -52,19 +52,21 @@ try {
                                     ]
                                 ]);
 
-                                $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array(
-                                    'message_id' => $message->id,
-                                    'subject_id' => (int)$data['subject_id']
-                                )));
+                                if (is_object($message)) {
+                                    $subjectChat = erLhcoreClassModelMailconvMessageSubject::findOne(array('filter' => array(
+                                        'message_id' => $message->id,
+                                        'subject_id' => (int)$data['subject_id']
+                                    )));
 
-                                if (!($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject)) {
-                                    $subjectChat = new erLhcoreClassModelMailconvMessageSubject();
+                                    if (!($subjectChat instanceof erLhcoreClassModelMailconvMessageSubject)) {
+                                        $subjectChat = new erLhcoreClassModelMailconvMessageSubject();
+                                    }
+
+                                    $subjectChat->message_id = $message->id;
+                                    $subjectChat->conversation_id = $message->conversation_id;
+                                    $subjectChat->subject_id = (int)$data['subject_id'];
+                                    $subjectChat->saveThis();
                                 }
-
-                                $subjectChat->message_id = $message->id;
-                                $subjectChat->conversation_id = $message->conversation_id;
-                                $subjectChat->subject_id = (int)$data['subject_id'];
-                                $subjectChat->saveThis();
                             }
 
                             $msg = new erLhcoreClassModelMailconvMessageInternal();

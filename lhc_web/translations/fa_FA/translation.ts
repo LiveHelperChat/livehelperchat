@@ -2,80 +2,8 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>چه مدت باید منتظر بمانیم تا اپراتور را در مورد چت بدون پاسخ اطلاع دهیم.</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -339,7 +267,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>غیر فعال سازی دانلود چت</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -427,7 +355,7 @@
     </message>
     <message>
       <source>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
-      <translation>Automatic active chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</translation>
+      <translation>بستن خودکار چت فعال. 0 -غیر فعال, اعداد بزرگتر از صفر به معنای زمان به دقیقه جهت بستن خودکار چت می باشد</translation>
     </message>
     <message>
       <source>Automatic chats closing. 0 - disabled, n &gt; 0 time in minutes before chat is automatically closed</source>
@@ -473,10 +401,6 @@
   <context>
     <name>system/buttons</name>
     <message>
-      <source>No</source>
-      <translation>خیر</translation>
-    </message>
-    <message>
       <source>Save</source>
       <translation>ذخیره</translation>
     </message>
@@ -514,15 +438,15 @@
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>بلاک کردن IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>بلاک کردن Email</translation>
     </message>
     <message>
       <source>Block country</source>
-      <translation type="unfinished"/>
+      <translation>بلاک کردن کشور</translation>
     </message>
     <message>
       <source>Close</source>
@@ -534,15 +458,15 @@
     </message>
     <message>
       <source>Send message to</source>
-      <translation type="unfinished"/>
+      <translation>ارسال پیام به</translation>
     </message>
     <message>
       <source>visitors</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کنندگان</translation>
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>جهت شروع چت پیام ارسال کنید</translation>
     </message>
     <message>
       <source>Send</source>
@@ -550,7 +474,7 @@
     </message>
     <message>
       <source>Check all</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب همه</translation>
     </message>
     <message>
       <source>Save and continue</source>
@@ -586,7 +510,7 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>ارسال بازخورد</translation>
     </message>
     <message>
       <source>Test</source>
@@ -594,11 +518,11 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>اطلاعات ذخیره شده زیر نمایش داده نشده</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>اشتراک گذاری</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -633,10 +557,6 @@
   </context>
   <context>
     <name>abstract/widgettheme</name>
-    <message>
-      <source>Mobile style</source>
-      <translation>سبک موبایل</translation>
-    </message>
     <message>
       <source>Welcome message</source>
       <translation>پیام خوش آمد گویی</translation>
@@ -679,15 +599,15 @@
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
-      <translation type="unfinished"/>
+      <translation>دعوت زمانی فعال است که یکی از شرط های زیر فعال باشد</translation>
     </message>
     <message>
       <source>If operator has 3 max chats, and you enter here 2. Means proactive invitation will be active only if operator has less than 5 chats assigned to him.</source>
-      <translation type="unfinished"/>
+      <translation>اگر اپراتور حداکثر 3 چت داشته باشد و شما 2 را در اینجا وارد کنید. به این معنی است که دعوت فعال فقط در صورتی فعال می شود که اپراتور کمتر از 5 چت به او اختصاص داده باشد.</translation>
     </message>
     <message>
       <source>Other conditions</source>
-      <translation type="unfinished"/>
+      <translation>سایر شرایط</translation>
     </message>
     <message>
       <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
@@ -755,7 +675,7 @@
     </message>
     <message>
       <source>Conversion</source>
-      <translation type="unfinished"/>
+      <translation>مکالمه</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
@@ -807,7 +727,7 @@
     </message>
     <message>
       <source>Reactions</source>
-      <translation type="unfinished"/>
+      <translation>ری اکشن ها</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
@@ -839,11 +759,11 @@
     </message>
     <message>
       <source>New message separator style</source>
-      <translation type="unfinished"/>
+      <translation>استایل جدا ساز پیام جدید</translation>
     </message>
     <message>
       <source>Scroll to the bottom style</source>
-      <translation type="unfinished"/>
+      <translation>استایل برو به پایین</translation>
     </message>
     <message>
       <source>Other</source>
@@ -882,8 +802,20 @@
       <translation>Choose manually bot ant trigger</translation>
     </message>
     <message>
+      <source>For it to work, trigger has to have checked</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Can be passed as argument</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default</source>
       <translation>پیشفرض</translation>
+    </message>
+    <message>
+      <source>Requires - `Can be passed as argument` option to be checked.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Other Operator messages style</source>
@@ -1007,31 +939,31 @@
     </message>
     <message>
       <source>Panel header border color</source>
-      <translation>Panel header border color</translation>
+      <translation>رنگ حاشیه هدر پنل</translation>
     </message>
     <message>
       <source>Header background color</source>
-      <translation>Header background color</translation>
+      <translation>رنگ زمینه هدر</translation>
     </message>
     <message>
       <source>Panel background color</source>
-      <translation>Panel background color</translation>
+      <translation>رنگ زمینه پنل</translation>
     </message>
     <message>
       <source>Active tab background color</source>
-      <translation>Active tab background color</translation>
+      <translation>رنگ زمینه تب فعال</translation>
     </message>
     <message>
       <source>Breadcrumb background color</source>
-      <translation>Breadcrumb background color</translation>
+      <translation>Breadcrumb رنگ زمینه </translation>
     </message>
     <message>
       <source>Breadcrumb border color</source>
-      <translation>Breadcrumb border color</translation>
+      <translation>رنگ حاشیه Breadcrumb</translation>
     </message>
     <message>
       <source>Menu active background color</source>
-      <translation>Menu active background color</translation>
+      <translation>رنگ زمینه منوی فعال</translation>
     </message>
     <message>
       <source>Menu text color</source>
@@ -1039,11 +971,11 @@
     </message>
     <message>
       <source>Tab text color</source>
-      <translation>Tab text color</translation>
+      <translation>رنگ متن تب</translation>
     </message>
     <message>
       <source>Table border color</source>
-      <translation>Table border color</translation>
+      <translation>رنگ حاشیه جدول</translation>
     </message>
     <message>
       <source>Navbar toggle background color</source>
@@ -1055,11 +987,11 @@
     </message>
     <message>
       <source>Tab active text color</source>
-      <translation>Tab active text color</translation>
+      <translation>رنگ متن تب فعال</translation>
     </message>
     <message>
       <source>Header border color</source>
-      <translation>Header border color</translation>
+      <translation>رنگ حاشیه هدر</translation>
     </message>
     <message>
       <source>Button border radius</source>
@@ -1163,23 +1095,23 @@
     </message>
     <message>
       <source>Custom image 1</source>
-      <translation>Custom image 1</translation>
+      <translation>تصویر دلخواه 1</translation>
     </message>
     <message>
       <source>Custom image 2</source>
-      <translation>Custom image 2</translation>
+      <translation>تصویر دلخواه 2</translation>
     </message>
     <message>
       <source>Custom image 3</source>
-      <translation>Custom image 3</translation>
+      <translation>تصویر دلخواه 3</translation>
     </message>
     <message>
       <source>Custom image 4</source>
-      <translation>Custom image 4</translation>
+      <translation>تصویر دلخواه 4</translation>
     </message>
     <message>
       <source>Custom image 5</source>
-      <translation>Custom image 5</translation>
+      <translation>تصویر دلخواه 5</translation>
     </message>
     <message>
       <source>Disabled</source>
@@ -1195,11 +1127,11 @@
     </message>
     <message>
       <source>Disable chat preview</source>
-      <translation type="unfinished"/>
+      <translation>پیش نمایش چت را غیرفعال کنید</translation>
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>دانلود چت را غیرفعال کنید</translation>
     </message>
     <message>
       <source> Required only if stars less or equal to 1 - n</source>
@@ -1207,6 +1139,10 @@
     </message>
     <message>
       <source>Stars field Nr. (1-5)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If more than one theme is passed, randomly chosen theme is fixed for selected period of time.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1363,7 +1299,7 @@
     </message>
     <message>
       <source>If visitor opens a popup keep chat in the widget also</source>
-      <translation type="unfinished"/>
+      <translation>اگر بازدیدکننده یک پنجره PopUp باز کرد، چت را در ویجت نیز ادامه دهید</translation>
     </message>
     <message>
       <source>Header height (px)</source>
@@ -1427,11 +1363,11 @@
     </message>
     <message>
       <source>Custom html above status/profile body in online mode</source>
-      <translation type="unfinished"/>
+      <translation>html سفارشی بالای بدنه  وضعیت/ نمایه در حالت آنلاین</translation>
     </message>
     <message>
       <source>Custom html above status/profile body in offline mode</source>
-      <translation type="unfinished"/>
+      <translation>html سفارشی بالای بدنه  وضعیت/ نمایه در حالت آفلاین</translation>
     </message>
     <message>
       <source>Custom html inside standard widget header</source>
@@ -1519,7 +1455,7 @@
     </message>
     <message>
       <source>Text when user starts a chat and is waiting for operator to join a chat. Only if queue is &gt; 1. {number}, {avg_wait_time}, {avg_wait_time_live}, {avg_wait_time_live__string if more than one minute live wait time}, {avg_wait_time__string if more than one minute wait time}</source>
-      <translation type="unfinished"/>
+      <translation>هنگامی که کاربر یک چت را شروع می کند و منتظر است تا اپراتور به یک چت بپیوندد، پیامک ارسال کنید. فقط اگر صف &gt; 1 باشد. {number}، {avg_wait_time}، {avg_wait_time_live}، {avg_wait_time_live__string اگر بیش از یک دقیقه زمان انتظار زنده باشد}، {avg_wait_time__string اگر بیش از یک دقیقه زمان انتظار باشد}</translation>
     </message>
     <message>
       <source>Text when user starts a chat but department is offline</source>
@@ -1535,7 +1471,7 @@
     </message>
     <message>
       <source>Blocked visitor message</source>
-      <translation type="unfinished"/>
+      <translation>پیام های بازدید کننده مسدود شده</translation>
     </message>
     <message>
       <source>Need help border color</source>
@@ -1743,7 +1679,7 @@
     </message>
     <message>
       <source>Do not prefill offline message with chat messages.</source>
-      <translation type="unfinished"/>
+      <translation>پیام آفلاین را از قبل با پیام های چت پر نکنید.</translation>
     </message>
     <message>
       <source>Hide BB Code button</source>
@@ -1847,7 +1783,7 @@
     </message>
     <message>
       <source>Show operator profile in a new row</source>
-      <translation>Show operator profile in a new row</translation>
+      <translation>نمایش مشخصات اپراتور در یک ردیف جدید</translation>
     </message>
     <message>
       <source>Enable embed code override</source>
@@ -1910,7 +1846,7 @@
     </message>
     <message>
       <source>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</source>
-      <translation>You can also use 5 images using keywords as {proactive_img_1}, {proactive_img_2}, {proactive_img_3}, {proactive_img_4}, {proactive_img_5}. You can use these events. These events should be used on onclick event.</translation>
+      <translation>همچنین می توانید از 5 تصویر با استفاده از کلمات کلیدی مانند {proactive_img_1}، {proactive_img_2}، {proactive_img_3}، {proactive_img_4}، {proactive_img_5} استفاده کنید. می توانید از این رویدادها استفاده کنید. این رویدادها باید در رویداد onclick استفاده شوند.</translation>
     </message>
     <message>
       <source>Main wrapper element should have id of</source>
@@ -2154,7 +2090,7 @@
     </message>
     <message>
       <source>To what department transfer chat</source>
-      <translation type="unfinished"/>
+      <translation>چت به چه دپارتمانی منتقل شود</translation>
     </message>
     <message>
       <source>Expected variable value</source>
@@ -2382,7 +2318,7 @@
     </message>
     <message>
       <source>Hide operator profile image</source>
-      <translation type="unfinished"/>
+      <translation>مخفی کردن پروفایل اپراتور</translation>
     </message>
     <message>
       <source>Hide content on click</source>
@@ -2390,7 +2326,7 @@
     </message>
     <message>
       <source>Show default header on proactive widget open event</source>
-      <translation>Show default header on proactive widget open event</translation>
+      <translation>نمایش سرصفحه پیش‌فرض در رویداد باز ویجت فعال</translation>
     </message>
     <message>
       <source>Play sound</source>
@@ -2495,6 +2431,169 @@
     <message>
       <source>Subject</source>
       <translation>موضوع</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/sendnotice</name>
+    <message>
+      <source>Does not apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Permanent (visitor has to close invitation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Follows system default settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Type your message to the user</source>
+      <translation>پیام خود را برای کاربر وارد کنید</translation>
+    </message>
+    <message>
+      <source>Open full widget for the visitor</source>
+      <translation>ویجت کامل را برای بازدید کننده باز کنید</translation>
+    </message>
+    <message>
+      <source>Skip bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invitation expire time, after that period of time invitation will be hidden.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last sent invitation expires in</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>last invitation was seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has active invitation</source>
+      <translation>دعوتنامه فعال دارد</translation>
+    </message>
+    <message>
+      <source>do not have any active invitation</source>
+      <translation>هیچ دعوتنامه فعالی ندارید</translation>
+    </message>
+    <message>
+      <source>Assign the chat to me if the visitor replies</source>
+      <translation>در صورت پاسخ بازدید کننده ، گپ را به من اختصاص دهید</translation>
+    </message>
+    <message>
+      <source>Do not send automated messages if the customer replies</source>
+      <translation>Do not send automated messages if the customer replies</translation>
+    </message>
+    <message>
+      <source>Requires e-mail</source>
+      <translation>ایمیل الزامی است</translation>
+    </message>
+    <message>
+      <source>Requires name</source>
+      <translation>نام الزامی است</translation>
+    </message>
+    <message>
+      <source>Requires phone</source>
+      <translation>شماره تلفن الزامی است</translation>
+    </message>
+    <message>
+      <source>Campaign</source>
+      <translation>Campaign</translation>
+    </message>
+    <message>
+      <source>Canned message</source>
+      <translation>پیام های از پیش تعریف شده</translation>
+    </message>
+    <message>
+      <source>Send the message</source>
+      <translation>ارسال پیام</translation>
+    </message>
+    <message>
+      <source>Visitor have assigned chat with id</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is in pending/active state.</source>
+      <translation>چت در حالت تعلیق/فعال است.</translation>
+    </message>
+    <message>
+      <source>Chat is in bot status.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is closed, we will start a new chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We will initiate a new chat, because visitor has ended previous chat already. Is in survey/closed chat/filling contact form</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor does not have any chat. We will initiate a new chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send the message and start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message was sent to the user</source>
+      <translation>پیام برای کاربر ارسال شد</translation>
+    </message>
+    <message>
+      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
+      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدداً پیام چت برای کاربر نمایش داده می شود.</translation>
+    </message>
+    <message>
+      <source>Send a message to the user</source>
+      <translation>ارسال پیام به کاربر</translation>
+    </message>
+    <message>
+      <source>Type your message to the operator</source>
+      <translation>پیام خود را برای اپراتور تایپ کنید</translation>
+    </message>
+    <message>
+      <source>Start chat with operator</source>
+      <translation>شروع چت با اپراتور</translation>
     </message>
   </context>
   <context>
@@ -2757,7 +2856,7 @@
     </message>
     <message>
       <source>No border under a profile</source>
-      <translation type="unfinished"/>
+      <translation>خط زیر پروفایل نباشد</translation>
     </message>
     <message>
       <source>Lazy load widget content. Widget content will be loaded only if visitor clicks a status icon.</source>
@@ -2809,7 +2908,7 @@
     </message>
     <message>
       <source>If these conditions are met widget will become online</source>
-      <translation type="unfinished"/>
+      <translation>در صورت رعایت این شرایط، ویجت آنلاین می شود</translation>
     </message>
     <message>
       <source>Add condition</source>
@@ -2857,7 +2956,7 @@
     </message>
     <message>
       <source>Show this message to the visitors who opens a chat widget.</source>
-      <translation type="unfinished"/>
+      <translation>این پیام را به بازدیدکنندگانی که ویجت چت را باز می کنند نشان دهید.</translation>
     </message>
     <message>
       <source>If none of the above conditions are met widget will become hidden.</source>
@@ -2889,7 +2988,7 @@
     </message>
     <message>
       <source>Create a copy from default settings</source>
-      <translation type="unfinished"/>
+      <translation>ساخت یک کپی از تنظیمات پیشفرض</translation>
     </message>
     <message>
       <source>Please enter resource identifier</source>
@@ -2905,11 +3004,11 @@
     </message>
     <message>
       <source>Copy of Default</source>
-      <translation type="unfinished"/>
+      <translation>کپی از پیشفرض</translation>
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>کپی از</translation>
     </message>
     <message>
       <source>Start chat form settings</source>
@@ -2922,10 +3021,6 @@
   </context>
   <context>
     <name>chat/lists/search_panel</name>
-    <message>
-      <source>Minimum chats</source>
-      <translation>حداقل چت</translation>
-    </message>
     <message>
       <source>Select event</source>
       <translation>انتخاب رویداد</translation>
@@ -3203,6 +3298,10 @@
       <translation>ربات</translation>
     </message>
     <message>
+      <source>Channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Visitor status on chat close</source>
       <translation type="unfinished"/>
     </message>
@@ -3228,6 +3327,10 @@
     </message>
     <message>
       <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3284,7 +3387,7 @@
     </message>
     <message>
       <source>chats</source>
-      <translation type="unfinished"/>
+      <translation>چت ها</translation>
     </message>
     <message>
       <source>Update view</source>
@@ -3339,12 +3442,24 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Select subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Choose proactive invitation</source>
       <translation>Choose proactive invitation</translation>
     </message>
     <message>
       <source>Select bot</source>
       <translation>انتخاب ربات</translation>
+    </message>
+    <message>
+      <source>Choose a channel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a theme</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Select department</source>
@@ -3532,7 +3647,7 @@
     </message>
     <message>
       <source>Make a copy</source>
-      <translation type="unfinished"/>
+      <translation>ساخت کپی از</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -3776,7 +3891,7 @@
     </message>
     <message>
       <source>Active &amp; Deactivated</source>
-      <translation type="unfinished"/>
+      <translation>فعال و غیر فعال</translation>
     </message>
     <message>
       <source>Deactivated</source>
@@ -3828,85 +3943,11 @@
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/subject</name>
-    <message>
-      <source>If you do not choose any department, subject will be visible for all departments</source>
-      <translation>اگر هیچ بخشی را انتخاب نکنید ، موضوع برای همه بخشها قابل مشاهده خواهد بود</translation>
-    </message>
-    <message>
-      <source>This is usefull if you need additional filtering for your own purposes. Leave it empty in most cases.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Internal subjects will not be shown in a subject choosing modal window for the operators. They are good for setting them in the bot, extensions etc.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a subject</source>
-      <translation>انتخاب موضوع</translation>
-    </message>
-    <message>
-      <source>Set a subject</source>
-      <translation>تنظیم کردن موضوع</translation>
-    </message>
-    <message>
-      <source>Subject</source>
-      <translation>موضوع</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject selected!</source>
-      <translation>موضوع انتخاب شده است!</translation>
-    </message>
-    <message>
-      <source>Subject unselected!</source>
-      <translation>موضوع انتخاب نشده است!</translation>
-    </message>
-    <message>
-      <source>Please choose a subject</source>
-      <translation>لطفا یک موضوع را انتخاب کنید</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>survey/form</name>
-    <message>
-      <source>Add option</source>
-      <translation>اضافه کردن گزینه</translation>
-    </message>
-    <message>
-      <source>Enter a possible answer to your question here...</source>
-      <translation>پاسخ ممکن به سوال را اینجا وارد نمایید ...</translation>
-    </message>
-    <message>
-      <source>Enable stars</source>
-      <translation>فعال کردن ستاره</translation>
-    </message>
-    <message>
-      <source>Enable question</source>
-      <translation>فعال کردن سوال</translation>
-    </message>
-    <message>
-      <source>Enable question with an answers</source>
-      <translation>فعال کردن سوال با پاسخ ها</translation>
+      <translation>کپی از</translation>
     </message>
   </context>
   <context>
     <name>chat/cannedmsg</name>
-    <message>
-      <source>Add</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Department</source>
       <translation>دپارتمان</translation>
@@ -3941,7 +3982,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Identifier, use it like {identifier} in canned responses, or bot</source>
@@ -3993,7 +4034,7 @@
     </message>
     <message>
       <source>Not active</source>
-      <translation type="unfinished"/>
+      <translation>غیر فعال</translation>
     </message>
     <message>
       <source>Week day</source>
@@ -4017,11 +4058,11 @@
     </message>
     <message>
       <source>Active from</source>
-      <translation type="unfinished"/>
+      <translation>فعال از</translation>
     </message>
     <message>
       <source>Active to</source>
-      <translation type="unfinished"/>
+      <translation>فعال به</translation>
     </message>
     <message>
       <source>Replaceable variables</source>
@@ -4033,11 +4074,11 @@
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>In-Active</source>
-      <translation type="unfinished"/>
+      <translation>غیر فعال</translation>
     </message>
     <message>
       <source>Delete</source>
@@ -4117,7 +4158,7 @@
     </message>
     <message>
       <source>Active it</source>
-      <translation type="unfinished"/>
+      <translation>فعالش کن</translation>
     </message>
     <message>
       <source>Title</source>
@@ -4298,6 +4339,602 @@
     <message>
       <source>Please choose at-least one user to share your view!</source>
       <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>module/mailconvmb</name>
+    <message>
+      <source>Choose a parent invitation</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>department/edit</name>
+    <message>
+      <source>Choose department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation>هریک</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Period type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
+      <translation>حتی اگر وارد یک سال شوید. این پیام کنسرو شده سالانه در همان زمان هر سال فعال خواهد شد.</translation>
+    </message>
+    <message>
+      <source>Time from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These hours will be using</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department</source>
+      <translation>ویرایش دپارتمان</translation>
+    </message>
+    <message>
+      <source>Edit department group</source>
+      <translation>ویرایش گروه دپارتمان</translation>
+    </message>
+    <message>
+      <source>Edit department limit group</source>
+      <translation>ویرایش محدود یت گروه دپارتمان</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias for argument. No spaces or slashes.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible only if online</source>
+      <translation>قابل نمایش تنها در زمان آنلاین بودن</translation>
+    </message>
+    <message>
+      <source>Disabled</source>
+      <translation>غیرفعال شده</translation>
+    </message>
+    <message>
+      <source>Will not be visible to visitor</source>
+      <translation>برای بازدیدکننده قابل مشاهده نیست</translation>
+    </message>
+    <message>
+      <source>Hidden</source>
+      <translation>عدم نمایش</translation>
+    </message>
+    <message>
+      <source>Archived</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
+      <translation>در صورت دستیابی به این حد ، حداکثر گپ های درانتظار به طور خودکار آفلاین می شوند</translation>
+    </message>
+    <message>
+      <source>Group limit</source>
+      <translation>محدودیت گروه</translation>
+    </message>
+    <message>
+      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
+      <translation>تاخیر در نمایش فرم پیام بر حسب ثانیه. عدد 0 به معنی غیرفعال سازی این قابلیت است.</translation>
+    </message>
+    <message>
+      <source>Priority, used for chats priority</source>
+      <translation>اولویت، مورد استفاده برای اولویت چت </translation>
+    </message>
+    <message>
+      <source>Priority, used for departments sort</source>
+      <translation>اولویت، مورد استفاده برای مرتب سازی دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Automate online hours</source>
+      <translation>ساعات آنلاین خودکار</translation>
+    </message>
+    <message>
+      <source>Notifications</source>
+      <translation>آگاه کننده ها</translation>
+    </message>
+    <message>
+      <source>Chat transfer worklow</source>
+      <translation>انتقال چت </translation>
+    </message>
+    <message>
+      <source>Auto assignment</source>
+      <translation>تخصیص خودکار</translation>
+    </message>
+    <message>
+      <source>Product</source>
+      <translation>محصول</translation>
+    </message>
+    <message>
+      <source>Miscellaneous</source>
+      <translation>متفرقه</translation>
+    </message>
+    <message>
+      <source>Bot configuration</source>
+      <translation>پیکربندی ربات</translation>
+    </message>
+    <message>
+      <source>Survey</source>
+      <translation>نظر سنجی</translation>
+    </message>
+    <message>
+      <source>Work hours/work days logic is active</source>
+      <translation>ساعت کاری/روز کاری فعال است</translation>
+    </message>
+    <message>
+      <source>Your personal time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Widget time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
+      <translation>روزکاری/ساعت کاری، در طول این روزها/ساعات، چت به صورت خودکار فعال خواهد شد.</translation>
+    </message>
+    <message>
+      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
+      <translation>ساعات کاری، فرمت 24 ساعته، 1 - 24، فرمت دقیقه 0 - 60</translation>
+    </message>
+    <message>
+      <source>If you want that chat ignored operators online status and went online only by these defined hours can do that</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>to render widget online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change default time zone.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hours from</source>
+      <translation>از ساعت</translation>
+    </message>
+    <message>
+      <source>Hours from, E.g. 8</source>
+      <translation>ساعت از، مانند 8</translation>
+    </message>
+    <message>
+      <source>Minutes from</source>
+      <translation>از دقیقه</translation>
+    </message>
+    <message>
+      <source>Minutes from, E.g. 30</source>
+      <translation>دقیقه از، مانند 30</translation>
+    </message>
+    <message>
+      <source>Hours to</source>
+      <translation>تا ساعت</translation>
+    </message>
+    <message>
+      <source>Hours to, E.g. 17</source>
+      <translation>ساعت تا، مانند 17</translation>
+    </message>
+    <message>
+      <source>Minutes to</source>
+      <translation>تا دقیقه</translation>
+    </message>
+    <message>
+      <source>Minutes to, E.g. 30</source>
+      <translation>دقیقه تا، مانند 30</translation>
+    </message>
+    <message>
+      <source>Custom period</source>
+      <translation>دوره زمانی سفارشی</translation>
+    </message>
+    <message>
+      <source>Date from</source>
+      <translation>از تاریخ</translation>
+    </message>
+    <message>
+      <source>Custom work day</source>
+      <translation>روز کاری سفارشی</translation>
+    </message>
+    <message>
+      <source>Date to</source>
+      <translation>تا تاریخ</translation>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation>اضافه کردن</translation>
+    </message>
+    <message>
+      <source>Period</source>
+      <translation>دوره زمانی</translation>
+    </message>
+    <message>
+      <source>Start time</source>
+      <translation>زمان شروع</translation>
+    </message>
+    <message>
+      <source>End time</source>
+      <translation>زمان پایان</translation>
+    </message>
+    <message>
+      <source>Remove</source>
+      <translation>حذف</translation>
+    </message>
+    <message>
+      <source>XMPP recipients</source>
+      <translation>گیرندگانXMPP</translation>
+    </message>
+    <message>
+      <source>XMPP group recipients</source>
+      <translation>گیرندگان گروه XMPP</translation>
+    </message>
+    <message>
+      <source>E.g somechat@conference.server.org/LiveChat</source>
+      <translation>مثال: somechat@conference.server.org/LiveChat</translation>
+    </message>
+    <message>
+      <source>These messages will be send as group messages</source>
+      <translation>این پیام ها به صورت پیام گروهی ارسال می شوند</translation>
+    </message>
+    <message>
+      <source>Inform about new chats using</source>
+      <translation>آگاه سازی درباره چت های جدید با استفاده از</translation>
+    </message>
+    <message>
+      <source>XMPP messages</source>
+      <translation>پیام های XMPP</translation>
+    </message>
+    <message>
+      <source>Send XMPP messages to all department operators</source>
+      <translation>ارسال پیام های XMPP به همه اپراتورهای دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Mail messages</source>
+      <translation>پیام های ایمیل</translation>
+    </message>
+    <message>
+      <source>How many seconds chat can be pending before about chat is informed a staff</source>
+      <translation>زمان بر حسب ثانیه که چت می تواند قبل از دریافت توسط پشتیبان در انتظار بماند</translation>
+    </message>
+    <message>
+      <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
+      <translation>اگر از آخرین پیام کاربر خوانده نشده (ثانیه) گذشته است ، در مورد پیام های خوانده نشده اطلاع دهید</translation>
+    </message>
+    <message>
+      <source>Please enter value in seconds</source>
+      <translation>لطفا مقدار را بر حسب ثانیه وارد کنید</translation>
+    </message>
+    <message>
+      <source>Inform then chat is accepted by one of the staff members using</source>
+      <translation>مطلع شدن از پذیرش چت توسط اعضای پشتیبانی با استفاده از</translation>
+    </message>
+    <message>
+      <source>Other</source>
+      <translation>سایر تنظیمات</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed by operator, only mail notification is send.</source>
+      <translation>هنگام بسته شدن چت توسط اپراتور فقط با ارسال آگاه کننده اطلاع بده.</translation>
+    </message>
+    <message>
+      <source>Inform then chat is closed automatically, only mail notification is send.</source>
+      <translation>هنگام بسته شدن خودکار چت ، تنها با ارسال ایمیل آگاه کننده اطلاع بده.</translation>
+    </message>
+    <message>
+      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
+      <translation>آدرس اضافی آدرس ایمیل برای اطلاع در مورد چت های بسته شده ، به این ایمیل  تمام اطلاعیه در مورد چت بسته ارسال خواهد شد.</translation>
+    </message>
+    <message>
+      <source>To what department chat should be transferred if it is not accepted</source>
+      <translation>به چه دپارتمانی چت ها میتوانند منتقل شوند اگر آنها پذیرفته نشوند</translation>
+    </message>
+    <message>
+      <source>Minimum chat priority for transfer to happen.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
+      <translation>اتمام مهلت در ثانیه قبل از چت به بخش دیگر منتقل می شود. حداقل 5 ثانیه.</translation>
+    </message>
+    <message>
+      <source>Transfer immediately to this department if current department has no online operators?</source>
+      <translation>Transfer immediately to this department if current department has no online operators?</translation>
+    </message>
+    <message>
+      <source>Reset assigned user on chat transfer?</source>
+      <translation>کاربر اختصاص داده شده در انتقال گپ مجدداً تنظیم شود؟</translation>
+    </message>
+    <message>
+      <source>Automatic transfer is disabled if there is online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Execute new chat logic again for recipient department?</source>
+      <translation>چت جدید برای دپارتمان گیرنده اجرا شود؟</translation>
+    </message>
+    <message>
+      <source>Execute unanswered chat logic again for recipient department?</source>
+      <translation>چت پاسخ داده نشده برای دپارتمان گیرنده دوباره اجرا شود؟</translation>
+    </message>
+    <message>
+      <source>Based on selected department these products will be shown</source>
+      <translation>براساس دپارتمان های انتخاب شده این محصولات نشان داده خواهد شد</translation>
+    </message>
+    <message>
+      <source>Enable products </source>
+      <translation>محصولات فعال</translation>
+    </message>
+    <message>
+      <source>Required</source>
+      <translation>الزامی</translation>
+    </message>
+    <message>
+      <source>Assigned products</source>
+      <translation>محصولات اختصاص یافته</translation>
+    </message>
+    <message>
+      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
+      <translation>حداکثر طول این فیلد 50 کاراکتر است و برای سایر اهداف قابل استفاده است.</translation>
+    </message>
+    <message>
+      <source>Department groups</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>None</source>
+      <translation>هیچ کدام</translation>
+    </message>
+    <message>
+      <source>Departments</source>
+      <translation>دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Maximum pending chats</source>
+      <translation>حداکثر چت های در انتظار</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>These bot logic applies also</source>
+      <translation>These bot logic applies also</translation>
+    </message>
+    <message>
+      <source>Custom attribute 1</source>
+      <translation>Custom attribute 1</translation>
+    </message>
+    <message>
+      <source>Custom attribute 2</source>
+      <translation>Custom attribute 2</translation>
+    </message>
+    <message>
+      <source>Custom attribute 3</source>
+      <translation>Custom attribute 3</translation>
+    </message>
+    <message>
+      <source>Exception groups to apply</source>
+      <translation>Exception groups to apply</translation>
+    </message>
+    <message>
+      <source>Nick, what should be operator nick. E.g Support Bot</source>
+      <translation>نیک ، نام مستعار اپراتور چیست؟ به عنوان مثال ربات پشتیبانی</translation>
+    </message>
+    <message>
+      <source>Command, do not add ! prefix</source>
+      <translation>فرمان دهید ، اضافه نکنید! پیشوند</translation>
+    </message>
+    <message>
+      <source>Sub command</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation>انتخاب</translation>
+    </message>
+    <message>
+      <source>Please choose a bot</source>
+      <translation>لطفاً یک ربات انتخاب کنید</translation>
+    </message>
+    <message>
+      <source>Please choose a trigger</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a bot</source>
+      <translation>انتخاب ربات</translation>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation>اولویت</translation>
+    </message>
+    <message>
+      <source>Custom message</source>
+      <translation>پیام سفارشی</translation>
+    </message>
+    <message>
+      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>شناسه</translation>
+    </message>
+    <message>
+      <source>Translation</source>
+      <translation>ترجمه</translation>
+    </message>
+    <message>
+      <source>Private</source>
+      <translation>خصوصی</translation>
+    </message>
+    <message>
+      <source>Not presented</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Monday</source>
+      <translation>دوشنبه</translation>
+    </message>
+    <message>
+      <source>Tuesday</source>
+      <translation>سه شنبه</translation>
+    </message>
+    <message>
+      <source>Wednesday</source>
+      <translation>چهارشنبه</translation>
+    </message>
+    <message>
+      <source>Thursday</source>
+      <translation>پنج شنبه</translation>
+    </message>
+    <message>
+      <source>Friday</source>
+      <translation>جمعه</translation>
+    </message>
+    <message>
+      <source>Saturday</source>
+      <translation>شنبه</translation>
+    </message>
+    <message>
+      <source>Sunday</source>
+      <translation>یک شنبه</translation>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>تنظیمات سیستم</translation>
+    </message>
+    <message>
+      <source>Edit a department</source>
+      <translation>ویرایش یک دپارتمان</translation>
+    </message>
+    <message>
+      <source>Departments groups</source>
+      <translation>گروه های دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Departments limit groups</source>
+      <translation>محدودیت گروهی دپارتمان ها</translation>
+    </message>
+    <message>
+      <source>Edit a group chat</source>
+      <translation>ویرایش گروه چت</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/subject</name>
+    <message>
+      <source>If you do not choose any department, subject will be visible for all departments</source>
+      <translation>اگر هیچ بخشی را انتخاب نکنید ، موضوع برای همه بخشها قابل مشاهده خواهد بود</translation>
+    </message>
+    <message>
+      <source>This is usefull if you need additional filtering for your own purposes. Leave it empty in most cases.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Internal subjects will not be shown in a subject choosing modal window for the operators. They are good for setting them in the bot, extensions etc.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose a subject</source>
+      <translation>انتخاب موضوع</translation>
+    </message>
+    <message>
+      <source>Set a subject</source>
+      <translation>تنظیم کردن موضوع</translation>
+    </message>
+    <message>
+      <source>Subject</source>
+      <translation>موضوع</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Subject selected!</source>
+      <translation>موضوع انتخاب شده است!</translation>
+    </message>
+    <message>
+      <source>Subject unselected!</source>
+      <translation>موضوع انتخاب نشده است!</translation>
+    </message>
+    <message>
+      <source>Please choose a subject</source>
+      <translation>لطفا یک موضوع را انتخاب کنید</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>survey/form</name>
+    <message>
+      <source>Add option</source>
+      <translation>اضافه کردن گزینه</translation>
+    </message>
+    <message>
+      <source>Enter a possible answer to your question here...</source>
+      <translation>پاسخ ممکن به سوال را اینجا وارد نمایید ...</translation>
+    </message>
+    <message>
+      <source>Enable stars</source>
+      <translation>فعال کردن ستاره</translation>
+    </message>
+    <message>
+      <source>Enable question</source>
+      <translation>فعال کردن سوال</translation>
+    </message>
+    <message>
+      <source>Enable question with an answers</source>
+      <translation>فعال کردن سوال با پاسخ ها</translation>
     </message>
   </context>
   <context>
@@ -4700,7 +5337,7 @@
     </message>
     <message>
       <source>You can edit only your own messages!</source>
-      <translation type="unfinished"/>
+      <translation>شما تنها پیام های خودتان را میتوانید ویرایش کنید</translation>
     </message>
     <message>
       <source>You have subscribed to new messages notifications!</source>
@@ -5325,8 +5962,8 @@
       <translation>کمینه کردن/بازیابی</translation>
     </message>
     <message>
-      <source>Our staff are always ready to help</source>
-      <translation>پشتیبان ما همیشه برای کمک آماده است</translation>
+      <source>Our staff are always ready to help!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Live help is online...</source>
@@ -5406,18 +6043,6 @@
   <context>
     <name>genericbot/list</name>
     <message>
-      <source>Bot list</source>
-      <translation>لیست ربات ها</translation>
-    </message>
-    <message>
-      <source>Bot exceptions groups</source>
-      <translation>Bot exceptions groups</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
-    </message>
-    <message>
       <source>Login history</source>
       <translation type="unfinished"/>
     </message>
@@ -5463,7 +6088,7 @@
     </message>
     <message>
       <source>Visitor was blocked by</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده مسدود شد توسط</translation>
     </message>
     <message>
       <source>Confirm</source>
@@ -5646,14 +6271,29 @@
     </message>
   </context>
   <context>
-    <name>chat/adminchat</name>
+    <name>chat/chatpreview</name>
     <message>
-      <source>Are you sure you want to delete this chat?</source>
-      <translation>آیا از حذف این چت اطمینان دارید ؟ </translation>
+      <source>Log preview</source>
+      <translation>پیش نمایش گزارش</translation>
     </message>
     <message>
+      <source>Chat preview</source>
+      <translation>پیش نمایش چت</translation>
+    </message>
+    <message>
+      <source>Send chat</source>
+      <translation>ارسال چت</translation>
+    </message>
+    <message>
+      <source>Image preview</source>
+      <translation>پیشنمایش تصویر</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/adminchat</name>
+    <message>
       <source>Strike</source>
-      <translation type="unfinished"/>
+      <translation>خط میانی</translation>
     </message>
     <message>
       <source>Quote</source>
@@ -5661,7 +6301,7 @@
     </message>
     <message>
       <source>Youtube</source>
-      <translation>یوتوب</translation>
+      <translation>یوتیوب</translation>
     </message>
     <message>
       <source>HTML Code</source>
@@ -5705,7 +6345,7 @@
     </message>
     <message>
       <source>Block visitor</source>
-      <translation type="unfinished"/>
+      <translation>مسدود کردن بازدید کننده</translation>
     </message>
     <message>
       <source>Close chat</source>
@@ -5729,7 +6369,7 @@
     </message>
     <message>
       <source>Edit chat</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش چت</translation>
     </message>
     <message>
       <source>Print</source>
@@ -5741,11 +6381,11 @@
     </message>
     <message>
       <source>Redirect to contact form</source>
-      <translation type="unfinished"/>
+      <translation>ارسال به فرم تماس</translation>
     </message>
     <message>
       <source>Redirect to another url</source>
-      <translation type="unfinished"/>
+      <translation>انتقال به آدرس دیگر</translation>
     </message>
     <message>
       <source>Mail was send</source>
@@ -5801,11 +6441,11 @@
     </message>
     <message>
       <source>Chat</source>
-      <translation type="unfinished"/>
+      <translation>چت</translation>
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>فعال</translation>
     </message>
     <message>
       <source>Operators</source>
@@ -5861,7 +6501,7 @@
     </message>
     <message>
       <source>Operator chats during this conversations.</source>
-      <translation type="unfinished"/>
+      <translation>اپراتور در طول این مکالمات چت می کند.</translation>
     </message>
     <message>
       <source>Transferred by</source>
@@ -5869,7 +6509,7 @@
     </message>
     <message>
       <source>Concurrent chats.</source>
-      <translation type="unfinished"/>
+      <translation>چت های همزمان</translation>
     </message>
     <message>
       <source>Location on map</source>
@@ -5901,11 +6541,11 @@
     </message>
     <message>
       <source>Online profile</source>
-      <translation type="unfinished"/>
+      <translation>پروفایل آنلاین</translation>
     </message>
     <message>
       <source>Previous chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های قبلی</translation>
     </message>
     <message>
       <source>Phone</source>
@@ -5917,7 +6557,7 @@
     </message>
     <message>
       <source>Screenshot</source>
-      <translation type="unfinished"/>
+      <translation>اسکرین شات</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -5985,19 +6625,19 @@
     </message>
     <message>
       <source>Chat notes</source>
-      <translation type="unfinished"/>
+      <translation>یادداشت های چت</translation>
     </message>
     <message>
       <source>These are saved per chat</source>
-      <translation type="unfinished"/>
+      <translation>به ازای هر گفتگو ذخیره می شود</translation>
     </message>
     <message>
       <source>Visitor notes. Will remain the same for the same visitor chats.</source>
-      <translation type="unfinished"/>
+      <translation>یادداشت های بازدید کننده برای چت های بازدیدکنندگان یکسان باقی می ماند.</translation>
     </message>
     <message>
       <source>These are saved per visitor</source>
-      <translation type="unfinished"/>
+      <translation>این ها به ازای هر بازدیدکننده ذخیره می شوند</translation>
     </message>
     <message>
       <source>Remarks</source>
@@ -6009,7 +6649,7 @@
     </message>
     <message>
       <source>Private chat between operators</source>
-      <translation type="unfinished"/>
+      <translation>چت خصوصی بین اپراتورها</translation>
     </message>
     <message>
       <source>Include system messages</source>
@@ -6069,7 +6709,7 @@
     </message>
     <message>
       <source>Wait for visitor message and stop auto responder</source>
-      <translation type="unfinished"/>
+      <translation>منتظر پیام بازدیدکننده باشید و پاسخگوی خودکار را متوقف کنید</translation>
     </message>
     <message>
       <source>Send delayed canned message instantly</source>
@@ -6176,6 +6816,14 @@
       <translation>هیچ دسترسی به این چت وجود ندارد</translation>
     </message>
     <message>
+      <source>has modified a message.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Original message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>has invited</source>
       <translation>has invited</translation>
     </message>
@@ -6243,6 +6891,113 @@
     </message>
   </context>
   <context>
+    <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>عکس</translation>
+    </message>
+    <message>
+      <source>Server default time zone</source>
+      <translation>منطقه زمانی پیش فرض سرور</translation>
+    </message>
+    <message>
+      <source>Edit user</source>
+      <translation>ویرایش کاربر</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>رمز عبور را وارد نکنید مگر آنکه بخواهید تغییری در آن دهید</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>نام کاربری</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>رمز عبور</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>تکرار رمز عبور جدید</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation>نام در گفتگو</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>نام خانوادگی</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>ذخیره</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>به روزرسانی</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>لغو</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation>منطقه زمانی کاربر</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation>منطقه زمانی پیش فرض برنامه</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>آدرس ایمیل نادرست است</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>CSRF token نامعتبر است!</translation>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>تنظیمات سیستم</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>کاربران</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>ویرایش کاربر</translation>
+    </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>canned/import</name>
     <message>
       <source>Updated</source>
@@ -6278,6 +7033,13 @@
     </message>
   </context>
   <context>
+    <name>cannedmsg/deletereplace</name>
+    <message>
+      <source>Clone</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>kernel/message</name>
     <message>
       <source>Are you sure?</source>
@@ -6307,19 +7069,19 @@
     </message>
     <message>
       <source>Write</source>
-      <translation type="unfinished"/>
+      <translation>نوشتن</translation>
     </message>
     <message>
       <source>Preview</source>
-      <translation type="unfinished"/>
+      <translation>پیش نمایش</translation>
     </message>
     <message>
       <source>You are in whisper mode!</source>
-      <translation type="unfinished"/>
+      <translation>شما در حالت مشاوره به اپراتور هستید</translation>
     </message>
     <message>
       <source>Whisper</source>
-      <translation type="unfinished"/>
+      <translation>مشاوره به اپراتور</translation>
     </message>
     <message>
       <source>Impersonate</source>
@@ -6347,7 +7109,7 @@
     </message>
     <message>
       <source>This chat was closed. You can not write messages anymore.</source>
-      <translation type="unfinished"/>
+      <translation>این چت بسته شد شما دیگر نمی توانید پیام بنویسید.</translation>
     </message>
     <message>
       <source>You can only read a messages.</source>
@@ -6658,10 +7420,6 @@
   <context>
     <name>chat/blockedusers</name>
     <message>
-      <source>block</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>IP</source>
       <translation>IP</translation>
     </message>
@@ -6743,7 +7501,7 @@
     </message>
     <message>
       <source>Block visitor</source>
-      <translation type="unfinished"/>
+      <translation>مسدود کردن بازدید کننده</translation>
     </message>
     <message>
       <source>Online user (cookie)</source>
@@ -6791,15 +7549,11 @@
     </message>
     <message>
       <source>Visitor was blocked!</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده مسدود شد</translation>
     </message>
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Pending chats</source>
-      <translation>چت های در انتظار</translation>
-    </message>
     <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
@@ -6810,7 +7564,7 @@
     </message>
     <message>
       <source>Copy nick</source>
-      <translation type="unfinished"/>
+      <translation>کپی نام</translation>
     </message>
     <message>
       <source>Copied</source>
@@ -7018,11 +7772,11 @@
     </message>
     <message>
       <source>Do not scroll to the bottom on chat open</source>
-      <translation type="unfinished"/>
+      <translation>در چت باز به پایین اسکرول نکنید</translation>
     </message>
     <message>
       <source>Remove my closed chats from opened chat list on page refresh</source>
-      <translation type="unfinished"/>
+      <translation>در بازخوانی صفحه، چت های بسته من را از لیست چت باز حذف کنید</translation>
     </message>
     <message>
       <source>Include not only my chats</source>
@@ -7069,6 +7823,10 @@
       <translation>حساب کاربری به روز شد</translation>
     </message>
     <message>
+      <source>Account update failed! Please try again!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All departments</source>
       <translation>تمام دپارتمان ها</translation>
     </message>
@@ -7098,7 +7856,7 @@
     </message>
     <message>
       <source>You have permission to edit departments group, but do not have permission to read them. Missing one of these permissions</source>
-      <translation type="unfinished"/>
+      <translation>شما اجازه ویرایش گروه بخش ها را دارید، اما اجازه خواندن آنها را ندارید. یکی از این مجوزها را وجود ندارد</translation>
     </message>
     <message>
       <source>Changes will not be saved!</source>
@@ -7110,7 +7868,7 @@
     </message>
     <message>
       <source>For user edit page</source>
-      <translation type="unfinished"/>
+      <translation>برای صفحه ویرایش کاربر</translation>
     </message>
     <message>
       <source>Departments groups</source>
@@ -7142,7 +7900,7 @@
     </message>
     <message>
       <source>In order to change operator permissions you have to edit</source>
-      <translation type="unfinished"/>
+      <translation>برای تغییر مجوزهای اپراتور باید ویرایش کنید</translation>
     </message>
     <message>
       <source>roles</source>
@@ -7186,7 +7944,7 @@
     </message>
     <message>
       <source>New password was set, copy it or</source>
-      <translation type="unfinished"/>
+      <translation>رمز جدید ارسال شد، کپی کنید یا</translation>
     </message>
     <message>
       <source>click to show</source>
@@ -7194,7 +7952,7 @@
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>کپی </translation>
     </message>
     <message>
       <source>Password was reset. Please login now.</source>
@@ -7207,521 +7965,6 @@
     <message>
       <source>Load previous message on scroll</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>department/edit</name>
-    <message>
-      <source>Choose department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Any</source>
-      <translation>هریک</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 0 - 23, minutes format 0 - 59</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Period type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Even if you enter a year. This canned message will be active annually at the same time each year.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>These hours will be using</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit department</source>
-      <translation>ویرایش دپارتمان</translation>
-    </message>
-    <message>
-      <source>Edit department group</source>
-      <translation>ویرایش گروه دپارتمان</translation>
-    </message>
-    <message>
-      <source>Edit department limit group</source>
-      <translation>ویرایش محدود یت گروه دپارتمان</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>نام</translation>
-    </message>
-    <message>
-      <source>If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Alias for argument. No spaces or slashes.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible only if online</source>
-      <translation>قابل نمایش تنها در زمان آنلاین بودن</translation>
-    </message>
-    <message>
-      <source>Disabled</source>
-      <translation>غیرفعال شده</translation>
-    </message>
-    <message>
-      <source>Will not be visible to visitor</source>
-      <translation>برای بازدیدکننده قابل مشاهده نیست</translation>
-    </message>
-    <message>
-      <source>Hidden</source>
-      <translation>عدم نمایش</translation>
-    </message>
-    <message>
-      <source>Archived</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Maximum pending chats, if this limit is reached department becomes offline automatically</source>
-      <translation>در صورت دستیابی به این حد ، حداکثر گپ های درانتظار به طور خودکار آفلاین می شوند</translation>
-    </message>
-    <message>
-      <source>Group limit</source>
-      <translation>محدودیت گروه</translation>
-    </message>
-    <message>
-      <source>Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, </source>
-      <translation>تاخیر در نمایش فرم پیام بر حسب ثانیه. عدد 0 به معنی غیرفعال سازی این قابلیت است.</translation>
-    </message>
-    <message>
-      <source>Priority, used for chats priority</source>
-      <translation>اولویت، مورد استفاده برای اولویت چت </translation>
-    </message>
-    <message>
-      <source>Priority, used for departments sort</source>
-      <translation>اولویت، مورد استفاده برای مرتب سازی دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Automate online hours</source>
-      <translation>ساعات آنلاین خودکار</translation>
-    </message>
-    <message>
-      <source>Notifications</source>
-      <translation>آگاه کننده ها</translation>
-    </message>
-    <message>
-      <source>Chat transfer worklow</source>
-      <translation>انتقال چت </translation>
-    </message>
-    <message>
-      <source>Auto assignment</source>
-      <translation>تخصیص خودکار</translation>
-    </message>
-    <message>
-      <source>Product</source>
-      <translation>محصول</translation>
-    </message>
-    <message>
-      <source>Miscellaneous</source>
-      <translation>متفرقه</translation>
-    </message>
-    <message>
-      <source>Bot configuration</source>
-      <translation>پیکربندی ربات</translation>
-    </message>
-    <message>
-      <source>Survey</source>
-      <translation>نظر سنجی</translation>
-    </message>
-    <message>
-      <source>Work hours/work days logic is active</source>
-      <translation>ساعت کاری/روز کاری فعال است</translation>
-    </message>
-    <message>
-      <source>Your personal time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Widget time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Workdays/work hours, during these days/hours chat will be active automatically</source>
-      <translation>روزکاری/ساعت کاری، در طول این روزها/ساعات، چت به صورت خودکار فعال خواهد شد.</translation>
-    </message>
-    <message>
-      <source>Work hours, 24 hours format, 1 - 24, minutes format 0 - 60</source>
-      <translation>ساعات کاری، فرمت 24 ساعته، 1 - 24، فرمت دقیقه 0 - 60</translation>
-    </message>
-    <message>
-      <source>If you want that chat ignored operators online status and went online only by these defined hours can do that</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>here</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>to render widget online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Change default time zone.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hours from</source>
-      <translation>از ساعت</translation>
-    </message>
-    <message>
-      <source>Hours from, E.g. 8</source>
-      <translation>ساعت از، مانند 8</translation>
-    </message>
-    <message>
-      <source>Minutes from</source>
-      <translation>از دقیقه</translation>
-    </message>
-    <message>
-      <source>Minutes from, E.g. 30</source>
-      <translation>دقیقه از، مانند 30</translation>
-    </message>
-    <message>
-      <source>Hours to</source>
-      <translation>تا ساعت</translation>
-    </message>
-    <message>
-      <source>Hours to, E.g. 17</source>
-      <translation>ساعت تا، مانند 17</translation>
-    </message>
-    <message>
-      <source>Minutes to</source>
-      <translation>تا دقیقه</translation>
-    </message>
-    <message>
-      <source>Minutes to, E.g. 30</source>
-      <translation>دقیقه تا، مانند 30</translation>
-    </message>
-    <message>
-      <source>Custom period</source>
-      <translation>دوره زمانی سفارشی</translation>
-    </message>
-    <message>
-      <source>Date from</source>
-      <translation>از تاریخ</translation>
-    </message>
-    <message>
-      <source>Custom work day</source>
-      <translation>روز کاری سفارشی</translation>
-    </message>
-    <message>
-      <source>Date to</source>
-      <translation>تا تاریخ</translation>
-    </message>
-    <message>
-      <source>Add</source>
-      <translation>اضافه کردن</translation>
-    </message>
-    <message>
-      <source>Period</source>
-      <translation>دوره زمانی</translation>
-    </message>
-    <message>
-      <source>Start time</source>
-      <translation>زمان شروع</translation>
-    </message>
-    <message>
-      <source>End time</source>
-      <translation>زمان پایان</translation>
-    </message>
-    <message>
-      <source>Remove</source>
-      <translation>حذف</translation>
-    </message>
-    <message>
-      <source>XMPP recipients</source>
-      <translation>گیرندگانXMPP</translation>
-    </message>
-    <message>
-      <source>XMPP group recipients</source>
-      <translation>گیرندگان گروه XMPP</translation>
-    </message>
-    <message>
-      <source>E.g somechat@conference.server.org/LiveChat</source>
-      <translation>مثال: somechat@conference.server.org/LiveChat</translation>
-    </message>
-    <message>
-      <source>These messages will be send as group messages</source>
-      <translation>این پیام ها به صورت پیام گروهی ارسال می شوند</translation>
-    </message>
-    <message>
-      <source>Inform about new chats using</source>
-      <translation>آگاه سازی درباره چت های جدید با استفاده از</translation>
-    </message>
-    <message>
-      <source>XMPP messages</source>
-      <translation>پیام های XMPP</translation>
-    </message>
-    <message>
-      <source>Send XMPP messages to all department operators</source>
-      <translation>ارسال پیام های XMPP به همه اپراتورهای دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Mail messages</source>
-      <translation>پیام های ایمیل</translation>
-    </message>
-    <message>
-      <source>How many seconds chat can be pending before about chat is informed a staff</source>
-      <translation>زمان بر حسب ثانیه که چت می تواند قبل از دریافت توسط پشتیبان در انتظار بماند</translation>
-    </message>
-    <message>
-      <source>Inform about unread messages if from last unread user message has passed (seconds)</source>
-      <translation>اگر از آخرین پیام کاربر خوانده نشده (ثانیه) گذشته است ، در مورد پیام های خوانده نشده اطلاع دهید</translation>
-    </message>
-    <message>
-      <source>Please enter value in seconds</source>
-      <translation>لطفا مقدار را بر حسب ثانیه وارد کنید</translation>
-    </message>
-    <message>
-      <source>Inform then chat is accepted by one of the staff members using</source>
-      <translation>مطلع شدن از پذیرش چت توسط اعضای پشتیبانی با استفاده از</translation>
-    </message>
-    <message>
-      <source>Other</source>
-      <translation>سایر تنظیمات</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed by operator, only mail notification is send.</source>
-      <translation>هنگام بسته شدن چت توسط اپراتور فقط با ارسال آگاه کننده اطلاع بده.</translation>
-    </message>
-    <message>
-      <source>Inform then chat is closed automatically, only mail notification is send.</source>
-      <translation>هنگام بسته شدن خودکار چت ، تنها با ارسال ایمیل آگاه کننده اطلاع بده.</translation>
-    </message>
-    <message>
-      <source>Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats</source>
-      <translation>آدرس اضافی آدرس ایمیل برای اطلاع در مورد چت های بسته شده ، به این ایمیل  تمام اطلاعیه در مورد چت بسته ارسال خواهد شد.</translation>
-    </message>
-    <message>
-      <source>To what department chat should be transferred if it is not accepted</source>
-      <translation>به چه دپارتمانی چت ها میتوانند منتقل شوند اگر آنها پذیرفته نشوند</translation>
-    </message>
-    <message>
-      <source>Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.</source>
-      <translation>اتمام مهلت در ثانیه قبل از چت به بخش دیگر منتقل می شود. حداقل 5 ثانیه.</translation>
-    </message>
-    <message>
-      <source>Transfer immediately to this department if current department has no online operators?</source>
-      <translation>Transfer immediately to this department if current department has no online operators?</translation>
-    </message>
-    <message>
-      <source>Reset assigned user on chat transfer?</source>
-      <translation>کاربر اختصاص داده شده در انتقال گپ مجدداً تنظیم شود؟</translation>
-    </message>
-    <message>
-      <source>Automatic transfer is disabled if there is online operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Execute new chat logic again for recipient department?</source>
-      <translation>چت جدید برای دپارتمان گیرنده اجرا شود؟</translation>
-    </message>
-    <message>
-      <source>Execute unanswered chat logic again for recipient department?</source>
-      <translation>چت پاسخ داده نشده برای دپارتمان گیرنده دوباره اجرا شود؟</translation>
-    </message>
-    <message>
-      <source>Based on selected department these products will be shown</source>
-      <translation>براساس دپارتمان های انتخاب شده این محصولات نشان داده خواهد شد</translation>
-    </message>
-    <message>
-      <source>Enable products </source>
-      <translation>محصولات فعال</translation>
-    </message>
-    <message>
-      <source>Required</source>
-      <translation>الزامی</translation>
-    </message>
-    <message>
-      <source>Assigned products</source>
-      <translation>محصولات اختصاص یافته</translation>
-    </message>
-    <message>
-      <source>This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.</source>
-      <translation>حداکثر طول این فیلد 50 کاراکتر است و برای سایر اهداف قابل استفاده است.</translation>
-    </message>
-    <message>
-      <source>Department groups</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>None</source>
-      <translation>هیچ کدام</translation>
-    </message>
-    <message>
-      <source>Departments</source>
-      <translation>دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Maximum pending chats</source>
-      <translation>حداکثر چت های در انتظار</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>These bot logic applies also</source>
-      <translation>These bot logic applies also</translation>
-    </message>
-    <message>
-      <source>Custom attribute 1</source>
-      <translation>Custom attribute 1</translation>
-    </message>
-    <message>
-      <source>Custom attribute 2</source>
-      <translation>Custom attribute 2</translation>
-    </message>
-    <message>
-      <source>Custom attribute 3</source>
-      <translation>Custom attribute 3</translation>
-    </message>
-    <message>
-      <source>Exception groups to apply</source>
-      <translation>Exception groups to apply</translation>
-    </message>
-    <message>
-      <source>Nick, what should be operator nick. E.g Support Bot</source>
-      <translation>نیک ، نام مستعار اپراتور چیست؟ به عنوان مثال ربات پشتیبانی</translation>
-    </message>
-    <message>
-      <source>Command, do not add ! prefix</source>
-      <translation>فرمان دهید ، اضافه نکنید! پیشوند</translation>
-    </message>
-    <message>
-      <source>Sub command</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Info message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Subject added!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Info message is usefull if you want to show operator that command was executed without storing any real message within chat.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation>انتخاب</translation>
-    </message>
-    <message>
-      <source>Please choose a bot</source>
-      <translation>لطفاً یک ربات انتخاب کنید</translation>
-    </message>
-    <message>
-      <source>Please choose a trigger</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose a bot</source>
-      <translation>انتخاب ربات</translation>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation>اولویت</translation>
-    </message>
-    <message>
-      <source>Custom message</source>
-      <translation>پیام سفارشی</translation>
-    </message>
-    <message>
-      <source>If you have configured Automatic Translations we will use it for untranslated items.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>شناسه</translation>
-    </message>
-    <message>
-      <source>Translation</source>
-      <translation>ترجمه</translation>
-    </message>
-    <message>
-      <source>Private</source>
-      <translation>خصوصی</translation>
-    </message>
-    <message>
-      <source>Not presented</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Monday</source>
-      <translation>دوشنبه</translation>
-    </message>
-    <message>
-      <source>Tuesday</source>
-      <translation>سه شنبه</translation>
-    </message>
-    <message>
-      <source>Wednesday</source>
-      <translation>چهارشنبه</translation>
-    </message>
-    <message>
-      <source>Thursday</source>
-      <translation>پنج شنبه</translation>
-    </message>
-    <message>
-      <source>Friday</source>
-      <translation>جمعه</translation>
-    </message>
-    <message>
-      <source>Saturday</source>
-      <translation>شنبه</translation>
-    </message>
-    <message>
-      <source>Sunday</source>
-      <translation>یک شنبه</translation>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>Edit a department</source>
-      <translation>ویرایش یک دپارتمان</translation>
-    </message>
-    <message>
-      <source>Departments groups</source>
-      <translation>گروه های دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Departments limit groups</source>
-      <translation>محدودیت گروهی دپارتمان ها</translation>
-    </message>
-    <message>
-      <source>Edit a group chat</source>
-      <translation>ویرایش گروه چت</translation>
     </message>
   </context>
   <context>
@@ -7851,7 +8094,7 @@
     <name>chat/syncadmininterface</name>
     <message>
       <source>New window</source>
-      <translation type="unfinished"/>
+      <translation>پنجره جدید</translation>
     </message>
     <message>
       <source>Open in a new window</source>
@@ -7859,7 +8102,7 @@
     </message>
     <message>
       <source>No previous chats</source>
-      <translation>بدون چت های قبلی است</translation>
+      <translation> چت  قبلی ندارد</translation>
     </message>
     <message>
       <source>h.</source>
@@ -8393,7 +8636,7 @@
     <name>chat/voice_video</name>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>صدا، تصویر و اشتراک گذاری صفحه</translation>
     </message>
     <message>
       <source>Has not started</source>
@@ -8401,7 +8644,7 @@
     </message>
     <message>
       <source>Visitor - waiting for permission to join the call</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده - در انتظار مجوز برای پیوستن به تماس</translation>
     </message>
     <message>
       <source>Visitor - permission granted</source>
@@ -8453,7 +8696,7 @@
     </message>
     <message>
       <source>Share your screen</source>
-      <translation type="unfinished"/>
+      <translation>شاتراک گذاری صفحه</translation>
     </message>
     <message>
       <source>Enable video</source>
@@ -8513,7 +8756,7 @@
     </message>
     <message>
       <source>Visitor is waiting for someone to let him in!</source>
-      <translation type="unfinished"/>
+      <translation>بازدید کننده منتظر است که کسی به او اجازه ورود بدهد!</translation>
     </message>
     <message>
       <source>Pending visitor to join the call!</source>
@@ -8536,7 +8779,7 @@
     <name>chat/screenshot</name>
     <message>
       <source>Take user screenshot</source>
-      <translation>گرفتن تصویر کاربر</translation>
+      <translation>گرفتن اسکرین شات کاربر</translation>
     </message>
     <message>
       <source>Refresh</source>
@@ -8552,50 +8795,293 @@
     </message>
     <message>
       <source>Perhaps screenshot is under way or screenshot is not supported on client browser, click refresh to check for a screenshot</source>
-      <translation>احتمالاً تصویر توسط مرورگر کاربر پشتیبانی نمی شود. برای چک کردن تصویر، رفرش کنید.</translation>
+      <translation>احتمالاً اسکرین شات توسط مرورگر کاربر پشتیبانی نمی شود. برای چک کردن تصویر، رفرش کنید.</translation>
     </message>
     <message>
       <source>Screenshot</source>
-      <translation>تصویر</translation>
+      <translation>اسکرین شات</translation>
     </message>
     <message>
       <source>Redirect to URL</source>
-      <translation type="unfinished"/>
+      <translation>انتقال به آدرس URL</translation>
     </message>
     <message>
       <source>Screenshot store error</source>
-      <translation>خطا ذخیره تصویر</translation>
+      <translation>خطا ذخیره اسکرین شات</translation>
     </message>
     <message>
       <source>Screenshot ready...</source>
-      <translation>عکس صفحه آماده است ...</translation>
+      <translation>اسکرین شات آماده است ...</translation>
     </message>
   </context>
   <context>
-    <name>chat/chatpreview</name>
+    <name>chat/history</name>
     <message>
-      <source>Log preview</source>
+      <source>Present chat was not closed yet. This information will be inaccurate at the moment.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat preview</source>
-      <translation>پیش نمایش چت</translation>
+      <source>It shows only chats if they were closed. We show maximum of 10 chats in total.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Send chat</source>
-      <translation>ارسال چت</translation>
+      <source>Closed at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Image preview</source>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Ended</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat is still running</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>statistic/departmentstats</name>
+    <message>
+      <source>Concurrent chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active operator chats</source>
+      <translation>چت های فعال اپراتور</translation>
+    </message>
+    <message>
+      <source>We show only directly or group assigned operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assignment type</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude from auto assign workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats</source>
+      <translation>گفتگوهای فعال</translation>
+    </message>
+    <message>
+      <source>Inactive chats</source>
+      <translation>چت های غیر فعال</translation>
+    </message>
+    <message>
+      <source>Op. Languages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live data</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active chats</source>
+      <translation>چت های فعال</translation>
+    </message>
+    <message>
+      <source>bot chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>in-active chats</source>
+      <translation>چت های غیر فعال</translation>
+    </message>
+    <message>
+      <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
+      <translation>گپ فعال/در انتظار است و کاربر ویجت را بسته است یا به نظرسنجی هدایت شده است</translation>
+    </message>
+    <message>
+      <source>Load statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>soft limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hard limit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>active operators chats</source>
+      <translation>چت های فعال اپراتور</translation>
+    </message>
+    <message>
+      <source>inactive operators chats</source>
+      <translation>چت های غیرفعال اپراتور</translation>
+    </message>
+    <message>
+      <source>Summary statistic [Hard limit]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Summary statistic [Soft limit]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator active/pending chats</source>
+      <translation>چت های فعال/معلق اپراتور</translation>
+    </message>
+    <message>
+      <source>Edit operator</source>
+      <translation>ویرایش اپراتور</translation>
+    </message>
+    <message>
+      <source>Total</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No data.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Active chats statistic by operators</source>
+      <translation>آمار چت های فعال اپراتورها</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Just now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator online hours</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Login history</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last chat assigned ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All</source>
       <translation type="unfinished"/>
     </message>
   </context>
   <context>
     <name>front/default</name>
-    <message>
-      <source>Expand or collapse right menu</source>
-      <translation>منوی سمت راست را بزرگ یا کوچک کنید</translation>
-    </message>
     <message>
       <source>Pending confirm</source>
       <translation>در انتظار تایید</translation>
@@ -8606,7 +9092,7 @@
     </message>
     <message>
       <source>My active and pending chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های فعال و در انتظار من</translation>
     </message>
     <message>
       <source>Unread messages</source>
@@ -8706,11 +9192,11 @@
     </message>
     <message>
       <source>Chat ID to open</source>
-      <translation type="unfinished"/>
+      <translation>شناسه چت برای باز کردن</translation>
     </message>
     <message>
       <source>Open a chat</source>
-      <translation type="unfinished"/>
+      <translation>باز کردن یک چت</translation>
     </message>
     <message>
       <source>Hide/Show chat tabs</source>
@@ -8718,7 +9204,7 @@
     </message>
     <message>
       <source>Open chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های باز</translation>
     </message>
     <message>
       <source>Tabs/List in left column</source>
@@ -8731,6 +9217,20 @@
     <message>
       <source>SMTP</source>
       <translation>SMTP</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/status_blocked</name>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>chat/blocked_survey</name>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -8777,11 +9277,11 @@
     </message>
     <message>
       <source>Pending a support staff member to join, you can write your questions, and as soon as a support staff member confirms this chat, they will get your messages OR Less than a minute</source>
-      <translation type="unfinished"/>
+      <translation>در انتظار عضویت یکی از کارکنان پشتیبانی، می‌توانید سؤالات خود را بنویسید و به محض اینکه یکی از کارکنان پشتیبانی این چت را تأیید کرد، پیام‌های شما را دریافت می‌کند یا کمتر از یک دقیقه</translation>
     </message>
     <message>
       <source>You are number {number} in the queue. Please wait... OR Average waiting time for attention is {avg_wait_time} minute{avg_wait_time__s}</source>
-      <translation type="unfinished"/>
+      <translation>شما شماره {number} در صف هستید. لطفاً صبر کنید... یا میانگین زمان انتظار برای پاسخگویی  {avg_wait_time} دقیقه و {avg_wait_time__s} ثانیه است</translation>
     </message>
     <message>
       <source>Thank you for your feedback</source>
@@ -8841,10 +9341,6 @@
   </context>
   <context>
     <name>chat/user_settings</name>
-    <message>
-      <source>Send chat</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>End the chat</source>
       <translation>خاتمه دادن به گفتگو</translation>
@@ -9794,19 +10290,62 @@
     </message>
   </context>
   <context>
+    <name>chat/modifychat</name>
+    <message>
+      <source>Debug</source>
+      <translation>اشکال زدایی</translation>
+    </message>
+    <message>
+      <source>User attribute</source>
+      <translation>مشخصه نام</translation>
+    </message>
+    <message>
+      <source>Chat attributes</source>
+      <translation>ویژگی های چت</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>ایمیل</translation>
+    </message>
+    <message>
+      <source>Recipient e-mail</source>
+      <translation>ایمیل گیرنده</translation>
+    </message>
+    <message>
+      <source>Inform me then visitor returns</source>
+      <translation>Inform me then visitor returns</translation>
+    </message>
+    <message>
+      <source>E-mail is send when visitor starts new browsing session</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>نام</translation>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation>شماره تلفن</translation>
+    </message>
+    <message>
+      <source>Update chat</source>
+      <translation>به روز رسانی چت</translation>
+    </message>
+    <message>
+      <source>Unanswered chat</source>
+      <translation>چت های بدون جواب</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>دپارتمان</translation>
+    </message>
+    <message>
+      <source>Chat information was updated</source>
+      <translation>جزئیات چت به روز شد</translation>
+    </message>
+  </context>
+  <context>
     <name>system/configuration</name>
-    <message>
-      <source>Bot list</source>
-      <translation>لیست ربات</translation>
-    </message>
-    <message>
-      <source>Bot exceptions</source>
-      <translation>Bot exceptions</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
-    </message>
     <message>
       <source>Request notification permission</source>
       <translation>درخواست دسترسی به آگاه کننده ها</translation>
@@ -10173,7 +10712,7 @@
     </message>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>صدا، تصویر و اشتراک گذاری صفحه</translation>
     </message>
     <message>
       <source>Webhooks</source>
@@ -10270,6 +10809,10 @@
     <message>
       <source>minutes</source>
       <translation>دقیقه</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>hour</source>
@@ -10433,14 +10976,6 @@
   </context>
   <context>
     <name>chat/pendingchats</name>
-    <message>
-      <source>Bots</source>
-      <translation>ربات ها</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>گروههای ترجمه</translation>
-    </message>
     <message>
       <source>Information</source>
       <translation>اطلاعات</translation>
@@ -10628,7 +11163,7 @@
     </message>
     <message>
       <source>Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)</source>
-      <translation type="unfinished"/>
+      <translation>محدودیت سخت - (چت های فعال آنلاین اپراتورها - چت های آنلاین غیرفعال اپراتورها) (محدودیت نرم - چت های فعال)</translation>
     </message>
     <message>
       <source>Hard</source>
@@ -10772,7 +11307,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Quote</source>
@@ -10780,11 +11315,11 @@
     </message>
     <message>
       <source>Copy</source>
-      <translation type="unfinished"/>
+      <translation>کپی </translation>
     </message>
     <message>
       <source>Copy all</source>
-      <translation type="unfinished"/>
+      <translation>کپی کردن همه</translation>
     </message>
     <message>
       <source>Ask for help</source>
@@ -10832,11 +11367,11 @@
     </message>
     <message>
       <source>active chat was opened</source>
-      <translation type="unfinished"/>
+      <translation>چت فعال باز شد</translation>
     </message>
     <message>
       <source>previously loaded chat was opened</source>
-      <translation type="unfinished"/>
+      <translation>چت بارگیری شده قبلی باز شد</translation>
     </message>
     <message>
       <source>Chat tabs</source>
@@ -11153,7 +11688,7 @@
     </message>
     <message>
       <source>Average wait time should be calculated for the last</source>
-      <translation type="unfinished"/>
+      <translation>میانگین زمان انتظار باید برای آخرین مورد محاسبه شود</translation>
     </message>
     <message>
       <source>Collect canned messages usage statistic</source>
@@ -11400,58 +11935,42 @@
     </message>
   </context>
   <context>
-    <name>chat/modifychat</name>
+    <name>chat/plain</name>
     <message>
-      <source>Debug</source>
-      <translation>اشکال زدایی</translation>
-    </message>
-    <message>
-      <source>User attribute</source>
-      <translation>مشخصه نام</translation>
-    </message>
-    <message>
-      <source>Chat attributes</source>
-      <translation>ویژگی های چت</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Recipient e-mail</source>
-      <translation>ایمیل گیرنده</translation>
-    </message>
-    <message>
-      <source>Inform me then visitor returns</source>
-      <translation>Inform me then visitor returns</translation>
-    </message>
-    <message>
-      <source>E-mail is send when visitor starts new browsing session</source>
+      <source>attribute</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Nick</source>
-      <translation>نام</translation>
+      <source>hide textarea</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Phone</source>
-      <translation>شماره تلفن</translation>
+      <source>show textarea</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Update chat</source>
-      <translation>به روز رسانی چت</translation>
+      <source>execute javascript</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Unanswered chat</source>
-      <translation>چت های بدون جواب</translation>
+      <source>typing</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Department</source>
-      <translation>دپارتمان</translation>
+      <source>System assistant</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Chat information was updated</source>
-      <translation>جزئیات چت به روز شد</translation>
+      <source>whisper</source>
+      <translation>مشاوره به اپراتور</translation>
+    </message>
+    <message>
+      <source>Chat ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>at</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -11603,165 +12122,6 @@
     <message>
       <source>Information collected. Only chat form</source>
       <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/sendnotice</name>
-    <message>
-      <source>Invitation expire time, after that period of time invitation will be hidden</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Does not apply</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Permanent (visitor has to close invitation)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Follows system default settings</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Type your message to the user</source>
-      <translation>پیام خود را برای کاربر وارد کنید</translation>
-    </message>
-    <message>
-      <source>Open full widget for the visitor</source>
-      <translation>ویجت کامل را برای بازدید کننده باز کنید</translation>
-    </message>
-    <message>
-      <source>Skip bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invitation expire time, after that period of time invitation will be hidden.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last sent invitation expires in</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>last invitation was seen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has active invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>do not have any active invitation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assign the chat to me if the visitor replies</source>
-      <translation>در صورت پاسخ بازدید کننده ، گپ را به من اختصاص دهید</translation>
-    </message>
-    <message>
-      <source>Do not send automated messages if the customer replies</source>
-      <translation>Do not send automated messages if the customer replies</translation>
-    </message>
-    <message>
-      <source>Requires e-mail</source>
-      <translation>ایمیل الزامی است</translation>
-    </message>
-    <message>
-      <source>Requires name</source>
-      <translation>نام الزامی است</translation>
-    </message>
-    <message>
-      <source>Requires phone</source>
-      <translation>شماره تلفن الزامی است</translation>
-    </message>
-    <message>
-      <source>Campaign</source>
-      <translation>Campaign</translation>
-    </message>
-    <message>
-      <source>Canned message</source>
-      <translation>پیام های از پیش تعریف شده</translation>
-    </message>
-    <message>
-      <source>Send the message</source>
-      <translation>ارسال پیام</translation>
-    </message>
-    <message>
-      <source>Visitor have assigned chat with id</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is in pending/active state.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is in bot status.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is closed, we will start a new chat.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We will initiate a new chat, because visitor has ended previous chat already. Is in survey/closed chat/filling contact form</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor does not have any chat. We will initiate a new chat.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message was sent to the user</source>
-      <translation>پیام برای کاربر ارسال شد</translation>
-    </message>
-    <message>
-      <source>If the message was already sent, this will mark it as not delivered and the user will be shown the chat message again.</source>
-      <translation>اگر پیام ارسال شده باشد، این گزینه آن را به عنوان دریافت نشده علامت گذاری کرده و مجدداً پیام چت برای کاربر نمایش داده می شود.</translation>
-    </message>
-    <message>
-      <source>Send a message to the user</source>
-      <translation>ارسال پیام به کاربر</translation>
-    </message>
-    <message>
-      <source>Type your message to the operator</source>
-      <translation>پیام خود را برای اپراتور تایپ کنید</translation>
-    </message>
-    <message>
-      <source>Start chat with operator</source>
-      <translation>شروع چت با اپراتور</translation>
     </message>
   </context>
   <context>
@@ -12613,11 +12973,11 @@
     </message>
     <message>
       <source>Active chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های فعال</translation>
     </message>
     <message>
       <source>Inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های غیر فعال</translation>
     </message>
     <message>
       <source>Bots chats</source>
@@ -12625,11 +12985,11 @@
     </message>
     <message>
       <source>Online operators active chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های آنلاین فعال اپراتور</translation>
     </message>
     <message>
       <source>Online operators inactive chats</source>
-      <translation type="unfinished"/>
+      <translation>چت های آنلاین غیرفعال اپراتور</translation>
     </message>
     <message>
       <source>Max chats</source>
@@ -12816,10 +13176,6 @@
   <context>
     <name>department/new</name>
     <message>
-      <source>New translation group</source>
-      <translation>گروه ترجمه جدید</translation>
-    </message>
-    <message>
       <source>New department</source>
       <translation>دپارتمان جدید</translation>
     </message>
@@ -12865,241 +13221,10 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>statistic/departmentstats</name>
-    <message>
-      <source>Concurrent chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active operator chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We show only directly or group assigned operators.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Read only</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assignment type</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Exclude from auto assign workflow</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Inactive chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Op. Languages</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Yes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chats statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live data</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>bot chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>in-active chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is active/pending and user has closed widget or has been redirected to survey</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Load statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>soft limit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator is logged to back office during last 10 minutes and is online/offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hard limit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>active operators chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>inactive operators chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Summary statistic [Hard limit]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Summary statistic [Soft limit]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Soft limit. Operator is logged to back office during last 10 minutes and is online/offline.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator active/pending chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No data.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hard limit. Operator is logged to back office during last 10 minutes and is in online status</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Active chats statistic by operators</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Offline for</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Just now</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Statistic</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator online hours</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Login history</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User stats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last chat assigned ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>All</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13600,7 +13725,7 @@
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>کپی از</translation>
     </message>
   </context>
   <context>
@@ -13619,113 +13744,6 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/edit</name>
-    <message>
-      <source>Application default Time Zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>عکس</translation>
-    </message>
-    <message>
-      <source>Server default time zone</source>
-      <translation>منطقه زمانی پیش فرض سرور</translation>
-    </message>
-    <message>
-      <source>Edit user</source>
-      <translation>ویرایش کاربر</translation>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>رمز عبور را وارد نکنید مگر آنکه بخواهید تغییری در آن دهید</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>نام کاربری</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>رمز عبور</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>تکرار رمز عبور جدید</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>ایمیل</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation>نام در گفتگو</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>نام</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>نام خانوادگی</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>ذخیره</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>به روزرسانی</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>لغو</translation>
-    </message>
-    <message>
-      <source>User time zone</source>
-      <translation>منطقه زمانی کاربر</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application default time zone</source>
-      <translation>منطقه زمانی پیش فرض برنامه</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>آدرس ایمیل نادرست است</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>CSRF token نامعتبر است!</translation>
-    </message>
-    <message>
-      <source>Password reset requested by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>تنظیمات سیستم</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>کاربران</translation>
-    </message>
-    <message>
-      <source>User edit</source>
-      <translation>ویرایش کاربر</translation>
-    </message>
-    <message>
-      <source>Invalid email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14021,10 +14039,192 @@
     </message>
   </context>
   <context>
+    <name>genericbot/helpattributes</name>
+    <message>
+      <source>Page where chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referer from where visitor come to site.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can have custom JS execution on click event. In combination with</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide content on click</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>you can have your own invitation workflow.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Some examples of JS</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Call page function where widget is embedded</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are passing department make sure. This is highly recommended as chat might not be able to start if you have custom required fields by department.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You pass it for all options</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>All options have to be assigned to same start chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You have chosen that department in department options.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Apply this configuration also to these departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>or</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>JSON based options.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Regular syntax. Depreciated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample how to use uploaded image from Design section</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>visitor nick if we know it from previous chats</source>
+      <translation>نام بازدید کننده اگر آن را از قبل بشناسیم</translation>
+    </message>
+    <message>
+      <source>invisible by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>visible by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Samples how to change bubble background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag structure examples</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>simple tag example</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If in embed code</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>suffix is appended invitation will be shown always independently was there any other invitation active or not.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Once you define a parent invitation. Present invitation is considered as child invitation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only main display attributes are taken as variation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Parent invitation statistic window will show child invitation performance.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>These conditions you can check and control widget state. More attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors from United States and Lithuania</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>allow to start only for visitors whois attribute is VIP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>are we online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>To choose yesterday.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As start day choose yesterday day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>choose today and choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/buttoms</name>
     <message>
       <source>Edit</source>
       <translation>ویرایش</translation>
+    </message>
+  </context>
+  <context>
+    <name>chat/start_chat_blocked</name>
+    <message>
+      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -14668,7 +14868,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Clone</source>
@@ -14684,7 +14884,7 @@
     </message>
     <message>
       <source>Copy of</source>
-      <translation type="unfinished"/>
+      <translation>کپی از</translation>
     </message>
     <message>
       <source>System configuration</source>
@@ -15118,10 +15318,6 @@
   <context>
     <name>statistic/campaign</name>
     <message>
-      <source>Value</source>
-      <translation>مقدار</translation>
-    </message>
-    <message>
       <source>Parameter</source>
       <translation>پارامتر</translation>
     </message>
@@ -15185,6 +15381,22 @@
       <source>Number of times conversions has happened from total initiated</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Unique conversions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multiple invitations to the same online visitor is considered as a one record</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>field based statistic. Field has to be not empty.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Multiple invitation of the same unique_id value is considered as a one record.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>survey/choosesurvey</name>
@@ -15198,7 +15410,7 @@
     </message>
     <message>
       <source>Redirect to survey</source>
-      <translation type="unfinished"/>
+      <translation>انتقال به نظرسنجی</translation>
     </message>
     <message>
       <source>Chat is on hold and can not be forwarded to survey</source>
@@ -15539,10 +15751,6 @@
   <context>
     <name>system/timezone</name>
     <message>
-      <source>Live Helper Chat update</source>
-      <translation>به روزرسانی برنامه</translation>
-    </message>
-    <message>
       <source>Do not save offline chats</source>
       <translation>چت های آفلاین ذخیره نشود</translation>
     </message>
@@ -15801,10 +16009,6 @@
   <context>
     <name>system/update</name>
     <message>
-      <source>Update instructions</source>
-      <translation>نحوه به روزرسانی</translation>
-    </message>
-    <message>
       <source>Your version</source>
       <translation>نسخه شما</translation>
     </message>
@@ -15940,7 +16144,7 @@
     </message>
     <message>
       <source>Invalid CSRF token!</source>
-      <translation>CSRF token نامعتبر است!</translation>
+      <translation> توکن CSRF نامعتبر است!</translation>
     </message>
     <message>
       <source>Please enter a name</source>
@@ -16047,7 +16251,7 @@
     <name>user/editgroup</name>
     <message>
       <source>Edit group</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش گروه</translation>
     </message>
     <message>
       <source>Title</source>
@@ -16314,7 +16518,7 @@
     </message>
     <message>
       <source>Maximum active chats</source>
-      <translation type="unfinished"/>
+      <translation>حداکثر چت فعال</translation>
     </message>
     <message>
       <source>User can see all pending chats, not only assigned to him</source>
@@ -16401,7 +16605,7 @@
     </message>
     <message>
       <source>CSFR token is invalid, try to resubmit form</source>
-      <translation>رمز CSFR نامعتبر است ، سعی کنید فرم را دوباره ارسال کنید</translation>
+      <translation>رمز CSRF نامعتبر است ، سعی کنید فرم را دوباره ارسال کنید</translation>
     </message>
     <message>
       <source>Google re-captcha validation failed</source>
@@ -16521,7 +16725,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Shared by</source>
@@ -16565,23 +16769,23 @@
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>اشتراک گذاری</translation>
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Export</source>
-      <translation type="unfinished"/>
+      <translation>صدور</translation>
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>حذف</translation>
     </message>
     <message>
       <source>View was shared</source>
-      <translation type="unfinished"/>
+      <translation>نما به اشتراک گذاشته شد</translation>
     </message>
     <message>
       <source>Set name for a share</source>
@@ -16593,22 +16797,22 @@
     </message>
     <message>
       <source>Share with</source>
-      <translation type="unfinished"/>
+      <translation>اشتراک گذاری با</translation>
     </message>
     <message>
       <source>Share a view</source>
-      <translation type="unfinished"/>
+      <translation>اشتراک گذاری نما</translation>
     </message>
     <message>
       <source>Select user</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب کاربر</translation>
     </message>
   </context>
   <context>
     <name>voice/configuration</name>
     <message>
       <source>Voice &amp; Video &amp; ScreenShare</source>
-      <translation type="unfinished"/>
+      <translation>صدا، تصویر و اشتراک گذاری صفحه</translation>
     </message>
     <message>
       <source>Features</source>
@@ -16616,15 +16820,15 @@
     </message>
     <message>
       <source>Calls enabled</source>
-      <translation type="unfinished"/>
+      <translation>تماس فعال شد</translation>
     </message>
     <message>
       <source>Video enabled</source>
-      <translation type="unfinished"/>
+      <translation>ویدئو فعال شد</translation>
     </message>
     <message>
       <source>ScreenShare enabled</source>
-      <translation type="unfinished"/>
+      <translation>اشتراک گذاری صفحه فعال شد</translation>
     </message>
     <message>
       <source>Agora integration</source>
@@ -16640,7 +16844,7 @@
     </message>
     <message>
       <source>Settings updated</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات به روزسانی شد</translation>
     </message>
   </context>
   <context>
@@ -16651,11 +16855,11 @@
     </message>
     <message>
       <source>Event</source>
-      <translation type="unfinished"/>
+      <translation>رویداد</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>ربات</translation>
     </message>
     <message>
       <source>Trigger</source>
@@ -16663,7 +16867,7 @@
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>فعال شده</translation>
     </message>
     <message>
       <source>Continuous event</source>
@@ -16671,7 +16875,7 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
+      <translation>ویرایش</translation>
     </message>
     <message>
       <source>Incoming webhooks list</source>
@@ -16679,19 +16883,19 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Identifier</source>
-      <translation type="unfinished"/>
+      <translation>شناسه</translation>
     </message>
     <message>
       <source>Disabled</source>
-      <translation type="unfinished"/>
+      <translation>غیرفعال شده</translation>
     </message>
     <message>
       <source>Please choose a bot</source>
-      <translation type="unfinished"/>
+      <translation>لطفاً یک ربات انتخاب کنید</translation>
     </message>
     <message>
       <source>Please choose a trigger</source>
@@ -16699,7 +16903,7 @@
     </message>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Webhooks</source>
@@ -16711,7 +16915,7 @@
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>جدید</translation>
     </message>
     <message>
       <source>Push chat</source>
@@ -16734,7 +16938,7 @@
     </message>
     <message>
       <source>Event</source>
-      <translation type="unfinished"/>
+      <translation>رویداد</translation>
     </message>
     <message>
       <source>required if it is hook event</source>
@@ -16746,15 +16950,15 @@
     </message>
     <message>
       <source>Make sure you define some conditions. Only pending, active and bot chats are checked against these conditions.</source>
-      <translation type="unfinished"/>
+      <translation>مطمئن شوید که برخی از شرایط را تعریف کرده اید. فقط چت های در حال انتظار، فعال و ربات با این شرایط بررسی می شوند.</translation>
     </message>
     <message>
       <source>Conditions</source>
-      <translation type="unfinished"/>
+      <translation>شرایط</translation>
     </message>
     <message>
       <source>optional</source>
-      <translation type="unfinished"/>
+      <translation>اختیاری</translation>
     </message>
     <message>
       <source>Visitor message contains</source>
@@ -16774,43 +16978,43 @@
     </message>
     <message>
       <source>Condition</source>
-      <translation type="unfinished"/>
+      <translation>شرط</translation>
     </message>
     <message>
       <source>Empty</source>
-      <translation type="unfinished"/>
+      <translation>خالی باشد</translation>
     </message>
     <message>
       <source>Not empty</source>
-      <translation type="unfinished"/>
+      <translation>خالی نباشد</translation>
     </message>
     <message>
       <source>Text like</source>
-      <translation type="unfinished"/>
+      <translation>متن شبیه</translation>
     </message>
     <message>
       <source>Text not like</source>
-      <translation type="unfinished"/>
+      <translation>متن شبیه نباشد</translation>
     </message>
     <message>
       <source>Contains</source>
-      <translation type="unfinished"/>
+      <translation>شامل</translation>
     </message>
     <message>
       <source>Value</source>
-      <translation type="unfinished"/>
+      <translation>مقدار</translation>
     </message>
     <message>
       <source>OR</source>
-      <translation type="unfinished"/>
+      <translation>یا</translation>
     </message>
     <message>
       <source>AND</source>
-      <translation type="unfinished"/>
+      <translation>و</translation>
     </message>
     <message>
       <source>Success</source>
-      <translation type="unfinished"/>
+      <translation>موفق</translation>
     </message>
     <message>
       <source>Execute if conditions are valid</source>
@@ -16818,7 +17022,7 @@
     </message>
     <message>
       <source>required</source>
-      <translation type="unfinished"/>
+      <translation>الزامی است</translation>
     </message>
     <message>
       <source>Execute if conditions are NOT valid</source>
@@ -16826,7 +17030,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -16841,6 +17045,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Icon</source>
+      <translation>آیکون</translation>
+    </message>
+    <message>
+      <source>Icon color</source>
+      <translation>رنگ آیکون</translation>
+    </message>
+    <message>
       <source>Show integration information.</source>
       <translation type="unfinished"/>
     </message>
@@ -16850,19 +17062,19 @@
     </message>
     <message>
       <source>Text messages 1</source>
-      <translation type="unfinished"/>
+      <translation>پیام متنی 1</translation>
     </message>
     <message>
       <source>Text messages 2</source>
-      <translation type="unfinished"/>
+      <translation>پیام متنی 2</translation>
     </message>
     <message>
       <source>Text messages 3</source>
-      <translation type="unfinished"/>
+      <translation>پیام متنی 3</translation>
     </message>
     <message>
       <source>Text messages 4</source>
-      <translation type="unfinished"/>
+      <translation>پیام متنی 4</translation>
     </message>
     <message>
       <source>Button payload 1</source>
@@ -16878,27 +17090,27 @@
     </message>
     <message>
       <source>Attachments</source>
-      <translation type="unfinished"/>
+      <translation>پیوست ها</translation>
     </message>
     <message>
       <source>Images/Video 1</source>
-      <translation type="unfinished"/>
+      <translation>تصویر/ویدئو 1</translation>
     </message>
     <message>
       <source>Images/Video 2</source>
-      <translation type="unfinished"/>
+      <translation>تصویر/ویدئو 2</translation>
     </message>
     <message>
       <source>Images/Video 3</source>
-      <translation type="unfinished"/>
+      <translation>تصویر/ویدئو 3</translation>
     </message>
     <message>
       <source>Images/Video 4</source>
-      <translation type="unfinished"/>
+      <translation>تصویر/ویدئو 4</translation>
     </message>
     <message>
       <source>Chat options</source>
-      <translation type="unfinished"/>
+      <translation>گزینه های چت</translation>
     </message>
     <message>
       <source>Attributes</source>
@@ -16914,7 +17126,7 @@
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>نام</translation>
     </message>
     <message>
       <source>Nick preg match rule</source>
@@ -16922,7 +17134,7 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>تلفن</translation>
     </message>
     <message>
       <source>IP</source>
@@ -16930,14 +17142,18 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>ایمیل</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>زمان</translation>
     </message>
     <message>
       <source>Chat ID field location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID 2 field location</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16954,7 +17170,7 @@
     </message>
     <message>
       <source>General conditions for messages being processed. These are first level attributes</source>
-      <translation type="unfinished"/>
+      <translation>شرایط عمومی برای پیام های در حال پردازش اینها صفات سطح اول هستند</translation>
     </message>
     <message>
       <source>Additional field location</source>
@@ -17042,7 +17258,7 @@
     </message>
     <message>
       <source>Create a new chat.</source>
-      <translation type="unfinished"/>
+      <translation>ایجاد چت جدید</translation>
     </message>
     <message>
       <source>Set previous chat to Pending/Bot depending on department configuration.</source>
@@ -17050,10 +17266,14 @@
     </message>
     <message>
       <source>Set as active if operator was assigned. Operator will not be reset.</source>
-      <translation type="unfinished"/>
+      <translation>اگر اپراتور تخصیص داده شد، آن را فعال تنظیم کنید. اپراتور ریست نمی شود.</translation>
     </message>
     <message>
       <source>Operator should be reset if chat being transferred to pending state.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat should be reset to default department. Bot also will be set to default.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17085,7 +17305,7 @@
     <name>webhooks/new</name>
     <message>
       <source>New webhook</source>
-      <translation type="unfinished"/>
+      <translation>Webhook جدید</translation>
     </message>
     <message>
       <source>New incoming webhook</source>
@@ -17100,11 +17320,11 @@
     </message>
     <message>
       <source>Open in a new window</source>
-      <translation type="unfinished"/>
+      <translation>در یک پنجره جدید باز کن</translation>
     </message>
     <message>
       <source>Open chat</source>
-      <translation type="unfinished"/>
+      <translation>چت باز</translation>
     </message>
     <message>
       <source>You will initiate chat as it was response to incoming webhook.</source>
@@ -17120,7 +17340,7 @@
     </message>
     <message>
       <source>Message</source>
-      <translation type="unfinished"/>
+      <translation>پیام</translation>
     </message>
     <message>
       <source>Department. If you do not choose one we will use the one defined in webhook.</source>
@@ -17128,7 +17348,7 @@
     </message>
     <message>
       <source>Create chat</source>
-      <translation type="unfinished"/>
+      <translation>ایجاد چت</translation>
     </message>
     <message>
       <source>Set created chat status as closed. Visitor reply will initiate chat according to incoming webhook configuration.</source>
@@ -17136,15 +17356,15 @@
     </message>
     <message>
       <source>Send</source>
-      <translation type="unfinished"/>
+      <translation>ارسال</translation>
     </message>
     <message>
       <source>Message was send!</source>
-      <translation type="unfinished"/>
+      <translation>پیام ارسال شد</translation>
     </message>
     <message>
       <source>Choose a webhook</source>
-      <translation type="unfinished"/>
+      <translation>انتخاب Webhook</translation>
     </message>
   </context>
   <context>
@@ -17380,14 +17600,33 @@
     </message>
   </context>
   <context>
-    <name>abstract/chatsubject</name>
+    <name>abstract/restapikey</name>
     <message>
-      <source>Internal</source>
+      <source>Username</source>
+      <translation>نام کاربری</translation>
+    </message>
+    <message>
+      <source>API Key, max 50 characters</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Internal type</source>
+      <source>IP restrictions. E.g 1.2.3.*,1.2.3/24,1.2.3.4/255.255.255.0,1.2.3.0-1.2.3.255</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only from defined IP/IP range request will be permitted.</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>abstract/chatsubject</name>
+    <message>
+      <source>Internal</source>
+      <translation>داخلی</translation>
+    </message>
+    <message>
+      <source>Internal type</source>
+      <translation>نوع داخلی</translation>
     </message>
   </context>
   <context>
@@ -17452,7 +17691,7 @@
     </message>
     <message>
       <source>has accepted a transferred chat!</source>
-      <translation type="unfinished"/>
+      <translation>یک چت انتقال داده را پذیرفت!</translation>
     </message>
   </context>
   <context>
@@ -17495,7 +17734,7 @@
     </message>
     <message>
       <source>Country Code</source>
-      <translation type="unfinished"/>
+      <translation>کد کشور</translation>
     </message>
     <message>
       <source>City</source>
@@ -17511,7 +17750,7 @@
     </message>
     <message>
       <source>Operator Name</source>
-      <translation type="unfinished"/>
+      <translation>نام اپراتور</translation>
     </message>
     <message>
       <source>Department</source>
@@ -17531,7 +17770,7 @@
     </message>
     <message>
       <source>Subjects</source>
-      <translation type="unfinished"/>
+      <translation>موضوعات</translation>
     </message>
     <message>
       <source>Mail send</source>
@@ -17563,15 +17802,15 @@
     </message>
     <message>
       <source>Visitor ID</source>
-      <translation type="unfinished"/>
+      <translation>شناسه بازدید کننده</translation>
     </message>
     <message>
       <source>Duration</source>
-      <translation type="unfinished"/>
+      <translation>مدت</translation>
     </message>
     <message>
       <source>Started by</source>
-      <translation type="unfinished"/>
+      <translation>شروع شده توسط</translation>
     </message>
     <message>
       <source>User agent</source>
@@ -17579,11 +17818,11 @@
     </message>
     <message>
       <source>Browser</source>
-      <translation type="unfinished"/>
+      <translation>مرورگر</translation>
     </message>
     <message>
       <source>Platform</source>
-      <translation type="unfinished"/>
+      <translation>پلتفرم</translation>
     </message>
     <message>
       <source>User ID</source>
@@ -17591,35 +17830,35 @@
     </message>
     <message>
       <source>Chat start page</source>
-      <translation type="unfinished"/>
+      <translation>صفحه شروع چت</translation>
     </message>
     <message>
       <source>Referer page</source>
-      <translation type="unfinished"/>
+      <translation>صفحه ارجاع دهنده</translation>
     </message>
     <message>
       <source>Chat start time</source>
-      <translation type="unfinished"/>
+      <translation>زمان شروع چت</translation>
     </message>
     <message>
       <source>Chat end time</source>
-      <translation type="unfinished"/>
+      <translation>زمان پایان گپ</translation>
     </message>
     <message>
       <source>Is unread by operator</source>
-      <translation type="unfinished"/>
+      <translation>توسط اپراتور خوانده نشده</translation>
     </message>
     <message>
       <source>Is unread by visitor</source>
-      <translation type="unfinished"/>
+      <translation>توسط بازدید کننده خوانده نشده</translation>
     </message>
     <message>
       <source>Is abandoned</source>
-      <translation type="unfinished"/>
+      <translation>رها شده</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>ربات</translation>
     </message>
     <message>
       <source>Chat actions</source>
@@ -17639,63 +17878,63 @@
     </message>
     <message>
       <source>Messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام ها</translation>
     </message>
     <message>
       <source>Visitor messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام های بازدید کننده</translation>
     </message>
     <message>
       <source>Bot messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام های ربات</translation>
     </message>
     <message>
       <source>Operator messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام های اپراتور</translation>
     </message>
     <message>
       <source>System messages</source>
-      <translation type="unfinished"/>
+      <translation>پیام های سیستم</translation>
     </message>
     <message>
       <source>Visitor messages to bot</source>
-      <translation type="unfinished"/>
+      <translation>پیام های بازدید کننده به ربات</translation>
     </message>
     <message>
       <source>Visitor messages to operator</source>
-      <translation type="unfinished"/>
+      <translation>پیام های بازدید کننده به اپراتور</translation>
     </message>
     <message>
       <source>Maximum agent response time</source>
-      <translation type="unfinished"/>
+      <translation>بیشترین زمان پیام ایجنت</translation>
     </message>
     <message>
       <source>Maximum bot response time</source>
-      <translation type="unfinished"/>
+      <translation>بیشترین زمان پیام ربات</translation>
     </message>
     <message>
       <source>Average agent response time</source>
-      <translation type="unfinished"/>
+      <translation>میانگین زمان پاسخ ایجنت</translation>
     </message>
     <message>
       <source>Average bot response time</source>
-      <translation type="unfinished"/>
+      <translation>میانگین زمان پاسخ ربات</translation>
     </message>
     <message>
       <source>First agent response time</source>
-      <translation type="unfinished"/>
+      <translation>زمان اولین پیام ایجنت</translation>
     </message>
     <message>
       <source>First bot response time</source>
-      <translation type="unfinished"/>
+      <translation>زمان اولبن پیام ربات</translation>
     </message>
     <message>
       <source>Wait time till first operator message</source>
-      <translation type="unfinished"/>
+      <translation>زمان انتظار تا ااولین پیام  اپراتور</translation>
     </message>
     <message>
       <source>Subject</source>
-      <translation type="unfinished"/>
+      <translation>موضوع</translation>
     </message>
     <message>
       <source>Chat average in seconds</source>
@@ -17778,11 +18017,11 @@
     </message>
     <message>
       <source>has changed chat status to pending!</source>
-      <translation type="unfinished"/>
+      <translation>وضعیت چت را به در انتظار تغییر داد!</translation>
     </message>
     <message>
       <source>has changed chat status to bot!</source>
-      <translation type="unfinished"/>
+      <translation>وضعیت چت را به ربات تغییر داد!</translation>
     </message>
     <message>
       <source>Visitor auto responder was reset because of sync timeout, returned after</source>
@@ -17815,18 +18054,6 @@
   </context>
   <context>
     <name>departament/edit</name>
-    <message>
-      <source>Please enter default translation!</source>
-      <translation>لطفا ترجمه پیش فرض را وارد کنید!</translation>
-    </message>
-    <message>
-      <source>Please choose a bot!</source>
-      <translation>لطفاً یک ربات انتخاب کنید!</translation>
-    </message>
-    <message>
-      <source>Please choose a trigger!</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Please enter a name</source>
       <translation>لطفا نام را وارد کنید</translation>
@@ -17895,43 +18122,43 @@
     <name>chat/mobilenotifications</name>
     <message>
       <source>New group message</source>
-      <translation type="unfinished"/>
+      <translation>پیام گروهی جدید</translation>
     </message>
     <message>
       <source>Operator</source>
-      <translation type="unfinished"/>
+      <translation>اپراتور</translation>
     </message>
     <message>
       <source>Bot</source>
-      <translation type="unfinished"/>
+      <translation>ربات</translation>
     </message>
     <message>
       <source>added subject</source>
-      <translation type="unfinished"/>
+      <translation>موضوع اضافه شده</translation>
     </message>
     <message>
       <source>subject added</source>
-      <translation type="unfinished"/>
+      <translation>موضوع اضافه شد</translation>
     </message>
     <message>
       <source>New message</source>
-      <translation type="unfinished"/>
+      <translation>پیام جدید</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان</translation>
     </message>
     <message>
       <source>Nick</source>
-      <translation type="unfinished"/>
+      <translation>نام </translation>
     </message>
     <message>
       <source>Transferred chat</source>
-      <translation type="unfinished"/>
+      <translation>گفتگوی منتقل شده</translation>
     </message>
     <message>
       <source>New chat</source>
-      <translation type="unfinished"/>
+      <translation>چت جدید</translation>
     </message>
   </context>
   <context>
@@ -17986,23 +18213,23 @@
     </message>
     <message>
       <source>Password has to be at least %d characters length</source>
-      <translation type="unfinished"/>
+      <translation>طول رمز باید حد اقل %d کاراکتر باشد</translation>
     </message>
     <message>
       <source>Password has to have at-least %d uppercase letter</source>
-      <translation type="unfinished"/>
+      <translation>رمز ورود باید حداقل %d حرف بزرگ داشته باشد</translation>
     </message>
     <message>
       <source>Password has to have at-least %d number(s)</source>
-      <translation type="unfinished"/>
+      <translation>رمز عبور باید حداقل %d شماره داشته باشد</translation>
     </message>
     <message>
       <source>Password has to have at-least %d special character(s)</source>
-      <translation type="unfinished"/>
+      <translation>رمز عبور باید حداقل %d نویسه خاص داشته باشد</translation>
     </message>
     <message>
       <source>Password has to have at-least %d lowercase letters</source>
-      <translation type="unfinished"/>
+      <translation>رمز ورود باید حداقل %d حرف کوچک داشته باشد</translation>
     </message>
     <message>
       <source>Old password incorrect!</source>
@@ -18018,11 +18245,11 @@
     </message>
     <message>
       <source>Please enter a password!</source>
-      <translation type="unfinished"/>
+      <translation>لطفا رمز را وارد کنید</translation>
     </message>
     <message>
       <source>Passwords must match!</source>
-      <translation type="unfinished"/>
+      <translation>رمزهای عبور باید یکسان  باشند!</translation>
     </message>
   </context>
   <context>
@@ -18041,7 +18268,7 @@
     </message>
     <message>
       <source>Authorization header is missing!</source>
-      <translation>Authorization header is missing!</translation>
+      <translation>Authorization header یافت نشد!</translation>
     </message>
     <message>
       <source>Could not find chat by chat_id!</source>
@@ -18055,16 +18282,12 @@
   <context>
     <name>genericbot/new</name>
     <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>ساختار ربات</translation>
     </message>
     <message>
       <source>New</source>
@@ -18084,14 +18307,14 @@
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>شخصیت دهی به ربات</translation>
     </message>
   </context>
   <context>
     <name>chat/abstractclick</name>
     <message>
       <source>Invitation can not be send because online visitor profile can not be found.</source>
-      <translation type="unfinished"/>
+      <translation>نمیتوان دعوت نامه ارسال کرد زیرا نمایه بازدیدکننده آنلاین یافت نمی شود.</translation>
     </message>
   </context>
   <context>
@@ -18146,22 +18369,22 @@
     </message>
     <message>
       <source>Disabled!</source>
-      <translation type="unfinished"/>
+      <translation>غیرفعال شد!</translation>
     </message>
   </context>
   <context>
     <name>chat/transferuser</name>
     <message>
       <source>has changed department to</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان را تغییر داد به </translation>
     </message>
     <message>
       <source>from</source>
-      <translation type="unfinished"/>
+      <translation>از</translation>
     </message>
     <message>
       <source>Chat department was changed to</source>
-      <translation type="unfinished"/>
+      <translation>دپارتمان چپ تغییر یافت به</translation>
     </message>
     <message>
       <source>has changed owner to</source>
@@ -18209,7 +18432,7 @@
     <name>system/settings</name>
     <message>
       <source>System configuration</source>
-      <translation type="unfinished"/>
+      <translation>تنظیمات سیستم</translation>
     </message>
   </context>
   <context>
@@ -18220,7 +18443,7 @@
     </message>
     <message>
       <source>Start chat settings list</source>
-      <translation>Start chat settings list</translation>
+      <translation>لیست تنظیمات شروع چت</translation>
     </message>
     <message>
       <source>Edit start chat settings</source>
@@ -18241,24 +18464,12 @@
   <context>
     <name>genericbot/edit</name>
     <message>
-      <source>Bots</source>
-      <translation>ربات ها</translation>
-    </message>
-    <message>
-      <source>Exceptions</source>
-      <translation>استثناها</translation>
-    </message>
-    <message>
-      <source>Translations groups</source>
-      <translation>گروه های ترجمه</translation>
-    </message>
-    <message>
       <source>System configuration</source>
       <translation>تنظیمات سیستم</translation>
     </message>
     <message>
       <source>Bot constructor</source>
-      <translation type="unfinished"/>
+      <translation>ساختار ربات</translation>
     </message>
     <message>
       <source>Commands</source>
@@ -18270,11 +18481,11 @@
     </message>
     <message>
       <source>Rest API Calls</source>
-      <translation>Rest API Calls</translation>
+      <translation>Rest API فراخوانی های</translation>
     </message>
     <message>
       <source>Bot individualization</source>
-      <translation type="unfinished"/>
+      <translation>شخصیت دهی به ربات</translation>
     </message>
     <message>
       <source>Translations items</source>
@@ -18316,7 +18527,7 @@
     </message>
     <message>
       <source>Edit session</source>
-      <translation>Edit session</translation>
+      <translation>ویرایش جلسه</translation>
     </message>
     <message>
       <source>Mobile</source>
@@ -18327,7 +18538,7 @@
     <name>groupchat/settings</name>
     <message>
       <source>Options</source>
-      <translation type="unfinished"/>
+      <translation>گزینه ها</translation>
     </message>
   </context>
   <context>
@@ -18345,7 +18556,7 @@
     </message>
     <message>
       <source>Subscribers list</source>
-      <translation>Subscribers list</translation>
+      <translation>لیست مشترکین</translation>
     </message>
     <message>
       <source>Settings</source>
@@ -18356,11 +18567,11 @@
     <name>chat/chat_tabs</name>
     <message>
       <source>Your open chats will appear here</source>
-      <translation type="unfinished"/>
+      <translation>چت های باز شما در اینجا ظاهر می شود.</translation>
     </message>
     <message>
       <source>You are a chat owner</source>
-      <translation type="unfinished"/>
+      <translation>شما صاحب این چت هستید</translation>
     </message>
   </context>
   <context>
@@ -18374,22 +18585,22 @@
     <name>chat/backtochat</name>
     <message>
       <source>Visitor has been redirected back to chat!</source>
-      <translation>Visitor has been redirected back to chat!</translation>
+      <translation>بازدید کننده به چت برگشت!</translation>
     </message>
   </context>
   <context>
     <name>twilio/sendmessage</name>
     <message>
       <source>Please enter chatId!</source>
-      <translation type="unfinished"/>
+      <translation>لطفاً برای کد چت  وارد کنید!</translation>
     </message>
     <message>
       <source>Please enter a message!</source>
-      <translation type="unfinished"/>
+      <translation>لطفا پیام را وارد کنید</translation>
     </message>
     <message>
       <source>Please choose a webhook!</source>
-      <translation type="unfinished"/>
+      <translation>لطفا یک Webhook را انتخاب کنید!</translation>
     </message>
   </context>
   <context>
@@ -18400,23 +18611,23 @@
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation>Incorrect file type!</translation>
+      <translation>نوع فایل اشتباه است!</translation>
     </message>
     <message>
       <source>File too big!</source>
-      <translation type="unfinished"/>
+      <translation>فایل بزرگ است!</translation>
     </message>
     <message>
       <source>Processing...</source>
-      <translation type="unfinished"/>
+      <translation>در حال پردازش...</translation>
     </message>
     <message>
       <source>Upload failed!</source>
-      <translation type="unfinished"/>
+      <translation>آپلود با خطا مواجه شد!</translation>
     </message>
     <message>
       <source>Completed.</source>
-      <translation type="unfinished"/>
+      <translation>تکمیل شد.</translation>
     </message>
   </context>
   <context>
@@ -18430,318 +18641,11 @@
     <name>chat/screenshare</name>
     <message>
       <source>Start screen share session</source>
-      <translation>Start screen share session</translation>
+      <translation>شروع اشتراک گذاری صفحه</translation>
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation>Deny screen share</translation>
-    </message>
-  </context>
-  <context>
-    <name>chat/history</name>
-    <message>
-      <source>Operator chats during this chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Present chat was not closed yet. This information will be inaccurate at the moment.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>It shows only chats if they were closed. We show maximum of 10 chats in total.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Closed at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat duration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Ended</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat is still running</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/status_blocked</name>
-    <message>
-      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/blocked_survey</name>
-    <message>
-      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/plain</name>
-    <message>
-      <source>attribute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hide textarea</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>show textarea</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>execute javascript</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>typing</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System assistant</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>whisper</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>at</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/start_chat_blocked</name>
-    <message>
-      <source>At this moment you can contact us via email only. Sorry for the inconveniences.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>abstract/restapikey</name>
-    <message>
-      <source>Username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>API Key, max 50 characters</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP restrictions. E.g 1.2.3.*,1.2.3/24,1.2.3.4/255.255.255.0,1.2.3.0-1.2.3.255</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Only from defined IP/IP range request will be permitted.</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>cannedmsg/deletereplace</name>
-    <message>
-      <source>Clone</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>module/mailconvmb</name>
-    <message>
-      <source>Choose a parent invitation</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>genericbot/helpattributes</name>
-    <message>
-      <source>Page where chat started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referer from where visitor come to site.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can have custom JS execution on click event. In combination with</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hide content on click</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>you can have your own invitation workflow.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Some examples of JS</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Call page function where widget is embedded</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you are passing department make sure. This is highly recommended as chat might not be able to start if you have custom required fields by department.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You pass it for all options</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>All options have to be assigned to same start chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You have chosen that department in department options.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Apply this configuration also to these departments</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>or</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>JSON based options.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Regular syntax. Depreciated.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Sample how to use uploaded image from Design section</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Supported replaceable variables. They are taken from online visitor passed variables.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>visitor nick if we know it from previous chats</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>invisible by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>visible by operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Samples how to change bubble background</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tag structure examples</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>simple tag example</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If in embed code</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>suffix is appended invitation will be shown always independently was there any other invitation active or not.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Once you define a parent invitation. Present invitation is considered as child invitation.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Only main display attributes are taken as variation.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Parent invitation statistic window will show child invitation performance.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>These conditions you can check and control widget state. More attributes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>here</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>allow to start only for visitors from United States</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>allow to start only for visitors from United States and Lithuania</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>allow to start only for visitors whois attribute is VIP</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>are we online</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>To choose yesterday.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>As start day choose yesterday day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>choose today and choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date from and to are always inclusive.</source>
-      <translation type="unfinished"/>
+      <translation>اجازه اشتراک گذاری صفحه را نمیدهم!</translation>
     </message>
   </context>
 </TS>

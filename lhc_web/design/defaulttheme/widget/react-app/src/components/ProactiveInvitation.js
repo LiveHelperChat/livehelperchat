@@ -35,13 +35,18 @@ class ProactiveInvitation extends Component {
             if (document.getElementById('id-invitation-height')) {
                 setTimeout(()=> {
                     if (document.getElementById('id-invitation-height')) {
+                        var heightSet = document.getElementById('id-invitation-height').offsetHeight + 20;
+                        helperFunctions.sendMessageParent('hideAction', []);
                         helperFunctions.sendMessageParent('widgetHeight', [{
                             'force_width' : (this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) + 40 : 240),
-                            'force_height' : document.getElementById('id-invitation-height').offsetHeight + 20,
+                            'force_height' : heightSet,
                             'force_bottom' : (this.props.chatwidget.hasIn(['proactive','data','message_bottom']) ? this.props.chatwidget.getIn(['proactive','data','message_bottom']) : 75),
                             'force_right' : (this.props.chatwidget.hasIn(['proactive','data','message_right']) ? this.props.chatwidget.getIn(['proactive','data','message_right']) : 75),
                         }]);
-                        this.setState({shown : true});
+                        setTimeout(() => {
+                            helperFunctions.sendMessageParent('showAction', []);
+                            this.setState({shown : true});
+                        },100);
                     }
                  }, 50);
             }
@@ -144,16 +149,16 @@ class ProactiveInvitation extends Component {
         return (
                 <div id="id-invitation-height" className={className} >
 
-                    {this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <div className="text-right"><button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button></div>}
+                    {this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <div className="text-right"><button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="btn btn-sm rounded"><i className="material-icons me-0">&#xf10a;</i></button></div>}
 
                     <div className="p-2 pointer clearfix proactive-need-help" id="proactive-wrapper" style={{width:(this.props.chatwidget.hasIn(['proactive','data','message_width']) ? this.props.chatwidget.getIn(['proactive','data','message_width']) : 200)}} onClick={this.fullInvitation}>
 
-                        {!this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="float-right btn btn-sm rounded"><i className="material-icons mr-0">&#xf10a;</i></button>}
+                        {!this.props.chatwidget.hasIn(['proactive','data','close_above_msg']) && <button title="Close" onClick={(e) => this.hideInvitation(e)} id="invitation-close-btn" className="float-end btn btn-sm rounded"><i className="material-icons me-0">&#xf10a;</i></button>}
 
                         {this.props.chatwidget.hasIn(['proactive','data','photo_left_column']) && this.props.chatwidget.getIn(['proactive','data','photo']) && <div className="d-flex">
 
                             <div className="proactive-image">
-                                <img width="30" alt={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} title={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} className="mr-2 rounded" src={this.props.chatwidget.getIn(['proactive','data','photo'])} />
+                                <img width="30" alt={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} title={this.props.chatwidget.getIn(['proactive','data','name_support']) || this.props.chatwidget.getIn(['proactive','data','extra_profile'])} className="me-2 rounded" src={this.props.chatwidget.getIn(['proactive','data','photo'])} />
                             </div>
 
                             <div className="flex-grow-1">
@@ -174,7 +179,7 @@ class ProactiveInvitation extends Component {
                                     {this.props.chatwidget.getIn(['proactive', 'data', 'photo']) && <img width="30" height="30"
                                                                                                      alt={this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}
                                                                                                      title={this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}
-                                                                                                     className="mr-2 rounded"
+                                                                                                     className="me-2 rounded"
                                                                                                      src={this.props.chatwidget.getIn(['proactive', 'data', 'photo'])}/>}
 
                                     {!this.props.chatwidget.hasIn(['proactive','data','hide_op_name']) && <b>{this.props.chatwidget.getIn(['proactive', 'data', 'name_support']) || this.props.chatwidget.getIn(['proactive', 'data', 'extra_profile'])}</b>}

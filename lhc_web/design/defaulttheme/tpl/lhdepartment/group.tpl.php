@@ -11,6 +11,9 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Online operators active chats');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Online operators inactive chats');?></th>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Max chats');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Online operators');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Offline operators');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Total operators');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
@@ -27,6 +30,27 @@
         <td><?php echo htmlspecialchars($item->acopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->inopchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->max_load)?></td>
+        <td>
+            <?php echo count(erLhcoreClassModelUserDep::getList([
+                    'filter' => ['dep_group_id' => $item->id],
+                    'group' => 'user_id',
+                    'customfilter' => ['(`hide_online` = 0 AND (`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ' OR `always_on` = 1))']
+            ])); ?>
+        </td>
+        <td>
+            <?php echo count(erLhcoreClassModelUserDep::getList([
+                    'filter' => ['dep_group_id' => $item->id, 'hide_online' => 1],
+                    'group' => 'user_id',
+                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
+            ])); ?>
+        </td>
+        <td>
+            <?php echo count(erLhcoreClassModelUserDep::getList([
+                    'filter' => ['dep_group_id' => $item->id],
+                    'group' => 'user_id',
+                    'customfilter' => ['(`last_activity` > ' . (int)(time() - (int)erLhcoreClassModelChatConfig::fetchCache('sync_sound_settings')->data['online_timeout']) . ')']
+            ])); ?>
+        </td>
         <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('department/editgroup')?>/<?php echo $item->id?>/(action)/updatestats"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Update stats');?></a>
         </td>
