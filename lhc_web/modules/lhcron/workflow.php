@@ -35,7 +35,7 @@ if ($assignWorkflowTimeout > 0) {
         }
     }
 
-    foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterlt' => array('pnd_time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+    foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'customfilter' => ['(`dep_id` IN (SELECT `id` FROM `lh_departament` WHERE `active_mail_balancing` = 1))'], 'filterlt' => array('pnd_time' => (time() - $assignWorkflowTimeout)),'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
         try {
             $db->beginTransaction();
             $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
@@ -65,7 +65,7 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     }
 }
 
-foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
+foreach (erLhcoreClassModelMailconvConversation::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'customfilter' => ['(`dep_id` IN (SELECT `id` FROM `lh_departament` WHERE `active_mail_balancing` = 1))'], 'filter' => array('status' => erLhcoreClassModelMailconvConversation::STATUS_PENDING))) as $chat) {
     try {
         $db->beginTransaction();
             $chat = erLhcoreClassModelMailconvConversation::fetchAndLock($chat->id);
