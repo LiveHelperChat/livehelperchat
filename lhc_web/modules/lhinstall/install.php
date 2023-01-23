@@ -352,6 +352,7 @@ try {
 				  KEY `unanswered_chat` (`unanswered_chat`),
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
+				  KEY `time` (`time`),
 				  KEY `product_id` (`product_id`),
 				  KEY `unread_operator` (`has_unread_op_messages`,`unread_op_messages_informed`),
 				  KEY `user_id_sender_user_id` (`user_id`,`sender_user_id`),

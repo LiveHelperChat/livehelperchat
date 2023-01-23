@@ -11025,6 +11025,7 @@
     "lh_chat" : {
       "new" : {
         "nick" : "ALTER TABLE `lh_chat` ADD INDEX `nick` (`nick`);",
+        "time" : "ALTER TABLE `lh_chat` ADD INDEX `time` (`time`);",
         "iwh_id" : "ALTER TABLE `lh_chat` ADD INDEX `iwh_id` (`iwh_id`);",
         "theme_id" : "ALTER TABLE `lh_chat` ADD INDEX `theme_id` (`theme_id`);",
         "email" : "ALTER TABLE `lh_chat` ADD INDEX `email` (`email`);",
