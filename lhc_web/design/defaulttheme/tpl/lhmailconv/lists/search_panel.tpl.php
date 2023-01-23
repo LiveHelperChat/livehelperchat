@@ -317,7 +317,7 @@
                         <input type="hidden" name="view" value="<?php echo $input->view?>" />
                     <?php endif; ?>
 
-                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhviews','use')) : ?>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhviews','use_mail')) : ?>
                         <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/2'})" class="btn btn-outline-secondary btn-sm">
                             <span class="material-icons">saved_search</span>
                             <?php if ($input->view > 0) : ?>
