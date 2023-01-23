@@ -53,6 +53,16 @@ try {
             return deferred.promise;
         };
 
+        this.updatePassiveMode = function(id) {
+            var deferred = $q.defer();
+            $http.post(WWW_DIR_JAVASCRIPT + 'views/updatepassivemode/' + id).then(function(data) {
+                deferred.resolve(data.data);
+            },function(internalError){
+                deferred.reject(typeof internalError.status !== 'undefined' ? '['+internalError.status+']' : '[0]');
+            });
+            return deferred.promise;
+        };
+
         this.loadViewPage = function(href) {
             var deferred = $q.defer();
             $http.get(href + '/(mode)/list').then(function(data) {
@@ -156,6 +166,13 @@ try {
                         _that.currentView.total_records = data.total_records;
                     }
                     _that.protectCSFR();
+            })
+        }
+
+        this.changePassiveMode = function(view) {
+            view.passive = !view.passive;;
+            LiveHelperChatViewsFactory.updatePassiveMode(view.id).then(function(data) {
+
             })
         }
 

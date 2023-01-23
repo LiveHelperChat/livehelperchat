@@ -25,6 +25,11 @@ $ViewList['shareview'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updatepassivemode'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['loadview'] = array(
     'params' => array('id'),
     'uparams' => array('mode'),
@@ -58,5 +63,6 @@ $ViewList['view'] = array(
 
 $FunctionList['configuration'] = array('explain' => 'Allow operator to configure views');
 $FunctionList['use'] = array('explain' => 'Allow operator to use views');
+$FunctionList['use_chat'] = array('explain' => 'Allow operator to use views');
 
 ?>

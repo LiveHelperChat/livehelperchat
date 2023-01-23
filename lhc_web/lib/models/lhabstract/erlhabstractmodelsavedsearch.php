@@ -86,7 +86,7 @@ class erLhAbstractModelSavedSearch {
     public $requested_at = 0;
     public $updated_at = 0;
     public $total_records = 0;
-    public $passive = 0;
+    public $passive = 1;
     public $description = '';
     public $sharer_user_id = 0;
     public $status = self::ACTIVE;
