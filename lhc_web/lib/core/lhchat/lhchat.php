@@ -139,6 +139,8 @@ class erLhcoreClassChat {
     		$filter['customfilter'][] = $limitation;
     	}
 
+        $filter['customfilter'][] = '(id >= (SELECT MAX(id) FROM ( (SELECT id FROM `lhc_mailconv_conversation` WHERE status = 0 ORDER BY `id` DESC LIMIT 1000,1) UNION SELECT 0 ) AS max_id))';
+
     	$filter['limit'] = $limit;
     	$filter['offset'] = $offset;
     	$filter['smart_select'] = true;
