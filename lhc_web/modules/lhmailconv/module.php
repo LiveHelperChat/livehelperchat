@@ -379,6 +379,7 @@ $FunctionList['quick_actions'] = array('explain' => 'Allow operator to user quic
 $FunctionList['change_mailbox'] = array('explain' => 'Allow operator to change mail mailbox');
 $FunctionList['include_images'] = array('explain' => 'Allow operator include images from the original e-mail');
 $FunctionList['closerelated'] = array('explain' => 'Allow operator to close related e-mail tickets based on e-mail');
+$FunctionList['use_pmailsw'] = array('explain' => 'Allow operator to use pending mails widget.');
 
 
 ?>

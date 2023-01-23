@@ -775,7 +775,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     $ReturnMessages['my_mails'] = array('list' => array_values($myMails));
 }
 
-if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['pmails'],$Params['user_parameters_unordered']['w'])) {
+if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['pmails'],$Params['user_parameters_unordered']['w']) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_pmailsw')) {
     $additionalFilter = array();
 
     if (is_array($Params['user_parameters_unordered']['pendingmu']) && !empty($Params['user_parameters_unordered']['pendingmu'])) {
