@@ -26,6 +26,30 @@ $fieldsSearch['visitor'] = array (
 	)
 );
 
+$fieldsSearch['file_id'] = array (
+	'type' => 'text',
+	'trans' => 'User',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => 'filter',
+	'filter_table_field' => 'id',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+	)
+);
+
+$fieldsSearch['replace'] = array (
+	'type' => 'text',
+	'trans' => 'User',
+	'required' => false,
+	'valid_if_filled' => false,
+	'filter_type' => false,
+	'filter_table_field' => 'replace',
+	'validation_definition' => new ezcInputFormDefinitionElement(
+		ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1)
+	)
+);
+
 $fieldsSearch['upload_name'] = array (
     'type' => 'text',
     'trans' => 'Upload Name',

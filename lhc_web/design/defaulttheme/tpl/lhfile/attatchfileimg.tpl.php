@@ -36,7 +36,7 @@
                     </div>
                 </td>
                 <td nowrap><?php echo htmlspecialchars(round($file->size/1024,2))?> Kb.</td>
-                <td nowrap><a id="embed-button-<?php echo $file->id?>" onclick="lhinst.sendLinkToGeneralEditor('[file=<?php echo $file->id,'_',$file->security_hash,'_img'?>]','<?php echo $file->id?>')" href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Embed BB code');?></a></td>
+                <td nowrap><a id="embed-button-<?php echo $file->id?>" onclick='lhinst.sendLinkToGeneralEditor("[file=<?php echo $file->id,'_',$file->security_hash,'_img'?>]","<?php echo $file->id?>",<?php echo json_encode($paramseditor)?>)' href="#" class="csfr-required btn btn-secondary btn-xs"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Embed BB code');?></a></td>
             </tr>
         <?php endforeach; ?>
     </table>
