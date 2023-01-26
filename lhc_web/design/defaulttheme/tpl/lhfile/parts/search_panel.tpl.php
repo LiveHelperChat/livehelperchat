@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-6">
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group">
                         <?php echo erLhcoreClassRenderHelper::renderCombobox( array (
                             'input_name'     => 'user_id',
@@ -17,9 +17,14 @@
                         )); ?>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="form-group">
                         <input type="text" id="file_upload_name" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File name')?>" class="form-control" name="upload_name" value="<?php echo htmlspecialchars($input->upload_name)?>" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <input type="text" id="file_id" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','File id')?>" class="form-control" name="file_id" value="<?php echo htmlspecialchars((string)$input->file_id)?>" />
                     </div>
                 </div>
             </div>
@@ -40,7 +45,7 @@
                     return false;
                 });
                 var timeout = null;
-                $('#file_upload_name').keyup(function() {
+                $('#file_upload_name,#file_id').keyup(function() {
                     clearTimeout(timeout);
                     timeout = setTimeout(function(){
                         $('#file-search-form').submit();

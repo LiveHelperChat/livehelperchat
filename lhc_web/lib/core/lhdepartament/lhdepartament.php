@@ -209,7 +209,26 @@ class erLhcoreClassDepartament{
                 ),
                 'attr_int_3' => new ezcInputFormDefinitionElement(
                     ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
-                )
+                ),
+                'active_prioritized_assignment' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
+                'assign_by_priority' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
+                'assign_by_priority_chat' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+                ),
+                'min_agent_priority' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int'
+                ),
+                'min_chat_priority' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int'
+                ),
+                'max_chat_priority' => new ezcInputFormDefinitionElement(
+                    ezcInputFormDefinitionElement::OPTIONAL, 'int'
+                ),
+
         );
 
         foreach (self::getWeekDays() as $dayShort => $dayLong) {
@@ -335,11 +354,49 @@ class erLhcoreClassDepartament{
 		   		$department->max_ac_dep_chats = 0;
 		   	}
 
+
 		   	if ( $form->hasValidData( 'max_ac_dep_mails' ) )	{
 		   		$department->max_ac_dep_mails = $form->max_ac_dep_mails;
 		   	} else {
 		   		$department->max_ac_dep_mails = 0;
 		   	}
+
+            if ( $form->hasValidData( 'assign_by_priority' ) && $form->assign_by_priority == true )	{
+                $botConfiguration['assign_by_priority'] = 1;
+            } else {
+                $botConfiguration['assign_by_priority'] = 0;
+            }
+
+            if ( $form->hasValidData( 'active_prioritized_assignment' ) && $form->active_prioritized_assignment == true )	{
+                $botConfiguration['active_prioritized_assignment'] = 1;
+            } else {
+                $botConfiguration['active_prioritized_assignment'] = 0;
+            }
+
+            if ( $form->hasValidData( 'assign_by_priority_chat' ) && $form->assign_by_priority_chat == true ) {
+                $botConfiguration['assign_by_priority_chat'] = 1;
+            } else {
+                $botConfiguration['assign_by_priority_chat'] = 0;
+            }
+
+            if ( $form->hasValidData( 'min_agent_priority' ) ) {
+                $botConfiguration['min_agent_priority'] = $form->min_agent_priority;
+            } else {
+                $botConfiguration['min_agent_priority'] = 0;
+            }
+
+            if ( $form->hasValidData( 'min_chat_priority' ) ) {
+                $botConfiguration['min_chat_priority'] = $form->min_chat_priority;
+            } else {
+                $botConfiguration['min_chat_priority'] = 0;
+            }
+
+            if ( $form->hasValidData( 'max_chat_priority' ) ) {
+                $botConfiguration['max_chat_priority'] = $form->max_chat_priority;
+            } else {
+                $botConfiguration['max_chat_priority'] = 0;
+            }
+
 	   	}
 
 	   	if ((isset($additionalParams['payload_data']) && erLhcoreClassRestAPIHandler::hasAccessTo('lhdepartment', 'actworkflow')) || erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actworkflow') ) {

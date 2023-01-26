@@ -1578,10 +1578,20 @@ function lh(){
 		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
-	this.sendLinkToGeneralEditor = function(embed_code,file_id) {
+	this.sendLinkToGeneralEditor = function(embed_code,file_id, params) {
 	    var editor = window.parent.$('.embed-into');
-		var val = editor.val();
-        editor.val(((val != '') ? val+"\n" : val)+embed_code);
+        
+        if (editor.length == 0) {
+            editor = window.opener.$('.embed-into');
+        };
+
+        if (typeof params !== 'undefined' && typeof params['replace'] !== `undefined` && params['replace'] == true){
+            editor.val(embed_code);
+        } else {
+            var val = editor.val();
+            editor.val(((val != '') ? val+"\n" : val)+embed_code);
+        }
+
 		$('#embed-button-'+file_id).addClass('btn-success');
 	};
 
