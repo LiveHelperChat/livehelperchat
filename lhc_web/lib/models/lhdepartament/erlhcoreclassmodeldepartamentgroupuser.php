@@ -21,6 +21,9 @@ class erLhcoreClassModelDepartamentGroupUser
             'user_id' => $this->user_id,
             'read_only' => $this->read_only,
             'exc_indv_autoasign' => $this->exc_indv_autoasign,
+            'assign_priority' => $this->assign_priority,
+            'chat_min_priority' => $this->chat_min_priority,
+            'chat_max_priority' => $this->chat_max_priority,
         );
     }
 
@@ -48,7 +51,18 @@ class erLhcoreClassModelDepartamentGroupUser
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public static function addUserDepartmentGroups($userData, $groupsIds, $readOnly = false, $excludeAutoAssign = array())
+    public static function getUserGroupsParams($user_id)
+    {
+        $itemsRemap = [];
+
+        foreach (self::getList(['limit' => false, 'filter' => ['user_id' => $user_id]]) as $item) {
+            $itemsRemap[$item->dep_group_id] = $item->getState();
+        }
+
+        return $itemsRemap;
+    }
+
+    public static function addUserDepartmentGroups($userData, $groupsIds, $readOnly = false, $excludeAutoAssign = array(), $paramsAssignment = array())
     {
         $groups = self::getList(array('filter' => array('user_id' => $userData->id, 'read_only' => ($readOnly === false ? 0 : 1))));
         
@@ -72,6 +86,9 @@ class erLhcoreClassModelDepartamentGroupUser
                     $member->dep_group_id = $groupId;
                     $member->read_only = ($readOnly === false ? 0 : 1);
                     $member->exc_indv_autoasign = $readOnly == false && in_array($groupId, $excludeAutoAssign) ? 1 : 0;
+                    $member->assign_priority = isset($paramsAssignment['assign_priority'][$groupId]) ? (int)$paramsAssignment['assign_priority'][$groupId] : 0;
+                    $member->chat_min_priority = isset($paramsAssignment['chat_min_priority'][$groupId]) ? (int)$paramsAssignment['chat_min_priority'][$groupId] : 0;
+                    $member->chat_max_priority = isset($paramsAssignment['chat_max_priority'][$groupId]) ? (int)$paramsAssignment['chat_max_priority'][$groupId] : 0;
                     $member->saveThis();
                 }
             }
@@ -93,7 +110,8 @@ class erLhcoreClassModelDepartamentGroupUser
         
         foreach ($this->dep_group->departments_ids as $depId) 
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign,assign_priority,chat_max_priority,chat_min_priority) VALUES 
+            (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign,:assign_priority,:chat_max_priority,:chat_min_priority)');
             $stmt->bindValue(':user_id',$this->user_id);
             $stmt->bindValue(':dep_id',$depId);
             $stmt->bindValue(':hide_online',$this->user->hide_online);
@@ -104,6 +122,9 @@ class erLhcoreClassModelDepartamentGroupUser
             $stmt->bindValue(':exc_indv_autoasign', $this->exc_indv_autoasign);
             $stmt->bindValue(':always_on', $this->user->always_on);
             $stmt->bindValue(':active_chats',erLhcoreClassChat::getCount(array('filter' => array('user_id' => $this->user_id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))));
+            $stmt->bindValue(':assign_priority', $this->assign_priority);
+            $stmt->bindValue(':chat_max_priority', $this->chat_max_priority);
+            $stmt->bindValue(':chat_min_priority', $this->chat_min_priority);
             $stmt->execute();
         }
         
@@ -146,6 +167,9 @@ class erLhcoreClassModelDepartamentGroupUser
     public $user_id = 0;
     public $read_only = 0;
     public $exc_indv_autoasign = 0;
+    public $assign_priority = 0;
+    public $chat_min_priority = 0;
+    public $chat_max_priority = 0;
 }
 
 ?>

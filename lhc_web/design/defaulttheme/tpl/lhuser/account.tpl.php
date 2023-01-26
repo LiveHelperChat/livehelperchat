@@ -165,28 +165,33 @@
     	   $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual();
     	   $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual(false, true);
            $userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds();
+           $userDepartamentsParams = erLhcoreClassUserDep::getUserIndividualParams();
 
     	   $userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
     	   $userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
     	   $userDepartamentsGroupAutoExc = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds($user->id);
+           $userDepartamentsGroupParams = erLhcoreClassModelDepartamentGroupUser::getUserGroupsParams($user->id);
+
            $departmentEditParams = [
                    'self_edit' => true,
                    'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
                    'individual' => [
                            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments'),
                            'edit_all' => $editdepartaments,
+                           'all_dep'  => $userDepartamentsParams,
                            'edit_personal' => false,
                            'see_personal' => false,
                    ],
                    'groups' => [
                            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments_groups'),
                            'edit_all' => $editdepartaments,
+                           'all_group' => $userDepartamentsGroupParams,
                            'edit_personal' => false,
                            'see_personal' => false,
                    ]
            ];
 
-            if ($departmentEditParams['individual']['edit_all'] == false) {
+           if ($departmentEditParams['individual']['edit_all'] == false) {
                 $departmentEditParams['individual']['id'] = array_merge(
                     erLhcoreClassUserDep::getUserDepartamentsIndividual(
                         $user->id

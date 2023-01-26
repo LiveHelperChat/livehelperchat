@@ -235,6 +235,12 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
         $excAutoDepartments = $_POST['UserDepartamentAutoExc'];
     }
 
+    $paramsAssignment = [
+        'assign_priority' => (isset($_POST['UserDepartamentAssignPriority']) ? $_POST['UserDepartamentAssignPriority'] : []),
+        'chat_max_priority' => (isset($_POST['UserDepartamentAssignMaxPriority']) ? $_POST['UserDepartamentAssignMaxPriority'] : []),
+        'chat_min_priority' => (isset($_POST['UserDepartamentAssignMinPriority']) ? $_POST['UserDepartamentAssignMinPriority'] : [])
+    ];
+
     try {
         $db = ezcDbInstance::get();
 
@@ -243,22 +249,30 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
         $UserData->updateThis();
 
         if (count($globalDepartament) > 0) {
-            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
+            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments, $paramsAssignment);
         } else {
-            erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments);
+            erLhcoreClassUserDep::addUserDepartaments(array(), $UserData->id, $UserData, $readOnlyDepartments, $excAutoDepartments, $paramsAssignment);
         }
 
         $excludeGroups = erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'exclude_auto' => true));
 
+        $paramsAssignmentGroup = [
+            'assign_priority' => (isset($_POST['UserDepartamentGroupAssignPriority']) ? $_POST['UserDepartamentGroupAssignPriority'] : []),
+            'chat_min_priority' => (isset($_POST['UserDepGroupAssignMinPriority']) ? $_POST['UserDepGroupAssignMinPriority'] : []),
+            'chat_max_priority' => (isset($_POST['UserDepGroupAssignMaxPriority']) ? $_POST['UserDepGroupAssignMaxPriority'] : [])
+        ];
+
         // Write
         erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams)),
             false,
-            $excludeGroups);
+            $excludeGroups,
+            $paramsAssignmentGroup);
 
         // Read
         erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $departmentEditParams, 'read_only' => true)),
             true,
-            $excludeGroups);
+            $excludeGroups,
+            $paramsAssignmentGroup);
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
 

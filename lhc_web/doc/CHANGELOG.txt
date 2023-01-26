@@ -1,3 +1,10 @@
+4.17v
+
+1. Advanced chat auto assignment options.
+
+
+execute doc/update_db/update_289.sql for update
+
 4.16v
 
 1. Theme attribute will be saved directly in the chat table. So we can use search from now.
