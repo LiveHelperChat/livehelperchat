@@ -1,7 +1,11 @@
 4.17v
 
 1. Advanced chat auto assignment options.
-
+2. Separate permissions for operators to crate a views.
+3. Slow request logging to back office.
+4. Modal window improvements for department online operators statistic.
+5. Further migration related to bootstrap 5 migration.
+6. And various other changes/fixes.
 
 execute doc/update_db/update_289.sql for update
 
