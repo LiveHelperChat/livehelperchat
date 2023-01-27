@@ -29,6 +29,11 @@
             <label><input type="checkbox" name="close_conversation" value="on" <?php isset($item->options_array['close_conversation']) && $item->options_array['close_conversation'] == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Close conversation');?></label>
         </div>
     </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" name="skip_message" value="on" <?php isset($item->options_array['skip_message']) && $item->options_array['skip_message'] == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Skip message, messages will not be imported');?></label>
+        </div>
+    </div>
 </div>
 
 <hr>

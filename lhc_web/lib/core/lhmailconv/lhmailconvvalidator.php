@@ -60,6 +60,9 @@ class erLhcoreClassMailconvValidator {
             'close_conversation' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'skip_message' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'mailbox_ids' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
             ),
@@ -145,6 +148,12 @@ class erLhcoreClassMailconvValidator {
             $options['close_conversation'] = 1;
         } else {
             $options['close_conversation'] = 0;
+        }
+
+        if ($form->hasValidData( 'skip_message' ) && $form->skip_message == true) {
+            $options['skip_message'] = 1;
+        } else {
+            $options['skip_message'] = 0;
         }
 
         $item->options_array = $options;

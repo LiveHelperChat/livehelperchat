@@ -340,6 +340,14 @@ class erLhcoreClassMailconvParser {
                             $priorityConversation = $matchingPriorityRuleSelected->priority;
                         }
 
+                        if (
+                            (isset($matchingRuleSelected->options_array['skip_message']) && $matchingRuleSelected->options_array['skip_message'] == true) ||
+                            ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && isset($matchingPriorityRuleSelected->options_array['skip_message']) && $matchingPriorityRuleSelected->options_array['skip_message'] == true)
+                        ) {
+                            $statsImport[] = 'Skipping e-mail because of matching rule - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                            continue;
+                        }
+
                         if ($mail->deliveryStatus) {
                             $message->delivery_status_array = self::parseDeliveryStatus($mail->deliveryStatus);
                             $message->delivery_status = json_encode($message->delivery_status_array);
