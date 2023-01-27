@@ -155,6 +155,30 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 4) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/delete_conversations.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('mailconv/conversations') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+
+    if (ezcInputForm::hasPostData()) {
+        session_write_close();
+        $filterParams['filter']['limit'] = 20;
+        $filterParams['filter']['offset'] = 0;
+
+        foreach (erLhcoreClassModelMailconvConversation::getList($filterParams['filter']) as $item){
+            $item->removeThis();
+        }
+
+        erLhcoreClassRestAPIHandler::setHeaders();
+        echo json_encode(['left_to_delete' => erLhcoreClassModelMailconvConversation::getCount($filterParams['filter'])]);
+        exit;
+    }
+
+    $tpl->set('update_records',erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']));
+
+    echo $tpl->fetch();
+    exit;
+}
+
 if (is_numeric($filterParams['input_form']->has_attachment)) {
     if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
         $filterParams['filter']['filterin']['has_attachment'] = [
