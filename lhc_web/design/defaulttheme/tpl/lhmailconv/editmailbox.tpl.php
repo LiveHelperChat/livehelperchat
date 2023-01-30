@@ -106,9 +106,18 @@
                 </div>
 
                 <div class="col-3">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
-                        <input type="number" min="1" max="48" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
+                                <input type="number" min="1" max="48" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div><label><input type="checkbox" name="workflow_import_present" <?php isset($item->workflow_options_array['workflow_import_present']) && $item->workflow_options_array['workflow_import_present'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','User present time to import messages from instead of last import time.');?></label></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
