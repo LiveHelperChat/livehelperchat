@@ -151,12 +151,14 @@ class erLhcoreClassMailconvParser {
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
 
-                $statsImport[] = 'Search started at '.date('Y-m-d H:i:s');
+                $since = 'SINCE "' . date('d M Y',
+                        (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
+                        (isset($workflowOptions['workflow_older_than']) && is_numeric($workflowOptions['workflow_older_than']) && $workflowOptions['workflow_older_than'] > 0 ? ((int)$workflowOptions['workflow_older_than'] * 3600) : (2*24*3600))).'"';
+
+                $statsImport[] = 'Search started at '.date('Y-m-d H:i:s') . ' data range - '.$since;
 
                 // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "' . date('d M Y',
-                        (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
-                        (isset($workflowOptions['workflow_older_than']) && is_numeric($workflowOptions['workflow_older_than']) && $workflowOptions['workflow_older_than'] > 0 ? ((int)$workflowOptions['workflow_older_than'] * 3600) : (2*24*3600))).'"',true);
+                $mailsIds = $mailboxHandler->searchMailbox($since, true);
 
                 $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s');
 
