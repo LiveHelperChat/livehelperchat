@@ -98,12 +98,20 @@
             </div>
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
                         <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
                     </div>
                 </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
+                        <input type="number" min="1" max="48" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                    </div>
+                </div>
+
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
@@ -187,6 +195,12 @@
 
         <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_utilities') : ?>active<?php endif;?>" id="utilities">
             <a class="btn btn-secondary btn-sm" title="Sync messages" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>/(action)/sync?r=<?php echo time()?>#!#utilities" ><i class="material-icons">sync</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for a new messages');?></a>
+
+            <?php if ($item->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) : ?>
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>, <?php echo $item->sync_started_ago;?></p>
+            <?php else : ?>
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>, <?php echo erLhcoreClassChat::formatSeconds($item->last_sync_time - $item->sync_started)?></p>
+            <?php endif; ?>
 
             <ul>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync finished');?> - <?php echo $item->last_sync_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>

@@ -109,6 +109,9 @@ class erLhcoreClassMailconvParser {
                 return !(isset($a['send_folder']) && $a['send_folder'] == 1) ? 1 : 0;
             });
             
+            $startTime = microtime();
+            $workflowOptions = $mailbox->workflow_options_array;
+            
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -148,8 +151,14 @@ class erLhcoreClassMailconvParser {
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
 
+                $statsImport[] = 'Search started at '.date('Y-m-d H:i:s');
+
                 // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
+                $mailsIds = $mailboxHandler->searchMailbox('SINCE "' . date('d M Y',
+                        ($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
+                        (isset($workflowOptions['workflow_older_than']) && is_numeric($workflowOptions['workflow_older_than']) && $workflowOptions['workflow_older_than'] > 0 ? ((int)$workflowOptions['workflow_older_than'] * 3600) : (2*24*3600))).'"',true);
+
+                $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s');
 
                 if (empty($mailsIds)) {
                     continue;
@@ -157,9 +166,19 @@ class erLhcoreClassMailconvParser {
 
                 $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
 
+                $statsImport[] = 'Fetching mail info finished '.date('Y-m-d H:i:s');
+
                 $db->reconnect();
 
                 foreach ($mailsInfo as $mailInfo) {
+
+                    $start = explode(' ', $startTime);
+                    $end = explode(' ', microtime());
+                    $time = $end[0] + $end[1] - $start[0] - $start[1];
+
+                    if ($time > (9 * 60)) {
+                        throw new Exception('Import takes too long time.' . date('Y-m-d H:i:s',$mailbox->sync_started) . ' - ' . date('Y-m-d H:i:s',time()));
+                    }
 
                     $vars = get_object_vars($mailInfo);
 

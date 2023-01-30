@@ -7,6 +7,7 @@
         <thead>
         <tr>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import progress');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Active');?></th>
             <th width="1%"></th>
@@ -19,6 +20,13 @@
                         <i class="material-icons text-danger">&#xE002;</i>
                     <?php endif; ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->mail)?></a>
+                </td>
+                <td>
+                    <?php if ($item->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) : ?>
+                        <?php echo $item->sync_started_ago;?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','In progress');?>
+                    <?php else : ?>
+                        <?php echo erLhcoreClassChat::formatSeconds($item->last_sync_time - $item->sync_started)?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Finished');?>
+                    <?php endif; ?>
                 </td>
                 <td>
                     <?php echo $item->import_priority?>
