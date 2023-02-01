@@ -205,6 +205,38 @@ if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['i
     $filterParams['filter']['filterin']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
 
+$db = ezcDbInstance::get();
+
+try {
+    $db->query("SET SESSION wait_timeout=2");
+} catch (Exception $e){
+    //
+}
+
+try {
+    $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION innodb_lock_wait_timeout=5");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_execution_time=5000;");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_statement_time=5;");
+} catch (Exception $e) {
+    // Ignore we try to limit how long query can run
+}
+
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 $filterWithoutSort = $filterParams['filter'];
@@ -216,12 +248,22 @@ if (empty($filterWithoutSort)) {
     $rowsNumber = ($rowsNumber = erLhcoreClassModelMailconvConversation::estimateRows()) && $rowsNumber > 10000 ? $rowsNumber : null;
 }
 
-$pages = new lhPaginator();
-$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
-$pages->translationContext = 'chat/activechats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
-$pages->paginate();
-$tpl->set('pages',$pages);
+try {
+    $pages = new lhPaginator();
+    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
+    $pages->translationContext = 'chat/activechats';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
+    $pages->paginate();
+    $tpl->set('pages',$pages);
+} catch (Exception $e) {
+    $tpl->set('takes_to_long',true);
+    $pages = new lhPaginator();
+    $pages->items_total = 0;
+    $pages->translationContext = 'chat/pendingchats';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
+    $pages->paginate();
+    $tpl->set('pages',$pages);
+}
 
 if ($pages->items_total > 0) {
     $items = erLhcoreClassModelMailconvConversation::getList(array_merge(array('limit' => $pages->items_per_page, 'offset' => $pages->low),$filterParams['filter']));
