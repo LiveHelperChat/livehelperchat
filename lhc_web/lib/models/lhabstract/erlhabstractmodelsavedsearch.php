@@ -57,6 +57,33 @@ class erLhAbstractModelSavedSearch {
                     $this->params_array = array();
                 }
 
+                $scope = '';
+                if (isset($this->params_array['filter']['filterin']['lh_chat.dep_id'])) {
+                    unset($this->params_array['filter']['filterin']['lh_chat.dep_id']);
+                    $scope = 'chat';
+                }
+
+                if (isset($this->params_array['filter']['filterin']['lh_chat.user_id'])) {
+                    unset($this->params_array['filter']['filterin']['lh_chat.user_id']);
+                    $scope = 'chat';
+                }
+
+                if ($scope != '') {
+                    $params = [
+                        'input' => (object)$this->params_array['input_form']
+                    ];
+                }
+
+                if ($scope == 'chat') {
+                    erLhcoreClassChatStatistic::formatUserFilter($params);
+                }
+
+                if ($scope != '') {
+                    if (isset($params['filter'])) {
+                        $this->params_array['filter'] = array_merge_recursive($this->params_array['filter'], $params['filter']);
+                    }
+                }
+
                 return $this->params_array;
 
             case 'user':
