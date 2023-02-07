@@ -2385,6 +2385,7 @@ try {
   KEY `from_address` (`from_address`),
   KEY `mailbox_id` (`mailbox_id`),
   KEY `dep_id` (`dep_id`),
+  KEY `mailbox_id_status_udate` (`mailbox_id`,`status`,`udate`),
   KEY `status_priority` (`status`,`priority`),
   KEY `status_priority_asc` (`status`,`priority_asc`),
   KEY `has_attachment` (`has_attachment`),

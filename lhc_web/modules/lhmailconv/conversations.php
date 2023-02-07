@@ -255,6 +255,28 @@ try {
     $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
     $pages->paginate();
     $tpl->set('pages',$pages);
+
+    if ($pages->items_total > 0) {
+        $items = erLhcoreClassModelMailconvConversation::getList(array_merge(array('limit' => $pages->items_per_page, 'offset' => $pages->low),$filterParams['filter']));
+
+        $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
+        erLhcoreClassChat::prefillObjects($subjectsChats, array(
+            array(
+                'subject_id',
+                'subject',
+                'erLhAbstractModelSubject::getList'
+            ),
+        ));
+        foreach ($subjectsChats as $chatSubject) {
+            if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
+                $items[$chatSubject->conversation_id]->subjects = [];
+            }
+            $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
+        }
+
+        $tpl->set('items',$items);
+    }
+
 } catch (Exception $e) {
     $tpl->set('takes_to_long',true);
     $pages = new lhPaginator();
@@ -263,27 +285,6 @@ try {
     $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
     $pages->paginate();
     $tpl->set('pages',$pages);
-}
-
-if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelMailconvConversation::getList(array_merge(array('limit' => $pages->items_per_page, 'offset' => $pages->low),$filterParams['filter']));
-
-    $subjectsChats = erLhcoreClassModelMailconvMessageSubject::getList(array('filterin' => array('conversation_id' => array_keys($items))));
-    erLhcoreClassChat::prefillObjects($subjectsChats, array(
-        array(
-            'subject_id',
-            'subject',
-            'erLhAbstractModelSubject::getList'
-        ),
-    ));
-    foreach ($subjectsChats as $chatSubject) {
-        if (!is_array($items[$chatSubject->conversation_id]->subjects)) {
-            $items[$chatSubject->conversation_id]->subjects = [];
-        }
-        $items[$chatSubject->conversation_id]->subjects[] = $chatSubject->subject;
-    }
-
-    $tpl->set('items',$items);
 }
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('mailconv/conversations');
