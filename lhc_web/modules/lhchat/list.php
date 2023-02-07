@@ -195,6 +195,32 @@ try {
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
     $pages->paginate();
     $tpl->set('pages',$pages);
+
+    if ($pages->items_total > 0) {
+        $items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+        $iconsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
+        erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
+        $tpl->set('icons_additional',$iconsAdditional);
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_items',array('filter' => & $items, 'uparams' => $Params['user_parameters_unordered']));
+
+        $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
+        erLhcoreClassChat::prefillObjects($subjectsChats, array(
+            array(
+                'subject_id',
+                'subject',
+                'erLhAbstractModelSubject::getList'
+            ),
+        ));
+        foreach ($subjectsChats as $chatSubject) {
+            if (!is_array($items[$chatSubject->chat_id]->subjects)) {
+                $items[$chatSubject->chat_id]->subjects = [];
+            }
+            $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
+        }
+
+        $tpl->set('items',$items);
+    }
+
 } catch (Exception $e) {
     $tpl->set('takes_to_long',true);
     $pages = new lhPaginator();
@@ -203,31 +229,6 @@ try {
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
     $pages->paginate();
     $tpl->set('pages',$pages);
-}
-
-if ($pages->items_total > 0) {
-	$items = erLhcoreClassModelChat::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
-    $iconsAdditional = erLhAbstractModelChatColumn::getList(array('ignore_fields' => array('position','conditions','column_identifier','enabled'), 'sort' => false, 'filter' => array('icon_mode' => 1, 'enabled' => 1, 'chat_enabled' => 1)));
-    erLhcoreClassChat::prefillGetAttributes($items, array(), array(), array('additional_columns' => $iconsAdditional, 'do_not_clean' => true));
-    $tpl->set('icons_additional',$iconsAdditional);
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_items',array('filter' => & $items, 'uparams' => $Params['user_parameters_unordered']));
-
-    $subjectsChats = erLhAbstractModelSubjectChat::getList(array('filterin' => array('chat_id' => array_keys($items))));
-    erLhcoreClassChat::prefillObjects($subjectsChats, array(
-        array(
-            'subject_id',
-            'subject',
-            'erLhAbstractModelSubject::getList'
-        ),
-    ));
-    foreach ($subjectsChats as $chatSubject) {
-        if (!is_array($items[$chatSubject->chat_id]->subjects)) {
-            $items[$chatSubject->chat_id]->subjects = [];
-        }
-        $items[$chatSubject->chat_id]->subjects[] = $chatSubject->subject;
-    }
-
-	$tpl->set('items',$items);
 }
 
 $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/list');
