@@ -21,7 +21,7 @@
         <?php if (isset($visitor) && $visitor->has_message_from_operator) : ?>
             <span class="badge bg-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','has active invitation');?></span>
         <?php else : ?>
-            <span class="badge badge-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','do not have any active invitation');?></span>
+            <span class="badge bg-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','do not have any active invitation');?></span>
         <?php endif; ?>
 
     </label>

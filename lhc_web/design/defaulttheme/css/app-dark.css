@@ -38,7 +38,7 @@
 }
 
 .btn-light{
-    --bs-btn-color: #fff;
+    --bs-btn-color: #ababab;
     --bs-btn-active-color:  #fff;
     --bs-btn-hover-color: #fff;
 }
@@ -104,9 +104,13 @@ a:not([href]):not([class]), a:not([href]) {
 .border-right {
     border-right: 1px solid #63676b!important;
 }
-
+.canned-suggester,
 .nav-pills>li>a:hover{
     background-color:#2a2d31;
+}
+
+.canned-list li.current-item a, .current-hash-content li.current-item, .canned-list a:hover {
+    background-color: #676a6e;
 }
 
 .nav-pills>li>a {
@@ -132,6 +136,7 @@ div.message-row-typing div.msg-body {
     border: 1px solid #323232;
     color: #bcbcbc !important;
 }
+
 
 .reactions-toolbar{
     background: #9ea5ad;
