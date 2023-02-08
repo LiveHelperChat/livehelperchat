@@ -9,6 +9,9 @@
             <i class="material-icons chat-active">label</i><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats.tpl.php'));?>&nbsp;<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/subject_chats_counter.tpl.php'));?>
 
             <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('subjectc_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['subjectc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+
+            <?php $takenTimeAttributes = 'subject_chats.tt';?>
+            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/taken_time.tpl.php'));?>
         </div>
 
         <div ng-if="lhc.toggleWidgetData['subjectc_widget_exp'] !== true">
