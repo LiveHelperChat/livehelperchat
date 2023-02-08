@@ -93,11 +93,11 @@
     </tr>
     <tr>
         <td>Is the bcmath extension detected</td>
-        <td><?php echo extension_loaded('bcmath') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge badge-warning">No, GEO detection will be disabled</span>'; ?></td>
+        <td><?php echo extension_loaded('bcmath') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No, GEO detection will be disabled</span>'; ?></td>
     </tr>
     <tr>
         <td>Is the php-xml extension detected</td>
-        <td><?php echo function_exists('simplexml_load_string') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge badge-warning">No</span>'; ?></td>
+        <td><?php echo function_exists('simplexml_load_string') ? '<span class="badge bg-success">Yes</span>' : '<span class="badge bg-warning">No</span>'; ?></td>
     </tr>
     <tr>
         <td>Minimum 5.4 PHP</td>
