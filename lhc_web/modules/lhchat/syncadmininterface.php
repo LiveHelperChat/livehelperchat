@@ -793,8 +793,10 @@ if ($activeTabEnabled == true && isset($Params['user_parameters_unordered']['top
 // START Mail lists
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['my_mails'],$Params['user_parameters_unordered']['w'])) {
     /**
-     * My chats chats
+     * My mails
      * */
+    $startTimeRequestItem = microtime();
+
     $limitList = is_numeric($Params['user_parameters_unordered']['limitmm']) ? (int)$Params['user_parameters_unordered']['limitmm'] : 10;
 
     $filter = array();
@@ -827,10 +829,13 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         'subject'
     ));
 
-    $ReturnMessages['my_mails'] = array('list' => array_values($myMails));
+    $ReturnMessages['my_mails'] = array('list' => array_values($myMails), 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    $timeLog['my_mails'] = $ReturnMessages['my_mails']['tt'];
 }
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['pmails'],$Params['user_parameters_unordered']['w']) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_pmailsw')) {
+    $startTimeRequestItem = microtime();
     $additionalFilter = array();
 
     if (is_array($Params['user_parameters_unordered']['pendingmu']) && !empty($Params['user_parameters_unordered']['pendingmu'])) {
@@ -872,11 +877,13 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
 
-    $ReturnMessages['pending_mails'] = array('last_id_identifier' => 'pmails','list' => array_values($pendingMails));
+    $ReturnMessages['pending_mails'] = array('last_id_identifier' => 'pmails','list' => array_values($pendingMails), 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    $timeLog['pending_mails'] = $ReturnMessages['pending_mails']['tt'];
 }
 
-
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['amails'],$Params['user_parameters_unordered']['w'])) {
+    $startTimeRequestItem = microtime();
     $additionalFilter = array();
 
     if (is_array($Params['user_parameters_unordered']['activemu']) && !empty($Params['user_parameters_unordered']['activemu'])) {
@@ -915,13 +922,15 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
     $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
 
     erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
-    $ReturnMessages['active_mails'] = array('list' => array_values($activeMails));
+    $ReturnMessages['active_mails'] = array('list' => array_values($activeMails), 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    $timeLog['active_mails'] = $ReturnMessages['active_mails']['tt'];
 }
 
 
 if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets['malarms'],$Params['user_parameters_unordered']['w']) && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_alarms')) {
     $additionalFilter = array();
-
+    $startTimeRequestItem = microtime();
     if (is_array($Params['user_parameters_unordered']['alarmmu']) && !empty($Params['user_parameters_unordered']['alarmmu'])) {
         erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['alarmmu']);
         $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['alarmmu'];
@@ -982,7 +991,9 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         }
     }
 
-    $ReturnMessages['alarm_mails'] = array('last_id_identifier' => 'amails', 'list' => array_values($activeMails));
+    $ReturnMessages['alarm_mails'] = array('last_id_identifier' => 'amails', 'list' => array_values($activeMails), 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+
+    $timeLog['alarm_mails'] = $ReturnMessages['alarm_mails']['tt'];
 }
 // END Mail list
 
