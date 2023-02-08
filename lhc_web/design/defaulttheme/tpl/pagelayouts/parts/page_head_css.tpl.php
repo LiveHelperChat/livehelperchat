@@ -1,6 +1,6 @@
 <?php if (erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == 'ltr' || erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language') == '') : ?>
     <?php if (!isset($Result['anonymous']) && (int)erLhcoreClassModelUserSetting::getSetting('dark_mode',0) == 1) : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('vendor/bootstrap/css/bootstrap.min.css;;css/material_font.css;css/app.css;css/app-dark.css;css/override.css;css/datepicker.css;css/gbot.css;css/color-picker.css');?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('vendor/bootstrap/css/bootstrap.min.css;css/material_font.css;css/app.css;css/app-dark.css;css/override.css;css/datepicker.css;css/gbot.css;css/color-picker.css');?>" />
     <?php else : ?>
         <link rel="stylesheet" type="text/css" href="<?php echo erLhcoreClassDesign::designCSS('vendor/bootstrap/css/bootstrap.min.css;css/material_font.css;css/app.css;css/override.css;css/datepicker.css;css/gbot.css;css/color-picker.css');?>" />
     <?php endif; ?>
