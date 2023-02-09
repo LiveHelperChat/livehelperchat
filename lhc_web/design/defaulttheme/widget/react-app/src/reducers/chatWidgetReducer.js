@@ -356,6 +356,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .setIn(['chatLiveData','status'], action.data.status)
                 .setIn(['chatLiveData','uid'], action.data.uid)
                 .setIn(['chatLiveData','ru'], action.data.ru ? action.data.ru : null)
+                .set('chat_ui',state.get('chat_ui').merge(fromJS(action.data.chat_ui)))
                 .set('network_down', false)
                 .setIn(['chatLiveData','status_sub'], action.data.status_sub);
         }
