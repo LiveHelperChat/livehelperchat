@@ -3,6 +3,8 @@ import axios from "axios";
 import {useTranslation} from 'react-i18next';
 
 var timeoutCannedMessage = null;
+var _requestTimeout = null;
+var _cancelToken;
 
 const CannedMessages = props => {
     const [data, setData] = useState([]);
@@ -282,18 +284,39 @@ const CannedMessages = props => {
             e.stopPropagation();
 
         } else if (doSearch === true) {
-            axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId + '?q=' + encodeURIComponent(e.target.value)).then(result => {
-                setData(result.data);
-                setCollapsed(false);
-                renderPreview(null);
-                result.data.map((item, index) => {
-                    item.messages.map(message => {
-                        if (message.current == true) {
-                            renderPreview(message);
-                        }
-                    })
+
+            clearTimeout(_requestTimeout);
+
+            let valueSearch = e.target.value;
+
+            _requestTimeout = setTimeout(() => {
+
+                if (typeof _cancelToken != typeof undefined) {
+                    _cancelToken.cancel("Operation canceled due to new request.")
+                }
+
+                _cancelToken = axios.CancelToken.source()
+
+                axios.get(WWW_DIR_JAVASCRIPT  + "cannedmsg/filter/"+props.chatId + '?q=' + encodeURIComponent(valueSearch),{cancelToken: _cancelToken.token}).then(result => {
+                    setData(result.data);
+                    setCollapsed(false);
+                    renderPreview(null);
+                    result.data.map((item, index) => {
+                        item.messages.map(message => {
+                            if (message.current == true) {
+                                renderPreview(message);
+                            }
+                        })
+                    });
+                }).catch(function (thrown) {
+                    if (axios.isCancel(thrown)) {
+                        // console.log('Request canceled', thrown.message);
+                    } else {
+                        // handle error
+                    }
                 });
-            });
+
+            },50);
         }
     }
 
