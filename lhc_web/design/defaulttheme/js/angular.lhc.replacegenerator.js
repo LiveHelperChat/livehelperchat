@@ -36,7 +36,7 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
             removedElement = list.splice(index, 1)[0];
             list.splice(newIndex, 0, removedElement)
         }
-    };
+    }
 
     this.addCombination = function() {
         that.combinations.push({
@@ -51,7 +51,14 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
             $('.btn-block-department').makeDropdown();
         },1000);
 
-    };
+    }
+
+    this.setDateTime = function() {
+        /*console.log(obj);
+        console.log(identifier);
+        console.log($event);*/
+        console.log('here');
+    }
 
     this.addDepartment = function(combination){
 
