@@ -165,6 +165,14 @@ $responseArray['activated'] = $activated;
 $responseArray['uid'] = (int)$chat->user_id;
 $responseArray['status'] = (int)$chat->status;
 $responseArray['status_sub'] = (int)$chat->status_sub;
+$responseArray['chat_ui'] = ['voice' => false];
+
+if (isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) {
+    $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
+    if (isset($voiceData['voice']) && $voiceData['voice'] == true && $chat->user_id > 0 && erLhcoreClassRole::hasAccessTo($chat->user_id,'lhvoicevideo','use' )) {
+        $responseArray['chat_ui']['voice'] = true;
+    }
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus',array('chat' => & $chat, 'response' => & $responseArray));
 

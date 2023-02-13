@@ -328,7 +328,13 @@ try {
 
         $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
 
-        if (isset($voiceData['voice']) && $voiceData['voice'] == true) {
+        if (
+            isset($voiceData['voice']) && 
+            $voiceData['voice'] == true && 
+            $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT &&
+            $chat->user_id > 0 &&
+            erLhcoreClassRole::hasAccessTo($chat->user_id,'lhvoicevideo','use' )
+        ) {
             $outputResponse['chat_ui']['voice'] = true;
         }
 
