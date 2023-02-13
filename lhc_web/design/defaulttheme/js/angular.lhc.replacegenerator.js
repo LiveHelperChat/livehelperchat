@@ -42,6 +42,7 @@ lhcAppControllers.controller('CannedReplaceCtrl',['$scope','$http','$location','
         that.combinations.push({
             'conditions' : [],
             'value' : '',
+            'cannedRepeatPeriod' : '0',
             'dep_id': "0",
             'dep_ids': [],
             'priority' : 0,

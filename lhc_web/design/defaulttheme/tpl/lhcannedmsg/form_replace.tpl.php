@@ -4,8 +4,30 @@
 </div>
 
 <script>
-    var replaceConditions = <?php echo json_encode($item->conditions_array)?>;
-    var replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(['limit' => false]) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
+    (function(){
+        window.replaceConditions = <?php echo json_encode($item->conditions_array)?>;
+        window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(['limit' => false]) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
+        window.replaceConditions.forEach(function(elm){
+
+            if (typeof elm.cannedRepeatPeriod === undefined) {
+                elm.cannedRepeatPeriod = 0;
+            }
+
+            ['active_from','active_to',
+                'modStartTime','modEndTime',
+                'tudStartTime','tudEndTime',
+                'wedStartTime','wedEndTime',
+                'thdStartTime','thdEndTime',
+                'frdStartTime','frdEndTime',
+                'sadStartTime','sadEndTime',
+                'sudStartTime','sudEndTime',
+            ].forEach(function(element) {
+                if (typeof elm[element] !== undefined && elm[element] !== null && elm[element] !== '') {
+                    elm[element] = new Date(elm[element]);
+                }
+            });
+        });
+    })();
 </script>
 
 <div ng-controller="CannedReplaceCtrl as crc" class="pb-1" ng-init='crc.setConditions()'>
@@ -40,7 +62,7 @@
 
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Value');?></label>
-                <textarea rows="5" ng-trim="false" placeholder="Put custom value here" ng-model="combination.value" class="form-control form-control-sm"></textarea>
+                <textarea rows="5" ng-trim="false" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Put a custom value here');?>" ng-model="combination.value" class="form-control form-control-sm"></textarea>
             </div>
 
             <div class="form-group">
@@ -221,13 +243,13 @@
                                             <label><input type="checkbox" ng-model="combination.OnlineHoursDayActive<?php echo $dayShort ?>" name="<?php echo $dayShort ?>" value="1" <?php if (isset($item->days_activity_array[$dayShort])) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
                                             <div class="row" ng-show="combination.OnlineHoursDayActive<?php echo $dayShort ?>">
                                                 <div class="col-3">
-                                                    <div class="form-group" ng-non-bindable>
+                                                    <div class="form-group">
                                                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time from');?></label>
                                                         <input ng-model="combination.<?php echo $dayShort ?>StartTime" type="time" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
-                                                    <div class="form-group" ng-non-bindable>
+                                                    <div class="form-group">
                                                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Time to');?></label>
                                                         <input ng-model="combination.<?php echo $dayShort ?>EndTime" type="time" class="form-control form-control-sm">
                                                     </div>
@@ -237,15 +259,6 @@
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-
-
-
-
-
-
-
-
-
 
 
 
