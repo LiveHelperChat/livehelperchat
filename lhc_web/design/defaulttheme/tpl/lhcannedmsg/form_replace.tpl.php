@@ -9,8 +9,8 @@
         window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(['limit' => false]) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
         window.replaceConditions.forEach(function(elm){
 
-            if (typeof elm.cannedRepeatPeriod === undefined) {
-                elm.cannedRepeatPeriod = 0;
+            if (typeof elm.cannedRepeatPeriod === 'undefined') {
+                elm.cannedRepeatPeriod = '0';
             }
 
             ['active_from','active_to',
