@@ -40,10 +40,13 @@
 <?php echo erLhcoreClassAbstract::renderInput('position', $fields['position'], $object)?>
 </div>
 
+<?php /*
 <div class="form-group">
 <label><?php echo $fields['dep_id']['trans'];?></label>
 <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $object)?>
-</div>
+</div>*/ ?>
+
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/department.tpl.php')); ?>
 
 <div class="row">
     <div class="col-6">
