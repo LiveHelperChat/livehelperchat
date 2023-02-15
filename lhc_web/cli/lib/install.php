@@ -285,6 +285,15 @@ class Install
 
             $db->query("CREATE TABLE `lh_notification_subscriber` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `online_user_id` bigint(20) NOT NULL, `dep_id` int(11) NOT NULL, `theme_id` int(11) NOT NULL, `ctime` int(11) NOT NULL, `utime` int(11) NOT NULL, `status` int(11) NOT NULL, `params` text NOT NULL, `device_type` tinyint(1) NOT NULL,`subscriber_hash` varchar(50) NOT NULL, `uagent` varchar(250) NOT NULL, `ip` varchar(250) NOT NULL, `last_error` text NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `dep_id` (`dep_id`), KEY `online_user_id` (`online_user_id`), KEY `subscriber_hash` (`subscriber_hash`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_abstract_auto_responder_dep` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                  `autoresponder_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `autoresponder_id` (`autoresponder_id`),
+                  KEY `dep_id` (`dep_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE `lh_abstract_auto_responder` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `siteaccess` varchar(3) NOT NULL,

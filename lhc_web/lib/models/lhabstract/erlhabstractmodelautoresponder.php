@@ -11,7 +11,9 @@ class erLhAbstractModelAutoResponder {
     public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
     
     public static $dbSortOrder = 'DESC';
-    
+
+    public static $dbDefaultSort = '`dep_id` ASC, `position` ASC';
+
 	public function getState()
 	{
 		$stateArray = array (
@@ -83,7 +85,37 @@ class erLhAbstractModelAutoResponder {
 	{
 		return $this->name;
 	}
-	
+
+    public function updateThis() {
+        $this->saveThis();
+    }
+    
+    public function afterSave()
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_auto_responder_dep` WHERE `autoresponder_id` = :autoresponder_id');
+        $stmt->bindValue(':autoresponder_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
+
+        if (isset($this->department_ids) && !empty($this->department_ids)) {
+            $values = [];
+            foreach ($this->department_ids as $department_id) {
+                $values[] = "(" . $this->id . "," . $department_id . ")";
+            }
+            if (!empty($values)) {
+                $db->query('INSERT INTO `lh_abstract_auto_responder_dep` (`autoresponder_id`,`dep_id`) VALUES ' . implode(',',$values));
+            }
+        }
+    }
+
+    public function afterRemove()
+    {
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_auto_responder_dep` WHERE `autoresponder_id` = :autoresponder_id');
+        $stmt->bindValue(':autoresponder_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
 	public function customForm() {
 	    return 'autoresponder.tpl.php';
 	}
@@ -146,18 +178,21 @@ class erLhAbstractModelAutoResponder {
                $this->{$var} = null;
                if (isset($this->bot_configuration_array[$var])) {
 
-                   $msgData = explode('|||', $this->bot_configuration_array[$var]);
-
-                   if (count($msgData) > 1) {
-                       $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
-                   } else {
+                   if (is_array($this->bot_configuration_array[$var])) {
                        $item = $this->bot_configuration_array[$var];
+                   } else {
+                       $msgData = explode('|||', $this->bot_configuration_array[$var]);
+
+                       if (count($msgData) > 1) {
+                           $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
+                       } else {
+                           $item = $this->bot_configuration_array[$var];
+                       }
                    }
 
                    $this->{$var} = $item;
                }
                return $this->{$var};
-               break;
 
         case 'bot_configuration_array':
            $attr = str_replace('_array','',$var);
@@ -172,12 +207,10 @@ class erLhAbstractModelAutoResponder {
                $this->{$var} = array();
            }
            return $this->{$var};
-           break;
 
 	   	case 'dep_frontend':
 	   	       $this->dep_frontend = $this->dep === false ? '-' : (string)$this->dep;
 	   		   return $this->dep_frontend;
-	   		break;
 
 	   	case 'wait_timeout_reply_total':
 	   	       $this->wait_timeout_reply_total = 0;
@@ -190,7 +223,32 @@ class erLhAbstractModelAutoResponder {
                }
 
 	   		   return $this->wait_timeout_reply_total;
-	   		break;
+
+           case 'department_ids_front':
+               $this->department_ids_front = [];
+               if ($this->id > 0) {
+                   $db = ezcDbInstance::get();
+                   $stmt = $db->prepare("SELECT `dep_id` FROM `lh_abstract_auto_responder_dep` WHERE `autoresponder_id` = " . $this->id);
+                   $stmt->execute();
+                   $this->department_ids_front = $stmt->fetchAll(PDO::FETCH_COLUMN);
+               }
+
+               if ($this->dep_id > 0) {
+                   $this->department_ids_front[] = $this->dep_id;
+               }
+
+               return $this->department_ids_front;
+
+           case 'list_department':
+               $this->list_department = '';
+               if ($this->dep !== false) {
+                   $this->list_department = (string)$this->dep;
+               }
+               $this->department_ids_front;
+               if (!empty($this->department_ids_front)) { $deps = implode(', ',erLhcoreClassModelDepartament::getList(['filterin' => ['id' => $this->department_ids_front]]));
+                   $this->list_department = htmlspecialchars_decode(erLhcoreClassDesign::shrt($deps, 50, '...', 30, ENT_QUOTES)); // Abstract class does it's own encode
+               }
+               return $this->list_department;
 
 	   	default:
 	   		break;
@@ -211,20 +269,101 @@ class erLhAbstractModelAutoResponder {
 
 		$session = erLhcoreClassAbstract::getSession();
 		$q = $session->createFindQuery( 'erLhAbstractModelAutoResponder' );
-		$q->where( '('.$q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) ).' OR siteaccess = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR dep_id = 0) AND only_proactive = 0 AND user_id = 0')
-		->orderBy('dep_id DESC, position ASC')
+		$q->where( '(' . $q->expr->eq( 'siteaccess', $q->bindValue( erLhcoreClassSystem::instance()->SiteAccess ) )
+            .' OR `siteaccess` = \'\') AND ('.$q->expr->eq( 'dep_id', $q->bindValue( $chat->dep_id ) ).' OR `dep_id` = 0 OR `id` IN (SELECT `autoresponder_id` FROM `lh_abstract_auto_responder_dep` WHERE `dep_id` = ' . (int)$chat->dep_id . ') ) AND `only_proactive` = 0 AND `user_id` = 0')
+		->orderBy('`dep_id` ASC, `position` ASC')
 		->limit( 1 );
 
 		$messagesToUser = $session->find( $q );
 
 		if ( !empty($messagesToUser) ) {
-			$message = array_shift($messagesToUser);
-            $message->translateByChat($chat->chat_locale);
-			return $message;
-		}
 
+            foreach ($messagesToUser as $message) {
+                if ($message->isValidConditions($chat) === true) {
+                    $message->translateByChat($chat->chat_locale);
+                    return $message;
+                }
+             }
+		}
 		return false;
 	}
+
+    public function isValidConditions($chat)
+    {
+        $validFirst = true;
+        $checkFirst = false;
+
+        $validSecond = true;
+        $checkSecond = false;
+
+        if (isset($this->bot_configuration_array['mpc_nm']) && $this->bot_configuration_array['mpc_nm'] > 0) {
+            $checkFirst = true;
+            if (($chat->number_in_queue - 1) < $this->bot_configuration_array['mpc_nm']) {
+                $validFirst = false;
+            }
+        }
+
+        if (isset($this->bot_configuration_array['pnd_repetitiveness'])) {
+
+            if ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_DAILY) {
+
+                $dayShort = array(
+                    1 => 'mod',
+                    2 => 'tud',
+                    3 => 'wed',
+                    4 => 'thd',
+                    5 => 'frd',
+                    6 => 'sad',
+                    7 => 'sud'
+                );
+
+                $dateTime = new DateTime('now', (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                if (isset($this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_start_time']) &&
+                    isset($this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')] . '_end_time'])) {
+
+                    $checkSecond = true;
+
+                    $dateTimeStart = (int)str_replace(':','', $this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_start_time']);
+                    $dateTimeEnd = (int)str_replace(':','', $this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_end_time']);
+
+                    $validSecond = $dateTimeStart <= (int)$dateTime->format('Hi') && $dateTimeEnd >= (int)$dateTime->format('Hi');
+                }
+
+            } elseif ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_PERIOD) {
+
+                if (isset($this->bot_configuration_array['pnd_active_from_edit']) &&
+                    isset($this->bot_configuration_array['pnd_active_to_edit'])) {
+
+                    $checkSecond = true;
+
+                    $dateTimeStart = new DateTime($this->bot_configuration_array['pnd_active_from_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                    $dateTimeEnd = new DateTime($this->bot_configuration_array['pnd_active_to_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                    $validSecond = $dateTimeStart->getTimestamp() <= time() && $dateTimeEnd->getTimestamp() >= time();
+                }
+
+            } elseif ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_PERIOD_REP) {
+
+                $checkSecond = true;
+                
+                $dateTime = new DateTime('now', (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                $dateTimeStart = new DateTime($this->bot_configuration_array['pnd_active_from_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+                $fromCompare = $dateTimeStart->format('mdHi');
+
+                $dateTimeTo = new DateTime($this->bot_configuration_array['pnd_active_to_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+                $toCompare = $dateTimeTo->format('mdHi');
+
+                $currentCompare = $dateTime->format('mdHi');
+
+                $validSecond = (int)$fromCompare <= (int)$currentCompare && (int)$toCompare >= (int)$currentCompare;
+            }
+        }
+
+        return ($checkSecond === true && $validSecond === true) || ($checkFirst === true && $validFirst === true) || ($checkSecond === false && $checkFirst === false);
+    }
 
 	public static function updateAutoResponder(erLhcoreClassModelChat & $chat)
     {
@@ -504,6 +643,9 @@ class erLhAbstractModelAutoResponder {
             'close_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'multilanguage_message' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'languages_ignore' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
+            'DepartmentID' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -559,19 +701,57 @@ class erLhAbstractModelAutoResponder {
         }
 
         $this->languages = json_encode($languagesData);
+
+        $userDepartments = true;
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautoresponder_all')) {
+            $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter(erLhcoreClassUser::instance()->getUserID(), erLhcoreClassUser::instance()->cache_version);
+        }
+
+        if ( !$form->hasValidData( 'DepartmentID' )  ) {
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.validate_canned_msg_user_departments',array('canned_msg' => & $cannedMessage, 'errors' => & $Errors));
+
+            $this->department_ids = $this->department_ids_front = [];
+
+            // Perhaps extension did some internal validation and we don't need anymore validate internaly
+            if ($response === false) {
+                $this->dep_id = 0;
+            }
+
+            if ($userDepartments !== true) {
+                if ($this->dep_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global')) {
+                    $params['errors'][] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                }
+            }
+
+        } else {
+            $this->department_ids_front = $this->department_ids = $form->DepartmentID;
+            // -1 means, individual per department
+            $this->dep_id = -1;
+
+            if ($userDepartments !== true) {
+                if (
+                    ($this->dep_id == 0 && !erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global'))
+                ) {
+                    $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please choose a department!');
+                }
+
+                if (!empty(array_diff($this->department_ids, $userDepartments))) {
+                    $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','You cannot modify canned messages for the departments you are not assigned to!');
+                }
+            }
+        }
     }
 
     public function checkPermission(){
-
-        $currentUser = erLhcoreClassUser::instance();
-
-        /**
-         * Append user departments filter
-         * */
-        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
-        if ($userDepartments !== true) {
-            if (!in_array($this->dep_id, $userDepartments) && $this->dep_id != 0) {
-                return false;
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautoresponder_all')) {
+            $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter( erLhcoreClassUser::instance()->getUserID(),  erLhcoreClassUser::instance()->cache_version);
+            if ($userDepartments !== true) {
+                if ((!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global') && $this->dep_id == 0) ||
+                    (!empty(array_diff($Msg->department_ids_front, $userDepartments)) && $this->dep_id == -1)
+                ) {
+                    return false;
+                }
             }
         }
     }
@@ -682,6 +862,7 @@ class erLhAbstractModelAutoResponder {
 	public $survey_id = 0;
 
 	public $dep_id = 0;
+    public $department_ids = [];
 	public $repeat_number = 1;
 	
 	public $ignore_pa_chat = 0;
