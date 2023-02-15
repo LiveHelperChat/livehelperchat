@@ -289,9 +289,7 @@ class NodeTriggerBuilder extends Component {
                                     <div className="col-4">
                                         <div className="input-group input-group-sm mb-3">
                                             <input type="text" className="form-control" placeholder="Template name" title="If you set same name as existing template we will update it" value={this.state.templateName} onChange={(e) => this.setState({'templateName' : e.target.value})} aria-label="Template name" aria-describedby="basic-addon2" />
-                                            <div className="input-group-append">
-                                                <button type="button" disabled={this.state.templateName == ''} className="btn btn-secondary" onClick={(e) => this.saveTemplate(e)}>Save as template</button>
-                                            </div>
+                                            <button type="button" disabled={this.state.templateName == ''} className="btn btn-secondary" onClick={(e) => this.saveTemplate(e)}>Save as template</button>
                                         </div>
                                     </div>
                                     <div className="col-4">

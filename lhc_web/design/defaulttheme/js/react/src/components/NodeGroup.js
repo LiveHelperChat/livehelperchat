@@ -103,9 +103,7 @@ class NodeGroup extends Component {
                             <div className="btn-toolbar">
                                 <div className="input-group input-group-sm me-2">
                                     <input type="number" title="Position" onChange={(e) => this.setState({position: parseInt(e.target.value)})} className="form-control" style={{"width" : "65px"}} defaultValue={this.props.group.get('pos')} placeholder="Position" aria-label="Input group example" aria-describedby="btnGroupAddon" />
-                                    <div className="input-group-append">
-                                        <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons me-0">done</span></button>
-                                    </div>
+                                    <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons me-0">done</span></button>
                                 </div>
                                 <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                     <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-end" onClick={this.handleCollapse.bind(this)} ><span className="material-icons me-0">{this.props.group.get('is_collapsed') ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>

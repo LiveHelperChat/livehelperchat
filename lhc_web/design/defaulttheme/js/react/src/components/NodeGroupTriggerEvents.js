@@ -70,9 +70,7 @@ class NodeGroupTriggerEvents extends Component {
                         <div className="col-6">
                             <div className="input-group input-group-sm mb-3">
                                 <input type="text" disabled={this.props.trigger.get('events').size == 0} className="form-control" placeholder="Template name" title="If you set same name as existing template we will update it" value={this.state.templateName} onChange={(e) => this.setState({'templateName' : e.target.value})} aria-label="Template name" aria-describedby="basic-addon2" />
-                                <div className="input-group-append">
-                                    <button type="button" disabled={this.props.trigger.get('events').size == 0 || this.state.templateName == ''} className="btn btn-secondary" onClick={(e) => this.saveTemplate(e)}>Save events as template</button>
-                                </div>
+                                <button type="button" disabled={this.props.trigger.get('events').size == 0 || this.state.templateName == ''} className="btn btn-secondary" onClick={(e) => this.saveTemplate(e)}>Save events as template</button>
                             </div>
                         </div>
                         <div className="col-6">
@@ -81,12 +79,9 @@ class NodeGroupTriggerEvents extends Component {
                                     <option value="">Choose a template</option>
                                     {eventTemplates}
                                 </select>
-                                <div className="input-group-append">
-                                    <button disabled={this.state.template == ''} className="btn btn-secondary btn-sm" title="Loading event template will replace present templates!" onClick={(e) => this.loadTemplate()}>Load</button>
-                                    {this.state.template != '' && <button className="btn btn-danger btn-sm" onClick={(e) => this.deleteTemplate()}>Delete</button>}
-                                </div>
+                                <button disabled={this.state.template == ''} className="btn btn-secondary btn-sm" title="Loading event template will replace present templates!" onClick={(e) => this.loadTemplate()}>Load</button>
+                                {this.state.template != '' && <button className="btn btn-danger btn-sm" onClick={(e) => this.deleteTemplate()}>Delete</button>}
                             </div>
-
                         </div>
                     </div>
 
