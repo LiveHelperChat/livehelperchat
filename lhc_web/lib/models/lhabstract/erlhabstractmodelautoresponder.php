@@ -277,13 +277,93 @@ class erLhAbstractModelAutoResponder {
 		$messagesToUser = $session->find( $q );
 
 		if ( !empty($messagesToUser) ) {
-			$message = array_shift($messagesToUser);
-            $message->translateByChat($chat->chat_locale);
-			return $message;
-		}
 
+            foreach ($messagesToUser as $message) {
+                if ($message->isValidConditions($chat) === true) {
+                    $message->translateByChat($chat->chat_locale);
+                    return $message;
+                }
+             }
+		}
 		return false;
 	}
+
+    public function isValidConditions($chat)
+    {
+        $validFirst = true;
+        $checkFirst = false;
+
+        $validSecond = true;
+        $checkSecond = false;
+
+        if (isset($this->bot_configuration_array['mpc_nm']) && $this->bot_configuration_array['mpc_nm'] > 0) {
+            $checkFirst = true;
+            if (($chat->number_in_queue - 1) < $this->bot_configuration_array['mpc_nm']) {
+                $validFirst = false;
+            }
+        }
+
+        if (isset($this->bot_configuration_array['pnd_repetitiveness'])) {
+
+            if ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_DAILY) {
+
+                $dayShort = array(
+                    1 => 'mod',
+                    2 => 'tud',
+                    3 => 'wed',
+                    4 => 'thd',
+                    5 => 'frd',
+                    6 => 'sad',
+                    7 => 'sud'
+                );
+
+                $dateTime = new DateTime('now', (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                if (isset($this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_start_time']) &&
+                    isset($this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')] . '_end_time'])) {
+
+                    $checkSecond = true;
+
+                    $dateTimeStart = (int)str_replace(':','', $this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_start_time']);
+                    $dateTimeEnd = (int)str_replace(':','', $this->bot_configuration_array['pnd_' . $dayShort[$dateTime->format('N')].'_end_time']);
+
+                    $validSecond = $dateTimeStart <= (int)$dateTime->format('Hi') && $dateTimeEnd >= (int)$dateTime->format('Hi');
+                }
+
+            } elseif ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_PERIOD) {
+
+                if (isset($this->bot_configuration_array['pnd_active_from_edit']) &&
+                    isset($this->bot_configuration_array['pnd_active_to_edit'])) {
+
+                    $checkSecond = true;
+
+                    $dateTimeStart = new DateTime($this->bot_configuration_array['pnd_active_from_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                    $dateTimeEnd = new DateTime($this->bot_configuration_array['pnd_active_to_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                    $validSecond = $dateTimeStart->getTimestamp() <= time() && $dateTimeEnd->getTimestamp() >= time();
+                }
+
+            } elseif ($this->bot_configuration_array['pnd_repetitiveness'] == \erLhcoreClassModelCannedMsg::REP_PERIOD_REP) {
+
+                $checkSecond = true;
+                
+                $dateTime = new DateTime('now', (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+
+                $dateTimeStart = new DateTime($this->bot_configuration_array['pnd_active_from_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+                $fromCompare = $dateTimeStart->format('mdHi');
+
+                $dateTimeTo = new DateTime($this->bot_configuration_array['pnd_active_to_edit'], (isset($this->bot_configuration_array['pnd_time_zone']) && $this->bot_configuration_array['pnd_time_zone'] != '' ? new DateTimeZone($this->bot_configuration_array['pnd_time_zone']) : null));
+                $toCompare = $dateTimeTo->format('mdHi');
+
+                $currentCompare = $dateTime->format('mdHi');
+
+                $validSecond = (int)$fromCompare <= (int)$currentCompare && (int)$toCompare >= (int)$currentCompare;
+            }
+        }
+
+        return ($checkSecond === true && $validSecond === true) || ($checkFirst === true && $validFirst === true) || ($checkSecond === false && $checkFirst === false);
+    }
 
 	public static function updateAutoResponder(erLhcoreClassModelChat & $chat)
     {
