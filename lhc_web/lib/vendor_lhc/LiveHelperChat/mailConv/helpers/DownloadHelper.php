@@ -10,17 +10,22 @@ class DownloadHelper
 
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
-            $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
-            $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
+            try {
+                $mailboxHandler = \LiveHelperChat\mailConv\OAuth\OAuth::getClient($mailbox);
+                $mailboxFolderOAuth = $mailboxHandler->getFolderByPath($mail->mb_folder);
 
-            $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
+                $messagesCollection = $mailboxFolderOAuth->search()->whereUid($mail->uid)->get();
 
-            if ($messagesCollection->total() == 1) {
-                $email = $messagesCollection->shift();
-                $bodyRaw = "";
-                $bodyRaw .= json_decode(json_encode($email->getHeader()), true)['raw'];
-                $bodyRaw .= $email->getRawBody();
-            } else {
+                if ($messagesCollection->total() == 1) {
+                    $email = $messagesCollection->shift();
+                    $bodyRaw = "";
+                    $bodyRaw .= json_decode(json_encode($email->getHeader()), true)['raw'];
+                    $bodyRaw .= $email->getRawBody();
+                } else {
+                    $bodyRaw = '';
+                }
+
+            } catch (\Exception $e) {
                 $bodyRaw = '';
             }
 
