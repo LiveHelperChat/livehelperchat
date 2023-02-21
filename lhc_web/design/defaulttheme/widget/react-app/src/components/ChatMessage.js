@@ -327,7 +327,7 @@ class ChatMessage extends PureComponent {
 
                     } else if (domNode.name && domNode.name === 'inlinesurvey') {
 
-                        return <Suspense fallback="..."><InlineSurvey surveyOptions={domNode.children} /></Suspense>;
+                        return <Suspense fallback="..."><InlineSurvey {...domNode.attribs} surveyOptions={domNode.children} /></Suspense>;
 
                     } else if (domNode.name && domNode.name === 'input') {
 
