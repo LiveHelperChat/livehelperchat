@@ -8,7 +8,7 @@
                 <?php if ($survey->{$keyOption . '_pos'} == $i && $survey->{$keyOption . '_enabled'} == 1) : ?>
                     <?php if ($sortOption['type'] == 'stars') : ?>
                     <voteoption type="stars" seq="<?php echo $sortOption['field']?>" is-required="<?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>1<?php else : ?>0<?php endif;?>">
-                        <label class="survey-stars-label fw-bold"><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
+                        <label class="survey-stars-label fw-bold pb-2"><?php echo htmlspecialchars($survey->{$sortOption['field'] . '_title'});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
                         <div class="survey-stars-row" id="survey-stars-items-<?php echo $sortOption['field']?>">
                             <?php for ($n = 1; $n <= $survey->{$sortOption['field']}; $n++) : ?>
                                 <label class="survey-star-item <?php $n == 1 ? print 'selected-star' : '' ?>" title="<?php echo $n?>&nbsp;<?php if ($n == 1) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','star')?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Poor')?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','stars')?><?php if ($n == $survey->{$sortOption['field']}) : ?> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Excellent')?><?php endif;endif;?>">
@@ -21,7 +21,7 @@
                     <?php elseif ($sortOption['type'] == 'question') : ?>
                     <voteoption type="plain" seq="<?php echo $sortOption['field']?>" is-required="<?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>1<?php else : ?>0<?php endif;?>">
                         <div class="form-group">
-                            <label class="survey-question-label fw-bold"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><span id="question-required-<?php echo $sortOption['field']?>"><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></span></label>
+                            <label class="survey-question-label fw-bold pb-2"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><span id="question-required-<?php echo $sortOption['field']?>"><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></span></label>
                             <textarea class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Type here...')?>" data-inline="plain" rows="2" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
                             <?php if (
                                 isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
@@ -48,7 +48,7 @@
                     </voteoption>
                     <?php elseif ($sortOption['type'] == 'question_options') : ?>
                     <voteoption type="radio" seq="<?php echo $sortOption['field']?>" is-required="<?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>1<?php else : ?>0<?php endif;?>">
-                        <label class="survey-question-option-label fw-bold"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
+                        <label class="survey-question-option-label fw-bold pb-2"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></label>
                         <div class="form-group">
                             <?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
                                 <?php if (mb_strpos($item['option'],"\n") !== false && mb_strpos($item['option'],"\n") === 1 || mb_strpos($item['option'],"\n") == mb_strlen($item['option'])-1) : ?>
