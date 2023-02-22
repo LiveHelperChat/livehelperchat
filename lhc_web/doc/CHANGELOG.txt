@@ -1,7 +1,7 @@
 4.19v
 
 1. Inline survey support. You can send inline survey from bot.
-1.1 Limitations: stars at the moment is not supported. Will be added in feature releases.
+1.1 Limitations: `stars` at the moment are not supported. Will be added in feature releases.
 2. Auto responder active period options.
 
 execute doc/update_db/update_291.sql for update
