@@ -34,8 +34,8 @@ $translations = array(
         "back_to_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Back'),
         "email_explain" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We will send you a trascript of your chat with agent, so you can browse it later.'),
         "lang" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Change language'),
-        "next" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Next') . '',
-        "back" => '&#9001;' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Back'),
+        "next" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Next 〉'),
+        "back" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','〈 Back'),
         "submit" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Submit'),
     ],
     "chat" => [

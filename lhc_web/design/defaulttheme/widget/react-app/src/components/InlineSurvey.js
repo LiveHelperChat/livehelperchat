@@ -106,6 +106,8 @@ class InlineSurvey extends Component {
                             counter++;
 
                             let disabledNext = domNode.attribs['is-required'] == 1 && this.state.collectedQuestion.indexOf(domNode.attribs.seq) === -1 ? true : false
+                            let classNameButtons = "d-block pt-3" + (totalQuestions == 1 ? ' text-center' : '');
+                            let classSubmitButton = "btn btn-outline-secondary btn-sm" + (totalQuestions > 1 ? ' float-end' : '') + ' btn-survey-submit';
 
                             return <div {...domNode.attribs} className={classNameItem} >
                                     {domToReact(domNode.children, {
@@ -125,12 +127,13 @@ class InlineSurvey extends Component {
                                         }
 
                                     })}
-                                <div className="d-block pt-3">
-                                    {this.state.currentQuestion > 1 && <input type="button" className="btn btn-outline-secondary btn-sm" onClick={(e) => this.setState({'currentQuestion' : this.state.currentQuestion - 1})} value={t('button.back')}  name="Prev"/>}
+                                <div className={classNameButtons}>
 
-                                    {totalQuestions > this.state.currentQuestion && <input disabled={disabledNext} type="button" className="btn btn-outline-secondary btn-sm float-end" onClick={(e) => this.setState({'currentQuestion' : this.state.currentQuestion + 1})} value={t('button.next') + '&#9002;'}  name="Next"/>}
+                                    {this.state.currentQuestion > 1 && <input type="button" className="btn btn-outline-secondary btn-sm btn-survey-prev" onClick={(e) => this.setState({'currentQuestion' : this.state.currentQuestion - 1})} value={t('button.back')}  name="Prev"/>}
 
-                                    {totalQuestions == this.state.currentQuestion && <input disabled={disabledNext} type="button" className="btn btn-outline-secondary btn-sm float-end" onClick={(e) => this.submitSurvey()} value={t('button.submit')}  name="Submit"/>}
+                                    {totalQuestions > this.state.currentQuestion && <input disabled={disabledNext} type="button" className="btn btn-outline-secondary btn-sm float-end btn-survey-next" onClick={(e) => this.setState({'currentQuestion' : this.state.currentQuestion + 1})} value={t('button.next')}  name="Next"/>}
+
+                                    {totalQuestions == this.state.currentQuestion && <input disabled={disabledNext} type="button" className={classSubmitButton} onClick={(e) => this.submitSurvey()} value={t('button.submit')}  name="Submit"/>}
                                 </div>
                             </div>;
                         }

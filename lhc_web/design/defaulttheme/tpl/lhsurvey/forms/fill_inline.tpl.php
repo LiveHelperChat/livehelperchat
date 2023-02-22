@@ -22,7 +22,7 @@
                     <voteoption type="plain" seq="<?php echo $sortOption['field']?>" is-required="<?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>1<?php else : ?>0<?php endif;?>">
                         <div class="form-group">
                             <label class="survey-question-label fw-bold"><?php echo htmlspecialchars($survey->{$sortOption['field']});?><span id="question-required-<?php echo $sortOption['field']?>"><?php if ($survey->{$sortOption['field'] . '_req'} == 1) : ?>*<?php endif;?></span></label>
-                            <textarea class="form-control form-control-sm" data-inline="plain" rows="2" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
+                            <textarea class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Type here...')?>" data-inline="plain" rows="2" name="<?php echo $sortOption['field'] . 'Question'?>"><?php echo htmlspecialchars($survey_item->{$sortOption['field']})?></textarea>
                             <?php if (
                                 isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
                                 $survey->configuration_array['min_stars_' . $sortOption['field']] > 0 &&
@@ -53,8 +53,7 @@
                             <?php foreach ($survey->{$sortOption['field'] . '_items_front'} as $key => $item) : ?>
                                 <?php if (mb_strpos($item['option'],"\n") !== false && mb_strpos($item['option'],"\n") === 1 || mb_strpos($item['option'],"\n") == mb_strlen($item['option'])-1) : ?>
                                     <div class="form-check">
-                                        <input data-inline="radio" class="form-check-input" id="<?php echo $sortOption['field']?>EvaluateOption_<?php echo $key+1?>" type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/>
-                                        <label class="form-check-label" for="<?php echo $sortOption['field']?>EvaluateOption_<?php echo $key+1?>"><?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?></label>
+                                        <label class="form-check-label"><input data-inline="radio" class="form-check-input" id="<?php echo $sortOption['field']?>EvaluateOption_<?php echo $key+1?>" type="radio" name="<?php echo $sortOption['field']?>EvaluateOption" value="<?php echo $key+1?>" <?php if ((int)$survey_item->{$sortOption['field']} === $key+1) : ?>checked="checked"<?php endif;?>/><?php echo erLhcoreClassSurveyValidator::parseAnswer($item['option']) ?></label>
                                     </div>
                                 <?php else : ?>
                                     <label class="pe-3">

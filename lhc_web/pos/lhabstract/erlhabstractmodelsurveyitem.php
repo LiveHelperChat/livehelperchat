@@ -9,16 +9,6 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-$def->properties['survey_id'] = new ezcPersistentObjectProperty();
-$def->properties['survey_id']->columnName   = 'survey_id';
-$def->properties['survey_id']->propertyName = 'survey_id';
-$def->properties['survey_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
-
-$def->properties['chat_id'] = new ezcPersistentObjectProperty();
-$def->properties['chat_id']->columnName   = 'chat_id';
-$def->properties['chat_id']->propertyName = 'chat_id';
-$def->properties['chat_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 for($i = 1; $i <= 5; $i++) {
 	$def->properties['max_stars_' . $i] = new ezcPersistentObjectProperty();
 	$def->properties['max_stars_' . $i]->columnName   = 'max_stars_' . $i;
@@ -36,25 +26,12 @@ for($i = 1; $i <= 5; $i++) {
 	$def->properties['question_plain_' . $i]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-$def->properties['user_id'] = new ezcPersistentObjectProperty();
-$def->properties['user_id']->columnName   = 'user_id';
-$def->properties['user_id']->propertyName = 'user_id';
-$def->properties['user_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['dep_id'] = new ezcPersistentObjectProperty();
-$def->properties['dep_id']->columnName   = 'dep_id';
-$def->properties['dep_id']->propertyName = 'dep_id';
-$def->properties['dep_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['ftime'] = new ezcPersistentObjectProperty();
-$def->properties['ftime']->columnName   = 'ftime';
-$def->properties['ftime']->propertyName = 'ftime';
-$def->properties['ftime']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
-$def->properties['status'] = new ezcPersistentObjectProperty();
-$def->properties['status']->columnName   = 'status';
-$def->properties['status']->propertyName = 'status';
-$def->properties['status']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['online_user_id','status','ftime','dep_id','user_id','chat_id','survey_id'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

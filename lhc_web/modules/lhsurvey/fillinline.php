@@ -13,8 +13,6 @@ try {
 
     $chat = erLhcoreClassModelChat::fetchAndLock($payload['chat_id']);
 
-
-
     erLhcoreClassChat::setTimeZoneByChat($chat);
 
     $survey = erLhAbstractModelSurvey::fetch($payload['survey_id']);
@@ -52,6 +50,8 @@ try {
     $db->commit();
 
 } catch (Exception $e) {
+
+    print_r($e);
 
     $db->rollback();
 

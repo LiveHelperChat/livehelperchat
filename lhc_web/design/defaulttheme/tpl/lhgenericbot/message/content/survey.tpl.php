@@ -1,5 +1,4 @@
-<div class="msg-body w-100 p-3 meta-message meta-message-<?php echo $messageId?>">
-
+<div class="msg-body w-100 p-2 meta-message meta-message-<?php echo $messageId?>">
     <?php
     $renderFunction = function() use ($chat, $msg, $metaMessage) {
 
@@ -16,5 +15,4 @@
     };
     $renderFunction();
     ?>
-
 </div>

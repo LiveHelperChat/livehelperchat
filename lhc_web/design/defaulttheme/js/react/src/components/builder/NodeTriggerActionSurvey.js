@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NodeTriggerActionType from './NodeTriggerActionType';
+import NodeTriggerList from './NodeTriggerList';
 
 class NodeTriggerActionSurvey extends Component {
 
@@ -53,11 +54,41 @@ class NodeTriggerActionSurvey extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-12">
                         <div className="form-group">
                             <a title="Find it in survey list" target="_blank" className="float-end" href={WWW_DIR_JAVASCRIPT+'abstract/list/Survey'} ><i className="material-icons me-0">help</i></a>
-                            <label>Survey ID</label>
-                            <input type="number" min="1" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','survey_id'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','survey_options','survey_id'])} />
+                            <label>Survey ID or identifier. If more than one survey is found with same identifier we will show random one.</label>
+                            <input type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','survey_id'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','survey_options','survey_id'])} />
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','unique_vote'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','survey_options','unique_vote'])} /> Visitor can fill a survey once per selected period.</label>
+                            <p className="small text-muted">If unchecked we will not check has he filled this survey or not and will always show a survey.</p>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <label>Choose after how long visitor can fill a survey he has already filled some time ago</label>
+                        <select className="form-control form-control-sm" defaultValue={this.props.action.getIn(['content','expires_vote'])} onChange={(e) => this.onchangeAttr({'path' : ['expires_vote'], 'value' : e.target.value})}>
+                            <option value="0">Never</option>
+                            <option value="1">After 1 day</option>
+                            <option value="2">After 2 day's</option>
+                            <option value="3">After 3 day's</option>
+                            <option value="7">After a week</option>
+                            <option value="14">After two weeks</option>
+                            <option value="28">After a month</option>
+                            <option value="56">After 2 months</option>
+                            <option value="84">After 3 months</option>
+                            <option value="112">After 4 months</option>
+                            <option value="140">After 5 months</option>
+                            <option value="168">After 6 months</option>
+                            <option value="336">After a year</option>
+                        </select>
+                    </div>
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label>If visitor has already filled survey(s) send him this message instead.</label>
+                            <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
                         </div>
                     </div>
                 </div>

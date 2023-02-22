@@ -10,9 +10,19 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<div class="form-group">
-<label><?php echo $fields['name']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['name']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('name', $fields['name'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['identifier']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('identifier', $fields['identifier'], $object)?>
+        </div>
+    </div>
 </div>
 
 <?php $translatableItem = array('identifier' => 'feedback_text'); ?>
