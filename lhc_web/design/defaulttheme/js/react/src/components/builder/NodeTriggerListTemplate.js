@@ -45,10 +45,8 @@ class NodeTriggerListTemplate extends Component {
                         <option value="">Choose a template</option>
                         {mappedTriggerTemplates}
                     </select>
-                    <div className="input-group-append">
-                        <button disabled={this.state.template == ''} className="btn btn-secondary btn-sm" onClick={(e) => this.loadTemplate()}>Load</button>
-                        {this.state.template != '' && <button className="btn btn-danger btn-sm" onClick={(e) => this.deleteTemplate()}>Delete</button>}
-                    </div>
+                    <button disabled={this.state.template == ''} className="btn btn-secondary btn-sm" onClick={(e) => this.loadTemplate()}>Load</button>
+                    {this.state.template != '' && <button className="btn btn-danger btn-sm" onClick={(e) => this.deleteTemplate()}>Delete</button>}
                 </div>
             </React.Fragment>
         );

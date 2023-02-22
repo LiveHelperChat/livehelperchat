@@ -721,7 +721,9 @@ try {
                   `question_plain_4_req` int(11) NOT NULL,
                   `question_plain_5_req` int(11) NOT NULL,
                   `configuration` longtext NOT NULL,
-                  PRIMARY KEY (`id`)
+                  `identifier` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `identifier` (`identifier`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_admin_theme` (
@@ -769,7 +771,9 @@ try {
 				  `question_plain_3` text NOT NULL,
 				  `question_plain_4` text NOT NULL,
 				  `question_plain_5` text NOT NULL,
+                  `online_user_id` bigint(20) unsigned NOT NULL,
 				  PRIMARY KEY (`id`),
+                  KEY `online_user_id` (`online_user_id`),
 				  KEY `survey_id` (`survey_id`),
 				  KEY `chat_id` (`chat_id`),
 				  KEY `user_id` (`user_id`),

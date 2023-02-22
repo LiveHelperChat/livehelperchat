@@ -1,11 +1,26 @@
 <?php 
 
 $surveyFields = array(
+    'id' => array(
+        'type' => 'none',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','ID'),
+        'required' => false,
+        'width' => '1',
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
     'name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Name'),
         'required' => false,
         'link' => erLhcoreClassDesign::baseurl('survey/collected'),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'identifier' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Identifier'),
+        'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),

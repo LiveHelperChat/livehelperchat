@@ -822,6 +822,15 @@
         "collation": "utf8mb4_unicode_ci"
       },
       {
+        "field": "identifier",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
         "field": "feedback_text",
         "type": "text",
         "null": "NO",
@@ -2301,6 +2310,14 @@
       {
         "field": "chat_id",
         "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "online_user_id",
+        "type": "bigint(20) unsigned",
         "null": "NO",
         "key": "MUL",
         "default": null,
@@ -11212,7 +11229,14 @@
         "question_options_2" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_2` (`question_options_2`);",
         "question_options_3" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_3` (`question_options_3`);",
         "question_options_4" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_4` (`question_options_4`);",
-        "question_options_5" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_5` (`question_options_5`);"
+        "question_options_5" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `question_options_5` (`question_options_5`);",
+        "online_user_id" : "ALTER TABLE `lh_abstract_survey_item` ADD INDEX `online_user_id` (`online_user_id`);"
+      },
+      "old" : []
+    },
+    "lh_abstract_survey" : {
+      "new" : {
+        "identifier" : "ALTER TABLE `lh_abstract_survey` ADD INDEX `identifier` (`identifier`);"
       },
       "old" : []
     },

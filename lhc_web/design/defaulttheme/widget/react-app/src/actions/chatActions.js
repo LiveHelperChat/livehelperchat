@@ -837,3 +837,7 @@ export function userTyping(status, msg) {
         }
     }
 }
+
+export function submitInlineSurvey(obj) {
+    return axios.post(window.lhcChat['base_url'] + "survey/fillinline", obj, defaultHeaders);
+}

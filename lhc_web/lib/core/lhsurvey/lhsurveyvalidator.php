@@ -57,11 +57,15 @@ class erLhcoreClassSurveyValidator {
 							$surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Evaluate'};
 						}
 					} elseif ($sortOption['type'] == 'question') {
-						if (!$form->hasValidData( $sortOption['field'] . 'Question' ) || ($form->{$sortOption['field'] . 'Question'} == '' && $survey->{$keyOption.'_req'} == 1)) { // @todo Make possible to choose field type in the future
-							$Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required'); 
+						if ((!$form->hasValidData( $sortOption['field'] . 'Question' ) || $form->{$sortOption['field'] . 'Question'} == '') && $survey->{$keyOption.'_req'} == 1) { // @todo Make possible to choose field type in the future
+                            $Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
 						} else {
-                            if ($form->hasValidData( $sortOption['field'] . 'Question' ) &&
-                                $form->{$sortOption['field'] . 'Question'} == '' &&
+                            if (
+                                (
+                                    ($form->hasValidData( $sortOption['field'] . 'Question' ) && $form->{$sortOption['field'] . 'Question'} == '' ) ||
+                                    !$form->hasValidData( $sortOption['field'] . 'Question')
+                                )
+                                &&
                                 isset($survey->configuration_array['min_stars_' . $sortOption['field']]) &&
                                 $survey->configuration_array['min_stars_' . $sortOption['field']] > 0 &&
                                 isset($survey->configuration_array['star_field_' . $sortOption['field']]) &&
@@ -70,8 +74,10 @@ class erLhcoreClassSurveyValidator {
                                 (int)$form->{'max_stars_' . $survey->configuration_array['star_field_' . $sortOption['field']] . 'Evaluate'} <= (int)$survey->configuration_array['min_stars_' . $sortOption['field']])
                             ) {
                                 $Errors[] = '"'.htmlspecialchars(trim($survey->{$keyOption})).'" : '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','is required');
-                            } else {
+                            } elseif ($form->hasValidData( $sortOption['field'] . 'Question') ) {
                                 $surveyItem->{$sortOption['field']} = $form->{$sortOption['field'] . 'Question'};
+                            } else {
+                                $surveyItem->{$sortOption['field']} = '';
                             }
                         }
 					} elseif ($sortOption['type'] == 'question_options') {
