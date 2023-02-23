@@ -47,6 +47,29 @@ class erLhcoreClassChatCleanup {
         }
     }
 
+    public static function cleanupCannedMessages()
+    {
+         $lastCleanup = erLhcoreClassModelChatConfig::fetch('canned_msg_last');
+
+        // Do not clean more often that once per hour
+        if ((int)$lastCleanup->current_value < time()-3600) {
+
+            $db = ezcDbInstance::get();
+
+            $lastCleanup->identifier = 'canned_msg_last';
+            $lastCleanup->type = 0;
+            $lastCleanup->explain = 'Track last canned messages cleanup';
+            $lastCleanup->hidden = 1;
+            $lastCleanup->value = time();
+            $lastCleanup->saveThis();
+
+            $stmt = $db->prepare("DELETE FROM `lh_canned_msg` WHERE `delete_on_exp` = 1 AND `repetitiveness` = :repetitiveness AND `active_to` > 0 AND `active_to` < :active_to");
+            $stmt->bindValue(':active_to', time(), PDO::PARAM_INT);
+            $stmt->bindValue(':repetitiveness', erLhcoreClassModelCannedMsg::REP_PERIOD, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
+
     public static function cleanupAuditLog()
     {
         $lastCleanup = erLhcoreClassModelChatConfig::fetch('audit_cleanup_last');

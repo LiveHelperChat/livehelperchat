@@ -39,6 +39,7 @@ class erLhcoreClassModelCannedMsg
             'repetitiveness' => $this->repetitiveness,
             'days_activity' => $this->days_activity,
             'disabled' => $this->disabled,
+            'delete_on_exp' => $this->delete_on_exp,
         );
     }
 
@@ -521,6 +522,7 @@ class erLhcoreClassModelCannedMsg
     public $repetitiveness = self::REP_NO;
     public $days_activity = '';
     public $disabled = 0;
+    public $delete_on_exp = 0;
 
 
 }
