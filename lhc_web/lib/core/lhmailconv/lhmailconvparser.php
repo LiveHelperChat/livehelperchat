@@ -201,7 +201,9 @@ class erLhcoreClassMailconvParser {
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
 
                 if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                    $mailsInfo = $mailboxFolderOAuth->search()->since('15.03.2018')->get();
+                    $mailsInfo = $mailboxFolderOAuth->search()->since(date('d.m.Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600))->get();
+
+                    //$mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
 
                     if (empty($mailsInfo)) {
                         continue;
@@ -497,8 +499,7 @@ class erLhcoreClassMailconvParser {
 
                         $rfc822RawBody = '';
                         if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                            // Not supported at the moment
-                            foreach ($mailInfoRaw->getStructure()->find_parts() as $part){
+                            foreach ($mailInfoRaw->getStructure()->find_parts() as $part) {
                                 if ($part->subtype == 'delivery-status') {
                                     $message->undelivered = 1;
                                     $message->delivery_status_array = self::parseDeliveryStatus($part->content);
@@ -750,6 +751,29 @@ class erLhcoreClassMailconvParser {
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation, $head, $mailInfoRaw);
 
+                        $rfc822RawBody = '';
+                        
+                        if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
+                            foreach ($mailInfoRaw->getStructure()->find_parts() as $part) {
+                                if ($part->subtype == 'delivery-status') {
+
+                                    $message->undelivered = 1;
+                                    $message->delivery_status_array = self::parseDeliveryStatus($part->content);
+                                    $message->delivery_status = json_encode($message->delivery_status_array);
+                                    $message->updateThis(['update' => ['undelivered','delivery_status']]);
+
+                                    if ($conversation instanceof erLhcoreClassModelMailconvConversation){
+                                        $conversation->undelivered = 1;
+                                        $conversation->updateThis(['update' => ['undelivered']]);
+                                    }
+
+                                } elseif ($part->subtype == 'rfc822') {
+                                    $rfc822RawBody = $message->rfc822_body = trim($part->raw);
+                                    $message->updateThis(['update' => ['rfc822_body']]);
+                                }
+                            }
+                        }
+
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $conversation->user_id, 'disabled' => 1]]) == 1) {
                             $conversation->user_id = 0;
                             $conversation->updateThis(['update' => ['user_id']]);
@@ -886,6 +910,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->total_messages = 1;
                 $conversations->pnd_time = time();
                 $conversations->lang = $message->lang;
+                $conversations->undelivered = $message->undelivered;
                 $conversations->saveThis();
 
                 // Assign conversation
@@ -973,10 +998,15 @@ class erLhcoreClassMailconvParser {
                 $attributesOAuth['subtype'] = (string)$attachmentRaw->getExtension();
                 $attributesOAuth['id'] = md5(microtime() . $attachmentRaw->getId() . $attachmentRaw->getName() . $attachmentRaw->getSize());
 
-                if ($attributesOAuth['subtype'] == '') {
-                    $extension = \erLhcoreClassChatWebhookIncoming::getExtensionByMime($attributesOAuth['mime']);
-                    if ($extension !== false) {
-                        $attributesOAuth['subtype'] = $extension;
+                if ($attachmentRaw->getContentType() == 'message/rfc822') {
+                    $attributesOAuth['subtype'] = 'eml';
+                    $attributesOAuth['name'] = 'undelivered.eml';
+                } else {
+                    if ($attributesOAuth['subtype'] == '') {
+                        $extension = \erLhcoreClassChatWebhookIncoming::getExtensionByMime($attributesOAuth['mime']);
+                        if ($extension !== false) {
+                            $attributesOAuth['subtype'] = $extension;
+                        }
                     }
                 }
 
@@ -1190,6 +1220,7 @@ class erLhcoreClassMailconvParser {
             $conversation->udate = $message->udate;
             $conversation->date = $message->date;
             $conversation->subject = $message->subject;
+            $conversation->undelivered = $message->undelivered;
 
             // We have to reopen conversation
             if ($conversation->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED && $message->status != erLhcoreClassModelMailconvMessage::STATUS_RESPONDED) {
