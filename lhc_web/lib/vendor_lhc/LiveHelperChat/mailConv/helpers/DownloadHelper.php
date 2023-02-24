@@ -53,8 +53,14 @@ class DownloadHelper
             $mailReply->MessageDate = $mail->date;
             $mailReply->setFrom($mail->from_address, $mail->from_name);
 
-            foreach ($mail->to_data_array as $mailData) {
-                $mailReply->AddAddress($mailData['email'], $mailData['name']);
+            $toDataArray = $mail->to_data_array;
+
+            if (empty($toDataArray)) {
+                $mailReply->AddAddress($mailbox->mail, $mailbox->name);
+            } else {
+                foreach ($toDataArray as $mailData) {
+                    $mailReply->AddAddress($mailData['email'], $mailData['name']);
+                }
             }
 
             foreach ($mail->reply_to_data_array as $mailData ) {

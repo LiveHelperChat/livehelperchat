@@ -203,7 +203,7 @@ class erLhcoreClassMailconvParser {
                 if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                     $mailsInfo = $mailboxFolderOAuth->search()->since(date('d.m.Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600))->get();
 
-                    //$mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
+                   // $mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
 
                     if (empty($mailsInfo)) {
                         continue;

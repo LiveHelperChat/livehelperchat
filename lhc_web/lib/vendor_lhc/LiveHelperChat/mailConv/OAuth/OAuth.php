@@ -33,7 +33,9 @@ namespace LiveHelperChat\mailConv\OAuth
                             if(substr($reply['error_description'], 0, 12) == 'AADSTS70008:') {
                                 throw new \Exception('Refresh token has expired! Please login again.');
                             }
-                            throw new \Exception($reply->error_description);
+
+                            throw new \Exception($reply['error_description']);
+
                         }
 
                         $idToken = '';
