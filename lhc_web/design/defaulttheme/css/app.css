@@ -1715,6 +1715,10 @@ input[type="file"]{
     max-width: 100%;
 }
 
+.mail-message-body p{
+    margin-bottom: 0;
+}
+
 .mail-message-body blockquote{
     margin: 0px 0px 0px 0.8ex;
     border-left-width: 1px;
