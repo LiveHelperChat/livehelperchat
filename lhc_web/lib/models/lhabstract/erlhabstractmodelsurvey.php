@@ -18,13 +18,16 @@ class erLhAbstractModelSurvey {
     public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
     
     public static $dbSortOrder = 'ASC';
-        
+
+    public static $dbDefaultSort = '`identifier` ASC, `id` DESC';
+
 	public function getState()
 	{
 		$stateArray = array (
 			'id'         	           => $this->id,
 			'name'  		           => $this->name,
-			
+			'identifier'  		       => $this->identifier,
+
 			'max_stars_1_title'		   => $this->max_stars_1_title,
 			'max_stars_1'		       => $this->max_stars_1,
 			'max_stars_1_pos'		   => $this->max_stars_1_pos,
@@ -394,6 +397,7 @@ class erLhAbstractModelSurvey {
 	
 	public $feedback_text = '';
 	public $configuration = '';
+	public $identifier = '';
 
 	public $hide_add = false;
 	public $hide_delete = false;

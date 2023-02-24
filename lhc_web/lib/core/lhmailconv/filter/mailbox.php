@@ -26,6 +26,18 @@ $fieldsSearch['failed'] = array (
     )
 );
 
+$fieldsSearch['sync_status'] = array (
+    'type' => 'checkbox',
+    'trans' => 'Failed',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'sync_status',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+    )
+);
+
 $fieldSortAttr = array (
     'field'      => false,
     'default'    => false,

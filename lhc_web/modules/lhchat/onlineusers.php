@@ -207,7 +207,7 @@ if ($is_ajax == true) {
         echo $tpl->fetch();
     } else {
         header('content-type: application/json; charset=utf-8');
-        echo json_encode(array_values($items));
+        echo json_encode(['list' => array_values($items), 'tt' => erLhcoreClassModule::getDifference($startTimeRequest, microtime())]);
     }
 
     erLhcoreClassModule::logSlowRequest($startTimeRequest, microtime(), $currentUser->getUserID(), ['action' => 'onlineusers']);

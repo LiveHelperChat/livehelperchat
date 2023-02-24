@@ -33,7 +33,10 @@ $translations = array(
         "close" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Close'),
         "back_to_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Back'),
         "email_explain" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We will send you a trascript of your chat with agent, so you can browse it later.'),
-        "lang" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Change language')
+        "lang" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Change language'),
+        "next" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Next 〉'),
+        "back" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','〈 Back'),
+        "submit" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Submit'),
     ],
     "chat" => [
         "option_sound" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Enable/Disable sound about new messages from the operator'),

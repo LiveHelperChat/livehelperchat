@@ -3,6 +3,8 @@
 <hr class="mt-1 mb-1">
 <?php endif; ?>
 
+
+
 <div class="row">
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -17,7 +19,24 @@
                     <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable><?php echo htmlspecialchars($departament->name)?></label><br>
                     <label><span class="material-icons">mode_edit</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-exclude-<?php echo $departament->id?>').toggle();$('#dep-ro-<?php echo $departament->id?>').prop('checked', false);" id="dep-full-<?php echo $departament->id?>" type="checkbox" name="UserDepartament[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartaments) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign as operator')?></label><br>
                     <div class="d-block">
-                        <label id="dep-exclude-<?php echo $departament->id?>" style="display: <?php echo in_array($departament->id,$userDepartaments) ? 'block' : 'none';?>" class="ms-4"><span class="material-icons">assignment_ind</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentAutoExc[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartamentsAutoExc) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
+                        <div id="dep-exclude-<?php echo $departament->id?>" style="display: <?php echo in_array($departament->id,$userDepartaments) ? 'block' : 'none';?>" class="ms-4">
+                            <label><span class="material-icons">assignment_ind</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentAutoExc[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartamentsAutoExc) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
+                            <div>
+                                <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?></label>
+                                <input type="text" class="form-control form-control-sm" name="UserDepartamentAssignPriority[<?php echo $departament->id?>]" value="<?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority']?><?php else : ?>0<?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat')?>" />
+                                <div class="row">
+                                    <div class="col-12 fs13 text-muted">
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by my assign priority')?></label>
+                                    </div>
+                                    <div class="col-6">
+                                        <input name="UserDepartamentAssignMinPriority[<?php echo $departament->id?>]" value="<?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority']?><?php else : ?>0<?php endif;?>" type="text" class="form-control form-control-sm" />
+                                    </div>
+                                    <div class="col-6">
+                                        <input name="UserDepartamentAssignMaxPriority[<?php echo $departament->id?>]" value="<?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>" type="text" class="form-control form-control-sm" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <label class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>"><span class="material-icons">edit_off</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> id="dep-ro-<?php echo $departament->id?>" type="checkbox" onchange="$('#dep-full-<?php echo $departament->id?>').prop('checked', false);" name="UserDepartamentRead[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartamentsRead) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign in read only mode')?></label>
                 </div>
@@ -70,7 +89,24 @@
                         <label class="fw-bold d-block" ng-non-bindable=""><?php echo htmlspecialchars($departamentGroup->name)?></label>
                         <label><span class="material-icons">mode_edit</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-group-exclude-<?php echo $departamentGroup->id?>').toggle();$('#dep-group-ro-<?php echo $departamentGroup->id?>').prop('checked', false);" id="dep-group-full-<?php echo $departamentGroup->id?>" type="checkbox" name="UserDepartamentGroup[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign as operator')?></label><br>
                         <div class="d-block">
-                            <label class="ms-4" id="dep-group-exclude-<?php echo $departamentGroup->id?>" style="display: <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? 'block' : 'none';?>"><span class="material-icons">assignment_ind</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentGroupAutoExc[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupAutoExc) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
+                            <div class="ms-4" id="dep-group-exclude-<?php echo $departamentGroup->id?>" style="display: <?php echo in_array($departamentGroup->id,$userDepartamentsGroup) ? 'block' : 'none';?>">
+                                <label><span class="material-icons">assignment_ind</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> type="checkbox" name="UserDepartamentGroupAutoExc[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupAutoExc) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?></label>
+                                <div>
+                                    <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?></label>
+                                    <input type="text" class="form-control form-control-sm" name="UserDepartamentGroupAssignPriority[<?php echo $departamentGroup->id?>]" value="<?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority']?><?php else : ?>0<?php endif;?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat')?>" />
+                                    <div class="row">
+                                        <div class="col-12 fs13 text-muted">
+                                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority for chat being assigned by my assign priority')?></label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input name="UserDepGroupAssignMinPriority[<?php echo $departamentGroup->id?>]" value="<?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority']?><?php else : ?>0<?php endif;?>" type="text" class="form-control form-control-sm" />
+                                        </div>
+                                        <div class="col-6">
+                                            <input name="UserDepGroupAssignMaxPriority[<?php echo $departamentGroup->id?>]" value="<?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>" type="text" class="form-control form-control-sm" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <label class="text-muted"><span class="material-icons text-muted">edit_off</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-group-full-<?php echo $departamentGroup->id?>').prop('checked', false);" id="dep-group-ro-<?php echo $departamentGroup->id?>" type="checkbox" name="UserDepartamentGroupRead[]" value="<?php echo $departamentGroup->id?>" <?php echo in_array($departamentGroup->id,$userDepartamentsGroupRead) ? ' checked="checked" ' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign in read only mode')?></label><br>
                     </div>

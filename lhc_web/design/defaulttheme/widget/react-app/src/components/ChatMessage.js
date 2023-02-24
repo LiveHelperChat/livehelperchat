@@ -1,10 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
 import { updateTriggerClicked, subscribeNotifications, parseScript } from "../actions/chatActions";
 import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatModal from './ChatModal';
+const InlineSurvey = React.lazy(() => import('./InlineSurvey'));
+
 
 class ChatMessage extends PureComponent {
 
@@ -322,6 +324,10 @@ class ChatMessage extends PureComponent {
 
                             return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
                         }
+
+                    } else if (domNode.name && domNode.name === 'inlinesurvey') {
+
+                        return <Suspense fallback="..."><InlineSurvey {...domNode.attribs} surveyOptions={domNode.children} /></Suspense>;
 
                     } else if (domNode.name && domNode.name === 'input') {
 

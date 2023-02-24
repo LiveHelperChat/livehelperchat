@@ -5,7 +5,9 @@
         <span class="title-card-header">
         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails')?> ({{active_mails.list.length}}{{active_mails.list.length == lhc.limitam ? '+' : ''}})
         </span>
-        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('amails_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['amails_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('amails_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['amails_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+        <?php $takenTimeAttributes = 'active_mails.tt';?>
+        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/taken_time.tpl.php'));?>
     </div>
     <div ng-if="lhc.toggleWidgetData['amails_widget_exp'] !== true">
 

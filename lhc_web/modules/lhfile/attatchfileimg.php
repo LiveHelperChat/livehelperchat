@@ -29,8 +29,9 @@ if ($pages->items_total > 0) {
 $tpl->set('items',$items);
 $tpl->set('pages',$pages);
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('file/attatchfileimg');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('file/attatchfileimg') . ($Params['user_parameters_unordered']['replace'] == 1 ? '/(replace)/1' : '');
 $tpl->set('input',$filterParams['input_form']);
+$tpl->set('paramseditor', ['replace' => $Params['user_parameters_unordered']['replace'] == 1]);
 
 if (isset($_GET['ajax_search'])) {
     $tpl->set('ajax_search',true);

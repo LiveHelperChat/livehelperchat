@@ -70,6 +70,9 @@ class erLhcoreClassMailconvValidator {
             'close_conversation' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'skip_message' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'mailbox_ids' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1), FILTER_REQUIRE_ARRAY
             ),
@@ -157,6 +160,12 @@ class erLhcoreClassMailconvValidator {
             $options['close_conversation'] = 0;
         }
 
+        if ($form->hasValidData( 'skip_message' ) && $form->skip_message == true) {
+            $options['skip_message'] = 1;
+        } else {
+            $options['skip_message'] = 0;
+        }
+
         $item->options_array = $options;
         $item->options = json_encode($item->options_array);
 
@@ -240,8 +249,14 @@ class erLhcoreClassMailconvValidator {
             'reopen_timeout' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'workflow_import_present' => new ezcInputFormDefinitionElement (
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'workflow_auto_close' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+            ),
+            'workflow_older_than' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 48)
             ),
             'workflow_close_status' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0),FILTER_REQUIRE_ARRAY
@@ -412,10 +427,22 @@ class erLhcoreClassMailconvValidator {
             $workflowParams['auto_close'] = 0;
         }
 
+        if ( $form->hasValidData( 'workflow_older_than' )) {
+            $workflowParams['workflow_older_than'] = $form->workflow_older_than;
+        } elseif (isset($workflowParams['workflow_older_than'])) {
+            unset($workflowParams['workflow_older_than']);
+        }
+
         if ($form->hasValidData( 'workflow_close_status' )) {
             $workflowParams['close_status'] = $form->workflow_close_status;
         } else {
             $workflowParams['close_status'] = [];
+        }
+
+        if ($form->hasValidData( 'workflow_import_present' )) {
+            $workflowParams['workflow_import_present'] = 1;
+        } else {
+            $workflowParams['workflow_import_present'] = 0;
         }
 
         $item->workflow_options_array = $workflowParams;

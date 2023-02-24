@@ -109,7 +109,7 @@ class erLhcoreClassMailconvParser {
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
-                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 10 * 60 ) {
+                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 20 * 60 ) {
                     $db->commit();
                     return;
                 }
@@ -140,6 +140,9 @@ class erLhcoreClassMailconvParser {
             usort($mailboxFolders, function ($a, $b) {
                 return !(isset($a['send_folder']) && $a['send_folder'] == 1) ? 1 : 0;
             });
+            
+            $startTime = microtime();
+            $workflowOptions = $mailbox->workflow_options_array;
             
             foreach ($mailboxFolders as $mailboxFolder)
             {
@@ -200,8 +203,20 @@ class erLhcoreClassMailconvParser {
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
 
+                $since = 'SINCE "' . date('d M Y',
+                        (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
+                        (isset($workflowOptions['workflow_older_than']) && is_numeric($workflowOptions['workflow_older_than']) && $workflowOptions['workflow_older_than'] > 0 ? ((int)$workflowOptions['workflow_older_than'] * 3600) : (2*24*3600))).'"';
+
+                $sinceOAUTH = date('d.m.Y',
+                        (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
+                        (isset($workflowOptions['workflow_older_than']) && is_numeric($workflowOptions['workflow_older_than']) && $workflowOptions['workflow_older_than'] > 0 ? ((int)$workflowOptions['workflow_older_than'] * 3600) : (2*24*3600)));
+
+                $statsImport[] = 'Search started at '.date('Y-m-d H:i:s') . ' data range - '.$since;
+
                 if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                    $mailsInfo = $mailboxFolderOAuth->search()->since(date('d.m.Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600))->get();
+                    $mailsInfo = $mailboxFolderOAuth->search()->since($sinceOAUTH)->get();
+
+                    // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
 
                    // $mailsInfo = $mailboxFolderOAuth->search()->whereUid(2198477)->get();
 
@@ -211,7 +226,7 @@ class erLhcoreClassMailconvParser {
 
                 } else {
                     // We disable server encoding because exchange servers does not support UTF-8 encoding in search.
-                    $mailsIds = $mailboxHandler->searchMailbox('SINCE "'.date('d M Y',($mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) - 2*24*3600).'"',true);
+                    $mailsIds = $mailboxHandler->searchMailbox($since, true);
 
                     if (empty($mailsIds)) {
                         continue;
@@ -219,6 +234,11 @@ class erLhcoreClassMailconvParser {
 
                     $mailsInfo = $mailboxHandler->getMailsInfo($mailsIds);
                 }
+
+                $statsImport[] = 'Search finished at '.date('Y-m-d H:i:s');
+
+
+                $statsImport[] = 'Fetching mail info finished '.date('Y-m-d H:i:s');
 
                 $db->reconnect();
 
@@ -228,6 +248,14 @@ class erLhcoreClassMailconvParser {
                         $mailInfo = self::convertToRawIMAP($mailInfoRaw);
                     } else {
                         $mailInfo = $mailInfoRaw;
+                    }
+
+                    $start = explode(' ', $startTime);
+                    $end = explode(' ', microtime());
+                    $time = $end[0] + $end[1] - $start[0] - $start[1];
+
+                    if ($time > (19 * 60)) {
+                        throw new Exception('Import takes too long time.' . date('Y-m-d H:i:s',$mailbox->sync_started) . ' - ' . date('Y-m-d H:i:s',time()));
                     }
 
                     $vars = get_object_vars($mailInfo);
@@ -381,7 +409,7 @@ class erLhcoreClassMailconvParser {
 
                     // It's a new mail. Store it as new conversation.
                     if (!isset($mailInfo->in_reply_to) || $newConversation == true) {
-                        $statsImport[] =  date('Y-m-d H:i:s').' | Importing - ' . $vars['message_id'] .  ' - ' . $mailInfo->uid;
+
 
                         $message = new erLhcoreClassModelMailconvMessage();
 
@@ -495,6 +523,14 @@ class erLhcoreClassMailconvParser {
                         $matchingPriorityRuleSelected = self::getMatchingRuleByMessage($message, $filteredPriorityMatchingRules);
                         if ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && $matchingPriorityRuleSelected->priority > $priorityConversation) {
                             $priorityConversation = $matchingPriorityRuleSelected->priority;
+                        }
+
+                        if (
+                            (isset($matchingRuleSelected->options_array['skip_message']) && $matchingRuleSelected->options_array['skip_message'] == true) ||
+                            ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && isset($matchingPriorityRuleSelected->options_array['skip_message']) && $matchingPriorityRuleSelected->options_array['skip_message'] == true)
+                        ) {
+                            $statsImport[] = 'Skipping e-mail because of matching rule - ' . $vars['message_id'] . ' - ' . $mailInfo->uid;
+                            continue;
                         }
 
                         $rfc822RawBody = '';

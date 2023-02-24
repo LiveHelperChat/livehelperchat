@@ -352,6 +352,7 @@ try {
 				  KEY `unanswered_chat` (`unanswered_chat`),
 				  KEY `online_user_id` (`online_user_id`),
 				  KEY `dep_id` (`dep_id`),
+				  KEY `time` (`time`),
 				  KEY `product_id` (`product_id`),
 				  KEY `unread_operator` (`has_unread_op_messages`,`unread_op_messages_informed`),
 				  KEY `user_id_sender_user_id` (`user_id`,`sender_user_id`),
@@ -720,7 +721,9 @@ try {
                   `question_plain_4_req` int(11) NOT NULL,
                   `question_plain_5_req` int(11) NOT NULL,
                   `configuration` longtext NOT NULL,
-                  PRIMARY KEY (`id`)
+                  `identifier` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `identifier` (`identifier`)
         	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_admin_theme` (
@@ -768,7 +771,9 @@ try {
 				  `question_plain_3` text NOT NULL,
 				  `question_plain_4` text NOT NULL,
 				  `question_plain_5` text NOT NULL,
+                  `online_user_id` bigint(20) unsigned NOT NULL,
 				  PRIMARY KEY (`id`),
+                  KEY `online_user_id` (`online_user_id`),
 				  KEY `survey_id` (`survey_id`),
 				  KEY `chat_id` (`chat_id`),
 				  KEY `user_id` (`user_id`),
@@ -1311,6 +1316,14 @@ try {
                                  KEY `dep_id` (`dep_id`)
                             ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                $db->query("CREATE TABLE `lh_abstract_auto_responder_dep` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                  `autoresponder_id` int(11) NOT NULL,
+                  `dep_id` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `autoresponder_id` (`autoresponder_id`),
+                  KEY `dep_id` (`dep_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                 $db->query("CREATE TABLE `lh_abstract_proactive_chat_invitation_dep` (
                     `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1795,6 +1808,9 @@ try {
                   `user_id` int(11) NOT NULL,
                   `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `exc_indv_autoasign` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `assign_priority` int(11)  NOT NULL DEFAULT '0',
+                  `chat_min_priority` int(11)  NOT NULL DEFAULT '0',
+                  `chat_max_priority` int(11)  NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `dep_group_id` (`dep_group_id`),
                   KEY `user_id` (`user_id`)
@@ -2029,13 +2045,14 @@ try {
                   `hide_online_ts` int(11) NOT NULL DEFAULT '0',
                   `dep_group_id` int(11) NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
-    
                   `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',
                   `active_mails` int(11) NOT NULL DEFAULT '0',
                   `pending_mails` int(11) NOT NULL DEFAULT '0',
                   `max_mails` int(11) NOT NULL DEFAULT '0',
                   `last_accepted_mail` int(11) NOT NULL DEFAULT '0',
-    
+                  `assign_priority` int(11) NOT NULL DEFAULT '0',
+                  `chat_max_priority` int(11) NOT NULL DEFAULT '0',
+                  `chat_min_priority` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),
                   KEY `last_activity_hide_online_dep_id` (`last_activity`,`hide_online`,`dep_id`),
                   KEY `dep_id` (`dep_id`),
@@ -2380,6 +2397,7 @@ try {
   KEY `from_address` (`from_address`),
   KEY `mailbox_id` (`mailbox_id`),
   KEY `dep_id` (`dep_id`),
+  KEY `mailbox_id_status_udate` (`mailbox_id`,`status`,`udate`),
   KEY `status_priority` (`status`,`priority`),
   KEY `status_priority_asc` (`status`,`priority_asc`),
   KEY `has_attachment` (`has_attachment`),

@@ -8,6 +8,7 @@ import NodeTriggerActionGenericPreview from './preview/NodeTriggerActionGenericP
 import NodeTriggerActionPredefinedPreview from './preview/NodeTriggerActionPredefinedPreview';
 import NodeTriggerActionTypingPreview from './preview/NodeTriggerActionTypingPreview';
 import NodeTriggerActionVideoPreview from './preview/NodeTriggerActionVideoPreview';
+import NodeTriggerActionSurveyPreview from './preview/NodeTriggerActionSurveyPreview';
 
 
 @connect((store) => {
@@ -41,6 +42,8 @@ class NodeTriggerBuilderPreview extends Component {
                     return <NodeTriggerActionTypingPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 } else if (action.get('type') == 'video') {
                     return <NodeTriggerActionVideoPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
+                } else if (action.get('type') == 'survey') {
+                    return <NodeTriggerActionSurveyPreview key={index+'-'+this.props.currenttrigger.get('currenttrigger').get('id')} id={index} action={action} />
                 }
             });
         }

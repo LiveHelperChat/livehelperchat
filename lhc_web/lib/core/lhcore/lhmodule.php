@@ -185,15 +185,19 @@ class erLhcoreClassModule{
         }
     }
 
+    public static function getDifference($start_time, $end_time) {
+        $start = explode(' ', $start_time);
+        $end = explode(' ', $end_time);
+        return round($end[0] + $end[1] - $start[0] - $start[1],3);
+    }
+
     public static function logSlowRequest( $start_time, $end_time, $object_id, $message = [])
     {
         if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'log_slow_request', false ) !== true) {
             return;
         }
-        
-        $start = explode(' ', $start_time);
-        $end = explode(' ', $end_time);
-        $time = $end[0] + $end[1] - $start[0] - $start[1];
+
+        $time = self::getDifference($start_time, $end_time);
 
         if ($time > 2) {
 

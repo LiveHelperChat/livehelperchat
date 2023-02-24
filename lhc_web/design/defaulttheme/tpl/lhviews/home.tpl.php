@@ -39,6 +39,12 @@
                                     <a class="dropdown-item text-muted action-image px-2" ng-click="vctrl.shareView(view)"><span class="material-icons">share</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Share');?></a>
                                     <a class="dropdown-item text-muted px-2" href="<?php echo erLhcoreClassDesign::baseurl('views/edit')?>/{{view.id}}"><span class="material-icons">mode_edit</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Edit');?></a>
                                     <a class="dropdown-item text-muted px-2" ng-click="vctrl.exportView(view)"><span class="material-icons">file_download</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Export');?></a>
+
+                                    <a class="dropdown-item text-muted px-2" ng-click="vctrl.changePassiveMode(view)">
+                                        <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','View is passive and is not updated in the background');?>" ng-if="view.passive"><span class="material-icons">timer</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Make active');?></span>
+                                        <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','View is active and is updated in the background');?>" ng-if="!view.passive"><span class="material-icons">timelapse</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Make passive');?></span>
+                                    </a>
+
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item text-muted px-2" ng-click="vctrl.deleteView(view)"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('views/view','Delete');?></a>
                                 </div>

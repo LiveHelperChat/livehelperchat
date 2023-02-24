@@ -6,6 +6,11 @@
 
     <div class="tab-content ps-2">
         <div role="tabpanel" class="tab-pane active" id="chats">
+            
+            <?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.');?>
+                <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
+            <?php endif; ?>
+
             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
             <?php if (isset($items)) : ?>
@@ -124,6 +129,11 @@
 
                         <?php if ($can_delete === true) : ?>
                             <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete selected');?>" />
+
+                        <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                            <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
+                        <?php endif; ?>
+
                         <?php endif; ?>
                     </div>
 

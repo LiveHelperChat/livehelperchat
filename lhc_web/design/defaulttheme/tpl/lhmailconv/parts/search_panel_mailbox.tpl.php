@@ -10,7 +10,10 @@
             </div>
         </div>
         <div class="col-md-2">
-                <label><input type="checkbox" <?php if ($input->failed == true) : ?>checked="checked"<?php endif; ?> name="failed" name="template_plain" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Only failed');?></label>
+                <label><input type="checkbox" <?php if ($input->failed == true) : ?>checked="checked"<?php endif; ?> name="failed" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Only failed');?></label>
+        </div>
+        <div class="col-md-2">
+                <label><input type="checkbox" <?php if ($input->sync_status == true) : ?>checked="checked"<?php endif; ?> name="sync_status" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','In progress');?></label>
         </div>
     </div>
 

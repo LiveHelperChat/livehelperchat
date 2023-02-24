@@ -3,7 +3,9 @@
 
     <div class="card-header">
         <i class="material-icons chat-pending">mail_outline</i><span class="title-card-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails')?> ({{pending_mails.list.length}}{{pending_mails.list.length == lhc.limitpm ? '+' : ''}})</span>
-        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('pmails_widget_exp')" class="fs24 float-right material-icons exp-cntr">{{lhc.toggleWidgetData['pmails_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+        <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('pmails_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['pmails_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
+        <?php $takenTimeAttributes = 'pending_mails.tt';?>
+        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/taken_time.tpl.php'));?>
     </div>
     <div ng-if="lhc.toggleWidgetData['pmails_widget_exp'] !== true">
 

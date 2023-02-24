@@ -1,3 +1,33 @@
+4.19v
+
+1. Inline survey support. You can send inline survey from bot.
+1.1 Limitations: `stars` at the moment are not supported. Will be added in feature releases.
+2. Auto responder active period options.
+
+execute doc/update_db/update_291.sql for update
+
+4.18v
+
+1. Auto responder can be assigned to multiple departments at once.
+2. Replaceable variables can have active period per replace.
+3. Respect operator permission for calls module before showing call icon in the widget.
+4. Fast typing fixes for canned messages.
+5. Dark mode fixes after migration to bootstrap 5.
+6. Widgets will show how long it took to fetch specific widget information.
+
+execute doc/update_db/update_290.sql for update
+
+4.17v
+
+1. Advanced chat auto assignment options.
+2. Separate permissions for operators to crate a views.
+3. Slow request logging to back office.
+4. Modal window improvements for department online operators statistic.
+5. Further migration related to bootstrap 5 migration.
+6. And various other changes/fixes.
+
+execute doc/update_db/update_289.sql for update
+
 4.16v
 
 1. Theme attribute will be saved directly in the chat table. So we can use search from now.

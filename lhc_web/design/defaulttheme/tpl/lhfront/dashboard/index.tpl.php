@@ -101,7 +101,7 @@ $columnSize = 12 / $columnsTotal;
 
                 <?php elseif ($wiget == 'my_mails') : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_mails.tpl.php'));?>
-                <?php elseif ($wiget == 'pmails') : ?>
+                <?php elseif ($wiget == 'pmails' && erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'use_pmailsw')) : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pmails.tpl.php'));?>
                 <?php elseif ($wiget == 'amails') : ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/amails.tpl.php'));?>

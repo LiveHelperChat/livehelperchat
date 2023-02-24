@@ -7,7 +7,7 @@ $fieldsSearch['email'] = array (
     'trans' => 'Sort by',
     'required' => false,
     'valid_if_filled' => false,
-    'filter_type' => 'like',
+    'filter_type' => 'filter',
     'filter_table_field' => 'from_address',
     'validation_definition' => new ezcInputFormDefinitionElement (
         ezcInputFormDefinitionElement::OPTIONAL, 'string'

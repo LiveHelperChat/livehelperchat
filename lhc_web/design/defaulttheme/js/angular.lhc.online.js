@@ -36,7 +36,8 @@ services.factory('OnlineUsersFactory', ['$http','$q',function ($http, $q) {
 lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootScope', '$log','$interval', '$window', 'OnlineUsersFactory', function($scope, $http, $location, $rootScope, $log, $interval, $window, OnlineUsersFactory) {
 	  	  		
 		var timeoutId;		
-		this.onlineusers = [];	
+		this.onlineusers = [];
+		this.onlineusers_tt = 0;
 		this.onlineusersPreviousID = [];
 		$scope.onlineusersGrouped = [];
 		this.updateTimeout = '10';
@@ -185,7 +186,8 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 
 			OnlineUsersFactory.loadOnlineUsers({department_dpgroups: that.department_dpgroups,timeout: that.userTimeout, time_on_site : that.time_on_site, department : that.department, country: that.country, max_rows : that.maxRows}).then(function(data){
 							
-				that.onlineusers = data;
+				that.onlineusers = data.list;
+				that.onlineusers_tt = data.tt;
 				if ($scope.groupByField != 'none') {
 					$scope.groupBy($scope.groupByField);
 				} else {
@@ -193,7 +195,7 @@ lhcAppControllers.controller('OnlineCtrl',['$scope','$http','$location','$rootSc
 					$scope.onlineusersGrouped.push({label:'',id:0,ou:that.onlineusers});
 				};
 
-                ee.emitEvent('chatAdminSyncOnlineVisitors', [data]);
+                ee.emitEvent('chatAdminSyncOnlineVisitors', [data.list]);
 
 				if (that.notificationEnabled || that.soundEnabled) {
 					var hasNewVisitors = false;

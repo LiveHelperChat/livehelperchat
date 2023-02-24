@@ -384,6 +384,7 @@
 
                             <div class="form-group">
                                 <label><input type="checkbox" name="AutoAssignLowerLimit" value="on" <?php if (isset($departament->bot_configuration_array['auto_lower_limit']) && $departament->bot_configuration_array['auto_lower_limit'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat to lowest number of chats having operator');?></label>
+                                <p><small><i>This setting applies also to Chat prioritized assignment</i></small></p>
                             </div>
 
                             <div class="form-group">
@@ -400,6 +401,37 @@
                                 <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
                             </div>
 
+                            <div class="form-group">
+                                <label><input type="checkbox" name="assign_by_priority" value="on" <?php if (isset($departament->bot_configuration_array['assign_by_priority']) && $departament->bot_configuration_array['assign_by_priority'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat by operator priority');?></label>
+                                <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','This has higher priority than assign chats to lower number of chats having operators');?></i></small></p>
+                            </div>
+
+                            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Prioritized assignment workflow');?></h6>
+
+                            <div class="form-group">
+                                <label><input type="checkbox" ng-init="AutoAssignPriorityActive=<?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignPriorityActive" name="active_prioritized_assignment" value="on" <?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Activate prioritized assignment');?></label>
+                            </div>
+
+                            <div ng-show="AutoAssignPriorityActive">
+                                <div class="form-group">
+                                    <label><input type="checkbox" name="assign_by_priority_chat" value="on" <?php if (isset($departament->bot_configuration_array['assign_by_priority_chat']) && $departament->bot_configuration_array['assign_by_priority_chat'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat by operator priority also');?></label>
+                                    <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','This has higher priority than assign chats to lower number of chats having operators');?></i></small></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum agent assignment priority');?></label>
+                                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="min_agent_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_agent_priority']) ? $departament->bot_configuration_array['min_agent_priority'] : '0');?>" />
+                                    </div>
+                                    <div class="col-4">
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority for it being processed with prioritized assignment workflow');?></label>
+                                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
+                                    </div>
+                                    <div class="col-4">
+                                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority for it being processed with prioritized assignment workflow');?></label>
+                                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -426,7 +458,6 @@
                         </div>
                     </div>
                 </div>
-
 
 		    </div>
 			<?php endif;?>

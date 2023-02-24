@@ -74,6 +74,10 @@ export default ({onChange, type}) => {
         {
             'value': 'mail',
             'text' : 'Send mail',
+        },
+        {
+            'value': 'survey',
+            'text' : 'Send inline survey',
         }
     ]);
 

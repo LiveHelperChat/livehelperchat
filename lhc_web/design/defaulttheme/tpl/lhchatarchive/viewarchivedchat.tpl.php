@@ -12,11 +12,11 @@
         <?php endif; ?>
     <?php endif;?>
 
-    <ul class="nav nav-pills" role="tablist">
+    <ul class="nav nav-pills d-none" role="tablist">
     </ul>
     <div class="tab-content ps-1">
 
-        <div class="tab-pane active">
+        <div class="tab-pane active chat-tab-pane">
 
 <div class="row" ng-non-bindable>
     <div class="col-sm-7 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
