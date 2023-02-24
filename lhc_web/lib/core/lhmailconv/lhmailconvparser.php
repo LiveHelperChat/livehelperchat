@@ -998,7 +998,7 @@ class erLhcoreClassMailconvParser {
                 $attributesOAuth['subtype'] = (string)$attachmentRaw->getExtension();
                 $attributesOAuth['id'] = md5(microtime() . $attachmentRaw->getId() . $attachmentRaw->getName() . $attachmentRaw->getSize());
 
-                if ($attachmentRaw->getContentType() == 'message/rfc822') {
+                if ($attachmentRaw->getContentType() == 'message/rfc822' ||  $attributesOAuth['name'] == 'undefined') {
                     $attributesOAuth['subtype'] = 'eml';
                     $attributesOAuth['name'] = 'undelivered.eml';
                 } else {
