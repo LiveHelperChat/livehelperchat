@@ -505,7 +505,7 @@ class erLhcoreClassMailconvParser {
                                     $message->delivery_status_array = self::parseDeliveryStatus($part->content);
                                     $message->delivery_status = json_encode($message->delivery_status_array);
                                 } elseif ($part->subtype == 'rfc822') {
-                                    $rfc822RawBody = $message->rfc822_body = $part->raw;
+                                    $rfc822RawBody = $message->rfc822_body = trim($part->raw);
                                 }
                             }
                         } else {
