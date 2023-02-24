@@ -1712,7 +1712,7 @@ input[type="file"]{
 }
 
 .mail-message-body img{
-    max-width: 100%;
+    /*max-width: 100%;*/
 }
 
 .mail-message-body p{
