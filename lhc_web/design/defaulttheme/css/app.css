@@ -1711,6 +1711,10 @@ input[type="file"]{
     font-size:13px!important;
 }
 
+.mail-message-body {
+    overflow-x: auto;
+}
+
 .mail-message-body img{
     /*max-width: 100%;*/
 }
@@ -1837,7 +1841,6 @@ html {
     display: flex;
     flex-grow: 1!important;
     flex-direction: column!important;
-    overflow-x: auto;
 }
 
 .dashboard-height .chat-main-left-column .message-block{
