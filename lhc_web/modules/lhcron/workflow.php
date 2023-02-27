@@ -6,6 +6,7 @@
  *
  * */
 echo "Starting chat/workflow\n";
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.started',array());
 
 // Unanswered chats callback
@@ -68,6 +69,9 @@ erLhcoreClassChatCleanup::updateFootprintBackground();
 
 // Cleanup Audit table if required
 erLhcoreClassChatCleanup::cleanupAuditLog();
+
+// Cleanup expired canned messages
+erLhcoreClassChatCleanup::cleanupCannedMessages();
 
 echo "Ended chat/workflow\n";
 

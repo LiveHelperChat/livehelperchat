@@ -239,6 +239,9 @@ class erLhcoreClassAdminChatValidatorHelper {
             'Disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'delete_on_exp' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'Tags' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -285,6 +288,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             $cannedMessage->repetitiveness = 0;
         }
 
+        if ( $form->hasValidData( 'delete_on_exp' ) ) {
+            $cannedMessage->delete_on_exp = 1;
+        } else {
+            $cannedMessage->delete_on_exp = 0;
+        }
+
         if ($cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_DAILY) {
             $activeDays = [];
             foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
@@ -326,9 +335,11 @@ class erLhcoreClassAdminChatValidatorHelper {
             if ( $form->hasValidData( 'active_to' ) && !empty($form->active_to) )
             {
                 $cannedMessage->active_to = strtotime($form->active_to);
+            } else {
+                $cannedMessage->active_to = 0;
             }
 
-            if (!is_numeric($cannedMessage->active_to)) {
+            if ((!is_numeric($cannedMessage->active_to) || $cannedMessage->active_to == 0) && $cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD_REP && $cannedMessage->repetitiveness == erLhcoreClassModelCannedMsg::REP_PERIOD) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity to period');
             }
 
@@ -336,7 +347,7 @@ class erLhcoreClassAdminChatValidatorHelper {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Please enter activity from period');
             }
 
-            if (empty($Errors) && $cannedMessage->active_from > $cannedMessage->active_to) {
+            if (empty($Errors) && is_numeric($cannedMessage->active_to) && $cannedMessage->active_to > 0 &&  $cannedMessage->active_from > $cannedMessage->active_to) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity to period has to be bigger than activity from');
             }
         }
