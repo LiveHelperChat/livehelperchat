@@ -557,6 +557,10 @@ class erLhcoreClassMailconvParser {
                             }
                         }
 
+                        if ($message->undelivered != 1 && $message->rfc822_body != '') {
+                            $rfc822RawBody = $message->rfc822_body = '';
+                        }
+
                         // Message was undelivered
                         // But there is returned message data
                         // So just extract this data from message
@@ -810,6 +814,11 @@ class erLhcoreClassMailconvParser {
                             }
                         }
 
+                        if ($message->undelivered != 1 && $message->rfc822_body != '') {
+                            $rfc822RawBody = $message->rfc822_body = '';
+                            $message->updateThis(['update' => ['rfc822_body']]);
+                        }
+
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $conversation->user_id, 'disabled' => 1]]) == 1) {
                             $conversation->user_id = 0;
                             $conversation->updateThis(['update' => ['user_id']]);
@@ -1034,7 +1043,7 @@ class erLhcoreClassMailconvParser {
                 $attributesOAuth['subtype'] = (string)$attachmentRaw->getExtension();
                 $attributesOAuth['id'] = md5(microtime() . $attachmentRaw->getId() . $attachmentRaw->getName() . $attachmentRaw->getSize());
 
-                if ($attachmentRaw->getContentType() == 'message/rfc822' ||  $attributesOAuth['name'] == 'undefined') {
+                if ($attachmentRaw->getContentType() == 'message/rfc822' && $attributesOAuth['name'] == 'undefined') {
                     $attributesOAuth['subtype'] = 'eml';
                     $attributesOAuth['name'] = 'undelivered.eml';
                 } else {
