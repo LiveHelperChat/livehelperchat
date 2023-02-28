@@ -1043,9 +1043,26 @@ class erLhcoreClassMailconvParser {
                 $attributesOAuth['subtype'] = (string)$attachmentRaw->getExtension();
                 $attributesOAuth['id'] = md5(microtime() . $attachmentRaw->getId() . $attachmentRaw->getName() . $attachmentRaw->getSize());
 
+                $fileBody = $attachmentRaw->getContent();
+
                 if ($attachmentRaw->getContentType() == 'message/rfc822' && $attributesOAuth['name'] == 'undefined') {
+
+                    $head = \imap_rfc822_parse_headers($fileBody);
+
                     $attributesOAuth['subtype'] = 'eml';
-                    $attributesOAuth['name'] = 'undelivered.eml';
+
+                    if (isset($head->Subject)) {
+                        $mailboxHandlerHelper = new PhpImap\Mailbox(
+                            'INBOX', // IMAP server incl. flags and optional mailbox folder
+                            $mailbox->username, // Username for the before configured mailbox
+                            $mailbox->password, // Password for the before configured username
+                            false
+                        );
+                        $attributesOAuth['name'] = (string)erLhcoreClassMailconvEncoding::toUTF8($mailboxHandlerHelper->decodeMimeStr($head->Subject)) . '.eml';
+                    } else {
+                        $attributesOAuth['name'] = 'ForwardedMessage.eml';
+                    }
+
                 } else {
                     if ($attributesOAuth['subtype'] == '') {
                         $extension = \erLhcoreClassChatWebhookIncoming::getExtensionByMime($attributesOAuth['mime']);
@@ -1082,9 +1099,7 @@ class erLhcoreClassMailconvParser {
                 $dispositions[] = strtolower($mailAttatchement->disposition);
             }
 
-            if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
-                $fileBody = $attachmentRaw->getContent();
-            } else {
+            if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                 $fileBody = $attachment->getContents();
             }
 
