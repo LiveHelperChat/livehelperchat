@@ -340,6 +340,38 @@ try {
 
         $outputResponse['chat_ui']['fbst'] = $chat->fbst;
 
+        $outputResponse['chat_ui']['after_chat_status'] = '<div id="after-chat-status" className="bg-transparent"><div class="my-1 bg-transparent" align="center"><div class="btn-group bg-light m-auto" role="group" aria-label="Basic example">
+  <button type="button" id="switch-messages-button" data-action=\'[{"action":"remove_css_class","target": "#switch-promotions-button", "value": "btn-secondary"},{"action":"remove_css_class","target": "#switch-messages-button", "value": "btn-outline-secondary"},{"action":"add_css_class","target": "#switch-promotions-button", "value": "btn-outline-secondary"},{"action":"add_css_class","target": "#switch-messages-button", "value": "btn-secondary"},{"action":"add_css_class","target": "#promotions-list", "value": "d-none"},{"action":"remove_css_class","target": "#messages-scroll", "value": "d-none"}]\' class="btn btn-sm btn-secondary ps-4 pe-4">
+    Messages<newmessages>&nbsp;&nbsp;&nbsp;<svg style="width: 15px" viewBox="0 0 10 10" class="position-absolute" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="4" stroke="white" stroke-width="1" fill="#fc0202"></circle></svg></newmessages>
+  </button>
+  <button type="button" id="switch-promotions-button" data-action=\'[{"action":"remove_css_class","target": "#switch-messages-button", "value": "btn-secondary"},{"action":"remove_css_class","target": "#switch-promotions-button", "value": "btn-outline-secondary"},{"action":"add_css_class","target": "#switch-messages-button", "value": "btn-outline-secondary"},{"action":"add_css_class","target": "#switch-promotions-button", "value": "btn-secondary"},{"action":"add_css_class","target": "#messages-scroll", "value": "d-none"},{"action":"remove_css_class","target": "#promotions-list", "value": "d-none"}]\' class="ps-4 pe-4 btn btn-sm btn-outline-secondary">
+    Promotions
+  </button>
+</div>
+</div></div>
+
+<div class="promotions d-none bottom-message p-2" id="promotions-list">
+    <div class="promotion-item">aa</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+    <div class="promotion-item">bb</div>
+</div>
+
+';
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.initchat', array('output' => & $outputResponse, 'chat' => $chat));
 
         echo erLhcoreClassRestAPIHandler::outputResponse($outputResponse);
