@@ -50,7 +50,8 @@ class OnlineChat extends Component {
         scrollButton: false,
         fontSize: 100,
         reactToMsgId: 0,
-        otm: 0 // New operator messages
+        otm: 0, // New operator messages
+        messages_ui: true // Is visitor in messages UI, in case extension has overlay and messages was received
     };
 
     constructor(props) {
@@ -480,7 +481,8 @@ class OnlineChat extends Component {
             if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
                 let widgetOpen = ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()));
                 if (hasNewMessages == false) {
-                    hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false;
+                    console.log(this.state.messages_ui);
+                    hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false || this.state.messages_ui === false;
                     oldId = hasNewMessages == true ? prevProps.chatwidget.getIn(['chatLiveData','messages']).size : 0;
                     otm = this.props.chatwidget.getIn(['chatLiveData','otm']);
                 } else {
@@ -966,7 +968,7 @@ class OnlineChat extends Component {
 
                     <div className={msg_expand} onClick={(e) => {this.setState({'reactToMsgId' : 0})}} id="messagesBlock" onScroll={this.onScrollMessages}>
 
-                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback="..."><CustomHTML has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
+                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback="..."><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
 
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}

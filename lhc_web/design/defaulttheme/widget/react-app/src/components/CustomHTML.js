@@ -25,10 +25,14 @@ class CustomHTML extends Component {
                 document.querySelector(item.target).classList.add(item.value);
             } else if (item.action == 'remove_css_class') {
                 document.querySelector(item.target).classList.remove(item.value);
+            } else if (item.action == 'chat_attr_global') {
+                window.lhcChat[item.target] = item.value;
+            } else if (item.action == 'set_state') {
+                var params = {};
+                params[item.target] = item.value;
+                this.props.setStateParent(params);
             }
         });
-
-        console.log(JSON.parse(attrs['data-action']));
     }
 
     render() {
