@@ -78,12 +78,14 @@ if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['i
 /**
  * Departments filter
  * */
-$limitation = erLhcoreClassChat::getDepartmentLimitation();
+$limitation = erLhcoreClassChat::getDepartmentLimitation( 'lh_chat', ['check_list_permissions' => true]);
 
 if ($limitation !== false) {
     if ($limitation !== true) {
         $filterParams['filter']['customfilter'][] = $limitation;
     }
+} else {
+    $filterParams['filter']['customfilter'][] = '1 = -1';
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.list_filter',array('filter' => & $filterParams, 'uparams' => $Params['user_parameters_unordered']));
