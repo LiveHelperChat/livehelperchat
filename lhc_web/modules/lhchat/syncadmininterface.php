@@ -614,14 +614,12 @@ if ($pendingTabEnabled == true) {
         }
     }
 
-
-
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncadmininterface.pendingchats',array('additional_filter' => & $additionalFilter));
 
 	/**
 	 * Pending chats
 	 * */
-	$pendingChats = erLhcoreClassChat::getPendingChats($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+	$pendingChats = erLhcoreClassChat::getPendingChats($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true]);
 
     $chatsListAll = $chatsListAll+$pendingChats;
 
@@ -873,7 +871,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr['sort'] = 'priority ASC, id ASC';
 
-    $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+    $pendingMails = erLhcoreClassChat::getPendingMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true, 'check_list_scope' => 'mails']);
 
     erLhcoreClassChat::prefillGetAttributes($pendingMails, array('ctime_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
 
@@ -919,7 +917,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr['sort'] = 'priority ASC, id ASC';
 
-    $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+    $activeMails = erLhcoreClassChat::getActiveMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true, 'check_list_scope' => 'mails']);
 
     erLhcoreClassChat::prefillGetAttributes($activeMails, array('ctime_front','pnd_time_front','department_name','wait_time_pending','plain_user_name','from_name','from_address','subject_front'), array('body','department','time','status','user','subject'));
     $ReturnMessages['active_mails'] = array('list' => array_values($activeMails), 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
@@ -962,7 +960,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $filterAdditionalMainAttr = array();
 
-    $activeMails = erLhcoreClassChat::getAlarmMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr);
+    $activeMails = erLhcoreClassChat::getAlarmMails($limitList, 0, $additionalFilter, $filterAdditionalMainAttr, ['check_list_permissions' => true, 'check_list_scope' => 'mails']);
 
     // Prerender subject
     $subjectByChat = [];

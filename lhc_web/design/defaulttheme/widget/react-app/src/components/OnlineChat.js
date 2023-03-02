@@ -20,6 +20,7 @@ import { Suspense, lazy } from 'react';
 const VoiceMessage = React.lazy(() => import('./VoiceMessage'));
 const MailModal = React.lazy(() => import('./MailModal'));
 const FontSizeModal = React.lazy(() => import('./FontSizeModal'));
+const CustomHTML = React.lazy(() => import('./CustomHTML'));
 
 @connect((store) => {
     return {
@@ -49,7 +50,8 @@ class OnlineChat extends Component {
         scrollButton: false,
         fontSize: 100,
         reactToMsgId: 0,
-        otm: 0 // New operator messages
+        otm: 0, // New operator messages
+        messages_ui: true // Is visitor in messages UI, in case extension has overlay and messages was received
     };
 
     constructor(props) {
@@ -479,7 +481,8 @@ class OnlineChat extends Component {
             if (prevProps.chatwidget.getIn(['chatLiveData','messages']).size != 0 && this.props.chatwidget.getIn(['chatLiveData','uw']) === false) {
                 let widgetOpen = ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus()));
                 if (hasNewMessages == false) {
-                    hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false;
+                    console.log(this.state.messages_ui);
+                    hasNewMessages = widgetOpen == false || window.lhcChat['is_focused'] == false || setScrollBottom == false || this.state.messages_ui === false;
                     oldId = hasNewMessages == true ? prevProps.chatwidget.getIn(['chatLiveData','messages']).size : 0;
                     otm = this.props.chatwidget.getIn(['chatLiveData','otm']);
                 } else {
@@ -964,6 +967,9 @@ class OnlineChat extends Component {
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
                     <div className={msg_expand} onClick={(e) => {this.setState({'reactToMsgId' : 0})}} id="messagesBlock" onScroll={this.onScrollMessages}>
+
+                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback="..."><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
+
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
@@ -1008,7 +1014,7 @@ class OnlineChat extends Component {
 
                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select">
 
-                                <div className="user-chatwidget-buttons pt-1 pe-1" id="ChatSendButtonContainer">
+                                <div className="user-chatwidget-buttons pt-2 pe-1" id="ChatSendButtonContainer">
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
 

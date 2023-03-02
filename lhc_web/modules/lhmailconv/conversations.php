@@ -66,12 +66,14 @@ if (isset($_GET['doSearch'])) {
 /**
  * Departments filter
  * */
-$limitation = erLhcoreClassChat::getDepartmentLimitation('lhc_mailconv_conversation');
+$limitation = erLhcoreClassChat::getDepartmentLimitation('lhc_mailconv_conversation', ['check_list_permissions' => true, 'check_list_scope' => 'mails']);
 
 if ($limitation !== false) {
     if ($limitation !== true) {
         $filterParams['filter']['customfilter'][] = $limitation;
     }
+} else {
+    $filterParams['filter']['customfilter'][] = '1 = -1';
 }
 
 erLhcoreClassChatStatistic::formatUserFilter($filterParams,'lhc_mailconv_conversation');

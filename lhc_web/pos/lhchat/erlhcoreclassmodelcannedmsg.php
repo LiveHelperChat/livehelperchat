@@ -24,7 +24,7 @@ foreach (['title','unique_id','explain','msg','html_snippet','fallback_msg','lan
 foreach ([
     'position','delay','department_id','user_id','auto_send','attr_int_1','attr_int_2','attr_int_3',
     'updated_at', 'created_at','disabled',
-    'active_from','active_to','repetitiveness' // Stores period and acitivy type
+    'active_from','active_to','repetitiveness','delete_on_exp' // Stores period and acitivy type
          ] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;

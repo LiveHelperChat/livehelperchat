@@ -1,3 +1,10 @@
+4.20v
+
+1. Options to have expire-able canned message with auto delete.
+2. Option to have one time period canned message without expire date.
+
+execute doc/update_db/update_292.sql for update
+
 4.19v
 
 1. Inline survey support. You can send inline survey from bot.

@@ -26,7 +26,7 @@ if ($pages->items_total > 0) {
         <tr>
             <td><?php echo $autoResponderMessage->id?></td>
             <td><?php echo nl2br(htmlspecialchars($autoResponderMessage->name))?></td>
-            <td><?php echo nl2br(htmlspecialchars((string)$autoResponderMessage->dep))?></td>
+            <td><?php echo nl2br(htmlspecialchars((string)$autoResponderMessage->list_department))?></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(msg)/<?php echo $autoResponderMessage->id?>/(tab)/autoresponder"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Edit message');?></a></td>
             <td nowrap><a onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/message','Are you sure?');?>')" class="csfr-required btn btn-danger btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(action)/delete/(tab)/autoresponder/(msg)/<?php echo $autoResponderMessage->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delete message');?></a></td>
         </tr>
@@ -75,10 +75,7 @@ if ($pages->items_total > 0) {
         <?php echo erLhcoreClassAbstract::renderInput('position', $fields['position'], $autoResponder_msg)?>
     </div>
 
-    <div class="form-group">
-        <label><?php echo $fields['dep_id']['trans'];?></label>
-        <?php echo erLhcoreClassAbstract::renderInput('dep_id', $fields['dep_id'], $autoResponder_msg)?>
-    </div>
+    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/department.tpl.php')); ?>
 
     <div role="tabpanel">
         <!-- Nav tabs -->
