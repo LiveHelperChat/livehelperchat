@@ -73,7 +73,7 @@ class erLhcoreClassChat {
      */
     public static function getPendingChats($limit = 50, $offset = 0, $filterAdditional = array(), $filterAdditionalMainAttr = array(), $limitationDepartment = array())
     {
-    	$limitation = self::getDepartmentLimitation('lh_chat',$limitationDepartment);
+    	$limitation = self::getDepartmentLimitation('lh_chat', $limitationDepartment);
 
     	// Does not have any assigned department
     	if ($limitation === false) { return array(); }
@@ -296,7 +296,7 @@ class erLhcoreClassChat {
             $subjectIds = json_decode(erLhcoreClassModelUserSetting::getSetting('subject_id', $filterString), true);
         }
 
-        $limitation = self::getDepartmentLimitation();
+        $limitation = self::getDepartmentLimitation('lh_chat', ['check_list_permissions' => true]);
 
         // Does not have any assigned department
         if ($limitation === false) {
@@ -700,8 +700,21 @@ class erLhcoreClassChat {
     	    $userData = $params['user'];
     	    $userId = $userData->id;
     	}
-    	
-    	
+
+        $limitationPermission = true;
+
+        if (isset($params['check_list_permissions'])) {
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_all_chats')) {
+                $limitationPermission = false;
+                if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_my_chats')) {
+                    $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ')';
+                    if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_pending_chats')) {
+                        $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ' OR (`user_id` = 0 AND `status` = 0))';
+                    }
+                }
+            }
+        }
+
     	if ( $userData->all_departments == 0 )
     	{
     		$userDepartaments = erLhcoreClassUserDep::getUserDepartaments($userId, $userData->cache_version);
@@ -714,8 +727,17 @@ class erLhcoreClassChat {
 
     		$LimitationDepartament = '('.$tableName.'.dep_id IN ('.implode(',',$userDepartaments).'))';
 
+            if ($limitationPermission === false) {
+                return false;
+            } elseif ($limitationPermission !== true) {
+                $LimitationDepartament = '(' . $LimitationDepartament . ' AND ' . $limitationPermission . ')';
+            }
+
     		return $LimitationDepartament;
-    	}
+
+    	} elseif ($limitationPermission !== true) {
+            return $limitationPermission;
+        }
 
     	return true;
     }
@@ -723,7 +745,7 @@ class erLhcoreClassChat {
     // Get's unread messages from users
     public static function getUnreadMessagesChats($limit = 10, $offset = 0, $filterAdditional = array()) {
 
-    	$limitation = self::getDepartmentLimitation();
+    	$limitation = self::getDepartmentLimitation('lh_chat', ['check_list_permissions' => true]);
 
     	// Does not have any assigned department
     	if ($limitation === false) {
@@ -782,7 +804,7 @@ class erLhcoreClassChat {
 
     public static function getActiveChats($limit = 50, $offset = 0, $filterAdditional = array())
     {
-    	$limitation = self::getDepartmentLimitation();
+    	$limitation = self::getDepartmentLimitation('lh_chat', ['check_list_permissions' => true]);
 
     	// Does not have any assigned department
     	if ($limitation === false) { return array(); }
@@ -808,7 +830,7 @@ class erLhcoreClassChat {
 
     public static function getActiveChatsCount($filterAdditional = array())
     {
-    	$limitation = self::getDepartmentLimitation();
+    	$limitation = self::getDepartmentLimitation('lh_chat', ['check_list_permissions' => true]);
 
     	// Does not have any assigned department
     	if ($limitation === false) { return 0; }
@@ -830,7 +852,7 @@ class erLhcoreClassChat {
 
     public static function getClosedChats($limit = 50, $offset = 0, $filterAdditional = array())
     {
-    	$limitation = self::getDepartmentLimitation();
+    	$limitation = self::getDepartmentLimitation('lh_chat', ['check_list_permissions' => true]);
 
     	// Does not have any assigned department
     	if ($limitation === false) { return array(); }

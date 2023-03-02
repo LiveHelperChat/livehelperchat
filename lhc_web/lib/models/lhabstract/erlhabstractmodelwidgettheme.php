@@ -470,6 +470,7 @@ class erLhAbstractModelWidgetTheme {
             'custom_html_bot',
             'custom_html_widget',
             'custom_html',
+            'after_chat_status',
             'intro_message',
             'intro_message_html',
             'pre_chat_html',
