@@ -704,11 +704,20 @@ class erLhcoreClassChat {
         $limitationPermission = true;
 
         if (isset($params['check_list_permissions'])) {
-            if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_all_chats')) {
+            
+            $scope = 'chats';
+            $module = 'lhchat';
+
+            if (isset($params['check_list_scope']) && $params['check_list_scope'] == 'mails'){
+                $scope = 'mails';
+                $module = 'lhmailconv';
+            }
+
+            if (!erLhcoreClassUser::instance()->hasAccessTo($module,'list_all_'.$scope)) {
                 $limitationPermission = false;
-                if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_my_chats')) {
+                if (erLhcoreClassUser::instance()->hasAccessTo($module,'list_my_'.$scope)) {
                     $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ')';
-                    if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','list_pending_chats')) {
+                    if (erLhcoreClassUser::instance()->hasAccessTo($module,'list_pending_'.$scope)) {
                         $limitationPermission = '(`user_id` = ' . (int)erLhcoreClassUser::instance()->getUserID() . ' OR (`user_id` = 0 AND `status` = 0))';
                     }
                 }
