@@ -2296,6 +2296,7 @@ try {
                         array('module' => 'lhchat',  'function' => 'administratecannedmsg'),
                         array('module' => 'lhchat',  'function' => 'explorecannedmsg'),
                         array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
+                        array('module' => 'lhchat',  'function' => 'list_all_chats'),
                         array('module' => 'lhpermission',   'function' => 'see_permissions'),
                         array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                         array('module' => 'lhfaq',   		'function' => 'manage_faq'),
