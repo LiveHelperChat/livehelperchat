@@ -3549,7 +3549,7 @@ class erLhcoreClassChatStatistic {
                     $filterNew = $filter;
 
                     if (isset($filterNew['filtergte']['time'])) {
-                        $filterNew['filterlte']['first_visit'] = $filterNew['filterlte']['time'];
+                        $filterNew['filterlte']['first_visit'] = $filterNew['filtergte']['time'];
                         unset($filterNew['filtergte']['time']);
                     }
 
