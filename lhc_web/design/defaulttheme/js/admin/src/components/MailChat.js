@@ -465,7 +465,7 @@ const MailChat = props => {
                                                     <option value="1">{t('status.active')}</option>
                                                     {state.conv.status == 2 && <option value="2">{t('status.closed')}</option>}
                                                 </select>
-                                                {state.conv.opened_at && <div className="input-group-append"><span className="input-group-text"><span className="ms-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span></div>}
+                                                {state.conv.opened_at && <span className="input-group-text"><span className="ms-2 material-icons text-success" title={t('status.opened_at')}>visibility</span>{state.conv.opened_at_front}</span>}
                                             </div>}
 
 
