@@ -55,7 +55,7 @@ const MailReplyRecipient = props => {
 
         <div className="col-6">
             {recipients.reply && recipients.reply.map((mail, index) => (
-                <div className="form-row pb-1">
+                <div className="row pb-1">
                     <div className="col-1 text-secondary fs13 pt-1">{t('r.to')}:</div>
                     <div className="col-5">
                         <div className="input-group input-group-sm">
@@ -64,14 +64,14 @@ const MailReplyRecipient = props => {
                         </div>
                     </div>
                     <div className="col-5"><input type="text" disabled={props.readOnly} placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "reply", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
-                    {!props.readOnly && index > 0 && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"reply", "index" : index})}>remove</i></div>}
+                    {!props.readOnly && index > 0 && <div className="col-1"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"reply", "index" : index})}>remove</i></div>}
                 </div>
             ))}
         </div>
 
         <div className="col-6">
         {recipients.cc && recipients.cc.map((mail, index) => (
-            <div className="form-row pb-1">
+            <div className="row pb-1">
                 <div className="col-1 text-secondary fs13 pt-1">Cc:</div>
                 <div className="col-5">
                     <div className="input-group input-group-sm">
@@ -80,14 +80,14 @@ const MailReplyRecipient = props => {
                     </div>
                 </div>
                 <div className="col-5"><input disabled={props.readOnly} type="text" placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "cc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
-                {!props.readOnly && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"cc", "index" : index})}>remove</i></div>}
+                {!props.readOnly && <div className="col-1"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"cc", "index" : index})}>remove</i></div>}
             </div>
         ))}
         </div>
 
         <div className="col-6">
         {recipients.bcc && recipients.bcc.map((mail, index) => (
-            <div className="form-row pb-1">
+            <div className="row pb-1">
                 <div className="col-1 text-secondary fs13 pt-1">Bcc:</div>
                 <div className="col-5">
                     <div className="input-group input-group-sm">
@@ -96,7 +96,7 @@ const MailReplyRecipient = props => {
                     </div>
                 </div>
                 <div className="col-5"><input type="text" disabled={props.readOnly} placeholder={t('r.name')} onChange={(e) => setReciepints("set_attribute",{value : {value: e.target.value, type: "bcc", index: index, "field" : "name"}})} value={mail.name} className="form-control form-control-sm" /></div>
-                {!props.readOnly && <div className="col"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"bcc", "index" : index})}>remove</i></div>}
+                {!props.readOnly && <div className="col-1"><i className="material-icons settings text-muted" onClick={(e) => setReciepints("remove_recipient",{"recipient":"bcc", "index" : index})}>remove</i></div>}
             </div>
         ))}
         </div>
