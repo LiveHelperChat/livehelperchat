@@ -3,19 +3,52 @@
 <hr class="mt-1 mb-1">
 <?php endif; ?>
 
-
-
 <div class="row">
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <?php $seeDepartments = false; if ($departmentEditParams['individual']['edit_all'] == true || $departmentEditParams['individual']['edit_personal'] == true || $departmentEditParams['individual']['read_all'] == true) : $seeDepartments = true;?>
     <div class="col-6">
-        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?></h5>
+        <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?>
+
+            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/18/(action)/operators'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
+
+        </h5>
             <div class="row" style="max-height: 600px;overflow: auto">
         	<?php foreach (erLhcoreClassModelDepartament::getList(array('limit' => false, 'filter' => array('archive' => 0))) as $departament) :
                 $canEditDepartment = $departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal'] && in_array($departament->id,$departmentEditParams['individual']['id']);
                 if ($canEditDepartment || $departmentEditParams['individual']['read_all'] == true) : ?>
+
+                <?php if (in_array($departament->id,$userDepartamentsRead) || in_array($departament->id,$userDepartaments)) : ?>
                 <div class="col-6">
+                        <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
+
+                            <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
+                            <?php echo htmlspecialchars($departament->name)?>
+
+                            <?php if (in_array($departament->id,$userDepartamentsRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
+
+                            <?php if (in_array($departament->id,$userDepartamentsAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+
+                            <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority']) || $departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?>">
+                                <span class="material-icons">transfer_within_a_station</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['assign_priority']?><?php else : ?>0<?php endif;?>
+                            </span>
+
+                            <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority']) || $departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min chat priority for chat being assigned by my assign priority')?>">
+                                <span class="material-icons">remove</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority']?><?php else : ?>0<?php endif;?>
+                            </span>
+
+                            <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']) || $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority for chat being assigned by my assign priority')?>">
+                                <span class="material-icons">add</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
+                            </span>
+
+                            <?php if ($canEditDepartment == true) : ?><span class="material-icons action-image text-danger">delete</span><?php endif; ?>
+
+                        </label>
+                </div>
+                <?php endif; ?>
+
+                <div class="col-6 d-none">
+
                     <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable><?php echo htmlspecialchars($departament->name)?></label><br>
                     <label><span class="material-icons">mode_edit</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> onchange="$('#dep-exclude-<?php echo $departament->id?>').toggle();$('#dep-ro-<?php echo $departament->id?>').prop('checked', false);" id="dep-full-<?php echo $departament->id?>" type="checkbox" name="UserDepartament[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartaments) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign as operator')?></label><br>
                     <div class="d-block">
@@ -39,7 +72,12 @@
                         </div>
                     </div>
                     <label class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>"><span class="material-icons">edit_off</span><input <?php if ($canEditDepartment != true) : ?>disabled<?php endif; ?> id="dep-ro-<?php echo $departament->id?>" type="checkbox" onchange="$('#dep-full-<?php echo $departament->id?>').prop('checked', false);" name="UserDepartamentRead[]" value="<?php echo $departament->id?>" <?php echo in_array($departament->id,$userDepartamentsRead) ? 'checked="checked"' : '';?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assign in read only mode')?></label>
+
+
                 </div>
+
+
+
         	    <?php endif; endforeach; ?>
             </div>
 
@@ -80,8 +118,48 @@
                 </div>
             <?php endif; ?>
 
-            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?></h5>
-            <div class="row" style="max-height: 600px;overflow: auto">
+            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?> <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/18/(action)/operators'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
+
+
+            <div class="row">
+            <?php foreach ($departmentsGroups as $departamentGroup) :
+                $canEditDepartment = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($departamentGroup->id,$departmentEditParams['groups']['id']);
+                if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
+                <?php if (in_array($departamentGroup->id,$userDepartamentsGroup) ||  in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?>
+
+            <div class="col-6">
+                <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
+
+                    <span <?php if ($canEditDepartment == true) : ?>onclick="alert('this')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
+
+                    <?php echo htmlspecialchars($departamentGroup->name)?>
+
+                    <?php if (in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
+
+                    <?php if (in_array($departamentGroup->id,$userDepartamentsGroupAutoExc)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Exclude from auto assignment workflow')?>">group_off</span><?php endif; ?>
+
+                    <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Assignment priority, optional, default - 0')?>">
+                        <span class="material-icons">transfer_within_a_station</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority'])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['assign_priority']?><?php else : ?>0<?php endif;?>
+                    </span>
+
+                    <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min chat priority for chat being assigned by my assign priority')?>">
+                        <span class="material-icons">remove</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority']?><?php else : ?>0<?php endif;?>
+                    </span>
+
+                    <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority for chat being assigned by my assign priority')?>">
+                        <span class="material-icons">add</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
+                    </span>
+
+                    <?php if ($canEditDepartment == true) : ?><span class="material-icons action-image text-danger">delete</span><?php endif; ?>
+
+                </label>
+            </div>
+
+                <?php endif; endif; endforeach;?>
+            </div>
+
+
+            <div class="row d-none" style="max-height: 600px;overflow: auto">
             <?php foreach ($departmentsGroups as $departamentGroup) :
                 $canEditDepartment = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($departamentGroup->id,$departmentEditParams['groups']['id']);
                 if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
@@ -112,6 +190,9 @@
                     </div>
                 <?php endif; endforeach; ?>
             </div>
+
+
+
         </div>
         <?php endif;?>
     <?php endif;?>
