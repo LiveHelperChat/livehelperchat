@@ -47,22 +47,27 @@ class erLhcoreClassMailconvParser {
         $converted->message_id = '<' . $mail->get('message_id') . '>';
         $converted->udate = $mail->get('date')->toDate()->timestamp;
 
-        if ($mail->get('in_reply_to') !== null) {
+        if ($mail->get('in_reply_to')->count() > 0) {
             $converted->in_reply_to = $mail->get('in_reply_to'); // @todo test
         }
 
-        if ($mail->get('references') !== null) {
+        if ($mail->get('references')->count() > 0) {
             $referenceArray = [];
-            foreach ($mail->get('references')->get() as $reference) {
+            foreach ($mail->get('references')->toArray() as $reference) { // @todo test
                 $referenceArray[] = $reference;
             }
             $converted->references = implode(' ', $referenceArray); // @todo test
         }
 
-        $converted->uid = (int)$mail->get('uid');
+        $converted->uid = (int)$mail->getUid();
         $converted->head = $mail->header;
         $converted->subject = (string)$mail->getSubject();
-        $converted->msgno = (int)$mail->get('msgn');
+        try {
+            $converted->msgno = (int)$mail->getMsgn(); // Check why it's gone
+        } catch (Exception $e) {
+            $converted->msgno = 0;
+        }
+
         $converted->size = strlen(json_decode(json_encode($mail->getHeader()), true)['raw'] .  $mail->getRawBody());
 
         return $converted;
@@ -305,7 +310,7 @@ class erLhcoreClassMailconvParser {
 
                     if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                         if ($head->to !== null) {
-                            foreach ($head->to->get() as $recipient) {
+                            foreach ($head->to->toArray() as $recipient) {
                                 if ($mailbox->mail != $recipient->mail && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient->mail))) > 0) {
                                     $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail TO - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient->mail . ' - ' . $mailInfo->uid;
 
@@ -314,7 +319,6 @@ class erLhcoreClassMailconvParser {
                                 }
                             }
                         }
-
                     } elseif (isset($head->to)) {
                         foreach (array_keys($head->to) as $recipient) {
                             // Check is there any mailbox with higher priority
@@ -329,7 +333,7 @@ class erLhcoreClassMailconvParser {
 
                     if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
                         if ($head->cc !== null) {
-                            foreach ($head->cc->get() as $recipient) {
+                            foreach ($head->cc->toArray() as $recipient) {
                                 // Check is there any mailbox with higher priority
                                 if ($mailbox->mail != $recipient->mail && erLhcoreClassModelMailconvMailbox::getCount(array('filtergt' => array('import_priority' => $presentPriority), 'filter' => array('mail' => $recipient->mail))) > 0) {
                                     $statsImport[] = date('Y-m-d H:i:s').' | Skipping e-mail CC - ' . $vars['message_id'] . ' - because import priority is lower than - ' . $recipient->mail . ' - ' . $mailInfo->uid;
@@ -409,7 +413,6 @@ class erLhcoreClassMailconvParser {
 
                     // It's a new mail. Store it as new conversation.
                     if (!isset($mailInfo->in_reply_to) || $newConversation == true) {
-
 
                         $message = new erLhcoreClassModelMailconvMessage();
 
@@ -956,6 +959,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->pnd_time = time();
                 $conversations->lang = $message->lang;
                 $conversations->undelivered = $message->undelivered;
+                $conversations->has_attachment = $message->has_attachment;
                 $conversations->saveThis();
 
                 // Assign conversation
@@ -1045,7 +1049,7 @@ class erLhcoreClassMailconvParser {
 
                 $fileBody = $attachmentRaw->getContent();
 
-                if ($attachmentRaw->getContentType() == 'message/rfc822' && $attributesOAuth['name'] == 'undefined') {
+                if ($attachmentRaw->getContentType() == 'message/rfc822' && $attributesOAuth['name'] == 'undefined' || $attributesOAuth['name'] == '') {
 
                     $head = \imap_rfc822_parse_headers($fileBody);
 
