@@ -1,6 +1,11 @@
 <?php if (!(!isset($departmentEditParams['all_departments']) || $departmentEditParams['all_departments'] == false)) : ?>
-<label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label><br>
-<hr class="mt-1 mb-1">
+
+<div class="pb-2">
+    <label><input type="checkbox" value="on" name="all_departments" <?php echo $user->all_departments == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','All departments')?></label>
+</div>
+
+<input type="submit" class="btn btn-sm btn-secondary" name="UpdateDepartaments_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Update');?>" />
+<hr class="mt-3 mb-3">
 <?php endif; ?>
 
 <div class="row">
@@ -10,7 +15,7 @@
     <div class="col-6">
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?>
 
-            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/18/(action)/operators'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
+            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
 
         </h5>
             <div class="row" style="max-height: 600px;overflow: auto">
@@ -19,7 +24,7 @@
                 if ($canEditDepartment || $departmentEditParams['individual']['read_all'] == true) : ?>
 
                 <?php if (in_array($departament->id,$userDepartamentsRead) || in_array($departament->id,$userDepartaments)) : ?>
-                <div class="col-6">
+                <div class="col-6" id="dep-indv-id-<?php echo $departament->id?>">
                         <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
                             <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
@@ -41,7 +46,7 @@
                                 <span class="material-icons">add</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
                             </span>
 
-                            <?php if ($canEditDepartment == true) : ?><span class="material-icons action-image text-danger">delete</span><?php endif; ?>
+                            <?php if ($canEditDepartment == true) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" onclick="$.postJSON('/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?>/(action)/remove');$('#dep-indv-id-<?php echo $departament->id?>').fadeOut()" class="material-icons action-image text-danger">delete</span><?php endif; ?>
 
                         </label>
                 </div>
@@ -118,7 +123,7 @@
                 </div>
             <?php endif; ?>
 
-            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?> <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/18/(action)/operators'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
+            <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?> <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>/(mode)/group'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
 
 
             <div class="row">
@@ -127,10 +132,10 @@
                 if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
                 <?php if (in_array($departamentGroup->id,$userDepartamentsGroup) ||  in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?>
 
-            <div class="col-6">
+            <div class="col-6" id="depgroup-indv-id-<?php echo $departamentGroup->id?>">
                 <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
-                    <span <?php if ($canEditDepartment == true) : ?>onclick="alert('this')" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
+                    <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(mode)/group'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
 
                     <?php echo htmlspecialchars($departamentGroup->name)?>
 
@@ -150,7 +155,7 @@
                         <span class="material-icons">add</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
                     </span>
 
-                    <?php if ($canEditDepartment == true) : ?><span class="material-icons action-image text-danger">delete</span><?php endif; ?>
+                    <?php if ($canEditDepartment == true) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" onclick="$.postJSON('/user/editdepartment/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(action)/remove/(mode)/group');$('#depgroup-indv-id-<?php echo $departamentGroup->id?>').fadeOut()" class="material-icons action-image text-danger">delete</span><?php endif; ?>
 
                 </label>
             </div>

@@ -43,7 +43,18 @@ $ViewList['account'] = array(
 
 $ViewList['editdepartment'] = array(
     'params' => array('user_id','dep_id'),
-    'uparams' => array('csfr'),
+    'uparams' => array('csfr','action','mode'),
+    'functions' => array( 'selfedit' )
+);
+
+$ViewList['newdepartment'] = array(
+    'params' => array('user_id'),
+    'uparams' => array('csfr','mode'),
+    'functions' => array( 'selfedit' )
+);
+
+$ViewList['userdepartments'] = array(
+    'params' => array('user_id'),
     'functions' => array( 'selfedit' )
 );
 

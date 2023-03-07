@@ -5,7 +5,67 @@
  * */
 
 class erLhcoreClassUserValidator {
-	
+
+    public static function validateDepartmentAssignment(& $userDep) {
+        $definition = array(
+            'exc_indv_autoasign' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'ro' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 1]
+            ),
+            'chat_max_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'chat_min_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'assign_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+
+        $Errors = [];
+
+        if ( $form->hasValidData( 'exc_indv_autoasign' ) && $form->exc_indv_autoasign == true ) {
+            $userDep->exc_indv_autoasign = 1;
+        } else {
+            $userDep->exc_indv_autoasign = 0;
+        }
+
+        if ($form->hasValidData( 'ro' )) {
+            if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) {
+                $userDep->read_only = $form->ro;
+            } else {
+                $userDep->ro = $form->ro;
+            }
+        } else {
+            $Errors[] = 'Invalid Read Only value';
+        }
+
+        if ( $form->hasValidData( 'chat_max_priority' )) {
+            $userDep->chat_max_priority = $form->chat_max_priority;
+        } else {
+            $Errors[] = 'Invalid chat_max_priority';
+        }
+
+        if ( $form->hasValidData( 'chat_min_priority' )) {
+            $userDep->chat_min_priority = $form->chat_min_priority;
+        } else {
+            $Errors[] = 'Invalid chat_max_priority';
+        }
+
+        if ( $form->hasValidData( 'assign_priority' )) {
+            $userDep->assign_priority = $form->assign_priority;
+        } else {
+            $Errors[] = 'Invalid assign_priority';
+        }
+
+        return $Errors;
+    }
+
 	public static function validateUser(& $userData, $params = array()) {
 		
 		$definition = array (
