@@ -227,6 +227,9 @@ class erLhcoreClassChatHelper
                     if ($chat->wait_time == 0) {
                         $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                     }
+                } else {
+                    $chat->last_user_msg_time = time()-1;
+                    $chat->last_op_msg_time = time();
                 }
                 $chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
             }
