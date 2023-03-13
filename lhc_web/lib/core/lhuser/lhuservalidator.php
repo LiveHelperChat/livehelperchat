@@ -903,23 +903,26 @@ class erLhcoreClassUserValidator {
             $userData->hide_online = 0;
         }
 
-        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_core_attributes') ) {
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_password') ) {
 
-            if ( $form->hasValidData( 'Password' ) && $form->hasValidData( 'Password1' ) ) {
+            if ($form->hasValidData('Password') && $form->hasValidData('Password1')) {
                 $userData->password_temp_1 = $form->Password;
                 $userData->password_temp_2 = $form->Password1;
             }
 
-            if ( $form->hasInputField( 'Password' ) && (!$form->hasInputField( 'Password1' ) || $form->Password != $form->Password1 ) ) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Passwords mismatch');
+            if ($form->hasInputField('Password') && (!$form->hasInputField('Password1') || $form->Password != $form->Password1)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Passwords mismatch');
             } else {
-                if ($form->hasInputField( 'Password' ) && $form->hasInputField( 'Password1' ) && $form->Password != '' && $form->Password1 != '') {
+                if ($form->hasInputField('Password') && $form->hasInputField('Password1') && $form->Password != '' && $form->Password1 != '') {
                     $userData->setPassword($form->Password);
                     $userData->password_front = $form->Password;
                 }
             }
-            self::validatePassword($userData,$Errors);
+            
+            self::validatePassword($userData, $Errors);
+        }
 
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'change_core_attributes') ) {
             if ( !$form->hasValidData( 'Email' ) ) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Wrong email address');
             } else {
