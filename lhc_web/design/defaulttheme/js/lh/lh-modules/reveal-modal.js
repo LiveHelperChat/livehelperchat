@@ -19,16 +19,12 @@ var revealM = {
 
         hideCallback : false,
 
+        modalInstance : null,
+
 		revealModal : function(params) {
 
-			if ($('body').hasClass('modal-open')) {
-				if (revealM.hideCallback === false) {
-                    $('#myModal').modal('dispose');
-                } else {
-                    $('#myModal').modal('hide');
-                }
-			} else {
-				$('#myModal').modal('dispose');
+			if (revealM.modalInstance) {
+                revealM.modalInstance.hide();
 			}
 
             if (typeof params['hidecallback'] !== 'undefined') {
@@ -55,7 +51,9 @@ var revealM = {
 							}
 
 							$('#myModal').html(data);
-                            const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                            revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                            revealM.modalInstance.show();
+
                             revealM.setCenteredDraggable();
 					});
 				} else {
@@ -70,7 +68,9 @@ var revealM = {
 							}
 
 							$('#myModal').html(data);//.modal(mparams).show();
-                            const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                            revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                            revealM.modalInstance.show();
+
                             revealM.setCenteredDraggable();
 					});
 				}
@@ -93,9 +93,10 @@ var revealM = {
                 }
                 
 				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>');
-                const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                revealM.modalInstance.show();
 
-				revealM.setCenteredDraggable();
+                revealM.setCenteredDraggable();
 				
 			}
 		},
