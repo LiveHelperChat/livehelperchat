@@ -9,7 +9,7 @@
         <label><input type="checkbox" id="id-copy-messages-meta" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include meta messages')?></label>
     </div>
     <div class="col-4">
-        <label><input type="checkbox" checked="checked" id="id-copy-messages-bot" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include bot messages')?></label>
+        <label><input type="checkbox" <?php if (isset($_GET['bot']) && $_GET['bot'] == 'true') : ?>checked="checked"<?php endif;?> id="id-copy-messages-bot" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include bot messages')?></label>
     </div>
 </div>
 
