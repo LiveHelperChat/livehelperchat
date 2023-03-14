@@ -10,7 +10,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
         $filter = array('limit' => 5000, 'filternotin' => array('user_id' => array(-1)), 'filter' => array('chat_id' => $chat->id));
     }
 
-    if (isset($_GET['bot_exclude']) && $_GET['bot_exclude'] == 'true') {
+    if (!isset($_GET['bot']) || $_GET['bot'] == 'false') {
         $filter['filternot']['user_id'] = -2;
     }
 

@@ -9,7 +9,7 @@
         <label><input type="checkbox" id="id-copy-messages-meta" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include meta messages')?></label>
     </div>
     <div class="col-4">
-        <label><input type="checkbox" id="id-copy-messages-bot" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Exclude bot messages')?></label>
+        <label><input type="checkbox" checked="checked" id="id-copy-messages-bot" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include bot messages')?></label>
     </div>
 </div>
 
@@ -32,7 +32,7 @@ function copyMessageContent() {
     };
 
     if ($('#id-copy-messages-bot').is(':checked')) {
-        args['bot_exclude'] = 'true';
+        args['bot'] = 'true';
     };
 
     $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>', args, function(data){
