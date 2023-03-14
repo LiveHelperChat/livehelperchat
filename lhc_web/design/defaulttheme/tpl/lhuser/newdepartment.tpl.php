@@ -1,4 +1,9 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','Assign department'); ?>
+<?php if ($userDep instanceof erLhcoreClassModelUserDep) : ?>
+    <?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','Assign department'); ?>
+<?php else : ?>
+    <?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','Assign department group'); ?>
+<?php endif; ?>
+
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <?php if (isset($updated) && $updated == true) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Updated'); ?>
@@ -43,7 +48,7 @@
 
     <button type="submit" class="btn btn-sm btn-secondary" name="update"><span class="material-icons me-0">add</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','Add')?></button>
     <script>
-    $('.drop-down-modal').makeDropdown();
+        $('.drop-down-modal').makeDropdown();
     </script>
 </form>
 

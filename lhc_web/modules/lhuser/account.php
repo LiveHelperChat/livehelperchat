@@ -215,7 +215,7 @@ if (isset($_POST['UpdateNotifications_account'])) {
 $currentUser = erLhcoreClassUser::instance();
 
 $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
-
+/*
 if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($currentUser->hasAccessTo('lhuser','see_assigned_departments') || $currentUser->hasAccessTo('lhuser','see_assigned_departments_groups'))) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -305,7 +305,7 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
         $tpl->set('account_updated_departaments','failed');
         $tpl->set('tab', 'tab_departments');
     }
-}
+}*/
 
 
 

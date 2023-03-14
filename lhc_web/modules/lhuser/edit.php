@@ -195,6 +195,7 @@ if (isset($_POST['UpdatePending_account']) && $can_edit_groups === true) {
     $tpl->set('tab','tab_pending');
 }
 
+/*
 if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
 
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -286,7 +287,7 @@ if (isset($_POST['UpdateDepartaments_account']) && $can_edit_groups === true) {
     }
     
     $tpl->set('tab','tab_departments');
-}
+}*/
 
 if (isset($_POST['UpdateSpeech_account']) && $can_edit_groups === true) {
 

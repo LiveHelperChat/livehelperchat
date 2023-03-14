@@ -8,6 +8,7 @@ if ($user instanceof erLhcoreClassModelUser)
     $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
     $tpl->set('editdepartaments',$allowEditDepartaments);
     $tpl->set('user', $user);
+    $tpl->set('selfedit', $Params['user_parameters_unordered']['editor'] == 'self');
     echo $tpl->fetch();
     exit;
 } else {

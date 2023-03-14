@@ -3,6 +3,11 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhuser/editdepartment.tpl.php');
 
 $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['user_id']);
+$canContinue = true;
+
+if ($Params['user_parameters_unordered']['editor'] == 'self' && $Params['user_parameters']['user_id'] != $currentUser->getUserID()) {
+    $canContinue = false;
+}
 
 if ($Params['user_parameters_unordered']['mode'] == 'group') {
     $dep = erLhcoreClassModelDepartamentGroup::fetch($Params['user_parameters']['dep_id']);
@@ -12,7 +17,116 @@ if ($Params['user_parameters_unordered']['mode'] == 'group') {
     $userDep = erLhcoreClassModelUserDep::findOne(['filter' => ['user_id' => $user->id, 'dep_id' => $dep->id, 'type' => 0]]);
 }
 
-if ($user instanceof erLhcoreClassModelUser && ($dep instanceof erLhcoreClassModelDepartament || $dep instanceof erLhcoreClassModelDepartamentGroup))
+$userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
+$userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
+$userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds($user->id);
+$userDepartamentsParams = erLhcoreClassUserDep::getUserIndividualParams($user->id);
+
+$userDepartamentsGroup = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id);
+$userDepartamentsGroupRead = erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds($user->id, true);
+$userDepartamentsGroupAutoExc = erLhcoreClassModelDepartamentGroupUser::getUserGroupsExcAutoassignIds($user->id);
+$userDepartamentsGroupParams = erLhcoreClassModelDepartamentGroupUser::getUserGroupsParams($user->id);
+
+if ($Params['user_parameters_unordered']['editor'] == 'self') {
+
+    $departmentEditParams = [
+        'self_edit' => true,
+        'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','self_all_departments'),
+        'individual' => [
+            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments'),
+            'edit_all' => $currentUser->hasAccessTo('lhuser','editdepartaments'),
+            'all_dep'  => $userDepartamentsParams,
+            'edit_personal' => false,
+            'see_personal' => false,
+        ],
+        'groups' => [
+            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_assigned_departments_groups'),
+            'edit_all' => $currentUser->hasAccessTo('lhuser','editdepartaments'),
+            'all_group' => $userDepartamentsGroupParams,
+            'edit_personal' => false,
+            'see_personal' => false,
+        ]
+    ];
+
+    if ($departmentEditParams['individual']['edit_all'] == false) {
+        $departmentEditParams['individual']['id'] = array_merge(
+            erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                $user->id
+            ),
+            erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                $user->id,
+                true
+            )
+        );
+    }
+
+    if ($departmentEditParams['groups']['edit_all'] == false) {
+        $departmentEditParams['groups']['id'] = array_merge(
+            erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                $user->id
+            ),
+            erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                $user->id,
+                true
+            )
+        );
+    }
+
+} else {
+    $departmentEditParams = [
+        'self_edit' => false,
+        'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
+        'individual' => [
+            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+            'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_individual'),
+            'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_individual'),
+            'all_dep'  => $userDepartamentsParams,
+        ],
+        'groups' => [
+            'read_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','see_user_assigned_departments_groups') || erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+            'edit_all' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_all_department_group'),
+            'edit_personal' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','assign_to_own_department_group'),
+            'all_group' => $userDepartamentsGroupParams
+        ]
+    ];
+
+    if ($departmentEditParams['individual']['edit_all'] == false) {
+        $departmentEditParams['individual']['id'] = array_merge(
+            erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                erLhcoreClassUser::instance()->getUserID()
+            ),
+            erLhcoreClassUserDep::getUserDepartamentsIndividual(
+                erLhcoreClassUser::instance()->getUserID(),
+                true
+            )
+        );
+    }
+
+    if ($departmentEditParams['groups']['edit_all'] == false) {
+        $departmentEditParams['groups']['id'] = array_merge(
+            erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                erLhcoreClassUser::instance()->getUserID()
+            ),
+            erLhcoreClassModelDepartamentGroupUser::getUserGroupsIds(
+                erLhcoreClassUser::instance()->getUserID(),
+                true
+            )
+        );
+    }
+}
+
+// Verify permissions for edit
+if ($Params['user_parameters_unordered']['editor'] == 'self') {
+    $tpl->set('editor','self');
+}
+
+if ($Params['user_parameters_unordered']['mode'] == 'group') {
+    $canContinue = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($dep->id,$departmentEditParams['groups']['id']);
+} else {
+    $canContinue = $departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal'] && in_array($dep->id, $departmentEditParams['individual']['id']);
+}
+
+if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep instanceof erLhcoreClassModelDepartament || $dep instanceof erLhcoreClassModelDepartamentGroup))
 {
     if ($Params['user_parameters_unordered']['action'] == 'remove') {
 
@@ -57,10 +171,8 @@ if ($user instanceof erLhcoreClassModelUser && ($dep instanceof erLhcoreClassMod
     echo $tpl->fetch();
     exit;
 } else {
-    $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
-    $tpl->set('show_close_button',true);
-    $tpl->set('auto_close_dialog',true);
-    $tpl->set('chat_id',(int)$Params['user_parameters']['dep_id']);
+    $tpl->setFile( 'lhchat/errors/modal_error.tpl.php');
+    $tpl->set( 'errors', ['No permission to edit!']);
     echo $tpl->fetch();
     exit;
 }
