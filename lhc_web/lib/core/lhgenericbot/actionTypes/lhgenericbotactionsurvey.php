@@ -34,7 +34,7 @@ class erLhcoreClassGenericBotActionSurvey {
 
             if (!empty($surveyIds) && isset($action['content']['survey_options']['unique_per_chat']) && $action['content']['survey_options']['unique_per_chat'] == true) {
                 $surveyFilledIds = [];
-                foreach (erLhcoreClassModelmsg::getList(['filterlike' => ['meta_msg' => 'survey_id'], 'filter' => ['chat_id' => $chat->id, 'user_id' => -2]]) as $msgPrevious) {
+                foreach (erLhcoreClassModelmsg::getList(['filterlike' => ['meta_msg' => 'survey_id'], 'filter' => ['chat_id' => $chat->id]]) as $msgPrevious) {
                     $metaData = $msgPrevious->meta_msg_array;
                     if (isset($metaData['content']['survey']['survey_id'])){
                         $surveyFilledIds[] = $metaData['content']['survey']['survey_id'];
