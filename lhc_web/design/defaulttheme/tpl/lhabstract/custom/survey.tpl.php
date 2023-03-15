@@ -25,6 +25,8 @@
     </div>
 </div>
 
+<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/survey/custom_multiinclude.tpl.php'));?>
+
 <?php $translatableItem = array('identifier' => 'feedback_text'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
