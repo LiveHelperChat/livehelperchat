@@ -215,7 +215,7 @@ if (isset($_POST['UpdateNotifications_account'])) {
 $currentUser = erLhcoreClassUser::instance();
 
 $allowEditDepartaments = $currentUser->hasAccessTo('lhuser','editdepartaments');
-/*
+
 if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($currentUser->hasAccessTo('lhuser','see_assigned_departments') || $currentUser->hasAccessTo('lhuser','see_assigned_departments_groups'))) {
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -229,7 +229,29 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
         $db->beginTransaction();
 
         if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments')) {
-            $departmentEditParams = [
+
+            $globalDepartament = array();
+
+            if (!isset($params['all_departments']) || $params['all_departments'] == true)
+            {
+                if (isset($_POST['all_departments']) && $_POST['all_departments'] == 'on') {
+                    $UserData->all_departments = 1;
+                    $globalDepartament[] = 0;
+                } else {
+                    $UserData->all_departments = 0;
+                    if(isset($params['all_departments_0_global_value'])) {
+                        $globalDepartament[] = $params['all_departments_0_global_value'];
+                    } else {
+                        $globalDepartament[] = -1;
+                    }
+                }
+            } else {
+                $globalDepartament[] = $UserData->all_departments == 1 ? 0 : -1;
+            }
+
+            erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, [], [], ['only_global' => true]);
+
+            /*$departmentEditParams = [
                 'individual' => [
                     'edit_all' => $currentUser->hasAccessTo('lhuser', 'see_assigned_departments'),
                 ],
@@ -241,9 +263,9 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
             $globalDepartament = erLhcoreClassUserValidator::validateDepartments($UserData, [
                 'all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'self_all_departments'),
                 'edit_params' => $departmentEditParams
-            ]);
+            ]);*/
 
-            $readOnlyDepartments = array();
+            /*$readOnlyDepartments = array();
             if (isset($_POST['UserDepartamentRead']) && count($_POST['UserDepartamentRead']) > 0) {
                 $readOnlyDepartments = $_POST['UserDepartamentRead'];
             }
@@ -265,10 +287,11 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
                 erLhcoreClassUserDep::addUserDepartaments($globalDepartament, false, $UserData, $readOnlyDepartments, $excAutoDepartments, $paramsAssignment);
             } else {
                 erLhcoreClassUserDep::addUserDepartaments(array(), false, $UserData, $readOnlyDepartments, $excAutoDepartments, $paramsAssignment);
-            }
+            }*/
         }
 
-        if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments_groups')) {
+
+        /*if ($currentUser->hasAccessTo('lhuser', 'see_assigned_departments_groups')) {
 
             $paramsAssignmentGroup = [
                 'assign_priority' => (isset($_POST['UserDepartamentGroupAssignPriority']) ? $_POST['UserDepartamentGroupAssignPriority'] : []),
@@ -291,7 +314,7 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
                 $excludeGroups,
                 $paramsAssignmentGroup
             );
-        }
+        }*/
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.after_user_departments_update', array('user' => & $UserData));
 
@@ -305,7 +328,7 @@ if ($allowEditDepartaments && isset($_POST['UpdateDepartaments_account']) && ($c
         $tpl->set('account_updated_departaments','failed');
         $tpl->set('tab', 'tab_departments');
     }
-}*/
+}
 
 
 

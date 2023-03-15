@@ -110,24 +110,21 @@ if ($Params['user_parameters_unordered']['editor'] == 'self') {
 $depIds = [];
 foreach (erLhcoreClassModelDepartament::getList(array('limit' => false)) as $departament) {
     $canEditDepartment = $departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal'] && in_array($departament->id, $departmentEditParams['individual']['id']);
-    if ($canEditDepartment || $departmentEditParams['individual']['read_all'] == true) {
-        if ((in_array($departament->id, $userDepartamentsRead) || in_array($departament->id, $userDepartaments)) && $canEditDepartment) {
-            $depIds[] = $departament->id;
-        }
+    if ($canEditDepartment) {
+        $depIds[] = $departament->id;
     }
 }
 
 $depGroupIds = [];
-
 $departmentsGroups = erLhcoreClassModelDepartamentGroup::getList(array('sort' => 'name ASC', 'limit' => false));
 foreach ($departmentsGroups as $departamentGroup) {
     $canEditDepartment = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($departamentGroup->id, $departmentEditParams['groups']['id']);
-    if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) {
-        if ((in_array($departamentGroup->id, $userDepartamentsGroup) || in_array($departamentGroup->id, $userDepartamentsGroupRead)) && $canEditDepartment) {
-            $depGroupIds[] = $departamentGroup->id;
-        }
+    if ($canEditDepartment) {
+        $depGroupIds[] = $departamentGroup->id;
     }
 }
+
+
 
 $tpl->set('dep_group_ids',$depGroupIds);
 $tpl->set('dep_ids',$depIds);
@@ -139,12 +136,11 @@ if ($Params['user_parameters_unordered']['editor'] == 'self') {
 
 $userDep->user_id = $user->id;
 
-if ($user instanceof erLhcoreClassModelUser)
-{
+if ($user instanceof erLhcoreClassModelUser) {
     if (ezcInputForm::hasPostData()) {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject', 'Invalid CSRF token'));
         }
 
         $db = ezcDbInstance::get();
@@ -154,40 +150,48 @@ if ($user instanceof erLhcoreClassModelUser)
 
         $definition = array(
             'dep_ids' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int',['min_range' => 1]
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1]
             )
         );
 
-        $form = new ezcInputForm( INPUT_POST, $definition );
+        $form = new ezcInputForm(INPUT_POST, $definition);
 
         $Errors = [];
 
-        if ( $form->hasValidData( 'dep_ids' ) ) {
+        if ($form->hasValidData('dep_ids')) {
             if ($Params['user_parameters_unordered']['mode'] == 'group') {
                 $userDep->dep_group_id = $form->dep_ids;
             } else {
                 $userDep->dep_id = $form->dep_ids;
             }
         } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','Please choose a department!');
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'Please choose a department!');
         }
 
         if ($Params['user_parameters_unordered']['mode'] == 'group') {
             if (empty($Errors) && erLhcoreClassModelDepartamentGroupUser::getCount(['filter' => ['user_id' => $user->id, 'dep_group_id' => $userDep->dep_group_id]]) > 0) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','This department department already have been added!');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'This department department already have been added!');
             }
         } else {
             if (empty($Errors) && erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id, 'dep_id' => $userDep->dep_id, 'type' => 0]]) > 0) {
-                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment','This department already have been added!');
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'This department already have been added!');
             }
         }
 
         if (count($Errors) == 0) {
-            // @todo add dynamic attributes like active chats etc
+            if ($Params['user_parameters_unordered']['mode'] != 'group') {
+                $userDep->max_chats = $user->max_active_chats;
+                $userDep->hide_online = $user->hide_online;
+                $userDep->exclude_autoasign = $user->exclude_autoasign;
+                $userDep->active_chats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
+                $userDep->always_on = $user->always_on;
+            }
+            
             $userDep->saveThis();
-            $tpl->set('updated',true);
-        }  else {
-            $tpl->set('errors',$Errors);
+
+            $tpl->set('updated', true);
+        } else {
+            $tpl->set('errors', $Errors);
         }
 
         $db->commit();
@@ -198,10 +202,8 @@ if ($user instanceof erLhcoreClassModelUser)
     echo $tpl->fetch();
     exit;
 } else {
-    $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
-    $tpl->set('show_close_button',true);
-    $tpl->set('auto_close_dialog',true);
-    $tpl->set('chat_id',(int)$Params['user_parameters']['dep_id']);
+    $tpl->setFile( 'lhchat/errors/modal_error.tpl.php');
+    $tpl->set( 'errors', ['No permission to edit!']);
     echo $tpl->fetch();
     exit;
 }
