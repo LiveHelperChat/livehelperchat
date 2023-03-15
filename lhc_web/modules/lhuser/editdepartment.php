@@ -135,6 +135,9 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         }
 
         $userDep->removeThis();
+        
+        $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
+        $user->updateThis(['update' => ['departments_ids']]);
         exit;
     }
 

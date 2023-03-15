@@ -124,8 +124,6 @@ foreach ($departmentsGroups as $departamentGroup) {
     }
 }
 
-
-
 $tpl->set('dep_group_ids',$depGroupIds);
 $tpl->set('dep_ids',$depIds);
 
@@ -188,6 +186,9 @@ if ($user instanceof erLhcoreClassModelUser) {
             }
             
             $userDep->saveThis();
+
+            $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
+            $user->updateThis(['update' => ['departments_ids']]);
 
             $tpl->set('updated', true);
         } else {
