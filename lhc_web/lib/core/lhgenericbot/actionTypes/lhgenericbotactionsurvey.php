@@ -43,6 +43,12 @@ class erLhcoreClassGenericBotActionSurvey {
                 $surveyIds = array_diff($surveyIds, $surveyFilledIds);
             }
 
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_survey_trigger', array(
+                'action' => $action,
+                'chat' => & $chat,
+                'survey_id' => & $surveyIds
+            ));
+
             $msg->msg = "";
 
             // No survey to fill
