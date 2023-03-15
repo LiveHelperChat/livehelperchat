@@ -424,7 +424,7 @@ class erLhAbstractModelAutoResponder {
                 }
 
                 if (isset($options['store_messages']) && $options['store_messages'] == true) {
-                    $args = array();
+                    $args = ['args' => ['ignore_times' => true]];
 
                     if (isset($options['override_nick']) && !empty($options['override_nick'])) {
                         $args['args']['override_nick'] = $options['override_nick'];
