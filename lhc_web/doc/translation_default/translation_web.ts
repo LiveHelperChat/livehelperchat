@@ -4,6 +4,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -688,6 +692,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g 5, means there have to be 5 pending chats in the queue and I am 6 in the queue.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messaging</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download theme</source>
       <translation type="unfinished"/>
     </message>
@@ -1020,11 +1040,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>How many pending chats have to be in the queue (not counting started chat) for pending chat messaging to be activated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum pending chats for pending messaging to be activated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1377,6 +1413,10 @@
     </message>
     <message>
       <source>Custom html before standard widget status header</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Custom html after chat status</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1831,6 +1871,18 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
+      <source>Message to visitor on chat close</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if department is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if operator speaks same language as visitor.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
     </message>
@@ -2003,6 +2055,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message for timeout [1], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [2], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [3], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [4], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [5], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Timeout. [2]</source>
       <translation type="unfinished"/>
     </message>
@@ -2019,15 +2091,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor on chat close</source>
+      <source>Message to visitor on chat close. Use ||| to separate random messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor if department is offline</source>
+      <source>Message to visitor if department is offline. Use ||| to separate random messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor if operator speaks same language as visitor.</source>
+      <source>Message to visitor if operator speaks same language as visitor. Use ||| to separate random messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3028,6 +3100,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Object ID</source>
       <translation type="unfinished"/>
     </message>
@@ -3049,14 +3161,6 @@
     </message>
     <message>
       <source>Search</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department filter</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3105,22 +3209,6 @@
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range to</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Hour and minute to</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3213,18 +3301,6 @@
     </message>
     <message>
       <source>Advanced search</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Select seconds</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3521,6 +3597,10 @@
     </message>
     <message>
       <source>File name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File id</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3971,63 +4051,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Main</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search for language. Enter * to see all.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, use it like {identifier} in canned responses, or bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add combination</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Activity period</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tab custom name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rules with highest priority will be checked first</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Advanced filtering</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add condition</source>
+      <source>click to expand</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4064,6 +4092,70 @@
     </message>
     <message>
       <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, use it like {identifier} in canned responses, or bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add combination</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab custom name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put a custom value here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rules with highest priority will be checked first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Advanced filtering</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4196,6 +4288,10 @@
     </message>
     <message>
       <source>HTML Snippet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On expire delete canned message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4489,6 +4585,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Work hours/work days logic is active</source>
       <translation type="unfinished"/>
     </message>
@@ -4722,6 +4822,62 @@
     </message>
     <message>
       <source>Maximum pending chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual theme is picked only if one department is passed. Theme determination happens in the following order.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for passed theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for individual theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for default department theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for global default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme applied per department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This theme is set from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>section and checking As default department theme.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme global</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are using only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>option and you have more than one server you might get inconsistent theme pickup. Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>to department as default or choose individual theme.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5378,6 +5534,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Provided survey does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You cannot send messages to this chat. Chat has been closed.</source>
       <translation type="unfinished"/>
     </message>
@@ -5423,6 +5583,18 @@
     </message>
     <message>
       <source>Change language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Next 〉</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>〈 Back</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5918,6 +6090,14 @@
     </message>
     <message>
       <source>Source code with a link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme, you can choose multiple to show random one.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As default department theme</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6659,6 +6839,10 @@
     </message>
     <message>
       <source>Include meta messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Exclude bot messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7845,6 +8029,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assignment priority, optional, default - 0</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agents with higher assignment priority will be assigned first to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Read only</source>
       <translation type="unfinished"/>
     </message>
@@ -8866,6 +9062,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only logged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User ID</source>
       <translation type="unfinished"/>
     </message>
@@ -8923,10 +9135,6 @@
     </message>
     <message>
       <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9872,6 +10080,10 @@
     </message>
     <message>
       <source>Chat list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11176,6 +11388,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Taken time to render departments groups statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken time to render departments statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Number of elements in list</source>
       <translation type="unfinished"/>
     </message>
@@ -11245,6 +11465,10 @@
     </message>
     <message>
       <source>User group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken time to fetch information for this widget</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12998,6 +13222,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update stats</source>
       <translation type="unfinished"/>
     </message>
@@ -13161,6 +13397,38 @@
     </message>
     <message>
       <source>Resume auto assign if chat remains pending for n seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign chat by operator priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This has higher priority than assign chats to lower number of chats having operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activate prioritized assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign chat by operator priority also</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum agent assignment priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum chat priority for it being processed with prioritized assignment workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15517,7 +15785,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Type here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Thank you for your feedback...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Survey has been completed, thank you for your feedback!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -16782,6 +17058,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>View is passive and is not updated in the background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View is active and is updated in the background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make passive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -17634,7 +17926,15 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
       <translation type="unfinished"/>
     </message>
     <message>

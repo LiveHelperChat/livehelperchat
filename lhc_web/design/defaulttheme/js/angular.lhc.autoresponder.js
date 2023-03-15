@@ -2,6 +2,7 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
 
     this.languages = [];
     this.dialects = [];
+    this.departments = [];
     this.ignoreLanguages = {
         'languages' : []
     };
@@ -19,6 +20,7 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
 
     this.setDialects = function() {
         this.dialects = $window['languageDialects'];
+        this.departments = $window['replaceDepartments'];
     }
 
     this.setIgnoreLanguages = function() {
@@ -37,10 +39,17 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
         that.languages.push({
             'message' : '',
             'fallback_message' : '',
+            'dep_id': "0",
+            'dep_ids': [],
             'languages' : []});
+
         setTimeout(function () {
             $('#autoresponder-tabs li:eq(' + (that.languages.length+3) + ') a').tab('show');
         },250);
+
+        setTimeout(function(){
+            $('.btn-block-department').makeDropdown();
+        },1000);
     };
 
     this.toggleSelection =  function toggleSelection(lang, language) {
@@ -74,6 +83,12 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
             if (item.length == 2) {
                 shortCode.push(item);
             }
+        });
+
+        var _that = this;
+
+        lang.dep_ids && lang.dep_ids.forEach(function(item) {
+            shortCode.push(_that.departments[item]);
         });
 
         return shortCode.length > 0 ? shortCode.join(', ') : lang.languages.join(', ');
@@ -128,5 +143,27 @@ lhcAppControllers.controller('AutoResponderCtrl',['$scope','$http','$location','
         }
     }
 
+
+    this.addOption = function(element) {
+        this.addDepartment(element)
+    }
+
+    this.addDepartment = function(combination){
+
+        if (!combination.dep_ids) {
+            combination.dep_ids = [];
+        }
+
+        if (combination.dep_ids.indexOf(combination.dep_id) == -1) {
+            combination.dep_ids.push(combination.dep_id);
+        }
+    }
+
+    this.deleteElement = function (element,list) {
+        if (confirm('Are you sure?')){
+            list.splice(list.indexOf(element), 1);
+        }
+    }
+    
 
 }]);

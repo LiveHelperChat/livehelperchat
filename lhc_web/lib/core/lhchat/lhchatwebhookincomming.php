@@ -557,17 +557,33 @@ class erLhcoreClassChatWebhookIncoming {
                         if (!empty($file)) {
                             $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = $file;
                         }
+
                     } else if (isset($conditions['msg_' . $typeMessage . '_download']) && $conditions['msg_' . $typeMessage . '_download'] == true) {
+
+                        $overrideAttributes = [];
+
+                        if ((isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : '')){
+                            $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_file_name'], '.');
+                            if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                $overrideAttributes['upload_name'] = $fileNameAttribute['value'];
+                            }
+                        }
+
                         $file = self::parseFiles(
                             self::extractAttribute(
                                 'msg_cond_' . $typeMessage . '_body',
                                 $conditions,
                                 $payloadMessage,
                                 (isset($payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']]) ? $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] : '')),
-                            $chat);
+                            $chat,
+                            [],
+                            $overrideAttributes
+                        );
+
                         if (!empty($file)) {
                             self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], $file);
                         }
+
                     } else if (
                         // base64 encoded file
                         strpos($payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']], 'https://') === false &&
@@ -1294,7 +1310,7 @@ class erLhcoreClassChatWebhookIncoming {
 
         if (!is_array($url)) {
 
-            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest($url, $headers);
+            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers);
 
             // File name
             $partsFilename = explode('/',strtok($url, '?'));
@@ -1341,6 +1357,7 @@ class erLhcoreClassChatWebhookIncoming {
             }
 
             if ($mimeType !== false) {
+                $mimeType = trim(explode(';',$mimeType)[0]);
                 $extension = self::getExtensionByMime($mimeType);
                 if ($extension !== false) {
                     $fileUpload->extension = $extension;
@@ -1369,6 +1386,7 @@ class erLhcoreClassChatWebhookIncoming {
             'swf' => 'application/x-shockwave-flash',
             'flv' => 'video/x-flv',
             'ogg' => 'audio/ogg',
+            'webm' => 'video/x-matroska',
 
             // images
             'png' => 'image/png',

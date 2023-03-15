@@ -19,16 +19,12 @@ var revealM = {
 
         hideCallback : false,
 
+        modalInstance : null,
+
 		revealModal : function(params) {
 
-			if ($('body').hasClass('modal-open')) {
-				if (revealM.hideCallback === false) {
-                    $('#myModal').modal('dispose');
-                } else {
-                    $('#myModal').modal('hide');
-                }
-			} else {
-				$('#myModal').modal('dispose');
+			if (revealM.modalInstance) {
+                revealM.modalInstance.hide();
 			}
 
             if (typeof params['hidecallback'] !== 'undefined') {
@@ -53,15 +49,18 @@ var revealM = {
 							if (typeof params['hidecallback'] !== 'undefined') {
 								$('#myModal').on('hide.bs.modal',params['hidecallback']);
 							}
+
                             if (data != "") {
                                 $('#myModal').html(data);
-                                const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                                revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                                revealM.modalInstance.show();
                                 revealM.setCenteredDraggable();
                             } else if (typeof params['on_empty'] !== 'undefined') {
                                 params['on_empty']();
                             } else {
                                 alert('Empty content was returned!');
                             }
+
 					});
 				} else {
 					jQuery.get(params['url'], function(data){
@@ -76,7 +75,8 @@ var revealM = {
 
                             if (data != "") {
                                 $('#myModal').html(data);//.modal(mparams).show();
-                                const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                                revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                                revealM.modalInstance.show();
                                 revealM.setCenteredDraggable();
                             } else if (typeof params['on_mepty'] !== 'undefined') {
                                 params['on_mepty']();
@@ -104,9 +104,10 @@ var revealM = {
                 }
                 
 				$('#myModal').html('<div class="modal-dialog modal-dialog-scrollable modal-xl"><div class="modal-content">'+header+'<div class="modal-body'+additionalModalBody+'">'+prependeBody+'<iframe src="'+params['url']+'" frameborder="0" style="width:100%" height="'+params['height']+'" /></div></div></div>');
-                const myModal = new bootstrap.Modal('#myModal', mparams).show();
+                revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
+                revealM.modalInstance.show();
 
-				revealM.setCenteredDraggable();
+                revealM.setCenteredDraggable();
 				
 			}
 		},

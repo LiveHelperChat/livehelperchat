@@ -363,7 +363,8 @@
     </message>
     <message>
       <source>Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n &gt; 0 time in minutes</source>
-      <translation type="unfinished"/>
+      <translation>Fechar automaticamente o bate-papo ativo se a mensagem do último visitante/operador ultrapassar o tempo.
+0 - desabilitado, n &gt; 0 tempo em minutos</translation>
     </message>
     <message>
       <source>Automatically close pending chats where visitor has left a chat. Timeout in minutes, last activity by visitor &lt;desktop timeout&gt;,&lt;mobile timeout&gt;.</source>
@@ -518,7 +519,7 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>Os dados salvos abaixo não são mostrados.</translation>
     </message>
     <message>
       <source>Share</source>
@@ -599,15 +600,15 @@
     </message>
     <message>
       <source>Invitation is active if any of these are true.</source>
-      <translation type="unfinished"/>
+      <translation>O convite está ativo se algum destes for verdadeiro.</translation>
     </message>
     <message>
       <source>If operator has 3 max chats, and you enter here 2. Means proactive invitation will be active only if operator has less than 5 chats assigned to him.</source>
-      <translation type="unfinished"/>
+      <translation>Se o operador tiver no máximo 3 chats, e você inserir aqui 2. Significa que o convite proativo estará ativo somente se o operador tiver menos de 5 chats atribuídos a ele.</translation>
     </message>
     <message>
       <source>Other conditions</source>
-      <translation type="unfinished"/>
+      <translation>Outras condições</translation>
     </message>
     <message>
       <source>If visitor arrived to website today, and he was on website yesterday. This value holds last time visitor was seen on website yesterday.</source>
@@ -615,7 +616,7 @@
     </message>
     <message>
       <source>Attributes conditions conditions</source>
-      <translation type="unfinished"/>
+      <translation>Condições das condições de atributos</translation>
     </message>
     <message>
       <source>You can filter by `online_attr_system` attribute key and it&apos;s value. Multiple values can be separated by ||</source>
@@ -623,19 +624,19 @@
     </message>
     <message>
       <source>Attribute key</source>
-      <translation type="unfinished"/>
+      <translation>Chave de atributo</translation>
     </message>
     <message>
       <source>Comparison operator</source>
-      <translation type="unfinished"/>
+      <translation>Operador de comparação</translation>
     </message>
     <message>
       <source>Attribute value</source>
-      <translation type="unfinished"/>
+      <translation>Valor do atributo</translation>
     </message>
     <message>
       <source>For trigger being executed on chat start also it has to have `Can be passed as argument` option enabled.</source>
-      <translation type="unfinished"/>
+      <translation>Para o gatilho ser executado no início do chat, ele também deve ter a opção `Pode ser passado como argumento` habilitado.</translation>
     </message>
     <message>
       <source>Search for language. Enter * to see all.</source>
@@ -651,7 +652,7 @@
     </message>
     <message>
       <source>Activity conditions</source>
-      <translation type="unfinished"/>
+      <translation>Condições de atividade</translation>
     </message>
     <message>
       <source>Bot</source>
@@ -675,7 +676,7 @@
     </message>
     <message>
       <source>Conversion</source>
-      <translation type="unfinished"/>
+      <translation>Conversão</translation>
     </message>
     <message>
       <source>Choose what bot trigger element append after auto responder message</source>
@@ -727,7 +728,7 @@
     </message>
     <message>
       <source>Reactions</source>
-      <translation type="unfinished"/>
+      <translation>Reações</translation>
     </message>
     <message>
       <source>If you enter alias make sure you pass this string as argument for a theme. Otherwise argument will be ignored.</source>
@@ -763,11 +764,11 @@
     </message>
     <message>
       <source>Scroll to the bottom style</source>
-      <translation type="unfinished"/>
+      <translation>Role até o estilo inferior</translation>
     </message>
     <message>
       <source>Other</source>
-      <translation type="unfinished"/>
+      <translation>Outro</translation>
     </message>
     <message>
       <source>Override embed code settings</source>
@@ -1767,15 +1768,15 @@
     </message>
     <message>
       <source>Offline widget background color</source>
-      <translation>Cor de fundo do widget offline</translation>
+      <translation>Cor de fundo do widget desconectado</translation>
     </message>
     <message>
       <source>Offline widget border color</source>
-      <translation>Cor da borda do widget offline</translation>
+      <translation>Cor da borda do widget desconectado</translation>
     </message>
     <message>
       <source>Offline text/icon color</source>
-      <translation>Cor do Texto/Ícone Offline</translation>
+      <translation>Cor do Texto/Ícone desconectado</translation>
     </message>
     <message>
       <source>Show close widget button in status widget</source>
@@ -1787,7 +1788,7 @@
     </message>
     <message>
       <source>Enable embed code override</source>
-      <translation>Ativar substituição de código de incorporação</translation>
+      <translation>Habilitar substituição de código de incorporação</translation>
     </message>
     <message>
       <source>New messages text. 1 message case</source>
@@ -1834,7 +1835,7 @@
     </message>
     <message>
       <source>If department is offline and visitor starts a chat this message will be send instaed of default welcome message. If this message is empty - welcome message will be send.</source>
-      <translation>Se o departamento estiver offline e o visitante iniciar um chat, esta mensagem será enviada com uma mensagem de boas-vindas padrão. Se esta mensagem estiver vazia - será enviada uma mensagem de boas-vindas.</translation>
+      <translation>Se o departamento estiver desconectado e o visitante iniciar um chat, esta mensagem será enviada com uma mensagem de boas-vindas padrão. Se esta mensagem estiver vazia - será enviada uma mensagem de boas-vindas.</translation>
     </message>
     <message>
       <source>Internal conversion parameters. Internal conversion is used to track covnersion where final step is done by user executing specific action and letting website to know us it happened.</source>
@@ -1854,7 +1855,7 @@
     </message>
     <message>
       <source>New widget options</source>
-      <translation>Novas Opções de Widget</translation>
+      <translation>Opções de novos widgets</translation>
     </message>
     <message>
       <source>Old widget options</source>
@@ -1862,7 +1863,7 @@
     </message>
     <message>
       <source>If chat was accepted by the same language speaking operator you can send visitor a custom message on chat accept event.</source>
-      <translation> Se o chat foi aceito pelo operador que fala o mesmo idioma, você pode enviar ao visitante uma mensagem personalizada no evento de aceitação do chat.</translation>
+      <translation>Se o chat foi aceito pelo operador que fala o mesmo idioma, você pode enviar ao visitante uma mensagem personalizada no evento de aceitação do chat.</translation>
     </message>
     <message>
       <source>What languages should be ignored. If chat language is one of the selected, message will not be send.</source>
