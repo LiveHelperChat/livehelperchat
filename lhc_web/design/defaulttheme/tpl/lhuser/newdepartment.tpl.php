@@ -13,7 +13,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/newdepartment')?>/<?php echo $user->id?><?php if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) : ?>/(mode)/group<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/newdepartment')?>/<?php echo $user->id?><?php if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) : ?>/(mode)/group<?php endif; ?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
     <div class="form-group drop-down-modal" data-limit="1">
         <?php if ($userDep instanceof erLhcoreClassModelUserDep) : ?>
             <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -25,7 +25,7 @@
                 'type'           => 'radio',
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => ['sort' => '`name` ASC', 'limit' => 50],
+                'list_function_params' => ['sort' => '`name` ASC', 'limit' => 50, 'filterin' => ['id' => $dep_ids]],
                 'list_function'  => 'erLhcoreClassModelDepartament::getList'
             )); ?>
         <?php else : ?>
@@ -37,7 +37,7 @@
                 'type'           => 'radio',
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => ['sort' => '`name` ASC', 'limit' => false],
+                'list_function_params' => ['sort' => '`name` ASC', 'limit' => false, 'filterin' => ['id' => $dep_group_ids]],
                 'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
             )); ?>
         <?php endif; ?>
