@@ -674,7 +674,7 @@ class erLhcoreClassMailconvParser {
                         } elseif ($conversation instanceof erLhcoreClassModelMailconvConversation) {
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_reply_passive',array(
                                 'mail' => & $message,
-                                'conversation' => & $conversations
+                                'conversation' => & $conversation
                             ));
                         }
 
