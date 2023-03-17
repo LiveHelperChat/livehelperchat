@@ -38,6 +38,10 @@ class erLhcoreClassMailconvParser {
 
     public static function syncMailbox($mailbox, $params = []) {
 
+        if ($mailbox->active == 0) {
+            return;
+        }
+
         $statsImport = array();
 
         $filteredMatchingRules = array();
@@ -77,7 +81,7 @@ class erLhcoreClassMailconvParser {
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
-                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 20 * 60 ) {
+                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 40 * 60 ) {
                     $db->commit();
                     return;
                 }
@@ -178,7 +182,7 @@ class erLhcoreClassMailconvParser {
                     $end = explode(' ', microtime());
                     $time = $end[0] + $end[1] - $start[0] - $start[1];
 
-                    if ($time > (19 * 60)) {
+                    if ($time > (39 * 60)) {
                         throw new Exception('Import takes too long time.' . date('Y-m-d H:i:s',$mailbox->sync_started) . ' - ' . date('Y-m-d H:i:s',time()));
                     }
 
