@@ -9,7 +9,7 @@ class Anonymizer
         return $hasSign . str_repeat('*', strlen($phone) - (4 + ($hasSign != '' ? 1 : 0)) ) . mb_substr($phone,strlen($phone)-4);
     }
 
-    function maskEmail($email, $minLength = 3, $maxLength = 10, $mask = "***") {
+    public static function maskEmail($email, $minLength = 3, $maxLength = 10, $mask = "***") {
         $atPos = strrpos($email, "@");
         $name = substr($email, 0, $atPos);
         $len = strlen($name);
