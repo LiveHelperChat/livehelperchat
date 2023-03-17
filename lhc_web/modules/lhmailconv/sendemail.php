@@ -6,6 +6,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/sendemail.tpl.php');
 
 $item = new erLhcoreClassModelMailconvMessage();
 
+$chat = null;
+
 if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
 
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chat_id']);
@@ -30,7 +32,7 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
 
 if (ezcInputForm::hasPostData()) {
 
-    $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item);
+    $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat);
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         $Errors[] = 'Invalid CSRF token!';

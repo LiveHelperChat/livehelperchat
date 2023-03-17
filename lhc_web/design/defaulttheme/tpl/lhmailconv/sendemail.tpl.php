@@ -54,7 +54,7 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
+<form action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($chat)) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -76,7 +76,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Recipient E-mail');?></label>
-                <?php if (isset($chat) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
+                <?php if (isset($chat) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
                     <input type="text" readonly="readonly" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?>" />
                 <?php else : ?>
                     <input type="text" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars($item->from_address)?>" />

@@ -811,7 +811,7 @@ class erLhcoreClassMailconvValidator {
         return ['success' => true, 'message_id' => $messageId];
     }
 
-    public static function validateNewEmail(& $item){
+    public static function validateNewEmail(& $item, $chat = null) {
 
         $definition = array(
             'subject' => new ezcInputFormDefinitionElement(
@@ -850,10 +850,14 @@ class erLhcoreClassMailconvValidator {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter a subject!');
         }
 
-        if ( $form->hasValidData( 'from_address' ) && $form->from_address != '') {
-            $item->from_address = $form->from_address;
-        } else {
-            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter recipient e-mail!');
+        // Does it has full control over e-mail
+        if ($chat === null || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email'))
+        {
+            if ( $form->hasValidData( 'from_address' ) && $form->from_address != '') {
+                $item->from_address = $form->from_address;
+            } else {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Please enter recipient e-mail!');
+            }
         }
 
         if ( $form->hasValidData( 'from_name' )) {
