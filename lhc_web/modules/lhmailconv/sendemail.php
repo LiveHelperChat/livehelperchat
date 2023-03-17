@@ -24,6 +24,8 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
     $item->from_name = $chat->nick;
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.new_mail_from_chat', array('msg' => & $item, 'chat' => & $chat));
+
+    $tpl->set('chat',$chat);
 }
 
 if (ezcInputForm::hasPostData()) {

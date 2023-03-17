@@ -16,6 +16,13 @@
     </div>
 
     <div class="form-group">
+        <label>
+            <input type="checkbox" name="mail_module_as_send" value="on" <?php if (isset($general_options['mail_module_as_send']) && ($general_options['mail_module_as_send'] == true)) : ?>checked="checked"<?php endif;?> />
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Use mail module to send e-mail from chat')?>
+        </label>
+    </div>
+
+    <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','URL of API endpoint')?></label>
         <input type="text" placeholder="https://hub.docker.com/r/antoinefinkelstein/language-detection-api" rows="10" class="form-control form-control-sm" value="<?php isset($general_options['lang_url']) ? print htmlspecialchars($general_options['lang_url']) : print 'https://hub.docker.com/r/antoinefinkelstein/language-detection-api'?>" name="lang_url" />
     </div>
