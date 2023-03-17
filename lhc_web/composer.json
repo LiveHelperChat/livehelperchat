@@ -49,7 +49,7 @@
         "ext-json": "*",
         "minishlink/web-push": "^7.0",
         "php-imap/php-imap": "dev-master#500dc8a9a83ebf91cbd06ac50021f9940c15fed8",
-        "webklex/php-imap": "^5.0.1"
+        "webklex/php-imap": "^5.1.0"
     },
     "type": "project"
 }

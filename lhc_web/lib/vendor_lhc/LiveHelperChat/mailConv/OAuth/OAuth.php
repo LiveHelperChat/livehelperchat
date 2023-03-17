@@ -100,7 +100,7 @@ namespace LiveHelperChat\mailConv\OAuth
 
                 $client = self::getClient($mailbox);
 
-                $folders = $client->getFolders();
+                $folders = $client->getFolders(false);
 
                 $mailboxPresentItems = $mailbox->mailbox_sync_array;
 
