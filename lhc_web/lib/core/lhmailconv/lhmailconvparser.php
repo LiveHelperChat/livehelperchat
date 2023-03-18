@@ -48,13 +48,13 @@ class erLhcoreClassMailconvParser {
         $converted->udate = $mail->get('date')->toDate()->timestamp;
 
         if ($mail->get('in_reply_to')->count() > 0) {
-            $converted->in_reply_to = $mail->get('in_reply_to'); // @todo test
+            $converted->in_reply_to = '<'.$mail->get('in_reply_to').'>'; // @todo test
         }
 
         if ($mail->get('references')->count() > 0) {
             $referenceArray = [];
             foreach ($mail->get('references')->toArray() as $reference) { // @todo test
-                $referenceArray[] = $reference;
+                $referenceArray[] = '<'.$reference.'>';
             }
             $converted->references = implode(' ', $referenceArray); // @todo test
         }
