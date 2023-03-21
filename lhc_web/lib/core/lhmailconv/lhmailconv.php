@@ -35,13 +35,19 @@ class erLhcoreClassMailconv {
         'user',
         'conversation',
         'files',
-        'delivery_status'
+        'delivery_status',
+        'reply_to_data', // After sensitive information
+        'to_data', // After sensitive information
+        'sender_address', // After sensitive information
+        'sender_host', // After sensitive information
+        'sender_name' // After sensitive information
     ];
 
     public static $conversationAttributesRemove = [
         'department',
         'user',
-        'mailbox'
+        'mailbox',
+        'customer_email' // // After sensitive information
     ];
 
     public static $conversationAttributes = [

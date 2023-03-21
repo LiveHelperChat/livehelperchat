@@ -100,6 +100,12 @@ try {
             erLhcoreClassMailconv::$conversationAttributesRemove
         );
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            foreach ($messages as $indexMessage => $messageItem) {
+                $messages[$indexMessage]->setSensitive(true);
+            }
+        }
+
         erLhcoreClassChat::prefillGetAttributes($messages,
             erLhcoreClassMailconv::$messagesAttributes,
             erLhcoreClassMailconv::$messagesAttributesRemove
@@ -127,6 +133,10 @@ try {
             $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
         }
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            $conv->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_address);
+        }
+
         $editorOptions = array(
             'conv' => $conv,
             'customer_remarks' => $remarks,
@@ -136,6 +146,7 @@ try {
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
                 'can_write' => ($canWrite && $mailbox->active == 1),
+                'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
@@ -148,6 +159,14 @@ try {
                 'tiny_mce_path' => erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js')
             ]
         );
+
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            foreach ($editorOptions['messages'] as $indexMessage => $messageItem) {
+                if ($messageItem->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                    $editorOptions['messages'][$indexMessage]->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($editorOptions['messages'][$indexMessage]->from_address);
+                }
+            }
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.editor_options',array('options' => & $editorOptions));
 

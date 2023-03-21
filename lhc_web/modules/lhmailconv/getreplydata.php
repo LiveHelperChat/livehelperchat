@@ -28,7 +28,11 @@ try {
         $replyRecipientsMapped = [];
 
         foreach ($message->reply_to_data_keyed as $replyEmail => $name) {
-            $replyRecipients[$replyEmail] = $name;
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                $replyRecipients[\LiveHelperChat\Helpers\Anonymizer::maskEmail($replyEmail)] = $name;
+            } else {
+                $replyRecipients[$replyEmail] = $name;
+            }
         }
 
         /*
@@ -40,7 +44,10 @@ try {
 
         foreach ($replyRecipients as $mail => $name) {
             if ($mail != $conv->mailbox->mail) {
-                $replyRecipientsMapped[] = ['email' => $mail, 'name' => $name];
+                $replyRecipientsMapped[] = [
+                    'email' => $mail,
+                    'name' => $name
+                ];
             }
         }
 

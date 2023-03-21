@@ -94,7 +94,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 <i className="material-icons settings text-muted" id={"message-id-"+message.id} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more_vert</i>
                 <div className="dropdown-menu" aria-labelledby={"message-id-"+message.id}>
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>}
-                    {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
+                    {moptions.can_write && moptions.can_forward && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
                     {message.conversation_id_old && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();unMerge(message);}} ><i className="material-icons">alt_route</i>{t('msg.unmerge')}</a>}
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
                     <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>

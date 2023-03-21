@@ -384,5 +384,6 @@ $FunctionList['list_all_mails'] = array('explain' => 'Allow operator to list all
 $FunctionList['list_my_mails'] = array('explain' => 'Allow operator to list mails he is owner');
 $FunctionList['list_pending_mails'] = array('explain' => 'Allow operator to list mails without an owner and in status pending.');
 $FunctionList['mail_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address.');
+$FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward mail message.');
 
 ?>

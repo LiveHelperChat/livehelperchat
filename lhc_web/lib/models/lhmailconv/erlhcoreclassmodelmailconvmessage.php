@@ -261,6 +261,15 @@ class erLhcoreClassModelMailconvMessage
                     $items = json_decode($data,true);
                     $itemsFormatted = [];
                     foreach ($items as $mail => $mailTitle) {
+                        if ($this->sensitive === true) {
+                            if ($this->response_type == self::RESPONSE_INTERNAL) {
+                                if ($varObj == 'to_data') {
+                                    $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
+                                }
+                            } elseif ($varObj == 'reply_to_data') {
+                                $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
+                            }
+                        }
                         $itemsFormatted[] = ['email' => $mail, 'name' => $mailTitle];
                     }
                     $this->$var = $itemsFormatted;
@@ -291,7 +300,18 @@ class erLhcoreClassModelMailconvMessage
                     $items = json_decode($data,true);
                     $itemsFormatted = [];
                     foreach ($items as $mail => $mailTitle) {
-                        $itemsFormatted[] = trim($mailTitle . ' <' .$mail . '>');
+
+                        if ($this->sensitive === true) {
+                            if ($this->response_type == self::RESPONSE_INTERNAL) {
+                                if ($varObj == 'to_data') {
+                                    $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
+                                }
+                            } elseif ($varObj == 'reply_to_data') {
+                                $mail = \LiveHelperChat\Helpers\Anonymizer::maskEmail($mail);
+                            }
+                        }
+
+                        $itemsFormatted[] = trim($mailTitle . ' <' . $mail . '>');
                     }
                     $this->$var = implode(', ', $itemsFormatted);
                 }
@@ -303,6 +323,10 @@ class erLhcoreClassModelMailconvMessage
         }
     }
 
+    public function setSensitive($sensitive) {
+        $this->sensitive = $sensitive;
+    }
+
     const STATUS_PENDING = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_RESPONDED = 2;
@@ -311,6 +335,8 @@ class erLhcoreClassModelMailconvMessage
     const ATTACHMENT_INLINE = 1;
     const ATTACHMENT_FILE = 2;
     const ATTACHMENT_MIX = 3;
+
+    private $sensitive = false;
 
     public $id = NULL;
     public $status = self::STATUS_PENDING;
