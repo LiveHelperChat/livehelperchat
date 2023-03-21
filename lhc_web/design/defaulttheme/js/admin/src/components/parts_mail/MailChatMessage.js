@@ -86,7 +86,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 {mode !== 'preview' && moptions.can_write && <React.Fragment><i title={t('msg.ar_label')} onClick={() => addLabel(message)} className="material-icons action-image text-muted">label</i> |</React.Fragment>}
             </small>
             <small className="pe-2">{message.opened_at && <span className="material-icons" title={t('msg.opened_at_message') + message.opened_at_front}>visibility</span>}{message.udate_front} | {message.udate_ago} {t('msg.ago')}.</small>
-            {mode !== 'preview' && <i onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
+            {mode !== 'preview' && moptions.can_write && <i onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}} className="material-icons settings text-muted">reply</i>}
 
             <i onClick={(e) => {e.stopPropagation(); setExpandHeader(!expandHeader)}} className="material-icons settings text-muted">{expandHeader ? 'expand_less' : 'expand_more'}</i>
 
@@ -97,7 +97,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     {moptions.can_write && moptions.can_forward && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
                     {message.conversation_id_old && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();unMerge(message);}} ><i className="material-icons">alt_route</i>{t('msg.unmerge')}</a>}
                     <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
-                    <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>
+                    {moptions.can_download && <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>}
                     {moptions.mail_links && moptions.mail_links.map((link, index) => <a className="dropdown-item" target="_blank" href={link.link.replace('{msg_id}',message.id)}>{link.icon && <i className="material-icons text-muted">{link.icon}</i>}{link.title}</a>)}
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>}
                     {message.alt_body && <a className="dropdown-item" href="#" onClick={(e) => setPlainBody(!plainBody)}><i className="material-icons text-muted">visibility</i>{t('msg.plain_html')}</a>}
