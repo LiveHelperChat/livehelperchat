@@ -137,6 +137,15 @@ try {
             $conv->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_address);
         }
 
+        $conv->phone_front = $conv->phone;
+
+        if ($conv->phone != '' && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden')) {
+            $conv->phone_front = \LiveHelperChat\Helpers\Anonymizer::maskPhone($conv->phone);
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','have_phone_link')) {
+                $conv->phone = '';
+            }
+        }
+
         $editorOptions = array(
             'conv' => $conv,
             'customer_remarks' => $remarks,

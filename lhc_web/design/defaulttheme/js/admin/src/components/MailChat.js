@@ -443,9 +443,12 @@ const MailChat = props => {
                                         <td>{t('mail.sender')}</td>
                                         <td>{state.conv.lang && state.moptions.lang_dir && <img src={state.moptions.lang_dir + '/' + state.conv.lang + '.png'} /> } {state.conv.from_name} &lt;{state.conv.from_address}&gt;</td>
                                     </tr>
-                                    {state.conv.phone && <tr>
+                                    {(state.conv.phone || state.conv.phone_front) && <tr>
                                         <td>{t('mail.phone')}</td>
-                                        <td><a href={"tel:"+state.conv.phone}><span className="material-icons">dialpad</span>{state.conv.phone}</a></td>
+                                        <td>
+                                            {state.conv.phone && <a href={"tel:"+state.conv.phone}><span className="material-icons">dialpad</span>{state.conv.phone_front}</a>}
+                                            {!state.conv.phone && <React.Fragment><span className="material-icons">dialpad</span>{state.conv.phone_front}</React.Fragment>}
+                                        </td>
                                     </tr>}
                                     <tr>
                                         <td colSpan="2">
