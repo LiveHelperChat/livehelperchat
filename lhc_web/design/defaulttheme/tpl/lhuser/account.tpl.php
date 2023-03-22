@@ -68,7 +68,7 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?>*</label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> type="text" ng-non-bindable class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
         </div>
 
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_password')) : ?>
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Password');?></label> <input autocomplete="new-password" ng-non-bindable type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter a new password');?>" name="Password" value="<?php echo htmlspecialchars(isset($user->password_temp_1) ? $user->password_temp_1 : '');?>" />
         </div>

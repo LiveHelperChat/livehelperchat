@@ -32,6 +32,23 @@ class erLhcoreClassGenericBotActionSurvey {
                 $surveyIds = array_diff($surveyIds, $surveyFilledIds);
             }
 
+            if (!empty($surveyIds) && isset($action['content']['survey_options']['unique_per_chat']) && $action['content']['survey_options']['unique_per_chat'] == true) {
+                $surveyFilledIds = [];
+                foreach (erLhcoreClassModelmsg::getList(['filterlike' => ['meta_msg' => 'survey_id'], 'filter' => ['chat_id' => $chat->id]]) as $msgPrevious) {
+                    $metaData = $msgPrevious->meta_msg_array;
+                    if (isset($metaData['content']['survey']['survey_id'])){
+                        $surveyFilledIds[] = $metaData['content']['survey']['survey_id'];
+                    }
+                }
+                $surveyIds = array_diff($surveyIds, $surveyFilledIds);
+            }
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_survey_trigger', array(
+                'action' => $action,
+                'chat' => & $chat,
+                'survey_id' => & $surveyIds
+            ));
+
             $msg->msg = "";
 
             // No survey to fill

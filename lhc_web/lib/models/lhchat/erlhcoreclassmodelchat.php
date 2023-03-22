@@ -437,8 +437,12 @@ class erLhcoreClassModelChat {
        		break;
        		
        	case 'user_tz_identifier_time':
-       			$date = new DateTime('NOW', new DateTimeZone($this->user_tz_identifier));
-       			$this->user_tz_identifier_time = $date->format(erLhcoreClassModule::$dateHourFormat);       			
+                try {
+                    $date = new DateTime('NOW', new DateTimeZone($this->user_tz_identifier));
+                } catch (Exception $e) {
+                    $date = new DateTime('NOW', new DateTimeZone('UTC'));
+                }
+       			$this->user_tz_identifier_time = $date->format(erLhcoreClassModule::$dateHourFormat);
        			return $this->user_tz_identifier_time;
        		break;
        		

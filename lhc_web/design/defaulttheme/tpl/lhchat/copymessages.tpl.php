@@ -2,11 +2,14 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-4">
         <label><input type="checkbox" id="id-copy-messages-system" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include system messages')?></label>
     </div>
-    <div class="col-6">
+    <div class="col-4">
         <label><input type="checkbox" id="id-copy-messages-meta" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include meta messages')?></label>
+    </div>
+    <div class="col-4">
+        <label><input type="checkbox" <?php if (isset($_GET['bot']) && $_GET['bot'] == 'true') : ?>checked="checked"<?php endif;?> id="id-copy-messages-bot" onchange="copyMessageContent()" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Include bot messages')?></label>
     </div>
 </div>
 
@@ -26,6 +29,10 @@ function copyMessageContent() {
 
     if ($('#id-copy-messages-meta').is(':checked')) {
         args['meta'] = 'true';
+    };
+
+    if ($('#id-copy-messages-bot').is(':checked')) {
+        args['bot'] = 'true';
     };
 
     $.getJSON(WWW_DIR_JAVASCRIPT  + 'chat/copymessages/<?php echo $chat->id?>', args, function(data){

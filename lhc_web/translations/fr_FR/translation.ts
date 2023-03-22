@@ -5963,7 +5963,7 @@
     </message>
     <message>
       <source>Our staff are always ready to help!</source>
-      <translation type="unfinished"/>
+      <translation>Notre équipe est toujours disponible pour vous aider</translation>
     </message>
     <message>
       <source>Live help is online...</source>

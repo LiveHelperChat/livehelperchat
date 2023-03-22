@@ -291,10 +291,14 @@ class erLhcoreClassModelCannedMsgReplace
                         isset($condition[$dayShort[$dateTime->format('N')] . 'EndTime'])) {
 
                         $dateTimeStart = new DateTime($condition[$dayShort[$dateTime->format('N')].'StartTime'], new DateTimeZone('UTC'));
-                        $dateTimeStart->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                        if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                            $dateTimeStart->setTimezone(new DateTimeZone($condition['time_zone']));
+                        }
 
                         $dateTimeEnd =  new DateTime($condition[$dayShort[$dateTime->format('N')].'EndTime'], new DateTimeZone('UTC'));
-                        $dateTimeEnd->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                        if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                            $dateTimeEnd->setTimezone(new DateTimeZone($condition['time_zone']));
+                        }
 
                         $isValid = (int)$dateTimeStart->format('Hi') <= (int)$dateTime->format('Hi') && (int)$dateTimeEnd->format('Hi') >= (int)$dateTime->format('Hi');
                     }
@@ -306,10 +310,14 @@ class erLhcoreClassModelCannedMsgReplace
                         isset($condition['active_to'])) {
 
                         $dateTimeStart = new DateTime($condition['active_from'], new DateTimeZone('UTC'));
-                        $dateTimeStart->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                        if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                            $dateTimeStart->setTimezone(new DateTimeZone($condition['time_zone']));
+                        }
 
                         $dateTimeEnd = new DateTime($condition['active_to'],new DateTimeZone('UTC'));
-                        $dateTimeEnd->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                        if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                            $dateTimeEnd->setTimezone(new DateTimeZone($condition['time_zone']));
+                        }
 
                         $isValid = $dateTimeStart->getTimestamp() <= time() && $dateTimeEnd->getTimestamp() >= time();
                     }
@@ -319,11 +327,17 @@ class erLhcoreClassModelCannedMsgReplace
                     $dateTime = new DateTime('now', (isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
 
                     $dateTimeStart = new DateTime($condition['active_from'],  new DateTimeZone('UTC'));
-                    $dateTimeStart->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                    if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                        $dateTimeStart->setTimezone(new DateTimeZone($condition['time_zone']));
+                    }
+
                     $fromCompare = $dateTimeStart->format('mdHi');
 
                     $dateTimeTo = new DateTime($condition['active_to'], new DateTimeZone('UTC') );
-                    $dateTimeTo->setTimezone((isset($condition['time_zone']) && $condition['time_zone'] != '' ? new DateTimeZone($condition['time_zone']) : null));
+                    if (isset($condition['time_zone']) && $condition['time_zone'] != '') {
+                        $dateTimeTo->setTimezone(new DateTimeZone($condition['time_zone']));
+                    }
+
                     $toCompare = $dateTimeTo->format('mdHi');
 
                     $dateTime->setTimestamp(time());
