@@ -482,7 +482,7 @@ const GroupChat = props => {
                             <div role="tabpanel" className="tab-pane" id={"group-chat-info-"+props.chatId}>
 
                                 {state.chat.type == 1 && <div>
-                                    <div className="form-row">
+                                    <div className="row">
                                         <div className="col-9">
                                             <input ref={searchOperatorElement} onKeyUp={searchOpeartors} type="text" placeholder={t('operator.search_tip')} className="form-control form-control-sm" />
                                         </div>

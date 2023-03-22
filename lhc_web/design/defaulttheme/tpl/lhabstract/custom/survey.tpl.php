@@ -41,6 +41,10 @@
     <label><?php echo erLhcoreClassAbstract::renderInput('disable_chat_download', $fields['disable_chat_download'], $object)?> <?php echo $fields['disable_chat_download']['trans'];?></label>
 </div>
 
+<div class="form-group">
+    <label><?php echo erLhcoreClassAbstract::renderInput('return_on_close', $fields['return_on_close'], $object)?> <?php echo $fields['return_on_close']['trans'];?></label>
+</div>
+
 <hr>
 
 

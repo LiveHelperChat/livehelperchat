@@ -798,9 +798,9 @@ function lh(){
             tabs.find('> ul > li > a.active').removeClass("active");
             tabs.find('> ul > #chat-tab-li-'+chat_id+' > a').addClass("active");
             tabs.find('> div.tab-content > div.active').removeClass('active');
-            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane active" id="chat-id-'+chat_id+'"></div>');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane chat-tab-pane active" id="chat-id-'+chat_id+'"></div>');
         } else {
-            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane" id="chat-id-'+chat_id+'"></div>');
+            tabs.find('> div.tab-content').append('<div role="tabpanel" class="tab-pane chat-tab-pane" id="chat-id-'+chat_id+'"></div>');
         }
 
         ee.emitEvent('groupChatTabLoaded', [chat_id]);
