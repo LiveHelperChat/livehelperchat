@@ -12,9 +12,21 @@ if ($Params['user_parameters_unordered']['editor'] == 'self' && $Params['user_pa
 if ($Params['user_parameters_unordered']['mode'] == 'group') {
     $dep = erLhcoreClassModelDepartamentGroup::fetch($Params['user_parameters']['dep_id']);
     $userDep = erLhcoreClassModelDepartamentGroupUser::findOne(['filter' => ['user_id' => $user->id, 'dep_group_id' => $dep->id]]);
+    $userDepAlias = \LiveHelperChat\Models\Departments\UserDepAlias::findOne(['filter' => ['user_id' => $user->id, 'dep_group_id' => $dep->id]]);
 } else {
     $dep = erLhcoreClassModelDepartament::fetch($Params['user_parameters']['dep_id']);
     $userDep = erLhcoreClassModelUserDep::findOne(['filter' => ['user_id' => $user->id, 'dep_id' => $dep->id, 'type' => 0]]);
+    $userDepAlias = \LiveHelperChat\Models\Departments\UserDepAlias::findOne(['filter' => ['dep_id' => $dep->id, 'user_id' => $user->id]]);
+}
+
+if (!($userDepAlias instanceof \LiveHelperChat\Models\Departments\UserDepAlias)) {
+    $userDepAlias = new \LiveHelperChat\Models\Departments\UserDepAlias();
+    $userDepAlias->user_id = $user->id;
+    if ($Params['user_parameters_unordered']['mode'] == 'group') {
+        $userDepAlias->dep_group_id = $dep->id;
+    } else {
+        $userDepAlias->dep_id = $dep->id;
+    }
 }
 
 $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
@@ -153,6 +165,10 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         $Errors = erLhcoreClassUserValidator::validateDepartmentAssignment($userDep);
 
         if (count($Errors) == 0) {
+            $Errors = erLhcoreClassUserValidator::validateAliasDepartment($userDepAlias);
+        }
+
+        if (count($Errors) == 0) {
             $userDep->updateThis(['update' => ['exc_indv_autoasign','ro','read_only','chat_max_priority','chat_min_priority','assign_priority']]);
 
             if ($dep instanceof erLhcoreClassModelDepartamentGroup) {
@@ -170,6 +186,7 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
     $tpl->set('user', $user);
     $tpl->set('dep', $dep);
     $tpl->set('userDep', $userDep);
+    $tpl->set('userDepAlias', $userDepAlias);
 
     echo $tpl->fetch();
     exit;

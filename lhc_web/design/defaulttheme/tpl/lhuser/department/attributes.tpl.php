@@ -19,3 +19,38 @@
         <input name="chat_max_priority" value="<?php echo $userDep->chat_max_priority?>" type="text" class="form-control form-control-sm" />
     </div>
 </div>
+
+<div class="row pb-2">
+    <div class="col-6">
+        <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?></label>
+        <input type="text" class="form-control form-control-sm" maxlength="50" name="alias_nick" value="<?php echo $userDepAlias->nick?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Department alias')?>" />
+    </div>
+    <div class="col-4">
+        <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar')?></label>
+        <?php $avatarOptions = ['field_prefix' => 'avtatar_alias', 'field_name' => 'avataralias_dep', 'avatar' => $userDepAlias->avatar]; ?>
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/avatarbuilder/'+$('#<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>id_avatar_string').val() + '?prefix=<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>'})">
+                <span class="material-icons me-0 btn-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar builder');?>">palette</span>
+            </span>
+            <input maxlength="100" name="<?php isset($avatarOptions['field_name']) ? print $avatarOptions['field_name'] : print 'avatar'?>" onkeyup="$('#<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>avatar_string_img').attr('src',WWW_DIR_JAVASCRIPT + 'widgetrestapi/avatar/' + $(this).val())" id="<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>id_avatar_string" type="text" class="form-control" value="<?php echo htmlspecialchars($avatarOptions['avatar'])?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Enter any string to generate an avatar');?>"/>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <img width="60" height="60" id="<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>avatar_string_img" src="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($avatarOptions['avatar'])?>" alt="" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Click to set avatar');?>" />
+    </div>
+
+    <div class="col-12">
+        <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo alias')?> <input type="file" accept="image/png, image/jpeg" name="alias_photo" /></label>
+        <?php if ($userDepAlias->has_photo) : ?>
+            <div class="pt-1">
+                <img src="<?php echo $userDepAlias->photo_path?>" alt="" width="50" /><br />
+                <label><input type="checkbox" name="alias_photo_delete" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
+            </div>
+        <?php endif;?>
+    </div>
+
+</div>
+
+
+

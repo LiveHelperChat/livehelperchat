@@ -66,6 +66,84 @@ class erLhcoreClassUserValidator {
         return $Errors;
     }
 
+    public static function validateAliasDepartment(& $userDepAlias, $params = array())
+    {
+        $definition = array(
+            'alias_nick' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'avataralias_dep' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'alias_photo_delete' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = [];
+
+        if ( $form->hasValidData( 'alias_nick' )) {
+            $userDepAlias->nick = $form->alias_nick;
+        }
+
+        if ( $form->hasValidData( 'avataralias_dep' )) {
+            $userDepAlias->avatar = $form->avataralias_dep;
+        }
+
+        if ( $form->hasValidData( 'alias_photo_delete' ) && $form->alias_photo_delete == true) {
+            $userDepAlias->removeFile();
+        }
+
+        // We want ID always
+        $userDepAlias->saveThis();
+
+        if ( isset($_FILES["alias_photo"]) && is_uploaded_file($_FILES["alias_photo"]["tmp_name"]) && $_FILES["alias_photo"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('alias_photo') ) {
+
+            $Errors = array();
+
+            $dir = 'var/userphoto/' . date('Y') . 'yna/' . date('m') . '/' . date('d') .'/' . $userDepAlias->id . '/';
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path', array('dir' => & $dir, 'storage_id' => $userDepAlias->id));
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'alias_photo', 'dir' => & $dir, 'storage_id' => $userDepAlias->id));
+
+            // There was no callbacks
+            if ($response === false) {
+                erLhcoreClassFileUpload::mkdirRecursive( $dir );
+                $file = qqFileUploader::upload($_FILES,'alias_photo',$dir);
+            } else {
+                $file = $response['data'];
+            }
+
+            if ( !empty($file["errors"]) ) {
+
+                foreach ($file["errors"] as $err) {
+                    $Errors[] = $err;
+                }
+
+            } else {
+                $userDepAlias->removeFile();
+                $userDepAlias->filename	= $file["data"]["filename"];
+                $userDepAlias->filepath	= $file["data"]["dir"];
+
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'], 'user' => $userDepAlias));
+
+                if ($response === false) {
+                    if ($file["data"]['mime_type'] != 'image/svg+xml') {
+                        erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $userDepAlias->file_path_server, $userDepAlias->file_path_server );
+                    }
+                    chmod($userDepAlias->file_path_server, 0644);
+                }
+            }
+        }
+
+        // Save always
+        $userDepAlias->saveThis();
+
+        return $Errors;
+    }
+
 	public static function validateUser(& $userData, $params = array()) {
 		
 		$definition = array (

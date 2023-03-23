@@ -10,6 +10,9 @@ if ($Params['user_parameters_unordered']['mode'] == 'group') {
     $userDep = new erLhcoreClassModelUserDep();
 }
 
+$userDepAlias = new \LiveHelperChat\Models\Departments\UserDepAlias();
+$userDepAlias->user_id = $user->id;
+
 $userDepartaments = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id);
 $userDepartamentsRead = erLhcoreClassUserDep::getUserDepartamentsIndividual($user->id, true);
 $userDepartamentsAutoExc = erLhcoreClassUserDep::getUserDepartamentsExcAutoassignIds($user->id);
@@ -178,17 +181,28 @@ if ($user instanceof erLhcoreClassModelUser) {
 
         if (count($Errors) == 0) {
             if ($Params['user_parameters_unordered']['mode'] != 'group') {
+                $userDepAlias->dep_id = $userDep->dep_id;
+            } else {
+                $userDepAlias->dep_group_id = $userDep->dep_group_id;
+            }
+        }
+
+        if (count($Errors) == 0) {
+
+            if ($Params['user_parameters_unordered']['mode'] != 'group') {
                 $userDep->max_chats = $user->max_active_chats;
                 $userDep->hide_online = $user->hide_online;
                 $userDep->exclude_autoasign = $user->exclude_autoasign;
                 $userDep->active_chats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
                 $userDep->always_on = $user->always_on;
             }
-            
+
             $userDep->saveThis();
 
             $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
             $user->updateThis(['update' => ['departments_ids']]);
+
+            erLhcoreClassUserValidator::validateAliasDepartment($userDepAlias);
 
             $tpl->set('updated', true);
         } else {
@@ -200,6 +214,7 @@ if ($user instanceof erLhcoreClassModelUser) {
 
     $tpl->set('user', $user);
     $tpl->set('userDep', $userDep);
+    $tpl->set('userDepAlias', $userDepAlias);
     echo $tpl->fetch();
     exit;
 } else {

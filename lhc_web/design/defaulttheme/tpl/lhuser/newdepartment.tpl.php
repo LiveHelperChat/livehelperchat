@@ -13,7 +13,7 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/newdepartment')?>/<?php echo $user->id?><?php if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) : ?>/(mode)/group<?php endif; ?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
+<form enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('user/newdepartment')?>/<?php echo $user->id?><?php if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) : ?>/(mode)/group<?php endif; ?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
     <div class="form-group drop-down-modal" data-limit="1">
         <?php if ($userDep instanceof erLhcoreClassModelUserDep) : ?>
             <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (

@@ -690,7 +690,7 @@ $propsMapping = [
     't' => 'top',
 ];
 
-$avatarProps = explode('__',$Params['user_parameters']['id']);
+$avatarProps = explode('__',(string)$Params['user_parameters']['id']);
 
 $avatarId = array_shift($avatarProps);
 

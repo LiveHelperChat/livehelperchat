@@ -16,7 +16,7 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 
-    <form action="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $dep->id?><?php $userDep instanceof erLhcoreClassModelDepartamentGroupUser ? print '/(mode)/group' : ''?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
+    <form enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $dep->id?><?php $userDep instanceof erLhcoreClassModelDepartamentGroupUser ? print '/(mode)/group' : ''?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
         <?php include(erLhcoreClassDesign::designtpl('lhuser/department/attributes.tpl.php'));?>
         <input type="submit" class="btn btn-sm btn-secondary" name="update" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
     </form>
