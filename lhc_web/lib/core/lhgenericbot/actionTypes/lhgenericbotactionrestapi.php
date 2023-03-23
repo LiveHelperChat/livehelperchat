@@ -663,7 +663,7 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'basicauth') {
-            curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
+            curl_setopt($ch, CURLOPT_USERPWD, str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_username']) . ":" . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_password']));
         } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'NTLMauth') {
             curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
             curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);

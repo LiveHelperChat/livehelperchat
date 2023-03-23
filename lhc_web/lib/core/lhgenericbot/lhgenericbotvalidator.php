@@ -372,6 +372,7 @@ class erLhcoreClassGenericBotValidator {
                 $triggerObj->name = $trigger['trigger']['name'];
                 $triggerObj->default = $trigger['trigger']['default'];
                 $triggerObj->default_unknown = $trigger['trigger']['default_unknown'];
+                $triggerObj->default_unknown_btn = isset($trigger['trigger']['default_unknown_btn']) ? $trigger['trigger']['default_unknown_btn'] : 0;
                 $triggerObj->actions = $trigger['trigger']['actions'];
                 $triggerObj->saveThis();
 

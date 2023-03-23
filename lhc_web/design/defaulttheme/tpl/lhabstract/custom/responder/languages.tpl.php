@@ -2,6 +2,36 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/language_choose.tpl.php'));?>
 
+    <div class="row">
+        <div class="col-12">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department filter');?></label>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_id-{{$index}}',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                    'selected_id'    => "0",
+                    'ng-model'       => 'lang.dep_id',
+                    'ng-change'      => 'cmsg.addOption(lang)',
+                    'type'           => 'radio',
+                    'data_prop'      => 'data-limit="1"',
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'show_optional'  => true,
+                    'list_function_params' => array('limit' => false,'sort' => '`name` ASC'),
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList',
+                )); ?>
+            </div>
+        </div>
+        <div class="col-8">
+            <span ng-repeat="dep_id in lang.dep_ids track by $index" role="tabpanel" ng-click="cmsg.deleteElement(dep_id,lang.dep_ids)" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Click to remove');?>" class="badge bg-secondary m-1 action-image">
+                {{cmsg.departments[dep_id]}} <span class="material-icons text-warning me-0">delete</span>
+                <input type="hidden" name="dep_ids[{{$parent.$index}}][]" value="{{dep_id}}">
+            </span>
+        </div>
+    </div>
+
     <?php if (!isset($autoResponderOptions['hide_pending']) || $autoResponderOptions['hide_pending'] === false) : ?>
     <div class="form-group">
         <label><?php echo $fields['wait_message']['trans'];?></label>

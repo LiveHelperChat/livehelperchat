@@ -61,6 +61,12 @@ class NodeTriggerActionSurvey extends Component {
                             <input type="text" className="form-control form-control-sm" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','survey_id'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','survey_options','survey_id'])} />
                         </div>
                     </div>
+                    <div className="col-12">
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','unique_per_chat'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','survey_options','unique_per_chat'])} /> Unique survey per chat</label>
+                            <p className="small text-muted">We will not send same survey twice in the same chat session.</p>
+                        </div>
+                    </div>
                     <div className="col-6">
                         <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['survey_options','unique_vote'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','survey_options','unique_vote'])} /> Visitor can fill a survey once per selected period.</label>
@@ -87,7 +93,7 @@ class NodeTriggerActionSurvey extends Component {
                     </div>
                     <div className="col-12">
                         <div className="form-group">
-                            <label>If visitor has already filled survey(s) send him this message instead.</label>
+                            <label>If visitor has already filled survey(s) or there is no more surveys to send, send him this message instead.</label>
                             <NodeTriggerList onSetPayload={(e) => this.onchangeAttr({'path':['payload'],'value':e})} payload={this.props.action.getIn(['content','payload'])} />
                         </div>
                     </div>

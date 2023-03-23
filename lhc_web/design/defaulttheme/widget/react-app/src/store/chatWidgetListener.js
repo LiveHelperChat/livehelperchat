@@ -408,6 +408,8 @@ export default function (dispatch, getState) {
                 'hash' : state.chatwidget.getIn(['chatData','hash']),
                 'theme' :  state.chatwidget.get('theme')
             }));
+
+            dispatch({type: 'attr_rem', attr : ['chat_ui','survey_id']});
         }
     }
 

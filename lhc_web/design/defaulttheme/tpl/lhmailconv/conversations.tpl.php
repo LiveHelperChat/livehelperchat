@@ -82,7 +82,7 @@
                                 <?php endif; ?>
 
                             </td>
-                            <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php echo $item->from_address?>&gt;</td>
+                            <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) : ?><?php echo htmlspecialchars($item->from_address)?><?php else : ?><?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?><?php endif;?>&gt;</td>
                             <td><?php echo htmlspecialchars($item->priority)?></td>
                             <td ng-non-bindable><?php echo htmlspecialchars($item->user)?></td>
                             <td nowrap="nowrap" ng-non-bindable>

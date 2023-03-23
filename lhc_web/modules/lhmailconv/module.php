@@ -94,7 +94,7 @@ $ViewList['apiunmerge'] = array(
 
 $ViewList['apimaildownload'] = array(
     'params' => array('id'),
-    'functions' => array( 'use_admin' )
+    'functions' => array( 'can_download' )
 );
 
 $ViewList['apisendreply'] = array(
@@ -383,5 +383,10 @@ $FunctionList['use_pmailsw'] = array('explain' => 'Allow operator to use pending
 $FunctionList['list_all_mails'] = array('explain' => 'Allow operator to list all mails independently of operator and status.');
 $FunctionList['list_my_mails'] = array('explain' => 'Allow operator to list mails he is owner');
 $FunctionList['list_pending_mails'] = array('explain' => 'Allow operator to list mails without an owner and in status pending.');
+$FunctionList['mail_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address.');
+$FunctionList['phone_see_unhidden'] = array('explain' => 'Allow operator to see full phone number.');
+$FunctionList['have_phone_link'] = array('explain' => 'Allow operator to click phone number as a link. Phone number will be exposed.');
+$FunctionList['send_as_forward'] = array('explain' => 'Allow operator to forward mail message.');
+$FunctionList['can_download'] = array('explain' => 'Allow operator to download raw mail message.');
 
 ?>

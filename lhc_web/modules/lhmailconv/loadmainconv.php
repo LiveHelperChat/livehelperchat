@@ -15,6 +15,8 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
+        $mailbox = $conv->mailbox;
+
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
 
@@ -98,6 +100,12 @@ try {
             erLhcoreClassMailconv::$conversationAttributesRemove
         );
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            foreach ($messages as $indexMessage => $messageItem) {
+                $messages[$indexMessage]->setSensitive(true);
+            }
+        }
+
         erLhcoreClassChat::prefillGetAttributes($messages,
             erLhcoreClassMailconv::$messagesAttributes,
             erLhcoreClassMailconv::$messagesAttributesRemove
@@ -125,6 +133,19 @@ try {
             $mcePlugins = json_decode($mcOptionsData['mce_plugins'], true);
         }
 
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            $conv->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($conv->from_address);
+        }
+
+        $conv->phone_front = $conv->phone;
+
+        if ($conv->phone != '' && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','phone_see_unhidden')) {
+            $conv->phone_front = \LiveHelperChat\Helpers\Anonymizer::maskPhone($conv->phone);
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','have_phone_link')) {
+                $conv->phone = '';
+            }
+        }
+
         $editorOptions = array(
             'conv' => $conv,
             'customer_remarks' => $remarks,
@@ -133,19 +154,29 @@ try {
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
-                'can_write' => $canWrite,
+                'can_write' => ($canWrite && $mailbox->active == 1),
+                'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],
                 'fop_size' => $data['fs_max'] * 1024,
                 'files_enabled' => $currentUser->hasAccessTo('lhmailconv', 'allow_attach_files'),
                 'hide_recipients' => !$currentUser->hasAccessTo('lhmailconv', 'manage_reply_recipients'),
                 'send_as_new' => $currentUser->hasAccessTo('lhmailconv', 'send_as_new'),
+                'can_download' => $currentUser->hasAccessTo('lhmailconv', 'can_download'),
                 'mce_plugins' => $mcePlugins,
                 'mce_toolbar' => $mceToolbar,
                 'mail_links' => [],
                 'tiny_mce_path' => erLhcoreClassDesign::design('js/tinymce/js/tinymce/tinymce.min.js')
             ]
         );
+
+        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
+            foreach ($editorOptions['messages'] as $indexMessage => $messageItem) {
+                if ($messageItem->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
+                    $editorOptions['messages'][$indexMessage]->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($editorOptions['messages'][$indexMessage]->from_address);
+                }
+            }
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.editor_options',array('options' => & $editorOptions));
 

@@ -193,6 +193,12 @@ class erLhAbstractModelSurvey {
 	   }
 	}
 
+    public function validateInput($params)
+    {
+        $params['obj'] = & $this;
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.survey_edit_validate', $params);
+    }
+
 	public function beforeRemove()
 	{
 	    $q = ezcDbInstance::get()->createDeleteQuery();

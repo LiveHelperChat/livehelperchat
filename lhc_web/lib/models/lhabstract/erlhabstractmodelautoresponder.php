@@ -424,7 +424,7 @@ class erLhAbstractModelAutoResponder {
                 }
 
                 if (isset($options['store_messages']) && $options['store_messages'] == true) {
-                    $args = array();
+                    $args = ['args' => ['ignore_times' => true]];
 
                     if (isset($options['override_nick']) && !empty($options['override_nick'])) {
                         $args['args']['override_nick'] = $options['override_nick'];
@@ -529,18 +529,18 @@ class erLhAbstractModelAutoResponder {
 
                 // Try to find exact match
                 foreach ($languages as $data) {
-                    if (in_array($locale, $data['languages'])) {
+                    if (in_array($locale, $data['languages']) && (!isset($data['dep_ids']) || empty($data['dep_ids']) || (isset($params['dep_id']) && $params['dep_id'] > 0 && in_array($params['dep_id'], $data['dep_ids']))) ) {
                         $this->setTranslationData($data);
                         $translated = true;
                         break;
                     }
                 }
 
-                if ($translated == false){
+                if ($translated == false) {
                     // Try to match general match by first two letters
                     $localeShort = explode('-',$locale)[0];
                     foreach ($languages as $data) {
-                        if (in_array($localeShort, $data['languages'])) {
+                        if (in_array($localeShort, $data['languages']) && (!isset($data['dep_ids']) || empty($data['dep_ids']) || (isset($params['dep_id']) && $params['dep_id'] > 0 && in_array($params['dep_id'], $data['dep_ids'])))) {
                             $this->setTranslationData($data);
                             break;
                         }
@@ -646,6 +646,9 @@ class erLhAbstractModelAutoResponder {
             'DepartmentID' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
             ),
+            'dep_ids' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int',array('min_range' => 1),FILTER_REQUIRE_ARRAY
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -669,6 +672,7 @@ class erLhAbstractModelAutoResponder {
             foreach ($form->languages as $index => $languages) {
                 $languagesData[] = array(
                     'languages' => $form->languages[$index],
+                    'dep_ids' => ($form->hasValidData('dep_ids') && isset($form->dep_ids[$index]) ? $form->dep_ids[$index] : null),
                     'timeout_message' => ($form->hasValidData('timeout_message') ? $form->timeout_message[$index] : null),
                     'timeout_message_2' => ($form->hasValidData('timeout_message_2') ? $form->timeout_message_2[$index] : null),
                     'timeout_message_3' => ($form->hasValidData('timeout_message_3') ? $form->timeout_message_3[$index] : null),

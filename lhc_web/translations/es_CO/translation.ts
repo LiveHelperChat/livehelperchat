@@ -3,7 +3,7 @@
     <name>listchatconfig</name>
     <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
-      <translation type="unfinished"/>
+      <translation>Qué tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
     <message>
       <source>How many days voting widget should not be expanded after last show</source>
@@ -127,7 +127,7 @@
     </message>
     <message>
       <source>Should we remember username for the next time visitor starts a chat?</source>
-      <translation type="unfinished"/>
+      <translation>¿Debemos recordar el nombre del usuario la próxima ocasión que inicie un chat?</translation>
     </message>
     <message>
       <source>Should invitation logic be executed if there is no online operators</source>
@@ -267,7 +267,7 @@
     </message>
     <message>
       <source>Disable chat download</source>
-      <translation type="unfinished"/>
+      <translation>Deshabilitar descarga de Chat</translation>
     </message>
     <message>
       <source>Disable chat transcript send</source>
@@ -438,11 +438,11 @@
     </message>
     <message>
       <source>Block IP</source>
-      <translation type="unfinished"/>
+      <translation>Bloquear IP</translation>
     </message>
     <message>
       <source>Block e-mail</source>
-      <translation type="unfinished"/>
+      <translation>Bloquear Email</translation>
     </message>
     <message>
       <source>Block country</source>
@@ -466,7 +466,7 @@
     </message>
     <message>
       <source>Send the message and start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Enviar el mensaje e iniciar un chat</translation>
     </message>
     <message>
       <source>Send</source>
@@ -510,7 +510,7 @@
     </message>
     <message>
       <source>Send feedback</source>
-      <translation type="unfinished"/>
+      <translation>Enviar retroalimentación</translation>
     </message>
     <message>
       <source>Test</source>
@@ -518,11 +518,11 @@
     </message>
     <message>
       <source>Below saved data is not shown.</source>
-      <translation type="unfinished"/>
+      <translation>Los datos guardados abajo no son mostrados</translation>
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Compartir</translation>
     </message>
     <message>
       <source>Send test message</source>
@@ -1495,7 +1495,7 @@
     </message>
     <message>
       <source>Custom CSS only for popup</source>
-      <translation type="unfinished"/>
+      <translation>CSS personalizado solo para popup</translation>
     </message>
     <message>
       <source>Widget container additional CSS, takes effect after save</source>
@@ -1551,7 +1551,7 @@
     </message>
     <message>
       <source>Use different title for the name field</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
     </message>
     <message>
       <source>Use different title for the e-mail field</source>
@@ -1559,7 +1559,7 @@
     </message>
     <message>
       <source>Use different title for the file field</source>
-      <translation type="unfinished"/>
+      <translation>Mostrar distintas ofertas para el mismo usuario</translation>
     </message>
     <message>
       <source>Use different title for the phone field</source>
@@ -1611,23 +1611,23 @@
     </message>
     <message>
       <source>Operator avatar</source>
-      <translation type="unfinished"/>
+      <translation>Avatar del operador</translation>
     </message>
     <message>
       <source>Need help avatar</source>
-      <translation type="unfinished"/>
+      <translation>Avatar &quot;de necesita ayuda&quot;</translation>
     </message>
     <message>
       <source>Widget position from right to append</source>
-      <translation type="unfinished"/>
+      <translation>Posición del widget desde la derecha para agregar</translation>
     </message>
     <message>
       <source>Widget position from bottom to append</source>
-      <translation type="unfinished"/>
+      <translation>Posición del widget desde abajo para agregar</translation>
     </message>
     <message>
       <source>Widget position from right to append in invitation</source>
-      <translation type="unfinished"/>
+      <translation>Posición del widget desde la derecha para agregar en invitación</translation>
     </message>
     <message>
       <source>After how many user messages show switch to human button. empty - never, 0 - always</source>
@@ -14090,11 +14090,11 @@
     </message>
     <message>
       <source>or</source>
-      <translation type="unfinished"/>
+      <translation>o</translation>
     </message>
     <message>
       <source>Department</source>
-      <translation type="unfinished"/>
+      <translation>Departamento</translation>
     </message>
     <message>
       <source>JSON based options.</source>

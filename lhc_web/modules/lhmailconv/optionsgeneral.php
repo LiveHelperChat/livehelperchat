@@ -16,6 +16,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'active_lang_detect' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'mail_module_as_send' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'lang_url' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -56,6 +59,13 @@ if ( isset($_POST['StoreOptions']) ) {
     } else {
         $data['active_lang_detect'] = 0;
     }
+
+    if ($form->hasValidData( 'mail_module_as_send' ) && $form->mail_module_as_send == true) {
+        $data['mail_module_as_send'] = 1 ;
+    } else {
+        $data['mail_module_as_send'] = 0;
+    }
+
     if ($form->hasValidData( 'subject_id' )) {
         $data['subject_id'] = $form->subject_id;
     } else {

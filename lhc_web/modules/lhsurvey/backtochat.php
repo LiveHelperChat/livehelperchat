@@ -62,7 +62,7 @@ try {
             
             $chat->saveThis();
 
-            echo json_encode(array('result' => true, 'closed' => $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT));
+            echo json_encode(array('result' => true, 'closed' => !(isset($survey->configuration_array['return_on_close']) && $survey->configuration_array['return_on_close'] == true) && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT));
 
             flush();
 
