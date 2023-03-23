@@ -5,8 +5,17 @@ namespace LiveHelperChat\Helpers;
 class Anonymizer
 {
     public static function maskPhone($phone) {
+
+        if (strlen($phone) <= 4) {
+            return $phone;
+        }
+
         $hasSign = strpos($phone,'+') !== false ? '+' : '';
-        return $hasSign . str_repeat('*', strlen($phone) - (4 + ($hasSign != '' ? 1 : 0)) ) . mb_substr($phone,strlen($phone)-4);
+
+        $length = strlen($phone) - (4 + ($hasSign != '' ? 1 : 0));
+
+        return $hasSign . str_repeat('*',  $length) . mb_substr($phone,strlen($phone)-4);
+
     }
 
     public static function maskEmail($email, $minLength = 3, $maxLength = 10, $mask = "***") {
