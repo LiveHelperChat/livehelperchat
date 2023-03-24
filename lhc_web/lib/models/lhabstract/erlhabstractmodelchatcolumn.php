@@ -24,6 +24,7 @@ class erLhAbstractModelChatColumn
             'column_icon' => $this->column_icon,
             'column_identifier' => $this->column_identifier,
             'chat_enabled' => $this->chat_enabled,
+            'chat_list_enabled' => $this->chat_list_enabled,
             'online_enabled' => $this->online_enabled,
             'icon_mode' => $this->icon_mode,
             'has_popup' => $this->has_popup,
@@ -121,6 +122,7 @@ class erLhAbstractModelChatColumn
     public $conditions = '';
     public $popup_content = '';
     public $chat_enabled = 1;
+    public $chat_list_enabled = 0;
     public $online_enabled = 1;
     public $icon_mode = 0;
     public $has_popup = 0;
