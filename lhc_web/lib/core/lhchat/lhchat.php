@@ -1845,9 +1845,16 @@ class erLhcoreClassChat {
                         if (isset($variableValue) && $variableValue != '') {
                             $object->{'cc_'.$column->id} = $variableValue;
                         }
+                    } elseif (strpos($column->variable,'{args.') !== false) {
+                        foreach (explode('||',$column->variable) as $variableValue) {
+                            $variableValueReplaced = erLhcoreClassGenericBotWorkflow::translateMessage($variableValue, array('chat' => $object, 'args' => ['chat' => $object]));
+                            $object->{'cc_' . $column->id} = $variableValueReplaced;
+                            if ($variableValueReplaced != '') {
+                                break;
+                            }
+                        }
+
                     }
-
-
                 }
             }
 
