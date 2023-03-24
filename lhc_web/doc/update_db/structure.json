@@ -6041,6 +6041,22 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "mail_list_enabled",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mail_enabled",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_abstract_chat_priority": [
