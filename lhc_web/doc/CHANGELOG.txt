@@ -1,3 +1,9 @@
+4.21v
+
+1. Chat list now can show custom columns also.
+
+execute doc/update_db/update_293.sql for update
+
 4.20v
 
 1. Options to have expire-able canned message with auto delete.
