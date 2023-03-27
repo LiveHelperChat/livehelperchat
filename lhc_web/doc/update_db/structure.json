@@ -9298,7 +9298,7 @@
     "lhc_mailconv_msg_internal": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "PRI",
         "default": null,
