@@ -6033,6 +6033,30 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "chat_list_enabled",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mail_list_enabled",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mail_enabled",
+        "type": "tinyint(1)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_abstract_chat_priority": [
@@ -9301,7 +9325,7 @@
     "lhc_mailconv_msg_internal": [
       {
         "field": "id",
-        "type": "int(11)",
+        "type": "bigint(20)",
         "null": "NO",
         "key": "PRI",
         "default": null,

@@ -67,12 +67,12 @@ class erLhcoreClassBBCodePlain
         }
         $url = str_replace(';//', '://', $url);
         /* If the URL doesn't appear to contain a scheme, we
-         * presume it needs http:// prepended (unless a relative
+         * presume it needs https:// prepended (unless a relative
          * link starting with /, # or ? or a php file).
         */
         if ( strpos($url, ':') === false && ! in_array( $url[0], array( '/', '#', '?' ) ) &&
             ! preg_match('/^[a-z0-9-]+?\.php/i', $url) )
-            $url = 'http://' . $url;
+            $url = 'https://' . $url;
         // Replace ampersands and single quotes only when displaying.
         if ( 'display' == $_context ) {
             $url = self::wp_kses_normalize_entities( $url );
@@ -711,7 +711,7 @@ class erLhcoreClassBBCodePlain
     public static function _make_web_ftp_clickable_cb( $matches ) {
         $ret = '';
         $dest = $matches[2];
-        $dest = 'http://' . $dest;
+        $dest = 'https://' . $dest;
         // removed trailing [.,;:)] from URL
         if ( in_array( substr($dest, -1), array('.', ',', ';', ':', ')') ) === true ) {
             $ret = substr($dest, -1);

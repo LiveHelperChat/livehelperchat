@@ -24,6 +24,7 @@
                             <th><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
+                            <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/additional_chat_column.tpl.php'));?>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Priority');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Department');?></th>
@@ -83,6 +84,7 @@
 
                             </td>
                             <td ng-non-bindable><?php echo htmlspecialchars($item->from_name)?> &lt;<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) : ?><?php echo htmlspecialchars($item->from_address)?><?php else : ?><?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?><?php endif;?>&gt;</td>
+                            <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/additional_chat_column_row.tpl.php'));?>
                             <td><?php echo htmlspecialchars($item->priority)?></td>
                             <td ng-non-bindable><?php echo htmlspecialchars($item->user)?></td>
                             <td nowrap="nowrap" ng-non-bindable>
