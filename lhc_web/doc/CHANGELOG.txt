@@ -1,6 +1,7 @@
 4.21v
 
 1. Chat list now can show custom columns also.
+2. Various other changes
 
 execute doc/update_db/update_293.sql for update
 
