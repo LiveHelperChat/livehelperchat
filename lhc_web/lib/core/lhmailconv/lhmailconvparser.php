@@ -188,6 +188,10 @@ class erLhcoreClassMailconvParser {
 
                     $vars = get_object_vars($mailInfo);
 
+                    if (!isset($vars['message_id'])) {
+                        continue;
+                    }
+
                     // Some messages id are longer than 250
                     $vars['message_id'] = mb_substr($vars['message_id'],0,250);
 
