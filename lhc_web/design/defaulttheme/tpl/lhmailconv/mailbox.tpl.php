@@ -17,7 +17,7 @@
             <tr>
                 <td>
                     <?php if ($item->failed == 1) : ?>
-                        <i class="material-icons text-danger">&#xE002;</i>
+                        <i class="material-icons text-danger">warning</i>
                     <?php endif; ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->mail)?></a>
                 </td>
