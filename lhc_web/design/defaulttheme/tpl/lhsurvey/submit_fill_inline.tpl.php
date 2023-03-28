@@ -16,7 +16,7 @@
     <?php if ($survey->feedback_text != '') : ?>
         <?php echo erLhcoreClassBBCode::make_clickable(htmlspecialchars(erLhcoreClassGenericBotWorkflow::translateMessage($survey->feedback_text, array('chat' => $chat, 'args' => ['chat' => $chat])))); ?>
     <?php else : ?>
-         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Survey has been completed, thank you for your feedback!')?>
+         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('survey/fill','Thank you for your feedback!')?>
     <?php endif; ?>
 </div>
 <?php endif; ?>

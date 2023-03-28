@@ -1,43 +1,44 @@
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/MaterialIcons-Regularv2.eot'); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url('../fonts/MaterialIcons-Regularv3.woff2') format('woff2'),
-       url('../fonts/MaterialIcons-Regularv3.ttf') format('truetype');
-}
-
 div.message-row {
-overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 18px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 0.89;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  width: 1em;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+@font-face {
+    font-family: "Material Symbols Rounded";
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: block;
+    src: url('../fonts/MaterialSymbolsRounded2.woff2') format("woff2");
+}
 
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+.material-icons{
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 0.89;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    width: 1em;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
 
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-  vertical-align: middle;
-  margin-right:5px;
-  overflow:hidden;
-  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    vertical-align: middle;
+    margin-right:5px;
+    overflow:hidden;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 40;
 }
 
 .mi-fs15{
