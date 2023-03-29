@@ -26,11 +26,31 @@
                 if ($canEditDepartment || $departmentEditParams['individual']['read_all'] == true) : ?>
 
                 <?php if (in_array($departament->id,$userDepartamentsRead) || in_array($departament->id,$userDepartaments)) : ?>
-                <div class="col-6" id="dep-indv-id-<?php echo $departament->id?>">
+                <div class="col-12" id="dep-indv-id-<?php echo $departament->id?>">
+
+                        <hr class="pb-1 mb-0 mt-1 border-top">
+
                         <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
                             <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
                             <?php echo htmlspecialchars($departament->name)?>
+
+                            <?php $userDepAlias = \LiveHelperChat\Models\Departments\UserDepAlias::findOne(['filter' => ['dep_id' => $departament->id, 'user_id' => $user->id]]); ?>
+                            <?php if (is_object($userDepAlias)) : ?>
+                                <?php if ($userDepAlias->nick != '') : ?>
+                                    <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?>"><span class="material-icons">supervisor_account</span><?php echo htmlspecialchars($userDepAlias->nick);?></span>
+                                <?php endif; ?>
+                                <?php if ($userDepAlias->avatar != '') : ?>
+                                    <span class="bg-light border p-1 d-inline-block rounded">
+                                        <img title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar')?>" width="25" height="25" src="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userDepAlias->avatar)?>" alt="" title="Click to set avatar">
+                                    </span>
+                                <?php endif; ?>
+                                <?php if ($userDepAlias->has_photo) : ?>
+                                    <span class="bg-light border p-1 d-inline-block rounded">
+                                        <img itle="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Profile picture')?>" src="<?php echo $userDepAlias->photo_path?>" alt="" width="25" height="25" />
+                                    </span>
+                                <?php endif;?>
+                            <?php endif; ?>
 
                             <?php if (in_array($departament->id,$userDepartamentsRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
 
@@ -47,8 +67,6 @@
                             <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']) || $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority for chat being assigned by my assign priority')?>">
                                 <span class="material-icons">add</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
                             </span>
-
-
 
                             <?php if ($canEditDepartment == true) : ?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" onclick="$.postJSON('/user/editdepartment/<?php echo $user->id?>/<?php echo $departament->id?>/(action)/remove<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>');$('#dep-indv-id-<?php echo $departament->id?>').fadeOut()" class="material-icons action-image text-danger">delete</span><?php endif; ?>
 
@@ -88,12 +106,32 @@
                 if ($canEditDepartment || $departmentEditParams['groups']['read_all'] == true) : ?>
                 <?php if (in_array($departamentGroup->id,$userDepartamentsGroup) ||  in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?>
 
-            <div class="col-6" id="depgroup-indv-id-<?php echo $departamentGroup->id?>">
+            <div class="col-12" id="depgroup-indv-id-<?php echo $departamentGroup->id?>">
+
+                <hr class="pb-1 mb-0 mt-1 border-top">
+
                 <label class="fw-bold <?php if ($canEditDepartment != true) : ?>text-muted<?php endif; ?>" ng-non-bindable>
 
                     <span <?php if ($canEditDepartment == true) : ?>onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + '/user/editdepartment/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Edit')?>" <?php endif;?> class="material-icons <?php if ($canEditDepartment != true) : ?>text-muted<?php else : ?>action-image<?php endif; ?>"><?php if ($canEditDepartment != true) : ?>edit_off<?php else : ?>edit<?php endif; ?></span>
 
                     <?php echo htmlspecialchars($departamentGroup->name)?>
+
+                    <?php $userDepAlias = \LiveHelperChat\Models\Departments\UserDepAlias::findOne(['filter' => ['dep_group_id' => $departamentGroup->id, 'user_id' => $user->id]]); ?>
+                    <?php if (is_object($userDepAlias)) : ?>
+                        <?php if ($userDepAlias->nick != '') : ?>
+                            <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?>"><span class="material-icons">supervisor_account</span><?php echo htmlspecialchars($userDepAlias->nick);?></span>
+                        <?php endif; ?>
+                        <?php if ($userDepAlias->avatar != '') : ?>
+                            <span class="bg-light border p-1 d-inline-block rounded">
+                                       <img title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar')?>" width="25" height="25" src="<?php echo erLhcoreClassDesign::baseurl('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($userDepAlias->avatar)?>" alt="" title="Click to set avatar">
+                                    </span>
+                        <?php endif; ?>
+                        <?php if ($userDepAlias->has_photo) : ?>
+                            <span class="bg-light border p-1 d-inline-block rounded">
+                                        <img itle="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Profile picture')?>" src="<?php echo $userDepAlias->photo_path?>" alt="" width="25" height="25" />
+                                    </span>
+                        <?php endif;?>
+                    <?php endif; ?>
 
                     <?php if (in_array($departamentGroup->id,$userDepartamentsGroupRead)) : ?><span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Read only')?>">visibility</span><?php endif; ?>
 

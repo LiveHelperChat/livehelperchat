@@ -48,6 +48,8 @@
                 <label><input type="checkbox" name="alias_photo_delete" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
             </div>
         <?php endif;?>
+
+        <p class="text-muted fs13 fst-italic"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo has higher priority than avatar.')?></p>
     </div>
 
 </div>
