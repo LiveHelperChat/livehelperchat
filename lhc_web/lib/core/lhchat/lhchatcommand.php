@@ -238,6 +238,7 @@ class erLhcoreClassChatCommand
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
 
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $params['chat']));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat']));
 
             $msg->saveThis();
@@ -272,6 +273,7 @@ class erLhcoreClassChatCommand
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
 
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $params['chat']));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
 
             $msg->saveThis();
@@ -318,6 +320,7 @@ class erLhcoreClassChatCommand
             $msg->time = time();
             $msg->name_support = $params['user']->name_support;
 
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $params['chat']));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $params['chat']));
 
             $msg->saveThis();

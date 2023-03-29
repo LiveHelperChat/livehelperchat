@@ -83,6 +83,95 @@ class UserDepAlias {
         }
     }
 
+    public static function getAlias($params) {
+        static $cacheAlias = [];
+
+        if ((isset($params['scope']) && ($params['scope'] == 'typing' || $params['scope'] == 'msg' || $params['scope'] == 'canned_replace')) || (!isset($params['scope']) && $params['chat']->user_id > 0)) {
+
+            if (!isset($params['scope'])) {
+                $params['scope'] = 'chat';
+            }
+
+            if ($params['scope'] == 'typing') {
+                $userId = $params['chat']->operator_typing_user->id;
+            } elseif ($params['scope'] == 'canned_replace') {
+                if (!is_object($params['user'])) {
+                    return;
+                }
+                $userId = $params['user']->id;
+            } elseif ($params['scope'] == 'msg') {
+                $userId = $params['msg']->user_id > 0 ? $params['msg']->user_id : $params['user_id'];
+            } else {
+                $userId = $params['chat']->user_id;
+            }
+
+            $cacheKey = $userId . '_dep_' . $params['chat']->id;
+
+            if (isset($cacheAlias[$cacheKey])) {
+                $alias = $cacheAlias[$cacheKey];
+            } else {
+                $db = \ezcDbInstance::get();
+                $stmt = $db->prepare('SELECT `dep_group_id` FROM `lh_departament_group_member` WHERE `dep_id` = :dep_id');
+                $stmt->bindValue( ':dep_id', $params['chat']->dep_id);
+                $stmt->execute();
+
+                $dep_group_ids = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+
+                $conditions = [
+                    'sort' => '`dep_id` DESC',
+                    'filter' => [
+                        'user_id' => $userId
+                    ]
+                ];
+
+                if (!empty($dep_group_ids)) {
+                    $conditions['customfilter'][] = '(dep_id = ' . (int)$params['chat']->dep_id . ' OR dep_group_id IN (' . implode(',',$dep_group_ids) . '))';
+                } else {
+                    $conditions['filter']['dep_id'] = $params['chat']->dep_id;
+                }
+
+                $alias = self::findOne($conditions);
+
+                $cacheAlias[$cacheKey] = $alias;
+            }
+
+            if (is_object($alias)) {
+
+                if ($alias->nick != '') {
+                    if ($params['scope'] == 'typing') {
+                        $params['chat']->operator_typing_user->name_support = $alias->nick;
+                    } elseif ($params['scope'] == 'msg') {
+                        $params['msg']->name_support = $alias->nick;
+                    } elseif ($params['scope'] == 'canned_replace') {
+                        $params['replace_array']['{operator}'] = $alias->nick;
+                    } else {
+                        $params['user']->name_support = $alias->nick;
+                    }
+                }
+
+                if (in_array($params['scope'],['typing','msg','canned_replace'])) {
+                    return; // We are interested only in nick
+                }
+
+                $hasAliasPhoto = false;
+                if ($alias->has_photo) {
+                    $hasAliasPhoto = true;
+                    $params['user']->has_photo = true;
+                    $params['user']->has_photo_avatar = true;
+                    $params['user']->photo_path = $alias->photo_path;
+                }
+
+                if ($alias->avatar != '') {
+                    $params['user']->avatar = $alias->avatar;
+
+                    if ($hasAliasPhoto == false) {
+                        $params['user']->has_photo = false;
+                    }
+                }
+            }
+        }
+    }
+
     public $id = null;
     public $dep_id = 0;
     public $dep_group_id = 0;

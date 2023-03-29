@@ -78,6 +78,11 @@ try {
         // Operator typing
         if ( $chat->is_operator_typing == true) {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser.operator_typing',array('chat' => & $chat));
+
+            if ($chat->operator_typing_user !== false) {
+                \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'typing', 'chat' => $chat));
+            }
+
             $ott = ($chat->operator_typing_user !== false) ? $chat->operator_typing_user->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...') : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...');
         }  elseif ($chat->is_operator_typing == false) {
             $ott = '';

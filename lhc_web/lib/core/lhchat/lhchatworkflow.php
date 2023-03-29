@@ -919,6 +919,7 @@ class erLhcoreClassChatWorkflow {
 
             $items = array($cannedMsg);
 
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'canned_replace', 'replace_array' => & $replaceArray, 'chat' => $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('items' => & $items, 'user' => $chat->user, 'chat' => $chat, 'replace_array' => & $replaceArray));
 
             $cannedMsg = $items[0];
@@ -944,6 +945,7 @@ class erLhcoreClassChatWorkflow {
             $chat->has_unread_op_messages = 1;
             $chat->unread_op_messages_informed = 0;
 
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_before_save',array('msg' => & $msg, 'chat' => & $chat));
 
             erLhcoreClassChat::getSession()->save($msg);
