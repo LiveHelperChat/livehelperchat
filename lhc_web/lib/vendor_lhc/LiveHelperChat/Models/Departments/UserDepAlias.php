@@ -86,7 +86,7 @@ class UserDepAlias {
     public static function getAlias($params) {
         static $cacheAlias = [];
 
-        if ((isset($params['scope']) && ($params['scope'] == 'typing' || $params['scope'] == 'msg' || $params['scope'] == 'canned_replace')) || (!isset($params['scope']) && $params['chat']->user_id > 0)) {
+        if ((isset($params['scope']) && in_array($params['scope'],['as_string','typing','msg','canned_replace'])) || (!isset($params['scope']) && $params['chat']->user_id > 0)) {
 
             if (!isset($params['scope'])) {
                 $params['scope'] = 'chat';
@@ -140,6 +140,8 @@ class UserDepAlias {
                 if ($alias->nick != '') {
                     if ($params['scope'] == 'typing') {
                         $params['chat']->operator_typing_user->name_support = $alias->nick;
+                    } elseif ($params['scope'] == 'as_string') {
+                        return $alias->nick;
                     } elseif ($params['scope'] == 'msg') {
                         $params['msg']->name_support = $alias->nick;
                     } elseif ($params['scope'] == 'canned_replace') {
@@ -149,7 +151,7 @@ class UserDepAlias {
                     }
                 }
 
-                if (in_array($params['scope'],['typing','msg','canned_replace'])) {
+                if (in_array($params['scope'],['typing','msg','canned_replace','as_string'])) {
                     return; // We are interested only in nick
                 }
 
