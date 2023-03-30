@@ -112,6 +112,7 @@ try {
                     $msg->time = time();
                     $msg->name_support = $userData->name_support;
 
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat));
 
                     $msg->saveThis();

@@ -149,6 +149,11 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 				if ( $chat->is_operator_typing == true /*&& $Params['user_parameters_unordered']['ot'] != 't'*/ ) {
 				    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.syncuser.operator_typing',array('chat' => & $chat));
+
+                    if ($chat->operator_typing_user !== false) {
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'typing', 'chat' => $chat));
+                    }
+
 					$ott = ($chat->operator_typing_user !== false) ? $chat->operator_typing_user->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','is typing now...'),ENT_QUOTES) : htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Operator is typing now...'),ENT_QUOTES);
 				}  elseif (/*$Params['user_parameters_unordered']['ot'] == 't' &&*/ $chat->is_operator_typing == false) {
 					$ott = false;

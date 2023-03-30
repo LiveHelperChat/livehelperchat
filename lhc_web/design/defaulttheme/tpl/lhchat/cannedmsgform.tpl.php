@@ -31,7 +31,7 @@
 
         <?php if ($canned_message->id > 0) : ?>
         <label>
-            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?><button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/cannedmsg/subject/<?php echo $canned_message->id?>'})"><i class="material-icons me-0"></i></button><?php endif;?>
+            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?><button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'/cannedmsg/subject/<?php echo $canned_message->id?>'})"><i class="material-icons me-0"></i></button><?php endif;?>
             <div id="canned-message-subjects-<?php echo $canned_message->id?>"></div>
             <script>
                 $.get(WWW_DIR_JAVASCRIPT + 'cannedmsg/subject/<?php echo $canned_message->id?>/?getsubjects=1', function(data) {

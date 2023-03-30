@@ -28,11 +28,17 @@ if ( erLhcoreClassChat::hasAccessToRead($Chat) )
 
         $userTo = erLhcoreClassModelUser::fetch($Transfer->transfer_to_user_id);
         $msg->name_support = $userTo->name_support;
+
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));
+
         $userToNick = $msg->name_support;
 
         $msg->name_support = (string)$currentUser->getUserData()->name_support;
+
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
+
         $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userToNick;
 
         // Save message
