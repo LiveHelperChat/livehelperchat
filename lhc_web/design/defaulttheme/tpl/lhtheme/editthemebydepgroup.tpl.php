@@ -16,9 +16,9 @@
     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Themes which will be edited all at once.');?></h6>
     <div>
         <?php foreach ($themes as $theme) : ?>
-            <label class="badge bg-info"><span class="material-icons">home</span><?php echo htmlspecialchars($theme['department']->name)?></label>
+            <label class="badge bg-info me-1"><span class="material-icons">home</span><?php echo htmlspecialchars($theme['department']->name)?></label>
             <?php foreach ($theme['themes'] as $theme) : ?>
-                <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/WidgetTheme/<?php echo $theme->id; ?>" target="_blank" class="badge bg-secondary"><span class="material-icons">brush</span><?php echo htmlspecialchars($theme->name)?></a>
+                <a href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/WidgetTheme/<?php echo $theme->id; ?>" target="_blank" class="badge bg-secondary me-1"><span class="material-icons">brush</span><?php echo htmlspecialchars($theme->name)?></a>
             <?php endforeach; ?>
         <?php endforeach; ?>
     </div>
