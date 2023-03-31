@@ -22,6 +22,10 @@
     } ?>
 <?php endif;?>
 
+<?php if (isset($takes_to_long)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.') .' '. htmlspecialchars($takes_to_long);?>
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
+<?php endif; ?>
+
 <?php if ($pages->items_total > 0) : ?>
 	<table cellpadding="0" ng-non-bindable class="table <?php if (isset($object_trans['table_class'])) : ?><?php echo $object_trans['table_class']?><?php else : ?>table-sm<?php endif?>" cellspacing="0" width="100%">
 		<thead>
@@ -46,10 +50,25 @@
 	    	}
 
 	    	$paramsFilter = array_merge($paramsFilter,$filter_params,$filterObject);
-	    	$items = call_user_func('erLhAbstractModel'.$identifier.'::getList',$paramsFilter);
+            try {
+                $items = call_user_func('erLhAbstractModel'.$identifier.'::getList',$paramsFilter);
+            } catch (Exception $e) {
+                $executionError = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.');
+                $items = [];
+            }
 		}
+        ?>
 
-		foreach ($items as $item) : ?>
+        <?php if (isset($executionError)) : ?>
+            <tr>
+                <td colspan="<?php echo count($fields)?>">
+                    <?php $msg = $executionError; ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_info.tpl.php')); ?>
+                </td>
+            </tr>
+        <?php endif; ?>
+
+		<?php foreach ($items as $item) : ?>
 	    	<tr>
 	        	<?php foreach ($fields as $key => $field) : ?>
 
