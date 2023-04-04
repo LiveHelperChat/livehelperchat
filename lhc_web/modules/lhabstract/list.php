@@ -40,31 +40,31 @@ $rowsNumber = null;
 $db = ezcDbInstance::get();
 
 try {
-    $db->query("SET SESSION wait_timeout=2");
+    $db->query("SET SESSION wait_timeout=4");
 } catch (Exception $e){
     //
 }
 
 try {
-    $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+    $db->query("SET SESSION interactive_timeout=10");} catch (Exception $e){
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION innodb_lock_wait_timeout=5");
+    $db->query("SET SESSION innodb_lock_wait_timeout=10");
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION max_execution_time=5000;");
+    $db->query("SET SESSION max_execution_time=10000;");
 } catch (Exception $e) {
     //
 }
 
 try {
-    $db->query("SET SESSION max_statement_time=5;");
+    $db->query("SET SESSION max_statement_time=10;");
 } catch (Exception $e) {
     // Ignore we try to limit how long query can run
 }
