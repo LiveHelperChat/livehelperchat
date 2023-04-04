@@ -7,7 +7,7 @@
 <body id="admin-body" class="<?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>" ng-controller="LiveHelperChatCtrl as lhc">
 
 <div id="wrapper">
-    <div class="container-fluid" id="page-content-wrapper">
+    <div class="container-fluid<?php if (isset($Result['container_class'])) : ?> <?php echo $Result['container_class']?><?php endif; ?>" id="page-content-wrapper">
         <div class="row">
             <div id="middle-column-page" class="col-md-12 pt-1">
                 <?php echo $Result['content']; ?>

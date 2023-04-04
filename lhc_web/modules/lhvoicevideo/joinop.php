@@ -62,6 +62,7 @@ if (is_numeric($Params['user_parameters']['id']))
                 $msg->msg = '';
                 $msg->time = time();
 
+                \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg, 'chat' => & $chat));
 
                 $msg->saveThis();

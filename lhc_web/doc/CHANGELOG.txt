@@ -1,3 +1,10 @@
+4.22v
+
+1. Department assignment now have new UI.
+2. Department assignment operator can have custom nick per department.
+
+execute doc/update_db/update_294.sql for update
+
 4.21v
 
 1. Chat list now can show custom columns also.

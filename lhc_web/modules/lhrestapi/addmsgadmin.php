@@ -160,6 +160,7 @@ try {
                         erLhcoreClassTranslate::translateChatMsgOperator($Chat, $msg);
                     }
 
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved',array('msg' => & $msg,'chat' => & $Chat));
 
                     erLhcoreClassChat::getSession()->save($msg);

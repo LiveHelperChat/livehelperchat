@@ -71,7 +71,7 @@
                     <?php endif; ?>
                     <textarea class="form-control" rows="5" <?php if (isset($fields[$translatableItem['identifier']]['placeholder'])) : ?>placeholder="<?php echo $fields[$translatableItem['identifier']]['placeholder']?>"<?php endif; ?> id="AbstractInput_<?php echo $translatableItem['identifier']?>_content_{{$index}}" name="AbstractInput_<?php echo $translatableItem['identifier']?>_content[{{$index}}]" ng-model="lang.content"></textarea>
                 <?php else : ?>
-                    <input type="text" class="form-control" <?php if (isset($fields[$translatableItem['identifier']]['placeholder'])) : ?>placeholder="<?php echo $fields[$translatableItem['identifier']]['placeholder']?>"<?php endif; ?> name="AbstractInput_<?php echo $translatableItem['identifier']?>_content[{{$index}}]" ng-model="lang.content" />
+                    <input type="text" class="form-control form-control-sm" <?php if (isset($fields[$translatableItem['identifier']]['placeholder'])) : ?>placeholder="<?php echo $fields[$translatableItem['identifier']]['placeholder']?>"<?php endif; ?> name="AbstractInput_<?php echo $translatableItem['identifier']?>_content[{{$index}}]" ng-model="lang.content" />
                 <?php endif; ?>
             </div>
         </div>

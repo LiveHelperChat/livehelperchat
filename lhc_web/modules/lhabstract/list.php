@@ -37,26 +37,70 @@ $filterParamsCount = array_merge($filterParams['filter'],$filterObject);
 
 $rowsNumber = null;
 
+$db = ezcDbInstance::get();
+
+try {
+    $db->query("SET SESSION wait_timeout=2");
+} catch (Exception $e){
+    //
+}
+
+try {
+    $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION innodb_lock_wait_timeout=5");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_execution_time=5000;");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_statement_time=5;");
+} catch (Exception $e) {
+    // Ignore we try to limit how long query can run
+}
+
 if (empty($filterParamsCount)) {
     $rowsNumber = method_exists('erLhAbstractModel'.$Params['user_parameters']['identifier'],'estimateRows') && ($rowsNumber = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
 }
 
-$pages = new lhPaginator();
-$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParamsCount);
-$pages->translationContext = 'abstract/list';
-$pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
-$pages->setItemsPerPage(20);
-$pages->paginate();
+try {
 
-$tpl->set('pages',$pages);
-$tpl->set('identifier',$Params['user_parameters']['identifier']);
+    $pages = new lhPaginator();
+    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParamsCount);
+    $pages->translationContext = 'abstract/list';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
+    $pages->setItemsPerPage(20);
+    $pages->paginate();
 
-$tpl->set('object_trans',$object_trans);
-$tpl->set('fields',$objectData->getFields());
-$tpl->set('filter_params',$filterParams['filter']);
+    $tpl->set('pages',$pages);
+    $tpl->set('identifier',$Params['user_parameters']['identifier']);
 
-if ( method_exists($objectData,'defaultSort') ) {
-    $tpl->set('sort',$objectData->defaultSort());
+    $tpl->set('object_trans',$object_trans);
+    $tpl->set('fields',$objectData->getFields());
+    $tpl->set('filter_params',$filterParams['filter']);
+
+    if ( method_exists($objectData,'defaultSort') ) {
+        $tpl->set('sort',$objectData->defaultSort());
+    }
+
+} catch (Exception $e) {
+    $tpl->set('takes_to_long',erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : true);
+    $pages = new lhPaginator();
+    $pages->items_total = 0;
+    $pages->translationContext = 'chat/pendingchats';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
+    $pages->paginate();
+    $tpl->set('pages',$pages);
 }
 
 if ($objectData->hide_add === true) {

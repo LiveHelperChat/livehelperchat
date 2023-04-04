@@ -66,6 +66,10 @@ $q->deleteFrom( 'lh_group_chat_member' )->where( $q->expr->eq( 'user_id', $Param
 $stmt = $q->prepare();
 $stmt->execute();
 
+foreach (\LiveHelperChat\Models\Departments\UserDepAlias::getList(['filter' => ['user_id' => (int)$Params['user_parameters']['user_id']]]) as $item) {
+    $item->removeThis();
+}
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.deleted',array('userData' => $departament));
 
 erLhcoreClassModule::redirect('user/userlist');

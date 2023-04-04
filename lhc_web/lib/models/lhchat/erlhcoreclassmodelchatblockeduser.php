@@ -204,6 +204,7 @@ class erLhcoreClassModelChatBlockedUser
             ]
         ]);
 
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $params['chat'], 'user_id' => $params['user']->id));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $params['chat'], 'user_id' => $params['user']->id));
         $msg->saveThis();
 

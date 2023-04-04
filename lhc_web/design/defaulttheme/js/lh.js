@@ -3020,18 +3020,32 @@ function lh(){
     };
 
     this.submitModalForm = function(form, idElement){
-    	var inst = this;
-    	$.post(form.attr('action'),form.serialize(), function(data) {
-            var idElementDetermined = idElement ? '#'+idElement : '#myModal';
-            if (!idElement) {
-                var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
+        var inst = this;
+        $.ajax({
+            url: form.attr("action"),
+            type: form.attr("method"),
+            //dataType: "JSON",
+            data: new FormData(form[0]),
+            processData: false,
+            contentType: false,
+            success: function (data, status)
+            {
+                var idElementDetermined = idElement ? '#'+idElement : '#myModal';
+                if (!idElement) {
+                    var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
+                }
+                $(idElementDetermined).html(data);
+                if (!idElement) {
+                    $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
+                }
+            },
+            error: function (xhr, desc, err)
+            {
+
             }
-            $(idElementDetermined).html(data);
-            if (!idElement) {
-                $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
-            }
-	   	 });
-    	return false;
+        });
+
+        return false;
     };
 
     this.pendingMessagesToStore = [];

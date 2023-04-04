@@ -269,10 +269,19 @@ class erLhcoreClassAbstract
         }
     }
 
-    public static function validateInput(& $object)
+    public static function validateInput(& $object, $fieldsToValidate = [])
     {
         $definition = array();
         $fields = $object->getFields();
+
+        if (!empty($fieldsToValidate)) {
+            $fieldsNew = [];
+            foreach ($fieldsToValidate as $fieldToValidate) {
+                $fieldsNew[$fieldToValidate] = $fields[$fieldToValidate];
+            }
+            $fields = $fieldsNew;
+        }
+
         foreach ($fields as $key => $field) {
 
             if (isset($field['multilanguage']) && $field['multilanguage'] == true) {

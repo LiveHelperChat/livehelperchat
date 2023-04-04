@@ -3,38 +3,6 @@
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/new.tpl.php');
 
 $UserData = new erLhcoreClassModelUser();
-
-$UserDepartaments = isset($_POST['UserDepartament']) ? $_POST['UserDepartament'] : array();
-$userDepartamentsGroup = isset($_POST['UserDepartamentGroup']) ? $_POST['UserDepartamentGroup'] : array();
-$userDepartamentsGroupRead = isset($_POST['UserDepartamentGroupRead']) ? $_POST['UserDepartamentGroupRead'] : array();
-$userDepartamentsRead = isset($_POST['UserDepartamentRead']) ? $_POST['UserDepartamentRead'] : array();
-$userDepartamentsAutoExc = isset($_POST['UserDepartamentAutoExc']) ? $_POST['UserDepartamentAutoExc'] : array();
-$userDepartamentsGroupAutoExc = isset($_POST['UserDepartamentGroupAutoExc']) ? $_POST['UserDepartamentGroupAutoExc'] : array();
-
-// @todo implement
-$userDepartamentsParams = [];
-$userDepartamentsGroupParams = [];
-
-if (isset($_POST['UserDepartamentAssignPriority'])){
-    foreach ($_POST['UserDepartamentAssignPriority'] as $depId => $value) {
-        $userDepartamentsParams[$depId] = [
-            'assign_priority' => ($_POST['UserDepartamentAssignPriority'][$depId] ? (int)$_POST['UserDepartamentAssignPriority'][$depId] : 0),
-            'chat_max_priority' => ($_POST['UserDepartamentAssignMaxPriority'][$depId] ? (int)$_POST['UserDepartamentAssignMaxPriority'][$depId] : 0),
-            'chat_min_priority' => ($_POST['UserDepartamentAssignMinPriority'][$depId] ? (int)$_POST['UserDepartamentAssignMinPriority'][$depId] : 0)
-        ];
-    }
-}
-
-if (isset($_POST['UserDepartamentGroupAssignPriority'])){
-    foreach ($_POST['UserDepartamentGroupAssignPriority'] as $depGroupId => $value) {
-        $userDepartamentsGroupParams[$depGroupId] = [
-            'assign_priority' => ($_POST['UserDepartamentGroupAssignPriority'][$depGroupId] ? (int)$_POST['UserDepartamentGroupAssignPriority'][$depGroupId] : 0),
-            'chat_max_priority' => ($_POST['UserDepGroupAssignMaxPriority'][$depGroupId] ? (int)$_POST['UserDepGroupAssignMaxPriority'][$depGroupId] : 0),
-            'chat_min_priority' => ($_POST['UserDepGroupAssignMinPriority'][$depGroupId] ? (int)$_POST['UserDepGroupAssignMinPriority'][$depGroupId] : 0)
-        ];
-    }
-}
-
 $tpl->set('tab',$Params['user_parameters_unordered']['tab'] == 'canned' ? 'tab_canned' : '');
 
 $groups_can_edit = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'editusergroupall') == true ? true : erLhcoreClassGroupRole::getGroupsAccessedByUser(erLhcoreClassUser::instance()->getUserData());
@@ -66,7 +34,7 @@ $userParams = array(
     'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups'])
 );
 
-if (isset($_POST['Update_account']))
+if (isset($_POST['Update_account']) || isset($_POST['Update_account_edit']))
 {
 	
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -98,17 +66,6 @@ if (isset($_POST['Update_account']))
                 ));
             }
 
-            $paramsAssignment = [
-                'assign_priority' => (isset($_POST['UserDepartamentAssignPriority']) ? $_POST['UserDepartamentAssignPriority'] : []),
-                'chat_max_priority' => (isset($_POST['UserDepartamentAssignMaxPriority']) ? $_POST['UserDepartamentAssignMaxPriority'] : []),
-                'chat_min_priority' => (isset($_POST['UserDepartamentAssignMinPriority']) ? $_POST['UserDepartamentAssignMinPriority'] : [])
-            ];
-
-
-            if (count($userParams['global_departament']) > 0) {
-               erLhcoreClassUserDep::addUserDepartaments($userParams['global_departament'], $UserData->id, $UserData, $userDepartamentsRead, $userDepartamentsAutoExc, $paramsAssignment);
-            }
-
             $UserData->setUserGroups();
 
             $userPhotoErrors = erLhcoreClassUserValidator::validateUserPhoto($UserData);
@@ -116,18 +73,6 @@ if (isset($_POST['Update_account']))
             if ($userPhotoErrors !== false && count($userPhotoErrors) == 0) {
             	$UserData->saveThis();
             }
-
-            $paramsAssignmentGroup = [
-                'assign_priority' => (isset($_POST['UserDepartamentGroupAssignPriority']) ? $_POST['UserDepartamentGroupAssignPriority'] : []),
-                'chat_min_priority' => (isset($_POST['UserDepGroupAssignMinPriority']) ? $_POST['UserDepGroupAssignMinPriority'] : []),
-                'chat_max_priority' => (isset($_POST['UserDepGroupAssignMaxPriority']) ? $_POST['UserDepGroupAssignMaxPriority'] : [])
-            ];
-
-            // Write
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'])), false, $userDepartamentsGroupAutoExc, $paramsAssignmentGroup);
-
-            // Read
-            erLhcoreClassModelDepartamentGroupUser::addUserDepartmentGroups($UserData, erLhcoreClassUserValidator::validateDepartmentsGroup($UserData, array('edit_params' => $userParams['edit_params'], 'read_only' => true)), true, $userDepartamentsGroupAutoExc, $paramsAssignmentGroup);
 
             // Chats
             erLhcoreClassModelUserSetting::setSetting('show_all_pending', $userParams['show_all_pending'], $UserData->id);
@@ -154,7 +99,11 @@ if (isset($_POST['Update_account']))
 
             $db->commit();
 
-            erLhcoreClassModule::redirect('user/userlist');
+            if (isset($_POST['Update_account_edit'])) {
+                erLhcoreClassModule::redirect('user/edit','/' . $UserData->id);
+            } else {
+                erLhcoreClassModule::redirect('user/userlist');
+            }
             exit;
 
         } catch (Exception $e) {
@@ -174,18 +123,7 @@ if (isset($_POST['Update_account']))
 }
 
 $tpl->set('user',$UserData);
-$tpl->set('userDepartaments',$UserDepartaments);
-$tpl->set('userDepartamentsGroup',$userDepartamentsGroup);
-$tpl->set('userDepartamentsGroupRead',$userDepartamentsGroupRead);
-$tpl->set('userDepartamentsRead',$userDepartamentsRead);
-$tpl->set('userDepartamentsAutoExc',$userDepartamentsAutoExc);
-$tpl->set('userDepartamentsGroupAutoExc',$userDepartamentsGroupAutoExc);
-$tpl->set('userDepartamentsParams', $userDepartamentsParams);
-$tpl->set('userDepartamentsGroupParams', $userDepartamentsGroupParams);
-
 $tpl->set('quick_settings', $userParams);
-
-
 
 $userGroupFilter = $groups_can_edit === true ? array() : array('filterin' => array('id' => $groups_can_edit['groups']));
 $tpl->set('user_groups_filter',$userGroupFilter);

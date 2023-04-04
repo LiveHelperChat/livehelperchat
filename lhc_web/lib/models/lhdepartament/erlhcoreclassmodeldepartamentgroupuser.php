@@ -102,10 +102,10 @@ class erLhcoreClassModelDepartamentGroupUser
     public function afterSave()
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id AND ro = :ro');
+        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id ');//AND ro = :ro
         $stmt->bindValue( ':dep_group_id', $this->dep_group_id);
         $stmt->bindValue( ':user_id', $this->user_id);
-        $stmt->bindValue( ':ro', $this->read_only);
+        //$stmt->bindValue( ':ro', $this->read_only);
         $stmt->execute();
         
         foreach ($this->dep_group->departments_ids as $depId) 
