@@ -3,7 +3,7 @@ header('content-type: application/json; charset=utf-8');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
-
+$chatId = 0;
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
         if ($Params['user_parameters_unordered']['scope'] == erLhcoreClassModelTransfer::SCOPE_MAIL) {
@@ -13,13 +13,15 @@ try {
             $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['transfer_id']);
             $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_CHAT);
         }
+
+        $chatId = $Params['user_parameters']['transfer_id'];
+
         if (is_array($transferLegacy)) {
             $chatTransfer = erLhcoreClassModelTransfer::fetchAndLock($transferLegacy['id']);
         } else {
             exit;
         }
-        
-    } else {    
+    } else {
 
     	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
 
@@ -28,10 +30,16 @@ try {
         } else {
             $chat = erLhcoreClassModelMailconvConversation::fetch($chatTransfer->chat_id);
         }
-
+        
     }
 } catch (Exception $e) {
 	exit;
+}
+
+// Perhaps transfer was already accepted
+if (!is_object($chatTransfer)) {
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chatId, 'scope' => $Params['user_parameters_unordered']['scope']));
+    exit;
 }
 
 // Set new chat owner
