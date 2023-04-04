@@ -3,11 +3,11 @@ header('content-type: application/json; charset=utf-8');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
-
+$chatId = 0;
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
         $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['transfer_id']) ;
-        
+        $chatId = $Params['user_parameters']['transfer_id'];
         $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id);
         
         if (is_array($transferLegacy)) {
@@ -19,9 +19,16 @@ try {
     } else {    
         $chatTransfer = erLhcoreClassModelTransfer::fetchAndLock($Params['user_parameters']['transfer_id']);
         $chat = erLhcoreClassModelChat::fetchAndLock($chatTransfer->chat_id);
+        $chatId = $chatTransfer->chat_id;
     }
 } catch (Exception $e) {
 	exit;
+}
+
+// Perhaps transfer was already accepted
+if (!is_object($chatTransfer)) {
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chatId));
+    exit;
 }
 
 // Set new chat owner
