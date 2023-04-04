@@ -39,7 +39,7 @@ if (isset($_POST['Save_mailbox'])) {
     $mailBoxes = $item->mailbox_sync_array;
 
     foreach ($mailBoxes as $index => $mailBox) {
-        if (in_array($mailBox['path'], $_POST['Mailbox'])) {
+        if (isset($_POST['Mailbox']) && is_array($_POST['Mailbox']) && in_array($mailBox['path'], $_POST['Mailbox'])) {
             $mailBoxes[$index]['sync'] = true;
         } else {
             $mailBoxes[$index]['sync'] = false;
