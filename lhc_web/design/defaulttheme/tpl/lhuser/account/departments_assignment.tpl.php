@@ -16,7 +16,7 @@
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Individual departments')?>
 
             <?php if ($departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal']) : ?>
-            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
+            <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?><?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a>
             <?php endif; ?>
 
         </h5>
@@ -97,7 +97,7 @@
             <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Departments groups')?>
 
                 <?php if ( $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal']) : ?>
-                <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
+                <a class="btn btn-success btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/newdepartment/<?php echo $user->id?>/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>'})"><span class="material-icons fs11 me-0">add</span>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','New')?></a></h5>
                 <?php endif; ?>
 
             <div class="row">

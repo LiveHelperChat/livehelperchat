@@ -127,8 +127,15 @@ foreach ($departmentsGroups as $departamentGroup) {
     }
 }
 
+if ($Params['user_parameters_unordered']['mode'] == 'group') {
+    $present_dep_ids = erLhcoreClassModelDepartamentGroupUser::getCount(['filter' => ['user_id' => $user->id]],'count','dep_group_id','dep_group_id',false, true, true);
+} else {
+    $present_dep_ids = erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true);
+}
+
 $tpl->set('dep_group_ids',$depGroupIds);
 $tpl->set('dep_ids',$depIds);
+$tpl->set('present_dep_ids',$present_dep_ids);
 
 // Verify permissions for edit
 if ($Params['user_parameters_unordered']['editor'] == 'self') {
@@ -151,7 +158,7 @@ if ($user instanceof erLhcoreClassModelUser) {
 
         $definition = array(
             'dep_ids' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1]
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 1], FILTER_REQUIRE_ARRAY
             )
         );
 
@@ -159,52 +166,112 @@ if ($user instanceof erLhcoreClassModelUser) {
 
         $Errors = [];
 
-        if ($form->hasValidData('dep_ids')) {
+        if ($form->hasValidData('dep_ids') && !empty($form->dep_ids)) {
             if ($Params['user_parameters_unordered']['mode'] == 'group') {
-                $userDep->dep_group_id = $form->dep_ids;
+                // $userDep->dep_group_id = $form->dep_ids;
+                $userDep->dep_group_ids = $form->dep_ids;
             } else {
-                $userDep->dep_id = $form->dep_ids;
+                // $userDep->dep_id = $form->dep_ids;
+                $userDep->dep_ids = $form->dep_ids;
             }
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'Please choose a department!');
         }
 
         if ($Params['user_parameters_unordered']['mode'] == 'group') {
-            if (empty($Errors) && erLhcoreClassModelDepartamentGroupUser::getCount(['filter' => ['user_id' => $user->id, 'dep_group_id' => $userDep->dep_group_id]]) > 0) {
+            if (empty($Errors) && erLhcoreClassModelDepartamentGroupUser::getCount(['filterin' => ['dep_group_id' => $userDep->dep_group_ids],'filter' => ['user_id' => $user->id]]) > 0) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'This department department already have been added!');
             }
         } else {
-            if (empty($Errors) && erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id, 'dep_id' => $userDep->dep_id, 'type' => 0]]) > 0) {
+            if (empty($Errors) && erLhcoreClassModelUserDep::getCount(['filterin' => ['dep_id' => $userDep->dep_ids],'filter' => ['user_id' => $user->id, 'type' => 0]]) > 0) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'This department already have been added!');
             }
         }
 
         if (count($Errors) == 0) {
             if ($Params['user_parameters_unordered']['mode'] != 'group') {
-                $userDepAlias->dep_id = $userDep->dep_id;
+                //$userDepAlias->dep_id = $userDep->dep_id;
+                $userDepAlias->dep_ids = $userDep->dep_ids;
             } else {
-                $userDepAlias->dep_group_id = $userDep->dep_group_id;
+                //$userDepAlias->dep_group_id = $userDep->dep_group_id;
+                $userDepAlias->dep_group_ids = $userDep->dep_group_ids;
             }
         }
 
         if (count($Errors) == 0) {
 
-            if ($Params['user_parameters_unordered']['mode'] != 'group') {
-                $userDep->max_chats = $user->max_active_chats;
-                $userDep->hide_online = $user->hide_online;
-                $userDep->exclude_autoasign = $user->exclude_autoasign;
-                $userDep->active_chats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
-                $userDep->always_on = $user->always_on;
+            if ($Params['user_parameters_unordered']['mode'] == 'group') {
+                foreach ($userDep->dep_group_ids as $dep_group_id) {
+                    $userDep->id = null;
+                    $userDep->dep_group_id = $dep_group_id;
+                    $userDep->saveThis();
+                }
+            } else {
+                foreach ($userDep->dep_ids as $dep_id) {
+                    $userDep->id = null;
+                    $userDep->max_chats = $user->max_active_chats;
+                    $userDep->hide_online = $user->hide_online;
+                    $userDep->exclude_autoasign = $user->exclude_autoasign;
+                    $userDep->active_chats = erLhcoreClassChat::getCount(array('filter' => array('user_id' => $user->id, 'status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)));
+                    $userDep->always_on = $user->always_on;
+                    $userDep->dep_id = $dep_id;
+                    $userDep->saveThis();
+                }
             }
-
-            $userDep->saveThis();
 
             $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
             $user->updateThis(['update' => ['departments_ids']]);
+            $firstAlias = null;
 
-            erLhcoreClassUserValidator::validateAliasDepartment($userDepAlias);
+            if ($Params['user_parameters_unordered']['mode'] == 'group') {
+                foreach ($userDepAlias->dep_group_ids as $dep_group_id) {
+                    $userDepAlias->id = null;
+                    $userDepAlias->dep_group_id = $dep_group_id;
+                    erLhcoreClassUserValidator::validateAliasDepartment($userDepAlias);
+                    if ($firstAlias === null) {
+                        $firstAlias = clone $userDepAlias;
+                    } else {
+                        if ($firstAlias->has_photo) {
+                            $newPath = explode('/',trim($firstAlias->filepath,'/'));
+                            $newPath[5] = $userDepAlias->id;
+                            $newPathString = implode('/', $newPath) . '/';
+                            erLhcoreClassFileUpload::mkdirRecursive( $newPathString );
+                            $userDepAlias->filepath = $newPathString;
+                            copy($firstAlias->file_path_server,$userDepAlias->filepath . $userDepAlias->filename);
+                            chmod($userDepAlias->filepath . $userDepAlias->filename, 0644);
+                            $userDepAlias->updateThis();
+                        }
+                    }
+                }
+            } else {
+                foreach ($userDepAlias->dep_ids as $dep_id) {
+                    $userDepAlias->id = null;
+                    $userDepAlias->dep_id = $dep_id;
+                    erLhcoreClassUserValidator::validateAliasDepartment($userDepAlias);
+                    if ($firstAlias === null) {
+                        $firstAlias = clone $userDepAlias;
+                    } else {
+                        if ($firstAlias->has_photo) {
+                            $newPath = explode('/',trim($firstAlias->filepath,'/'));
+                            $newPath[5] = $userDepAlias->id;
+                            $newPathString = implode('/', $newPath) . '/';
+                            erLhcoreClassFileUpload::mkdirRecursive( $newPathString );
+                            $userDepAlias->filepath = $newPathString;
+                            copy($firstAlias->file_path_server,$userDepAlias->filepath . $userDepAlias->filename);
+                            chmod($userDepAlias->filepath . $userDepAlias->filename, 0644);
+                            $userDepAlias->updateThis();
+                        }
+                    }
+                }
+            }
 
             $tpl->set('updated', true);
+            if ($Params['user_parameters_unordered']['mode'] != 'group') {
+                $userDep->dep_id = 0;
+            } else {
+                $userDep->dep_group_id = 0;
+            }
+
         } else {
             $tpl->set('errors', $Errors);
         }
