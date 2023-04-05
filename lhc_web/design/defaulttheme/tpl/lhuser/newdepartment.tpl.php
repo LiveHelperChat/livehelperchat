@@ -25,7 +25,7 @@
                 //'type'           => 'radio',
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => ['filternotin' => ['id' => $present_dep_ids], 'sort' => '`name` ASC', 'limit' => 50, 'filterin' => ['id' => $dep_ids]],
+                'list_function_params' => ['filternotin' => ['id' => $present_dep_ids], 'sort' => '`name` ASC', 'limit' => 50, 'filter' => ['archive' => 0], 'filterin' => ['id' => $dep_ids]],
                 'list_function'  => 'erLhcoreClassModelDepartament::getList'
             )); ?>
         <?php else : ?>
