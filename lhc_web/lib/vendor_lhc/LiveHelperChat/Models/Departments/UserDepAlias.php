@@ -100,7 +100,10 @@ class UserDepAlias {
                 }
                 $userId = $params['user']->id;
             } elseif ($params['scope'] == 'msg') {
-                $userId = $params['msg']->user_id > 0 ? $params['msg']->user_id : $params['user_id'];
+                $userId = $params['msg']->user_id > 0 ? $params['msg']->user_id : (isset($params['user_id']) ? $params['user_id'] : 0);
+                if (!($userId > 0)) {
+                    return;
+                }
             } else {
                 $userId = $params['chat']->user_id;
             }
