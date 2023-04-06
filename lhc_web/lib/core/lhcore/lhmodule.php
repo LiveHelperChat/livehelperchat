@@ -552,7 +552,7 @@ class erLhcoreClassModule{
             	$cacheModules = array();
             }
 
-            if (count($cacheModules) > 0) {
+            if (is_countable($cacheModules) and count($cacheModules) > 0) {
                 self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_'.$siteAccess.'_version_'.self::$cacheVersionSite,$cacheModules);
                 return $cacheModules;
             }
