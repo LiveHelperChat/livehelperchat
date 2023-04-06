@@ -14,18 +14,18 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/validation_error.tpl.php'));?>
 
 <form enctype="multipart/form-data" action="<?php echo erLhcoreClassDesign::baseurl('user/newdepartment')?>/<?php echo $user->id?><?php if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) : ?>/(mode)/group<?php endif; ?><?php if (isset($editor) && $editor == 'self') : ?>/(editor)/self<?php endif; ?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
-    <div class="form-group drop-down-modal" data-limit="1">
+    <div class="form-group drop-down-modal" >
         <?php if ($userDep instanceof erLhcoreClassModelUserDep) : ?>
             <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
                 'input_name'     => 'dep_ids',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department you want to add'),
                 'selected_id'    => [$userDep->dep_id],
-                'data_prop'      => 'data-type="radio" data-limit="1"',
+                //'data_prop'      => 'data-type="radio" data-limit="1"',
                 'ajax'           => 'deps',
-                'type'           => 'radio',
+                //'type'           => 'radio',
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => ['sort' => '`name` ASC', 'limit' => 50, 'filterin' => ['id' => $dep_ids]],
+                'list_function_params' => ['filternotin' => ['id' => $present_dep_ids], 'sort' => '`name` ASC', 'limit' => 50, 'filter' => ['archive' => 0], 'filterin' => ['id' => $dep_ids]],
                 'list_function'  => 'erLhcoreClassModelDepartament::getList'
             )); ?>
         <?php else : ?>
@@ -33,11 +33,11 @@
                 'input_name'     => 'dep_ids',
                 'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group you want to add'),
                 'selected_id'    => [$userDep->dep_group_id],
-                'data_prop'      => 'data-type="radio" data-limit="1"',
-                'type'           => 'radio',
+                //'data_prop'      => 'data-type="radio" data-limit="1"',
+                //'type'           => 'radio',
                 'css_class'      => 'form-control',
                 'display_name'   => 'name',
-                'list_function_params' => ['sort' => '`name` ASC', 'limit' => false, 'filterin' => ['id' => $dep_group_ids]],
+                'list_function_params' => ['filternotin' => ['id' => $present_dep_ids], 'sort' => '`name` ASC', 'limit' => false, 'filterin' => ['id' => $dep_group_ids]],
                 'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
             )); ?>
         <?php endif; ?>

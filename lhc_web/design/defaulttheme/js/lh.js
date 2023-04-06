@@ -164,7 +164,7 @@ function lh(){
             $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
         }
 
-        this.removeSynchroChat(chat_id);
+        this.removeSynchroChat(chat_id, true);
         this.removeBackgroundChat(chat_id);
         this.hideNotification(chat_id);
         var inst = this;
@@ -978,7 +978,7 @@ function lh(){
         }
     };
 
-    this.removeSynchroChat = function (chat_id)
+    this.removeSynchroChat = function (chat_id, passive)
     {
         var j = 0;
 
@@ -994,7 +994,9 @@ function lh(){
 
         this.forgetChat(chat_id,'achat_id');
 
-        ee.emitEvent('removeSynchroChat', [chat_id]);
+        if (passive !== true) {
+            ee.emitEvent('removeSynchroChat', [chat_id]);
+        }
 
         if (LHCCallbacks.removeSynchroChat) {
         	LHCCallbacks.removeSynchroChat(chat_id);
