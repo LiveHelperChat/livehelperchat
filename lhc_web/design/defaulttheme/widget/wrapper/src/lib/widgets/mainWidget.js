@@ -28,7 +28,7 @@ export class mainWidget{
 
         this.isLoaded = false;
 
-        this.loadStatus = {main: false, css: false};
+        this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true};
     }
 
     resize() {
@@ -79,9 +79,13 @@ export class mainWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['main'] == true && this.loadStatus['css'] == true ) {
-            this.attributes.wloaded.next(true);
+        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true) {
+            this.loadApp();
         }
+    }
+
+    checkLoadApp() {
+        this.attributes.wloaded.next(true);
     }
 
     makeContent() {
@@ -115,9 +119,9 @@ export class mainWidget{
         if (chatParams['id'] || !lazyLoad) {
             this.bootstrap();
         }
-        
+
         this.toggleVisibilityWrap = (data) => {
-                this.toggleVisibility(data);
+            this.toggleVisibility(data);
         };
 
         attributes.widgetStatus.subscribe(this.toggleVisibilityWrap);
@@ -173,8 +177,22 @@ export class mainWidget{
             this.cont.insertCssRemoteFile({rel:"stylesheet", crossOrigin : "anonymous",  href : this.attributes.staticJS['fontCSS']});
         }
 
+        if (this.attributes.staticJS['font_status']) {
+            this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font_status'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : this.attributes.staticJS['font_status']});
+        }
+
+        if (this.attributes.staticJS['font_preload']) {
+            this.loadStatus['font_preload'] = false;
+            this.attributes.staticJS['font_preload'].forEach((item) => {
+                this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font_preload'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : item});
+            });
+        }
+
         if (this.attributes.theme) {
-            this.cont.insertCssRemoteFile({crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+            this.loadStatus['theme'] = false;
+            this.cont.insertCssRemoteFile({onload: ()=> {this.loadStatus['theme'] = true; this.checkLoadStatus()}, crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + this.attributes.theme_v}, true);
+        } else {
+            this.loadStatus['theme'] = true;
         }
 
         this.cont.insertCssRemoteFile({onload: () => {
@@ -193,11 +211,13 @@ export class mainWidget{
                 helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
             }
         }
+    }
 
+    loadApp() {
         this.cont.insertJSFile(this.attributes.staticJS['vendor'], false, () => {
             this.cont.insertJSFile(this.attributes.staticJS['app'], false, () => {
                 this.loadStatus['main'] = true;
-                this.checkLoadStatus();
+                this.checkLoadApp();
             }, {'scope': this.attributes.prefixLowercase});
         }, {'scope': this.attributes.prefixLowercase});
 
@@ -242,9 +262,9 @@ export class mainWidget{
     }
 
     show () {
-         if (this.isLoaded === false) {
-             this.bootstrap();
-         }
-         this.cont.show();
+        if (this.isLoaded === false) {
+            this.bootstrap();
+        }
+        this.cont.show();
     }
 }
