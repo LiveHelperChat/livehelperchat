@@ -225,6 +225,8 @@ if (($themeId = erLhcoreClassChat::extractTheme()) !== false) {
     }
 }
 
+$host = erLhcoreClassSystem::getHost();
+
 $pageCSS = false;
 
 $outputResponse['chat_ui']['status_delay'] = 0;
@@ -335,6 +337,17 @@ if (isset($outputResponse['theme'])) {
         }
 
         $outputResponse['chat_ui']['sound_enabled'] = (isset($theme->bot_configuration_array['disable_sound']) && $theme->bot_configuration_array['disable_sound'] == 1) ? 0 : 1;
+
+        $fontsPreload = [];
+        if ($theme->custom_widget_css != '') {
+            $fontFilesExternal = [];
+            preg_match_all('/url\("([\/_:a-zA-Z0-9.-]+).woff2"\)/is',$theme->custom_widget_css, $fontFilesExternal);
+            if (!empty($fontFilesExternal[1])) {
+                foreach ($fontFilesExternal[1] as $fontToPreload) {
+                    $fontsPreload[] = strpos($fontToPreload,'http') !== 0 ? $host . $fontToPreload . '.woff2' : $fontToPreload . '.woff2';
+                }
+            }
+        }
     }
 }
 
@@ -499,10 +512,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 208;
+$outputResponse['wv'] = 209;
 
 // React APP versions
-$outputResponse['v'] = 277;
+$outputResponse['v'] = 278;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -571,8 +584,6 @@ if (isset($gaOptions['ga_enabled']) && $gaOptions['ga_enabled'] == true) {
     }
 }
 
-$host = erLhcoreClassSystem::getHost();
-
 $outputResponse['static'] = array(
     'screenshot' =>  $host . erLhcoreClassDesign::design('js/html2canvas.min.js'). '?v=' . $outputResponse['v'],
     'app' => $host . ((isset($_GET['ie']) && $_GET['ie'] == 'true') ? erLhcoreClassDesign::design('js/widgetv2/react.app.ie.js') . '?v=' . $outputResponse['v'] : erLhcoreClassDesign::design('js/widgetv2/react.app.js') . '?v=' . $outputResponse['v']),
@@ -589,6 +600,10 @@ $outputResponse['static'] = array(
     'ex_js' => [],
     'ex_cb_js' => []
 );
+
+if (isset($fontsPreload) && !empty($fontsPreload)) {
+    $outputResponse['static']['font_preload'] = $fontsPreload;
+}
 
 $outputResponse['chunks_location'] = $host . erLhcoreClassDesign::design('js/widgetv2');
 $outputResponse['domain_lhc'] = str_replace(['http://','https://'],'',$host);

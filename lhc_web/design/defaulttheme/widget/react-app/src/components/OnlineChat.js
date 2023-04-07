@@ -968,7 +968,7 @@ class OnlineChat extends Component {
 
                     <div className={msg_expand} onClick={(e) => {this.setState({'reactToMsgId' : 0})}} id="messagesBlock" onScroll={this.onScrollMessages}>
 
-                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback="..."><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
+                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback=""><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
 
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
