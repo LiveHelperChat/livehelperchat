@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -852,6 +856,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Themes which will be edited all at once.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group departments does not have any themes assigned to them.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bubble background color</source>
       <translation type="unfinished"/>
     </message>
@@ -1165,6 +1177,10 @@
     </message>
     <message>
       <source>Disable chat preview</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow visitor return to chat even if it was closed.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1883,6 +1899,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visible in chat list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
     </message>
@@ -2139,7 +2159,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visible in chat list</source>
+      <source>Visible in the widget chat lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible standard chat list</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3152,6 +3176,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Message body</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation type="unfinished"/>
     </message>
@@ -3937,6 +3965,14 @@
     </message>
     <message>
       <source>JSON</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department you want to add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department group you want to add</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6474,6 +6510,10 @@
   <context>
     <name>chat/adminchat</name>
     <message>
+      <source>Exclude bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Strike</source>
       <translation type="unfinished"/>
     </message>
@@ -6842,7 +6882,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Exclude bot messages</source>
+      <source>Include bot messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6919,6 +6959,18 @@
     </message>
     <message>
       <source>Visitor ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Previous item</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Alt+↑↓ arrows to navigate in the list.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Next item</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7741,6 +7793,10 @@
   <context>
     <name>user/account</name>
     <message>
+      <source>Show archived departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
     </message>
@@ -8021,7 +8077,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Assign as operator</source>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Profile picture</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read only</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8033,23 +8109,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Agents with higher assignment priority will be assigned first to chat</source>
+      <source>Min chat priority for chat being assigned by my assign priority</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <source>Max chat priority for chat being assigned by my assign priority</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Read only</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assign in read only mode</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show archived departments</source>
+      <source>Remove</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8081,6 +8149,46 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Assign in read only mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign as operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agents with higher assignment priority will be assigned first to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avatar builder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any string to generate an avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo has higher priority than avatar.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation type="unfinished"/>
     </message>
@@ -8105,6 +8213,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department assignment could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation type="unfinished"/>
     </message>
@@ -8118,18 +8230,6 @@
     </message>
     <message>
       <source>Hide quick notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Avatar builder</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter any string to generate an avatar</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Click to set avatar</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9951,6 +10051,10 @@
   <context>
     <name>chat/onlineusers</name>
     <message>
+      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>GEO detection configuration</source>
       <translation type="unfinished"/>
     </message>
@@ -10080,10 +10184,6 @@
     </message>
     <message>
       <source>Chat list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13238,6 +13338,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Edit theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments limit groups</source>
       <translation type="unfinished"/>
     </message>
@@ -15765,6 +15873,10 @@
   <context>
     <name>survey/fill</name>
     <message>
+      <source>Survey has been completed, thank you for your feedback!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
     </message>
@@ -15789,15 +15901,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Thank you for your feedback...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Survey has been completed, thank you for your feedback!</source>
+      <source>Thank you for your feedback!</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -16269,6 +16381,14 @@
     </message>
     <message>
       <source>Save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save and edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments you will be able to assign once you save an operator.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18947,6 +19067,45 @@
     </message>
     <message>
       <source>Deny screen share</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/assigndepartment</name>
+    <message>
+      <source>No permission to edit!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department group assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department department already have been added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department already have been added!</source>
       <translation type="unfinished"/>
     </message>
   </context>
