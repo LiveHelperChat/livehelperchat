@@ -22,8 +22,28 @@
             <?php foreach (erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) : ?>
                 <span class="badge bg-info fs12 me-1" ><?php echo htmlspecialchars($subject->subject)?></span>
             <?php endforeach; ?>
-
         </div>
+
+        <?php if (isset($_GET['prevId']) || isset($_GET['nextId'])) : ?>
+            <div class="p-1 border-bottom">
+
+                <?php if (isset($_GET['prevId'])) : ?>
+                    <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['prevId']?>').click()" class="btn btn-xs btn-secondary"><span class="material-icons fs13 me-0">arrow_back_ios</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Previous item')?></button>
+                <?php endif; ?>
+
+                <?php if (isset($_GET['nextId'])) : ?>
+                    <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['nextId']?>').click()" class="btn btn-xs btn-secondary" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Next item')?><span class="material-icons me-0 fs13">arrow_forward_ios</span></button>
+                <?php endif; ?>
+
+                <span class="text-muted fs13 ps-1">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Use Alt+↑↓ arrows to navigate in the list.')?>
+                </span>
+
+            </div>
+        <?php endif; ?>
+
+
+
       <div class="modal-body mx550">
 
 <small id="preview-messages-<?php echo $chat->id?>">
@@ -79,29 +99,7 @@
           } ?>
       </div>
 
-        <?php if (isset($_GET['prevId']) || isset($_GET['nextId'])) : ?>
-        <div class="modal-footer ps-0 ms-0">
-            <div class="row w-100">
 
-                <div class="col-4">
-                    <?php if (isset($_GET['prevId'])) : ?>
-                        <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['prevId']?>').click()" class="btn btn-sm btn-secondary"><span class="material-icons me-0">arrow_back_ios</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Previous item')?></button>
-                    <?php endif; ?>
-                </div>
-
-                <div class="col-4 text-muted">
-                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Use Alt+↑↓ arrows to navigate in the list.')?>
-                </div>
-
-                <div class="col-4 text-end">
-                    <?php if (isset($_GET['nextId'])) : ?>
-                        <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['nextId']?>').click()" class="btn btn-sm btn-secondary" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Next item')?><span class="material-icons me-0">arrow_forward_ios</span></button>
-                    <?php endif; ?>
-                </div>
-
-            </div>
-        </div>
-        <?php endif; ?>
 
         
         
