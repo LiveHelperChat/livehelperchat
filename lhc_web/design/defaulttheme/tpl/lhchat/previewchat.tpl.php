@@ -72,4 +72,38 @@
       })(<?php echo $chat->id,',',$msg['id']?>);
   </script>
 
-<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+          <?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+              $debug = ezcDebug::getInstance();
+              echo "<div><pre class='bg-light text-dark m-2 p-2 border'>" . json_encode(erLhcoreClassUser::$permissionsChecks, JSON_PRETTY_PRINT) . "</pre></div>";
+              echo $debug->generateOutput();
+          } ?>
+      </div>
+
+        <?php if (isset($_GET['prevId']) || isset($_GET['nextId'])) : ?>
+        <div class="modal-footer ps-0 ms-0">
+            <div class="row w-100">
+
+                <div class="col-4">
+                    <?php if (isset($_GET['prevId'])) : ?>
+                        <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['prevId']?>').click()" class="btn btn-sm btn-secondary"><span class="material-icons me-0">arrow_back_ios</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Previous item')?></button>
+                    <?php endif; ?>
+                </div>
+
+                <div class="col-4 text-muted">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Use Alt+↑↓ arrows to navigate in the list.')?>
+                </div>
+
+                <div class="col-4 text-end">
+                    <?php if (isset($_GET['nextId'])) : ?>
+                        <button type="button" onclick="$('#preview-item-<?php echo (int)$_GET['nextId']?>').click()" class="btn btn-sm btn-secondary" data-dismiss="modal"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Next item')?><span class="material-icons me-0">arrow_forward_ios</span></button>
+                    <?php endif; ?>
+                </div>
+
+            </div>
+        </div>
+        <?php endif; ?>
+
+        
+        
+    </div>
+</div>
