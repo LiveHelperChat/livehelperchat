@@ -762,15 +762,23 @@ class erLhcoreClassGenericBotActionCommand {
             
         } elseif ($action['content']['command'] == 'setsubject') {
 
+            $payloadProcessed = $action['content']['payload'];
+
+            if (isset($params['replace_array']) && is_array($params['replace_array'])) {
+                $payloadProcessed = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$payloadProcessed);
+            }
+
+            $payloadProcessed = erLhcoreClassGenericBotWorkflow::translateMessage($payloadProcessed, array('chat' => $chat, 'args' => $params));
+
             $remove = isset($action['content']['remove_subject']) && $action['content']['remove_subject'] == true;
-            if ($remove == true && is_numeric($action['content']['payload'])) {
-                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+            if ($remove == true && is_numeric($payloadProcessed)) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('subject_id' => (int)$payloadProcessed, 'chat_id' => $chat->id)));
                 if ($subjectChat instanceof erLhAbstractModelSubjectChat) {
                     $subjectChat->removeThis();
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_remove',array( 'init' => 'bot', 'subject_id' => (int)$action['content']['payload'], 'chat' => & $chat));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.subject_remove',array( 'init' => 'bot', 'subject_id' => (int)$payloadProcessed, 'chat' => & $chat));
                 }
-            } else if (is_numeric($action['content']['payload']) && ($subject = erLhAbstractModelSubject::fetch((int)$action['content']['payload'])) instanceof erLhAbstractModelSubject) {
-                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array( 'subject_id' => (int)$action['content']['payload'], 'chat_id' => $chat->id)));
+            } else if (is_numeric($payloadProcessed) && ($subject = erLhAbstractModelSubject::fetch((int)$payloadProcessed)) instanceof erLhAbstractModelSubject) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array( 'subject_id' => (int)$payloadProcessed, 'chat_id' => $chat->id)));
                 if (!($subjectChat instanceof erLhAbstractModelSubjectChat)) {
                     $subjectChat = new erLhAbstractModelSubjectChat();
                     $subjectChat->subject_id = $subject->id;
