@@ -57,8 +57,8 @@ __webpack_public_path__ = window.WWW_DIR_LHC_WEBPACK;
                     $('.chat-row-tr.bg-light').removeClass('bg-light');
                     $('#chat-row-tr-'+chat_id).addClass('bg-light');
 
-                    prevChatId = $(event).parent().parent().prev().attr('data-chat-id');
-                    nextChatId = $(event).parent().parent().next().attr('data-chat-id');
+                    prevChatId = $(event).parent().parent().prevAll('tr:not(.ignore-row)').first().attr('data-chat-id');
+                    nextChatId = $(event).parent().parent().nextAll('tr:not(.ignore-row)').first().attr('data-chat-id');
 
                     if (prevChatId) {
                         navigatorLink = '&prevId=' + prevChatId;
