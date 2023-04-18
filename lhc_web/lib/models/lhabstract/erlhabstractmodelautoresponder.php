@@ -159,7 +159,27 @@ class erLhAbstractModelAutoResponder {
 	   	           $this->dep = false;
 	   	       }
 	   		   return $this->dep;
-	   		break;
+
+           case 'timeout_hold_message_1_translated':
+           case 'timeout_hold_message_2_translated':
+           case 'timeout_hold_message_3_translated':
+           case 'timeout_hold_message_4_translated':
+           case 'timeout_hold_message_5_translated':
+           case 'wait_timeout_hold_translated':
+               $attr = str_replace('_translated','',$var);
+               $this->{$var} = null;
+               if ($this->{$attr} != '') {
+                   $msgData = explode('|||', $this->{$attr});
+
+                   if (count($msgData) > 1) {
+                       $item = trim($msgData[mt_rand(0,count($msgData)-1)]);
+                   } else {
+                       $item = $this->{$attr};
+                   }
+
+                   $this->{$var} = $item;
+               }
+               return $this->{$var};
 
            case 'close_message':
            case 'offline_message':
@@ -608,6 +628,7 @@ class erLhAbstractModelAutoResponder {
                 }
             }
         }
+
     }
 
     public function validateInput()

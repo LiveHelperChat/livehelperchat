@@ -266,7 +266,7 @@ return array(
         )),
     'wait_timeout_hold_2' => array(
         'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [1]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [2]'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -274,7 +274,7 @@ return array(
         )),
     'wait_timeout_hold_3' => array(
         'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [1]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [3]'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -282,7 +282,7 @@ return array(
         )),
     'wait_timeout_hold_4' => array(
         'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [1]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [4]'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -290,7 +290,7 @@ return array(
         )),
     'wait_timeout_hold_5' => array(
         'type' => 'text',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [1]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Timeout. [5]'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -307,7 +307,7 @@ return array(
     'wait_timeout_hold' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Default on hold message'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Default on hold message. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -316,7 +316,7 @@ return array(
     'timeout_hold_message_1' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [1]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [1]. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -325,7 +325,7 @@ return array(
     'timeout_hold_message_2' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [2]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [2]. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -334,7 +334,7 @@ return array(
     'timeout_hold_message_3' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [3]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [3]. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -343,7 +343,7 @@ return array(
     'timeout_hold_message_4' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [4]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [4]. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
@@ -352,13 +352,12 @@ return array(
     'timeout_hold_message_5' => array(
         'type' => 'textarea',
         'height' => '86px',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [5]'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Message for timeout [5]. Use ||| to separate random messages.'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
-
        'timeout_reply_message_1' => array(
             'type' => 'textarea',
             'height' => '86px',
