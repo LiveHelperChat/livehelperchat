@@ -1130,6 +1130,11 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{msg_items}}'] = $messages;
             }
 
+            if (strpos($item,'{{subject_ids}}') !== false && !in_array('{{subject_ids}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_ids}}';
+                $userData['dynamic_variables']['{{subject_ids}}'] = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $userData['chat']->id]],'count','subject_id','subject_id',false, true, true);
+            }
+
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
 

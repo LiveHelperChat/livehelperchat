@@ -52,7 +52,7 @@
                                     <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Undelivered e-mail');?>" class="text-danger material-icons">sms_failed</span>
                                 <?php endif; ?>
 
-                                <a onclick="lhc.previewMail(<?php echo $item->id?>);" class="material-icons">info_outline</a>
+                                <a id="preview-item-<?php echo $item->id?>" data-list-navigate="true" onclick="lhc.previewMail(<?php echo $item->id?>,this);" class="material-icons">info_outline</a>
 
                                 <a class="action-image material-icons" data-title="<?php echo htmlspecialchars($item->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $item->id?>,$(this).attr('data-title'))" >open_in_new</a>
 

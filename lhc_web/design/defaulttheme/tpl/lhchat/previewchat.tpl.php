@@ -22,8 +22,20 @@
             <?php foreach (erLhAbstractModelSubjectChat::getList(array('filter' => array('chat_id' => $chat->id))) as $subject) : ?>
                 <span class="badge bg-info fs12 me-1" ><?php echo htmlspecialchars($subject->subject)?></span>
             <?php endforeach; ?>
-
         </div>
+
+        <?php if (isset($_GET['prevId']) || isset($_GET['nextId'])) : ?>
+            <div class="p-1 border-bottom">
+                <button type="button" <?php if (isset($_GET['prevId'])) : ?>onclick="$('#preview-item-<?php echo (int)$_GET['prevId']?>').click()"<?php else : ?>disabled="disabled"<?php endif; ?> class="btn btn-xs btn-secondary"><span class="material-icons fs13 me-0">arrow_back_ios</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Previous item')?></button>&nbsp;<button type="button" <?php if (isset($_GET['nextId'])) : ?>onclick="$('#preview-item-<?php echo (int)$_GET['nextId']?>').click()"<?php else : ?>disabled="disabled"<?php endif; ?> class="btn btn-xs btn-secondary" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Next item')?><span class="material-icons me-0 fs13">arrow_forward_ios</span></button>
+                <span class="text-muted fs13 ps-1">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Use Alt+↑↓ arrows to navigate in the list.')?>
+                </span>
+
+            </div>
+        <?php endif; ?>
+
+
+
       <div class="modal-body mx550">
 
 <small id="preview-messages-<?php echo $chat->id?>">
@@ -72,4 +84,5 @@
       })(<?php echo $chat->id,',',$msg['id']?>);
   </script>
 
-<?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+          <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
+
