@@ -327,15 +327,18 @@ class erLhAbstractModelAutoResponderChat
                     }
 
                     for ($i = 5; $i >= 1; $i--) {
-                        if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_hold_message_' . $i}) || $this->auto_responder->hasMeta($this->chat, 'onhold')) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
+
+                        $this->auto_responder->{'timeout_hold_message_' . $i . '_translated'}; // Init magic variables
+
+                        if ($this->active_send_status < $i && (!empty($this->auto_responder->{'timeout_hold_message_' . $i . '_translated'}) || $this->auto_responder->hasMeta($this->chat, 'onhold')) && $this->auto_responder->{'wait_timeout_hold_' . $i} > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->{'wait_timeout_hold_' . $i}) ) {
 
                             $this->active_send_status = $i;
                             $this->saveThis();
                             $name_support = $this->chat->user !== false ? $this->chat->user->name_support : ($this->auto_responder->operator != '' ? $this->auto_responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support'));
 
-                            if (!empty($this->auto_responder->{'timeout_hold_message_' . $i})) {
+                            if (!empty($this->auto_responder->{'timeout_hold_message_' . $i . '_translated'})) {
                                 $msg = new erLhcoreClassModelmsg();
-                                $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($this->auto_responder->{'timeout_hold_message_' . $i}), array('chat' => $this->chat));
+                                $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($this->auto_responder->{'timeout_hold_message_' . $i . '_translated'}), array('chat' => $this->chat));
                                 $msg->chat_id = $this->chat->id;
                                 $msg->name_support = $name_support;
                                 $msg->user_id = $this->chat->user_id > 0 ? $this->chat->user_id : - 2;

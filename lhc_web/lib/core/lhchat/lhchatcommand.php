@@ -305,8 +305,8 @@ class erLhcoreClassChatCommand
 
         if ($params['argument'] != '') {
             $defaultHoldMessage = $params['argument'];
-        } else if ($params['chat']->auto_responder !== false && $params['chat']->auto_responder->auto_responder !== false && $params['chat']->auto_responder->auto_responder->wait_timeout_hold != '') {
-            $defaultHoldMessage = $params['chat']->auto_responder->auto_responder->wait_timeout_hold;
+        } else if ($params['chat']->auto_responder !== false && $params['chat']->auto_responder->auto_responder !== false && $params['chat']->auto_responder->auto_responder->wait_timeout_hold_translated != '') {
+            $defaultHoldMessage = $params['chat']->auto_responder->auto_responder->wait_timeout_hold_translated;
         } else {
             $defaultHoldMessage = '';
         }
@@ -314,7 +314,7 @@ class erLhcoreClassChatCommand
         if ($defaultHoldMessage != '') {
             // Store as message to visitor
             $msg = new erLhcoreClassModelmsg();
-            $msg->msg = $defaultHoldMessage;
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage(trim($defaultHoldMessage), array('chat' => $params['chat']));
             $msg->chat_id = $params['chat']->id;
             $msg->user_id = $params['user']->id;
             $msg->time = time();

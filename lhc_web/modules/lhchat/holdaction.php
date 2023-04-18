@@ -99,8 +99,8 @@ try {
             $holdMessageSet = false;
 
             if ($chat->auto_responder !== false) {
-                if ($chat->auto_responder->auto_responder !== false && $chat->auto_responder->auto_responder->wait_timeout_hold != '') {
-                    $msgText = $chat->auto_responder->auto_responder->wait_timeout_hold;
+                if ($chat->auto_responder->auto_responder !== false && $chat->auto_responder->auto_responder->wait_timeout_hold_translated != '') {
+                    $msgText = erLhcoreClassGenericBotWorkflow::translateMessage(trim($chat->auto_responder->auto_responder->wait_timeout_hold_translated), array('chat' => $chat));
 
                     $currentUser = erLhcoreClassUser::instance();
                     $userData = $currentUser->getUserData();
