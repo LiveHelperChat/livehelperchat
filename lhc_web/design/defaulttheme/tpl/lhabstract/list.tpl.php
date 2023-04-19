@@ -51,7 +51,7 @@
 
 	    	$paramsFilter = array_merge($paramsFilter,$filter_params,$filterObject);
             try {
-                $items = call_user_func('erLhAbstractModel'.$identifier.'::getList',$paramsFilter);
+                $items = call_user_func($object_class . '::getList',$paramsFilter);
             } catch (Exception $e) {
                 $executionError = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Your request takes to long. Please contact your administrator and send him url from your browser.');
                 $items = [];

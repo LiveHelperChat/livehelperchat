@@ -24,5 +24,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_variables_settings.tpl.php'));?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/alert_icons.tpl.php'));?>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/messages_data_sensivity.tpl.php'));?>
     </ul>
 </li>
