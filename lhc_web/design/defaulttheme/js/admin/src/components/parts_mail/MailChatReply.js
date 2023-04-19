@@ -20,6 +20,7 @@ const MailChatReply = props => {
     const [sendInProgress, setSendInProgress] = useState(false);
     const [underReplySignature, setUnderReplySignature] = useState(false);
     const [isOwner, setIsOwner] = useState(true);
+    const [isSelfReply, setIsSelfReply] = useState(true);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -139,6 +140,8 @@ const MailChatReply = props => {
                 setReplySignature(result.data.signature);
                 setRecipients(result.data.recipients);
                 setUnderReplySignature(result.data.signature_under);
+                setIsSelfReply(result.data.is_self_reply);
+
                 if (result.data.user_id > 0) {
                     props.verifyOwner(result.data.user_id);
                     setIsOwner(result.data.is_owner);
@@ -180,6 +183,10 @@ const MailChatReply = props => {
 
             {!isOwner && <div className="alert alert-warning" role="alert"><span className="material-icons">warning</span>
                 {t('msg.not_an_owner')}
+            </div>}
+
+            {replyMode && isSelfReply && <div className="alert alert-warning" role="alert"><span className="material-icons">warning</span>
+                {t('msg.self_reply')}
             </div>}
 
             {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">

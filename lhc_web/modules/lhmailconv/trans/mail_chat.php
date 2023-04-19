@@ -68,7 +68,8 @@ echo json_encode(array(
         "send_as_active" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Send as Active'),
         "opened_at_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message was seen by customer first time at'),
         "merged_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','This is a merged message'),
-        "unmerge" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Un-merge')
+        "unmerge" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Un-merge'),
+        "self_reply" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','You are replying to your mailbox. Make sure that it is your intent!')
     ],
     "r" => [
         'recipients' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Recipients'),

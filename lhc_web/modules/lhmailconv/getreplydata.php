@@ -26,8 +26,14 @@ try {
 
         $replyRecipients = [];
         $replyRecipientsMapped = [];
+        $isSelfReply = false;
 
         foreach ($message->reply_to_data_keyed as $replyEmail => $name) {
+
+            if ($replyEmail ==  $conv->mailbox->mail){
+                $isSelfReply = true;
+            }
+
             if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email') && $message->response_type != erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                 $replyRecipients[\LiveHelperChat\Helpers\Anonymizer::maskEmail($replyEmail)] = $name;
             } else {
@@ -134,6 +140,7 @@ try {
             'intro' => ($conv->mailbox->signature_under == 1 ? '<div class="gmail_signature">' . $signature . '</div>' : '') . $prepend,
             'user_id' => $conv->user_id,
             'is_owner' => (erLhcoreClassUser::instance()->getUserID() == $conv->user_id),
+            'is_self_reply' => $isSelfReply,
             'signature' => '<div class="gmail_signature">' . $signature . '</div>',
             'signature_under' => ($conv->mailbox->signature_under == 1),
             'recipients' => [
