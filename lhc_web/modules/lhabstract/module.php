@@ -49,6 +49,11 @@ $ViewList['index'] = array(
     'params' => array()
 );
 
+$ViewList['testmasking'] = array(
+    'functions' => array( 'use' ),
+    'params' => array()
+);
+
 $FunctionList = array();
 $FunctionList['use'] = array('explain' => 'Allow to use abstract module');
 
