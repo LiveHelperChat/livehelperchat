@@ -263,6 +263,8 @@ class erLhcoreClassChatWorkflow {
 
                 $chat->updateThis();
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
+
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
                 erLhcoreClassChat::updateActiveChats($chat->user_id);
@@ -300,6 +302,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
@@ -342,6 +346,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
+
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
                 erLhcoreClassChat::updateActiveChats($chat->user_id);
@@ -382,6 +388,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
@@ -424,6 +432,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
@@ -469,6 +479,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                 erLhcoreClassChat::closeChatCallback($chat, $chat->user);
 
@@ -553,6 +565,8 @@ class erLhcoreClassChatWorkflow {
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                 if (!$avoidCloseCallback) {
                     erLhcoreClassChat::closeChatCallback($chat, $chat->user);
