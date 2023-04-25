@@ -2,7 +2,7 @@
 
 $def = new ezcPersistentObjectDefinition();
 $def->table = "lh_abstract_msg_protection";
-$def->class = "\LiveHelperChat\Models\Abstract\ChatMessagesGhosting";
+$def->class = "\LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting";
 
 $def->idProperty = new ezcPersistentObjectIdProperty();
 $def->idProperty->columnName = 'id';

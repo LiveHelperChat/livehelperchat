@@ -123,7 +123,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                 $user_typing_txt = $Chat->user_typing_txt;
 
                 if (!$see_sensitive_information && $user_typing_txt != '') {
-                    $user_typing_txt = \LiveHelperChat\Models\Abstract\ChatMessagesGhosting::maskMessage($user_typing_txt);
+                    $user_typing_txt = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($user_typing_txt);
                 }
 
                 if ($Chat->is_user_typing == true) {

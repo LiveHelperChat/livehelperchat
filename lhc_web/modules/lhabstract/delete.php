@@ -10,7 +10,7 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\Abstract\\'.$Params['user_parameters']['identifier'];
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
 }
 
 $ObjectData = erLhcoreClassAbstract::getSession()->load( $objectClass, (int)$Params['user_parameters']['object_id'] );

@@ -7,7 +7,7 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhabstract/list.tpl.php');
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 
 if (!class_exists($objectClass)) {
-    $objectClass = '\LiveHelperChat\Models\Abstract\\'.$Params['user_parameters']['identifier'];
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
 }
 
 $objectData = new $objectClass;

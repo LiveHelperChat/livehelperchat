@@ -1,6 +1,6 @@
 <?php
 
-namespace LiveHelperChat\Models\Abstract;
+namespace LiveHelperChat\Models\LHCAbstract;
 
 class ChatMessagesGhosting {
 

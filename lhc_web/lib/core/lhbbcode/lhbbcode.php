@@ -1095,7 +1095,7 @@ class erLhcoreClassBBCode
         $makeLinksClickable = true;
 
         if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
-           $ret = \LiveHelperChat\Models\Abstract\ChatMessagesGhosting::maskMessage($ret);
+           $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
