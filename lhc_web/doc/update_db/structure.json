@@ -1,5 +1,15 @@
 {
   "tables": {
+    "lh_abstract_msg_protection": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
     "lh_canned_msg_replace": [
       {
         "field": "id",
@@ -10695,6 +10705,7 @@
     "lh_chat_action" : "CREATE TABLE `lh_chat_action` (\n                `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n                  `chat_id` bigint(20) NOT NULL,\n                  `action` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                  `created_at` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_proactive_chat_invitation_dep" : "CREATE TABLE `lh_abstract_proactive_chat_invitation_dep` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`invitation_id` int(11) NOT NULL,`dep_id` int(11) NOT NULL,PRIMARY KEY (`id`), KEY `invitation_id` (`invitation_id`),KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_generic_bot_rest_api_cache" : "CREATE TABLE `lh_generic_bot_rest_api_cache` (\n  `hash` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n  `rest_api_id` bigint(20) unsigned NOT NULL,\n  `response` text NOT NULL,\n  `ctime` bigint(20) NOT NULL,\n  UNIQUE KEY `rest_api_id_hash` (`rest_api_id`,`hash`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_userdep_alias" : "CREATE TABLE `lh_userdep_alias` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`dep_id` bigint(20) unsigned NOT NULL,`dep_group_id` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL,`nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,`filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `dep_id_user_id` (`dep_id`,`user_id`), KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lh_userdep_alias" : "CREATE TABLE `lh_userdep_alias` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,`dep_id` bigint(20) unsigned NOT NULL,`dep_group_id` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL,`nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,`filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,`avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `dep_id_user_id` (`dep_id`,`user_id`), KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_abstract_msg_protection" : "CREATE TABLE `lh_abstract_msg_protection` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`pattern` text COLLATE utf8mb4_unicode_ci NOT NULL,`enabled` int(11) NOT NULL DEFAULT 1,`remove` int(11) NOT NULL DEFAULT 0,`v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }

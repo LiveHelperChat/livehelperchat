@@ -773,5 +773,6 @@ $FunctionList['list_pending_chats'] = array('explain' => 'Allow operator to list
 $FunctionList['use_unhidden_phone'] = array('explain' => 'Allow operator to see full phone number');
 $FunctionList['chat_see_email'] = array('explain' => 'Allow operator to see e-mail of the visitor');
 $FunctionList['chat_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address of the visitor');
+$FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see sensitive information in the messages');
 
 ?>

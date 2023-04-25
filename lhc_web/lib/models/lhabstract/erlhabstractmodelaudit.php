@@ -8,7 +8,7 @@ class erLhAbstractModelAudit
 
     public static $dbTableId = 'id';
 
-    public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
+    public static $dbSessionHandler = '\erLhcoreClassAbstract::getSession';
 
     public static $dbSortOrder = 'DESC';
 

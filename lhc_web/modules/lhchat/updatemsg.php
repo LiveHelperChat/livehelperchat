@@ -65,7 +65,8 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
 		        $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/syncadmin.tpl.php');
 		        $tpl->set('messages',array((array)$msg));
 			    $tpl->set('chat',$Chat);
-		        
+                $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+
 			    $Chat->operation .= "lhinst.updateMessageRow({$msg->id});\n";
 			    $Chat->updateThis(array('update' => array('operation')));
 
