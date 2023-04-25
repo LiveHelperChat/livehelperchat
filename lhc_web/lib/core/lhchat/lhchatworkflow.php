@@ -933,7 +933,7 @@ class erLhcoreClassChatWorkflow {
 
             $items = array($cannedMsg);
 
-            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'canned_replace', 'replace_array' => & $replaceArray, 'chat' => $chat));
+            \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'canned_replace', 'replace_array' => & $replaceArray, 'user' => $chat->user, 'chat' => $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace',array('items' => & $items, 'user' => $chat->user, 'chat' => $chat, 'replace_array' => & $replaceArray));
 
             $cannedMsg = $items[0];
