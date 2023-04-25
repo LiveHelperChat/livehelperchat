@@ -29,6 +29,76 @@ class ChatMessagesGhosting {
         return $stateArray;
     }
 
+    public static function shouldMask($user_id) {
+
+        $db = \ezcDbInstance::get();
+
+        $stmt = $db->prepare("SELECT count(lh_rolefunction.id)     
+
+       FROM lh_rolefunction
+       
+       INNER JOIN lh_role ON lh_role.id = lh_rolefunction.role_id
+       INNER JOIN lh_grouprole ON lh_role.id = lh_grouprole.role_id
+       INNER JOIN lh_groupuser ON lh_groupuser.group_id = lh_grouprole.group_id       
+       INNER JOIN lh_group ON lh_grouprole.group_id = lh_group.id
+           
+       WHERE 
+           lh_groupuser.user_id = :user_id AND 
+           lh_group.disabled = 0 AND
+           (
+               (lh_rolefunction.module = '*' AND lh_rolefunction.function = '*') OR 
+               (lh_rolefunction.module = 'lhchat' AND lh_rolefunction.function = '*') OR
+               (lh_rolefunction.module = 'lhchat' AND lh_rolefunction.function = 'see_sensitive_information')
+           )
+       ");
+
+        $stmt->bindValue(':user_id', $user_id, \PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchColumn() == 0; // Assigned operator does not have permission to see sensitive information
+    }
+
+    public static function maskVisitorMessages(& $messages) {
+        static $maskRules = null;
+
+        if ($maskRules === null) {
+            $maskRules = self::getList(['filter' => ['enabled' => 1]]);
+        }
+
+        foreach ($messages as & $message) {
+            if ($message['user_id'] == 0) {
+                foreach ($maskRules as $maskRule) {
+                    $msgMasked = $maskRule->getMasked($message['msg']);
+                    if ($msgMasked != $message['msg'] && $maskRule->v_warning != '') {
+                        $message['msg'] = $message['msg'] .'';
+
+                        $metaMsg = [];
+                        if (!empty($message['meta_msg'])) {
+                            $metaMsg = json_decode($message['meta_msg'],true);
+                        }
+
+                        $metaMsg['content'] = [
+                            'text_conditional' => [
+                                'msg_body_class' => 'sub-message',
+                                'intro_us' => $maskRule->v_warning,
+                                'full_us' => '',
+                                'readmore_us' => '',
+                                'intro_op' => '',
+                                'full_op' => '',
+                                'readmore_op' => '',
+                            ]
+                        ];
+                        $message['meta_msg'] = json_encode($metaMsg);
+                    }
+                }
+            }
+        }
+
+
+        return $messages;
+    }
+    
     public static function maskMessage($message)
     {
         static $maskRules = null;

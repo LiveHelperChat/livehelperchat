@@ -8,14 +8,14 @@ return array(
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
     ),
-    'remove' => array(
+    /*'remove' => array(
         'type' => 'checkbox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Remove permanently matched content'),
         'hidden' => true,
         'required' => false,
         'hide_optional' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
-    ),
+    ),*/
     'pattern' => array(
         'type' => 'textarea',
         'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Place you replacement pattern here.'),

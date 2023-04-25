@@ -16,10 +16,11 @@ $object->languages_ignore; // Just to init
     <?php echo erLhcoreClassAbstract::renderInput('enabled', $fields['enabled'], $object)?>
 </div>
 
+<?php /*
 <div class="form-group">
     <label><?php echo $fields['remove']['trans'];?></label>
     <?php echo erLhcoreClassAbstract::renderInput('remove', $fields['remove'], $object)?>
-</div>
+</div>*/ ?>
 
 <div class="form-group">
     <div class="pb-1">
@@ -31,7 +32,9 @@ $object->languages_ignore; // Just to init
 </div>
 
 <div class="form-group">
-    <label><?php echo $fields['v_warning']['trans'];?></label>
+    <div class="pb-1">
+    <label class="pe-1"><?php echo $fields['v_warning']['trans'];?></label><button class="btn btn-xs btn-secondary me-1" id="sample-button" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Sample');?></button>
+    </div>
     <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
 </div>
 
@@ -40,7 +43,6 @@ $object->languages_ignore; // Just to init
     <input type="submit" class="btn btn-sm btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
     <input type="submit" class="btn btn-sm btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
     <input type="button" id="test-protect-rules" class="btn btn-sm btn-outline-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Test masking rules');?>"/>
-
 </div>
 
 <script>
@@ -50,7 +52,10 @@ $object->languages_ignore; // Just to init
     });
     $('#test-protect-rules').click(function(){
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'abstract/testmasking/','loadmethod':'post',datapost:{mask:$("textarea[name='AbstractInput_pattern']").val()}});
-    })
+    });
+    $('#sample-button').click(function (){
+        $("textarea[name='AbstractInput_v_warning']").val('[html]<div class="fs14 text-danger fw-bold fst-italic">For your protection, we ask that you do not share full credit numbers unless speaking directly with a processing agent.</div>[/html]');
+    });
 </script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/parts/after_form.tpl.php'));?>
