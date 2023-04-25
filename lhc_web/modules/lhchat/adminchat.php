@@ -152,6 +152,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    
     	    $tpl->set('chat',$chat);
             $tpl->set('canEditChat',true);
+            $tpl->set('see_sensitive_information',$currentUser->hasAccessTo('lhchat','see_sensitive_information'));
 
     	    echo $tpl->fetch();
     	        	    

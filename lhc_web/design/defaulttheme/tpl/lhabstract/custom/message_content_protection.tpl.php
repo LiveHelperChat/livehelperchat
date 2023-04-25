@@ -22,13 +22,17 @@ $object->languages_ignore; // Just to init
 </div>
 
 <div class="form-group">
-
     <div class="pb-1">
         <label class="pe-1"><?php echo $fields['pattern']['trans'];?></label><button class="btn btn-xs btn-secondary me-1 protect-button" data-protect="__email__|||$|||*" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add an e-mail masking');?></button><button  data-protect="__credit_card__|||*" class="protect-button btn btn-xs btn-secondary me-1" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add a credit card masking');?></button><button class="protect-button btn btn-xs btn-secondary me-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Replaces all numbers in the message');?>" data-protect="(\d+)|||_" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Add a preg match sample');?></button>
     </div>
 
     <?php echo erLhcoreClassAbstract::renderInput('pattern', $fields['pattern'], $object)?>
     <p class="fs14"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','New rule per row.');?> <span class="badge bg-info"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Rule ||| Replace symbol');?></span></i></small></p>
+</div>
+
+<div class="form-group">
+    <label><?php echo $fields['v_warning']['trans'];?></label>
+    <?php echo erLhcoreClassAbstract::renderInput('v_warning', $fields['v_warning'], $object)?>
 </div>
 
 <div class="btn-group" role="group" aria-label="...">

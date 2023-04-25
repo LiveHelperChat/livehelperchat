@@ -1093,7 +1093,11 @@ class erLhcoreClassBBCode
         $ret = ' ' . $ret;
 
         $makeLinksClickable = true;
-        
+
+        if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
+           $ret = \LiveHelperChat\Models\Abstract\ChatMessagesGhosting::maskMessage($ret);
+        }
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_make_clickable',array('msg' => & $ret, 'makeLinksClickable' => & $makeLinksClickable));
 
         // Make base URL
@@ -1104,6 +1108,7 @@ class erLhcoreClassBBCode
         $ret = preg_replace_callback('/\[loc\](.*?)\[\/loc\]/ms', "erLhcoreClassBBCode::_make_embed_map", $ret);
 
         $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
+
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
             $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);

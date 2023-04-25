@@ -22,10 +22,26 @@ class ChatMessagesGhosting {
             'id' => $this->id,
             'pattern' => $this->pattern,
             'enabled' => $this->enabled,
-            'remove' => $this->remove
+            'remove' => $this->remove,
+            'v_warning' => $this->v_warning
         );
 
         return $stateArray;
+    }
+
+    public static function maskMessage($message)
+    {
+        static $maskRules = null;
+
+        if ($maskRules === null) {
+            $maskRules = self::getList(['filter' => ['enabled' => 1]]);
+        }
+
+        foreach ($maskRules as $maskRule) {
+            $message = $maskRule->getMasked($message);
+        }
+
+        return $message;
     }
 
     public function getMasked($message)
@@ -34,7 +50,7 @@ class ChatMessagesGhosting {
         $magoo = new \Pachico\Magoo\Magoo();
 
         foreach ($patterns as $pattern) {
-            $patternParams = explode('|||',$pattern);
+            $patternParams = explode('|||',trim($pattern));
             if ($patternParams[0] === '__email__') {
                 if (isset($patternParams[1]) && isset($patternParams[2])) {
                     $magoo->pushEmailMask(trim($patternParams[1]), trim($patternParams[2]));
@@ -45,15 +61,15 @@ class ChatMessagesGhosting {
                 }
             } else if ($patternParams[0] === '__credit_card__') {
                 if (isset($patternParams[1])) {
-                    $magoo->pushCreditCardMask($patternParams[1]);
+                    $magoo->pushCreditCardMask(trim($patternParams[1]));
                 } else {
                     $magoo->pushCreditCardMask();
                 }
             } else {
                 if (isset($patternParams[1])) {
-                    $magoo->pushByRegexMask($patternParams[0],$patternParams[1]);
+                    $magoo->pushByRegexMask(trim($patternParams[0]),trim($patternParams[1]));
                 } else {
-                    $magoo->pushByRegexMask($patternParams[0]);
+                    $magoo->pushByRegexMask(trim($patternParams[0]));
                 }
             }
         }
@@ -110,6 +126,7 @@ class ChatMessagesGhosting {
 
     public $id = null;
     public $pattern = '';
+    public $v_warning = '';
     public $enabled = 1;
     public $remove = 0;
 }

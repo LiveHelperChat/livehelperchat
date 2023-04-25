@@ -7,6 +7,7 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$tpl->set('chat',$chat);
 	$tpl->set('messages',erLhcoreClassModelmsg::getList(array('limit' => 1000,'sort' => 'id ASC','filter' => array('chat_id' => $chat->id))));
+    $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
 }
