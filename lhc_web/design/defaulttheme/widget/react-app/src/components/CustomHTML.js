@@ -31,9 +31,11 @@ class CustomHTML extends Component {
     abstractClick(attrs, e) {
         JSON.parse(attrs['data-action']).forEach((item) => {
             if (item.action == 'add_css_class') {
-                document.querySelector(item.target).classList.add(item.value);
+                let elm = document.querySelector(item.target);
+                elm && elm.classList.add(item.value);
             } else if (item.action == 'remove_css_class') {
-                document.querySelector(item.target).classList.remove(item.value);
+                let elm = document.querySelector(item.target);
+                elm && elm.classList.remove(item.value);
             } else if (item.action == 'chat_attr_global') {
                 window.lhcChat[item.target] = item.value;
             } else if (item.action == 'set_state') {
