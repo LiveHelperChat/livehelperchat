@@ -700,15 +700,17 @@ class OnlineChat extends Component {
     keyUp(e) {
         if (e.key !== 'Enter' && !e.shiftKey) {
             if (this.isTyping === false) {
+                const { t } = this.props;
                 this.isTyping = true;
-                this.props.dispatch(userTyping('true',this.state.value));
+                this.props.dispatch(userTyping('true',this.props.chatwidget.hasIn(['chat_ui','hide_typing']) &&  this.props.chatwidget.getIn(['chat_ui','hide_typing']) === true ? t('online_chat.visitor_typing') : this.state.value));
             } else {
                 clearTimeout(this.typingStopped);
                 this.typingStopped = setTimeout(this.typingStoppedAction, 6000);
                 if (this.currentMessageTyping != this.state.value ) {
                     if (Math.abs(this.currentMessageTyping.length - this.state.value.length) > 6 || this.props.chatwidget.get('overrides').contains('typing')) {
+                        const { t } = this.props;
                         this.currentMessageTyping = this.state.value;
-                        this.props.dispatch(userTyping('true',this.state.value));
+                        this.props.dispatch(userTyping('true', this.props.chatwidget.hasIn(['chat_ui','hide_typing']) &&  this.props.chatwidget.getIn(['chat_ui','hide_typing']) === true ? t('online_chat.visitor_typing') : this.state.value));
                     }
                 }
             }

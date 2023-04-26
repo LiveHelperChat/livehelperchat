@@ -140,6 +140,8 @@ try {
             $responseArray['deleted'] = true;
         }
 
+        
+        
 	    $tpl->set('chat', $chat);
     } else {
         $responseArray['error'] = 'false';
@@ -172,6 +174,10 @@ if (isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
     if (isset($voiceData['voice']) && $voiceData['voice'] == true && $chat->user_id > 0 && erLhcoreClassRole::hasAccessTo($chat->user_id,'lhvoicevideo','use' )) {
         $responseArray['chat_ui']['voice'] = true;
     }
+}
+
+if (((int)$chat->user_id > 0 && \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::shouldMask($chat->user_id)) || $chat->user_id == 0) {
+    $responseArray['chat_ui']['hide_typing'] = true;
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus',array('chat' => & $chat, 'response' => & $responseArray));
