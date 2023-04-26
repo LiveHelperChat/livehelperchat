@@ -5,6 +5,11 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtol
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/new.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+
+if (!class_exists($objectClass)) {
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+}
+
 $objectData = new $objectClass;
 
 $object_trans = $objectData->getModuleTranslations();

@@ -1,5 +1,6 @@
-<?php $msgBody = $metaMessage['intro_us']; $paramsMessageRender = array('render_html' => true); ?>
-<?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php')); ?>
+<?php $msgBody = $metaMessage['intro_us']; $paramsMessageRender = array('render_html' => true, 'msg_body_class' => (isset($metaMessage['msg_body_class']) ? $metaMessage['msg_body_class'] : '') ); ?>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php')); ?>
 
 <?php $fullMessage = $metaMessage['full_us']; ?>
 

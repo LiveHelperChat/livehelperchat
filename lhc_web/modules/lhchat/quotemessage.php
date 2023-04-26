@@ -9,6 +9,7 @@ try {
     if ( erLhcoreClassChat::hasAccessToRead($chat) )
     {
         $array = array();
+        $maskMessage = !$currentUser->hasAccessTo('lhchat','see_sensitive_information');
 
         if ($Params['user_parameters_unordered']['type'] == 'group') {
 
@@ -17,20 +18,33 @@ try {
             foreach ($previousMessages as $prevMessage) {
                 if ($prevMessage->user_id == $msg->user_id || $prevMessage->user_id == -1) {
                     if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
-                        $groupMessages[] = trim($prevMessage->msg);
+                        $msgBody = trim($prevMessage->msg);
+                        if ($prevMessage->user_id == 0 && $maskMessage === true) {
+                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+                        }
+                        $groupMessages[] = $msgBody;
                     }
                 } else {
                     break;
                 }
             }
             $groupMessages = array_reverse($groupMessages);
-            $groupMessages[] = $msg->msg;
+
+            $msgBody = trim($msg->msg);
+            if ($msg->user_id == 0 && $maskMessage === true) {
+                $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+            }
+            $groupMessages[] = $msgBody;
 
             $previousMessages = erLhcoreClassModelmsg::getList(array('limit' => 10, 'sort' => 'id ASC','filtergt' => array('id' => $msg->id)));
             foreach ($previousMessages as $prevMessage) {
                 if ($prevMessage->user_id == $msg->user_id || $prevMessage->user_id == -1) {
                     if ($prevMessage->user_id == $msg->user_id && trim($prevMessage->msg) != '') {
-                        $groupMessages[] = trim($prevMessage->msg);
+                        $msgBody = trim($prevMessage->msg);
+                        if ($prevMessage->user_id == 0 && $maskMessage === true) {
+                            $msgBody = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgBody);
+                        }
+                        $groupMessages[] = $msgBody;
                     }
                 } else {
                     break;
@@ -40,6 +54,9 @@ try {
             $array['msg'] = implode("\n",$groupMessages);
         } else {
             $array['msg'] = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+            if ($msg->user_id == 0 && $maskMessage === true) {
+                $array['msg'] = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($array['msg']);
+            }
         }
 
         $array['error'] = 'f';

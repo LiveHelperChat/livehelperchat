@@ -1,3 +1,9 @@
+4.23v
+
+1. Option to hide sensitive information from operators if they don't have permission to access 'lhchat','see_sensitive_information'
+
+execute doc/update_db/update_295.sql for update
+
 4.22v
 
 1. Department assignment now have new UI.

@@ -95,7 +95,7 @@ class UserDepAlias {
             if ($params['scope'] == 'typing') {
                 $userId = $params['chat']->operator_typing_user->id;
             } elseif ($params['scope'] == 'canned_replace') {
-                if (!is_object($params['user'])) {
+                if (!isset($params['user']) || !is_object($params['user'])) {
                     return;
                 }
                 $userId = $params['user']->id;

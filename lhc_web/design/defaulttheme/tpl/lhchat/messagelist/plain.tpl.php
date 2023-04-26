@@ -3,6 +3,11 @@
 $separatorMessage = isset($render_as_html) && $render_as_html == true ? "<br />" : "\n";
 
 foreach ($messages as $msg ) :
+
+    if (isset($see_sensitive_information) && $see_sensitive_information === false) {
+        $msg->msg = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msg->msg);
+    }
+
     if (isset($msg->meta_msg) && $msg->meta_msg != '') {
         $metaMessageData = json_decode($msg->meta_msg, true);
         $messageId = isset($triggerMessageId) ? $triggerMessageId : $msg->id;

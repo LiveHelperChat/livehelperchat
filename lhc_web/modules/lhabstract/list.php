@@ -5,6 +5,11 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strto
 $tpl = erLhcoreClassTemplate::getInstance( 'lhabstract/list.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+
+if (!class_exists($objectClass)) {
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+}
+
 $objectData = new $objectClass;
 $object_trans = $objectData->getModuleTranslations();
 
@@ -70,25 +75,26 @@ try {
 }
 
 if (empty($filterParamsCount)) {
-    $rowsNumber = method_exists('erLhAbstractModel'.$Params['user_parameters']['identifier'],'estimateRows') && ($rowsNumber = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
+    $rowsNumber = method_exists($objectClass,'estimateRows') && ($rowsNumber = call_user_func($objectClass.'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
 }
 
 try {
 
+    $tpl->set('object_trans',$object_trans);
+    $tpl->set('identifier',$Params['user_parameters']['identifier']);
+
     $pages = new lhPaginator();
-    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParamsCount);
+    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func($objectClass.'::getCount',$filterParamsCount);
     $pages->translationContext = 'abstract/list';
     $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
     $pages->setItemsPerPage(20);
     $pages->paginate();
 
     $tpl->set('pages',$pages);
-    $tpl->set('identifier',$Params['user_parameters']['identifier']);
-
-    $tpl->set('object_trans',$object_trans);
     $tpl->set('fields',$objectData->getFields());
     $tpl->set('filter_params',$filterParams['filter']);
-
+    $tpl->set('object_class',$objectClass);
+    
     if ( method_exists($objectData,'defaultSort') ) {
         $tpl->set('sort',$objectData->defaultSort());
     }

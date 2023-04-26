@@ -994,6 +994,10 @@ class erLhcoreClassBBCodePlain
         $ret = ' ' . $ret;
 
         $makeLinksClickable = true;
+        
+        if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
+            $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret);
+        }
 
         // Make base URL
         $ret = preg_replace_callback('#\[baseurl\](.*?)\[/baseurl\]#is', 'erLhcoreClassBBCode::_make_base_link', $ret);
