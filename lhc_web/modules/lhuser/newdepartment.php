@@ -168,10 +168,8 @@ if ($user instanceof erLhcoreClassModelUser) {
 
         if ($form->hasValidData('dep_ids') && !empty($form->dep_ids)) {
             if ($Params['user_parameters_unordered']['mode'] == 'group') {
-                // $userDep->dep_group_id = $form->dep_ids;
                 $userDep->dep_group_ids = $form->dep_ids;
             } else {
-                // $userDep->dep_id = $form->dep_ids;
                 $userDep->dep_ids = $form->dep_ids;
             }
         } else {
@@ -190,10 +188,8 @@ if ($user instanceof erLhcoreClassModelUser) {
 
         if (count($Errors) == 0) {
             if ($Params['user_parameters_unordered']['mode'] != 'group') {
-                //$userDepAlias->dep_id = $userDep->dep_id;
                 $userDepAlias->dep_ids = $userDep->dep_ids;
             } else {
-                //$userDepAlias->dep_group_id = $userDep->dep_group_id;
                 $userDepAlias->dep_group_ids = $userDep->dep_group_ids;
             }
         }
@@ -219,6 +215,7 @@ if ($user instanceof erLhcoreClassModelUser) {
                 }
             }
 
+            $prevDepIds = $user->departments_ids;
             $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
             $user->updateThis(['update' => ['departments_ids']]);
             $firstAlias = null;
@@ -271,6 +268,18 @@ if ($user instanceof erLhcoreClassModelUser) {
             } else {
                 $userDep->dep_group_id = 0;
             }
+
+            erLhcoreClassLog::logObjectChange(array(
+                'object' => $user,
+                'msg' => array(
+                    'action' => 'account_data_dep',
+                    'dep_ids' => $form->dep_ids,
+                    'mode' => $Params['user_parameters_unordered']['mode'],
+                    'prev' => $prevDepIds,
+                    'new' => $user->departments_ids,
+                    'user_id' => $currentUser->getUserID()
+                )
+            ));
 
         } else {
             $tpl->set('errors', $Errors);
