@@ -178,6 +178,8 @@ if (isset($chat) && $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)
 
 if (((int)$chat->user_id > 0 && \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::shouldMask($chat->user_id)) || $chat->user_id == 0) {
     $responseArray['chat_ui']['hide_typing'] = true;
+} else {
+    $responseArray['chat_ui']['hide_typing'] = false;
 }
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.checkchatstatus',array('chat' => & $chat, 'response' => & $responseArray));
