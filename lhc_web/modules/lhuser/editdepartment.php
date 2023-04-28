@@ -149,8 +149,22 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         $userDep->removeThis();
         $userDepAlias->id > 0 && $userDepAlias->removeThis();
 
+        $prevDepIds = $user->departments_ids;
         $user->departments_ids = implode(',', erLhcoreClassModelUserDep::getCount(['filter' => ['user_id' => $user->id]],'count','dep_id','dep_id',false, true, true) );
         $user->updateThis(['update' => ['departments_ids']]);
+
+        erLhcoreClassLog::logObjectChange(array(
+            'object' => $user,
+            'msg' => array(
+                'action' => 'account_data_dep_rem',
+                'class' => get_class($userDep),
+                'object_id' => (get_class($userDep) == 'erLhcoreClassModelUserDep' ? $userDep->dep_id : $userDep->dep_group_id),
+                'prev' => $prevDepIds,
+                'new' => $user->departments_ids,
+                'user_id' => $currentUser->getUserID()
+            )
+        ));
+
         exit;
     }
 

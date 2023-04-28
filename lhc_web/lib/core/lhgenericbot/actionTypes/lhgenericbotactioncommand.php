@@ -534,7 +534,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                     $params['msg']->syncAndLock();
 
-                    $variablesArray = (array)$params['msg']->meta_msg_array;
+                    $variablesArray = (array)$params['msg']->__get('meta_msg_array');
 
                     if (isset($params['replace_array']) && is_array($params['replace_array'])) {
                         $variablesAppend = @str_replace(array_keys($params['replace_array']),array_values($params['replace_array']),$action['content']['payload']);
