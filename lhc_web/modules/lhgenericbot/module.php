@@ -17,6 +17,12 @@ $ViewList['initbot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['testpattern'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['commands'] = array(
     'params' => array('id'),
     'uparams' => array(),
