@@ -526,9 +526,17 @@ class erLhcoreClassModelChat {
        	        }
        			return $this->chat_variables_array;
 
-       	case 'user_status_front':
+       case 'chat_dynamic_array':
 
-       	    if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
+           $chat_dynamic_array = [];
+           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dynamic_array', array('chat' => $this, 'dynamic_array' => & $chat_dynamic_array));
+           $this->chat_dynamic_array = $chat_dynamic_array;
+
+           return $this->chat_dynamic_array;
+
+       case 'user_status_front':
+
+           if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
                 $this->user_status_front = $this->cls_us - 1;
                 return $this->user_status_front;
             }
