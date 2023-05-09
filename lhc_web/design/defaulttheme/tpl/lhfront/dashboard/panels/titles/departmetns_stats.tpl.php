@@ -1,1 +1,1 @@
-<span class="d-none d-lg-inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Departments stats');?></span>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Departments stats');?>

@@ -1,1 +1,1 @@
-<span class="d-none d-lg-inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','My active and pending chats');?></span>
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','My active and pending chats');?>
