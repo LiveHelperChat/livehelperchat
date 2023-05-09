@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-sm-8 ps-0 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
+	<div class="col-xl-8 ps-0 chat-main-left-column" id="chat-main-column-<?php echo $chat->id;?>">
 
         <span class="last-user-msg" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Last visitor message time')?>"><i class="material-icons">access_time</i><span id="last-msg-chat-<?php echo $chat->id?>">...</span></span>
 
@@ -62,9 +62,9 @@
                 <?php $placeholderValue = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Switch between chats using Alt+') . '&#8593;&#8595 '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','arrows') . '. ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Search for canned messages by using their tags #hash. You can drop files here.')?>
             <?php endif;?>
 
-            <div class="d-flex flex-nowrap" translate="no">
+            <div class="d-flex flex-wrap toolbar-chat" translate="no">
                 <div class="me-auto">
-                <div class="btn-group btn-group-sm me-2 " role="group">
+                <div class="btn-group btn-group-sm me-2 pb-1" role="group">
                     <?php $whisperMode = ($chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT; ?>
                     <button type="button" data-plc="<?php echo $placeholderValue?>" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-secondary' : print ' btn-outline-primary';?>" id="chat-write-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?>"><i class="material-icons me-0">create</i></button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?>"><i class="material-icons me-0">visibility</i></button>
@@ -100,7 +100,7 @@
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/part/after_text_area_block.tpl.php')); ?>
 
 	</div>
-	<div class="col-sm-4 chat-main-right-column" translate="no" id="chat-right-column-<?php echo $chat->id;?>">
+	<div class="col-xl-4 chat-main-right-column mh150" translate="no" id="chat-right-column-<?php echo $chat->id;?>">
 		<?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_tabs_container.tpl.php')); ?>
 	</div>
 </div>

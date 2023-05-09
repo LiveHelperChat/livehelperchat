@@ -11,7 +11,7 @@
     </div>
 
     <?php if (erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',0) == 0) : ?>
-    <div ng-cloak class="text-muted float-start fs12 abbr-list" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
+    <div ng-cloak class="text-muted float-start fs12 abbr-list d-none d-sm-block" ng-if="!(lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true) && lhc.last_actions.length > 0">
             <span class="material-icons action-image" ng-click="lhc.last_actions_index = lhc.last_actions_index + 1" ng-if="lhc.last_actions_index < lhc.last_actions.length - 1">
                 expand_more
             </span>
@@ -28,7 +28,7 @@
     </div>
     <?php endif; ?>
 
-    <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-bs-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-icons me-0">menu</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">

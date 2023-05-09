@@ -1083,7 +1083,7 @@ function lh(){
     {
     	if ($('#chat-main-column-'+chat_id+' .collapse-right').text() == 'chevron_right'){
 	    	$('#chat-right-column-'+chat_id).hide();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-7').addClass('col-sm-12');
+	    	$('#chat-main-column-'+chat_id).removeClass('col-xl-8').addClass('col-xl-12');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_left');
 	    	try {
 		    	if (localStorage) {
@@ -1092,7 +1092,7 @@ function lh(){
 	    	} catch(e) {}
     	} else {
     		$('#chat-right-column-'+chat_id).show();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-12').addClass('col-sm-7');
+	    	$('#chat-main-column-'+chat_id).removeClass('col-xl-12').addClass('col-xl-8');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_right');
 	    	
 	    	try {
