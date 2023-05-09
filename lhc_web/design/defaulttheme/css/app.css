@@ -83,6 +83,11 @@ a.link {
 	z-index:9999;
 }
 
+[data-mobile=true] .chat-main-left-column.col-xl-8 .toolbar-chat,
+[data-mobile=true] .chat-main-left-column.col-xl-8 .canned-message-holder{
+    display: none!important;
+}
+
 .absolute-language-top-right .btn-secondary{
 	border-top:0;
 	border-right:0;
@@ -1840,7 +1845,7 @@ html {
     display: flex!important;
     flex-direction: column!important;
     position: relative;
-    min-height:200px!important;
+    min-height:40px!important;
 }
 
 .dashboard-height .group-chat-private .msgBlock-group-admin,

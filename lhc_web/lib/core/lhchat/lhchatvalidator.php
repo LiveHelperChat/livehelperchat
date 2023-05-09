@@ -1025,6 +1025,7 @@ class erLhcoreClassChatValidator {
 
             $messagesSave = [];
             $logMessage = [];
+            $removeVars = [];
 
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
 
@@ -1036,6 +1037,10 @@ class erLhcoreClassChatValidator {
                     $val = trim($data[$jsVar->var_identifier]);
                 } else {
                     $val = null;
+                }
+
+                if (empty($val) && $jsVar->persistent == 0) {
+                    $removeVars[] = $jsVar->var_identifier;
                 }
 
                 if (!empty($val)) {
@@ -1124,6 +1129,14 @@ class erLhcoreClassChatValidator {
                 }
             }
 
+            foreach ($removeVars as $varToRemove) {
+                if (isset($chatVariablesDataArray[$varToRemove])) {
+                    unset($chatVariablesDataArray[$varToRemove]);
+                    $variablesUpdates = true;
+                    $needUpdate = true;
+                }
+            }
+
             if ($variablesUpdates == true) {
                 $updateColumns[] = 'chat_variables';
                 $chat->chat_variables = json_encode($chatVariablesDataArray);
@@ -1162,6 +1175,15 @@ class erLhcoreClassChatValidator {
                     $needUpdate = true;
                 }
             }
+
+            foreach ($additionalDataArray as $index => $additionalItem) {
+                if (in_array($additionalItem['identifier'],$removeVars)){
+                    unset($additionalDataArray[$index]);
+                    $needUpdate = true;
+                }
+            }
+
+            $additionalDataArray = array_values($additionalDataArray);
 
             if ($needUpdate == true) {
                 $chat->additional_data_array = $additionalDataArray;

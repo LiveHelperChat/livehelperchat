@@ -324,7 +324,7 @@ const CannedMessages = props => {
 
     return (
         <React.Fragment>
-            <div className="col-12 col-xl-6">
+            <div className="col-12 col-xl-6 pb-1">
 
                 {!isLoaded &&
                 <p className="border mb-0 mt-0 pb-1 pt-1"><a className="fs13 d-block" onClick={getRootCategory}><span className="material-icons">expand_more</span>{t('chat_canned.canned')}</a></p>
