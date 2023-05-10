@@ -106,7 +106,7 @@ var revealM = {
         },
 
         setCenteredDraggable : function(){
-            if ($('#admin-body').length > 0) {
+            if ($('#admin-body').length > 0 && !$('html').attr('data-mobile')) {
                 var modalContent = $('#myModal .modal-dialog');
 
                 var prevPos = revealM.rememberPositions();

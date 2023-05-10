@@ -1,6 +1,6 @@
 <div class="card card-dashboard" data-panel-id="closed_chats" ng-init="lhc.getToggleWidget('closedc_widget_exp');lhc.getToggleWidgetSort('closed_chats_sort')">
 	<div class="card-header">
-		<a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/2"><i class="material-icons chat-closed">chat</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
+        <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/2"><i class="material-icons chat-closed">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?></span> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
 
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('closedc_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['closedc_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 

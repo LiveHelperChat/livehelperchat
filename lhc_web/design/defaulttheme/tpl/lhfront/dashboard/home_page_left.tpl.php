@@ -61,7 +61,7 @@
 
                     <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
                         <div class="border-top border-bottom bg-light card-header">
-                            <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Groups')?></span>
+                            <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Grp.')?></span>
                                 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
                             </div>
                         </div>
