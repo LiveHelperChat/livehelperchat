@@ -2019,11 +2019,6 @@ html {
     display: none;
 }
 
-.dropdown-toggle.btn-department-dropdown::after{
-    float:right;
-    margin-top: 8px;
-}
-
 .list-links a:visited{
     color: #818182;
 }
