@@ -96,6 +96,12 @@ a.link {
     .chat-main-right-column{
         height: 98%;
     }
+    .small-truncate-nick{
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 }
 
 [data-mobile=true] .chat-main-left-column.col-xl-8 .toolbar-chat,
