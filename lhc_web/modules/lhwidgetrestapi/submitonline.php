@@ -281,7 +281,8 @@ if (empty($Errors)) {
                             isset($invitation->design_data_array['lock_department']) &&
                             $invitation->design_data_array['lock_department'] == true &&
                             isset($onlineAttrSystem['inv_ldp']) &&
-                            is_numeric($onlineAttrSystem['inv_ldp'])
+                            is_numeric($onlineAttrSystem['inv_ldp']) &&
+                            $onlineAttrSystem['inv_ldp'] > 0
                         ) {
                             $chat->dep_id = $onlineAttrSystem['inv_ldp'];
                             unset($onlineAttrSystem['inv_ldp']); // Let invitation flow set it again
