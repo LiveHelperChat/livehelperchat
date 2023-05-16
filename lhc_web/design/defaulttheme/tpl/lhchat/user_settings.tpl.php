@@ -24,12 +24,12 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 
 ?>
 
-<?php if ($currentUser->hasAccessTo('lhchat','use') ) : ?>
+<?php if ($currentUser->hasAccessTo('lhchat','use') && !isset($hideAllULSettings) ) : ?>
 
 <?php if (!isset($hideULSetting)) : ?>
 <ul class="list-inline user-settings-list float-end">
 <?php endif;?>
-	
+
 	<?php include_once(erLhcoreClassDesign::designtpl('lhchat/user_settings_sound.tpl.php'));?>
 		
 	<?php if ($canChangeVisibilityMode == true) : ?>
@@ -44,3 +44,4 @@ if ( $currentUser->hasAccessTo('lhuser','changevisibility') ) {
 <?php endif;?>
 
 <?php endif;?>
+

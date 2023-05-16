@@ -83,9 +83,40 @@ a.link {
 	z-index:9999;
 }
 
+@media (max-width: 1200px) {
+    .chat-main-left-column.col-xl-8 .toolbar-chat,
+    .chat-main-left-column.col-xl-8 .form-send-textarea,
+    .dashboard-height .chat-main-left-column.col-xl-8 .message-block,
+    .chat-main-left-column.col-xl-8 .canned-message-holder{
+        display: none!important;
+    }
+    .dashboard-height .chat-main-left-column.col-xl-8{
+        height: 0px;
+    }
+    .chat-main-right-column{
+        height: 98%;
+    }
+    .small-truncate-nick{
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
 [data-mobile=true] .chat-main-left-column.col-xl-8 .toolbar-chat,
+[data-mobile=true] .chat-main-left-column.col-xl-8 .form-send-textarea,
+[data-mobile=true] .chat-main-left-column.col-xl-8 .message-block,
 [data-mobile=true] .chat-main-left-column.col-xl-8 .canned-message-holder{
     display: none!important;
+}
+
+[data-mobile=true] .chat-main-left-column.col-xl-8{
+    height: 0px;
+}
+
+[data-mobile=true] .chat-main-right-column{
+    height: 98%;
 }
 
 .absolute-language-top-right .btn-secondary{
@@ -1875,6 +1906,16 @@ html {
     padding:0!important;
 }
 
+.dashboard-height #middle-column-page.middle-column-chat-tabs{
+    padding:0!important;
+    padding-left: 7px!important;
+}
+
+.dashboard-height #middle-column-page.middle-column-chat-tabs #tabs{
+    padding-top:5px;
+}
+
+
 .dashboard-height #page-content-wrapper{
     padding-top:0px;
     padding-bottom:0px;
@@ -2032,11 +2073,6 @@ html {
 
 .filter-online-active .online-user-filter-row:not(.online_user){
     display: none;
-}
-
-.dropdown-toggle.btn-department-dropdown::after{
-    float:right;
-    margin-top: 8px;
 }
 
 .list-links a:visited{

@@ -1,6 +1,6 @@
 <div class="card card-dashboard card-visitors" data-panel-id="online_visitors" id="widget-onvisitors" ng-class="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true ? 'active' : ''" ng-init="lhc.getToggleWidget('onvisitors_widget_exp')">
 	<div class="card-header">
-        <i class="material-icons action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">send</i><i class="material-icons">face</i> <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?> ({{online.onlineusers.length}})
+        <i class="material-icons action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">send</i><i class="material-icons">face</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?></span> ({{online.onlineusers.length}})
 
 		<a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('onvisitors_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['onvisitors_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
 

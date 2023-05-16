@@ -275,9 +275,23 @@ if (empty($Errors)) {
                             }
                         }
 
+                        // Lock department support
+                        if (
+                            $invitation instanceof erLhAbstractModelProactiveChatInvitation &&
+                            isset($invitation->design_data_array['lock_department']) &&
+                            $invitation->design_data_array['lock_department'] == true &&
+                            isset($onlineAttrSystem['inv_ldp']) &&
+                            is_numeric($onlineAttrSystem['inv_ldp']) &&
+                            $onlineAttrSystem['inv_ldp'] > 0
+                        ) {
+                            $chat->dep_id = $onlineAttrSystem['inv_ldp'];
+                            unset($onlineAttrSystem['inv_ldp']); // Let invitation flow set it again
+                            $userInstance->online_attr_system = json_encode($onlineAttrSystem);
+                        }
+
                         if ($invitation instanceof erLhAbstractModelProactiveChatInvitation &&
-                            $invitation->design_data_array['show_everytime'] && $invitation->design_data_array['show_everytime'] == true &&
-                            $invitation->design_data_array['show_after_chat'] && $invitation->design_data_array['show_after_chat'] == true) {
+                            isset($invitation->design_data_array['show_everytime']) && $invitation->design_data_array['show_everytime'] == true &&
+                            isset($invitation->design_data_array['show_after_chat']) && $invitation->design_data_array['show_after_chat'] == true) {
                             $userInstance->operator_message = '';
                             $userInstance->message_seen = 0;
                             $userInstance->message_seen_ts = 0;

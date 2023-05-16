@@ -737,7 +737,8 @@ class erLhcoreClassChatWebhookIncoming {
                     'transfer_if_na',
                     'transfer_timeout_ts',
                     'transfer_timeout_ac',
-                    'priority'
+                    'priority',
+                    'auto_responder_id'
                 )));
 
                 if (empty($eChat->payload)) {

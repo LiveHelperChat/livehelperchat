@@ -1,4 +1,5 @@
-<?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+
+
 
 <?php
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
@@ -12,6 +13,10 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 		
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
+
+        <?php $hideULSetting = true; ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php')); ?>
+
 	    <?php if ($pendingTabEnabled == true) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link active" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-bs-toggle="tab"><i class="material-icons chat-pending me-0">chat</i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>

@@ -4,14 +4,6 @@
   <context>
     <name>listchatconfig</name>
     <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source/>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -420,6 +412,10 @@
     </message>
     <message>
       <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test masking rules</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1887,22 +1883,6 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
-      <source>Message to visitor on chat close</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message to visitor if department is offline</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Message to visitor if operator speaks same language as visitor.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visible in chat list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
     </message>
@@ -2051,7 +2031,43 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default on hold message</source>
+      <source>Timeout. [2]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [3]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [4]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Timeout. [5]</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default on hold message. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [1]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [2]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [3]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [4]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [5]. Use ||| to separate random messages.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2092,22 +2108,6 @@
     </message>
     <message>
       <source>Message for timeout [5], use ||| to separate random messages.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout. [2]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout. [3]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout. [4]</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Timeout. [5]</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2180,6 +2180,26 @@
     </message>
     <message>
       <source>Visible in online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove permanently matched content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place you replacement pattern here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor after posting sensitive information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto reply warning if visitor is posting information to agent which does not have permission to view sensitive data.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2528,6 +2548,10 @@
     </message>
     <message>
       <source>Subject</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages content protection</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -5062,6 +5086,164 @@
     </message>
   </context>
   <context>
+    <name>abstract/message_protection</name>
+    <message>
+      <source>Add an e-mail masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a credit card masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Replaces all numbers in the message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a preg match sample</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New rule per row.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rule ||| Replace symbol</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rules to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Server default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>chat/subject</name>
     <message>
       <source>If you do not choose any department, subject will be visible for all departments</source>
@@ -5662,6 +5844,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Visitor is typing</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please choose!</source>
       <translation type="unfinished"/>
     </message>
@@ -6220,6 +6406,561 @@
     </message>
   </context>
   <context>
+    <name>chat/onlineusers</name>
+    <message>
+      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Map location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use this service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use mod_geoip2</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country code server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country name server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City name server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Latitude variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Longitude variable</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use https://www.abstractapi.com/ip-geolocation-api</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Location of city database. Make sure you uploaded file in this location.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Requests will be comming from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>City</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lat.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lon.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Additional information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>On page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User have not seen message from operator, or message window still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen message from operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is chatting</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User is not having any chat right now</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has send message to user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No one has send any message to user yet</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last visit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total visits</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>time(s) invitation logic was applied</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pageviews</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total pageviews</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total time on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User tracking is disabled, enable it at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors on map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Preview chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visits</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>From</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>online users</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show only connected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group list by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Refresh list every</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>second</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for users is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Allow visitor to choose only one file for the upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove meta information from images</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Uploaded files from visitors are scanned</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you do not choose any department from below we will track all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country code variable does not exist!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country name variable does not exist!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter city variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter latitude variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter longitude variable!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter API Key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter the API key!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter the API username!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter IP!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a service provider!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online users</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>audit/options</name>
     <message>
       <source>Audit Configuration</source>
@@ -6509,10 +7250,6 @@
   </context>
   <context>
     <name>chat/adminchat</name>
-    <message>
-      <source>Exclude bot messages</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Strike</source>
       <translation type="unfinished"/>
@@ -6966,11 +7703,11 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Use Alt+↑↓ arrows to navigate in the list.</source>
+      <source>Next item</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Next item</source>
+      <source>Use Alt+↑↓ arrows to navigate in the list.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7125,113 +7862,6 @@
     </message>
     <message>
       <source>Form</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/edit</name>
-    <message>
-      <source>Application default Time Zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Server default time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application default time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Password reset requested by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid chat!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -7792,10 +8422,6 @@
   </context>
   <context>
     <name>user/account</name>
-    <message>
-      <source>Show archived departments</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Canned messages</source>
       <translation type="unfinished"/>
@@ -9513,6 +10139,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats I have presently opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Open chats</source>
       <translation type="unfinished"/>
     </message>
@@ -9839,6 +10473,45 @@
     </message>
   </context>
   <context>
+    <name>user/assigndepartment</name>
+    <message>
+      <source>No permission to edit!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department group assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department department already have been added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department already have been added!</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
     <name>system/xmpp</name>
     <message>
       <source>Geo adjustments active</source>
@@ -10045,561 +10718,6 @@
     </message>
     <message>
       <source>GEO adjustment</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>chat/onlineusers</name>
-    <message>
-      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Map location</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>GEO Enabled</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use this service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use mod_geoip2</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country code server variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country name server variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City name server variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Region name server variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Latitude variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Longitude variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use http://ip-api.com</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use https://www.abstractapi.com/ip-geolocation-api</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>You can download city/country database from.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>bcmath php extension detected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Location of city database. Make sure you uploaded file in this location.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User country based detection, faster</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>File does not exists</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User city based detection, slower</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use PHP-GeoIP module</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Support for PHP-GeoIP detected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Requests will be comming from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Dashboard</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>City</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Lat.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Lon.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Additional information</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>On page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Yes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User have not seen message from operator, or message window still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen message from operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User is chatting</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User is not having any chat right now</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has send message to user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>No one has send any message to user yet</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>First visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Last visit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total visits</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>time(s) invitation logic was applied</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pageviews</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total pageviews</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Time on site</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Total time on site</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Clear list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User tracking is disabled, enable it at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors list</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors on map</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Preview chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visits</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>has sent a message to the user</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Seen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Unseen</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>From</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enable/Disable browser notifications about new visitor</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>online users</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show only connected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group list by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User country</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Page title</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Refresh list every</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>second</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>hour</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>day</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>days</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Max records to return</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Visitor local time</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>By user status on site</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Action</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Returning</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Start a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files upload for users is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow visitor to choose only one file for the upload</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files upload for operators is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Remove meta information from images</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Uploaded files from visitors are scanned</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Voice messages for visitors is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Voice messages for operators is active</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>If you do not choose any department from below we will track all departments.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country code variable does not exist!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country name variable does not exist!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter city variable!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter latitude variable!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter longitude variable!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter API Key!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>MaxMind city file does not exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>MaxMind country file does not exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter the API key!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter the API username!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please enter IP!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a service provider!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Online users</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -10894,6 +11012,10 @@
     </message>
     <message>
       <source>Maintenance</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messages content protection</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11461,6 +11583,10 @@
     </message>
     <message>
       <source>Group chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Grp.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14427,6 +14553,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat ID to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your response will appear here!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can have custom JS execution on click event. In combination with</source>
       <translation type="unfinished"/>
     </message>
@@ -14588,6 +14730,10 @@
     </message>
     <message>
       <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat does not exists or you do not have permission to access it!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -15872,10 +16018,6 @@
   </context>
   <context>
     <name>survey/fill</name>
-    <message>
-      <source>Survey has been completed, thank you for your feedback!</source>
-      <translation type="unfinished"/>
-    </message>
     <message>
       <source>Preview chat</source>
       <translation type="unfinished"/>
@@ -19067,45 +19209,6 @@
     </message>
     <message>
       <source>Deny screen share</source>
-      <translation type="unfinished"/>
-    </message>
-  </context>
-  <context>
-    <name>user/assigndepartment</name>
-    <message>
-      <source>No permission to edit!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit department group assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Edit department assignment</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assign department</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Assign department group</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Please choose a department!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This department department already have been added!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>This department already have been added!</source>
       <translation type="unfinished"/>
     </message>
   </context>
