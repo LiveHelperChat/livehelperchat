@@ -1,8 +1,6 @@
 <?php
 
 $dummyPayload = null;
-$dummyPayload = json_decode('{"contact":{"attributes":null,"createdDatetime":"2023-04-27T10:46:26Z","customDetails":null,"displayName":"+37065272274","firstName":"","href":"","id":"b9b299127dbb4f88bb2dd681e10f6e2d","lastName":"","msisdn":37065272274,"updatedDatetime":"2023-04-27T10:46:26Z"},"conversation":{"contactId":"b9b299127dbb4f88bb2dd681e10f6e2d","createdDatetime":"2023-04-27T10:46:26Z","id":"d159a2b8328e4d36b13817cf4808e608","lastReceivedDatetime":"2023-04-27T10:54:55.207355235Z","lastUsedChannelId":"044a3138-744f-4599-b908-93b035927a47","lastUsedPlatformId":"whatsapp","status":"active","updatedDatetime":"2023-04-27T10:46:26.152718694Z"},"message":{"channelId":"044a3138-744f-4599-b908-93b035927a47","content":{"text":"Just to test something"},"conversationId":"d159a2b8328e4d36b13817cf4808e608","createdDatetime":"2023-04-27T10:54:52Z","direction":"received","from":"+37065272274","id":"396080b1fa0a4e6781bfda4b8b9f00b6","metadata":{"replyTo":{"id":"00000000-0000-0000-0000-000000000000"},"sender":{"displayName":"Remigijus Kiminas"}},"platform":"whatsapp","status":"received","to":"+12057455030","type":"text","updatedDatetime":"2023-04-27T10:54:52Z"},"type":"message.created","workspaceId":11412038}',true);
-
 
 try {
 
