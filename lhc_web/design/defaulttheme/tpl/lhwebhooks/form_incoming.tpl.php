@@ -56,6 +56,19 @@
     <label><input type="checkbox" value="on" name="disabled" <?php echo $item->disabled == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label>
 </div>
 
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" value="on" name="log_incoming" <?php echo $item->log_incoming == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Log request. All request will be logged')?></label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><input type="checkbox" value="on" name="log_failed_parse" <?php echo $item->log_failed_parse == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Log exceptions. Only failed parse requests will be logged.')?></label>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <label><input type="checkbox" ng-model="show_wh_integration"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Show integration information.');?></label>
 </div>

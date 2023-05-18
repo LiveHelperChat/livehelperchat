@@ -1,3 +1,10 @@
+4.24v
+
+1. In rare cases if processing incoming webhook took long time and second request was send one after another two chats were created. Transactions locking were added.
+2. Option to log non parsed messages and log all request. Usefull for debug while debug output is disabled.
+
+execute doc/update_db/update_296.sql for update
+
 4.23v
 
 1. Option to hide sensitive information from operators if they don't have permission to access 'lhchat','see_sensitive_information'

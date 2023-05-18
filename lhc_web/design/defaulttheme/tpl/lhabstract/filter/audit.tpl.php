@@ -120,6 +120,8 @@
             <option value="CannedMsg">CannedMsg</option>
             <option value="CannedMsgDelete">CannedMsgDelete</option>
             <option value="ChatConfig">ChatConfig</option>
+            <option value="incoming_webhook_parse">Incoming webhook parse failures</option>
+            <option value="incoming_webhook">Incoming webhook request</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>
