@@ -2212,8 +2212,23 @@ try {
   UNIQUE KEY `rest_api_id_hash` (`rest_api_id`,`hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE `lh_incoming_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `name` varchar(50) NOT NULL,`icon` varchar(50) NOT NULL, `icon_color` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `scope` varchar(50) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-                    $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL,`payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`),  KEY `incoming_ext_id` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_incoming_webhook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) NOT NULL,
+  `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon_color` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log_incoming` tinyint(1) unsigned NOT NULL,
+  `log_failed_parse` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifier` (`identifier`,`disabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL,`payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), UNIQUE KEY `incoming_ext_id_uniq` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_chat_column` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

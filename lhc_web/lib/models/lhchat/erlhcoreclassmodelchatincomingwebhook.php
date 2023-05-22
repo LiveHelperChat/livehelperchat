@@ -24,6 +24,8 @@ class erLhcoreClassModelChatIncomingWebhook {
             'configuration' => $this->configuration,
             'icon'          => $this->icon,
             'icon_color'    => $this->icon_color,
+            'log_incoming'    => $this->log_incoming,
+            'log_failed_parse'    => $this->log_failed_parse,
         );
     }
 
@@ -70,6 +72,8 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $scope = '';
     public $identifier = '';
     public $icon = '';
+    public $log_incoming = 0;
+    public $log_failed_parse = 0;
     public $icon_color = '';
 }
 
