@@ -61,6 +61,27 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
                 if ($operatorAcceptedBeforeTransfer == false && $operatorAccepted == true) {
                     $operatorAccepted = false;
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
+                    // Store meta message
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->name_support = $userData->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+                    $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
+                    $msg->chat_id = $chat->id;
+                    $msg->user_id = -1;
+                    $msg->time = time();
+                    $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+                    $msg->meta_msg = json_encode($msg->meta_msg_array);
+
+                    erLhcoreClassChat::getSession()->save($msg);
+
+                    if ($chat->last_msg_id < $msg->id) {
+                        $chat->last_msg_id = $msg->id;
+                    }
+
                 }
             }
 
@@ -90,12 +111,15 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	        $msg->chat_id = $chat->id;
     	        $msg->user_id = -1;
     	        $msg->time = time();
-    	        	       
+                $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+                $msg->meta_msg = json_encode($msg->meta_msg_array);
+
+                erLhcoreClassChat::getSession()->save($msg);
+
     	        if ($chat->last_msg_id < $msg->id) {
     	            $chat->last_msg_id = $msg->id;
     	        }
-    
-    	        erLhcoreClassChat::getSession()->save($msg);
+
     	    }
 
             if (is_array($Params['user_parameters_unordered']['arg']) && in_array('background',$Params['user_parameters_unordered']['arg']) && $chat->user_id > 0 && $chat->user_id != $currentUser->getUserID()) {

@@ -5,4 +5,9 @@
  * For various testing purposes
  *
  * */
+
+var_dump(\LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID(erLhcoreClassModelChat::fetch(1647600173), true));
+
+
+
 ?>

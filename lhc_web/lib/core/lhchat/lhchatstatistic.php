@@ -1183,7 +1183,68 @@ class erLhcoreClassChatStatistic {
             return $statusWorkflow['list'];
         }
     }
-    
+    public static function numberOfChatsDialogsByUserParticipant($days = 30, $filter = array(), $groupField = 'user_id')
+    {
+        if ($groupField == 'transfer_uid') {
+            if (isset($filter['filterin']['user_id'])) {
+                $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                unset($filter['filterin']['user_id']);
+            }
+            if (isset($filter['filterin']['lh_chat.user_id'])) {
+                $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                unset($filter['filterin']['lh_chat.user_id']);
+            }
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['transfer_uid'] = $filter['filtergt']['user_id'];
+            }
+        }
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuserparticipant',array('group_field' => $groupField, 'days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+        	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+
+        	$generalFilter = self::formatFilter($filter);
+        	$generalJoin = self::formatJoin($filter);
+
+        	$useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+        	$appendFilterTime = '';
+
+        	if ($useTimeFilter == true) {
+        		$appendFilterTime = 'time > :time ';
+        	}
+
+        	if ($generalFilter != '' && $useTimeFilter == true) {
+        		$generalFilter = ' AND '.$generalFilter;
+        	}
+
+            $column = 'user_id';
+
+            if ($groupField == 'transfer_uid') {
+                $column = '`transfer_uid` AS `user_id`';
+            }
+
+        	$sql = "SELECT count(`lh_chat_participant`.`id`) AS number_of_chats,{$column} FROM lh_chat_participant {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC LIMIT 40";
+
+        	$db = ezcDbInstance::get();
+        	$stmt = $db->prepare($sql);
+
+        	if ($useTimeFilter == true) {
+        		$stmt->bindValue(':time',$dateUnixPast);
+        	}
+
+        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+        	$stmt->execute();
+
+            echo $sql;
+
+        	return $stmt->fetchAll();
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function avgWaitTimeyUser($days = 30, $filter = array()) 
     {    	    
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.avgwaittimeuser',array('days' => $days, 'filter' => $filter));
@@ -1778,7 +1839,10 @@ class erLhcoreClassChatStatistic {
                 
                 $userChatsStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filter);
                 $numberOfChats = empty($userChatsStats) ? $numberOfChats = "0" : $userChatsStats[0]['number_of_chats'];
-                
+
+                $userChatsParticipantStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant(30,$filter);
+                $numberOfChatsParticipant = empty($userChatsParticipantStats) ? $numberOfChatsParticipant = "0" : $userChatsParticipantStats[0]['number_of_chats'];
+
                 // Just chat's then operator accepted chat and he was online
                 $filterOnline = $filter;
                 $filterOnline['filter']['usaccept'] = 0;
@@ -1793,12 +1857,12 @@ class erLhcoreClassChatStatistic {
                 if (isset($filterOnlineHours['filterin']['dep_id'])) {
                     unset($filterOnlineHours['filterin']['dep_id']);
                 }
-                
+
                 $totalHoursOnline = self::totalHoursOfOnlineDialogsByUser(30,$filterOnlineHours);
                 $totalHoursOnlineCount = self::formatHours($totalHoursOnline);
-                                        
                 $totalHours = self::totalHoursOfChatsDialogsByUser(30,$filter);
-                            
+                $totalHoursParticipant = self::totalHoursOfDialogsByUserParticipant(30,$filter);
+                
                 if ($totalHoursOnlineCount > 1) {
                     $aveNumber = round($numberOfChatsOnline / $totalHoursOnlineCount, 2);
                 } else {
@@ -1829,12 +1893,15 @@ class erLhcoreClassChatStatistic {
                     'agentName' => $agentName, 
                     'userId' => $user->id,
                     'numberOfChats' => $numberOfChats, 
-                    'numberOfChatsOnline' => $numberOfChatsOnline, 
+                    'numberOfChatsParticipant' => $numberOfChatsParticipant,
+                    'numberOfChatsOnline' => $numberOfChatsOnline,
                     'totalHours' => $totalHours,
                     'totalHours_front' => erLhcoreClassChat::formatSeconds($totalHours),
+                    'totalHoursParticipant' => $totalHoursParticipant,
+                    'totalHoursParticipant_front' => erLhcoreClassChat::formatSeconds($totalHoursParticipant),
                     'totalHoursOnline' => $totalHoursOnline,
                     'totalHoursOnline_front' => erLhcoreClassChat::formatSeconds($totalHoursOnline),
-                    'aveNumber' => $aveNumber, 
+                    'aveNumber' => $aveNumber,
                     'avgWaitTime' => $userWaitTimeByOperatorNumber, 
                     'avgWaitTime_front' => $avgWaitTime, 
                     'avgChatLength' => $avgChatLength,
@@ -1861,6 +1928,15 @@ class erLhcoreClassChatStatistic {
         }
 
         return erLhcoreClassChat::getCount($filter,'lh_users_online_session','SUM(duration)');
+    }
+
+    public static function totalHoursOfDialogsByUserParticipant($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(duration)');
     }
     
     public static function totalHoursOfChatsDialogsByUser($days = 30, $filter = array())
