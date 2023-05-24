@@ -11,9 +11,13 @@
                     <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected');?>">{{online.online_connected ? 'flash_on' : 'flash_off'}}</i>
                 </a>
             </li>
-
+            <li class="li-icon list-inline-item">
+                <a href="#" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">
+                    <i class="material-icons" >send</i>
+                </a>
+            </li>
 	    </div>
-	
+
 	</div>
 	<div class="col-2 pe-0">
 		<input class="form-control form-control-sm" <?php if (isset($_GET['search'])) :?>ng-init='query=<?php echo json_encode(strip_tags($_GET['search']),JSON_HEX_APOS);?>'<?php endif?> ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
