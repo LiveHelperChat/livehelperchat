@@ -1,4 +1,14 @@
-<textarea required class="form-control form-group" name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php if (isset($visitor)) : ?><?php echo htmlspecialchars($visitor->operator_message) ?><?php endif; ?></textarea>
+<div class="row">
+    <div class="<?php if (!(isset($sendNoticeParams['mode']) && $sendNoticeParams['mode'] == 'mass')) : ?>col-12<?php else : ?>col-8<?php endif; ?>">
+        <textarea required class="form-control form-group" name="Message" id="sendMessageContent" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Type your message to the user');?>"><?php if (isset($visitor)) : ?><?php echo htmlspecialchars($visitor->operator_message) ?><?php endif; ?></textarea>
+    </div>
+    <?php if (isset($sendNoticeParams['mode']) && $sendNoticeParams['mode'] == 'mass') : ?>
+    <div class="col-4">
+        <textarea class="form-control form-group" id="sendToUsernames" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','You can paste usernames separated by a new line.');?>" name="SendToUsernames"></textarea>
+    </div>
+    <?php endif;?>
+</div>
+
 
 <div class="row">
     <div class="col-6">
