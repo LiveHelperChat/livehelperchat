@@ -1,3 +1,7 @@
+4.25v
+
+1. Participant concept in chat's statistic.
+
 4.24v
 
 1. In rare cases, if processing incoming webhook took a long time and a second request was sent one after another two chats were created. Transaction locking were added.

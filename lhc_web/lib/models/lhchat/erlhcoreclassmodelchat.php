@@ -141,6 +141,7 @@ class erLhcoreClassModelChat {
            'lh_abstract_subject_chat',
            'lh_chat_voice_video',
            'lh_chat_incoming',
+           'lh_chat_participant',
            'lh_canned_msg_use'] as $table) {
            $q = ezcDbInstance::get()->createDeleteQuery();
            $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
