@@ -20,8 +20,8 @@ class erLhcoreClassModelChatParticipant
             'chat_id' => $this->chat_id,
             'user_id' => $this->user_id,
             'duration' => $this->duration,
-            'role' => $this->role,
-            'ctime' => $this->ctime
+            'dep_id' => $this->dep_id,
+            'time' => $this->time
         );
     }
 
@@ -43,8 +43,8 @@ class erLhcoreClassModelChatParticipant
     public $chat_id = 0;
     public $user_id = 0;
     public $duration = 0;
-    public $role = 0;
-    public $ctime = 0;
+    public $dep_id = 0;
+    public $time = 0;
 
 }
 
