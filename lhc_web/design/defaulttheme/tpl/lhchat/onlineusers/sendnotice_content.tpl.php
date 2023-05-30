@@ -100,9 +100,9 @@
         <input type="hidden" id="id_SendMessage" name="SendMessage" value="1" />
         <hr>
         <?php if (!(isset($sendNoticeParams['mode']) && $sendNoticeParams['mode'] == 'mass')) : ?>
-            <input type="submit" class="btn btn-secondary btn-sm" name="SendMessage" onclick="$('#id_SendMessage').val(1)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
+            <input type="submit" class="btn btn-secondary btn-sm modal-submit-disable" name="SendMessage" onclick="$('#id_SendMessage').val(1)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message');?>" />
         <?php else : ?>
-            <button type="submit" class="btn btn-secondary btn-sm" onclick="$('#id_SendMessage').val(1)" name="updateBotSettings"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send message to')?> (<span id="mass-receiver-count"></span>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','visitors')?></button>
+            <button type="submit" class="btn btn-secondary btn-sm modal-submit-disable" onclick="$('#id_SendMessage').val(1)" name="updateBotSettings"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send message to')?> (<span id="mass-receiver-count"></span>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','visitors')?></button>
         <?php endif;?>
 
     </div>
@@ -153,9 +153,9 @@
         </div>
 
         <?php if (!(isset($sendNoticeParams['mode']) && $sendNoticeParams['mode'] == 'mass')) : ?>
-            <input type="submit" class="btn btn-sm btn-secondary" name="SendMessageStart" onclick="$('#id_SendMessage').val(2)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message and start a chat');?>" />
+            <input type="submit" class="btn btn-sm btn-secondary modal-submit-disable" name="SendMessageStart" onclick="$('#id_SendMessage').val(2)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/sendnotice','Send the message and start a chat');?>" />
         <?php else : ?>
-            <button type="submit" class="btn btn-secondary btn-sm" onclick="$('#id_SendMessage').val(2)" name="updateBotSettings"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send the message and start a chat')?> (<span id="mass-receiver-count-chat"></span>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','visitors')?></button>
+            <button type="submit" class="btn btn-secondary btn-sm modal-submit-disable" onclick="$('#id_SendMessage').val(2)" name="updateBotSettings"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Send the message and start a chat')?> (<span id="mass-receiver-count-chat"></span>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','visitors')?></button>
         <?php endif; ?>
 
     </div>
