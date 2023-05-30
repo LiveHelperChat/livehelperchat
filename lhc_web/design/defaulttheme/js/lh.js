@@ -2841,7 +2841,7 @@ function lh(){
             },
             error: function (xhr, desc, err)
             {
-
+                alert('An error has accoured! ' + xhr.responseText);
             }
         });
 
