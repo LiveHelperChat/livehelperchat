@@ -31,6 +31,13 @@ class Brand {
         return $this->name;
     }
 
+    public function afterRemove()
+    {
+        foreach (BrandMember::getList(['filter' => ['brand_id' => $this->id]]) as $brand) {
+            $brand->removeThis();
+        }
+    }
+
     public function __get($var)
     {
         switch ($var) {
