@@ -84,6 +84,12 @@ $ViewList['deletegroup'] = array(
     'functions' => array( 'managegroups' )
 );
 
+$ViewList['deletebrand'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'managebrands' )
+);
+
 $ViewList['deletelimitgroup'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),

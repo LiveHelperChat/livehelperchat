@@ -56,7 +56,7 @@ $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','System configuration')),
     array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments')),
-    array('url' => erLhcoreClassDesign::baseurl('department/group'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Departments groups')),
+    array('url' => erLhcoreClassDesign::baseurl('department/brands'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Brands')),
     array('title' => $brand->name));
 
 ?>

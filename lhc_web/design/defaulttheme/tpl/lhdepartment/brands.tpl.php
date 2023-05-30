@@ -6,15 +6,13 @@
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Brand');?></th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
-        <th width="1%">&nbsp;</th>
-        <th width="1%">&nbsp;</th>
     </tr>
     </thead>
     <?php foreach ($items as $item) : ?>
         <tr>
             <td><?php echo htmlspecialchars($item->name)?></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/editbrand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>
-            <td nowrap><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('gallery/album_list_admin','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('department/deletebrand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
+            <td nowrap><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('department/deletebrand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
         </tr>
     <?php endforeach; ?>
 </table>
@@ -26,5 +24,5 @@
 <?php endif;?>
 
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managebrands')) : ?>
-    <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('department/newbrand')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
+    <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('department/newbrand')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','New');?></a>
 <?php endif;?>
