@@ -33,6 +33,8 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/sendmassmessage.tpl.php');
 
 if (isset($_POST['receivesNotification'])) {
 
+    sleep(5);
+    
     $sendData = [];
 
     $validationFields = array();

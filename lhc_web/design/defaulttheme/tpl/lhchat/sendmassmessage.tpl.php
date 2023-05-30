@@ -35,6 +35,11 @@
 
 
                 <form action="<?php echo erLhcoreClassDesign::baseurl('chat/sendmassmessage')?>" method="post" onsubmit="return lhinst.submitModalForm($(this))">
+                    
+                <div id="modal-in-progress" class="alert alert-primary hide" role="alert">
+                    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','In progress...');?>
+                </div>
+
                 <div class="row pb-2">
                     <div class="col-3">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Department');?></label>

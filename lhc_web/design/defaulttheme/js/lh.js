@@ -2812,6 +2812,10 @@ function lh(){
 
     this.submitModalForm = function(form, idElement){
         var inst = this;
+
+        $('#modal-in-progress').removeClass('hide');
+        $('.modal-submit-disable').addClass('disabled').attr('disabled',"disabled");
+
         $.ajax({
             url: form.attr("action"),
             type: form.attr("method"),
@@ -2821,13 +2825,18 @@ function lh(){
             contentType: false,
             success: function (data, status)
             {
+                $('#modal-in-progress').addClass('hide');
+                $('.modal-submit-disable').removeClass('disabled').attr('disabled',"disabled");
+
                 var idElementDetermined = idElement ? '#'+idElement : '#myModal';
                 if (!idElement) {
                     var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
                 }
                 $(idElementDetermined).html(data);
-                if (!idElement) {
+                if (!idElement && $('#myModal > .modal-dialog').length > 0) {
                     $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
+                } else {
+                    $(idElementDetermined).html('<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-body">'+data+'</div></div></div>');
                 }
             },
             error: function (xhr, desc, err)
