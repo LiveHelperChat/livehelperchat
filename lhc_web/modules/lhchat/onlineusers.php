@@ -53,6 +53,10 @@ if (!empty($usernames)) {
     $filter['customfilter'][] = '(`lh_chat_online_user`.`online_attr_system` != \'\' AND (' . implode(' OR ',$valuesFilter) . '))';
 }
 
+if (isset($Params['user_parameters_unordered']['nochat']) && $Params['user_parameters_unordered']['nochat'] == 'true') {
+    $filter['filter']['`lh_chat_online_user`.`chat_id`'] = 0;
+}
+
 $department = isset($Params['user_parameters_unordered']['department']) && is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : false;
 if ($department !== false) {
 	$filter['filterin']['`lh_chat_online_user`.`dep_id`'] = $department;

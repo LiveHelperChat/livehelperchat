@@ -79,8 +79,11 @@
                             <option value="<?php echo 60*24*3600?>">60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 90*24*3600?>">90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 120*24*3600?>">120 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
+                            <option value="<?php echo 150*24*3600?>">150 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
+                            <option value="<?php echo 180*24*3600?>">180 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 200*24*3600?>">200 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 300*24*3600?>">300 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
+                            <option value="<?php echo 365*24*3600?>">365 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 500*24*3600?>">500 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 600*24*3600?>">600 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
                             <option value="<?php echo 1000*24*3600?>">1000 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','days');?></option>
@@ -101,8 +104,12 @@
                         </select>
                     </div>
 
-                    <div class="col-8 mt-2">
+                    <div class="col-4 mt-2">
                         <label><input type="checkbox" value="on" id="mass-only-online"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected');?></label>
+                    </div>
+
+                    <div class="col-4 mt-2">
+                        <label><input type="checkbox" value="on" id="mass-only-not-chatted"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Never had a chat');?></label>
                     </div>
 
                     <div class="col-4 mt-2">
@@ -133,7 +140,7 @@
                     function updateFilter() {
                         clearTimeout(timeout);
                         timeout = setTimeout(function(){
-                            $.post(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+($('#id_mass_userTimeout').val() != '' ? $('#id_mass_userTimeout').val() : '2678400') +'/(maxrows)/' + $('#maxRows').val() + '/' + ($('#id_mass_country_id').val() != '' ? '/(country)/'+$('#id_mass_country_id').val() : '')+(parseInt($('#id_mass_department_id').val()) > 0 ? '/(department)/'+$('#id_mass_department_id').val() : '')+"?view=html",{"usernames":$('#sendToUsernames').val()}, function(data) {
+                            $.post(WWW_DIR_JAVASCRIPT + 'chat/onlineusers/(method)/ajax/(timeout)/'+($('#id_mass_userTimeout').val() != '' ? $('#id_mass_userTimeout').val() : '2678400')+($('#mass-only-not-chatted').is(':checked') ? '/(nochat)/true' : '') +'/(maxrows)/' + $('#maxRows').val() + '/' + ($('#id_mass_country_id').val() != '' ? '/(country)/'+$('#id_mass_country_id').val() : '')+(parseInt($('#id_mass_department_id').val()) > 0 ? '/(department)/'+$('#id_mass_department_id').val() : '')+"?view=html",{"usernames":$('#sendToUsernames').val()}, function(data) {
                                 $('#online-visitors-filtered').html(data);
 
                                 if ($('#mass_check_all').is(':checked')) {
@@ -164,7 +171,7 @@
 
                     updateFilter();
 
-                    $('#id_mass_department_id,#id_mass_country_id,#id_mass_userTimeout,#sendToUsernames,#maxRows').change(function(){
+                    $('#id_mass_department_id,#id_mass_country_id,#id_mass_userTimeout,#sendToUsernames,#maxRows,#mass-only-not-chatted').change(function(){
                         updateFilter()
                     });
 
