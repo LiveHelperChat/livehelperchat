@@ -32,6 +32,21 @@ $ViewList['index'] = array(
     'functions' => array( 'list' )
 );
 
+$ViewList['brands'] = array(
+    'params' => array(),
+    'functions' => array( 'managebrands' )
+);
+
+$ViewList['newbrand'] = array(
+    'params' => array(),
+    'functions' => array( 'managebrands' )
+);
+
+$ViewList['editbrand'] = array(
+    'params' => array('id'),
+    'functions' => array( 'managebrands' )
+);
+
 $ViewList['group'] = array(
     'params' => array(),
     'functions' => array( 'managegroups' )
@@ -69,6 +84,12 @@ $ViewList['deletegroup'] = array(
     'functions' => array( 'managegroups' )
 );
 
+$ViewList['deletebrand'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'managebrands' )
+);
+
 $ViewList['deletelimitgroup'] = array(
     'params' => array('id'),
     'uparams' => array('csfr'),
@@ -87,6 +108,7 @@ $FunctionList['managegroups'] = array('explain' => 'Allow user to manage all dep
 $FunctionList['managesurvey'] = array('explain' => 'Allow operator to change department surveys');
 $FunctionList['managealias'] = array('explain' => 'Allow operator to change department alias');
 $FunctionList['managedesign'] = array('explain' => 'Allow operator to change design section');
+$FunctionList['managebrands'] = array('explain' => 'Allow operator to manage brands');
 
 
 ?>

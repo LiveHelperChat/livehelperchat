@@ -2493,6 +2493,25 @@ class erLhcoreClassGenericBotWorkflow {
                     }
                 }
             }
+
+            $matchesValues = [];
+            preg_match_all('~\{condition\.((?:[^\{\}\}]++|(?R))*)\}~', $message,$matchesValues);
+
+            if (!empty($matchesValues[0])) {
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                    $validConditions = true;
+
+                    $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => $matchesValues[1][$indexElement]]]);
+
+                    if (empty($conditionsToValidate)) {
+                        $message = str_replace($elementValue,  'not_valid',$message);
+                    } else {
+                        foreach ($conditionsToValidate as $conditionToValidate) {
+                            $message = str_replace($elementValue, ($conditionToValidate->isValid($params) ? 'valid' : 'not_valid'), $message);
+                        }
+                    }
+                }
+            }
         }
 
         return $message;

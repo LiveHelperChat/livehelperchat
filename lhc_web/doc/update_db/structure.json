@@ -5911,6 +5911,22 @@
         "key": "",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "role_destination",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
+      },
+      {
+        "field": "present_role_is",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": "",
+        "extra": ""
       }
     ],
     "lh_group_chat": [
