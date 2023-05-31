@@ -13,6 +13,7 @@
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/listrestapi')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Rest API Calls');?></a></li>
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/commands')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Commands');?></a></li>
         <?php endif; ?>
+        <li><a href="<?php echo erLhcoreClassDesign::baseurl('genericbot/conditions')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Conditions');?></a></li>
     </ul>
 </li>
 <?php endif; ?>

@@ -395,6 +395,11 @@ class erLhcoreClassModelChat {
        			return $this->product_name;
        		break;
 
+       	case 'department_role':
+                $this->department_role = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $this->dep_id]]);
+       			return $this->department_role;
+       		break;
+
        	case 'department_name':
        			return $this->department_name = (string)$this->department;
        		break;
