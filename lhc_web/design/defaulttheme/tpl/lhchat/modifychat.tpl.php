@@ -96,7 +96,11 @@ setTimeout(function() {
             <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : ?>
                 <tr>
                     <td>
-                        <?php echo htmlspecialchars($participiant->n_official)?>
+                        <?php if ($participiant->user_id == -2) : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?>
+                        <?php else : ?>
+                            <?php echo htmlspecialchars($participiant->n_official)?>
+                        <?php endif; ?>
                     </td>
                     <td>
                         <?php echo htmlspecialchars($participiant->duration_front)?>
