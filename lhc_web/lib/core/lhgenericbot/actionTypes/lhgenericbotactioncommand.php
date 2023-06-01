@@ -563,10 +563,6 @@ class erLhcoreClassGenericBotActionCommand {
                     $db->rollback();
                     throw $e;
                 }
-
-                /*$chat->operation .= "lhinst.updateMessageRow({$params['msg']->id});\n";
-                $chat->updateThis(['update' => ['operation']]);
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.message_updated', array('msg' => & $params['msg'], 'chat' => & $chat));*/
             }
 
 
@@ -663,6 +659,24 @@ class erLhcoreClassGenericBotActionCommand {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.data_changed', array('chat' => & $chat));
 
         } elseif ($action['content']['command'] == 'setdepartment') {
+
+            // Brand support
+            if (!is_numeric($action['content']['payload'])) {
+
+                $brandMember = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
+
+                if (!is_object($brandMember)) {
+                    return;
+                }
+
+                $destinationBrandMember = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['brand_id' => $brandMember->brand_id, 'role' => $action['content']['payload']]]);
+
+                if (!is_object($destinationBrandMember)) {
+                    return;
+                }
+
+                $action['content']['payload'] = $destinationBrandMember->dep_id;
+            }
 
             // Department was changed
             if ($chat->dep_id != $action['content']['payload']) {

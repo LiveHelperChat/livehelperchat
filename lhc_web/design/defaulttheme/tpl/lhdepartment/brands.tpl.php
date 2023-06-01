@@ -10,7 +10,7 @@
     </thead>
     <?php foreach ($items as $item) : ?>
         <tr>
-            <td><?php echo htmlspecialchars($item->name)?></td>
+            <td><a href="<?php echo erLhcoreClassDesign::baseurl('department/editbrand')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a></td>
             <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/editbrand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>
             <td nowrap><a class="btn btn-danger btn-xs csfr-required" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Are you sure?');?>')" href="<?php echo erLhcoreClassDesign::baseurl('department/deletebrand')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
         </tr>
