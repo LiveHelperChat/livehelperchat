@@ -4,6 +4,8 @@
         <li><strong>{args.chat.session_referrer}</strong> `contains`. <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Referer from where visitor come to site.');?></li>
         <li><strong>{args.chat.chat_variables_array.&lt;variables&gt;}</strong> = <b>New</b></li>
         <li><strong>{args.chat.dep_id}</strong> = Department ID</li>
+        <li><strong>{args.chat.department_role.role}</strong> = Department role <b>vip</b></li>
+        <li><strong>{condition.&lt;condition_identifier&gt;}</strong> = Condition identifier <b>valid</b> OR <b>not_valid</b></li>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules_multiinclude.tpl.php'));?>
     </ul>
 
@@ -20,7 +22,7 @@
             <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test');?></button>
         </div>
         <div class="col-12 pt-2">
-            <div class="alert alert-info" id="pattern-replace-response"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Your response will appear here!');?></div>
+            <div class="alert alert-info mx300 fs12" id="pattern-replace-response"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Your response will appear here!');?></div>
         </div>
     </div>
 

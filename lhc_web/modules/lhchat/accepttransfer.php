@@ -66,7 +66,8 @@ if  ($chatTransfer->dep_id > 0) {
 
         $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
-
+        $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+        $msg->meta_msg = json_encode($msg->meta_msg_array);
     }
 }
 
@@ -93,6 +94,9 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
 
         $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
+        $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+        $msg->meta_msg = json_encode($msg->meta_msg_array);
+
     }
 
 	// Change department if user cannot read current department, so chat appears in right menu

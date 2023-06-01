@@ -141,6 +141,7 @@ class erLhcoreClassModelChat {
            'lh_abstract_subject_chat',
            'lh_chat_voice_video',
            'lh_chat_incoming',
+           'lh_chat_participant',
            'lh_canned_msg_use'] as $table) {
            $q = ezcDbInstance::get()->createDeleteQuery();
            $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
@@ -393,6 +394,11 @@ class erLhcoreClassModelChat {
        	case 'product_name':
        			$this->product_name = (string)$this->product;
        			return $this->product_name;
+       		break;
+
+       	case 'department_role':
+                $this->department_role = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $this->dep_id]]);
+       			return $this->department_role;
        		break;
 
        	case 'department_name':

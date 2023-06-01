@@ -1,3 +1,10 @@
+4.25v
+
+1. Participant concept in chat's statistic.
+2. Brand concept in chat handling workflows.
+
+execute doc/update_db/update_297.sql for update
+
 4.24v
 
 1. In rare cases, if processing incoming webhook took a long time and a second request was sent one after another two chats were created. Transaction locking were added.

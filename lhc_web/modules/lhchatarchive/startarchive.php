@@ -24,8 +24,8 @@ if ( !$form->hasValidData( 'RangeFrom' ) || $form->RangeFrom == '' )
 	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a valid from date range!');
 } else {
 	$range = explode('-', $form->RangeFrom);
-	if (checkdate($range[1], $range[2], $range[0])){
-		$archive->range_from = mktime(0,0,0,$range[1],$range[2],$range[0]);
+	if (checkdate((int)$range[1], (int)$range[2], (int)$range[0])){
+		$archive->range_from = mktime(0,0,0, (int)$range[1], (int)$range[2], (int)$range[0]);
 	} else {
 		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a valid from date range!');
 	}
@@ -36,8 +36,8 @@ if ( !$form->hasValidData( 'RangeTo' ) || $form->RangeTo == '' )
 	$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a valid to date range!');
 } else {
 	$range = explode('-', $form->RangeTo);
-	if (checkdate($range[1], $range[2], $range[0])){
-		$archive->range_to = mktime(0,0,0,$range[1],$range[2],$range[0]);
+	if (checkdate((int)$range[1], (int)$range[2], (int)$range[0])){
+		$archive->range_to = mktime(0,0,0, (int)$range[1], (int)$range[2], (int)$range[0]);
 	} else {
 		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/edit','Please enter a valid to date range!');
 	}

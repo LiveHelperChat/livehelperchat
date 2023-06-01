@@ -257,7 +257,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
 
@@ -298,7 +298,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
@@ -341,7 +341,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
@@ -384,7 +384,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
@@ -428,7 +428,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = 1;
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
@@ -475,7 +475,7 @@ class erLhcoreClassChatWorkflow {
                     $chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();
@@ -561,7 +561,7 @@ class erLhcoreClassChatWorkflow {
                     }
                 }
 
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
                 $chat->has_unread_messages = 0;
                 $chat->updateThis();

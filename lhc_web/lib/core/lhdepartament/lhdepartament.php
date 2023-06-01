@@ -796,8 +796,6 @@ class erLhcoreClassDepartament{
     */
    public static function validateDepartmentGroup(erLhcoreClassModelDepartamentGroup $departamentGroup)
    {
-       $availableCustomWorkHours = array();
-       
        $definition = array(
            'Name' => new ezcInputFormDefinitionElement(
                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -815,6 +813,43 @@ class erLhcoreClassDepartament{
        
        return $Errors;
    }
+
+   public static function validateDepartmentBrand(\LiveHelperChat\Models\Brand\Brand $brand, & $members = [])
+   {
+       $definition = array(
+           'Name' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+           ),
+           'department' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+           ),
+           'role' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           )
+       );
+
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+
+       if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
+           $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/editgroup','Please enter a brand name');
+       } else {
+           $brand->name = $form->Name;
+       }
+
+       if ( $form->hasValidData( 'department' ) && !empty($form->department) ) {
+           foreach ($form->department as $departmentId) {
+               $members[] = [
+                   'dep_id' => $departmentId,
+                   'role' => $form->role[$departmentId]
+               ];
+           }
+       }
+
+       return $Errors;
+   }
+
+
    
    /**
     * Validates department group submit

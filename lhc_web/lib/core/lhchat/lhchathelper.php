@@ -159,7 +159,7 @@ class erLhcoreClassChatHelper
                     $params['chat']->wait_time = time() - ($params['chat']->pnd_time > 0 ? $params['chat']->pnd_time : $params['chat']->time);
                 }
 
-                $params['chat']->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($params['chat']);
+                $params['chat']->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($params['chat'], true);
                 $params['chat']->has_unread_messages = 0;
 
                 $msg = new erLhcoreClassModelmsg();
@@ -274,7 +274,7 @@ class erLhcoreClassChatHelper
         
             if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                $chat->chat_duration = erLhcoreClassChat::getChatDurationToUpdateChatID($chat);
+                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
                 $chat->cls_time = time();
 
                 $msg = new erLhcoreClassModelmsg();

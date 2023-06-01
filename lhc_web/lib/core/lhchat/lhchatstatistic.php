@@ -1183,7 +1183,93 @@ class erLhcoreClassChatStatistic {
             return $statusWorkflow['list'];
         }
     }
-    
+    public static function numberOfChatsDialogsByUserParticipant($days = 30, $filter = array(), $groupField = '`lh_chat_participant`.`user_id`')
+    {
+        if ($groupField == 'transfer_uid') {
+            if (isset($filter['filterin']['user_id'])) {
+                $filter['filterin']['transfer_uid'] = $filter['filterin']['user_id'];
+                unset($filter['filterin']['user_id']);
+            }
+            if (isset($filter['filterin']['lh_chat.user_id'])) {
+                $filter['filterin']['lh_chat.transfer_uid'] = $filter['filterin']['lh_chat.user_id'];
+                unset($filter['filterin']['lh_chat.user_id']);
+            }
+            if (isset($filter['filtergt']['user_id'])) {
+                $filter['filtergt']['transfer_uid'] = $filter['filtergt']['user_id'];
+            }
+        }
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.numberofchatsdialogsbyuserparticipant',array('group_field' => $groupField, 'days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+        	$dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+
+            $useTimeFilter = !isset($filter['filtergte']['time']) && !isset($filter['filterlte']['time']);
+
+            if (isset($filter['filter']['user_id'])){
+                $filter['filter']['`lh_chat_participant`.`user_id`'] = $filter['filter']['user_id'];
+                unset($filter['filter']['user_id']);
+            }
+
+            if (isset($filter['filter']['dep_id'])){
+                $filter['filter']['`lh_chat_participant`.`dep_id`'] = $filter['filter']['dep_id'];
+                unset($filter['filter']['dep_id']);
+            }
+
+            if ($useTimeFilter != true) {
+                if (isset($filter['filtergte']['time'])){
+                    $filter['filtergte']['`lh_chat_participant`.`time`'] = $filter['filtergte']['time'];
+                    unset($filter['filtergte']['time']);
+                }
+
+                if (isset($filter['filterlte']['time'])){
+                    $filter['filterlte']['`lh_chat_participant`.`time`'] = $filter['filterlte']['time'];
+                    unset($filter['filterlte']['time']);
+                }
+            }
+
+        	$generalFilter = self::formatFilter($filter);
+        	$generalJoin = self::formatJoin($filter);
+
+        	$appendFilterTime = '';
+
+        	if ($useTimeFilter == true) {
+        		$appendFilterTime = '`lh_chat_participant`.`time` > :time ';
+        	}
+
+        	if ($generalFilter != '' && $useTimeFilter == true) {
+        		$generalFilter = ' AND '.$generalFilter;
+        	}
+
+            $generalJoin .= " INNER JOIN `lh_chat` ON `lh_chat`.`id` = `lh_chat_participant`.`chat_id`";
+
+            $column = '`lh_chat_participant`.`user_id`';
+
+            if ($groupField == 'transfer_uid') {
+                $column = '`transfer_uid` AS `user_id`';
+            }
+
+        	$sql = "SELECT count(`lh_chat_participant`.`id`) AS number_of_chats,{$column} FROM lh_chat_participant {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY {$groupField} ORDER BY number_of_chats DESC LIMIT 40";
+
+        	$db = ezcDbInstance::get();
+        	$stmt = $db->prepare($sql);
+
+        	if ($useTimeFilter == true) {
+        		$stmt->bindValue(':time',$dateUnixPast);
+        	}
+
+        	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+        	$stmt->execute();
+
+            $rows =  $stmt->fetchAll();
+
+        	return $rows;
+
+        } else {
+            return $statusWorkflow['list'];
+        }
+    }
+
     public static function avgWaitTimeyUser($days = 30, $filter = array()) 
     {    	    
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.avgwaittimeuser',array('days' => $days, 'filter' => $filter));
@@ -1476,8 +1562,9 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Chats'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(0, 2, '');
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total number of chats'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total number of chats (participation)'));
 
-        $columnCounter = 0;
+        $columnCounter = 1;
         if (isset($filter['filterin']['subject_id']) && !empty($filter['filterin']['subject_id'])) {
             foreach ($filter['filterin']['subject_id'] as $subjectId) {
                 $columnCounter++;
@@ -1487,19 +1574,28 @@ class erLhcoreClassChatStatistic {
 
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Number of chats while online'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat (sum of chat duration)'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Time online (sum of time spend online)'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chat per hour'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat (sum of chat duration (participation))'));
+
+
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Time online (sum of time spend online)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chat per hour'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chats per hour (participation)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
 
         $i = 3;
         foreach ($data as $item) {
             $key = 0;
+
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->agentName);
             $key++;
+
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->numberOfChats);
+            $key++;
+
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->numberOfChatsParticipant);
             $key++;
 
             if (isset($filter['filterin']['subject_id']) && !empty($filter['filterin']['subject_id'])) {
@@ -1516,17 +1612,24 @@ class erLhcoreClassChatStatistic {
             }
 
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->numberOfChatsOnline);
-            
+
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->totalHours/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
             $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
-            
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->totalHoursParticipant/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
             $key++;            
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->totalHoursOnline/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
             $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->aveNumber);
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->aveNumberParticipant);
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgWaitTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
@@ -1778,7 +1881,10 @@ class erLhcoreClassChatStatistic {
                 
                 $userChatsStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUser(30,$filter);
                 $numberOfChats = empty($userChatsStats) ? $numberOfChats = "0" : $userChatsStats[0]['number_of_chats'];
-                
+
+                $userChatsParticipantStats = erLhcoreClassChatStatistic::numberOfChatsDialogsByUserParticipant(30,$filter);
+                $numberOfChatsParticipant = empty($userChatsParticipantStats) ? $numberOfChatsParticipant = "0" : $userChatsParticipantStats[0]['number_of_chats'];
+
                 // Just chat's then operator accepted chat and he was online
                 $filterOnline = $filter;
                 $filterOnline['filter']['usaccept'] = 0;
@@ -1793,18 +1899,26 @@ class erLhcoreClassChatStatistic {
                 if (isset($filterOnlineHours['filterin']['dep_id'])) {
                     unset($filterOnlineHours['filterin']['dep_id']);
                 }
-                
+
                 $totalHoursOnline = self::totalHoursOfOnlineDialogsByUser(30,$filterOnlineHours);
                 $totalHoursOnlineCount = self::formatHours($totalHoursOnline);
-                                        
+
                 $totalHours = self::totalHoursOfChatsDialogsByUser(30,$filter);
-                            
+                $totalHoursParticipant = self::totalHoursOfDialogsByUserParticipant(30,$filter);
+                
                 if ($totalHoursOnlineCount > 1) {
                     $aveNumber = round($numberOfChatsOnline / $totalHoursOnlineCount, 2);
                 } else {
                     $aveNumber = $numberOfChatsOnline;
                 }
-                
+
+                if ($totalHoursOnlineCount > 1) {
+                    $aveNumberParticipant = round($numberOfChatsParticipant / $totalHoursOnlineCount, 2);
+                } else {
+                    $aveNumberParticipant = $numberOfChatsParticipant;
+                }
+
+
                 $userWaitTimeByOperator = self::avgWaitTimeyUser(30,$filter);
                 $userWaitTimeByOperatorNumber = empty($userWaitTimeByOperator) ? 0 : $userWaitTimeByOperator[0]['avg_wait_time'];
                 
@@ -1828,13 +1942,24 @@ class erLhcoreClassChatStatistic {
                 $list[] = (object)array(
                     'agentName' => $agentName, 
                     'userId' => $user->id,
+
                     'numberOfChats' => $numberOfChats, 
-                    'numberOfChatsOnline' => $numberOfChatsOnline, 
+                    'numberOfChatsParticipant' => $numberOfChatsParticipant,
+
+                    'numberOfChatsOnline' => $numberOfChatsOnline,
+
                     'totalHours' => $totalHours,
                     'totalHours_front' => erLhcoreClassChat::formatSeconds($totalHours),
+
+                    'totalHoursParticipant' => $totalHoursParticipant,
+                    'totalHoursParticipant_front' => erLhcoreClassChat::formatSeconds($totalHoursParticipant),
+
                     'totalHoursOnline' => $totalHoursOnline,
                     'totalHoursOnline_front' => erLhcoreClassChat::formatSeconds($totalHoursOnline),
-                    'aveNumber' => $aveNumber, 
+
+                    'aveNumber' => $aveNumber,
+                    'aveNumberParticipant' => $aveNumberParticipant,
+
                     'avgWaitTime' => $userWaitTimeByOperatorNumber, 
                     'avgWaitTime_front' => $avgWaitTime, 
                     'avgChatLength' => $avgChatLength,
@@ -1861,6 +1986,15 @@ class erLhcoreClassChatStatistic {
         }
 
         return erLhcoreClassChat::getCount($filter,'lh_users_online_session','SUM(duration)');
+    }
+
+    public static function totalHoursOfDialogsByUserParticipant($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(duration)');
     }
     
     public static function totalHoursOfChatsDialogsByUser($days = 30, $filter = array())
@@ -3959,6 +4093,16 @@ class erLhcoreClassChatStatistic {
                         $operator = '['.$value['user_id'].']';
                     }
                 }
+                fputcsv($fp,[
+                    $operator,
+                    $value['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'chatbyuserparticipant') {
+            fputcsv($fp, ['User','Chats number']);
+            foreach ($statistic['userChatsParticipantStats'] as $value) {
+                $obUser = erLhcoreClassModelUser::fetch($value['user_id'],true);
+                $operator = (is_object($obUser) ? $obUser->name_official : $value['user_id']);
                 fputcsv($fp,[
                     $operator,
                     $value['number_of_chats']

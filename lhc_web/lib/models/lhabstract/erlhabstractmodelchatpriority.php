@@ -22,7 +22,9 @@ class erLhAbstractModelChatPriority
             'value' => $this->value,
             'priority' => $this->priority,
             'sort_priority' => $this->sort_priority,
-            'dest_dep_id' => $this->dest_dep_id
+            'dest_dep_id' => $this->dest_dep_id,
+            'role_destination' => $this->role_destination,
+            'present_role_is' => $this->present_role_is,
         );
 
         return $stateArray;
@@ -86,6 +88,9 @@ class erLhAbstractModelChatPriority
 
                 return $this->dest_dep;
 
+            case 'dest_dep_role':
+                return $this->role_destination != '' ? $this->role_destination : $this->dest_dep;
+
             case 'value_array':
                 $this->value_array = array();
                 if ($this->value != ''){
@@ -130,6 +135,8 @@ class erLhAbstractModelChatPriority
     public $dep_id = 0;
 
     public $dest_dep_id = 0;
+    public $role_destination = 0;
+    public $present_role_is = 0;
 
     public $hide_delete = false;
 }
