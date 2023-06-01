@@ -10,6 +10,16 @@
         "extra": "auto_increment"
       }
     ],
+    "lh_bot_condition": [
+      {
+        "field": "id",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ],
     "lh_brand": [
       {
         "field": "id",
@@ -10775,6 +10785,7 @@
     "lh_abstract_msg_protection" : "CREATE TABLE `lh_abstract_msg_protection` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT,`pattern` text COLLATE utf8mb4_unicode_ci NOT NULL,`enabled` int(11) NOT NULL DEFAULT 1,`remove` int(11) NOT NULL DEFAULT 0,`v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`), KEY `enabled` (`enabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_chat_participant" : "CREATE TABLE `lh_chat_participant` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `chat_id` bigint(20) NOT NULL,\n  `user_id` bigint(20) NOT NULL,\n  `duration` int(11) unsigned NOT NULL,\n  `time` bigint(20) unsigned NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`),\n  KEY `time` (`time`),\n  KEY `user_id` (`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_brand" : "CREATE TABLE `lh_brand` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL, PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_brand_member" : "CREATE TABLE `lh_brand_member` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `dep_id` bigint(20) unsigned NOT NULL, `brand_id` bigint(20) unsigned NOT NULL, `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n                                   PRIMARY KEY (`id`),\n                                   KEY `dep_id` (`dep_id`),\n                                   KEY `brand_id_role` (`brand_id`,`role`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
+    "lh_brand_member" : "CREATE TABLE `lh_brand_member` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `dep_id` bigint(20) unsigned NOT NULL, `brand_id` bigint(20) unsigned NOT NULL, `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,\n                                   PRIMARY KEY (`id`),\n                                   KEY `dep_id` (`dep_id`),\n                                   KEY `brand_id_role` (`brand_id`,`role`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
+    "lh_bot_condition" : "CREATE TABLE `lh_bot_condition` (\n                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,\n                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n                                    PRIMARY KEY (`id`),\n                                    KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
   }
 }
