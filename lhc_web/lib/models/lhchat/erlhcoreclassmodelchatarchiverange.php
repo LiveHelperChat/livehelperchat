@@ -39,6 +39,7 @@ class erLhcoreClassModelChatArchiveRange
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveSupportMsgTable . "`");
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveSupportMemberTable . "`");
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveChatActionsTable . "`");
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveChatParticipantTable . "`");
 
         erLhcoreClassChat::getSession()->delete($this);
     }
@@ -59,6 +60,7 @@ class erLhcoreClassModelChatArchiveRange
         self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
         self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
         self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
+        self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";
 
         $pending_archive = count($list);
         $messagesArchived = 0;
@@ -89,6 +91,13 @@ class erLhcoreClassModelChatArchiveRange
                 $msgArchive = new erLhcoreClassModelChatArchiveAction();
                 $msgArchive->setState(get_object_vars($msg));
                 $msgArchive->saveThis();
+            }
+
+            $chatParticipants = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+            foreach ($chatParticipants as $chatParticipant) {
+                $participantArchive = new erLhcoreClassModelChatArchiveParticipant();
+                $participantArchive->setState(get_object_vars($chatParticipant));
+                $participantArchive->saveThis();
             }
 
             $supportChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $item->id)));
@@ -123,6 +132,11 @@ class erLhcoreClassModelChatArchiveRange
             }
 
             $q = ezcDbInstance::get()->createDeleteQuery();
+
+            // Participants
+            $q->deleteFrom( 'lh_chat_participant' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
 
             // Messages
             $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
@@ -180,6 +194,7 @@ class erLhcoreClassModelChatArchiveRange
         erLhcoreClassModelGroupMsgArchive::$dbTable = self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
         erLhcoreClassModelGroupChatMemberArchive::$dbTable = self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
         erLhcoreClassModelChatArchiveAction::$dbTable = self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
+        erLhcoreClassModelChatArchiveParticipant::$dbTable = self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.set_archive_tables', array('archive' => & $this));
     }
@@ -248,6 +263,7 @@ class erLhcoreClassModelChatArchiveRange
                     self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
                     self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
                     self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
+                    self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";
                     $this->chats_in_archive = erLhcoreClassChat::getCount(array(), self::$archiveTable);
                 }
 
@@ -265,6 +281,7 @@ class erLhcoreClassModelChatArchiveRange
                     self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
                     self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
                     self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
+                    self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";
                     $this->messages_in_archive = erLhcoreClassChat::getCount(array(), self::$archiveMsgTable);
                 }
 
@@ -354,6 +371,16 @@ class erLhcoreClassModelChatArchiveRange
             $command = str_replace("`lh_chat_action`", "`lh_chat_action_{$this->id}`", $command);
             $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
+
+
+            $stmt = $db->prepare('SHOW CREATE TABLE `lh_chat_participant`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lh_chat_participant`", "`lh_chat_participant_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
+            $db->query($command);
         }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.create_archive', array('archive' => & $this));
@@ -371,6 +398,8 @@ class erLhcoreClassModelChatArchiveRange
 
     public static $archiveTable;
     public static $archiveMsgTable;
+    
+    public static $archiveChatParticipantTable;
     public static $archiveSupportTable;
     public static $archiveSupportMsgTable;
     public static $archiveSupportMemberTable;

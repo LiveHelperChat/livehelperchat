@@ -48,6 +48,10 @@ class erLhcoreClassAbstract
                         $ngModel .= " maxlength=\"{$attr['maxlength']}\" ";
                     }
 
+                    if (isset($attr['list_identifier'])) {
+                        $ngModel .= " list=\"{$attr['list_identifier']}\" ";
+                    }
+
                     $nameInputPrepend = (isset($attr['direct_name']) && $attr['direct_name'] == true) ? '' : 'AbstractInput_';
 
                     return '<input class="form-control form-control-sm' . (isset($attr['css_class']) ? ' ' . $attr['css_class'] : '') . '" ' . $ngModel . ' name="' . $nameInputPrepend . $name . '" type="' . $attr['type'] . '" value="' . htmlspecialchars((string)$value) . '" />';

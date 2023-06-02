@@ -86,7 +86,35 @@ setTimeout(function() {
     
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
         <div role="tabpanel" class="tab-pane" id="chatdebug">
+
+
+            <table class="table table-sm">
+                <tr>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Operator');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration');?></th>
+                </tr>
+            <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : ?>
+                <tr>
+                    <td>
+                        <?php if ($participiant->user_id == -2) : ?>
+                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?>
+                        <?php else : ?>
+                            <?php echo htmlspecialchars($participiant->n_official)?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars($participiant->duration_front)?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->getState(),JSON_PRETTY_PRINT)); ?></pre>
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
+            <?php $logDuration = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat,false,$logDuration);?>
+            <pre class="fs11"><?php print_r($logDuration);?></pre>
+
         </div>
     <?php endif; ?>
     

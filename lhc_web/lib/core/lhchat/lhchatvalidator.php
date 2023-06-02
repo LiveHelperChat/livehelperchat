@@ -1387,7 +1387,7 @@ class erLhcoreClassChatValidator {
                             }
                         }
                     }
-                } elseif (strpos($rule['field'],'chat_variable') !== false) {
+                } elseif (strpos($rule['field'],'chat_variable') === 0) {
                     $additionalDataArray = $chat->chat_variables_array;
                     if (is_array($additionalDataArray)) {
                         $variableName = str_replace('chat_variable.','', $rule['field']);
@@ -1399,6 +1399,14 @@ class erLhcoreClassChatValidator {
                     $variableName = str_replace('lhc.','', $rule['field']);
                     if (isset($chat->{$variableName}) && $chat->{$variableName} != '') {
                         $valueToCompare = $chat->{$variableName};
+                    }
+                } elseif (strpos($rule['field'],'{') === 0) {
+                    $valueToCompare = erLhcoreClassGenericBotWorkflow::translateMessage($rule['field'], array('chat' => $chat, 'args' => ['chat' => $chat]));
+                } elseif (strpos($rule['field'],'department_role') === 0) {
+                    $valueToCompare = '';
+                    $valueToCompareRole = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
+                    if (is_object($valueToCompareRole)) {
+                        $valueToCompare = $valueToCompareRole->role;
                     }
                 }
 
@@ -1427,7 +1435,38 @@ class erLhcoreClassChatValidator {
 
             if ($ruleMatched == true) {
                 if (isset($paramsExecution['detailed']) && $paramsExecution['detailed'] == true) {
-                    return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
+
+                    $canChangeDepartment = true;
+
+                    if (!empty($priorityRule->present_role_is)) {
+                        $canChangeDepartment = \LiveHelperChat\Models\Brand\BrandMember::getCount(['filter' => ['dep_id' => $chat->dep_id, 'role' => $priorityRule->present_role_is]]) > 0;
+                    }
+
+                    if ($canChangeDepartment === false) {
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                    }
+
+                    if (!empty($priorityRule->role_destination)) {
+
+                        $presentRole = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
+
+                        if (!is_object($presentRole)) {
+                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                        }
+
+                        $destinationBrandMember = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['brand_id' => $presentRole->brand_id, 'role' => $priorityRule->role_destination]]);
+
+                        if (!is_object($destinationBrandMember)) {
+                            return array('priority' => $priorityRule->priority, 'dep_id' => $chat->dep_id);
+                        }
+
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $destinationBrandMember->dep_id);
+
+                    } else {
+                        return array('priority' => $priorityRule->priority, 'dep_id' => $priorityRule->dest_dep_id);
+                    }
+
+
                 } else {
                     return $priorityRule->priority;
                 }

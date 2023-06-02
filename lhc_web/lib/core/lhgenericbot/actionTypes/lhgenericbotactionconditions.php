@@ -98,6 +98,8 @@ class erLhcoreClassGenericBotActionConditions {
                     } elseif (strpos($condition['content']['attr'],'{args.') !== false) {
                         $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
                         $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                    } elseif ($paramsConditions[0] == '{condition') {
+                        $attr = erLhcoreClassGenericBotWorkflow::translateMessage($condition['content']['attr'], array('chat' => $chat, 'args' => ['chat' => $chat]));
                     } else {
                         $attrData = erLhcoreClassGenericBotActionRestapi::extractAttribute($chatVariables, $condition['content']['attr']);
                         if ($attrData['found'] == true) {
@@ -106,6 +108,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $attr = '';
                         }
                     }
+
 
                     if ($attr === null) {
                        $conditionsMet = false;

@@ -13,15 +13,44 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="form-group">
-            <label><?php echo $fields['dest_dep_id']['trans'];?></label>
-            <?php echo erLhcoreClassAbstract::renderInput('dest_dep_id', $fields['dest_dep_id'], $object)?>
+
+        <div class="row">
+            <div class="col-5">
+                <div class="form-group">
+                    <label><?php echo $fields['role_destination']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('role_destination', $fields['role_destination'], $object)?>
+
+                    <datalist id="brand-role-list">
+                    <?php foreach (\LiveHelperChat\Models\Brand\BrandMember::getList(['group' => 'role']) as $brand) : ?>
+                        <option value="<?php echo $brand->role?>">
+                    <?php endforeach; ?>
+                    </datalist>
+
+
+                </div>
+            </div>
+            <div class="col-2 text-center fw-bold">
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','OR');?>
+            </div>
+            <div class="col-5">
+                <div class="form-group">
+                    <label><?php echo $fields['dest_dep_id']['trans'];?></label>
+                    <?php echo erLhcoreClassAbstract::renderInput('dest_dep_id', $fields['dest_dep_id'], $object)?>
+                </div>
+            </div>
         </div>
+
     </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo $fields['sort_priority']['trans'];?></label>
             <?php echo erLhcoreClassAbstract::renderInput('sort_priority', $fields['sort_priority'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['present_role_is']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('present_role_is', $fields['present_role_is'], $object)?>
         </div>
     </div>
 </div>
@@ -32,25 +61,25 @@
 
 <div ng-controller="LHCPriorityCtrl as pchat" ng-init='pchat.setValue()'>
 
-    <h6>Main conditions</h6>
+    <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Main conditions');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a></h6>
 
     <textarea class="hide" name="AbstractInput_value">{{pchat.value | json : 0}}</textarea>
 
     <div class="form-group">
-        <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="Add condition">
+        <input type="button" ng-click="pchat.addFilter()" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Add condition');?>">
     </div>
 
     <div class="row" ng-show="pchat.value.length > 0">
         <div class="col-11">
             <div class="row">
                 <div class="col-5">
-                    <label>Field</label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Field');?></label>
                 </div>
                 <div class="col-2">
-                    <label>Condition</label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Condition');?></label>
                 </div>
                 <div class="col-5">
-                    <label>Value</label>
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Value');?></label>
                 </div>
             </div>
         </div>
@@ -71,7 +100,6 @@
                                 <option value="&gt;=">&gt;=</option>
                                 <option value="&lt;=">&lt;=</option>
                                 <option value="=">=</option>
-                                <option value="exists">exists</option>
                             </select>
                         </div>
                         <div class="col-5">
@@ -80,7 +108,7 @@
                     </div>
                 </div>
                 <div class="col-1">
-                    <button class="btn btn-danger btn-block" ng-click="pchat.removeFilter(filter)"><i class="material-icons me-0">&#xE872;</i></button>
+                    <button class="btn btn-danger btn-block btn-sm" ng-click="pchat.removeFilter(filter)"><i class="material-icons me-0">&#xE872;</i></button>
                 </div>
             </div>
         </div>
@@ -89,7 +117,7 @@
 
 </div>
 
-<div class="btn-group" role="group" aria-label="...">
+<div class="btn-group btn-group-sm" role="group" aria-label="...">
     <input type="submit" class="btn btn-secondary" name="SaveClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
     <input type="submit" class="btn btn-secondary" name="UpdateClient" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
     <input type="submit" class="btn btn-secondary" name="CancelAction" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>

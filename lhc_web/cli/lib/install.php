@@ -1720,6 +1720,19 @@ class Install
                       PRIMARY KEY (`id`)
                     ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_chat_participant` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `duration` int(11) unsigned NOT NULL,
+  `time` bigint(20) unsigned NOT NULL,
+  `dep_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `chat_id` (`chat_id`),
+  KEY `time` (`time`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_abstract_subject` (
@@ -2083,8 +2096,33 @@ class Install
   KEY `online_enabled` (`online_enabled`),
   KEY `chat_enabled` (`chat_enabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-            $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_brand` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+            $db->query("CREATE TABLE `lh_brand_member` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                   `dep_id` bigint(20) unsigned NOT NULL,
+                                   `brand_id` bigint(20) unsigned NOT NULL,
+                                   `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                   PRIMARY KEY (`id`),
+                                   KEY `dep_id` (`dep_id`),
+                                   KEY `brand_id_role` (`brand_id`,`role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            
+            $db->query("CREATE TABLE `lh_bot_condition` (
+                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    KEY `identifier` (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`role_destination` varchar(50) NOT NULL,`present_role_is` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_canned_msg_dep` (
                                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                  `canned_id` int(11) NOT NULL,

@@ -361,8 +361,8 @@ class NodeTriggerActionCommand extends Component {
                 {this.props.action.getIn(['content','command']) == 'setdepartment' &&
                 <div>
                     <div className="form-group">
-                        <label>Enter department ID</label>
-                        <input className="form-control form-control-sm" type="text" placeholder="Department ID" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
+                        <label>Enter department ID or Brand Role</label>
+                        <input className="form-control form-control-sm" type="text" placeholder="Department ID or Brand Role" onChange={(e) => this.onchangeAttr({'path':['payload'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload'])} />
                     </div>
                 </div>}
 
