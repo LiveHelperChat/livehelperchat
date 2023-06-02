@@ -1715,6 +1715,7 @@ class erLhcoreClassChatStatistic {
             'totalHours',
             'totalHoursOnline',
             'aveNumber',
+            'aveNumberParticipant',
             'avgWaitTime',
             'avgChatLengthSeconds',
             'mail_statistic_total',
@@ -1722,11 +1723,15 @@ class erLhcoreClassChatStatistic {
             'mail_statistic_1',
             'mail_statistic_2',
             'mail_statistic_3',
+            'numberOfChatsParticipant',
+            'totalHoursParticipant'
+
         );
 
         $attrFrontAverage = array(
             'totalHours',
             'totalHoursOnline',
+            'totalHoursParticipant',
             'avgWaitTime',
             'avgChatLengthSeconds',
         );
@@ -1943,7 +1948,6 @@ class erLhcoreClassChatStatistic {
                 } else {
                     $aveNumberParticipant = $numberOfChatsParticipant;
                 }
-
 
                 $userWaitTimeByOperator = self::avgWaitTimeyUser(30,$filter);
                 $userWaitTimeByOperatorNumber = empty($userWaitTimeByOperator) ? 0 : $userWaitTimeByOperator[0]['avg_wait_time'];
