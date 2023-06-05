@@ -103,7 +103,7 @@ class erLhcoreClassMailconvParser {
             $db->commit();
 
             if (empty($filteredMatchingRules)) {
-                throw new Exception('No mail matching rules were found!');
+                throw new Exception('No mail matching rules were found! ['.$mailbox->id.']');
             }
 
             $mailbox->failed = 0;
