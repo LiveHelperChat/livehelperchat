@@ -250,6 +250,11 @@ class NodeTriggerActionText extends Component {
                                 <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','reactions_visible'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','reactions_visible'])} /> Reactions always visible.</label> <i className="material-icons" title="Make reactions icons always visible. By default they are visible on mouse over.">info</i>
                             </div>
                         </div>
+                        <div className="col-12 pb-2">
+                            <label>Webhook execution delay</label> <i className="material-icons" title="Sometimes if you have background workers webhook messages events are executed in paralell. If you want to keep exact order you can add a delay.">info</i>
+                            <input type="number" max="30" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','wh_delay'], 'value' : e.target.value})} defaultValue={this.props.action.getIn(['content','attr_options','wh_delay'])} className="form-control form-control-sm" placeholder="Webhook execution delay in seconds" />
+                        </div>
+
                         <div className="col-12 text-right">
                             <div className="btn-group" role="group">
                                 <button onClick={this.addAction} className="btn btn-xs btn-secondary"><i className="material-icons me-0">add</i> Add action on message</button>
