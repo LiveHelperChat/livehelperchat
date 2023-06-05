@@ -704,24 +704,22 @@ function lh(){
 
         document.body.removeChild(textArea);
 
-        inst.tooltip({
+        var toolTip = new bootstrap.Tooltip(inst,{
             trigger: 'click',
             placement: 'top'
         });
 
         function setTooltip(message) {
-            inst.tooltip('hide')
-                .attr('data-original-title', message)
-                .tooltip('show');
+            toolTip.show();
         }
 
         function hideTooltip() {
             setTimeout(function() {
-                inst.tooltip('hide');
+                toolTip.dispose();
             }, 1000);
         }
 
-        setTooltip(inst.attr('data-success'));
+        setTooltip();
         hideTooltip();
 
     },
