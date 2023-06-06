@@ -24,6 +24,8 @@ try {
             $currentUser->getUserData()->name_support
             ],$signature);
 
+        $signature = erLhcoreClassGenericBotWorkflow::translateMessage($signature, array('chat' => $conv));
+
         $replyRecipients = [];
         $replyRecipientsMapped = [];
         $isSelfReply = false;
