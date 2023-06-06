@@ -44,7 +44,7 @@ class HeaderChat extends Component {
 
         const closeInst = (!this.props.chatwidget.hasIn(['chat_ui','clinst']) || this.props.chatwidget.get('isMobile'));
         const hasHeader = this.props.chatwidget.hasIn(['chat_ui','custom_html_header_body']);
-        const className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header');
+        const className = 'row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header') + (this.props.chatwidget.get('isChatting') === true || (this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === false) ? ' online-header' : ' offline-header');
         const hasPopup = !this.props.chatwidget.hasIn(['chat_ui','hide_popup']);
         const showClose = this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']);
         var iconsNumber = 0;
