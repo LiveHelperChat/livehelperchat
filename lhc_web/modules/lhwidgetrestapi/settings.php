@@ -50,7 +50,7 @@ $departmentUpdated = $department;
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.settings_department_verify', array('department' => & $departmentUpdated));
 
 $outputResponse = array(
-    'isOnline' => erLhcoreClassChat::isOnline($departmentUpdated, false, array(
+    'isOnline' => !(isset($_GET['off']) && $_GET['off'] === 'true') && erLhcoreClassChat::isOnline($departmentUpdated, false, array(
         'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
         'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value
     )),
@@ -512,7 +512,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 209;
+$outputResponse['wv'] = 210;
 
 // React APP versions
 $outputResponse['v'] = 280;
