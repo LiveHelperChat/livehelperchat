@@ -16,6 +16,11 @@
         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("system/offlinesettings","Then offline chat is registered it's status will be changed to closed chat.");?></i></small></p>
     </div>
 
+    <div class="form-group">
+        <label><input type="checkbox" name="save_as_email" <?php if (isset($settings['save_as_email']) && $settings['save_as_email'] == true) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Save as e-mail ticket if department mailbox is setup');?></label>
+        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("system/offlinesettings","Instead of saving as chat we will save it as e-mail ticket. We will create a ticket in the send folder which afterwards will be imported as e-mail ticket.");?></i></small></p>
+    </div>
+
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
     <input type="submit" class="btn btn-secondary" name="saveSettings" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update'); ?>" />
