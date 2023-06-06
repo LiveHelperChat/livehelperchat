@@ -110,13 +110,13 @@ if ($tab == 'cannedmsg') {
     $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
     if (isset($_GET['export'])) {
-        erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
+        erLhcoreClassChatExport::exportCannedMessages(erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)));
     }
 
     if ($currentUser->hasAccessTo('lhchat','administratecannedmsg') && isset($_GET['quick_action'])) {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsg/quick_actions.tpl.php');
         $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/cannedmsg') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
-        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false, 'sort' => 'id ASC'),$departmentParams)));
+        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)));
 
         if (ezcInputForm::hasPostData()) {
             if ((isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on') ||
@@ -148,7 +148,7 @@ if ($tab == 'cannedmsg') {
 
     $items = array();
     if ($pages->items_total > 0) {
-        $items = erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id ASC'),$departmentParams));
+        $items = erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => $pages->low, 'limit' => $pages->items_per_page),$departmentParams));
     }
 
     $filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('chat/cannedmsg');

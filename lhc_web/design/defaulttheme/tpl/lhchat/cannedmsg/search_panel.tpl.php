@@ -66,23 +66,35 @@
                 )); ?>
             </div>
         </div>
+
+        <div class="col-md-2 pb-2">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sort by');?></label>
+            <select name="sortby" class="form-control form-control-sm">
+                <option <?php if ($input->sortby == 'iddesc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="iddesc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Newest first (default)');?></option>
+                <option <?php if ($input->sortby == 'idasc') : ?>selected="selected"<?php endif; ?> value="idasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Oldest first');?></option>
+                <option <?php if ($input->sortby == 'lastupdatedesc') : ?>selected="selected"<?php endif; ?> value="lastupdatedesc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Recently updated first');?></option>
+                <option <?php if ($input->sortby == 'lastupdateasc') : ?>selected="selected"<?php endif; ?> value="lastupdateasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Recently updated last');?></option>
+            </select>
+        </div>
+        <div class="col-md-4 pb-2 pt-4">
+
+            <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
+                <?php if ($pages->items_total > 0) : ?>
+                    <a target="_blank" class="btn btn-outline-secondary btn-sm" href="<?php echo $pages->serverURL?>?export=1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','CSV');?></a>
+                <?php endif; ?>
+
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_import'))  : ?>
+                    <a target="_blank" class="btn btn-outline-secondary btn-sm" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'cannedmsg/import'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?></a>
+                <?php endif; ?>
+
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
+                    <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>?quick_action=1'})" class="btn btn-outline-secondary btn-sm"><span class="material-icons">sync_alt</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Quick actions')?></button>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 
-    <div class="btn-group" role="group" aria-label="...">
-        <input type="submit" name="doSearch" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" />
-        <?php if ($pages->items_total > 0) : ?>
-            <a target="_blank" class="btn btn-outline-secondary btn-sm" href="<?php echo $pages->serverURL?>?export=1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','CSV');?></a>
-        <?php endif; ?>
-
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_import'))  : ?>
-            <a target="_blank" class="btn btn-outline-secondary btn-sm" onclick="return lhc.revealModal({'title' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?>', 'iframe':true, 'height':500, 'url':WWW_DIR_JAVASCRIPT +'cannedmsg/import'})"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Import');?></a>
-        <?php endif; ?>
-
-        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
-        <button type="button" onclick="return lhc.revealModal({'title' : 'Export', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>?quick_action=1'})" class="btn btn-outline-secondary btn-sm"><span class="material-icons">sync_alt</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Quick actions')?></button>
-        <?php endif; ?>
-    </div>
-    
     <script>
         $(function() {
             $('.btn-block-department').makeDropdown();

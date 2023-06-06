@@ -23,6 +23,7 @@
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Delay');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Position');?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Auto send');?></th>
+                <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Updated at');?></th>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_column_multiinclude.tpl.php'));?>
                 <th width="1%">&nbsp;</th>
                 <th width="1%">&nbsp;</th>
@@ -48,6 +49,7 @@
                     <td><?php echo $item->delay?></td>
                     <td><?php echo $item->position?></td>
                     <td><?php echo $item->auto_send?></td>
+                    <td nowrap="nowrap" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Created at');?> - <?php echo $item->created_at_front?>"><?php echo $item->updated_at_front?></td>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_column_content_multiinclude.tpl.php'));?>
                     <td nowrap>
 
