@@ -92,11 +92,10 @@ $fieldSortAttr = array (
     'options'    => array(
         'iddesc' => array('sort_column' => '`lh_canned_msg`.`id` DESC'),
         'idasc' => array('sort_column' => '`lh_canned_msg`.`id` ASC'),
-        'lastupdateasc' => array('sort_column' => 'updated_at ASC'),
-        'lastupdatedesc' => array('sort_column' => 'updated_at DESC'),
+        'lastupdateasc' => array('sort_column' => '`updated_at` ASC'),
+        'lastupdatedesc' => array('sort_column' => '`updated_at` DESC'),
     )
 );
-
 
 return array(
     'filterAttributes' => $fieldsSearch,
