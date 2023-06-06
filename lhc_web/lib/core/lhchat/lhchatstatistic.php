@@ -1576,18 +1576,17 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat (sum of chat duration)'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Hours on chat (sum of chat duration (participation))'));
 
-
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Time online (sum of time spend online)'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(6 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chat per hour'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(7 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','AVG number of chats per hour (participation)'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
 
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total mails'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Unresponded'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','No reply required'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','We have send this message as reply or forward'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total mails'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Unresponded'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','No reply required'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(13 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','We have send this message as reply or forward'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(14 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
 
