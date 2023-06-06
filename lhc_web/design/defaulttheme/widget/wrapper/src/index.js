@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 209;
+            lhc.version = 210;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -155,6 +155,7 @@
                     eventEmitter: new EventEmitter(),
                     toggleSound: new BehaviorSubject(storageHandler.getSessionStorage(prefixStorage + '_sound') === 'true', {'ignore_sub': true}),
                     hideOffline: false,
+                    offline: LHC_API.args.offline || null,
                     fscreen: LHC_API.args.fscreen || false,
                     isMobile: isMobile,
                     isIE: (navigator.userAgent.toUpperCase().indexOf("TRIDENT/") != -1 || navigator.userAgent.toUpperCase().indexOf("MSIE") != -1 || typeof Object.assign !== 'function'),
@@ -266,7 +267,8 @@
                         'tag': attributesWidget.tag,
                         'theme': attributesWidget.theme,
                         'mode': attributesWidget.mode,
-                        'pos': attributesWidget.position
+                        'pos': attributesWidget.position,
+                        'off': attributesWidget.offline
                     };
                 }
 
