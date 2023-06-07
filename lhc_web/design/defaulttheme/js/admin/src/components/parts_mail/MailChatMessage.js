@@ -114,6 +114,9 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     <h6 className="card-subtitle mb-2 text-muted">{t('msg.info')}</h6>
 
                     <div className="row">
+                        <div className="col-12 fs13">
+                            <strong>{t('mail.subject')}:</strong> <span className="text-muted">{message.subject}</span>
+                        </div>
                         <div className="col-6">
                             <ul className="fs13 mb-0 list-unstyled">
                                 <li>

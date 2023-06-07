@@ -667,9 +667,14 @@ class erLhcoreClassChatWorkflow {
 
                     if ($user_id > 0) {
 
+                        $previousMessage = '';
+
                         // Update previously assigned operator statistic
                         if ($chat->user_id > 0) {
                             erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                            $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
+                            $previousMessage = '[' . $chat->user_id . '] ' . $userOld->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted mail in time.') . ' ';
                         }
 
                         $chat->tslasign = time();
@@ -680,6 +685,9 @@ class erLhcoreClassChatWorkflow {
 
                         // Update fresh user statistic
                         erLhcoreClassChat::updateActiveChats($chat->user_id);
+
+                        $userData = erLhcoreClassModelUser::fetch($chat->user_id);
+                        erLhcoreClassMailconvWorkflow::logInteraction($previousMessage . $userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','was assigned as a mail owner from auto assignment workflow'), $userData->name_support, $chat->id);
                     }
                 }
 

@@ -76,6 +76,8 @@ try {
                     if ($conv->department !== false) {
                         erLhcoreClassChat::updateDepartmentStats($conv->department);
                     }
+
+                    erLhcoreClassMailconvWorkflow::logInteraction($conv->plain_user_name . ' [' . $conv->user_id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has accepted a mail by opening it.'), $conv->plain_user_name, $conv->id);
                 }
             }
         }

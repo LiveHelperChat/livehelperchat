@@ -31,6 +31,10 @@ try {
 
         $db->commit();
 
+        $userData = $currentUser->getUserData();
+
+        erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
+
         echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)]);
 
     } else {

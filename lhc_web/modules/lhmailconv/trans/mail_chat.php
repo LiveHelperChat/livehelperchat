@@ -36,7 +36,8 @@ echo json_encode(array(
         "merge_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge'),
         "yes" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Yes'),
         "no" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No'),
-        "sure_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Are you sure?')
+        "sure_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Are you sure?'),
+        "subject" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Subject')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),

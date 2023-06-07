@@ -134,6 +134,16 @@ class erLhcoreClassMailconvWorkflow {
             }
         }
     }
+
+    public static function logInteraction($message, $nameSupport, $conversationId) {
+        $msg = new erLhcoreClassModelMailconvMessageInternal();
+        $msg->time = time();
+        $msg->chat_id = $conversationId;
+        $msg->user_id = -1;
+        $msg->name_support = $nameSupport;
+        $msg->msg = $message;
+        $msg->saveThis();
+    }
 }
 
 ?>
