@@ -239,6 +239,9 @@ class erLhcoreClassMailconvValidator {
             'workflow_import_present' => new ezcInputFormDefinitionElement (
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'workflow_use_in_reply' => new ezcInputFormDefinitionElement (
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'workflow_auto_close' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             ),
@@ -424,6 +427,12 @@ class erLhcoreClassMailconvValidator {
             $workflowParams['workflow_import_present'] = 1;
         } else {
             $workflowParams['workflow_import_present'] = 0;
+        }
+        
+        if ($form->hasValidData( 'workflow_use_in_reply' )) {
+            $workflowParams['workflow_use_in_reply'] = 1;
+        } else {
+            $workflowParams['workflow_use_in_reply'] = 0;
         }
 
         $item->workflow_options_array = $workflowParams;

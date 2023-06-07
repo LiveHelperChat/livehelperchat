@@ -33,7 +33,10 @@ echo json_encode(array(
         "exc_pending_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Exc. pending time'),
         "conv_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Conversation duration'),
         "phone" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'),
-        "merge_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge')
+        "merge_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Merge'),
+        "yes" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Yes'),
+        "no" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No'),
+        "sure_close" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Are you sure?')
     ],
     "status" => [
         "pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),

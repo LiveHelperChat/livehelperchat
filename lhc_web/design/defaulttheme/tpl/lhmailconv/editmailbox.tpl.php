@@ -99,12 +99,20 @@
 
             <div class="row">
                 <div class="col-3">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
-                        <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
+                                <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div><label><input type="checkbox" name="workflow_use_in_reply" <?php isset($item->workflow_options_array['workflow_use_in_reply']) && $item->workflow_options_array['workflow_use_in_reply'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use only In-Reply value as reference to the thread. Otherwise Reference attribute also would be used.');?></label></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-3">
                     <div class="row">
                         <div class="col-12">

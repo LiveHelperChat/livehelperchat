@@ -262,8 +262,11 @@ class erLhcoreClassMailconvParser {
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
                         $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $vars['in_reply_to']]));
-
-                        if ( !($previousMessage instanceof erLhcoreClassModelMailconvMessage) && isset($vars['references']) && !empty($vars['references']) ) {
+                        if (
+                            !($previousMessage instanceof erLhcoreClassModelMailconvMessage) &&
+                            isset($vars['references']) && !empty($vars['references']) &&
+                            !(isset($workflowOptions['workflow_use_in_reply']) && $workflowOptions['workflow_use_in_reply'] == 1)
+                        ) {
                             $matches = [];
                             preg_match_all('/\<(.*?)\>/', $vars['references'],$matches);
                             $relatedMessagesIds = [];
@@ -597,7 +600,7 @@ class erLhcoreClassMailconvParser {
 
                         if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                             $conversation = $previousMessage->conversation;
-                        } else if (isset($vars['references']) && !empty($vars['references'])) { // Handle auto responder logic when it's not imported.
+                        } else if (isset($vars['references']) && !empty($vars['references']) && !(isset($workflowOptions['workflow_use_in_reply']) && $workflowOptions['workflow_use_in_reply'] == 1)) { // Handle auto responder logic when it's not imported.
                             $matches = [];
                             preg_match_all('/\<(.*?)\>/',$vars['references'],$matches);
                             $relatedMessagesIds = [];

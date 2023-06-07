@@ -61,6 +61,7 @@ const MailChat = props => {
         conv: null,
         loaded: false,
         saving_remarks: false,
+        close_mode: false,
         old_message_id: 0,
         last_message: '',
         remarks: '',
@@ -410,7 +411,16 @@ const MailChat = props => {
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
                                 {state.moptions.can_write && <div className="pb-2">
-                                    <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
+
+                                    {state.close_mode == false && <a className="btn btn-outline-secondary btn-sm" onClick={() => dispatch({type: 'update',value: {'close_mode': true}})}><i className="material-icons">close</i>{t('mail.close')}</a>}
+
+                                    {state.close_mode == true && <p className="fs14 mb-2">{t('mail.sure_close')}</p>}
+
+                                    {state.close_mode == true && <div className="btn-group">
+                                            <button type="button" className="btn btn-danger btn-sm" onClick={() => closeConversation()}>{t('mail.yes')}</button>
+                                            <button type="button" className="btn btn-success btn-sm" onClick={() => dispatch({type: 'update',value: {'close_mode': false}})}>{t('mail.no')}</button>
+                                        </div>}
+
                                 </div>}
 
                                 <div id={"mail-external-details-"+props.chatId}></div>
