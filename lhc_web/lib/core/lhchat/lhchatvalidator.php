@@ -1199,7 +1199,7 @@ class erLhcoreClassChatValidator {
             }
 
             foreach ($stringParts as $newItem) {
-                if (!in_array($newItem['identifier'],$identifiersUpdated)){
+                if (isset($newItem['identifier']) && !in_array($newItem['identifier'],$identifiersUpdated)){
                     if (isset($newItem['t'])) {
                         unset($newItem['t']);
                     }
@@ -1209,7 +1209,7 @@ class erLhcoreClassChatValidator {
             }
 
             foreach ($additionalDataArray as $index => $additionalItem) {
-                if (in_array($additionalItem['identifier'],$removeVars)){
+                if (isset($additionalItem['identifier']) && in_array($additionalItem['identifier'],$removeVars)){
                     unset($additionalDataArray[$index]);
                     $needUpdate = true;
                 }
