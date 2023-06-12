@@ -488,7 +488,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                         $conversations->last_message_id = $conversations->message_id = $message->id;
                         $conversations->udate = $message->udate;
-                        $conversations->date = $message->date;
+                        $conversations->date = mb_substr($message->date,0,250);
                         $conversations->mailbox_id = $mailbox->id;
                         $conversations->match_rule_id = $matchingRuleSelected->id;
                         $conversations->priority = $priorityConversation;
@@ -751,7 +751,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                 $conversations->last_message_id = $conversations->message_id = $message->id;
                 $conversations->udate = $message->udate;
-                $conversations->date = $message->date;
+                $conversations->date = mb_substr($message->date,0,250);
                 $conversations->mailbox_id = $mailbox->id;
                 $conversations->match_rule_id = $matchingRuleSelected->id;
                 $conversations->priority = $priorityConversation;
@@ -1032,7 +1032,7 @@ class erLhcoreClassMailconvParser {
         ) {
             $conversation->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
             $conversation->udate = $message->udate;
-            $conversation->date = $message->date;
+            $conversation->date = mb_substr($message->date,0,250);
             $conversation->subject = $message->subject;
 
             // We have to reopen conversation
