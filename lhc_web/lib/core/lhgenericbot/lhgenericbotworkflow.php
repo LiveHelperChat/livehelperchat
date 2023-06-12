@@ -539,7 +539,13 @@ class erLhcoreClassGenericBotWorkflow {
     public static function processEvent($chatEvent, & $chat, $params = array()) {
 
         if (isset($params['msg'])) {
-            $payload = $params['msg']->msg;
+            if (is_object($params['msg'])) {
+                $payload = $params['msg']->msg;
+            } elseif (is_string($params['msg'])) {
+                $payload = $params['msg'];
+            } else {
+                $payload = '';
+            }
         } elseif (isset($params['msg_text']) && !empty($params['msg_text'])) {
             $payload = $params['msg_text'];
         } else {

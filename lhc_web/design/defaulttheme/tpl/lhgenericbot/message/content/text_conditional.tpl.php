@@ -2,7 +2,7 @@
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php')); ?>
 
-<?php $fullMessage = $metaMessage['full_us']; ?>
+<?php $fullMessage = isset($metaMessage['full_us']) ? $metaMessage['full_us'] : ''; ?>
 
 <?php if (!empty($fullMessage)) : ?>
     <?php
