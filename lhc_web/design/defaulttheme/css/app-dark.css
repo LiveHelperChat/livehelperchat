@@ -163,6 +163,10 @@ div.message-row-typing div.msg-body {
     color:#509646;
 }
 
+.icon-user-offline{
+    color:#FF4B4B;
+}
+
 .user-online-row td{
     background-color:#314a2d;
 }
