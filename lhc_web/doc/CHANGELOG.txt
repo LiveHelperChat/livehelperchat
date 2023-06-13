@@ -1,3 +1,9 @@
+4.26v
+
+1. Message delivery status indication.
+
+execute doc/update_db/update_298.sql for update
+
 4.25v
 
 1. Participant concept in chat's statistic.
