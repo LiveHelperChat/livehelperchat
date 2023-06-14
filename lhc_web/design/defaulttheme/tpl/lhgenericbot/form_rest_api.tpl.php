@@ -71,6 +71,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link" href="#userparams-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','User parameters');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#outputrest-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Output parsing');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link" href="#conditions-rest-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Conditions');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -495,6 +496,10 @@
                     </div>
                 </div>
 
+        </div>
+        <div role="tabpanel" class="tab-pane" id="remote-msg-{{$index}}">
+            <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','If you want to add custom data within each send message to its meta_data attribute you can provide response path here')?></p>
+            <input type="text" class="form-control form-control-sm" ng-model="param.remote_message_id" placeholder="messages:0:id" value="" />
         </div>
     </div>
 </div>

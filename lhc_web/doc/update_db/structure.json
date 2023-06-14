@@ -6990,6 +6990,14 @@
         "extra": ""
       },
       {
+        "field": "del_st",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "name_support",
         "type": "varchar(100)",
         "null": "NO",

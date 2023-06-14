@@ -1,3 +1,11 @@
+4.26v
+
+1. Message delivery status indication.
+2. Old chats will show messages as undelivered. Or you can execute query from update file.
+3. This time it's recommended to run queries from `update_298.sql` to avoid database locks. Make sure you know what you are doing.
+
+execute doc/update_db/update_298.sql for update
+
 4.25v
 
 1. Participant concept in chat's statistic.

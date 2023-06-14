@@ -1966,6 +1966,7 @@ function lh(){
 	  	                			  } else {
 	  	                				  $('#msg-send-status-'+item.chat_id).addClass('icon-user-online');
 	  	                				  statusel.removeClass('chat-unread');
+                                          $('#messagesBlock-'+item.chat_id).find('.msg-del-st-0,.msg-del-st-1,.msg-del-st-2').remove();
 	  	                			  }
 
 	        	                      if (item.lp !== false) {

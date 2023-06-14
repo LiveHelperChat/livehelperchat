@@ -2311,6 +2311,7 @@ try {
 				  `time` int(11) NOT NULL,
 				  `chat_id` int(11) NOT NULL DEFAULT '0',
 				  `user_id` int(11) NOT NULL DEFAULT '0',
+				  `del_st` tinyint(1) unsigned NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_id` (`chat_id`, `id`),

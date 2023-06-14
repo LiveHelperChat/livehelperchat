@@ -27,7 +27,8 @@ class erLhcoreClassModelmsg
             'time' => $this->time,
             'chat_id' => $this->chat_id,
             'user_id' => $this->user_id,
-            'name_support' => $this->name_support
+            'name_support' => $this->name_support,
+            'del_st' => $this->del_st
         );
     }
 
@@ -61,6 +62,12 @@ class erLhcoreClassModelmsg
         }
     }
 
+    const STATUS_PENDING = 0;   // <span class="material-symbols-outlined">radio_button_unchecked</span>
+    const STATUS_SENT = 1;      // <span class="material-symbols-outlined">done</span>
+    const STATUS_DELIVERED = 2; // <span class="material-symbols-outlined">done_all</span>
+    const STATUS_READ = 3;      // <span class="material-symbols-outlined">unpublished</span>
+    const STATUS_REJECTED = 4; // <span class="material-symbols-outlined">unpublished</span>
+
     public $id = null;
     public $time = '';
     public $chat_id = null;
@@ -68,6 +75,7 @@ class erLhcoreClassModelmsg
     public $name_support = '';
     public $msg = '';
     public $meta_msg = '';
+    public $del_st = SELF::STATUS_PENDING;
 }
 
 ?>
