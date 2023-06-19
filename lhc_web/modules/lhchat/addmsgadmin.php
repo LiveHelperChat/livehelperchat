@@ -5,7 +5,7 @@ $definition = array(
             ezcInputFormDefinitionElement::REQUIRED, 'unsafe_raw'
         )
 );
-
+sleep(3);
 $form = new ezcInputForm( INPUT_POST, $definition );
 
 if (trim($form->msg) != '')

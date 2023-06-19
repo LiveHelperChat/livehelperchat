@@ -649,7 +649,8 @@ class OnlineChat extends Component {
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
             'theme' : this.props.chatwidget.get('theme'),
-            'new_chat' : this.props.chatwidget.get('newChat')
+            'new_chat' : this.props.chatwidget.get('newChat'),
+            'active_widget' : (((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus())) && window.lhcChat['is_focused'] == true && this.state.messages_ui !== false)
         };
 
         // If it's new chat check do we have last message from previous chat if so send it also

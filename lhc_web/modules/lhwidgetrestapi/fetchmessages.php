@@ -197,12 +197,17 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 		    	$saveChat = true;
 		    }
 
-            if ($chat->has_unread_op_messages == 1 || (isset($requestPayload['lmgsid']) && (int)$requestPayload['lmgsid'] > 0 && isset($Messages) && count($Messages) > 0)) {
-                $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1,2) AND (`user_id` > 0 OR `user_id` = -2)');
-                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_delivered',array('chat' => & $chat));
+            if (($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) || (isset($requestPayload['lmgsid']) && (int)$requestPayload['lmgsid'] > 0 && isset($Messages) && count($Messages) > 0)) {
+                if (isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true) {
+                    $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1,2) AND (`user_id` > 0 OR `user_id` = -2)');
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_read',array('chat' => & $chat));
+                } else {
+                    $db->query('UPDATE `lh_msg` SET `del_st` = 2 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1) AND (`user_id` > 0 OR `user_id` = -2)');
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_delivered',array('chat' => & $chat));
+                }
             }
 
-		    if ($chat->has_unread_op_messages == 1)
+		    if ($chat->has_unread_op_messages == 1 && isset($requestPayload['active_widget']) && $requestPayload['active_widget'] === true)
 		    {
 		    	$chat->unread_op_messages_informed = 0;
 		    	$chat->has_unread_op_messages = 0;
