@@ -215,7 +215,8 @@ class _nodeJSChat {
                                         'chat_id': state.chatwidget.getIn(['chatData','id']),
                                         'hash' : state.chatwidget.getIn(['chatData','hash']),
                                         'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
-                                        'theme' : state.chatwidget.get('theme')
+                                        'theme' : state.chatwidget.get('theme'),
+                                        'active_widget':  (((state.chatwidget.get('shown') && state.chatwidget.get('mode') == 'widget') || (state.chatwidget.get('mode') != 'widget' && document.hasFocus())) && window.lhcChat['is_focused'] == true)
                                     }));
                                 }
                             } else if (op.op == 'umsg') {
