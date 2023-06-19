@@ -161,6 +161,7 @@ class erLhcoreClassChatHelper
 
                 $params['chat']->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($params['chat'], true);
                 $params['chat']->has_unread_messages = 0;
+                $params['chat']->operation_admin = '';
 
                 $msg = new erLhcoreClassModelmsg();
                 $msg->chat_id = $params['chat']->id;

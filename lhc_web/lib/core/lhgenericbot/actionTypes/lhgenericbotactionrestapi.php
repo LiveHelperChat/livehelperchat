@@ -86,6 +86,35 @@ class erLhcoreClassGenericBotActionRestapi
 
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
 
+                // Store remote message
+                if (
+                    isset($method['remote_message_id']) &&
+                    $method['remote_message_id'] != '' &&
+                    isset($response['content_raw'])
+                ) {
+                    $contentRawParsed = json_decode($response['content_raw'], true);
+                    $remoteMessageId = self::extractAttribute($contentRawParsed, $method['remote_message_id']);
+                    if ($remoteMessageId['found'] === true && isset($params['msg']) && is_object($params['msg'])) {
+                        $db = ezcDbInstance::get();
+                        try {
+                            $db->beginTransaction();
+
+                            $params['msg']->syncAndLock();
+
+                            $meta_msg_array = $params['msg']->meta_msg_array;
+                            $meta_msg_array['iwh_msg_id'] = $remoteMessageId['value'];
+                            $params['msg']->meta_msg_array = $meta_msg_array;
+                            $params['msg']->meta_msg = json_encode($meta_msg_array);
+                            $params['msg']->del_st = erLhcoreClassModelmsg::STATUS_PENDING;
+                            $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+
+                            $db->commit();
+                        } catch (Exception $e) {
+                            $db->rollback();
+                        }
+                    }
+                }
+
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
                 if (isset($response['id'])) {

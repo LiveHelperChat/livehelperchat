@@ -74,6 +74,7 @@ if (trim($form->msg) != '')
     	        $msg->user_id = $messageUserId;
     	        $msg->time = time();
     	        $msg->name_support = $userData->name_support;
+                $msg->del_st = erLhcoreClassModelmsg::STATUS_SENT;
 
                 if ($msg->user_id > 0 && $asChatOwner == true) {
                     $messageUserId = $msg->user_id = $Chat->user_id;

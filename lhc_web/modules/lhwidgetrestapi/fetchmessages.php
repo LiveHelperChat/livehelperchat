@@ -206,6 +206,9 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                 $updateFields[] = 'has_unread_op_messages';
                 $updateFields[] = 'unanswered_chat';
 		    	$saveChat = true;
+
+                // Save message status from 0,1,2 to 3
+                $db->query('UPDATE `lh_msg` SET `del_st` = 3 WHERE `chat_id` = ' . (int)$chat->id . ' AND `del_st` IN (0,1,2) AND (`user_id` > 0 OR `user_id` = -2)');
 		    }
 
 		    if (isset($responseArray['closed']) && $responseArray['closed'] == true) {
