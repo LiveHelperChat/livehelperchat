@@ -1183,7 +1183,7 @@ class erLhcoreClassChatStatistic {
             return $statusWorkflow['list'];
         }
     }
-    public static function numberOfChatsDialogsByUserParticipant($days = 30, $filter = array(), $groupField = '`lh_chat_participant`.`user_id`')
+    public static function numberOfChatsDialogsByUserParticipant($days = 30, $filter = array(), $groupField = 'lh_chat_participant.user_id')
     {
         if ($groupField == 'transfer_uid') {
             if (isset($filter['filterin']['user_id'])) {

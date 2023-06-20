@@ -120,7 +120,6 @@ class ChatDuration
                     $db->commit();
                     break;
                 } catch (\Exception $e) {
-                    print_r($e);
                     $db->rollback();
                     sleep(1);
                 }
