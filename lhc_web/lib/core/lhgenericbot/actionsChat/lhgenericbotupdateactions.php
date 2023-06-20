@@ -14,7 +14,7 @@ class erLhcoreClassGenericBotUpdateActions {
         erLhcoreClassChat::getSession()->save($msg);
 
         $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-        $chat->status_sub_sub = 2; // Will be used to indicate that we have to show notification for this chat if it appears on list
+        $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_CLOSED;; // Will be used to indicate that we have to show notification for this chat if it appears on list
         $chat->pnd_time = time();
         $chat->saveThis();
 

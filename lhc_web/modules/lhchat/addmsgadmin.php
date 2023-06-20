@@ -150,6 +150,10 @@ if (trim($form->msg) != '')
                     if (!$whisper && $Chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                         $Chat->has_unread_op_messages = 1;
                         $updateFields[] = 'has_unread_op_messages';
+                        if ($Chat->status_sub_sub == erLhcoreClassModelChat::STATUS_SUB_SUB_MSG_DELIVERED) {
+                            $Chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_DEFAULT;
+                            $updateFields[] = 'status_sub_sub';
+                        }
                     }
 
     	        	if (!$whisper && $Chat->unread_op_messages_informed != 0) {
