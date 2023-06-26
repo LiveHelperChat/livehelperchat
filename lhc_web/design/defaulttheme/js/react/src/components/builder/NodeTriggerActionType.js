@@ -111,6 +111,10 @@ export default ({onChange, type}) => {
             'text' : 'Execute trigger body',
         },
         {
+            'value': 'iframe',
+            'text' : 'Sourceless Iframe',
+        },
+        {
             'value': 'laction',
             'text' : 'Log action',
         }
