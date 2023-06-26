@@ -26,6 +26,7 @@ try {
                 if ($requestPayload['action'] == 'iframe_close') {
                     $metaMsg = $msg->meta_msg_array;
                     $metaMsg['content']['seen_content'] = true;
+                    $metaMsg['content']['iframe'] = null;
                     $msg->meta_msg = json_encode($metaMsg);
                     $msg->updateThis(['update' => ['meta_msg']]);
                 }
