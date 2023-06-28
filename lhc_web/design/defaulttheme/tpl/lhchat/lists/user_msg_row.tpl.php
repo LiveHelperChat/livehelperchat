@@ -14,7 +14,7 @@
 
     $skip = false;
 
-    if (isset($metaMessageData['content']['whisper'])) {
+    if (isset($metaMessageData['content']['whisper']) || isset($metaMessageData['content']['seen_content'])) {
         $skip = true;
     }
 
@@ -34,7 +34,10 @@
     $hideOperator = false;
 
     // Hide operator nick, etc for javsacript messages
-    if (isset($metaMessageData['content']['execute_js']) && count($metaMessageData['content']) == 1) {
+    if (
+        (isset($metaMessageData['content']['execute_js']) && count($metaMessageData['content']) == 1) ||
+        (isset($metaMessageData['content']['iframe']['iframe_options']['hide_op']) && $metaMessageData['content']['iframe']['iframe_options']['hide_op'] == 1)
+    ) {
         $hideOperator = true;
     }
 

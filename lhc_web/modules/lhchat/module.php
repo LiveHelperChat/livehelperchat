@@ -154,6 +154,12 @@ $ViewList['updatemsg'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['updatemessagedata'] = array(
+    'params' => array('chat_id', 'hash', 'msg_id'),
+    'uparams' => array(),
+    'functions' => array(  )
+);
+
 $ViewList['printchatadmin'] = array(
     'params' => array('chat_id'),
     'uparams' => array(),

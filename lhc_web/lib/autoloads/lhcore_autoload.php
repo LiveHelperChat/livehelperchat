@@ -309,6 +309,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionAlert_icon'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionalert_icon.php',
         'erLhcoreClassGenericBotActionMail'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmail.php',
         'erLhcoreClassGenericBotActionSurvey'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionsurvey.php',
+        'erLhcoreClassGenericBotActionIframe'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioniframe.php',
         'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',

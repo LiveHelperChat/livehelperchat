@@ -138,6 +138,10 @@ export function voteAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type, null, defaultHeaders)
 }
 
+export function updateMessageData(obj, payload) {
+    return axios.post(window.lhcChat['base_url'] + "chat/updatemessagedata/" + obj.id + '/' + obj.hash + '/' + obj.msg_id, payload, defaultHeaders)
+}
+
 export function transferToHumanAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash, null, defaultHeaders)
 }
@@ -444,7 +448,7 @@ export function updateMessage(obj) {
             elm = document.getElementById('msg-'+response.data.id);
 
             // Update className
-            if (classNameRow !== null) {
+            if (elm && classNameRow !== null) {
                 elm.className = classNameRow;
             }
 
@@ -455,55 +459,6 @@ export function updateMessage(obj) {
                     elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
                 }
             }
-
-
-/*
-            let elmUpdated = document.getElementById('msg-'+response.data.id);
-            let collection = elmUpdated.getElementsByTagName('script');
-            let collectionButton = elmUpdated.getElementsByTagName('button');
-            let collectionA = elmUpdated.getElementsByTagName('a');
-
-            for (let item of collection) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-                parseScript(item, this);
-            }
-
-            for (let item of collectionButton) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-                if (item.onclick) {
-                    item.onclick = () => parseScript(item, this);
-                }
-            }
-
-            for (let item of collectionA) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-
-                if (item.onclick) {
-                    item.onclick = () => parseScript(item, this, obj, dispatch, getState);
-                }
-            }*/
-
         })
         .catch((err) => {
             console.log(err);
