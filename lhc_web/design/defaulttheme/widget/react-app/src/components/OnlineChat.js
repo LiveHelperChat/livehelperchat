@@ -968,9 +968,9 @@ class OnlineChat extends Component {
 
                     {this.props.chatwidget.hasIn(['chatStatusData','result']) && !this.props.chatwidget.hasIn(['chat_ui','hide_status']) && this.props.chatwidget.getIn(['chatStatusData','result']) && <div id="chat-status-container" className={"p-2 border-bottom live-status-"+this.props.chatwidget.getIn(['chatLiveData','status'])}><ChatStatus updateStatus={this.updateStatus} vtm={this.props.chatwidget.hasIn(['chat_ui','switch_to_human']) && this.props.chatwidget.getIn(['chatLiveData','status']) == STATUS_BOT_CHAT ? this.props.chatwidget.getIn(['chatLiveData','vtm']) : 0} status={this.props.chatwidget.getIn(['chatStatusData','result'])} /></div>}
 
-                    <div className={msg_expand + (this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) ? ' has-after-chat-status' : '')} onClick={(e) => {this.setState({'reactToMsgId' : 0})}} id="messagesBlock" onScroll={this.onScrollMessages}>
+                    <div className={msg_expand + (this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && this.props.chatwidget.getIn(['chat_ui','after_chat_status']) != '' ? ' has-after-chat-status' : '')} onClick={(e) => {this.setState({'reactToMsgId' : 0})}} id="messagesBlock" onScroll={this.onScrollMessages}>
 
-                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && <Suspense fallback=""><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
+                        {this.props.chatwidget.hasIn(['chat_ui','after_chat_status']) && this.props.chatwidget.getIn(['chat_ui','after_chat_status']) != '' && <Suspense fallback=""><CustomHTML setStateParent={(state) => this.setState(state)} has_new={this.state.hasNew && this.state.otm > 0} attr="after_chat_status" /></Suspense>}
 
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
