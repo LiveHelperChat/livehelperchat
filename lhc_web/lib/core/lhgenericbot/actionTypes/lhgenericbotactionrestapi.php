@@ -277,7 +277,11 @@ class erLhcoreClassGenericBotActionRestapi
         $msg_text = '';
 
         if (isset($paramsCustomer['params']['msg'])) {
-            $msg_text = $paramsCustomer['params']['msg']->msg;
+            if (is_object($paramsCustomer['params']['msg'])) {
+                $msg_text = $paramsCustomer['params']['msg']->msg;
+            } else {
+                $msg_text = '';
+            }
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text = $paramsCustomer['params']['msg_text'];
         }
