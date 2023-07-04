@@ -1168,6 +1168,24 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{subject_ids}}'] = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $userData['chat']->id]],'count','subject_id','subject_id',false, true, true);
             }
 
+            if (strpos($item,'{{subject_list}}') !== false && !in_array('{{subject_list}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list}}';
+                $userData['dynamic_variables']['{{subject_list}}'] = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $userData['dynamic_variables']['{{subject_list}}'][] = $chatSubject->subject;
+                }
+            }
+
+            if (strpos($item,'{{subject_list_names}}') !== false && !in_array('{{subject_list_names}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list_names}}';
+                $userData['dynamic_variables']['{{subject_list_names}}'] = '';
+                $subjectItems = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $subjectItems[] = (string)$chatSubject->subject;
+                }
+                $userData['dynamic_variables']['{{subject_list_names}}'] = implode("\n",$subjectItems);
+            }
+
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
 
