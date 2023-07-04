@@ -243,7 +243,14 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $chat->additional_data = json_encode($variablesArray);
                 $chat->additional_data_array = $variablesArray;
-                $chat->updateThis(array('update' => array('additional_data')));
+
+                if (isset($action['content']['update_right_column']) && $action['content']['update_right_column'] == true) {
+                    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+                }
+
+                $chat->updateThis(array('update' => array('additional_data','operation_admin')));
+
+
             }
 
         } elseif ($action['content']['command'] == 'messageaggregation') {
@@ -596,6 +603,11 @@ class erLhcoreClassGenericBotActionCommand {
 
                 $chat->chat_variables = json_encode($variablesArray);
                 $chat->chat_variables_array = $variablesArray;
+
+                if (isset($action['content']['update_right_column']) && $action['content']['update_right_column'] == true) {
+                    $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
+                }
+
                 $chat->saveThis();
 
         } elseif ($action['content']['command'] == 'setchatattribute') {
