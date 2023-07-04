@@ -256,8 +256,9 @@ class ChatMessage extends PureComponent {
         var messages = parse(this.props.msg['msg'], {
 
             replace: domNode => {
-                if (domNode.attribs) {
 
+                if (domNode.attribs) {
+                    
                     var cloneAttr = Object.assign({}, domNode.attribs);
 
                     if (domNode.attribs.class) {
@@ -329,9 +330,7 @@ class ChatMessage extends PureComponent {
                     } else if (domNode.name && domNode.name === 'inlineiframe') {
                         return <Suspense fallback="..."><InlineIframe {...domNode.attribs} updateMessage={(id) => this.props.updateMessage(id, this) }/></Suspense>;
                     } else if (domNode.name && domNode.name === 'inlinesurvey') {
-
                         return <Suspense fallback="..."><InlineSurvey {...domNode.attribs} surveyOptions={domNode.children} /></Suspense>;
-
                     } else if (domNode.name && domNode.name === 'input') {
 
                         if (domNode.attribs.type && domNode.attribs.type == 'checkbox' && cloneAttr.onchange) {

@@ -102,6 +102,7 @@
         <datalist id="category_list" autocomplete="new-password">
             <option value="js">js</option>
             <option value="block">block</option>
+            <option value="store">store</option>
             <option value="cronjob_exception">cronjob_exception</option>
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
