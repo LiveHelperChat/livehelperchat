@@ -246,6 +246,18 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 	} catch (Exception $e) {
 	    $db->rollback();
+
+        // Store log
+        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString(),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'store',
+                'line' => $e->getLine(),
+                'file' => 'fetchmessages.php',
+                'object_id' => $requestPayload['chat_id']
+            )
+        );
 	}
 
 } else {

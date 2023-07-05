@@ -656,6 +656,17 @@ class erLhcoreClassChatWebhookIncoming {
                             $chat->priority = $department->priority;
                         }
 
+                        $priority = \erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('detailed' => true));
+
+                        if ($priority !== false && $priority['priority'] > $chat->priority) {
+                            $chat->priority = $priority['priority'];
+                        }
+                        
+                        if ($priority !== false && $priority['dep_id'] > 0) {
+                            $chat->dep_id = $priority['dep_id'];
+                            $chat->department = $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
+                        }
+
                         if ($department !== false && $department->department_transfer_id > 0) {
                             if (
                                 !(isset($department->bot_configuration_array['off_if_online']) && $department->bot_configuration_array['off_if_online'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === true) &&
@@ -756,6 +767,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $chat->updateThis(array('update' => array(
                         'country_code',
                         'country_name',
+                        'dep_id',
                         'lat',
                         'lon',
                         'city',
@@ -1054,6 +1066,17 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($department !== false) {
                         $chat->priority = $department->priority;
+                    }
+
+                    $priority = \erLhcoreClassChatValidator::getPriorityByAdditionalData($chat, array('detailed' => true));
+
+                    if ($priority !== false && $priority['priority'] > $chat->priority) {
+                        $chat->priority = $priority['priority'];
+                    }
+
+                    if ($priority !== false && $priority['dep_id'] > 0) {
+                        $chat->dep_id = $priority['dep_id'];
+                        $chat->department = $department = erLhcoreClassModelDepartament::fetch($chat->dep_id);
                     }
 
                     if ($department !== false && $department->department_transfer_id > 0) {

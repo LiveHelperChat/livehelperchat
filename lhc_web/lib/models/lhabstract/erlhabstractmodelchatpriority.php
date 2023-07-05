@@ -135,8 +135,8 @@ class erLhAbstractModelChatPriority
     public $dep_id = 0;
 
     public $dest_dep_id = 0;
-    public $role_destination = 0;
-    public $present_role_is = 0;
+    public $role_destination = '';
+    public $present_role_is = '';
 
     public $hide_delete = false;
 }

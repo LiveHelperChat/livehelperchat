@@ -127,7 +127,8 @@ class erLhcoreClassChatCommand
                     }
 
                     $argumentsTrigger = array(
-                        'msg' => $commandData['argument'], 
+                        'msg' => $commandData['argument'],
+                        'chat' => $params['chat'],
                         'caller_user_id' => $params['user']->id,
                         'caller_user_class' => get_class($params['user']));
 

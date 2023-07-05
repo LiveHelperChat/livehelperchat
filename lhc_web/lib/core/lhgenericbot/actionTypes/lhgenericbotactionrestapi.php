@@ -277,7 +277,11 @@ class erLhcoreClassGenericBotActionRestapi
         $msg_text = '';
 
         if (isset($paramsCustomer['params']['msg'])) {
-            $msg_text = $paramsCustomer['params']['msg']->msg;
+            if (is_object($paramsCustomer['params']['msg'])) {
+                $msg_text = $paramsCustomer['params']['msg']->msg;
+            } else {
+                $msg_text = '';
+            }
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text = $paramsCustomer['params']['msg_text'];
         }
@@ -1164,6 +1168,24 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{subject_ids}}'] = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $userData['chat']->id]],'count','subject_id','subject_id',false, true, true);
             }
 
+            if (strpos($item,'{{subject_list}}') !== false && !in_array('{{subject_list}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list}}';
+                $userData['dynamic_variables']['{{subject_list}}'] = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $userData['dynamic_variables']['{{subject_list}}'][] = $chatSubject->subject;
+                }
+            }
+
+            if (strpos($item,'{{subject_list_names}}') !== false && !in_array('{{subject_list_names}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list_names}}';
+                $userData['dynamic_variables']['{{subject_list_names}}'] = '';
+                $subjectItems = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $subjectItems[] = (string)$chatSubject->subject;
+                }
+                $userData['dynamic_variables']['{{subject_list_names}}'] = implode("\n",$subjectItems);
+            }
+
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
 
@@ -1175,6 +1197,53 @@ class erLhcoreClassGenericBotActionRestapi
 
                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
             }
+
+            if (
+
+                (strpos($item,'{{media_all}}') !== false && !in_array('{{media_all}}',$userData['required_vars'])) ||
+                (strpos($item,'{{media_all_links}}') !== false && !in_array('{{media_all_links}}',$userData['required_vars'])) ||
+                (strpos($item,'{{media_all_links_raw}}') !== false && !in_array('{{media_all_links_raw}}',$userData['required_vars']))
+            ) {
+                 $userData['required_vars'][] = '{{media_all}}';
+                 $userData['required_vars'][] = '{{media_all_links}}';
+                 $userData['required_vars'][] = '{{media_all_links_raw}}';
+                 $media = array();
+                 $mediaLinks = array();
+                 $mediaLinksRaw = array();
+                 foreach (erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))) as $chatMessage) {
+                     $chatMessageText = $chatMessage->msg;
+                     $matches = array();
+                     preg_match_all('/\[file="?(.*?)"?\]/', $chatMessageText, $matches);
+
+                     foreach ($matches[1] as $index => $body) {
+                         $parts = explode('_', $body);
+                         $fileID = $parts[0];
+                         $hash = $parts[1];
+                         try {
+                             $file = erLhcoreClassModelChatFile::fetch($fileID);
+                             if (is_object($file) && $hash == $file->security_hash) {
+                                 $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";;
+                                 $media[] = array(
+                                     'id' => $file->id,
+                                     'size' => $file->size,
+                                     'upload_name' => $file->upload_name,
+                                     'type' => $file->type,
+                                     'extension' => $file->extension,
+                                     'hash' => $hash,
+                                     'url' => $url
+                                 );
+                                 $mediaLinks[] = $url . " [" . $file->upload_name ."]";
+                                 $mediaLinksRaw[] = $url;
+                             }
+                         } catch (Exception $e) {
+
+                         }
+                     }
+                 }
+                 $userData['dynamic_variables']['{{media_all}}'] = $media;
+                 $userData['dynamic_variables']['{{media_all_links}}'] = implode("\n",$mediaLinks);
+                 $userData['dynamic_variables']['{{media_all_links_raw}}'] = implode("\n",$mediaLinksRaw);
+             }
 
             // All messages without [<date>] [<nick>] and system messages
             if (strpos($item,'{{msg_all_content}}') !== false && !in_array('{{msg_all_content}}',$userData['required_vars'])) {

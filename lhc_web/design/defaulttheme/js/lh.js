@@ -1215,13 +1215,15 @@ function lh(){
                 ee.emitEvent('angularLoadChatList');
             } else {
 	            alert(data.result);
+                ee.emitEvent('angularStartChatbyId',[chat_id]);
             }
 
             $('#myModal').modal('hide');
 
         }).fail(function(jqXHR, textStatus, errorThrown) {
             ee.emitEvent('angularSyncDisabled', [false]);
-            console.dir(jqXHR);
+            alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+            ee.emitEvent('angularStartChatbyId',[chat_id]);
         });
 
         if ($('#CSChatMessage-'+chat_id).length != 0) {
