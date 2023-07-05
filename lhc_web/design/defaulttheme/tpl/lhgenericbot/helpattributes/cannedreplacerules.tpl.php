@@ -22,7 +22,10 @@
             <input type="text" value="{args.chat.id}" id="test-pattern-replace-pattern" class="form-control form-control-sm">
         </div>
         <div class="col-12">
-            <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test');?></button>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test');?></button>
+                <button type="button" id="extract-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Extract chat attributes');?></button>
+            </div>
         </div>
         <div class="col-12 pt-2">
             <div class="alert alert-info mx300 fs12" id="pattern-replace-response"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Your response will appear here!');?></div>
@@ -32,6 +35,11 @@
     <script>
         $('#test-pattern-action').click(function(){
             $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'test_pattern' : $('#test-pattern-replace-pattern').val() }, function(data){
+                $('#pattern-replace-response').html(data);
+            });
+        });
+        $('#extract-pattern-action').click(function(){
+            $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-pattern-chat-id').val(), {'extract_action':true }, function(data){
                 $('#pattern-replace-response').html(data);
             });
         });
