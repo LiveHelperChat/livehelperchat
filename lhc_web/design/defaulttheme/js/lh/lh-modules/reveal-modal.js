@@ -45,6 +45,7 @@ var revealM = {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
 				{
+                    console.log('posting data');
 					jQuery.post(params['url'], params['datapost'], function(data) {
                         if (data != "") {
                             $('#myModal').html(data);
@@ -57,7 +58,9 @@ var revealM = {
                         } else {
                             alert('Empty content was returned!');
                         }
-					});
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+                        alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+                    })
 				} else {
 					jQuery.get(params['url'], function(data){
                         if (data != "") {
@@ -71,7 +74,9 @@ var revealM = {
                         } else {
                             alert('Empty content was returned!');
                         }
-					});
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+                        alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+                    });
 				}
 			} else {
 				var header = '';
