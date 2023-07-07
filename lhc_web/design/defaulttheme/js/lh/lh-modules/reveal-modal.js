@@ -45,21 +45,37 @@ var revealM = {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
 				{
-					jQuery.post(params['url'], params['datapost'], function(data){
-							$('#myModal').html(data);
+					jQuery.post(params['url'], params['datapost'], function(data) {
+                        if (data != "") {
+                            $('#myModal').html(data);
                             revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
                             revealM.setShowHideCallbacks(params);
                             revealM.modalInstance.show();
                             revealM.setCenteredDraggable();
-					});
+                        } else if (typeof params['on_empty'] !== 'undefined') {
+                            params['on_empty']();
+                        } else {
+                            alert('Empty content was returned!');
+                        }
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+                        alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+                    })
 				} else {
 					jQuery.get(params['url'], function(data){
-							$('#myModal').html(data);//.modal(mparams).show();
+                        if (data != "") {
+                            $('#myModal').html(data);//.modal(mparams).show();
                             revealM.modalInstance = new bootstrap.Modal('#myModal', mparams);
                             revealM.setShowHideCallbacks(params);
                             revealM.modalInstance.show();
                             revealM.setCenteredDraggable();
-					});
+                        } else if (typeof params['on_mepty'] !== 'undefined') {
+                            params['on_mepty']();
+                        } else {
+                            alert('Empty content was returned!');
+                        }
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+                        alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+                    });
 				}
 			} else {
 				var header = '';
