@@ -155,7 +155,9 @@ if ($tab == 'active') {
                     in_array('active',$filterParams['input_form']->chart_type) ||
                     in_array('proactivevsdefault',$filterParams['input_form']->chart_type) ||
                     in_array('msgtype',$filterParams['input_form']->chart_type) ||
-                    in_array('unanswered',$filterParams['input_form']->chart_type)
+                    in_array('unanswered',$filterParams['input_form']->chart_type) ||
+                    in_array('msgdelop',$filterParams['input_form']->chart_type) ||
+                    in_array('msgdelbot',$filterParams['input_form']->chart_type)
                 )
             ) ? erLhcoreClassChatStatistic::getNumberOfChatsPerMonth($filterParams['filter'], array('charttypes' => $filterParams['input_form']->chart_type, 'comparetopast' => $filterParams['input']->comparetopast)) : array()),
 
