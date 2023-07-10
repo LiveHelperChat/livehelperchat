@@ -1196,11 +1196,16 @@ function lh(){
         $('#CSChatMessage-'+chat_id).length != 0 && (attribute = $('#CSChatMessage-'+chat_id).attr('related-actions'));
 
         if ($('#CSChatMessage-'+chat_id).length != 0 && $('#CSChatMessage-'+chat_id).attr('close-related') !== "false" && !ignoreRelated) {
+            var clsAction = $('#chat-close-action-'+chat_id);
+            clsAction.find('.close-text').text(clsAction.attr('data-loading')).parent().find('.material-icons').text('sync').addClass('lhc-spin');
             lhc.revealModal({
                 'url': WWW_DIR_JAVASCRIPT+'chat/relatedactions/'+chat_id,
                 'loadmethod' : 'post',
                 'datapost' : attribute,
                 'backdrop': true,
+                'hidecallback' : function() {
+                    clsAction.find('.close-text').text(clsAction.find('.close-text').attr('data-original')).parent().find('.material-icons').text('close').removeClass('lhc-spin');
+                },
                 'on_empty': function() {
                     that.closeActiveChatDialog(chat_id, tabs, hidetab, true); // If no related actions close it instantly
                 }

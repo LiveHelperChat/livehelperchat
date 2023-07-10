@@ -45,7 +45,6 @@ var revealM = {
 
 				if (typeof params['loadmethod'] !== 'undefined' && params['loadmethod'] == 'post')
 				{
-                    console.log('posting data');
 					jQuery.post(params['url'], params['datapost'], function(data) {
                         if (data != "") {
                             $('#myModal').html(data);
