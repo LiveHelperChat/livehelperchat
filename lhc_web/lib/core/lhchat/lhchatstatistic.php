@@ -224,7 +224,7 @@ class erLhcoreClassChatStatistic {
                     if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelbot',$paramsExecution['charttypes'])) {
                         $filterOur = array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => -2),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
                         $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
-                        $filterOur['msgdelbot'] = '`lh_msg`.`del_st`';
+                        $filterOur['group'] = '`lh_msg`.`del_st`';
 
                         $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
                         $dataItemRemaped = [];
