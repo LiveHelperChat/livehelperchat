@@ -16,7 +16,7 @@ class ChatStartOptions extends PureComponent {
         const { t } = this.props;
         
         return (
-            <div className="btn-group dropup disable-select ps-2 pt-2">
+            <div className="btn-group dropup disable-select ps-1 pt-2">
                 <i className="material-icons settings text-muted" id="chat-dropdown-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#xf100;</i>
                 <div className="dropdown-menu shadow bg-white lhc-dropdown-menu rounded ms-1">
                     <div className="d-flex flex-row px-1">
