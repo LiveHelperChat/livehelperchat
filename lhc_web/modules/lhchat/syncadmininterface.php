@@ -425,24 +425,26 @@ if ($myChatsEnabled == true) {
     
     $filter = array('ignore_fields' => erLhcoreClassChat::$chatListIgnoreField);
 
-    if (is_array($Params['user_parameters_unordered']['mcd']) && !empty($Params['user_parameters_unordered']['mcd'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcd']);
-        $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['mcd'];
-    }
-    
-    if (is_array($Params['user_parameters_unordered']['mcdprod']) && !empty($Params['user_parameters_unordered']['mcdprod'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcdprod']);
-        $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['mcdprod'];
-    }
+    if ($currentUser->hasAccessTo('lhchat','my_chats_filter')) {
+        if (is_array($Params['user_parameters_unordered']['mcd']) && !empty($Params['user_parameters_unordered']['mcd'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcd']);
+            $filter['filterin']['dep_id'] = $Params['user_parameters_unordered']['mcd'];
+        }
 
-    if (is_array($Params['user_parameters_unordered']['mdgroups']) && !empty($Params['user_parameters_unordered']['mdgroups'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mdgroups']);
-        $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['mdgroups']);
-        if (!empty($depIds)) {
-            $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+        if (is_array($Params['user_parameters_unordered']['mcdprod']) && !empty($Params['user_parameters_unordered']['mcdprod'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mcdprod']);
+            $filter['filterin']['product_id'] = $Params['user_parameters_unordered']['mcdprod'];
+        }
+
+        if (is_array($Params['user_parameters_unordered']['mdgroups']) && !empty($Params['user_parameters_unordered']['mdgroups'])) {
+            erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['mdgroups']);
+            $depIds = erLhcoreClassChat::getDepartmentsByDepGroup($Params['user_parameters_unordered']['mdgroups']);
+            if (!empty($depIds)) {
+                $filter['filterin']['dep_id'] = isset($filter['filterin']['dep_id']) ? array_merge($filter['filterin']['dep_id'],$depIds) : $depIds;
+            }
         }
     }
-    
+
     $filter['filter']['user_id'] = (int)$currentUser->getUserID();
     
     $myChats = erLhcoreClassChat::getMyChats($limitList,0,$filter);
