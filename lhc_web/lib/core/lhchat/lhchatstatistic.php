@@ -208,9 +208,35 @@ class erLhcoreClassChatStatistic {
                         $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
                         $numberOfChats[$dateUnix]['msg_bot'] = (int)erLhcoreClassChat::getCount($filterOur,'lh_msg','count(lh_msg.id)');
                     }
+
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelop',$paramsExecution['charttypes'])) {
+                        $filterOur = array_merge_recursive(array('filtergt' 	=> array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $filterOur['group'] = '`lh_msg`.`del_st`';
+                        $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                        $dataItemRemaped = [];
+                        foreach ($dataItems as $dataItem) {
+                            $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                        }
+                        $numberOfChats[$dateUnix]['msgdelop'] = $dataItemRemaped;
+                    }
+
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelbot',$paramsExecution['charttypes'])) {
+                        $filterOur = array_merge_recursive(array('filter' 	=> array('lh_msg.user_id' => -2),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m\') = '. date('Ym',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['innerjoin'] = array_reverse($filterOur['innerjoin'],true);
+                        $filterOur['group'] = '`lh_msg`.`del_st`';
+
+                        $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                        $dataItemRemaped = [];
+                        foreach ($dataItems as $dataItem) {
+                            $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                        }
+
+                        $numberOfChats[$dateUnix]['msgdelbot'] = $dataItemRemaped;
+                    }
                 }
-        	}
-        	
+            }
+
         	$numberOfChats = array_reverse($numberOfChats,true);
 
         	return $numberOfChats;
@@ -298,6 +324,29 @@ class erLhcoreClassChatStatistic {
                     $numberOfChats[$i]['msg_system'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-1)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%w\') = '. $i)),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
                     $numberOfChats[$i]['msg_bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%w\') = '. $i)),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
                 }
+
+                if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelop',$paramsExecution['charttypes'])) {
+                    $filterOur = array_merge_recursive(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%w\') = '. $i)),$msgFilter,$departmentMsgFilter);
+                    $filterOur['group'] = '`lh_msg`.`del_st`';
+                    $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                    $dataItemRemaped = [];
+                    foreach ($dataItems as $dataItem) {
+                        $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                    }
+                    $numberOfChats[$i]['msgdelop'] = $dataItemRemaped;
+                }
+
+                if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelbot',$paramsExecution['charttypes'])) {
+                    $filterOur = array_merge_recursive(array('filter' => array('lh_msg.user_id' => -2),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%w\') = '. $i)),$msgFilter,$departmentMsgFilter);
+                    $filterOur['group'] = '`lh_msg`.`del_st`';
+                    $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                    $dataItemRemaped = [];
+                    foreach ($dataItems as $dataItem) {
+                        $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                    }
+                    $numberOfChats[$i]['msgdelbot'] = $dataItemRemaped;
+                }
+
             }
 
             return $numberOfChats;
@@ -422,6 +471,27 @@ class erLhcoreClassChatStatistic {
                         $numberOfChats[$dateUnix]['msg_bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
                     }
 
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelop',$paramsExecution['charttypes'])) {
+                        $filterOur = array_merge_recursive(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['group'] = '`lh_msg`.`del_st`';
+                        $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                        $dataItemRemaped = [];
+                        foreach ($dataItems as $dataItem) {
+                            $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                        }
+                        $numberOfChats[$dateUnix]['msgdelop'] = $dataItemRemaped;
+                    }
+
+                    if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelbot',$paramsExecution['charttypes'])) {
+                        $filterOur = array_merge_recursive(array('filter' => array('lh_msg.user_id' => -2),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%v\') = '. date('YW',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                        $filterOur['group'] = '`lh_msg`.`del_st`';
+                        $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                        $dataItemRemaped = [];
+                        foreach ($dataItems as $dataItem) {
+                            $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                        }
+                        $numberOfChats[$dateUnix]['msgdelbot'] = $dataItemRemaped;
+                    }
                 }
             }
 
@@ -651,8 +721,29 @@ class erLhcoreClassChatStatistic {
                     $numberOfChats[$dateUnix]['msg_bot'] = (int)erLhcoreClassChat::getCount(array_merge_recursive(array('filterin' => array('lh_msg.user_id' => array(-2)),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter),'lh_msg','count(lh_msg.id)');
                 }
 
+                if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelop',$paramsExecution['charttypes'])) {
+                    $filterOur = array_merge_recursive(array('filtergt' => array('lh_msg.user_id' => 0),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                    $filterOur['group'] = '`lh_msg`.`del_st`';
+                    $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                    $dataItemRemaped = [];
+                    foreach ($dataItems as $dataItem) {
+                        $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                    }
+                    $numberOfChats[$dateUnix]['msgdelop'] = $dataItemRemaped;
+                }
+
+                if (isset($paramsExecution['charttypes']) && is_array($paramsExecution['charttypes']) && in_array('msgdelbot',$paramsExecution['charttypes'])) {
+                    $filterOur = array_merge_recursive(array('filter' => array('lh_msg.user_id' => -2),'customfilter' =>  array('FROM_UNIXTIME(lh_msg.time,\'%Y%m%d\') = '. date('Ymd',$dateUnix))),$msgFilter,$departmentMsgFilter);
+                    $filterOur['group'] = '`lh_msg`.`del_st`';
+                    $dataItems = erLhcoreClassModelmsg::getCount($filterOur,'count',false,'count(lh_msg.id) as records, del_st',false,true);
+                    $dataItemRemaped = [];
+                    foreach ($dataItems as $dataItem) {
+                        $dataItemRemaped[$dataItem['del_st']] = $dataItem['records'];
+                    }
+                    $numberOfChats[$dateUnix]['msgdelbot'] = $dataItemRemaped;
+                }
         	}
-        	
+
         	return $numberOfChats;
         } else {
     	    return $statusWorkflow['list'];
@@ -4142,6 +4233,30 @@ class erLhcoreClassChatStatistic {
                 fputcsv($fp,[
                     $operator,
                     $value['number_of_chats']
+                ]);
+            }
+        } else if ($type == 'msgdelop') {
+            fputcsv($fp, ['Date','Pending','Sent','Delivered','Read','Rejected']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $date => $value) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$date),
+                    (isset($value['msgdelop'][0]) ? $value['msgdelop'][0] : 0),
+                    (isset($value['msgdelop'][1]) ? $value['msgdelop'][1] : 0),
+                    (isset($value['msgdelop'][2]) ? $value['msgdelop'][2] : 0),
+                    (isset($value['msgdelop'][3]) ? $value['msgdelop'][3] : 0),
+                    (isset($value['msgdelop'][4]) ? $value['msgdelop'][4] : 0),
+                ]);
+            }
+        } else if ($type == 'msgdelbot') {
+            fputcsv($fp, ['Date','Pending','Sent','Delivered','Read','Rejected']);
+            foreach ($statistic['numberOfChatsPerMonth'] as $date => $value) {
+                fputcsv($fp,[
+                    date('Y-m-d H:i:s',$date),
+                    (isset($value['msgdelbot'][0]) ? $value['msgdelbot'][0] : 0),
+                    (isset($value['msgdelbot'][1]) ? $value['msgdelbot'][1] : 0),
+                    (isset($value['msgdelbot'][2]) ? $value['msgdelbot'][2] : 0),
+                    (isset($value['msgdelbot'][3]) ? $value['msgdelbot'][3] : 0),
+                    (isset($value['msgdelbot'][4]) ? $value['msgdelbot'][4] : 0),
                 ]);
             }
         } else if ($type == 'msgtype') {

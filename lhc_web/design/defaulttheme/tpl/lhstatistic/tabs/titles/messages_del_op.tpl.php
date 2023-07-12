@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Operator messages delivery statistic');?>

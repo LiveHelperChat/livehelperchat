@@ -1,5 +1,7 @@
 <div class="p-<?php isset($optinsPanel['padding_filters']) ? print ((int)$optinsPanel['padding_filters']) : print 2;?>">
 	<div class="row">
+
+        <?php if (!isset($optinsPanel['hide_department_filter']) || $optinsPanel['hide_department_filter'] === false) : ?>
 		<div class="col-<?php isset($optinsPanel['userid']) ? print 6 : print (!isset($optinsPanel['hide_limits']) ? 10 : 12)?> pe-0">
 			<div class="btn-group btn-block btn-block-department">
 				<button type="button" class="btn btn-light btn-block btn-sm dropdown-toggle btn-department-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,6 +49,9 @@
 				</ul>
 			</div>
 		</div>
+        <?php endif; ?>
+
+
 		<?php if (isset($optinsPanel['userid'])) : ?>
 		<div class="col-4 pe-0">
             <div class="btn-group btn-block btn-block-department">
@@ -68,7 +73,7 @@
 		<?php endif; ?>
 
         <?php if (!isset($optinsPanel['hide_limits'])) : ?>
-		<div class="col-2">
+		<div class="col-<?php isset($optinsPanel['limits_width'])  ? print $optinsPanel['limits_width'] : print 2;?>">
 			<select class="form-control form-control-sm btn-light" ng-model="lhc.<?php echo $optinsPanel['limitid']?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Number of elements in list');?>">
 				<option value="5">5</option>
 				<option value="10">10</option>

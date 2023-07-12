@@ -11,7 +11,13 @@
 
         <div ng-if="lhc.toggleWidgetData['my_chats_widget_exp'] !== true">
 
-            <?php $optinsPanel = array('panelid' => 'mcd','limitid' => 'limitmc'); ?>
+            <?php
+            $optinsPanel = array('panelid' => 'mcd','limitid' => 'limitmc');
+            if (!$currentUser->hasAccessTo('lhchat','my_chats_filter')) {
+                $optinsPanel['hide_department_filter'] = true;
+                $optinsPanel['limits_width'] = 12;
+            }
+            ?>
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
 
