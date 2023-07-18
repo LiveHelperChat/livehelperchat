@@ -79,6 +79,23 @@ if (isset($restAPI['collect_all']) && $restAPI['collect_all'] === true) {
 }
 
 if (!isset($Errors)) {
+
+    if (isset($requestPayload['invitation_id']) && is_numeric($requestPayload['invitation_id'])) {
+        $chat->invitation_id = (int)$requestPayload['invitation_id'];
+    }
+
+    $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
+    
+    if (is_array($chat->referrer)) {
+        if (isset($chat->referrer['href'])){
+            $chat->referrer = (string)$chat->referrer['href'];
+        } else {
+            $chat->referrer = '';
+        }
+    }
+
+    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
+
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
     // Check is visitor blocked based on previous data if present chat does not have a nick
     if (empty($Errors) &&
@@ -114,17 +131,7 @@ if (empty($Errors)) {
 
     $chat->time = $chat->pnd_time = time();
     $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-
     $chat->hash = erLhcoreClassChat::generateHash();
-    $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
-    if (is_array($chat->referrer)) {
-        if (isset($chat->referrer['href'])){
-            $chat->referrer = (string)$chat->referrer['href'];
-        } else {
-            $chat->referrer = '';
-        }
-    }
-    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
 
     if (isset($restAPI) && isset($requestPayload['chat_variables']) && is_array($requestPayload['chat_variables'])) {
         $chat_variables_array = $chat->chat_variables_array;
