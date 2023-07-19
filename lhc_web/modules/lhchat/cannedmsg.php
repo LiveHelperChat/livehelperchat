@@ -107,6 +107,21 @@ if ($tab == 'cannedmsg') {
         $filterParams['filter']['filterin']['`lh_canned_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
     }
 
+    if (is_numeric($filterParams['input_form']->used_freq)) {
+        if ($filterParams['input_form']->used_freq === 0) { // Zero usage
+            $filterParams['filter']['customfilter'][] = '`lh_canned_msg`.`id` NOT IN (SELECT `lh_canned_msg_use`.`canned_id` FROM `lh_canned_msg_use` WHERE `lh_canned_msg_use`.`ctime` > '. (time() - 31*3600*24) . ')';
+        } elseif ($filterParams['input_form']->used_freq === 1) { // Once
+            $filterParams['filter']['innerjoin']['lh_canned_msg_use'] = array('`lh_canned_msg_use`.`canned_id`', '`lh_canned_msg`.`id`');
+            $filterParams['filter']['filtergt']['`lh_canned_msg_use`.`ctime`'] = time() - 31*24*3600;
+            $filterParams['filter']['having'] = 'count(`lh_canned_msg`.`id`) = 1';
+            $filterParams['filter']['group'] = '`lh_canned_msg`.`id`';
+        } elseif ($filterParams['input_form']->used_freq === 2) { // One or more
+            $filterParams['filter']['innerjoin']['lh_canned_msg_use'] = array('`lh_canned_msg_use`.`canned_id`', '`lh_canned_msg`.`id`');
+            $filterParams['filter']['filtergt']['`lh_canned_msg_use`.`ctime`'] = time() - 31*24*3600;
+            $filterParams['filter']['group'] = '`lh_canned_msg`.`id`';
+        }
+    }
+
     $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
     if (isset($_GET['export'])) {
@@ -135,6 +150,30 @@ if ($tab == 'cannedmsg') {
             $tpl->set('updated', true);
         }
 
+
+        echo $tpl->fetch();
+        exit;
+    }
+
+    if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 4) {
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsg/delete_cannedmsg.tpl.php');
+        $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/cannedmsg') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+
+        if (ezcInputForm::hasPostData()) {
+            session_write_close();
+            $filterParams['filter']['limit'] = 20;
+            $filterParams['filter']['offset'] = 0;
+
+            foreach (erLhcoreClassModelCannedMsg::getList($filterParams['filter']) as $item){
+                $item->removeThis();
+            }
+
+            erLhcoreClassRestAPIHandler::setHeaders();
+            echo json_encode(['left_to_delete' => erLhcoreClassModelCannedMsg::getCount($filterParams['filter'])]);
+            exit;
+        }
+
+        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount($filterParams['filter']));
 
         echo $tpl->fetch();
         exit;

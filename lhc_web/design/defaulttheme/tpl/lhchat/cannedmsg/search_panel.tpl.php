@@ -67,6 +67,18 @@
             </div>
         </div>
 
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Usage frequency in the last 31 days');?></label>
+                <select name="used_freq" class="form-control form-control-sm">
+                    <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Any times');?></option>
+                    <option <?php if ($input->used_freq === 0) : ?>selected="selected"<?php endif;?> value="0" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Zero times');?></option>
+                    <option value="1" <?php if ($input->used_freq === 1) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Once');?></option>
+                    <option value="2" <?php if ($input->used_freq === 2) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','One or more');?></option>
+                </select>
+            </div>
+        </div>
+
         <div class="col-md-2 pb-2">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Sort by');?></label>
             <select name="sortby" class="form-control form-control-sm">
@@ -76,6 +88,9 @@
                 <option <?php if ($input->sortby == 'lastupdateasc') : ?>selected="selected"<?php endif; ?> value="lastupdateasc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Recently updated last');?></option>
             </select>
         </div>
+
+
+
         <div class="col-md-4 pb-2 pt-4">
 
             <div class="btn-group" role="group" aria-label="...">

@@ -74,6 +74,18 @@ $fieldsSearch['subject_id'] = array (
     )
 );
 
+$fieldsSearch['used_freq'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => 'subject_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
 $fieldsSearch['sortby'] = array (
     'type' => 'text',
     'trans' => 'Sort by',
