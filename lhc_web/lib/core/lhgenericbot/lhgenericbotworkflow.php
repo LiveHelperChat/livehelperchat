@@ -2321,6 +2321,10 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
         }
+        
+        if (strpos($message,'{base_url}') !== false) {
+            $message = str_replace('{base_url}',erLhcoreClassSystem::getHost(),$message);
+        }
 
         $matches = array();
         preg_match_all('~\{((?:[^\{\}]++|(?R))*)\}~',$message,$matches);
