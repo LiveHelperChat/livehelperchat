@@ -123,6 +123,7 @@
             <option value="ChatConfig">ChatConfig</option>
             <option value="incoming_webhook_parse">Incoming webhook parse failures</option>
             <option value="incoming_webhook">Incoming webhook request</option>
+            <option value="extract_department">Invalid department argument</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>
