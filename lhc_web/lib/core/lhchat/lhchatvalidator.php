@@ -1400,7 +1400,7 @@ class erLhcoreClassChatValidator {
                         $valueToCompare = $chat->{$variableName};
                     }
                 } elseif (strpos($rule['field'],'{') === 0) {
-                    $valueToCompare = erLhcoreClassGenericBotWorkflow::translateMessage($rule['field'], array('chat' => $chat, 'args' => ['chat' => $chat]));
+                    $valueToCompare = erLhcoreClassGenericBotWorkflow::translateMessage($rule['field'], array('rule_value' => $rule['value'], 'chat' => $chat, 'args' => ['chat' => $chat]));
                 } elseif (strpos($rule['field'],'department_role') === 0) {
                     $valueToCompare = '';
                     $valueToCompareRole = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $chat->dep_id]]);
@@ -1411,6 +1411,9 @@ class erLhcoreClassChatValidator {
 
                 if ($valueToCompare !== null) {
                     if ($rule['comparator'] == '=' && $rule['value'] != $valueToCompare) {
+                        $ruleMatched = false;
+                        break;
+                    } else if ($rule['comparator'] == '!=' && ($valueToCompare != $rule['value']) == false) {
                         $ruleMatched = false;
                         break;
                     } else if ($rule['comparator'] == '>' && ($valueToCompare > $rule['value']) == false) {

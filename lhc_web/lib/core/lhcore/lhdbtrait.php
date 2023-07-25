@@ -461,6 +461,12 @@ trait erLhcoreClassDBTrait
             }
         }
 
+        if (isset($params['leftjoinraw']) && count($params['leftjoinraw']) > 0) {
+            foreach ($params['leftjoinraw'] as $table => $joinOn) {
+                $q->leftJoin($table, $joinOn);
+            }
+        }
+
         if (isset($params['innerjoinsame']) && count($params['innerjoinsame']) > 0) {
             foreach ($params['innerjoinsame'] as $table => $joinOn) {
                 $q->innerJoin($q->alias($table, 't2'), $q->expr->eq($joinOn[0], $joinOn[1]));
