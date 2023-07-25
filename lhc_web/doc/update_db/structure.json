@@ -9429,6 +9429,14 @@
         "key": "",
         "default": null,
         "extra": ""
+      },
+      {
+        "field": "name",
+        "type": "varchar(50)",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
       }
     ]
   },

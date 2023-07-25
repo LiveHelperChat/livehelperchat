@@ -83,6 +83,7 @@ if (isset($_POST['Save_mailbox'])) {
             if (
                 isset($_POST['Update_page']) ||
                 isset($_POST['UpdateSignature_page']) ||
+                isset($_POST['UpdateMrules_page']) ||
                 isset($_POST['UpdateOptions_page'])
             ) {
 
@@ -92,6 +93,10 @@ if (isset($_POST['Save_mailbox'])) {
 
                 if (isset($_POST['UpdateOptions_page'])) {
                     $tab = 'tab_options';
+                }
+
+                if (isset($_POST['UpdateMrules_page'])) {
+                    $tab = 'tab_mrules';
                 }
 
                 $tpl->set('updated',true);

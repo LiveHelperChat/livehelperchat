@@ -17,6 +17,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_options') : ?> active<?php endif;?>" href="#options" aria-controls="options" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Options');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_mailbox') : ?> active<?php endif;?>" href="#mailbox" aria-controls="mailbox" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_signature') : ?> active<?php endif;?>" href="#signature" aria-controls="signature" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Signature');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_mrules') : ?> active<?php endif;?>" href="#mrules" aria-controls="mrules" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Matching Rules');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_utilities') : ?> active<?php endif;?>" href="#utilities" aria-controls="utilities" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Utilities');?></a></li>
     </ul>
 
@@ -231,6 +232,29 @@
 
             <h5 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Sync log');?></h5>
             <pre><?php echo htmlspecialchars(print_r($item->last_sync_log_array,true))?></pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_mrules') : ?>active<?php endif;?>" id="mrules">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Matching rules');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'mrules_id[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Select'),
+                    'selected_id'    => $item->mrules_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'display_name',
+                    'ajax'           => 'mrules',
+                    'list_function_params' => [],
+                    'list_function'  => 'erLhcoreClassModelMailconvMatchRule::getList',
+                )); ?>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" class="btn btn-secondary" name="Save_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+                <input type="submit" class="btn btn-secondary" name="UpdateMrules_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Cancel_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+            </div>
 
         </div>
 

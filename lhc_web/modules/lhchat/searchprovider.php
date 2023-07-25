@@ -13,6 +13,24 @@ if ($Params['user_parameters']['scope'] == 'depbydepgroup') {
             $return[] = $depMember->dep_id;
         }
     }
+} else if ($Params['user_parameters']['scope'] == 'mrules') {
+    $db = ezcDbInstance::get();
+
+    $filter = array('sort' => 'id DESC', 'limit' => 10, 'offset' => $offset);
+
+    $filter['leftjoin']['lh_departament'] = ['`lh_departament`.`id`','`lhc_mailconv_match_rule`.`dep_id`'];
+    $filter['leftjoinraw']['lhc_mailconv_mailbox'] = 'json_contains(`lhc_mailconv_match_rule`.`mailbox_id`, cast(`lhc_mailconv_mailbox`.`id` AS char))';
+
+    if (!empty($search)) {
+        $filter['customfilter'] = array('(`lhc_mailconv_match_rule`.`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `lh_departament`.`name` LIKE ('. $db->quote('%'.$search.'%')  .') OR `lhc_mailconv_mailbox`.`mail` LIKE ('. $db->quote('%'.$search.'%')  .'))');
+    }
+
+    $items = erLhcoreClassModelMailconvMatchRule::getList($filter);
+
+    foreach ($items as $item) {
+        $return[] = array('id' => $item->id, 'name' => $item->display_name);
+    }
+
 } else if ($Params['user_parameters']['scope'] == 'canned') {
 
     $db = ezcDbInstance::get();

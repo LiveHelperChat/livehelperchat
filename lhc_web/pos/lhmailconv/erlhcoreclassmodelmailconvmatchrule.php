@@ -20,7 +20,7 @@ foreach (array(
 }
 
 foreach (array(
-             'conditions','options',
+             'conditions','options','name',
              'mailbox_id','from_name',
              'from_mail','subject_contains'
          ) as $attr) {

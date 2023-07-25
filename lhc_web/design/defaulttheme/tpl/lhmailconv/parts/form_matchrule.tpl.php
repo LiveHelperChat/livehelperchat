@@ -2,6 +2,13 @@
 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Do these actions if rule matches');?></h6>
 
 <div class="row" ng-non-bindable>
+
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Name for personal reasons');?></label>
+            <input type="text" maxlength="50" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
+        </div>
+    </div>
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Set department to');?></label>

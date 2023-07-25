@@ -7,6 +7,7 @@
         <thead>
         <tr>
             <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','ID');?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Name');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conversation priority');?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmr','Conditions');?></th>
@@ -18,6 +19,7 @@
         <?php foreach ($items as $item) : ?>
             <tr>
                 <td><?php echo htmlspecialchars($item->id)?></td>
+                <td><?php echo htmlspecialchars($item->name)?></td>
                 <td><?php echo htmlspecialchars($item->priority_rule)?></td>
                 <td><?php echo htmlspecialchars($item->priority)?></td>
                 <td>
