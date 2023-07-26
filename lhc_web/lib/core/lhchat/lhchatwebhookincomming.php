@@ -755,6 +755,12 @@ class erLhcoreClassChatWebhookIncoming {
                             $chat->ip = $ip;
                             erLhcoreClassModelChat::detectLocation($chat, "");
                         }
+
+                        $country_code = self::extractAttribute('country_code', $conditions, $payloadMessage, $chat->country_code);
+                        
+                        if (!empty($country_code)) {
+                            $chat->country_code = strtolower($country_code);
+                        }
                     }
 
                     // Some agents triggers to terminate LHC, because we think it's a bot
