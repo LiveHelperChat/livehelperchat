@@ -52,6 +52,9 @@ trait erLhcoreClassDBTrait
 
     public function syncAndLock()
     {
+        if ($this->id === null) {
+            return;
+        }
 
         $db = ezcDbInstance::get();
 
@@ -61,7 +64,9 @@ trait erLhcoreClassDBTrait
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->setState($data);
+        if (is_array($data)) {
+            $this->setState($data);
+        }
     }
 
     public function beforeSave($params = array())

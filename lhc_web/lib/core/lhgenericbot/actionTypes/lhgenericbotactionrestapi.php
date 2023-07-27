@@ -106,7 +106,10 @@ class erLhcoreClassGenericBotActionRestapi
                             $params['msg']->meta_msg_array = $meta_msg_array;
                             $params['msg']->meta_msg = json_encode($meta_msg_array);
                             $params['msg']->del_st = erLhcoreClassModelmsg::STATUS_PENDING;
-                            $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+
+                            if ($params['msg']->id > 0) {
+                                $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+                            }
 
                             $db->commit();
                         } catch (Exception $e) {
