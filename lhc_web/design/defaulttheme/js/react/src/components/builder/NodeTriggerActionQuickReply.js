@@ -81,7 +81,7 @@ class NodeTriggerActionQuickReply extends Component {
     render() {
 
         return (
-            <div className="row">
+            <div className="row border-top border-dark">
                 <div className="col-5">
                     <div className="form-group">
                         <label className="font-weight-bold">Name</label>
@@ -122,9 +122,25 @@ class NodeTriggerActionQuickReply extends Component {
                 </div>
 
                 {this.props.reply.get('type') == 'url' && <div className="col-12">
-                    <div className="form-group">
-                        <label>Button ID</label>
-                        <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Button ID</label>
+                                <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>CSS Class element</label>
+                                <input type="text" placeholder="Button CSS class" onChange={this.onButtonCSSClassChange} defaultValue={this.props.reply.getIn(['content','button_class'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Icon name. Based on material icons.</label>
+                                <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
                     </div>
                 </div>}
 
