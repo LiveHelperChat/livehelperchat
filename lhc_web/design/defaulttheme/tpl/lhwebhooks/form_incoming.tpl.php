@@ -142,6 +142,12 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Country, 2 letters code');?></label>
+                    <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.country_code" value="" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','E-mail');?></label>
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.email" value="" />
                 </div>
@@ -352,9 +358,15 @@
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_1" value="" />
         </div>
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered button payload - message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_1" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','AND Message text has to start with');?> E.g bpayload__,trigger__,mycustompayload__</label>
+            <input type="text" class="form-control form-control-sm" placeholder="bpayload__,trigger__,mycustompayload__" ng-model="webhookincomingsctl.conditions.msg_btn_cond_payload_1" value="" />
+        </div>
+
     </div>
 
     <div role="tabpanel" class="tab-pane form-group" id="button_payload_2">
@@ -367,8 +379,12 @@
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_2" value="" />
         </div>
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered button payload - message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_2" value="" />
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','AND Message text has to start with');?> E.g bpayload__,trigger__,mycustompayload__</label>
+            <input type="text" class="form-control form-control-sm" placeholder="bpayload__,trigger__,mycustompayload__" ng-model="webhookincomingsctl.conditions.msg_btn_cond_payload_2" value="" />
         </div>
     </div>
 
@@ -382,8 +398,12 @@
             <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.msg_btn_payload_3" value="" />
         </div>
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered text message should have attribute value equal to');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','For message being considered button payload - message should have attribute value equal to');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="message_attribute=value expected||message_attribute=value expected" ng-model="webhookincomingsctl.conditions.msg_btn_cond_3" value="" />
+        </div>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','AND Message text has to start with');?> E.g bpayload__,trigger__,mycustompayload__</label>
+            <input type="text" class="form-control form-control-sm" placeholder="bpayload__,trigger__,mycustompayload__" ng-model="webhookincomingsctl.conditions.msg_btn_cond_payload_3" value="" />
         </div>
     </div>
 

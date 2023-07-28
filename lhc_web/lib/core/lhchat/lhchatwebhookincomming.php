@@ -331,6 +331,23 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
                         $typeMessage = 'unknown';
+                    } elseif (isset($conditions['msg_btn_cond_payload_1']) && $conditions['msg_btn_cond_payload_1'] != "") {
+                        $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_1']));
+                        $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                        if ($messageData['found'] == true && $messageData['value'] != '') {
+                            $validStartOption = false;
+                            foreach ($startsWithOptions as $startsWithOption) {
+                                if (strpos($messageData['value'], $startsWithOption) === 0) {
+                                    $validStartOption = true;
+                                    break;
+                                }
+                            }
+                            if ($validStartOption === false) {
+                                $typeMessage = 'unknown';
+                            }
+                        } else {
+                            $typeMessage = 'unknown';
+                        }
                     }
                 }
 
@@ -368,6 +385,23 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
                         $typeMessage = 'unknown';
+                    } elseif (isset($conditions['msg_btn_cond_payload_2']) && $conditions['msg_btn_cond_payload_2'] != "") {
+                        $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_2']));
+                        $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                        if ($messageData['found'] == true && $messageData['value'] != '') {
+                            $validStartOption = false;
+                            foreach ($startsWithOptions as $startsWithOption) {
+                                if (strpos($messageData['value'], $startsWithOption) === 0) {
+                                    $validStartOption = true;
+                                    break;
+                                }
+                            }
+                            if ($validStartOption === false) {
+                                $typeMessage = 'unknown';
+                            }
+                        } else {
+                            $typeMessage = 'unknown';
+                        }
                     }
                 }
 
@@ -405,6 +439,23 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
                         $typeMessage = 'unknown';
+                    } elseif (isset($conditions['msg_btn_cond_payload_3']) && $conditions['msg_btn_cond_payload_3'] != "") {
+                        $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_3']));
+                        $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $buttonBody, '.');
+                        if ($messageData['found'] == true && $messageData['value'] != '') {
+                            $validStartOption = false;
+                            foreach ($startsWithOptions as $startsWithOption) {
+                                if (strpos($messageData['value'], $startsWithOption) === 0) {
+                                    $validStartOption = true;
+                                    break;
+                                }
+                            }
+                            if ($validStartOption === false) {
+                                $typeMessage = 'unknown';
+                            }
+                        } else {
+                            $typeMessage = 'unknown';
+                        }
                     }
                 }
 
@@ -754,6 +805,12 @@ class erLhcoreClassChatWebhookIncoming {
                         if ($ip != '' && $chat->ip != $ip) {
                             $chat->ip = $ip;
                             erLhcoreClassModelChat::detectLocation($chat, "");
+                        }
+
+                        $country_code = self::extractAttribute('country_code', $conditions, $payloadMessage, $chat->country_code);
+                        
+                        if (!empty($country_code)) {
+                            $chat->country_code = strtolower($country_code);
                         }
                     }
 

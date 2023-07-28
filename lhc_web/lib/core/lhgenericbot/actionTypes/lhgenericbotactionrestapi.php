@@ -106,7 +106,10 @@ class erLhcoreClassGenericBotActionRestapi
                             $params['msg']->meta_msg_array = $meta_msg_array;
                             $params['msg']->meta_msg = json_encode($meta_msg_array);
                             $params['msg']->del_st = erLhcoreClassModelmsg::STATUS_PENDING;
-                            $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+
+                            if ($params['msg']->id > 0) {
+                                $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+                            }
 
                             $db->commit();
                         } catch (Exception $e) {
@@ -381,6 +384,7 @@ class erLhcoreClassGenericBotActionRestapi
         $file_body = null;
         $file_url = null;
         $file_name = null;
+        $file_size = null;
 
         $file_api = false;
 
@@ -393,20 +397,36 @@ class erLhcoreClassGenericBotActionRestapi
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
                     if (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{image_api}','{/image_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
+                            $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                            $file_api = true;
+                        }
+                    } elseif (in_array($mediaFile->type,['video/mp4'])) {
+                        $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = trim(str_replace(['{video_api}','{/video_api}'],'', $fileBodyRawFile));
+                        if (!empty($fileBodyRawFile)) {
+                            $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                            $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = str_replace(['{video_api}','{/video_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
                         }
                     } else {
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{file_api}','{/file_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
@@ -418,13 +438,15 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if ($mediaFile->remote_file !== true) {
                     $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                    $file_size = $mediaFile->size;
                     $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                 } else {
+                    $file_size = $file->size;
                     $file_body = '';
                     if (strpos($file->remote_url,'http://') !== false || strpos($file->remote_url,'https://') !== false) {
                         $file_url = $file->remote_url;
                     } else {
-                        $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;;
+                        $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;
                     }
                 }
              }
@@ -548,6 +570,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_body}}' => $file_body,
             '{{file_url}}' => $file_url,
             '{{file_name}}' => $file_name,
+            '{{file_size}}' => $file_size,
             '{{timestamp}}' => time()
         );
 
@@ -579,6 +602,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_body}}' => json_encode($file_body),
             '{{file_url}}' => json_encode($file_url),
             '{{file_name}}' =>json_encode($file_name),
+            '{{file_size}}' =>json_encode($file_size),
             '{{timestamp}}' => time()
         );
 
