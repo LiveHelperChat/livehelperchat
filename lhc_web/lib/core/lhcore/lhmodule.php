@@ -480,7 +480,7 @@ class erLhcoreClassModule{
     	            foreach ($Matches[1] as $key => $UrlAddress)
     	            {
     	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
-    	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+    	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
     	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }
     		            
@@ -502,7 +502,7 @@ class erLhcoreClassModule{
     	                $valueHolder = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data;
     	            	$valueConfig = isset($valueHolder[$Matches[4][$key]]) ? $valueHolder[$Matches[4][$key]] : '';
     	            	$valueReplace = '';
-    	            	$valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+    	            	$valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
     	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }
 			    }
