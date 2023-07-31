@@ -21,7 +21,13 @@ class erLhcoreClassModelChatConfig {
        $this->prevAttributes = $attr;
    }
 
-   public static function fetch($identifier)
+   public static function fetchException($identifier)
+   {
+       $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatConfig', $identifier );
+       return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
+   }
+
+   public static function fetch($identifier, $throwException = false)
    {
        if (self::$disableCache == false && isset($GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier])) {
            return $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier];
@@ -29,6 +35,11 @@ class erLhcoreClassModelChatConfig {
        try {
        $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChatConfig', $identifier );
        } catch (Exception $e) {
+
+           if ($throwException === true) {
+               throw $e;
+           }
+
            // Record still does not exists, this happens during install
            $GLOBALS['lhc_erLhcoreClassModelChatConfig'.$identifier] = new erLhcoreClassModelChatConfig();
        }

@@ -1079,7 +1079,16 @@ if ($outputResponse['disabled'] === true) {
 }
 
 $outputResponse['department'] = $departmentsOptions;
+
 $outputResponse['dep_forms'] = $department_id_form;
+
+if (isset($parametersDepartment['system']) && !empty($parametersDepartment['system'])) {
+    foreach ($parametersDepartment['system'] as $systemDepartmentIndex => $systemDepartmentId) {
+        if ($outputResponse['dep_forms'] == $systemDepartmentId) {
+            $outputResponse['dep_forms'] = $parametersDepartment['argument'][$systemDepartmentIndex];
+        }
+    }
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('ou_vid' => $Params['user_parameters_unordered']['vid'], 'output' => & $outputResponse));
 

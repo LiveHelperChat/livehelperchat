@@ -7,7 +7,35 @@ $payload = json_decode(file_get_contents('php://input'),true);
 
 $r = '';
 
-if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+try {
+    $minLengthMessage = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+
+    if ($minLengthMessage === 0) {
+        $minLengthMessage = (int)erLhcoreClassModelChatConfig::fetchException('max_message_length')->current_value;
+    }
+
+} catch (Exception $e) {
+
+    $minLengthMessage = 500;
+
+    // Log to file
+    erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString());
+
+    // Log to database
+    erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() ,
+        ezcLog::SUCCESS_AUDIT,
+        array(
+            'source' => 'lhc',
+            'category' => 'store',
+            'line' => $e->getLine(),
+            'file' => 'addmsguser.php',
+            'object_id' => $payload['id']
+        )
+    );
+}
+
+
+if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < $minLengthMessage)
 {
     try {
         $db = ezcDbInstance::get();
@@ -56,7 +84,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
             }
 
             if (!isset($msg)) {
-                $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.(int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
+                $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message, max characters').' - '.$minLengthMessage;
                 echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
                 exit;
             }
@@ -184,7 +212,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[
     }
 
 } else {
-    $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message') . ', ' . (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters max.');
+    $r = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a message') . ', ' . $minLengthMessage . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','characters max.');
     echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $r));
     exit;
 }

@@ -467,17 +467,33 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies'] as $quickReplyButton) {
                 if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
                     if (isset($matchCycles[1][0])) {
+
+                        if (isset($quickReplyButton['content']['override_rest_api_button']) && $quickReplyButton['content']['override_rest_api_button'] === true) {
+                            $buttonContent = $quickReplyButton['content']['rest_api_button'];
+                        } else {
+                            $buttonContent = preg_replace('/\{is_url\}(.*?)\{\/is_url\}/ms', '', $matchCycles[1][0]);
+                            $buttonContent = trim(str_replace(['{is_button}', '{/is_button}', '{{rest_api_button}}'], ['', '', (isset($quickReplyButton['content']['rest_api_button']) ? $quickReplyButton['content']['rest_api_button'] : '')], $buttonContent));
+                        }
+
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
                             json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
                             json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                        ],$buttonContent);
                     }
                 } elseif ($quickReplyButton['type'] == 'url') {
                     if (isset($matchCycles[1][0])) {
+
+                        if (isset($quickReplyButton['content']['override_rest_api_button']) && $quickReplyButton['content']['override_rest_api_button'] === true) {
+                            $buttonContent = $quickReplyButton['content']['rest_api_button'];
+                        } else {
+                            $buttonContent = preg_replace('/\{is_button\}(.*?)\{\/is_button\}/ms','',$matchCycles[1][0]);
+                            $buttonContent = trim(str_replace(['{is_url}','{/is_url}','{{rest_api_button}}'],['','',(isset($quickReplyButton['content']['rest_api_button']) ? $quickReplyButton['content']['rest_api_button'] : '')], $buttonContent));
+                        }
+
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
                             json_encode($quickReplyButton['content']['payload']),
-                            json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                            json_encode($quickReplyButton['content']['name'].'ma,e')
+                        ],$buttonContent);
                     }
                 }
             }

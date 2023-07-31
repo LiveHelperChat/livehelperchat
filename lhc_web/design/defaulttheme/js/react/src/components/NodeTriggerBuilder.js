@@ -268,7 +268,7 @@ class NodeTriggerBuilder extends Component {
         {
             return (
                     <div>
-                        <input className="form-control gbot-group-name" value={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
+                        <input className="form-control gbot-group-name" key={this.props.currenttrigger.get('currenttrigger').get('id')} defaultValue={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
                     <hr/>
                     {actions}
                     <div className="form-group">

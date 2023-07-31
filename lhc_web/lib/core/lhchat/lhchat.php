@@ -2339,7 +2339,7 @@ class erLhcoreClassChat {
         }
    }
 
-   public static function extractDepartment($departments) {
+   public static function extractDepartment($departments, $logInvalidRequest = true) {
 
        $hasInvalidDepartment = false;
 
@@ -2367,7 +2367,7 @@ class erLhcoreClassChat {
            }
        }
 
-       if ($hasInvalidDepartment == true) {
+       if ($hasInvalidDepartment == true && $logInvalidRequest == true) {
            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.extract_department', array('departments' => $departments));
            $referrer = print_r($departments, true) . "\n";
            $messageLog = $referrer . erLhcoreClassIPDetect::getIP();
