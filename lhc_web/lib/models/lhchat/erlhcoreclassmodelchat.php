@@ -394,7 +394,14 @@ class erLhcoreClassModelChat {
        	case 'product_name':
        			$this->product_name = (string)$this->product;
        			return $this->product_name;
-       		break;
+
+       case 'subject_ids':
+           $this->subject_ids = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $this->id]],'count','subject_id','subject_id',false, true, true);
+           return $this->subject_ids;
+
+       case 'subject_ids_list':
+           $this->subject_ids_list = implode(',',$this->subject_ids);
+           return $this->subject_ids_list;
 
        	case 'department_role':
                 $this->department_role = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $this->dep_id]]);

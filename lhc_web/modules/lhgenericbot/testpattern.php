@@ -18,7 +18,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             'iwh' => ['conditions_array']
         ];
 
-        foreach (['department','chat_variables_array','user','online_user',
+        foreach (['subject_ids','subject_ids_list','department','chat_variables_array','user','online_user',
                   'wait_time_pending','incoming_chat','iwh','bot','user_status_front','chat_dynamic_array','aalert','aicons','msg_v','additional_data_array','user_tz_identifier_time',
             'unread_time','screenshot','number_in_queue','department_name','department_role','auto_responder','n_off_full','n_official','hum','plain_user_name','user_name','chat_duration_front','pnd_rsp',
             'wait_time_pending','last_user_msg_time_front','start_last_action_front','wait_time_front','last_msg_time_front','last_msg_time','wait_time_seconds','is_user_typing','can_edit_chat','is_operator_typing',
