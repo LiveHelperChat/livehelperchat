@@ -146,7 +146,37 @@ if ($tab == 'cannedmsg') {
                     );
                 $stmt = $q->prepare();
                 $stmt->execute();
+            } elseif (isset($_POST['dep_id_remove']) && is_numeric($_POST['dep_id_remove'])) {
+                $values = [];
+                $db = ezcDbInstance::get();
+                foreach (erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)) as $cannedMessage) {
+                    $db = ezcDbInstance::get();
+                    $stmt = $db->prepare('DELETE FROM `lh_canned_msg_dep` WHERE `canned_id` = :canned_id AND `dep_id` = :dep_id');
+                    $stmt->bindValue(':canned_id', $cannedMessage->id,PDO::PARAM_INT);
+                    $stmt->bindValue(':dep_id', (int)$_POST['dep_id_remove'],PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            } elseif (isset($_POST['dep_id']) && is_numeric($_POST['dep_id'])) {
+                $values = [];
+                $db = ezcDbInstance::get();
+                foreach (erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)) as $cannedMessage) {
+                    $stmt = $db->prepare('SELECT COUNT(`id`) FROM `lh_canned_msg_dep` WHERE `canned_id` = :canned_id AND `dep_id` = :dep_id');
+                    $stmt->bindValue(':canned_id', $cannedMessage->id,PDO::PARAM_INT);
+                    $stmt->bindValue(':dep_id', (int)$_POST['dep_id'],PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $isAssigned = $stmt->fetchColumn(0) > 0;
+
+                    if ($isAssigned === false) {
+                        $values[] = "(" . $cannedMessage->id . "," . (int)$_POST['dep_id'] . ")";
+                    }
+                }
+
+                if (!empty($values)) {
+                    $db->query('INSERT INTO `lh_canned_msg_dep` (`canned_id`,`dep_id`) VALUES ' . implode(',',$values));
+                }
             }
+
             $tpl->set('updated', true);
         }
 
