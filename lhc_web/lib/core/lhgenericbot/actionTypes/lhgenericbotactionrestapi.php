@@ -549,6 +549,13 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
 
+        // Handle previous visitor messages
+        if (isset($dynamicReplaceVariables['{if_previous_visitor_messages}']) && $dynamicReplaceVariables['{if_previous_visitor_messages}'] === true) {
+            $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages}','{/if_previous_visitor_messages}'],'', $methodSettings['body_raw']));
+        } else {
+            $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages\}(.*?)\{\/if_previous_visitor_messages\}/ms','',$methodSettings['body_raw']);
+        }
+
         if (isset($methodSettings['check_word']) && $methodSettings['check_word'] == true) {
 
             $locale = $paramsCustomer['chat']->chat_locale;
@@ -1176,10 +1183,35 @@ class erLhcoreClassGenericBotActionRestapi
 
             $matchesValues = [];
             preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
-                
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{\{previous_visitor_messages_url__([0-9]+)\}\}~', $item, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                $userData['dynamic_variables']['{if_previous_visitor_messages}'] = false;
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement], 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+
+                    foreach ($messages as $indexMessage => $message) {
+                        $messages[$indexMessage]->msg = $messages[$indexMessage]->msg . ".";
+                    }
+
+                    // Fetch chat messages
+                    $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                    $tpl->set('chat', $userData['chat']);
+                    $tpl->set('messages', $messages);
+                    $tpl->set('remove_meta', true);
+
+                    $userData['dynamic_variables'][$elementValue] = trim($tpl->fetch());
+
+                    if (!empty($userData['dynamic_variables'][$elementValue])) {
+                        $userData['dynamic_variables']['{if_previous_visitor_messages}'] = true;
+                    }
                 }
             }
 
