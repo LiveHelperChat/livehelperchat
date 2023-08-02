@@ -197,15 +197,10 @@ if ($tab == 'cannedmsg') {
             if ((isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on') ||
                 (isset($_POST['enable_canned']) && $_POST['enable_canned'] == 'on')
             ) {
-                $q = ezcDbInstance::get()->createUpdateQuery();
-                $conditions = erLhcoreClassModelCannedMsg::getConditions($filterParams['filter'], $q);
-                $q->update( 'lh_canned_msg' )
-                    ->set( 'disabled', (isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on' ? 1 : 0))
-                    ->where(
-                        $conditions
-                    );
-                $stmt = $q->prepare();
-                $stmt->execute();
+                foreach (erLhcoreClassModelCannedMsg::getList(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)) as $cannedMessage) {
+                    $cannedMessage->disabled = (isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on' ? 1 : 0);
+                    $cannedMessage->updateThis(['update' => ['disabled']]);
+                }
             }
 
             if (isset($_POST['dep_id_remove']) && is_numeric($_POST['dep_id_remove']) && (int)$_POST['dep_id_remove'] > 0) {
