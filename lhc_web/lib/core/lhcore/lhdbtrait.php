@@ -244,7 +244,7 @@ trait erLhcoreClassDBTrait
         return $stmt->fetch(PDO::FETCH_COLUMN);
     }
 
-    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false)
+    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false, $groupedCount = false)
     {
 
         if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
@@ -285,6 +285,11 @@ trait erLhcoreClassDBTrait
         $stmt = $q->prepare();
 
         $stmt->execute();
+
+        // I know I should use sub select, but just no time for that. Only canned messages is using that thing
+        if ($groupedCount === true) {
+            return count($stmt->fetchAll(PDO::FETCH_COLUMN));
+        }
 
         if ($fetchColumn == true) {
             $result = $stmt->fetchColumn();
