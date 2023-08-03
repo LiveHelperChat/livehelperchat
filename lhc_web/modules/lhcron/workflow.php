@@ -52,6 +52,27 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     }
 }
 
+// Auto Responder In the Background
+foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterin' => array('status' => [erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT]))) as $chat) {
+    try {
+
+        $db->beginTransaction();
+
+        $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+
+        if ($chat->auto_responder !== false) {
+            $chat->auto_responder->chat = $chat;
+            $chat->auto_responder->process();
+        }
+
+        $db->commit();
+    } catch (Exception $e) {
+        $db->rollback();
+        throw $e;
+    }
+}
+
+
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
 
