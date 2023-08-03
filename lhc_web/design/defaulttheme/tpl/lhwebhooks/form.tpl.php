@@ -27,7 +27,7 @@
 
 <hr class="border-top">
 
-<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
+<h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Conditions');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="material-icons text-muted">help</a><span class="text-muted fs13 ps-2">(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','optional');?>)</span></h5>
 
 <div class="row mb-2">
     <div class="col-6">
