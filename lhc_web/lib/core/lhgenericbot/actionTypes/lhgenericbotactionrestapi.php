@@ -81,10 +81,19 @@ class erLhcoreClassGenericBotActionRestapi
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
                     'restapi' => & $restAPI,
                     'chat' => $chat,
-                    'params' => $params
+                    'params' => $params,
+                    'method' => & $method
                 ));
 
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_after_request', array(
+                    'restapi' => & $restAPI,
+                    'chat' => $chat,
+                    'params' => $params,
+                    'method' => & $method,
+                    'response' => & $response
+                ));
 
                 // Store remote message
                 if (
