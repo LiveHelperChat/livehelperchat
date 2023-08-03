@@ -758,11 +758,13 @@ class erLhcoreClassChatWebhookIncoming {
 
                         $responder = $chat->auto_responder->auto_responder;
 
-                        if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT && is_object($responder) && $responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
-                                'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
-                                'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
-                                'exclude_bot' => true
-                            ))) {
+                        $isOnline = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                            'online_timeout' => (int)erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
+                            'exclude_bot' => true
+                        ));
+
+                        if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT && is_object($responder) && $responder->offline_message != '' && $isOnline === false) {
                             if (!isset($chatVariables['iwh_timeout']) || $chatVariables['iwh_timeout'] < time() - (int)259200) {
                                 $chatVariables['iwh_timeout'] = time();
                                 $chat->chat_variables_array = $chatVariables;
@@ -777,8 +779,28 @@ class erLhcoreClassChatWebhookIncoming {
                                 erLhcoreClassChat::getSession()->save($msgResponder);
 
                                 $chat->last_msg_id = $msgResponder->id;
+                            }
+                        } elseif ($renotify == true && $chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT && is_object($responder) && $responder->wait_message != '' && $isOnline === true) {
 
+                            $chatVariables['iwh_timeout'] = time();
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
 
+                            $msgResponder = new erLhcoreClassModelmsg();
+                            $msgResponder->msg = trim($responder->wait_message);
+                            $msgResponder->chat_id = $chat->id;
+                            $msgResponder->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
+                            $msgResponder->user_id = -2;
+                            $msgResponder->time = time() + 1;
+                            erLhcoreClassChat::getSession()->save($msgResponder);
+
+                            $chat->last_msg_id = $msgResponder->id;
+                        }
+
+                        if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $chat->auto_responder !== false) {
+                            if ($chat->auto_responder->active_send_status != 0 && $chat->last_user_msg_time < $chat->last_op_msg_time) {
+                                $chat->auto_responder->active_send_status = 0;
+                                $chat->auto_responder->saveThis();
                             }
                         }
                     }
@@ -987,6 +1009,12 @@ class erLhcoreClassChatWebhookIncoming {
                         if ($ip != '' && $chat->ip != $ip) {
                             $chat->ip = $ip;
                             erLhcoreClassModelChat::detectLocation($chat, "");
+                        }
+
+                        $country_code = self::extractAttribute('country_code', $conditions, $payloadMessage, $chat->country_code);
+
+                        if (!empty($country_code)) {
+                            $chat->country_code = strtolower($country_code);
                         }
                     }
 
@@ -1241,11 +1269,13 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($chat->status !== erLhcoreClassModelChat::STATUS_BOT_CHAT)
                     {
-                        if ($responder->offline_message != '' && !erLhcoreClassChat::isOnline($chat->dep_id, false, array(
-                                'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
-                                'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
-                                'exclude_bot' => true
-                            ))) {
+                        $isOnline = erLhcoreClassChat::isOnline($chat->dep_id, false, array(
+                            'online_timeout' => (int) erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data['online_timeout'],
+                            'ignore_user_status' => (int)erLhcoreClassModelChatConfig::fetch('ignore_user_status')->current_value,
+                            'exclude_bot' => true
+                        ));
+
+                        if ($responder->offline_message != '' && $isOnline === false) {
                             $msg = new erLhcoreClassModelmsg();
                             $msg->msg = trim($responder->offline_message);
                             $msg->chat_id = $chat->id;
@@ -1263,6 +1293,31 @@ class erLhcoreClassChatWebhookIncoming {
                             $chatVariables['iwh_timeout'] = time();
                             $chat->chat_variables_array = $chatVariables;
                             $chat->chat_variables = json_encode($chatVariables);
+
+                        } elseif ($responder->wait_message != '' && $isOnline === true) {
+
+                            $chatVariables['iwh_timeout'] = time();
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
+
+                            $msg = new erLhcoreClassModelmsg();
+                            $msg->msg = trim($responder->wait_message);
+                            $msg->chat_id = $chat->id;
+                            $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
+                            $msg->user_id = -2;
+                            $msg->time = time() + 1;
+                            erLhcoreClassChat::getSession()->save($msg);
+
+                            $messageResponder = $msg;
+
+                            if ($chat->last_msg_id < $msg->id) {
+                                $chat->last_msg_id = $msg->id;
+                            }
+
+                            $chatVariables['iwh_timeout'] = time();
+                            $chat->chat_variables_array = $chatVariables;
+                            $chat->chat_variables = json_encode($chatVariables);
+
                         }
                     }
                 }

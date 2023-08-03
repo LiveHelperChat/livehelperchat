@@ -280,6 +280,8 @@ class erLhAbstractModelAutoResponderChat
 
                         $lastMessageTime = self::getLastVisitorMessageTime($this->chat);
 
+                        echo $this->active_send_status,"\n";
+
                         for ($i = 5; $i >= 1; $i--) {
                             $this->auto_responder->{'timeout_op_reply_message_' . $i};
                             $this->auto_responder->{'wait_op_timeout_reply_' . $i};
