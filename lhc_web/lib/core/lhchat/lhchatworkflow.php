@@ -21,7 +21,7 @@ class erLhcoreClassChatWorkflow {
             \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $msg, 'chat' => & $chat));
 
-            erLhcoreClassChat::getSession()->save($msg);
+            $msg->saveThis();
 
             if ($chat->last_msg_id < $msg->id) {
                 $chat->last_msg_id = $msg->id;

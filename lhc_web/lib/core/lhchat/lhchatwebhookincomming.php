@@ -684,6 +684,8 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
+                    $last_user_msg_time = $chat->last_user_msg_time;
+
                     $msg = new erLhcoreClassModelmsg();
                     $msg->msg = self::extractMessageBody($msgBody, $payloadMessage);
                     $msg->chat_id = $chat->id;
@@ -798,7 +800,7 @@ class erLhcoreClassChatWebhookIncoming {
                         }
 
                         if ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD && $chat->auto_responder !== false) {
-                            if ($chat->auto_responder->active_send_status != 0 && $chat->last_user_msg_time < $chat->last_op_msg_time) {
+                            if ($chat->auto_responder->active_send_status != 0 && $last_user_msg_time < $chat->last_op_msg_time) {
                                 $chat->auto_responder->active_send_status = 0;
                                 $chat->auto_responder->saveThis();
                             }
