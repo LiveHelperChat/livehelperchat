@@ -6,7 +6,7 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/reaction_to_visitor.tpl.php'));?>
         <?php endif; ?>
 
-        <?php if ((!isset($visitorRender) || $visitorRender !== true) && isset($msg) && is_array($msg) && ($msg['user_id'] > 0 || $msg['user_id'] == -2)) : // Render status only for admin messages and bot?>
+        <?php if ((!isset($visitorRender) || $visitorRender !== true) && isset($msg) && isset($msg['del_st']) && is_array($msg) && ($msg['user_id'] > 0 || $msg['user_id'] == -2)) : // Render status only for admin messages and bot?>
             <?php if ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_PENDING) : ?>
                 <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','Scheduled for sent!')?>" class="material-icons text-warning msg-del-st-<?php echo erLhcoreClassModelmsg::STATUS_PENDING;?>">radio_button_unchecked</span>
             <?php elseif ($msg['del_st'] == erLhcoreClassModelmsg::STATUS_SENT) : ?>
