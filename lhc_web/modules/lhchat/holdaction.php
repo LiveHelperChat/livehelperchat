@@ -119,6 +119,8 @@ try {
 
                     $chat->last_msg_id = $msg->id;
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
+
                     $holdMessageSet = true;
                 }
 

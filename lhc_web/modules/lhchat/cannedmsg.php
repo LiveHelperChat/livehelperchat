@@ -167,6 +167,7 @@ if ($tab == 'cannedmsg') {
         $filterParams['filter']['filterin']['`lh_canned_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
     }
 
+    $countAlias = false;
     if (is_numeric($filterParams['input_form']->used_freq)) {
         if ($filterParams['input_form']->used_freq === 0) { // Zero usage
             $filterParams['filter']['customfilter'][] = '`lh_canned_msg`.`id` NOT IN (SELECT `lh_canned_msg_use`.`canned_id` FROM `lh_canned_msg_use` WHERE `lh_canned_msg_use`.`ctime` > '. (time() - 31*3600*24) . ')';
@@ -175,10 +176,12 @@ if ($tab == 'cannedmsg') {
             $filterParams['filter']['filtergt']['`lh_canned_msg_use`.`ctime`'] = time() - 31*24*3600;
             $filterParams['filter']['having'] = 'count(`lh_canned_msg`.`id`) = 1';
             $filterParams['filter']['group'] = '`lh_canned_msg`.`id`';
+            $countAlias = true;
         } elseif ($filterParams['input_form']->used_freq === 2) { // One or more
             $filterParams['filter']['innerjoin']['lh_canned_msg_use'] = array('`lh_canned_msg_use`.`canned_id`', '`lh_canned_msg`.`id`');
             $filterParams['filter']['filtergt']['`lh_canned_msg_use`.`ctime`'] = time() - 31*24*3600;
             $filterParams['filter']['group'] = '`lh_canned_msg`.`id`';
+            $countAlias = true;
         }
     }
 
@@ -191,7 +194,7 @@ if ($tab == 'cannedmsg') {
     if ($currentUser->hasAccessTo('lhchat','administratecannedmsg') && isset($_GET['quick_action'])) {
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/cannedmsg/quick_actions.tpl.php');
         $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/cannedmsg') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
-        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams)));
+        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],array('offset' => 0, 'limit' => false),$departmentParams), 'count',false,false,true,false,false, $countAlias));
 
         if (ezcInputForm::hasPostData()) {
             if ((isset($_POST['disable_canned']) && $_POST['disable_canned'] == 'on') ||
@@ -257,11 +260,11 @@ if ($tab == 'cannedmsg') {
             }
 
             erLhcoreClassRestAPIHandler::setHeaders();
-            echo json_encode(['left_to_delete' => erLhcoreClassModelCannedMsg::getCount($filterParams['filter'])]);
+            echo json_encode(['left_to_delete' => erLhcoreClassModelCannedMsg::getCount($filterParams['filter'], 'count',false,false,true,false,false, $countAlias)]);
             exit;
         }
 
-        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount($filterParams['filter']));
+        $tpl->set('update_records',erLhcoreClassModelCannedMsg::getCount($filterParams['filter'], 'count',false,false,true,false,false, $countAlias));
 
         echo $tpl->fetch();
         exit;
@@ -269,7 +272,7 @@ if ($tab == 'cannedmsg') {
 
     $pages = new lhPaginator();
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/cannedmsg') . $append;
-    $pages->items_total = erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],$departmentParams));
+    $pages->items_total = erLhcoreClassModelCannedMsg::getCount(array_merge_recursive($filterParams['filter'],$departmentParams), 'count',false,false,true,false,false, $countAlias);
     $pages->setItemsPerPage(20);
     $pages->paginate();
 
