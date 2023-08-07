@@ -10,6 +10,23 @@ $data = (array)$geoData->data;
 $geoLocationData = erLhcoreClassModelChatConfig::fetch('geo_location_data');
 $dataLocation = (array)$geoLocationData->data;
 
+
+if ( isset($_POST['test_ip_button']) ) {
+    $onlineUser = new erLhcoreClassModelChatOnlineUser();
+    $onlineUser->ip = $_POST['test_ip'];
+    erLhcoreClassModelChatOnlineUser::detectLocation($onlineUser);
+    echo json_encode(['result' =>
+        json_encode([
+            'user_country_name' => $onlineUser->user_country_name,
+            'user_country_code' => $onlineUser->user_country_code,
+            'city' => $onlineUser->city,
+            'lat' => $onlineUser->lat,
+            'lon' => $onlineUser->lon,
+        ],JSON_PRETTY_PRINT)
+    ]);
+    exit;
+}
+
 if ( isset($_POST['store_map']) ) {
 	$definition = array(
 			'zoom' => new ezcInputFormDefinitionElement(
