@@ -1,33 +1,34 @@
 {
-    "authors": [
-        {
-            "email": "remdex@gmail.com",
-            "name": "Remigijus Kiminas"
-        }
-    ],
-    "config": {
-        "sort-packages": true,
-        "vendor-dir": "lib/vendor"
-    },
-    "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
-    "homepage": "https://livehelperchat.com",
-    "keywords": [
-        "php",
-        "live support",
-        "livehelperchat",
-        "qt",
-        "xmpp"
-    ],
-    "license": [
-        "GPL-3.0-or-later",
-        "LGPL-3.0-or-later"
-    ],
-    "minimum-stability": "stable",
-    "name": "livehelperchat/livehelperchat",
-    "require": {
-        "ext-json": "*",
-        "minishlink/web-push": "^7.0",
-        "php": ">=7.3"
-    },
-    "type": "project"
+  "authors": [
+    {
+      "email": "remdex@gmail.com",
+      "name": "Remigijus Kiminas"
+    }
+  ],
+  "config": {
+    "sort-packages": true,
+    "vendor-dir": "lib/vendor"
+  },
+  "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
+  "homepage": "https://livehelperchat.com",
+  "keywords": [
+    "php",
+    "live support",
+    "livehelperchat",
+    "qt",
+    "xmpp"
+  ],
+  "license": [
+    "GPL-3.0-or-later",
+    "LGPL-3.0-or-later"
+  ],
+  "minimum-stability": "stable",
+  "name": "livehelperchat/livehelperchat",
+  "require": {
+    "php": ">=7.3",
+    "ext-json": "*",
+    "aws/aws-sdk-php": "^3.277",
+    "minishlink/web-push": "^7.0"
+  },
+  "type": "project"
 }
