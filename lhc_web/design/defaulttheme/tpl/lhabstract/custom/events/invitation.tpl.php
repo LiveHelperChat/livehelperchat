@@ -269,7 +269,7 @@
     </div>
     <div class="col-6">
          <label><?php echo erLhcoreClassAbstract::renderInput('use_default_autoresponder', $fields['use_default_autoresponder'], $object)?> <?php echo $fields['use_default_autoresponder']['trans'];?></label>
-         <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','If you do not choose a custom auto responder and do not use default one - proactive chats never will have auto responder assigned.');?></div>
+         <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.');?></div>
     </div>
 </div>
 
