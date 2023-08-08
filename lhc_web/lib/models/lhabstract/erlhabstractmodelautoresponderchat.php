@@ -170,6 +170,7 @@ class erLhAbstractModelAutoResponderChat
 
                 // Do not reset auto responder if visitor was redirected to survey
                 if (
+                    PHP_SAPI != 'cli' && // We do not that to be executed in the background
                     !(isset($botConfiguration['dreset_survey']) && $botConfiguration['dreset_survey'] == 1 && $this->chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) &&
                     (isset($botConfiguration['mint_reset']) && $botConfiguration['mint_reset'] > 0) &&
                     (isset($botConfiguration['maxt_reset']) && $botConfiguration['maxt_reset'] > 0))
