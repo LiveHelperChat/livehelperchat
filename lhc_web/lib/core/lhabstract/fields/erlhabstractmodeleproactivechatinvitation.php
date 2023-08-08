@@ -181,6 +181,13 @@ $proactiveAttr = array(
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
     ),
+    'use_default_autoresponder' => array(
+        'type' => 'checkbox',
+        'main_attr' => 'design_data_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Use default auto responder if available'),
+        'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'int')
+    ),
     'show_everytime' => array(
         'type' => 'checkbox',
         'main_attr' => 'design_data_array',

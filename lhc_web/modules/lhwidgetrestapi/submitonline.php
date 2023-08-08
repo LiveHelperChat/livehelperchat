@@ -254,7 +254,7 @@ if (empty($Errors)) {
                         erLhcoreClassChat::getSession()->save($msg);
                     }
 
-                    if ($ignoreResponder == false && $userInstance->invitation !== false) {
+                    if ($ignoreResponder == false && $userInstance->invitation !== false && (!isset($userInstance->invitation->design_data_array['use_default_autoresponder']) || $userInstance->invitation->design_data_array['use_default_autoresponder'] == false)) {
                         $responder = $userInstance->invitation->autoresponder;
                     }
 
