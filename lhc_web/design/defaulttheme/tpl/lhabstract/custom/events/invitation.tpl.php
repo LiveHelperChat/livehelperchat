@@ -260,7 +260,16 @@
 <?php $translatableItem = array('identifier' => 'message_returning_nick'); ?>
 <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
-<div class="form-group">
-<label><?php echo $fields['autoresponder_id']['trans'];?></label>
-<?php echo erLhcoreClassAbstract::renderInput('autoresponder_id', $fields['autoresponder_id'], $object)?>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label><?php echo $fields['autoresponder_id']['trans'];?></label>
+            <?php echo erLhcoreClassAbstract::renderInput('autoresponder_id', $fields['autoresponder_id'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+         <label><?php echo erLhcoreClassAbstract::renderInput('use_default_autoresponder', $fields['use_default_autoresponder'], $object)?> <?php echo $fields['use_default_autoresponder']['trans'];?></label>
+         <div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.');?></div>
+    </div>
 </div>
+

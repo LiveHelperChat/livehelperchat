@@ -119,8 +119,6 @@ try {
 
                     $chat->last_msg_id = $msg->id;
 
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat));
-
                     $holdMessageSet = true;
                 }
 
@@ -154,6 +152,10 @@ try {
     $db->commit();
 
     echo json_encode(array('error' => false, 'hold' => $hold, 'msg' => $msgStatus));
+
+    if (isset($holdMessageSet) && $holdMessageSet === true) {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat, 'ou' => null));
+    }
 
 } catch (Exception $e) {
     $db->rollback();
