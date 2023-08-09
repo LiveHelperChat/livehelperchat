@@ -211,7 +211,7 @@ class erLhcoreClassModelCannedMsg
             
             if (!($tag instanceof erLhcoreClassModelCannedMsgTag)) {                   
                 $tag = new erLhcoreClassModelCannedMsgTag();
-                $tag->tag = $tagKeywordTrimmed;
+                $tag->tag = substr($tagKeywordTrimmed,0,40);
                 $tag->saveThis();
             }
             
