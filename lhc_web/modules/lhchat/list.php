@@ -150,6 +150,30 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
     exit;
 }
 
+if (isset($Params['user_parameters_unordered']['export']) && $Params['user_parameters_unordered']['export'] == 3) {
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/delete_chats.tpl.php');
+    $tpl->set('action_url', erLhcoreClassDesign::baseurl('chat/list') . erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']));
+
+    if (ezcInputForm::hasPostData()) {
+        session_write_close();
+        $filterParams['filter']['limit'] = 20;
+        $filterParams['filter']['offset'] = 0;
+
+        foreach (erLhcoreClassModelChat::getList($filterParams['filter']) as $item){
+            $item->removeThis();
+        }
+
+        erLhcoreClassRestAPIHandler::setHeaders();
+        echo json_encode(['left_to_delete' => erLhcoreClassModelChat::getCount($filterParams['filter'])]);
+        exit;
+    }
+
+    $tpl->set('update_records',erLhcoreClassModelChat::getCount($filterParams['filter']));
+
+    echo $tpl->fetch();
+    exit;
+}
+
 $db = ezcDbInstance::get();
 
 try {
