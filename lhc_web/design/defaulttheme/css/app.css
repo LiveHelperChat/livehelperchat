@@ -1824,15 +1824,14 @@ html {
     top: 4px;
 }
 
-/*.dashboard-height #middle-column-page > div,*/
-.dashboard-height #middle-column-page,
+.dashboard-height #page-content-wrapper > .row,
 .dashboard-height #page-content-wrapper,
-.dashboard-height #wrapper{
-    /*-ms-flex-direction: column!important;
-    flex-direction: column!important;*/
-    display: flex!important;
-    flex-grow: 1!important;
+.dashboard-height #wrapper,
+.dashboard-height #middle-column-page
+{
+    height: 100%;
 }
+
 
 .dashboard-height #tabs{
     padding-top:15px;
@@ -1859,6 +1858,7 @@ html {
 .dashboard-height  #tabs > .tab-content > .tab-pane.active > .row{
     flex-grow: 1!important;
     display: flex!important;
+    height: 100%;
 }
 
 .dashboard-height .chat-main-left-column{
@@ -1918,26 +1918,27 @@ html {
 }
 
 .dashboard-height #page-content-wrapper > .row{
-    display: flex!important;
-    flex-grow: 1!important;
-    flex-direction: column;
+
 }
 
 .dashboard-height #middle-column-page > div{
     display: flex!important;
     flex-grow: 1!important;
     flex-direction: column;
+    height: 100%;
 }
 
 .dashboard-height #middle-column-page > div > .row{
     display: flex!important;
     flex-grow: 1!important;
+    height: 100%;
  }
 
 
 .dashboard-height #middle-column-page > div > .row > .col{
     display: flex!important;
     flex-grow: 1!important;
+    height: 100%;
 }
 
 .dashboard-panels .card-header .title-card-header{
