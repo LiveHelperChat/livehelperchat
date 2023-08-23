@@ -2761,6 +2761,10 @@ try {
                         array('module' => 'lhchat',  'function' => 'explorecannedmsg'),
                         array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
                         array('module' => 'lhchat',  'function' => 'list_all_chats'),
+                        array('module' => 'lhchat',  'function' => 'use_unhidden_phone'),
+                        array('module' => 'lhchat',  'function' => 'chat_see_email'),
+                        array('module' => 'lhchat',  'function' => 'chat_see_unhidden_email'),
+                        array('module' => 'lhchat',  'function' => 'see_sensitive_information'),
                         array('module' => 'lhpermission',   'function' => 'see_permissions'),
                         array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                         array('module' => 'lhfaq',   		'function' => 'manage_faq'),
@@ -2785,6 +2789,8 @@ try {
                         array('module' => 'lhtheme', 'function' => 'use_operator'),
                         array('module' => 'lhgenericbot', 'function' => 'use_operator'),
                     );
+
+
 
                     foreach ($permissionsArray as $paramsPermission) {
                         $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();

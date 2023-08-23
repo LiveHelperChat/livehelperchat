@@ -52,6 +52,11 @@ class erLhcoreClassModelChatIncoming {
                 }
                 return $this->payload_array;
 
+            case 'incoming_dynamic_array':
+                $chat_dynamic_array = [];
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.incoming_dynamic_array', array('incoming_chat' => $this, 'dynamic_array' => & $chat_dynamic_array));
+                $this->incoming_dynamic_array = $chat_dynamic_array;
+                return $this->incoming_dynamic_array;
 
             default:
                 break;

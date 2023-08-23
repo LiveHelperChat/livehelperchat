@@ -6,7 +6,7 @@ return array(
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/restapikey', 'Username'),
         'required' => true,
         'frontend' => 'username',
-        'params_call' => array(),
+        'params_call' => array('sort' => '`username` ASC', 'limit' => false),
         'source' => 'erLhcoreClassModelUser::getUserList',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::REQUIRED, 'int')
     ),
