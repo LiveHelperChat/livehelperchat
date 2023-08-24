@@ -1284,6 +1284,7 @@ class erLhcoreClassChatWebhookIncoming {
                             $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
                             $msg->user_id = -2;
                             $msg->time = time() + 1;
+                            $msg->meta_msg = '{"content":{"attr_options":{"wh_delay":4}}}';
                             erLhcoreClassChat::getSession()->save($msg);
 
                             $messageResponder = $msg;
@@ -1308,6 +1309,8 @@ class erLhcoreClassChatWebhookIncoming {
                             $msg->name_support = $responder->operator != '' ? $responder->operator : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Live Support');
                             $msg->user_id = -2;
                             $msg->time = time() + 1;
+                            $msg->meta_msg = '{"content":{"attr_options":{"wh_delay":4}}}';
+
                             erLhcoreClassChat::getSession()->save($msg);
 
                             $messageResponder = $msg;
