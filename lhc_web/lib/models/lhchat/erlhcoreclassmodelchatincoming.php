@@ -36,6 +36,10 @@ class erLhcoreClassModelChatIncoming {
                 $this->chat_external_first = explode('__',$this->chat_external_id)[0];
                 return $this->chat_external_first;
 
+            case 'chat_external_last':
+                $this->chat_external_last = explode('__',$this->chat_external_id)[1];
+                return $this->chat_external_last;
+
             case 'incoming':
                 $this->incoming = erLhcoreClassModelChatIncomingWebhook::fetch($this->incoming_id);
                 return $this->incoming;
