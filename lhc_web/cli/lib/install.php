@@ -2063,7 +2063,7 @@ class Install
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `chat_id` bigint(20) NOT NULL,
   `incoming_id` int(11) NOT NULL,
-  `chat_external_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `chat_external_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `utime` bigint(20) NOT NULL,
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
