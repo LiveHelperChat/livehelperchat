@@ -1809,6 +1809,14 @@ a:not([href]){
     overflow: visible !important;
 }
 
+.view-chat-column{
+    flex: 0 0 20%;
+}
+
+.dashboard-height #middle-column-page > div > .row > #view-content.col {
+    width: 80%;
+}
+
 html {
     height: 100%;
 }
