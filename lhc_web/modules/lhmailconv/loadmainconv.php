@@ -109,8 +109,8 @@ try {
         }
 
         erLhcoreClassChat::prefillGetAttributes($messages,
-            erLhcoreClassMailconv::$messagesAttributes,
-            erLhcoreClassMailconv::$messagesAttributesRemove
+            erLhcoreClassMailconv::$messagesAttributesLoaded,
+            erLhcoreClassMailconv::$messagesAttributesRemoveLoaded
         );
 
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');

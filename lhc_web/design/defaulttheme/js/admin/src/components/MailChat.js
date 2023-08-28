@@ -68,7 +68,8 @@ const MailChat = props => {
         last_message_id: 0,
         lmsop: 0,
         lgsync: 0,
-        fetching_messages: false
+        fetching_messages: false,
+        expand_messages: false
     });
 
     const rememberChat = (chatId) => {
@@ -170,6 +171,14 @@ const MailChat = props => {
             });
         }).catch((error) => {
 
+        });
+    }
+
+    const loadMessageBody = (message, data) => {
+        dispatch({
+            type: 'update_message',
+            message: data.message,
+            conv: data.conv
         });
     }
 
@@ -381,9 +390,24 @@ const MailChat = props => {
                     </h1>}
 
                     <div>
-                        {state.messages.map((message, index) => (
-                            <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} updateMessages={(e) => loadMainData()}/>
-                        ))}
+                        {state.messages.map((message, index) => {
+                            if (state.expand_messages == true ||            // Render all if requested
+                            state.messages.length < 5 ||                    // Render all if less than 5
+                            index == 0 ||                                   // Render first
+                            state.messages.length == (index + 1) ||         // Render last one
+                            state.messages.length - 2 == index) {           // Render before last one
+                                    return <React.Fragment>{state.expand_messages == false && state.messages.length >= 5 && state.messages.length - 2 == index && <div className="previous-mails-row" onClick={() => dispatch({type: 'update',value: {'expand_messages': true}})} ><span className="previous-number" title={t('mail.previous_messages')}>{state.messages.length - 3}</span></div>}<MailChatMessage setConversationStatus={(e) => setConversationStatus(e)}
+                                                            verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions}
+                                                            fetchMessages={(e) => fetchMessages(message)}
+                                                            fetchingMessages={state.fetching_messages} mode={props.mode}
+                                                            key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id}
+                                                            totalMessages={state.messages.length} index={index} message={message}
+                                                            noReplyRequired={(e) => noReplyRequired(message)}
+                                                            addLabel={(e) => addLabel(message)}
+                                                            updateMessages={(e) => loadMainData()}
+                                                            loadMessageBody={(data) => loadMessageBody(message, data)}/></React.Fragment>;
+                            }
+                        })}
 
                         {state.fetching_messages && <div className="alert alert-success p-1 ps-2" role="alert">{t('mail.send_fetching')}</div>}
                     </div>

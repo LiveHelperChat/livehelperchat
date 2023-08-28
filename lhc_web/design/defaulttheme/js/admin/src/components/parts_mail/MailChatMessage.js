@@ -5,10 +5,11 @@ import MailChatReply from "./MailChatReply";
 import {useTranslation} from 'react-i18next';
 import axios from "axios";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages, loadMessageBody}) => {
 
+    const [expandingBody, setExpandingBody] = useState(false);
     const [expandHeader, setExpandHeader] = useState(false);
-    const [expandBody, setExpandBody] = useState(index + 1 == totalMessages);
+    const [expandBody, setExpandBody] = useState(false);
     const [plainBody, setPlainBody] = useState(!!message.undelivered);
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
@@ -64,10 +65,27 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         setForwardMode(false);
     }
 
+    const loadAndExpand = expandAction => {
+        setExpandBody(expandAction);
+        if (expandAction == true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined') {
+            setExpandingBody(true);
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id).then(result => {
+                loadMessageBody(result.data);
+                setExpandingBody(false);
+            }).catch((error) => {
+
+            });
+        }
+    }
+
+    if (index + 1 == totalMessages && expandBody === false && expandingBody === false || (expandingBody === false && expandBody === true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined')) {
+        loadAndExpand(true);
+    }
+
     const { t, i18n } = useTranslation('mail_chat');
 
     return <div className={"row pb-2 mb-2 border-secondary" + (mode !== 'preview' ? ' border-top pt-2' : ' border-bottom')}>
-        <div className="col-7 action-image" onClick={() => setExpandBody(!expandBody)}>
+        <div className="col-7 action-image" onClick={() => loadAndExpand(!expandBody)}>
             <span title={"Expand message " + message.id} ><i className="material-icons">{expandBody ? 'expand_less' : 'expand_more'}</i></span>
             <b>{message.from_name}</b>
             <small>&nbsp;&lt;{message.from_address}&gt;&nbsp;</small>
@@ -104,8 +122,6 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                 </div>
             </div>}
         </div>
-
-
 
         {expandHeader && <div className="col-12">
 

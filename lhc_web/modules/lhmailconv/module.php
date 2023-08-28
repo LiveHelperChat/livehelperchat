@@ -165,6 +165,11 @@ $ViewList['apinoreplyrequired'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['loadmessagebody'] = array(
+    'params' => array('id'),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['apilabelmessage'] = array(
     'params' => array('id'),
     'uparams' => array('subject','status'),
