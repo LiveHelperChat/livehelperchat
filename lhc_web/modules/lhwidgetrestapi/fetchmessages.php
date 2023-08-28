@@ -126,7 +126,7 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 				        foreach ($Messages as $msg) {
 
-                            if ($firstOperatorMessageId == 0 && ($msg['user_id'] > 0 || $msg['user_id'] == -2) && strpos($content,'id="msg-'.$msg['id'].'"') !== false) {
+                            if (($firstOperatorMessageId == 0 || (isset($requestPayload['lmgsid']) && (int)$requestPayload['lmgsid'] == 0 && isset($requestPayload['new_chat']) && $requestPayload['new_chat'] == false)) && ($msg['user_id'] > 0 || $msg['user_id'] == -2) && strpos($content,'id="msg-'.$msg['id'].'"') !== false) {
                                 $firstOperatorMessageId = $msg['id'];
                             }
 
@@ -298,7 +298,13 @@ if ($operatorTotalMessages > 0) {
 }
 
 $responseArray['message_id'] = (int)$LastMessageID;
-$responseArray['message_id_first'] = (int)$firstOperatorMessageId;
+
+if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
+    $responseArray['message_id_first'] = $requestPayload['lfmsgid'];
+} else {
+    $responseArray['message_id_first'] = isset($operatorIdLast) && $operatorIdLast == 0 ? 0 : (int)$firstOperatorMessageId;
+}
+
 $responseArray['messages'] = trim($content);
 
 echo erLhcoreClassChat::safe_json_encode($responseArray);

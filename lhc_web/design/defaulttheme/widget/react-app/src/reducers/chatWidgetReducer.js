@@ -254,6 +254,10 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state.setIn(['chat_ui_state',action.data.attr],action.data.val);
         }
 
+        case 'UPDATE_LIVE_DATA': {
+            return state.setIn(['chatLiveData', action.data.attr], action.data.val);
+        }
+
         case 'INIT_CHAT_SUBMITTED' : {
 
             if (action.data.chat_ui_state) {
@@ -299,6 +303,8 @@ const chatWidgetReducer = (state = initialState, action) => {
 
             return state;
         }
+
+
 
         case 'FETCH_MESSAGES_SUBMITTED' : {
 
