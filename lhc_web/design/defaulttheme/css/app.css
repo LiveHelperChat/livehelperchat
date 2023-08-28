@@ -87,12 +87,14 @@ a.link {
     .chat-main-left-column.col-xl-8 .toolbar-chat,
     .chat-main-left-column.col-xl-8 .form-send-textarea,
     .dashboard-height .chat-main-left-column.col-xl-8 .message-block,
+    .dashboard-height .chat-main-left-column.col-xl-8 .user-is-typing,
     .chat-main-left-column.col-xl-8 .canned-message-holder{
         display: none!important;
     }
     .dashboard-height .chat-main-left-column.col-xl-8{
         height: 0px;
     }
+
     .chat-main-right-column{
         height: 98%;
     }
@@ -1828,6 +1830,14 @@ a:not([href]){
     flex: 0 0 30%;
     max-width: 350px;
     overflow: visible !important;
+}
+
+.view-chat-column{
+    flex: 0 0 20%;
+}
+
+.dashboard-height #middle-column-page > div > .row > #view-content.col {
+    width: 80%;
 }
 
 html {
