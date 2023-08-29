@@ -15,7 +15,7 @@
             <?php endforeach; ?>
         </div>
         <?php elseif ($type == 'warning') : ?>
-            <div class="text-warning"><?php echo htmlspecialchars(isset($metaMessage['content']) ? $metaMessage['content'] : htmlspecialchars($metaMessage))?></div>
+            <div class="text-danger"><?php echo htmlspecialchars(isset($metaMessage['content']) ? $metaMessage['content'] : htmlspecialchars($metaMessage))?></div>
         <?php elseif ($type == 'notice') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/msg_notice_admin.tpl.php'));?>
         <?php elseif ($type == 'chat_operation') : ?>
