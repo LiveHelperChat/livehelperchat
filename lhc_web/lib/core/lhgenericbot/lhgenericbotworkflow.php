@@ -1893,11 +1893,14 @@ class erLhcoreClassGenericBotWorkflow {
 
                 if ($continueExecution == true)
                 {
+                    $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
+
                     $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_trigger_click', array(
                         'chat' => & $chat,
                         'msg' => $messageContext,
                         'payload' => $payload,
                         'payload_hash' => $payloadHash,
+                        'button_payload' => $messageClickData
                     ));
 
                     if ($handler !== false) {
@@ -1913,8 +1916,6 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($continueExecution == true)
                     {
-                        $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
-
                         $messageClick = '';
 
                         if (isset($messageClickData['name'])) {
@@ -2049,11 +2050,14 @@ class erLhcoreClassGenericBotWorkflow {
 
                     if ($continueExecution == true)
                     {
+                        $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
+
                         $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_click', array(
                             'chat' => & $chat,
                             'msg' => $messageContext,
                             'payload' => $payload,
                             'payload_hash' => $payloadHash,
+                            'button_payload' => $messageClickData
                         ));
 
                         if ($handler !== false) {
@@ -2061,8 +2065,6 @@ class erLhcoreClassGenericBotWorkflow {
                         } else {
                             $event = self::findEvent($payload, $chat->gbot_id, 1, array(), array('dep_id' => $chat->dep_id));
                         }
-
-                        $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
 
                         $messageClick = '';
 

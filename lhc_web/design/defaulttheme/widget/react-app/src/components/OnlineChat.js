@@ -160,6 +160,7 @@ class OnlineChat extends Component {
                 }
             } else if (this.state.scrollButton !== false) {
                 this.setState({scrollButton: false, otm: 0});
+                this.props.dispatch({'type' : 'UPDATE_LIVE_DATA', 'data' : {'attr': 'lfmsgid', 'val': 0}});
             }
         }
     }
@@ -648,6 +649,7 @@ class OnlineChat extends Component {
             'chat_id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid']),
+            'lfmsgid' : this.props.chatwidget.getIn(['chatLiveData','lfmsgid']),
             'theme' : this.props.chatwidget.get('theme'),
             'new_chat' : this.props.chatwidget.get('newChat'),
             'active_widget' : (((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || (this.props.chatwidget.get('mode') != 'widget' && document.hasFocus())) && window.lhcChat['is_focused'] == true && this.state.messages_ui !== false)

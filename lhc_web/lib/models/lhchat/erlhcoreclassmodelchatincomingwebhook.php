@@ -59,6 +59,11 @@ class erLhcoreClassModelChatIncomingWebhook {
                 $this->attributes = $attributes;
                 return $this->attributes;
 
+            case 'incoming_url':
+                $this->incoming_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('webhooks/incoming') . '/' . $this->identifier;
+                return $this->incoming_url;
+                
+                
             default:
                 break;
         }
