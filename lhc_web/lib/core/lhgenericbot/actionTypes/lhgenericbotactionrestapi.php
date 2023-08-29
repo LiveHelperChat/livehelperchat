@@ -808,7 +808,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             $rawReplaceArray = array();
             foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
-                $rawReplaceArray['raw_'.$keyVariable] = trim($keyValue,"\"");
+                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',trim($keyValue,"\""));
             }
 
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
