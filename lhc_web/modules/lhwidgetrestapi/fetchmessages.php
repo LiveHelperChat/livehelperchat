@@ -54,7 +54,11 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
                 (
                     $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
                 ) || (
-                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false
+                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false &&
+                        (
+                            (isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false) ||
+                            (isset($department->bot_configuration_array['off_op_work_hours']) && $department->bot_configuration_array['off_op_work_hours'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'ignore_user_status' => true)) === false)
+                        )
                 )
             ) ) {
 
