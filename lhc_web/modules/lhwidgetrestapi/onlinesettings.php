@@ -766,6 +766,11 @@ if ($theme !== false) {
                     $chat->gbot_id = $bot->id;
                     $chat->additional_data_array = $onlineUser->online_attr_array;
                     $chat->chat_variables_array = $onlineUser->chat_variables_array;
+
+                    if (!(isset($theme->bot_configuration_array['use_system_tz']) && $theme->bot_configuration_array['use_system_tz'] == true) && $onlineUser->visitor_tz != '') {
+                        $chat->user_tz_identifier = $onlineUser->visitor_tz;
+                    }
+
                     if ($onlineUser->dep_id > 0) {
                         $chat->dep_id = $onlineUser->dep_id;
                     }

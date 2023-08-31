@@ -26,7 +26,7 @@
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')) : ?></a><?php endif; ?>
 
         </td>
-        <td ng-non-bindable title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?></a></td>
+        <td ng-non-bindable title="<?php echo $departament->sort_priority?>"><a class="d-block" href="<?php echo erLhcoreClassDesign::baseurl('department/edit')?>/<?php echo $departament->id?>"><?php echo htmlspecialchars($departament->name)?><span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Department alias');?>" class="ps-1 small text-muted"><?php echo htmlspecialchars($departament->alias);?></span></a></td>
         <td ng-non-bindable><?php echo htmlspecialchars($departament->email)?></td>
         <td ng-non-bindable><?php if ($departament->hidden == 1) : ?><span class="material-icons">visibility_off</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td ng-non-bindable><?php if ($departament->disabled == 1) : ?><span class="material-icons">block</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>

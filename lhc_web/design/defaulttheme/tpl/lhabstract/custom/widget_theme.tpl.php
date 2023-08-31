@@ -560,6 +560,10 @@
 						    <label><?php echo erLhcoreClassAbstract::renderInput('font_size', $fields['font_size'], $object)?> <?php echo $fields['font_size']['trans'];?></label>
         		        </div>
 
+						<div class="form-group">
+						    <label><?php echo erLhcoreClassAbstract::renderInput('use_system_tz', $fields['use_system_tz'], $object)?> <?php echo $fields['use_system_tz']['trans'];?></label>
+        		        </div>
+
                         <div class="form-group">
                             <label><?php echo $fields['embed_closed']['trans'];?></label>
                             <select name="AbstractInput_embed_closed" class="form-control form-control-sm">
