@@ -111,6 +111,7 @@ class OnlineChat extends Component {
         this.unhideDelayedTimer = null;
         this.pendingMetaUpdate = false;
         this.timeoutNewMessage = null;
+        this.timeoutScroll = null;
 
         this.isTyping = false;
         this.typingStopped = null;
@@ -451,6 +452,7 @@ class OnlineChat extends Component {
         clearInterval(this.typingStopped);
         clearTimeout(this.unhideDelayedTimer);
         clearTimeout(this.timeoutNewMessage);
+        clearTimeout(this.timeoutScroll);
     }
 
     // https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
@@ -618,8 +620,12 @@ class OnlineChat extends Component {
 
     scrollBottom(onlyIfAtBottom, smartScroll) {
         if (this.messagesAreaRef.current && (!onlyIfAtBottom || !this.state.scrollButton)) {
+
+            clearTimeout(this.timeoutScroll);
+
             this.doScrollBottom(smartScroll);
-            setTimeout(() => {
+
+            this.timeoutScroll = setTimeout(() => {
                 this.doScrollBottom(smartScroll);
                 if (this.state.showMessages === false) {
                     this.setState({'showMessages':true});

@@ -25,6 +25,7 @@ $content = '';
 $ott = '';
 $LastMessageID = 0;
 $firstOperatorMessageId = 0;
+$firstVisitorMessageId = 0;
 $userOwner = true;
 $saveChat = false;
 $operation = '';
@@ -144,6 +145,11 @@ if (is_object($chat) && $chat->hash === $requestPayload['hash'])
 
 				        	if ($msg['user_id'] == 0) {
                                 $visitorTotalMessages++;
+
+                                if ($firstVisitorMessageId == 0) {
+                                    $firstVisitorMessageId = $msg['id'];
+                                }
+
                             } else {
                                 $operatorTotalMessages++;
                             }
@@ -304,7 +310,7 @@ if ($operatorTotalMessages > 0) {
 $responseArray['message_id'] = (int)$LastMessageID;
 
 if (isset($requestPayload['lfmsgid']) && (int)$requestPayload['lfmsgid'] > 0) {
-    $responseArray['message_id_first'] = $requestPayload['lfmsgid'];
+    $responseArray['message_id_first'] = max($firstVisitorMessageId,$requestPayload['lfmsgid']); // We want to scroll to first visitor message
 } else {
     $responseArray['message_id_first'] = isset($operatorIdLast) && $operatorIdLast == 0 ? 0 : (int)$firstOperatorMessageId;
 }

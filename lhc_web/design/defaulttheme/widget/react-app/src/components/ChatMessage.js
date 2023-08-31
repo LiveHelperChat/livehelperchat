@@ -160,6 +160,10 @@ class ChatMessage extends PureComponent {
                 this.removeMetaMessage(attrs['data-id']);
             }
 
+            if (data.data.message_id_first && data.data.message_id_first > 0) {
+                this.props.dispatch({type: "UPDATE_SCROLL_TO_MESSAGE", data: data.data.message_id_first});
+            }
+            
             if (data.data.t) {
                 helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
             }
