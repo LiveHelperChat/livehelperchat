@@ -2022,7 +2022,8 @@ class erLhcoreClassChatValidator {
             if (isset($data['close_offline']) && $data['close_offline'] == 1) {
                 erLhcoreClassChatHelper::closeChat(array(
                     'chat' => & $params['chat'],
-                    'user' => false
+                    'user' => false,
+                    'append_message' => ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Offline message')
                 ));
             }
 

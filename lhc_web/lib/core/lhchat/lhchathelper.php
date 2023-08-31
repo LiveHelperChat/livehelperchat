@@ -182,6 +182,10 @@ class erLhcoreClassChatHelper
 
                 $msg->msg = ((isset($params['bot']) && $params['bot'] == true) ? erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'Bot') : (string) $msg->name_support) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closechatadmin', 'has closed the chat!');
 
+                if (isset($params['append_message'])) {
+                    $msg->msg .= $params['append_message'];
+                }
+                
                 $params['chat']->last_user_msg_time = $msg->time = time();
                 $params['chat']->cls_time = time();
 
