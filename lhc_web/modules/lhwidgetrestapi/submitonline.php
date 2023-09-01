@@ -500,6 +500,9 @@ if (empty($Errors)) {
             ));
         }
 
+        // We want to find first visitor message and always scroll to it
+        $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'sort' => 'id ASC', 'filter' => ['user_id' => 0, 'chat_id' => $chat->id]],'count','id','id');
+
         $db->commit();
 
         $validStart = true;
@@ -512,6 +515,9 @@ if (empty($Errors)) {
     $outputResponse = array (
         'success' => true,
         't' => erLhcoreClassGenericBotWorkflow::$triggerName,
+        'chatLiveData' => array (
+            'message_id_first' => (isset($message_id_first) ? $message_id_first : 0)
+        ),
         'chatData' => array (
             'id' => $chat->id,
             'hash' => $chat->hash,

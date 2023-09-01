@@ -211,7 +211,11 @@ const chatWidgetReducer = (state = initialState, action) => {
                     }
                 }
 
-                return state.set('processStatus', 2).set('isChatting',true).set('chatData',fromJS(action.data.chatData)).set('validationErrors',fromJS({}));;
+                return state.set('processStatus', 2).
+                set('isChatting',true).
+                set('chatData',fromJS(action.data.chatData)).
+                setIn(['chatLiveData','lfmsgid'],action.data.chatLiveData.message_id_first).
+                set('validationErrors',fromJS({}));
             } else {
                 return state.set('validationErrors',fromJS(action.data.errors)).set('processStatus',0).setIn(['chat_ui','auto_start'],false);
             }
@@ -256,6 +260,13 @@ const chatWidgetReducer = (state = initialState, action) => {
 
         case 'UPDATE_LIVE_DATA': {
             return state.setIn(['chatLiveData', action.data.attr], action.data.val);
+        }
+
+        case 'UPDATE_SCROLL_TO_MESSAGE': {
+            if (action.data > state.getIn(['chatLiveData','lfmsgid'])) {
+                return state.setIn(['chatLiveData', 'lfmsgid'], action.data);
+            }
+            return state;
         }
 
         case 'INIT_CHAT_SUBMITTED' : {

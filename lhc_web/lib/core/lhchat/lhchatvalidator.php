@@ -418,16 +418,20 @@ class erLhcoreClassChatValidator {
 	         	}
          	}
          }
-        
-        if ($form->hasValidData( 'user_timezone' ) && is_numeric($form->user_timezone)) {
-        	$timezone_name = timezone_name_from_abbr('', (int)$form->user_timezone*3600, true);
-        	if ($timezone_name !== false) {
-        		$chat->user_tz_identifier = $timezone_name;
-        	} else {
-        		$chat->user_tz_identifier = '';
-        	}
-        } else if ($form->hasValidData( 'user_timezone' ) && self::isValidTimezoneId2($form->user_timezone)) {
-            $chat->user_tz_identifier = $form->user_timezone;
+
+        if (!(isset($additionalParams['theme']) && $additionalParams['theme'] instanceof erLhAbstractModelWidgetTheme &&
+            isset($additionalParams['theme']->bot_configuration_array['use_system_tz']) &&
+            $additionalParams['theme']->bot_configuration_array['use_system_tz'] == true)) {
+            if ($form->hasValidData( 'user_timezone' ) && is_numeric($form->user_timezone)) {
+                $timezone_name = timezone_name_from_abbr('', (int)$form->user_timezone*3600, true);
+                if ($timezone_name !== false) {
+                    $chat->user_tz_identifier = $timezone_name;
+                } else {
+                    $chat->user_tz_identifier = '';
+                }
+            } else if ($form->hasValidData( 'user_timezone' ) && self::isValidTimezoneId2($form->user_timezone)) {
+                $chat->user_tz_identifier = $form->user_timezone;
+            }
         }
 
         if ($form->hasValidData( 'DepartmentIDDefined' )) {
@@ -2018,7 +2022,8 @@ class erLhcoreClassChatValidator {
             if (isset($data['close_offline']) && $data['close_offline'] == 1) {
                 erLhcoreClassChatHelper::closeChat(array(
                     'chat' => & $params['chat'],
-                    'user' => false
+                    'user' => false,
+                    'append_message' => ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Offline message')
                 ));
             }
 
