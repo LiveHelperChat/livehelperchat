@@ -363,6 +363,7 @@ const MailChat = props => {
         return function cleanup() {
            ee.removeListener('mailChatModified', mailChatModified);
            ee.removeListener('mailLabelsModified', mailLabelsModified);
+           ee.emitEvent('mailChatContentUnLoaded', [props.chatId]);
            forgetChat(props.chatId)
         };
     },[]);
