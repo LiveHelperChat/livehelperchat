@@ -54,6 +54,10 @@ if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractThe
 
 $additionalParams['payload_data'] = isset($requestPayload['fields']) ? $requestPayload['fields'] : array();
 
+if (isset($requestPayload['bpayload']['payload'])) {
+    $additionalParams['bpayload'] = $requestPayload['bpayload'];
+}
+
 if (isset($additionalParams['payload_data']['phash']) && isset($additionalParams['payload_data']['pvhash']) && (string)$additionalParams['payload_data']['phash'] != '' && (string)$additionalParams['payload_data']['pvhash'] != '') {
     $paidChatSettings = erLhcoreClassChatPaid::paidChatWorkflow(array(
         'uparams' => $additionalParams['payload_data'],

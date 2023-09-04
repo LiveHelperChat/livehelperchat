@@ -340,12 +340,11 @@ class erLhcoreClassChatValidator {
                 $chat->email = $inputForm->email = isset($_POST['Email']) ? $_POST['Email'] : '';
             }
         }
-        
+
         // Validate question
         if (isset($validationFields['Question'])) {
-
             if ( !$form->hasValidData('keyUpStarted') && (!$form->hasValidData( 'Question' ) || (trim($form->Question) == '' && (($start_data_fields['message_require_option'] == 'required' && !isset($additionalParams['offline'])) || (isset($additionalParams['offline']) && isset($start_data_fields['offline_message_require_option']) && $start_data_fields['offline_message_require_option'] == 'required'))))) {
-                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true) && !isset($additionalParams['ignore_required'])) {
+                if (!($inputForm->only_bot_online == 1 && isset($start_data_fields['message_hidden_bot']) && $start_data_fields['message_hidden_bot'] == true) && !isset($additionalParams['ignore_required']) && !isset($additionalParams['bpayload']['payload'])) {
                     $Errors['question'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your message');
                 }
             } elseif ($form->hasValidData( 'Question' )) {
