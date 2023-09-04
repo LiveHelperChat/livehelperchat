@@ -3,6 +3,7 @@
 echo json_encode(array(
     "mail" => [
         "follow_up" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Follow up of'),
+        "op_watching" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Operator who has opened this ticket'),
         "wait_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Wait time'),
         "copied" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Copied'),
         "copy_link" => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Copy link'),

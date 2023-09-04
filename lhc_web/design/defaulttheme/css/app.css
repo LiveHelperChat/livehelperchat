@@ -2339,3 +2339,20 @@ html {
     width: 40px;
     background: white;
 }
+
+.mail-watcher{
+    animation: myAnim 1s ease 0s 1 normal forwards;
+    display: inline-block;
+}
+
+@keyframes myAnim {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

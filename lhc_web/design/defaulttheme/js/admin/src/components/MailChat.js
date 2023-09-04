@@ -35,6 +35,30 @@ function reducer(state, action) {
             return state;
         }
 
+        case 'update_watching_ops': {
+            var foundIndex = state.op_watching.findIndex(x => x.user_id == action.watcher.user_id);
+            if (action.watcher.status === true) {
+                if (foundIndex === -1) {
+                    if (confLH.user_id != action.watcher.user_id) {
+                        action.watcher.ts = Math.floor(Date.now() / 1000);
+                        state.op_watching.push(action.watcher);
+                    }
+                } else {
+                    state.op_watching[foundIndex].ts = Math.floor(Date.now() / 1000);
+                }
+            } else if (action.watcher.status === false && foundIndex !== -1) {
+                state.op_watching.splice(foundIndex,1);
+            }
+
+            state.op_watching.forEach((element,index) => {
+                if (element.ts < Math.floor(Date.now() / 1000) - 15) {
+                    state.op_watching.splice(index,1);
+                }
+            });
+
+            return { ...state};
+        }
+
         case 'update_history': {
             state = { ...state, ...action.value };
             if (action.history.msg != '') {
@@ -58,6 +82,7 @@ const MailChat = props => {
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         operators: [],
+        op_watching: [],
         conv: null,
         loaded: false,
         saving_remarks: false,
@@ -332,6 +357,13 @@ const MailChat = props => {
         }
     }
 
+    const addOpWatching = (watcher) => {
+        dispatch({
+            type: 'update_watching_ops',
+            watcher: watcher
+        });
+    }
+
     const setConversationStatus = (status) => {
         dispatch({
             type: 'update_conversation',
@@ -356,13 +388,21 @@ const MailChat = props => {
             }
         }
 
+        function mailOpWatching(mail) {
+            if (props.chatId == mail.id) {
+                addOpWatching(mail);
+            }
+        }
+
         ee.addListener('mailChatModified', mailChatModified);
         ee.addListener('mailLabelsModified', mailLabelsModified);
         ee.addListener('mailMerged', mailChatModified);
+        ee.addListener('mail.op_watching', mailOpWatching);
 
         return function cleanup() {
            ee.removeListener('mailChatModified', mailChatModified);
            ee.removeListener('mailLabelsModified', mailLabelsModified);
+           ee.removeListener('mail.op_watching', mailOpWatching);
            ee.emitEvent('mailChatContentUnLoaded', [props.chatId]);
            forgetChat(props.chatId)
         };
@@ -563,7 +603,11 @@ const MailChat = props => {
                                     </tr>}
                                     <tr>
                                         <td title={state.conv.user_id}>{t('mail.chat_owner')}</td>
-                                        <td>{state.conv.plain_user_name}</td>
+                                        <td>{state.conv.plain_user_name}
+                                            {state.op_watching.map((op_watching, index) => {
+                                                return <span title={t('mail.op_watching')} className="ms-1 mail-watcher"><span className="material-icons text-success">visibility</span>{op_watching.name_official}</span>
+                                            })}
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>}
