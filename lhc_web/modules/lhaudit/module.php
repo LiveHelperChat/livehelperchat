@@ -7,7 +7,7 @@ $ViewList = array();
 
 $ViewList['configuration'] = array(
     'params' => array(),
-    'uparams' => array(),
+    'uparams' => array('csfr','action','id'),
     'functions' => array( 'use' ),
 );
 
