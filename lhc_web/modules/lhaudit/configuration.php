@@ -2,7 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhaudit/configuration.tpl.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $Params['user_parameters_unordered']['action'] == 'kill' && is_numeric($Params['user_parameters_unordered']['id'])) {
+if (!class_exists('erLhcoreClassInstance') && $_SERVER['REQUEST_METHOD'] === 'POST' && $Params['user_parameters_unordered']['action'] == 'kill' && is_numeric($Params['user_parameters_unordered']['id'])) {
     if (!isset($Params['user_parameters_unordered']['csfr']) || !$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
         die('Invalid CSRF Token');
         exit;
