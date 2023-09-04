@@ -49,6 +49,8 @@
 
 </form>
 
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_system')) : ?>
+
 <hr>
 
 <h4>Running queries</h4>
@@ -113,7 +115,7 @@ try {
 <?php print_r(htmlspecialchars(json_encode($_SERVER, JSON_PRETTY_PRINT)))?>
 </pre>
 
-<h4>
+<h4>phpinfo</h4>
     <?php
 
     function embedded_phpinfo()
@@ -150,5 +152,5 @@ try {
         ";
     }
     embedded_phpinfo();
+    endif;
     ?>
-</h4>
