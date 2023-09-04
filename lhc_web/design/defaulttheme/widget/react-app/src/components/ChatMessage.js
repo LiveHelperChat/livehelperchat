@@ -31,6 +31,8 @@ class ChatMessage extends PureComponent {
             element.setAttribute("disabled","disabled");
             element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
         }
+        
+        // add innertext as a message
     }
 
     /**

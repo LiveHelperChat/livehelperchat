@@ -1029,9 +1029,13 @@ textarea[name=ChatMessage] {
     animation: fadeIn ease 1s;
 }
 
+.msg-to-store{
+    opacity:0.3;
+}
+
 @keyframes fadeIn {
     0% {
-        opacity:0;
+        opacity:0.3;
     }
     100% {
         opacity:1;
