@@ -86,6 +86,7 @@ a.link {
 @media (max-width: 1200px) {
     .chat-main-left-column.col-xl-8 .toolbar-chat,
     .chat-main-left-column.col-xl-8 .form-send-textarea,
+    .chat-main-left-column.col-xl-8 .generic-small-res-hide,
     .dashboard-height .chat-main-left-column.col-xl-8 .message-block,
     .dashboard-height .chat-main-left-column.col-xl-8 .user-is-typing,
     .chat-main-left-column.col-xl-8 .canned-message-holder{
