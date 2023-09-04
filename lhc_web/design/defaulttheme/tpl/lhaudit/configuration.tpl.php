@@ -49,7 +49,7 @@
 
 </form>
 
-<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_system')) : ?>
+<?php if (!class_exists('erLhcoreClassInstance') && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_system')) : ?>
 
 <hr>
 
