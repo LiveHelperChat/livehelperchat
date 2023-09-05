@@ -26,14 +26,27 @@ class ChatMessage extends PureComponent {
         this.delayData = [];
     }
 
+    getDirectInnerText(element) {
+        var childNodes = element.childNodes;
+        result = '';
+
+        for (var i = 0; i < childNodes.length; i++) {
+            if(childNodes[i].nodeType == 3) {
+                result += childNodes[i].data;
+            }
+        }
+
+        return result;
+    }
+
     addLoader(attrs, element) {
 
         if (this.props.printButton == true && !attrs["data-no-msg"] && (attrs.type == 'button' || element.tagName === 'A')) {
             if (element.tagName !== 'A') {
                 this.removeMetaMessage(attrs['data-id'], 0);
             }
-            
-            this.props.dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: element.innerText}});
+
+            this.props.dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: getDirectInnerText(element)}});
         }
 
         if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {

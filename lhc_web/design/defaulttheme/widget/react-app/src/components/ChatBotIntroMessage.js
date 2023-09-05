@@ -17,10 +17,23 @@ class ChatBotIntroMessage extends PureComponent {
         this.disableEditor = false;
     }
 
+    getDirectInnerText(element) {
+        var childNodes = element.childNodes;
+        result = '';
+
+        for (var i = 0; i < childNodes.length; i++) {
+            if(childNodes[i].nodeType == 3) {
+                result += childNodes[i].data;
+            }
+        }
+
+        return result;
+    }
+
     addLoader(attrs, element) {
 
         if (this.props.printButton == true && !attrs["data-no-msg"] && (attrs.type == 'button' || element.tagName === 'A')) {
-            this.setState({value : element.innerText});
+            this.setState({value : getDirectInnerText(element)});
             if (element.tagName !== 'A') {
                 this.removeMetaMessage(attrs['data-id']);
             }
