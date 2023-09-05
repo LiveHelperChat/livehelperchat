@@ -33,10 +33,13 @@ class ChatBotIntroMessage extends PureComponent {
     }
 
     removeMetaMessage(messageId) {
-        var x = document.getElementById('messages-scroll').getElementsByClassName("meta-message-" + messageId);
-        var i;
-        for (i = 0; i < x.length; i++) {
-            x[i].parentNode.removeChild(x[i]);
+        var msgArea = document.getElementById('messages-scroll');
+        if (msgArea) {
+            var x = msgArea.getElementsByClassName("meta-message-" + messageId);
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].parentNode.removeChild(x[i]);
+            }
         }
     }
 
