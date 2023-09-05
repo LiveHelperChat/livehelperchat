@@ -85,6 +85,7 @@ class NodeTriggerActionList extends Component {
             button_list = this.props.action.getIn(['content','quick_replies']).map((reply, index) => {
                 return <NodeTriggerActionQuickReply onPayloadAttrChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content', e.payload.attr], value : e.payload.value})}
                                                     onPayloadTypeChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'type'], value : e.value})}
+                                                    onButtonNoName={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','no_name'], value : e.value})}
                                                     deleteReply={(e) => this.props.removeQuickReply({id : this.props.id, 'path' : ['content','quick_replies',e.id]})}
                                                     onNameChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','name'], value : e.value})}
                                                     onPayloadChange={(e) => this.props.onChangeContent({id : this.props.id, 'path' : ['content','quick_replies',e.id,'content','payload'], value : e.value})}

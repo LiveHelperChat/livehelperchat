@@ -917,6 +917,7 @@ textarea[name=ChatMessage] {
     padding: 6px 0;
     text-align: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .bot-btn-list > li a:hover{
@@ -937,6 +938,7 @@ textarea[name=ChatMessage] {
     text-align: center;
     font-size: 14px;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .list-group {

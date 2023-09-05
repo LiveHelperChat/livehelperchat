@@ -886,6 +886,10 @@ if ($theme !== false) {
         $chat_ui['proactive_once_typed'] = 1;
     }
 
+    if (isset($theme->bot_configuration_array['print_btn_msg']) && $theme->bot_configuration_array['print_btn_msg'] == true) {
+        $chat_ui['print_btn_msg'] = true;
+    }
+
     if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
         $chat_ui['clinst'] = true;
     }

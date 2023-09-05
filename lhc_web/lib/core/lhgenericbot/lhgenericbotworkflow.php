@@ -1769,6 +1769,7 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
         } elseif (isset($metaData['content']['list']['items'])) {
+
             foreach ($metaData['content']['list']['items'] as $item) {
                 if (isset($item['buttons'])){
                     foreach ($item['buttons'] as $reply){
@@ -1778,6 +1779,15 @@ class erLhcoreClassGenericBotWorkflow {
                     }
                 }
             }
+
+            if (isset($metaData['content']['list']['list_quick_replies'])) {
+                foreach ($metaData['content']['list']['list_quick_replies'] as $item) {
+                    if ($item['content']['payload'] == $payload && (!isset($paramsExecution['payload_hash']) || $paramsExecution['payload_hash'] == '' || md5($item['content']['name']) == $paramsExecution['payload_hash'])) {
+                        return $returnAll == false ? $item['content']['name'] : $item['content'];
+                    }
+                }
+            }
+
         } elseif (isset($metaData['content']['generic']['items'])) {
             foreach ($metaData['content']['generic']['items'] as $item) {
                 if (isset($item['buttons'])) {

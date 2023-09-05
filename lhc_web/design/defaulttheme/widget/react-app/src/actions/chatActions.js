@@ -772,6 +772,8 @@ export function addMessage(obj) {
                 }
 
                 syncStatus.add_msg = false;
+
+                dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: '' }});
             })
     }
 }

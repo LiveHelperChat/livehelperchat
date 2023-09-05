@@ -535,7 +535,7 @@ class OnlineChat extends Component {
             if (this.props.chatwidget.get('newChat') == true && this.props.chatwidget.getIn(['chatLiveData','messages']).size == 1) {
                 this.scrollBottom(false, true);
             } else {
-                this.scrollBottom(false, false);
+                this.scrollBottom(false, prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']) != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']));
             }
         }
 
@@ -566,7 +566,7 @@ class OnlineChat extends Component {
                 var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
                 if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) > messageElement.offsetTop) {
                     this.setState({scrollButton: true});
-                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
+                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -615,7 +615,7 @@ class OnlineChat extends Component {
         if (this.messagesAreaRef.current) {
             var messageElement;
             if (smartScroll && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
-                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
+                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
             } else {
                 this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             }
@@ -852,7 +852,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage reactToMessageId={this.state.reactToMsgId} setReactingTo={(messageId) => this.setState({'reactToMsgId' : messageId})} themeId={this.props.chatwidget.get('theme')} profilePic={this.props.chatwidget.get('profile_pic')} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessage={this.updateMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage reactToMessageId={this.state.reactToMsgId} setReactingTo={(messageId) => this.setState({'reactToMsgId' : messageId})} themeId={this.props.chatwidget.get('theme')} profilePic={this.props.chatwidget.get('profile_pic')} printButton={this.props.chatwidget.getIn(['chat_ui','print_btn_msg'])} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessage={this.updateMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }
