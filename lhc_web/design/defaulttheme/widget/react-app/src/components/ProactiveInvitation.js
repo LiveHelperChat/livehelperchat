@@ -167,7 +167,7 @@ class ProactiveInvitation extends Component {
                                 </div>}
                                 <div id="inv-msg-wrapper">
                                     <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['proactive','data','message'])}}></p>
-                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
+                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage printButton={false} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive','data','message_full'])} />}
                                 </div>
                             </div>
 
@@ -186,7 +186,7 @@ class ProactiveInvitation extends Component {
                                 </div>
                                 <div id="inv-msg-wrapper">
                                     <p className="fs13 mb-0 inv-msg-cnt" dangerouslySetInnerHTML={{__html: this.props.chatwidget.getIn(['proactive', 'data', 'message'])}}></p>
-                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive', 'data', 'message_full'])} />}
+                                    {this.props.chatwidget.hasIn(['proactive','data','bot_intro']) && <ChatBotIntroMessage printButton={false} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['proactive', 'data', 'message_full'])} />}
                                 </div>
                             </div>
                         }

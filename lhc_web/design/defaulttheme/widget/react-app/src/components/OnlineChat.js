@@ -527,11 +527,15 @@ class OnlineChat extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
 
         // Update untill we are sure that messages can be shown
-        if (this.state.showMessages === false || prevProps.chatwidget.getIn(['chatLiveData','status']) != this.props.chatwidget.getIn(['chatLiveData','status'])) {
+        if (
+            this.state.showMessages === false ||
+            prevProps.chatwidget.getIn(['chatLiveData','status']) != this.props.chatwidget.getIn(['chatLiveData','status']) ||
+            prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']) != this.props.chatwidget.getIn(['chatLiveData','msg_to_store'])
+        ) {
             if (this.props.chatwidget.get('newChat') == true && this.props.chatwidget.getIn(['chatLiveData','messages']).size == 1) {
                 this.scrollBottom(false, true);
             } else {
-                this.scrollBottom(false, false);
+                this.scrollBottom(false, prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']) != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']));
             }
         }
 
@@ -562,7 +566,7 @@ class OnlineChat extends Component {
                 var messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']));
                 if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) > messageElement.offsetTop) {
                     this.setState({scrollButton: true});
-                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
+                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -611,7 +615,7 @@ class OnlineChat extends Component {
         if (this.messagesAreaRef.current) {
             var messageElement;
             if (smartScroll && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
-                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop;
+                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
             } else {
                 this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             }
@@ -848,7 +852,7 @@ class OnlineChat extends Component {
         } else {
 
             if (this.props.chatwidget.get('chatLiveData').has('messages')) {
-                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage reactToMessageId={this.state.reactToMsgId} setReactingTo={(messageId) => this.setState({'reactToMsgId' : messageId})} themeId={this.props.chatwidget.get('theme')} profilePic={this.props.chatwidget.get('profile_pic')} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessage={this.updateMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
+                var messages = this.props.chatwidget.getIn(['chatLiveData','messages']).map((msg, index) =><ChatMessage reactToMessageId={this.state.reactToMsgId} setReactingTo={(messageId) => this.setState({'reactToMsgId' : messageId})} themeId={this.props.chatwidget.get('theme')} profilePic={this.props.chatwidget.get('profile_pic')} printButton={this.props.chatwidget.getIn(['chat_ui','print_btn_msg'])} newTitle={this.props.chatwidget.getIn(['chat_ui','cnew_msgh']) || t('button.new')} newId={this.state.newId} hasNew={this.state.hasNew} voiceCall={this.voiceCall} endChat={this.props.endChat} setMetaUpdateState={this.setMetaUpdateState} sendDelay={this.sendDelay} setEditorEnabled={this.setEditorEnabled} abstractAction={this.abstractAction} updateStatus={this.updateStatus} focusMessage={this.focusMessage} updateMessage={this.updateMessage} updateMessages={this.updateMessages} scrollBottom={this.scrollBottom} id={index} key={'msg_'+index} msg={msg} />);
             } else {
                 var messages = "";
             }
@@ -983,6 +987,11 @@ class OnlineChat extends Component {
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
+                            {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']) != '' && <div data-op-id="0" className="message-row response msg-to-store">
+                                <div className="msg-body">
+                                    {this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).split('\n').map((item, idx) => {return (<React.Fragment key={idx}>{item}<br /></React.Fragment>)})}
+                                </div>
+                            </div>}
                         </div>
                         {this.state.scrollButton && <div className="position-absolute btn-bottom-scroll fade-in" id="id-btn-bottom-scroll"><button type="button" onClick={this.scrollToMessage} className="btn btn-sm btn-secondary">{(this.state.hasNew && this.state.otm > 0 && <div><i className="material-icons">&#xf11a;</i>{this.state.otm} {(this.state.otm == 1 ? (this.props.chatwidget.getIn(['chat_ui','cnew_msg']) || t('button.new_msg')) : (this.props.chatwidget.getIn(['chat_ui','cnew_msgm']) || t('button.new_msgm')))}</div>) || (this.props.chatwidget.getIn(['chat_ui','cscroll_btn']) || t('button.scroll_bottom'))}</button></div>}
                     </div>

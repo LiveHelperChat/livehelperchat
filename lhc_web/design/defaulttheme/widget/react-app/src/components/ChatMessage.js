@@ -27,7 +27,16 @@ class ChatMessage extends PureComponent {
     }
 
     addLoader(attrs, element) {
-        if (!attrs["data-no-change"] && attrs.type == 'button') {
+
+        if (this.props.printButton == true && !attrs["data-no-msg"] && (attrs.type == 'button' || element.tagName === 'A')) {
+            if (element.tagName !== 'A') {
+                this.removeMetaMessage(attrs['data-id'], 0);
+            }
+            
+            this.props.dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: element.innerText}});
+        }
+
+        if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {
             element.setAttribute("disabled","disabled");
             element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
         }
@@ -141,7 +150,7 @@ class ChatMessage extends PureComponent {
         }*/
     }
 
-    removeMetaMessage(messageId) {
+    removeMetaMessage(messageId, timeout) {
         setTimeout(() => {
             var block = document.getElementById('msg-' + messageId);
             if (block) {
@@ -151,7 +160,7 @@ class ChatMessage extends PureComponent {
                     x[i].parentNode.removeChild(x[i]);
                 }
             }
-        },500);
+        },typeof timeout === 'undefined' ? 500 : timeout);
     }
 
     updateTriggerClicked(paramsType, attrs, target) {
@@ -272,11 +281,10 @@ class ChatMessage extends PureComponent {
                             domNode.attribs.className += ' current-reacting-to';
                         }
 
+                        domNode.attribs.className += ' fade-in-fast';
+
                         // Animate only if it's not first sync call
                         if (domNode.attribs.className.indexOf('message-row') !== -1 && this.props.id > 0) {
-
-                            domNode.attribs.className += ' fade-in-fast';
-
                             if (this.props.msg['msop'] > 0 && this.props.msg['msop'] != this.props.msg['lmsop'] && operatorChanged == false) {
                                 domNode.attribs.className += ' operator-changes';
                                 operatorChanged = true;
