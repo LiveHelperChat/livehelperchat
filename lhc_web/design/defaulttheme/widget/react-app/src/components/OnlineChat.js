@@ -1035,7 +1035,7 @@ class OnlineChat extends Component {
 
                                 <div className="user-chatwidget-buttons pt-2 pe-1" id="ChatSendButtonContainer">
 
-                                    {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds="30" cancel={this.cancelVoiceRecording} /></Suspense>}
+                                    {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds={this.props.chatwidget.hasIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} /></Suspense>}
 
                                     {!this.state.valueSend && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
                                        <i className="material-icons text-muted settings me-0">&#xf10b;</i>
