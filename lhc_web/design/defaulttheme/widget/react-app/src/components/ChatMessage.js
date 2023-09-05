@@ -28,11 +28,11 @@ class ChatMessage extends PureComponent {
 
     getDirectInnerText(element) {
         var childNodes = element.childNodes;
-        result = '';
+        var result = '';
 
         for (var i = 0; i < childNodes.length; i++) {
             if(childNodes[i].nodeType == 3) {
-                result += childNodes[i].data;
+                result += childNodes[i].data.trim();
             }
         }
 
