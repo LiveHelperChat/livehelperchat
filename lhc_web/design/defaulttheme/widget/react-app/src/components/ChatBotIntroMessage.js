@@ -33,7 +33,7 @@ class ChatBotIntroMessage extends PureComponent {
     addLoader(attrs, element) {
 
         if (this.props.printButton == true && !attrs["data-no-msg"] && (attrs.type == 'button' || element.tagName === 'A')) {
-            this.setState({value : getDirectInnerText(element)});
+            this.setState({value : this.getDirectInnerText(element)});
             if (element.tagName !== 'A') {
                 this.removeMetaMessage(attrs['data-id']);
             }
