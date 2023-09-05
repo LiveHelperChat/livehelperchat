@@ -46,7 +46,7 @@ class ChatMessage extends PureComponent {
                 this.removeMetaMessage(attrs['data-id'], 0);
             }
 
-            this.props.dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: getDirectInnerText(element)}});
+            this.props.dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: this.getDirectInnerText(element)}});
         }
 
         if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {
