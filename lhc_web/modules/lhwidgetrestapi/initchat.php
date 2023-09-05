@@ -139,6 +139,10 @@ try {
                 if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
                     $outputResponse['chat_ui']['msg_expand'] = true;
                 }
+                
+                if (isset($theme->bot_configuration_array['print_btn_msg']) && $theme->bot_configuration_array['print_btn_msg'] == true) {
+                    $outputResponse['chat_ui']['print_btn_msg'] = true;
+                }
 
                 if (isset($theme->bot_configuration_array['font_size']) && $theme->bot_configuration_array['font_size'] == true) {
                     $outputResponse['chat_ui']['font_size'] = true;

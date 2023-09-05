@@ -687,6 +687,8 @@ export function addMessage(obj) {
             });
         }
 
+        dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: obj.msg }});
+
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj, defaultHeaders)
             .then((response) => {
                 try {
@@ -770,6 +772,8 @@ export function addMessage(obj) {
                 }
 
                 syncStatus.add_msg = false;
+
+                dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: '' }});
             })
     }
 }

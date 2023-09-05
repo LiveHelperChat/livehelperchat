@@ -507,6 +507,10 @@ if (empty($Errors)) {
         // We want to find first visitor message and always scroll to it
         $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'sort' => 'id ASC', 'filter' => ['user_id' => 0, 'chat_id' => $chat->id]],'count','id','id');
 
+        if ($message_id_first == 0) { // Sometimes action can be a button click without saving visitor message, in this scenario there is no visitor message
+            $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'offset' => 1, 'sort' => 'id ASC', 'filter' => ['chat_id' => $chat->id]],'count','id','id');
+        }
+
         $db->commit();
 
         $validStart = true;
