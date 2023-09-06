@@ -158,6 +158,7 @@ const chatWidgetReducer = (state = initialState, action) => {
                 .set('chatStatusData',fromJS({}))
                 .set('chat_ui_state',fromJS({'confirm_close': 0, 'show_survey' : 0, 'pre_survey_done' : 0}))
                 .set('initClose',false)
+                .set('msgLoaded',false)
                 .set('initLoaded',false);
         }
 
@@ -315,9 +316,13 @@ const chatWidgetReducer = (state = initialState, action) => {
             return state;
         }
 
-
-
         case 'FETCH_MESSAGES_SUBMITTED' : {
+
+            // Ignore request if chat is gone
+            // Avoids flicker
+            if (!state.hasIn(['chatData','id'])) {
+                return state;
+            }
 
             if (action.data.closed_arg && action.data.closed_arg.survey_id) {
                 state = state.setIn(['chat_ui','survey_id'],action.data.closed_arg.survey_id);

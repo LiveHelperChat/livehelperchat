@@ -177,6 +177,11 @@ class StartChat extends Component {
     }
 
     handleContentChange(obj) {
+
+        if (this.props.chatwidget.get('processStatus') != 0) {
+            return;
+        }
+
         var currentState = this.state;
         currentState[obj.id] = obj.value;
         this.setState(currentState);
