@@ -1023,14 +1023,13 @@ textarea[name=ChatMessage] {
     outline: none;
 }
 
-.fade-in-fast {
+/* I just don't like how they look so we get rid of this animation.*/
+/*.fade-in-fast {
     animation: fadeIn ease 0.3s;
 }
-
 .fade-in {
     animation: fadeIn ease 1s;
-}
-
+}*/
 .msg-to-store{
     opacity:0.3;
 }

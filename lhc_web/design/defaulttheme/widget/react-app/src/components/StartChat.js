@@ -177,6 +177,11 @@ class StartChat extends Component {
     }
 
     handleContentChange(obj) {
+
+        if (this.props.chatwidget.get('processStatus') != 0) {
+            return;
+        }
+
         var currentState = this.state;
         currentState[obj.id] = obj.value;
         this.setState(currentState);
@@ -246,16 +251,6 @@ class StartChat extends Component {
     }
 
     componentWillUnmount() {
-        var messagesScroll = document.getElementById('messagesBlock');
-        if (messagesScroll !== null) {
-            this.props.setMessages(messagesScroll.innerHTML);
-        }
-
-        var profileBody = document.getElementById('lhc-profile-body');
-        if (profileBody !== null) {
-            this.props.setProfile(profileBody.innerHTML);
-        }
-
         var elm = document.getElementById('CSChatMessage');
         if (elm === null) {
             this.props.setHideMessageField(true);
@@ -302,6 +297,18 @@ class StartChat extends Component {
         this.updateOnlineFields();
         if (document.getElementById('id-container-fluid')) {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
+        }
+
+        if (this.props.chatwidget.get('processStatus') === 1 && prevProps.chatwidget.get('processStatus') !== 1) {
+            var messagesScroll = document.getElementById('messagesBlock');
+            if (messagesScroll !== null) {
+                this.props.setMessages(messagesScroll.innerHTML);
+            }
+
+            var profileBody = document.getElementById('lhc-profile-body');
+            if (profileBody !== null) {
+                this.props.setProfile(profileBody.innerHTML);
+            }
         }
 
         let needFocus = false;
