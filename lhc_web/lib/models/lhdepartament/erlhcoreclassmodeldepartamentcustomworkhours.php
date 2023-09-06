@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelDepartamentCustomWorkHours
 {
     use erLhcoreClassDBTrait;

@@ -1,7 +1,7 @@
 <?php
 
 namespace LiveHelperChat\Models\LHCAbstract;
-
+#[\AllowDynamicProperties]
 class ChatMessagesGhosting {
 
     use \erLhcoreClassDBTrait;

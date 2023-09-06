@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelGenericBotChatWorkflow {
 
     use erLhcoreClassDBTrait;

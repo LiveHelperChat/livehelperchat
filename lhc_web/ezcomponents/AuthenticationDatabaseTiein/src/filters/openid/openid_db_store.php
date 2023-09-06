@@ -34,6 +34,7 @@
  * @package AuthenticationDatabaseTiein
  * @version 1.1
  */
+#[\AllowDynamicProperties]
 class ezcAuthenticationOpenidDbStore extends ezcAuthenticationOpenidStore
 {
     /**

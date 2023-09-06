@@ -1,7 +1,7 @@
 <?php
 
 namespace LiveHelperChat\Models\Brand;
-
+#[\AllowDynamicProperties]
 class Brand {
 
     use \erLhcoreClassDBTrait;

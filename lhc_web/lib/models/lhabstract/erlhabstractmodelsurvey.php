@@ -6,7 +6,7 @@
  * @desc Main chat survey object
  *
  */
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelSurvey {
 
     use erLhcoreClassDBTrait;

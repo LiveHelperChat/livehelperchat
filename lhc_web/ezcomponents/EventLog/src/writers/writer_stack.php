@@ -17,6 +17,7 @@
  * @package EventLog
  * @version 1.4
  */
+#[\AllowDynamicProperties]
 class ezcLogStackWriter implements ezcLogWriter, IteratorAggregate
 {
     /**
