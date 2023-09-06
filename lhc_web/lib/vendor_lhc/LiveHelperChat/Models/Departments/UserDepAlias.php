@@ -1,7 +1,7 @@
 <?php
 
 namespace LiveHelperChat\Models\Departments;
-
+#[\AllowDynamicProperties]
 class UserDepAlias {
 
     use \erLhcoreClassDBTrait;

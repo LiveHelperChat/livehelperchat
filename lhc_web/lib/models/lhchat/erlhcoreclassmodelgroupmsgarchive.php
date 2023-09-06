@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 /**
  * Just extends class to support proper class loading
  * */

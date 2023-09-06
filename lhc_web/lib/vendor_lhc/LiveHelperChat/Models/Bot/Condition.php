@@ -1,7 +1,7 @@
 <?php
 
 namespace LiveHelperChat\Models\Bot;
-
+#[\AllowDynamicProperties]
 class Condition {
 
     use \erLhcoreClassDBTrait;

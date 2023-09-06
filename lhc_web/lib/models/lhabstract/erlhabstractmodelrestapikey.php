@@ -7,6 +7,7 @@
  * @desc Rest API Key
  *
  */
+#[\AllowDynamicProperties]
 class erLhAbstractModelRestAPIKey
 {
 

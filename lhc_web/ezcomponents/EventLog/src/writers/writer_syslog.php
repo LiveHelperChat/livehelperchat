@@ -30,6 +30,7 @@
  * @package EventLog
  * @version 1.4
  */
+#[\AllowDynamicProperties]
 class ezcLogSyslogWriter implements ezcLogWriter
 {
 

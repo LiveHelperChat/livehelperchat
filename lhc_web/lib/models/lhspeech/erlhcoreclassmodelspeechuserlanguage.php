@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelSpeechUserLanguage {
 
     use erLhcoreClassDBTrait;
