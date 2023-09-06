@@ -10,7 +10,7 @@ try {
     $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
 
     // Un-merge by message
-    LiveHelperChat\mailConv\helpers\MergeHelper::unMerge($message);
+    LiveHelperChat\mailConv\helpers\MergeHelper::unMerge($message, ['user_id' => $currentUser->getUserID(), 'name_support' => $currentUser->getUserData()->name_support]);
 
     echo json_encode(array(
         'result' => true

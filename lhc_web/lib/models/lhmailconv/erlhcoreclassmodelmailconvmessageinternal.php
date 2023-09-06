@@ -31,6 +31,13 @@ class erLhcoreClassModelMailconvMessageInternal
         );
     }
 
+    public function beforeSave($params = array())
+    {
+        if ($this->time == 0) {
+            $this->time = time();
+        }
+    }
+
     public function __get($var)
     {
 
@@ -61,7 +68,7 @@ class erLhcoreClassModelMailconvMessageInternal
     }
 
     public $id = null;
-    public $time = '';
+    public $time = 0;
     public $chat_id = null;
     public $user_id = null;
     public $name_support = '';

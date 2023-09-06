@@ -38,7 +38,7 @@ if (ezcInputForm::hasPostData($mail)) {
 
     if (empty($Errors)) {
         try {
-            LiveHelperChat\mailConv\helpers\MergeHelper::merge($mergeDestination, $sourceDestinations);
+            LiveHelperChat\mailConv\helpers\MergeHelper::merge($mergeDestination, $sourceDestinations, ['user_id' => $currentUser->getUserID(), 'name_support' => $currentUser->getUserData()->name_support]);
             $tpl->set('updated', true);
         } catch (Exception $e) {
             $tpl->set('errors', [$e->getMessage()]);
