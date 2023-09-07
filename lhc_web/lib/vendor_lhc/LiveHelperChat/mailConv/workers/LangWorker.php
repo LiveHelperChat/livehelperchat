@@ -1,6 +1,6 @@
 <?php
 namespace LiveHelperChat\mailConv\workers;
-
+#[\AllowDynamicProperties]
 class LangWorker
 {
     public function perform()

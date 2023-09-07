@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelMailconvMailingListRecipient
 {
     use erLhcoreClassDBTrait;
