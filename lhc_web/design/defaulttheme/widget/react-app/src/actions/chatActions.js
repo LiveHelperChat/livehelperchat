@@ -669,8 +669,12 @@ function checkErrorCounter() {
    }
 }
 
-export function addMessage(obj) {
+export function addMessage(obj, ignoreAdd) {
     return function(dispatch, getState) {
+
+        if (!ignoreAdd) {
+            dispatch({type: "ADD_MSG_TO_STORE", data: obj.msg});
+        }
 
         if (syncStatus.add_msg == true) {
             syncStatus.add_msg_pending.push(obj);
@@ -686,8 +690,6 @@ export function addMessage(obj) {
                 'stack' : JSON.stringify(JSON.stringify(error))
             });
         }
-
-        dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: obj.msg }});
 
         axios.post(window.lhcChat['base_url'] + "widgetrestapi/addmsguser", obj, defaultHeaders)
             .then((response) => {
@@ -728,7 +730,7 @@ export function addMessage(obj) {
                     syncStatus.add_msg = false;
                     // There is pending message to be added
                     if (syncStatus.add_msg_pending.length > 0) {
-                        addMessage(syncStatus.add_msg_pending.shift())(dispatch, getState);
+                        addMessage(syncStatus.add_msg_pending.shift(), true)(dispatch, getState);
                     }
                 }
             })
@@ -767,13 +769,11 @@ export function addMessage(obj) {
                         syncStatus.add_msg = false;
 
                         // Try to send message again
-                        addMessage(obj)(dispatch, getState);
+                        addMessage(obj, true)(dispatch, getState);
                     }
                 }
 
                 syncStatus.add_msg = false;
-
-                dispatch({type: "UPDATE_LIVE_DATA", data: {attr:'msg_to_store', val: '' }});
             })
     }
 }

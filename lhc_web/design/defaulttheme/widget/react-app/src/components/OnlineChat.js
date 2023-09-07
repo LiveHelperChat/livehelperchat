@@ -32,7 +32,6 @@ class OnlineChat extends Component {
 
     state = {
         value: '',
-        valueSend: false,
         changeLanguage: false,
         showBBCode : null,
         mailChat : false,
@@ -501,7 +500,7 @@ class OnlineChat extends Component {
                 otm = 0;
             }
 
-            this.setState({valueSend: false, hasNew: hasNewMessages, newId: oldId, otm: otm, scrollButton: !setScrollBottom});
+            this.setState({hasNew: hasNewMessages, newId: oldId, otm: otm, scrollButton: !setScrollBottom});
 
             if (setScroll == true) {
                 return (
@@ -516,9 +515,9 @@ class OnlineChat extends Component {
                 (this.props.chatwidget.getIn(['chatLiveData','lmsg']) && (this.state.errorMode == false || this.props.chatwidget.getIn(['chatLiveData','lmsg']) != prevProps.chatwidget.getIn(['chatLiveData','lmsg']))) ||
                 (!this.props.chatwidget.getIn(['chatLiveData','lmsg']) && this.state.errorMode == false)))
         {
-            this.setState({errorMode: true, valueSend: false, value: this.props.chatwidget.getIn(['chatLiveData','lmsg'])});
+            this.setState({errorMode: true, value: this.props.chatwidget.getIn(['chatLiveData','lmsg'])});
         } else if (!this.props.chatwidget.getIn(['chatLiveData','error']) && prevProps.chatwidget.getIn(['chatLiveData','error'])) {
-            this.setState({errorMode: false, valueSend: false, value: ''});
+            this.setState({errorMode: false, value: ''});
         }
 
         return null;
@@ -530,12 +529,12 @@ class OnlineChat extends Component {
         if (
             this.state.showMessages === false ||
             prevProps.chatwidget.getIn(['chatLiveData','status']) != this.props.chatwidget.getIn(['chatLiveData','status']) ||
-            prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']) != this.props.chatwidget.getIn(['chatLiveData','msg_to_store'])
+            prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']).size != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size
         ) {
             if (this.props.chatwidget.get('newChat') == true && this.props.chatwidget.getIn(['chatLiveData','messages']).size == 1) {
                 this.scrollBottom(false, true);
             } else {
-                this.scrollBottom(false, prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']) != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']));
+                this.scrollBottom(false, prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']).size != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size);
             }
         }
 
@@ -695,7 +694,7 @@ class OnlineChat extends Component {
             'lmgsid' : this.props.chatwidget.getIn(['chatLiveData','lmsgid'])
         }));
 
-        this.setState({value: '',valueSend: true, errorMode : false});
+        this.setState({value: '', errorMode : false});
 
         this.currentMessageTyping = '';
         this.focusMessage();
@@ -987,11 +986,12 @@ class OnlineChat extends Component {
                         <div className={bottom_messages} id="messages-scroll" style={fontSizeStyle} ref={this.messagesAreaRef}>
                             {this.props.chatwidget.hasIn(['chat_ui','prev_chat']) && <div dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','prev_chat'])}}></div>}
                             {messages}
-                            {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']) != '' && <div data-op-id="0" className="message-row response msg-to-store">
-                                <div className="msg-body">
-                                    {this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).split('\n').map((item, idx) => {return (<React.Fragment key={idx}>{item}<br /></React.Fragment>)})}
-                                </div>
-                            </div>}
+                            {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).map((msg, index) =>
+                                <div data-op-id="0" className="message-row response msg-to-store">
+                                    <div className="msg-body">
+                                        {msg.split('\n').map((item, idx) => {return (<React.Fragment key={idx}>{item}<br /></React.Fragment>)})}
+                                    </div>
+                                </div>)}
                         </div>
                         {this.state.scrollButton && <div className="position-absolute btn-bottom-scroll fade-in" id="id-btn-bottom-scroll"><button type="button" onClick={this.scrollToMessage} className="btn btn-sm btn-secondary">{(this.state.hasNew && this.state.otm > 0 && <div><i className="material-icons">&#xf11a;</i>{this.state.otm} {(this.state.otm == 1 ? (this.props.chatwidget.getIn(['chat_ui','cnew_msg']) || t('button.new_msg')) : (this.props.chatwidget.getIn(['chat_ui','cnew_msgm']) || t('button.new_msgm')))}</div>) || (this.props.chatwidget.getIn(['chat_ui','cscroll_btn']) || t('button.scroll_bottom'))}</button></div>}
                     </div>
@@ -1037,15 +1037,15 @@ class OnlineChat extends Component {
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds={this.props.chatwidget.getIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} /></Suspense>}
 
-                                    {!this.state.valueSend && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
+                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
                                        <i className="material-icons text-muted settings me-0">&#xf10b;</i>
                                     </a>}
 
-                                    {!this.state.valueSend && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
+                                    {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send')}>
                                        <i className="material-icons text-muted settings me-0">&#xf107;</i>
                                     </a>}
 
-                                    {this.state.valueSend && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
+                                    {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
 
                                 </div>
 
