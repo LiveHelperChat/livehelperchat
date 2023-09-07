@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassChatWebhookResque {
 
     public function processEvent($event, $params) {
