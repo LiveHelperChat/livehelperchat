@@ -5,7 +5,7 @@
  * If 0 web user
  *
  * */
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelGroupMsg
 {
     use erLhcoreClassDBTrait;

@@ -6,6 +6,7 @@
  * @desc Main chat product to departament assignment object
  *
  */
+#[\AllowDynamicProperties]
 class erLhAbstractModelProductDepartament {
     
     use erLhcoreClassDBTrait;

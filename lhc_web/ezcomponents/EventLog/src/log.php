@@ -142,6 +142,7 @@
  * @version 1.4
  * @mainclass
  */
+#[\AllowDynamicProperties]
 class ezcLog
 {
     /**

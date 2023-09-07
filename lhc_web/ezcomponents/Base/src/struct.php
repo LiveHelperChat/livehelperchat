@@ -14,6 +14,7 @@
  * @package Base
  * @version 1.8
  */
+#[\AllowDynamicProperties]
 class ezcBaseStruct
 {
     /**

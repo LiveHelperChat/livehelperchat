@@ -1,5 +1,6 @@
 <?php
 
+#[\AllowDynamicProperties]
 class lhPaginator {
     
 	var $items_per_page;

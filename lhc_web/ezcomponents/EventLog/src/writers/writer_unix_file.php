@@ -15,6 +15,7 @@
  * @version 1.4
  * @mainclass
  */
+#[\AllowDynamicProperties]
 class ezcLogUnixFileWriter extends ezcLogFileWriter
 {
     /**

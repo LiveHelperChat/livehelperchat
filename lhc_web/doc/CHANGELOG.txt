@@ -1,3 +1,20 @@
+4.27v
+
+1. Avoid flicker once chat is started for a new widget.
+2. Option to show clicked button name instantly in messages area. `Widget container -> Print button as a message as soon visitor clicks a button.`
+3. Incoming webhook `chat_external_id` field is now 100 chars instead of 50
+4. We will show visitor message as soon he clicks send.
+5. 8.2 php support, if you notice some errors let me know.
+6. Voice messages max length option from files configuration was ignored.
+7. Chrome 116v workaround for chrome bug.  Changes I did https://github.com/LiveHelperChat/livehelperchat/commit/b3649c5e936d4be08d1e004d8537ed47cd029aba chrome bug report. https://bugs.chromium.org/p/chromium/issues/detail?id=1473754 it should be fixed in 117v chrome release.
+8. Audit configuration window has a system information details
+9. Autoresponder cronjob cache issues fixes.
+10. Option to use visitor TZ or system TZ always for messages rendering if they have time based messages. Can be activated in widget themes.
+11. Geo detection test window.
+12. More variables for Rest API
+
+execute doc/update_db/update_299.sql for update
+
 4.26v
 
 1. Message delivery status indication.

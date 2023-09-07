@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelAudit
 {
     use erLhcoreClassDBTrait;

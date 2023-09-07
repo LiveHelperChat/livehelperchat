@@ -6,6 +6,7 @@
  * @desc Rest API Key
  *
  */
+#[\AllowDynamicProperties]
 class erLhAbstractModelRestAPIKeyRemote {
 
     use erLhcoreClassDBTrait;

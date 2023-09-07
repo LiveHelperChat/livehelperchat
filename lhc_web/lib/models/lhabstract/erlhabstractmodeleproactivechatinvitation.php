@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelProactiveChatInvitation {
 
     use erLhcoreClassDBTrait;
