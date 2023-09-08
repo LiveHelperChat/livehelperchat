@@ -21,6 +21,7 @@ $translations = array(
         "mail" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Send chat to your email!'),
         "email" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Email'),
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send to email'),
+        "send_msg" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send a message'),
         "popup" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Popup'),
         "record_voice" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Record voice message'),
         "start_chat_With_us" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start a chat with us!'),

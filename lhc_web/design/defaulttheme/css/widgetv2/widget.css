@@ -1189,3 +1189,6 @@ textarea[name=ChatMessage] {
     background: none!important;
 }
 
+.text-strong-light{
+    color: #d3d3d3;
+}
