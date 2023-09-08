@@ -1042,7 +1042,7 @@ class OnlineChat extends Component {
                                     </a>}
 
                                     {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send_msg')}>
-                                       <i className={"material-icons settings me-0" + (this.state.value.length == 0 ? ' text-strong-light' : ' text-muted')}>&#xf107;</i>
+                                       <i className={"material-icons settings me-0" + (this.state.value.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                     </a>}
 
                                     {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}

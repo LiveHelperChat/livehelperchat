@@ -17,7 +17,7 @@ class ChatIntroStatus extends PureComponent {
                 </div>
                 <div className="disable-select">
                     <div className="user-chatwidget-buttons pt-2 pe-1" id="ChatSendButtonContainer">
-                        <i className="material-icons text-muted settings me-0">&#xf113;</i>
+                        <i className="material-icons text-muted-light settings me-0">&#xf113;</i>
                     </div>
                 </div>
             </div>}

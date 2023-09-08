@@ -534,7 +534,7 @@ class StartChat extends Component {
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
                                         {this.props.chatwidget.get('processStatus') != 1 && <a onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                            <i className="material-icons text-muted settings">&#xf107;</i>
+                                            <i className={"material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}
 
                                         {this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
