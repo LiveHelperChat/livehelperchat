@@ -40,7 +40,15 @@ class erLhcoreClassGenericBotActionMail {
                 }
             }
 
-            $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('chat' => $chat, 'args' => $params));
+            $bodyMessage = ['text' => $action['content']['text']];
+            $paramsExecution = erLhcoreClassGenericBotActionRestapi::extractDynamicVariables($bodyMessage, $chat);
+
+            $bodyText = str_replace(
+                array_keys($paramsExecution),
+                array_values($paramsExecution),
+                $action['content']['text']);
+
+            $mail->Body = erLhcoreClassGenericBotWorkflow::translateMessage($bodyText, array('chat' => $chat, 'args' => $params));
 
             erLhcoreClassChatMail::setupSMTP($mail);
 
