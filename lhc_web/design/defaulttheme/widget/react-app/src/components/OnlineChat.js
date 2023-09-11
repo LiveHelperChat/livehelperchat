@@ -703,7 +703,9 @@ class OnlineChat extends Component {
 
     enterKeyDown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
-            this.sendMessage();
+            if (this.state.value.length > 0) {
+                this.sendMessage();
+            }
             e.preventDefault();
         }
     }
