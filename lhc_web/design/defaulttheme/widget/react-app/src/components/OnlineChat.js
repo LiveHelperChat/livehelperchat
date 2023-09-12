@@ -683,6 +683,10 @@ class OnlineChat extends Component {
 
     sendMessage() {
 
+        if (this.state.value.length == 0) {
+            return;
+        }
+
         helperFunctions.setSessionStorage('_ttxt','');
 
         this.props.dispatch(addMessage({
@@ -703,9 +707,7 @@ class OnlineChat extends Component {
 
     enterKeyDown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
-            if (this.state.value.length > 0) {
-                this.sendMessage();
-            }
+            this.sendMessage();
             e.preventDefault();
         }
     }
