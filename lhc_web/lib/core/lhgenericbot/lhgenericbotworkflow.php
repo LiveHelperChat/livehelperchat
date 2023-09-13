@@ -1913,6 +1913,8 @@ class erLhcoreClassGenericBotWorkflow {
                         'button_payload' => $messageClickData
                     ));
 
+                    $last_msg_id = $chat->last_msg_id;
+
                     if ($handler !== false) {
                         $trigger = $handler['trigger'];
                     } else {
@@ -1980,6 +1982,8 @@ class erLhcoreClassGenericBotWorkflow {
                             }
                         }
 
+                        $messageUser = null;
+
                         if (!empty($messageClick)) {
                             if ((isset($params['processed']) && $params['processed'] == true) || !isset($params['processed'])){
                                 $messageContext->meta_msg_array['processed'] = true;
@@ -1988,7 +1992,7 @@ class erLhcoreClassGenericBotWorkflow {
                             $messageContext->saveThis();
 
                             if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
-                                $message = self::sendAsUser($chat, $messageClick);
+                                $messageUser = $message = self::sendAsUser($chat, $messageClick);
                             }
                         }
 
@@ -2016,6 +2020,18 @@ class erLhcoreClassGenericBotWorkflow {
                 }
 
                 $db->commit();
+
+                if ($continueExecution == true) {
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_trigger_click_processed', array(
+                        'chat' => & $chat,
+                        'msg' => $messageContext,
+                        'msg_user' => $messageUser,
+                        'last_msg_id' => $last_msg_id,
+                        'payload' => $payload,
+                        'payload_hash' => $payloadHash,
+                        'button_payload' => $messageClickData
+                    ));
+                }
 
             } catch (Exception $e) {
                 $db->rollback();
