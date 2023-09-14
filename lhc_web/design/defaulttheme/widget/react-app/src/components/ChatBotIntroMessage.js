@@ -126,6 +126,8 @@ class ChatBotIntroMessage extends PureComponent {
                         if (domNode.attribs.className.indexOf('message-row') !== -1) {
                             domNode.attribs.className += ' index-row-0';
                         }
+
+                        delete domNode.attribs.class;
                     }
 
                     if (domNode.name && domNode.name === 'button') {
