@@ -120,6 +120,14 @@ class ChatBotIntroMessage extends PureComponent {
                         delete domNode.attribs.onclick;
                     }
 
+                    if (domNode.attribs.class) {
+                        domNode.attribs.className = domNode.attribs.class;
+
+                        if (domNode.attribs.className.indexOf('message-row') !== -1) {
+                            domNode.attribs.className += ' index-row-0';
+                        }
+                    }
+
                     if (domNode.name && domNode.name === 'button') {
                         if (cloneAttr.onclick) {
                             return <button {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</button>
@@ -135,7 +143,7 @@ class ChatBotIntroMessage extends PureComponent {
             }
         });
 
-        return <React.Fragment>{content}{this.state.value != '' && <div data-op-id="0" className="message-row response msg-to-store"><div className="msg-body">{this.state.value.split('\n').map((item, idx) => {return (<React.Fragment key={idx}>{item}<br /></React.Fragment>)})}</div></div>}</React.Fragment>
+        return <React.Fragment>{content}{this.state.value != '' && <div data-op-id="0" className="message-row response msg-to-store index-row-0"><div className="msg-body">{this.state.value.split('\n').map((item, idx) => {return (<React.Fragment key={idx}>{item}<br /></React.Fragment>)})}</div></div>}</React.Fragment>
 
     }
 }
