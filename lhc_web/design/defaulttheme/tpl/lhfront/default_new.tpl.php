@@ -139,6 +139,11 @@
                     $(this).removeClass('chat-tab-selected');
                 }
             })
+            $('.dashboard-panels,#dashboard').on('click', '.btn-department-dropdown', function() {
+                if ($(this).hasClass('show')) {
+                    $(this).parent().find('.filter-text-input').focus();
+                }
+            })
         });
     </script>
 <?php else : ?>
