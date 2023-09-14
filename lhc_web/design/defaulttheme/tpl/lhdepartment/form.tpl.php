@@ -282,6 +282,8 @@
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats');?></label> 
 				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_close_all_email" value="<?php echo htmlspecialchars($departament->inform_close_all_email);?>" />
 				</div>
+
+                <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail is sent in the following order 1. To e-mail template recipient if filled 2. Department e-mail 3. First system operator');?></p>
 				
 			</div>
 			

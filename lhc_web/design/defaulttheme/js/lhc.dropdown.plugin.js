@@ -1,12 +1,6 @@
 $.fn.makeDropdown = function(paramsDropdown) {
     var filterInput = this.find('.btn-block-department-filter > input');
 
-    this.click(function(){
-        setTimeout(function(){
-            filterInput.focus();
-        },50);
-    })
-
     this.on("click", "[data-stopPropagation]", function(e) {
         e.stopPropagation();
     })
@@ -19,10 +13,17 @@ $.fn.makeDropdown = function(paramsDropdown) {
 
         var limitMax = $(this).attr('data-limit') ? parseInt($(this).attr('data-limit')) : 0;
 
-
         var selectedItems = $(this).find('.selected-items-filter');
 
         $(this).find('.btn-department-dropdown').attr('data-text',$(this).find('.btn-department-dropdown').text());
+
+        var _thisItem = $(this);
+
+        _thisItem.find('.btn-department-dropdown').click(function(){
+            if ($(this).hasClass('show')){
+                _thisItem.find('.btn-block-department-filter > input').focus();
+            }
+        });
 
         var itemsSelectedCount = selectedItems.find('.delete-item').length;
 
@@ -36,8 +37,6 @@ $.fn.makeDropdown = function(paramsDropdown) {
         if (selectedItemsRadio.length == 1) {
             $(this).find('.btn-department-dropdown').text(selectedItemsRadio.first().parent().text());
         }
-
-        var _thisItem = $(this);
 
         _thisItem.on("change","li input:checkbox",function() {
             var itemsSelectedCount = 0;
