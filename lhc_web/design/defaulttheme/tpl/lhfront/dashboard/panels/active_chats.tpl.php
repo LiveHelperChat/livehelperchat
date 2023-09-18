@@ -1,5 +1,5 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
-	<div class="card card-dashboard card-active-chats" data-panel-id="active_chats" ng-init="lhc.getToggleWidget('activec_widget_exp');lhc.getToggleWidgetSort('active_chats_sort')">
+	<div class="card card-dashboard card-active-chats" data-panel-id="active_chats" ng-init="lhc.getToggleWidget('activec_widget_exp');lhc.getToggleWidgetSort('active_chats_sort');">
 		<div class="card-header">
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/1"><i class="material-icons chat-active">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/active_chats.tpl.php'));?></span> ({{active_chats.list.length}}{{active_chats.list.length == lhc.limita ? '+' : ''}})</a>
 
@@ -14,7 +14,7 @@
 			<?php $optinsPanel = array('panelid' => 'actived','limitid' => 'limita', 'userid' => 'activeu'); ?>
 			<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
-			<div ng-if="active_chats.list.length > 0" class="panel-list">
+			<div ng-if="active_chats.list.length > 0" id="actived-panel-list" class="panel-list" ng-style="{'maxHeight': lhc.actived_m_h}">
 				<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/active.tpl.php'));?>
 			</div>
 

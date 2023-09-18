@@ -182,7 +182,7 @@ class erLhcoreClassMailconvParser {
                     $end = explode(' ', microtime());
                     $time = $end[0] + $end[1] - $start[0] - $start[1];
 
-                    if ($time > (39 * 60)) {
+                    if ($time > (79 * 60)) {
                         throw new Exception('Import takes too long time.' . date('Y-m-d H:i:s',$mailbox->sync_started) . ' - ' . date('Y-m-d H:i:s',time()));
                     }
 

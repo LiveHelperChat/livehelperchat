@@ -562,6 +562,7 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 		_that[listId + '_hide_disabled'] = _that.restoreLocalSetting(listId + '_hide_disabled','false',false) != 'false';
 		_that[listId + '_only_online'] = _that.restoreLocalSetting(listId + '_only_online','false',false) != 'false';
 		_that[listId + '_only_explicit_online'] = _that.restoreLocalSetting(listId + '_only_explicit_online','false',false) != 'false';
+		_that[listId + '_m_h'] = _that.restoreLocalSetting(listId + '_m_h',null,false);
 	});
 
     this.last_actions_index = 0;
@@ -636,7 +637,15 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			$scope.loadChatList();
 		}
 	};
-	
+    
+    this.changeWidgetHeight = function(widget,expand) {
+        let elm = document.getElementById(widget+'-panel-list');
+        if (elm) {
+            _that[widget + '_m_h'] = expand === true ? parseInt(elm.offsetHeight + 28) + 'px' : parseInt(elm.offsetHeight - 28) + 'px';
+            localStorage.setItem(widget+'_m_h', _that[widget + '_m_h']);
+        }
+    }
+
 	this.getToggleWidget = function(variable, defaultValue) {
 		this.toggleWidgetData[variable] = this.restoreLocalSetting(variable,(typeof defaultValue === 'undefined' ? 'false' : defaultValue), false) == 'false' ? false : true;
 	};

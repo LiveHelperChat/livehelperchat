@@ -19,7 +19,7 @@
             <?php $optinsPanel = array('panelid' => 'botd', 'limitid' => 'limitb'); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
-            <div ng-if="bot_chats.list.length > 0" class="panel-list">
+            <div ng-if="bot_chats.list.length > 0" class="panel-list" <?php if (isset($idPanelElementSet)) : ?>id="botd-panel-list" ng-style="{'maxHeight': lhc.botd_m_h}"<?php unset($idPanelElementSet); endif;?>>
                 <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/bot.tpl.php'));?>
             </div>
 

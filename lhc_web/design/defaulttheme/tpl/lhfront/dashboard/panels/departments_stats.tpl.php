@@ -23,7 +23,7 @@
 	    <?php $optinsPanel = array('panelid' => 'departmentd','limitid' => 'limitd', 'disable_product' => true,'hide_department' => true, 'hide_depgroup' => true); ?>
 		<?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
-		<div class="panel-list">
+		<div class="panel-list" id="departmentd-panel-list" ng-style="{'maxHeight': lhc.departmentd_m_h}">
 			<table class="table table-sm mb-0 table-small table-fixed">
                 <thead ng-if="!lhc.departmentd_hide_dgroup && depgroups_stats.list.length > 0">
                 <tr>
@@ -31,7 +31,19 @@
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending chats');?>" class="material-icons chat-pending">chat</i></th>
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active chats');?>" class="material-icons chat-active">chat</i></th>
                     <th width="12%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Bot chats');?>" class="material-icons chat-active">android</i></th>
-                    <th width="21%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Load statistic');?>" class="material-icons text-info">donut_large</i></th>
+                    <th width="21%">
+                        <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Load statistic');?>" class="material-icons text-info">donut_large</i>
+
+                        <div class="float-end expand-actions">
+                            <a ng-click="lhc.changeWidgetHeight('departmentd',true)" class="text-muted disable-select">
+                                <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                            </a>
+                            <a ng-click="lhc.changeWidgetHeight('departmentd',false)" class="text-muted disable-select">
+                                <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                            </a>
+                        </div>
+
+                    </th>
                 </tr>
                 </thead>
                 <tr ng-if="!lhc.departmentd_hide_dgroup" ng-repeat="depgroup in depgroups_stats.list track by depgroup.id">
