@@ -81,7 +81,7 @@ class erLhcoreClassMailconvParser {
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
-                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 40 * 60 ) {
+                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 80 * 60 ) {
                     $db->commit();
                     return;
                 }
