@@ -13,7 +13,7 @@
 			  <?php $optinsPanel = array('panelid' => 'pendingd','limitid' => 'limitp', 'userid' => 'pendingu'); ?>
 			  <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
-			<div class="panel-list" ng-if="pending_chats.list.length > 0">
+			<div class="panel-list" ng-if="pending_chats.list.length > 0" id="pendingd-panel-list" ng-style="{'maxHeight': lhc.pendingd_m_h}">
                <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/pending.tpl.php'));?>
             </div>
 

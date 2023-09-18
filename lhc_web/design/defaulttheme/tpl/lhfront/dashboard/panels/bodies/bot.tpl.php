@@ -10,6 +10,14 @@
         </th>
         <th width="20%">
             <i title="Department" class="material-icons">home</i>
+            <div class="float-end expand-actions">
+                <a ng-click="lhc.changeWidgetHeight('botd',true)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                </a>
+                <a ng-click="lhc.changeWidgetHeight('botd',false)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                </a>
+            </div>
         </th>
     </tr>
     </thead>

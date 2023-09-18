@@ -1956,6 +1956,10 @@ html {
     font-size: 14px;
 }
 
+.dashboard-panels .expand-actions{
+    display: none;
+}
+
 .card-header{
     --bs-card-cap-padding-y: 0.5rem;
     --bs-card-cap-padding-x: 1rem;

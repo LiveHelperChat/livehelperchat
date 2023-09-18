@@ -13,7 +13,7 @@
         <?php $optinsPanel = array('panelid' => 'operatord', 'limitid' => 'limito', 'disable_product' => true,'userid' => 'oopu'); ?>
         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/parts/options.tpl.php'));?>
 
-        <div class="panel-list">
+        <div class="panel-list" id="operatord-panel-list" ng-style="{'maxHeight': lhc.operatord_m_h}">
             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/online_operators.tpl.php'));?>
 		</div>
 		

@@ -28,7 +28,15 @@
 			<th width="20%">							
 				<a ng-click="lhc.toggleWidgetSort('active_chats_sort','dep_dsc','dep_asc',true)">
 				 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['active_chats_sort'] != 'dep_asc' && lhc.toggleWidgetData['active_chats_sort'] != 'dep_dsc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by department')?>" class="material-icons">{{lhc.toggleWidgetData['active_chats_sort'] == 'dep_dsc' || lhc.toggleWidgetData['active_chats_sort'] != 'dep_asc' ? 'trending_up' : 'trending_down'}}</i>
-				</a>							
+				</a>
+                <div class="float-end expand-actions">
+                    <a ng-click="lhc.changeWidgetHeight('actived',true)" class="text-muted disable-select">
+                        <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                    </a>
+                    <a ng-click="lhc.changeWidgetHeight('actived',false)" class="text-muted disable-select">
+                        <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                    </a>
+                </div>
 			</th>
 		</tr>
 	</thead>

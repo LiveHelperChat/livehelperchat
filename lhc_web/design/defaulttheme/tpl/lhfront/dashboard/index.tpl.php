@@ -57,7 +57,7 @@ $columnSize = 12 / $columnsTotal;
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/pending_chats.tpl.php'));?>
                     <?php endif;?>
 
-                <?php elseif ($wiget == 'bot_chats') : ?>
+                <?php elseif ($wiget == 'bot_chats') : $idPanelElementSet = true;?>
 
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
 
@@ -91,7 +91,7 @@ $columnSize = 12 / $columnsTotal;
                     
                 <?php elseif ($wiget == 'my_chats') : ?>  
                   
-                    <?php if ($mchatsTabEnabled == true) : ?>             
+                    <?php if ($mchatsTabEnabled == true) : $idPanelElementSet = true;?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
                     <?php endif;?>
                     
