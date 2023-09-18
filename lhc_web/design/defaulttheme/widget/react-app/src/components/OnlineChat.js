@@ -839,7 +839,7 @@ class OnlineChat extends Component {
                     msg_expand = "overflow-scroll position-relative";
                 }
 
-                return <ChatIntroStatus profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
+                return <ChatIntroStatus value={this.state.value} profileBefore={this.props.profileBefore} msg_expand={msg_expand} messagesBefore={this.props.messagesBefore} placeholderMessage={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} />;
         }
         
         if (this.props.chatwidget.hasIn(['chatLiveData','ru']) && this.props.chatwidget.getIn(['chatLiveData','ru'])) {

@@ -27,7 +27,7 @@ class StartChat extends Component {
         this.apiLoaded = false;
         this.customHTMLPriority = false;
 
-        this.state = {showBBCode : null, Question:'', changeLanguage: false};
+        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -82,7 +82,7 @@ class StartChat extends Component {
             this.props.setHideMessageField(false);
         }
 
-        var fields = this.state;
+        var fields = {...this.state};
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
@@ -161,9 +161,18 @@ class StartChat extends Component {
             'fields' : fields
         };
 
+        helperFunctions.setSessionStorage('_ttxt','');
+
         if (this.botPayload) {
             submitData['bpayload'] = this.botPayload;
             this.botPayload = null;
+            this.setState({hasBotData:true});
+            if (submitData['fields']['Question']) {
+                helperFunctions.setSessionStorage('_ttxt',submitData['fields']['Question']);
+                submitData['fields']['Question'] = '';
+            }
+        } else {
+            this.setState({hasBotData:false});
         }
 
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
@@ -529,7 +538,7 @@ class StartChat extends Component {
                                 {(!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])) && <ChatStartOptions bbEnabled={!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh'])} langEnabled={this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])} changeLanguage={this.changeLanguage} toggleModal={this.toggleModal} />}
 
                                 <div className="mx-auto w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+                                    <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
                                 <div className="disable-select">
                                     <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
