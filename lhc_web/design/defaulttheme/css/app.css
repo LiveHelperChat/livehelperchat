@@ -83,7 +83,7 @@ a.link {
 	z-index:9999;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .chat-main-left-column.col-xl-8 .toolbar-chat,
     .chat-main-left-column.col-xl-8 .form-send-textarea,
     .chat-main-left-column.col-xl-8 .generic-small-res-hide,
