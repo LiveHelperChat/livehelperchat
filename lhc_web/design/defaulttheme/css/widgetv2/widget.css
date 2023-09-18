@@ -811,6 +811,7 @@ textarea[name=ChatMessage] {
     background: transparent;
     scrollbar-color: #888 transparent;
     scrollbar-width: thin;
+    scroll-padding-bottom: 10px;
 }
 
 .settings {
