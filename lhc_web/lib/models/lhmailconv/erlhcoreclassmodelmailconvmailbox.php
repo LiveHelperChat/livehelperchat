@@ -50,6 +50,7 @@ class erLhcoreClassModelMailconvMailbox
             'dep_id' => $this->dep_id,
             'workflow_options' => $this->workflow_options,
             'reopen_reset' => $this->reopen_reset,
+            'last_process_time' => $this->last_process_time,
         );
     }
 
@@ -120,6 +121,10 @@ class erLhcoreClassModelMailconvMailbox
             case 'last_sync_time_ago':
                 $this->last_sync_time_ago = erLhcoreClassChat::formatSeconds(time() - $this->last_sync_time);
                 return $this->last_sync_time_ago;
+
+            case 'last_process_time_ago':
+                $this->last_process_time_ago = erLhcoreClassChat::formatSeconds(time() - $this->last_process_time);
+                return $this->last_process_time_ago;
 
             case 'sync_started_ago':
                 $this->sync_started_ago = $this->sync_started > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->sync_started) : '-';
@@ -212,6 +217,7 @@ class erLhcoreClassModelMailconvMailbox
     public $user_id = 0;
     public $dep_id = 0;
     public $reopen_reset = 0;
+    public $last_process_time = 0;
     public $mrules_id_update = null;
 
     public $delete_mode = self::DELETE_ALL;

@@ -135,6 +135,21 @@
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
                     </div>
+                    <div class="form-group">
+                        <div>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import');?></label>
+                            <select class="form-control form-control-sm" name="workflow_reimport_frequency">
+                                <option value="0" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 0) || !isset($item->workflow_options_array['workflow_reimport_frequency'])) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On a new mail arrival, default');?></option>
+                                <option value="30" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 30)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every half hour');?></option>
+                                <option value="60" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 60)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every hour');?></option>
+                                <option value="120" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 120)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every two hour');?></option>
+                                <option value="180" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 180)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every three hour');?></option>
+                                <option value="360" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 360)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 6 hours');?></option>
+                                <option value="720" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 720)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 12 hours');?></option>
+                                <option value="1440" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 1440)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 24 hours');?></option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
@@ -227,6 +242,7 @@
             <ul>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync finished');?> - <?php echo $item->last_sync_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync started');?> - <?php echo $item->sync_started_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last processed');?> - <?php echo $item->last_process_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
             </ul>
 
             <p>

@@ -115,7 +115,8 @@ class erLhcoreClassMailconvParser {
             
             $startTime = microtime();
             $workflowOptions = $mailbox->workflow_options_array;
-            
+            $last_process_time = $mailbox->last_process_time;
+
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -141,9 +142,13 @@ class erLhcoreClassMailconvParser {
                 try {
                     $statusMailbox = $mailboxHandler->statusMailbox();
                     if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
-                        $statsImport[] = 'Skipping check '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
-                        // Nothing has changed since last check
-                         continue;
+                         if (isset($workflowOptions['workflow_reimport_frequency']) && $workflowOptions['workflow_reimport_frequency'] > 0 && $last_process_time < (time() - ($workflowOptions['workflow_reimport_frequency'] * 60))) {
+                             $statsImport[] = 'Processing check because re-import frequency was met '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
+                         } else {
+                             $statsImport[] = 'Skipping check uidnext did not changed '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
+                             // Nothing has changed since last check
+                             continue;
+                         }
                     } elseif (isset($statusMailbox->uidnext)) {
                         $statsImport[] = $mailboxFolder['path'].' uidnext change detected to - '.$statusMailbox->uidnext;
                         $uuidStatusArray[$mailboxFolder['path']] = $statusMailbox->uidnext;
@@ -154,6 +159,7 @@ class erLhcoreClassMailconvParser {
 
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
+                $mailbox->last_process_time = time();
 
                 $since = 'SINCE "' . date('d M Y',
                         (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
@@ -815,7 +821,7 @@ class erLhcoreClassMailconvParser {
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
-        $mailbox->updateThis(['update' => ['failed','uuid_status','sync_status','last_sync_log','last_sync_time']]);
+        $mailbox->updateThis(['update' => ['failed','uuid_status','sync_status','last_sync_log','last_sync_time','last_process_time']]);
     }
 
     // Set conversations for the messages
