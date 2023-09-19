@@ -1058,13 +1058,15 @@ class erLhcoreClassChatWebhookIncoming {
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.messages_added_passive', array(
                         'chat' => & $chat,
-                        'msg' => $msg
+                        'msg' => $msg,
+                        'source' => 'webhook'
                     ));
 
                     // If operator has closed a chat we need force back office sync
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nodjshelper_notify_delay', array(
                         'chat' => & $chat,
-                        'msg' => $msg
+                        'msg' => $msg,
+                        'source' => 'webhook'
                     ));
 
                     if ($renotify == true) {
@@ -1072,6 +1074,7 @@ class erLhcoreClassChatWebhookIncoming {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.restart_chat',array(
                             'chat' => & $chat,
                             'msg' => $msg,
+                            'source' => 'webhook'
                         ));
                     }
                 }
@@ -1562,6 +1565,7 @@ class erLhcoreClassChatWebhookIncoming {
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                     'chat' => & $chat,
                     'msg' => $botMessage,
+                    'source'=> 'webhook',
                     'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
                 ));
             }
