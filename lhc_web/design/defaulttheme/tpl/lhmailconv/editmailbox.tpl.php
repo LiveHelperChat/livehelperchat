@@ -119,7 +119,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
-                                <input type="number" min="1" max="48" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                                <input type="number" min="1" max="96" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
                             </div>
                         </div>
                         <div class="col-12">
@@ -141,7 +141,11 @@
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
                     </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Un-assing operator on closed ticket re-open');?></label>
+                    </div>
                 </div>
+
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.');?></label>

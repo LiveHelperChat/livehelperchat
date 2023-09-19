@@ -236,6 +236,9 @@ class erLhcoreClassMailconvValidator {
             'no_pswd_smtp' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'reopen_reset' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -255,7 +258,7 @@ class erLhcoreClassMailconvValidator {
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             ),
             'workflow_older_than' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 48)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 96)
             ),
             'workflow_close_status' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0),FILTER_REQUIRE_ARRAY
@@ -322,6 +325,12 @@ class erLhcoreClassMailconvValidator {
             $item->no_pswd_smtp = 1;
         } else {
             $item->no_pswd_smtp = 0;
+        }
+
+        if ($form->hasValidData( 'reopen_reset' ) && $form->reopen_reset == true) {
+            $item->reopen_reset = 1;
+        } else {
+            $item->reopen_reset = 0;
         }
 
         if ($form->hasValidData( 'assign_parent_user' ) && $form->assign_parent_user == true) {

@@ -1040,7 +1040,13 @@ class erLhcoreClassMailconvParser {
                 $conversation->pnd_time = time();
                 $conversation->accept_time = 0;
                 $conversation->tslasign = 0;
-                // $conversation->user_id = 0;       // Keep operator so he can follow up
+
+                $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
+
+                if ($mailbox instanceof erLhcoreClassModelMailconvMailbox && $mailbox->reopen_reset == 1) {
+                    $conversation->user_id = 0;
+                }
+
                 $conversation->cls_time = 0;        // Reset close time
                 $conversation->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
             }

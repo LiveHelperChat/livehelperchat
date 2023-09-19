@@ -49,6 +49,7 @@ class erLhcoreClassModelMailconvMailbox
             'user_id' => $this->user_id,
             'dep_id' => $this->dep_id,
             'workflow_options' => $this->workflow_options,
+            'reopen_reset' => $this->reopen_reset,
         );
     }
 
@@ -210,6 +211,7 @@ class erLhcoreClassModelMailconvMailbox
     public $no_pswd_smtp = 0;
     public $user_id = 0;
     public $dep_id = 0;
+    public $reopen_reset = 0;
     public $mrules_id_update = null;
 
     public $delete_mode = self::DELETE_ALL;
