@@ -39,11 +39,12 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
         if (isset($_POST['disable_operators']) && $_POST['disable_operators'] == 'on') {
             $q = ezcDbInstance::get()->createUpdateQuery();
             $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-            $q->update( 'lh_users' )
-                ->set( 'disabled',  1)
-                ->where(
+            $q->update( 'lh_users' )->set( 'disabled',  1);
+            if (!empty($conditions)) {
+                $q->where(
                     $conditions
                 );
+            }
             $stmt = $q->prepare();
             $stmt->execute();
         }
@@ -51,11 +52,12 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
         if (isset($_POST['force_logout']) && $_POST['force_logout'] == 'on') {
             $q = ezcDbInstance::get()->createUpdateQuery();
             $conditions = erLhcoreClassModelUser::getConditions($filterParams['filter'], $q);
-            $q->update( 'lh_users' )
-                ->set( 'force_logout',  1)
-                ->where(
+            $q->update( 'lh_users' )->set( 'force_logout',  1);
+            if (!empty($conditions)) {
+                $q->where(
                     $conditions
                 );
+            }
             $stmt = $q->prepare();
             $stmt->execute();
         }
@@ -70,7 +72,6 @@ if ($Params['user_parameters_unordered']['export'] == 'quick_actions' && erLhcor
                 );
             $stmt = $q->prepare();
             $stmt->execute();
-
             foreach (erLhcoreClassModelUser::getUserList(array_merge($filterParams['filter'],array( 'limit' => false))) as $userItem) {
                 erLhcoreClassModelUserSetting::setSetting('auto_preload',1, $userItem->id);
             }
