@@ -512,11 +512,16 @@
         <div class="col-12">
 
             <div class="btn-group me-2" role="group" aria-label="...">
-                    <button type="submit" class="btn btn-primary btn-sm" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
+                <button type="submit" class="btn btn-primary btn-sm no-wrap" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
+                <select class="form-control form-control-sm border-secondary rounded-0 rounded-end" name="sortby">
+                    <option <?php if ($input->sortby == 'id_desc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="id_desc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Newest first (default)');?></option>
+                    <option <?php if ($input->sortby == 'id_asc') : ?>selected="selected"<?php endif; ?> value="id_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Oldest first');?></option>
+                    <option <?php if ($input->sortby == 'lmt_dsc') : ?>selected="selected"<?php endif; ?> value="lmt_dsc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions first');?></option>
+                    <option <?php if ($input->sortby == 'lmt_asc') : ?>selected="selected"<?php endif; ?> value="lmt_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions last');?></option>
+                </select>
             </div>
 
             <div class="btn-group" role="group" aria-label="...">
-
 
                 <?php $appendPrintExportURL = ''; if ($pages->items_total > 0) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/search_panel_append_print_multiinclude.tpl.php'));?>

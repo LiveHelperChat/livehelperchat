@@ -242,7 +242,7 @@ if (trim($form->msg) != '')
                     if ($userData->invisible_mode == 0 && erLhcoreClassChat::hasAccessToWrite($Chat)) {
                         $Chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
-                        $Chat->pnd_time = time();
+                        $Chat->pnd_time = time() - 2;
                         $Chat->wait_time = 1;
 
                         $Chat->user_id = $currentUser->getUserID();

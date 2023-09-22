@@ -844,6 +844,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 			filter += '/(acs)/'+_that.toggleWidgetData['active_chats_sort'];
 		}
 
+		if (typeof _that.toggleWidgetData['bot_chats_sort'] !== 'undefined' && _that.toggleWidgetData['bot_chats_sort'] !== '') {
+			filter += '/(bcs)/'+_that.toggleWidgetData['bot_chats_sort'];
+		}
+
 		if (typeof _that.toggleWidgetData['closed_chats_sort'] !== 'undefined' && _that.toggleWidgetData['closed_chats_sort'] !== '') {
 			filter += '/(clcs)/'+_that.toggleWidgetData['closed_chats_sort'];
 		}

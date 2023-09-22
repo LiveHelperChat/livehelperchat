@@ -541,6 +541,17 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         }
     }
 
+    $sortArray = array(
+        'id_asc' => 'id ASC',
+        'id_dsc' => 'id DESC',
+        'lmt_asc' => 'last_msg_id ASC',
+        'lmt_dsc' => 'last_msg_id DESC'
+    );
+
+    if (!empty($Params['user_parameters_unordered']['bcs']) && key_exists($Params['user_parameters_unordered']['bcs'], $sortArray)) {
+        $filter['sort'] = $sortArray[$Params['user_parameters_unordered']['bcs']];
+    }
+
     /**
      * Bot chats
      * */
@@ -548,7 +559,7 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
 
     $chatsListAll = $chatsListAll+$chats;
 
-    erLhcoreClassChat::prefillGetAttributes($chats,array('user_status_front','time_created_front','department_name','plain_user_name','product_name','msg_v','aicons','aalert'),array('iwh','product_id','product','department','pnd_time','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
+    erLhcoreClassChat::prefillGetAttributes($chats,array('pnd_rsp','last_msg_time_front','user_status_front','time_created_front','department_name','plain_user_name','product_name','msg_v','aicons','aalert'),array('iwh','product_id','product','department','pnd_time','time','status','user_id','user','additional_data','additional_data_array','chat_variables','chat_variables_array'),array('additional_columns' => $columnsAdditional));
     $ReturnMessages['bot_chats'] = array('last_id_identifier' => 'bot_chats', 'list' => array_values($chats),'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
     $chatsList[] = & $ReturnMessages['bot_chats']['list'];
 
