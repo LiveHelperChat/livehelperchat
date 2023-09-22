@@ -114,6 +114,11 @@ class erLhAbstractModelAutoResponder {
         $stmt = $db->prepare('DELETE FROM `lh_abstract_auto_responder_dep` WHERE `autoresponder_id` = :autoresponder_id');
         $stmt->bindValue(':autoresponder_id', $this->id,PDO::PARAM_INT);
         $stmt->execute();
+
+        $db = ezcDbInstance::get();
+        $stmt = $db->prepare('DELETE FROM `lh_abstract_auto_responder_chat` WHERE `auto_responder_id` = :auto_responder_id');
+        $stmt->bindValue(':auto_responder_id', $this->id,PDO::PARAM_INT);
+        $stmt->execute();
     }
 
 	public function customForm() {
