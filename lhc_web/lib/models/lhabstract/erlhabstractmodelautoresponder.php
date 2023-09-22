@@ -454,7 +454,15 @@ class erLhAbstractModelAutoResponder {
                         $args['args']['override_user_id'] = $options['override_user_id'];
                     }
 
+                    $last_msg_id = $chat->last_msg_id;
+
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $args);
+
+                    // Dispatch event for a new messages
+                    foreach (erLhcoreClassModelmsg::getList(['filtergt' => ['id' => $last_msg_id], 'filter' => ['chat_id' => $chat->id]]) as $newMessage) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_auto_responder_msg_saved', array('msg' => & $newMessage, 'chat' => & $chat));
+                    }
+
                 } else {
                     $message = erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, false, array('args' => array('do_not_save' => true)));
                 }
