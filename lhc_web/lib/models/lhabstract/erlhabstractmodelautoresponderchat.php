@@ -397,7 +397,9 @@ class erLhAbstractModelAutoResponderChat
         switch ($var) {
             case 'auto_responder':
                 $this->auto_responder = erLhAbstractModelAutoResponder::fetch($this->auto_responder_id, false);
-                $this->auto_responder->translateByChat($this->chat->chat_locale, array('user_id' => $this->chat->user_id, 'dep_id' => $this->chat->dep_id));
+                if (is_object($this->auto_responder)) {
+                    $this->auto_responder->translateByChat($this->chat->chat_locale, array('user_id' => $this->chat->user_id, 'dep_id' => $this->chat->dep_id));
+                }
                 return $this->auto_responder;
                 break;
 
