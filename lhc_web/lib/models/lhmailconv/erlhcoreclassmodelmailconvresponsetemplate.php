@@ -20,7 +20,8 @@ class erLhcoreClassModelMailconvResponseTemplate
             'dep_id' => $this->dep_id,
             'template' => $this->template,
             'template_plain' => $this->template_plain,
-            'unique_id' => $this->unique_id
+            'unique_id' => $this->unique_id,
+            'disabled' => $this->disabled
         );
     }
 
@@ -107,6 +108,7 @@ class erLhcoreClassModelMailconvResponseTemplate
     public $template_plain = '';
     public $department_ids = [];
     public $unique_id = '';
+    public $disabled = 0;
 }
 
 ?>

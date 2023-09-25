@@ -26,6 +26,8 @@ if ($keyword != '') {
     );
 }
 
+$filter[] = $q->expr->eq('disabled', 0);
+
 if (count($filter) > 0) {
     $q->where($filter);
 }

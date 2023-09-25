@@ -493,6 +493,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'disabled' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             )
         );
 
@@ -522,6 +525,12 @@ class erLhcoreClassMailconvValidator {
             $item->dep_id = $form->dep_id;
         } else {
             $item->dep_id = 0;
+        }
+
+        if ($form->hasValidData( 'disabled' ) && $form->disabled == true) {
+            $item->disabled = 1;
+        } else {
+            $item->disabled = 0;
         }
 
         if (!$form->hasValidData( 'DepartmentID' )) {

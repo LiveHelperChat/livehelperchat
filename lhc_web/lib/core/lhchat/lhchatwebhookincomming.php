@@ -406,8 +406,11 @@ class erLhcoreClassChatWebhookIncoming {
                 foreach ($conditionsPairs as $conditionsPair) {
                     $conditionsPairData = explode('=', $conditionsPair);
 
+                    $exists = false;
                     if ($conditionsPairData[1] === 'false') {
                         $conditionsPairData[1] = false;
+                    } elseif ($conditionsPairData[1] === '__exists__') {
+                        $exists = true;
                     } elseif ($conditionsPairData[1] === 'true') {
                         $conditionsPairData[1] = true;
                     } elseif (strpos($conditionsPairData[1], ',') !== false) {
@@ -436,6 +439,10 @@ class erLhcoreClassChatWebhookIncoming {
                         } else {
                             $typeMessage = 'unknown';
                         }
+                    }
+
+                    if ($messageData['found'] === true && $exists == true) {
+                        $typeMessage = 'button';
                     }
                 }
 
@@ -623,9 +630,23 @@ class erLhcoreClassChatWebhookIncoming {
 
         $chatIdExternal2 = self::extractAttribute('chat_id_2',$conditions,$payloadMessage);
 
-        $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+        $chat_id_original = $conditions['chat_id'];
+        foreach (explode('|||',$chat_id_original) as $chat_id) {
+            $conditions['chat_id'] = $chat_id;
+            $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadMessage);
+            if ($chatIdExternal != '') {
+                break;
+            }
+        }
 
         if ($chatIdExternal == '') {
+            foreach (explode('|||',$chat_id_original) as $chat_id) {
+                $conditions['chat_id'] = $chat_id;
+                $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
+                if ($chatIdExternal != '') {
+                    break;
+                }
+            }
             $chatIdExternal = self::extractAttribute('chat_id',$conditions,$payloadAll);
         }
 
@@ -903,8 +924,14 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
-                    if ($chat->nick == 'Visitor' || $chat->nick == '') {
-                        $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, $chat->nick);
+                    if (($chat->nick == 'Visitor' || $chat->nick == '') && isset($conditions['nick']) && $conditions['nick'] != '') {
+                        $nick_params = explode('|||',$conditions['nick']);
+                        $nickParts = [];
+                        foreach ($nick_params as $nick_param) {
+                            $conditions['nick'] = $nick_param;
+                            $nickParts[] = self::extractAttribute('nick', $conditions, $payloadMessage, '');
+                        }
+                        $chat->nick = trim(implode(' ',array_filter($nickParts)));
                     }
 
                     if (isset($conditions['nick_pregmatch']) && $conditions['nick_pregmatch'] != '' && $chat->nick != 'Visitor') {
@@ -1088,7 +1115,20 @@ class erLhcoreClassChatWebhookIncoming {
                     // Save chat
                     $chat = new erLhcoreClassModelChat();
 
-                    $chat->nick = self::extractAttribute('nick', $conditions, $payloadMessage, 'Visitor');
+                    $chat->nick = 'Visitor';
+
+                    if (isset($conditions['nick']) && $conditions['nick'] != '') {
+                        $nick_params = explode('|||',$conditions['nick']);
+                        $nickParts = [];
+                        foreach ($nick_params as $nick_param) {
+                            $conditions['nick'] = $nick_param;
+                            $nickParts[] = self::extractAttribute('nick', $conditions, $payloadMessage, '');
+                        }
+                        $nickPotentional = trim(implode(' ',array_filter($nickParts)));
+                        if (!empty($nickPotentional)) {
+                            $chat->nick = $nickPotentional;
+                        }
+                    }
 
                     // Perhaps it's first level attribute
                     if ($chat->nick == 'Visitor') {
@@ -1136,6 +1176,9 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if (isset($conditions['add_field_2_value']) && $conditions['add_field_2_value'] != '') {
                         $chatVariables['iwh_field_2'] = self::extractAttribute('add_field_2_value', $conditions, $payloadMessage, '');
+                        if (empty($chatVariables['iwh_field_2']) && isset($_GET[$conditions['add_field_2_value']])) {
+                            $chatVariables['iwh_field_2'] = (string)$_GET[$conditions['add_field_2_value']];
+                        }
                     }
 
                     if (!empty($chatVariables)) {

@@ -1,11 +1,11 @@
 <table class="table table-sm mb-0 table-small table-fixed list-chat-table">
     <thead>
     <tr>
-        <th width="15%">
+        <th width="27%">
             <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i>
         </th>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
-        <th width="37%">
+        <th width="25%">
             <span class="material-icons">label</span>
         </th>
         <th width="18%">

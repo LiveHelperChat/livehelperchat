@@ -2689,8 +2689,11 @@ try {
   `dep_id` int(11) NOT NULL DEFAULT 0,
   `template_plain` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `unique_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  KEY `unique_id` (`unique_id`)
+  KEY `unique_id` (`unique_id`),
+  KEY `disabled` (`disabled`),
+  KEY `dep_id` (`dep_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_remarks` (

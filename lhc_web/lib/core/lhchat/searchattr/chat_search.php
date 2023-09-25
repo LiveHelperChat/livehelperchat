@@ -582,12 +582,27 @@ $fieldsSearch['dropped_chat'] = array (
     )
 );
 
+$fieldsSearch['sortby'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string')
+);
+
 $fieldSortAttr = array (
-'field'      => false,
-'default'    => false,
-'serialised' => true,
-'disabled'   => true,
-'options'    => array()
+    'field'      => 'sortby',
+    'default'    => 'id_desc',
+    'serialised' => true,
+    'options'    => array(
+        'id_desc' => array('sort_column' => '`lh_chat`.`id` DESC'),
+        'id_asc' => array('sort_column' => '`lh_chat`.`id` ASC'),
+        'lmt_dsc' => array('sort_column' => '`lh_chat`.`last_msg_id` DESC'),
+        'lmt_asc' => array('sort_column' => '`lh_chat`.`last_msg_id` ASC'),
+    )
 );
 
 return array(

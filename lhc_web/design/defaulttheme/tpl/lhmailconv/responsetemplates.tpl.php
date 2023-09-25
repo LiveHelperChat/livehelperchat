@@ -14,9 +14,9 @@
             <tr>
                 <td>
                     <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
-                        <a class="action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span></a><a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
+                        <a class="action-image<?php if ($item->disabled == 1) :?> text-muted<?php endif;?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span></a><?php if ($item->disabled == 1) :?><i class="text-danger material-icons">block</i><?php endif;?><a <?php if ($item->disabled == 1) :?>class="text-muted"<?php endif;?> href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editresponsetemplate')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->name)?></a>
                     <?php else : ?>
-                         <a class="action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span><?php echo htmlspecialchars($item->name)?></a>
+                         <a class="action-image<?php if ($item->disabled == 1) :?> text-muted<?php endif;?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span><?php if ($item->disabled == 1) :?><i class="text-danger material-icons">block</i><?php endif;?><?php echo htmlspecialchars($item->name)?></a>
                     <?php endif; ?>
                 </td>
                 <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
