@@ -73,6 +73,17 @@ class HeaderChat extends Component {
                         {(this.props.chatwidget.hasIn(['chat_ui','img_icon_close']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_close'])} alt="" />) || <i className="material-icons">&#xf10a;</i>}
                         {btn.get('print') && <span className="end-chat-text">{endText}</span>}
                     </a>;
+                } else if (btn.get('btn') == 'fullheight' && !this.props.chatwidget.get('isMobile')) {
+                    dropdownNumber++;
+                    let fheightText = '';
+                    if (this.props.chatwidget.get('position_placement').includes('full_height')){
+                        fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_class']) || t('button.fheight_text_class');
+                    } else {
+                        fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_col']) || t('button.fheight_text_col');
+                    }
+                    return <a title={fheightText} className={"header-link float-"+position} onClick={this.switchColumn}>
+                        {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<span className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>}</span>)}
+                    </a>;
                 }
         });
 
