@@ -384,6 +384,9 @@
                         <div class="form-group">
                             <label><?php echo $fields['icons_order']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
+                            <div class="text-muted fs12">E.g</div>
+                            <div class="text-muted fs12">* dropdown_print,dropdown_min,dropdown_popup,dropdown_fullheight,dropdown_close</div>
+                            <div class="text-muted fs12">* left_close,right_min,dropdown_popup,left_fullheight,dropdown_close</div>
                         </div>
 
 						<div class="form-group">											
@@ -818,6 +821,12 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'end_chat_text'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'fheight_text_class'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'fheight_text_col'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'support_joined'); ?>

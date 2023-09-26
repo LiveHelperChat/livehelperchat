@@ -512,10 +512,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 210;
+$outputResponse['wv'] = 211;
 
 // React APP versions
-$outputResponse['v'] = 303;
+$outputResponse['v'] = 304;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -594,7 +594,7 @@ $outputResponse['static'] = array(
     'widget_mobile_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/widget_mobile.css;css/widgetv2/widget_mobile_override.css'),
     'embed_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/embed.css;css/widgetv2/embed_override.css'),
     'status_css' => $host . erLhcoreClassDesign::designCSS('css/widgetv2/status.css;css/widgetv2/status_override.css'),
-    'font_status' => $host . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v5.woff2'),
+    'font_status' => $host . erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v6.woff2'),
     'chunk_js' => $host . erLhcoreClassDesign::design('js/widgetv2'),
     'page_css' => $pageCSS,
     'ex_js' => [],

@@ -179,10 +179,10 @@ body {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v5.eot'); /* For IE6-8 */
-    src: url('../fonts/MaterialIcons-lhc-v5.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v5.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v5.ttf') format('truetype');
+    src: url('../fonts/MaterialIcons-lhc-v6.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v6.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v6.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v6.ttf') format('truetype');
     font-display: swap;
 }
 

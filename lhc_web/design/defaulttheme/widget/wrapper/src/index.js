@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 210;
+            lhc.version = 211;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -173,6 +173,7 @@
                     profile_pic: LHC_API.args.profile_pic || null,
                     position: LHC_API.args.position || 'bottom_right',
                     position_placement: LHC_API.args.position_placement || 'bottom_right',
+                    position_placement_original: LHC_API.args.position_placement || 'bottom_right',
                     base_url: LHC_API.args.lhc_base_url,
                     mode: LHC_API.args.mode || 'widget',
                     tag: LHC_API.args.tag || '',
@@ -219,7 +220,8 @@
                     wright: 0,
                     width: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wwidth || 350)),
                     height: ((isMobile || attributesWidget.fscreen) ? 100 : (LHC_API.args.wheight || 520)),
-                    units: ((isMobile || attributesWidget.fscreen) ? '%' : 'px')
+                    units: ((isMobile || attributesWidget.fscreen) ? '%' : 'px'),
+                    position_placement: attributesWidget.position_placement
                 });
 
                 var chatEvents = new chatEventsHandler(attributesWidget);
@@ -378,7 +380,7 @@
                     }
 
                     if (data.wposition) {
-                        attributesWidget.position_placement = data.wposition;
+                        LHC_API.args.position_placement = attributesWidget.position_placement = data.wposition;
                     }
 
                     attributesWidget.captcha = {hash: data.hash, ts: data.hash_ts};
@@ -481,6 +483,10 @@
                                 }, attributesWidget);
                             });
                         }
+                    }
+
+                    if (storageHandler.getSessionStorage(prefixStorage + '_pos_placement') !== null) {
+                        attributesWidget.position_placement = storageHandler.getSessionStorage(prefixStorage + '_pos_placement');
                     }
 
                     if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api') {
@@ -868,6 +874,13 @@
                 });
 
                 attributesWidget.eventEmitter.addListener('widgetHeight', (data) => {
+
+                    if (data.position_placement) {
+                        attributesWidget.position_placement = data.position_placement;
+                        attributesWidget.widgetDimesions.nextProperty('position_placement', attributesWidget.position_placement);
+                        storageHandler.setSessionStorage(prefixStorage + '_pos_placement',attributesWidget.position_placement);
+                        return;
+                    }
 
                     if (data.reset_height) {
                         attributesWidget.widgetDimesions.nextProperty('height_override', null);

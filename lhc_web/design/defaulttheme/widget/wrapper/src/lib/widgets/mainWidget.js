@@ -76,6 +76,16 @@ export class mainWidget{
         }
 
         this.cont.massRestyle(restyleStyle);
+
+        var eldoc = null;
+
+        if (this.cont.elmDomDoc && (eldoc = this.cont.elmDomDoc.getElementById('root')) && eldoc) {
+            if (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right') {
+                eldoc.classList.add('lhc-full-height');
+            } else if (eldoc.classList.contains('lhc-full-height')) {
+                eldoc.classList.remove('lhc-full-height');
+            }
+        }
     }
 
     checkLoadStatus() {

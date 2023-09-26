@@ -10,12 +10,12 @@ a {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v5.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v6.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v5.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v5.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v5.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v6.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v6.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v6.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -139,6 +139,14 @@ div.message-row {
 {
     font-size: 32px;
     color:#343a40;
+}
+
+.header-burger-link{
+    font-size: 14px;
+}
+
+.header-burger-link .material-icons{
+    font-size: 24px;
 }
 
 .action-image,

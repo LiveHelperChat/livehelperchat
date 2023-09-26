@@ -100,17 +100,17 @@ try {
         }
 
         $outputResponse['chat_ui']['header_buttons'] = array(
-            array(
+            array (
                 'pos' => 'left',
-                'btn' => 'min'
+                'btn' => 'min',
             ),
-            array(
+            array (
                 'pos' => 'right',
-                'btn' => 'close',
+                'btn' => 'close'
             ),
-            array(
+            array (
                 'pos' => 'right',
-                'btn' => 'popup'
+                'btn' => 'popup',
             )
         );
 
@@ -122,7 +122,7 @@ try {
 
                 $theme->translate();
 
-                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text') as $attrTranslate) {
+                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $attrTranslate) {
                     if (isset($theme->bot_configuration_array[$attrTranslate]) && !empty($theme->bot_configuration_array[$attrTranslate])) {
                         $outputResponse['chat_ui'][$attrTranslate] = $theme->bot_configuration_array[$attrTranslate];
                     }

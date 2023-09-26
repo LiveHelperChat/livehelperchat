@@ -653,6 +653,28 @@ $fields = array(
                       'validation_definition' => new ezcInputFormDefinitionElement(
                           ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                       )),
+                'fheight_text_class' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Switch to default widget position'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Classic'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'fheight_text_col' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Switch to full height widget position'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Column'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
                 'custom_start_button_bot' => array(
    						'type' => 'text',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat button text, bot chat'),
