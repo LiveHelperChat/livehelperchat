@@ -745,6 +745,13 @@ if ($theme !== false) {
         }
     }
 
+    if ($theme->hide_ts > 0) {
+        $chat_ui['show_ts'] = true;
+        if ($theme->hide_op_ts == 1) {
+            $outputResponse['chat_ui']['show_ts_below'] = true;
+        }
+    }
+
     if (isset($theme->bot_configuration_array['trigger_id']) && !empty($theme->bot_configuration_array['trigger_id']) && $theme->bot_configuration_array['trigger_id'] > 0) {
 
         $tpl = new erLhcoreClassTemplate('lhchat/part/render_intro.tpl.php');
@@ -940,6 +947,10 @@ if ($theme !== false) {
         $chat_ui['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
     }
 
+    if (isset($theme->bot_configuration_array['custom_html_footer']) && $theme->bot_configuration_array['custom_html_footer'] != '') {
+        $chat_ui['custom_html_footer'] = $theme->bot_configuration_array['custom_html_footer'];
+    }
+
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
         $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
     }
@@ -970,6 +981,7 @@ foreach ([
             'custom_html_widget',
             'custom_html_header_body',
             'custom_html_header',
+            'custom_html_footer',
             'cmmsg_widget',
             'pre_chat_html',
             'operator_profile'

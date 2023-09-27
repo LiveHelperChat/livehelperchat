@@ -54,7 +54,13 @@
 
 <?php if (isset($msg['user_id']) && ($msg['user_id'] > -1 || $msg['user_id'] == -2)) : ?>
 	<?php if ($msg['user_id'] == 0) { ?>
-	        <div class="message-row response<?php echo $metaMessageId?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>"><div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
+	        <div class="message-row response<?php echo $metaMessageId?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>">
+
+                <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[1,3]) && $theme->hide_op_ts == 0) : ?>
+                <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                <?php endif; ?>
+
+                <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
                 <?php if ($msg['msg'] != '') : ?>
 
                     <?php $msgBody = $msg['msg']; $paramsMessageRender = array('msg_id' => $msg['id'], 'render_html' => true);?>
@@ -71,11 +77,22 @@
                 <?php if (isset($metaMessageData)) : ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render.tpl.php'));?>
                 <?php endif; ?>
+
+                <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[1,3]) && $theme->hide_op_ts == 1) : ?>
+                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                <?php endif; ?>
+
             </div>
 	 <?php } else { ?>
 
             <?php if ($hideOperator == false) : ?>
                 <div class="message-row message-admin<?php echo $metaMessageId?><?php $typingMessage == true ? print ' ignore-auto-scroll' : ''?><?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
+
+                    <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[2,3]) && $theme->hide_op_ts == 0) : ?>
+                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                    <?php endif; ?>
+
+
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/op_msg_row_nick.tpl.php'));?>
             <?php endif; ?>
 
@@ -95,6 +112,11 @@
                 <?php endif; ?>
 
             <?php if ($hideOperator == false) : ?>
+
+                    <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[2,3]) && $theme->hide_op_ts == 1) : ?>
+                        <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                    <?php endif; ?>
+
                 </div>
             <?php endif; ?>
 

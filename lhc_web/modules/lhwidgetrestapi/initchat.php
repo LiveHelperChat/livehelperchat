@@ -155,6 +155,13 @@ try {
                     unset($outputResponse['chat_ui']['bbc_btnh']);
                 }
 
+                if ($theme->hide_ts > 0) {
+                    $outputResponse['chat_ui']['show_ts'] = true;
+                    if ($theme->hide_op_ts == 1) {
+                        $outputResponse['chat_ui']['show_ts_below'] = true;
+                    }
+                }
+
                 if ($theme->hide_popup == 1) {
                     $outputResponse['chat_ui']['hide_popup'] = true;
                 }
@@ -205,6 +212,10 @@ try {
                 
                 if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
                     $outputResponse['chat_ui']['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
+                }
+
+                if (isset($theme->bot_configuration_array['custom_html_footer']) && $theme->bot_configuration_array['custom_html_footer'] != '') {
+                    $outputResponse['chat_ui']['custom_html_footer'] = $theme->bot_configuration_array['custom_html_footer'];
                 }
 
                 if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {

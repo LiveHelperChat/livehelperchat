@@ -16,7 +16,7 @@ foreach (['alias','widget_pbottom','widget_position','notification_configuration
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['widget_pright','widget_popheight','widget_popwidth','widget_survey','widget_show_leave_form','enable_widget_embed_override','modified','widget_response_width','hide_ts','show_voting','show_status_delay','show_need_help_delay','show_need_help_timeout','show_need_help','header_height','header_padding','modern_look','widget_border_width'] as $posAttr) {
+foreach (['hide_op_ts','widget_pright','widget_popheight','widget_popwidth','widget_survey','widget_show_leave_form','enable_widget_embed_override','modified','widget_response_width','hide_ts','show_voting','show_status_delay','show_need_help_delay','show_need_help_timeout','show_need_help','header_height','header_padding','modern_look','widget_border_width'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

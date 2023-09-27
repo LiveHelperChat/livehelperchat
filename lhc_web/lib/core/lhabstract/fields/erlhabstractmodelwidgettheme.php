@@ -169,14 +169,70 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                     )),
+
+
                 'hide_ts' => array(
-   				        'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide message time from visitor'),
+   				        'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Message time visible for'),
    						'required' => false,
    						'hidden' => true,
+                        'hide_optional' => true,
+                        'frontend' => 'name',
+                        'name_attr' => 'name',
+                        'source' => function() {
+
+                               $items = [];
+                               $item = new StdClass();
+                               $item->id = 0;
+                               $item->name = 'Hidden by default';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 1;
+                               $item->name = 'Visitor messages';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 2;
+                               $item->name = 'Operator/Bot messages';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 3;
+                               $item->name = 'Operator/Bot/Visitor messages';
+                               $items[] = $item;
+
+                               return $items;
+                        },
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
    						)),
+                    'hide_op_ts' => array(
+   				        'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Message time placement'),
+   						'required' => false,
+   						'hidden' => true,
+                        'hide_optional' => true,
+                        'frontend' => 'name',
+                        'name_attr' => 'name',
+                        'source' => function() {
+                               $items = [];
+                               $item = new StdClass();
+                               $item->id = 0;
+                               $item->name = 'Above first message sequence';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 1;
+                               $item->name = 'Below message sequence';
+                               $items[] = $item;
+
+                               return $items;
+                        },
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
+   						)),
+
                 'modern_look' => array(
    				        'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use modern look. It is used only in older widget.'),
@@ -511,6 +567,18 @@ $fields = array(
                         'translatable' => true,
                         'main_attr' => 'bot_configuration_array',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html before standard widget header'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
+                'custom_html_footer' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html after widget content'),
    						'required' => false,
    						'hidden' => true,
    						'validation_definition' => new ezcInputFormDefinitionElement(

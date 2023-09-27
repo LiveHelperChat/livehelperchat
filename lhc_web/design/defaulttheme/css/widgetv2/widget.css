@@ -220,13 +220,12 @@ textarea[name=ChatMessage]{
 }
 
 .msg-date {
-    color: #171515;
+    color: #89898B;
     font-size:11px;
     line-height:11px;
     margin-top:0px;
     padding:3px;
     border-radius:10px;
-    font-style: italic;
 }
 
 .system-response .msg-date{
@@ -704,8 +703,24 @@ div.pending-storage {
     border-right:1px solid #ced4da;
 }
 
-div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
-.bottom-message .message-row .msg-date{
+div.bottom-message:not(.show-msg-ts-below) > div.message-admin+div.message-admin .msg-date,
+div.bottom-message:not(.show-msg-ts-below) > div.message-row.response+div.message-row.response .msg-date{
+    display:none;
+}
+
+div.show-msg-ts-below > div.message-row.message-admin .msg-date,
+div.show-msg-ts-below > div.message-row.response .msg-date{
+    display: none;
+}
+
+div.show-msg-ts-below > div.message-row.message-admin:has(+ :not(.message-admin)) .msg-date,
+div.show-msg-ts-below > div.message-row.response:has(+ :not(.message-row.response)) .msg-date,
+div.show-msg-ts-below > div.message-row:last-child .msg-date
+{
+    display:block;
+}
+
+.bottom-message:not(.show-msg-ts) .message-row .msg-date{
     display:none;
 }
 

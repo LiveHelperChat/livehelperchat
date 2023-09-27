@@ -106,13 +106,17 @@ if (isset($theme) && $theme->custom_widget_css != '') {
     font-size: 24px!important;
 }
 
+div.message-admin div.msg-date,
 div.message-admin div.msg-body,
 div.message-admin div.meta-message{
     margin-left:29px!important;
 }
 
+
+
 <?php if (!(isset($theme->bot_configuration_array['hide_visitor_profile']) && $theme->bot_configuration_array['hide_visitor_profile'] == 1)) : ?>
 div.response div.msg-body,
+div.message-row.response div.msg-date,
 div.response div.meta-message{
     margin-right:29px!important;
 }

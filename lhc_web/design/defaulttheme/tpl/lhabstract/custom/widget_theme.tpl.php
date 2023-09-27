@@ -350,7 +350,13 @@
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other')?></h5>
 
         		        <div class="form-group">
-        		            <label><?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?> <?php echo $fields['hide_ts']['trans'];?></label>
+                            <label><?php echo $fields['hide_ts']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?>
+    				    </div>
+
+        		        <div class="form-group">
+                            <label><?php echo $fields['hide_op_ts']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('hide_op_ts', $fields['hide_op_ts'], $object)?>
     				    </div>
 
         		        <div class="form-group">
@@ -986,6 +992,9 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'custom_html_header'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'custom_html_footer'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'custom_html_header_body'); ?>
