@@ -82,7 +82,7 @@ class HeaderChat extends Component {
                         fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_col']) || t('button.fheight_text_col');
                     }
                     return <a title={fheightText} className={"header-link float-"+position} onClick={this.switchColumn}>
-                        {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<span className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>}</span>)}
+                        {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<i className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>}</i>)}
                     </a>;
                 }
         });
@@ -122,7 +122,7 @@ class HeaderChat extends Component {
                     fheightText = this.props.chatwidget.getIn(['chat_ui','fheight_text_col']) || t('button.fheight_text_col');
                 }
                 return <a title={fheightText} className={"header-link header-burger-link py-1 d-block text-nowrap ps-1"} onClick={this.switchColumn}>
-                    {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<span className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>} </span>)}
+                    {(this.props.chatwidget.hasIn(['chat_ui','img_icon_fheight']) && <img className="px-1" src={this.props.chatwidget.getIn(['chat_ui','img_icon_fheight'])} alt="" />) || (<i className="material-icons">{this.props.chatwidget.get('position_placement').includes('full_height') ? <React.Fragment>&#xf123;</React.Fragment> : <React.Fragment>&#xf126;</React.Fragment>} </i>)}
                     <span className="menu-text text-nowrap">{fheightText}</span>
                 </a>;
             }
