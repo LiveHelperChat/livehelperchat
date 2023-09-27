@@ -2,6 +2,8 @@
 
 1. Widget theme now allows to set message time visibility options for operator and visitor. [Above message or below messages]
 2. Now there is option to have a custom HTML below page widget `Custom html after widget content`
+3. Full height option support in the widget.
+4. Various other small changes...
 
 execute doc/update_db/update_299.sql for update
 
