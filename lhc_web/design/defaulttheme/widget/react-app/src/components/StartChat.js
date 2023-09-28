@@ -540,13 +540,13 @@ class StartChat extends Component {
                                 <div className="mx-auto w-100">
                                     <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
-                                <div className="disable-select">
+                                <div className="disable-select" id="send-button-wrapper">
                                     <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
                                         {this.props.chatwidget.get('processStatus') != 1 && <a onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                            <i className={"material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
+                                            <i className={"send-icon material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}
 
-                                        {this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
+                                        {this.props.chatwidget.get('processStatus') == 1 && <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>}
 
                                     </div>
                                 </div>

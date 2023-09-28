@@ -2,6 +2,10 @@ body {
     background-color: transparent!important;
 }
 
+:root {
+    --lhc-message-border-radius: 20px;
+}
+
 a {
     text-decoration: none;
 }
@@ -361,12 +365,21 @@ div.message-admin div.msg-body{
     padding:6px 9px;
     margin-top:0px;
     color:#FFF;
-    border-radius:20px;
     margin-bottom:3px;
     display:inline-block;
     text-align: left;
     max-width:85%;
     position: relative;
+    border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px;
+}
+
+div.message-row.message-admin+div.message-row.message-admin div.msg-body {
+    border-top-left-radius: 0px;
+}
+
+div.message-row.message-admin:last-child div.msg-body,
+div.message-row.message-admin:has(+ :not(.message-row.message-admin)) div.msg-body {
+    border-bottom-left-radius: var(--lhc-message-border-radius);
 }
 
 div.message-admin div.msg-body a.link{
@@ -380,19 +393,27 @@ div.message-row-typing div.msg-body {
     border-radius: 3px;
     display: inline-block;
     color:#000!important;
-    border-radius:20px;
+    border-radius:var(--lhc-message-border-radius);
 }
-
 
 div.message-row.response div.msg-body{
     background-color: #ededed;
     padding:6px 9px;
     margin-top:0px;
-    border-radius:20px;
+    border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px var(--lhc-message-border-radius);
     margin-bottom:3px;
     display:inline-block;
     text-align: left;
     max-width:90%;
+}
+
+div.message-row.response+div.message-row.response div.msg-body{
+    border-top-right-radius: 0px;
+}
+
+div.message-row.response:last-child div.msg-body,
+div.message-row.response:has(+ :not(.message-row.response)) div.msg-body{
+    border-bottom-right-radius: var(--lhc-message-border-radius);
 }
 
 div.message-row.response div.msg-body.sub-message{
@@ -722,6 +743,15 @@ div.show-msg-ts-below > div.message-row:last-child .msg-date
 
 .bottom-message:not(.show-msg-ts) .message-row .msg-date{
     display:none;
+}
+
+#chat-dropdown-options{
+    color: #d3d3d3!important;
+}
+
+#chat-dropdown-options[aria-expanded=true],
+#chat-dropdown-options:hover{
+    color: var(--bs-secondary-color)!important;
 }
 
 .last-user-msg{

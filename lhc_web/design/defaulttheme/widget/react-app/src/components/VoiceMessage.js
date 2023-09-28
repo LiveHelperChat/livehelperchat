@@ -135,7 +135,7 @@ class VoiceMessage extends PureComponent {
 
         const { t } = this.props;
 
-        return <div className="text-nowrap">
+        return <div className="text-nowrap voice-message-container">
             <i className="material-icons pointer text-danger fs25" title={t('voice.cancel_voice_message')} onClick={() => this.props.cancel()}>&#xf10a;</i>
 
             {!isRecording && <i className="material-icons fs25 pointer text-danger me-0" title={t('voice.record_voice_message')} onClick={this.startRecording}>&#xf10f;</i>}
@@ -146,7 +146,7 @@ class VoiceMessage extends PureComponent {
 
             {recording && isPlaying === true && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</i>}
 
-            <span className="fs12 px-1">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
+            <span className="fs12 px-1 voice-message-length">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
 
             {recording && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</i>}
 

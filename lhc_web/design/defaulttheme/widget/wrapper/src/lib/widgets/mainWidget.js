@@ -144,8 +144,8 @@ export class mainWidget{
         {
             this.screenAttributesUpdate = () => {
 
-                if (window.innerHeight < attributes.widgetDimesions.valueInternal['height'] + 60) {
-                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60);
+                if (window.innerHeight < attributes.widgetDimesions.valueInternal['height'] + 60 + (this.attributes.clinst === true ? 70 : 0)) {
+                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0));
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', null);
                 }

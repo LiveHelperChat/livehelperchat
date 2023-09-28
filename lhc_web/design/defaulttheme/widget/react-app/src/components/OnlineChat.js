@@ -1042,21 +1042,21 @@ class OnlineChat extends Component {
                             {(!this.props.chatwidget.getIn(['chatLiveData','closed']) || !this.props.chatwidget.hasIn(['chat_ui','survey_id'])) && <textarea onFocus={(e) => {this.setState({'reactToMsgId' : 0})}} onTouchStart={this.scrollBottom} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} onKeyUp={this.keyUp} readOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')} id="CSChatMessage" placeholder={placeholder} onKeyDown={this.enterKeyDown} value={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''} onChange={this.handleChange} ref={this.textMessageRef} rows="1" className={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0 "+((this.props.chatwidget.get('shown') === true && this.textMessageRef.current && (/\r|\n/.exec(this.state.value) || (this.state.value.length > this.textMessageRef.current.offsetWidth/8.6))) ? 'msg-two-line' : 'msg-one-line')} />}
                         </div>
 
-                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select">
+                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.get('network_down') && <div className="disable-select" id="send-button-wrapper">
 
                                 <div className="user-chatwidget-buttons pt-2 pe-1" id="ChatSendButtonContainer">
 
                                     {this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage onCompletion={this.updateMessages} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} maxSeconds={this.props.chatwidget.getIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} /></Suspense>}
 
                                     {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && this.props.chatwidget.hasIn(['chat_ui','voice_message']) && typeof window.Audio !== "undefined" && this.state.value.length == 0 && this.state.voiceMode === false && <a onClick={this.startVoiceRecording} title={t('button.record_voice')}>
-                                       <i className="material-icons text-muted settings me-0">&#xf10b;</i>
+                                       <i className="record-icon material-icons text-muted settings me-0">&#xf10b;</i>
                                     </a>}
 
                                     {(!this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) || this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size == 0) && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !(typeof window.Audio !== "undefined") || (this.state.value.length > 0 && this.state.voiceMode === false)) && <a onClick={this.sendMessage} title={t('button.send_msg')}>
-                                       <i className={"material-icons settings me-0" + (this.state.value.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
+                                       <i className={"send-icon material-icons settings me-0" + (this.state.value.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                     </a>}
 
-                                    {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
+                                    {this.props.chatwidget.hasIn(['chatLiveData','msg_to_store']) && this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size > 0 && <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>}
 
                                 </div>
 
