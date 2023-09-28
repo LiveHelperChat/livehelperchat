@@ -140,7 +140,7 @@ export class mainWidget{
             this.monitorDimensions(data);
         };
 
-        if (attributes.widgetDimesions.valueInternal['units'] == 'px' && this.attributes.isMobile == false && this.attributes.mode != 'embed' && this.attributes.position_placement != 'full_height_right' && this.attributes.position_placement != 'full_height_left')
+        if (attributes.widgetDimesions.valueInternal['units'] == 'px' && this.attributes.isMobile == false && this.attributes.mode != 'embed')
         {
             this.screenAttributesUpdate = () => {
 
