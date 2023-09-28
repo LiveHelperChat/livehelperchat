@@ -6,7 +6,7 @@
      		<i class="icon-assistant material-icons me-0"><?php if (isset($react) && $react === true) : ?>&#xf10d;<?php else : ?>account_box<?php endif; ?></i>
      	<?php endif;?>
      </div>
-     <div class="p-1 ps-2">
+     <div class="p-1 ps-2 operator-profile-content">
 	    
 	    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support.tpl.php'));?>
 
