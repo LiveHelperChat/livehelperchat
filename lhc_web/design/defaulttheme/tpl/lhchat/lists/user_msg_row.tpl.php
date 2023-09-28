@@ -56,8 +56,8 @@
 	<?php if ($msg['user_id'] == 0) { ?>
 	        <div class="message-row response<?php echo $metaMessageId?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>">
 
-                <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[1,3]) && $theme->hide_op_ts == 0) : ?>
-                <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                <?php if (isset($theme) && is_object($theme) && $theme->hide_op_ts == 0 && in_array($theme->hide_ts,[1,3,4]) ) : ?>
+                <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(isset($messageDateFormatDayTime) ? $messageDateFormatDayTime : erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(isset($messageDateFormatDay) ? $messageDateFormatDay : erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
                 <?php endif; ?>
 
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row_nick.tpl.php'));?>
@@ -78,8 +78,8 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render.tpl.php'));?>
                 <?php endif; ?>
 
-                <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[1,3]) && $theme->hide_op_ts == 1) : ?>
-                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                <?php if (isset($theme) && is_object($theme) && $theme->hide_op_ts == 1 && in_array($theme->hide_ts,[1,3,4]) ) : ?>
+                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(isset($messageDateFormatDayTime) ? $messageDateFormatDayTime : erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(isset($messageDateFormatDay) ? $messageDateFormatDay : erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
                 <?php endif; ?>
 
             </div>
@@ -88,8 +88,8 @@
             <?php if ($hideOperator == false) : ?>
                 <div class="message-row message-admin<?php echo $metaMessageId?><?php $typingMessage == true ? print ' ignore-auto-scroll' : ''?><?php (isset($lastOperatorChanged) && $lastOperatorChanged == true ? print ' operator-changes' : '') ?><?php if (isset($hideNextMessages) && $hideNextMessages == true) : ?> hide<?php endif;?>" id="msg-<?php echo $msg['id']?>" data-op-id="<?php echo $msg['user_id']?>" title="<?php if (date('Ymd') == date('Ymd',$msg['time'])) { echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else {	echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?>">
 
-                    <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[2,3]) && $theme->hide_op_ts == 0) : ?>
-                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                    <?php if (isset($theme) && is_object($theme) && $theme->hide_op_ts == 0 && ((in_array($theme->hide_ts,[2,3]) &&  $msg['user_id'] == -2) || (in_array($theme->hide_ts,[2,3,4]) && $msg['user_id'] != -2))) : ?>
+                    <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(isset($messageDateFormatDayTime) ? $messageDateFormatDayTime : erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(isset($messageDateFormatDay) ? $messageDateFormatDay : erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
                     <?php endif; ?>
 
 
@@ -113,8 +113,8 @@
 
             <?php if ($hideOperator == false) : ?>
 
-                    <?php if (isset($theme) && is_object($theme) && in_array($theme->hide_ts,[2,3]) && $theme->hide_op_ts == 1) : ?>
-                        <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
+                    <?php if (isset($theme) && is_object($theme) && $theme->hide_op_ts == 1 && ((in_array($theme->hide_ts,[2,3]) && $msg['user_id'] == -2) || (in_array($theme->hide_ts,[2,3,4]) && $msg['user_id'] != -2))) : ?>
+                        <div class="msg-date"><?php if (date('Ymd') == date('Ymd',$msg['time'])) {	echo  date(isset($messageDateFormatDayTime) ? $messageDateFormatDayTime : erLhcoreClassModule::$dateHourFormat,$msg['time']);} else { echo date(isset($messageDateFormatDay) ? $messageDateFormatDay : erLhcoreClassModule::$dateDateHourFormat,$msg['time']);}; ?></div>
                     <?php endif; ?>
 
                 </div>

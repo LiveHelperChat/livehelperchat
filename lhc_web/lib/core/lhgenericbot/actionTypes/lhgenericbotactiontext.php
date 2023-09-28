@@ -189,7 +189,11 @@ class erLhcoreClassGenericBotActionText {
 
         $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
 
-        $msg->time = time() + 1;
+        $msg->time = time();
+
+        if (erLhcoreClassGenericBotWorkflow::$setBotFlow === false) {
+            $msg->time += 1;
+        }
 
         // Perhaps this message should be saved as a system message
         if (isset($action['content']['attr_options']['as_system']) && $action['content']['attr_options']['as_system'] == true)

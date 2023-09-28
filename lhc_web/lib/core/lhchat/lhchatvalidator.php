@@ -2069,6 +2069,8 @@ class erLhcoreClassChatValidator {
 
                 if (!isset($params['ignore_default']) || $params['ignore_default'] == false)
                 {
+                    erLhcoreClassGenericBotWorkflow::$setBotFlow = true;
+
                     if (isset($params['trigger_id']) && $params['trigger_id'] > 0) {
                         $botTrigger = erLhcoreClassModelGenericBotTrigger::fetch($params['trigger_id']);
 
@@ -2103,9 +2105,11 @@ class erLhcoreClassChatValidator {
 
                         if (isset($params['trigger_button_id'])) {
                             $chat->saveThis();
+                            erLhcoreClassGenericBotWorkflow::$setBotFlow = false;
                             erLhcoreClassGenericBotWorkflow::processTriggerClick($chat, $message, $params['trigger_button_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
                         } else if (isset($params['trigger_payload_id'])) {
                             $chat->saveThis();
+                            erLhcoreClassGenericBotWorkflow::$setBotFlow = false;
                             erLhcoreClassGenericBotWorkflow::processButtonClick($chat, $message, $params['trigger_payload_id'], array('processed' => (isset($params['processed']) && $params['processed'] == true)));
                         }
 
@@ -2113,6 +2117,8 @@ class erLhcoreClassChatValidator {
                             $chat->last_msg_id = $message->id;
                         }
                     }
+
+                    erLhcoreClassGenericBotWorkflow::$setBotFlow = false;
                 }
 
                 $chat->saveThis();

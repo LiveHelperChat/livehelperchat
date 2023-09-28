@@ -27,7 +27,12 @@ class erLhcoreClassGenericBotActionActions {
                 $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
             }
             $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
-            $msg->time = time() + 1;
+            $msg->time = time();
+
+            if (erLhcoreClassGenericBotWorkflow::$setBotFlow === true) {
+                $msg->time += 1;
+            }
+
             $msg->msg = $item;
 
             if (isset($params['replace_array'])) {

@@ -8,6 +8,18 @@ $messagesStats = array(
     'counter_messages' => 0,
 );
 
+$messageDateFormatDay = erLhcoreClassModule::$dateDateHourFormat;
+$messageDateFormatDayTime = erLhcoreClassModule::$dateHourFormat;
+
+if (isset($theme) && is_object($theme)) {
+    if (isset($theme->bot_configuration_array['msg_time_format_day']) && !empty($theme->bot_configuration_array['msg_time_format_day'])){
+        $messageDateFormatDay = $theme->bot_configuration_array['msg_time_format_day'];
+    }
+    if (isset($theme->bot_configuration_array['msg_time_format_time']) && !empty($theme->bot_configuration_array['msg_time_format_time'])){
+        $messageDateFormatDayTime = $theme->bot_configuration_array['msg_time_format_time'];
+    }
+}
+
 foreach ($messages as $msg) :
     $messagesStats['counter_messages']++;
 

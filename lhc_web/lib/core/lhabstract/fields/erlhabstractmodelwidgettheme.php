@@ -202,6 +202,11 @@ $fields = array(
                                $item->name = 'Operator/Bot/Visitor messages';
                                $items[] = $item;
 
+                               $item = new StdClass();
+                               $item->id = 4;
+                               $item->name = 'Operator/Visitor messages';
+                               $items[] = $item;
+
                                return $items;
                         },
    						'validation_definition' => new ezcInputFormDefinitionElement(
@@ -1923,6 +1928,26 @@ $fields = array(
         'type' => 'text',
         'main_attr' => 'bot_configuration_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close button position in embed mode'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'msg_time_format_day' => array(
+        'type' => 'text',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Date format if message is on different day'),
+        'placeholder' => 'Y-m-d H:i:s',
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'msg_time_format_time' => array(
+        'type' => 'text',
+        'placeholder' => 'H:i:s',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Date format if message is on same day'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(

@@ -235,7 +235,11 @@ class erLhcoreClassGenericBotActionRestapi
                         $msg->user_id = -2; // Save as bot message
                     }
 
-                    $msg->time = time() + 1;
+                    $msg->time = time();
+
+                    if (erLhcoreClassGenericBotWorkflow::$setBotFlow === false) {
+                        $msg->time += 1;
+                    }
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
 

@@ -359,6 +359,22 @@
                             <?php echo erLhcoreClassAbstract::renderInput('hide_op_ts', $fields['hide_op_ts'], $object)?>
     				    </div>
 
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['msg_time_format_day']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('msg_time_format_day', $fields['msg_time_format_day'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['msg_time_format_time']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('msg_time_format_time', $fields['msg_time_format_time'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
+
         		        <div class="form-group">
         		            <label><?php echo erLhcoreClassAbstract::renderInput('disable_edit_prev', $fields['disable_edit_prev'], $object)?> <?php echo $fields['disable_edit_prev']['trans'];?></label>
     				    </div>
