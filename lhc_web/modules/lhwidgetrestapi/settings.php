@@ -339,12 +339,24 @@ if (isset($outputResponse['theme'])) {
         $outputResponse['chat_ui']['sound_enabled'] = (isset($theme->bot_configuration_array['disable_sound']) && $theme->bot_configuration_array['disable_sound'] == 1) ? 0 : 1;
 
         $fontsPreload = [];
+        $cssPreload = [];
         if ($theme->custom_widget_css != '') {
             $fontFilesExternal = [];
             preg_match_all('/url\("([\/_:a-zA-Z0-9.-]+).woff2"\)/is',$theme->custom_widget_css, $fontFilesExternal);
             if (!empty($fontFilesExternal[1])) {
                 foreach ($fontFilesExternal[1] as $fontToPreload) {
-                    $fontsPreload[] = strpos($fontToPreload,'http') !== 0 ? $host . $fontToPreload . '.woff2' : $fontToPreload . '.woff2';
+                    $fontsPreload[] = strpos($fontToPreload,'http') === 0 ?  $fontToPreload . '.woff2' : $host . $fontToPreload . '.woff2';
+                }
+            }
+            $fontFilesExternal = [];
+            preg_match_all('/url\("([\/_:a-zA-Z0-9.-;?@&=]+)(display=swap|.css)"\)/is',$theme->custom_widget_css, $fontFilesExternal);
+            if (!empty($fontFilesExternal[1])) {
+                foreach ($fontFilesExternal[2] as $indexFont => $fontToPreload) {
+                    if ($fontToPreload == 'display=swap') {
+                        $cssPreload[] = $fontFilesExternal[1][$indexFont] . 'display=swap';
+                    } else {
+                        $cssPreload[] = strpos($fontFilesExternal[1][$indexFont],'http') === 0 ? $fontFilesExternal[1][$indexFont]  . '.css' :  $host . $fontFilesExternal[1][$indexFont]  . '.css';
+                    }
                 }
             }
         }
@@ -512,10 +524,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 212;
+$outputResponse['wv'] = 213;
 
 // React APP versions
-$outputResponse['v'] = 306;
+$outputResponse['v'] = 307;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;
@@ -603,6 +615,10 @@ $outputResponse['static'] = array(
 
 if (isset($fontsPreload) && !empty($fontsPreload)) {
     $outputResponse['static']['font_preload'] = $fontsPreload;
+}
+
+if (isset($cssPreload) && !empty($cssPreload)) {
+    $outputResponse['static']['css_preload'] = $cssPreload;
 }
 
 $outputResponse['chunks_location'] = $host . erLhcoreClassDesign::design('js/widgetv2');

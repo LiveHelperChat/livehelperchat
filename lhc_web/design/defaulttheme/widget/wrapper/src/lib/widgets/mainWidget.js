@@ -28,7 +28,7 @@ export class mainWidget{
 
         this.isLoaded = false;
 
-        this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true};
+        this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true, css_preload: true};
     }
 
     resize() {
@@ -89,7 +89,7 @@ export class mainWidget{
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true) {
+        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true && this.loadStatus['css_preload'] == true) {
             this.loadApp();
         }
     }
@@ -195,6 +195,13 @@ export class mainWidget{
             this.loadStatus['font_preload'] = false;
             this.attributes.staticJS['font_preload'].forEach((item) => {
                 this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font_preload'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : item});
+            });
+        }
+
+        if (this.attributes.staticJS['css_preload']) {
+            this.loadStatus['css_preload'] = false;
+            this.attributes.staticJS['css_preload'].forEach((item) => {
+                this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['css_preload'] = true; this.checkLoadStatus()}, "as":"style", crossOrigin : null, rel:"preload", href : item});
             });
         }
 

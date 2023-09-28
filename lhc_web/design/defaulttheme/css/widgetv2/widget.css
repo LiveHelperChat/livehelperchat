@@ -4,6 +4,9 @@ body {
 
 :root {
     --lhc-message-border-radius: 20px;
+    --lhc-message-op-background: #ededed;
+    --lhc-message-vi-background: #3267e4;
+    --lhc-message-padding: 6px 9x;
 }
 
 a {
@@ -358,11 +361,10 @@ div.message-admin{
     text-align:right;
 }
 
-
 div.message-admin div.msg-body{
     margin-right:0px;
-    background-color: #3267e4;
-    padding:6px 9px;
+    background-color: var(--lhc-message-vi-background);
+    padding: var(--lhc-message-padding);
     margin-top:0px;
     color:#FFF;
     margin-bottom:3px;
@@ -396,9 +398,10 @@ div.message-row-typing div.msg-body {
     border-radius:var(--lhc-message-border-radius);
 }
 
+
 div.message-row.response div.msg-body{
-    background-color: #ededed;
-    padding:6px 9px;
+    background-color: var(--lhc-message-op-background);
+    padding:var(--lhc-message-padding);
     margin-top:0px;
     border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px var(--lhc-message-border-radius);
     margin-bottom:3px;
@@ -441,13 +444,13 @@ div.message-row.response div.msg-body.sub-message{
 }
 
 .bottom-message div.response div.msg-body{
-    background-color: #3267e4;
+    background-color: var(--lhc-message-vi-background);
     color:#FFF;
 }
 
 .reactions-holder,
 .bottom-message div.message-admin div.msg-body{
-    background-color: #ededed;
+    background-color: var(--lhc-message-op-background);
     color:#212529;
 }
 
