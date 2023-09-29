@@ -52,13 +52,21 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     }
 }
 
+$defaultTimeZone = erLhcoreClassModule::$defaultTimeZone;
+
 // Auto Responder In the Background
 foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'limit' => 500, 'filterin' => array('status' => [erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_BOT_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT]))) as $chat) {
     try {
 
+        if ($defaultTimeZone != '') {
+            date_default_timezone_set($defaultTimeZone);
+        }
+        
         $db->beginTransaction();
 
         $chat = erLhcoreClassModelChat::fetchAndLock($chat->id);
+
+        erLhcoreClassChat::setTimeZoneByChat($chat);
 
         if ($chat->auto_responder !== false) {
             $chat->auto_responder->chat = $chat;
@@ -72,6 +80,11 @@ foreach (erLhcoreClassChat::getList(array('sort' => 'priority DESC, id ASC', 'li
     }
 }
 
+erLhcoreClassModule::$defaultTimeZone = $defaultTimeZone;
+
+if (erLhcoreClassModule::$defaultTimeZone != '') {
+    date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);
+}
 
 // Inform visitors about unread messages
 erLhcoreClassChatWorkflow::autoInformVisitor(erLhcoreClassModelChatConfig::fetch('inform_unread_message')->current_value);
