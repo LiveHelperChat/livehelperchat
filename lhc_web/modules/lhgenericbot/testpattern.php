@@ -18,13 +18,19 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
             'iwh' => ['conditions_array']
         ];
 
-        foreach (['subject_ids','subject_ids_list','department','chat_variables_array','user','online_user',
+        foreach (['abnd','drpd','subject_ids','subject_ids_list','department','chat_variables_array','user','online_user',
                   'wait_time_pending','incoming_chat','iwh','bot','user_status_front','chat_dynamic_array','aalert','aicons','msg_v','additional_data_array','user_tz_identifier_time',
             'unread_time','screenshot','number_in_queue','department_name','department_role','auto_responder','n_off_full','n_official','hum','plain_user_name','user_name','chat_duration_front','pnd_rsp',
             'wait_time_pending','last_user_msg_time_front','start_last_action_front','wait_time_front','last_msg_time_front','last_msg_time','wait_time_seconds','is_user_typing','can_edit_chat','is_operator_typing',
             'user_closed_ts_front','cls_time_front','pnd_time_front','time_created_front','last_msg'
                      ] as $dynamicAttr) {
-            if (is_object($chat->{$dynamicAttr})) {
+            if ($dynamicAttr == 'abnd') {
+                $debugString = ' ((' . $chat->lsync .'[lsync] < (' . $chat->pnd_time .'[pnd_time]+' . $chat->wait_time . '[wait_time]) &&' . $chat->wait_time .'[wait_time]> 1) || (' . $chat->lsync . '[lsync] >  (' . $chat->pnd_time . '[pnd_time]+' . $chat->wait_time . '[wait_time]) && ' . $chat->wait_time. '[wait_time] > 1 && ' . $chat->user_id . '[user_id] == 0) | Visitor left before chat was accepted';
+                $patterns[] = '{debug.'.$dynamicAttr .'} = ' . (($chat->lsync < ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1) || ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1 && $chat->user_id == 0) ? 1 : 0) . $debugString;
+            } elseif ($dynamicAttr == 'drpd') {
+                $debugString = ' ('.$chat->lsync .'[lsync] >  (' . $chat->pnd_time . '[pnd_time] + ' . $chat->wait_time . '[wait_time]) && ' . $chat->has_unread_op_messages.'[has_unread_op_messages] == 1 && ' . $chat->user_id. '[user_id] > 0 )';
+                $patterns[] = '{debug.'.$dynamicAttr .'} = ' . ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->has_unread_op_messages == 1 && $chat->user_id > 0 ? 1 : 0) . $debugString . ' Visitor was online while chat was accepted, but left before operator replied';
+            } elseif (is_object($chat->{$dynamicAttr})) {
                 foreach ($chat->{$dynamicAttr}->getState() as $stateKey => $stateAttr) {
                     $patterns[] = '{args.chat.' . $dynamicAttr .'.' . $stateKey .'} = ' . ((is_array($stateAttr) || is_object($stateAttr)) ? json_encode($stateAttr) : $stateAttr);
                 }
