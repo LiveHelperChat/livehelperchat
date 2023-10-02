@@ -2,6 +2,13 @@ body {
     background-color: transparent!important;
 }
 
+:root {
+    --lhc-message-border-radius: 20px;
+    --lhc-message-op-background: #ededed;
+    --lhc-message-vi-background: #3267e4;
+    --lhc-message-padding: 6px 9px;
+}
+
 a {
     text-decoration: none;
 }
@@ -10,12 +17,12 @@ a {
     font-family: 'MaterialIconsLHC';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-lhc-v5.eot'); /* For IE6-8 */
+    src: url('../fonts/MaterialIcons-lhc-v6.eot'); /* For IE6-8 */
     src: local('MaterialIconsLHC'),
     local('MaterialIconsLHC'),
-    url('../fonts/MaterialIcons-lhc-v5.woff2') format('woff2'),
-    url('../fonts/MaterialIcons-lhc-v5.woff') format('woff'),
-    url('../fonts/MaterialIcons-lhc-v5.ttf') format('truetype');
+    url('../fonts/MaterialIcons-lhc-v6.woff2') format('woff2'),
+    url('../fonts/MaterialIcons-lhc-v6.woff') format('woff'),
+    url('../fonts/MaterialIcons-lhc-v6.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -141,6 +148,14 @@ div.message-row {
     color:#343a40;
 }
 
+.header-burger-link{
+    font-size: 14px;
+}
+
+.header-burger-link .material-icons{
+    font-size: 24px;
+}
+
 .action-image,
 .header-link-item,
 .header-link{
@@ -212,13 +227,12 @@ textarea[name=ChatMessage]{
 }
 
 .msg-date {
-    color: #171515;
+    color: #89898B;
     font-size:11px;
     line-height:11px;
     margin-top:0px;
     padding:3px;
     border-radius:10px;
-    font-style: italic;
 }
 
 .system-response .msg-date{
@@ -347,19 +361,27 @@ div.message-admin{
     text-align:right;
 }
 
-
 div.message-admin div.msg-body{
     margin-right:0px;
-    background-color: #3267e4;
-    padding:6px 9px;
+    background-color: var(--lhc-message-vi-background);
+    padding: var(--lhc-message-padding);
     margin-top:0px;
     color:#FFF;
-    border-radius:20px;
     margin-bottom:3px;
     display:inline-block;
     text-align: left;
     max-width:85%;
     position: relative;
+    border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px;
+}
+
+div.message-row.message-admin+div.message-row.message-admin div.msg-body {
+    border-top-left-radius: 0px;
+}
+
+div.message-row.message-admin:last-child div.msg-body,
+div.message-row.message-admin:has(+ :not(.message-row.message-admin)) div.msg-body {
+    border-bottom-left-radius: var(--lhc-message-border-radius);
 }
 
 div.message-admin div.msg-body a.link{
@@ -373,19 +395,28 @@ div.message-row-typing div.msg-body {
     border-radius: 3px;
     display: inline-block;
     color:#000!important;
-    border-radius:20px;
+    border-radius:var(--lhc-message-border-radius);
 }
 
 
 div.message-row.response div.msg-body{
-    background-color: #ededed;
-    padding:6px 9px;
+    background-color: var(--lhc-message-op-background);
+    padding:var(--lhc-message-padding);
     margin-top:0px;
-    border-radius:20px;
+    border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px var(--lhc-message-border-radius);
     margin-bottom:3px;
     display:inline-block;
     text-align: left;
     max-width:90%;
+}
+
+div.message-row.response+div.message-row.response div.msg-body{
+    border-top-right-radius: 0px;
+}
+
+div.message-row.response:last-child div.msg-body,
+div.message-row.response:has(+ :not(.message-row.response)) div.msg-body{
+    border-bottom-right-radius: var(--lhc-message-border-radius);
 }
 
 div.message-row.response div.msg-body.sub-message{
@@ -413,13 +444,13 @@ div.message-row.response div.msg-body.sub-message{
 }
 
 .bottom-message div.response div.msg-body{
-    background-color: #3267e4;
+    background-color: var(--lhc-message-vi-background);
     color:#FFF;
 }
 
 .reactions-holder,
 .bottom-message div.message-admin div.msg-body{
-    background-color: #ededed;
+    background-color: var(--lhc-message-op-background);
     color:#212529;
 }
 
@@ -696,9 +727,34 @@ div.pending-storage {
     border-right:1px solid #ced4da;
 }
 
-div.message-admin+div.message-admin .msg-date,div.message-row.response+div.message-row.response .msg-date,
-.bottom-message .message-row .msg-date{
+div.bottom-message:not(.show-msg-ts-below) > div.message-admin+div.message-admin .msg-date,
+div.bottom-message:not(.show-msg-ts-below) > div.message-row.response+div.message-row.response .msg-date{
     display:none;
+}
+
+div.show-msg-ts-below > div.message-row.message-admin .msg-date,
+div.show-msg-ts-below > div.message-row.response .msg-date{
+    display: none;
+}
+
+div.show-msg-ts-below > div.message-row.message-admin:has(+ :not(.message-admin)) .msg-date,
+div.show-msg-ts-below > div.message-row.response:has(+ :not(.message-row.response)) .msg-date,
+div.show-msg-ts-below > div.message-row:last-child .msg-date
+{
+    display:block;
+}
+
+.bottom-message:not(.show-msg-ts) .message-row .msg-date{
+    display:none;
+}
+
+#chat-dropdown-options{
+    color: #d3d3d3!important;
+}
+
+#chat-dropdown-options[aria-expanded=true],
+#chat-dropdown-options:hover{
+    color: var(--bs-secondary-color)!important;
 }
 
 .last-user-msg{

@@ -1,0 +1,2 @@
+ALTER TABLE `lh_abstract_widget_theme` ADD `hide_op_ts` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';
+ALTER TABLE `lh_abstract_widget_theme` CHANGE `hide_ts` `hide_ts` tinyint(1) unsigned NOT NULL DEFAULT '0';

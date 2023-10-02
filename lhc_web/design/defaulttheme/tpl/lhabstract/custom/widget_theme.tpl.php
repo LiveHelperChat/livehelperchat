@@ -350,8 +350,30 @@
                         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Other')?></h5>
 
         		        <div class="form-group">
-        		            <label><?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?> <?php echo $fields['hide_ts']['trans'];?></label>
+                            <label><?php echo $fields['hide_ts']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('hide_ts', $fields['hide_ts'], $object)?>
     				    </div>
+
+        		        <div class="form-group">
+                            <label><?php echo $fields['hide_op_ts']['trans'];?></label>
+                            <?php echo erLhcoreClassAbstract::renderInput('hide_op_ts', $fields['hide_op_ts'], $object)?>
+    				    </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['msg_time_format_day']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('msg_time_format_day', $fields['msg_time_format_day'], $object)?>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo $fields['msg_time_format_time']['trans'];?></label>
+                                    <?php echo erLhcoreClassAbstract::renderInput('msg_time_format_time', $fields['msg_time_format_time'], $object)?>
+                                </div>
+                            </div>
+                        </div>
+
 
         		        <div class="form-group">
         		            <label><?php echo erLhcoreClassAbstract::renderInput('disable_edit_prev', $fields['disable_edit_prev'], $object)?> <?php echo $fields['disable_edit_prev']['trans'];?></label>
@@ -384,6 +406,9 @@
                         <div class="form-group">
                             <label><?php echo $fields['icons_order']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('icons_order', $fields['icons_order'], $object)?>
+                            <div class="text-muted fs12">E.g</div>
+                            <div class="text-muted fs12">* dropdown_print,dropdown_min,dropdown_popup,dropdown_fullheight,dropdown_close</div>
+                            <div class="text-muted fs12">* left_close,right_min,dropdown_popup,left_fullheight,dropdown_close</div>
                         </div>
 
 						<div class="form-group">											
@@ -820,6 +845,12 @@
                     <?php $translatableItem = array('identifier' => 'end_chat_text'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
+                    <?php $translatableItem = array('identifier' => 'fheight_text_class'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'fheight_text_col'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
                     <?php $translatableItem = array('identifier' => 'support_joined'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
@@ -977,6 +1008,9 @@
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'custom_html_header'); ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
+
+                    <?php $translatableItem = array('identifier' => 'custom_html_footer'); ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/theme_text_translatable.tpl.php'));?>
 
                     <?php $translatableItem = array('identifier' => 'custom_html_header_body'); ?>

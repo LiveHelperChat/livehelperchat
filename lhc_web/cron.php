@@ -154,10 +154,16 @@ $instance->Language = $optionsSiteAccess['locale'];
 $instance->ThemeSite = $optionsSiteAccess['theme'];
 $instance->WWWDirLang = '/'.$helpOption->value;
 
-erLhcoreClassModule::$defaultTimeZone = $cfgSite->getSetting('site', 'time_zone', false);
+$tz = isset($optionsSiteAccess['time_zone']) ? $optionsSiteAccess['time_zone'] : $cfgSite->getSetting( 'site', 'time_zone', false);
+
+erLhcoreClassModule::$defaultTimeZone = $tz;
 erLhcoreClassModule::$dateFormat = $cfgSite->getSetting('site', 'date_format', false);
 erLhcoreClassModule::$dateHourFormat = $cfgSite->getSetting('site', 'date_hour_format', false);
 erLhcoreClassModule::$dateDateHourFormat = $cfgSite->getSetting('site', 'date_date_hour_format', false);
+
+if (erLhcoreClassModule::$defaultTimeZone != '') {
+    date_default_timezone_set(erLhcoreClassModule::$defaultTimeZone);
+}
 
 // Attatch extensions events listeners
 erLhcoreClassModule::attatchExtensionListeners();

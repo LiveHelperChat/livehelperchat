@@ -28,7 +28,7 @@ export class mainWidget{
 
         this.isLoaded = false;
 
-        this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true};
+        this.loadStatus = {main: false, css: false, theme: false, font_status: false, font_preload: true, css_preload: true};
     }
 
     resize() {
@@ -76,10 +76,20 @@ export class mainWidget{
         }
 
         this.cont.massRestyle(restyleStyle);
+
+        var eldoc = null;
+
+        if (this.cont.elmDomDoc && (eldoc = this.cont.elmDomDoc.getElementById('root')) && eldoc) {
+            if (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right') {
+                eldoc.classList.add('lhc-full-height');
+            } else if (eldoc.classList.contains('lhc-full-height')) {
+                eldoc.classList.remove('lhc-full-height');
+            }
+        }
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true) {
+        if (this.loadStatus['css'] == true && this.loadStatus['theme'] == true && this.loadStatus['font_status'] == true && this.loadStatus['font_preload'] == true && this.loadStatus['css_preload'] == true) {
             this.loadApp();
         }
     }
@@ -130,12 +140,12 @@ export class mainWidget{
             this.monitorDimensions(data);
         };
 
-        if (attributes.widgetDimesions.valueInternal['units'] == 'px' && this.attributes.isMobile == false && this.attributes.mode != 'embed' && this.attributes.position_placement != 'full_height_right' && this.attributes.position_placement != 'full_height_left')
+        if (attributes.widgetDimesions.valueInternal['units'] == 'px' && this.attributes.isMobile == false && this.attributes.mode != 'embed')
         {
             this.screenAttributesUpdate = () => {
 
-                if (window.innerHeight < attributes.widgetDimesions.valueInternal['height'] + 60) {
-                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60);
+                if (window.innerHeight < attributes.widgetDimesions.valueInternal['height'] + 60 + (this.attributes.clinst === true ? 70 : 0)) {
+                    attributes.widgetDimesions.nextPropertySilent('height_soverride', window.innerHeight - 60 - (this.attributes.clinst === true ? 70 : 0));
                 } else {
                     attributes.widgetDimesions.nextPropertySilent('height_soverride', null);
                 }
@@ -185,6 +195,13 @@ export class mainWidget{
             this.loadStatus['font_preload'] = false;
             this.attributes.staticJS['font_preload'].forEach((item) => {
                 this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['font_preload'] = true; this.checkLoadStatus()},"as":"font", rel:"preload", type: "font/woff", crossOrigin : "anonymous",  href : item});
+            });
+        }
+
+        if (this.attributes.staticJS['css_preload']) {
+            this.loadStatus['css_preload'] = false;
+            this.attributes.staticJS['css_preload'].forEach((item) => {
+                this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['css_preload'] = true; this.checkLoadStatus()}, "as":"style", crossOrigin : null, rel:"preload", href : item});
             });
         }
 

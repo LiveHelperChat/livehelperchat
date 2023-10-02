@@ -3,7 +3,8 @@
 class erLhcoreClassGenericBotWorkflow {
 
     public static $startChat = false;
-    
+    public static $setBotFlow = false;
+
     public static function findEvent($text, $botId, $type = 0, $paramsFilter = array(), $paramsExecution = array())
     {
         $bot = erLhcoreClassModelGenericBotBot::fetch($botId);

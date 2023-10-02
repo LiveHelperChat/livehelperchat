@@ -3650,6 +3650,22 @@
         "extra": ""
       },
       {
+        "field": "hide_op_ts",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "hide_ts",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "hide_close",
         "type": "int(11)",
         "null": "NO",
@@ -3667,14 +3683,6 @@
       },
       {
         "field": "show_status_delay",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": 0,
-        "extra": ""
-      },
-      {
-        "field": "hide_ts",
         "type": "int(11)",
         "null": "NO",
         "key": "",

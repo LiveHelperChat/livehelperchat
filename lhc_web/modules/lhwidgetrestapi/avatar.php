@@ -7,7 +7,7 @@
 // github    https://github.com/multiavatar/multiavatar-php
 // license   https://multiavatar.com/license
 // homepage  https://multiavatar.com
-
+#[\AllowDynamicProperties]
 class Multiavatar {
 
     // string

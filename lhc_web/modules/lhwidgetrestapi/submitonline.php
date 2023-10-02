@@ -370,7 +370,9 @@ if (empty($Errors)) {
             $trigger = erLhcoreClassModelGenericBotTrigger::fetch($additionalParams['theme']->bot_configuration_array['trigger_id']);
             $paramsExecution['trigger_id_executed'] = $additionalParams['theme']->bot_configuration_array['trigger_id'];
             if (is_object($trigger)) {
+                erLhcoreClassGenericBotWorkflow::$setBotFlow = true;
                 erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger);
+                erLhcoreClassGenericBotWorkflow::$setBotFlow = false;
                 $triggerEvent = erLhcoreClassModelGenericBotChatEvent::findOne(array('filter' => array('chat_id' => $chat->id)));
             }
         }

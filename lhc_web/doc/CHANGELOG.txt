@@ -1,3 +1,12 @@
+4.28v
+
+1. Widget theme now allows to set message time visibility options for operator and visitor. [Above message or below messages]
+2. Now there is option to have a custom HTML below page widget `Custom html after widget content`
+3. Full height option support in the widget.
+4. Various other small changes...
+
+execute doc/update_db/update_299.sql for update
+
 4.27v
 
 1. Avoid flicker once chat is started for a new widget.
@@ -13,7 +22,7 @@
 11. Geo detection test window.
 12. More variables for Rest API
 
-execute doc/update_db/update_299.sql for update
+execute doc/update_db/update_298.sql for update
 
 4.26v
 

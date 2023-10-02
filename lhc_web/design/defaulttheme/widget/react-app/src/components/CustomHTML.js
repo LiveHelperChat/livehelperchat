@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { helperFunctions } from "../lib/helperFunctions";
 import parse, { domToReact } from 'html-react-parser';
+import { parseScript } from "../actions/chatActions";
 
 @connect((store) => {
     return {
@@ -15,9 +16,12 @@ class CustomHTML extends Component {
         preg_match_rules : []
     }
 
+
+
     constructor(props) {
         super(props);
         this.listenerAdded = false;
+        this.js_execute = null;
     }
 
     handleParentMessage(e, item) {
@@ -59,6 +63,12 @@ class CustomHTML extends Component {
         });
     }
 
+    componentDidMount() {
+        if (this.js_execute !== null) {
+            parseScript(this.js_execute, this);
+        }
+    }
+
     render() {
         let html = this.props.chatwidget.getIn(['chat_ui',this.props.attr]);
 
@@ -83,7 +93,11 @@ class CustomHTML extends Component {
                                     this.abstractClick(cloneAttr, null);
                                     this.listenerAdded = true;
                                 }
-                                return "";
+                                return <React.Fragment></React.Fragment>;
+                            } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
+                                this.js_execute = domNode;
+                                // Return empty element
+                                return <React.Fragment></React.Fragment>;
                             }
                         }
                     }})}

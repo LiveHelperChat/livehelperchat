@@ -111,6 +111,22 @@ setTimeout(function() {
 
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->getState(),JSON_PRETTY_PRINT)); ?></pre>
 
+            <?php
+            $debugString = ' ((' . $chat->lsync .'[lsync] < (' . $chat->pnd_time .'[pnd_time]+' . $chat->wait_time . '[wait_time]) &&' . $chat->wait_time .'[wait_time]> 1) || (' . $chat->lsync . '[lsync] >  (' . $chat->pnd_time . '[pnd_time]+' . $chat->wait_time . '[wait_time]) && ' . $chat->wait_time. '[wait_time] > 1 && ' . $chat->user_id . '[user_id] == 0) | Visitor left before chat was accepted';
+            $patterns['abnd'] = '{debug.abnd} = ' . (($chat->lsync < ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1) || ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1 && $chat->user_id == 0) ? 1 : 0) . $debugString;
+
+            $debugString = ' ('.$chat->lsync .'[lsync] >  (' . $chat->pnd_time . '[pnd_time] + ' . $chat->wait_time . '[wait_time]) && ' . $chat->has_unread_op_messages.'[has_unread_op_messages] == 1 && ' . $chat->user_id. '[user_id] > 0 )';
+            $patterns['drpd'] = '{debug.drpd} = ' . ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->has_unread_op_messages == 1 && $chat->user_id > 0 ? 1 : 0) . $debugString . ' Visitor was online while chat was accepted, but left before operator replied';
+
+            ?>
+
+            <ul class="fs11">
+                <li><?php echo htmlspecialchars($patterns['abnd'])?></li>
+                <li><?php echo htmlspecialchars($patterns['drpd'])?></li>
+            </ul>
+
+
+
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
             <?php $logDuration = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat,false,$logDuration);?>
             <pre class="fs11"><?php print_r($logDuration);?></pre>
