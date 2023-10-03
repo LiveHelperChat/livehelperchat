@@ -950,7 +950,9 @@ class erLhcoreClassChatStatistic {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
 
-        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(frt)');
+        $filter['filtergt']['frt'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(frt)');
     }
 
     public static function getAverageResponseTime($days = 30, $filter = array()) {
@@ -980,7 +982,9 @@ class erLhcoreClassChatStatistic {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
 
-        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(aart)');
+        $filter['filtergt']['aart'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(aart)');
     }
 
 
@@ -1011,7 +1015,9 @@ class erLhcoreClassChatStatistic {
             $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
         }
 
-        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(mart)');
+        $filter['filtergt']['mart'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(mart)');
     }
 
 
@@ -2224,19 +2230,16 @@ class erLhcoreClassChatStatistic {
 
                     'avgFirstResponseTime' => $avgFirstResponseTime,
                     'avgFirstResponseTime_front' => $avgFirstResponseTime_front,
-
-                    'avgResponseTime' => $avgResponseTime,
-                    'avgResponseTime_front' => $avgResponseTime_front,
-
-                    'avgMaximumResponseTime' => $avgMaximumResponseTime,
-                    'avgMaximumResponseTime_front' => $avgMaximumResponseTime_front,
-
                     'avgFirstResponseTimePar' => $avgFirstResponseTimePar,
                     'avgFirstResponseTimePar_front' => $avgFirstResponseTimePar_front,
 
+                    'avgResponseTime' => $avgResponseTime,
+                    'avgResponseTime_front' => $avgResponseTime_front,
                     'avgResponseTimePar' => $avgResponseTimePar,
                     'avgResponseTimePar_front' => $avgResponseTimePar_front,
 
+                    'avgMaximumResponseTime' => $avgMaximumResponseTime,
+                    'avgMaximumResponseTime_front' => $avgMaximumResponseTime_front,
                     'avgMaximumResponseTimePar' => $avgMaximumResponseTimePar,
                     'avgMaximumResponseTimePar_front' => $avgMaximumResponseTimePar_front
                 );

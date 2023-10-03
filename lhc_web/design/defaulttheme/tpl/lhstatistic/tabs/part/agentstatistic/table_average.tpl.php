@@ -13,7 +13,7 @@
         <?php echo htmlspecialchars($agentStatistic_avg['totalHoursOnline_front'])?>
     </td>
     <td>
-        <?php echo htmlspecialchars($agentStatistic_avg['aveNumber'])?>,<?php echo htmlspecialchars($agentStatistic_avg['aveNumberParticipant'])?>
+        <?php echo htmlspecialchars($agentStatistic_avg['aveNumber'])?>, <span class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','As participant')?>"><?php echo htmlspecialchars($agentStatistic_avg['aveNumberParticipant'])?></span>
     </td>
     <td>
         <?php echo htmlspecialchars($agentStatistic_avg['avgWaitTime_front'])?>
