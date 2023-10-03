@@ -1766,6 +1766,14 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
 
+
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average first response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average first response time (participation)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(13 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average response time (participation)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(14 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average of maximum response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(15 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average of maximum response time (participation)'));
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
 
         $i = 3;
@@ -1820,6 +1828,30 @@ class erLhcoreClassChatStatistic {
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgChatLengthSeconds/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgFirstResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgFirstResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgMaximumResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgMaximumResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
             $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns_value',array(
