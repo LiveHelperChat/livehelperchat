@@ -159,7 +159,10 @@ class erLhcoreClassChatHelper
                     $params['chat']->wait_time = time() - ($params['chat']->pnd_time > 0 ? $params['chat']->pnd_time : $params['chat']->time);
                 }
 
-                $params['chat']->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($params['chat'], true);
+                $params['chat']->cls_time = time();
+
+                \LiveHelperChat\Helpers\ChatDuration::setChatTimes($params['chat']);
+
                 $params['chat']->has_unread_messages = 0;
                 $params['chat']->operation_admin = '';
 
@@ -187,7 +190,7 @@ class erLhcoreClassChatHelper
                 }
                 
                 $params['chat']->last_user_msg_time = $msg->time = time();
-                $params['chat']->cls_time = time();
+
 
                 erLhcoreClassChat::getSession()->save($msg);
 

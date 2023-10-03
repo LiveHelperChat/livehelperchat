@@ -3944,6 +3944,21 @@
         "department": {
           "description": "Magic attribute. Bot object. Uses dep_id to fetch bot",
           "$ref": "#/definitions/Department"
+        },
+        "frt": {
+          "type": "integer",
+          "default": 0,
+          "description": "First time response delay. How long agent took to write first message after chat acceptance."
+        },
+        "aart": {
+          "type": "integer",
+          "default": 0,
+          "description": "Average agent response time. Average how long agents took to write response to visitor messages."
+        },
+        "mart": {
+          "type": "integer",
+          "default": 0,
+          "description": "Maximum agent response time. Maximum amount of time agent took to write visitor a message."
         }
       },
       "example" : {

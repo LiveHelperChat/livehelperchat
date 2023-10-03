@@ -1,0 +1,1 @@
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes what was the longest delay before he got response to any of his message.');?></p>

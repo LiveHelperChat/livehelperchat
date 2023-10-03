@@ -1,3 +1,11 @@
+4.29v
+
+'frt'                   => $this->frt,  // First time response delay
+'aart'                  => $this->aart, // Average agent response time
+'mart'                  => $this->aart  // Maximum agent response time
+
+execute doc/update_db/update_300.sql for update
+
 4.28v
 
 1. Widget theme now allows to set message time visibility options for operator and visitor. [Above message or below messages]

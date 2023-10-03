@@ -923,6 +923,98 @@ class erLhcoreClassChatStatistic {
     	}
     }
 
+    public static function getAverageFirstResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getaveragefrt',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('frt' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(frt)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getAverageFirstResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(frt)');
+    }
+
+    public static function getAverageResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getaveragert',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('aart' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(aart)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getAverageResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(aart)');
+    }
+
+
+    public static function getMaximumAverageResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getmaxaveragert',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('mart' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(mart)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getMaximumAverageResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','SUM(mart)');
+    }
+
+
     public static function cannedStatistic($days = 30, $filter = array(), $paramsExecution = []) {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getcannedstatistic',array('days' => $days, 'filter' => $filter));
 
@@ -1789,7 +1881,13 @@ class erLhcoreClassChatStatistic {
             'avgWaitTime',
             'avgChatLengthSeconds',
             'numberOfChatsParticipant',
-            'totalHoursParticipant'
+            'totalHoursParticipant',
+            'avgFirstResponseTime',
+            'avgResponseTime',
+            'avgMaximumResponseTime',
+            'avgFirstResponseTimePar',
+            'avgResponseTimePar',
+            'avgMaximumResponseTimePar',
         );
 
         $attrFrontAverage = array(
@@ -1798,6 +1896,12 @@ class erLhcoreClassChatStatistic {
             'totalHoursParticipant',
             'avgWaitTime',
             'avgChatLengthSeconds',
+            'avgFirstResponseTime',
+            'avgResponseTime',
+            'avgMaximumResponseTime',
+            'avgFirstResponseTimePar',
+            'avgResponseTimePar',
+            'avgMaximumResponseTimePar',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatisticaveragefield',array('attr' => & $attrToAverage, 'attr_front' => & $attrFrontAverage));
@@ -2021,6 +2125,32 @@ class erLhcoreClassChatStatistic {
                 $avgDuration = self::getAverageChatduration(30,$filter);   
                 $avgChatLength = $avgDuration ? erLhcoreClassChat::formatSeconds($avgDuration) : "0 s.";
 
+                /* Average first response time */
+                $avgFirstResponseTime = self::getAverageFirstResponseTime(30,$filter);
+                $avgFirstResponseTime_front = $avgFirstResponseTime ? erLhcoreClassChat::formatSeconds($avgFirstResponseTime) : "0 s.";
+
+                /* Average response time */
+                $avgResponseTime = self::getAverageResponseTime(30,$filter);
+                $avgResponseTime_front = $avgResponseTime ? erLhcoreClassChat::formatSeconds($avgResponseTime) : "0 s.";
+
+                /* Maximum average response time */
+                $avgMaximumResponseTime = self::getMaximumAverageResponseTime(30,$filter);
+                $avgMaximumResponseTime_front = $avgMaximumResponseTime ? erLhcoreClassChat::formatSeconds($avgMaximumResponseTime) : "0 s.";
+
+
+                /* Participant | Average first response time */
+                $avgFirstResponseTimePar = self::getAverageFirstResponseTimePar(30,$filter);
+                $avgFirstResponseTimePar_front = $avgFirstResponseTimePar ? erLhcoreClassChat::formatSeconds($avgFirstResponseTimePar) : "0 s.";
+
+                /* Participant | Average response time */
+                $avgResponseTimePar = self::getAverageResponseTimePar(30,$filter);
+                $avgResponseTimePar_front = $avgResponseTimePar ? erLhcoreClassChat::formatSeconds($avgResponseTimePar) : "0 s.";
+
+                /* Participant | Maximum average response time */
+                $avgMaximumResponseTimePar = self::getMaximumAverageResponseTimePar(30,$filter);
+                $avgMaximumResponseTimePar_front = $avgMaximumResponseTimePar ? erLhcoreClassChat::formatSeconds($avgMaximumResponseTimePar) : "0 s.";
+
+                /* Subjects statistic */
                 $subjectStats = array();
 
                 if (isset($filtergte['filterin']['subject_id']) && !empty($filtergte['filterin']['subject_id'])) {
@@ -2059,6 +2189,24 @@ class erLhcoreClassChatStatistic {
                     'avgChatLength' => $avgChatLength,
                     'avgChatLengthSeconds' => $avgDuration,
                     'subject_stats' => $subjectStats,
+
+                    'avgFirstResponseTime' => $avgFirstResponseTime,
+                    'avgFirstResponseTime_front' => $avgFirstResponseTime_front,
+
+                    'avgResponseTime' => $avgResponseTime,
+                    'avgResponseTime_front' => $avgResponseTime_front,
+
+                    'avgMaximumResponseTime' => $avgMaximumResponseTime,
+                    'avgMaximumResponseTime_front' => $avgMaximumResponseTime_front,
+
+                    'avgFirstResponseTimePar' => $avgFirstResponseTimePar,
+                    'avgFirstResponseTimePar_front' => $avgFirstResponseTimePar_front,
+
+                    'avgResponseTimePar' => $avgResponseTimePar,
+                    'avgResponseTimePar_front' => $avgResponseTimePar_front,
+
+                    'avgMaximumResponseTimePar' => $avgMaximumResponseTimePar,
+                    'avgMaximumResponseTimePar_front' => $avgMaximumResponseTimePar_front
                 );
             }
             
