@@ -282,7 +282,7 @@ class erLhcoreClassChatHelper
         
             if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
                 $chat->status = erLhcoreClassModelChat::STATUS_CLOSED_CHAT;
-                $chat->chat_duration = \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, true);
+                \LiveHelperChat\Helpers\ChatDuration::setChatTimes($chat);
                 $chat->cls_time = time();
 
                 $msg = new erLhcoreClassModelmsg();
