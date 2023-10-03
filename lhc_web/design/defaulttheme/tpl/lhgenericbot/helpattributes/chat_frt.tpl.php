@@ -1,1 +1,1 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes how long he had to wait after chat was accepted and agent wrote response first time.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes how long visitor had to wait for the first agent message after chat acceptance.');?></p>
