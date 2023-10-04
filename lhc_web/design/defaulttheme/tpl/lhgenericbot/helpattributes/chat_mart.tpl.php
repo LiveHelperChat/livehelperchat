@@ -1,1 +1,1 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes what was the longest wait time before visitor got response to any of his message.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes the maximum time the agent takes to reply a message to the visitor.');?></p>

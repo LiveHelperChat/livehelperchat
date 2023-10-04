@@ -1,1 +1,1 @@
-<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes how long visitor had to wait for each his message to be replied by an agent.');?></p>
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.');?></p>

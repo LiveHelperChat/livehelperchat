@@ -5,10 +5,4 @@
  * For various testing purposes
  *
  * */
-
-$chat = erLhcoreClassModelChat::fetch(1647601140);
-
-\LiveHelperChat\Helpers\ChatDuration::setChatTimes($chat);
-$chat->updateThis();
-
 ?>
