@@ -124,6 +124,10 @@ class erLhcoreClassModelChat {
                'cls_us'    	            => $this->cls_us,
                'iwh_id'    	            => $this->iwh_id,
                'theme_id'    	        => $this->theme_id,
+
+                'frt'                   => $this->frt,  // First time response delay
+                'aart'                  => $this->aart, // Average agent response time
+                'mart'                  => $this->mart  // Maximum agent response time
        );
    }
 
@@ -849,6 +853,9 @@ class erLhcoreClassModelChat {
    public $cls_us = 0;
 
    public $iwh_id = 0;
+   public $frt = 0;
+   public $aart = 0;
+   public $mart = 0;
 
    public $updateIgnoreColumns = array();
 }

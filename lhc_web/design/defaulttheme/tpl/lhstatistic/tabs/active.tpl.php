@@ -165,6 +165,7 @@
                         <option value="1" <?php $input->wait_time_from === 1 ? print 'selected="selected"' : ''?>>1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="5" <?php $input->wait_time_from === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="10" <?php $input->wait_time_from === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->wait_time_from === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="20" <?php $input->wait_time_from === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="30" <?php $input->wait_time_from === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="40" <?php $input->wait_time_from === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
@@ -188,6 +189,7 @@
                         <option value="1" <?php $input->wait_time_till === 1 ? print 'selected="selected"' : ''?>>1 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="5" <?php $input->wait_time_till === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="10" <?php $input->wait_time_till === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->wait_time_till === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="20" <?php $input->wait_time_till === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="30" <?php $input->wait_time_till === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
                         <option value="40" <?php $input->wait_time_till === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
@@ -201,6 +203,253 @@
                         <?php for ($i = 2; $i < 13; $i++) : ?>
                             <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->wait_time_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
                         <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','First response time (agent)');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/chat_frt'});" class="material-icons text-muted">help</a></label>
+            <div class="row">
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="frt_from">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','More than');?></option>
+                        <option value="0" <?php $input->frt_from === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->frt_from === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->frt_from === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->frt_from === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->frt_from === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->frt_from === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->frt_from === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->frt_from === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->frt_from === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->frt_from === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->frt_from === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*5*60?>" <?php $i*60*5 === $input->frt_from ? print 'selected="selected"' : ''?>><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="frt_till">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Less than');?></option>
+                        <option value="0" <?php $input->frt_till === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->frt_till === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->frt_till === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->frt_till === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->frt_till === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->frt_till === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->frt_till === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->frt_till === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->frt_till === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->frt_till === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->frt_till === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->frt_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Max response time (agent)');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/chat_mart'});" class="material-icons text-muted">help</a></label>
+            <div class="row">
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="mart_from">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','More than');?></option>
+                        <option value="0" <?php $input->mart_from === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->mart_from === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->mart_from === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->mart_from === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->mart_from === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->mart_from === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->mart_from === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->mart_from === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->mart_from === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->mart_from === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->mart_from === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*5*60?>" <?php $i*60*5 === $input->mart_from ? print 'selected="selected"' : ''?>><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="mart_till">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Less than');?></option>
+                        <option value="0" <?php $input->mart_till === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->mart_till === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->mart_till === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->mart_till === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->mart_till === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->mart_till === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->mart_till === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->mart_till === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->mart_till === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->mart_till === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->mart_till === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->mart_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Average response time (agent)');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/chat_aart'});" class="material-icons text-muted">help</a></label>
+            <div class="row">
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="aart_from">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','More than');?></option>
+                        <option value="0" <?php $input->aart_from === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->aart_from === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->aart_from === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->aart_from === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->aart_from === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->aart_from === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->aart_from === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->aart_from === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->aart_from === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->aart_from === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->aart_from === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*5*60?>" <?php $i*60*5 === $input->aart_from ? print 'selected="selected"' : ''?>><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-control form-control-sm" name="aart_till">
+                        <option><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Less than');?></option>
+                        <option value="0" <?php $input->aart_till === 0 ? print 'selected="selected"' : ''?>>0 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="5" <?php $input->aart_till === 5 ? print 'selected="selected"' : ''?>>5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="10" <?php $input->aart_till === 10 ? print 'selected="selected"' : ''?>>10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="15" <?php $input->aart_till === 15 ? print 'selected="selected"' : ''?>>15 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="20" <?php $input->aart_till === 20 ? print 'selected="selected"' : ''?>>20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="30" <?php $input->aart_till === 30 ? print 'selected="selected"' : ''?>>30 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="40" <?php $input->aart_till === 40 ? print 'selected="selected"' : ''?>>40 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="50" <?php $input->aart_till === 50 ? print 'selected="selected"' : ''?>>50 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="60" <?php $input->aart_till === 60 ? print 'selected="selected"' : ''?>>60 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+                        <option value="90" <?php $input->aart_till === 90 ? print 'selected="selected"' : ''?>>90 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','seconds');?></option>
+
+                        <?php for ($i = 2; $i < 5; $i++) : ?>
+                            <option value="<?php echo $i*60?>" <?php $input->aart_till === $i*60 ? print 'selected="selected"' : ''?>><?php echo  $i?> m.</option>
+                        <?php endfor ?>
+
+                        <?php for ($i = 2; $i < 13; $i++) : ?>
+                            <option value="<?php echo $i*60*5?>" <?php $i*60*5 === $input->aart_till ? print 'selected="selected"' : ''?> ><?php echo $i*5?> m.</option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?> <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/timefilter'});" class="material-icons text-muted">help</a></label>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="timefrom_hours" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
+                        <?php for ($i = 0; $i <= 23; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timefrom_minutes" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timefrom_seconds" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_seconds) && $input->timefrom_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="timeto_hours" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
+                        <?php for ($i = 0; $i <= 23; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timeto_minutes" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
+                        <?php endfor;?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="timeto_seconds" class="form-control form-control-sm">
+                        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
+                        <?php for ($i = 0; $i <= 59; $i++) : ?>
+                            <option value="<?php echo $i?>" <?php if (isset($input->timeto_seconds) && $input->timeto_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
+                        <?php endfor;?>
                     </select>
                 </div>
             </div>
@@ -228,100 +477,12 @@
         <datalist id="regions">
             <?php foreach (lhCountries::getStates() as $stateCode => $stateName) : ?>
             <option value="<?php echo htmlspecialchars($stateName)?>">
-            <?php endforeach; ?>
+                <?php endforeach; ?>
         </datalist>
     </div>
 </div>
 
 <div class="row">
-	<div class="col-md-2">
-	  <div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
-			<div class="row">
-				<div class="col-md-12">
-					<input type="text" class="form-control form-control-sm" name="timefrom" id="id_timefrom" placeholder="E.g <?php echo date('Y-m-d',time()-7*24*3600)?>" value="<?php echo htmlspecialchars($input->timefrom)?>" />
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-2">
-	  <div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute from');?>
-
-            <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/timefilter'});" class="material-icons text-muted">help</a>
-
-        </label>
-		<div class="row">				
-			<div class="col-md-4">
-			    <select name="timefrom_hours" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
-			        <?php for ($i = 0; $i <= 23; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_hours) && $input->timefrom_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-			<div class="col-md-4">
-			    <select name="timefrom_minutes" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
-			        <?php for ($i = 0; $i <= 59; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_minutes) && $input->timefrom_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-            <div class="col-md-4">
-			    <select name="timefrom_seconds" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
-			        <?php for ($i = 0; $i <= 59; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timefrom_seconds) && $input->timefrom_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-		</div>
-		</div>
-	</div>
-	
-	<div class="col-md-2">
-	  <div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
-			<div class="row">
-				<div class="col-md-12">
-					<input type="text" class="form-control form-control-sm" name="timeto" id="id_timeto" placeholder="E.g <?php echo date('Y-m-d')?>" value="<?php echo htmlspecialchars($input->timeto)?>" />
-				</div>							
-			</div>
-		</div>
-	</div>
-	<div class="col-md-2">
-	  <div class="form-group">
-		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Hour and minute to');?></label>
-	    <div class="row">
-			<div class="col-md-4">
-			    <select name="timeto_hours" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select hour');?></option>
-			        <?php for ($i = 0; $i <= 23; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_hours) && $input->timeto_hours === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> h.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-			<div class="col-md-4">
-			    <select name="timeto_minutes" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select minute');?></option>
-			        <?php for ($i = 0; $i <= 59; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_minutes) && $input->timeto_minutes === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> m.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-            <div class="col-md-4">
-			    <select name="timeto_seconds" class="form-control form-control-sm">
-			        <option value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select seconds');?></option>
-			        <?php for ($i = 0; $i <= 59; $i++) : ?>
-			            <option value="<?php echo $i?>" <?php if (isset($input->timeto_seconds) && $input->timeto_seconds === $i) : ?>selected="selected"<?php endif;?>><?php echo str_pad($i,2, '0', STR_PAD_LEFT);?> s.</option>
-			        <?php endfor;?>
-			    </select>
-			</div>
-	    </div>
-	  </div>
-	</div>
     <div class="col-md-12">
         <div class="row">
             <div class="col-3"><label><input type="checkbox" name="exclude_offline" value="<?php echo erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ?>" <?php $input->exclude_offline == erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST ? print 'checked="checked"' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Exclude offline requests from charts')?></label>&nbsp;&nbsp;</div>

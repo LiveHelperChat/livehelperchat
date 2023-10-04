@@ -25,6 +25,9 @@ class ChatParticipant {
             'duration' => $this->duration,
             'time' => $this->time,
             'dep_id' => $this->dep_id,
+            'frt' => $this->frt,
+            'aart' => $this->aart,
+            'mart' => $this->mart,
         );
 
         return $stateArray;
@@ -90,4 +93,7 @@ class ChatParticipant {
     public $duration = null;
     public $dep_id = null;
     public $time = null;
+    public $frt = 0;
+    public $aart = 0;
+    public $mart = 0;
 }

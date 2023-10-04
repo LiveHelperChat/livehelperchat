@@ -48,6 +48,30 @@
         "key": "PRI",
         "default": null,
         "extra": "auto_increment"
+      },
+      {
+        "field": "frt",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "aart",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mart",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_canned_msg_replace": [
@@ -4256,6 +4280,30 @@
       {
         "field": "iwh_id",
         "type": "int(11)",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "frt",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "aart",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "mart",
+        "type": "int(11) unsigned",
         "null": "NO",
         "key": "MUL",
         "default": "0",

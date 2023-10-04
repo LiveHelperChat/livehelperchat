@@ -1,0 +1,1 @@
+<p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Describes the maximum time the agent takes to reply a message to the visitor.');?></p>

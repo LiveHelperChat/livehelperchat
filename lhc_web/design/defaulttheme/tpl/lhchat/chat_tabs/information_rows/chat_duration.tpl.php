@@ -15,6 +15,12 @@
 
             <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/user_left.tpl.php'));?>
 
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/frt.tpl.php'));?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/aart.tpl.php'));?>
+
+            <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/information_rows/mart.tpl.php'));?>
+
         </div>
 
     </td>
