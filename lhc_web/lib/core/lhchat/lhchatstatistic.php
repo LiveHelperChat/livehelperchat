@@ -923,6 +923,104 @@ class erLhcoreClassChatStatistic {
     	}
     }
 
+    public static function getAverageFirstResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getaveragefrt',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('frt' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(frt)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getAverageFirstResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        $filter['filtergt']['frt'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(frt)');
+    }
+
+    public static function getAverageResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getaveragert',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('aart' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(aart)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getAverageResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        $filter['filtergt']['aart'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(aart)');
+    }
+
+
+    public static function getMaximumAverageResponseTime($days = 30, $filter = array()) {
+
+        $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getmaxaveragert',array('days' => $days, 'filter' => $filter));
+
+        if ($statusWorkflow === false) {
+
+            if (!isset($filter['filtergte']['time'])) {
+                $filter['filtergte']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days, date('y'));
+            }
+
+            $filter['filtergt']['user_id'] = 0;
+
+            $filterCombined = array_merge_recursive($filter,array('filtergt' => array('mart' => 0),'filter' =>  array('status' => erLhcoreClassModelChat::STATUS_CLOSED_CHAT)));
+
+        	return erLhcoreClassChat::getCount($filterCombined, 'lh_chat', 'AVG(mart)');
+
+        } else {
+    	    return $statusWorkflow['list'];
+    	}
+    }
+
+    public static function getMaximumAverageResponseTimePar($days = 30, $filter = array(), $limit = 40)
+    {
+        if (empty($filter)) {
+            $filter['filtergt']['time'] = $dateUnixPast = mktime(0,0,0,date('m'),date('d')-$days,date('y'));
+        }
+
+        $filter['filtergt']['mart'] = 0;
+
+        return erLhcoreClassChat::getCount($filter,'lh_chat_participant','AVG(mart)');
+    }
+
+
     public static function cannedStatistic($days = 30, $filter = array(), $paramsExecution = []) {
         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getcannedstatistic',array('days' => $days, 'filter' => $filter));
 
@@ -1673,11 +1771,18 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(8 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average pick-up time'));
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(9 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average chat length'));
 
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total mails'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Unresponded'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','No reply required'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(13 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','We have send this message as reply or forward'));
-        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(14 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(10 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average first response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(11 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average first response time (participation)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(12 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(13 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average response time (participation)'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(14 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average of maximum response time'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(15 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Average of maximum response time (participation)'));
+
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(16 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Total mails'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(17 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Unresponded'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(18 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','No reply required'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(19 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','We have send this message as reply or forward'));
+        $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(20 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array('xls' => & $objPHPExcel));
 
@@ -1733,6 +1838,30 @@ class erLhcoreClassChatStatistic {
             
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgChatLengthSeconds/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgFirstResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgFirstResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgMaximumResponseTime/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
+            $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
+
+            $key++;
+            $objPHPExcel->getActiveSheet()->setCellValueExplicitByColumnAndRow($key, $i, $item->avgMaximumResponseTimePar/(24*3600), PHPExcel_Cell_DataType::TYPE_NUMERIC);
             $objPHPExcel->getActiveSheet()->getStyleByColumnAndRow($key, $i)->getNumberFormat()->setFormatCode('[HH]:MM:SS');
 
             $key++;
@@ -1814,8 +1943,13 @@ class erLhcoreClassChatStatistic {
             'mail_statistic_2',
             'mail_statistic_3',
             'numberOfChatsParticipant',
-            'totalHoursParticipant'
-
+            'totalHoursParticipant',
+            'avgFirstResponseTime',
+            'avgResponseTime',
+            'avgMaximumResponseTime',
+            'avgFirstResponseTimePar',
+            'avgResponseTimePar',
+            'avgMaximumResponseTimePar',
         );
 
         $attrFrontAverage = array(
@@ -1824,6 +1958,12 @@ class erLhcoreClassChatStatistic {
             'totalHoursParticipant',
             'avgWaitTime',
             'avgChatLengthSeconds',
+            'avgFirstResponseTime',
+            'avgResponseTime',
+            'avgMaximumResponseTime',
+            'avgFirstResponseTimePar',
+            'avgResponseTimePar',
+            'avgMaximumResponseTimePar',
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatisticaveragefield',array('attr' => & $attrToAverage, 'attr_front' => & $attrFrontAverage));
@@ -2047,6 +2187,32 @@ class erLhcoreClassChatStatistic {
                 $avgDuration = self::getAverageChatduration(30,$filter);   
                 $avgChatLength = $avgDuration ? erLhcoreClassChat::formatSeconds($avgDuration) : "0 s.";
 
+                /* Average first response time */
+                $avgFirstResponseTime = self::getAverageFirstResponseTime(30,$filter);
+                $avgFirstResponseTime_front = $avgFirstResponseTime ? erLhcoreClassChat::formatSeconds($avgFirstResponseTime) : "0 s.";
+
+                /* Average response time */
+                $avgResponseTime = self::getAverageResponseTime(30,$filter);
+                $avgResponseTime_front = $avgResponseTime ? erLhcoreClassChat::formatSeconds($avgResponseTime) : "0 s.";
+
+                /* Maximum average response time */
+                $avgMaximumResponseTime = self::getMaximumAverageResponseTime(30,$filter);
+                $avgMaximumResponseTime_front = $avgMaximumResponseTime ? erLhcoreClassChat::formatSeconds($avgMaximumResponseTime) : "0 s.";
+
+
+                /* Participant | Average first response time */
+                $avgFirstResponseTimePar = self::getAverageFirstResponseTimePar(30,$filter);
+                $avgFirstResponseTimePar_front = $avgFirstResponseTimePar ? erLhcoreClassChat::formatSeconds($avgFirstResponseTimePar) : "0 s.";
+
+                /* Participant | Average response time */
+                $avgResponseTimePar = self::getAverageResponseTimePar(30,$filter);
+                $avgResponseTimePar_front = $avgResponseTimePar ? erLhcoreClassChat::formatSeconds($avgResponseTimePar) : "0 s.";
+
+                /* Participant | Maximum average response time */
+                $avgMaximumResponseTimePar = self::getMaximumAverageResponseTimePar(30,$filter);
+                $avgMaximumResponseTimePar_front = $avgMaximumResponseTimePar ? erLhcoreClassChat::formatSeconds($avgMaximumResponseTimePar) : "0 s.";
+
+                /* Subjects statistic */
                 $subjectStats = array();
 
                 if (isset($filtergte['filterin']['subject_id']) && !empty($filtergte['filterin']['subject_id'])) {
@@ -2078,6 +2244,21 @@ class erLhcoreClassChatStatistic {
                     'avgChatLength' => $avgChatLength,
                     'avgChatLengthSeconds' => $avgDuration,
                     'subject_stats' => $subjectStats,
+
+                    'avgFirstResponseTime' => $avgFirstResponseTime,
+                    'avgFirstResponseTime_front' => $avgFirstResponseTime_front,
+                    'avgFirstResponseTimePar' => $avgFirstResponseTimePar,
+                    'avgFirstResponseTimePar_front' => $avgFirstResponseTimePar_front,
+
+                    'avgResponseTime' => $avgResponseTime,
+                    'avgResponseTime_front' => $avgResponseTime_front,
+                    'avgResponseTimePar' => $avgResponseTimePar,
+                    'avgResponseTimePar_front' => $avgResponseTimePar_front,
+
+                    'avgMaximumResponseTime' => $avgMaximumResponseTime,
+                    'avgMaximumResponseTime_front' => $avgMaximumResponseTime_front,
+                    'avgMaximumResponseTimePar' => $avgMaximumResponseTimePar,
+                    'avgMaximumResponseTimePar_front' => $avgMaximumResponseTimePar_front
                 );
 
                 erLhcoreClassMailconvStatistic::getAgentStatistic($itemState, $filter, $user);

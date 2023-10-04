@@ -90,20 +90,27 @@ setTimeout(function() {
 
             <table class="table table-sm">
                 <tr>
-                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Operator');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Participant');?></th>
                     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','First response time');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Average response time');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Max response time');?></th>
                 </tr>
-            <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : ?>
+            <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : if ($participiant->user_id == 0) {continue;}?>
                 <tr>
-                    <td>
-                        <?php if ($participiant->user_id == -2) : ?>
-                            <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?>
-                        <?php else : ?>
-                            <?php echo htmlspecialchars($participiant->n_official)?>
-                        <?php endif; ?>
+                    <td>[<?php echo $participiant->user_id?>]&nbsp;<?php if ($participiant->user_id == -2) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?><?php elseif ($participiant->user_id == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Visitor');?><?php else : ?><?php echo htmlspecialchars($participiant->n_official)?><?php endif; ?>
                     </td>
                     <td>
-                        <?php echo htmlspecialchars($participiant->duration_front)?>
+                        <?php echo htmlspecialchars((string)$participiant->duration_front)?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->frt)?> s.
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->aart)?> s.
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->mart)?> s.
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -126,10 +133,12 @@ setTimeout(function() {
             </ul>
 
 
-
             <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
-            <?php $logDuration = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat,false,$logDuration);?>
+            <?php $logDuration = []; $mainStats = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, false, $logDuration, $mainStats);?>
             <pre class="fs11"><?php print_r($logDuration);?></pre>
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
+            <pre class="fs11"><?php print_r($mainStats);?></pre>
 
         </div>
     <?php endif; ?>

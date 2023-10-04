@@ -292,7 +292,13 @@ $ViewList['list'] = array(
         'country_ids',
         'region',
         'iwh_ids',
-        'theme_ids'
+        'theme_ids',
+        'frt_from',
+        'frt_till',
+        'mart_from',
+        'mart_till',
+        'aart_till',
+        'aart_from',
         ),
     'functions' => array( 'use' ),
     'multiple_arguments' => array(
