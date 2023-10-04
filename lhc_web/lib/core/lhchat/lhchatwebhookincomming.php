@@ -1797,6 +1797,9 @@ class erLhcoreClassChatWebhookIncoming {
 
     public static function parseFilesDecode($params, $chat) {
 
+        // Set chat for internal variables
+        $params['incoming_webhook']->chat = $chat;
+
         $params['msg']['incoming_webhook'] = $params['incoming_webhook'];
 
         $bodyPOST = self::extractMessageBody($params['body_post'], $params['msg'], true);
@@ -1816,6 +1819,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
 
         curl_setopt($ch, CURLOPT_URL, self::extractMessageBody($params['url'], $params['msg']));
+
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
         if (isset($params['request_headers']) && trim($params['request_headers']) != '') {
