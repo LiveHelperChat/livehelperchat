@@ -3,8 +3,8 @@
 1. New chat attribute `First response time (agent)` attribute `frt`.
 2. New chat attribute `Max response time (agent)`attribute `mart`.
 3. New chat attribute `Average response time (agent)` attribute `aart`.
-5. All new attributes is represented in chat statistic/search/chat right column.
-6. Agents can have personal theme by having `'lhabstract','use'` and `'lhtheme','personaltheme'` permissions.
+4. All new attributes is represented in chat statistic/search/chat right column.
+5. Agents can have personal theme by having `'lhabstract','use'` and `'lhtheme','personaltheme'` permissions.
 
 execute doc/update_db/update_300.sql for update
 
