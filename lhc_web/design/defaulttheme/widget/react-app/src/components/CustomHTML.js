@@ -93,7 +93,7 @@ class CustomHTML extends Component {
                                     this.abstractClick(cloneAttr, null);
                                     this.listenerAdded = true;
                                 }
-                                return <React.Fragment></React.Fragment>;
+                                return "";
                             } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
                                 this.js_execute = domNode;
                                 // Return empty element
