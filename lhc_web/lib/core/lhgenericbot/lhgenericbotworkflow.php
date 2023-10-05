@@ -226,7 +226,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
 
             if ($event instanceof erLhcoreClassModelGenericBotTriggerEvent) {
-                $responseTrigger = self::processTrigger($chat, $event->trigger, false, array('args' => array('chat' => $chat, 'msg' => $msg)));
+                $responseTrigger = self::processTrigger($chat, $event->trigger, true, array('args' => array('chat' => $chat, 'msg' => $msg)));
                 if (!is_array($responseTrigger) || !isset($responseTrigger['ignore_trigger']) || $responseTrigger['ignore_trigger'] === false) {
                     return;
                 }
@@ -1994,6 +1994,9 @@ class erLhcoreClassGenericBotWorkflow {
 
                             if (!isset($messageClickData['no_name']) || $messageClickData['no_name'] === false) {
                                 $messageUser = $message = self::sendAsUser($chat, $messageClick);
+                                $chat->last_user_msg_time = $message->time;
+                                $chat->last_msg_id = $message->id;
+                                $chat->updateThis(['update' => ['last_user_msg_time','last_msg_id']]);
                             }
                         }
 
@@ -2003,19 +2006,10 @@ class erLhcoreClassGenericBotWorkflow {
                             $argsTrigger['arg_1'] = $messageClickData['render_args'];
                         }
 
-                        $messageTrigger = self::processTrigger($chat, $trigger, false, array('args' => $argsTrigger));
+                        $messageTrigger = self::processTrigger($chat, $trigger, true, array('args' => $argsTrigger));
 
-                        if ($messageTrigger instanceof erLhcoreClassModelmsg)
-                        {
-                            $message = $messageTrigger;
-                        }
-
-                        if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
-                            self::setLastMessageId($chat, $message->id);
-                        } else {
-                            if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
-                                self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
-                            }
+                        if (!($messageTrigger instanceof erLhcoreClassModelmsg) && erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+                            self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
                         }
                     }
                 }

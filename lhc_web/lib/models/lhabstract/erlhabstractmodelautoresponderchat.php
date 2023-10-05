@@ -213,10 +213,11 @@ class erLhAbstractModelAutoResponderChat
                 }
 
                 if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_ON_HOLD) {
+                    // We give 1 second buffer for op messages just in case
                     if (
-                        ($this->chat->last_op_msg_time > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time > ($this->chat->pnd_time + $this->chat->wait_time))
+                        (($this->chat->last_op_msg_time - 1) > $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time > ($this->chat->pnd_time + $this->chat->wait_time))
                         ||
-                        ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0 && $this->chat->last_op_msg_time > ($this->chat->pnd_time + $this->chat->wait_time))
+                        ($this->chat->last_op_msg_time > $this->chat->time && $this->chat->last_user_msg_time == 0 && ($this->chat->last_op_msg_time - 1) > ($this->chat->pnd_time + $this->chat->wait_time))
                     )
                     {
                         if ($this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW && $this->auto_responder->survey_timeout > 0 && (time() - $this->chat->last_op_msg_time > $this->auto_responder->survey_timeout)) {
@@ -277,7 +278,7 @@ class erLhAbstractModelAutoResponderChat
                             }
                         }
 
-                    } elseif ($this->chat->last_op_msg_time < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time >= $this->chat->pnd_time && $this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
+                    } elseif (($this->chat->last_op_msg_time + 1) < $this->chat->last_user_msg_time && $this->chat->last_user_msg_time > 0 && $this->chat->last_op_msg_time - 1 > ($this->chat->pnd_time + $this->chat->wait_time) && $this->chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW) {
 
                         $lastMessageTime = self::getLastVisitorMessageTime($this->chat);
 
@@ -374,6 +375,10 @@ class erLhAbstractModelAutoResponderChat
                     $prevMessage = $msg;
                 }
                 continue;
+            }
+
+            if ($msg->user_id == 0 && $msg->time < ($chat->pnd_time + $chat->wait_time)) {
+                return $prevMessage->time;
             }
 
             if ($msg->user_id > 0 && $msg->time <= $chat->last_op_msg_time) {
