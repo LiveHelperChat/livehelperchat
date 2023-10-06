@@ -5430,7 +5430,7 @@
     </message>
     <message>
       <source>Your message...</source>
-      <translation type="unfinished"/>
+      <translation>Введите сообщение...</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
