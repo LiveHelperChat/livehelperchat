@@ -5398,7 +5398,7 @@
     </message>
     <message>
       <source>Send to email</source>
-      <translation type="unfinished"/>
+      <translation>Отправить на email"</translation>
     </message>
     <message>
       <source>Start a chat with us!</source>
@@ -5418,7 +5418,7 @@
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
-      <translation type="unfinished"/>
+      <translation>Мы вышлем вам историю данного чата с оператором, чтобы вы могли просмотреть его позже.</translation>
     </message>
     <message>
       <source>Change language</source>
@@ -5430,7 +5430,7 @@
     </message>
     <message>
       <source>Your message...</source>
-      <translation type="unfinished"/>
+      <translation>Введите сообщение</translation>
     </message>
     <message>
       <source>Thank you for your feedback...</source>
@@ -9376,7 +9376,7 @@
     </message>
     <message>
       <source>Download as txt</source>
-      <translation type="unfinished"/>
+      <translation>Сохранить чат</translation>
     </message>
     <message>
       <source>Toggle between dark and white themes</source>
@@ -9388,7 +9388,7 @@
     </message>
     <message>
       <source>Send chat to your email!</source>
-      <translation type="unfinished"/>
+      <translation>Отправить историю чата на email!</translation>
     </message>
     <message>
       <source>Email</source>
@@ -18608,27 +18608,27 @@
     <name>chat/file</name>
     <message>
       <source>Uploading</source>
-      <translation type="unfinished"/>
+      <translation>Загрузка</translation>
     </message>
     <message>
       <source>Incorrect file type!</source>
-      <translation type="unfinished"/>
+      <translation>Неверный тип файла!</translation>
     </message>
     <message>
       <source>File too big!</source>
-      <translation type="unfinished"/>
+      <translation>Файл слишком большой!</translation>
     </message>
     <message>
       <source>Processing...</source>
-      <translation type="unfinished"/>
+      <translation>Обработка...</translation>
     </message>
     <message>
       <source>Upload failed!</source>
-      <translation type="unfinished"/>
+      <translation>Не удалось загрузить!</translation>
     </message>
     <message>
       <source>Completed.</source>
-      <translation type="unfinished"/>
+      <translation>Завершено</translation>
     </message>
   </context>
   <context>
