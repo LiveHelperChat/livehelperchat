@@ -2008,6 +2008,11 @@ class erLhcoreClassGenericBotWorkflow {
 
                         $messageTrigger = self::processTrigger($chat, $trigger, true, array('args' => $argsTrigger));
 
+                        if ($messageTrigger instanceof erLhcoreClassModelmsg) {
+                            $chat->last_msg_id = $messageTrigger->id;
+                            $chat->updateThis(['update' => ['last_msg_id']]);
+                        }
+
                         if (!($messageTrigger instanceof erLhcoreClassModelmsg) && erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
                             self::sendAsBot($chat,erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Button action could not be found!'));
                         }
