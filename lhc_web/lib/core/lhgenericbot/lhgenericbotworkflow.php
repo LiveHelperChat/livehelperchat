@@ -2616,6 +2616,8 @@ class erLhcoreClassGenericBotWorkflow {
             $stmt = $db->prepare("UPDATE lh_chat SET lsync = :lsync, last_msg_id = :last_msg_id, has_unread_messages = :has_unread_messages, unanswered_chat = :unanswered_chat WHERE id = :id");
         }
 
+        $chat->last_msg_id = max($messageId, $chat->last_msg_id);
+
         $stmt->bindValue(':id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':lsync', time(), PDO::PARAM_INT);
         $stmt->bindValue(':has_unread_messages', ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT ? 0 : 1), PDO::PARAM_INT);
