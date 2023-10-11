@@ -495,6 +495,8 @@ class erLhAbstractModelWidgetTheme {
             'formf_file',
             'formf_phone',
             'formf_question',
+            'fheight_text_class',
+            'fheight_text_col',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;

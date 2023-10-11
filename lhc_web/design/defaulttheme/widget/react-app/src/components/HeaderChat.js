@@ -45,14 +45,18 @@ class HeaderChat extends Component {
         const className = 'position-relative row header-chat' + (this.props.chatwidget.get('isMobile') == true ? ' mobile-header' : ' desktop-header') + (this.props.chatwidget.get('isChatting') === true || (this.props.chatwidget.get('isOnline') === true && this.props.chatwidget.get('isOfflineMode') === false) ? ' online-header' : ' offline-header');
         const hasPopup = !this.props.chatwidget.hasIn(['chat_ui','hide_popup']);
         const showClose = this.props.chatwidget.get('isChatting') === true && !this.props.chatwidget.hasIn(['chat_ui','hide_close']);
-        var iconsNumber = 0;
-        var dropdownNumber = 0;
+        var iconsNumber = 0, dropdownNumber = 0, headerIconsBeforeDropdown = false, dropdownDetected = false;
 
         const headerIcons = this.props.chatwidget.hasIn(['chat_ui','header_buttons']) && this.props.chatwidget.getIn(['chat_ui','header_buttons']).map((btn, index) => {
                 let position = btn.get('pos');
 
                 if (position == 'dropdown') {
+                    dropdownDetected = true;
                     return;
+                }
+
+                if (dropdownDetected === true) {
+                    headerIconsBeforeDropdown = true;
                 }
 
                 position = position == 'left'  ? 'start' : (position == 'right' ? 'end' : position);
@@ -132,6 +136,7 @@ class HeaderChat extends Component {
             <div id="widget-header-content" className={className}>
                 {hasHeader && <div className="lhc-custom-header-inside" dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_header_body'])}}></div>}
                 {(iconsNumber > 0 || dropdownNumber > 0) && <div className="col-12 px-1 widget-header-menu">
+                        {headerIconsBeforeDropdown === true && headerIcons}
                         {dropdownNumber > 0 && <div className="float-end position-relative">
                             <ChatOptions elementId="headerDropDown">
                                 <div className="btn-group dropup disable-select">
@@ -142,7 +147,7 @@ class HeaderChat extends Component {
                                 </div>
                             </ChatOptions>
                         </div>}
-                        {headerIcons}
+                        {headerIconsBeforeDropdown === false && headerIcons}
                 </div>}
             </div>
         );

@@ -70,16 +70,31 @@ class ChatField extends Component {
             });
         }
 
-        if (this.props.attrPrefill && this.props.attrPrefill.attr_prefill_admin) {
-            this.props.attrPrefill.attr_prefill_admin.forEach((item) => {
-                if (item.index == this.props.field.get('identifier') || (this.props.field.has('identifier_prefill') && item.index == this.props.field.get('identifier_prefill'))) {
-                    this.props.onChangeContent({id : this.props.field.get('name'), value : item.value});
-                    // Hide only valid prefilled fields
-                    if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
-                        this.setState({'hiddenIfPrefilled':true});
+        if (this.props.attrPrefill) {
+
+            if (this.props.attrPrefill.attr_prefill_admin) {
+                this.props.attrPrefill.attr_prefill_admin.forEach((item) => {
+                    if (item.index == this.props.field.get('identifier') || (this.props.field.has('identifier_prefill') && item.index == this.props.field.get('identifier_prefill'))) {
+                        this.props.onChangeContent({id : this.props.field.get('name'), value : item.value});
+                        // Hide only valid prefilled fields
+                        if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
+                            this.setState({'hiddenIfPrefilled':true});
+                        }
                     }
-                }
-            });
+                })
+            }
+
+            if (this.props.attrPrefill.attr_prefill) {
+                this.props.attrPrefill.attr_prefill.forEach((item) => {
+                    let string = this.props.field.get('identifier');
+                    if (item[string[0].toUpperCase() + string.slice(1)]) {
+                        // Hide only valid prefilled fields
+                        if (this.props.field.has('hide_prefilled') && this.props.field.get('hide_prefilled') == true && this.props.isInvalid === false) {
+                            this.setState({'hiddenIfPrefilled':true});
+                        }
+                    }
+                })
+            }
         }
     }
 

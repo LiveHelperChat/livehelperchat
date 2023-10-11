@@ -79,7 +79,8 @@ class erLhcoreClassGenericBotActionCommand {
 
                 // We do not have to set this
                 // Because it triggers auto responder of not replying
-                // $chat->last_op_msg_time = time();
+                // Since 4.29 it will not trigger as we have a check for that now
+                $chat->last_op_msg_time = time();
                 $chat->updateThis();
 
                 // We have to reset auto responder

@@ -1171,7 +1171,16 @@ class erLhcoreClassChatWebhookIncoming {
                     $chatVariables = [];
 
                     if (isset($conditions['add_field_value']) && $conditions['add_field_value'] != '') {
-                        $chatVariables['iwh_field'] = self::extractAttribute('add_field_value', $conditions, $payloadMessage, '');
+                        $field_params = explode('|||',$conditions['add_field_value']);
+                        $nickParts = [];
+                        foreach ($field_params as $nick_param) {
+                            $conditions['add_field_value'] = $nick_param;
+                            $nickParts[] = self::extractAttribute('add_field_value', $conditions, $payloadMessage, '');
+                        }
+                        $nickPotentional = trim(implode(' ',array_filter($nickParts)));
+                        if (!empty($nickPotentional)) {
+                            $chatVariables['iwh_field'] = $nickPotentional;
+                        }
                     }
 
                     if (isset($conditions['add_field_2_value']) && $conditions['add_field_2_value'] != '') {
@@ -1788,6 +1797,9 @@ class erLhcoreClassChatWebhookIncoming {
 
     public static function parseFilesDecode($params, $chat) {
 
+        // Set chat for internal variables
+        $params['incoming_webhook']->chat = $chat;
+
         $params['msg']['incoming_webhook'] = $params['incoming_webhook'];
 
         $bodyPOST = self::extractMessageBody($params['body_post'], $params['msg'], true);
@@ -1807,6 +1819,7 @@ class erLhcoreClassChatWebhookIncoming {
         }
 
         curl_setopt($ch, CURLOPT_URL, self::extractMessageBody($params['url'], $params['msg']));
+
         @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
         if (isset($params['request_headers']) && trim($params['request_headers']) != '') {

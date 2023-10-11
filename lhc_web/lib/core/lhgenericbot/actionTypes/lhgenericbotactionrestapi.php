@@ -1470,7 +1470,10 @@ class erLhcoreClassGenericBotActionRestapi
                         break;
                     }
                 } else {
-                    if (isset($partData[$part]) ) {
+                    $partPlainData = explode('___',$part);
+                    if (isset($partPlainData[1]) && $partPlainData[1] === 'array_pop' && isset($partData[$partPlainData[0]]) && is_array($partData[$partPlainData[0]])) {
+                        $partData = array_pop($partData[$partPlainData[0]]);
+                    } elseif (isset($partData[$part]) ) {
                         $partData = $partData[$part];
                     } else {
                         $partFound = false;
