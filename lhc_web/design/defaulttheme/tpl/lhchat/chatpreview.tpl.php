@@ -5,8 +5,8 @@ $modalSize = 'md';
 $modalBodyClass = 'p-1'
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
-<div id="messages" class="mt-4">
-    <div id="messagesBlock"><?php
+<div id="messages" class="mt-4 chat-preview">
+    <div id="messagesBlock" class="chat-preview"><?php
     $lastMessageID = 0;
     $lastOperatorChanged = false;
     $lastOperatorId = false;
