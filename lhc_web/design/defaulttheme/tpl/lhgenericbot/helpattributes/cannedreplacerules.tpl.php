@@ -12,9 +12,13 @@
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules_multiinclude.tpl.php'));?>
     </ul>
 
+    <?php if (isset($_GET['rest_api'])) : ?>
+        <p class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'If you are using those vars in Rest API calls make sure you use double brackets E.g');?> <b>{{args.chat.id}}</b></p>
+    <?php endif; ?>
+
     <div class="row">
         <div class="col-6">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat ID to test against');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Chat ID to explore');?></label>
             <input id="test-pattern-chat-id" type="number" input="replace_pattern" class="form-control form-control-sm">
         </div>
         <div class="col-6 pb-2">
@@ -23,8 +27,8 @@
         </div>
         <div class="col-12">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test');?></button>
-                <button type="button" id="extract-pattern-action" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Extract chat attributes');?></button>
+                <button type="button" id="test-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">regular_expression</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Test your pattern');?></button>
+                <button type="button" id="extract-pattern-action" class="btn btn-sm btn-secondary"><span class="material-icons">zoom_in</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Explore all possible chat attributes');?></button>
             </div>
         </div>
         <div class="col-12 pt-2">
