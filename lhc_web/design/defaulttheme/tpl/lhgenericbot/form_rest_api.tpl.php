@@ -26,7 +26,10 @@
 
 <input type="hidden" name="configuration" value="{{lhcrestapi.getJSON()}}" />
 
-<button class="btn btn-secondary" ng-click="lhcrestapi.addParameter()" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add request');?></button>
+
+<button class="btn btn-secondary btn-sm" ng-click="lhcrestapi.addParameter()" type="button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Add request');?></button>
+
+<span><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules?rest_api=1'});"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Explore');?></a> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','possible chat attributes directly.');?></span>
 
 <div ng-repeat="param in lhcrestapi.parameters" class="mt-2">
 

@@ -176,6 +176,20 @@ export class userSession {
         return append;
     }
 
+    updateChatStatus(params) {
+        let varsJSON = {};
+        varsJSON['lhc_vars'] = this.getVars();
+
+        if (params) {
+            varsJSON['user_vars'] = params;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + 'chat/updatejsvars/(userinit)/true' + this.getAppendVariables(), true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
+    }
+
     updateJSVars(vars, cb) {
 
         let varsJSON = this.getVars(vars);

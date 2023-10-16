@@ -71,7 +71,7 @@ background-color: #ddd;
 		padding-right:5px;
 	}
 
-	#messages{
+	#messages:not(.chat-preview){
 		font-size: 16px;
 		position: absolute;
 		width: 100%;
@@ -100,7 +100,7 @@ background-color: #ddd;
 		position:relative;
 	}
 
-	#messagesBlock{
+	#messagesBlock:not(.chat-preview){
 		height:auto!important;
 		position:absolute;
 		bottom:0px;

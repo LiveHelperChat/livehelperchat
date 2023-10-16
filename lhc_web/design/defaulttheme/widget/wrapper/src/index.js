@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 214;
+            lhc.version = 216;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -1010,6 +1010,10 @@
 
                     } else if (parts[1] == 'ready_popup') {
                         attributesWidget.popupWidget.sendParameters(chatEvents);
+
+                        // Send directly response
+                        attributesWidget.popupWidget.attributes = attributesWidget;
+                        e.source.postMessage('lhc_event:jsVars::' + JSON.stringify([attributesWidget.popupWidget.getAttributesToSent()]), e.origin);
                     } else if (parts[1] == 'isstarted') {
                         // Parent window has LHC, terminate present instance
                         attributesWidget.eventEmitter.emitEvent('terminated', []);

@@ -208,7 +208,7 @@ export default function (dispatch, getState) {
             // We allow to send events only from chat installation or page where script is embeded.
             if (originDomain !== document.domain && (typeof window.lhcChat !== 'undefined' && (typeof window.lhcChat['domain_lhc'] === 'undefined' || window.lhcChat['domain_lhc'] !== originDomain))) {
                 // Third party domains can send only these two events
-                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed' && action != 'lhc_end_cookies') {
+                if (action != 'lhc_chat_closed_explicit' && action != 'lhc_survey_completed' && action != 'lhc_end_cookies' && (action != 'lhc_event' || (action == 'lhc_event' && !window.initializeLHC))) {
                     return;
                 }
             }
