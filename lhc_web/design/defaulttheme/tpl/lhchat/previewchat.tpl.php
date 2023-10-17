@@ -34,15 +34,17 @@
             </div>
         <?php endif; ?>
 
-
-
       <div class="modal-body mx550">
 
 <small id="preview-messages-<?php echo $chat->id?>">
     <?php $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
     <?php if (isset($keyword) && !empty($keyword)) : ?>
         <?php foreach ($messages as $message) : ?>
-            <?php $message->msg = preg_replace('/\b(' . preg_quote($keyword,'/') . ')\b/is','[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keyword . '[/fs][/b][/i][/level]', $message->msg); ?>
+            <?php if (is_array($keyword)) : ?>
+                <?php foreach ($keyword as $keywordItem) { $message->msg = preg_replace('/\b(' . preg_quote($keywordItem, '/') . ')\b/is', '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keywordItem . '[/fs][/b][/i][/level]', $message->msg); } ?>
+            <?php else : ?>
+                <?php $message->msg = preg_replace('/\b(' . preg_quote($keyword,'/') . ')\b/is','[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keyword . '[/fs][/b][/i][/level]', $message->msg); ?>
+            <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>

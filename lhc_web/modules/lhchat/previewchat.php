@@ -5,7 +5,18 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/previewchat.tpl.php');
 $chat = erLhcoreClassChat::getSession()->load( 'erLhcoreClassModelChat', $Params['user_parameters']['chat_id']);
 
 if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
-    $tpl->set('keyword',isset($_GET['keyword']) ? (string)$_GET['keyword'] : '');
+
+    $keyword = isset($_GET['keyword']) ? (string)$_GET['keyword'] : '';
+    preg_match_all('~(?|"([^"]+)"|(\S+))~', $keyword, $matches);
+    $keywords = [];
+    if (isset($matches[1]) && !empty($matches[1])){
+        foreach ($matches[1] as $potentionalKeyword) {
+            if (trim(str_ireplace(['and','or'],'',$potentionalKeyword)) != '') {
+                $keywords[] = $potentionalKeyword;
+            }
+        }
+    }
+    $tpl->set('keyword',$keywords);
     $tpl->set('chat',$chat);
     $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
 } else {
