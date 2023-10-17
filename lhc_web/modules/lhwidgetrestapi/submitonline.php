@@ -12,7 +12,7 @@ $chat = new erLhcoreClassModelChat();
 $inputData = new stdClass();
 $inputData->chatprefill = '';
 $inputData->email = '';
-$inputData->username = '';
+$inputData->username = $inputData->username = (isset($requestPayload['fields']['Username']) && $requestPayload['fields']['Username'] != '') ? $requestPayload['fields']['Username'] : '';
 $inputData->phone = '';
 $inputData->product_id = '';
 $inputData->bot_id = '';
@@ -136,6 +136,7 @@ if (empty($Errors)) {
     $chat->time = $chat->pnd_time = time();
     $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
     $chat->hash = erLhcoreClassChat::generateHash();
+    $chat->nick = $inputData->username;
 
     if (isset($restAPI) && isset($requestPayload['chat_variables']) && is_array($requestPayload['chat_variables'])) {
         $chat_variables_array = $chat->chat_variables_array;
