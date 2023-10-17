@@ -1,7 +1,7 @@
 Live helper chat
 ==============
 
-It's an open-source powered application, which brings simplicity and usability in one place. With live helper chat you can bring live support on your site for free. http://livehelperchat.com.
+It's an open-source powered application that brings simplicity and usability into one place. With Live Helper Chat, you can bring live support to your site for free. http://livehelperchat.com.
 
 [![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat) [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://marketplace.digitalocean.com/apps/live-helper-chat/?refcode=09c74421e3c2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste)
 
@@ -23,7 +23,7 @@ http://livehelperchat.com/demo-12c.html
  * [Agora - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/voice-video-screenshare) powered by [agora](https://www.agora.io/en/), paid
  * [Jitsi - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/integrating/jitsi) powered by [jitsi](https://jitsi.org/), Free out of the box integration
  * [Rest API](https://api.livehelperchat.com)
- * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
  * [Telegram](https://github.com/LiveHelperChat/telegram)
  * [Rasa](https://doc.livehelperchat.com/docs/bot/rasa-integration)
  * [Mattermost](https://github.com/LiveHelperChat/mattermost)
@@ -49,9 +49,9 @@ http://livehelperchat.com/demo-12c.html
  * [Chat API integration](https://doc.livehelperchat.com/docs/integrating/chat-api-com/) 
 
 ## Quick development guide
- * After app is installed disable cache and enable debug output. 
+ * After the app is installed, disable cache and enable debug output.
    * https://github.com/LiveHelperChat/livehelperchat/blob/master/lhc_web/settings/settings.ini.default.php#L13-L16
-   * Change the following values to
+   * Change the following values to:
     ```
     * debug_output => true
    * templatecache => false
@@ -86,28 +86,28 @@ https://explore.transifex.com/remigijus-kiminas/live-helper-chat/
  
 ## Features
 
-Few main features
+A few main features:
 
- * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with possibility to integrate any third party AI
- * XMPP support for notifications about new chats. (IPhone, IPad, Android, Blackberry, GTalk etc...)
+ * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
+ * XMPP support for notifications about new chats (iPhone, iPad, Android, Blackberry, GTalk, etc.)
  * Chrome extension
  * Repeatable sound notifications
  * Work hours
- * See what user see with screenshot feature
+ * See what the user sees with a screenshot feature
  * Drag & Drop widgets, minimize/maximize widgets
- * Multiple chats same time
+ * Multiple chats at the same time
  * See what users are typing before they send a message
  * Multiple operators
- * Send delayed canned messages as it was real user typing
+ * Send delayed canned messages as if it was a real user typing
  * Chats archive
  * Priority queue
  * Chats statistic generation, top chats
- * Resume chat after user closed chat
- * All chats in single window with tabs interface, tabs are remembered before they are closed
+ * Resume chat after the user closed the chat
+ * All chats in a single window with tabs interface; tabs are remembered before they are closed
  * Chat transcript print
  * Chat transcript send by mail
  * Site widget
- * Page embed mode for live support script or widget mode, or standard mode.
+ * Page embed mode for live support script or widget mode, or standard mode
  * Multilanguage
  * Chats transfering
  * Departments
@@ -116,7 +116,7 @@ Few main features
  * Automatic transfers between departments
  * Option to generate JS for different departments
  * Option to prefill form fields. 
- * Option to add custom form fields. It can be either user variables or hidden fields. Usefull if you are integrating with third party system and want to pass user_id for example.
+ * Option to add custom form fields, which can be either user variables or hidden fields. Useful if you are integrating with a third-party system and want to pass user_id, for example.
  * Cronjobs
  * Callbacks
  * Closed chat callback
