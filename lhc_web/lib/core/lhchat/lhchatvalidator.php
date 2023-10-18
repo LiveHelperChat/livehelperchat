@@ -779,7 +779,7 @@ class erLhcoreClassChatValidator {
         {
             $inputForm->jsvar = $form->jsvar;
             foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
-                if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
+                if ((isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) || ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable]))) {
 
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
@@ -813,8 +813,14 @@ class erLhcoreClassChatValidator {
 
                     } else {
                         $secure = false;
-                        $val = $form->jsvar[$jsVar->id];
-                        if ($jsVar->type == 0) {
+
+                        if ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                            $val = $_COOKIE[$jsVar->js_variable];
+                        } else {
+                            $val = isset($form->jsvar[$jsVar->id]) ? $form->jsvar[$jsVar->id] : "";
+                        }
+
+                        if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
@@ -971,6 +977,8 @@ class erLhcoreClassChatValidator {
 
             if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
                 $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
+            } elseif ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                $val = trim($_COOKIE[$jsVar->js_variable]);
             } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
                 $val = trim($data[$jsVar->id]);
             } elseif ($jsVar->old_js_id != '' && isset($data['prefill_' . $jsVar->old_js_id]) && !empty($data['prefill_' . $jsVar->old_js_id])) {
@@ -980,7 +988,7 @@ class erLhcoreClassChatValidator {
             if (!empty($val)) {
                 $secure = false;
                 $variableSet[] = $jsVar->var_identifier;
-                if ($jsVar->type == 0 || $jsVar->type == 4) {
+                if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
                     $val = (int)$val;
@@ -1065,6 +1073,8 @@ class erLhcoreClassChatValidator {
 
                 if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
                     $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
+                } elseif ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                    $val = $_COOKIE[$jsVar->js_variable];
                 } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
                     $val = trim($data[$jsVar->id]);
                 } elseif (isset($data[$jsVar->var_identifier]) && $data[$jsVar->var_identifier] != '') {
@@ -1116,7 +1126,7 @@ class erLhcoreClassChatValidator {
                         }
                     } else {
                         $secure = false;
-                        if ($jsVar->type == 0 || $jsVar->type == 4) {
+                        if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;

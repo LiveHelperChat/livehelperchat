@@ -74,6 +74,12 @@ class erLhAbstractModelChatVariable
 
         $items[] = $item;
 
+        $item = new stdClass();
+        $item->id = 5;
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Website cookie');
+
+        $items[] = $item;
+
         return $items;
     }
 
