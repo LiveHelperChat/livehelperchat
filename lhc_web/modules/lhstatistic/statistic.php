@@ -7,7 +7,7 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
         die('No permission');
     } else {
 
-        $secretHash = \erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
+        $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
 
         if (isset($Params['user_parameters_unordered']['reportverified']) && $Params['user_parameters_unordered']['reportverified'] == 1) {
             $hashVerification = md5($Params['user_parameters_unordered']['r'] . $Params['user_parameters_unordered']['report'] . $Params['user_parameters_unordered']['reportts'] . $secretHash);
