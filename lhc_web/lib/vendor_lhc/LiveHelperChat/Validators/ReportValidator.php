@@ -294,6 +294,7 @@ class ReportValidator {
                     'date_range' => $outputString,
                     'name' => $report->name,
                     'desc' => $report->description,
+                    'report_id' => $report->id,
                     'url' => $url,
                     'send_to' => $report->recurring_options_array['send_to'],
                 ];
@@ -328,6 +329,7 @@ class ReportValidator {
                     'date_range' => $outputString,
                     'name' => $report->name,
                     'desc' => $report->description,
+                    'report_id' => $report->id,
                     'url' => $url,
                     'send_to' => $report->recurring_options_array['send_to'],
                 ];
@@ -362,6 +364,7 @@ class ReportValidator {
                     'date_range' => $outputString,
                     'name' => $report->name,
                     'desc' => $report->description,
+                    'report_id' => $report->id,
                     'url' => $url,
                     'send_to' => $report->recurring_options_array['send_to'],
                 ];
@@ -400,17 +403,22 @@ class ReportValidator {
             $mail->AddReplyTo($sendMail->reply_to, $sendMail->from_name);
         }
 
+        $secretHash = \erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
+        $ts = time();
+
         foreach ($emailRecipient as $receiver) {
             $mail->Body = str_replace(array(
                 '{report_name}',
                 '{report_description}',
                 '{date_range}',
-                '{url_report}'
+                '{url_report}',
+                '{url_report_direct}'
             ), array(
                 $reportConsolidated['name'],
                 $reportConsolidated['desc'],
                 $reportConsolidated['date_range'],
                 \erLhcoreClassSystem::getHost() . \erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode( $reportConsolidated['url'] )),
+                \erLhcoreClassSystem::getHost() . \erLhcoreClassDesign::baseurl('statistic/statistic') .'/(report)/' . $reportConsolidated['report_id']  . '/(reportts)/' . $ts . '/(reporthash)/' . md5($reportConsolidated['url'] . $reportConsolidated['report_id'] . $ts . $secretHash) . '/(r)/' . rawurlencode(base64_encode( $reportConsolidated['url'] )),
             ),
             $sendMail->content);
 

@@ -1,5 +1,58 @@
 <?php
 
+$currentUser = erLhcoreClassUser::instance();
+
+if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','viewstatistic')) {
+    if (!isset($Params['user_parameters_unordered']['reporthash']) || empty($Params['user_parameters_unordered']['reporthash'])) {
+        die('No permission');
+    } else {
+
+        $secretHash = \erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
+
+        if (isset($Params['user_parameters_unordered']['reportverified']) && $Params['user_parameters_unordered']['reportverified'] == 1) {
+            $hashVerification = md5($Params['user_parameters_unordered']['r'] . $Params['user_parameters_unordered']['report'] . $Params['user_parameters_unordered']['reportts'] . $secretHash);
+        } else {
+            $hashVerification = md5(base64_decode(rawurldecode($Params['user_parameters_unordered']['r'])) . $Params['user_parameters_unordered']['report'] . $Params['user_parameters_unordered']['reportts'] . $secretHash);
+        }
+
+        if ($Params['user_parameters_unordered']['reporthash'] !== $hashVerification || $Params['user_parameters_unordered']['reportts'] < (time() - 7 * 24 * 3600)) {
+            die('Report link has expired!');
+        }
+
+        $report = \LiveHelperChat\Models\Statistic\SavedReport::fetch($Params['user_parameters_unordered']['report']);
+
+        if (isset($Params['user_parameters_unordered']['reportverified']) && $Params['user_parameters_unordered']['reportverified'] == 1) {
+
+            $user = erLhcoreClassModelUser::fetch($report->user_id);
+
+            erLhcoreClassUser::instance()->setLoggedUser($report->user_id);
+
+            $user->hide_online = 1;
+
+            erLhcoreClassUser::getSession()->update($user, ['session_id']);
+
+            erLhcoreClassUserDep::setHideOnlineStatus($user);
+
+            erLhcoreClassChat::updateActiveChats($user->id);
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', array('user' => & $user, 'reason' => 'user_action'));
+
+        } else {
+            $urlArguments = base64_decode(rawurldecode($Params['user_parameters_unordered']['r']));
+
+            $ts = time();
+
+            $hashRandom = erLhcoreClassModelForgotPassword::randomPassword(40) ;
+            $newHash = md5($hashRandom . $report->id . $ts . $secretHash);
+
+            $urlArguments = str_replace('/(report)/' , '/(reportverified)/1/(reporthash)/' . $newHash . '/(reportts)/' . $ts . '/(r)/' . $hashRandom . '/(report)/', $urlArguments);
+
+            header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin') . '/' . $urlArguments);
+            exit;
+        }
+    }
+}
+
 /**
  * This is optional if some extension AH decides to block usage of this module function completely
  * We don't do redirect here
