@@ -21,6 +21,10 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
 
         $report = \LiveHelperChat\Models\Statistic\SavedReport::fetch($Params['user_parameters_unordered']['report']);
 
+        if (!is_object($report)){
+            die('Report not found!');
+        }
+
         if (isset($Params['user_parameters_unordered']['reportverified']) && $Params['user_parameters_unordered']['reportverified'] == 1) {
 
             $user = erLhcoreClassModelUser::fetch($report->user_id);
