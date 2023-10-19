@@ -29,8 +29,11 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
 
             $user = erLhcoreClassModelUser::fetch($report->user_id);
 
-            erLhcoreClassUser::instance()->setLoggedUser($report->user_id);
+            if ($currentUser->isLogged() == true/* && !$currentUser->hasAccessTo('lhstatistic','viewstatistic')*/) {
+                $currentUser->logout();
+            }
 
+            $currentUser->setLoggedUser($report->user_id);
             $user->hide_online = 1;
 
             erLhcoreClassUser::getSession()->update($user, ['session_id']);
@@ -40,6 +43,7 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
             erLhcoreClassChat::updateActiveChats($user->id);
 
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed', array('user' => & $user, 'reason' => 'user_action'));
+
 
         } else {
             $urlArguments = base64_decode(rawurldecode($Params['user_parameters_unordered']['r']));
