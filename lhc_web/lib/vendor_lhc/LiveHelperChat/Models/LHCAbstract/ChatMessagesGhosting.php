@@ -161,11 +161,11 @@ class ChatMessagesGhosting {
         $metaData = array(
             'permission_delete' => array(
                 'module' => 'lhsystem',
-                'function' => 'auditlog'
+                'function' => 'messagecontentprotection'
             ),
             'permission' => array(
                 'module' => 'lhsystem',
-                'function' => 'auditlog'
+                'function' => 'messagecontentprotection'
             ),
             'table_class' => 'table-condensed table-small',
             'name' => \erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Messages content protection')

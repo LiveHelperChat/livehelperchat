@@ -107,5 +107,6 @@ $FunctionList['auditlog'] = array('explain' => 'Allow user to see audit log');
 $FunctionList['usersactions'] = array('explain' => 'Allow user to see operators real time chats statistic');
 $FunctionList['ga_configuration'] = array('explain' => 'Allow user to configure Events Tracking');
 $FunctionList['singlesetting'] = array('explain' => 'Allow user to change app settings');
+$FunctionList['messagecontentprotection'] = array('explain' => 'Allow user to configure message content protection');
 
 ?>

@@ -87,6 +87,10 @@ class erLhcoreClassModelUserDep
                     $parts = explode(',', $ids);
                     sort($parts);
 
+                    if (!empty($this->dep_id_filter)) {
+                        $parts = array_intersect($parts,$this->dep_id_filter);
+                    }
+
                     $totalAssigned = count($parts);
 
                     if ($totalAssigned > 4) {
@@ -168,7 +172,16 @@ class erLhcoreClassModelUserDep
         max(`inactive_chats`) as `inactive_chats`,
         min(`ro`) as `ro`';
 
-        return self::getList($filter);
+        $list = self::getList($filter);
+
+        if (isset($userDepartaments)) {
+            $userDepartaments[] = 0;
+            foreach ($list as & $listItem) {
+                $listItem->dep_id_filter = $userDepartaments;
+            }
+        }
+
+        return $list;
     }
 
     public $id = null;
@@ -192,6 +205,8 @@ class erLhcoreClassModelUserDep
     public $assign_priority = 0;
     public $chat_min_priority = 0;
     public $chat_max_priority = 0;
+
+    public $dep_id_filter = [];
 }
 
 ?>
