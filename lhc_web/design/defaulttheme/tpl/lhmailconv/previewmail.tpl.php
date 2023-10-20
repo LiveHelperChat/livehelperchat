@@ -28,7 +28,7 @@
         <div class="modal-body mx550">
             <div id="chat-id-previewmc<?php echo $chat->id?>"></div>
             <script>
-                ee.emitEvent('mailChatTabLoaded', ['mc<?php echo $chat->id?>','preview']);
+                ee.emitEvent('mailChatTabLoaded', ['mc<?php echo $chat->id?>','preview',false,<?php echo json_encode($keyword)?>]);
             </script>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

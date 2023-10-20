@@ -5,7 +5,7 @@ import MailChatReply from "./MailChatReply";
 import {useTranslation} from 'react-i18next';
 import axios from "axios";
 
-const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages, loadMessageBody}) => {
+const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, addLabel, moptions, fetchMessages, fetchingMessages, verifyOwner, setConversationStatus, updateMessages, loadMessageBody, keyword}) => {
 
     const [expandingBody, setExpandingBody] = useState(false);
     const [expandHeader, setExpandHeader] = useState(false);
@@ -69,7 +69,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         setExpandBody(expandAction);
         if (expandAction == true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined') {
             setExpandingBody(true);
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id).then(result => {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id, {keyword: keyword}).then(result => {
                 loadMessageBody(result.data);
                 setExpandingBody(false);
             }).catch((error) => {

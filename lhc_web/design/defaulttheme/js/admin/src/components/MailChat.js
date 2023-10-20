@@ -231,7 +231,7 @@ const MailChat = props => {
     }
 
     const loadMainData = () => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal')).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal'),{keyword: props.keyword}).then(result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -446,6 +446,7 @@ const MailChat = props => {
                                                             noReplyRequired={(e) => noReplyRequired(message)}
                                                             addLabel={(e) => addLabel(message)}
                                                             updateMessages={(e) => loadMainData()}
+                                                            keyword={props.keyword}
                                                             loadMessageBody={(data) => loadMessageBody(message, data)}/></React.Fragment>;
                             }
                         })}

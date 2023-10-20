@@ -44,6 +44,15 @@ try {
             $message->alt_body = "";
         }
 
+        $requestPayload = json_decode(file_get_contents('php://input'),true);
+
+        if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
+            foreach ($requestPayload['keyword'] as $keyword) {
+                $message->body_front = str_ireplace($keyword,'<span class="bg-warning text-dark rounded p-1 d-inline-block"><em><strong><span style="font-size:14pt;">'.$keyword.'</span></strong></em></span>',$message->body_front);
+                $message->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$message->subject);
+            }
+        }
+
         $returnAttributes['message'] = $message;
 
         $db->commit();

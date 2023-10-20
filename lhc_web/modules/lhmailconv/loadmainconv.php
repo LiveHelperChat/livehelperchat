@@ -102,9 +102,24 @@ try {
             erLhcoreClassMailconv::$conversationAttributesRemove
         );
 
-        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
-            foreach ($messages as $indexMessage => $messageItem) {
+        $requestPayload = json_decode(file_get_contents('php://input'),true);
+
+
+        foreach ($messages as $indexMessage => $messageItem) {
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
                 $messages[$indexMessage]->setSensitive(true);
+            }
+
+            if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
+                foreach ($requestPayload['keyword'] as $keyword) {
+                    $messages[$indexMessage]->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$messages[$indexMessage]->subject);
+                }
+            }
+        }
+
+        if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
+            foreach ($requestPayload['keyword'] as $keyword) {
+                $conv->subject = str_ireplace($keyword, '🔍' . $keyword . '🔍', $conv->subject);
             }
         }
 
