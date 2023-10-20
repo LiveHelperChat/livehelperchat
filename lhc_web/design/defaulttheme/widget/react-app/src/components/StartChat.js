@@ -153,12 +153,20 @@ class StartChat extends Component {
             fields = {...fields, ...customFields};
         }
 
+        let host = "";
+        try {
+            host = window.parent.location.origin;
+        } catch (e) {
+
+        }
+
         let submitData = {
             'department': this.props.chatwidget.get('department'),
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
             'vid' : this.props.chatwidget.get('vid'),
-            'fields' : fields
+            'fields' : fields,
+            'host': host
         };
 
         helperFunctions.setSessionStorage('_ttxt','');

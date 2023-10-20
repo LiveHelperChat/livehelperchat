@@ -300,7 +300,7 @@ export function getCaptcha(dispatch, form, obj) {
 export function submitOnlineForm(obj) {
     return function(dispatch) {
         dispatch({type: "ONLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj, defaultHeaders)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj, {withCredentials: true, headers : {'Content-Type': 'application/x-www-form-urlencoded'}})
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly

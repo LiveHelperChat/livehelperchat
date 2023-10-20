@@ -76,18 +76,24 @@ if ( $ignorable_ip == '' || !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDet
 
     // Additional javascript variables
     if (is_array($department) && !empty($department)) {
-        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','type'), 'customfilter' => array('dep_id = 0 OR dep_id IN (' . implode(',',$department) .')'))) as $jsVar) {
+        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name'), 'customfilter' => array('dep_id = 0 OR dep_id IN (' . implode(',',$department) .')'))) as $jsVar) {
             $itemVar = array('id' => $jsVar->id,'var' => $jsVar->js_variable);
             if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill)) {
                 $itemVar['type'] = $mapFieldsToPrefill[$jsVar->var_identifier];
             }
+            if ($jsVar->type == 5) {
+                $itemVar['cookie'] = true;
+            }
             $jsVars[] = $itemVar;
         }
     } else {
-        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name','type'), 'filter' => array('dep_id' => 0))) as $jsVar) {
+        foreach (erLhAbstractModelChatVariable::getList(array('ignore_fields' => array('dep_id','var_name'), 'filter' => array('dep_id' => 0))) as $jsVar) {
             $itemVar =  array('id' => $jsVar->id, 'var' => $jsVar->js_variable);
             if (key_exists($jsVar->var_identifier,$mapFieldsToPrefill)) {
                 $itemVar['type'] = $mapFieldsToPrefill[$jsVar->var_identifier];
+            }
+            if ($jsVar->type == 5) {
+                $itemVar['cookie'] = true;
             }
             $jsVars[] = $itemVar;
         }
@@ -524,10 +530,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 216;
+$outputResponse['wv'] = 217;
 
 // React APP versions
-$outputResponse['v'] = 313;
+$outputResponse['v'] = 314;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;

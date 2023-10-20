@@ -1,7 +1,6 @@
 <?php
-header ( 'content-type: application/json; charset=utf-8' );
-header ( 'Access-Control-Allow-Origin: *' );
-header ( 'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept' );
+
+erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($_POST['host']) && $_POST['host'] != '' ? $_POST['host'] : "*")));
 
 $checkHash = true;
 $vid = false;

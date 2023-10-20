@@ -11180,7 +11180,7 @@
         "from_name_ac": "0",
         "from_email": "",
         "from_email_ac": "0",
-        "content": "Hello,\r\n\r\nReport prepared - {report_name}, {date_range}\r\n\r\n{report_description}\r\n\r\nView report at:\r\n{url_report}",
+        "content": "Hello,\r\n\r\nReport prepared - {report_name}, {date_range}\r\n\r\n{report_description}\r\n\r\nView report at:\r\n{url_report}\r\nView directly: {url_report_direct}",
         "subject": "Report prepared - {report_name}",
         "bcc_recipients": "",
         "subject_ac": "0",

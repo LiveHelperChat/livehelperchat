@@ -4,6 +4,7 @@ export class userSession {
     constructor() {
         this.vid = null;
         this.hnh = null;
+        this.withCredentials = false;
 
         this.attributes = {};
         this.ref = null;
@@ -143,6 +144,11 @@ export class userSession {
             for (var index in this.jsVars) {
                 try {
 
+                    if (this.jsVars[index].cookie) {
+                        this.withCredentials = true;
+                        continue;
+                    }
+
                     if (this.jsVars[index].var.indexOf('lhc_var.') !== -1) {
                         currentVar = this.attributes.lhc_var[this.jsVars[index].var.replace('lhc_var.','')] || null;
                     } else {
@@ -187,7 +193,10 @@ export class userSession {
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + 'chat/updatejsvars/(userinit)/true' + this.getAppendVariables(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
+        if (this.withCredentials == true) {
+            xhr.withCredentials = true;
+        }
+        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) + "&host=" + window.location.origin );
     }
 
     updateJSVars(vars, cb) {
@@ -197,7 +206,10 @@ export class userSession {
         var xhr = new XMLHttpRequest();
         xhr.open( "POST", this.attributes.LHC_API.args.lhc_base_url + '/chat/updatejsvars' + this.getAppendVariables(), true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) ) );
+        if (this.withCredentials == true) {
+            xhr.withCredentials = true;
+        }
+        xhr.send( "data=" + encodeURIComponent( this.JSON.stringify(varsJSON) )+"&host=" + window.location.origin );
 
         if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
             cb(varsJSON, this.getPrefillVars());

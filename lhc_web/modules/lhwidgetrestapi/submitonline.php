@@ -1,9 +1,10 @@
 <?php
 
-erLhcoreClassRestAPIHandler::setHeaders();
-erTranslationClassLhTranslation::$htmlEscape = false;
-
 $requestPayload = json_decode(file_get_contents('php://input'),true);
+
+erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($requestPayload['host']) && $requestPayload['host'] != '' ? $requestPayload['host'] : "*")));
+
+erTranslationClassLhTranslation::$htmlEscape = false;
 
 $Params['user_parameters_unordered']['department'] = isset($requestPayload['department']) ? $requestPayload['department'] : null;
 

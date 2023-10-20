@@ -72,7 +72,11 @@ $ViewList['statistic'] = array(
         56 => 'mart_from',
         57 => 'mart_till',
         58 => 'aart_till',
-        59 => 'aart_from'
+        59 => 'aart_from',
+        60 => 'reporthash',
+        61 => 'reportts',
+        62 => 'reportverified',
+        63 => 'r'
     ),
     'functions' => array( 'viewstatistic' ),
     'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids')

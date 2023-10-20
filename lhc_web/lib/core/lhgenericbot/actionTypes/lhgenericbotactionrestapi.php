@@ -1427,6 +1427,11 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{footprint}}'] = implode("\n",$itemsFootprint);
             }
 
+             if (strpos($item,'{{survey}}') !== false && !in_array('{{survey}}',$userData['required_vars'])) {
+                 $userData['required_vars'][] = '{{survey}}';
+                 $userData['dynamic_variables']['{{survey}}'] = erLhcoreClassChatMail::getSurveyContent($userData['chat']);
+             }
+
         }, $userData);
 
         return $userData['dynamic_variables'];

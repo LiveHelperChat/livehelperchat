@@ -778,73 +778,80 @@ class erLhcoreClassChatValidator {
         if ( $form->hasValidData( 'jsvar' ) && !empty($form->jsvar))
         {
             $inputForm->jsvar = $form->jsvar;
-            foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
-                if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
+        }
 
-                    if (strpos($jsVar->var_identifier,'lhc.') !== false) {
-                        $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+        foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
+            if (($form->hasValidData( 'jsvar' ) && isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) || ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable]))) {
 
-                        $val = $form->jsvar[$jsVar->id];
-                        $secure = false;
-                        if ($jsVar->type == 3) {
-                            try {
-                                $val = self::decryptAdditionalField($val, $chat);
-                                $secure = true;
-                            } catch (Exception $e) {
-                                $val = $e->getMessage();
-                            }
-                        }
-                        
-                        $chatVariables = $chat->chat_variables_array;
+                if (strpos($jsVar->var_identifier,'lhc.') !== false) {
+                    $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
 
-                        if ($secure === true) {
-                            $chatVariables[$lhcVar . '_secure'] = true;
-                            $chat->chat_variables_array = $chatVariables;
-                            $chat->chat_variables = json_encode($chatVariables);
-                        } elseif (isset($chatVariables[$lhcVar . '_secure'])) {
-                            unset($chatVariables[$lhcVar . '_secure']);
-                            $chat->chat_variables_array = $chatVariables;
-                            $chat->chat_variables = json_encode($chatVariables);
-                        }
-
-                        if ($chat->{$lhcVar} != $val && $val != '') {
-                            $chat->{$lhcVar} = $val;
-                        }
-
-                    } else {
-                        $secure = false;
-                        $val = $form->jsvar[$jsVar->id];
-                        if ($jsVar->type == 0) {
-                            $val = (string)$val;
-                        } elseif ($jsVar->type == 1) {
-                            $val = (int)$val;
-                        } elseif ($jsVar->type == 2) {
-                            $val = (float)$val;
-                        } elseif ($jsVar->type == 3) {
-                            try {
-                                $val = self::decryptAdditionalField($val, $chat);
-                                $secure = true;
-                            } catch (Exception $e) {
-                                $val = $e->getMessage();
-                            }
-                        }
-
-                        if ($jsVar->inv == 1) {
-                            $chatVariables = $chat->chat_variables_array;
-                            $chatVariables[$jsVar->var_identifier] = $val;
-                            if ($secure === true) {
-                                $chatVariables[$jsVar->var_identifier . '_secure'] = true;
-                            } elseif (isset($chatVariables[$jsVar->var_identifier . '_secure'])) {
-                                unset($chatVariables[$jsVar->var_identifier . '_secure']);
-                            }
-                            $chat->chat_variables_array = $chatVariables;
-                            $chat->chat_variables = json_encode($chatVariables);
-                        } else {
-                            $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    $val = $form->jsvar[$jsVar->id];
+                    $secure = false;
+                    if ($jsVar->type == 3) {
+                        try {
+                            $val = self::decryptAdditionalField($val, $chat);
+                            $secure = true;
+                        } catch (Exception $e) {
+                            $val = $e->getMessage();
                         }
                     }
 
+                    $chatVariables = $chat->chat_variables_array;
+
+                    if ($secure === true) {
+                        $chatVariables[$lhcVar . '_secure'] = true;
+                        $chat->chat_variables_array = $chatVariables;
+                        $chat->chat_variables = json_encode($chatVariables);
+                    } elseif (isset($chatVariables[$lhcVar . '_secure'])) {
+                        unset($chatVariables[$lhcVar . '_secure']);
+                        $chat->chat_variables_array = $chatVariables;
+                        $chat->chat_variables = json_encode($chatVariables);
+                    }
+
+                    if ($chat->{$lhcVar} != $val && $val != '') {
+                        $chat->{$lhcVar} = $val;
+                    }
+
+                } else {
+                    $secure = false;
+
+                    if ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                        $val = $_COOKIE[$jsVar->js_variable];
+                    } else {
+                        $val = isset($form->jsvar[$jsVar->id]) ? $form->jsvar[$jsVar->id] : "";
+                    }
+
+                    if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
+                        $val = (string)$val;
+                    } elseif ($jsVar->type == 1) {
+                        $val = (int)$val;
+                    } elseif ($jsVar->type == 2) {
+                        $val = (float)$val;
+                    } elseif ($jsVar->type == 3) {
+                        try {
+                            $val = self::decryptAdditionalField($val, $chat);
+                            $secure = true;
+                        } catch (Exception $e) {
+                            $val = $e->getMessage();
+                        }
+                    }
+
+                    if ($jsVar->inv == 1) {
+                        $chatVariables = $chat->chat_variables_array;
+                        $chatVariables[$jsVar->var_identifier] = $val;
+                        if ($secure === true) {
+                            $chatVariables[$jsVar->var_identifier . '_secure'] = true;
+                        } elseif (isset($chatVariables[$jsVar->var_identifier . '_secure'])) {
+                            unset($chatVariables[$jsVar->var_identifier . '_secure']);
+                        }
+                        $chat->chat_variables_array = $chatVariables;
+                        $chat->chat_variables = json_encode($chatVariables);
+                    } else {
+                        $stringParts[] = array('secure' => $secure, 'h' => false, 'identifier' => $jsVar->var_identifier, 'key' => $jsVar->var_name, 'value' => $val);
+                    }
                 }
+
             }
         }
 
@@ -971,6 +978,8 @@ class erLhcoreClassChatValidator {
 
             if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
                 $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
+            } elseif ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                $val = trim($_COOKIE[$jsVar->js_variable]);
             } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
                 $val = trim($data[$jsVar->id]);
             } elseif ($jsVar->old_js_id != '' && isset($data['prefill_' . $jsVar->old_js_id]) && !empty($data['prefill_' . $jsVar->old_js_id])) {
@@ -980,7 +989,7 @@ class erLhcoreClassChatValidator {
             if (!empty($val)) {
                 $secure = false;
                 $variableSet[] = $jsVar->var_identifier;
-                if ($jsVar->type == 0 || $jsVar->type == 4) {
+                if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
                     $val = (string)$val;
                 } elseif ($jsVar->type == 1) {
                     $val = (int)$val;
@@ -1065,6 +1074,8 @@ class erLhcoreClassChatValidator {
 
                 if (isset($data[str_replace('lhc_var.','',$jsVar->js_variable)]) && !empty(str_replace('lhc_var.','',$jsVar->js_variable))) {
                     $val = trim($data[str_replace('lhc_var.','',$jsVar->js_variable)]);
+                } elseif ($jsVar->type == 5 && isset($_COOKIE[$jsVar->js_variable])) {
+                    $val = $_COOKIE[$jsVar->js_variable];
                 } elseif (isset($data[$jsVar->id]) && !empty($data[$jsVar->id])) {
                     $val = trim($data[$jsVar->id]);
                 } elseif (isset($data[$jsVar->var_identifier]) && $data[$jsVar->var_identifier] != '') {
@@ -1116,7 +1127,7 @@ class erLhcoreClassChatValidator {
                         }
                     } else {
                         $secure = false;
-                        if ($jsVar->type == 0 || $jsVar->type == 4) {
+                        if ($jsVar->type == 0 || $jsVar->type == 4 || $jsVar->type == 5) {
                             $val = (string)$val;
                         } elseif ($jsVar->type == 1) {
                             $val = (int)$val;
