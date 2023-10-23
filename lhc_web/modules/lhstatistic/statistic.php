@@ -148,16 +148,20 @@ function reportModal($filterParams, $Params, $tab, $currentUser) {
 }
 
 if ($tab == 'active') {
-    
+
+    $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
+
     if (isset($_GET['doSearch'])) {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     } else {
     	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'activestatistic_tab','format_filter' => true, 'uparams' => $Params['user_parameters_unordered']));
         if (empty($filterParams['input_form']->chart_type)) {
-            $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
             $filterParams['input_form']->chart_type = isset($configuration['statistic']) ? $configuration['statistic'] : array();
         }
     }
+
+    $filterParams['input_form']->work_hours_starts = isset($configuration['work_hours_starts']) ? $configuration['work_hours_starts'] : 8;
+    $filterParams['input_form']->work_hours_ends = isset($configuration['work_hours_ends']) ? $configuration['work_hours_ends'] : 17;
 
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
@@ -548,6 +552,14 @@ if ($tab == 'active') {
         $configuration['chat_statistic'] = array();
     }
 
+    if (!isset($configuration['work_hours_starts'])) {
+        $configuration['work_hours_starts'] = 8;
+    }
+
+    if (!isset($configuration['work_hours_ends'])) {
+        $configuration['work_hours_ends'] = 17;
+    }
+
     if (ezcInputForm::hasPostData()) {
         
         if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
@@ -564,6 +576,12 @@ if ($tab == 'active') {
             ),
             'chat_chart_type' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'string',null,FILTER_REQUIRE_ARRAY
+            ),
+            'work_hours_starts' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 0, 'max_range' => 23)
+            ),
+            'work_hours_ends' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 0, 'max_range' => 23)
             ),
             'avg_wait_time' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL,  'int', array('min_range' => 5*60, 'max_range' => 4*7*24*3600)
@@ -582,6 +600,14 @@ if ($tab == 'active') {
 
         if ($form->hasValidData('chat_chart_type')) {
             $configuration['chat_statistic'] = $form->chat_chart_type;
+        }
+
+        if ($form->hasValidData('work_hours_starts')) {
+            $configuration['work_hours_starts'] = $form->work_hours_starts;
+        }
+
+        if ($form->hasValidData('work_hours_ends')) {
+            $configuration['work_hours_ends'] = $form->work_hours_ends;
         }
 
         if ($form->hasValidData('avg_wait_time')) {

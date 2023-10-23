@@ -1511,8 +1511,8 @@
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
             datasets: [{
-                backgroundColor: '#36c',
-                borderColor: '#36c',
+                backgroundColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : 'ffc107') . "'"; $key++; endforeach;?>],
+                borderColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : 'ffc107') . "'"; $key++; endforeach;?>],
                 borderWidth: 1,
                 data: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),$chatsNumber; $key++; endforeach;?>]
             }]
@@ -1702,6 +1702,27 @@
 
 <hr>
 <h5><a class="csv-export" data-scope="chatperhour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a> <?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/number_of_chats_per_hour_average_chat_duration.tpl.php'));?>&nbsp;<?php echo $averageChatTime != null ? erLhcoreClassChat::formatSeconds($averageChatTime) : '(-)';?></h5>
+
+
+<?php if (isset($numberOfChatsPerHour['total'])) {
+    $chatsByHourStats = ['inside' => 0, 'outside' => 0, 'inside_perc' => 0, 'outside_perc' => 0, 'total' => array_sum($numberOfChatsPerHour['total'])];
+    foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) {
+        if ($hour >= $input->work_hours_starts &&  $hour <= $input->work_hours_ends) {
+            $chatsByHourStats['inside'] += $chatsNumber;
+        } else {
+            $chatsByHourStats['outside'] += $chatsNumber;
+        }
+    }
+    if ($chatsByHourStats['total'] > 0) {
+        $chatsByHourStats['inside_perc'] = round(($chatsByHourStats['inside']/$chatsByHourStats['total']) * 100,2);
+        $chatsByHourStats['outside_perc'] =  round(($chatsByHourStats['outside']/$chatsByHourStats['total']) * 100,2);
+    }
+    arsort($numberOfChatsPerHour['total']);
+    $top3hours = array_slice($numberOfChatsPerHour['total'],0,3,true);
+} ?>
+
+<span><span class="text-info fw-bold"><?php echo $chatsByHourStats['inside_perc']?>%</span> (<?php echo $chatsByHourStats['inside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chat answered during working hours.')?> <span class="text-warning fw-bold"><?php echo $chatsByHourStats['outside_perc']?>%</span> (<?php echo $chatsByHourStats['outside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chats answered outside business hours.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 3 hours are')?> - <?php $top3hoursFormated = []; foreach ($top3hours as $topHour => $topChats){ $top3hoursFormated[] = $topHour . 'h. (' . $topChats . ' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)').')';} ; echo implode(', ',$top3hoursFormated); ?></span>
+
 <canvas id="chart_div_per_hour"></canvas>
 <?php endif; ?>
 
