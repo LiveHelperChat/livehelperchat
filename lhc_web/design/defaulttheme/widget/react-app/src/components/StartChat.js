@@ -27,7 +27,7 @@ class StartChat extends Component {
         this.apiLoaded = false;
         this.customHTMLPriority = false;
 
-        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false};
+        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false, textAreaHidden: false};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -525,7 +525,7 @@ class StartChat extends Component {
                             <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                                 {(this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.getIn(['chat_ui','custom_html_priority'])) && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
-                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage printButton={this.props.chatwidget.getIn(['chat_ui','print_btn_msg'])} processStatus={this.props.chatwidget.get('processStatus')} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
+                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setTextAreaHidden={(e) => {this.state.textAreaHidden === false && this.setState({textAreaHidden:true});}} printButton={this.props.chatwidget.getIn(['chat_ui','print_btn_msg'])} processStatus={this.props.chatwidget.get('processStatus')} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
 
                                 {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response msg-to-store">
                                     {this.props.chatwidget.hasIn(['chat_ui','show_ts']) && !this.props.chatwidget.hasIn(['chat_ui','show_ts_below']) && <div className="msg-date">&nbsp;</div>}
@@ -539,7 +539,7 @@ class StartChat extends Component {
 
                         {(!this.props.chatwidget.getIn(['proactive','has']) || this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
-                        {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && <div className="d-flex flex-row border-top position-relative message-send-area">
+                        {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && this.state.textAreaHidden === false && <div className="d-flex flex-row border-top position-relative message-send-area">
 
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white ps-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
 

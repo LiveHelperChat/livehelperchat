@@ -18,6 +18,7 @@
     }
 
     $messages = erLhcoreClassGenericBotWorkflow::processTriggerPreview($chat, $trigger, array('args' => array('do_not_save' => true)));
+
 ?>
 
 <?php if (!isset($no_br)) : ?>
