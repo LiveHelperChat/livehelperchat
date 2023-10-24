@@ -101,6 +101,9 @@ class ChatBotIntroMessage extends PureComponent {
 
         if (attr['data-bot-action'] == 'lhinst.disableVisitorEditor') {
             this.disableEditor = true;
+            if (this.props.setTextAreaHidden) {
+                this.props.setTextAreaHidden();
+            }
         } else if (attr['data-bot-action'] == 'lhinst.setDelay') {
             //this.delayData.push(JSON.parse(attr['data-bot-args']));
         } else if (attr['data-bot-action'] == 'execute-js') {
