@@ -1745,8 +1745,46 @@ class erLhcoreClassGenericBotWorkflow {
         $messages = array();
         foreach ($trigger->actions_front as $action) {
             $messageNew = call_user_func_array("erLhcoreClassGenericBotAction" . ucfirst($action['type']).'::process',array($chat, $action, $trigger, (isset($params['args']) ? $params['args'] : array())));
+
             if ($messageNew instanceof erLhcoreClassModelmsg) {
                 $messages[] = $messageNew;
+            } elseif (is_array($messageNew) && isset($messageNew['status']) && ($messageNew['status'] == 'stop' || $messageNew['status'] == 'continue' || $messageNew['status'] == 'continue_all')) {
+
+                $continue = false;
+
+                if (isset($messageNew['trigger_id']) && is_numeric($messageNew['trigger_id'])) {
+                    $trigger = erLhcoreClassModelGenericBotTrigger::fetch($messageNew['trigger_id']);
+
+                    // Pass custom arguments if any
+                    if (isset($messageNew['validation_args']) && !empty($messageNew['validation_args'])) {
+                        if (isset($params['args']['validation_args'])) {
+                            $params['args']['validation_args'] = array_merge($params['args']['validation_args'],$messageNew['validation_args']);
+                        } else {
+                            $params['args']['validation_args'] = $messageNew['validation_args'];
+                        }
+                    }
+
+                    if (isset($messageNew['replace_array'])) {
+                        $params['args']['replace_array'] = $messageNew['replace_array'];
+                    }
+
+                    if (isset($messageNew['meta_msg'])) {
+                        $params['args']['meta_msg'] = $messageNew['meta_msg'];
+                    }
+
+                    if (isset($messageNew['trigger_action_id']) && !empty($messageNew['trigger_action_id'])) {
+                        $params['trigger_action_id'] = $messageNew['trigger_action_id'];
+                    }
+
+                    $response = self::processTriggerPreview($chat, $trigger, array('args' => array('presentation' => true, 'do_not_save' => true)));
+
+                    if (isset($response[0])) {
+                        $response[0]->id = $trigger->id;
+                    }
+
+                    return $response;
+                }
+
             } else if (is_array($messageNew)) {
                 $messages = array_merge($messages, $messageNew);
             }
@@ -1904,6 +1942,7 @@ class erLhcoreClassGenericBotWorkflow {
 
                 if ($continueExecution == true)
                 {
+
                     $messageClickData = self::getClickName($messageContext->meta_msg_array, $payload, true, array('payload_hash' => $payloadHash));
 
                     $handler = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_get_trigger_click', array(

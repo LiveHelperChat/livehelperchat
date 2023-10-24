@@ -31,7 +31,7 @@
             <?php endif; ?>
 
             <?php foreach ($messages as $msgObject) : ?>
-                <?php $msg = (array)$msgObject?>
+                <?php $msg = (array)$msgObject; if (is_numeric($msg['id'])) {$triggerMessageId = $msg['id'];};?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/user_msg_row.tpl.php'));?>
             <?php endforeach; ?>
 
