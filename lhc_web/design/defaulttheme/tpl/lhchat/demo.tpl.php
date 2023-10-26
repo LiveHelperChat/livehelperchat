@@ -17,7 +17,7 @@
         document.location.reload();
     }
     var LHC_API = LHC_API||{};
-    LHC_API.args = {mode:'widget',lhc_base_url:'//<?php echo $_SERVER['HTTP_HOST']?>/',wheight:450,wwidth:350,pheight:520,pwidth:500, department : <?php echo json_encode($department)?>, leaveamessage:true,check_messages:false};
+    LHC_API.args = {mode:'widget',lhc_base_url:'//<?php echo str_replace(['http://','https://'],'',erLhcoreClassSystem::getHost())?><?php echo erLhcoreClassDesign::baseurldirect()?>',wheight:450,wwidth:350,pheight:520,pwidth:500, department : <?php echo json_encode($department)?>, leaveamessage:true,check_messages:false};
     LHC_API.args['theme'] = <?php echo json_encode(is_numeric($theme) && $theme > 0 && ($themeObj = erLhAbstractModelWidgetTheme::fetch($theme)) instanceof erLhAbstractModelWidgetTheme ? ($themeObj->alias != '' ? $themeObj->alias : $themeObj->id) : null);?>;
     document.getElementById('json-args-content').innerText = "var LHC_API = LHC_API||{};\nLHC_API = "+JSON.stringify(LHC_API, null, 2);
     (function() {
