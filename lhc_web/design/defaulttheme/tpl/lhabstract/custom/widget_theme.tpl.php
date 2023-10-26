@@ -1184,7 +1184,7 @@
 
 	<div class="row">
 		<div class="col-md-12">
-            <iframe id="lhc_iframe" class="border rounded-1" allowtransparency="true" scrolling="no" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/demo')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" width="320" height="800" style="width: 100%; height: 800px;"></iframe>
+            <iframe id="lhc_iframe" class="border rounded-1" allowtransparency="true" scrolling="no" frameborder="0" src="<?php echo erLhcoreClassDesign::baseurl('chat/demo')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.($object->alias != '' ? $object->alias : $object->id) : ''?>" width="320" height="800" style="width: 100%; height: 800px;"></iframe>
 			<hr>
 		</div>
         <div class="col-md-12">
@@ -1298,7 +1298,7 @@
                 $('#department-filter input[name^=department_id]').each(function(i){
                     departments.push(this.value);
                 });
-                document.getElementById('lhc_iframe').src = "<?php echo erLhcoreClassDesign::baseurl('chat/demo')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.$object->id : ''?>" + (departments.length > 0 ? '/(department)/' + departments.join("/") : '');
+                document.getElementById('lhc_iframe').src = "<?php echo erLhcoreClassDesign::baseurl('chat/demo')?>/(leaveamessage)/true<?php echo $object->id > 0 ? '/(theme)/'.($object->alias != '' ? $object->alias : $object->id) : ''?>" + (departments.length > 0 ? '/(department)/' + departments.join("/") : '');
                 if (sessionStorage) {
                     try {
                         var value = sessionStorage.setItem('lhc_theme_dep', departments.join("/"));
