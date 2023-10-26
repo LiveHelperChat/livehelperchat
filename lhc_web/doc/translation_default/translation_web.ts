@@ -8,6 +8,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -716,10 +720,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download theme</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Status widget style</source>
       <translation type="unfinished"/>
     </message>
@@ -837,6 +837,26 @@
     </message>
     <message>
       <source>Can be passed as argument</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Some changes might take effect after you save a widget theme!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cookies and reload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reload</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1923,6 +1943,10 @@
   <context>
     <name>abstract/proactivechatinvitation</name>
     <message>
+      <source>Javascript variable value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation type="unfinished"/>
     </message>
@@ -2275,7 +2299,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Javascript variable value</source>
+      <source>Javascript/Cookie variable value</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2576,6 +2600,10 @@
     </message>
     <message>
       <source>Encrypted</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Website cookie</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6558,27 +6586,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Allow operator to see your page content?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Open in a new window</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Minimize/Restore</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Our staff are always ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Allow operator to see your page content?</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6590,7 +6606,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Live help is online...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Live help is offline...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Our staff are always ready to help!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12463,6 +12491,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>chat(s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of chat answered during working hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of chats answered outside business hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top 3 hours are</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All operators statistic will be downloaded</source>
       <translation type="unfinished"/>
     </message>
@@ -12528,6 +12572,14 @@
     </message>
     <message>
       <source>Average wait time should be calculated for the last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours starts at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours ends at</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14706,6 +14758,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>possible chat attributes directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -14965,19 +15025,7 @@
   <context>
     <name>genericbot/helpattributes</name>
     <message>
-      <source>Page where chat started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referer from where visitor come to site.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat ID to test against</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pattern</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14986,6 +15034,34 @@
     </message>
     <message>
       <source>Extract chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page where chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referer from where visitor come to site.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test your pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explore all possible chat attributes</source>
       <translation type="unfinished"/>
     </message>
     <message>

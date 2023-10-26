@@ -1271,7 +1271,7 @@
     </message>
     <message>
       <source>Message time visible for</source>
-      <translation type="unfinished"/>
+      <translation>Tiempo visible de mensaje para</translation>
     </message>
     <message>
       <source>Message time placement</source>
@@ -1415,7 +1415,7 @@
     </message>
     <message>
       <source>Custom html after widget content</source>
-      <translation type="unfinished"/>
+      <translation>HTML personalizado después del contenido del widget</translation>
     </message>
     <message>
       <source>Operator intro message. You can wrap custom HTML with [html][/html] bbcode</source>
@@ -1467,11 +1467,11 @@
     </message>
     <message>
       <source>Switch to default widget position</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar a la posición predeterminada del widget</translation>
     </message>
     <message>
       <source>Switch to full height widget position</source>
-      <translation type="unfinished"/>
+      <translation>Cambiar a la posición de widget de altura completa</translation>
     </message>
     <message>
       <source>Start chat button text, bot chat</source>
@@ -1771,7 +1771,7 @@
     </message>
     <message>
       <source>Use system timezone instead of a visitor. Visitor TZ will be overriden with system a system one.</source>
-      <translation type="unfinished"/>
+      <translation>Utilice la zona horaria del sistema en lugar de la del visitante. la TZ del visitante se anulará con la del sistema.</translation>
     </message>
     <message>
       <source>Print button as a message as soon visitor clicks a button.</source>

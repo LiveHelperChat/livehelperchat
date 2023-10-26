@@ -5964,7 +5964,7 @@
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Hачать чат</translation>
     </message>
     <message>
       <source>BB code</source>
@@ -7056,7 +7056,7 @@
     </message>
     <message>
       <source>Start a chat</source>
-      <translation type="unfinished"/>
+      <translation>Hачать чат</translation>
     </message>
     <message>
       <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
@@ -10658,7 +10658,7 @@
     </message>
     <message>
       <source>Previous conversation</source>
-      <translation type="unfinished"/>
+      <translation>Предыдущий разговор</translation>
     </message>
     <message>
       <source>Inline survey</source>
