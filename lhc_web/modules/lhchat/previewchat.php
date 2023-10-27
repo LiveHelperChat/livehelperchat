@@ -19,11 +19,13 @@ if ( erLhcoreClassChat::hasAccessToRead($chat) ) {
     $tpl->set('keyword',$keywords);
     $tpl->set('chat',$chat);
     $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+    echo $tpl->fetch();
+    exit;
 } else {
     $tpl->setFile( 'lhchat/errors/adminchatnopermission.tpl.php');
+    $Result['content'] =  $tpl->fetch();
+    $Result['modal_header_title'] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'No permission');
+    $Result['pagelayout'] = 'modal';
 }
-
-echo $tpl->fetch();
-exit;
 
 ?>

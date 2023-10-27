@@ -2425,6 +2425,7 @@ try {
                         array('module' => 'lhcannedmsg', 'function' => 'use'),
                         array('module' => 'lhcannedmsg', 'function' => 'see_global'),
                         array('module' => 'lhchat', 'function' => 'prev_chats'),
+                        array('module' => 'lhchat', 'function' => 'allowopenclosedchats'),
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
                         array('module' => 'lhuser', 'function' => 'userlistonline'),
                         array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),
@@ -2434,8 +2435,6 @@ try {
                         array('module' => 'lhtheme', 'function' => 'use_operator'),
                         array('module' => 'lhgenericbot', 'function' => 'use_operator'),
                     );
-
-
 
                     foreach ($permissionsArray as $paramsPermission) {
                         $RoleFunctionOperator = new erLhcoreClassModelRoleFunction();

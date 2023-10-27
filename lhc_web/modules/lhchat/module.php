@@ -794,5 +794,6 @@ $FunctionList['chat_see_email'] = array('explain' => 'Allow operator to see e-ma
 $FunctionList['chat_see_unhidden_email'] = array('explain' => 'Allow operator to see full e-mail address of the visitor');
 $FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see sensitive information in the messages');
 $FunctionList['my_chats_filter'] = array('explain' => 'Allow operator to see department filter for my active pending chats widget');
+$FunctionList['allowopenclosedchats'] = array('explain' => 'Allow operator to open closed chats');
 
 ?>
