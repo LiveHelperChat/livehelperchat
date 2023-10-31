@@ -666,8 +666,16 @@ if ($tab == 'active') {
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
 
     if (isset($_GET['doSearch'])) {
+
+        $visitors_statistic = erLhcoreClassChatStatistic::getVisitorsStatistic($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby,'charttypes' => $filterParams['input_form']->chart_type));
+
+        if (isset($_GET['reportType']) && $_GET['reportType'] != 'live') {
+            erLhcoreClassChatStatistic::exportCSV($visitors_statistic, $_GET['reportType']);
+            exit;
+        }
+
         $tpl->setArray(array(
-            'visitors_statistic' => erLhcoreClassChatStatistic::getVisitorsStatistic($filterParams['filter'], array('groupby' => $filterParams['input_form']->groupby,'charttypes' => $filterParams['input_form']->chart_type)),
+            'visitors_statistic' => $visitors_statistic,
             'urlappend' => erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form'])
         ));
     }
