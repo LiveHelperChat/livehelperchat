@@ -1,0 +1,1 @@
+<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 100 referrers for selected period');?>
