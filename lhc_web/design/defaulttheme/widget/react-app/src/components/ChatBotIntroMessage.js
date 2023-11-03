@@ -2,6 +2,14 @@ import React, { PureComponent } from 'react';
 import parse, { domToReact } from 'html-react-parser';
 import { connect } from "react-redux";
 import { withTranslation } from 'react-i18next';
+import { parseScript } from "../actions/chatActions";
+import { helperFunctions } from "../lib/helperFunctions";
+
+@connect((store) => {
+    return {
+        chatwidget: store.chatwidget
+    };
+})
 
 class ChatBotIntroMessage extends PureComponent {
 
@@ -73,6 +81,8 @@ class ChatBotIntroMessage extends PureComponent {
             this.updateTriggerClicked({type:''}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.updateChatClicked') !== -1) {
             this.updateTriggerClicked({type:'',mainType: 'updatebuttonclicked'}, attrs, e.target);
+        } else if (attrs.onclick.indexOf('lhinst.executeJS') !== -1) {
+            parseScript(attrs, this);
         } else if (attrs.onclick.indexOf('lhinst.editGenericStep') !== -1) {
             this.updateTriggerClicked({type:'editgenericstep'}, attrs, e.target);
         } else if (attrs.onclick.indexOf('lhinst.dropdownClicked') !== -1) {

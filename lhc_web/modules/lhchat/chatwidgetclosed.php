@@ -38,7 +38,7 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
             $userInstance->operator_message = '';
             $userInstance->message_seen = 0;
             $userInstance->message_seen_ts = 0;
-            if (isset($userInstance->invitation->design_data_array['hide_on_open'])){
+            if (isset($userInstance->invitation->design_data_array['hide_on_open']) && $userInstance->invitation->design_data_array['hide_on_open'] == true) {
                 if (isset($onlineAttributes['qinv'])) {
                     unset($onlineAttributes['qinv']); // Next time show normal invitation
                 }
@@ -49,15 +49,16 @@ if (erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value 
             $userInstance->message_seen = 1;
             $userInstance->message_seen_ts = time();
 
+
             if (isset($onlineAttributes['qinv'])) {
                 unset($onlineAttributes['qinv']); // Next time show normal invitation
             }
         }
 
         $userInstance->online_attr_system = json_encode($onlineAttributes);
-
         $userInstance->conversion_id = 0;
         $userInstance->saveThis();
+
     }
 }
 

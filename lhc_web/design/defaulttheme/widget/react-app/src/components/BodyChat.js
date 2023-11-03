@@ -111,7 +111,7 @@ class BodyChat extends Component {
             return;
         }
 
-        if (this.props.chatwidget.get('initClose') === false && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && surveyMode == false && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT)) {
+        if (this.props.chatwidget.get('initClose') === false && this.props.chatwidget.hasIn(['chat_ui','survey_id']) && surveyMode == false && (this.props.chatwidget.getIn(['chatLiveData','uid']) > 0 || (!this.props.chatwidget.hasIn(['chat_ui','hide_survey_bot']) && this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT))) {
             this.props.dispatch(endChat({'show_start' : (params && params['show_start'] ? params['show_start'] : false),'noCloseReason' : 'SHOW_SURVEY', 'noClose' : true, 'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));
         } else if (tipMode == false) {
             this.props.dispatch(endChat({'show_start' : (params && params['show_start'] ? params['show_start'] : false),'vid' : this.props.chatwidget.get('vid'), 'chat': {id : this.props.chatwidget.getIn(['chatData','id']), hash : this.props.chatwidget.getIn(['chatData','hash'])}}));

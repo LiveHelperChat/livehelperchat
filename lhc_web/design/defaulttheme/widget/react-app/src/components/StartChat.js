@@ -257,7 +257,11 @@ class StartChat extends Component {
         this.updateOnlineFields();
 
         if (this.props.botPayload !== null) {
-            this.setBotPayload(this.props.botPayload);
+            // This is required because prefill fields can be one of the required
+            // If we just submit form instantly it might require one of prefilled fields.
+            setTimeout(() => {
+                this.setBotPayload(this.props.botPayload);
+            },10);
         }
 
         // Just remove element if it exists
