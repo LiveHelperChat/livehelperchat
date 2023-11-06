@@ -109,11 +109,15 @@ try {
     $tpl->set('pages',$pages);
 }
 
-if ($objectData->hide_add === true) {
+if ($objectData->hide_add === true || (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function']))) {
     $tpl->set('hide_add',true);
 }
 
-if ($objectData->hide_delete === true) {
+if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function'])) {
+    $tpl->set('hide_edit',true);
+}
+
+if ($objectData->hide_delete === true || (isset($object_trans['permission_delete']) && !$currentUser->hasAccessTo($object_trans['permission_delete']['module'],$object_trans['permission_delete']['function']))) {
     $tpl->set('hide_delete',true);
 }
 

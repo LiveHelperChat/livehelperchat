@@ -1,7 +1,7 @@
 <?php if (
     ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) ||
     $currentUser->hasAccessTo('lhchatsettings','administrate') ||
-    $currentUser->hasAccessTo('lhsurvey','manage_survey')
+    $currentUser->hasAccessTo('lhsurvey','list_survey')
 ) : ?>
 <li>
     <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Visual settings for the visitor');?></b>

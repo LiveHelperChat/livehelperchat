@@ -22,6 +22,11 @@ if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_tra
 	exit;
 }
 
+if (isset($object_trans['permission_delete']) && !$currentUser->hasAccessTo($object_trans['permission_delete']['module'],$object_trans['permission_delete']['function'])) {
+	erLhcoreClassModule::redirect();
+	exit;
+}
+
 if ( method_exists($ObjectData,'checkPermission') ) {
 	if ( $ObjectData->checkPermission() === false ) {
 		erLhcoreClassModule::redirect();

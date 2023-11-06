@@ -35,7 +35,11 @@
 	        		<th<?php echo isset($field['no_wrap']) ? " nowrap=\"nowrap\" " : ''?><?php echo isset($field['width']) ? " width=\"{$field['width']}%\" " : ''?>><?php echo $field['trans']?></th>
 	        	<?php endif;?>
 	    	<?php endforeach;?>
-	    	<th width="1%">&nbsp;</th>
+
+            <?php if (!isset($hide_edit)) : ?>
+	    	    <th width="1%">&nbsp;</th>
+            <?php endif;?>
+
 	    	<?php if (!isset($hide_delete)) : ?>
 	   			<th width="1%">&nbsp;</th>
 	    	<?php endif;?>
@@ -96,7 +100,10 @@
 	       		<?php endif;?>
 
 	        <?php endforeach;?>
+
+            <?php if (!isset($hide_edit)) : ?>
 	        <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('abstract/edit')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Edit');?></a></td>
+            <?php endif;?>
 
 	         <?php if (!isset($hide_delete)) : ?>
 	         	<td><a class="csfr-required btn btn-danger btn-xs" onclick="return confirm('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/list','Are you sure?')?>')" href="<?php echo erLhcoreClassDesign::baseurl('abstract/delete')?>/<?php echo $identifier.'/'.$item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete');?></a></td>
