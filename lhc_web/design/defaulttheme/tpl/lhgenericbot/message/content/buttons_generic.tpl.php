@@ -8,7 +8,7 @@
                 <?php elseif ($item['type'] == 'updatechat') : ?>
 
                 <?php if ($item['content']['payload'] == 'minimizeWidget') : ?>
-                    <a rel="noreferrer" data-bot-action="execute-js" data-no-change="true" type="button" class="btn-link action-image" data-id="<?php echo $messageId?>" data-bot-emit-parent="true" data-no-msg="true" data-bot-emit="minWidget" onclick='lhinst.executeJS();'><?php echo htmlspecialchars($item['content']['name'])?>
+                    <a rel="noreferrer" data-bot-action="execute-js" data-no-change="true" type="button" class="btn-link action-image" data-id="<?php echo $messageId?>" data-bot-emit-parent="true" data-no-msg="true" data-bot-emit="minWidget" onclick='lhinst.executeJS();'>
                 <?php else : ?>
                     <a rel="noreferrer" data-no-change="true" class="btn-link action-image" <?php if (isset($item['content']['no_name']) && $item['content']['no_name'] == true) : ?>data-no-msg="true"<?php endif; ?> data-id="<?php echo $messageId?>" data-payload=<?php echo json_encode($item['content']['payload'])?> data-keep="true" onclick='lhinst.updateChatClicked(<?php echo json_encode($item['content']['payload'])?>,<?php echo $messageId?>,$(this),true)'>
                 <?php endif; ?>
