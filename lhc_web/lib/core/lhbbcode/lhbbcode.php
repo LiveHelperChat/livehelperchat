@@ -681,7 +681,7 @@ class erLhcoreClassBBCode
             $append = '</a>';
         }
 
-        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid' src=\"".$url."\" alt=\"\" />{$append}</div>";
+        return  "<div class=\"img_embed\">{$prepend}<img title=\"\" onclick='lhinst.zoomImage(this)' class='action-image img-fluid img-remote' src=\"".$url."\" alt=\"\" />{$append}</div>";
    }
 
    public static function _make_embed_map($matches)

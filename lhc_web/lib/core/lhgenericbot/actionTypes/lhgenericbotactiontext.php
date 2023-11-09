@@ -83,8 +83,25 @@ class erLhcoreClassGenericBotActionText {
                 }
 
                 if ($validButton == true) {
-                    $quickReplies[] = $quickReply;
+                    if (!isset($quickReply['content']['bot_condition']) || $quickReply['content']['bot_condition'] == "") {
+                        $quickReplies[] = $quickReply;
+                    } else {
+                        $buttonRules = explode(",",$quickReply['content']['bot_condition']);
+                        $allRulesValid = true;
+                        foreach ($buttonRules as $buttonRule) {
+                            $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => trim($buttonRule)]]);
+                            foreach ($conditionsToValidate as $conditionToValidate) {
+                                if (!$conditionToValidate->isValid(['chat' => $chat])) {
+                                    $allRulesValid = false;
+                                }
+                            }
+                        }
+                        if ($allRulesValid === true) {
+                            $quickReplies[] = $quickReply;
+                        }
+                    }
                 }
+
             }
 
             if (!empty($quickReplies)){

@@ -1492,6 +1492,10 @@ class erLhcoreClassChat {
              * Finally decided to keep this check, it allows more advance permissions configuration
              * */
 
+            if (!$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                return false;
+            }
+
        		if ($chat->user_id == $currentUser->getUserID()) return true;
 
             $userDepartaments = erLhcoreClassUserDep::getUserDepartaments($currentUser->getUserID(), $userData->cache_version);
@@ -1499,7 +1503,6 @@ class erLhcoreClassChat {
             if (count($userDepartaments) == 0) return false;
 
             if (in_array($chat->dep_id,$userDepartaments)) {
-
             	if ($currentUser->hasAccessTo('lhchat','allowopenremotechat') == true || $chat->status == erLhcoreClassModelChat::STATUS_OPERATORS_CHAT){
             		return true;
             	} elseif ($chat->user_id == 0 || $chat->user_id == $currentUser->getUserID()) {
@@ -1512,6 +1515,10 @@ class erLhcoreClassChat {
             return false;
 
        } elseif ($userData->all_departments != 0 && $chat->user_id != 0 && $chat->user_id != $currentUser->getUserID() && !$currentUser->hasAccessTo('lhchat','allowopenremotechat')) {
+           return false;
+       }
+
+       if (!$currentUser->hasAccessTo('lhchat','allowopenclosedchats') && $chat->status == erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
            return false;
        }
 

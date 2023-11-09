@@ -54,7 +54,7 @@ $ViewList['collected'] = array(
     'group_ids',
     'csvlist'
     ),
-    'functions' => array( 'manage_survey' ),
+    'functions' => array( 'list_survey' ),
     'multiple_arguments' => array('max_stars_1','max_stars_2','max_stars_3','max_stars_4','max_stars_5',
         'department_ids',
         'department_group_ids',
@@ -66,11 +66,13 @@ $ViewList['collected'] = array(
 $ViewList['collecteditem'] = array(
     'params' => array('id'),
     'uparams' => array(),
-    'functions' => array( 'manage_survey' )
+    'functions' => array( 'list_survey' )
 );
 
 $FunctionList = array();
-$FunctionList['manage_survey'] = array('explain' => 'Allow operator to manage/view survey');
+$FunctionList['list_survey'] = array('explain' => 'Allow operator to view survey statistic');
+$FunctionList['manage_survey'] = array('explain' => 'Allow operator to edit survey');
+$FunctionList['delete_survey'] = array('explain' => 'Allow operator to delete survey');
 $FunctionList['redirect_to_survey'] = array('explain' => 'Allow operator to redirect visitor to survey');
 
 ?>

@@ -9,3 +9,7 @@
         'list_function'  => 'erLhAbstractModelSurvey::getList'
     )); ?>
 </div>
+
+<div class="form-group">
+    <label><input type="checkbox" name="hide_survey_bot" value="on" <?php if (isset($departament->bot_configuration_array['hide_survey_bot']) && $departament->bot_configuration_array['hide_survey_bot'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Do not show survey if chat is ended in a bot status');?></label>
+</div>

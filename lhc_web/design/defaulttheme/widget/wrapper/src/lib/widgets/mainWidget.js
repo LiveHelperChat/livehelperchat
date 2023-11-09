@@ -85,6 +85,12 @@ export class mainWidget{
             } else if (eldoc.classList.contains('lhc-full-height')) {
                 eldoc.classList.remove('lhc-full-height');
             }
+
+            if (this.cont.elmDomDoc.getElementById('id-invitation-height')) {
+                eldoc.classList.add('lhc-invitation-view');
+            } else {
+                eldoc.classList.remove('lhc-invitation-view');
+            }
         }
     }
 

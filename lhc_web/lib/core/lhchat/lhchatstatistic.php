@@ -4080,6 +4080,31 @@ class erLhcoreClassChatStatistic {
             }
         }
 
+        if (in_array('visitors_referrers', $params['charttypes'])) {
+            $filterNew = $filter;
+
+            if (!isset($filterNew['filterlte']['time']) && !isset($filterNew['filtergte']['time'])) {
+                $filterNew['filtergte']['last_visit'] = time() - (31 * 24 *3600);
+            }
+
+            if (isset($filterNew['filterlte']['time'])) {
+                $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
+                unset($filterNew['filterlte']['time']);
+            }
+
+            if (isset($filterNew['filtergte']['time'])) {
+                $filterNew['filtergte']['last_visit'] = $filterNew['filtergte']['time'];
+                unset($filterNew['filtergte']['time']);
+            }
+
+            $filterFormated = $filterNew;
+            $filterFormated['sort'] = 'total_records DESC';
+            $filterFormated['group'] = 'referrer';
+            $filterFormated['limit'] = 100;
+
+            $statistic['visitors_referrers'] = erLhcoreClassModelChatOnlineUser::getCount($filterFormated, '', false, 'referrer, count(id) as total_records', false, true);
+        }
+
         foreach (array('visitors_city','visitors_country') as $statisticIdentifier) {
             if (!empty($statistic[$statisticIdentifier])) {
                 if ($params['groupby'] == 0) {
@@ -4593,6 +4618,16 @@ class erLhcoreClassChatStatistic {
                     $value['unanswered']
                 ]);
             }
+        } else if ($type == 'visitors_referrers') {
+
+            fputcsv($fp, ['Referrer','Referred times']);
+            foreach ($statistic['visitors_referrers'] as $data) {
+                fputcsv($fp,[
+                    $data['total_records'],
+                    $data['referrer']
+                ]);
+            }
+
         } else if ($type == 'cs_waitmonth') {
             fputcsv($fp, ['Date','Value']);
             foreach ($statistic['numberOfChatsPerWaitTimeMonth'] as $monthUnix => $value) {

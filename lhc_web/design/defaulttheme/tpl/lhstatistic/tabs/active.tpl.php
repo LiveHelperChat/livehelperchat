@@ -1511,8 +1511,8 @@
         var barChartData = {
             labels: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),'\''.$hour.'\'';$key++; endforeach;?>],
             datasets: [{
-                backgroundColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : 'ffc107') . "'"; $key++; endforeach;?>],
-                borderColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : 'ffc107') . "'"; $key++; endforeach;?>],
+                backgroundColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : '63b5f5') . "'"; $key++; endforeach;?>],
+                borderColor: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),"'#". ($hour >= $input->work_hours_starts && $hour <= $input->work_hours_ends ? '36c' : '63b5f5') . "'"; $key++; endforeach;?>],
                 borderWidth: 1,
                 data: [<?php $key = 0; foreach ($numberOfChatsPerHour['total'] as $hour => $chatsNumber) : echo ($key > 0 ? ',' : ''),$chatsNumber; $key++; endforeach;?>]
             }]
@@ -1733,7 +1733,9 @@
     $top3hours = array_slice($numberOfChatsPerHour['total'],0,3,true);
 } ?>
 
-<span><span class="text-info fw-bold"><?php echo $chatsByHourStats['inside_perc']?>%</span> (<?php echo $chatsByHourStats['inside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chat answered during working hours.')?> <span class="text-warning fw-bold"><?php echo $chatsByHourStats['outside_perc']?>%</span> (<?php echo $chatsByHourStats['outside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chats answered outside business hours.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 3 hours are')?> - <?php $top3hoursFormated = []; foreach ($top3hours as $topHour => $topChats){ $top3hoursFormated[] = $topHour . 'h. (' . $topChats . ' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)').')';} ; echo implode(', ',$top3hoursFormated); ?></span>
+<span>
+    <span class="text-primary fw-bold"><?php echo $chatsByHourStats['inside_perc']?>%</span> (<?php echo $chatsByHourStats['inside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chat answered during working hours.')?> <span class="text-info fw-bold"><?php echo $chatsByHourStats['outside_perc']?>%</span> (<?php echo $chatsByHourStats['outside']?>&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)');?>) <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','of chats answered outside business hours.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 3 hours are')?> - <?php $top3hoursFormated = []; foreach ($top3hours as $topHour => $topChats){ $top3hoursFormated[] = $topHour . 'h. (' . $topChats . ' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','chat(s)').')';} ; echo implode(', ',$top3hoursFormated); ?>
+</span>
 
 <canvas id="chart_div_per_hour"></canvas>
 <?php endif; ?>

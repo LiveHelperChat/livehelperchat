@@ -147,8 +147,14 @@ class NodeTriggerActionQuickReply extends Component {
                                 <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
                             </div>
                         </div>
-                        <div className="col-12">
+                        <div className="col-6">
                             <label><input type="checkbox" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'override_rest_api_button', value: e.target.checked}})} defaultChecked={this.props.reply.getIn(['content','override_rest_api_button'])} /> Override Rest API button content.</label>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Bot conditions to satisfy</label>
+                                <input className="form-control form-control-sm" placeholder="condition_1, condition_2" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'bot_condition', value: e.target.value}})} type="text" defaultValue={this.props.reply.getIn(['content','bot_condition'])}/>
+                            </div>
                         </div>
                         <div className="col-12">
                             <div className="form-group">
@@ -195,8 +201,14 @@ class NodeTriggerActionQuickReply extends Component {
                                 <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
                             </div>
                         </div>
-                        <div className="col-12">
+                        <div className="col-6">
                             <label><input type="checkbox" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'override_rest_api_button', value: e.target.checked}})} defaultChecked={this.props.reply.getIn(['content','override_rest_api_button'])} /> Override Rest API button content.</label>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Bot conditions to satisfy</label>
+                                <input className="form-control form-control-sm" placeholder="condition_1, condition_2" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'bot_condition', value: e.target.value}})} type="text" defaultValue={this.props.reply.getIn(['content','bot_condition'])}/>
+                            </div>
                         </div>
                         <div className="col-12">
                             <div className="form-group">
