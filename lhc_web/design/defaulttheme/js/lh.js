@@ -3051,7 +3051,11 @@ function lh(){
     };
 
     this.zoomImage = function(e) {
-        lhc.revealModal({'url':e.src + '?modal=true'})
+        if (!e.classList.contains('img-remote')) {
+            lhc.revealModal({'url':e.src + '?modal=true'})
+        } else {
+            lhc.revealModal({'url': WWW_DIR_JAVASCRIPT + 'file/downloadfile/0/0' + '?modal=external&src='+e.src})
+        }
     }
 }
 

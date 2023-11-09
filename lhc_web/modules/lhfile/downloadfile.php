@@ -3,6 +3,15 @@
 session_write_close();
 
 try {
+
+    if (isset($_GET['modal']) && $_GET['modal'] == 'external') {
+        $tpl = erLhcoreClassTemplate::getInstance('lhchat/zoomimage.tpl.php');
+        $tpl->set('externalImage', true);
+        $tpl->set('fileImage', $_GET['src']);
+        echo $tpl->fetch();
+        exit;
+    }
+
 	$file = erLhcoreClassModelChatFile::fetch((int)$Params['user_parameters']['file_id']);
 	$hash = $Params['user_parameters']['hash'];
 
