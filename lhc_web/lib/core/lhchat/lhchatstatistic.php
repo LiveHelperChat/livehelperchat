@@ -1072,7 +1072,7 @@ class erLhcoreClassChatStatistic {
             }
 
             $sql = "SELECT count(`lh_chat`.`id`) AS number_of_chats,`lh_canned_msg_use`.`canned_id` FROM lh_chat INNER JOIN `lh_canned_msg_use` ON `lh_canned_msg_use`.`chat_id` = `lh_chat`.`id` INNER JOIN `lh_canned_msg` ON `lh_canned_msg`.`id` = `lh_canned_msg_use`.`canned_id` {$generalJoin} WHERE {$appendFilterTime} {$generalFilter} GROUP BY `lh_canned_msg_use`.`canned_id` ORDER BY number_of_chats DESC,`lh_canned_msg_use`.`canned_id` DESC  " . $limit;
-             
+
             $db = ezcDbInstance::get();
             $stmt = $db->prepare($sql);
 
@@ -1616,8 +1616,8 @@ class erLhcoreClassChatStatistic {
     	return implode(' AND ', $returnFilter);
     }
     
-    public static function formatUserFilter(& $filterParams, $table = 'lh_chat', $column = 'user_id') {
-        if (isset($filterParams['input']->group_id) && is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
+    public static function formatUserFilter(& $filterParams, $table = 'lh_chat', $column = 'user_id', $includeOnly = []) {
+        if ((empty($includeOnly) || in_array('group_id',$includeOnly)) && isset($filterParams['input']->group_id) && is_numeric($filterParams['input']->group_id) && $filterParams['input']->group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id = :group_id');
             $stmt->bindValue( ':group_id', $filterParams['input']->group_id, PDO::PARAM_INT);
@@ -1629,7 +1629,7 @@ class erLhcoreClassChatStatistic {
             }
         }
 
-        if (isset($filterParams['input']->group_ids) && is_array($filterParams['input']->group_ids) && !empty($filterParams['input']->group_ids)) {
+        if ((empty($includeOnly) || in_array('group_ids',$includeOnly)) && isset($filterParams['input']->group_ids) && is_array($filterParams['input']->group_ids) && !empty($filterParams['input']->group_ids)) {
 
             erLhcoreClassChat::validateFilterIn($filterParams['input']->group_ids);
 
@@ -1647,7 +1647,7 @@ class erLhcoreClassChatStatistic {
             }
         }
         
-        if (isset($filterParams['input']->department_group_id) &&  is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
+        if ((empty($includeOnly) || in_array('department_group_id',$includeOnly)) && isset($filterParams['input']->department_group_id) &&  is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id = :group_id');
             $stmt->bindValue( ':group_id', $filterParams['input']->department_group_id, PDO::PARAM_INT);
@@ -1659,7 +1659,7 @@ class erLhcoreClassChatStatistic {
             }
         }
 
-        if (isset($filterParams['input']->department_group_ids) &&  is_array($filterParams['input']->department_group_ids) && !empty($filterParams['input']->department_group_ids)) {
+        if ((empty($includeOnly) || in_array('department_group_ids',$includeOnly)) && isset($filterParams['input']->department_group_ids) &&  is_array($filterParams['input']->department_group_ids) && !empty($filterParams['input']->department_group_ids)) {
 
             erLhcoreClassChat::validateFilterIn($filterParams['input']->department_group_ids);
 
