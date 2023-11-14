@@ -3,7 +3,7 @@
     <input type="hidden" name="doSearch" value="1">
 
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -18,7 +18,55 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-md-2">
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_group_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input_statistic->department_group_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+                )); ?>
+            </div>
+        </div>
+
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_title.tpl.php')); ?>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo $userTitle['user'];?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'user_ids[]',
+                    'optional_field' => $userTitle['user_select'],
+                    'selected_id'    => $input_statistic->user_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name_official',
+                    'ajax'           => 'users',
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(),array('sort' => '`name` ASC', 'limit' => 50)),
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                )); ?>
+            </div>
+        </div>
+
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/parts/user_group_title.tpl.php')); ?>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo $userGroupTitle['user_group'];?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'group_ids[]',
+                    'optional_field' => $userGroupTitle['user_group_select'],
+                    'selected_id'    => $input_statistic->group_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array_merge(array('sort' => '`name` ASC'),erLhcoreClassGroupUser::getConditionalUserFilter(false, true)),
+                    'list_function'  => 'erLhcoreClassModelGroup::getList'
+                )); ?>
+            </div>
+        </div>
+        <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range from');?></label>
                 <div class="row">
@@ -51,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Date range to');?></label>
                 <div class="row">

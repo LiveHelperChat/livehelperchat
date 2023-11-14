@@ -309,11 +309,20 @@ if ($tab == 'cannedmsg') {
         $filterParams['is_search'] = false;
     }
 
-    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_canned_msg_use','user_id',['group_id','group_ids']);
+
+    if (
+        is_array($filterParams['input_form']->department_id) && !empty($filterParams['input_form']->department_id) ||
+        is_array($filterParams['input_form']->department_group_ids) && !empty($filterParams['input_form']->department_group_ids)) {
+        $filterParams['filter']['innerjoin']['lh_canned_msg_dep'] = array('`lh_canned_msg_dep`.`canned_id`','`lh_canned_msg_use`.`canned_id`');
+    }
 
     if (is_array($filterParams['input_form']->department_id) && !empty($filterParams['input_form']->department_id)) {
-        $filterParams['filter']['innerjoin']['lh_canned_msg_dep'] = array('`lh_canned_msg_dep`.`canned_id`','`lh_canned_msg_use` . `canned_id`');
         $filterParams['filter']['filterin']['`lh_canned_msg_dep`.`dep_id`'] = $filterParams['input_form']->department_id;
+    }
+
+    if (is_array($filterParams['input_form']->department_group_ids) && !empty($filterParams['input_form']->department_group_ids)) {
+        erLhcoreClassChatStatistic::formatUserFilter($filterParams, 'lh_canned_msg_dep', 'user_id', ['department_group_ids']);
     }
 
     $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
