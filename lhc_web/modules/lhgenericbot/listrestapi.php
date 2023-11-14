@@ -58,7 +58,7 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 $pages = new lhPaginator();
 $pages->items_total = erLhcoreClassModelGenericBotRestAPI::getCount($filterParams['filter']);
 $pages->translationContext = 'chat/pendingchats';
-$pages->serverURL = erLhcoreClassDesign::baseurl('genericbot/list').$append;
+$pages->serverURL = erLhcoreClassDesign::baseurl('genericbot/listrestapi').$append;
 $pages->paginate();
 $tpl->set('pages',$pages);
 

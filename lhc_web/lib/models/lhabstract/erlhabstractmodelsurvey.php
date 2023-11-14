@@ -129,6 +129,10 @@ class erLhAbstractModelSurvey {
 
         $currentUser = erLhcoreClassUser::instance();
 
+        if ($currentUser->hasAccessTo( 'lhdepartment', 'see_all')) {
+            return true;
+        }
+
         /**
          * Append user departments filter
          * */
