@@ -6,9 +6,9 @@ $ViewList = array();
 
 $ViewList['adminchat'] = array(
     'params' => array('chat_id'),
-    'uparams' => array('remember','arg'),
+    'uparams' => array('remember','arg','ol'),
     'functions' => array( 'use' ),
-    'multiple_arguments' => array('arg')
+    'multiple_arguments' => array('arg','ol')
 );
 
 $ViewList['getchatdata'] = array(

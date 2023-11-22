@@ -21,7 +21,9 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     		$operatorAccepted = false;
     		$chatDataChanged = false;
-    		
+
+            $previousUserId = $chat->user_id;
+
     	    if ($chat->user_id == 0 && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
     	        $currentUser = erLhcoreClassUser::instance();
     	        $chat->user_id = $currentUser->getUserID();
@@ -33,13 +35,17 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     	        $chatDataChanged = true;
     	    }
-    	    
+
     	    // If status is pending change status to active
     	    if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
     	    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
     	    	$chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
     	    	$chat->user_id = $currentUser->getUserID();
+
+                if ($previousUserId > 0 && $chat->user_id == $previousUserId) {
+                    $previousUserId = 0;
+                }
 
                 // Change sub status only if visitor has not left a chat
                 if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
@@ -111,7 +117,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	        $msg->chat_id = $chat->id;
     	        $msg->user_id = -1;
     	        $msg->time = time();
-                $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+                $msg->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => $Params['user_parameters_unordered']['ol'], 'user_id' => $userData->id, 'name_support' => $msg->name_support]]];
                 $msg->meta_msg = json_encode($msg->meta_msg_array);
 
                 erLhcoreClassChat::getSession()->save($msg);
