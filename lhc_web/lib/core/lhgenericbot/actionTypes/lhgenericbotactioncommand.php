@@ -71,6 +71,7 @@ class erLhcoreClassGenericBotActionCommand {
 
                 if (isset($filterOnline['user_id'])) {
                     $chat->user_id = (int)$filterOnline['user_id'];
+                    $chat->tslasign = time();
                 }
 
                 if ($chat->transfer_if_na == 1) {

@@ -513,6 +513,12 @@ function lh(){
         }
     };
 
+    this.logOpenTrace = [];
+
+    this.addOpenTrace = function(log) {
+        this.logOpenTrace.push(log);
+    }
+
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
@@ -561,7 +567,14 @@ function lh(){
 
     	var inst = this;
 
-    	$.get(url, function(data) {
+        var logOpen = '';
+
+        if (lhinst.logOpenTrace.length > 0) {
+            logOpen = '/(ol)/' + lhinst.logOpenTrace.join('/');
+            lhinst.logOpenTrace = [];
+        }
+
+    	$.get(url + logOpen, function(data) {
 
     	    if (data == '') {
                 inst.removeDialogTab(chat_id,tabs,true);
@@ -1425,9 +1438,11 @@ function lh(){
 
 	    	if ($('#tabs').length > 0) {
 	    	    if (typeof background !== 'undefined' && background === true) {
+                    inst.addOpenTrace('transfer_open_background');
                     inst.startChatBackground(data.chat_id, $('#tabs'), nt);
                 } else {
                     window.focus();
+                    inst.addOpenTrace('transfer_open');
                     inst.startChat(data.chat_id, $('#tabs'), nt);
                 }
     		} else {
@@ -2191,6 +2206,7 @@ function lh(){
     	    	if (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
     	    		if ($('#tabs').length > 0) {
     	    			window.focus();
+                        inst.addOpenTrace('click_notification');
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
@@ -2223,6 +2239,7 @@ function lh(){
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
     	    		if ($('#tabs').length > 0) {
     	    			window.focus();
+                        inst.addOpenTrace('alert_open');
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
