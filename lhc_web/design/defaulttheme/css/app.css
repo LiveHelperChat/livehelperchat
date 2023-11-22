@@ -1,7 +1,8 @@
 
+/*
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
-}
+}*/
 
 ::-webkit-scrollbar{width:0.7em;height:0.8em;background-color:#fff;}
 ::-webkit-scrollbar:hover{background-color:#ddd}

@@ -5,6 +5,7 @@
 		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 	</head>
 <body id="admin-body" class="pe-0 h-100 dashboard-height <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>" ng-cloak ng-controller="LiveHelperChatCtrl as lhc">
+<lhc-app></lhc-app>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_top_content_multiinclude.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_head_multiinclude.tpl.php'));?>
 
