@@ -1,0 +1,2 @@
+lhcAppControllers.controller("DepartmentCustomPeriodCtrl",["$scope",function(t){this.customPeriods=[];var o=this;this.add=function(){o.customPeriods.push({date_from:o.custom_date_from,date_to:o.custom_date_to,start_hour:o.custom_start_hour,start_hour_min:o.custom_start_hour_min,end_hour:o.custom_end_hour,end_hour_min:o.custom_end_hour_min})},this.delete=function(t){o.customPeriods.splice(o.customPeriods.indexOf(t),1)}}]);
+//# sourceMappingURL=54024353b9f4915a0442623b2a7cf2c1.js.map
