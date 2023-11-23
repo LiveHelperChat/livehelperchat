@@ -26,5 +26,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/alert_icons.tpl.php'));?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/messages_data_sensivity.tpl.php'));?>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/bbcode_rules.tpl.php'));?>
     </ul>
 </li>
