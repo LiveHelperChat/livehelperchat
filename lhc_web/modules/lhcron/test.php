@@ -5,6 +5,3 @@
  * For various testing purposes
  *
  * */
-
-
-var_dump(erLhcoreClassBBCode::isBBCodeTagSupported('[b]', []));
