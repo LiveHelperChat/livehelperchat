@@ -467,11 +467,11 @@ class erLhcoreClassDesign
 
         $version = (int)$configInstance->getSetting('site', 'static_version', false);
 
-        $fileNameStaticName = md5($filesHash . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite) . '_' . $version);
+        $fileNameStaticName = md5($filesHash . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
         $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js';
 
         if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
-            return $instance->wwwDir() . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js?' . filemtime($filenameStaticPath);
+            return $instance->wwwDir() . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js?' . filemtime($filenameStaticPath) . '_' . $version;
         }
 
         foreach ($items as $path) {
