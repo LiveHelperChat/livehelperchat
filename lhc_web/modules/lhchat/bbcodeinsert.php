@@ -14,6 +14,14 @@ $tpl->set('mode', null);
 
 $tpl->set('react', isset($_GET['react']));
 
+$bbcodeDisabledOptions = erLhcoreClassModelChatConfig::fetch('bbcode_options')->data;
+
+if (isset($Params['user_parameters_unordered']['mode']) == 'editor') {
+    $tpl->set('bb_code_disabled', (isset($bbcodeDisabledOptions['dio']) ? $bbcodeDisabledOptions['dio'] : []));
+} else {
+    $tpl->set('bb_code_disabled', (isset($bbcodeDisabledOptions['div']) ? $bbcodeDisabledOptions['div'] : []));
+}
+
 if (isset($Params['user_parameters_unordered']['mode']) && !empty($Params['user_parameters_unordered']['mode'])){
     $tpl->set('mode', $Params['user_parameters_unordered']['mode']);
 }

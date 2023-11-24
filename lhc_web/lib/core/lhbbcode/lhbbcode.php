@@ -18,6 +18,11 @@ class erLhcoreClassBBCode
     */
    public static function _make_url_clickable_cb( $matches ) {
        $url = $matches[2];
+
+       $parts = explode('&lt;',$url);
+
+       $url = array_shift($parts);
+
        if ( ')' == $matches[3] && strpos( $url, '(' ) ) {
            // If the trailing character is a closing parethesis, and the URL has an opening parenthesis in it, add the closing parenthesis to the URL.
            // Then we can let the parenthesis balancer do its thing below.
@@ -31,10 +36,11 @@ class erLhcoreClassBBCode
            $suffix = strrchr( $url, ')' ) . $suffix;
            $url = substr( $url, 0, strrpos( $url, ')' ) );
        }
+
        $url = self::esc_url($url);
        if ( empty($url) )
            return $matches[0];
-       return $matches[1] . "<a href=\"$url\" class=\"link\" rel=\"noreferrer\" target=\"_blank\">$url</a>" . $suffix;
+       return $matches[1] . "<a href=\"$url\" class=\"link\" rel=\"noreferrer\" target=\"_blank\">$url</a>" . $suffix . (!empty($parts) ? '&lt;'.implode('', $parts) : '');
    }
    
    /**
@@ -650,6 +656,9 @@ class erLhcoreClassBBCode
             }
         }
 
+       $filteredBBCode['search'][] = '/`(.*?)`/ms';
+       $filteredBBCode['replace'][] = '<code>\1</code>';
+
     	$text = preg_replace($filteredBBCode['search'], $filteredBBCode['replace'], $text);
 
     	// Prepare quote's
@@ -995,6 +1004,7 @@ class erLhcoreClassBBCode
 				)
 				(\)?)                                                  # 3: Trailing closing parenthesis (for parethesis balancing post processing)
 			~xS'; // The regex is a non-anchored pattern and does not have a single fixed starting character.
+
                // Tell PCRE to spend more time optimizing since, when used on a page load, it will probably be used several times.
                $ret = preg_replace_callback( $url_clickable, 'erLhcoreClassBBCode::_make_url_clickable_cb', $ret );
                $ret = preg_replace_callback( '#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]+)#is', 'erLhcoreClassBBCode::_make_web_ftp_clickable_cb', $ret );
@@ -1111,7 +1121,7 @@ class erLhcoreClassBBCode
            }
        }
 
-       if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
+       if ((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0) ) {
            return !in_array($bbcode,$dataBBCode['div']);
        } else {
            return !in_array($bbcode,$dataBBCode['dio']);
@@ -1147,6 +1157,8 @@ class erLhcoreClassBBCode
 
         if (self::isBBCodeTagSupported('[url]',$paramsMessage)) {
             $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCode::_make_url_embed", $ret);
+        } else {
+            $makeLinksClickable = false;
         }
 
         if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
@@ -1174,9 +1186,8 @@ class erLhcoreClassBBCode
 
         }, $ret);
 
-
-        if ($makeLinksClickable) {
-            $ret = self::make_clickable_text($ret);           
+        if ($makeLinksClickable == true) {
+            $ret = self::make_clickable_text($ret);
         }
 
     	$ret = self::BBCode2Html($ret, $paramsMessage);
