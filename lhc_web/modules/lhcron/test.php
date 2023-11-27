@@ -5,4 +5,3 @@
  * For various testing purposes
  *
  * */
-?>

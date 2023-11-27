@@ -522,6 +522,7 @@ function lh(){
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
+            lhinst.logOpenTrace = [];
     		return ;
     	}
 

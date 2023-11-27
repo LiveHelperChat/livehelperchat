@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 218;
+            lhc.version = 219;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -960,7 +960,7 @@
                         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/, '');
 
                         // We allow to send events only from chat installation or page where script is embeded.
-                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && parts[1] !== 'started' && parts[1] !== 'isstarted') {
+                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && ["started","isstarted","addTag","showWidget"].indexOf(parts[1]) === -1) {
                             return;
                         }
                     }

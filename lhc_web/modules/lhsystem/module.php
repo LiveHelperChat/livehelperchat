@@ -90,6 +90,12 @@ $ViewList['singlesetting'] = array(
     'functions' => array( 'singlesetting' )
 );
 
+$ViewList['bbcode'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'messagecontentprotection' )
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
