@@ -1,6 +1,6 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
 
-    <lhc-widget type="pending_chats"></lhc-widget>
+    <lhc-widget type="pending_chats" default_sort="<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "id_asc" : print "id_desc"?>"></lhc-widget>
 
 	<div class="card card-dashboard card-pending" ng-class="{'has-chats' : pending_chats.list.length > 0}" data-panel-id="pending_chats" ng-init="lhc.getToggleWidget('pchats_widget_exp');lhc.getToggleWidgetSort('pending_chats_sort',<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "'id_asc'" : print "'id_desc'"?>)">
 		<div class="card-header">
