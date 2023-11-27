@@ -1,4 +1,7 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
+
+    <lhc-widget type="pending_chats"></lhc-widget>
+
 	<div class="card card-dashboard card-pending" ng-class="{'has-chats' : pending_chats.list.length > 0}" data-panel-id="pending_chats" ng-init="lhc.getToggleWidget('pchats_widget_exp');lhc.getToggleWidgetSort('pending_chats_sort',<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "'id_asc'" : print "'id_desc'"?>)">
 		<div class="card-header">
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/0"><i class="material-icons chat-pending">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/pending_chats.tpl.php'));?></span> ({{pending_chats.list.length}}{{pending_chats.list.length == lhc.limitp ? '+' : ''}})</a>
