@@ -1,3 +1,11 @@
+<lhc-widget icon_class="chat-pending"
+            list_identifier="transfer_chats"
+            type="transfer_chats"
+            hide_filter_options="true"
+            www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
+            expand_identifier="trchats_widget_exp"></lhc-widget>
+
+<?php /*
 <div class="card card-dashboard card-transfered" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
 	<div class="card-header">
         <i class="material-icons chat-pending">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/transfered_chats.tpl.php'));?></span> ({{transfer_dep_chats.list.length}})</a>
@@ -75,5 +83,5 @@
     	</div>
 	</div>
 </div>
-
+*/ ?>
 
