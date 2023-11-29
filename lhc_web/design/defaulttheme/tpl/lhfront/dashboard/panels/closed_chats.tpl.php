@@ -1,3 +1,4 @@
+<?php /*
 <div class="card card-dashboard" data-panel-id="closed_chats" ng-init="lhc.getToggleWidget('closedc_widget_exp');lhc.getToggleWidgetSort('closed_chats_sort')">
 	<div class="card-header">
         <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/2"><i class="material-icons chat-closed">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/closed_chats.tpl.php'));?></span> ({{closed_chats.list.length}}{{closed_chats.list.length == lhc.limitc ? '+' : ''}})</a>
@@ -54,4 +55,4 @@
 		
 		
 	</div>
-</div>
+</div>*/ ?>

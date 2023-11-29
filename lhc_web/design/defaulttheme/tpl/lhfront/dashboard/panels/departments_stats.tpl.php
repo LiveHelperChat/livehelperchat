@@ -1,3 +1,12 @@
+<lhc-widget icon_class="chat-active"
+            list_identifier="departments_stats"
+            type="depgroups_stats"
+            optionsPanel='<?php echo json_encode(array('panelid' => 'departmentd','limitid' => 'limitd', 'disable_product' => true, 'hide_department' => true, 'hide_depgroup' => true))?>'
+            www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
+            expand_identifier="dstats_widget_exp"
+            panel_list_identifier="departmentd-panel-list"></lhc-widget>
+
+<?php /*
 <div class="card card-dashboard" data-panel-id="departments_stats" ng-init="lhc.getToggleWidget('dstats_widget_exp')">
 	<div class="card-header">
         <i class="material-icons chat-active">home</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/departmetns_stats.tpl.php'));?></span></a>
@@ -89,3 +98,4 @@
 		</div>
 	</div>
 </div>
+*/ ?>

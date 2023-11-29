@@ -1,5 +1,14 @@
 <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
-    <div class="card card-dashboard card-group-chat" data-panel-id="group_chats" ng-init="lhc.getToggleWidget('group_chat_widget_exp')">
+
+    <lhc-widget icon_class="chat-active"
+                list_identifier="group-chat"
+                type="group_chats"
+                optionsPanel='<?php echo json_encode(array('panelid' => 'gct','limitid' => 'limitgc','hide_department_filter' => true,'limits_width' => 12))?>'
+                www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
+                expand_identifier="group_chat_widget_exp"
+                panel_list_identifier="gct-panel-list"></lhc-widget>
+
+    <?php /*<div class="card card-dashboard card-group-chat" data-panel-id="group_chats" ng-init="lhc.getToggleWidget('group_chat_widget_exp')">
         <div class="card-header">
             <i class="material-icons chat-active">group</i> <span class="d-none d-lg-inline"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats');?></span> ({{group_chats.list.length}}{{group_chats.list.length == lhc.limitgc ? '+' : ''}})
             <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
@@ -32,5 +41,6 @@
             </div>
 
         </div>
-    </div>
+    </div>*/ ?>
+
 <?php endif; ?>
