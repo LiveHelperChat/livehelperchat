@@ -66,6 +66,8 @@ echo json_encode(array(
     "widget.are_you_sure" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Are you sure?'),
     "widget.offline_request" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Offline request'),
     "widget.has_unread_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Has unread messages'),
+    "widget.open_new_window" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window'),
+    "widget.accept_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
