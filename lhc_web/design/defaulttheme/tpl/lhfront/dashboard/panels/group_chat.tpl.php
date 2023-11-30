@@ -1,6 +1,6 @@
 <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
 
-    <lhc-widget <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> icon_class="chat-active" list_identifier="group-chat" type="group_chats" optionsPanel='<?php echo json_encode(array('panelid' => 'gct','limitid' => 'limitgc','hide_department_filter' => true,'limits_width' => 12))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="group_chat_widget_exp" panel_list_identifier="gct-panel-list"></lhc-widget>
+    <lhc-widget <?php if (isset($customCardClass)) : ?>custom_card_class="<?php echo $customCardClass?>"<?php endif; ?>  <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> icon_class="chat-active" list_identifier="group-chat" type="group_chats" optionsPanel='<?php echo json_encode(array('panelid' => 'gct','limitid' => 'limitgc','hide_department_filter' => true,'limits_width' => 12))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="group_chat_widget_exp" panel_list_identifier="gct-panel-list"></lhc-widget>
 
     <?php /*<div class="card card-dashboard card-group-chat" data-panel-id="group_chats" ng-init="lhc.getToggleWidget('group_chat_widget_exp')">
         <div class="card-header">

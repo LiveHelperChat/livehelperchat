@@ -71,9 +71,9 @@
                         <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
                         </div>*/ ?>
-                        <?php $rightPanelMode = true; ?>
+                        <?php $rightPanelMode = true; $customCardClass = "border-top border-bottom bg-light";?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
-                        <?php unset($rightPanelMode); ?>
+                        <?php unset($rightPanelMode);unset($customCardClass); ?>
 
                     <?php endif;?>
 
