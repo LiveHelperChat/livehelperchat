@@ -75,6 +75,7 @@
                         $rightPanelMode = true;
                         $customCardClass = "border-top border-bottom bg-light";
                         $customCardNoDuration = true;
+                        $customCardTitleClass = "fs14";
                         ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
                         <?php unset($rightPanelMode);unset($customCardClass);unset($customCardNoDuration); ?>
