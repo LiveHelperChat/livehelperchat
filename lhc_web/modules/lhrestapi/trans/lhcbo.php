@@ -68,6 +68,16 @@ echo json_encode(array(
     "widget.has_unread_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Has unread messages'),
     "widget.open_new_window" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Open in a new window'),
     "widget.accept_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Accept chat'),
+    "widget.sort_by_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by department'),
+    "widget.sort_by_op" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by operator'),
+    "widget.sort_by_chat_number" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by active chats number'),
+    "widget.sort_by_nick" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by visitor nick'),
+    "widget.sort_by_location" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by location'),
+    "widget.load_statistic" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Load statistic'),
+    "widget.location" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Location'),
+    "widget.msg_v_number" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Number of messages by user'),
+    "widget.more_than" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More than'),
+    "widget.user_msgs" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','user messages'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
