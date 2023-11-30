@@ -8,15 +8,7 @@
     }
     ?>
 
-    <lhc-widget icon_class="chat-active"
-                list_identifier="my-chats"
-                type="my_chats"
-                optionsPanel=<?php echo json_encode($optinsPanel)?>
-                www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
-                expand_identifier="my_chats_widget_exp"
-                status_id="<?php echo erLhcoreClassUser::instance()->getUserID()?>"
-                status_key="user_id"
-                panel_list_identifier="mcd-panel-list"></lhc-widget>
+    <lhc-widget <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> icon_class="chat-active" list_identifier="my-chats" type="my_chats" optionsPanel='<?php echo json_encode($optinsPanel)?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="my_chats_widget_exp" status_id="<?php echo erLhcoreClassUser::instance()->getUserID()?>" status_key="user_id" panel_list_identifier="mcd-panel-list"></lhc-widget>
 
     <?php /*<div class="card card-dashboard card-my-chats" ng-class="{'has-chats' : my_chats.list.length > 0}" data-panel-id="my_chats" ng-init="lhc.getToggleWidget('my_chats_widget_exp')">
         <div class="card-header">

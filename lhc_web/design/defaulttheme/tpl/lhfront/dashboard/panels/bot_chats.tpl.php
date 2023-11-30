@@ -1,6 +1,6 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
 
-    <lhc-widget <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> sort_identifier="bot_chats_sort" icon_class="chat-active" limit_list_identifier="limitb" type="bot_chats" status_id="5" expand_identifier="botc_widget_exp" list_identifier="bot-chats" height_identifier="botd_m_h" panel_list_identifier="botd-panel-list" optionsPanel={"panelid":"botd","limitid":"limitb"} www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"></lhc-widget>
+    <lhc-widget <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> sort_identifier="bot_chats_sort" icon_class="chat-active" limit_list_identifier="limitb" type="bot_chats" status_id="5" expand_identifier="botc_widget_exp" list_identifier="bot-chats" height_identifier="botd_m_h" panel_list_identifier="botd-panel-list" optionsPanel={"panelid":"botd","limitid":"limitb"} www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"></lhc-widget>
 
     <?php /*if (!isset($hideCardHeader)) : ?>
     <div ng-if="bot_chats" class="<?php if (!isset($rightPanelMode)) : ?>card card-dashboard card-bot-chats<?php endif; ?>" ng-class="{'has-chats' : bot_chats.list.length > 0}" data-panel-id="bot_chats" ng-init="lhc.getToggleWidget('botc_widget_exp');lhc.getToggleWidgetSort('bot_chats_sort')"><div class="card-header">

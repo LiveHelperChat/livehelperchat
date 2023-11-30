@@ -60,6 +60,8 @@
                     <div id="tabs-dashboard"></div>
 
                     <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
+
+                    <?php /*
                         <div class="border-top border-bottom bg-light card-header">
                             <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Grp.')?></span>
                                 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
@@ -68,7 +70,11 @@
 
                         <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
-                        </div>
+                        </div>*/ ?>
+                        <?php $rightPanelMode = true; ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
+                        <?php unset($rightPanelMode); ?>
+
                     <?php endif;?>
 
                 </div>
