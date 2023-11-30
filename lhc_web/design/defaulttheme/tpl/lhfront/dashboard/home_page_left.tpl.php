@@ -1,4 +1,4 @@
-<div translate="no" ng-class="{hide: rmtoggle}" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
+<div translate="no" id="menu-rmtoggle" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
 <?php /*col chats-column*/ ?>
     <div class="w-100 d-flex flex-column flex-grow-1">
         <div class="clearfix bg-light">
