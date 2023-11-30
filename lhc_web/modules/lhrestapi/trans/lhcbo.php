@@ -78,6 +78,7 @@ echo json_encode(array(
     "widget.msg_v_number" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Number of messages by user'),
     "widget.more_than" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More than'),
     "widget.user_msgs" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','user messages'),
+    "widget.download_xls" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Download XLS'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
