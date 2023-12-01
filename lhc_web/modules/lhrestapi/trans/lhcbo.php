@@ -58,6 +58,8 @@ echo json_encode(array(
     "widget.operator" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Operator'),
     "widget.sort_by_online_status" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by online status'),
     "widget.transferred_to_you" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Chats transferred to you directly'),
+    "widget.transferred_to_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Transferred to your department'),
+    "widget.transfer_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Transfer time'),
     "widget.active" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Active'),
     "widget.pending" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Pending'),
     "widget.delete_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Delete chat'),
@@ -92,7 +94,8 @@ echo json_encode(array(
     "widget.change_op_status" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Change operator status'),
     "widget.see_op_stats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic'),
     "widget.start_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat'),
-
+    "widget.taken_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Taken time to fetch information for this widget'),
+    "widget.taken_time_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Taken time to render departments statistic'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),

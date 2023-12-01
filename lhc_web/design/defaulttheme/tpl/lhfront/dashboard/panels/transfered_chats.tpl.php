@@ -1,12 +1,4 @@
-<lhc-widget icon_class="chat-pending"
-            list_identifier="transfer_chats"
-            type="transfer_chats"
-            hide_filter_options="true"
-            optionsPanel='<?php echo json_encode(array('panelid' => 'transfer_chats'))?>'
-            www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
-            expand_identifier="trchats_widget_exp"
-            panel_list_identifier="transfer_chats-panel-list"></lhc-widget>
-
+<lhc-widget icon_class="chat-pending" no_link="true" list_identifier="transfer_chats" type="transfer_chats" hide_filter_options="true" optionsPanel='<?php echo json_encode(array('panelid' => 'transfer_chats'))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="trchats_widget_exp" panel_list_identifier="transfer_chats-panel-list"></lhc-widget>
 
 <?php /*
 <div class="card card-dashboard card-transfered" data-panel-id="transfered_chats" ng-init="lhc.getToggleWidget('trchats_widget_exp')">
