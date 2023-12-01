@@ -1,12 +1,17 @@
+<?php
+$permissionsWidget = [];
+if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','userstats')){
+    $permissionsWidget[] = 'lhstatistic_userstats';
+}
+if (erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'setopstatus')){
+    $permissionsWidget[] = 'lhuser_setopstatus';
+}
+if (erLhcoreClassUser::instance()->hasAccessTo('lhgroupchat', 'use')){
+    $permissionsWidget[] = 'lhgroupchat_use';
+}
+?>
 
-<lhc-widget icon_class="chat-active"
-            list_identifier="operators"
-            type="online_op"
-            optionsPanel='<?php echo json_encode(array('panelid' => 'operatord', 'limitid' => 'limito', 'disable_product' => true, 'userid' => 'oopu'))?>'
-            www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"
-            expand_identifier="ooperators_widget_exp"
-            sort_identifier = "onop_sort"
-            panel_list_identifier="operatord-panel-list"></lhc-widget>
+<lhc-widget icon_class="chat-active" permissions='<?php echo json_encode($permissionsWidget);?>' list_identifier="operators" column_1_width="50%" column_2_width="5%" column_3_width="30%" type="online_op" no_link="true" card_icon="account_box" optionsPanel='<?php echo json_encode(array('panelid' => 'operatord', 'limitid' => 'limito', 'disable_product' => true, 'userid' => 'oopu'))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="ooperators_widget_exp" sort_identifier = "onop_sort" panel_list_identifier="operatord-panel-list"></lhc-widget>
 
 <?php /*
 <div class="card card-dashboard card-operators" data-panel-id="online_operators" ng-init="lhc.getToggleWidget('ooperators_widget_exp');lhc.getToggleWidgetSort('onop_sort')">

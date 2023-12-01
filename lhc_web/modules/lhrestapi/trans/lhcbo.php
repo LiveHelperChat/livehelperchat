@@ -79,6 +79,20 @@ echo json_encode(array(
     "widget.more_than" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More than'),
     "widget.user_msgs" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','user messages'),
     "widget.download_xls" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Download XLS'),
+    "widget.inactive_chats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','inactive chats'),
+    "widget.inactive_op_chats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','inactive online operators chats'),
+    "widget.active_op_chats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','active online operators chats'),
+    "widget.hard_limit" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Hard limit'),
+    "widget.soft_limit" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Soft limit'),
+    "widget.hard_limit_explain" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Hard limit - (active online operators chats - inactive online operators chats) (soft limit - active chats)'),
+    "widget.online" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online'),
+    "widget.free_slots" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Free slots'),
+    "widget.max" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Max'),
+    "widget.chats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','chats'),
+    "widget.change_op_status" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Change operator status'),
+    "widget.see_op_stats" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See operator statistic'),
+    "widget.start_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Start chat'),
+
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
