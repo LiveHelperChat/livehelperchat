@@ -8,8 +8,6 @@ $( document ).ready(function() {
 
     var savingSettings = false;
 
-    console.log('sss');
-
     panelList.sortable({
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       

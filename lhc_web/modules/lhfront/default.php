@@ -40,7 +40,7 @@ if (is_numeric($Params['user_parameters_unordered']['cid'])) {
 
 $Result['content'] = $tpl->fetch();
 /*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js;vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';*/
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';
 
 
 ?>
