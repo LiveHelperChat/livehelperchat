@@ -50,6 +50,7 @@ $tpl->set('start_chat_item',$startSettings);
 
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.startchatformgenerator.js').'"></script>';
+$Result['require_angular'] = true;
 $Result['path'] = array(
     array(
         'url' => erLhcoreClassDesign::baseurl('system/configuration'),

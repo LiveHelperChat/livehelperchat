@@ -446,6 +446,7 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array(
 
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js;js/angular.lhc.autoresponder.js').'"></script>';
+$Result['require_angular'] = true;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 

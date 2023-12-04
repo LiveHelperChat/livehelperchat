@@ -240,5 +240,6 @@ $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getIns
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_path',array('result' => & $Result));
 
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
+$Result['require_angular'] = true;
 
 ?>

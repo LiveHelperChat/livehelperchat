@@ -32,6 +32,7 @@ if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 $tpl->set('item',$botRestAPI);
 
 $Result['additional_footer_js'] = '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.bot.rest.api.js').'"></script>';
+$Result['require_angular'] = true;
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

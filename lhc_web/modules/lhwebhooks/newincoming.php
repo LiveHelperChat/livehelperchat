@@ -36,6 +36,7 @@ if (isset($_POST['Save_action']) || isset($_POST['Update_action']))
 
 $tpl->set('item', $item);
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.incoming.webhooks.js').'"></script>';
+$Result['require_angular'] = true;
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
