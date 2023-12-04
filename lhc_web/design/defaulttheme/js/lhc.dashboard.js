@@ -14,7 +14,7 @@ $( document ).ready(function() {
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       
         handle: ".card-header",
-        items: '> div',
+        items: '> lhc-widget',
         update: function() {
         	if (savingSettings == false)
     		{
