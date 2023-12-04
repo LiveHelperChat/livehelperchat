@@ -445,8 +445,8 @@ if ( erLhcoreClassUser::instance()->hasAccessTo('lhuser','personalautoresponder'
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js;js/angular.lhc.autoresponder.js').'"></script>';
-$Result['require_angular'] = true;
+//$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.cannedmsg.js;js/angular.lhc.autoresponder.js').'"></script>';
+//$Result['require_angular'] = true;
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
