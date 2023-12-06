@@ -151,6 +151,7 @@ if ($pages->items_total > 0) {
                 ]
             ])?>;
         </script>
+
         <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
 
         <?php /*<div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
