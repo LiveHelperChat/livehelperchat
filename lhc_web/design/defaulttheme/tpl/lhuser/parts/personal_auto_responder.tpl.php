@@ -58,12 +58,24 @@ if ($pages->items_total > 0) {
 </script>
 <?php endif; ?>
 
+<?php
+$showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global');
+$userDepartments = true;
+if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautoresponder_all')) {
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter( erLhcoreClassUser::instance()->getUserID(),  erLhcoreClassUser::instance()->cache_version);
+}
+$limitDepartments = $userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array();
+?>
+<script>
+    window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
+</script>
+
 <script>
     var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
 <?php $fields = $autoResponder_msg->getFields(); $object = $autoResponder_msg;?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='cmsg.initController();<?php if ($autoResponder_msg->languages != '') : ?>cmsg.setLanguages();<?php endif;?>'>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='cmsg.setDialects();<?php if ($autoResponder_msg->languages != '') : ?>cmsg.setLanguages();<?php endif;?>'>
 
     <div class="form-group">
         <label><?php echo $fields['name']['trans'];?></label>

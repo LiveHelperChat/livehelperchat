@@ -1,5 +1,12 @@
+<?php
+$showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global');
+$userDepartments = true;
+if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautoresponder_all')) {
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter( erLhcoreClassUser::instance()->getUserID(),  erLhcoreClassUser::instance()->cache_version);
+}
+$limitDepartments = $userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array();
+?>
 <div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
-
     <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/language_choose.tpl.php'));?>
 
     <div class="row">
@@ -19,7 +26,7 @@
                     'css_class'      => 'form-control',
                     'display_name'   => 'name',
                     'show_optional'  => true,
-                    'list_function_params' => array('limit' => false,'sort' => '`name` ASC'),
+                    'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments),
                     'list_function'  => 'erLhcoreClassModelDepartament::getList',
                 )); ?>
             </div>
