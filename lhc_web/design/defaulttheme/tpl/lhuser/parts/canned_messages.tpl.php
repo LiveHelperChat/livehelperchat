@@ -71,7 +71,7 @@ if ($pages->items_total > 0) {
     <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
         <li class="nav-item" role="presentation" ><a class="nav-link active"href="#main" aria-controls="main" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Main');?></a></li>
 
-        <lhc-multilanguage-tab <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
+        <lhc-multilanguage-tab identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
 
         <?php /*
         <li class="nav-item" ng-repeat="lang in cmsg.languages" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
@@ -152,7 +152,6 @@ if ($pages->items_total > 0) {
             ])?>;
         </script>
         <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
-
 
         <?php /*<div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
 

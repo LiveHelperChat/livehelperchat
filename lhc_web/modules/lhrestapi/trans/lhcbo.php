@@ -112,6 +112,24 @@ echo json_encode(array(
     "widget_options.search_operators" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for operator'),
     "widget_options.search_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for department'),
 
+    // bbcode
+    "bbcode.strike" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Strike'),
+    "bbcode.quote" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Quote'),
+    "bbcode.youtube" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Youtube'),
+    "bbcode.html_code" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code'),
+    "bbcode.bold" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Bold'),
+    "bbcode.italic" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Italic'),
+    "bbcode.underline" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Underline'),
+    "bbcode.font_size" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size'),
+    "bbcode.color" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color'),
+    "bbcode.apply" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Apply'),
+    "bbcode.insert_image_or_file" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Insert image or file'),
+    "bbcode.preview" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Preview'),
 
+    // User account
+    "user_account.add_translation" => erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Add translation'),
+    "user_account.search_language" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Search for language. Enter * to see all.'),
+    "user_account.see_all_variations" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','See all variations'),
+    "user_account.messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Messages')
 
 ));
