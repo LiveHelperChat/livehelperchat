@@ -54,7 +54,7 @@ if ($pages->items_total > 0) {
 
 <?php if ($autoResponder_msg->languages != '') : ?>
 <script>
-    var autoResponderLanguages = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;
+    var autoResponder<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?> = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;
 </script>
 <?php endif; ?>
 
@@ -88,8 +88,12 @@ if ($pages->items_total > 0) {
             <li role="presentation" class="nav-item"><a class="nav-link" href="#closeaction" aria-controls="closeaction" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close messaging');?></a></li>
             <?php endif; ?>
 
-            <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
-            <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
+            <lhc-multilanguage-tab identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
+
+            <!--<li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
+            <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php /*echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');*/?></a></li>
+            -->
+
         </ul>
 
         <?php $autoResponderOptions = array(
@@ -127,7 +131,26 @@ if ($pages->items_total > 0) {
             </div>
             <?php endif; ?>
 
-            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+            <script>
+                window.autoResponderFields = <?php echo json_encode([
+                    [
+                        'name' => 'message_lang',
+                        'bind_name' => 'message',
+                        'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message')
+                    ],
+                    [
+                        'name' => 'fallback_message_lang',
+                        'bind_name' => 'fallback_message',
+                        'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message')
+                    ]
+                ])?>;
+            </script>
+
+            <lhc-multilanguage-tab-content identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+
+            <?php //include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+
+
         </div>
     </div>
 
