@@ -141,16 +141,17 @@ if ($pages->items_total > 0) {
             window.languageCannedFields = <?php echo json_encode([
                 [
                     'name' => 'message_lang',
+                    'bind_name' => 'message',
                     'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message')
                 ],
                 [
                     'name' => 'fallback_message_lang',
+                    'bind_name' => 'fallback_message',
                     'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message')
                 ]
             ])?>;
         </script>
         <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_msg->languages != '') : ?>init_langauges="<?php echo ($canned_msg->id > 0 ? $canned_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
-
 
 
         <?php /*<div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
