@@ -42,7 +42,7 @@
 
 </ul>
 
-<div class="tab-content" ng-controller="LHCAccountValidator as accval">
+<div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
 
 	   <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_edit_multiinclude.tpl.php'));?>
@@ -179,8 +179,8 @@
 
             <?php $user_groups_filter['filter']['required'] = 1; $groupsRequired = erLhcoreClassModelGroup::getList($user_groups_filter); if (!empty($groupsRequired)) : ?>
                      <br/>
-                    <label ng-class="{'chat-closed' : !accval.validRequiredGroups}"><i ng-if="!accval.validRequiredGroups" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one or more')?>*</label>
-                    <div class="row" ng-init='accval.requiredGroups = <?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj, JSON_HEX_APOS)?>;accval.validateGroups()'>
+                    <label id="label-validation-groups" ng-class="{'chat-closed' : !accval.validRequiredGroups}"><i id="label-validation-icon" ng-if="!accval.validRequiredGroups" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one or more')?>*</label>
+                    <div class="row" id="group-required-holder" data-required-groups='<?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj, JSON_HEX_APOS)?>' ng-init='accval.requiredGroups = <?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj, JSON_HEX_APOS)?>;accval.validateGroups()'>
                         <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
                             'input_name'     => 'DefaultGroup[]',
                             'selected_id'    => $user->user_groups_id,
@@ -204,11 +204,11 @@
 
     		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_account_edit_multiinclude.tpl.php'));?>
 
-    		<div class="btn-group" role="group" aria-label="..." <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> >
+    		<div class="btn-group" role="group" aria-label="..." id="buttons-submit-group" <?php if (!empty($groupsRequired)) :?>data-invalid<?php endif?> >
 
                 <?php if (!($can_edit_groups === false)) : ?>
-                <input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
-    		    <input type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
+                <input type="submit" class="btn btn-secondary" id="save-button-action" ng-disabled="!accval.validForm" name="Save_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Save');?>"/>
+    		    <input type="submit" class="btn btn-secondary" id="update-button-action" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Update');?>"/>
                 <?php endif; ?>
 
     		    <input type="submit" class="btn btn-secondary" name="Cancel_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Cancel');?>"/>

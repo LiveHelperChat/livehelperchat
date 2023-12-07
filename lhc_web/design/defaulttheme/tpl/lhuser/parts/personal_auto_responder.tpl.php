@@ -12,7 +12,7 @@ if ($pages->items_total > 0) {
 
 ?>
 
-<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
+<table class="table" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
         <th width="1%">ID</th>
@@ -67,7 +67,7 @@ if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautore
 $limitDepartments = $userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array();
 ?>
 <script>
-    window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items) ?>;
+    window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items, JSON_FORCE_OBJECT) ?>;
 </script>
 
 <script>
@@ -75,7 +75,7 @@ $limitDepartments = $userDepartments !== true ? array('filterin' => array('id' =
 </script>
 
 <?php $fields = $autoResponder_msg->getFields(); $object = $autoResponder_msg;?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='cmsg.setDialects();<?php if ($autoResponder_msg->languages != '') : ?>cmsg.setLanguages();<?php endif;?>'>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post">
 
     <div class="form-group">
         <label><?php echo $fields['name']['trans'];?></label>
@@ -91,7 +91,7 @@ $limitDepartments = $userDepartments !== true ? array('filterin' => array('id' =
 
     <div role="tabpanel">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs mb-2" role="tablist" id="autoresponder-tabs">
+        <ul class="nav nav-tabs mb-2" role="tablist" id="autoResponder-tabs">
             <li role="presentation" class="nav-item"><a class="nav-link active" href="#active" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#operatornotreply" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#onhold" aria-controls="onhold" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
@@ -101,11 +101,6 @@ $limitDepartments = $userDepartments !== true ? array('filterin' => array('id' =
             <?php endif; ?>
 
             <lhc-multilanguage-tab identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
-
-            <!--<li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
-            <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php /*echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');*/?></a></li>
-            -->
-
         </ul>
 
         <?php $autoResponderOptions = array(
@@ -143,116 +138,9 @@ $limitDepartments = $userDepartments !== true ? array('filterin' => array('id' =
             </div>
             <?php endif; ?>
 
-            <script>
-                <?php $responderFields = [];
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/svelte_languages.tpl.php'));?>
 
-                if (!isset($autoResponderOptions['hide_pending']) || $autoResponderOptions['hide_pending'] === false){
-                    $responderFields[] = [
-                            'name' => 'wait_message',
-                            'bind_name' => 'wait_message',
-                            'name_literal' => $fields['wait_message']['trans']
-                    ];
-                }
-
-                $responderFields[] = [
-                    'name' => 'multilanguage_message',
-                    'bind_name' => 'multilanguage_message',
-                    'name_literal' => $fields['multilanguage_message']['trans']
-                ];
-
-                if (!isset($autoResponderOptions['hide_operator_nick']) || $autoResponderOptions['hide_operator_nick'] === false) {
-                    $responderFields[] = [
-                            'name' => 'operator',
-                            'bind_name' => 'operator',
-                            'name_literal' => $fields['operator']['trans']
-                    ];
-                }
-
-                if (!isset($autoResponderOptions['hide_wait_message']) || $autoResponderOptions['hide_wait_message'] === false) {
-                    $responderFields[] = [
-                        'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Pending chat messaging'),
-                        'type' => 'header_block',
-                    ];
-                    $responderFields[] = [
-                        'name' => 'timeout_message',
-                        'bind_name' => 'timeout_message',
-                        'name_literal' => $fields['timeout_message']['trans']
-                    ];
-
-                    for ($i = 2; $i <= 5; $i++) {
-                        $responderFields[] = [
-                            'name' => 'timeout_message_' . $i,
-                            'bind_name' => 'timeout_message_'.$i,
-                            'name_literal' => $fields['timeout_message_' . $i]['trans']
-                        ];
-                    }
-                }
-
-                $responderFields[] = [
-                    'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging'),
-                    'type' => 'header_block',
-                ];
-
-                 for ($i = 1; $i <= 5; $i++) {
-                     $responderFields[] = [
-                            'column' => 6,
-                            'name' => 'timeout_reply_message_' . $i,
-                            'bind_name' => 'timeout_reply_message_'.$i,
-                            'name_literal' => $fields['timeout_reply_message_' . $i]['trans']
-                        ];
-                 }
-
-                $responderFields[] = [
-                    'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging'),
-                    'type' => 'header_block',
-                ];
-
-                for ($i = 1; $i <= 5; $i++) {
-                    $responderFields[] = [
-                        'column' => 6,
-                        'name' => 'timeout_op_trans_reply_message_' . $i,
-                        'bind_name' => 'timeout_op_trans_reply_message_'.$i,
-                        'name_literal' => $fields['timeout_reply_message_' . $i]['trans']
-                    ];
-                }
-
-                $responderFields[] = [
-                    'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging'),
-                    'type' => 'header_block',
-                ];
-
-                $responderFields[] = [
-                        'name' => 'wait_timeout_hold',
-                        'bind_name' => 'wait_timeout_hold',
-                        'name_literal' => $fields['wait_timeout_hold']['trans']
-                    ];
-
-                for ($i = 1; $i <= 5; $i++){
-                    $responderFields[] = [
-                        'column' => 6,
-                        'name' => 'timeout_hold_message_' . $i,
-                        'bind_name' => 'timeout_hold_message_'.$i,
-                        'name_literal' => $fields['timeout_hold_message_' . $i]['trans']
-                    ];
-                }
-
-                if (!isset($autoResponderOptions['hide_personal_closing']) || $autoResponderOptions['hide_personal_closing'] === false) {
-                    $responderFields[] = [
-                        'name' => $fields['close_message']['trans'],
-                        'type' => 'header_block',
-                    ];
-
-                    $responderFields[] = [
-                        'name' => 'close_message',
-                        'bind_name' => 'close_message'
-                    ];
-                }
-
-                ?>
-                window.autoResponderFields = <?php echo json_encode($responderFields)?>;
-            </script>
-
-            <lhc-multilanguage-tab-content identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+            <lhc-multilanguage-tab-content enable_department="true" identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
 
             <?php //include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
 
