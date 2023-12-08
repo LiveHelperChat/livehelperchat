@@ -495,10 +495,10 @@ class erLhAbstractModelAutoResponder {
         return '';
     }
 
-	public function dependFooterJs()
+	/*public function dependFooterJs()
     {
         return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.autoresponder.js').'"></script>';
-    }
+    }*/
 
     public function setTranslationData($data)
     {
