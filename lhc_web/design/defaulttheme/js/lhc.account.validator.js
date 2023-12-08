@@ -1,22 +1,12 @@
-/*lhcAppControllers.controller('LHCAccountValidator',['$scope','$http','$location','$rootScope', function($scope, $http, $location, $rootScope) {
-
-    var that = this;
-
-    this.requiredGroups = [];
-    this.validRequiredGroups = false;
-    this.validForm = false;
-
-    this.validateGroups = function() {
-        this.validForm = this.validRequiredGroups = Object.keys(this.requiredGroups).filter(function(key) { return that.requiredGroups[key] !== false; }).length > 0;
-    }
-
-}]);*/
-
 $( document ).ready(function() {
 
     let validForm = false;
     let validRequiredGroups = false;
     let requiredGroups = [];
+
+    if (!document.getElementById('group-required-holder') || !document.getElementById('label-validation-groups')){
+        return;
+    }
 
     requiredGroups = JSON.parse($('#group-required-holder').attr('data-required-groups'));
 
@@ -51,16 +41,5 @@ $( document ).ready(function() {
     }
 
     updateUI();
-
-    /*function validateGroups() {
-        validForm = validRequiredGroups = Object.keys(requiredGroups).filter(function(key) { return requiredGroups[key] !== false; }).length > 0;
-    }*/
-
-    /*$('#buttons-submit-group').
-    $('#save-button-action').
-    $('#update-button-action').
-    $('#label-validation-groups').
-    $('#label-validation-icon').
-    $('#group-required-holder').*/
 
 });
