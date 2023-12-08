@@ -3,7 +3,7 @@
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','What languages should be ignored. If chat language is one of the selected, message will not be send.')?></label>
 
-    <lhc-multilanguage-tab-content tab_class="no-tab"  identifier="autoResponderIgnore" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+    <lhc-multilanguage-tab-content language_field_name="languages_ignore[]" tab_class="no-tab"  identifier="autoResponderIgnore" <?php if ($object->languages != '') : ?>init_langauges="<?php echo ($object->id > 0 ? $object->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
 
     <?php /*<div class="row mb-1">
         <div class="col-12"><input type="text" ng-init="cmsg.query = cmsg.ignoreLanguages.languages.length == 0 ? '*' : ''" ng-model="cmsg.query" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Search for language. Enter * to see all.');?>" class="form-control form-control-sm"></div>
