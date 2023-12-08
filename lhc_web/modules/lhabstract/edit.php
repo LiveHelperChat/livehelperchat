@@ -105,7 +105,7 @@ if (method_exists($ObjectData,'dependJs')) {
 
 if (method_exists($ObjectData,'dependFooterJs')) {
 	$Result['additional_footer_js'] = $ObjectData->dependFooterJs();
-    //$Result['require_angular'] = true;
+    $Result['require_angular'] = true;
 }
 
 if (isset($object_trans['path'])){
