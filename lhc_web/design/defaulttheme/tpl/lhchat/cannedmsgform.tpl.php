@@ -3,15 +3,19 @@
     var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
-<div id="canned-controller" ng-controller="CannedMsgCtrl as cmsg" ng-cloak ng-init='cmsg.initController();<?php if ($canned_message->languages != '') : ?>cmsg.initLanguage(<?php echo $canned_message->id?>);<?php endif;?>'>
+<div id="canned-controller">
 
 <ul class="nav nav-pills" role="tablist" id="canned-main-tabs">
     <li role="presentation" class="nav-item" ><a class="nav-link active" href="#main" aria-controls="main" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Main');?></a></li>
     <li role="presentation" class="nav-item" ><a class="nav-link" href="#activity-period" aria-controls="activity-period" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity period');?></a></li>
+
+    <lhc-multilanguage-tab <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>disable_new="true"<?php endif;?> identifier="languageCanned" <?php if ($canned_message->languages != '') : ?>init_langauges="<?php echo ($canned_message->id > 0 ? $canned_message->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
+
+    <?php /*
     <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a href="#lang-{{$index}}" class="nav-link" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','administratecannedmsg')) : ?>
     <li class="nav-item"><a href="#addlanguage" class="nav-link" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Add translation');?></a></li>
-    <?php endif;?>
+    <?php endif;?>*/ ?>
 </ul>
 
 <div class="tab-content">
@@ -192,6 +196,24 @@
         </div>
     </div>
 
+    <script>
+        window.languageCannedFields = <?php echo json_encode([
+            [
+                'name' => 'message_lang',
+                'bind_name' => 'message',
+                'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Message')
+            ],
+            [
+                'name' => 'fallback_message_lang',
+                'bind_name' => 'fallback_message',
+                'name_literal' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Fallback message')
+            ]
+        ])?>;
+    </script>
+
+    <lhc-multilanguage-tab-content identifier="languageCanned" <?php if ($canned_message->languages != '') : ?>init_langauges="<?php echo ($canned_message->id > 0 ? $canned_message->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+
+<?php /*
     <div ng-repeat="lang in cmsg.languages" role="tabpanel" class="tab-pane" id="lang-{{$index}}">
 
         <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/language_choose.tpl.php'));?>
@@ -219,11 +241,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhchat/cannedmsg/custom_fallback_lang_tab_content_multiinclude.tpl.php')); ?>
         </div>
 
-    </div>
+    </div>*/ ?>
 
 </div>
 
 </div>
-<script>
-    $('.live-help-tooltip').tooltip();
-</script>
