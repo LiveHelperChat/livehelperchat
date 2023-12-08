@@ -13,7 +13,7 @@
 
 <script>
     <?php if (!empty($object->languages_ignore)) : ?>
-        var autoResponderLanguagesIgnore = <?php echo json_encode($object->languages_ignore); ?>;
+        var autoResponderIgnore<?php echo ($object->id > 0 ? $object->id : 0)?> = <?php echo json_encode([['languages' => $object->languages_ignore]]); ?>;
     <?php endif; ?>
 
     <?php if ($object->languages != '') : ?>
