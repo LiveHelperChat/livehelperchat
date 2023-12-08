@@ -91,12 +91,16 @@ if (method_exists($objectData,'dependCss')) {
 
 if (method_exists($objectData,'dependJs')) {
 	$Result['additional_header_js'] = $objectData->dependJs();
-    $Result['require_angular'] = true;
+    if (!isset($ObjectData->disable_angular)){
+        $Result['require_angular'] = true;
+    }
 }
 
 if (method_exists($objectData,'dependFooterJs')) {
     $Result['additional_footer_js'] = $objectData->dependFooterJs();
-    $Result['require_angular'] = true;
+    if (!isset($ObjectData->disable_angular)){
+        $Result['require_angular'] = true;
+    }
 }
 
 $Result['require_angular'] = true;
