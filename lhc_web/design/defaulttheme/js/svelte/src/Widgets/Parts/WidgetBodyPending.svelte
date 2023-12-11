@@ -6,6 +6,7 @@
     export let type = null;
     export let lhcList = null;
     export let www_dir_flags = null;
+    export let no_additional_column = false;
     export let panel_id = null;
     export let permissions = [];
     export let column_2_width = "20%";
@@ -14,12 +15,12 @@
     export let additional_sort = "";
 
     let check_row_class = type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
-    let check_online = type !== "my_mails";
+    let check_online = type !== "my_mails" && type !== "active_mails" && type !== "pending_mails" && type !== "alarm_mails";
 
     function openItem(chat) {
         if (type === "group_chats") {
             lhcServices.startGroupChat(chat.id,chat.name)
-        } else if (type === "my_mails") {
+        } else if (type === "my_mails" || type === "active_mails" || type === "pending_mails" || type === "alarm_mails") {
             lhcServices.startMailChat(chat.id,chat.subject_front);
         } else {
             lhcServices.startChat(chat.id,chat.nick)
@@ -66,7 +67,7 @@
 
         </th>
 
-        {#if check_row_class && $lhcList.additionalColumns}
+        {#if no_additional_column === false && check_row_class && $lhcList.additionalColumns}
             {#each $lhcList.additionalColumns as column}
                 {#if column.cenabl == true && !column.iconm}
                     <th width="20%">
@@ -97,7 +98,7 @@
                 <i title={$t("widget.last_activity_ago")}  class="material-icons">access_time</i>
             {/if}
 
-            {#if type === 'pending_chats' || type === 'my_mails'}
+            {#if type === 'pending_chats' || type === 'my_mails' || type === 'active_mails' || type === 'pending_mails'}
             <i title={$t("widget.wait_time")} class="material-icons">access_time</i>
             {/if}
 
@@ -148,6 +149,10 @@
         {#if type == 'depgroups_stats'}
         <th width="12%"><i title={$t("widget_title.active_chats")} class="material-icons chat-active">chat</i></th>
         <th width="12%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
+        {/if}
+
+        {#if type == 'active_mails'}
+        <th width="20%"><i title={$t('widget.operator')} class="material-icons">face</i></th>
         {/if}
 
         <th width={column_3_width}>
@@ -360,9 +365,9 @@
                                 <a class="material-icons me-0" title={$t("widget.redirect_contact")} on:click={(e) => lhcServices.redirectContact(chat.id,$t("widget.are_you_sure"),e)}>reply</a>
                             {/if}
 
-                            {#if type == 'my_mails'}
+                            {#if type == 'my_mails' || type == 'active_mails' || type == 'pending_mails'}
 
-                                {#if chat.status != 1}
+                                {#if type == 'my_mails' && chat.status != 1}
                                     <i title="Pending chat" class="material-icons me-0 chat-unread">&#xE80E;</i>
                                 {/if}
 
@@ -390,7 +395,7 @@
                                 {/each}
                             {/if}
 
-                            {#if $lhcList.additionalColumns}
+                            {#if no_additional_column === false && check_row_class && $lhcList.additionalColumns}
                                 {#each $lhcList.additionalColumns as column}
                                     {#if column.cenabl == true && column.iconm == true}
                                         {#each column.items as val}
@@ -402,7 +407,7 @@
                                  {/each}
                              {/if}
 
-                            {#if type != 'my_mails'}
+                            {#if type != 'my_mails' && type != 'active_mails' && type != 'pending_mails'}
                                 {chat.nick}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
                             {/if}
 
@@ -410,7 +415,7 @@
                     {/if}
                 </td>
 
-                {#if check_row_class && $lhcList.additionalColumns}
+                {#if no_additional_column === false && check_row_class && $lhcList.additionalColumns}
                     {#each $lhcList.additionalColumns as column}
                         {#if column.cenabl == true && !column.iconm}
                             <td>
@@ -460,8 +465,12 @@
                         <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
                     {/if}
 
-                    {#if type == 'my_mails'}
+                    {#if type == 'my_mails' || type == 'pending_mails'}
                         <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
+                    {/if}
+
+                    {#if type == 'active_mails'}
+                        <div class="abbr-list" title="{chat.pnd_time_front}">{chat.pnd_time_front}</div>
                     {/if}
 
                     {#if type == 'online_op'}
@@ -497,6 +506,13 @@
                         <div class="abbr-list" title="{chat.n_off_full} | {chat.plain_user_name}">{chat.n_office}</div>
                     </td>
                 {/if}
+
+                {#if type == 'active_mails'}
+                    <td>
+                        {chat.plain_user_name}
+                    </td>
+                {/if}
+
 
                 <td class:align-middle={type == "online_op"}>
                     {#if type == 'online_op'}

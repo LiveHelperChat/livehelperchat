@@ -17,9 +17,11 @@
     export let hide_filter_options = false
     export let default_expand = false;
     export let right_panel_mode = false;
+    export let no_additional_column = false;
     export let default_sort = 'id_asc';
     export let www_dir_flags = null;
-    export let url = WWW_DIR_JAVASCRIPT + 'chat/list/('+status_key+')/' + status_id;
+    export let base_url = "chat/list";
+    export let url = WWW_DIR_JAVASCRIPT + base_url +'/('+status_key+')/' + status_id;
     export let icon_class = "chat-pending";
 
     export let card_icon = "chat";
@@ -101,7 +103,7 @@
 
                 {#if $lhcList[type].list.length > 0}
                 <div class="panel-list" id={panel_list_identifier} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
-                    <WidgetBodyPending additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                    <WidgetBodyPending no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
                 </div>
                 {/if}
 
