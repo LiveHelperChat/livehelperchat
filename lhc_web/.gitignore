@@ -3,7 +3,6 @@ bower_components
 package-lock.json
 composer.phar
 post_deploy.sh
-design/defaulttheme/js/svelte/
 translations/trans/
 cache/default.log
 /.idea/
