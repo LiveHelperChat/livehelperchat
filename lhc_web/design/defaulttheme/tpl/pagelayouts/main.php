@@ -4,7 +4,7 @@
 	<head>
 		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 	</head>
-<body id="admin-body" class="pe-0 h-100 dashboard-height <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>" ng-cloak ng-controller="LiveHelperChatCtrl as lhc">
+<body id="admin-body" class="pe-0 h-100 dashboard-height <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>">
 <lhc-app></lhc-app>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_top_content_multiinclude.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_head_multiinclude.tpl.php'));?>
@@ -22,7 +22,7 @@
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
     
         <div class="row">
-            <div id="middle-column-page" class="col-xl-12 pb-1">
+            <div id="middle-column-page" class="col-xl-12 pb-1" ng-cloak ng-controller="LiveHelperChatCtrl as lhc">
 
                 <?php if (isset($Result['path'])) : ?>
                     <div><div>

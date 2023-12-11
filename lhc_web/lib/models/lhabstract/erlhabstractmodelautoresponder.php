@@ -497,7 +497,8 @@ class erLhAbstractModelAutoResponder {
 
 	public function dependFooterJs()
     {
-        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/lhc.cannedmsg.js').'"></script>';
+
+        return '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/lhc.cannedmsg.js').'"></script>' . '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
     }
 
     public function setTranslationData($data)

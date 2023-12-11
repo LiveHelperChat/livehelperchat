@@ -15,6 +15,15 @@ class erLhcoreClassDesign
         self::$disabledTheme[] = $themeDisable;
     }
 
+    public static function designJSStatic($path) {
+
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $version = (int)$configInstance->getSetting('site', 'static_version', false);
+
+        return self::design($path) . '?' . filemtime(self::design($path,true)) . '_' . $version;
+    }
+
     public static function design($path, $siteDir = false)
     {
         $configInstance = erConfigClassLhConfig::getInstance();

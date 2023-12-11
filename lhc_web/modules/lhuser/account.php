@@ -446,6 +446,10 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account', array(
 
 $Result['content'] = $tpl->fetch();
 
+$Result['additional_footer_js'] =
+    '<script src="'.erLhcoreClassDesign::designJS('js/lhc.account.validator.js').'"></script>'.
+    '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/languages.js').'"></script>';
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account_result', array('result' => & $Result));
 
 ?>
