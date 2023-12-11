@@ -1,3 +1,4 @@
+/*
 lhcAppControllers.controller('DepartmentCustomPeriodCtrl',['$scope', function($scope) {
 		
 		this.customPeriods = [];
@@ -18,4 +19,4 @@ lhcAppControllers.controller('DepartmentCustomPeriodCtrl',['$scope', function($s
 		this.delete = function(period) {
 			that.customPeriods.splice(that.customPeriods.indexOf(period),1);
 		};
-}]);
+}]);*/

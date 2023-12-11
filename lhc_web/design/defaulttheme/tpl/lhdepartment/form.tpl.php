@@ -2,7 +2,7 @@
     <div class="col-6">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Name');?></label>
-            <input type="text" ng-non-bindable class="form-control form-control-sm" name="Name" value="<?php echo htmlspecialchars($departament->name);?>" />
+            <input type="text" class="form-control form-control-sm" name="Name" value="<?php echo htmlspecialchars($departament->name);?>" />
         </div>
     </div>
     <div class="col-6">
@@ -10,7 +10,7 @@
             <label><a class="live-help-tooltip" data-bs-placement="top" title="" data-bs-toggle="tooltip" data-bs-title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you enter alias make sure you pass this string as argument for a department. Otherwise argument will be ignored.');?>"><i class="material-icons">&#xE887;</i></a>
 
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Alias for argument. No spaces or slashes.');?></label>
-            <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?>  ng-non-bindable class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
+            <input type="text" maxlength="50" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','managealias')) : ?>disabled<?php endif;?>  class="form-control form-control-sm" name="Alias" value="<?php echo htmlspecialchars($departament->alias);?>" />
         </div>
     </div>
 </div>
@@ -34,22 +34,22 @@
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Maximum pending chats, if this limit is reached department becomes offline automatically');?> <i>(<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Group limit')?> - <?php echo $departament->pending_group_max?>)</i></label>
-    <input type="text" ng-non-bindable class="form-control form-control-sm" name="pending_max" value="<?php echo htmlspecialchars($departament->pending_max);?>" />
+    <input type="text" class="form-control form-control-sm" name="pending_max" value="<?php echo htmlspecialchars($departament->pending_max);?>" />
 </div>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Delay in seconds before leave a message form is shown. 0 Means functionality is disabled, ');?></label>
-    <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_lm" value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
+    <input type="text" class="form-control form-control-sm" name="delay_lm" value="<?php echo htmlspecialchars($departament->delay_lm);?>" />
 </div>
 
 <div class="row form-group">
 	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for chats priority');?></label>
-        <input type="text" ng-non-bindable class="form-control form-control-sm" name="Priority" value="<?php echo htmlspecialchars($departament->priority);?>" />
+        <input type="text" class="form-control form-control-sm" name="Priority" value="<?php echo htmlspecialchars($departament->priority);?>" />
 	</div>
 	<div class="col-6">
 		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Priority, used for departments sort');?></label>
-        <input type="text" ng-non-bindable class="form-control form-control-sm" name="SortPriority" value="<?php echo htmlspecialchars($departament->sort_priority);?>" />
+        <input type="text" class="form-control form-control-sm" name="SortPriority" value="<?php echo htmlspecialchars($departament->sort_priority);?>" />
 	</div>
 </div>	
 
@@ -87,9 +87,9 @@
 		
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="onlinehours">
-			    <label><input ng-init="OnlineHoursActive=<?php if ($departament->online_hours_active == 1) : ?>true<?php else : ?>false<?php endif?>" type="checkbox" ng-model="OnlineHoursActive" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
+			    <label><input id="online-hours-active" type="checkbox" name="OnlineHoursActive" value="1" <?php if ($departament->online_hours_active == 1) : ?>checked="checked"<?php endif;?>  /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Work hours/work days logic is active');?></label>
 
-		    	<div ng-show="OnlineHoursActive">
+		    	<div id="online-hours-active-block">
 
                     <ul>
                         <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Your personal time zone');?> - <?php echo date_default_timezone_get()?>&nbsp;<?php echo date('Y-m-d H:i:s')?>.</li>
@@ -111,9 +111,9 @@
 						?>
 						<div class="row">
 						   <div class="col-12">
-							   <label><input type="checkbox" ng-init="OnlineHoursDayActive<?php echo $dayShort ?>=<?php if ($departament->$startHourName != -1) : ?>true<?php else : ?>false<?php endif?>" ng-model="OnlineHoursDayActive<?php echo $dayShort ?>" name="<?php echo $dayShort ?>" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
+							   <label><input type="checkbox" class="day-control-block" name="<?php echo $dayShort ?>" value="1" <?php if ($departament->$startHourName != -1) : ?>checked="checked"<?php endif;?> /> <?php echo $dayLong; ?></label>
 
-							   <div class="row" ng-show="OnlineHoursDayActive<?php echo $dayShort ?>">
+							   <div class="row hide <?php echo $dayShort?>-block">
     							   
     							   <div class="col-3">							   
         							   <div class="form-group">
@@ -150,7 +150,9 @@
 					<?php endforeach; ?>
 
 					<hr class="mt-1 mb-1">
-					
+					<script>
+                        var depCustomPeriods = <?php echo $departamentCustomWorkHours; ?>;
+                    </script>
 					<div ng-controller="DepartmentCustomPeriodCtrl as dcpc" ng-init='dcpc.customPeriods = <?php echo $departamentCustomWorkHours; ?>'>
 						<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h4>
 
@@ -168,32 +170,32 @@
 								</div>
 							</div>
 							<div class="col-4">
-								<a class="btn btn-secondary btn-block mt-2" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></a>
+								<button type="button" class="btn btn-secondary btn-block mt-2" id="add-period-button" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
 							</div>
 						</div>
 						<div class="row">
 					        <div class="col-2">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
-									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
+									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour" id="custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
                                 </div>
                             </div>  
                             <div class="col-2">     
 								<div class="form-group">	
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
-									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
+									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour_min" id="custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
                                 </div>
                             </div> 
                             <div class="col-2">
                                 <div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
-									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
+									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour" id="custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
-									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
+									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour_min" id="custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
 								</div>									
 							</div>									
 						</div>
@@ -206,24 +208,7 @@
 									<th></th>
 								</tr>
 								</thead>
-								<tbody>
-									<tr ng-repeat="cp in dcpc.customPeriods">
-										<td>
-											{{ cp.date_from }} - {{ cp.date_to }}
-										</td>
-										<td>{{ cp.start_hour }}:{{ cp.start_hour_min }}</td>
-										<td>{{ cp.end_hour }}:{{ cp.end_hour_min }}</td>
-										<td>
-											<a class="btn btn-danger" ng-click="dcpc.delete(cp)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?></a>
-											<input type="hidden" name="customPeriodDateFrom[]" value="{{ cp.date_from }}">
-											<input type="hidden" name="customPeriodDateTo[]" value="{{ cp.date_to }}">
-											<input type="hidden" name="customPeriodStartHour[]" value="{{ cp.start_hour }}">
-											<input type="hidden" name="customPeriodStartHourMin[]" value="{{ cp.start_hour_min }}">
-											<input type="hidden" name="customPeriodEndHour[]" value="{{ cp.end_hour }}">
-											<input type="hidden" name="customPeriodEndHourMin[]" value="{{ cp.end_hour_min }}">
-											<input type="hidden" name="customPeriodId[]" value="{{ cp.id }}">
-										</td>
-									</tr>
+								<tbody id="custom-periods-list" remove-action="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Remove');?>">
 								</tbody>
 						</table>
 					</div>
@@ -238,10 +223,10 @@
 			     <div class="row form-group">
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','XMPP recipients');?></label>
-						<input type="text" ng-non-bindable class="form-control form-control-sm" name="XMPPRecipients"  value="<?php echo htmlspecialchars($departament->xmpp_recipients);?>" /></div>
+						<input type="text" class="form-control form-control-sm" name="XMPPRecipients"  value="<?php echo htmlspecialchars($departament->xmpp_recipients);?>" /></div>
 					<div class="col-6">
 						<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','XMPP group recipients');?></label>
-						<input type="text" ng-non-bindable class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E.g somechat@conference.server.org/LiveChat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These messages will be send as group messages');?>" name="XMPPRecipientsGroup"  value="<?php echo htmlspecialchars($departament->xmpp_group_recipients);?>" />
+						<input type="text" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E.g somechat@conference.server.org/LiveChat');?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','These messages will be send as group messages');?>" name="XMPPRecipientsGroup"  value="<?php echo htmlspecialchars($departament->xmpp_group_recipients);?>" />
 					</div>
 				</div>	
 				<?php endif;?>
@@ -257,12 +242,12 @@
 								
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','How many seconds chat can be pending before about chat is informed a staff');?></label>
-				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_delay"  value="<?php echo htmlspecialchars($departament->inform_delay);?>" />
+				    <input type="text"  class="form-control form-control-sm" name="inform_delay"  value="<?php echo htmlspecialchars($departament->inform_delay);?>" />
 				</div>
 				
 				<div class="form-group">
 				    <label><input type="checkbox" name="inform_unread"  value="on" <?php echo $departament->inform_unread == 1 ? 'checked="checked"' : '';?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Inform about unread messages if from last unread user message has passed (seconds)');?></label>
-				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_unread_delay" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please enter value in seconds');?>" value="<?php echo htmlspecialchars($departament->inform_unread_delay);?>" />
+				    <input type="text" class="form-control form-control-sm" name="inform_unread_delay" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Please enter value in seconds');?>" value="<?php echo htmlspecialchars($departament->inform_unread_delay);?>" />
 				</div>
 				
 				<div class="form-group">
@@ -280,7 +265,7 @@
 				
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Additional e-mail address address to inform about closed chats, to this e-mail will be send all notifications about closed chats');?></label> 
-				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="inform_close_all_email" value="<?php echo htmlspecialchars($departament->inform_close_all_email);?>" />
+				    <input type="text" class="form-control form-control-sm" name="inform_close_all_email" value="<?php echo htmlspecialchars($departament->inform_close_all_email);?>" />
 				</div>
 
                 <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','E-mail is sent in the following order 1. To e-mail template recipient if filled 2. Department e-mail 3. First system operator');?></p>
@@ -308,14 +293,14 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minimum chat priority for transfer to happen.');?></label>
-                            <input type="text" placeholder="E.g 10" ng-non-bindable class="form-control form-control-sm" name="transfer_min_priority" value="<?php if (isset($departament->bot_configuration_array['transfer_min_priority'])) : ?><?php echo htmlspecialchars($departament->bot_configuration_array['transfer_min_priority'])?><?php endif;?>" />
+                            <input type="text" placeholder="E.g 10" class="form-control form-control-sm" name="transfer_min_priority" value="<?php if (isset($departament->bot_configuration_array['transfer_min_priority'])) : ?><?php echo htmlspecialchars($departament->bot_configuration_array['transfer_min_priority'])?><?php endif;?>" />
                         </div>
                     </div>
                 </div>
 
 				<div class="form-group">
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Timeout in seconds before chat is transferred to another department. Minimum 5 seconds.');?></label>
-				    <input type="text" ng-non-bindable class="form-control form-control-sm" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
+				    <input type="text" class="form-control form-control-sm" name="TransferTimeout" value="<?php echo htmlspecialchars($departament->transfer_timeout);?>" />
 				</div>
 				
 				<div class="form-group">			
@@ -336,7 +321,7 @@
 			     <label><input type="checkbox" name="products_required" value="on" <?php if (isset($departament->product_configuration_array['products_required']) && $departament->product_configuration_array['products_required'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Required');?></label><br>
 			     <hr>
 			     
-			     <div class="form-group" ng-non-bindable>
+			     <div class="form-group" >
 				    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Assigned products');?></label>				    
 				    <div class="mx170">
                     	<?php 
@@ -358,23 +343,23 @@
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
-					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
+					    <input type="text" class="form-control form-control-sm" name="MaxNumberActiveChats" value="<?php echo htmlspecialchars($departament->max_active_chats);?>" />
                     </div>
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of department active chats, 0 - unlimited');?></label>
-					    <input type="text"  ng-non-bindable class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
+					    <input type="text"  class="form-control form-control-sm" name="MaxNumberActiveDepChats" value="<?php echo htmlspecialchars($departament->max_ac_dep_chats);?>" />
                         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','If this limit is reached, new chats will not be assigned to any operator.')?></i></small></p>
                     </div>
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Automatically assign chat to another operator if operator did not accepted chat in seconds, 0 - disabled');?></label>
-					    <input type="text" ng-non-bindable class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
+					    <input type="text" class="form-control form-control-sm" name="MaxWaitTimeoutSeconds" value="<?php echo htmlspecialchars($departament->max_timeout_seconds);?>" />
                     </div>
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum delay between chat assignment to operator');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
+                        <input type="text" class="form-control form-control-sm" name="delay_before_assign" value="<?php echo htmlspecialchars($departament->delay_before_assign);?>" />
                         <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Delay in seconds before next chat can be assigned to operator.')?></i></small></p>
                     </div>
 
@@ -394,12 +379,12 @@
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Check for presence of variable');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
+                        <input type="text" class="form-control form-control-sm" name="auto_delay_var" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_var']) ? $departament->bot_configuration_array['auto_delay_var'] : '');?>" />
                     </div>
 
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Resume auto assign if chat remains pending for n seconds');?></label>
-                        <input type="text" ng-non-bindable class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
+                        <input type="text" class="form-control form-control-sm" name="auto_delay_timeout" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['auto_delay_timeout']) ? $departament->bot_configuration_array['auto_delay_timeout'] : '');?>" />
                     </div>
 
                     <div class="form-group">
@@ -423,15 +408,15 @@
                         <div class="row">
                             <div class="col-4">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum agent assignment priority');?></label>
-                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="min_agent_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_agent_priority']) ? $departament->bot_configuration_array['min_agent_priority'] : '0');?>" />
+                                <input type="text" class="form-control form-control-sm" name="min_agent_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_agent_priority']) ? $departament->bot_configuration_array['min_agent_priority'] : '0');?>" />
                             </div>
                             <div class="col-4">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Minimum chat priority for it being processed with prioritized assignment workflow');?></label>
-                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
+                                <input type="text" class="form-control form-control-sm" name="min_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['min_chat_priority']) ? $departament->bot_configuration_array['min_chat_priority'] : '0');?>" />
                             </div>
                             <div class="col-4">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum chat priority for it being processed with prioritized assignment workflow');?></label>
-                                <input type="text" ng-non-bindable class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
+                                <input type="text" class="form-control form-control-sm" name="max_chat_priority" value="<?php echo htmlspecialchars(isset($departament->bot_configuration_array['max_chat_priority']) ? $departament->bot_configuration_array['max_chat_priority'] : '0');?>" />
                             </div>
                         </div>
 
@@ -462,7 +447,7 @@
 
                <div class="form-group">
 			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','This field is max 50 characters length and can be used for any purpose by extensions. This field is also indexed.');?></label>
-			    <input type="text" ng-non-bindable class="form-control form-control-sm" name="Identifier" value="<?php echo htmlspecialchars($departament->identifier);?>" />
+			    <input type="text"  class="form-control form-control-sm" name="Identifier" value="<?php echo htmlspecialchars($departament->identifier);?>" />
 		       </div>
 
                <div class="form-group">
