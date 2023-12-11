@@ -1,11 +1,7 @@
-console.log('IMHEREDEBNIUG');
-
 var phonecatApp = angular.module('lhcApp', [
     'lhcAppServices',
     'lhcAppControllers'
 ]);
-
-
 
 var services = angular.module('lhcAppServices', []);
 var lhcAppControllers = angular.module('lhcAppControllers', ["checklist-model"]);
