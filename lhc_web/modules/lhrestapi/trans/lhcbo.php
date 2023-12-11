@@ -28,6 +28,8 @@ echo json_encode(array(
     'widget_title.online_op' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online operators'),
     'widget_title.my_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','My active and new mails'),
     'widget_title.active_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails'),
+    'widget_title.alarm_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Alarm mails'),
+    'widget_title.pending_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails'),
 
     // Group chat widget
     "group_chat.unread_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You have unread messages'),

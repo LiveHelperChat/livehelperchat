@@ -82,7 +82,7 @@
             {/each}
         {/if}
 
-        {#if type == 'subject_chats'}
+        {#if type == 'subject_chats' || type == 'alarm_mails'}
             <th width="25%">
                 <span class="material-icons">label</span>
             </th>
@@ -98,7 +98,7 @@
                 <i title={$t("widget.last_activity_ago")}  class="material-icons">access_time</i>
             {/if}
 
-            {#if type === 'pending_chats' || type === 'my_mails' || type === 'active_mails' || type === 'pending_mails'}
+            {#if type === 'pending_chats' || type === 'my_mails' || type === 'alarm_mails' || type === 'active_mails' || type === 'pending_mails'}
             <i title={$t("widget.wait_time")} class="material-icons">access_time</i>
             {/if}
 
@@ -151,7 +151,7 @@
         <th width="12%"><i title={$t("widget_title.bot_chats")} class="material-icons chat-active">android</i></th>
         {/if}
 
-        {#if type == 'active_mails'}
+        {#if type == 'active_mails' || type == 'alarm_mails'}
         <th width="20%"><i title={$t('widget.operator')} class="material-icons">face</i></th>
         {/if}
 
@@ -365,13 +365,19 @@
                                 <a class="material-icons me-0" title={$t("widget.redirect_contact")} on:click={(e) => lhcServices.redirectContact(chat.id,$t("widget.are_you_sure"),e)}>reply</a>
                             {/if}
 
-                            {#if type == 'my_mails' || type == 'active_mails' || type == 'pending_mails'}
+                            {#if type == 'my_mails' || type == 'active_mails' || type == 'pending_mails' || type == 'alarm_mails'}
 
                                 {#if type == 'my_mails' && chat.status != 1}
                                     <i title="Pending chat" class="material-icons me-0 chat-unread">&#xE80E;</i>
                                 {/if}
 
-                                <a title="{chat.id}" on:click={(e) => lhcServices.previewMail(chat.id,e)} class="material-icons">info_outline</a><span title={chat.from_address}>{chat.from_name} | {chat.subject_front}</span>
+                                <a title="{chat.id}" on:click={(e) => lhcServices.previewMail(chat.id,e)} class="material-icons">info_outline</a>
+
+                                {#if type == 'alarm_mails'}
+                                    <i class={"material-icons me-0 " + (chat.status == 1 ? 'chat-active' : 'chat-pending')} >mail_outline</i>
+                                {/if}
+
+                                <span title={chat.from_address}>{chat.from_name} | {chat.subject_front}</span>
 
                             {:else}
                                 <a title="[{chat.id}] {chat.time_created_front}" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons me-0">info_outline</a>
@@ -407,7 +413,7 @@
                                  {/each}
                              {/if}
 
-                            {#if type != 'my_mails' && type != 'active_mails' && type != 'pending_mails'}
+                            {#if type != 'my_mails' && type != 'active_mails' && type != 'pending_mails' && type != 'alarm_mails'}
                                 {chat.nick}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
                             {/if}
 
@@ -429,7 +435,7 @@
                     {/each}
                 {/if}
 
-                {#if type == 'subject_chats'}
+                {#if type == 'subject_chats' || type == 'alarm_mails'}
                     <td>
                         {#if chat.subject_list}
                             {#each chat.subject_list as subjectitem}
@@ -473,6 +479,10 @@
                         <div class="abbr-list" title="{chat.pnd_time_front}">{chat.pnd_time_front}</div>
                     {/if}
 
+                    {#if type == 'alarm_mails'}
+                        <div class="abbr-list">{!chat.status ? chat.wait_time_pending : chat.wait_time_response}</div>
+                    {/if}
+
                     {#if type == 'online_op'}
                         <div class="abbr-list" title="{chat.lastactivity_ago}">{chat.lastactivity_ago}</div>
                     {/if}
@@ -507,12 +517,11 @@
                     </td>
                 {/if}
 
-                {#if type == 'active_mails'}
+                {#if type == 'active_mails' || type == 'alarm_mails'}
                     <td>
                         {chat.plain_user_name}
                     </td>
                 {/if}
-
 
                 <td class:align-middle={type == "online_op"}>
                     {#if type == 'online_op'}
