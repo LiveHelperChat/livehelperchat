@@ -16,6 +16,9 @@ rm -rf ./design/defaulttheme/js/lh/dist/*.js
 rm -rf ./design/defaulttheme/js/admin/dist/*.js
 rm -rf ./design/defaulttheme/js/lh/dist/*.js.map
 rm -rf ./design/defaulttheme/js/admin/dist/*.js.map
+rm -rf ./design/defaulttheme/js/admin/dist/*.js.map
+rm -rf ./design/defaulttheme/js/svelte/public/build/*.js
+rm -rf ./design/defaulttheme/js/svelte/public/build/*.js.map
 
 echo "Compiling default js"
 gulp
@@ -54,6 +57,10 @@ cd ../../../../
 
 echo "Voice"
 cd ./design/defaulttheme/widget/voice-call-operator && npm run build
+cd ../../../../
+
+echo "Svelte"
+cd ./design/defaulttheme/js/svelte && npm run build
 cd ../../../../
 
 echo "Generating JS/CSS files"
