@@ -947,9 +947,9 @@ if (is_array($Params['user_parameters_unordered']['w']) && in_array($mapsWidgets
         $additionalFilter['filterin']['user_id'] = $Params['user_parameters_unordered']['alarmmu'];
     }
 
-    if (is_array($Params['user_parameters_unordered']['alarmmd']) && !empty($Params['user_parameters_unordered']['activemd'])) {
-        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['activemd']);
-        $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['activemd'];
+    if (is_array($Params['user_parameters_unordered']['alarmmd']) && !empty($Params['user_parameters_unordered']['alarmmd'])) {
+        erLhcoreClassChat::validateFilterIn($Params['user_parameters_unordered']['alarmmd']);
+        $additionalFilter['filterin']['dep_id'] = $Params['user_parameters_unordered']['alarmmd'];
     }
 
     // User groups filter
