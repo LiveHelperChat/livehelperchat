@@ -153,53 +153,53 @@
 					<script>
                         var depCustomPeriods = <?php echo $departamentCustomWorkHours; ?>;
                     </script>
-					<div ng-controller="DepartmentCustomPeriodCtrl as dcpc" ng-init='dcpc.customPeriods = <?php echo $departamentCustomWorkHours; ?>'>
+					<div>
 						<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom period');?></h4>
 
 						<div class="row">
 							<div class="col-4">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Date from');?></label>
-									<input type="text" class="form-control form-control-sm" ng-model="dcpc.custom_date_from" name="custom_date_from" id="custom_date_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
+									<input type="text" class="form-control form-control-sm" name="custom_date_from" id="custom_date_from" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
 								</div>
 							</div>
 							<div class="col-4">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Date to');?></label>
-									<input type="text" class="form-control form-control-sm" ng-model="dcpc.custom_date_to" name="custom_date_to" id="custom_date_to" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
+									<input type="text" class="form-control form-control-sm" name="custom_date_to" id="custom_date_to" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Custom work day');?>" placeholder="<?php echo date('Y-m-d'); ?>" />
 								</div>
 							</div>
 							<div class="col-4">
-								<button type="button" class="btn btn-secondary btn-block mt-2" id="add-period-button" ng-click="dcpc.add()"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
+								<button type="button" class="btn btn-secondary btn-block mt-2" id="add-period-button"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Add');?></button>
 							</div>
 						</div>
 						<div class="row">
 					        <div class="col-2">
 								<div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from');?></label>
-									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour" id="custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
+									<input type="number" max="24" class="form-control form-control-sm" id="custom_start_hour" name="custom_start_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours from, E.g. 8');?>" placeholder="0" />
                                 </div>
                             </div>  
                             <div class="col-2">     
 								<div class="form-group">	
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from');?></label>
-									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_start_hour_min" id="custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
+									<input type="number" max="60" class="form-control form-control-sm" id="custom_start_hour_min" name="custom_start_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes from, E.g. 30');?>" placeholder="0" />
                                 </div>
                             </div> 
                             <div class="col-2">
                                 <div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to');?></label>
-									<input type="number" max="24" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour" id="custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
+									<input type="number" max="24" class="form-control form-control-sm" id="custom_end_hour" name="custom_end_hour" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Hours to, E.g. 17');?>" placeholder="0" />
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
 									<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to');?></label>
-									<input type="number" max="60" class="form-control form-control-sm" ng-model="dcpc.custom_end_hour_min" id="custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
+									<input type="number" max="60" class="form-control form-control-sm" id="custom_end_hour_min" name="custom_end_hour_min" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Minutes to, E.g. 30');?>" placeholder="0" />
 								</div>									
 							</div>									
 						</div>
-						<table id="customPeriodList" class="table table-responsive" ng-show="dcpc.customPeriods.length != 0">
+						<table id="customPeriodList" class="table table-responsive">
 								<thead>
 								<tr>
 									<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Period');?></th>
@@ -337,9 +337,9 @@
 			
 			<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','actautoassignment')) : ?>
 			<div role="tabpanel" class="tab-pane" id="autoassignment">
-			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" ng-init="AutoAssignActive=<?php if ($departament->active_balancing == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignActive" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
+			    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Active');?> <input type="checkbox" class="depend-block-show-control" name="AutoAssignActive" value="on" <?php if ($departament->active_balancing == 1) : ?>checked="checked"<?php endif;?> /></label>
 
-		    	<div ng-show="AutoAssignActive">
+		    	<div class="hide depend-block-show-AutoAssignActive">
 
                     <div class="form-group">
 					    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Maximum number of active chats user can have at a time, 0 - unlimited');?></label>
@@ -395,10 +395,10 @@
                     <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Prioritized assignment workflow');?></h6>
 
                     <div class="form-group">
-                        <label><input type="checkbox" ng-init="AutoAssignPriorityActive=<?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>true<?php else : ?>false<?php endif;?>" ng-model="AutoAssignPriorityActive" name="active_prioritized_assignment" value="on" <?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Activate prioritized assignment');?></label>
+                        <label><input type="checkbox" class="depend-block-show-control" name="active_prioritized_assignment" value="on" <?php if (isset($departament->bot_configuration_array['active_prioritized_assignment']) && $departament->bot_configuration_array['active_prioritized_assignment'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Activate prioritized assignment');?></label>
                     </div>
 
-                    <div ng-show="AutoAssignPriorityActive">
+                    <div class="hide depend-block-show-active_prioritized_assignment">
 
                         <div class="form-group">
                             <label><input type="checkbox" name="assign_by_priority_chat" value="on" <?php if (isset($departament->bot_configuration_array['assign_by_priority_chat']) && $departament->bot_configuration_array['assign_by_priority_chat'] == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/operatorsbalancing','Assign chat by operator priority also');?></label>

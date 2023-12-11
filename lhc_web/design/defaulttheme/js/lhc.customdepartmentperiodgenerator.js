@@ -35,6 +35,21 @@ $( document ).ready(function() {
         }
     });
 
+    $('.depend-block-show-control').each(function(){
+        if ($(this).is(':checked')) {
+            $('.depend-block-show-'+$(this).attr('name')).removeClass('hide');
+        } else {
+            $('.depend-block-show-'+$(this).attr('name')).addClass('hide');
+        }
+        $(this).change(function(){
+            if ($(this).is(':checked')) {
+                $('.depend-block-show-'+$(this).attr('name')).removeClass('hide');
+            } else {
+                $('.depend-block-show-'+$(this).attr('name')).addClass('hide');
+            }
+        })
+    })
+
     if ($(period).is(':checked')){
         $('#online-hours-active-block').removeClass('hide');
     } else {
@@ -98,15 +113,17 @@ $( document ).ready(function() {
         let item = '';
         depCustomPeriods.forEach((item, index) => {
             periodList.innerHTML += '<tr><td>'+escapeHtml(item.date_from)+' - '+escapeHtml(item.date_to) + '</td><td>' + escapeHtml(item.start_hour) +':'+ escapeHtml(item.start_hour_min) +'</td>' +
-                '<td>'+escapeHtml(item.end_hour) +':' + escapeHtml(item.end_hour_min) +'</td><td><button class="btn btn-danger" type="button" onclick="ee.emitEvent(\'delete_custom_period\',['+index+'])">'+periodList.attr('remove-action')+'</button>' +
+                '<td>'+escapeHtml(item.end_hour) +':' + escapeHtml(item.end_hour_min) +'</td><td><button class="btn btn-danger" type="button" onclick="ee.emitEvent(\'delete_custom_period\',['+index+'])">'+periodList.getAttribute('remove-action')+'</button>' +
                 '<input type="hidden" name="customPeriodDateFrom[]" value="'+escapeHtml(item.date_from)+'">' +
                 '<input type="hidden" name="customPeriodDateTo[]" value="'+escapeHtml(item.date_to)+'">' +
                 '<input type="hidden" name="customPeriodStartHour[]" value="'+escapeHtml(item.start_hour)+'">' +
                 '<input type="hidden" name="customPeriodStartHourMin[]" value="'+escapeHtml(item.start_hour_min)+'">' +
                 '<input type="hidden" name="customPeriodEndHour[]" value="'+escapeHtml(item.end_hour)+'">' +
                 '<input type="hidden" name="customPeriodEndHourMin[]" value="'+escapeHtml(item.end_hour_min)+'">' +
-                '<input type="hidden" name="customPeriodId[]" value="'+escapeHtml(item.id)+'"></td></tr>';
+                '<input type="hidden" name="customPeriodId[]" value="'+escapeHtml(index)+'"></td></tr>';
         });
     }
+
+    renderPeriods();
 
 });
