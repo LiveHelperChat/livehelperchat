@@ -4,6 +4,9 @@
 
     <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head_side_control.tpl.php'));?>
 
+    <lhc-status hide_quick_notifications="<?php echo (int)erLhcoreClassModelUserSetting::getSetting('hide_quick_notifications',0) == 1 ? 1 : 0?>"></lhc-status>
+
+    <?php /*
     <div ng-cloak class="version-updated float-start" ng-if="lhc.lhcPendingRefresh == true || lhc.lhcConnectivityProblem == true || lhc.inActive == true">
         <div ng-if="lhc.lhcPendingRefresh == true"><i class="material-icons">update</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','This window will be automatically refreshed in {{lhc.lhcVersionCounter}} seconds due to a version update.');?></div>
         <div ng-if="lhc.lhcConnectivityProblem == true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','You have weak internet connection or the server has problems. Try to refresh the  page. Error code {{lhc.lhcConnectivityProblemExplain}}');?></div>
@@ -26,18 +29,22 @@
             <span ng-if="lhc.last_actions[lhc.last_actions_index].type == 'mac'"><b>{{lhc.last_actions[lhc.last_actions_index].nick}}</b> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','active chat was opened');?> - {{lhc.last_actions[lhc.last_actions_index].chat_id}}</span>
             <span ng-if="lhc.last_actions[lhc.last_actions_index].type == 'mac_history'"><b>{{lhc.last_actions[lhc.last_actions_index].nick}}</b> - <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','previously loaded chat was opened');?> - {{lhc.last_actions[lhc.last_actions_index].chat_id}}</span>
     </div>
-    <?php endif; ?>
+    <?php endif; ?>*/ ?>
 
     <button class="navbar-toggler btn border-0 btn-outline-secondary pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="material-icons me-0">menu</span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
 
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu_multiinclude.tpl.php'));?>
 
             <?php if ($currentUser->hasAccessTo('lhchat','use') && $currentUser->hasAccessTo('lhuser','changeonlinestatus'))  : ?>
-                    <li class="list-inline-item nav-item"><a href="#" class="nav-link"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a></li>
+                    <li class="list-inline-item nav-item">
+                        <change-online-status></change-online-status>
+                        <?php /* <a href="#" class="nav-link"><i id="online-offline-user" class="material-icons ng-cloak" ng-click="lhc.changeOnline()" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/user_settings','Change my status to online/offline');?>" >{{lhc.hideOnline == true ? 'flash_off' : 'flash_on'}}</i></a> */ ?>
+                    </li>
             <?php endif; ?>
             
             <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/user_box.tpl.php'));?>

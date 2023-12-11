@@ -32,6 +32,7 @@ if (isset($_POST['Save_departament']))
 
 $tpl->set('item',$brand);
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.brand.js').'"></script>';
+$Result['require_angular'] = true;
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

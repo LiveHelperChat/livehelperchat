@@ -424,6 +424,13 @@ class erLhcoreClassModule{
 			}
 
             $Matches = array();
+			preg_match_all('/erLhcoreClassDesign::designJSStatic\(\'(.*?)\'\)/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{			  
+			    $contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::designJSStatic(trim($UrlAddress,'\'')).'\'',$contentFile);
+			}
+
+            $Matches = array();
 			preg_match_all('/erLhcoreClassDesign::design\(\'(.*?)\'\)/i',$contentFile,$Matches);
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{

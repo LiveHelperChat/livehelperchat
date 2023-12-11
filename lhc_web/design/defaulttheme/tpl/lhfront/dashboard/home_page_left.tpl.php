@@ -1,4 +1,4 @@
-<div translate="no" ng-class="{hide: rmtoggle}" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
+<div translate="no" id="menu-rmtoggle" class="col-2 chats-column d-flex border-right pe-0 ps-0"">
 <?php /*col chats-column*/ ?>
     <div class="w-100 d-flex flex-column flex-grow-1">
         <div class="clearfix bg-light">
@@ -60,6 +60,8 @@
                     <div id="tabs-dashboard"></div>
 
                     <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
+
+                    <?php /*
                         <div class="border-top border-bottom bg-light card-header">
                             <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Grp.')?></span>
                                 <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
@@ -68,7 +70,17 @@
 
                         <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
-                        </div>
+                        </div>*/ ?>
+                        <?php
+                        $rightPanelMode = true;
+                        $customCardClass = "border-top border-bottom bg-light";
+                        $customCardNoDuration = true;
+                        $customCardTitleClass = "fs14";
+                        $customCardNoFilter = true;
+                        ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
+                        <?php unset($rightPanelMode);unset($customCardClass);unset($customCardNoDuration);unset($customCardNoFilter); ?>
+
                     <?php endif;?>
 
                 </div>

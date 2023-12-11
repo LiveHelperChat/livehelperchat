@@ -5,7 +5,7 @@
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 </head>
 <body id="admin-body" ng-controller="LiveHelperChatCtrl as lhc">
-
+<lhc-app></lhc-app>
 <div class="container-fluid">
     <div class="row">
     <div class="col-12">

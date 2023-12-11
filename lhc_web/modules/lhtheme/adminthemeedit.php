@@ -43,6 +43,7 @@ $tpl->set('form',$form);
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/admintheme.form.angular.js').'"></script>';
 $Result['additional_header_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/colorpicker.js').'"></script>';
 $Result['additional_header_css'] = '<link rel="stylesheet" type="text/css" href="'.erLhcoreClassDesign::designCSS('css/colorpicker.css').'" />';
+$Result['require_angular'] = true;
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

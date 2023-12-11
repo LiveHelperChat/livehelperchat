@@ -9,6 +9,7 @@ if (is_numeric($Params['user_parameters']['id'])) {
 }
 
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc-views.js').'"></script>';
+$Result['require_angular'] = true;
 $Result['content'] = $tpl->fetch();
 
 ?>

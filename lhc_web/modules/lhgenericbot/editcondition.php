@@ -36,6 +36,7 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 
 $tpl->set('item', $condition);
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.priority.js').'"></script>';
+$Result['require_angular'] = true;
 
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(

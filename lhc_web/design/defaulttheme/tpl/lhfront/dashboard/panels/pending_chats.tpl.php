@@ -1,4 +1,21 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
+
+    <?php
+    $permissionsWidget = [];
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','redirectcontact')){
+        $permissionsWidget[] = 'lhchat_redirectcontact';
+    }
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhstatistic','statisticdep')){
+        $permissionsWidget[] = 'lhstatistic_statisticdep';
+    }
+    if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat')){
+        $permissionsWidget[] = 'lhchat_deletechat';
+    }
+    ?>
+
+    <lhc-widget additional_sort="pending_chats_sort" permissions='<?php echo json_encode($permissionsWidget);?>' <?php if (isset($customCardNoDuration)) : ?>no_duration="<?php echo $customCardNoDuration?>"<?php endif; ?> <?php if (isset($customCardTitleClass)) : ?>custom_title_class="<?php echo $customCardTitleClass?>"<?php endif; ?> <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> type="pending_chats" www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" default_sort="<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "id_asc" : print "id_desc"?>"></lhc-widget>
+
+    <?php /*
 	<div class="card card-dashboard card-pending" ng-class="{'has-chats' : pending_chats.list.length > 0}" data-panel-id="pending_chats" ng-init="lhc.getToggleWidget('pchats_widget_exp');lhc.getToggleWidgetSort('pending_chats_sort',<?php (int)erLhcoreClassModelChatConfig::fetchCache('reverse_pending')->current_value == 1 ? print "'id_asc'" : print "'id_desc'"?>)">
 		<div class="card-header">
             <a href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/0"><i class="material-icons chat-pending">chat</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/pending_chats.tpl.php'));?></span> ({{pending_chats.list.length}}{{pending_chats.list.length == lhc.limitp ? '+' : ''}})</a>
@@ -20,5 +37,7 @@
 			<div ng-if="pending_chats.list.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','All pending chats will appear here.')?></div>
 
 		</div>
-	</div>
+	</div>*/ ?>
+
+
 <?php endif; ?>

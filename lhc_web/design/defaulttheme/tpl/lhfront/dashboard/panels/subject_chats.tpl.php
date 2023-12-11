@@ -1,4 +1,8 @@
 <?php if ($currentUser->hasAccessTo('lhchat','use')) : ?>
+
+
+    <lhc-widget icon_class="chat-active" list_identifier="subject" type="subject_chats" no_link="true" column_1_Width="27%" column_2_Width="18%" column_3_Width="10%" card_icon="label" <?php if ($currentUser->hasAccessTo('lhchat','subject_chats_options')) : ?>custom_settings_url="chat/subjectwidget"<?php endif; ?> optionsPanel='<?php echo json_encode(array('panelid' => 'subjectd', 'limitid' => 'limits', 'userid' => 'subjectu'))?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="subjectc_widget_exp" panel_list_identifier="subjectd-panel-list"></lhc-widget>
+    <?php /*
     <div class="card card-dashboard card-subject" data-panel-id="subject_chats" ng-init="lhc.getToggleWidget('subjectc_widget_exp');">
         <div class="card-header">
 
@@ -26,5 +30,7 @@
             <div ng-if="subject_chats.list.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Subject filtered chats will appear here.')?></div>
 
         </div>
-    </div>
+    </div>*/ ?>
+
+
 <?php endif; ?>

@@ -12,7 +12,7 @@ if ($pages->items_total > 0) {
 
 ?>
 
-<table class="table" cellpadding="0" cellspacing="0" ng-non-bindable>
+<table class="table" cellpadding="0" cellspacing="0">
     <thead>
     <tr>
         <th width="1%">ID</th>
@@ -54,16 +54,28 @@ if ($pages->items_total > 0) {
 
 <?php if ($autoResponder_msg->languages != '') : ?>
 <script>
-    var autoResponderLanguages = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;
+    var autoResponder<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?> = <?php echo json_encode(json_decode($autoResponder_msg->languages,true),JSON_HEX_APOS)?>;
 </script>
 <?php endif; ?>
+
+<?php
+$showAnyDepartment = erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','see_global');
+$userDepartments = true;
+if (!erLhcoreClassUser::instance()->hasAccessTo('lhautoresponder','exploreautoresponder_all')) {
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter( erLhcoreClassUser::instance()->getUserID(),  erLhcoreClassUser::instance()->cache_version);
+}
+$limitDepartments = $userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array();
+?>
+<script>
+    window.replaceDepartments = <?php $items = []; foreach (erLhcoreClassModelDepartament::getList(array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)) as $itemDepartment) { $items[$itemDepartment->id] = $itemDepartment->name; }; echo json_encode($items, JSON_FORCE_OBJECT) ?>;
+</script>
 
 <script>
     var languageDialects = <?php echo json_encode(array_values(erLhcoreClassModelSpeechLanguageDialect::getDialectsGrouped()))?>;
 </script>
 
 <?php $fields = $autoResponder_msg->getFields(); $object = $autoResponder_msg;?>
-<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post" ng-controller="AutoResponderCtrl as cmsg" ng-cloak  ng-init='cmsg.initController();<?php if ($autoResponder_msg->languages != '') : ?>cmsg.setLanguages();<?php endif;?>'>
+<form action="<?php echo erLhcoreClassDesign::baseurl('user/account')?>/(tab)/autoresponder<?php if ($autoResponder_msg->id > 0) : ?>/(msg)/<?php echo $autoResponder_msg->id?><?php endif;?>#autoresponder" method="post">
 
     <div class="form-group">
         <label><?php echo $fields['name']['trans'];?></label>
@@ -79,7 +91,7 @@ if ($pages->items_total > 0) {
 
     <div role="tabpanel">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs mb-2" role="tablist" id="autoresponder-tabs">
+        <ul class="nav nav-tabs mb-2" role="tablist" id="autoResponder-tabs">
             <li role="presentation" class="nav-item"><a class="nav-link active" href="#active" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Visitor not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#operatornotreply" aria-controls="active" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Operator not replying messaging');?></a></li>
             <li role="presentation" class="nav-item"><a class="nav-link" href="#onhold" aria-controls="onhold" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','On-hold chat messaging');?></a></li>
@@ -88,8 +100,7 @@ if ($pages->items_total > 0) {
             <li role="presentation" class="nav-item"><a class="nav-link" href="#closeaction" aria-controls="closeaction" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close messaging');?></a></li>
             <?php endif; ?>
 
-            <li ng-repeat="lang in cmsg.languages" class="nav-item" role="presentation"><a class="nav-link" href="#lang-{{$index}}" aria-controls="lang-{{$index}}" role="tab" data-bs-toggle="tab" ><i class="material-icons me-0">&#xE894;</i> [{{cmsg.getLanguagesChecked(lang)}}]</a></li>
-            <li class="nav-item"><a class="nav-link" href="#addlanguage" ng-click="cmsg.addLanguage()"><i class="material-icons">&#xE145;</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Add translation');?></a></li>
+            <lhc-multilanguage-tab identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab>
         </ul>
 
         <?php $autoResponderOptions = array(
@@ -127,7 +138,13 @@ if ($pages->items_total > 0) {
             </div>
             <?php endif; ?>
 
-            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/svelte_languages.tpl.php'));?>
+
+            <lhc-multilanguage-tab-content enable_department="true" identifier="autoResponder" <?php if ($autoResponder_msg->languages != '') : ?>init_langauges="<?php echo ($autoResponder_msg->id > 0 ? $autoResponder_msg->id : 0)?>"<?php endif;?>></lhc-multilanguage-tab-content>
+
+            <?php //include(erLhcoreClassDesign::designtpl('lhabstract/custom/responder/languages.tpl.php'));?>
+
+
         </div>
     </div>
 
