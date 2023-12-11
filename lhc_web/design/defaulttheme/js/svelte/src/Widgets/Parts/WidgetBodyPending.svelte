@@ -14,10 +14,13 @@
     export let additional_sort = "";
 
     let check_row_class = type !== "transfer_chats" && type !== "group_chats" && type !== "online_op" && type !== "depgroups_stats";
+    let check_online = type !== "my_mails";
 
     function openItem(chat) {
         if (type === "group_chats") {
             lhcServices.startGroupChat(chat.id,chat.name)
+        } else if (type === "my_mails") {
+            lhcServices.startMailChat(chat.id,chat.subject_front);
         } else {
             lhcServices.startChat(chat.id,chat.nick)
         }
@@ -94,7 +97,7 @@
                 <i title={$t("widget.last_activity_ago")}  class="material-icons">access_time</i>
             {/if}
 
-            {#if type === 'pending_chats'}
+            {#if type === 'pending_chats' || type === 'my_mails'}
             <i title={$t("widget.wait_time")} class="material-icons">access_time</i>
             {/if}
 
@@ -302,7 +305,7 @@
     {:else}
         <tbody>
         {#each $lhcList[type].list as chat (chat.id)}
-            <tr on:click={(e) => check_row_class && openItem(chat)} class:user-away-row={check_row_class && chat.user_status_front == 2} class:user-online-row={check_row_class && !chat.user_status_front}>
+            <tr on:click={(e) => check_row_class && openItem(chat)} class:user-away-row={check_online && check_row_class && chat.user_status_front == 2} class:user-online-row={check_online && check_row_class && !chat.user_status_front}>
                 <td>
 
                     {#if type == 'online_op'}
@@ -357,7 +360,17 @@
                                 <a class="material-icons me-0" title={$t("widget.redirect_contact")} on:click={(e) => lhcServices.redirectContact(chat.id,$t("widget.are_you_sure"),e)}>reply</a>
                             {/if}
 
-                            <a title="[{chat.id}] {chat.time_created_front}" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons me-0">info_outline</a>
+                            {#if type == 'my_mails'}
+
+                                {#if chat.status != 1}
+                                    <i title="Pending chat" class="material-icons me-0 chat-unread">&#xE80E;</i>
+                                {/if}
+
+                                <a title="{chat.id}" on:click={(e) => lhcServices.previewMail(chat.id,e)} class="material-icons">info_outline</a><span title={chat.from_address}>{chat.from_name} | {chat.subject_front}</span>
+
+                            {:else}
+                                <a title="[{chat.id}] {chat.time_created_front}" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons me-0">info_outline</a>
+                            {/if}
 
                             {#if chat.status_sub == 7}<i class="material-icons me-0" title={$t("widget.offline_request")}>mail</i>{/if}
 
@@ -389,7 +402,10 @@
                                  {/each}
                              {/if}
 
-                            {chat.nick}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
+                            {#if type != 'my_mails'}
+                                {chat.nick}<small>{(type == 'pending_chats' || type == 'subject_chats') && chat.plain_user_name !== undefined ? ' | ' + chat.plain_user_name : ''}</small>
+                            {/if}
+
                         </div>
                     {/if}
                 </td>
@@ -441,6 +457,10 @@
                     {/if}
 
                     {#if chat.can_edit_chat && type == 'pending_chats'}
+                        <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
+                    {/if}
+
+                    {#if type == 'my_mails'}
                         <div class="abbr-list" title="{chat.wait_time_pending}">{chat.wait_time_pending}</div>
                     {/if}
 

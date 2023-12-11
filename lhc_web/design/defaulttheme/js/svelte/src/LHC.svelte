@@ -105,7 +105,7 @@
             }
 
             var tabs = jQuery('#tabs');
-            if (lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
+            if (event.data.args.chat_id && lhinst.chatsSynchronising.indexOf(event.data.args.chat_id) !== -1) {
                 if (event.data.action === 'close_chat') {
                     tabs.length > 0 && lhinst.removeDialogTab(event.data.args.chat_id,tabs,true);
                 } else if (event.data.action === 'update_chat' || event.data.action === 'startbackground_chat') {
@@ -119,6 +119,10 @@
                 (tabs.length > 0 && lhinst.startChatBackground(event.data.args.chat_id, tabs, event.data.args.nick)) || ee.emitEvent('chatTabPreload', [event.data.args.chat_id, {focus: false}]);
             } else if (event.data.action === 'close_chat') {
                 ee.emitEvent('removeSynchroChat', [parseInt(event.data.args.chat_id)]);
+            } else if (event.data.args.mail_id) {
+                if (event.data.action == 'close_mail') {
+                    lhinst.removeDialogTabMail(event.data.args.mail_id,jQuery('#tabs'), true, true);
+                }
             }
         }
     });
@@ -218,6 +222,10 @@
     widgetsItems.push('mcd');
     widgetsItems.push('botd');
     widgetsItems.push('subjectd');
+    widgetsItems.push('pendingmd');
+    widgetsItems.push('activemd');
+    widgetsItems.push('alarmmd');
+    widgetsItems.push('mmd');
 
     widgetsItems.forEach(function(listId) {
         $lhcList[listId + '_all_departments'] = lhcServices.restoreLocalSetting(listId + '_all_departments','false',false) != 'false';
@@ -459,18 +467,34 @@
         var appendURL = '';
         var openedChats = getOpenedChatIds('achat_id');
         var openedgChats = getOpenedChatIds('gachat_id');
+        var openedmChats = getOpenedChatIds('machat_id');
 
         var chat_id = 0;
+        var mail_id = 0;
+
         var hash = window.location.hash;
         if (hash !== '') {
-            var matchData = hash.match(/\d+$/);
+            var matchData = hash.match(/id-\d+$/);
+
             if (matchData !== null && matchData[0]) {
-                chat_id = parseInt(matchData[0]);
+                chat_id = parseInt(matchData[0].replace('id-',''));
                 if (openedChats.indexOf(chat_id) === -1){
                     openedChats.push(chat_id);
                 }
             }
-        }
+
+            // Support mail chats hash in URL
+            if (matchData == null) {
+                var matchData = hash.match(/mc\d+$/);
+                if (matchData !== null && matchData[0]) {
+                    mail_id = parseInt(matchData[0].replace('mc', ''));
+                    if (openedmChats.indexOf(mail_id) === -1) {
+                        openedmChats.push(mail_id);
+                    }
+                }
+            }
+
+       }
 
         var elm = document.getElementById('load_chat_id');
 
@@ -480,6 +504,15 @@
             window.location.hash = '#!#chat-id-'+elm.value;
         }
 
+        var elm = document.getElementById('load_mail_id');
+
+        if (elm && openedmChats.indexOf(elm.value) === -1) {
+            mail_id = elm.value;
+            openedmChats.push(elm.value);
+            window.location.hash = '#!#chat-id-mc'+elm.value;
+        }
+
+
         let tabsLength = jQuery('#tabs').length;
 
         if (tabsLength > 0 && lhinst.disableremember === false && openedChats.length > 0) {
@@ -488,6 +521,10 @@
 
         if (tabsLength > 0 && lhinst.disableremember === false && openedgChats.length > 0) {
             appendURL += '/(chatgopen)/' + openedgChats.join('/');
+        }
+
+        if (jQuery('#tabs').length > 0 && lhinst.disableremember == false && openedmChats.length > 0) {
+            appendURL += '/(chatmopen)/' + openedmChats.join('/');
         }
 
         const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/loadinitialdata' + appendURL, {
@@ -567,6 +604,28 @@
             'operatord_dpgroups',
             'operatord_ugroups',
             'operatord',
+
+            'mmd',
+            'mmd_dpgroups',
+
+            'alarmmd',
+            'alarmmd_products',
+            'alarmmd_dpgroups',
+            'alarmmd_ugroups',
+
+            'activemd',
+            'activemd_products',
+            'activemd_dpgroups',
+            'activemd_ugroups',
+
+            'pendingmd',
+            'pendingmd_products',
+            'pendingmd_dpgroups',
+            'pendingmd_ugroups',
+
+            'pendingmu',
+            'activemu',
+            'alarmmu',
         ];
 
         var limitOptions = [
@@ -580,6 +639,10 @@
             'limitmc',
             'limitgc',
             'limits',
+            'limitpm',
+            'limitam',
+            'limitalm',
+            'limitmm',
         ];
 
         data.dw_filters && Object.keys(data.dw_filters).forEach(key => {
@@ -611,6 +674,10 @@
 
         data.cgopen.forEach(function(chatOpen) {
             lhinst.startGroupChat(chatOpen.id,jQuery('#tabs'),truncate((chatOpen.nick || 'Visitor'),10), true);
+        });
+
+        data.cmdel.forEach(function(chatOpen) {
+            lhinst.forgetChat(chatOpen,'machat_id');
         });
 
         data.cdel.forEach(function(chatOpen) {
@@ -655,7 +722,7 @@
             userProductNames.push(value.id);
         });
 
-        const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/searchprovider/users_ids/?exclude_disabled=1&q=' + $lhcList.pendingu.join(',') +','+ $lhcList.activeu.join(',')+','+ $lhcList.subjectu.join(',')+','+ $lhcList.oopu.join(','), {
+        const responseTrack = await fetch(WWW_DIR_JAVASCRIPT  + 'chat/searchprovider/users_ids/?exclude_disabled=1&q=' + $lhcList.pendingu.join(',') +','+ $lhcList.activeu.join(',')+','+ $lhcList.subjectu.join(',')+','+ $lhcList.oopu.join(',')+','+$lhcList.pendingmu.join(',')+','+ $lhcList.activemu.join(',')+','+ $lhcList.alarmmu.join(','), {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -700,7 +767,9 @@
                 'unreadd_products' : userProductNames,
 
                 'mcd_products' : userProductNames,
-                'mcd_dpgroups' : userDepartmentsGroups
+                'mcd_dpgroups' : userDepartmentsGroups,
+
+                'mmd_dpgroups' : userDepartmentsGroups,
             };
 
             for (const [index, list] of Object.entries(verifyCombinations)) {
@@ -834,6 +903,10 @@
         filter += '/(limitmc)/'+parseInt($lhcList.limitmc);
         filter += '/(limitb)/'+parseInt($lhcList.limitb);
         filter += '/(limitgc)/'+parseInt($lhcList.limitgc);
+        filter += '/(limitmm)/'+parseInt($lhcList.limitmm);
+        filter += '/(limitpm)/'+parseInt($lhcList.limitpm);
+        filter += '/(limitam)/'+parseInt($lhcList.limitam);
+        filter += '/(limitalm)/'+parseInt($lhcList.limitalm);
 
         if (typeof $lhcList.widgetsActive == 'object' && $lhcList.widgetsActive.length > 0) {
             let map = {
@@ -847,7 +920,11 @@
                 'bot_chats' : 7,
                 'transfered_chats' : 8,
                 'departments_stats' : 9,
-                'subject_chats' : 20
+                'subject_chats' : 20,
+                'pmails' : 10,
+                'amails' : 11,
+                'malarms' : 12,
+                'my_mails' : 30,
             }
             let activeWidgets = [];
             $lhcList.widgetsActive.forEach(function(widget) {
@@ -864,6 +941,18 @@
             filter += '/(pendingu)/'+$lhcList.pendingu.join('/');
         }
 
+        if (typeof $lhcList.pendingmu == 'object' && $lhcList.pendingmu.length > 0) {
+            filter += '/(pendingmu)/'+$lhcList.pendingmu.join('/');
+        }
+
+        if (typeof $lhcList.activemu == 'object' && $lhcList.activemu.length > 0) {
+            filter += '/(activemu)/'+$lhcList.activemu.join('/');
+        }
+
+        if (typeof $lhcList.alarmmu == 'object' && $lhcList.alarmmu.length > 0) {
+            filter += '/(alarmmu)/' + $lhcList.alarmmu.join('/');
+        }
+
         if (typeof $lhcList.oopu == 'object' && $lhcList.oopu.length > 0) {
             filter += '/(oopu)/'+$lhcList.oopu.join('/');
         }
@@ -874,6 +963,18 @@
 
         if (typeof $lhcList.actived_dpgroups == 'object' && $lhcList.actived_dpgroups.length > 0) {
             filter += '/(adgroups)/'+$lhcList.actived_dpgroups.join('/');
+        }
+
+        if (typeof $lhcList.pendingmd_dpgroups == 'object' && $lhcList.pendingmd_dpgroups.length > 0) {
+            filter += '/(pmd)/'+$lhcList.pendingmd_dpgroups.join('/');
+        }
+
+        if (typeof $lhcList.activemd_dpgroups == 'object' && $lhcList.activemd_dpgroups.length > 0) {
+            filter += '/(amd)/'+$lhcList.activemd_dpgroups.join('/');
+        }
+
+        if (typeof $lhcList.alarmmd_dpgroups == 'object' && $lhcList.alarmmd_dpgroups.length > 0) {
+            filter += '/(almd)/' + $lhcList.alarmmd_dpgroups.join('/');
         }
 
         if (typeof $lhcList.pendingd_dpgroups == 'object' && $lhcList.pendingd_dpgroups.length > 0) {
@@ -894,6 +995,10 @@
 
         if (typeof $lhcList.mcd_dpgroups == 'object' && $lhcList.mcd_dpgroups.length > 0) {
             filter += '/(mdgroups)/'+$lhcList.mcd_dpgroups.join('/');
+        }
+
+        if (typeof $lhcList.mmd_dpgroups == 'object' && $lhcList.mmd_dpgroups.length > 0) {
+            filter += '/(mmdgroups)/' + $lhcList.mmd_dpgroups.join('/');
         }
 
         if (typeof $lhcList.unreadd_dpgroups == 'object' && $lhcList.unreadd_dpgroups.length > 0) {
@@ -937,6 +1042,50 @@
                 let itemsFilter = manualFilterByFilter('mcd');
                 if (itemsFilter.length > 0) {
                     filter += '/(mcd)/'+itemsFilter.join('/');
+                }
+            }
+        }
+
+        if (typeof $lhcList.mmd == 'object') {
+            if ($lhcList.mmd.length > 0) {
+                filter += '/(mmd)/'+$lhcList.mmd.join('/');
+            } else {
+                var itemsFilter = manualFilterByFilter('mmd');
+                if (itemsFilter.length > 0) {
+                    filter += '/(mmd)/'+itemsFilter.join('/');
+                }
+            }
+        }
+
+        if (typeof $lhcList.pendingmd == 'object') {
+            if ($lhcList.pendingmd.length > 0) {
+                filter += '/(pendingmd)/'+$lhcList.pendingmd.join('/');
+            } else {
+                var itemsFilter = manualFilterByFilter('pendingmd');
+                if (itemsFilter.length > 0) {
+                    filter += '/(pendingmd)/'+itemsFilter.join('/');
+                }
+            }
+        }
+
+        if (typeof $lhcList.activemd == 'object') {
+            if ($lhcList.activemd.length > 0) {
+                filter += '/(activemd)/'+$lhcList.activemd.join('/');
+            } else {
+                var itemsFilter = manualFilterByFilter('activemd');
+                if (itemsFilter.length > 0) {
+                    filter += '/(activemd)/'+itemsFilter.join('/');
+                }
+            }
+        }
+
+        if (typeof $lhcList.alarmmd == 'object') {
+            if ($lhcList.alarmmd.length > 0) {
+                filter += '/(alarmmd)/'+$lhcList.alarmmd.join('/');
+            } else {
+                var itemsFilter = manualFilterByFilter('alarmmd');
+                if (itemsFilter.length > 0) {
+                    filter += '/(alarmmd)/' + itemsFilter.join('/');
                 }
             }
         }
@@ -1022,6 +1171,18 @@
 
         if (typeof $lhcList.actived_ugroups == 'object' && $lhcList.actived_ugroups.length > 0) {
             filter += '/(augroups)/'+$lhcList.actived_ugroups.join('/');
+        }
+
+        if (typeof $lhcList.pendingmd_ugroups == 'object' && $lhcList.pendingmd_ugroups.length > 0) {
+            filter += '/(pmug)/'+$lhcList.pendingmd_ugroups.join('/');
+        }
+
+        if (typeof $lhcList.activemd_ugroups == 'object' && $lhcList.activemd_ugroups.length > 0) {
+            filter += '/(amug)/'+$lhcList.activemd_ugroups.join('/');
+        }
+
+        if (typeof $lhcList.alarmmd_ugroups == 'object' && $lhcList.alarmmd_ugroups.length > 0) {
+            filter += '/(almug)/'+$lhcList.alarmmd_ugroups.join('/');
         }
 
         if (typeof $lhcList.mcd_products == 'object' && $lhcList.mcd_products.length > 0) {
@@ -1130,6 +1291,9 @@
                 $lhcList.closed_chats_expanded = localStorage.getItem('closed_chats_expanded') != 'false';
                 $lhcList.unread_chats_expanded = localStorage.getItem('unread_chats_expanded') != 'false';
                 $lhcList.my_chats_expanded = localStorage.getItem('my_chats_expanded') != 'false';
+                $lhcList.pending_mails_expanded = localStorage.getItem('pending_mails_expanded') != 'false';
+                $lhcList.active_mails_expanded = localStorage.getItem('pending_mails_expanded') != 'false';
+                $lhcList.my_mails_expanded = localStorage.getItem('my_mails_expanded') != 'false';
 
                 // Just for extension reserved keywords
                 $lhcList.custom_list_1_expanded = localStorage.getItem('custom_list_1_expanded') != 'false';
@@ -1279,6 +1443,14 @@
                                     }
                                 });
                             }
+                        } else if (key == 'pending_mails' || key == 'my_mails') {
+                            if (tabs.length > 0) {
+                                item.list.forEach(function (chat) {
+                                    if (typeof chat.user_id !== 'undefined' && chat.user_id == confLH.user_id && confLH.accept_mails == 1 && chat.status !== 1 && document.getElementById('chat-tab-li-mc'+chat.id) === null) {
+                                        lhinst.startMailChat(chat.id,tabs,truncate(chat.subject_front,10),true);
+                                    }
+                                });
+                            }
                         }
                     }
 
@@ -1343,7 +1515,7 @@
                                         chatsToNotify.push(itemList.id + '__' + iconsMonitoring.join('__'));
                                     }
                                 }
-                            } else if (lhcLogic.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && (($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == 0 && confLH.ownntfonly == 0) || ($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
+                            } else if (lhcLogic.isListLoaded == true && (chatsSkipped == 0 || itemList.status_sub_sub === 2) && (($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && (userId == 0 || item.last_id_identifier == 'amails') && confLH.ownntfonly == 0) || ($lhcList.statusNotifications[item.last_id_identifier].indexOf(identifierElement) == -1 && userId == confLH.user_id)) ) {
                                 if (lhinst.chatsSynchronising.indexOf(parseInt(itemList.id)) === -1) { // Don't show notification if chat is under sync already
                                     chatsToNotify.push(itemList.id);
                                 }
@@ -1358,7 +1530,7 @@
                         }
 
                         if (lhcLogic.isListLoaded === true) {
-                            compareNotificationsAndHide($lhcList.statusNotifications[item.last_id_identifier],currentStatusNotifications);
+                            compareNotificationsAndHide($lhcList.statusNotifications[item.last_id_identifier],currentStatusNotifications,item.last_id_identifier);
                         }
 
                         $lhcList.statusNotifications[item.last_id_identifier] = currentStatusNotifications;
@@ -1473,12 +1645,18 @@
         }
     }
 
-    function compareNotificationsAndHide(oldStatus, newStatus) {
+    function startMailChat(chat_id, name) {
+        if (jQuery('#tabs').length > 0) {
+            return lhinst.startMailChat(chat_id,jQuery('#tabs'),truncate(name || 'Mail',10));
+        }
+    }
+
+    function compareNotificationsAndHide(oldStatus, newStatus, type) {
         if (typeof oldStatus !== 'undefined') {
             for (var i = oldStatus.length - 1; i >= 0; i--) {
                 var key = oldStatus[i];
                 if (-1 === newStatus.indexOf(key)) {
-                    lhinst.hideNotification(key.split('_')[0]);
+                    lhinst.hideNotification(key.split('_')[0], type);
                 }
             }
         }

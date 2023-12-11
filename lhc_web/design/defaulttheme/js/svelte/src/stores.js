@@ -79,7 +79,38 @@ export const lhcList = writable({
     departmentd_hide_dgroup : false,
     lmtoggle : false,
     rmtoggle : false,
-    current_user_id : confLH.user_id
+    current_user_id : confLH.user_id,
+    // Mails
+    limitpm: "10",
+    limitam: "10",
+    limitalm: "10",
+    limitmm: "10",
+
+    pendingmd : [],
+    pendingmd_products : [],
+    pendingmd_dpgroups : [],
+    pendingmd_ugroups : [],
+    pendingmdNames : [],
+
+    activemd : [],
+    activemd_products : [],
+    activemd_dpgroups : [],
+    activemd_ugroups : [],
+    activemdNames : [],
+
+    alarmmd : [],
+    alarmmd_products : [],
+    alarmmd_dpgroups : [],
+    alarmmd_ugroups : [],
+    alarmmdNames : [],
+
+    mmd : [],
+    mmd_dpgroups : [],
+    mmdNames : [],
+
+    pendingmu : [],
+    activemu : [],
+    alarmmu : []
 });
 
 export const lhcTranslations = writable({});

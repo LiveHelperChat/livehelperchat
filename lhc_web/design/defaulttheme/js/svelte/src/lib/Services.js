@@ -125,6 +125,17 @@ export default {
             ee.emitEvent('angularLoadChatList');
         }
     },
+    previewMail : function(chat_id, event){
+        if (event) {
+            event.stopPropagation();
+        }
+        lhc.previewMail(chat_id);
+    },
+    startMailChat : function (chat_id, name) {
+        if (jQuery('#tabs').length > 0) {
+            return lhinst.startMailChat(chat_id,jQuery('#tabs'),this.truncate(name || 'Mail',10));
+        }
+    },
     previewChat : function(chat_id,event){
         if (event) {
             event.stopPropagation();
