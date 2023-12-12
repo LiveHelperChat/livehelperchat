@@ -2,7 +2,7 @@
 
 <script>
     import { onMount } from 'svelte';
-    import { count, lhcList } from './stores.js';
+    import { lhcList } from './stores.js';
     import lhcServices from './lib/Services.js';
 
     // START Widget search filters
@@ -204,12 +204,6 @@
                 ee.emitEvent('angularLoadChatList');
             },1000);
         });
-    });
-
-    let countValue;
-
-    const unsubscribe = count.subscribe((value) => {
-        countValue = value;
     });
 
     let widgetsItems = [];

@@ -1,6 +1,8 @@
 import { writable } from 'svelte/store';
 
-export const count = writable(0);
+export const lhcOnlineVisitors = writable({
+    onlineusers : []
+});
 export const lhcList = writable({
     lhcVersion: 0,
     last_actions_index: 0,
