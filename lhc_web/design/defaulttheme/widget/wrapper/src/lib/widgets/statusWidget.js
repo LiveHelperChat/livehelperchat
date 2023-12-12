@@ -67,7 +67,7 @@ export class statusWidget{
 
         this.cont.massRestyle(placement);
 
-        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a href="#" target="_blank" id="status-icon" class="offline-status"></a></div>';
+        this.cont.tmpl = '<div id="lhc_status_container" class="' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + '" style="display: none"><i title="New messages" id="unread-msg-number">!</i><a href="#" tabindex="0" target="_blank" id="status-icon" class="offline-status"></a></div>';
 
         if (this.cont.constructUIIframe('') === null) {
             return null;
