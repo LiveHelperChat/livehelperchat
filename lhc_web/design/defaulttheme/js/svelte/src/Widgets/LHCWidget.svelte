@@ -8,6 +8,7 @@
     import WidgetOptionsPanel from  './Parts/WidgetOptionsPanel.svelte';
 
     export let type = "pending_chats";
+    export let no_collapse = false;
     export let list_identifier = "pending";
     export let panel_list_identifier = "pendingd-panel-list";
     export let sort_identifier = "pending_chats_sort";
@@ -94,7 +95,7 @@
         </div>
      {/if}
 
-        {#if $lhcList.toggleWidgetData[expand_identifier] !== true}
+        {#if no_collapse === true || $lhcList.toggleWidgetData[expand_identifier] !== true}
             <div>
 
                 {#if !hide_filter_options}
