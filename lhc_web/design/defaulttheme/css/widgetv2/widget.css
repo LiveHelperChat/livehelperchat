@@ -881,8 +881,15 @@ button.settings {
     height:25px;
 }
 
+button.material-icons-button,
 button.header-link{
     background: none;
+}
+
+button.material-icons-button{
+    padding:0;
+    margin:0;
+    border:0;
 }
 
 .user-chatwidget-buttons {
