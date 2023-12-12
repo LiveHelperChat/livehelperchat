@@ -876,6 +876,15 @@ textarea[name=ChatMessage] {
     cursor: pointer;
 }
 
+button.settings {
+    background: none;
+    height:25px;
+}
+
+button.header-link{
+    background: none;
+}
+
 .user-chatwidget-buttons {
     /*position: absolute;
     top: 6px;
