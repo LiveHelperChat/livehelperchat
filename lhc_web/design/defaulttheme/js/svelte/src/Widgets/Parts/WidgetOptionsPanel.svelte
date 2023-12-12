@@ -5,6 +5,18 @@
 
     export let optionsPanel = {'panelid' : 'pendingd','limitid' : 'limitp', 'userid' : 'pendingu'};
 
+    let userList = $lhcList[optionsPanel['userid']];
+    let userGroups = $lhcList[optionsPanel['panelid'] + '_ugroups'];
+    let userDepartmentsGroups = $lhcList[optionsPanel['panelid'] + '_dpgroups']
+    let productList = $lhcList[optionsPanel['panelid'] + '_products'];
+    let departmentList = $lhcList[optionsPanel['panelid']];
+
+    $ : userGroups, $lhcList[optionsPanel['panelid'] + '_ugroups'] = userGroups;
+    $ : userDepartmentsGroups, $lhcList[optionsPanel['panelid'] + '_dpgroups'] = userDepartmentsGroups;
+    $ : userList, $lhcList[optionsPanel['userid']] = userList;
+    $ : productList, $lhcList[optionsPanel['panelid'] + '_products'] = productList;
+    $ : departmentList, $lhcList[optionsPanel['panelid']] = departmentList;
+
 </script>
 
 <div class={"p-" + (optionsPanel.hasOwnProperty('padding_filters') ? optionsPanel.padding_filters : 2)}>
@@ -41,7 +53,7 @@
 
                             {#if !optionsPanel.hasOwnProperty('disable_product') || optionsPanel.disable_product == false}
                                 {#each $lhcList.userProductNames as product (product.id)}
-                                    <li data-stopPropagation="true"><label><input type="checkbox" bind:group={$lhcList[optionsPanel['panelid'] + '_products']} value={product.id} on:change={(e) => ee.emitEvent('svelteProductChanged',[optionsPanel['panelid'] + '_products'])}><i class="material-icons">&#xE8CC;</i>{product.name}</label></li>
+                                    <li data-stopPropagation="true"><label><input type="checkbox" bind:group={productList} value={product.id} on:change={(e) => ee.emitEvent('svelteProductChanged',[optionsPanel['panelid'] + '_products'])}><i class="material-icons">&#xE8CC;</i>{product.name}</label></li>
                                 {/each}
                                 {#if $lhcList.userProductNames.length > 0}
                                 <li class="border-bottom"></li>
@@ -49,7 +61,7 @@
                             {/if}
 
                             {#each $lhcList.userDepartmentsGroups as department (department.id)}
-                                <li data-stopPropagation="true"><label><input bind:group={$lhcList[optionsPanel['panelid'] + '_dpgroups']} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['panelid'] + '_dpgroups'])}} value={department.id} type="checkbox" ><i title="Department group" class="material-icons">&#xE84F;</i>{department.name}</label></li>
+                                <li data-stopPropagation="true"><label><input bind:group={userDepartmentsGroups} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['panelid'] + '_dpgroups'])}} value={department.id} type="checkbox" ><i title="Department group" class="material-icons">&#xE84F;</i>{department.name}</label></li>
                             {/each}
 
                             {#if $lhcList.userDepartmentsGroups.length > 0}
@@ -62,7 +74,7 @@
                                 <ul class="list-unstyled dropdown-lhc">
                                     {#each $lhcList.userDepartments as department (department.id)}
                                         {#if !(($lhcList[optionsPanel['panelid'] + '_only_explicit_online'] == true && department.oexp == false) || ($lhcList[optionsPanel['panelid']+'_hide_hidden'] == true && department.hidden == true) || ($lhcList[optionsPanel['panelid']+'_hide_disabled'] == true && department.disabled == true) || ($lhcList[optionsPanel['panelid']+'_only_online'] && department.ogen == false))}
-                                            <li data-stopPropagation="true"><label><input bind:group={$lhcList[optionsPanel['panelid']]} on:change={(e) => {ee.emitEvent('svelteDepartmentChanged',[optionsPanel['panelid']])}} value={department.id} type="checkbox"><i title={$t("widget.department")} class="material-icons" class:chat-active={department.slc} >home</i>{department.name}</label></li>
+                                            <li data-stopPropagation="true"><label><input bind:group={departmentList} on:change={(e) => {ee.emitEvent('svelteDepartmentChanged',[optionsPanel['panelid']])}} value={department.id} type="checkbox"><i title={$t("widget.department")} class="material-icons" class:chat-active={department.slc} >home</i>{department.name}</label></li>
                                         {/if}
                                     {/each}
                                 </ul>
@@ -88,13 +100,13 @@
                         <ul class="list-unstyled dropdown-lhc">
 
                             {#each $lhcList.userList as userItem (userItem.id)}
-                                <li data-stopPropagation="true"><label><input bind:group={$lhcList[optionsPanel['userid']]} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['panelid']])}} value={userItem.id} type="checkbox" ><i title="User" class="material-icons">account_box</i>{userItem.name || userItem.name_official}</label></li>
+                                <li data-stopPropagation="true"><label><input bind:group={userList} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['userid']])}} value={userItem.id} type="checkbox" ><i title="User" class="material-icons">account_box</i>{userItem.name || userItem.name_official}</label></li>
                             {/each}
 
                             {#if $lhcList.userGroups.length > 0}<li class="border-top"></li>{/if}
 
                             {#each $lhcList.userGroups as userGroup (userGroup.id)}
-                                <li data-stopPropagation="true"><label><input bind:group={$lhcList[optionsPanel['panelid'] + '_ugroups']} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['panelid']+"_ugroups"])}} value={userGroup.id} type="checkbox"><i title="User group" class="material-icons">people</i>{userGroup.name}</label></li>
+                                <li data-stopPropagation="true"><label><input bind:group={userGroups} on:change={(e) => {ee.emitEvent('svelteProductChanged',[optionsPanel['panelid']+"_ugroups"])}} value={userGroup.id} type="checkbox"><i title="User group" class="material-icons">people</i>{userGroup.name}</label></li>
                             {/each}
 
                         </ul>
