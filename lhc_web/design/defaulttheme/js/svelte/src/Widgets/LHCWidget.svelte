@@ -6,6 +6,7 @@
 
     import WidgetBodyPending from  './Parts/WidgetBodyPending.svelte';
     import WidgetOptionsPanel from  './Parts/WidgetOptionsPanel.svelte';
+    import LHCOnlineVisitors from  '../LHCOnlineVisitors.svelte';
 
     export let type = "pending_chats";
     export let no_collapse = false;
@@ -100,13 +101,20 @@
                 <WidgetOptionsPanel optionsPanel={_optionsPanel} lhcList={lhcList} />
                 {/if}
 
-                {#if $lhcList[type].list.length > 0}
+                {#if $lhcList[type].list.length > 0 || type === 'onlineusers'}
                 <div class="panel-list" id={panel_list_identifier} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
-                    <WidgetBodyPending additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+
+                    {#if type == 'onlineusers'}
+                        <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
+                    {:else}
+                        <WidgetBodyPending additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                    {/if}
+
                 </div>
+
                 {/if}
 
-                {#if $lhcList[type].list.length === 0}
+                {#if $lhcList[type].list.length === 0 && type !== 'onlineusers'}
                     <div class="m-1 alert alert-light"><i class="material-icons">search</i>All items will appear here.</div>
                 {/if}
 

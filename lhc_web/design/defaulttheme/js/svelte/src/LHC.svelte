@@ -212,6 +212,7 @@
     widgetsItems.push('mcd');
     widgetsItems.push('botd');
     widgetsItems.push('subjectd');
+    widgetsItems.push('department_online');
 
     widgetsItems.forEach(function(listId) {
         $lhcList[listId + '_all_departments'] = lhcServices.restoreLocalSetting(listId + '_all_departments','false',false) != 'false';
@@ -221,6 +222,8 @@
         $lhcList[listId + '_only_explicit_online'] = lhcServices.restoreLocalSetting(listId + '_only_explicit_online','false',false) != 'false';
         $lhcList[listId + '_m_h'] = lhcServices.restoreLocalSetting(listId + '_m_h',null,false);
     });
+
+    $lhcList['onlineusers_m_h'] = lhcServices.restoreLocalSetting('onlineusers_m_h',null,false);
 
     function toggleList(variable) {
         $lhcList[variable] = !$lhcList[variable];
@@ -561,6 +564,9 @@
             'operatord_dpgroups',
             'operatord_ugroups',
             'operatord',
+
+            'department_online',
+            'department_online_dpgroups',
         ];
 
         var limitOptions = [

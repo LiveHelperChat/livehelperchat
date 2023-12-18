@@ -1,11 +1,13 @@
 import { writable } from 'svelte/store';
 
-export const lhcOnlineVisitors = writable({
-    onlineusers : [],
-    onlineusersGrouped : [],
-    onlineusers_tt : 0
-});
 export const lhcList = writable({
+    onlineusers : {"list" : []},
+    onlineusersGrouped : [],
+    onlineusers_tt : 0,
+    department_online : [],
+    department_online_dpgroups : [],
+    department_onlineNames: [],
+
     lhcVersion: 0,
     last_actions_index: 0,
     last_actions: [],
@@ -83,7 +85,8 @@ export const lhcList = writable({
     departmentd_hide_dgroup : false,
     lmtoggle : false,
     rmtoggle : false,
-    current_user_id : confLH.user_id
+    current_user_id : confLH.user_id,
+    group_chats: []
 });
 
 export const lhcTranslations = writable({});

@@ -1,3 +1,48 @@
+<?php $optinsPanel = array('panelid' => 'onlineusers', 'limitid' => 'limitod', 'hide_department_filter' => true); ?>
+
+<?php /*
+<?php $onlineCheck_timeout = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value; ?>
+
+<div id="online-visitors-filter" class="row">
+
+<div class="col-3 pe-0">
+    <input class="form-control form-control-sm" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['setQuery',this.value])" <?php if (isset($_GET['search'])) :?>ng-init='query=<?php echo json_encode(strip_tags($_GET['search']),JSON_HEX_APOS);?>'<?php endif?> ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
+</div>
+
+<div class="col-3 pe-2">
+    <?php $dwFilters = json_decode(erLhcoreClassModelUserSetting::getSetting('dw_filters', '{}', false, false, true),true); ?>
+    <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+        'input_name'     => 'department_ids[]',
+        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+        'selected_id'    => (isset($dwFilters['department_online']) ? explode('/',$dwFilters['department_online']) : []),
+        'wrapper_class'  => 'online-department-filter',
+        'ajax'           => 'deps',
+        'css_class'      => 'form-control',
+        'display_name'   => 'name',
+        'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => 50],erLhcoreClassUserDep::conditionalDepartmentFilter()),
+        'list_function'  => 'erLhcoreClassModelDepartament::getList'
+    )); ?>
+</div>
+
+<div class="col-3 pe-0">
+    <?php $columnCountrySize = 1?>
+    <?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/country_filter.tpl.php')); ?>
+</div>
+
+<?php
+$columnCountrySize = 1;
+$prSet = ' pe-0';
+?>
+<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/time_on_site_filter.tpl.php')); ?>
+
+</div>*/ ?>
+
+
+
+<lhc-widget data_panel_id="online_visitors" hide_filter_options="true" osettings_hide_action_buttons="true" groupByField=<?php echo json_encode($ogroupBy, JSON_HEX_APOS)?> <?php if ($onlineCheck_timeout > 0) : ?>online_check="<?php echo $onlineCheck_timeout?>"<?php endif; ?> soundEnabled="<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>" notificationEnabled="<?php echo $browserNotification == 1 ? 'true' : 'false'?>" country=<?php echo json_encode($oCountry,JSON_HEX_APOS)?> online_connected="<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>" timeout="<?php echo (int)$ouserTimeout?>" time_on_site=<?php echo json_encode($oTimeOnSite,JSON_HEX_APOS)?> max_rows="<?php echo (int)$omaxRows?>" updateTimeout="<?php echo (int)$oupdTimeout?>" <?php if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value == 1) : ?>track_is_online="true"<?php endif; ?> www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" <?php if (isset($customCardNoCollapse)) : ?>no_collapse="true"<?php endif; ?>  <?php if (isset($customCardTitleClass)) : ?>custom_title_class="<?php echo $customCardTitleClass?>"<?php endif; ?> <?php if (isset($customCardNoDuration)) : ?>no_duration="<?php echo $customCardNoDuration?>"<?php endif; ?> column_2_width="25%" card_icon="account_box" <?php if (isset($rightPanelMode)) : ?>right_panel_mode="true"<?php endif; ?> <?php if (isset($hideCardHeader)) : ?>hide_header="true"<?php endif;?> icon_class="chat-active" list_identifier="onlineusers" type="onlineusers" optionsPanel='<?php echo json_encode($optinsPanel)?>' www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>" expand_identifier="onvisitors_widget_exp" status_id="<?php echo erLhcoreClassUser::instance()->getUserID()?>" status_key="user_id" panel_list_identifier="onlineusers-panel-list"></lhc-widget>
+
+
+<?php /*
 <div class="card card-dashboard card-visitors" data-panel-id="online_visitors" id="widget-onvisitors" ng-class="lhc.toggleWidgetData['onvisitors_widget_exp'] !== true ? 'active' : ''" ng-init="lhc.getToggleWidget('onvisitors_widget_exp')">
 	<div class="card-header">
         <i class="material-icons action-image" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT +'chat/sendmassmessage'})">send</i><i class="material-icons">face</i> <span class="d-none d-lg-inline"><?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/titles/online_visitors.tpl.php'));?></span> ({{online.onlineusers.length}})
@@ -73,3 +118,4 @@
 		<div ng-if="online.onlineusers.length == 0" class="m-1 alert alert-light"><i class="material-icons">search</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You will see short list of your site visitors here.')?>...</div>
 	</div>
 </div>
+*/ ?>
