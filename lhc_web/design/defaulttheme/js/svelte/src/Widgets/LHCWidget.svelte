@@ -11,6 +11,7 @@
     export let type = "pending_chats";
     export let no_collapse = false;
     export let list_identifier = "pending";
+    export let custom_settings_url_icon = null;
     export let panel_list_identifier = "pendingd-panel-list";
     export let sort_identifier = "pending_chats_sort";
     export let status_id = 0;
@@ -61,7 +62,7 @@
         <div class={custom_card_class + " card-header"}>
 
             {#if custom_settings_url}
-                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(WWW_DIR_JAVASCRIPT + custom_settings_url)}>settings_applications</i>
+                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(WWW_DIR_JAVASCRIPT + custom_settings_url)}>{custom_settings_url_icon || 'settings_applications'}</i>
             {/if}
 
             {#if !no_link}

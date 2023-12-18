@@ -11,14 +11,14 @@
 
     export let www_dir_flags = "";
     export let track_is_online = false;
-    export let soundEnabled;
-    export let notificationEnabled;
+    export let sound_enabled;
+    export let notification_enabled;
     export let online_connected;
     export let max_rows;
     export let timeout = "3600";
     export let country = "none";
-    export let forbiddenVisitors = "false";
-    export let updateTimeout = 10;
+    export let forbidden_visitors = "false";
+    export let update_timeout = 10;
     export let time_on_site = "";
     export let online_check = null;
     export let group_by_field;
@@ -30,13 +30,13 @@
         time_on_site: time_on_site,
         country: country,
         max_rows: parseInt(max_rows),
-        updateTimeout: parseInt(updateTimeout),
+        updateTimeout: parseInt(update_timeout),
         timeout: timeout,
         lhcListRequestInProgress: false,
         timeoutControl: null,
-        forbiddenVisitors : forbiddenVisitors === 'true',
-        soundEnabled : soundEnabled === 'true',
-        notificationEnabled : notificationEnabled === 'true',
+        forbiddenVisitors : forbidden_visitors === 'true',
+        soundEnabled : sound_enabled === 'true',
+        notificationEnabled : notification_enabled === 'true',
         lastSyncSkipped : false,
         attrf_key_1 : "",
         attrf_val_1 : "",
@@ -64,6 +64,7 @@
     let btnInfoClass = lhcLogic.hide_action_buttons === true ? "btn-outline-info" : "btn-info";
 
     ee.addListener('svelteOnlineUserSetting',function (settingName, value) {
+        lhcLogic.wasInitiated = false;
         if (settingName == 'disableNewUserBNotif') {
             lhcLogic.notificationEnabled = !lhcLogic.notificationEnabled;
             lhinst.changeUserSettings('new_user_bn', lhcLogic.notificationEnabled == true ? 1 : 0);
@@ -117,7 +118,6 @@
         lhinst.changeUserSettingsIndifferent(key,value);
         setTimeout(() => syncOnlineVisitors(),500);
     })
-
 
     onMount(async() => {
         if (lhcLogic.forbiddenVisitors !== true) {
@@ -273,7 +273,7 @@
             activeList = itemTab.classList.contains('active');
         }
 
-        if (activeList == false){
+        if (activeList == false) {
             var mapItem = document.getElementById('map');
             if (mapItem !== null) {
                 activeList = mapItem.classList.contains('active');
@@ -281,7 +281,7 @@
         }
 
         if (activeList == false) {
-            var widgetItem = document.getElementById('widget-onvisitors-body');
+            var widgetItem = document.getElementById('onlineusers-panel-list');
             if (widgetItem !== null) {
                 var dashboardTab = document.getElementById('dashboard');
                 if (dashboardTab !== null && dashboardTab.classList.contains('active')) {
@@ -292,7 +292,11 @@
 
         if (activeList === false) {
             lhcLogic.lastSyncSkipped = true;
-            //return;
+            clearTimeout(lhcLogic.timeoutControl);
+            lhcLogic.timeoutControl = setTimeout(function(){
+                syncOnlineVisitors();
+            },lhcLogic.updateTimeout * 1000);
+            return;
         }
 
         lhcLogic.lastSyncSkipped = false;
@@ -362,10 +366,10 @@
                         setTimeout(function(){
                             audio.play();
                         },500);
-                    };
+                    }
 
                     if (lhcLogic.notificationEnabled && (window.webkitNotifications || window.Notification)) {
-                        angular.forEach(newVisitors, function(value, key) {
+                        newVisitors.forEach(function(value) {
                             if (window.webkitNotifications) {
                                 var havePermission = window.webkitNotifications.checkPermission();
                                 if (havePermission == 0) {
@@ -461,20 +465,27 @@
         syncOnlineVisitors();
     }
 
+    ee.addListener('svelteDepartmentChanged',function (list,force) {
+        if (list === 'department_online'){
+            lhcLogic.wasInitiated = false;
+            syncOnlineVisitors();
+        }
+    });
+
 </script>
 
 {#if lhcLogic.hide_action_buttons}
     <div class="p-2">
         <div class="row">
             <div class="col-3 pe-0">
-                <input class="form-control form-control-sm" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['setQuery',this.value])" type="text" value="" placeholder="Type to search">
+                <input class="form-control form-control-sm" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['setQuery',this.value])" type="text" value="" placeholder={$t('widget_options.type_to_search')}>
             </div>
             <div class="col-3 pe-2">
                 <WidgetOptionsPanel lhcList={lhcList} optionsPanel={{padding_filters:0, disable_product:true, hide_department_variations:true, hide_limits:true, panelid:'department_online'}} />
             </div>
             <div class="col-3 pe-0">
-                <select class="form-control form-control-sm" onchange="ee.emitEvent('svelteOnlineUserSetting',['countryFilter',this.value])" id="svelte-countryFilter" title="Select country">
-                    <option value="none" selected="selected">Select country</option>
+                <select class="form-control form-control-sm" onchange="ee.emitEvent('svelteOnlineUserSetting',['countryFilter',this.value])" id="svelte-countryFilter" title={$t('widget_options.select_country')}>
+                    <option value="none" selected="selected">{$t('widget_options.select_country')}</option>
                     <option value="af">Afghanistan</option>
                     <option value="ax">Åland Islands</option>
                     <option value="al">Albania</option>
@@ -727,7 +738,7 @@
                 </select>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control form-control-sm" id="svelte-time_on_siteFilter" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['timeOnSiteFilter',this.value])" title="+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)" placeholder="+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)" value="" />
+                <input type="text" class="form-control form-control-sm" id="svelte-time_on_siteFilter" onkeyup="ee.emitEvent('svelteOnlineUserSetting',['timeOnSiteFilter',this.value])" title={$t('widget_options.time_on_site')} placeholder={$t('widget_options.time_on_site')} value="" />
             </div>
         </div>
     </div>
@@ -737,11 +748,11 @@
 <thead>
 <tr>
     <th width="50%" colspan={!lhcLogic.hide_action_buttons ? "2" : "1"}>
-        <a class="material-icons" on:click={(e) => setSort('last_visit')} title="Last activity" >access_time</a>
-        <a class="material-icons" on:click={(e) => setSort('time_on_site')} title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>">access_time</a>
-        <a class="material-icons" on:click={(e) => setSort('visitor_tz_time')} title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visitor local time');?>">access_time</a>
-        {#if track_is_online}<a class="material-icons" on:click={(e) => setSort('last_check_time')} title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','By user status on site');?>">access_time</a>{/if}
-        <a href="#" on:click={(e) => setSort('current_page')} >Page</a> | <a href="#" on:click={(e) => setSort('referrer')}>Came from</a> | <span title="Show only connected" on:click={(e) => ee.emitEvent('svelteOnlineUserSetting',['showConnected'])} class="material-icons action-image">{lhcLogic.online_connected ? 'flash_on' : 'flash_off'}</span>
+        <a class="material-icons" on:click={(e) => setSort('last_visit')} title={$t('widget.last_activity_ago')} >access_time</a>
+        <a class="material-icons" on:click={(e) => setSort('time_on_site')} title={$t('widget_options.time_on_site_shrt')}>access_time</a>
+        <a class="material-icons" on:click={(e) => setSort('visitor_tz_time')} title={$t('widget_options.vis_local_time')}>access_time</a>
+        {#if track_is_online}<a class="material-icons" on:click={(e) => setSort('last_check_time')} title={$t('widget_options.status_on_site')}>access_time</a>{/if}
+        <a href="#" on:click={(e) => setSort('current_page')} >{$t('widget_options.page')}</a> | <a href="#" on:click={(e) => setSort('referrer')}>{$t('widget_options.came_from')}</a> | <span title={$t('widget_options.only_connected')} on:click={(e) => ee.emitEvent('svelteOnlineUserSetting',['showConnected'])} class="material-icons action-image">{lhcLogic.online_connected ? 'flash_on' : 'flash_off'}</span>
 
         <div class="float-end expand-actions">
             <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,'onlineusers',true)} class="text-muted disable-select">
@@ -763,7 +774,7 @@
         {/each}
     {/if}
     {#if !lhcLogic.hide_action_buttons}
-    <th width="1%">Action</th>
+    <th width="1%">{$t('widget.action')}</th>
     {/if}
 </tr>
 </thead>
@@ -781,7 +792,7 @@
                 {#if !lhcLogic.hide_action_buttons}
                 <td nowrap width="1%">
                     <div>
-                        {ou.lastactivity_ago} ago<br/>
+                        {ou.lastactivity_ago} {$t('widget.ago')}<br/>
                         <span class="fs-11">{ou.time_on_site_front}</span>
                     </div>
                 </td>
@@ -790,7 +801,7 @@
                 <td>
                     {#if ou.vid}
                         <div class="btn-group" role="group" aria-label="...">
-                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title="Copy nick" onclick="lhinst.copyContent($(this))" data-success="Copied" data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
+                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} title={$t('widget.copy_nick')} onclick="lhinst.copyContent($(this))" data-success={$t('widget.copied_nick')} data-copy={ou.nick}><i class="material-icons me-0">content_copy</i></a>
 
                             <a href="#" on:click={(e) => {lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/getonlineuserinfo/'+ou.id})}}  class={"btn btn-xs "+btnSecondaryClass} id="ou-face-{ou.vid}" class:icon-user-away={ou.online_status == 1} class:icon-user-online={!ou.online_status || ou.online_status == 0} ><i class="material-icons">info_outline</i>{#if lhcLogic.hide_action_buttons}{ou.lastactivity_ago} | {/if}{ou.nick}&nbsp;
                                 {#if ou.user_country_code}
@@ -799,39 +810,39 @@
                             </a>
 
                             {#if ou.chat_id > 0 && ou.can_view_chat == 1}
-                                <span on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+ou.chat_id}) } class={"btn btn-xs action-image "+btnSuccessClass}><i class="material-icons me-0">chat</i>{#if !lhcLogic.hide_action_buttons}&nbsp;Chat{/if}</span>
+                                <span title={$t('widget.preview_chat')} on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewchat/'+ou.chat_id}) } class={"btn btn-xs action-image "+btnSuccessClass}><i class="material-icons me-0">chat</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{$t('widget.chat')}{/if}</span>
                             {/if}
 
                             {#if ou.total_visits > 1}
-                                <span class={"btn btn-xs "+btnInfoClass}><i title="Returning visitor, visits in total {ou.total_visits}" class="material-icons me-0">face</i>{#if !lhcLogic.hide_action_buttons}&nbsp;Returning - {/if}{ou.total_visits}</span>
+                                <span class={"btn btn-xs "+btnInfoClass}><i title={$t('widget.returning_long')+ " " + ou.total_visits} class="material-icons me-0">face</i>&nbsp;{#if !lhcLogic.hide_action_buttons}{$t('widget.returning')} - {/if}{ou.total_visits}</span>
                             {/if}
 
                             {#if ou.total_visits == 1}
-                                <span class={"btn btn-xs "+btnSuccessClass} title="New"><i class="material-icons me-0">face</i>{#if !lhcLogic.hide_action_buttons}&nbsp;New{/if}</span>
+                                <span class={"btn btn-xs "+btnSuccessClass} title={$t('widget.new')}><i class="material-icons me-0">face</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{$t('widget.new')}{/if}</span>
                             {/if}
 
                             {#if ou.operator_message}
-                                <span title="{ou.operator_user_string} has sent a message to the user" class={"btn btn-xs "+(ou.message_seen == 1 ? btnSuccessClass : btnDangerClass)} ><i class="material-icons me-0">chat_bubble_outline</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{ou.message_seen == 1 ? "tr.msg_seen": "tr.msg_not_seen"}{/if}</span>
+                                <span title={ou.operator_user_string+" " + $t('widget.msg_sent')} class={"btn btn-xs "+(ou.message_seen == 1 ? btnSuccessClass : btnDangerClass)} ><i class="material-icons me-0">chat_bubble_outline</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{ou.message_seen == 1 ? $t("widget.msg_seen") : $t("widget.msg_not_seen")}{/if}</span>
                             {/if}
 
                             {#if ou.user_country_code != '' && !lhcLogic.hide_action_buttons}
-                                <span class="btn btn-xs btn-primary up-case-first" ng-if="ou.user_country_code != ''">{ou.user_country_name}{ou.city != '' ? ' | '+ou.city : ''}</span><span class="btn btn-primary btn-xs"><i class="material-icons">access_time</i>{ou.visitor_tz} - {ou.visitor_tz_time}</span>
+                                <span class="btn btn-xs btn-primary up-case-first">{ou.user_country_name}{ou.city != '' ? ' | '+ou.city : ''}</span><span class="btn btn-primary btn-xs"><i class="material-icons">access_time</i>{ou.visitor_tz} - {ou.visitor_tz_time}</span>
                             {/if}
 
-                            <a href="#" class={"btn btn-xs "+btnSecondaryClass} on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})}><i class="material-icons me-0">send</i>{#if !lhcLogic.hide_action_buttons}&nbsp;Start a chat{/if}</a>
+                            <a href="#" title={$t('widget.start_a_chat')} class={"btn btn-xs "+btnSecondaryClass} on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})}><i class="material-icons me-0">send</i>{#if !lhcLogic.hide_action_buttons}&nbsp;{$t('widget.start_a_chat')}{/if}</a>
 
                         </div>
                     {/if}
 
                     {#if ou.page_title || ou.current_page}
                         <div class="abbr-list" >
-                            <i class="material-icons" title="Page">&#xE8A0;</i><a target="_blank" href={ou.current_page} title={ou.current_page}>{ou.page_title || ou.current_page}</a>
+                            <i class="material-icons" title={$t('widget_options.page')}>&#xE8A0;</i><a target="_blank" href={ou.current_page} title={ou.current_page}>{ou.page_title || ou.current_page}</a>
                         </div>
                     {/if}
 
                     {#if ou.referrer}
                         <div class="abbr-list">
-                            <i class="material-icons" title="From">&#xE8A0;</i><a target="_blank" href="http:{ou.referrer}" title={ou.referrer}>{ou.referrer}</a>
+                            <i class="material-icons" title={$t('widget_options.came_from')}>&#xE8A0;</i><a target="_blank" href="http:{ou.referrer}" title={ou.referrer}>{ou.referrer}</a>
                         </div>
                     {/if}
                 </td>
@@ -852,8 +863,8 @@
                 <td>
                     <div style="width:90px" ng-if="ou.vid">
                         <div class="btn-group" role="group" aria-label="...">
-                            <button on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})} class="btn btn-secondary btn-sm material-icons mat-100 me-0" title="Send message">chat</button>
-                            <button on:click={deleteUser(ou)} class="btn btn-danger btn-sm material-icons mat-100 me-0" title="Delete, ID - {ou.id}">delete</button>
+                            <button on:click={(e) => lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/sendnotice/'+ou.id})} class="btn btn-secondary btn-sm material-icons mat-100 me-0" title={$t('widget.send_message')}>chat</button>
+                            <button on:click={deleteUser(ou, $t('widget.are_you_sure'))} class="btn btn-danger btn-sm material-icons mat-100 me-0" title={$t('widget_options.delete')+", ID - "+ou.id}>delete</button>
                         </div>
                     </div>
                 </td>
