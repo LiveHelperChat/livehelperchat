@@ -30,6 +30,7 @@ echo json_encode(array(
     'widget_title.active_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Active mails'),
     'widget_title.alarm_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Alarm mails'),
     'widget_title.pending_mails' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','New mails'),
+    'widget_title.onlineusers' => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online visitors'),
 
     // Group chat widget
     "group_chat.unread_messages" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','You have unread messages'),
@@ -101,6 +102,7 @@ echo json_encode(array(
     "widget.taken_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Taken time to fetch information for this widget'),
     "widget.taken_time_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Taken time to render departments statistic'),
 
+
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
     "widget_options.check_all" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Check all'),
@@ -115,6 +117,34 @@ echo json_encode(array(
     "widget_options.departments" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout', 'departments'),
     "widget_options.search_operators" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for operator'),
     "widget_options.search_dep" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Search for department'),
+    "widget_options.type_to_search" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search'),
+    "widget_options.select_country" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Select country'),
+    "widget_options.time_on_site" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', '+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)'),
+    "widget_options.time_on_site_shrt" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site'),
+    "widget_options.vis_local_time" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visitor local time'),
+    "widget_options.status_on_site" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','By user status on site'),
+    "widget_options.came_from" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'Came from'),
+    "widget_options.page" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page'),
+    "widget_options.only_connected" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Show only connected'),
+    "widget_options.delete" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Delete'),
+
+    // Online visitors
+    "widget.action" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action'),
+    "widget.ago" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','ago'),
+    "widget.copy_nick" => erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copy nick'),
+    "widget.copied_nick" => erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Copied'),
+    "widget.send_message" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Send message'),
+    "widget.start_a_chat" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Start a chat'),
+    'widget.msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),
+    'widget.msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),
+    'widget.second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),
+    'widget.first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator'),
+    'widget.new' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','New'),
+    'widget.returning' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'Returning'),
+    'widget.returning_long' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'Returning visitor, visits in total'),
+    'widget.chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'Chat'),
+    'widget.msg_sent' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'has sent a message to the user'),
+    'widget.preview_chat' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers', 'Preview chat'),
 
     // bbcode
     "bbcode.strike" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Strike'),

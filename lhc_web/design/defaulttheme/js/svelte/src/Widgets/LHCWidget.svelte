@@ -6,10 +6,12 @@
 
     import WidgetBodyPending from  './Parts/WidgetBodyPending.svelte';
     import WidgetOptionsPanel from  './Parts/WidgetOptionsPanel.svelte';
+    import LHCOnlineVisitors from  '../LHCOnlineVisitors.svelte';
 
     export let type = "pending_chats";
     export let no_collapse = false;
     export let list_identifier = "pending";
+    export let custom_settings_url_icon = null;
     export let panel_list_identifier = "pendingd-panel-list";
     export let sort_identifier = "pending_chats_sort";
     export let status_id = 0;
@@ -54,7 +56,7 @@
 
 </script>
 
-{#if $lhcList[type] && $lhcList[type].list}
+{#if $lhcList.lhcCoreLoaded === true && $lhcList[type] && $lhcList[type].list}
 
     <div class={(right_panel_mode === false ? "card card-dashboard" : "")+" card-" + list_identifier + " " + ($lhcList[type].list.length > 0 ? "has-chats" : "")} data-panel-id={data_panel_id || type} >
 
@@ -62,7 +64,7 @@
         <div class={custom_card_class + " card-header"}>
 
             {#if custom_settings_url}
-                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(WWW_DIR_JAVASCRIPT + custom_settings_url)}>settings_applications</i>
+                <i class="material-icons me-0 action-image" on:click={(e) => lhcServices.openModal(WWW_DIR_JAVASCRIPT + custom_settings_url)}>{custom_settings_url_icon || 'settings_applications'}</i>
             {/if}
 
             {#if !no_link}
@@ -102,13 +104,18 @@
                 <WidgetOptionsPanel optionsPanel={_optionsPanel} lhcList={lhcList} />
                 {/if}
 
-                {#if $lhcList[type].list.length > 0}
+                {#if $lhcList[type].list.length > 0 || type === 'onlineusers'}
                 <div class="panel-list" id={panel_list_identifier} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
-                    <WidgetBodyPending no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                    {#if type == 'onlineusers'}
+                        <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
+                    {:else}
+                        <WidgetBodyPending no_additional_column={no_additional_column} additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                    {/if}
                 </div>
+
                 {/if}
 
-                {#if $lhcList[type].list.length === 0}
+                {#if $lhcList[type].list.length === 0 && type !== 'onlineusers'}
                     <div class="m-1 alert alert-light"><i class="material-icons">search</i>All items will appear here.</div>
                 {/if}
 

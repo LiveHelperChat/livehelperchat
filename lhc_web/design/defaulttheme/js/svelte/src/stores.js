@@ -1,9 +1,14 @@
 import { writable } from 'svelte/store';
 
-export const lhcOnlineVisitors = writable({
-    onlineusers : []
-});
 export const lhcList = writable({
+    onlineusers : {"list" : []},
+    onlineusersGrouped : [],
+    onlineusers_tt : 0,
+    department_online : [],
+    department_online_dpgroups : [],
+    department_onlineNames: [],
+
+    lhcCoreLoaded : false,
     lhcVersion: 0,
     last_actions_index: 0,
     last_actions: [],
@@ -82,6 +87,7 @@ export const lhcList = writable({
     lmtoggle : false,
     rmtoggle : false,
     current_user_id : confLH.user_id,
+
     // Mails
     limitpm: "10",
     limitam: "10",

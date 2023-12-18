@@ -239,7 +239,11 @@ $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getIns
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_path',array('result' => & $Result));
 
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
-$Result['require_angular'] = true;
+/*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';*/
+//$Result['require_angular'] = true;
+
+$Result['additional_footer_js'] = '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/onlinevisitors.js').'"></script>';
+
+
 
 ?>
