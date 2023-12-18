@@ -261,6 +261,11 @@
     async function syncOnlineVisitors(){
 
         if (lhinst.disableSync == true || lhcLogic.forbiddenVisitors == true ) {
+            lhcLogic.lastSyncSkipped = true;
+            clearTimeout(lhcLogic.timeoutControl);
+            lhcLogic.timeoutControl = setTimeout(function(){
+                syncOnlineVisitors();
+            },lhcLogic.updateTimeout * 1000);
             return;
         }
 

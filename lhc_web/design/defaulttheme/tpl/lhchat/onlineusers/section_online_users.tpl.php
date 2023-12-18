@@ -111,31 +111,7 @@
     });
 </script>
 
-<?php /*
-    ng-init='groupByField = <?php echo json_encode($ogroupBy, JSON_HEX_APOS)?>;online.department_dpgroups = <?php echo json_encode($onlineDepartmentGroups,JSON_HEX_APOS)?>;online.department=<?php echo json_encode($onlineDepartment,JSON_HEX_APOS)?>;online.country=<?php echo json_encode($oCountry,JSON_HEX_APOS)?>;online.soundEnabled=<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>;online.notificationEnabled=<?php echo $browserNotification == 1 ? 'true' : 'false'?>;online.initController();'>
-*/ ?>
-
 <?php $onlineCheck_timeout = (int)erLhcoreClassModelChatConfig::fetch('checkstatus_timeout')->current_value; ?>
 <lhc-online-visitors group_by_field=<?php echo json_encode($ogroupBy, JSON_HEX_APOS)?> <?php if ($onlineCheck_timeout > 0) : ?>online_check="<?php echo $onlineCheck_timeout?>"<?php endif; ?> sound_enabled="<?php echo $soundUserNotification == 1 ? 'true' : 'false'?>" notification_enabled="<?php echo $browserNotification == 1 ? 'true' : 'false'?>" country=<?php echo json_encode($oCountry,JSON_HEX_APOS)?> online_connected="<?php echo $onlineVisitorOnly == 1 ? 'true' : 'false' ?>" timeout="<?php echo (int)$ouserTimeout?>" time_on_site=<?php echo json_encode($oTimeOnSite,JSON_HEX_APOS)?> max_rows="<?php echo (int)$omaxRows?>" update_timeout="<?php echo (int)$oupdTimeout?>" <?php if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value == 1) : ?>track_is_online="true"<?php endif; ?> www_dir_flags="<?php echo erLhcoreClassDesign::design('images/flags');?>"></lhc-online-visitors>
-
-<?php /*
-<table ng-cloak class="table table-sm online-users-table" ng-class="{'filter-online-active' : online.online_connected}" cellpadding="0" cellspacing="0" ng-init='trans = <?php echo json_encode(array('third' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has not seen a message from the operator, or the message window is still open.'),'msg_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Seen'),'msg_not_seen' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Unseen'),'second' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User has seen the message from the operator.'),'first' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','User does not have any messages from the operator')),JSON_HEX_APOS)?>'>
-<thead>
-<tr>
-    <th width="50%" colspan="2"><a class="material-icons" ng-click="online.predicate = 'last_visit'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Last activity');?>" >access_time</a><a class="material-icons" ng-click="online.predicate = 'time_on_site'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Time on site');?>">access_time</a><a class="material-icons" ng-click="online.predicate = 'visitor_tz_time'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Visitor local time');?>">access_time</a><?php if (erLhcoreClassModelChatConfig::fetch('track_is_online')->current_value == 1) : ?><a class="material-icons" ng-click="online.predicate = 'last_check_time'; online.reverse=!online.reverse" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','By user status on site');?>">access_time</a><?php endif;?><a href="" ng-click="online.predicate = 'current_page'; online.reverse=!online.reverse" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?></a> | <a href="" ng-click="online.predicate = 'referrer'; online.reverse=!online.reverse" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Came from');?></a></th>
-    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header_online.tpl.php'));?>
-    <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Action');?></th>
-</tr>
-</thead>
-<tbody ng-repeat="group in onlineusersGrouped track by group.id">
-	<tr ng-show="group.label != ''">
-		<td colspan="6"><h5 class="group-by-{{groupByField}}">{{group.label}} ({{group.ou.length}})</h5></td>
-	</tr>
-
-
-	<?php include(erLhcoreClassDesign::designtpl('lhchat/onlineusers/section_online_users_row.tpl.php')); ?>
-		
-</tbody>
-</table>*/ ?>
 
 <?php endif;?>
