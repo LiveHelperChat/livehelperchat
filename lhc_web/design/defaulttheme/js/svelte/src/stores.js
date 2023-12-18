@@ -8,6 +8,7 @@ export const lhcList = writable({
     department_online_dpgroups : [],
     department_onlineNames: [],
 
+    lhcCoreLoaded : false,
     lhcVersion: 0,
     last_actions_index: 0,
     last_actions: [],

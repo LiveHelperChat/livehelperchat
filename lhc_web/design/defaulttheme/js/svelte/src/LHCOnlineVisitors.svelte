@@ -21,7 +21,7 @@
     export let updateTimeout = 10;
     export let time_on_site = "";
     export let online_check = null;
-    export let groupByField;
+    export let group_by_field;
     export let render_ui = "true";
     export let osettings_hide_action_buttons = "false";
 
@@ -54,7 +54,7 @@
         online_connected : online_connected === 'true',
         predicate : 'last_visit',
         reverse : true,
-        groupByField : groupByField,
+        groupByField : group_by_field,
         hide_action_buttons : osettings_hide_action_buttons === "true"
     };
 
@@ -460,7 +460,6 @@
         lhcLogic.reverse = !lhcLogic.reverse;
         syncOnlineVisitors();
     }
-    // COntinue widget
 
 </script>
 

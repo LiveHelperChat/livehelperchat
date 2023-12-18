@@ -53,7 +53,7 @@
 
 </script>
 
-{#if $lhcList[type] && $lhcList[type].list}
+{#if $lhcList.lhcCoreLoaded === true && $lhcList[type] && $lhcList[type].list}
 
     <div class={(right_panel_mode === false ? "card card-dashboard" : "")+" card-" + list_identifier + " " + ($lhcList[type].list.length > 0 ? "has-chats" : "")} data-panel-id={data_panel_id || type} >
 

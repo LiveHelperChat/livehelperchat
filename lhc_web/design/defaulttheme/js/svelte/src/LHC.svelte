@@ -625,6 +625,10 @@
 
         window['$_LHC_API']['initial_data'] = data;
 
+        lhcList.update((list) => {
+            list.lhcCoreLoaded = true;
+            return list;
+        });
         // Verify that filter attribute are existing
         // Let say some user was removed, but visitor still had it as filter.
         // This would couse situtation then filter is applied but operator cannot remove it
