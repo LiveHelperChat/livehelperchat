@@ -342,7 +342,7 @@
                         <div class="abbr-list" >
 
                             {#if type == 'subject_chats'}
-                                <span class="material-icons chat-pending" class:chat-active={chat.status == 1 || chat.status == 5}>{chat.status == 5 ? 'android' : 'chat'}</span>
+                                <span class="material-icons chat-pending me-0" class:chat-active={chat.status == 1 || chat.status == 5}>{chat.status == 5 ? 'android' : 'chat'}</span>
                             {/if}
 
                             {#if type == 'pending_chats' && permissions.indexOf('lhchat_deletechat') !== -1}
