@@ -677,6 +677,10 @@
             lhinst.startGroupChat(chatOpen.id,jQuery('#tabs'),truncate((chatOpen.nick || 'Visitor'),10), true);
         });
 
+        data.cmopen.forEach(function(chatOpen) {
+            lhinst.startMailChat(chatOpen.id,jQuery('#tabs'),truncate(chatOpen.subject || 'Mail',10), !(chatOpen.id == mail_id));
+        });
+
         data.cmdel.forEach(function(chatOpen) {
             lhinst.forgetChat(chatOpen,'machat_id');
         });
