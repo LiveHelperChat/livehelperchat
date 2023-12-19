@@ -48,10 +48,6 @@ if (erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1)
     $supportedWidgets['unread_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Unread chats');
 }
 
-if (erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1) {
-    $supportedWidgets['closed_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets', 'Closed chats');
-}
-
 $supportedWidgets['my_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','My active and pending chats');
 $supportedWidgets['bot_chats'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Bot chats');
 

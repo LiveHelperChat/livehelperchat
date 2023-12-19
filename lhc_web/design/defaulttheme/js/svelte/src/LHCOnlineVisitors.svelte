@@ -261,6 +261,11 @@
     async function syncOnlineVisitors(){
 
         if (lhinst.disableSync == true || lhcLogic.forbiddenVisitors == true ) {
+            lhcLogic.lastSyncSkipped = true;
+            clearTimeout(lhcLogic.timeoutControl);
+            lhcLogic.timeoutControl = setTimeout(function(){
+                syncOnlineVisitors();
+            },lhcLogic.updateTimeout * 1000);
             return;
         }
 
@@ -767,7 +772,7 @@
     {#if $lhcList.additionalColumns}
         {#each $lhcList.additionalColumns as column}
             {#if column.oenabl == true && !column.iconm}
-                <th>
+                <th width="10%">
                     {#if column.icon !== ''}<i class="material-icons text-muted">{column.icon}</i>{/if}{column.name}
                 </th>
             {/if}

@@ -83,13 +83,7 @@ $columnSize = 12 / $columnsTotal;
                             <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/transfered_chats.tpl.php'));?>
                     <?php endif;?>
                     
-                <?php elseif ($wiget == 'closed_chats') : ?>
-                
-                    <?php if ($online_chat_enabled_pre == true && $closedTabEnabled == true) : ?>                
-                        <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/closed_chats.tpl.php'));?>
-                    <?php endif;?>
-                    
-                <?php elseif ($wiget == 'my_chats') : ?>  
+                <?php elseif ($wiget == 'my_chats') : ?>
                   
                     <?php if ($mchatsTabEnabled == true) : $idPanelElementSet = true;?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_chats.tpl.php'));?>
