@@ -40,10 +40,6 @@
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/unread_panel.tpl.php'));?>
     <?php endif; ?>
 
-    <?php if (in_array('closed_chats',$widgetsAvailable)) : ?>
-        <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/closed_panel.tpl.php'));?>
-    <?php endif; ?>
-
     <?php if (in_array('my_mails',$widgetsAvailable)) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/my_mails.tpl.php'));?>
     <?php endif; ?>
