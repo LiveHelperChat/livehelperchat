@@ -61,25 +61,16 @@
 
                     <?php if ($currentUser->hasAccessTo('lhgroupchat','use')) : ?>
 
-                    <?php /*
-                        <div class="border-top border-bottom bg-light card-header">
-                            <div class="text-muted"><i class="material-icons">list</i><span class="fs13 fw-bold" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Group chats')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Grp.')?></span>
-                                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','collapse/expand')?>" ng-click="lhc.toggleWidget('group_chat_widget_exp')" class="fs24 float-end material-icons exp-cntr">{{lhc.toggleWidgetData['group_chat_widget_exp'] == false ? 'expand_less' : 'expand_more'}}</a>
-                            </div>
-                        </div>
-
-                        <div ng-if="lhc.toggleWidgetData['group_chat_widget_exp'] !== true">
-                            <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bodies/group_chats.tpl.php'));?>
-                        </div>*/ ?>
                         <?php
                         $rightPanelMode = true;
                         $customCardClass = "border-top border-bottom bg-light";
                         $customCardNoDuration = true;
                         $customCardTitleClass = "fs14";
                         $customCardNoFilter = true;
+                        $customCardNoId = true;
                         ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/group_chat.tpl.php'));?>
-                        <?php unset($rightPanelMode);unset($customCardClass);unset($customCardNoDuration);unset($customCardNoFilter); ?>
+                        <?php unset($rightPanelMode);unset($customCardClass);unset($customCardNoDuration);unset($customCardNoFilter);unset($customCardNoId); ?>
 
                     <?php endif;?>
 
@@ -87,24 +78,24 @@
 
                 <?php if ($basicChatEnabled == true && $left_list_option == 0) : ?>
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-my-assigned">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-pending">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/pending_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-active">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/active_panel.tpl.php'));?>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="sub-tabs-bot">
-                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true; ?>
+                        <?php $rightPanelMode = true; $hideCardHeader = true;$customCardNoCollapse = true;$customCardNoId = true; ?>
                         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
-                        <?php unset($rightPanelMode); unset($hideCardHeader);unset($customCardNoCollapse); ?>
+                        <?php unset($rightPanelMode); unset($hideCardHeader);unset($customCardNoCollapse);unset($customCardNoId); ?>
                     </div>
                 <?php endif; ?>
             </div>

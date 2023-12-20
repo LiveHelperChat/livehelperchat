@@ -11,6 +11,7 @@
     export let type = "pending_chats";
     export let no_collapse = false;
     export let list_identifier = "pending";
+    export let no_panel_id = false;
     export let custom_settings_url_icon = null;
     export let panel_list_identifier = "pendingd-panel-list";
     export let sort_identifier = "pending_chats_sort";
@@ -103,15 +104,14 @@
                 {/if}
 
                 {#if $lhcList[type].list.length > 0 || type === 'onlineusers'}
-                <div class="panel-list" id={panel_list_identifier} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
 
                     {#if type == 'onlineusers'}
                         <LHCOnlineVisitors {...$$props}></LHCOnlineVisitors>
                     {:else}
-                        <WidgetBodyPending additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                        <div class="panel-list" id={no_panel_id === false ? panel_list_identifier : null} style:max-height={$lhcList[_optionsPanel['panelid'] + '_m_h'] ?? '330px'}>
+                            <WidgetBodyPending additional_sort={additional_sort} column_1_width={column_1_width} column_3_width={column_3_width} column_2_width={column_2_width} permissions={_permissions} www_dir_flags={www_dir_flags} panel_id={_optionsPanel['panelid']} lhcList={lhcList} type={type} sort_identifier={sort_identifier} />
+                        </div>
                     {/if}
-
-                </div>
 
                 {/if}
 
