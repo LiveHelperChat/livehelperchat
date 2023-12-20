@@ -167,11 +167,11 @@ export default {
             });
         }
     },
-    startChatTransfer : function(chat_id,name,transfer_id) {
-        return lhinst.startChatTransfer(chat_id,$('#tabs'),name,transfer_id);
+    startChatTransfer : function(chat_id,name,transfer_id, transfer_scope) {
+        return lhinst.startChatTransfer(chat_id,$('#tabs'),name, transfer_id, transfer_scope);
     },
-    startChatNewWindowTransfer : function(chat_id,name,transfer_id) {
-        return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id);
+    startChatNewWindowTransfer : function(chat_id,name,transfer_id, transfer_scope) {
+        return lhinst.startChatNewWindowTransfer(chat_id,name,transfer_id, transfer_scope);
     },
     startChat : function (chat_id,name) {
         if ($('#tabs').length > 0) {

@@ -15,7 +15,7 @@
     $widgetsAvailable = erLhcoreClassChat::array_flatten($dashboardOrder); ?>
 
     <?php if ($basicChatEnabled == true) : ?>
-        <?php $rightPanelMode = true; $customCardNoDuration = true;$customCardTitleClass = "fs14"; ?>
+        <?php $rightPanelMode = true; $customCardNoDuration = true;$customCardTitleClass = "fs14";$customCardNoId = true; ?>
         <?php if (in_array('my_chats',$widgetsAvailable)) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/my_chats_panel.tpl.php'));?>
         <?php endif;?>
@@ -23,14 +23,14 @@
         <?php if (in_array('pending_chats',$widgetsAvailable)) : ?>
     	    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/pending_panel.tpl.php'));?>
 	    <?php endif;?>
-        <?php unset($rightPanelMode); unset($customCardNoDuration); unset($customCardTitleClass); ?>
+        <?php unset($rightPanelMode); unset($customCardNoDuration); unset($customCardTitleClass);unset($customCardNoId); ?>
 	<?php endif;?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/right_panel_post_pending_multiinclude.tpl.php'));?>
 
     <?php if ($basicChatEnabled == true) : ?>
 
-    <?php $rightPanelMode = true; $customCardNoDuration = true;$customCardTitleClass = "fs14"; ?>
+    <?php $rightPanelMode = true; $customCardNoDuration = true;$customCardTitleClass = "fs14";$customCardNoId = true; ?>
 
     <?php if (in_array('active_chats',$widgetsAvailable)) : ?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_panels/active_panel.tpl.php'));?>
@@ -60,7 +60,7 @@
         <?php include(erLhcoreClassDesign::designtpl('lhfront/dashboard/panels/bot_chats.tpl.php'));?>
     <?php endif; ?>
 
-        <?php unset($rightPanelMode); unset($customCardNoDuration); unset($customCardTitleClass); ?>
+        <?php unset($rightPanelMode); unset($customCardNoDuration); unset($customCardTitleClass);unset($customCardNoId); ?>
     
     <?php endif;?>
 </div> 

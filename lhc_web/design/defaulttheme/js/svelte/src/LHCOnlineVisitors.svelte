@@ -749,6 +749,8 @@
     </div>
 {/if}
 
+<div class="panel-list" id={lhcLogic.hide_action_buttons ? "onlineusers-panel-list" : null} style:max-height={lhcLogic.hide_action_buttons ? ($lhcList['onlineusers_m_h'] ?? '330px') : null}>
+
 <table class={"table table-small table-sm "+(lhcLogic.hide_action_buttons ? "table-fixed" : "online-users-table")} class:filter-online-active={lhcLogic.online_connected} cellpadding="0" cellspacing="0">
 <thead>
 <tr>
@@ -880,3 +882,5 @@
 </tbody>
 {/each}
 </table>
+
+</div>

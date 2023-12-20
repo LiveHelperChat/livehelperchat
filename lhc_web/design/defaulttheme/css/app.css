@@ -1991,6 +1991,7 @@ html {
     font-size: 14px;
 }
 
+.sub-tabs-content .expand-actions,
 .dashboard-panels .expand-actions{
     display: none;
 }

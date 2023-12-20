@@ -264,11 +264,11 @@
                         <span><img src={www_dir_flags + "/" + chat.country_code + ".png"} alt={chat.country_name} title={chat.country_name} /></span>
                     {/if}
 
-                    <a title={$t("widget.open_new_window")} class="material-icons" on:click={(e) => lhcServices.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id)}>open_in_new</a>
+                    <a title={$t("widget.open_new_window")} class="material-icons" on:click={(e) => lhcServices.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)}>open_in_new</a>
 
-                    <a title="[{chat.id}]" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons">info_outline</a>
+                    <a title="[{chat.id}]" on:click={(e) => {chat.transfer_scope == 1 ? lhcServices.previewMail(chat.id,e) : lhcServices.previewChat(chat.id,e)}} class="material-icons">info_outline</a>
 
-                    <a on:click={(e) => lhcServices.startChatTransfer(chat.id,chat.nick,chat.transfer_id)} title={$t("widget.accept_chat")}>{chat.nick}</a>
+                    <a on:click={(e) => lhcServices.startChatTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)} title={$t("widget.accept_chat")}>{chat.nick}</a>
 
                 </td>
                 <td nowrap="nowrap" colspan="2">
@@ -293,9 +293,9 @@
                     {#if chat.country_code}
                         <span><img src={www_dir_flags + "/" + chat.country_code + ".png"} alt={chat.country_name} title={chat.country_name} /></span>
                     {/if}
-                    <a title={$t("widget.open_new_window")} class="material-icons" on:click={(e) => lhcServices.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id)}>open_in_new</a>
-                    <a title="[{chat.id}]" on:click={(e) => lhcServices.previewChat(chat.id,e)} class="material-icons">info_outline</a>
-                    <a on:click={(e) => lhcServices.startChatTransfer(chat.id,chat.nick,chat.transfer_id)} title={$t("widget.accept_chat")}>{chat.nick}</a>
+                    <a title={$t("widget.open_new_window")} class="material-icons" on:click={(e) => lhcServices.startChatNewWindowTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)}>open_in_new</a>
+                    <a title="[{chat.id}]" on:click={(e) => {chat.transfer_scope == 1 ? lhcServices.previewMail(chat.id,e) : lhcServices.previewChat(chat.id,e)}} class="material-icons">info_outline</a>
+                    <a on:click={(e) => lhcServices.startChatTransfer(chat.id,chat.nick,chat.transfer_id,chat.transfer_scope)} title={$t("widget.accept_chat")}>{chat.nick}</a>
                 </td>
                 <td nowrap="nowrap" colspan="2">
                     <div class="abbr-list">{chat.time_front}</div>
