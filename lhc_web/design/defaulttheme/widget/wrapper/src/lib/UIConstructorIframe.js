@@ -8,7 +8,7 @@ export class UIConstructorIframe extends UIConsturctor {
         this.bodyId = '';
     }
 
-    constructUIIframe(style, dir, cl, header) {
+    constructUIIframe(style, dir, cl, header, disableViewPort) {
 
         if (typeof dir === 'undefined'){
             dir = 'ltr';
@@ -26,7 +26,7 @@ export class UIConstructorIframe extends UIConsturctor {
         if (this.elmDomDoc === null) return null;
 
         try {
-            this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />'+header;
+            this.elmDomDoc.getElementsByTagName("head")[0].innerHTML = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'+(disableViewPort !== true ? '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />' : '')+header;
 
             if (this.bodyId != '') {
                 this.elmDomDoc.body.id = this.bodyId;

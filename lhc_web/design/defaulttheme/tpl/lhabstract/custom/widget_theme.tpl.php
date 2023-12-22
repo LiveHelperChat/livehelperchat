@@ -600,6 +600,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label><?php echo $fields['viewport']['trans'];?></label>
+                            <select name="AbstractInput_viewport" class="form-control form-control-sm">
+                                <option value="" <?php !isset($object->bot_configuration_array['viewport']) || $object->bot_configuration_array['viewport'] == '' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Always enabled');?></option>
+                                <option value="1" <?php isset($object->bot_configuration_array['viewport']) && $object->bot_configuration_array['viewport'] == '1' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Enabled on mobile');?></option>
+                                <option value="2" <?php isset($object->bot_configuration_array['viewport']) && $object->bot_configuration_array['viewport'] == '2' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/htmlcode','Always off');?></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label><?php echo $fields['switch_to_human']['trans'];?></label>
                             <?php echo erLhcoreClassAbstract::renderInput('switch_to_human', $fields['switch_to_human'], $object)?>
                         </div>

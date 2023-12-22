@@ -292,6 +292,10 @@ if (isset($outputResponse['theme'])) {
             $outputResponse['chat_ui']['wright_inv'] = (int)$theme->bot_configuration_array['wright_inv'];
         }
 
+        if (isset($theme->bot_configuration_array['viewport']) && is_numeric($theme->bot_configuration_array['viewport'])) {
+            $outputResponse['chat_ui']['viewport'] = (int)$theme->bot_configuration_array['viewport'];
+        }
+
         if (isset($theme->bot_configuration_array['wbottom']) && is_numeric($theme->bot_configuration_array['wbottom'])) {
             $outputResponse['chat_ui']['wbottom'] = (int)$theme->bot_configuration_array['wbottom'];
         }
@@ -530,7 +534,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 220;
+$outputResponse['wv'] = 221;
 
 // React APP versions
 $outputResponse['v'] = 318;
