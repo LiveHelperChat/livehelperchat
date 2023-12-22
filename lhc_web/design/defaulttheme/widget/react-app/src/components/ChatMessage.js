@@ -193,7 +193,7 @@ class ChatMessage extends PureComponent {
             if (data.data.update_message) {
                 this.props.updateMessage(attrs['data-id'], this);
             } else {
-                this.props.updateMessages();
+                this.props.updateMessages({"check_focus":true});
                 this.props.updateStatus();
             }
         });

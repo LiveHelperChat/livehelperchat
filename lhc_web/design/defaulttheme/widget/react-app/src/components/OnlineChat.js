@@ -653,7 +653,7 @@ class OnlineChat extends Component {
         }));
     }
 
-    updateMessages() {
+    updateMessages(paramsUpdate) {
         var params = {
             'chat_id': this.props.chatwidget.getIn(['chatData','id']),
             'hash' : this.props.chatwidget.getIn(['chatData','hash']),
@@ -670,6 +670,10 @@ class OnlineChat extends Component {
         }
 
         this.props.dispatch(fetchMessages(params));
+
+        if (paramsUpdate && paramsUpdate["check_focus"] && this.props.chatwidget.get('isMobile') === false) {
+            this.focusMessage();
+        }
     }
 
     updateStatus() {
