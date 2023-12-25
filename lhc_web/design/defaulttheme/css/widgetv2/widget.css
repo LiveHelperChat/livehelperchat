@@ -269,7 +269,7 @@ div.system-response {
 }
 
 .op-tit{
-    color:#5078d8;
+    color: #486bc2;
 }
 
 .vis-tit{
@@ -437,11 +437,11 @@ div.message-row.response div.msg-body.sub-message{
 }
 
 .bottom-message div.response .vis-tit{
-    color:#5078d8;
+    color:#486bc2;
 }
 
 .bottom-message div.message-admin .op-tit{
-    color: #888
+    color: #6b6b6b
 }
 
 .bottom-message div.response div.msg-body{

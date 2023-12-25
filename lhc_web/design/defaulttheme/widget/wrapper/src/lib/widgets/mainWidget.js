@@ -24,7 +24,7 @@ export class mainWidget{
             maxwidth: "95px",
             minheight: "95px",
             minwidth: "95px"
-        }), null, "iframe");
+        }),  {"role":"presentation"}, "iframe");
 
         this.isLoaded = false;
 
