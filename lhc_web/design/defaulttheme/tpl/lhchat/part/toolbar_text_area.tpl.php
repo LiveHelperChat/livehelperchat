@@ -9,14 +9,35 @@
     <?php endif; ?>
             <div class="btn-group btn-group-sm me-1 pb-1" role="group">
 
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="b" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Bold')?>"><b>B</b></button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="i" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Italic')?>"><i>I</i></button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="u" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Underline')?>"><u>U</u></button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="s" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Strike')?>"><strike>S</strike></button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="quote" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Quote')?>">&quot;</button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="youtube" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Youtube')?>"><i class="material-icons me-0">ondemand_video</i></button>
-                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>"><i class="material-icons me-0">code</i></button>
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[b]',$bbcodeOptions['disabled_options'])) : ?>
+                    <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="b" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Bold')?>"><b>B</b></button>
+                <?php endif; ?>
 
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[i]',$bbcodeOptions['disabled_options'])) : ?>
+                    <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="i" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Italic')?>"><i>I</i></button>
+                <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[u]',$bbcodeOptions['disabled_options'])) : ?>
+                    <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="u" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Underline')?>"><u>U</u></button>
+                <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[s]',$bbcodeOptions['disabled_options'])) : ?>
+                    <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="s" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Strike')?>"><strike>S</strike></button>
+                <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[quote]',$bbcodeOptions['disabled_options'])) : ?>
+                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="quote" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Quote')?>">&quot;</button>
+                <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[youtube]',$bbcodeOptions['disabled_options'])) : ?>
+                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="youtube" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Youtube')?>"><i class="material-icons me-0">ondemand_video</i></button>
+                <?php endif; ?>
+
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','htmlbbcodeenabled')) : ?>
+                <button type="button" class="btn btn-outline-secondary" data-selector="<?php echo $bbcodeOptions['selector']?>" data-bbcode="html" onclick="lhinst.handleBBCode($(this))" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','HTML Code')?>"><i class="material-icons me-0">code</i></button>
+                <?php endif; ?>
+
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[fs12]',$bbcodeOptions['disabled_options'])) : ?>
                 <div class="dropdown dropup">
                     <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-0 border-start-0 border-end-0"  title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Font Size')?>" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons me-0">format_size</i>
@@ -27,7 +48,9 @@
                         <?php endfor; ?>
                     </div>
                 </div>
+                <?php endif; ?>
 
+                <?php if (!isset($bbcodeOptions['disabled_options']) || !in_array('[color]',$bbcodeOptions['disabled_options'])) : ?>
                 <div class="dropdown dropup">
                     <button class="btn btn-outline-secondary dropdown-toggle btn-sm rounded-start-0 rounded-end-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Color')?>" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons me-0">palette</span>
@@ -42,12 +65,12 @@
                                 <?php endforeach; ?>
                             </div>
                         </div>
-
                         <div class="pe-2 ps-2">
                             <button class="btn btn-outline-secondary w-100 btn-xs" id="color-apply-<?php echo $chat->id?>" data-selector="<?php echo $bbcodeOptions['selector']?>" onclick="lhinst.handleBBCode($(this))" data-bbcode-end="color" data-bbcode="color=00FF00" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Apply')?></button>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
 
             </div>
 

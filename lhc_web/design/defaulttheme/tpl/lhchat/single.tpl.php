@@ -22,7 +22,7 @@ function addChat(chat_id,name)
 {
 	lhinst.setCloseWindowOnEvent(true);
 	lhinst.setDisableRemember(true);
-    lhinst.addOpenTrace('popupopen');
+    lhinst.addOpenTrace('popup_open');
     lhinst.startChat(chat_id,$('#tabs'),name);
     window.focus();
 }

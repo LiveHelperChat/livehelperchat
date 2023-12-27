@@ -77,7 +77,13 @@
                 </div>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_toolbar_multiinclude.tpl.php')); ?>
                 <div class="ms-auto">
-                    <?php $bbcodeOptions = array('selector' => '#CSChatMessage-' . $chat->id) ?>
+
+                    <?php
+                        $bbcodeDisabledOptions = erLhcoreClassModelChatConfig::fetch('bbcode_options')->data;
+                        $bbcodeOptions = array(
+                            'selector' => '#CSChatMessage-' . $chat->id,
+                            'disabled_options' => isset($bbcodeDisabledOptions['dio']) ? $bbcodeDisabledOptions['dio'] : []
+                        ) ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/part/toolbar_text_area.tpl.php')); ?>
                 </div>
             </div>

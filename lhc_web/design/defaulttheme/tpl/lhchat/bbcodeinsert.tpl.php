@@ -48,12 +48,29 @@ $icons = array(
                 <?php foreach ($icons as $index => $iconGroup) : ?>
                     <div role="tabpanel" class="tab-pane bb-list<?php if ($index == 0) : ?> active<?php endif;?><?php if (isset($chat_id) && $chat_id !== null) : ?> admin-emoji<?php endif;?>" id="bbcode-smiley-<?php echo $index?><?php if (isset($bbcodeParams['tab_prefix'])) : ?><?php echo $bbcodeParams['tab_prefix']?><?php endif; ?>">
                         <?php if ($index == 0) : ?>
-                            <a bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf114;<?php else : ?>image<?php endif; ?></i></a>
-                            <a bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf115;<?php else : ?>link<?php endif; ?></i></a>
-                            <a bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
-                            <a bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
+                            <?php if (!isset($bb_code_disabled) || !in_array('[img]',$bb_code_disabled)) : ?>
+                            <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Image'); ?>" data-promt="img" data-bb-code="img"><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf114;<?php else : ?>image<?php endif; ?></i></a>
+                            <?php endif; ?>
+
+                            <?php if (!isset($bb_code_disabled) || !in_array('[url]',$bb_code_disabled)) : ?>
+                            <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link'); ?>" data-promt="url" data-bb-code=" [url=http://example.com]<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Link title'); ?>[/url] "><i class="material-icons mr-0"><?php if (isset($react) && $react == true) : ?>&#xf115;<?php else : ?>link<?php endif; ?></i></a>
+                            <?php endif; ?>
+
+                            <?php if (!isset($bb_code_disabled) || !in_array('[b]',$bb_code_disabled)) : ?>
+                            <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Bold'); ?>" data-bb-code=" [b][/b] "><strong>B</strong></a>
+                            <?php endif; ?>
+
+                            <?php if (!isset($bb_code_disabled) || !in_array('[i]',$bb_code_disabled)) : ?>
+                            <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Italic'); ?>" data-bb-code=" [i][/i] "><em>I</em></a>
+                            <?php endif; ?>
+
+                            <?php if (!isset($bb_code_disabled) || !in_array('[s]',$bb_code_disabled)) : ?>
+                            <a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/bbcodeinsert', 'Strikethrough'); ?>" data-bb-code=" [s][/s] "><s>S</s></a>
+                            <?php endif; ?>
+
                         <?php endif; ?>
-                        <?php foreach ($iconGroup['icons'] as $icon) : ?><a bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a><?php endforeach; ?>
+
+                        <?php foreach ($iconGroup['icons'] as $icon) : ?><a tabindex="0" bbitem="true" class="rounded d-inline-block bg-light p-1 m-1 action-image" data-bb-code="<?php echo $icon ?>"><?php echo $icon ?></a><?php endforeach; ?>
                         </ul>
 
                     </div>
