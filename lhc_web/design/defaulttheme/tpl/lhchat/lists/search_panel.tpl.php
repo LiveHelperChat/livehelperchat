@@ -677,12 +677,21 @@
 
             <div class="btn-group me-2" role="group" aria-label="...">
                 <button type="submit" class="btn btn-primary btn-sm no-wrap" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
-                <select class="form-control form-control-sm border-secondary rounded-0 rounded-end" name="sortby">
+                <select class="form-control form-control-sm border-secondary rounded-0 border-end-0" name="sortby" onchange="this.form.submit()">
                     <option <?php if ($input->sortby == 'id_desc'|| $input->sortby == '') : ?>selected="selected"<?php endif; ?> value="id_desc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Newest first (default)');?></option>
                     <option <?php if ($input->sortby == 'id_asc') : ?>selected="selected"<?php endif; ?> value="id_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Oldest first');?></option>
                     <option <?php if ($input->sortby == 'lmt_dsc') : ?>selected="selected"<?php endif; ?> value="lmt_dsc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions first');?></option>
                     <option <?php if ($input->sortby == 'lmt_asc') : ?>selected="selected"<?php endif; ?> value="lmt_asc"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Last interactions last');?></option>
                 </select>
+
+                <select name="ipp" class="form-control form-control-sm rounded-0 border-secondary rounded-end" onchange="this.form.submit()">
+                    <option value="20" <?php if ($pages->items_per_page == 20) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','20 items per page');?></option>
+                    <option value="40" <?php if ($pages->items_per_page == 40) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','40 items per page');?></option>
+                    <option value="60" <?php if ($pages->items_per_page == 60) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','60 items per page');?></option>
+                    <option value="80" <?php if ($pages->items_per_page == 80) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','80 items per page');?></option>
+                    <option value="100" <?php if ($pages->items_per_page == 100) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','100 items per page');?></option>
+                </select>
+
             </div>
 
             <div class="btn-group" role="group" aria-label="...">
