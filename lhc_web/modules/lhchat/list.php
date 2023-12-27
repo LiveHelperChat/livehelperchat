@@ -219,6 +219,9 @@ try {
     $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelChat::getCount($filterParams['filter']);
     $pages->translationContext = 'chat/pendingchats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
+    if ($filterParams['input']->ipp > 0) {
+        $pages->setItemsPerPage($filterParams['input']->ipp);
+    }
     $pages->paginate();
     $tpl->set('pages',$pages);
 
