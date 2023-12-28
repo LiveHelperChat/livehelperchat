@@ -791,6 +791,11 @@ class erLhcoreClassModelChatOnlineUser
                     $item->total_visits = 1;
                     $item->last_visit_prev = time();
 
+                    // UUID was passed
+                    if (isset($_GET['vid'])) {
+                        $item->notes = 'UUID: '.$_GET['vid'];
+                    }
+
                     if (isset($paramsHandle['department']) && is_array($paramsHandle['department']) && count($paramsHandle['department']) == 1) {
                         $item->dep_id = array_shift($paramsHandle['department']);
                     } elseif (isset($paramsHandle['department']) && is_numeric($paramsHandle['department'])) {
