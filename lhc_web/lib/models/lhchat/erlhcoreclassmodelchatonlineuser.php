@@ -791,11 +791,6 @@ class erLhcoreClassModelChatOnlineUser
                     $item->total_visits = 1;
                     $item->last_visit_prev = time();
 
-                    // UUID was passed
-                    if (isset($_GET['vid'])) {
-                        $item->notes = 'UUID: '.$_GET['vid'];
-                    }
-
                     if (isset($paramsHandle['department']) && is_array($paramsHandle['department']) && count($paramsHandle['department']) == 1) {
                         $item->dep_id = array_shift($paramsHandle['department']);
                     } elseif (isset($paramsHandle['department']) && is_numeric($paramsHandle['department'])) {
@@ -843,7 +838,9 @@ class erLhcoreClassModelChatOnlineUser
                 $item->tt_pages_count++;
                 $item->store_chat = true;
 
-                $onlineAttr = array();
+                if (!isset($onlineAttr)) {
+                    $onlineAttr = array();
+                }
 
                 if (isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr']))) {
                     $onlineAttr = $_GET['onattr'];
@@ -910,6 +907,10 @@ class erLhcoreClassModelChatOnlineUser
 
                 if (isset($paramsHandle['tag']) && $paramsHandle['tag'] != '') {
                     $onlineAttr['tag'] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => implode(',',array_unique(explode(',',$paramsHandle['tag']))));
+                }
+
+                if ($newVisitor === true) {
+                    $onlineAttr['init'] = 'NEW_VID: ' . $item->vid . (!empty($onlineAttr) ? ' | ' . json_encode($onlineAttr) : '');
                 }
 
                 if (!empty($onlineAttr)) {

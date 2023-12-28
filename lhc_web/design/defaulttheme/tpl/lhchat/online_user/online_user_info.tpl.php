@@ -1,4 +1,4 @@
-<div class="float-end">
+<div class="float-end col-6">
 <p class="fs12">
 <?php if ( !empty($online_user->user_country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $online_user->user_country_code?>.png" alt="<?php echo htmlspecialchars($online_user->user_country_name)?>" title="<?php echo htmlspecialchars($online_user->user_country_name)?>" /><?php endif; ?> (<?php
     if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
@@ -41,8 +41,14 @@
                 <?php echo htmlspecialchars($addItem['key'])?> - <?php echo htmlspecialchars($addItem['value'])?>
             </li>
         <?php else : ?>
-        <li>
-            <?php if (!is_numeric($attrKey)) :?><?php echo htmlspecialchars($attrKey)?> - <?php endif?><?php echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));?>
+        <li class="text-break">
+            <?php if (!is_numeric($attrKey)) :?><?php echo htmlspecialchars($attrKey)?> - <?php endif?><?php
+                if ($attrKey == 'init'){
+                    echo '<small class="fs12">'.htmlspecialchars($addItem).'</small>';
+                } else {
+                    echo htmlspecialchars(json_encode($addItem,JSON_PRETTY_PRINT));
+                }
+            ?>
          </li>
         <?php endif; ?>
     <?php endforeach; ?>
