@@ -79,7 +79,7 @@
 
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
                 <div role="tabpanel" class="tab-pane" id="chatdebug">
-                    <pre class="fs11"><?php echo htmlspecialchars(json_encode($online_user->getState(),JSON_PRETTY_PRINT)); ?></pre>
+                    <?php include(erLhcoreClassDesign::designtpl('lhchat/online_user/debug.tpl.php')); ?>
                 </div>
             <?php endif; ?>
 
