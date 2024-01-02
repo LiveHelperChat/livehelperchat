@@ -31,11 +31,11 @@
                 <?php endif; ?>
 
                 <?php if (isset($debug_invitation['message_approved'])) : ?>
-                    <li><?php echo json_encode($debug_invitation['message_approved'])?></li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Attributes online visitor')?> - <?php echo json_encode($debug_invitation['message_approved'])?></li>
                 <?php endif; ?>
 
                 <?php if (isset($debug_invitation['time_on_site_missmatch'])) : ?>
-                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Skipped because of')?> <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Attributes conditions not valid')?></span> - [<?php echo implode(',',array_keys($debug_invitation['time_on_site_missmatch']))?>], <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','conditions')?> - [<?php echo implode(',',$debug_invitation['time_on_site_missmatch_cond'])?>]</li>
+                    <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Skipped because of')?> <span class="badge bg-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','Time on site')?></span> - [<?php echo implode(',',array_keys($debug_invitation['time_on_site_missmatch']))?>], <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaudit/debuginvitation','conditions')?> - [<?php echo implode(',',$debug_invitation['time_on_site_missmatch_cond'])?>]</li>
                 <?php endif; ?>
             </ul>
         </li>
