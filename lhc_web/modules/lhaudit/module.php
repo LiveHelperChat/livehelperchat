@@ -17,6 +17,11 @@ $ViewList['loginhistory'] = array(
     'functions' => array( 'use' ),
 );
 
+$ViewList['debuginvitation'] = array(
+    'params' => array('ouser_id','invitation_id','tag'),
+    'functions' => array( 'use' ),
+);
+
 $ViewList['logrecord'] = array(
     'params' => array('id'),
     'functions' => array( 'log_preview' ),
