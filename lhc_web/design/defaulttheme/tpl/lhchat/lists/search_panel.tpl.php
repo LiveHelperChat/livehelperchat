@@ -24,7 +24,7 @@
         <div class="col-md-1">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Phone');?></label>
-			<input type="text" class="form-control form-control-sm" name="phone" value="<?php echo htmlspecialchars($input->phone)?>" />
+			<input type="text" class="form-control form-control-sm" name="phone" value="<?php echo htmlspecialchars((string)$input->phone)?>" />
 		  </div>
 		</div>
 		
