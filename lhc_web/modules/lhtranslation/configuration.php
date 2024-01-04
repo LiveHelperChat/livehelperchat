@@ -65,6 +65,9 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
         'yandex_api_key' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'deepl_api_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
 
         'aws_region' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -139,6 +142,10 @@ if ( isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSettin
 
     if ( $form->hasValidData( 'yandex_api_key' ) && $form->yandex_api_key != '') {
         $data['yandex_api_key'] = $form->yandex_api_key;
+    }
+    
+    if ( $form->hasValidData( 'deepl_api_key' ) && $form->deepl_api_key != '') {
+        $data['deepl_api_key'] = $form->deepl_api_key;
     }
     
     $translationData->value = serialize($data);

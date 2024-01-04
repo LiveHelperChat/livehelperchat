@@ -251,6 +251,7 @@ return array_merge(array (
         'erLhcoreClassTranslateGoogle'              => 'lib/core/lhtranslate/lhgoogletranslate.php',
         'erLhcoreClassTranslateYandex'              => 'lib/core/lhtranslate/lhyandextranslate.php',
         'erLhcoreClassTranslateAWS'                 => 'lib/core/lhtranslate/lhawstranslate.php',
+        'erLhcoreClassTranslateDeepL'               => 'lib/core/lhtranslate/lhdeepltranslate.php',
 
 		'erLhcoreClassDBTrait'       				=> 'lib/core/lhcore/lhdbtrait.php',
 		'lhSecurity'       				            => 'lib/core/lhexternal/lhsecurity.php',

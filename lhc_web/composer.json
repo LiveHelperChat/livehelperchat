@@ -7,7 +7,10 @@
   ],
   "config": {
     "sort-packages": true,
-    "vendor-dir": "lib/vendor"
+    "vendor-dir": "lib/vendor",
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
   },
   "description": "Live Helper Chat - live support for your website. Featuring web and desktop clients. Compatible Windows, Linux, Mac. Desktop client powered by QT. Supports mobile phones based on XMPP service providers (GTalk, Xabber, Mono etc.)",
   "homepage": "https://livehelperchat.com",
@@ -28,7 +31,8 @@
     "php": ">=7.3",
     "ext-json": "*",
     "aws/aws-sdk-php": "^3.277",
-    "minishlink/web-push": "^7.0"
+    "minishlink/web-push": "^7.0",
+    "deeplcom/deepl-php": "^1.3"
   },
   "type": "project"
 }
