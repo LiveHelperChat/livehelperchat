@@ -193,7 +193,7 @@ class ChatMessage extends PureComponent {
             if (data.data.update_message) {
                 this.props.updateMessage(attrs['data-id'], this);
             } else {
-                this.props.updateMessages();
+                this.props.updateMessages({"check_focus":true});
                 this.props.updateStatus();
             }
         });
@@ -343,7 +343,7 @@ class ChatMessage extends PureComponent {
                                 domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
                             }
 
-                            return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
+                            return <a {...domNode.attribs} onKeyPress={(e) => { e.key === "Enter" ? this.abstractClick(cloneAttr, e) : '' }}  onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
                     } else if (domNode.name && domNode.name === 'select') {
 

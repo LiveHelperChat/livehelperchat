@@ -84,7 +84,7 @@ class ChatModal extends PureComponent {
                         replace: domNode => {
 
                             if (domNode.attribs && domNode.attribs.id === 'react-close-modal') {
-                                return <button type="button" className="btn-close float-end" data-bs-dismiss="modal" onClick={this.dismissModal} aria-label="Close"></button>;
+                                return <button tabIndex="0" type="button" className="btn-close float-end" data-bs-dismiss="modal" onClick={this.dismissModal} aria-label="Close"></button>;
                             } else if (domNode.attribs && domNode.attribs.linkaction) {
 
                                 if (domNode.attribs.class) {
@@ -101,7 +101,7 @@ class ChatModal extends PureComponent {
                                     delete domNode.attribs.class;
                                 }
                                 return (
-                                    <a {...domNode.attribs} onClick={(e) => this.generalOnClick(domNode.attribs)}>{domToReact(domNode.children)}</a>
+                                    <a {...domNode.attribs} onKeyDown={(e) => { if (e.key === "Enter") {e.preventDefault();this.generalOnClick(domNode.attribs)}}} onClick={(e) => this.generalOnClick(domNode.attribs)}>{domToReact(domNode.children)}</a>
                                 );
                             } else if (domNode.type && domNode.type === 'tag' && domNode.name && domNode.name == 'input' && domNode.attribs && domNode.attribs.type && domNode.attribs.type == "button") {
 

@@ -17,7 +17,9 @@ class erLhcoreClassDesign
 
     public static function design($path, $siteDir = false)
     {
-        $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $debugOutput = $configInstance->getSetting('site', 'debug_output');
 
         if ($debugOutput == true) {
             $logString = '';
@@ -27,7 +29,7 @@ class erLhcoreClassDesign
         $instance = erLhcoreClassSystem::instance();
 
         // Check extensions directories
-        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
+        $extensions = $configInstance->getOverrideValue('site', 'extensions');
         foreach ($extensions as $ext) {
             $tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext . 'theme/' . $path;
             if (file_exists($tplDir)) {
@@ -88,7 +90,9 @@ class erLhcoreClassDesign
 
     public static function designtpl($path)
     {
-        $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $debugOutput = $configInstance->getSetting('site', 'debug_output');
 
         if ($debugOutput == true) {
             $logString = '';
@@ -101,7 +105,7 @@ class erLhcoreClassDesign
         $multiTemplates = array();
 
         // Check extensions directories
-        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
+        $extensions = $configInstance->getOverrideValue('site', 'extensions');
         foreach ($extensions as $ext) {
             $tplDir = $instance->SiteDir . 'extension/' . $ext . '/design/' . $ext . 'theme/tpl/' . $path;
             if (file_exists($tplDir)) {
@@ -240,7 +244,9 @@ class erLhcoreClassDesign
 
     public static function designCSS($files)
     {
-        $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $debugOutput = $configInstance->getSetting('site', 'debug_output');
         $items = explode(';', $files);
 
         if ($debugOutput == true) {
@@ -248,7 +254,7 @@ class erLhcoreClassDesign
             $debug = ezcDebug::getInstance();
         }
 
-        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
+        $extensions = $configInstance->getOverrideValue('site', 'extensions');
         $instance = erLhcoreClassSystem::instance();
 
         $fileNameStaticName = md5($files . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
@@ -441,7 +447,9 @@ class erLhcoreClassDesign
 
     public static function designJS($files, $filesHash = '')
     {
-        $debugOutput = erConfigClassLhConfig::getInstance()->getSetting('site', 'debug_output');
+        $configInstance = erConfigClassLhConfig::getInstance();
+
+        $debugOutput = $configInstance->getSetting('site', 'debug_output');
         $items = explode(';', $files);
 
         if ($debugOutput == true) {
@@ -451,17 +459,19 @@ class erLhcoreClassDesign
 
         $filesToCompress = '';
         $instance = erLhcoreClassSystem::instance();
-        $extensions = erConfigClassLhConfig::getInstance()->getOverrideValue('site', 'extensions');
+        $extensions = $configInstance->getOverrideValue('site', 'extensions');
 
         if (empty($filesHash)) {
             $filesHash = $files;
         }
 
+        $version = (int)$configInstance->getSetting('site', 'static_version', false);
+
         $fileNameStaticName = md5($filesHash . implode('_',$extensions) . '_' . implode('_',$instance->ThemeSite));
         $filenameStaticPath = $instance->SiteDir . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js';
 
         if (self::$buildMode == false && $debugOutput == false && file_exists($filenameStaticPath)) {
-            return $instance->wwwDir() . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js?' . filemtime($filenameStaticPath);
+            return $instance->wwwDir() . '/design/defaulttheme/js/js_static/' . $fileNameStaticName . '.js?' . filemtime($filenameStaticPath) . '_' . $version;
         }
 
         foreach ($items as $path) {

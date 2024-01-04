@@ -56,7 +56,7 @@ class ezcPersistentDeleteHandler extends ezcPersistentSessionHandler
 
         // Check that the object is persistent already.
         // The < 0 check results from the times where only numeric IDs were allowed.
-        if ( $idValue == null || $idValue < 0 )
+        if ( $idValue == null || !($idValue < 0 || $idValue > 0) )
         {
             throw new ezcPersistentObjectNotPersistentException( $class );
         }

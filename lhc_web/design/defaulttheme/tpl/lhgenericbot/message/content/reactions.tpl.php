@@ -18,7 +18,7 @@ foreach ($reactions as $reaction) {
         $partsReaction[0] = '&#xf108;';
     }
 
-    $reactionsOutput .= "<a onclick=\"lhinst.reactionsClicked()\" data-action-type=\"reactions\" data-bot-action=\"button-click\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" data-identifier=\"{$partsReaction[2]}\" data-payload=\"{$partsReaction[1]}\" data-id=\"{$messageId}\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
+    $reactionsOutput .= "<a tabindex=\"0\" onclick=\"lhinst.reactionsClicked()\" data-action-type=\"reactions\" data-bot-action=\"button-click\" title=\"" . htmlspecialchars(isset($partsReaction[3]) ? $partsReaction[3] : '') . "\" data-identifier=\"{$partsReaction[2]}\" data-payload=\"{$partsReaction[1]}\" data-id=\"{$messageId}\" class=\"action-image reaction-item{$className}\">{$partsReaction[0]}</a>";
 }
 ?>
 
