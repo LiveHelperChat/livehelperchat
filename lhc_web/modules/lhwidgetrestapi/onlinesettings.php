@@ -808,7 +808,7 @@ if ($theme !== false) {
         $tpl->set('no_br',true);
         $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
 
-        $chat_ui['cmmsg_widget'] = $tpl->fetch();
+        $chat_ui['cmmsg_widget'] = str_replace('{msg_id}',$theme->bot_configuration_array['trigger_id'],$tpl->fetch());
 
     } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
 
