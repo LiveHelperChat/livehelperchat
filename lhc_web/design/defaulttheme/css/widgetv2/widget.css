@@ -1210,8 +1210,8 @@ button.material-icons-button{
 .btn-bottom-scroll {
     bottom:5px;
     text-align: center;
-    width: 90%;
-    margin-left: 5%;
+    width: 180px;
+    margin-left: calc(50% - 90px);
     z-index: 2;
 }
 

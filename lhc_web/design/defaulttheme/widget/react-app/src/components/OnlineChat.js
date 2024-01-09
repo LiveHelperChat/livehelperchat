@@ -279,7 +279,30 @@ class OnlineChat extends Component {
         if (!block){
             return;
         }
-        ['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
+
+        let selector = '.meta-auto-hide, .meta-auto-hide-normal';
+        var x = block.querySelectorAll(selector);
+
+        if (x.length > 0) {
+            var i;
+            var lengthHide = hideFirst ? 0 : 1;
+            for (i = 0; i < x.length - lengthHide ; i++) {
+                x[i].style.display = 'none';
+            }
+            var lastChild = block.lastChild;
+
+            // Checking not null not enough, because element can be text type
+            if (lastChild && typeof lastChild.getElementsByClassName !== 'undefined') {
+                x = lastChild.querySelectorAll(selector);
+                var i;
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = '';
+                }
+            }
+        }
+
+
+        /*['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
             var x = block.getElementsByClassName(className);
             if (x.length > 0) {
                 var i;
@@ -298,7 +321,7 @@ class OnlineChat extends Component {
                     }
                 }
             }
-        });
+        });*/
     }
 
     nextUntil(htmlElement, match, condition = true, any = false) {
