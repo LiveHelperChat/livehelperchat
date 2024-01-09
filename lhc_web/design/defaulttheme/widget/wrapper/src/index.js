@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 219;
+            lhc.version = 222;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -130,6 +130,7 @@
                 // Main attributes
                 var attributesWidget = {
                     terminated: false,
+                    viewport_enabled: true,
                     prefixLowercase: prefixLowercase,
                     prefixStorage: prefixStorage,
                     prefixScope: scopeScript,
@@ -432,6 +433,10 @@
 
                         if (data.chat_ui.clinst) {
                             attributesWidget.clinst = true;
+                        }
+
+                        if (data.chat_ui.viewport) {
+                            attributesWidget.viewport_enabled = data.chat_ui.viewport != 2 && data.chat_ui.viewport == 1 && isMobile === true;
                         }
 
                         if (data.chat_ui.wbottom) {

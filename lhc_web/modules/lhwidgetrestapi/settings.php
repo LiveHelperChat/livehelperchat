@@ -292,6 +292,10 @@ if (isset($outputResponse['theme'])) {
             $outputResponse['chat_ui']['wright_inv'] = (int)$theme->bot_configuration_array['wright_inv'];
         }
 
+        if (isset($theme->bot_configuration_array['viewport']) && is_numeric($theme->bot_configuration_array['viewport'])) {
+            $outputResponse['chat_ui']['viewport'] = (int)$theme->bot_configuration_array['viewport'];
+        }
+
         if (isset($theme->bot_configuration_array['wbottom']) && is_numeric($theme->bot_configuration_array['wbottom'])) {
             $outputResponse['chat_ui']['wbottom'] = (int)$theme->bot_configuration_array['wbottom'];
         }
@@ -530,10 +534,10 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 219;
+$outputResponse['wv'] = 222;
 
 // React APP versions
-$outputResponse['v'] = 317;
+$outputResponse['v'] = 320;
 
 $outputResponse['hash'] = sha1(erLhcoreClassIPDetect::getIP() . $ts . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 $outputResponse['hash_ts'] = $ts;

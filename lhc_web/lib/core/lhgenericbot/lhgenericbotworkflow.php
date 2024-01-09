@@ -442,7 +442,7 @@ class erLhcoreClassGenericBotWorkflow {
         foreach ($words as $word) {
 
             if (preg_match('/^\/(.*?)((\/[a-z]+)|(\/))$/',$word)) {
-                if (preg_match($word,$text) === 1) {
+                if (preg_match(str_replace('_com_',',',$word),$text) === 1) {
                     if (isset($paramsExecution['stats']) && $paramsExecution['stats'] == true) {
                         return ['valid' => true, 'number' => 0];
                     } else {

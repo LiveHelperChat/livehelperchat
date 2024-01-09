@@ -12,6 +12,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -1916,6 +1924,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Viewport settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Date format if message is on different day</source>
       <translation type="unfinished"/>
     </message>
@@ -3404,7 +3416,15 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Generate</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3485,10 +3505,6 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3688,6 +3704,26 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>20 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>40 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>60 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>80 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>100 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation type="unfinished"/>
     </message>
@@ -3709,10 +3745,6 @@
     </message>
     <message>
       <source>Reset</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department group</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6107,6 +6139,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Always enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled on mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always off</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bottom right corner of the screen</source>
       <translation type="unfinished"/>
     </message>
@@ -8007,6 +8051,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sending...</source>
       <translation type="unfinished"/>
     </message>
@@ -8064,6 +8112,10 @@
     </message>
     <message>
       <source>Hold added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8522,6 +8574,10 @@
     </message>
     <message>
       <source>Italic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Strikethrough</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10710,6 +10766,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was assigned to chat opener event it had other agent assigned at that moment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Opened chat by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide/Show HTML Code</source>
       <translation type="unfinished"/>
     </message>
@@ -11196,6 +11260,10 @@
     </message>
     <message>
       <source>Auto responder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>BBCode configuration</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12691,6 +12759,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Top 100 referrers for selected period</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chatbox chats</source>
       <translation type="unfinished"/>
     </message>
@@ -12804,6 +12876,10 @@
     </message>
     <message>
       <source>Cities</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top 100 referrers</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13789,6 +13865,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>BBCode configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default settings</source>
       <translation type="unfinished"/>
     </message>
@@ -14127,6 +14207,10 @@
     </message>
     <message>
       <source>Hide send e-mail button for operators in chat window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show survey if chat is ended in a bot status</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -19828,6 +19912,88 @@
     </message>
     <message>
       <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhaudit/debuginvitation</name>
+    <message>
+      <source>Simplified output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Valid invitations found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No valid messages were found from candidates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped because of no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped because of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time seen on website ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time had chat n minutes ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attributes conditions not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online user output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Raw output debug</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive invitation to test against. Choose Any for auto select.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag to test against. E.g. error_deposit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/bbcodeconfiguration</name>
+    <message>
+      <source>BBCode configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable for visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable for operator messages</source>
       <translation type="unfinished"/>
     </message>
   </context>

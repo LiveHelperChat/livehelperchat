@@ -1752,6 +1752,13 @@ input[type="file"]{
     opacity: 1;
 }
 
+
+.survey-star-item:focus-visible svg{
+    color: green;
+    opacity: 1;
+}
+
+
 .mx170{
     max-height:170px;
     overflow:auto;

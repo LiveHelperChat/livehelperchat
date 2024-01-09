@@ -136,19 +136,19 @@ class VoiceMessage extends PureComponent {
         const { t } = this.props;
 
         return <div className="text-nowrap voice-message-container">
-            <i className="material-icons pointer text-danger fs25" title={t('voice.cancel_voice_message')} onClick={() => this.props.cancel()}>&#xf10a;</i>
+            <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-danger fs25" title={t('voice.cancel_voice_message')} onClick={() => this.props.cancel()}>&#xf10a;</button>
 
-            {!isRecording && <i className="material-icons fs25 pointer text-danger me-0" title={t('voice.record_voice_message')} onClick={this.startRecording}>&#xf10f;</i>}
+            {!isRecording && <button type="button" tabIndex="0" className="material-icons material-icons-button fs25 pointer text-danger me-0" title={t('voice.record_voice_message')} onClick={this.startRecording}>&#xf10f;</button>}
 
-            {isRecording && <i className="material-icons fs25 pointer text-danger me-0" title={t('voice.stop_recording')} onClick={this.stopRecording}>&#xf112;</i>}
+            {isRecording && <button type="button" tabIndex="0" className="material-icons material-icons-button fs25 pointer text-danger me-0" title={t('voice.stop_recording')} onClick={this.stopRecording}>&#xf112;</button>}
 
-            {recording && isPlaying === false && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.play_recorded')} onClick={this.playRecord}>&#xf111;</i>}
+            {recording && isPlaying === false && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.play_recorded')} onClick={this.playRecord}>&#xf111;</button>}
 
-            {recording && isPlaying === true && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</i>}
+            {recording && isPlaying === true && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</button>}
 
             <span className="fs12 px-1 voice-message-length">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
 
-            {recording && <i className="material-icons pointer text-success me-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</i>}
+            {recording && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</button>}
 
         </div>;
     }

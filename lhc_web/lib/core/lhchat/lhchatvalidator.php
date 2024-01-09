@@ -1032,12 +1032,18 @@ class erLhcoreClassChatValidator {
             }
         }
 
+       if (isset($onlineAttr['init']) && strpos($onlineAttr['init'],'NEW_VID:') !== false) {
+           $initData = $onlineAttr['init'];
+           unset($onlineAttr['init']);
+           $onlineAttr['init'] = trim(str_replace('NEW_VID:','VID:', $initData) . (!empty($onlineAttr) ? " | " . json_encode($onlineAttr) : "") . (!empty($onlineAttrSystem) ? " | " . $visitor->online_attr_system : ""));
+       }
+
         $visitor->online_attr = json_encode($onlineAttr);
         $visitor->online_attr_array = $onlineAttr;
 
         $hashChanged = md5($visitor->online_attr_system . '_' . $visitor->online_attr) != $hashData;
         $usernamePresent = isset($onlineAttrSystem['username']) ? $onlineAttrSystem['username'] : '';
-        
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('onlineuser.update_js_vars', array('username_changed' => ($usernamePrevious != $usernamePresent), 'data_changed' => $hashChanged, 'ou' => & $visitor));
 
         // Update only if data has changed

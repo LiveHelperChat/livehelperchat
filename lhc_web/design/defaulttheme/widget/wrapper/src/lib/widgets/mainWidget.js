@@ -24,7 +24,7 @@ export class mainWidget{
             maxwidth: "95px",
             minheight: "95px",
             minwidth: "95px"
-        }), null, "iframe");
+        }),  {"role":"presentation"}, "iframe");
 
         this.isLoaded = false;
 
@@ -109,7 +109,7 @@ export class mainWidget{
 
         this.cont.tmpl = '<div id="root" class="container-fluid d-flex flex-column flex-grow-1 fade-in ' + (this.attributes.isMobile === true ? 'lhc-mobile' : 'lhc-desktop') + (this.attributes.fscreen ? ' lhc-fscreen' : '') + (this.attributes.position_placement == 'full_height_left' || this.attributes.position_placement == 'full_height_right' ? ' lhc-full-height' : '')+'"></div>';
 
-        if (this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml) === null) {
+        if (this.cont.constructUIIframe('', this.attributes.staticJS['dir'], this.attributes.staticJS['cl'], this.attributes.hhtml, !this.attributes.viewport_enabled) === null) {
             this.isLoaded = true;
             return null;
         }

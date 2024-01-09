@@ -174,6 +174,7 @@ try {
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
                 'can_write' => ($canWrite && $mailbox->active == 1),
+                'can_close' => $canWrite,
                 'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],

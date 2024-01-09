@@ -476,7 +476,7 @@ const MailChat = props => {
                             </div>
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
-                                {state.moptions.can_write && <div className="pb-2">
+                                {state.moptions.can_close && <div className="pb-2">
 
                                     {state.close_mode == false && <a className="btn btn-outline-secondary btn-sm" onClick={() => dispatch({type: 'update',value: {'close_mode': true}})}><i className="material-icons">close</i>{t('mail.close')}</a>}
 

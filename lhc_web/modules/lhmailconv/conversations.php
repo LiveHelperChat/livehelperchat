@@ -256,6 +256,9 @@ try {
     $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
     $pages->translationContext = 'chat/activechats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
+    if ($filterParams['input']->ipp > 0) {
+        $pages->setItemsPerPage($filterParams['input']->ipp);
+    }
     $pages->paginate();
     $tpl->set('pages',$pages);
 

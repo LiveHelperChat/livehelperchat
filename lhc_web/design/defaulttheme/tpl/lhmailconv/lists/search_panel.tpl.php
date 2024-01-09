@@ -295,6 +295,14 @@
             <div class="btn-group" role="group" aria-label="...">
                 <button class="btn btn-primary btn-sm" type="submit" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?></button>
 
+                <select name="ipp" class="form-control-sm rounded-0" onchange="this.form.submit()">
+                    <option value="20" <?php if ($pages->items_per_page == 20) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','20 items per page');?></option>
+                    <option value="40" <?php if ($pages->items_per_page == 40) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','40 items per page');?></option>
+                    <option value="60" <?php if ($pages->items_per_page == 60) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','60 items per page');?></option>
+                    <option value="80" <?php if ($pages->items_per_page == 80) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','80 items per page');?></option>
+                    <option value="100" <?php if ($pages->items_per_page == 100) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','100 items per page');?></option>
+                </select>
+
                 <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
                 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel_append_print_multiinclude.tpl.php'));?>
 
