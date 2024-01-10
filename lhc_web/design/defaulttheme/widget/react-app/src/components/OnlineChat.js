@@ -280,7 +280,7 @@ class OnlineChat extends Component {
             return;
         }
 
-        let selector = '.meta-auto-hide, .meta-auto-hide-normal';
+        /*let selector = '.meta-auto-hide, .meta-auto-hide-normal';
         var x = block.querySelectorAll(selector);
 
         if (x.length > 0) {
@@ -299,10 +299,8 @@ class OnlineChat extends Component {
                     x[i].style.display = '';
                 }
             }
-        }
-
-
-        /*['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
+        }*/
+        ['meta-auto-hide','meta-auto-hide-normal'].forEach(function(className){
             var x = block.getElementsByClassName(className);
             if (x.length > 0) {
                 var i;
@@ -321,7 +319,7 @@ class OnlineChat extends Component {
                     }
                 }
             }
-        });*/
+        });
     }
 
     nextUntil(htmlElement, match, condition = true, any = false) {
