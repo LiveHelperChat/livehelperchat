@@ -2,6 +2,7 @@
 
 class erLhcoreClassChatWebhookIncoming {
 
+    public static $staticErrors = [];
     public static function processEvent($incomingWebhook, array $payload) {
 
         $conditions = $incomingWebhook->conditions_array;
@@ -755,7 +756,8 @@ class erLhcoreClassChatWebhookIncoming {
                                 'incoming_webhook' => $incomingWebhook,
                                 'remote_request_headers' => (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
                                 'is_remote_location' =>  (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
-                                'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : '')
+                                'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : ''),
+                                'file_size_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_size']) ? $conditions['msg_cond_' . $typeMessage . '_file_size'] : '')
                             ), $chat);
 
                             if (!empty($file)) {
@@ -816,6 +818,19 @@ class erLhcoreClassChatWebhookIncoming {
 
                         $chat->last_user_msg_time = $msg->time;
                         $chat->last_msg_id = $msg->id;
+                    }
+
+                    if (!empty(self::$staticErrors)) {
+                        foreach (self::$staticErrors as $staticError) {
+                            $msgError = new erLhcoreClassModelmsg();
+                            $msgError->msg = $staticError;
+                            $msgError->chat_id = $chat->id;
+                            $msgError->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                            $msgError->user_id = -2;
+                            $msgError->time = time() + 1;
+                            erLhcoreClassChat::getSession()->save($msgError);
+                            $chat->last_msg_id = $msgError->id;
+                        }
                     }
 
                     if ($renotify == true) {
@@ -1213,7 +1228,8 @@ class erLhcoreClassChatWebhookIncoming {
                                 'incoming_webhook' => $incomingWebhook,
                                 'remote_request_headers' => (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_headers_content'] : ''),
                                 'is_remote_location' =>  (isset($conditions['msg_cond_' . $typeMessage . '_url_remote_location']) ? $conditions['msg_cond_' . $typeMessage . '_url_remote_location'] : ''),
-                                'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : '')
+                                'file_name_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : ''),
+                                'file_size_attr' => (isset($conditions['msg_cond_' . $typeMessage . '_file_size']) ? $conditions['msg_cond_' . $typeMessage . '_file_size'] : '')
                             ), $chat);
                             if (!empty($file)) {
                                 $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = $file;
@@ -1296,6 +1312,19 @@ class erLhcoreClassChatWebhookIncoming {
                     if ($msg->id > 0) {
                         $chat->last_msg_id = $msg->id;
                         $chat->last_user_msg_time = $msg->time;
+                    }
+
+                    if (!empty(self::$staticErrors)) {
+                        foreach (self::$staticErrors as $staticError) {
+                            $msgError = new erLhcoreClassModelmsg();
+                            $msgError->msg = $staticError;
+                            $msgError->chat_id = $chat->id;
+                            $msgError->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
+                            $msgError->user_id = -2;
+                            $msgError->time = time() + 1;
+                            erLhcoreClassChat::getSession()->save($msgError);
+                            $chat->last_msg_id = $msgError->id;
+                        }
                     }
 
                     $chat->incoming_chat = $eChat;
@@ -1646,8 +1675,20 @@ class erLhcoreClassChatWebhookIncoming {
 
         return str_replace(array_keys($userData),array_values($userData), $body);
     }
-    
+
     public static function parseFiles($url, $chat, $headers = [], $overrideAttributes = []) {
+
+        $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
+
+        if ((isset($fileData['active_user_upload']) && $fileData['active_user_upload'] == true) || (isset($chatVariables['lhc_fu']) && $chatVariables['lhc_fu'] == 1)) {
+            if (isset($overrideAttributes['file_size']) && is_numeric($overrideAttributes['file_size']) && $overrideAttributes['file_size'] > $fileData['fs_max']*1024) {
+                self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File is to big! Maximum') . ' - ' .$fileData['fs_max'] . ' Kb.';
+                return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File is to big!') . ' ' . round($overrideAttributes['file_size'] / 1024, 2) . ' Kb.';
+            }
+        } else {
+            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File upload is not for this chat!');
+            return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','File upload is not enabled for the visitor!');
+        }
 
         if (!is_array($url)) {
 
@@ -1853,6 +1894,13 @@ class erLhcoreClassChatWebhookIncoming {
                     $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['msg'], $params['file_name_attr'], '.');
                     if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
                         $overrideAttributes['upload_name'] = $fileNameAttribute['value'];
+                    }
+                }
+
+                if (isset($params['file_size_attr']) && $params['file_size_attr'] != '') {
+                    $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($params['msg'], $params['file_size_attr'], '.');
+                    if ($fileNameAttribute['found'] == true && is_numeric($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                        $overrideAttributes['file_size'] = $fileNameAttribute['value'];
                     }
                 }
 
