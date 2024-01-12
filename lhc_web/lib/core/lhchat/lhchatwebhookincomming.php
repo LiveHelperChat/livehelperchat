@@ -1731,7 +1731,7 @@ class erLhcoreClassChatWebhookIncoming {
 
         if (!is_array($url)) {
 
-            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers);
+            $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers, ['timeout' => 60]);
 
             // File name
             $partsFilename = explode('/',strtok($url, '?'));
@@ -1887,7 +1887,7 @@ class erLhcoreClassChatWebhookIncoming {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -1961,6 +1961,9 @@ class erLhcoreClassChatWebhookIncoming {
                 $returnArray['body'] = base64_decode($bodyEncoded);
                 return self::parseFiles($returnArray, $chat);
             }
+        } else {
+            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem with your uploaded file!');
+            return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Media attribute could not be found or there was an error:') . ' ' . $content;
         }
 
         return null;
