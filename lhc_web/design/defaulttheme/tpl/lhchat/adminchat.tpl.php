@@ -65,10 +65,12 @@
             <div class="d-flex flex-wrap toolbar-chat" translate="no">
                 <div class="me-auto">
                     <div class="btn-group btn-group-sm me-2 pb-1" role="group">
-                        <?php $whisperMode = ($chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT; ?>
+                        <?php $whisperModeEnabled = erLhcoreClassUser::instance()->hasAccessTo('lhchat','whispermode'); $whisperMode = $whisperModeEnabled && ($chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT;?>
                         <button type="button" data-plc="<?php echo $placeholderValue?>" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-secondary' : print ' btn-outline-primary';?>" id="chat-write-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Write')?>"><i class="material-icons me-0">create</i></button>
                         <button type="button" class="btn btn-sm btn-outline-secondary" id="chat-preview-button-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Preview')?>"><i class="material-icons me-0">visibility</i></button>
+                        <?php if ($whisperModeEnabled === true) : ?>
                         <button type="button" class="btn btn-sm<?php ($whisperMode) ? print ' btn-outline-primary' : print ' btn-outline-secondary';?>" id="chat-whisper-button-<?php echo $chat->id?>" data-plc="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','You are in whisper mode!')?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Whisper')?>"><i class="material-icons me-0">hearing</i></button>
+                        <?php endif; ?>
                         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate') && $chat->user_id > 0 && $chat->user_id != erLhcoreClassUser::instance()->getUserID()) : ?>
                             <button type="button" class="btn btn-sm btn-outline-secondary" id="chat-impersonate-option-<?php echo $chat->id?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chat','Impersonate')?>"><i class="material-icons me-0">supervisor_account</i></button>
                         <?php endif; ?>

@@ -2411,6 +2411,7 @@ try {
                         array('module' => 'lhchat',  'function' => 'chat_see_email'),
                         array('module' => 'lhchat',  'function' => 'chat_see_unhidden_email'),
                         array('module' => 'lhchat',  'function' => 'see_sensitive_information'),
+                        array('module' => 'lhchat',  'function' => 'whispermode'),
                         array('module' => 'lhpermission',   'function' => 'see_permissions'),
                         array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                         array('module' => 'lhfaq',   		'function' => 'manage_faq'),
