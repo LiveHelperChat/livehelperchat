@@ -8,7 +8,14 @@
         <li><strong>{condition.&lt;condition_identifier&gt;}</strong> = Condition identifier <b>valid</b> OR <b>not_valid</b></li>
         <li><strong>{args.chat.chat_variables_array.playerClass}</strong> condition <strong>Text Like</strong> E.g <strong>vip_1,vip_2</strong> <a target="_blank" href="https://doc.livehelperchat.com/docs/bot/triggers#custom-text-matching">exact match.</a></li>
         <li><strong>{args.chat.chat_variables_array.playerClass}</strong> condition <strong>Contains</strong> E.g <strong>vip_</strong> would match <b>vip_1,vip_2</b> </li>
-
+        <li><strong>{args.chat.plain_user_name}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?> </li>
+        <li><strong>{args.chat.user.name_support}</strong> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?> </li>
+        <?php if (isset($_GET['canned'])) : ?>
+            <li><strong>{nick}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor nick');?></li>
+            <li><strong>{email}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Visitor e-mail');?></li>
+            <li><strong>{phone}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Phone');?></li>
+            <li><strong>{operator}</strong> = <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/helpattributes', 'Operator nick');?></li>
+        <?php endif; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/helpattributes/cannedreplacerules_multiinclude.tpl.php'));?>
     </ul>
 

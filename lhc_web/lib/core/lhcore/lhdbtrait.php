@@ -50,7 +50,7 @@ trait erLhcoreClassDBTrait
         $this->clearCache();
     }
 
-    public function syncAndLock()
+    public function syncAndLock($columnsToSync = '*')
     {
         if ($this->id === null) {
             return;
@@ -58,7 +58,7 @@ trait erLhcoreClassDBTrait
 
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('SELECT * FROM ' . self::$dbTable . ' WHERE id = :id FOR UPDATE;');
+        $stmt = $db->prepare('SELECT ' . $columnsToSync . ' FROM ' . self::$dbTable . ' WHERE id = :id FOR UPDATE;');
         $stmt->bindValue(':id', $this->id);
         $stmt->execute();
 

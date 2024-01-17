@@ -32,7 +32,7 @@ if (trim($form->msg) != '')
 	        $ignoreMessage = false;
 	        $returnBody = '';
 	        $customArgs = array();
-            $whisper = isset($_POST['whisper']);
+            $whisper = isset($_POST['whisper']) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','whispermode');
             $asChatOwner = isset($_POST['mode_write']) && $_POST['mode_write'] == 'op' && $Chat->user_id > 0 && $Chat->user_id != $messageUserId && erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate');
 
 	        if (!$whisper && strpos($msgText, '!') === 0) {
