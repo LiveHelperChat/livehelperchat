@@ -3959,7 +3959,7 @@ class erLhcoreClassChatStatistic {
             if ((($params['groupby'] == 0 || $params['groupby'] == 2) && (!isset($filter['filtergte']['time']) || $filter['filtergte']['time'] <= $dateUnix || date('Ym',$filter['filtergte']['time']) == date('Ym',$dateUnix))) || $params['groupby'] == 1 )
             {
                 // New visitors
-                if (in_array('visitors_new', $params['charttypes'])) {
+                if (is_array($params['charttypes']) && in_array('visitors_new', $params['charttypes'])) {
                     $filterNew = $filter;
                     if (isset($filterNew['filterlte']['time'])) {
                         $filterNew['filterlte']['first_visit'] = $filterNew['filterlte']['time'];
@@ -3977,7 +3977,7 @@ class erLhcoreClassChatStatistic {
                 }
 
                 // Visitors all
-                if (in_array('visitors_all', $params['charttypes'])) {
+                if (is_array($params['charttypes']) && in_array('visitors_all', $params['charttypes'])) {
                     $filterNew = $filter;
 
                     if (isset($filterNew['filtergte']['time'])) {
@@ -3996,7 +3996,7 @@ class erLhcoreClassChatStatistic {
                 }
 
                 // Returning visitors
-                if (in_array('visitors_returning', $params['charttypes'])) {
+                if (is_array($params['charttypes']) && in_array('visitors_returning', $params['charttypes'])) {
                     $filterNew = $filter;
                     if (isset($filterNew['filterlte']['time'])) {
                         $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
@@ -4016,7 +4016,7 @@ class erLhcoreClassChatStatistic {
                 }
 
                 // Visitors by country
-                if (in_array('visitors_country', $params['charttypes'])) {
+                if (is_array($params['charttypes']) && in_array('visitors_country', $params['charttypes'])) {
                     $filterNew = $filter;
                     if (isset($filterNew['filterlte']['time'])) {
                         $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
@@ -4047,7 +4047,7 @@ class erLhcoreClassChatStatistic {
                 }
 
                 // Visitors by city
-                if (in_array('visitors_city', $params['charttypes'])) {
+                if (is_array($params['charttypes']) && in_array('visitors_city', $params['charttypes'])) {
                     $filterNew = $filter;
                     if (isset($filterNew['filterlte']['time'])) {
                         $filterNew['filterlte']['last_visit'] = $filterNew['filterlte']['time'];
@@ -4080,7 +4080,7 @@ class erLhcoreClassChatStatistic {
             }
         }
 
-        if (in_array('visitors_referrers', $params['charttypes'])) {
+        if (is_array($params['charttypes']) && in_array('visitors_referrers', $params['charttypes'])) {
             $filterNew = $filter;
 
             if (!isset($filterNew['filterlte']['time']) && !isset($filterNew['filtergte']['time'])) {

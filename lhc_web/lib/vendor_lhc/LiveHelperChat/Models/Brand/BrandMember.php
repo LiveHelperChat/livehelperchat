@@ -37,6 +37,13 @@ class BrandMember {
     {
         switch ($var) {
 
+            case 'brand_dynamic_array':
+
+                $chat_dynamic_array = [];
+                \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.brand_dynamic_array', array('brand_member' => $this, 'dynamic_array' => & $chat_dynamic_array));
+                $this->brand_dynamic_array = $chat_dynamic_array;
+
+                return $this->brand_dynamic_array;
 
             default:
                 ;

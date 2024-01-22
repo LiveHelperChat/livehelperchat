@@ -139,6 +139,11 @@ class erLhcoreClassChatCommand
 
                     $responseData['last_message'] = erLhcoreClassGenericBotWorkflow::processTrigger($params['chat'], $trigger, false, array('args' => $argumentsTrigger));
 
+                    // Not always bot returns last message
+                    if (!is_object($responseData['last_message'])) {
+                        $responseData['last_message'] = erLhcoreClassModelmsg::findOne(['sort' => '`id` DESC', 'filter' => ['chat_id' => $params['chat']->id]]);
+                    }
+
                     $response = '"' . $trigger->name . '"' . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatcommand', 'was executed');
 
                 } else {
