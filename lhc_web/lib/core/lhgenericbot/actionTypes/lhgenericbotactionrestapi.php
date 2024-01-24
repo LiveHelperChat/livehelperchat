@@ -562,6 +562,10 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
 
+        if (!isset($methodSettings['body_raw'])) {
+            $methodSettings['body_raw'] = '';
+        }
+
         // Handle previous visitor messages
         if (isset($dynamicReplaceVariables['{if_previous_visitor_messages}']) && $dynamicReplaceVariables['{if_previous_visitor_messages}'] === true) {
             $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages}','{/if_previous_visitor_messages}'],'', $methodSettings['body_raw']));
