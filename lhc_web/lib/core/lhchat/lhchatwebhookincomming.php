@@ -814,6 +814,18 @@ class erLhcoreClassChatWebhookIncoming {
                                 }
                             }
 
+                            $headers = [];
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_headers_content'] : '')) {
+                                $paramsHeader = $payloadMessage;
+                                $paramsHeader['incoming_webhook'] = $incomingWebhook;
+                                $paramsHeader['incoming_webhook'] ->chat = $chat;
+                                $headersParsed = self::extractMessageBody(trim($conditions['msg_cond_' . $typeMessage . '_url_headers_content']), $paramsHeader);
+                                $headersItems = explode("\n",trim($headersParsed));
+                                foreach ($headersItems as $header) {
+                                    $headers[] = $header;
+                                }
+                            }
+
                             $file = self::parseFiles(
                                 self::extractAttribute(
                                     'msg_cond_' . $typeMessage . '_body',
@@ -821,7 +833,7 @@ class erLhcoreClassChatWebhookIncoming {
                                     $payloadMessage,
                                     (isset($payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']]) ? $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] : '')),
                                 $chat,
-                                [],
+                                $headers,
                                 $overrideAttributes
                             );
 
@@ -1274,13 +1286,38 @@ class erLhcoreClassChatWebhookIncoming {
                                 $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] = $file;
                             }
                         } else if (isset($conditions['msg_' . $typeMessage . '_download']) && $conditions['msg_' . $typeMessage . '_download'] == true) {
+
+                            $overrideAttributes = [];
+
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_file_name']) ? $conditions['msg_cond_' . $typeMessage . '_file_name'] : '')){
+                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_file_name'], '.');
+                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                    $overrideAttributes['upload_name'] = $fileNameAttribute['value'];
+                                }
+                            }
+
+                            $headers = [];
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_url_headers_content']) ? $conditions['msg_cond_' . $typeMessage . '_url_headers_content'] : '')) {
+                                $paramsHeader = $payloadMessage;
+                                $paramsHeader['incoming_webhook'] = $incomingWebhook;
+                                $paramsHeader['incoming_webhook'] ->chat = $chat;
+                                $headersParsed = self::extractMessageBody(trim($conditions['msg_cond_' . $typeMessage . '_url_headers_content']), $paramsHeader);
+                                $headersItems = explode("\n",trim($headersParsed));
+                                foreach ($headersItems as $header) {
+                                    $headers[] = $header;
+                                }
+                            }
+
                             $file = self::parseFiles(
                                 self::extractAttribute(
                                     'msg_cond_' . $typeMessage . '_body',
                                     $conditions,
                                     $payloadMessage,
                                     (isset($payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']]) ? $payloadMessage[$conditions['msg_cond_' . $typeMessage . '_body']] : '')),
-                                $chat);
+                                $chat,
+                                $headers,
+                                $overrideAttributes);
+
                             if (!empty($file)) {
                                 self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], $file);
                             }
