@@ -150,7 +150,7 @@ export class userSession {
                     }
 
                     if (this.jsVars[index].var.indexOf('lhc_var.') !== -1) {
-                        currentVar = this.attributes.lhc_var[this.jsVars[index].var.replace('lhc_var.','')] || null;
+                        currentVar = typeof this.attributes.lhc_var[this.jsVars[index].var.replace('lhc_var.','')] !== 'undefined' ? this.attributes.lhc_var[this.jsVars[index].var.replace('lhc_var.','')] : null;
                     } else {
                         currentVar = eval(this.jsVars[index].var);
                     }

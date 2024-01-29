@@ -408,14 +408,59 @@ class erLhcoreClassGenericBotActionRestapi
                 $file_api = false;
 
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
-                    if (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+
+                    $matchesExtension = [];
+                    preg_match_all('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', $methodSettings['body_raw_file'],$matchesExtension);
+                    $fileTypeByApi = [];
+                    if (isset($matchesExtension[1]) && !empty($matchesExtension[1])) {
+                        foreach ($matchesExtension[1] as $fileType) {
+                            $fileTypeByApi = array_merge($fileTypeByApi,explode('_',$fileType));
+                        }
+                    }
+
+                    if (in_array($mediaFile->extension,$fileTypeByApi)) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
                         $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
+
+                        $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                        $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+
+                        foreach ($matchesExtension[1] as $indexExtension => $fileType) {
+                            $fileTypeByApi = explode('_',$fileType);
+                            if (in_array($mediaFile->extension,$fileTypeByApi)) {
+                                $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $fileBodyRawFile);
+                            } else {
+                                $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],'', $fileBodyRawFile);
+                            }
+                        }
+
+                        $matchesExtension = [];
+                        preg_match_all('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', $methodSettings['suburl'],$matchesExtension);
+                        foreach ($matchesExtension[1] as $indexExtension => $fileType) {
+                            $fileTypeByApi = explode('_',$fileType);
+                            if (in_array($mediaFile->extension,$fileTypeByApi)) {
+                                $methodSettings['suburl'] = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $methodSettings['suburl']);
+                            } else {
+                                $methodSettings['suburl'] = str_replace($matchesExtension[0][$indexExtension],'', $methodSettings['suburl']);
+                            }
+                        }
+
+                        $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                        $file_api = true;
+
+                    } elseif (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+                        $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{image_api}','{/image_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
@@ -423,11 +468,13 @@ class erLhcoreClassGenericBotActionRestapi
                     } elseif (in_array($mediaFile->type,['video/mp4'])) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{video_api}','{/video_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{video_api}','{/video_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
@@ -435,11 +482,13 @@ class erLhcoreClassGenericBotActionRestapi
                     } else {
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
                         $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{file_api}','{/file_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
