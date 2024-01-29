@@ -8,13 +8,8 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
-        erLhcoreClassChat::prefillGetAttributesObject($message,
-            erLhcoreClassMailconv::$messagesAttributes,
-            erLhcoreClassMailconv::$messagesAttributesRemove
-        );
-        echo json_encode(['message' => $message]);
+        echo json_encode($message->subjects);
         exit;
-
     } else {
         throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','No permission to read conversation.'));
     }

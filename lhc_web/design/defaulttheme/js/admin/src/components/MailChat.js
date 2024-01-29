@@ -18,6 +18,12 @@ function reducer(state, action) {
             state.conv = { ...state.conv, ...action.value };
             return { ... state};
         }
+        case 'update_subjects': {
+            var foundIndex = state.messages.findIndex(x => x.id == action.message_id);
+            state.messages[foundIndex].subjects = action.subjects;
+            state = { ... state};
+            return state;
+        }
         case 'update_message': {
             var foundIndex = state.messages.findIndex(x => x.id == action.message.id);
             state.messages[foundIndex] = action.message;
@@ -216,8 +222,9 @@ const MailChat = props => {
     const updateLabels = (message) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
             dispatch({
-                type: 'update_message',
-                message: result.data.message
+                type: 'update_subjects',
+                message_id: message.id,
+                subjects: result.data
             });
         }).catch((error) => {
 
