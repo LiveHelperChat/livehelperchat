@@ -406,6 +406,7 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($files as $mediaFile) {
 
                 $file_api = false;
+                $apiUsed = '';
 
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
 
@@ -432,6 +433,7 @@ class erLhcoreClassGenericBotActionRestapi
                             $fileTypeByApi = explode('_',$fileType);
                             if (in_array($mediaFile->extension,$fileTypeByApi)) {
                                 $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $fileBodyRawFile);
+                                $apiUsed = $fileType;
                             } else {
                                 $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],'', $fileBodyRawFile);
                             }
@@ -456,6 +458,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{image_api}','{/image_api}'],'', $fileBodyRawFile));
+                        $apiUsed = 'image_api';
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
@@ -470,6 +473,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{video_api}','{/video_api}'],'', $fileBodyRawFile));
+                        $apiUsed = 'video_api';
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
@@ -484,6 +488,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{file_api}','{/file_api}'],'', $fileBodyRawFile));
+                        $apiUsed = 'file_api';
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
@@ -492,6 +497,13 @@ class erLhcoreClassGenericBotActionRestapi
                             $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
+                        }
+                    }
+                    if (isset($methodSettings['suburl_file_convert']) && !empty($methodSettings['suburl_file_convert'])) {
+                        $keysRequired = explode(',',str_replace(' ','',$methodSettings['suburl_file_convert']));
+                        if (in_array($apiUsed,$keysRequired)) {
+                            $methodSettings['body_request_type'] = 'form-data';
+                            $fileMethodOverride = true;
                         }
                     }
                 }
@@ -510,6 +522,10 @@ class erLhcoreClassGenericBotActionRestapi
                     } else {
                         $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;
                     }
+                }
+
+                if (isset($fileMethodOverride) && $fileMethodOverride === true) {
+                    $file_url = 'file_id_'.$mediaFile->id;
                 }
              }
         }
@@ -851,8 +867,10 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         if (isset($methodSettings['body_request_type']) && ($methodSettings['body_request_type'] == 'form-data' || $methodSettings['body_request_type'] == 'form-data-urlencoded')) {
+
+            $postParams = array();
+
             if (isset($methodSettings['postparams']) && !empty($methodSettings['postparams'])) {
-                $postParams = array();
                 foreach ($methodSettings['postparams'] as $postParam) {
                     $postParams[$postParam['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $postParam['value']);
                 }
@@ -862,6 +880,29 @@ class erLhcoreClassGenericBotActionRestapi
                 } else {
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
                 }
+            }
+
+            if ($file_api === true) {
+                $rawReplaceArray = array();
+                foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
+                    $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',trim($keyValue,"\""));
+                }
+
+                $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray),  $methodSettings['body_raw_file']);
+                $bodyPOST = str_replace(array_keys($replaceVariablesJSON), array_values($replaceVariablesJSON), $bodyPOST);
+                $bodyPOST = preg_replace('/{{lhc\.(var|add)\.(.*?)}}/','""',$bodyPOST);
+
+                $paramsPOST = json_decode($bodyPOST,true);
+
+                foreach ($paramsPOST as $key => $postParam) {
+                    if (isset($mediaFile) && $postParam === 'file_id_' . $mediaFile->id) {
+                        $postParams[$key] = new CurlFile($mediaFile->file_path_server, $mediaFile->type, $mediaFile->upload_name);
+                    } else {
+                        $postParams[$key] = $postParam;
+                    }
+                }
+
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postParams);
             }
 
             if ($methodSettings['body_request_type'] == 'form-data-urlencoded') {
