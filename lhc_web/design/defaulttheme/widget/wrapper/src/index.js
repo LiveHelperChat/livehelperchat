@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 223;
+            lhc.version = 224;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -954,8 +954,17 @@
 
                 // Listed for post messages
                 const handleMessages = (e) => {
-
                     if (attributesWidget.terminated === true || typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase + '::')) {
+                        if (typeof e.data === 'object' && typeof e.data.action === 'string' &&  e.data.action === "lhc_set_var") {
+                            Object.keys(e.data).forEach(key => {
+                                if (key !== 'action') {
+                                    if (typeof lhc_var !== 'undefined') {
+                                        lhc_var[key] = e.data[key];
+                                    }
+                                }
+                            });
+                            return;
+                        }
                         return;
                     }
 

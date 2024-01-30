@@ -1052,6 +1052,7 @@ class erLhcoreClassGenericBotWorkflow {
                      $trigger = erLhcoreClassModelGenericBotTrigger::fetch($e->getCode());
                      if ($trigger instanceof erLhcoreClassModelGenericBotTrigger) {
                          $paramsTrigger = array();
+                         $paramsTrigger['args']['msg_text'] = $payload;
                          erLhcoreClassGenericBotWorkflow::processTrigger($chat, $trigger, true, $paramsTrigger);
                      }
                  }
