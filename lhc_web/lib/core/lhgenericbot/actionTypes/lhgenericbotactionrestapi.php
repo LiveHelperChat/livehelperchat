@@ -501,7 +501,7 @@ class erLhcoreClassGenericBotActionRestapi
                     }
                     if (isset($methodSettings['suburl_file_convert']) && !empty($methodSettings['suburl_file_convert'])) {
                         $keysRequired = explode(',',str_replace(' ','',$methodSettings['suburl_file_convert']));
-                        if (in_array($apiUsed,$keysRequired)) {
+                        if ($apiUsed != '' && in_array($apiUsed,$keysRequired)) {
                             $methodSettings['body_request_type'] = 'form-data';
                             $fileMethodOverride = true;
                         }
