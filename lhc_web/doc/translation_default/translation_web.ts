@@ -32,6 +32,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -3320,15 +3324,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Search</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5933,6 +5941,10 @@
     </message>
     <message>
       <source>File too big!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete previous process!</source>
       <translation type="unfinished"/>
     </message>
     <message>
