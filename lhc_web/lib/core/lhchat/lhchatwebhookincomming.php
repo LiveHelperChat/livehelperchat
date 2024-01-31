@@ -3,6 +3,7 @@
 class erLhcoreClassChatWebhookIncoming {
 
     public static $staticErrors = [];
+    public static $chatInstance = null;
     public static function processEvent($incomingWebhook, array $payload) {
 
         $conditions = $incomingWebhook->conditions_array;
@@ -1172,6 +1173,8 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
+                self::$chatInstance = $chat;
+
             } else {
 
                 try {
@@ -1614,9 +1617,9 @@ class erLhcoreClassChatWebhookIncoming {
                     'chat' => & $chat,
                     'msg' => $msg
                 ));
+
+                self::$chatInstance = $chat;
             }
-
-
 
         } catch (Exception $e) {
             $db->rollback();
