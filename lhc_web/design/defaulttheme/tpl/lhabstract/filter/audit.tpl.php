@@ -149,7 +149,7 @@
 
     <div class="col-md-12">
         <div class="form-group">
-            <input type="submit" class="btn btn-sm btn-secondary" value="Search" name="doSearch">
+            <input type="submit" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" name="doSearch">&nbsp;<input type="button" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'});" class="btn btn-sm btn-secondary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Debug chat attributes');?>" name="debugChat">
         </div>
     </div>
 </div>

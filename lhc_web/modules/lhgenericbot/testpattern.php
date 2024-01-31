@@ -15,7 +15,8 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
         $subAttributes = [
             'online_user' => ['online_attr_system_array','online_attr_array'],
             'department' => ['bot_configuration_array'],
-            'iwh' => ['conditions_array']
+            'iwh' => ['conditions_array'],
+            'incoming_chat' => ['incoming']
         ];
 
         foreach (['abnd','drpd','subject_ids','subject_ids_list','department','chat_variables_array','user','online_user',
