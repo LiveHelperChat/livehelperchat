@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL to put in third party Rest API service');?></label>
+    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','URL to put in third party Rest API service. Append ?output=json for JSON format output.');?></label>
     <input type="text" ng-non-bindable class="form-control form-control-sm" id="api-incoming-url" data-base="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('webhooks/incoming')?>/<?php echo htmlspecialchars($item->identifier);?>">
 </div>
 
