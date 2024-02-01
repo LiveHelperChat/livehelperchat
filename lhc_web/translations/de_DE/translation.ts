@@ -26,6 +26,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Wie lange soll gewartet werden, bevor der Operator über nicht beantwortete Chats benachrichtigt wird?</translation>
     </message>
@@ -1111,7 +1123,7 @@
     </message>
     <message>
       <source>Time zone</source>
-      <translation type="unfinished"/>
+      <translation>Zeitzone</translation>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
@@ -2669,19 +2681,19 @@
     </message>
     <message>
       <source>minute</source>
-      <translation type="unfinished"/>
+      <translation>Minute</translation>
     </message>
     <message>
       <source>minutes</source>
-      <translation type="unfinished"/>
+      <translation>Minuten</translation>
     </message>
     <message>
       <source>hour</source>
-      <translation type="unfinished"/>
+      <translation>Stunde</translation>
     </message>
     <message>
       <source>hours</source>
-      <translation type="unfinished"/>
+      <translation>Stunden</translation>
     </message>
     <message>
       <source>day</source>
@@ -2693,7 +2705,7 @@
     </message>
     <message>
       <source>days</source>
-      <translation type="unfinished"/>
+      <translation>Tage</translation>
     </message>
     <message>
       <source>Permanent (visitor has to close invitation)</source>
@@ -2705,7 +2717,7 @@
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>Sekunden</translation>
     </message>
     <message>
       <source>Type your message to the user</source>
@@ -3314,16 +3326,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Search</source>
+      <translation>Suche</translation>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>User ID</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Suche</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -3343,11 +3359,11 @@
     </message>
     <message>
       <source>Disable</source>
-      <translation type="unfinished"/>
+      <translation>Deaktivieren</translation>
     </message>
     <message>
       <source>Enabled</source>
-      <translation type="unfinished"/>
+      <translation>Aktiviert</translation>
     </message>
     <message>
       <source>Assign selected department to canned messages</source>
@@ -3359,7 +3375,7 @@
     </message>
     <message>
       <source>Save</source>
-      <translation type="unfinished"/>
+      <translation>Speichern</translation>
     </message>
     <message>
       <source>Quick actions</source>
@@ -3419,7 +3435,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importieren</translation>
     </message>
     <message>
       <source>Department group</source>
@@ -3527,7 +3543,7 @@
     </message>
     <message>
       <source>seconds</source>
-      <translation type="unfinished"/>
+      <translation>Sekunden</translation>
     </message>
     <message>
       <source>Less than</source>
@@ -3587,11 +3603,11 @@
     </message>
     <message>
       <source>Country</source>
-      <translation type="unfinished"/>
+      <translation>Land</translation>
     </message>
     <message>
       <source>Region</source>
-      <translation type="unfinished"/>
+      <translation>Region</translation>
     </message>
     <message>
       <source>Proactive invitation</source>
@@ -3631,7 +3647,7 @@
     </message>
     <message>
       <source>No</source>
-      <translation type="unfinished"/>
+      <translation>Nein</translation>
     </message>
     <message>
       <source>Theme</source>
@@ -3639,7 +3655,7 @@
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>First response time (agent)</source>
@@ -3663,7 +3679,7 @@
     </message>
     <message>
       <source>Anonymised</source>
-      <translation type="unfinished"/>
+      <translation>Anonymisiert</translation>
     </message>
     <message>
       <source>Chats without an operator</source>
@@ -3735,7 +3751,7 @@
     </message>
     <message>
       <source>Export</source>
-      <translation type="unfinished"/>
+      <translation>Exportieren</translation>
     </message>
     <message>
       <source>chats</source>
@@ -3911,11 +3927,11 @@
     </message>
     <message>
       <source>Previous Week</source>
-      <translation type="unfinished"/>
+      <translation>Vorherige Woche</translation>
     </message>
     <message>
       <source>Previous Month</source>
-      <translation type="unfinished"/>
+      <translation>Vorheriger Monat</translation>
     </message>
     <message>
       <source>Current Day</source>
@@ -3923,11 +3939,11 @@
     </message>
     <message>
       <source>Current Week</source>
-      <translation type="unfinished"/>
+      <translation>Aktuelle Woche</translation>
     </message>
     <message>
       <source>Current month</source>
-      <translation type="unfinished"/>
+      <translation>Aktueller Monat</translation>
     </message>
     <message>
       <source>Show advanced</source>
@@ -3979,7 +3995,7 @@
     </message>
     <message>
       <source>Active</source>
-      <translation type="unfinished"/>
+      <translation>Aktiv</translation>
     </message>
     <message>
       <source>Day of the month</source>
@@ -3987,7 +4003,7 @@
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Zeit</translation>
     </message>
     <message>
       <source>Save as new</source>
@@ -4075,7 +4091,7 @@
     </message>
     <message>
       <source>Week</source>
-      <translation type="unfinished"/>
+      <translation>Woche</translation>
     </message>
     <message>
       <source>Day of the week</source>
@@ -4466,11 +4482,11 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Löschen</translation>
     </message>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
     <message>
       <source>Title/Message</source>
@@ -4630,7 +4646,7 @@
     </message>
     <message>
       <source>Language</source>
-      <translation type="unfinished"/>
+      <translation>Sprache</translation>
     </message>
     <message>
       <source>Siteaccess</source>
@@ -4880,7 +4896,7 @@
     </message>
     <message>
       <source>Design</source>
-      <translation type="unfinished"/>
+      <translation>Design</translation>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -5571,7 +5587,7 @@
     <name>chat/startchat</name>
     <message>
       <source>New</source>
-      <translation type="unfinished"/>
+      <translation>Neu</translation>
     </message>
     <message>
       <source>↓ Scroll to the bottom</source>
@@ -5671,11 +5687,11 @@
     </message>
     <message>
       <source>Send message</source>
-      <translation type="unfinished"/>
+      <translation>Nachricht senden</translation>
     </message>
     <message>
       <source>Cancel</source>
-      <translation type="unfinished"/>
+      <translation>Abbrechen</translation>
     </message>
     <message>
       <source>Record voice message</source>
@@ -5930,6 +5946,10 @@
       <translation>Datei ist zu groß!</translation>
     </message>
     <message>
+      <source>Please complete previous process!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat was transferred to operator!</source>
       <translation type="unfinished"/>
     </message>
@@ -6079,11 +6099,11 @@
     </message>
     <message>
       <source>Close</source>
-      <translation type="unfinished"/>
+      <translation>Schließen</translation>
     </message>
     <message>
       <source>Back</source>
-      <translation type="unfinished"/>
+      <translation>Zurück</translation>
     </message>
     <message>
       <source>We will send you a trascript of your chat with agent, so you can browse it later.</source>
@@ -15012,6 +15032,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
       <translation type="unfinished"/>
     </message>
@@ -16112,7 +16136,7 @@
     </message>
     <message>
       <source>Import</source>
-      <translation type="unfinished"/>
+      <translation>Importieren</translation>
     </message>
     <message>
       <source>Import theme</source>
@@ -16721,7 +16745,7 @@
     </message>
     <message>
       <source>User ID</source>
-      <translation type="unfinished"/>
+      <translation>Benutzer ID</translation>
     </message>
     <message>
       <source>SiteAccess</source>
@@ -17051,7 +17075,7 @@
     <name>lhsystem/singlesetting</name>
     <message>
       <source>Settings</source>
-      <translation type="unfinished"/>
+      <translation>Einstellungen</translation>
     </message>
   </context>
   <context>
@@ -17216,11 +17240,11 @@
     </message>
     <message>
       <source>Weak</source>
-      <translation type="unfinished"/>
+      <translation>Schwach</translation>
     </message>
     <message>
       <source>Strong</source>
-      <translation type="unfinished"/>
+      <translation>Stark</translation>
     </message>
     <message>
       <source>More information</source>
@@ -17628,7 +17652,7 @@
     </message>
     <message>
       <source>File</source>
-      <translation type="unfinished"/>
+      <translation>Datei</translation>
     </message>
     <message>
       <source>Import only one record to test</source>
@@ -17660,15 +17684,15 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail</translation>
     </message>
     <message>
       <source>First name</source>
-      <translation type="unfinished"/>
+      <translation>Vorname</translation>
     </message>
     <message>
       <source>Last name</source>
-      <translation type="unfinished"/>
+      <translation>Nachname</translation>
     </message>
     <message>
       <source>Nickname</source>
@@ -17959,7 +17983,7 @@
     </message>
     <message>
       <source>Share</source>
-      <translation type="unfinished"/>
+      <translation>Teilen</translation>
     </message>
     <message>
       <source>Edit</source>
@@ -17987,7 +18011,7 @@
     </message>
     <message>
       <source>Delete</source>
-      <translation type="unfinished"/>
+      <translation>Löschen</translation>
     </message>
     <message>
       <source>View was shared</source>
@@ -18089,7 +18113,7 @@
     </message>
     <message>
       <source>Name</source>
-      <translation type="unfinished"/>
+      <translation>Name</translation>
     </message>
     <message>
       <source>Identifier</source>
@@ -18130,6 +18154,10 @@
   </context>
   <context>
     <name>chat/webhooks</name>
+    <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Hooks events</source>
       <translation type="unfinished"/>
@@ -18247,7 +18275,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>URL to put in third party Rest API service</source>
+      <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18348,11 +18376,11 @@
     </message>
     <message>
       <source>Phone</source>
-      <translation type="unfinished"/>
+      <translation>Telefon</translation>
     </message>
     <message>
       <source>IP</source>
-      <translation type="unfinished"/>
+      <translation>IP</translation>
     </message>
     <message>
       <source>Country, 2 letters code</source>
@@ -18360,11 +18388,11 @@
     </message>
     <message>
       <source>E-mail</source>
-      <translation type="unfinished"/>
+      <translation>E-Mail</translation>
     </message>
     <message>
       <source>Time</source>
-      <translation type="unfinished"/>
+      <translation>Zeit</translation>
     </message>
     <message>
       <source>Chat ID field location</source>
@@ -19272,7 +19300,7 @@
     </message>
     <message>
       <source>Hour</source>
-      <translation type="unfinished"/>
+      <translation>Stunde</translation>
     </message>
   </context>
   <context>
@@ -19503,23 +19531,23 @@
     </message>
     <message>
       <source>Password has to be at least %d characters length</source>
-      <translation type="unfinished"/>
+      <translation>Das Passwort muss mindestens %d Zeichen lang sein</translation>
     </message>
     <message>
       <source>Password has to have at-least %d uppercase letter</source>
-      <translation type="unfinished"/>
+      <translation>Das Passwort muss mindestens %d Großbuchstabe(n) enthalten</translation>
     </message>
     <message>
       <source>Password has to have at-least %d number(s)</source>
-      <translation type="unfinished"/>
+      <translation>Das Passwort muss mindestens %d Zahl(en) enthalten</translation>
     </message>
     <message>
       <source>Password has to have at-least %d special character(s)</source>
-      <translation type="unfinished"/>
+      <translation>Das Passwort muss mindestens %d Sonderzeichen enthalten</translation>
     </message>
     <message>
       <source>Password has to have at-least %d lowercase letters</source>
-      <translation type="unfinished"/>
+      <translation>Das Passwort muss mindestens %d Kleinbuchstabe(n) enthalten</translation>
     </message>
     <message>
       <source>Old password incorrect!</source>
@@ -19546,7 +19574,7 @@
     <name>lhrestapi/validation</name>
     <message>
       <source>Authorization failed!</source>
-      <translation type="unfinished"/>
+      <translation>Authentifizierung fehlgeschlagen!</translation>
     </message>
     <message>
       <source>You do not have permission to use REST API directly. &quot;lhrestapi&quot;, &quot;use_direct_logins&quot; is missing!</source>
