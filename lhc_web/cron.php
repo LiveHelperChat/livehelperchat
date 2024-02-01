@@ -22,8 +22,7 @@ ini_set('display_errors', 1);
 ini_set("max_execution_time", "3600");
 
 // Uncomment if you are using composer dependencies
-// require_once dirname(__FILE__)."/lib/vendor/autoload.php";
-
+require_once 'lib/vendor/autoload.php';
 require_once dirname(__FILE__)."/ezcomponents/Base/src/base.php";
 
 ezcBase::addClassRepository( dirname(__FILE__).'/', dirname(__FILE__).'/lib/autoloads');

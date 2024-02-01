@@ -1,7 +1,5 @@
 <?php
 
-include 'lib/vendor/autoload.php';
-
 // This way we don't have to modify php-mailer at all
 class OAuth extends \LiveHelperChat\mailConv\OAuth\OAuth {
     public function getOauth64() {

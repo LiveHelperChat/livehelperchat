@@ -1,7 +1,5 @@
 <?php
 
-include 'lib/vendor/autoload.php';
-
 class erLhcoreClassMailconvParser {
 
     public static function getMailBox($mailbox) {

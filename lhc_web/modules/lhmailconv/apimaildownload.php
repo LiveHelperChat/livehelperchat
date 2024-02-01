@@ -1,7 +1,5 @@
 <?php
 
-include 'lib/vendor/autoload.php';
-
 $mail = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
 
 try {

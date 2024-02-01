@@ -14,8 +14,6 @@ if (is_numeric($cronjobPathOption->value)) {
 
 echo "Checking files\n";
 
-include 'lib/vendor/autoload.php';
-
 $pageLimit = 500;
 
 for ($i = 0; $i < 1000000; $i++) {

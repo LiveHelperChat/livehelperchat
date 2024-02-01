@@ -15,8 +15,6 @@ try {
         echo file_get_contents($file->file_path_server);
     } else {
 
-        include 'lib/vendor/autoload.php';
-
         $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
 
         $mailbox = $mail->mailbox;
