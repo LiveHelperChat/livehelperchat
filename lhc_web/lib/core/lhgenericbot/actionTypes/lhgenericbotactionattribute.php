@@ -34,7 +34,7 @@ class erLhcoreClassGenericBotActionAttribute {
             }
 
             if ($hasEvent && $softEvent === false) {
-                $action['content']['intro_message'] = 'Please complete previous process!';
+                $action['content']['intro_message'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please complete previous process!');
             } else {
 
                 $actionEvent = $action['content'];

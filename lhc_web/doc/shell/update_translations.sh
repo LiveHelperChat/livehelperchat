@@ -20,7 +20,7 @@ echo "Updating zh_ZH | Chinese (zh)"
 cat translations/trans/translation_webts_zh.ts > translations/zh_ZH/translation.ts
 
 echo "Updating ru_RU | Russian (Russia)"
-cat translations/trans/translation_webts_ru.ts > translations/ru_RU/translation.ts
+cat translations/trans/translation_webts_ru_RU.ts > translations/ru_RU/translation.ts
 
 echo "Updating pt_BR | Portuguese (Brazil)"
 cat translations/trans/translation_webts_pt_BR.ts > translations/pt_BR/translation.ts
