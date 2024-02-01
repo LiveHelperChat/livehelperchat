@@ -26,6 +26,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Cât timp ar trebui să așteptăm înainte de a informa operatorul despre conversația fără răspuns.</translation>
     </message>
@@ -3314,16 +3326,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Search</source>
+      <translation>Căutare</translation>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation>Excludeți răspunsurile personale</translation>
     </message>
     <message>
       <source>User ID</source>
       <translation>ID utilizator</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Căutare</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -5927,6 +5943,10 @@
     </message>
     <message>
       <source>File too big!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete previous process!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -15012,6 +15032,10 @@
       <translation>Dacă trimiteți fișier, puteți avea un conținut diferit al corpului</translation>
     </message>
     <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
       <translation>Puteți defini parametri suplimentari pe care utilizatorul îi poate introduce direct în declanșatorul bot.</translation>
     </message>
@@ -18131,6 +18155,10 @@
   <context>
     <name>chat/webhooks</name>
     <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation>Adresa URL de introdus în serviciul API Rest al unei terțe părți</translation>
+    </message>
+    <message>
       <source>Hooks events</source>
       <translation>Evenimente hooks</translation>
     </message>
@@ -18247,8 +18275,8 @@
       <translation>Domeniul de aplicare. Acest lucru ar trebui să fie același pentru toate implementările acelorași furnizori.</translation>
     </message>
     <message>
-      <source>URL to put in third party Rest API service</source>
-      <translation>Adresa URL de introdus în serviciul API Rest al unei terțe părți</translation>
+      <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Icon</source>

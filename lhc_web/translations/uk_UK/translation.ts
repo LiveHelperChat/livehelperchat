@@ -26,6 +26,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Скільки часу ми маємо чекати, перш ніж повідомимо оператора про чат без відповіді.</translation>
     </message>
@@ -3314,16 +3326,20 @@
       <translation>Тіло повідомлення</translation>
     </message>
     <message>
+      <source>Search</source>
+      <translation>Пошук</translation>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation>Виключити особисті відповіді</translation>
     </message>
     <message>
       <source>User ID</source>
       <translation>ID користувача</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Пошук</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -5928,6 +5944,10 @@
     <message>
       <source>File too big!</source>
       <translation>Файл завеликий!</translation>
+    </message>
+    <message>
+      <source>Please complete previous process!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
@@ -15012,6 +15032,10 @@
       <translation>Якщо ви надсилаєте файл, ви можете мати інший вміст</translation>
     </message>
     <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
       <translation>Ви можете визначити додаткові параметри, які користувач може ввести безпосередньо в тригер бота.</translation>
     </message>
@@ -18131,6 +18155,10 @@
   <context>
     <name>chat/webhooks</name>
     <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation>URL-адреса для розміщення в сторонній службі Rest API</translation>
+    </message>
+    <message>
       <source>Hooks events</source>
       <translation>Гачки події</translation>
     </message>
@@ -18247,8 +18275,8 @@
       <translation>Область застосування. Це має бути однаково для всіх реалізацій одного постачальника.</translation>
     </message>
     <message>
-      <source>URL to put in third party Rest API service</source>
-      <translation>URL-адреса для розміщення в сторонній службі Rest API</translation>
+      <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Icon</source>

@@ -26,6 +26,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Qué tanto debemos esperar antes de informar al operador sobre un chat no respondido</translation>
     </message>
@@ -3314,16 +3326,20 @@
       <translation>Cuerpo del mensaje</translation>
     </message>
     <message>
+      <source>Search</source>
+      <translation>Buscar</translation>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation>Excluir respuestas personales</translation>
     </message>
     <message>
       <source>User ID</source>
       <translation>ID Usuario</translation>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Buscar</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -5928,6 +5944,10 @@
     <message>
       <source>File too big!</source>
       <translation>¡Archivo demasiado grande!</translation>
+    </message>
+    <message>
+      <source>Please complete previous process!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat was transferred to operator!</source>
@@ -15012,6 +15032,10 @@
       <translation>Si está enviando un archivo puede tener un contenido de cuerpo diferente</translation>
     </message>
     <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
       <translation>Puede definir parámetros adicionales que el usuario puede ingresar en el disparador de bot directamente.</translation>
     </message>
@@ -18131,6 +18155,10 @@
   <context>
     <name>chat/webhooks</name>
     <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation>URL para poner en el servicio de API Rest de terceros</translation>
+    </message>
+    <message>
       <source>Hooks events</source>
       <translation>Enganchar eventos</translation>
     </message>
@@ -18247,8 +18275,8 @@
       <translation>Alcance. Esto debería ser el mismo para todas las implementaciones del mismo proveedor.</translation>
     </message>
     <message>
-      <source>URL to put in third party Rest API service</source>
-      <translation>URL para poner en el servicio de API Rest de terceros</translation>
+      <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Icon</source>
