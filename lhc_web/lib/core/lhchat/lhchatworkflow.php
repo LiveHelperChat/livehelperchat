@@ -1037,7 +1037,56 @@ class erLhcoreClassChatWorkflow {
             // Set proper message by language
             $cannedMsg->setMessageByChatLocale($chat->chat_locale);
 
+            $replaceCustomArgs = [];
+
+            foreach (['msg','fallback_msg'] as $metaMsg) {
+                $matchesMessage = [];
+                preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$cannedMsg->{$metaMsg}, $matchesMessage);
+                if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
+                    foreach ($matchesMessage[0] as $replaceItem) {
+                        if (key_exists($replaceItem,$replaceArray) == false) {
+                            $replaceCustomArgs[] = $replaceItem;
+                        }
+                    }
+                }
+            }
+
+            $replaceCustomArgs = array_unique($replaceCustomArgs);
+
+            if (!empty($replaceCustomArgs)) {
+
+                $identifiers = [];
+                $identifiersApplied = [];
+                foreach ($replaceCustomArgs as $replaceArg) {
+                    $identifiers[] = str_replace(['{','}'],'', $replaceArg);
+                }
+
+                $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
+                        'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+                        'limit' => false,
+                        'filterin' => array('identifier' => $identifiers))
+                );
+
+                foreach ($replaceRules as $replaceRule) {
+                    if ($replaceRule->is_active && !in_array($replaceRule->identifier,$identifiersApplied)) {
+                        $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $chat, 'user' => $chat->user]);
+                        $identifiersApplied[] = $replaceRule->identifier;
+                    }
+                }
+            }
+
             $cannedMsg->setReplaceData($replaceArray);
+
+            if (strpos($cannedMsg->msg, '{args.') !== false) {
+                $matchesValues = array();
+                preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $cannedMsg->msg, $matchesValues);
+                if (!empty($matchesValues[0])) {
+                    foreach ($matchesValues[0] as $indexElement => $elementValue) {
+                        $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array('user' => $cannedMsg->user, 'chat' => $chat), $matchesValues[1][$indexElement], '.');
+                        $cannedMsg->msg = str_replace($elementValue, $valueAttribute['found'] == true ? $valueAttribute['value'] : '', $cannedMsg->msg);
+                    }
+                }
+            }
 
             $msg = new erLhcoreClassModelmsg();
             $msg->msg = $cannedMsg->msg_to_user;

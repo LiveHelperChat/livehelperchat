@@ -1210,8 +1210,8 @@ button.material-icons-button{
 .btn-bottom-scroll {
     bottom:5px;
     text-align: center;
-    width: 90%;
-    margin-left: 5%;
+    width: 45%;
+    margin-left: 27.5%;
     z-index: 2;
 }
 
@@ -1219,6 +1219,7 @@ button.material-icons-button{
     border-radius:15px;
     padding: 3px 10px;
     opacity: 0.85;
+    width: 100%;
 }
 
 #msgsnippet div.message-admin div.msg-body{

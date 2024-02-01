@@ -61,6 +61,12 @@ class Condition {
             ];
         }
 
+        $replaceArray = [];
+
+        if (isset($params['replace_array']) && !empty($params['replace_array'])){
+            $replaceArray['replace_array'] = $params['replace_array'];
+        }
+
         $response = \erLhcoreClassGenericBotActionConditions::process(
             $params['chat'],
             [
@@ -70,7 +76,7 @@ class Condition {
                 'current_trigger' => null
             ],
             null,
-            []
+            $replaceArray
         );
 
         return isset($response['status']) && $response['status'] == 'stop';

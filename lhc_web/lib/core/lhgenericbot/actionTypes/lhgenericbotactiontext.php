@@ -91,7 +91,7 @@ class erLhcoreClassGenericBotActionText {
                         foreach ($buttonRules as $buttonRule) {
                             $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => trim($buttonRule)]]);
                             foreach ($conditionsToValidate as $conditionToValidate) {
-                                if (!$conditionToValidate->isValid(['chat' => $chat])) {
+                                if (!$conditionToValidate->isValid(['chat' => $chat, 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])])) {
                                     $allRulesValid = false;
                                 }
                             }

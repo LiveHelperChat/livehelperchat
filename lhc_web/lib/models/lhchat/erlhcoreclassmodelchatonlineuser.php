@@ -390,13 +390,13 @@ class erLhcoreClassModelChatOnlineUser
         }
     }
 
-    public static function executeRequest($url, $headers = [])
+    public static function executeRequest($url, $headers = [], $paramsExecution = [])
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, isset($paramsExecution['timeout']) ? $paramsExecution['timeout'] : 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, isset($paramsExecution['connect_timeout']) ? $paramsExecution['connect_timeout'] : 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');

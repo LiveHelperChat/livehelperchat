@@ -747,8 +747,8 @@ if ($tab == 'active') {
         $configuration = (array)erLhcoreClassModelChatConfig::fetch('statistic_options')->data;
         $filterParams['input_form']->chart_type = isset($configuration['chat_statistic']) ? $configuration['chat_statistic'] : array();
     }
-    
-    erLhcoreClassChatStatistic::formatUserFilter($filterParams);
+
+    erLhcoreClassChatStatistic::formatUserFilter($filterParams,'lh_chat_online_user');
 
     $departmentFilter = erLhcoreClassUserDep::conditionalDepartmentFilter();
 

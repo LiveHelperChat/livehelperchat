@@ -94,10 +94,10 @@ class erLhcoreClassGenericBotActionConditions {
                     } elseif (strpos($condition['content']['attr'],'{validation_event__') !== false) {
                         $attr = str_replace(['{validation_event__','}'],'',$condition['content']['attr']);
                         $result = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.genericbot_event_handler', array_merge($params,array('render' => $attr, 'chat' => $chat)));
-                        $attr = isset($result['validation_result']) ? $result['validation_result'] : null;
+                        $attr = isset($result['validation_result']) ? $result['validation_result'] : '';
                     } elseif (strpos($condition['content']['attr'],'{args.') !== false) {
                         $valueAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute(array_merge($params,array('chat' => $chat)), str_replace(array('{args.','{','}'),'',$condition['content']['attr']), '.');
-                        $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : null;
+                        $attr = $valueAttribute['found'] == true ? $valueAttribute['value'] : '';
                     } elseif ($paramsConditions[0] == '{condition') {
                         $attr = erLhcoreClassGenericBotWorkflow::translateMessage($condition['content']['attr'], array('chat' => $chat, 'args' => ['chat' => $chat]));
                     } else {
@@ -109,10 +109,8 @@ class erLhcoreClassGenericBotActionConditions {
                         }
                     }
 
-
                     if ($attr === null) {
-                       $conditionsMet = false;
-                       break;
+                        $attr = '';
                     }
 
                     if (empty($attr) && isset($params['replace_array']) && !empty($params['replace_array'])) {

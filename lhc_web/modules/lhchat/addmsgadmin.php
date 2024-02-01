@@ -32,7 +32,7 @@ if (trim($form->msg) != '')
 	        $ignoreMessage = false;
 	        $returnBody = '';
 	        $customArgs = array();
-            $whisper = isset($_POST['whisper']);
+            $whisper = isset($_POST['whisper']) && erLhcoreClassUser::instance()->hasAccessTo('lhchat','whispermode');
             $asChatOwner = isset($_POST['mode_write']) && $_POST['mode_write'] == 'op' && $Chat->user_id > 0 && $Chat->user_id != $messageUserId && erLhcoreClassUser::instance()->hasAccessTo('lhchat','impersonate');
 
 	        if (!$whisper && strpos($msgText, '!') === 0) {
@@ -57,12 +57,12 @@ if (trim($form->msg) != '')
 	                $rawMessage = !isset($statusCommand['raw_message']) ? $msgText : $statusCommand['raw_message'];
 	                
 	                $msgText = trim('[b]'.$userData->name_support.'[/b]: '.$rawMessage .' '. ($statusCommand['process_status'] != '' ? '|| '.$statusCommand['process_status'] : ''));
-	                
+
 	                if (isset($statusCommand['ignore']) && $statusCommand['ignore'] == true) {
 	                    $ignoreMessage = true;
                         if (isset($statusCommand['last_message'])) {
                             $msg = $statusCommand['last_message'];
-                            if (is_object($msg)){
+                            if (is_object($msg)) {
                                 $Chat->last_msg_id = $msg->id;
                                 $Chat->updateThis(['update' => ['last_msg_id']]);
                             }

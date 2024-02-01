@@ -799,6 +799,7 @@ $FunctionList['editprevious'] = array('explain' => 'Allow operator to edit his p
 $FunctionList['editpreviousop'] = array('explain' => 'Allow operator to edit other operators previous messages');
 $FunctionList['editpreviouvis'] = array('explain' => 'Allow operator to edit visitors previous messages');
 $FunctionList['impersonate'] = array('explain' => 'Allow operator to impersonate another operator on joining chat window');
+$FunctionList['whispermode'] = array('explain' => 'Allow operator to use whisper mode');
 $FunctionList['allowtransfertoanydep'] = array('explain' => 'Allow operator to transfer chat to any department.');
 $FunctionList['list_all_chats'] = array('explain' => 'Allow operator to list all chats independently of operator and status.');
 $FunctionList['list_my_chats'] = array('explain' => 'Allow operator to list chats he is owner');
