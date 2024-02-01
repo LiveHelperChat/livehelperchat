@@ -785,6 +785,12 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_continue', array(
+                        'webhook' => & $incomingWebhook,
+                        'data' => & $payloadAll,
+                        'chat' => & $chat
+                    ));
+
                     if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'img_4' || $typeMessage == 'img_5' || $typeMessage == 'img_6' || $typeMessage == 'attachments') {
                         if (isset($conditions['msg_cond_' . $typeMessage . '_url_decode']) && $conditions['msg_cond_' . $typeMessage . '_url_decode'] != '') {
                             $file = self::parseFilesDecode(array(
