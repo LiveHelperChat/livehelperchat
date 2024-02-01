@@ -2594,7 +2594,8 @@ try {
   `priority` int(11) NOT NULL,
   `priority_rule` int(11) NOT NULL,
   `options` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),  
   KEY `active_priority` (`active`,`priority`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
