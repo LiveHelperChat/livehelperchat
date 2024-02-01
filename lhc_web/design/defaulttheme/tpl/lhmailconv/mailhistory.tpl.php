@@ -7,7 +7,10 @@
         <div class="modal-body">
 
         <small>
-            <?php $messages = array_reverse(erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
+            <?php
+                $messages = array_reverse(erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+                $paramsMessageRenderExecution = ['extend_date' => true];
+            ?>
             <?php if (!empty($messages)) : ?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
             <?php else : ?>

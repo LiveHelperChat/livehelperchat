@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelCannedMsg
 {
     use erLhcoreClassDBTrait;
@@ -211,7 +211,7 @@ class erLhcoreClassModelCannedMsg
             
             if (!($tag instanceof erLhcoreClassModelCannedMsgTag)) {                   
                 $tag = new erLhcoreClassModelCannedMsgTag();
-                $tag->tag = $tagKeywordTrimmed;
+                $tag->tag = substr($tagKeywordTrimmed,0,40);
                 $tag->saveThis();
             }
             
@@ -385,6 +385,7 @@ class erLhcoreClassModelCannedMsg
             }
         }
 
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'canned_replace', 'replace_array' => & $replaceArray, 'chat' => $chat, 'user' => $user));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.workflow.canned_message_replace', array(
             'chat' => $chat,
             'replace_array' => & $replaceArray,

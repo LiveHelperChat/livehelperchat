@@ -40,8 +40,23 @@ if (is_numeric($Params['user_parameters_unordered']['deletevisitor']) && $Params
 $is_ajax = isset($Params['user_parameters_unordered']['method']) && $Params['user_parameters_unordered']['method'] == 'ajax';
 $timeout = isset($Params['user_parameters_unordered']['timeout']) && is_numeric($Params['user_parameters_unordered']['timeout']) ? (int)$Params['user_parameters_unordered']['timeout'] : 30;
 $maxrows = isset($Params['user_parameters_unordered']['maxrows']) && is_numeric($Params['user_parameters_unordered']['maxrows']) ? (int)$Params['user_parameters_unordered']['maxrows'] : 50;
+$usernames = isset($_POST['usernames']) && !empty($_POST['usernames']) ? explode("\n",$_POST['usernames']) : [];
 
 $filter = array('offset' => 0, 'limit' => $maxrows, 'sort' => 'last_visit DESC','filtergt' => array('last_visit' => (time()-$timeout)));
+
+if (!empty($usernames)) {
+    $db = ezcDbInstance::get();
+    $valuesFilter = [];
+    foreach ($usernames as $username) {
+        $valuesFilter[] = 'JSON_CONTAINS(`lh_chat_online_user`.`online_attr_system`, ' . $db->quote('"'.$username.'"') . ', "$.username" )';
+    }
+    $filter['customfilter'][] = '(`lh_chat_online_user`.`online_attr_system` != \'\' AND (' . implode(' OR ',$valuesFilter) . '))';
+}
+
+if (isset($Params['user_parameters_unordered']['nochat']) && $Params['user_parameters_unordered']['nochat'] == 'true') {
+    $filter['filter']['`lh_chat_online_user`.`chat_id`'] = 0;
+}
+
 $department = isset($Params['user_parameters_unordered']['department']) && is_array($Params['user_parameters_unordered']['department']) && !empty($Params['user_parameters_unordered']['department']) ? $Params['user_parameters_unordered']['department'] : false;
 if ($department !== false) {
 	$filter['filterin']['`lh_chat_online_user`.`dep_id`'] = $department;
@@ -137,31 +152,31 @@ if ($is_ajax == true) {
     $db = ezcDbInstance::get();
 
     try {
-        $db->query("SET SESSION wait_timeout=2");
+        $db->query("SET SESSION wait_timeout=20");
     } catch (Exception $e){
         //
     }
 
     try {
-        $db->query("SET SESSION interactive_timeout=5");} catch (Exception $e){
+        $db->query("SET SESSION interactive_timeout=25");} catch (Exception $e){
     } catch (Exception $e) {
         //
     }
 
     try {
-        $db->query("SET SESSION innodb_lock_wait_timeout=5");
+        $db->query("SET SESSION innodb_lock_wait_timeout=25");
     } catch (Exception $e) {
         //
     }
 
     try {
-        $db->query("SET SESSION max_execution_time=5000;");
+        $db->query("SET SESSION max_execution_time=25000;");
     } catch (Exception $e) {
         //
     }
 
     try {
-        $db->query("SET SESSION max_statement_time=5;");
+        $db->query("SET SESSION max_statement_time=25;");
     } catch (Exception $e) {
         // Ignore we try to limit how long query can run
     }
@@ -224,6 +239,11 @@ $Result['path'] = array(array('title' => erTranslationClassLhTranslation::getIns
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.onlineusers_path',array('result' => & $Result));
 
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';
+/*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js').'"></script>';*/
+//$Result['require_angular'] = true;
+
+$Result['additional_footer_js'] = '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/onlinevisitors.js').'"></script>';
+
+
 
 ?>

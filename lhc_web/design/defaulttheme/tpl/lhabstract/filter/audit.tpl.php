@@ -102,6 +102,7 @@
         <datalist id="category_list" autocomplete="new-password">
             <option value="js">js</option>
             <option value="block">block</option>
+            <option value="store">store</option>
             <option value="cronjob_exception">cronjob_exception</option>
             <option value="cronjob_fatal">cronjob_fatal</option>
             <option value="slow_view">slow_view</option>
@@ -121,6 +122,9 @@
             <option value="CannedMsgDelete">CannedMsgDelete</option>
             <option value="ChatConfig">ChatConfig</option>
             <option value="mail_import_failure">Mail import failure</option>
+            <option value="incoming_webhook_parse">Incoming webhook parse failures</option>
+            <option value="incoming_webhook">Incoming webhook request</option>
+            <option value="extract_department">Invalid department argument</option>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/audit/category_list_multiinclude.tpl.php'));?>
         </datalist>
     </div>
@@ -137,7 +141,12 @@
         </datalist>
     </div>
 
-
+    <div class="col-md-2">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Message body');?></label>
+            <input type="text" class="form-control form-control-sm" name="message" value="<?php echo htmlspecialchars((string)$input_form->message)?>" />
+        </div>
+    </div>
 
     <div class="col-md-12">
         <div class="form-group">

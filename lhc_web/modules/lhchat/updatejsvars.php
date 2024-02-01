@@ -1,7 +1,6 @@
 <?php
-header ( 'content-type: application/json; charset=utf-8' );
-header ( 'Access-Control-Allow-Origin: *' );
-header ( 'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept' );
+
+erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($_POST['host']) && $_POST['host'] != '' ? $_POST['host'] : "*")));
 
 $checkHash = true;
 $vid = false;
@@ -34,13 +33,26 @@ try {
 
         $data = $_POST ['data'];
         $jsonData = json_decode ( $data, true );
-        erLhcoreClassChatValidator::validateJSVarsVisitor ( $vid, $jsonData);
+
+        if ($Params['user_parameters_unordered']['userinit'] !== 'true') {
+            erLhcoreClassChatValidator::validateJSVarsVisitor ( $vid, $jsonData);
+        }
 
         if (
             (($checkHash == true && is_object($chat) && $chat->hash == $hash) || ($checkHash == false && is_object($chat))) &&
             ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT) &&
             (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM)))
         ) {
+
+            // Event for extensions to listen
+            if ($Params['user_parameters_unordered']['userinit'] === 'true') {
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.update_chat_vars', array(
+                    'chat' => & $chat,
+                    'data' => $jsonData
+                ));
+                echo json_encode(array('userinit' => 'true'));
+                exit;
+            }
 
             // Update chat variables
             erLhcoreClassChatValidator::validateJSVarsChat ($chat, $jsonData);

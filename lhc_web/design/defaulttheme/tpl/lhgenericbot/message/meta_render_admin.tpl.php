@@ -2,6 +2,8 @@
     <?php if (isset($metaMessageData['content']) && is_array($metaMessageData['content'])) : foreach ($metaMessageData['content'] as $type => $metaMessage) : ?>
         <?php if ($type == 'text_conditional') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/text_conditional_admin.tpl.php'));?>
+       <?php elseif ($type == 'survey') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/survey_admin.tpl.php'));?>
        <?php elseif ($type == 'html') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/html_admin.tpl.php'));?>
         <?php elseif ($type == 'button_message') : ?>
@@ -12,6 +14,8 @@
                 <button disabled class="btn btn-outline-secondary btn-xs mb-1" type="button"><?php echo htmlspecialchars($item['content']['name'])?></button>
             <?php endforeach; ?>
         </div>
+        <?php elseif ($type == 'warning') : ?>
+            <div class="text-danger"><?php echo htmlspecialchars(isset($metaMessage['content']) ? $metaMessage['content'] : htmlspecialchars($metaMessage))?></div>
         <?php elseif ($type == 'notice') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/msg_notice_admin.tpl.php'));?>
         <?php elseif ($type == 'chat_operation') : ?>

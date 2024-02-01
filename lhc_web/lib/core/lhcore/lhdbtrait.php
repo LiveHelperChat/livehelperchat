@@ -50,18 +50,23 @@ trait erLhcoreClassDBTrait
         $this->clearCache();
     }
 
-    public function syncAndLock()
+    public function syncAndLock($columnsToSync = '*')
     {
+        if ($this->id === null) {
+            return;
+        }
 
         $db = ezcDbInstance::get();
 
-        $stmt = $db->prepare('SELECT * FROM ' . self::$dbTable . ' WHERE id = :id FOR UPDATE;');
+        $stmt = $db->prepare('SELECT ' . $columnsToSync . ' FROM ' . self::$dbTable . ' WHERE id = :id FOR UPDATE;');
         $stmt->bindValue(':id', $this->id);
         $stmt->execute();
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->setState($data);
+        if (is_array($data)) {
+            $this->setState($data);
+        }
     }
 
     public function beforeSave($params = array())
@@ -239,7 +244,7 @@ trait erLhcoreClassDBTrait
         return $stmt->fetch(PDO::FETCH_COLUMN);
     }
 
-    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false)
+    public static function getCount($params = array(), $operation = 'COUNT', $field = false, $rawSelect = false, $fetchColumn = true, $fetchAll = false, $fetchColumnAll = false, $groupedCount = false)
     {
 
         if (isset($params['enable_sql_cache']) && $params['enable_sql_cache'] == true) {
@@ -280,6 +285,11 @@ trait erLhcoreClassDBTrait
         $stmt = $q->prepare();
 
         $stmt->execute();
+
+        // I know I should use sub select, but just no time for that. Only canned messages is using that thing
+        if ($groupedCount === true) {
+            return count($stmt->fetchAll(PDO::FETCH_COLUMN));
+        }
 
         if ($fetchColumn == true) {
             $result = $stmt->fetchColumn();
@@ -458,6 +468,12 @@ trait erLhcoreClassDBTrait
         if (isset($params['leftjoin']) && count($params['leftjoin']) > 0) {
             foreach ($params['leftjoin'] as $table => $joinOn) {
                 $q->leftJoin($table, $q->expr->eq($joinOn[0], $joinOn[1]));
+            }
+        }
+
+        if (isset($params['leftjoinraw']) && count($params['leftjoinraw']) > 0) {
+            foreach ($params['leftjoinraw'] as $table => $joinOn) {
+                $q->leftJoin($table, $joinOn);
             }
         }
 

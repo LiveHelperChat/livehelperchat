@@ -3,7 +3,7 @@
 </script>
 <div ng-controller="LiveHelperChatViewsCtrl as vctrl" >
     <div class="row">
-        <div translate="no" class="col chats-column border-right pe-0 ps-0">
+        <div translate="no" class="col chats-column view-chat-column border-right pe-0 ps-0">
             <div class="w-100 d-flex flex-column flex-grow-1">
                 <table class="table table-sm mb-0 table-small">
                     <thead>

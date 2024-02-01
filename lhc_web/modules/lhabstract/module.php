@@ -17,6 +17,7 @@ $ViewList['list'] = array(
         'object_id',
         'category',
         'source',
+        'message',
         'timefrom','timefrom_hours','timefrom_seconds','timefrom_minutes',
         'timeto', 'timeto_minutes', 'timeto_seconds', 'timeto_hours',
         )
@@ -44,6 +45,11 @@ $ViewList['delete'] = array(
 );
 
 $ViewList['index'] = array(
+    'functions' => array( 'use' ),
+    'params' => array()
+);
+
+$ViewList['testmasking'] = array(
     'functions' => array( 'use' ),
     'params' => array()
 );

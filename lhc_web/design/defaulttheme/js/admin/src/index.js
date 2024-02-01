@@ -33,14 +33,15 @@ ee.addListener('groupChatTabLoaded',(chatId) => {
     }
 })
 
-ee.addListener('mailChatTabLoaded',(chatId, modeChat, disableRemember) => {
+ee.addListener('mailChatTabLoaded',(chatId, modeChat, disableRemember, keyword) => {
     modeChat = (typeof modeChat != 'undefined' ? modeChat : '');
     disableRemember = (typeof disableRemember != 'undefined' ? disableRemember : false);
+    keyword = (typeof keyword != 'undefined' ? keyword : []);
     var el = document.getElementById('chat-id-' + modeChat + chatId);
     if (el !== null) {
         chatId = chatId.replace('mc','');
         ReactDOM.render(
-            <Suspense fallback="..."><MailChat chatId={chatId} userId={confLH.user_id} mode={modeChat} disableRemember={disableRemember} /></Suspense>,
+            <Suspense fallback="..."><MailChat chatId={chatId} keyword={keyword} userId={confLH.user_id} mode={modeChat} disableRemember={disableRemember} /></Suspense>,
             el
         );
     }

@@ -1,9 +1,9 @@
-<?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php'));?>
+
+
 
 <?php
 $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list',1);
 $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list',1);
-$closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list',0);
 $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list',1);
 $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list',1);
 ?>
@@ -12,6 +12,10 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 		
 	<!-- Nav tabs -->
 	<ul class="nav nav-pills" role="tablist">
+
+        <?php $hideULSetting = true; ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhchat/user_settings.tpl.php')); ?>
+
 	    <?php if ($pendingTabEnabled == true) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link active" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Pending confirm');?>" href="#panel1" aria-controls="panel1" role="tab" data-bs-toggle="tab"><i class="material-icons chat-pending me-0">chat</i><span>{{pending_chats.list.length != false && pending_chats.list.length > 0 ? ' ('+pending_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>
@@ -27,10 +31,7 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 		<?php if ($unreadTabEnabled == true) : ?>
 		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Unread messages');?>" href="#panel4" aria-controls="panel4" role="tab" data-bs-toggle="tab"><i class="material-icons chat-unread me-0">chat</i><span>{{unread_chats.list.length != false && unread_chats.list.length > 0 ? ' ('+unread_chats.list.length+')' : ''}}</span></a></li>
 		<?php endif;?>
-		
-		<?php if ($closedTabEnabled == true) : ?>
-		<li role="presentation" class="nav-item"><a class="nav-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','Closed chats');?>" href="#panel5" aria-controls="panel5" role="tab" data-bs-toggle="tab"><i class="material-icons chat-closed me-0">chat</i><span>{{closed_chats.list.length != false && closed_chats.list.length > 0 ? ' ('+closed_chats.list.length+')' : ''}}</span></a></li>
-		<?php endif;?>
+
 	</ul>
 
 	<!-- Tab panes -->
@@ -68,12 +69,6 @@ $mychatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_li
 		</div>
 		<?php endif;?>
 		
-		<?php if ($closedTabEnabled == true) : ?>
-		<div role="tabpanel" class="tab-pane" id="panel5">
-		     <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php'));?></div>
-			 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(chat_status_ids)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default','All closed chats');?></a>
-		</div>
-		<?php endif;?>
 	</div>
 </div>
 

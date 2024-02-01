@@ -169,14 +169,75 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                     )),
+
+
                 'hide_ts' => array(
-   				        'type' => 'checkbox',
-   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Hide message time from visitor'),
+   				        'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Message time visible for'),
    						'required' => false,
    						'hidden' => true,
+                        'hide_optional' => true,
+                        'frontend' => 'name',
+                        'name_attr' => 'name',
+                        'source' => function() {
+
+                               $items = [];
+                               $item = new StdClass();
+                               $item->id = 0;
+                               $item->name = 'Hidden by default';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 1;
+                               $item->name = 'Visitor messages';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 2;
+                               $item->name = 'Operator/Bot messages';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 3;
+                               $item->name = 'Operator/Bot/Visitor messages';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 4;
+                               $item->name = 'Operator/Visitor messages';
+                               $items[] = $item;
+
+                               return $items;
+                        },
    						'validation_definition' => new ezcInputFormDefinitionElement(
-   								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
    						)),
+                    'hide_op_ts' => array(
+   				        'type' => 'combobox',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Message time placement'),
+   						'required' => false,
+   						'hidden' => true,
+                        'hide_optional' => true,
+                        'frontend' => 'name',
+                        'name_attr' => 'name',
+                        'source' => function() {
+                               $items = [];
+                               $item = new StdClass();
+                               $item->id = 0;
+                               $item->name = 'Above first message sequence';
+                               $items[] = $item;
+
+                               $item = new StdClass();
+                               $item->id = 1;
+                               $item->name = 'Below message sequence';
+                               $items[] = $item;
+
+                               return $items;
+                        },
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'int'
+   						)),
+
                 'modern_look' => array(
    				        'type' => 'checkbox',
    						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use modern look. It is used only in older widget.'),
@@ -516,6 +577,18 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
    						)),
+                'custom_html_footer' => array(
+   						'type' => 'textarea',
+   						'height' => '50px',
+                        'ace_editor' => 'html',
+                        'translatable' => true,
+                        'main_attr' => 'bot_configuration_array',
+   						'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Custom html after widget content'),
+   						'required' => false,
+   						'hidden' => true,
+   						'validation_definition' => new ezcInputFormDefinitionElement(
+   								ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+   						)),
                 'intro_message' => array(
    						'type' => 'textarea',
    						'height' => '50px',
@@ -648,6 +721,28 @@ $fields = array(
                       'required' => false,
                       'hidden' => true,
                       'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','End chat'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'fheight_text_class' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Switch to default widget position'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Classic'),
+                      'translatable' => true,
+                      'main_attr' => 'bot_configuration_array',
+                      'validation_definition' => new ezcInputFormDefinitionElement(
+                          ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                      )),
+                'fheight_text_col' => array(
+                      'type' => 'text',
+                      'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Switch to full height widget position'),
+                      'required' => false,
+                      'hidden' => true,
+                      'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Switch to Column'),
                       'translatable' => true,
                       'main_attr' => 'bot_configuration_array',
                       'validation_definition' => new ezcInputFormDefinitionElement(
@@ -1467,6 +1562,26 @@ $fields = array(
                     'validation_definition' => new ezcInputFormDefinitionElement(
                         ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
                 )),
+                'use_system_tz' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use system timezone instead of a visitor. Visitor TZ will be overriden with system a system one.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'print_btn_msg' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Print button as a message as soon visitor clicks a button.'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
                 'survey_button' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',
@@ -1813,6 +1928,35 @@ $fields = array(
         'type' => 'text',
         'main_attr' => 'bot_configuration_array',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Close button position in embed mode'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'viewport' => array(
+        'type' => 'text',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Viewport settings'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'msg_time_format_day' => array(
+        'type' => 'text',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Date format if message is on different day'),
+        'placeholder' => 'Y-m-d H:i:s',
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        )),
+    'msg_time_format_time' => array(
+        'type' => 'text',
+        'placeholder' => 'H:i:s',
+        'main_attr' => 'bot_configuration_array',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Date format if message is on same day'),
         'required' => false,
         'hidden' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(

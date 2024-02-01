@@ -261,9 +261,15 @@ class erLhcoreClassUserDep
             $userID = $currentUser->getUserID();
         }
 
-        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE user_id = :user_id AND type = 0');
-        $stmt->bindValue(':user_id', $userID);
-        $stmt->execute();
+        if (!isset($paramsAssignment['only_global'])){
+            $stmt = $db->prepare('DELETE FROM lh_userdep WHERE user_id = :user_id AND type = 0');
+            $stmt->bindValue(':user_id', $userID);
+            $stmt->execute();
+        } else {
+            $stmt = $db->prepare('DELETE FROM lh_userdep WHERE user_id = :user_id AND type = 0 AND `dep_id` IN (0,-1)');
+            $stmt->bindValue(':user_id', $userID);
+            $stmt->execute();
+        }
 
         foreach ($Departaments as $DepartamentID) {
             $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,ro,pending_chats,inactive_chats,exclude_autoasign,always_on,exc_indv_autoasign,assign_priority,chat_max_priority,chat_min_priority) VALUES (:user_id,:dep_id,:hide_online,0,0,:active_chats,0,0,:max_chats,:ro,0,0,:exclude_autoasign,:always_on,:exc_indv_autoasign,:assign_priority,:chat_max_priority,:chat_min_priority)');

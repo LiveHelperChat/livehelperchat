@@ -99,7 +99,17 @@ class erLhcoreClassSearchHandler
                             if (isset($field['multiple_id']) && $field['multiple_id'] == true) {
                                 $parts = explode(",",str_replace(array("\n"," ","\t"),"", $inputParams->$key));
                                 erLhcoreClassChat::validateFilterIn($parts);
-                                $filter[$field['filter_type']][$field['filter_table_field']] = $parts;
+
+                                if (isset($field['requires_positive']) && $field['requires_positive'] == true) {
+                                    $parts = array_filter($parts, function($part) {
+                                        return $part > 0;
+                                    });
+                                }
+
+                                if (!empty($parts)) {
+                                    $filter[$field['filter_type']][$field['filter_table_field']] = $parts;
+                                }
+
                             } else {
                                 $filter[$field['filter_type']][$field['filter_table_field']] = $inputParams->$key;
                             }

@@ -5,6 +5,11 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.new_'.strtol
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/new.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+
+if (!class_exists($objectClass)) {
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+}
+
 $objectData = new $objectClass;
 
 $object_trans = $objectData->getModuleTranslations();
@@ -90,6 +95,10 @@ if (method_exists($objectData,'dependJs')) {
 
 if (method_exists($objectData,'dependFooterJs')) {
     $Result['additional_footer_js'] = $objectData->dependFooterJs();
+}
+
+if (!isset($objectData->disable_angular)){
+    $Result['require_angular'] = true;
 }
 
 if (isset($object_trans['path'])){

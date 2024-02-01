@@ -49,7 +49,11 @@ class NodeActionButton extends Component {
                 <div className="col-6">
                     <div className="form-group">
                         <label>{this.props.id + 1}. Button name*</label>
-                        <input className="form-control" onChange={this.onChangeFieldName.bind(this)} type="text" defaultValue={this.props.button.getIn(['content','name'])}/>
+                        <input className="form-control form-control-sm" onChange={this.onChangeFieldName.bind(this)} type="text" defaultValue={this.props.button.getIn(['content','name'])}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Bot conditions to satisfy</label>
+                        <input className="form-control form-control-sm" placeholder="condition_1, condition_2" onChange={(e) => this.props.onChangeFieldAttr({id : this.props.id, 'path' : ['content', 'bot_condition'], value : e.target.value})} type="text" defaultValue={this.props.button.getIn(['content','bot_condition'])}/>
                     </div>
                 </div>
                 <div className="col-6">

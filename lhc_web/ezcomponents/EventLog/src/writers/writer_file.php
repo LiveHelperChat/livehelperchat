@@ -42,6 +42,7 @@
  * @package EventLog
  * @version 1.4
  */
+#[\AllowDynamicProperties]
 abstract class ezcLogFileWriter implements ezcLogWriter
 {
     /**

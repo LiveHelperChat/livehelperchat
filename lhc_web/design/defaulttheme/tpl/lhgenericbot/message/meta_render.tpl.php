@@ -20,6 +20,8 @@
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/typing.tpl.php'));?>
         <?php elseif ($type == 'progress') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/progress.tpl.php'));?>
+        <?php elseif ($type == 'iframe') : ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/iframe.tpl.php'));?>
         <?php elseif ($type == 'survey') : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/content/survey.tpl.php'));?>
         <?php elseif ($type == 'html') : ?>

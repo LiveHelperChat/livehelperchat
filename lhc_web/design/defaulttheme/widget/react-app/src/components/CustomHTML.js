@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { helperFunctions } from "../lib/helperFunctions";
 import parse, { domToReact } from 'html-react-parser';
+import { parseScript } from "../actions/chatActions";
 
 @connect((store) => {
     return {
@@ -15,9 +16,12 @@ class CustomHTML extends Component {
         preg_match_rules : []
     }
 
+
+
     constructor(props) {
         super(props);
         this.listenerAdded = false;
+        this.js_execute = null;
     }
 
     handleParentMessage(e, item) {
@@ -31,9 +35,11 @@ class CustomHTML extends Component {
     abstractClick(attrs, e) {
         JSON.parse(attrs['data-action']).forEach((item) => {
             if (item.action == 'add_css_class') {
-                document.querySelector(item.target).classList.add(item.value);
+                let elm = document.querySelector(item.target);
+                elm && elm.classList.add(item.value);
             } else if (item.action == 'remove_css_class') {
-                document.querySelector(item.target).classList.remove(item.value);
+                let elm = document.querySelector(item.target);
+                elm && elm.classList.remove(item.value);
             } else if (item.action == 'chat_attr_global') {
                 window.lhcChat[item.target] = item.value;
             } else if (item.action == 'set_state') {
@@ -55,6 +61,12 @@ class CustomHTML extends Component {
                 };
             }
         });
+    }
+
+    componentDidMount() {
+        if (this.js_execute !== null) {
+            parseScript(this.js_execute, this);
+        }
     }
 
     render() {
@@ -82,6 +94,10 @@ class CustomHTML extends Component {
                                     this.listenerAdded = true;
                                 }
                                 return "";
+                            } else if (domNode.name && domNode.name === 'script' && domNode.attribs['data-bot-action']) {
+                                this.js_execute = domNode;
+                                // Return empty element
+                                return <React.Fragment></React.Fragment>;
                             }
                         }
                     }})}

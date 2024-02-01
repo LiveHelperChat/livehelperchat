@@ -5,7 +5,18 @@
         <?php $additionalChatColumnOptions = ['enable_sort' => true, 'sort_field' => 'pending_chats_sort'];?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
         <th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Wait time')?>" class="material-icons">access_time</i></th>
-        <th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+        <th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i>
+
+            <div class="float-end expand-actions">
+                <a ng-click="lhc.changeWidgetHeight('pendingd',true)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                </a>
+                <a ng-click="lhc.changeWidgetHeight('pendingd',false)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                </a>
+            </div>
+
+        </th>
     </tr>
     </thead>
     <tr ng-repeat="chat in pending_chats.list track by chat.id" ng-click="lhc.startChat(chat.id,chat.nick)" ng-class="{'user-away-row': chat.user_status_front == 2, 'user-online-row': !chat.user_status_front}">

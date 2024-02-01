@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelDepartamentGroupUser
 {
     
@@ -102,13 +102,13 @@ class erLhcoreClassModelDepartamentGroupUser
     public function afterSave()
     {
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id AND ro = :ro');
+        $stmt = $db->prepare('DELETE FROM lh_userdep WHERE dep_group_id = :dep_group_id AND user_id = :user_id ');//AND ro = :ro
         $stmt->bindValue( ':dep_group_id', $this->dep_group_id);
         $stmt->bindValue( ':user_id', $this->user_id);
-        $stmt->bindValue( ':ro', $this->read_only);
+        //$stmt->bindValue( ':ro', $this->read_only);
         $stmt->execute();
         
-        foreach ($this->dep_group->departments_ids as $depId) 
+        foreach ($this->__get('dep_group')->departments_ids as $depId)
         {
             $stmt = $db->prepare('INSERT INTO lh_userdep (user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign,assign_priority,chat_max_priority,chat_min_priority) VALUES 
             (:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign,:assign_priority,:chat_max_priority,:chat_min_priority)');

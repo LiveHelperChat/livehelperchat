@@ -17,6 +17,12 @@ $ViewList['initbot'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['testpattern'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['commands'] = array(
     'params' => array('id'),
     'uparams' => array(),
@@ -375,9 +381,34 @@ $ViewList['chatactions'] = array(
     'functions' => array( 'see_actions' )
 );
 
+$ViewList['conditions'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'manage_conditions' )
+);
+
+$ViewList['newcondition'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'manage_conditions' )
+);
+
+$ViewList['editcondition'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'manage_conditions' )
+);
+
+$ViewList['deletecondition'] = array(
+    'params' => array('id'),
+    'uparams' => array('csfr'),
+    'functions' => array( 'manage_conditions' )
+);
+
 $FunctionList['use'] = array('explain' => 'General permission to use generic bot module');
 $FunctionList['use_operator'] = array('explain' => 'Allow operator to change bot notifications settings');
 $FunctionList['see_actions'] = array('explain' => 'Allow operator to see chat actions');
 $FunctionList['use_individualization'] = array('explain' => 'Allow operator to change bot individualisation');
+$FunctionList['manage_conditions'] = array('explain' => 'Allow operator to manage conditions templates');
 
 ?>

@@ -1,11 +1,22 @@
-<div ng-if="my_chats && my_chats.list.length > 0" class="panel-list">
+<div ng-if="my_chats && my_chats.list.length > 0" class="panel-list" <?php if (isset($idPanelElementSet)) : ?>id="mcd-panel-list" ng-style="{'maxHeight': lhc.mcd_m_h}"<?php unset($idPanelElementSet); endif;?>>
     <table class="table table-sm mb-0 table-small table-fixed list-chat-table">
         <thead>
         <tr>
             <th width="40%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Visitor');?>" class="material-icons">face</i></th>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/additional_column_header.tpl.php'));?>
             <th width="25%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Last message');?>" class="material-icons">access_time</i></th>
-            <th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+            <th width="20%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i>
+
+                <div class="float-end expand-actions">
+                    <a ng-click="lhc.changeWidgetHeight('mcd',true)" class="text-muted disable-select">
+                        <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                    </a>
+                    <a ng-click="lhc.changeWidgetHeight('mcd',false)" class="text-muted disable-select">
+                        <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                    </a>
+                </div>
+            
+            </th>
         </tr>
         </thead>
         <tr ng-repeat="chat in my_chats.list track by chat.id" ng-click="lhc.startChat(chat.id,chat.nick)" ng-class="{'user-away-row': chat.user_status_front == 2, 'user-online-row': !chat.user_status_front}">

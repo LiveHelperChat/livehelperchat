@@ -118,7 +118,7 @@ class erLhcoreClassMailconvParser {
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
-                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 40 * 60 ) {
+                if ($mailbox->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS && $mailbox->sync_started > 0 && (time() - $mailbox->sync_started) < 80 * 60 ) {
                     $db->commit();
                     return;
                 }
@@ -140,7 +140,7 @@ class erLhcoreClassMailconvParser {
             $db->commit();
 
             if (empty($filteredMatchingRules)) {
-                throw new Exception('No mail matching rules were found!');
+                throw new Exception('No mail matching rules were found! ['.$mailbox->id.']');
             }
 
             $mailbox->failed = 0;
@@ -152,7 +152,8 @@ class erLhcoreClassMailconvParser {
             
             $startTime = microtime();
             $workflowOptions = $mailbox->workflow_options_array;
-            
+            $last_process_time = $mailbox->last_process_time;
+
             foreach ($mailboxFolders as $mailboxFolder)
             {
 
@@ -198,9 +199,13 @@ class erLhcoreClassMailconvParser {
                     }
 
                     if (isset($uuidStatusArray[$mailboxFolder['path']]) && isset($statusMailbox->uidnext) && $statusMailbox->uidnext == $uuidStatusArray[$mailboxFolder['path']]) {
-                        $statsImport[] = 'Skipping check '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
-                        // Nothing has changed since last check
-                         continue;
+                         if (isset($workflowOptions['workflow_reimport_frequency']) && $workflowOptions['workflow_reimport_frequency'] > 0 && $last_process_time < (time() - ($workflowOptions['workflow_reimport_frequency'] * 60))) {
+                             $statsImport[] = 'Processing check because re-import frequency was met '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
+                         } else {
+                             $statsImport[] = 'Skipping check uidnext did not changed '.$mailboxFolder['path'].' '.json_encode($statusMailbox);
+                             // Nothing has changed since last check
+                             continue;
+                         }
                     } elseif (isset($statusMailbox->uidnext)) {
                         $statsImport[] = $mailboxFolder['path'].' uidnext change detected to - '.$statusMailbox->uidnext;
                         $uuidStatusArray[$mailboxFolder['path']] = $statusMailbox->uidnext;
@@ -211,6 +216,7 @@ class erLhcoreClassMailconvParser {
 
                 $mailbox->uuid_status_array = $uuidStatusArray;
                 $mailbox->uuid_status = json_encode($uuidStatusArray);
+                $mailbox->last_process_time = time();
 
                 $since = 'SINCE "' . date('d M Y',
                         (!(isset($workflowOptions['workflow_import_present']) && $workflowOptions['workflow_import_present'] == 1) && $mailbox->last_sync_time > 0 ? $mailbox->last_sync_time : time()) -
@@ -263,7 +269,7 @@ class erLhcoreClassMailconvParser {
                     $end = explode(' ', microtime());
                     $time = $end[0] + $end[1] - $start[0] - $start[1];
 
-                    if ($time > (39 * 60)) {
+                    if ($time > (79 * 60)) {
                         throw new Exception('Import takes too long time.' . date('Y-m-d H:i:s',$mailbox->sync_started) . ' - ' . date('Y-m-d H:i:s',time()));
                     }
 
@@ -372,8 +378,11 @@ class erLhcoreClassMailconvParser {
                     $newConversation = false;
                     if (isset($mailInfo->in_reply_to)) {
                         $previousMessage = erLhcoreClassModelMailconvMessage::findOne(array('filterin' => ['mailbox_id' => $mailbox->relevant_mailbox_id],'filter' => ['message_id' => $vars['in_reply_to']]));
-
-                        if ( !($previousMessage instanceof erLhcoreClassModelMailconvMessage) && isset($vars['references']) && !empty($vars['references']) ) {
+                        if (
+                            !($previousMessage instanceof erLhcoreClassModelMailconvMessage) &&
+                            isset($vars['references']) && !empty($vars['references']) &&
+                            !(isset($workflowOptions['workflow_use_in_reply']) && $workflowOptions['workflow_use_in_reply'] == 1)
+                        ) {
                             $matches = [];
                             preg_match_all('/\<(.*?)\>/', $vars['references'],$matches);
                             $relatedMessagesIds = [];
@@ -668,7 +677,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                         $conversations->last_message_id = $conversations->message_id = $message->id;
                         $conversations->udate = $message->udate;
-                        $conversations->date = $message->date;
+                        $conversations->date = mb_substr($message->date,0,250);
                         $conversations->mailbox_id = $mailbox->id;
                         $conversations->match_rule_id = $matchingRuleSelected->id;
                         $conversations->priority = $priorityConversation;
@@ -780,7 +789,7 @@ class erLhcoreClassMailconvParser {
 
                         if ($previousMessage instanceof erLhcoreClassModelMailconvMessage && $previousMessage->conversation instanceof erLhcoreClassModelMailconvConversation) {
                             $conversation = $previousMessage->conversation;
-                        } else if (isset($vars['references']) && !empty($vars['references'])) { // Handle auto responder logic when it's not imported.
+                        } else if (isset($vars['references']) && !empty($vars['references']) && !(isset($workflowOptions['workflow_use_in_reply']) && $workflowOptions['workflow_use_in_reply'] == 1)) { // Handle auto responder logic when it's not imported.
                             $matches = [];
                             preg_match_all('/\<(.*?)\>/',$vars['references'],$matches);
                             $relatedMessagesIds = [];
@@ -959,7 +968,7 @@ class erLhcoreClassMailconvParser {
                 $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
                 $conversations->last_message_id = $conversations->message_id = $message->id;
                 $conversations->udate = $message->udate;
-                $conversations->date = $message->date;
+                $conversations->date = mb_substr($message->date,0,250);
                 $conversations->mailbox_id = $mailbox->id;
                 $conversations->match_rule_id = $matchingRuleSelected->id;
                 $conversations->priority = $priorityConversation;
@@ -1025,7 +1034,7 @@ class erLhcoreClassMailconvParser {
         $mailbox->last_sync_log_array = $log;
         $mailbox->last_sync_log = json_encode($mailbox->last_sync_log_array);
         $mailbox->sync_status = erLhcoreClassModelMailconvMailbox::SYNC_PENDING;
-        $mailbox->updateThis(['update' => ['failed','uuid_status','sync_status','last_sync_log','last_sync_time']]);
+        $mailbox->updateThis(['update' => ['failed','uuid_status','sync_status','last_sync_log','last_sync_time','last_process_time']]);
     }
 
     // Set conversations for the messages
@@ -1290,7 +1299,7 @@ class erLhcoreClassMailconvParser {
         ) {
             $conversation->body = $message->alt_body != '' ? $message->alt_body : strip_tags($message->body);
             $conversation->udate = $message->udate;
-            $conversation->date = $message->date;
+            $conversation->date = mb_substr($message->date,0,250);
             $conversation->subject = $message->subject;
             $conversation->undelivered = $message->undelivered;
 
@@ -1299,7 +1308,13 @@ class erLhcoreClassMailconvParser {
                 $conversation->pnd_time = time();
                 $conversation->accept_time = 0;
                 $conversation->tslasign = 0;
-                // $conversation->user_id = 0;       // Keep operator so he can follow up
+
+                $mailbox = erLhcoreClassModelMailconvMailbox::fetch($message->mailbox_id);
+
+                if ($mailbox instanceof erLhcoreClassModelMailconvMailbox && $mailbox->reopen_reset == 1) {
+                    $conversation->user_id = 0;
+                }
+
                 $conversation->cls_time = 0;        // Reset close time
                 $conversation->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
             }

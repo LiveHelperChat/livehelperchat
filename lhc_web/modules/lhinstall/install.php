@@ -347,6 +347,9 @@ try {
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
                   `iwh_id` int(11) NOT NULL DEFAULT '0',
                   `theme_id` int(11) unsigned NOT NULL DEFAULT '0',
+                  `frt` int(11) unsigned NOT NULL DEFAULT '0',
+                  `aart` int(11) unsigned NOT NULL DEFAULT '0',
+                  `mart` int(11) unsigned NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `status_user_id` (`status`,`user_id`),
 				  KEY `unanswered_chat` (`unanswered_chat`),
@@ -537,7 +540,8 @@ try {
                       `buble_operator_title_color` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
                       `buble_operator_text_color` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
                       `custom_popup_css` text COLLATE utf8mb4_unicode_ci NOT NULL,
-                      `hide_ts` int(11) NOT NULL,
+                      `hide_ts` tinyint(1) unsigned NOT NULL DEFAULT 0,
+                      `hide_op_ts` tinyint(1) unsigned NOT NULL DEFAULT 0,
                       `widget_response_width` int(11) NOT NULL,
                       `show_need_help_delay` int(11) NOT NULL,
                       `show_status_delay` int(11) NOT NULL,
@@ -1102,7 +1106,7 @@ try {
             	   (10,'',	'Permission request',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nOperator {user} has requested these permissions\n\r\n{permissions}\r\n\r\nSincerely,\r\nLive Support Team',	'Permission request from {user}',	0,	'',	0,	'',	'',	0),
             	   (11,'',	'You have unread messages',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nOperator {operator} has answered to you\r\n\r\n{messages}\r\n\r\nSincerely,\r\nLive Support Team',	'Operator has answered to your request',	0,	'',	0,	'',	'',	0),
             	   (12,'',	'Visitor returned',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nVisitor information\r\nName: {name}\r\nEmail: {email}\r\nPhone: {phone}\r\nDepartment: {department}\r\nCountry: {country}\r\nCity: {city}\r\nIP: {ip}\r\nCreated:	{created}\r\nUser left:	{user_left}\r\nWaited:	{waited}\r\nChat duration:	{chat_duration}\r\n\r\nSee more information at\r\n{url_accept}\r\n\r\nLast chat:\r\n{message}\r\n\r\nAdditional data, if any:\r\n{additional_data}\r\n\r\nSincerely,\r\nLive Support Team',	'Visitor returned - {username}',	0,	'',	0,	'',	'',	0),
-            	   (13,'','Report prepared',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nReport prepared - {report_name}, {date_range}\r\n\r\n{report_description}\r\n\r\nView report at:\r\n{url_report}',	'Report prepared - {report_name}',	0,	'',	0,	'',	'',	0);");
+            	   (13,'','Report prepared',	'Live Helper Chat',	0,	'',	0,	'Hello,\r\n\r\nReport prepared - {report_name}, {date_range}\r\n\r\n{report_description}\r\n\r\nView report at:\r\n{url_report}\r\nView directly: {url_report_direct}',	'Report prepared - {report_name}',	0,	'',	0,	'',	'',	0);");
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_question` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1157,6 +1161,20 @@ try {
                   PRIMARY KEY (`id`),
                   KEY `type_object_id` (`type`,`object_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+               $db->query("CREATE TABLE `lh_userdep_alias` (
+                                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                    `dep_id` bigint(20) unsigned NOT NULL,
+                                    `dep_group_id` bigint(20) unsigned NOT NULL,
+                                    `user_id` bigint(20) unsigned NOT NULL,
+                                    `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    KEY `dep_id_user_id` (`dep_id`,`user_id`),
+                                    KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE IF NOT EXISTS `lh_question_option_answer` (
         	   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1490,6 +1508,7 @@ try {
                 ('list_closed','0','0','List closed chats','0'),
                 ('vwait_to_long','120','0','How long we should wait before we inform operator about unanswered chat.','0'),
                 ('autoclose_activity_timeout','0','0','Automatically close active chat if from last visitor/operator message passed. 0 - disabled, n > 0 time in minutes','0'),
+                ('bbcode_options', 'a:2:{s:3:\"div\";a:0:{}s:3:\"dio\";a:0:{}}', '0', '', '1'),
                 ('mobile_options',	'a:2:{s:13:\"notifications\";i:0;s:7:\"fcm_key\";s:152:\"AAAAiF8DeNk:APA91bFVHu2ybhBUTtlEtQrUEPpM2fb-5ovgo0FVNm4XxK3cYJtSwRcd-pqcBot_422yDOzHyw2p9ZFplkHrmNXjm8f5f-OIzfalGmpsypeXvnPxhU6Db1B2Z1Acc-TamHUn2F4xBJkP\";}',	0,	'',	1),
                 ('footprint_background','0','0','Footprint updates should be processed in the background. Make sure you are running workflow background cronjob.','0'),
                 ('reverse_pending','0','0','Make default pending chats order from old to new','0'),
@@ -2113,6 +2132,33 @@ try {
     KEY `canned_id` (`canned_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+
+                    $db->query("CREATE TABLE `lh_chat_participant` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `duration` int(11) unsigned NOT NULL,
+  `time` bigint(20) unsigned NOT NULL,
+  `dep_id` bigint(20) unsigned NOT NULL,
+  `frt` int(11) unsigned NOT NULL DEFAULT '0',
+  `aart` int(11) unsigned NOT NULL DEFAULT '0',
+  `mart` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `chat_id` (`chat_id`),
+  KEY `time` (`time`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                    $db->query("CREATE TABLE `lh_abstract_msg_protection` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pattern` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` int(11) NOT NULL DEFAULT 1,
+  `remove` int(11) NOT NULL DEFAULT 0,
+  `v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `enabled` (`enabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_canned_msg_replace` (
                     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                     `identifier` varchar(50) NOT NULL,
@@ -2188,8 +2234,23 @@ try {
   UNIQUE KEY `rest_api_id_hash` (`rest_api_id`,`hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE `lh_incoming_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `dep_id` int(11) NOT NULL, `name` varchar(50) NOT NULL,`icon` varchar(50) NOT NULL, `icon_color` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `scope` varchar(50) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-                    $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL,`payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`),  KEY `incoming_ext_id` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_incoming_webhook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) NOT NULL,
+  `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon_color` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log_incoming` tinyint(1) unsigned NOT NULL,
+  `log_failed_parse` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifier` (`identifier`,`disabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL,`payload` longtext NOT NULL, `chat_external_id` varchar(100) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), UNIQUE KEY `incoming_ext_id_uniq` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lh_abstract_chat_column` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2216,9 +2277,33 @@ try {
   KEY `chat_enabled` (`chat_enabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
-                    $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`role_destination` varchar(50) NOT NULL,`present_role_is` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
                     $db->query("CREATE TABLE `lh_canned_msg_use` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `canned_id` int(11) unsigned NOT NULL, `chat_id` bigint(20) unsigned NOT NULL, `ctime` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`id`), KEY `ctime` (`ctime`), KEY `chat_id` (`chat_id`), KEY `canned_id` (`canned_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_brand` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lh_brand_member` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                   `dep_id` bigint(20) unsigned NOT NULL,
+                                   `brand_id` bigint(20) unsigned NOT NULL,
+                                   `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                   PRIMARY KEY (`id`),
+                                   KEY `dep_id` (`dep_id`),
+                                   KEY `brand_id_role` (`brand_id`,`role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+                    $db->query("CREATE TABLE `lh_bot_condition` (
+                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    KEY `identifier` (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     // Session
                     $db->query("CREATE TABLE `lh_users_session` (
@@ -2247,6 +2332,7 @@ try {
 				  `time` int(11) NOT NULL,
 				  `chat_id` int(11) NOT NULL DEFAULT '0',
 				  `user_id` int(11) NOT NULL DEFAULT '0',
+				  `del_st` tinyint(1) unsigned NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_id` (`chat_id`, `id`),
@@ -2490,6 +2576,8 @@ try {
   `password_smtp` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_pswd_smtp` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `auth_method` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `reopen_reset` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `last_process_time` bigint(20) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `active` (`active`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
@@ -2631,8 +2719,11 @@ try {
   `dep_id` int(11) NOT NULL DEFAULT 0,
   `template_plain` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `unique_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  KEY `unique_id` (`unique_id`)
+  KEY `unique_id` (`unique_id`),
+  KEY `disabled` (`disabled`),
+  KEY `dep_id` (`dep_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
                     $db->query("CREATE TABLE `lhc_mailconv_remarks` (
@@ -2705,6 +2796,11 @@ try {
                         array('module' => 'lhchat',  'function' => 'explorecannedmsg'),
                         array('module' => 'lhchat',  'function' => 'sees_all_online_visitors'),
                         array('module' => 'lhchat',  'function' => 'list_all_chats'),
+                        array('module' => 'lhchat',  'function' => 'use_unhidden_phone'),
+                        array('module' => 'lhchat',  'function' => 'chat_see_email'),
+                        array('module' => 'lhchat',  'function' => 'chat_see_unhidden_email'),
+                        array('module' => 'lhchat',  'function' => 'see_sensitive_information'),
+                        array('module' => 'lhchat',  'function' => 'whispermode'),
                         array('module' => 'lhpermission',   'function' => 'see_permissions'),
                         array('module' => 'lhquestionary',  'function' => 'manage_questionary'),
                         array('module' => 'lhfaq',   		'function' => 'manage_faq'),
@@ -2720,6 +2816,7 @@ try {
                         array('module' => 'lhcannedmsg', 'function' => 'use'),
                         array('module' => 'lhcannedmsg', 'function' => 'see_global'),
                         array('module' => 'lhchat', 'function' => 'prev_chats'),
+                        array('module' => 'lhchat', 'function' => 'allowopenclosedchats'),
                         array('module' => 'lhtheme', 'function' => 'personaltheme'),
                         array('module' => 'lhuser', 'function' => 'userlistonline'),
                         array('module' => 'lhspeech', 'function' => 'change_chat_recognition'),

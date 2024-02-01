@@ -6,7 +6,7 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhchat/start.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( isset($templateOverride) ? $templateOverride : 'lhchat/start.tpl.php');
 
 $dep = false;
 
@@ -286,6 +286,10 @@ if ($leaveamessage === false && $online === false){
         $Result['theme'] = $Result['theme']->alias != '' ? $Result['theme']->alias : $Result['theme']->id;
     }
     $Result['pagelayout'] = 'userchat2';
+}
+
+if (isset($pagelayoutOverride)) {
+    $Result['pagelayout'] = $pagelayoutOverride;
 }
 
 

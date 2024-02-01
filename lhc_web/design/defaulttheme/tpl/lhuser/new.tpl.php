@@ -16,7 +16,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 </ul>
 
-<div class="tab-content" ng-controller="LHCAccountValidator as accval">
+<div class="tab-content">
 	<div role="tabpanel" class="tab-pane <?php if ($tab == '') : ?>active<?php endif;?>" id="account">
 	    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 		
@@ -133,8 +133,8 @@
 
         <?php $user_groups_filter['filter']['required'] = 1; $groupsRequired = erLhcoreClassModelGroup::getList($user_groups_filter); if (!empty($groupsRequired)) : ?>
             <br/>
-            <label ng-class="{'chat-closed' : !accval.validRequiredGroups}"><i ng-if="!accval.validRequiredGroups" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one or more')?>*</label>
-            <div class="row" ng-init='accval.requiredGroups = <?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj,JSON_HEX_APOS)?>;accval.validateGroups()'>
+            <label id="label-validation-groups"><i id="label-validation-icon" class="material-icons chat-closed">error</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Required groups, choose one or more')?>*</label>
+            <div class="row" id="group-required-holder" data-required-groups='<?php $obj = new stdClass(); foreach ($user->user_groups_id as $userGroupId) {if (isset($groupsRequired[$userGroupId])) { $obj->{$userGroupId} = true; }}; echo json_encode($obj, JSON_HEX_APOS)?>'>
                 <?php echo erLhcoreClassRenderHelper::renderCheckbox( array (
                     'input_name'     => 'DefaultGroup[]',
                     'selected_id'    => $user->user_groups_id,
@@ -142,8 +142,6 @@
                     'css_class'      => 'form-control',
                     'wrap_prepend'   => '<div class="col-3">',
                     'wrap_append'    => '</div>',
-                    'ng_change'      => 'accval.validateGroups()',
-                    'ng_model'      => 'accval.requiredGroups[$id]',
                     'list_function'  => 'erLhcoreClassModelGroup::getList',
                     'list_function_params'  => $user_groups_filter
                 )); ?>
@@ -153,12 +151,17 @@
 		<label>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
 						
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
-		
-		<input <?php if (empty($groupsRequired)) :?>ng-init="accval.validForm=true"<?php endif?> type="submit" class="btn btn-secondary" ng-disabled="!accval.validForm" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+
+        <div class="btn-group mt-2" role="group" aria-label="Basic example">
+		    <input id="save-button-action" type="submit" class="btn btn-sm btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		    <input id="update-button-action" type="submit" class="btn btn-sm btn-secondary" name="Update_account_edit" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save and edit');?>" />
+        </div>
+
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_departments') : ?>active<?php endif;?>" id="departments">
-        <?php
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Departments you will be able to assign once you save an operator.')?></p>
+        <?php /*
             $departmentEditParams = [
                 'self_edit' => false,
                 'edit_all_departments' => erLhcoreClassUser::instance()->hasAccessTo('lhuser','edit_all_departments'),
@@ -202,7 +205,7 @@
         ?>
 	    <?php include(erLhcoreClassDesign::designtpl('lhuser/account/departments_assignment.tpl.php'));?>
 	    		
-		<input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+		<input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />*/ ?>
 	</div>
 	
 	<div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_pending') : ?>active<?php endif;?>" id="pending">
@@ -284,7 +287,7 @@
             </div>
         </div>
 
-        <input type="submit" class="btn btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
+        <input type="submit" class="btn btn-sm btn-secondary" name="Update_account" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Save');?>" />
 	</div>
 
     <?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/notifications_tab_new.tpl.php'));?>

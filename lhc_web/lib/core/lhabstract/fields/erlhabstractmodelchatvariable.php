@@ -14,7 +14,7 @@ return array(
     'js_variable' => array(
         'type' => 'text',
         'placeholder' => 'window.lhc_var.username',
-        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Javascript variable value'),
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Javascript/Cookie variable value'),
         'required' => false,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),

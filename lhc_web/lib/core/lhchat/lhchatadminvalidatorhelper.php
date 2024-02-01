@@ -1527,6 +1527,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             'disabled' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'log_incoming' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'log_failed_parse' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             ),
@@ -1544,6 +1550,18 @@ class erLhcoreClassAdminChatValidatorHelper {
         if ($form->hasValidData('name'))
         {
             $webhook->name = $form->name;
+        }
+
+        if ( $form->hasValidData( 'log_incoming' ) && $form->log_incoming == true ) {
+            $webhook->log_incoming = 1;
+        } else {
+            $webhook->log_incoming = 0;
+        }
+        
+        if ( $form->hasValidData( 'log_failed_parse' ) && $form->log_failed_parse == true ) {
+            $webhook->log_failed_parse = 1;
+        } else {
+            $webhook->log_failed_parse = 0;
         }
 
         if ($form->hasValidData('configuration'))

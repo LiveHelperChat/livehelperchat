@@ -86,7 +86,60 @@ setTimeout(function() {
     
     <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','chatdebug')) : ?>
         <div role="tabpanel" class="tab-pane" id="chatdebug">
+
+
+            <table class="table table-sm">
+                <tr>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Participant');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','First response time');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Average response time');?></th>
+                    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Max response time');?></th>
+                </tr>
+            <?php foreach (\LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(['filter' => ['chat_id' => $chat->id]]) as $participiant) : if ($participiant->user_id == 0) {continue;}?>
+                <tr>
+                    <td>[<?php echo $participiant->user_id?>]&nbsp;<?php if ($participiant->user_id == -2) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Bot');?><?php elseif ($participiant->user_id == 0) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Visitor');?><?php else : ?><?php echo htmlspecialchars($participiant->n_official)?><?php endif; ?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->duration_front)?>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->frt)?> s.
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->aart)?> s.
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars((string)$participiant->mart)?> s.
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </table>
+
             <pre class="fs11"><?php echo htmlspecialchars(json_encode($chat->getState(),JSON_PRETTY_PRINT)); ?></pre>
+
+            <?php
+            $debugString = ' ((' . $chat->lsync .'[lsync] < (' . $chat->pnd_time .'[pnd_time]+' . $chat->wait_time . '[wait_time]) &&' . $chat->wait_time .'[wait_time]> 1) || (' . $chat->lsync . '[lsync] >  (' . $chat->pnd_time . '[pnd_time]+' . $chat->wait_time . '[wait_time]) && ' . $chat->wait_time. '[wait_time] > 1 && ' . $chat->user_id . '[user_id] == 0) | Visitor left before chat was accepted';
+            $patterns['abnd'] = '{debug.abnd} = ' . (($chat->lsync < ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1) || ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->wait_time > 1 && $chat->user_id == 0) ? 1 : 0) . $debugString;
+
+            $debugString = ' ('.$chat->lsync .'[lsync] >  (' . $chat->pnd_time . '[pnd_time] + ' . $chat->wait_time . '[wait_time]) && ' . $chat->has_unread_op_messages.'[has_unread_op_messages] == 1 && ' . $chat->user_id. '[user_id] > 0 )';
+            $patterns['drpd'] = '{debug.drpd} = ' . ($chat->lsync > ($chat->pnd_time + $chat->wait_time) && $chat->has_unread_op_messages == 1 && $chat->user_id > 0 ? 1 : 0) . $debugString . ' Visitor was online while chat was accepted, but left before operator replied';
+
+            ?>
+
+            <ul class="fs11">
+                <li><?php echo htmlspecialchars($patterns['abnd'])?></li>
+                <li><?php echo htmlspecialchars($patterns['drpd'])?></li>
+            </ul>
+
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Duration calculation log');?></h6>
+            <?php $logDuration = []; $mainStats = []; \LiveHelperChat\Helpers\ChatDuration::getChatDurationToUpdateChatID($chat, false, $logDuration, $mainStats);?>
+            <pre class="fs11"><?php print_r($logDuration);?></pre>
+
+            <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/modifychat','Agents response times calculation log');?></h6>
+            <pre class="fs11"><?php print_r($mainStats);?></pre>
+
         </div>
     <?php endif; ?>
     

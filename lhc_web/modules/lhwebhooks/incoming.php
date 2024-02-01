@@ -24,6 +24,19 @@ try {
         $data = $dummyPayload;
     }
 
+    if ($incomingWebhook->log_incoming == 1) {
+        erLhcoreClassLog::write(json_encode($data,JSON_PRETTY_PRINT),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'incoming_webhook',
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => $incomingWebhook->id
+            )
+        );
+    }
+    
     if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
         erLhcoreClassLog::write(json_encode($data));
     }
@@ -44,6 +57,19 @@ try {
 } catch (Exception $e) {
     if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true){
         erLhcoreClassLog::write($e->getMessage().' | '. json_encode($data));
+    }
+
+    if (isset($data) && isset($incomingWebhook) && is_object($incomingWebhook) && $incomingWebhook->log_failed_parse== 1) {
+        erLhcoreClassLog::write(json_encode($data,JSON_PRETTY_PRINT) . print_r($e, true),
+            ezcLog::SUCCESS_AUDIT,
+            array(
+                'source' => 'lhc',
+                'category' => 'incoming_webhook_parse',
+                'line' => __LINE__,
+                'file' => __FILE__,
+                'object_id' => $incomingWebhook->id
+            )
+        );
     }
 }
 

@@ -28,11 +28,16 @@ if (erLhcoreClassModelChatConfig::fetch('run_departments_workflow')->current_val
                 (
                     $chat->transfer_timeout_ts < (time()-$chat->transfer_timeout_ac)
                 ) || (
-                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 && (
-                        (isset($isOnlineCache[$chat->dep_id]) && $isOnlineCache[$chat->dep_id] === false)
-                        ||
-                        (erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false && ($isOnlineCache[$chat->dep_id] = false) === false)
-                   )
+                    ($department = $chat->department) && $offlineDepartmentOperators = true && $department !== false && isset($department->bot_configuration_array['off_op_exec']) && $department->bot_configuration_array['off_op_exec'] == 1 &&
+                        (
+                            (
+                                (isset($isOnlineCache[$chat->dep_id]) && $isOnlineCache[$chat->dep_id] === false)
+                                ||
+                                (erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'exclude_online_hours' => true)) === false && ($isOnlineCache[$chat->dep_id] = false) === false)
+                            )
+                            ||
+                            (isset($department->bot_configuration_array['off_op_work_hours']) && $department->bot_configuration_array['off_op_work_hours'] == 1 && erLhcoreClassChat::isOnline($chat->dep_id,false, array('exclude_bot' => true, 'ignore_user_status' => true)) === false)
+                        )
                 )
             ) {
                 $canExecuteWorkflow = true;

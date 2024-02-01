@@ -17,6 +17,7 @@
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_options') : ?> active<?php endif;?>" href="#options" aria-controls="options" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Options');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_mailbox') : ?> active<?php endif;?>" href="#mailbox" aria-controls="mailbox" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Mailbox');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_signature') : ?> active<?php endif;?>" href="#signature" aria-controls="signature" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Signature');?></a></li>
+        <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_mrules') : ?> active<?php endif;?>" href="#mrules" aria-controls="mrules" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Matching Rules');?></a></li>
         <li role="presentation" class="nav-item"><a class="nav-link<?php if ($tab == 'tab_utilities') : ?> active<?php endif;?>" href="#utilities" aria-controls="utilities" role="tab" data-bs-toggle="tab" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Utilities');?></a></li>
     </ul>
 
@@ -99,18 +100,26 @@
 
             <div class="row">
                 <div class="col-3">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
-                        <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Check for new messages interval in seconds.');?></label>
+                                <input type="text" placeholder="60" maxlength="250" class="form-control form-control-sm" name="sync_interval" value="<?php echo htmlspecialchars($item->sync_interval)?>" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div><label><input type="checkbox" name="workflow_use_in_reply" <?php isset($item->workflow_options_array['workflow_use_in_reply']) && $item->workflow_options_array['workflow_use_in_reply'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use only In-Reply value as reference to the thread. Otherwise Reference attribute also would be used.');?></label></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-3">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
-                                <input type="number" min="1" max="48" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                                <input type="number" min="1" max="96" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
                             </div>
                         </div>
                         <div class="col-12">
@@ -126,13 +135,32 @@
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
                     </div>
+                    <div class="form-group">
+                        <div>
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import');?></label>
+                            <select class="form-control form-control-sm" name="workflow_reimport_frequency">
+                                <option value="0" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 0) || !isset($item->workflow_options_array['workflow_reimport_frequency'])) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On a new mail arrival, default');?></option>
+                                <option value="30" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 30)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every half hour');?></option>
+                                <option value="60" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 60)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every hour');?></option>
+                                <option value="120" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 120)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every two hour');?></option>
+                                <option value="180" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 180)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every three hour');?></option>
+                                <option value="360" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 360)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 6 hours');?></option>
+                                <option value="720" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 720)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 12 hours');?></option>
+                                <option value="1440" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 1440)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 24 hours');?></option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
                     </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Un-assing operator on closed ticket re-open');?></label>
+                    </div>
                 </div>
+
                 <div class="col-6">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import priority. If mail is send to two mailbox and we handle both, only mail with higher mailbox priority will be processed.');?></label>
@@ -214,6 +242,7 @@
             <ul>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync finished');?> - <?php echo $item->last_sync_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
                 <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last sync started');?> - <?php echo $item->sync_started_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
+                <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Last processed');?> - <?php echo $item->last_process_time_ago?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','ago');?>.</li>
             </ul>
 
             <p>
@@ -223,6 +252,29 @@
 
             <h5 class="mt-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Sync log');?></h5>
             <pre><?php echo htmlspecialchars(print_r($item->last_sync_log_array,true))?></pre>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_mrules') : ?>active<?php endif;?>" id="mrules">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Matching rules');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'mrules_id[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Select'),
+                    'selected_id'    => $item->mrules_id,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'display_name',
+                    'ajax'           => 'mrules',
+                    'list_function_params' => [],
+                    'list_function'  => 'erLhcoreClassModelMailconvMatchRule::getList',
+                )); ?>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="...">
+                <input type="submit" class="btn btn-secondary" name="Save_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save');?>"/>
+                <input type="submit" class="btn btn-secondary" name="UpdateMrules_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update');?>"/>
+                <input type="submit" class="btn btn-secondary" name="Cancel_page" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Cancel');?>"/>
+            </div>
 
         </div>
 

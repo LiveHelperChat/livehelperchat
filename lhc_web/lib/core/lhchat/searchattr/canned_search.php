@@ -74,12 +74,39 @@ $fieldsSearch['subject_id'] = array (
     )
 );
 
+$fieldsSearch['used_freq'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => 'subject_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0)
+    )
+);
+
+$fieldsSearch['sortby'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string')
+);
+
 $fieldSortAttr = array (
-    'field'      => false,
-    'default'    => false,
+    'field'      => 'sortby',
+    'default'    => 'iddesc',
     'serialised' => true,
-    'disabled'   => true,
-    'options'    => array()
+    'options'    => array(
+        'iddesc' => array('sort_column' => '`lh_canned_msg`.`id` DESC'),
+        'idasc' => array('sort_column' => '`lh_canned_msg`.`id` ASC'),
+        'lastupdateasc' => array('sort_column' => '`updated_at` ASC'),
+        'lastupdatedesc' => array('sort_column' => '`updated_at` DESC'),
+    )
 );
 
 return array(

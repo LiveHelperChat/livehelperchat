@@ -59,7 +59,11 @@ if (isset($_POST['Forgotpassword'])) {
 
 		if (($userID = erLhcoreClassModelUser::fetchUserByEmail($form->Email)) !== false) {
 
-			$host = erLhcoreClassSystem::getHost();
+            $host = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_address', false);
+
+            if (!empty($host)) {
+                $host = erLhcoreClassSystem::getHost();
+            }
 
 			$adminEmail = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'site_admin_email' );
 

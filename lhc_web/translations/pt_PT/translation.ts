@@ -2,6 +2,10 @@
   <context>
     <name>listchatconfig</name>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation type="unfinished"/>
     </message>
@@ -413,6 +417,10 @@
       <translation>Cancelar</translation>
     </message>
     <message>
+      <source>Test masking rules</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit</source>
       <translation>Editar</translation>
     </message>
@@ -558,6 +566,10 @@
   <context>
     <name>abstract/widgettheme</name>
     <message>
+      <source>Hide message time from visitor</source>
+      <translation>Ocultar o tempo da mensagem do visitante</translation>
+    </message>
+    <message>
       <source>Welcome message</source>
       <translation>Mensagem de boas vindas</translation>
     </message>
@@ -684,6 +696,22 @@
     <message>
       <source>Preview</source>
       <translation>Visualizar</translation>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>E.g 5, means there have to be 5 pending chats in the queue and I am 6 in the queue.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Messaging</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Download theme</source>
@@ -828,6 +856,14 @@
     <message>
       <source>General</source>
       <translation>Geral</translation>
+    </message>
+    <message>
+      <source>Themes which will be edited all at once.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department group departments does not have any themes assigned to them.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bubble background color</source>
@@ -1018,12 +1054,28 @@
       <translation>Desativar a resposta automática se o visitante for redirecionado para o questionário</translation>
     </message>
     <message>
+      <source>Departments</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Do not send messages to pending chat if chat is assigned to operator.</source>
       <translation>Não enviar mensagens para chat pendente se o mesmo for atribuído a um operador</translation>
     </message>
     <message>
       <source>This auto responder applies only to proactive invitations.</source>
       <translation>Esta resposta automática aplica-se somente para convites proativos.</translation>
+    </message>
+    <message>
+      <source>How many pending chats have to be in the queue (not counting started chat) for pending chat messaging to be activated.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum pending chats for pending messaging to be activated</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>If variable is not passed should we keep previously recorded value?</source>
@@ -1130,6 +1182,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Allow visitor return to chat even if it was closed.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Disable chat download</source>
       <translation type="unfinished"/>
     </message>
@@ -1214,8 +1270,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Hide message time from visitor</source>
-      <translation>Ocultar o tempo da mensagem do visitante</translation>
+      <source>Message time visible for</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message time placement</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Use modern look. It is used only in older widget.</source>
@@ -1354,6 +1414,10 @@
       <translation>HTML personalizado antes de iniciar campos de formulário de chat na widget.</translation>
     </message>
     <message>
+      <source>Custom html after widget content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Operator intro message. You can wrap custom HTML with [html][/html] bbcode</source>
       <translation type="unfinished"/>
     </message>
@@ -1378,6 +1442,10 @@
       <translation>HTML personalizado antes do cabeçalho do status do widget padrão.</translation>
     </message>
     <message>
+      <source>Custom html after chat status</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start chat button text, standard chat</source>
       <translation>Iniciar texto no botão de chat no chat padrão.</translation>
     </message>
@@ -1395,6 +1463,14 @@
     </message>
     <message>
       <source>Title of the end chat icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to default widget position</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to full height widget position</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1694,6 +1770,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use system timezone instead of a visitor. Visitor TZ will be overriden with system a system one.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Print button as a message as soon visitor clicks a button.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show go to survey button on chat close</source>
       <translation>Mostrar botão ir para o questionário no encerramento do chat</translation>
     </message>
@@ -1807,6 +1891,14 @@
     </message>
     <message>
       <source>Close button position in embed mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format if message is on different day</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date format if message is on same day</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1977,8 +2069,44 @@
       <translation>Tempo limite. [1]</translation>
     </message>
     <message>
-      <source>Default on hold message</source>
-      <translation>Mensagem padrão de espera</translation>
+      <source>Timeout. [2]</source>
+      <translation>Tempo limite. [2]</translation>
+    </message>
+    <message>
+      <source>Timeout. [3]</source>
+      <translation>Tempo limite. [3]</translation>
+    </message>
+    <message>
+      <source>Timeout. [4]</source>
+      <translation>Tempo limite. [4]</translation>
+    </message>
+    <message>
+      <source>Timeout. [5]</source>
+      <translation>Tempo limite. [5]</translation>
+    </message>
+    <message>
+      <source>Default on hold message. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [1]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [2]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [3]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [4]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message for timeout [5]. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Message for timeout [1]</source>
@@ -2001,32 +2129,36 @@
       <translation>Mensagem para tempo limite [5]</translation>
     </message>
     <message>
-      <source>Timeout. [2]</source>
-      <translation>Tempo limite. [2]</translation>
+      <source>Message for timeout [1], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [3]</source>
-      <translation>Tempo limite. [3]</translation>
+      <source>Message for timeout [2], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [4]</source>
-      <translation>Tempo limite. [4]</translation>
+      <source>Message for timeout [3], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Timeout. [5]</source>
-      <translation>Tempo limite. [5]</translation>
+      <source>Message for timeout [4], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor on chat close</source>
-      <translation>Mensagem para o visitante quando o chat é fechado.</translation>
+      <source>Message for timeout [5], use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor if department is offline</source>
-      <translation>Mensagem para o utilizador quando o departamento estiver offline.</translation>
+      <source>Message to visitor on chat close. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
-      <source>Message to visitor if operator speaks same language as visitor.</source>
-      <translation>Mensagem para o utilizador quando o operador falar a mesma linguagem.</translation>
+      <source>Message to visitor if department is offline. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor if operator speaks same language as visitor. Use ||| to separate random messages.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Icon name</source>
@@ -2065,8 +2197,12 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Visible in chat list</source>
-      <translation>Visível na lista de chats</translation>
+      <source>Visible in the widget chat lists</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visible standard chat list</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Has popup information</source>
@@ -2085,6 +2221,26 @@
       <translation>Visível na lista de visitantes on-line</translation>
     </message>
     <message>
+      <source>Remove permanently matched content</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Place you replacement pattern here.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern for replacement</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to visitor after posting sensitive information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Auto reply warning if visitor is posting information to agent which does not have permission to view sensitive data.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Department rule to apply</source>
       <translation type="unfinished"/>
     </message>
@@ -2095,6 +2251,18 @@
     <message>
       <source>Expected variable value</source>
       <translation>E necessário introduzir um valor para  a variável</translation>
+    </message>
+    <message>
+      <source>Destination department by brand role</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Change department only if present department role is</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Condition is always checked independently of transfer method. Department or Department brand role.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Set chat priority to</source>
@@ -2205,11 +2373,19 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Use default auto responder if available</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show everytime it is matched</source>
       <translation>Mostrar sempre que for correspondente</translation>
     </message>
     <message>
       <source>Show invitation next time even if a customer started a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Lock department. The department will be the one that was set when the invitation was issued.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -2432,6 +2608,10 @@
       <source>Subject</source>
       <translation>Assunto</translation>
     </message>
+    <message>
+      <source>Messages content protection</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/sendnotice</name>
@@ -2482,6 +2662,10 @@
     <message>
       <source>Type your message to the user</source>
       <translation>Insira a sua mensagem para o utilizador</translation>
+    </message>
+    <message>
+      <source>You can paste usernames separated by a new line.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Open full widget for the visitor</source>
@@ -3026,6 +3210,46 @@
       <translation>Selecionar o evento</translation>
     </message>
     <message>
+      <source>Department filter</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department</source>
+      <translation>Escolher departamento</translation>
+    </message>
+    <message>
+      <source>Date range from</source>
+      <translation>Intervalo data de</translation>
+    </message>
+    <message>
+      <source>Hour and minute from</source>
+      <translation>Hora e minuto de</translation>
+    </message>
+    <message>
+      <source>Select hour</source>
+      <translation>Selecionar hora</translation>
+    </message>
+    <message>
+      <source>Select minute</source>
+      <translation>Selecionar minuto</translation>
+    </message>
+    <message>
+      <source>Select seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Date range to</source>
+      <translation>até à data</translation>
+    </message>
+    <message>
+      <source>Hour and minute to</source>
+      <translation>até hora e minuto </translation>
+    </message>
+    <message>
       <source>Object ID</source>
       <translation>ID do objeto</translation>
     </message>
@@ -3036,6 +3260,10 @@
     <message>
       <source>Source</source>
       <translation>Origem</translation>
+    </message>
+    <message>
+      <source>Message body</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Exclude personal responses</source>
@@ -3050,12 +3278,20 @@
       <translation>Pesquisar</translation>
     </message>
     <message>
-      <source>Department filter</source>
+      <source>Delete all items</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Choose department</source>
-      <translation>Escolher departamento</translation>
+      <source>Left to delete</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Start deletion</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>records will be deleted.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable</source>
@@ -3063,6 +3299,14 @@
     </message>
     <message>
       <source>Enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign selected department to canned messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove selected department from canned messages</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3098,28 +3342,36 @@
       <translation>Assunto</translation>
     </message>
     <message>
+      <source>Usage frequency in the last 31 days</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Zero times</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Once</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>One or more</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sort by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>CSV</source>
       <translation type="unfinished"/>
     </message>
     <message>
       <source>Import</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Date range from</source>
-      <translation>Intervalo data de</translation>
-    </message>
-    <message>
-      <source>Hour and minute from</source>
-      <translation>Hora e minuto de</translation>
-    </message>
-    <message>
-      <source>Date range to</source>
-      <translation>até à data</translation>
-    </message>
-    <message>
-      <source>Hour and minute to</source>
-      <translation>até hora e minuto </translation>
     </message>
     <message>
       <source>Generate</source>
@@ -3214,20 +3466,20 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Select hour</source>
-      <translation>Selecionar hora</translation>
+      <source>Wait time</source>
+      <translation>Tempo de espera</translation>
     </message>
     <message>
-      <source>Select minute</source>
-      <translation>Selecionar minuto</translation>
-    </message>
-    <message>
-      <source>Select seconds</source>
+      <source>More than</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Wait time</source>
-      <translation>Tempo de espera</translation>
+      <source>seconds</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Less than</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Vote status</source>
@@ -3338,6 +3590,18 @@
       <translation>IP</translation>
     </message>
     <message>
+      <source>First response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Has unread messages</source>
       <translation>Possui mensagens não lidas</translation>
     </message>
@@ -3375,6 +3639,22 @@
     </message>
     <message>
       <source>Transfer happened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Newest first (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Oldest first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last interactions first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last interactions last</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -3478,6 +3758,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Brand members</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Transfer to bot only if department is offline</source>
       <translation>Tranferir para o robô apenas se o departamento estiver offline</translation>
     </message>
@@ -3520,6 +3804,10 @@
     <message>
       <source>File name</source>
       <translation>Nome do arquivo</translation>
+    </message>
+    <message>
+      <source>File id</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please choose</source>
@@ -3670,18 +3958,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>More than</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>seconds</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Less than</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Exclude offline requests from charts</source>
       <translation>Eliminar solicitações offline dos gráficos</translation>
     </message>
@@ -3802,6 +4078,10 @@
       <translation>Média</translation>
     </message>
     <message>
+      <source>As participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Total number of chats</source>
       <translation>Número total de chats</translation>
     </message>
@@ -3830,6 +4110,18 @@
       <translation>Duração média de chat</translation>
     </message>
     <message>
+      <source>Average of first response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average of response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average of maximum response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Include hours (from, to)</source>
       <translation>Incluir horas (de, para)</translation>
     </message>
@@ -3856,6 +4148,14 @@
     <message>
       <source>JSON</source>
       <translation>JSON</translation>
+    </message>
+    <message>
+      <source>Choose department you want to add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department group you want to add</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Disable operators</source>
@@ -3969,31 +4269,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Main</source>
-      <translation>Principal</translation>
-    </message>
-    <message>
-      <source>Add translation</source>
-      <translation>Adicionar tradução</translation>
-    </message>
-    <message>
-      <source>Search for language. Enter * to see all.</source>
-      <translation>Pesquisar linguagem. Escreva * para ver todas.</translation>
-    </message>
-    <message>
-      <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Identifier, use it like {identifier} in canned responses, or bot</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Default</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add combination</source>
+      <source>If you do not select a custom or default auto-responder, proactive chats will not have an auto-responder assigned.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4001,31 +4277,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Default value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Tab custom name</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Value</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Priority</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Rules with highest priority will be checked first</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Advanced filtering</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Add condition</source>
+      <source>click to expand</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4062,6 +4314,70 @@
     </message>
     <message>
       <source>Active to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main</source>
+      <translation>Principal</translation>
+    </message>
+    <message>
+      <source>Add translation</source>
+      <translation>Adicionar tradução</translation>
+    </message>
+    <message>
+      <source>Search for language. Enter * to see all.</source>
+      <translation>Pesquisar linguagem. Escreva * para ver todas.</translation>
+    </message>
+    <message>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Identifier, use it like {identifier} in canned responses, or bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add combination</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tab custom name</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Put a custom value here</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rules with highest priority will be checked first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Advanced filtering</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -4107,6 +4423,14 @@
     <message>
       <source>Auto send</source>
       <translation>Envio automático</translation>
+    </message>
+    <message>
+      <source>Updated at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Created at</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit message</source>
@@ -4197,6 +4521,10 @@
       <translation>Snippet HTML</translation>
     </message>
     <message>
+      <source>On expire delete canned message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Tag&apos;s</source>
       <translation>Tags</translation>
     </message>
@@ -4207,14 +4535,6 @@
     <message>
       <source>Canned messages</source>
       <translation>Mensagens predefinidas</translation>
-    </message>
-    <message>
-      <source>Created at</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Updated at</source>
-      <translation type="unfinished"/>
     </message>
     <message>
       <source>Edit canned message</source>
@@ -4395,6 +4715,10 @@
       <translation>Editar departamento</translation>
     </message>
     <message>
+      <source>Edit brand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Edit department group</source>
       <translation>Editar grupo de departamento</translation>
     </message>
@@ -4485,6 +4809,10 @@
     <message>
       <source>Survey</source>
       <translation>Questionário</translation>
+    </message>
+    <message>
+      <source>Design</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Work hours/work days logic is active</source>
@@ -4655,6 +4983,10 @@
       <translation>Endereço de e-mail adicional para informar sobre os atendimentos fechados, para este e-mail será enviado todas as notificações sobre os próximos atendimentos.</translation>
     </message>
     <message>
+      <source>E-mail is sent in the following order 1. To e-mail template recipient if filled 2. Department e-mail 3. First system operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>To what department chat should be transferred if it is not accepted</source>
       <translation>Para qual departamento o chat deve ser transferido se não for aceite</translation>
     </message>
@@ -4669,6 +5001,10 @@
     <message>
       <source>Transfer immediately to this department if current department has no online operators?</source>
       <translation>Transferir imediatamente para este departamento se o departamento atual não tiver operadores disponíveis?</translation>
+    </message>
+    <message>
+      <source>Transfer immediately to this department if it is outside work hour?</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Reset assigned user on chat transfer?</source>
@@ -4715,12 +5051,76 @@
       <translation>Nenhum</translation>
     </message>
     <message>
+      <source>Click to remove</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Role</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
     </message>
     <message>
       <source>Maximum pending chats</source>
       <translation>Máximo de chats pendentes</translation>
+    </message>
+    <message>
+      <source>Individual theme is picked only if one department is passed. Theme determination happens in the following order.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for passed theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for individual theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for default department theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Check for global default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Individual theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme applied per department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This theme is set from</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Default theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>section and checking As default department theme.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Theme global</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are using only</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>option and you have more than one server you might get inconsistent theme pickup. Apply</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>to department as default or choose individual theme.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>E-mail</source>
@@ -4745,6 +5145,10 @@
     <message>
       <source>Exception groups to apply</source>
       <translation>Grupos para aplicar exceção</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
     </message>
     <message>
       <source>Nick, what should be operator nick. E.g Support Bot</source>
@@ -4803,10 +5207,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Identifier</source>
-      <translation>Identificador</translation>
-    </message>
-    <message>
       <source>Translation</source>
       <translation>Tradução</translation>
     </message>
@@ -4855,6 +5255,10 @@
       <translation>Editar um departamento</translation>
     </message>
     <message>
+      <source>Brands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Departments groups</source>
       <translation>Grupos de departamentos</translation>
     </message>
@@ -4865,6 +5269,164 @@
     <message>
       <source>Edit a group chat</source>
       <translation>Editar um groupo</translation>
+    </message>
+  </context>
+  <context>
+    <name>abstract/message_protection</name>
+    <message>
+      <source>Add an e-mail masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a credit card masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Replaces all numbers in the message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add a preg match sample</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>New rule per row.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rule ||| Replace symbol</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Sample</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test masking</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rules to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>user/edit</name>
+    <message>
+      <source>Application default Time Zone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo</source>
+      <translation>Foto</translation>
+    </message>
+    <message>
+      <source>Server default time zone</source>
+      <translation>Fuso horário padrão do servidor</translation>
+    </message>
+    <message>
+      <source>Edit user</source>
+      <translation>Editar utilizador</translation>
+    </message>
+    <message>
+      <source>Do not enter a password unless you want to change it</source>
+      <translation>Não insira uma senha a não ser que deseje alterá-la</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Nome de utilizador</translation>
+    </message>
+    <message>
+      <source>Password</source>
+      <translation>Senha</translation>
+    </message>
+    <message>
+      <source>Repeat the new password</source>
+      <translation>Repetir a nova senha</translation>
+    </message>
+    <message>
+      <source>E-mail</source>
+      <translation>E-mail</translation>
+    </message>
+    <message>
+      <source>Chat nickname</source>
+      <translation>Apelido no chat</translation>
+    </message>
+    <message>
+      <source>Name</source>
+      <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Surname</source>
+      <translation>Sobrenome</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Salvar</translation>
+    </message>
+    <message>
+      <source>Update</source>
+      <translation>Atualizar</translation>
+    </message>
+    <message>
+      <source>Cancel</source>
+      <translation>Cancelar</translation>
+    </message>
+    <message>
+      <source>User time zone</source>
+      <translation>Fuso horário do utilizador</translation>
+    </message>
+    <message>
+      <source>Choose</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Application default time zone</source>
+      <translation>Fuso horário padrão do aplicativo</translation>
+    </message>
+    <message>
+      <source>Wrong email address</source>
+      <translation>Endereço de e-mail errado</translation>
+    </message>
+    <message>
+      <source>Invalid CSRF token!</source>
+      <translation>Token CSRF inválido!</translation>
+    </message>
+    <message>
+      <source>Password reset requested by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>System configuration</source>
+      <translation>Configuração do sistema</translation>
+    </message>
+    <message>
+      <source>Users</source>
+      <translation>Utilizadores</translation>
+    </message>
+    <message>
+      <source>User edit</source>
+      <translation>Editar utilizador</translation>
+    </message>
+    <message>
+      <source>Invalid email address</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Invalid chat!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -5160,6 +5722,14 @@
       <translation>Fechar chat</translation>
     </message>
     <message>
+      <source>Switch to Classic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Switch to Column</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You</source>
       <translation type="unfinished"/>
     </message>
@@ -5376,6 +5946,10 @@
       <translation>Deixar o grupo, é possível voltar a ser membro do mesmo..</translation>
     </message>
     <message>
+      <source>Provided survey does not exists!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You cannot send messages to this chat. Chat has been closed.</source>
       <translation type="unfinished"/>
     </message>
@@ -5400,6 +5974,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Send a message</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Start a chat with us!</source>
       <translation type="unfinished"/>
     </message>
@@ -5421,6 +5999,18 @@
     </message>
     <message>
       <source>Change language</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Next 〉</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>〈 Back</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Submit</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5449,6 +6039,10 @@
     </message>
     <message>
       <source>No internet connection.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor is typing</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -5919,6 +6513,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Theme, you can choose multiple to show random one.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>As default department theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Show a leave a message form when there are no online operators</source>
       <translation type="unfinished"/>
     </message>
@@ -6002,6 +6604,597 @@
     </message>
   </context>
   <context>
+    <name>chat/onlineusers</name>
+    <message>
+      <source>Your request takes to long. Please contact your administrator and send him url from your browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO detection configuration</source>
+      <translation>Configuração de geolocalização</translation>
+    </message>
+    <message>
+      <source>Map location</source>
+      <translation>Mapa de localização</translation>
+    </message>
+    <message>
+      <source>Test GEO</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>GEO Enabled</source>
+      <translation>Geolocalização ativada</translation>
+    </message>
+    <message>
+      <source>Use this service</source>
+      <translation>Usar este serviço</translation>
+    </message>
+    <message>
+      <source>API Key</source>
+      <translation>API Key</translation>
+    </message>
+    <message>
+      <source>Use mod_geoip2</source>
+      <translation>Usar mod_geoip2</translation>
+    </message>
+    <message>
+      <source>Country code server variable</source>
+      <translation>Variável código de país do servidor</translation>
+    </message>
+    <message>
+      <source>Country name server variable</source>
+      <translation>Variável nome de país do servidor</translation>
+    </message>
+    <message>
+      <source>City name server variable</source>
+      <translation>Variável nome da cidade do servidor</translation>
+    </message>
+    <message>
+      <source>Region name server variable</source>
+      <translation>Variável para nome da região</translation>
+    </message>
+    <message>
+      <source>Latitude variable</source>
+      <translation>Variável latitude</translation>
+    </message>
+    <message>
+      <source>Longitude variable</source>
+      <translation>Variável longitude</translation>
+    </message>
+    <message>
+      <source>Use http://ip-api.com</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use https://www.abstractapi.com/ip-geolocation-api</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use MaxMind, does not depend on any third party remote service</source>
+      <translation>Usar MaxMind, não depende de qualquer serviço remoto de terceiros</translation>
+    </message>
+    <message>
+      <source>You can download city/country database from.</source>
+      <translation>Pode baixar banco de dados de cidade/país.</translation>
+    </message>
+    <message>
+      <source>bcmath php extension detected</source>
+      <translation>extensão php bcmath detectada</translation>
+    </message>
+    <message>
+      <source>Location of city database. Make sure you uploaded file in this location.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>User country based detection, faster</source>
+      <translation>Detecção baseada no país do utilizador, mais rápido</translation>
+    </message>
+    <message>
+      <source>File exists</source>
+      <translation>O arquivo já existe</translation>
+    </message>
+    <message>
+      <source>File does not exists</source>
+      <translation>O arquivo não existe</translation>
+    </message>
+    <message>
+      <source>User city based detection, slower</source>
+      <translation>Detecção baseada na cidade do utilizador, mais lento</translation>
+    </message>
+    <message>
+      <source>Use PHP-GeoIP module</source>
+      <translation>Usar o módulo PHP-GeoIP</translation>
+    </message>
+    <message>
+      <source>Support for PHP-GeoIP detected</source>
+      <translation>Detectado suporte para PHP-GeoIP</translation>
+    </message>
+    <message>
+      <source>Requests will be comming from</source>
+      <translation>Requisições virão de</translation>
+    </message>
+    <message>
+      <source>Username</source>
+      <translation>Utilizador</translation>
+    </message>
+    <message>
+      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
+      <translation>IP, se o IP remoto do site for diferente do detectado. Indique o IP correto</translation>
+    </message>
+    <message>
+      <source>Save</source>
+      <translation>Guardar</translation>
+    </message>
+    <message>
+      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
+      <translation>Arraste o marcador para onde deseja que o mapa seja centralizado por padrão. O zoom também será guardado.</translation>
+    </message>
+    <message>
+      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
+      <translation>Chave da API do Google Maps, guarda automaticamente. Depois de colar a chave, atualize a página.</translation>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Settings updated</source>
+      <translation>Configurações atualizadas</translation>
+    </message>
+    <message>
+      <source>Send message</source>
+      <translation>Enviar mensagem</translation>
+    </message>
+    <message>
+      <source>Chat list</source>
+      <translation>Lista de chat</translation>
+    </message>
+    <message>
+      <source>Dashboard</source>
+      <translation>Painel de controle</translation>
+    </message>
+    <message>
+      <source>City</source>
+      <translation>Cidade</translation>
+    </message>
+    <message>
+      <source>Lat.</source>
+      <translation>Lat.</translation>
+    </message>
+    <message>
+      <source>Lon.</source>
+      <translation>Lon.</translation>
+    </message>
+    <message>
+      <source>Time zone</source>
+      <translation>Fuso horário</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation>Identificador</translation>
+    </message>
+    <message>
+      <source>Nick</source>
+      <translation>Apelido</translation>
+    </message>
+    <message>
+      <source>Additional information</source>
+      <translation>Informação adicional</translation>
+    </message>
+    <message>
+      <source>Last activity</source>
+      <translation>Última atividade</translation>
+    </message>
+    <message>
+      <source>ago</source>
+      <translation>atrás</translation>
+    </message>
+    <message>
+      <source>On page</source>
+      <translation>Na página</translation>
+    </message>
+    <message>
+      <source>Yes</source>
+      <translation>Sim</translation>
+    </message>
+    <message>
+      <source>No</source>
+      <translation>Não</translation>
+    </message>
+    <message>
+      <source>User does not have any message from operator</source>
+      <translation>O utilizador não recebeu nenhuma mensagem do operador</translation>
+    </message>
+    <message>
+      <source>User have not seen message from operator, or message window still open.</source>
+      <translation>O utilizador não visualizou as mensagens do operador ou a janela de mensagem permanece aberta.</translation>
+    </message>
+    <message>
+      <source>User has seen message from operator.</source>
+      <translation>O utilizador viu a mensagem do operador.</translation>
+    </message>
+    <message>
+      <source>User is chatting</source>
+      <translation>O utilizador está em chat</translation>
+    </message>
+    <message>
+      <source>User is not having any chat right now</source>
+      <translation>Utilizador não está em nenhum chat no momento</translation>
+    </message>
+    <message>
+      <source>Operator</source>
+      <translation>Operador</translation>
+    </message>
+    <message>
+      <source>has send message to user</source>
+      <translation>enviou mensagem para o utilizador</translation>
+    </message>
+    <message>
+      <source>No one has send any message to user yet</source>
+      <translation>Ainda ninguém enviou mensagem para o utilizador</translation>
+    </message>
+    <message>
+      <source>First visit</source>
+      <translation>Primeira visita</translation>
+    </message>
+    <message>
+      <source>Last visit</source>
+      <translation>Última visita</translation>
+    </message>
+    <message>
+      <source>Total visits</source>
+      <translation>Total de visitas</translation>
+    </message>
+    <message>
+      <source>time(s) invitation logic was applied</source>
+      <translation>veze(s) que a lógica de convite foi aplicada</translation>
+    </message>
+    <message>
+      <source>Pageviews</source>
+      <translation>Visualizações da página</translation>
+    </message>
+    <message>
+      <source>Total pageviews</source>
+      <translation>Total de visualizações de página</translation>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation>Tempo no local</translation>
+    </message>
+    <message>
+      <source>Total time on site</source>
+      <translation>Tempo total no site</translation>
+    </message>
+    <message>
+      <source>Current page</source>
+      <translation>Página atual</translation>
+    </message>
+    <message>
+      <source>Came from</source>
+      <translation>Vindo de</translation>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Tem certeza?</translation>
+    </message>
+    <message>
+      <source>Clear list</source>
+      <translation>Limpar a lista</translation>
+    </message>
+    <message>
+      <source>User tracking is disabled, enable it at</source>
+      <translation>O rastreio de utilizadores está desativado, ative-o em</translation>
+    </message>
+    <message>
+      <source>Chat configuration</source>
+      <translation>Configuração do Chat</translation>
+    </message>
+    <message>
+      <source>Online visitors list</source>
+      <translation>Lista de visitantes online</translation>
+    </message>
+    <message>
+      <source>Online visitors on map</source>
+      <translation>Visitantes que estão online</translation>
+    </message>
+    <message>
+      <source>Preview chat</source>
+      <translation>Pré-visualizar chat</translation>
+    </message>
+    <message>
+      <source>Visits</source>
+      <translation>Visitas</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation>Novo</translation>
+    </message>
+    <message>
+      <source>has sent a message to the user</source>
+      <translation>enviou uma mensagem para o utilizador</translation>
+    </message>
+    <message>
+      <source>Seen</source>
+      <translation>Visto</translation>
+    </message>
+    <message>
+      <source>Unseen</source>
+      <translation>Não visto</translation>
+    </message>
+    <message>
+      <source>Page</source>
+      <translation>Página</translation>
+    </message>
+    <message>
+      <source>From</source>
+      <translation>Origem</translation>
+    </message>
+    <message>
+      <source>Enable/Disable sound about new visitor</source>
+      <translation>Ativar/Desativar som sobre novo visitante</translation>
+    </message>
+    <message>
+      <source>Enable/Disable browser notifications about new visitor</source>
+      <translation>Ativar/Desativar notificações do navegador sobre novo visitante</translation>
+    </message>
+    <message>
+      <source>Online visitors</source>
+      <translation>Utilizadores online</translation>
+    </message>
+    <message>
+      <source>User has message from operator</source>
+      <translation>O utilizador recebeu mensagem do operador</translation>
+    </message>
+    <message>
+      <source>Marker timeout before it dissapears from map</source>
+      <translation>Marcador de tempo de limite antes de desaparecer do mapa</translation>
+    </message>
+    <message>
+      <source>seconds</source>
+      <translation>segundos</translation>
+    </message>
+    <message>
+      <source>minute</source>
+      <translation>minuto</translation>
+    </message>
+    <message>
+      <source>minutes</source>
+      <translation>minutos</translation>
+    </message>
+    <message>
+      <source>online users</source>
+      <translation>Utilizadores online</translation>
+    </message>
+    <message>
+      <source>Show only connected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Group list by</source>
+      <translation>Agrupar lista por</translation>
+    </message>
+    <message>
+      <source>Group by</source>
+      <translation>Agrupar por</translation>
+    </message>
+    <message>
+      <source>User country</source>
+      <translation>País do utilizador</translation>
+    </message>
+    <message>
+      <source>Page title</source>
+      <translation>Título da página</translation>
+    </message>
+    <message>
+      <source>Referrer</source>
+      <translation>Remetente</translation>
+    </message>
+    <message>
+      <source>Department</source>
+      <translation>Departamento</translation>
+    </message>
+    <message>
+      <source>Refresh list every</source>
+      <translation>Atualizar lista a cada</translation>
+    </message>
+    <message>
+      <source>second</source>
+      <translation>segundo</translation>
+    </message>
+    <message>
+      <source>Show visitors who visited site in the past</source>
+      <translation>Mostrar visitantes de retorno</translation>
+    </message>
+    <message>
+      <source>hour</source>
+      <translation>hora</translation>
+    </message>
+    <message>
+      <source>day</source>
+      <translation>dia</translation>
+    </message>
+    <message>
+      <source>days</source>
+      <translation>dias</translation>
+    </message>
+    <message>
+      <source>Max records to return</source>
+      <translation>Número máximo de registros a devolver</translation>
+    </message>
+    <message>
+      <source>Visitor local time</source>
+      <translation>Hora local do visitante</translation>
+    </message>
+    <message>
+      <source>By user status on site</source>
+      <translation>Status do utilizador no site</translation>
+    </message>
+    <message>
+      <source>Action</source>
+      <translation>Ação</translation>
+    </message>
+    <message>
+      <source>User has not seen a message from the operator, or the message window is still open.</source>
+      <translation>O utilizador não visualizou as mensagens do operador ou a janela de mensagem permanece aberta.</translation>
+    </message>
+    <message>
+      <source>User has seen the message from the operator.</source>
+      <translation>O utilizador visualizou a mensagem do operador.</translation>
+    </message>
+    <message>
+      <source>User does not have any messages from the operator</source>
+      <translation>O utilizador não recebeu nenhuma mensagem do operador</translation>
+    </message>
+    <message>
+      <source>Chat</source>
+      <translation>Chat</translation>
+    </message>
+    <message>
+      <source>Returning</source>
+      <translation>Retornando</translation>
+    </message>
+    <message>
+      <source>Start a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
+      <translation>+20 (Mais de 20 segundos de gasto no site) 20 (Menos de 20 segundos de gasto no site)</translation>
+    </message>
+    <message>
+      <source>In progress...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Select country</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visited in the past</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Never had a chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Usernames (*.csv)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Upload usernames in CSV format</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for users is active</source>
+      <translation>O envio de arquivos para utilizadores está ativo</translation>
+    </message>
+    <message>
+      <source>Allow visitor to choose only one file for the upload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Files upload for operators is active</source>
+      <translation>O envio de arquivos para operadores está ativo</translation>
+    </message>
+    <message>
+      <source>Remove meta information from images</source>
+      <translation>Remova os dados meta das imagens</translation>
+    </message>
+    <message>
+      <source>Uploaded files from visitors are scanned</source>
+      <translation>Arquivos de upload de visitantes são verificados pelo antivirus</translation>
+    </message>
+    <message>
+      <source>Voice messages for visitors is active</source>
+      <translation>As mensagens de voz para os visitantes estão ativas</translation>
+    </message>
+    <message>
+      <source>Voice messages for operators is active</source>
+      <translation>As mensagens de voz para operadores estão ativas</translation>
+    </message>
+    <message>
+      <source>If you do not choose any department from below we will track all departments.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country code variable does not exist!</source>
+      <translation>A variável código do país não existe!</translation>
+    </message>
+    <message>
+      <source>Country name variable does not exist!</source>
+      <translation>A variável nome do país não existe!</translation>
+    </message>
+    <message>
+      <source>Please enter city variable!</source>
+      <translation>Insira a variável cidade!</translation>
+    </message>
+    <message>
+      <source>Please enter latitude variable!</source>
+      <translation>Insira a variável latitude!</translation>
+    </message>
+    <message>
+      <source>Please enter longitude variable!</source>
+      <translation>Insira a variável longitude!</translation>
+    </message>
+    <message>
+      <source>Please enter API Key!</source>
+      <translation>Insira a chave da API!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
+      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu  &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas!</translation>
+    </message>
+    <message>
+      <source>MaxMind city file does not exists!</source>
+      <translation>Arquivo de cidade MaxMind não existe!</translation>
+    </message>
+    <message>
+      <source>MaxMind country file does not exists!</source>
+      <translation>Arquivo de país MaxMind não existe!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
+      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se os arquivos de banco de dados MaxMind existe!</translation>
+    </message>
+    <message>
+      <source>Please enter the API key!</source>
+      <translation>Insira a chave da API!</translation>
+    </message>
+    <message>
+      <source>Please enter the API username!</source>
+      <translation>Insira o nome de utilizador da API.</translation>
+    </message>
+    <message>
+      <source>Please enter IP!</source>
+      <translation>Insira o IP!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
+      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas e se sua chave API e o nome de utilizador estão corretos!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
+      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas e se sua chave API está correta!</translation>
+    </message>
+    <message>
+      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
+      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se instalou módulo php-GeoIP e se o arquivo GeoIPCity.dat está disponível!</translation>
+    </message>
+    <message>
+      <source>Please choose a service provider!</source>
+      <translation>Escolha um provedor do serviço!</translation>
+    </message>
+    <message>
+      <source>Online users</source>
+      <translation>Utilizadores online</translation>
+    </message>
+  </context>
+  <context>
     <name>audit/options</name>
     <message>
       <source>Audit Configuration</source>
@@ -6057,6 +7250,10 @@
     <message>
       <source>New</source>
       <translation>Novo</translation>
+    </message>
+    <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Import</source>
@@ -6412,6 +7609,10 @@
       <translation>Rastro</translation>
     </message>
     <message>
+      <source>Average response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Additional data</source>
       <translation>Dados adicionais</translation>
     </message>
@@ -6540,6 +7741,14 @@
       <translation>E-mail</translation>
     </message>
     <message>
+      <source>First response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max response time (agent)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Online profile</source>
       <translation type="unfinished"/>
     </message>
@@ -6660,6 +7869,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Include bot messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Messages</source>
       <translation>Mensagens</translation>
     </message>
@@ -6736,6 +7949,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Previous item</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Next item</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Use Alt+↑↓ arrows to navigate in the list.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a URL</source>
       <translation>Insira o URL</translation>
     </message>
@@ -6761,6 +7986,10 @@
     </message>
     <message>
       <source>Mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline message</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6888,113 +8117,6 @@
     <message>
       <source>Form</source>
       <translation>Formulário</translation>
-    </message>
-  </context>
-  <context>
-    <name>user/edit</name>
-    <message>
-      <source>Application default Time Zone</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Photo</source>
-      <translation>Foto</translation>
-    </message>
-    <message>
-      <source>Server default time zone</source>
-      <translation>Fuso horário padrão do servidor</translation>
-    </message>
-    <message>
-      <source>Edit user</source>
-      <translation>Editar utilizador</translation>
-    </message>
-    <message>
-      <source>Do not enter a password unless you want to change it</source>
-      <translation>Não insira uma senha a não ser que deseje alterá-la</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Nome de utilizador</translation>
-    </message>
-    <message>
-      <source>Password</source>
-      <translation>Senha</translation>
-    </message>
-    <message>
-      <source>Repeat the new password</source>
-      <translation>Repetir a nova senha</translation>
-    </message>
-    <message>
-      <source>E-mail</source>
-      <translation>E-mail</translation>
-    </message>
-    <message>
-      <source>Chat nickname</source>
-      <translation>Apelido no chat</translation>
-    </message>
-    <message>
-      <source>Name</source>
-      <translation>Nome</translation>
-    </message>
-    <message>
-      <source>Surname</source>
-      <translation>Sobrenome</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Salvar</translation>
-    </message>
-    <message>
-      <source>Update</source>
-      <translation>Atualizar</translation>
-    </message>
-    <message>
-      <source>Cancel</source>
-      <translation>Cancelar</translation>
-    </message>
-    <message>
-      <source>User time zone</source>
-      <translation>Fuso horário do utilizador</translation>
-    </message>
-    <message>
-      <source>Choose</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Application default time zone</source>
-      <translation>Fuso horário padrão do aplicativo</translation>
-    </message>
-    <message>
-      <source>Wrong email address</source>
-      <translation>Endereço de e-mail errado</translation>
-    </message>
-    <message>
-      <source>Invalid CSRF token!</source>
-      <translation>Token CSRF inválido!</translation>
-    </message>
-    <message>
-      <source>Password reset requested by</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>System configuration</source>
-      <translation>Configuração do sistema</translation>
-    </message>
-    <message>
-      <source>Users</source>
-      <translation>Utilizadores</translation>
-    </message>
-    <message>
-      <source>User edit</source>
-      <translation>Editar utilizador</translation>
-    </message>
-    <message>
-      <source>Invalid email address</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Invalid chat!</source>
-      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -7835,11 +8957,23 @@
       <translation>Departamentos individuais</translation>
     </message>
     <message>
-      <source>Assign as operator</source>
+      <source>New</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Exclude from auto assignment workflow</source>
+      <source>Edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Alias nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Profile picture</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7847,11 +8981,23 @@
       <translation>Apenas leitura</translation>
     </message>
     <message>
-      <source>Assign in read only mode</source>
+      <source>Exclude from auto assignment workflow</source>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Show archived departments</source>
+      <source>Assignment priority, optional, default - 0</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -7883,6 +9029,46 @@
       <translation>O Status do chat não vai mudar durante a abertura de um chat pendente</translation>
     </message>
     <message>
+      <source>Assign in read only mode</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign as operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agents with higher assignment priority will be assigned first to chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Min and Max chat priority for chat being assigned by my assign priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Department alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Avatar builder</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enter any string to generate an avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Click to set avatar</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Photo has higher priority than avatar.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Notifications</source>
       <translation>Notificações</translation>
     </message>
@@ -7907,6 +9093,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department assignment could not be found!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Created</source>
       <translation>Criado</translation>
     </message>
@@ -7920,18 +9110,6 @@
     </message>
     <message>
       <source>Hide quick notifications</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Avatar builder</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Enter any string to generate an avatar</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Click to set avatar</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8183,6 +9361,14 @@
     <message>
       <source>Sort by department</source>
       <translation>Ordenar por departamento</translation>
+    </message>
+    <message>
+      <source>More rows</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Less rows</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Has unread messages</source>
@@ -8864,6 +10050,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Group by operator</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Only logged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>User ID</source>
       <translation type="unfinished"/>
     </message>
@@ -8921,10 +10123,6 @@
     </message>
     <message>
       <source>We show only to group assigned operators. We do not show directly to department assigned operators.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group by operator</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9203,6 +10401,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chats I have presently opened</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Open chats</source>
       <translation type="unfinished"/>
     </message>
@@ -9454,6 +10660,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Inline survey</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide</source>
       <translation type="unfinished"/>
     </message>
@@ -9467,6 +10677,10 @@
     </message>
     <message>
       <source>Thumbs down</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Hide/Show HTML Code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -9526,6 +10740,45 @@
     <message>
       <source>Please enter text!</source>
       <translation>Insira o texto!</translation>
+    </message>
+  </context>
+  <context>
+    <name>user/assigndepartment</name>
+    <message>
+      <source>No permission to edit!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department group assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit department assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign department group</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please choose a department!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department department already have been added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This department already have been added!</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -9739,557 +10992,6 @@
     </message>
   </context>
   <context>
-    <name>chat/onlineusers</name>
-    <message>
-      <source>GEO detection configuration</source>
-      <translation>Configuração de geolocalização</translation>
-    </message>
-    <message>
-      <source>Map location</source>
-      <translation>Mapa de localização</translation>
-    </message>
-    <message>
-      <source>GEO Enabled</source>
-      <translation>Geolocalização ativada</translation>
-    </message>
-    <message>
-      <source>Use this service</source>
-      <translation>Usar este serviço</translation>
-    </message>
-    <message>
-      <source>API Key</source>
-      <translation>API Key</translation>
-    </message>
-    <message>
-      <source>Use mod_geoip2</source>
-      <translation>Usar mod_geoip2</translation>
-    </message>
-    <message>
-      <source>Country code server variable</source>
-      <translation>Variável código de país do servidor</translation>
-    </message>
-    <message>
-      <source>Country name server variable</source>
-      <translation>Variável nome de país do servidor</translation>
-    </message>
-    <message>
-      <source>City name server variable</source>
-      <translation>Variável nome da cidade do servidor</translation>
-    </message>
-    <message>
-      <source>Region name server variable</source>
-      <translation>Variável para nome da região</translation>
-    </message>
-    <message>
-      <source>Latitude variable</source>
-      <translation>Variável latitude</translation>
-    </message>
-    <message>
-      <source>Longitude variable</source>
-      <translation>Variável longitude</translation>
-    </message>
-    <message>
-      <source>Use http://ip-api.com</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use https://www.abstractapi.com/ip-geolocation-api</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Use MaxMind, does not depend on any third party remote service</source>
-      <translation>Usar MaxMind, não depende de qualquer serviço remoto de terceiros</translation>
-    </message>
-    <message>
-      <source>You can download city/country database from.</source>
-      <translation>Pode baixar banco de dados de cidade/país.</translation>
-    </message>
-    <message>
-      <source>bcmath php extension detected</source>
-      <translation>extensão php bcmath detectada</translation>
-    </message>
-    <message>
-      <source>Location of city database. Make sure you uploaded file in this location.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>User country based detection, faster</source>
-      <translation>Detecção baseada no país do utilizador, mais rápido</translation>
-    </message>
-    <message>
-      <source>File exists</source>
-      <translation>O arquivo já existe</translation>
-    </message>
-    <message>
-      <source>File does not exists</source>
-      <translation>O arquivo não existe</translation>
-    </message>
-    <message>
-      <source>User city based detection, slower</source>
-      <translation>Detecção baseada na cidade do utilizador, mais lento</translation>
-    </message>
-    <message>
-      <source>Use PHP-GeoIP module</source>
-      <translation>Usar o módulo PHP-GeoIP</translation>
-    </message>
-    <message>
-      <source>Support for PHP-GeoIP detected</source>
-      <translation>Detectado suporte para PHP-GeoIP</translation>
-    </message>
-    <message>
-      <source>Requests will be comming from</source>
-      <translation>Requisições virão de</translation>
-    </message>
-    <message>
-      <source>Username</source>
-      <translation>Utilizador</translation>
-    </message>
-    <message>
-      <source>IP, if your site remote IP is different from detected one, please provide correct remote IP address</source>
-      <translation>IP, se o IP remoto do site for diferente do detectado. Indique o IP correto</translation>
-    </message>
-    <message>
-      <source>Save</source>
-      <translation>Guardar</translation>
-    </message>
-    <message>
-      <source>Drag a marker where you want to have map centered by default. Zoom is also saved.</source>
-      <translation>Arraste o marcador para onde deseja que o mapa seja centralizado por padrão. O zoom também será guardado.</translation>
-    </message>
-    <message>
-      <source>Google Maps API key, saved automatically. After pasting the key, refresh the page.</source>
-      <translation>Chave da API do Google Maps, guarda automaticamente. Depois de colar a chave, atualize a página.</translation>
-    </message>
-    <message>
-      <source>Settings updated</source>
-      <translation>Configurações atualizadas</translation>
-    </message>
-    <message>
-      <source>Send message</source>
-      <translation>Enviar mensagem</translation>
-    </message>
-    <message>
-      <source>Chat list</source>
-      <translation>Lista de chat</translation>
-    </message>
-    <message>
-      <source>Dashboard</source>
-      <translation>Painel de controle</translation>
-    </message>
-    <message>
-      <source>City</source>
-      <translation>Cidade</translation>
-    </message>
-    <message>
-      <source>Lat.</source>
-      <translation>Lat.</translation>
-    </message>
-    <message>
-      <source>Lon.</source>
-      <translation>Lon.</translation>
-    </message>
-    <message>
-      <source>Time zone</source>
-      <translation>Fuso horário</translation>
-    </message>
-    <message>
-      <source>Identifier</source>
-      <translation>Identificador</translation>
-    </message>
-    <message>
-      <source>Nick</source>
-      <translation>Apelido</translation>
-    </message>
-    <message>
-      <source>Additional information</source>
-      <translation>Informação adicional</translation>
-    </message>
-    <message>
-      <source>Last activity</source>
-      <translation>Última atividade</translation>
-    </message>
-    <message>
-      <source>ago</source>
-      <translation>atrás</translation>
-    </message>
-    <message>
-      <source>On page</source>
-      <translation>Na página</translation>
-    </message>
-    <message>
-      <source>Yes</source>
-      <translation>Sim</translation>
-    </message>
-    <message>
-      <source>No</source>
-      <translation>Não</translation>
-    </message>
-    <message>
-      <source>User does not have any message from operator</source>
-      <translation>O utilizador não recebeu nenhuma mensagem do operador</translation>
-    </message>
-    <message>
-      <source>User have not seen message from operator, or message window still open.</source>
-      <translation>O utilizador não visualizou as mensagens do operador ou a janela de mensagem permanece aberta.</translation>
-    </message>
-    <message>
-      <source>User has seen message from operator.</source>
-      <translation>O utilizador viu a mensagem do operador.</translation>
-    </message>
-    <message>
-      <source>User is chatting</source>
-      <translation>O utilizador está em chat</translation>
-    </message>
-    <message>
-      <source>User is not having any chat right now</source>
-      <translation>Utilizador não está em nenhum chat no momento</translation>
-    </message>
-    <message>
-      <source>Operator</source>
-      <translation>Operador</translation>
-    </message>
-    <message>
-      <source>has send message to user</source>
-      <translation>enviou mensagem para o utilizador</translation>
-    </message>
-    <message>
-      <source>No one has send any message to user yet</source>
-      <translation>Ainda ninguém enviou mensagem para o utilizador</translation>
-    </message>
-    <message>
-      <source>First visit</source>
-      <translation>Primeira visita</translation>
-    </message>
-    <message>
-      <source>Last visit</source>
-      <translation>Última visita</translation>
-    </message>
-    <message>
-      <source>Total visits</source>
-      <translation>Total de visitas</translation>
-    </message>
-    <message>
-      <source>time(s) invitation logic was applied</source>
-      <translation>veze(s) que a lógica de convite foi aplicada</translation>
-    </message>
-    <message>
-      <source>Pageviews</source>
-      <translation>Visualizações da página</translation>
-    </message>
-    <message>
-      <source>Total pageviews</source>
-      <translation>Total de visualizações de página</translation>
-    </message>
-    <message>
-      <source>Time on site</source>
-      <translation>Tempo no local</translation>
-    </message>
-    <message>
-      <source>Total time on site</source>
-      <translation>Tempo total no site</translation>
-    </message>
-    <message>
-      <source>Current page</source>
-      <translation>Página atual</translation>
-    </message>
-    <message>
-      <source>Came from</source>
-      <translation>Vindo de</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Tem certeza?</translation>
-    </message>
-    <message>
-      <source>Clear list</source>
-      <translation>Limpar a lista</translation>
-    </message>
-    <message>
-      <source>User tracking is disabled, enable it at</source>
-      <translation>O rastreio de utilizadores está desativado, ative-o em</translation>
-    </message>
-    <message>
-      <source>Chat configuration</source>
-      <translation>Configuração do Chat</translation>
-    </message>
-    <message>
-      <source>Online visitors list</source>
-      <translation>Lista de visitantes online</translation>
-    </message>
-    <message>
-      <source>Online visitors on map</source>
-      <translation>Visitantes que estão online</translation>
-    </message>
-    <message>
-      <source>Preview chat</source>
-      <translation>Pré-visualizar chat</translation>
-    </message>
-    <message>
-      <source>Visits</source>
-      <translation>Visitas</translation>
-    </message>
-    <message>
-      <source>New</source>
-      <translation>Novo</translation>
-    </message>
-    <message>
-      <source>has sent a message to the user</source>
-      <translation>enviou uma mensagem para o utilizador</translation>
-    </message>
-    <message>
-      <source>Seen</source>
-      <translation>Visto</translation>
-    </message>
-    <message>
-      <source>Unseen</source>
-      <translation>Não visto</translation>
-    </message>
-    <message>
-      <source>Page</source>
-      <translation>Página</translation>
-    </message>
-    <message>
-      <source>From</source>
-      <translation>Origem</translation>
-    </message>
-    <message>
-      <source>Enable/Disable sound about new visitor</source>
-      <translation>Ativar/Desativar som sobre novo visitante</translation>
-    </message>
-    <message>
-      <source>Enable/Disable browser notifications about new visitor</source>
-      <translation>Ativar/Desativar notificações do navegador sobre novo visitante</translation>
-    </message>
-    <message>
-      <source>Online visitors</source>
-      <translation>Utilizadores online</translation>
-    </message>
-    <message>
-      <source>User has message from operator</source>
-      <translation>O utilizador recebeu mensagem do operador</translation>
-    </message>
-    <message>
-      <source>Marker timeout before it dissapears from map</source>
-      <translation>Marcador de tempo de limite antes de desaparecer do mapa</translation>
-    </message>
-    <message>
-      <source>seconds</source>
-      <translation>segundos</translation>
-    </message>
-    <message>
-      <source>minute</source>
-      <translation>minuto</translation>
-    </message>
-    <message>
-      <source>minutes</source>
-      <translation>minutos</translation>
-    </message>
-    <message>
-      <source>online users</source>
-      <translation>Utilizadores online</translation>
-    </message>
-    <message>
-      <source>Show only connected</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Group list by</source>
-      <translation>Agrupar lista por</translation>
-    </message>
-    <message>
-      <source>Group by</source>
-      <translation>Agrupar por</translation>
-    </message>
-    <message>
-      <source>User country</source>
-      <translation>País do utilizador</translation>
-    </message>
-    <message>
-      <source>Page title</source>
-      <translation>Título da página</translation>
-    </message>
-    <message>
-      <source>Referrer</source>
-      <translation>Remetente</translation>
-    </message>
-    <message>
-      <source>Department</source>
-      <translation>Departamento</translation>
-    </message>
-    <message>
-      <source>Refresh list every</source>
-      <translation>Atualizar lista a cada</translation>
-    </message>
-    <message>
-      <source>second</source>
-      <translation>segundo</translation>
-    </message>
-    <message>
-      <source>Show visitors who visited site in the past</source>
-      <translation>Mostrar visitantes de retorno</translation>
-    </message>
-    <message>
-      <source>hour</source>
-      <translation>hora</translation>
-    </message>
-    <message>
-      <source>day</source>
-      <translation>dia</translation>
-    </message>
-    <message>
-      <source>days</source>
-      <translation>dias</translation>
-    </message>
-    <message>
-      <source>Max records to return</source>
-      <translation>Número máximo de registros a devolver</translation>
-    </message>
-    <message>
-      <source>Visitor local time</source>
-      <translation>Hora local do visitante</translation>
-    </message>
-    <message>
-      <source>By user status on site</source>
-      <translation>Status do utilizador no site</translation>
-    </message>
-    <message>
-      <source>Action</source>
-      <translation>Ação</translation>
-    </message>
-    <message>
-      <source>User has not seen a message from the operator, or the message window is still open.</source>
-      <translation>O utilizador não visualizou as mensagens do operador ou a janela de mensagem permanece aberta.</translation>
-    </message>
-    <message>
-      <source>User has seen the message from the operator.</source>
-      <translation>O utilizador visualizou a mensagem do operador.</translation>
-    </message>
-    <message>
-      <source>User does not have any messages from the operator</source>
-      <translation>O utilizador não recebeu nenhuma mensagem do operador</translation>
-    </message>
-    <message>
-      <source>Chat</source>
-      <translation>Chat</translation>
-    </message>
-    <message>
-      <source>Returning</source>
-      <translation>Retornando</translation>
-    </message>
-    <message>
-      <source>Start a chat</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>+20 (More than 20 seconds spend on site) 20 (Less than 20 seconds spend on site)</source>
-      <translation>+20 (Mais de 20 segundos de gasto no site) 20 (Menos de 20 segundos de gasto no site)</translation>
-    </message>
-    <message>
-      <source>Files upload for users is active</source>
-      <translation>O envio de arquivos para utilizadores está ativo</translation>
-    </message>
-    <message>
-      <source>Allow visitor to choose only one file for the upload</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Files upload for operators is active</source>
-      <translation>O envio de arquivos para operadores está ativo</translation>
-    </message>
-    <message>
-      <source>Remove meta information from images</source>
-      <translation>Remova os dados meta das imagens</translation>
-    </message>
-    <message>
-      <source>Uploaded files from visitors are scanned</source>
-      <translation>Arquivos de upload de visitantes são verificados pelo antivirus</translation>
-    </message>
-    <message>
-      <source>Voice messages for visitors is active</source>
-      <translation>As mensagens de voz para os visitantes estão ativas</translation>
-    </message>
-    <message>
-      <source>Voice messages for operators is active</source>
-      <translation>As mensagens de voz para operadores estão ativas</translation>
-    </message>
-    <message>
-      <source>If you do not choose any department from below we will track all departments.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Country code variable does not exist!</source>
-      <translation>A variável código do país não existe!</translation>
-    </message>
-    <message>
-      <source>Country name variable does not exist!</source>
-      <translation>A variável nome do país não existe!</translation>
-    </message>
-    <message>
-      <source>Please enter city variable!</source>
-      <translation>Insira a variável cidade!</translation>
-    </message>
-    <message>
-      <source>Please enter latitude variable!</source>
-      <translation>Insira a variável latitude!</translation>
-    </message>
-    <message>
-      <source>Please enter longitude variable!</source>
-      <translation>Insira a variável longitude!</translation>
-    </message>
-    <message>
-      <source>Please enter API Key!</source>
-      <translation>Insira a chave da API!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages!</source>
-      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu  &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas!</translation>
-    </message>
-    <message>
-      <source>MaxMind city file does not exists!</source>
-      <translation>Arquivo de cidade MaxMind não existe!</translation>
-    </message>
-    <message>
-      <source>MaxMind country file does not exists!</source>
-      <translation>Arquivo de país MaxMind não existe!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that MaxMind database files exists!</source>
-      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se os arquivos de banco de dados MaxMind existe!</translation>
-    </message>
-    <message>
-      <source>Please enter the API key!</source>
-      <translation>Insira a chave da API!</translation>
-    </message>
-    <message>
-      <source>Please enter the API username!</source>
-      <translation>Insira o nome de utilizador da API.</translation>
-    </message>
-    <message>
-      <source>Please enter IP!</source>
-      <translation>Insira o IP!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key and username is correct!</source>
-      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas e se sua chave API e o nome de utilizador estão corretos!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that your service provider allows you to make requests to remote pages and your API key is correct!</source>
-      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se o seu &apos;service provider&apos; lhe permite fazer pedidos para páginas remotas e se sua chave API está correta!</translation>
-    </message>
-    <message>
-      <source>Setting service provider failed, please check that you have installed php-GeoIP module and GeoIPCity.dat file is available!</source>
-      <translation>A configuração de &apos;service provider&apos; falhou. Verifique se instalou módulo php-GeoIP e se o arquivo GeoIPCity.dat está disponível!</translation>
-    </message>
-    <message>
-      <source>Please choose a service provider!</source>
-      <translation>Escolha um provedor do serviço!</translation>
-    </message>
-    <message>
-      <source>Online users</source>
-      <translation>Utilizadores online</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/modifychat</name>
     <message>
       <source>Debug</source>
@@ -10340,6 +11042,42 @@
       <translation>Departamento</translation>
     </message>
     <message>
+      <source>Participant</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>First response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Max response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Bot</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Duration calculation log</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Agents response times calculation log</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat information was updated</source>
       <translation>A informação do chat foi atualizada</translation>
     </message>
@@ -10385,6 +11123,10 @@
     <message>
       <source>Departments limit groups</source>
       <translation>Limite de grupos de departamentos</translation>
+    </message>
+    <message>
+      <source>Brands</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time zone settings</source>
@@ -10456,6 +11198,10 @@
     </message>
     <message>
       <source>Commands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Conditions</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -10581,6 +11327,10 @@
     <message>
       <source>Maintenance</source>
       <translation>Manutenção</translation>
+    </message>
+    <message>
+      <source>Messages content protection</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Mobile</source>
@@ -11049,6 +11799,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Bot constructor</source>
       <translation type="unfinished"/>
     </message>
@@ -11102,6 +11856,22 @@
   <context>
     <name>pagelayout/pagelayout</name>
     <message>
+      <source>Newest first (default)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Oldest first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recently updated first</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Recently updated last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Empty...</source>
       <translation>Vazio...</translation>
     </message>
@@ -11150,6 +11920,10 @@
       <translation>Grupos de chats</translation>
     </message>
     <message>
+      <source>Grp.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Download XLS</source>
       <translation>Baixar XLS</translation>
     </message>
@@ -11171,6 +11945,14 @@
     </message>
     <message>
       <source>Soft</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken time to render departments groups statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Taken time to render departments statistic</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11244,6 +12026,10 @@
     <message>
       <source>User group</source>
       <translation>Grupo de utilizadores</translation>
+    </message>
+    <message>
+      <source>Taken time to fetch information for this widget</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Bot chats</source>
@@ -11432,6 +12218,26 @@
       <source>System assistant</source>
       <translation>Assistente do sistema</translation>
     </message>
+    <message>
+      <source>Scheduled for sent!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have been sent!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delivered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Have been seen!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rejected or failed!</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>chat/maintenance</name>
@@ -11466,6 +12272,10 @@
   </context>
   <context>
     <name>chat/statistic</name>
+    <message>
+      <source>Average chat duration should be calculated fo the last</source>
+      <translation type="unfinished"/>
+    </message>
     <message>
       <source>Statistic</source>
       <translation>Estatísticas</translation>
@@ -11521,6 +12331,18 @@
     <message>
       <source>Number of chats by user</source>
       <translation>Número de chats por utilizador</translation>
+    </message>
+    <message>
+      <source>Number of chats by user (participant)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message delivery statistic (operator)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message delivery statistic (bot)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Number of chats by transfer operator</source>
@@ -11611,6 +12433,22 @@
       <translation>Resposta automática de robô</translation>
     </message>
     <message>
+      <source>Sent</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Delivered</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Read</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Rejected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Average chats</source>
       <translation>Média de chats</translation>
     </message>
@@ -11655,7 +12493,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Average chat duration should be calculated fo the last</source>
+      <source>Average chat duration should be calculated for the last</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -11805,6 +12643,14 @@
     <message>
       <source>Last 24h statistics</source>
       <translation>Estatísticas das últimas 24 horas</translation>
+    </message>
+    <message>
+      <source>Bot messages delivery statistic</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator messages delivery statistic</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Unique</source>
@@ -12904,6 +13750,18 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Brands</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Brand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Are you sure?</source>
+      <translation>Tem certeza?</translation>
+    </message>
+    <message>
       <source>Departments</source>
       <translation>Departamentos</translation>
     </message>
@@ -12940,6 +13798,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department alias</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Yes</source>
       <translation>Sim</translation>
     </message>
@@ -12954,10 +13816,6 @@
     <message>
       <source>New department</source>
       <translation>Novo departamento</translation>
-    </message>
-    <message>
-      <source>Are you sure?</source>
-      <translation>Tem certeza?</translation>
     </message>
     <message>
       <source>Departments groups</source>
@@ -12996,7 +13854,27 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Offline operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Total operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Update stats</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Edit theme</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Themes edit</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -13162,6 +14040,38 @@
       <translation>Retomar a atribuição automática se o chat permanecer pendente por n segundos</translation>
     </message>
     <message>
+      <source>Assign chat by operator priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>This has higher priority than assign chats to lower number of chats having operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Activate prioritized assignment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Assign chat by operator priority also</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum agent assignment priority</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Minimum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Maximum chat priority for it being processed with prioritized assignment workflow</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide send e-mail button for operators in chat window</source>
       <translation>Esconder e-mails enviados para operadores na janela do chat</translation>
     </message>
@@ -13180,12 +14090,20 @@
       <translation>Novo departamento</translation>
     </message>
     <message>
+      <source>New brand</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>New department group</source>
       <translation>Novo grupo de departamentos</translation>
     </message>
     <message>
       <source>New department limit group</source>
       <translation>Novo limite para grupo de departamento</translation>
+    </message>
+    <message>
+      <source>New</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>New bot</source>
@@ -13221,10 +14139,6 @@
     </message>
     <message>
       <source>Edit</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>New</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -13750,6 +14664,18 @@
   <context>
     <name>genericbot/restapi</name>
     <message>
+      <source>Text like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Text not like</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Contains</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation type="unfinished"/>
     </message>
@@ -13826,6 +14752,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Remote Message ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can put visitor message as placeholder</source>
       <translation type="unfinished"/>
     </message>
@@ -13867,18 +14797,6 @@
     </message>
     <message>
       <source>Check for presence of variable</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Text not like</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Contains</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14037,6 +14955,10 @@
       <source>Value to compare</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>If you want to add custom data within each send message to its meta_data attribute you can provide response path here</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>genericbot/helpattributes</name>
@@ -14046,6 +14968,38 @@
     </message>
     <message>
       <source>Referer from where visitor come to site.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to test against</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Extract chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Your response will appear here!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes the average time the agent takes to reply a message to the visitor, it considers the whole conversation.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes how long the agent takes to reply the first message to the visitor, after chat acceptance.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Describes the maximum time the agent takes to reply a message to the visitor.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14210,6 +15164,10 @@
     </message>
     <message>
       <source>Date from and to are always inclusive.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat does not exists or you do not have permission to access it!</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -15515,12 +16473,20 @@
       <translation>Exelente</translation>
     </message>
     <message>
-      <source>Thank you for your feedback...</source>
-      <translation>Obrigado pelo seu feedback...</translation>
+      <source>Type here...</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Thank you for your feedback!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please complete this short evaluation survey</source>
       <translation>Por favor, responda este curto questionário de avaliação</translation>
+    </message>
+    <message>
+      <source>Thank you for your feedback...</source>
+      <translation>Obrigado pelo seu feedback...</translation>
     </message>
   </context>
   <context>
@@ -15992,6 +16958,22 @@
     <message>
       <source>Save</source>
       <translation>Guardar</translation>
+    </message>
+    <message>
+      <source>Save and edit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Departments you will be able to assign once you save an operator.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log request. All request will be logged</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Log exceptions. Only failed parse requests will be logged.</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>System configuration</source>
@@ -16780,6 +17762,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>View is passive and is not updated in the background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make active</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>View is active and is updated in the background</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Make passive</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -17109,6 +18107,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Images/Video 5</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Chat options</source>
       <translation type="unfinished"/>
     </message>
@@ -17138,6 +18140,10 @@
     </message>
     <message>
       <source>IP</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Country, 2 letters code</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17238,6 +18244,14 @@
     </message>
     <message>
       <source>Button payload location</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>For message being considered button payload - message should have attribute value equal to</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>AND Message text has to start with</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17632,8 +18646,16 @@
   <context>
     <name>abstract/survey</name>
     <message>
+      <source>ID</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Name</source>
       <translation>Nome</translation>
+    </message>
+    <message>
+      <source>Identifier</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Feedback text</source>
@@ -17953,12 +18975,20 @@
       <translation>Número total de chat</translation>
     </message>
     <message>
+      <source>Total number of chats (participation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Number of chats while online</source>
       <translation>Número de chats online</translation>
     </message>
     <message>
       <source>Hours on chat (sum of chat duration)</source>
       <translation>Horas no chat (soma de duração de chat)</translation>
+    </message>
+    <message>
+      <source>Hours on chat (sum of chat duration (participation))</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Time online (sum of time spend online)</source>
@@ -17969,12 +18999,40 @@
       <translation>Média da quantidade de chats por hora</translation>
     </message>
     <message>
+      <source>AVG number of chats per hour (participation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Average pick-up time</source>
       <translation>Tempo médio de coleta</translation>
     </message>
     <message>
       <source>Average chat length</source>
       <translation>Duração média do chat</translation>
+    </message>
+    <message>
+      <source>Average first response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average first response time (participation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average response time (participation)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average of maximum response time</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Average of maximum response time (participation)</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Online</source>
@@ -18103,6 +19161,14 @@
       <translation>Por favor, indique o ID do chat!</translation>
     </message>
     <message>
+      <source>Please enter a name!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please enter an identifier!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Please enter a valid from date range!</source>
       <translation>Por favor, indique uma data de início de intervalo válida!</translation>
     </message>
@@ -18116,6 +19182,10 @@
     <message>
       <source>Please enter a department group name</source>
       <translation>Por favor, insira o nome de um departamento</translation>
+    </message>
+    <message>
+      <source>Please enter a brand name</source>
+      <translation type="unfinished"/>
     </message>
   </context>
   <context>
@@ -18298,6 +19368,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Responses for API error</source>
       <translation type="unfinished"/>
     </message>
@@ -18476,6 +19550,10 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Responses for API error</source>
       <translation type="unfinished"/>
     </message>
@@ -18646,6 +19724,33 @@
     <message>
       <source>Deny screen share</source>
       <translation>Não autorizar partilha de ecrã</translation>
+    </message>
+  </context>
+  <context>
+    <name>bot/conditions</name>
+    <message>
+      <source>OR</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Main conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Field</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Condition</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Value</source>
+      <translation type="unfinished"/>
     </message>
   </context>
 </TS>

@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelTransfer
 {
     use erLhcoreClassDBTrait;

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 
-<html <?php if (!isset($Result['anonymous']) && (int)erLhcoreClassModelUserSetting::getSetting('dark_mode',0) == 1) : ?>dark="true" data-bs-theme="dark"<?php endif;?> lang="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language')?>" ng-app="lhcApp">
+<html <?php if (($detect = new Mobile_Detect()) && ($detect->isMobile() || $detect->isTablet())) : ?>data-mobile="true"<?php endif; ?> <?php if (!isset($Result['anonymous']) && (int)erLhcoreClassModelUserSetting::getSetting('dark_mode',0) == 1) : ?>dark="true" data-bs-theme="dark"<?php endif;?> lang="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('content_language')?>" dir="<?php echo erConfigClassLhConfig::getInstance()->getDirLanguage('dir_language')?>" ng-app="lhcApp">
 	<head>
 		<?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_head.tpl.php'));?>
 	</head>
-<body id="admin-body" class="pe-0 h-100 dashboard-height <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>" ng-cloak ng-controller="LiveHelperChatCtrl as lhc">
+<body id="admin-body" class="pe-0 h-100 dashboard-height <?php isset($Result['body_class']) ? print $Result['body_class'] : ''?>">
+<lhc-app></lhc-app>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/page_top_content_multiinclude.tpl.php'));?>
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_head_multiinclude.tpl.php'));?>
 
 <?php include_once(erLhcoreClassDesign::designtpl('pagelayouts/parts/top_menu.tpl.php'));?>
 
-<div id="wrapper" ng-cloak ng-class="{toggled: lmtoggle}">
+<div id="wrapper" ng-cloak>
 
     <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/sidemenu/sidemenu.tpl.php'));?>
 
@@ -21,7 +22,7 @@
         <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/can_use_chat.tpl.php'));?>
     
         <div class="row">
-            <div id="middle-column-page" class="col-xl-12 pb-1">
+            <div id="middle-column-page" class="col-xl-12 pb-1" ng-cloak ng-controller="LiveHelperChatCtrl as lhc">
 
                 <?php if (isset($Result['path'])) : ?>
                     <div><div>

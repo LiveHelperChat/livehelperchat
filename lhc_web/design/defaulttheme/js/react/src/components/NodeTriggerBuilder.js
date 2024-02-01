@@ -22,6 +22,7 @@ import NodeTriggerActionEventType from './builder/NodeTriggerActionEventType';
 import NodeTriggerActionRepeatRestrict from './builder/NodeTriggerActionRepeatRestrict';
 import NodeTriggerActionExecuteJS from './builder/NodeTriggerActionExecuteJS';
 import NodeTriggerActionRestAPI from './builder/NodeTriggerActionRestAPI';
+import NodeTriggerActionIframe from './builder/NodeTriggerActionIframe';
 import NodeTriggerActionTbody from './builder/NodeTriggerActionTbody';
 import NodeTriggerActionTextConditional from './builder/NodeTriggerActionTextConditional';
 import NodeTriggerActionAlertIcon from './builder/NodeTriggerActionAlertIcon';
@@ -250,6 +251,8 @@ class NodeTriggerBuilder extends Component {
                     return <NodeTriggerActionMail upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 } else if (action.get('type') == 'laction') {
                     return <NodeTriggerActionLogAction upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
+                } else if (action.get('type') == 'iframe') {
+                    return <NodeTriggerActionIframe upField={this.upField} downField={this.downField} isFirst={index == 0} isLast={index + 1 == totalTriggers} key={key} id={index} onChangeContent={this.handleContentChange} onChangeType={this.handleTypeChange} action={action} removeAction={this.removeAction} deleteSubelement={this.deleteSubelement} addSubelement={this.addSubelement} />
                 }
             });
         }
@@ -265,7 +268,7 @@ class NodeTriggerBuilder extends Component {
         {
             return (
                     <div>
-                        <input className="form-control gbot-group-name" value={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
+                        <input className="form-control gbot-group-name" key={this.props.currenttrigger.get('currenttrigger').get('id')} defaultValue={this.props.currenttrigger.getIn(['currenttrigger','name'])} onChange={this.handleChange} />
                     <hr/>
                     {actions}
                     <div className="form-group">

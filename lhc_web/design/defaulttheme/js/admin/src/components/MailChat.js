@@ -18,6 +18,12 @@ function reducer(state, action) {
             state.conv = { ...state.conv, ...action.value };
             return { ... state};
         }
+        case 'update_subjects': {
+            var foundIndex = state.messages.findIndex(x => x.id == action.message_id);
+            state.messages[foundIndex].subjects = action.subjects;
+            state = { ... state};
+            return state;
+        }
         case 'update_message': {
             var foundIndex = state.messages.findIndex(x => x.id == action.message.id);
             state.messages[foundIndex] = action.message;
@@ -33,6 +39,30 @@ function reducer(state, action) {
             state = { ... state};
 
             return state;
+        }
+
+        case 'update_watching_ops': {
+            var foundIndex = state.op_watching.findIndex(x => x.user_id == action.watcher.user_id);
+            if (action.watcher.status === true) {
+                if (foundIndex === -1) {
+                    if (confLH.user_id != action.watcher.user_id) {
+                        action.watcher.ts = Math.floor(Date.now() / 1000);
+                        state.op_watching.push(action.watcher);
+                    }
+                } else {
+                    state.op_watching[foundIndex].ts = Math.floor(Date.now() / 1000);
+                }
+            } else if (action.watcher.status === false && foundIndex !== -1) {
+                state.op_watching.splice(foundIndex,1);
+            }
+
+            state.op_watching.forEach((element,index) => {
+                if (element.ts < Math.floor(Date.now() / 1000) - 15) {
+                    state.op_watching.splice(index,1);
+                }
+            });
+
+            return { ...state};
         }
 
         case 'update_history': {
@@ -58,16 +88,19 @@ const MailChat = props => {
     const [state, dispatch] = useReducer(reducer, {
         messages: [],
         operators: [],
+        op_watching: [],
         conv: null,
         loaded: false,
         saving_remarks: false,
+        close_mode: false,
         old_message_id: 0,
         last_message: '',
         remarks: '',
         last_message_id: 0,
         lmsop: 0,
         lgsync: 0,
-        fetching_messages: false
+        fetching_messages: false,
+        expand_messages: false
     });
 
     const rememberChat = (chatId) => {
@@ -172,6 +205,14 @@ const MailChat = props => {
         });
     }
 
+    const loadMessageBody = (message, data) => {
+        dispatch({
+            type: 'update_message',
+            message: data.message,
+            conv: data.conv
+        });
+    }
+
     const addLabel = (message) => {
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id,hidecallback : () => {
             updateLabels(message);
@@ -181,8 +222,9 @@ const MailChat = props => {
     const updateLabels = (message) => {
         axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
             dispatch({
-                type: 'update_message',
-                message: result.data.message
+                type: 'update_subjects',
+                message_id: message.id,
+                subjects: result.data
             });
         }).catch((error) => {
 
@@ -196,7 +238,7 @@ const MailChat = props => {
     }
 
     const loadMainData = () => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal')).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmainconv/" + props.chatId + '/(mode)/' + (props.mode != '' ? props.mode : 'normal'),{keyword: props.keyword}).then(result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -322,6 +364,13 @@ const MailChat = props => {
         }
     }
 
+    const addOpWatching = (watcher) => {
+        dispatch({
+            type: 'update_watching_ops',
+            watcher: watcher
+        });
+    }
+
     const setConversationStatus = (status) => {
         dispatch({
             type: 'update_conversation',
@@ -346,13 +395,22 @@ const MailChat = props => {
             }
         }
 
+        function mailOpWatching(mail) {
+            if (props.chatId == mail.id) {
+                addOpWatching(mail);
+            }
+        }
+
         ee.addListener('mailChatModified', mailChatModified);
         ee.addListener('mailLabelsModified', mailLabelsModified);
         ee.addListener('mailMerged', mailChatModified);
+        ee.addListener('mail.op_watching', mailOpWatching);
 
         return function cleanup() {
            ee.removeListener('mailChatModified', mailChatModified);
            ee.removeListener('mailLabelsModified', mailLabelsModified);
+           ee.removeListener('mail.op_watching', mailOpWatching);
+           ee.emitEvent('mailChatContentUnLoaded', [props.chatId]);
            forgetChat(props.chatId)
         };
     },[]);
@@ -380,9 +438,25 @@ const MailChat = props => {
                     </h1>}
 
                     <div>
-                        {state.messages.map((message, index) => (
-                            <MailChatMessage setConversationStatus={(e) => setConversationStatus(e)} verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions} fetchMessages={(e) => fetchMessages(message)} fetchingMessages={state.fetching_messages} mode={props.mode} key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id} totalMessages={state.messages.length} index={index} message={message} noReplyRequired={(e) => noReplyRequired(message)} addLabel={(e) => addLabel(message)} updateMessages={(e) => loadMainData()}/>
-                        ))}
+                        {state.messages.map((message, index) => {
+                            if (state.expand_messages == true ||            // Render all if requested
+                            state.messages.length < 5 ||                    // Render all if less than 5
+                            index == 0 ||                                   // Render first
+                            state.messages.length == (index + 1) ||         // Render last one
+                            state.messages.length - 2 == index) {           // Render before last one
+                                    return <React.Fragment>{state.expand_messages == false && state.messages.length >= 5 && state.messages.length - 2 == index && <div className="previous-mails-row" onClick={() => dispatch({type: 'update',value: {'expand_messages': true}})} ><span className="previous-number" title={t('mail.previous_messages')}>{state.messages.length - 3}</span></div>}<MailChatMessage setConversationStatus={(e) => setConversationStatus(e)}
+                                                            verifyOwner={(e) => verifyOwner(e)} moptions={state.moptions}
+                                                            fetchMessages={(e) => fetchMessages(message)}
+                                                            fetchingMessages={state.fetching_messages} mode={props.mode}
+                                                            key={'msg_mail_' + props.chatId + '_' + index + '_' + message.id}
+                                                            totalMessages={state.messages.length} index={index} message={message}
+                                                            noReplyRequired={(e) => noReplyRequired(message)}
+                                                            addLabel={(e) => addLabel(message)}
+                                                            updateMessages={(e) => loadMainData()}
+                                                            keyword={props.keyword}
+                                                            loadMessageBody={(data) => loadMessageBody(message, data)}/></React.Fragment>;
+                            }
+                        })}
 
                         {state.fetching_messages && <div className="alert alert-success p-1 ps-2" role="alert">{t('mail.send_fetching')}</div>}
                     </div>
@@ -409,8 +483,17 @@ const MailChat = props => {
                             </div>
                             <div role="tabpanel" className="tab-pane active" id={"mail-chat-info-"+props.chatId}>
 
-                                {state.moptions.can_write && <div className="pb-2">
-                                    <a className="btn btn-outline-secondary btn-sm" onClick={() => closeConversation()}><i className="material-icons">close</i>{t('mail.close')}</a>
+                                {state.moptions.can_close && <div className="pb-2">
+
+                                    {state.close_mode == false && <a className="btn btn-outline-secondary btn-sm" onClick={() => dispatch({type: 'update',value: {'close_mode': true}})}><i className="material-icons">close</i>{t('mail.close')}</a>}
+
+                                    {state.close_mode == true && <p className="fs14 mb-2">{t('mail.sure_close')}</p>}
+
+                                    {state.close_mode == true && <div className="btn-group">
+                                            <button type="button" className="btn btn-danger btn-sm" onClick={() => closeConversation()}>{t('mail.yes')}</button>
+                                            <button type="button" className="btn btn-success btn-sm" onClick={() => dispatch({type: 'update',value: {'close_mode': false}})}>{t('mail.no')}</button>
+                                        </div>}
+
                                 </div>}
 
                                 <div id={"mail-external-details-"+props.chatId}></div>
@@ -528,7 +611,11 @@ const MailChat = props => {
                                     </tr>}
                                     <tr>
                                         <td title={state.conv.user_id}>{t('mail.chat_owner')}</td>
-                                        <td>{state.conv.plain_user_name}</td>
+                                        <td>{state.conv.plain_user_name}
+                                            {state.op_watching.map((op_watching, index) => {
+                                                return <span title={t('mail.op_watching')} className="ms-1 mail-watcher"><span className="material-icons text-success">visibility</span>{op_watching.name_official}</span>
+                                            })}
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>}

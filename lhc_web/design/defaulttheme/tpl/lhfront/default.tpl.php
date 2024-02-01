@@ -17,8 +17,6 @@
     $pendingTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_pending_list', 1);
     $activeTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_active_list', 1);
 
-    $closedTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_close_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_closed')->current_value == 1;
-
     $unreadTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_unread_list', 0) && erLhcoreClassModelChatConfig::fetchCache('list_unread')->current_value == 1;
 
     $mchatsTabEnabled = erLhcoreClassModelUserSetting::getSetting('enable_mchats_list', 1);
@@ -54,10 +52,6 @@
                     <?php elseif (trim($frontTab) == 'unread_chats') : ?>
                         <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list_tab.tpl.php')); ?>
-                        <?php endif; ?>
-                    <?php elseif (trim($frontTab) == 'closed_chats') : ?>
-                        <?php if ($closedTabEnabled == true && $online_chat_enabled_pre == true) : ?>
-                            <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list_tab.tpl.php')); ?>
                         <?php endif; ?>
                     <?php elseif (trim($frontTab) == 'dashboard') : ?>
                         <?php if ($online_chat_enabled_pre == true) : ?>
@@ -109,15 +103,6 @@
                             <div role="tabpanel" class="tab-pane form-group" id="unreadchats">
                                 <div id="unread-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list.tpl.php')); ?></div>
                                 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(hum)/1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All unread chats'); ?></a>
-                            </div>
-                        <?php endif; ?>
-
-                    <?php elseif (trim($frontTab) == 'closed_chats' && $online_chat_enabled_pre == true) : ?>
-
-                        <?php if ($closedTabEnabled == true) : ?>
-                            <div role="tabpanel" class="tab-pane form-group" id="closedchats">
-                                <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php')); ?></div>
-                                <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status_ids)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All closed chats'); ?></a>
                             </div>
                         <?php endif; ?>
 

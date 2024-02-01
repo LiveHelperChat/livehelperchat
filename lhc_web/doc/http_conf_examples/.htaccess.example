@@ -6,6 +6,13 @@ AddType application/wasm .wasm
   Header always Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
 </Files>
 
+# If above section does not work, try this one
+# <Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+#  Header Set Access-Control-Allow-Origin "*"
+#  Header Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
+#  Header Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
+# </Files>
+
 RewriteEngine On
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]

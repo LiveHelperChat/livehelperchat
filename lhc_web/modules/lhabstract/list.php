@@ -5,6 +5,11 @@ erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.list_'.strto
 $tpl = erLhcoreClassTemplate::getInstance( 'lhabstract/list.tpl.php');
 
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+
+if (!class_exists($objectClass)) {
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+}
+
 $objectData = new $objectClass;
 $object_trans = $objectData->getModuleTranslations();
 
@@ -37,33 +42,82 @@ $filterParamsCount = array_merge($filterParams['filter'],$filterObject);
 
 $rowsNumber = null;
 
+$db = ezcDbInstance::get();
+
+try {
+    $db->query("SET SESSION wait_timeout=4");
+} catch (Exception $e){
+    //
+}
+
+try {
+    $db->query("SET SESSION interactive_timeout=10");} catch (Exception $e){
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION innodb_lock_wait_timeout=10");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_execution_time=10000;");
+} catch (Exception $e) {
+    //
+}
+
+try {
+    $db->query("SET SESSION max_statement_time=10;");
+} catch (Exception $e) {
+    // Ignore we try to limit how long query can run
+}
+
 if (empty($filterParamsCount)) {
-    $rowsNumber = method_exists('erLhAbstractModel'.$Params['user_parameters']['identifier'],'estimateRows') && ($rowsNumber = call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
+    $rowsNumber = method_exists($objectClass,'estimateRows') && ($rowsNumber = call_user_func($objectClass.'::estimateRows')) && $rowsNumber > 10000 ? $rowsNumber : null;
 }
 
-$pages = new lhPaginator();
-$pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func('erLhAbstractModel'.$Params['user_parameters']['identifier'].'::getCount',$filterParamsCount);
-$pages->translationContext = 'abstract/list';
-$pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
-$pages->setItemsPerPage(20);
-$pages->paginate();
+try {
 
-$tpl->set('pages',$pages);
-$tpl->set('identifier',$Params['user_parameters']['identifier']);
+    $tpl->set('object_trans',$object_trans);
+    $tpl->set('identifier',$Params['user_parameters']['identifier']);
 
-$tpl->set('object_trans',$object_trans);
-$tpl->set('fields',$objectData->getFields());
-$tpl->set('filter_params',$filterParams['filter']);
+    $pages = new lhPaginator();
+    $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : call_user_func($objectClass.'::getCount',$filterParamsCount);
+    $pages->translationContext = 'abstract/list';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
+    $pages->setItemsPerPage(20);
+    $pages->paginate();
 
-if ( method_exists($objectData,'defaultSort') ) {
-    $tpl->set('sort',$objectData->defaultSort());
+    $tpl->set('pages',$pages);
+    $tpl->set('fields',$objectData->getFields());
+    $tpl->set('filter_params',$filterParams['filter']);
+    $tpl->set('object_class',$objectClass);
+    
+    if ( method_exists($objectData,'defaultSort') ) {
+        $tpl->set('sort',$objectData->defaultSort());
+    }
+
+} catch (Exception $e) {
+    $tpl->set('takes_to_long',erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) === true ? $e->getMessage() : true);
+    $pages = new lhPaginator();
+    $pages->items_total = 0;
+    $pages->translationContext = 'chat/pendingchats';
+    $pages->serverURL = erLhcoreClassDesign::baseurl('abstract/list').'/'.$Params['user_parameters']['identifier'].$append;
+    $pages->paginate();
+    $tpl->set('pages',$pages);
 }
 
-if ($objectData->hide_add === true) {
+if ($objectData->hide_add === true || (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function']))) {
     $tpl->set('hide_add',true);
 }
 
-if ($objectData->hide_delete === true) {
+if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function'])) {
+    $tpl->set('hide_edit',true);
+}
+
+if ($objectData->hide_delete === true || (isset($object_trans['permission_delete']) && !$currentUser->hasAccessTo($object_trans['permission_delete']['module'],$object_trans['permission_delete']['function']))) {
     $tpl->set('hide_delete',true);
 }
 

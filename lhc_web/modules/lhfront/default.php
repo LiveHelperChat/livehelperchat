@@ -3,13 +3,13 @@
 $detect = new Mobile_Detect;
 
 // New dashboard available only on desktop
-$device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
+//$device_type = ($detect->isMobile() ? ($detect->isTablet() ? 2 : 1) : 0);
 
 $new_dashboard = (int)erLhcoreClassModelUserSetting::getSetting('new_dashboard',1);
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.setting.new_dashboard',array('new_dashboard' => & $new_dashboard));
 
-if ($new_dashboard == 1 && $device_type == 0) {
+if ($new_dashboard == 1) {
     $tpl = erLhcoreClassTemplate::getInstance( 'lhfront/default_new.tpl.php');
     $tpl->set('new_dashboard',true);
 } else {
@@ -43,7 +43,8 @@ if (is_numeric($Params['user_parameters_unordered']['mid'])) {
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js;vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';
-
+/*$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.online.min.js;vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';*/
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('vendor/jqueryui/core.min.js;vendor/jqueryui/mouse.min.js;vendor/jqueryui/widget.min.js;vendor/jqueryui/sortable.min.js;js/lhc.dashboard.min.js').'"></script>';
+$Result['additional_footer_js'] .= '<script type="module" src="'.erLhcoreClassDesign::designJSStatic('js/svelte/public/build/onlinevisitors.js').'"></script>';
 
 ?>

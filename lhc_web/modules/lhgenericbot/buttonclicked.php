@@ -212,7 +212,17 @@ try {
             }
         }
 
-        echo json_encode(array('update_message' => $updateMessage, 'error' => false, 't' => erLhcoreClassGenericBotWorkflow::$triggerName));
+        $message_id_first = 0;
+
+        if (isset($message) && $message instanceof erLhcoreClassModelmsg) {
+            $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'sort' => 'id ASC', 'filtergt' => ['id' => $message->id], 'filter' => [/*'user_id' => 0,*/ 'chat_id' => $chat->id]],'count','id','id');
+        }
+
+        echo json_encode(array(
+            'message_id_first' => $message_id_first,
+            'update_message' => $updateMessage,
+            'error' => false,
+            't' => erLhcoreClassGenericBotWorkflow::$triggerName));
 
         // Try to finish request before any listers do their job
         flush();

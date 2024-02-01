@@ -38,8 +38,14 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     $msg->user_id = -1;
                     $msg->time = time();
                     $msg->name_support = (string)$currentUser->getUserData()->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                     $msg->msg = $msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed department to') . ' ' . $dep . ' '. erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'from') . ' ' . $departmentFromParent;
+
+                    $msg->meta_msg_array = ['content' => ['change_dep_action' => ['user_id' => $currentUser->getUserID(), 'source' => $msg->name_support, 'destination' => (string)$dep, 'source' => $departmentFromParent]]];
+                    $msg->meta_msg = json_encode($msg->meta_msg_array);
+
                     $msg->saveThis();
 
                     $Chat->last_msg_id = $msg->id;
@@ -76,12 +82,17 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                         $msg->time = time();
 
                         $msg->name_support = (string)$user->name_support;
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $user->id));
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $user->id));
                         $nickTo = $msg->name_support;
 
                         $msg->name_support = (string)$currentUser->getUserData()->name_support;
+                        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                         $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has changed owner to') . ' ' . $nickTo;
+
+                        $msg->meta_msg_array = ['content' => ['change_owner_action' => ['source_user_id' => $currentUser->getUserID(), 'destination_user_id' => $user->id, 'source' => $msg->name_support, 'destination' => (string)$nickTo]]];
+                        $msg->meta_msg = json_encode($msg->meta_msg_array);
 
                         $msg->saveThis();
                         $Chat->last_msg_id = $msg->id;
@@ -182,21 +193,33 @@ if (is_numeric( $Params['user_parameters']['chat_id']) && is_numeric($Params['us
                     }
 
                     $msg->name_support = (string)$currentUser->getUserData()->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
 
-                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'from'). ' ' . $departmentFromParent;
+                    $msg->msg = $msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$dep . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'from'). ' ' . $departmentFromParent;
+
+                    $msg->meta_msg_array = ['content' => ['transfer_action_dep' => ['user_id' => $currentUser->getUserID(), 'destination' => (string)$dep, 'source' => $msg->name_support, 'source_dep' => $msg->name_support]]];
+                    $msg->meta_msg = json_encode($msg->meta_msg_array);
 
                 } else {
                     $Transfer->transfer_to_user_id = $Params['user_parameters']['item_id']; // Transfer was made to user
 
                     $userTo = erLhcoreClassModelUser::fetch($Transfer->transfer_to_user_id);
                     $msg->name_support = $userTo->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));
                     $userToNick = $msg->name_support;
 
                     $msg->name_support = (string)$currentUser->getUserData()->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $Chat, 'user_id' => $currentUser->getUserID()));
-                    $msg->msg = (string)$msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userToNick;
+                    $msg->msg = $msg->name_support . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'has transferred chat to') . ' ' . (string)$userToNick;
+
+                    $msg->meta_msg_array = ['content' => ['transfer_action_user' => ['user_id' => $currentUser->getUserID(), 'destination' => (string)$userToNick, 'source' => $msg->name_support]]];
+                    $msg->meta_msg = json_encode($msg->meta_msg_array);
                 }
 
                 $Chat->last_user_msg_time = $msg->time = time();

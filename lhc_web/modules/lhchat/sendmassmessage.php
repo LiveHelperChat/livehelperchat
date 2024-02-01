@@ -1,9 +1,40 @@
 <?php
 
+if (isset($_GET['action']) && $_GET['action'] == 'usernames') {
+
+    header ( 'content-type: application/json; charset=utf-8' );
+
+    if (erLhcoreClassSearchHandler::isFile('file',array('csv'))) {
+
+        $dir = 'var/tmpfiles/';
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('theme.temppath',array('dir' => & $dir));
+        erLhcoreClassFileUpload::mkdirRecursive( $dir );
+        $filename = erLhcoreClassSearchHandler::moveUploadedFile('file',$dir);
+
+        $usernamesList = [];
+        $row = 1;
+        if (($handle = fopen($dir . $filename, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $usernamesList[] = $data[0];
+            }
+            fclose($handle);
+        }
+        unlink($dir . $filename);
+
+        echo json_encode(['error' => false, 'content' => trim(implode("\n",$usernamesList))]);
+    } else {
+        echo json_encode(['error' => true, 'reason' => 'Only CSV files are supported!']);
+    }
+
+    exit;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchat/sendmassmessage.tpl.php');
 
 if (isset($_POST['receivesNotification'])) {
 
+    sleep(5);
+    
     $sendData = [];
 
     $validationFields = array();

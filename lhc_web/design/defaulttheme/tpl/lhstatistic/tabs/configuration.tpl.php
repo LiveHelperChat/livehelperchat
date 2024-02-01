@@ -19,6 +19,9 @@
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="avgduration" <?php if (in_array('avgduration',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats per hour, average chat duration')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitmonth" <?php if (in_array('waitmonth',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time in seconds (maximum of 10 minutes)')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbyuser" <?php if (in_array('chatbyuser',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbyuserparticipant" <?php if (in_array('chatbyuserparticipant',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by user (participant)')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgdelop" <?php if (in_array('msgdelop',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message delivery statistic (operator)')?></label></div>
+    <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="msgdelbot" <?php if (in_array('msgdelbot',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Message delivery statistic (bot)')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbytransferuser" <?php if (in_array('chatbytransferuser',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by transfer operator')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="chatbydep" <?php if (in_array('chatbydep',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Number of chats by department')?></label></div>
     <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="waitbyoperator" <?php if (in_array('waitbyoperator',$configuration['statistic'])) : ?>checked="checked"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','AVG visitor wait time by operator')?></label></div>
@@ -54,10 +57,10 @@
 
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Department statistic generation'); ?></h5>
 <div class="row">
-    <div class="col-6">
+    <div class="col-3">
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration should be calculated fo the last'); ?></label>
-            <select class="form-control" name="avg_chat_duration">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average chat duration should be calculated for the last'); ?></label>
+            <select class="form-control form-control-sm" name="avg_chat_duration">
                 <option value="<?php echo 5*60?>" <?php if (isset($configuration['avg_chat_duration']) && $configuration['avg_chat_duration'] == 5*60) : ?>selected="selected"<?php endif;?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
                 <option value="<?php echo 10*60?>" <?php if (isset($configuration['avg_chat_duration']) && $configuration['avg_chat_duration'] == 10*60) : ?>selected="selected"<?php endif;?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
                 <option value="<?php echo 20*60?>" <?php if (isset($configuration['avg_chat_duration']) && $configuration['avg_chat_duration'] == 20*60) : ?>selected="selected"<?php endif;?> >20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
@@ -77,10 +80,10 @@
             </select>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-3">
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Average wait time should be calculated for the last'); ?></label>
-            <select class="form-control" name="avg_wait_time">
+            <select class="form-control form-control-sm" name="avg_wait_time">
                 <option value="<?php echo 5*60?>" <?php if (isset($configuration['avg_wait_time']) && $configuration['avg_wait_time'] == 5*60) : ?>selected="selected"<?php endif;?> >5 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
                 <option value="<?php echo 10*60?>" <?php if (isset($configuration['avg_wait_time']) && $configuration['avg_wait_time'] == 10*60) : ?>selected="selected"<?php endif;?> >10 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
                 <option value="<?php echo 20*60?>" <?php if (isset($configuration['avg_wait_time']) && $configuration['avg_wait_time'] == 20*60) : ?>selected="selected"<?php endif;?> >20 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','minutes'); ?></option>
@@ -100,6 +103,27 @@
             </select>
         </div>
     </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Work hours starts at'); ?></label>
+            <select class="form-control form-control-sm" name="work_hours_starts">
+            <?php for ($i = 0; $i <= 23; $i++) : ?>
+                <option <?php if ($configuration['work_hours_starts'] == $i) : ?>selected="selected"<?php endif;?> value="<?php echo $i?>"><?php echo $i?> h.</option>
+            <?php endfor; ?>
+            </select>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Work hours ends at'); ?></label>
+            <select class="form-control form-control-sm" name="work_hours_ends">
+                <?php for ($i = 0; $i <= 23; $i++) : ?>
+                    <option <?php if ($configuration['work_hours_ends'] == $i) : ?>selected="selected"<?php endif;?> value="<?php echo $i?>"><?php echo $i?> h.</option>
+                <?php endfor; ?>
+            </select>
+        </div>
+    </div>
+
 </div>
 
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Collect canned messages usage statistic'); ?></h5>

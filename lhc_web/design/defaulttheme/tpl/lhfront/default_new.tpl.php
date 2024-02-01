@@ -30,10 +30,6 @@
                                 <?php if ($unreadTabEnabled == true && $online_chat_enabled_pre == true) : ?>
                                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_unread_list_tab.tpl.php')); ?>
                                 <?php endif; ?>
-                            <?php elseif (trim($frontTab) == 'closed_chats') : ?>
-                                <?php if ($closedTabEnabled == true && $online_chat_enabled_pre == true) : ?>
-                                    <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list_tab.tpl.php')); ?>
-                                <?php endif; ?>
                             <?php elseif (trim($frontTab) == 'dashboard') : ?>
                                 <?php if ($online_chat_enabled_pre == true) : ?>
                                     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_dashboard_tab.tpl.php')); ?>
@@ -90,15 +86,6 @@
                                     </div>
                                 <?php endif; ?>
 
-                            <?php elseif (trim($frontTab) == 'closed_chats' && $online_chat_enabled_pre == true) : ?>
-
-                                <?php if ($closedTabEnabled == true) : ?>
-                                    <div role="tabpanel" class="tab-pane form-group<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-3' : ''?>" id="closedchats">
-                                        <div id="closed-chat-list"><?php include(erLhcoreClassDesign::designtpl('lhchat/lists/angular_closed_list.tpl.php')); ?></div>
-                                        <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('chat/list') ?>/(chat_status_ids)/2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('front/default', 'All closed chats'); ?></a>
-                                    </div>
-                                <?php endif; ?>
-
                             <?php elseif (trim($frontTab) == 'dashboard' && $online_chat_enabled_pre == true) : ?>
 
                                 <div role="tabpanel" class="tab-pane form-group<?php (int)erLhcoreClassModelUserSetting::getSetting('hide_tabs',1) == 1 ? print ' mt-3' : ''?>" id="dashboard">
@@ -140,7 +127,12 @@
                 } else {
                     $(this).removeClass('chat-tab-selected');
                 }
-            })
+            });
+            $('.dashboard-panels,#dashboard').on('click', '.btn-department-dropdown', function() {
+                if ($(this).hasClass('show')) {
+                    $(this).parent().find('.filter-text-input').focus();
+                }
+            });
         });
     </script>
 <?php else : ?>

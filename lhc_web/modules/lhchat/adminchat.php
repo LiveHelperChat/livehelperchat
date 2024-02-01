@@ -10,6 +10,7 @@ $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id
 if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat) )
 {
 	$userData = $currentUser->getUserData();
+    $see_sensitive_information = $currentUser->hasAccessTo('lhchat','see_sensitive_information');
 
 	if (($userData->invisible_mode == 0 || $chat->user_id == $userData->id) && erLhcoreClassChat::hasAccessToWrite($chat)) {
 	    try {
@@ -20,7 +21,9 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     		$operatorAccepted = false;
     		$chatDataChanged = false;
-    		
+
+            $previousUserId = $chat->user_id;
+
     	    if ($chat->user_id == 0 && $chat->status != erLhcoreClassModelChat::STATUS_BOT_CHAT && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
     	        $currentUser = erLhcoreClassUser::instance();
     	        $chat->user_id = $currentUser->getUserID();
@@ -32,13 +35,17 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 
     	        $chatDataChanged = true;
     	    }
-    	    
+
     	    // If status is pending change status to active
     	    if ($chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT) {
     	    	$chat->status = erLhcoreClassModelChat::STATUS_ACTIVE_CHAT;
 
     	    	$chat->wait_time = time() - ($chat->pnd_time > 0 ? $chat->pnd_time : $chat->time);
     	    	$chat->user_id = $currentUser->getUserID();
+
+                if ($previousUserId > 0 && $chat->user_id == $previousUserId) {
+                    $previousUserId = 0;
+                }
 
                 // Change sub status only if visitor has not left a chat
                 if (!in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) {
@@ -59,6 +66,27 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
                 if ($operatorAcceptedBeforeTransfer == false && $operatorAccepted == true) {
                     $operatorAccepted = false;
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_transfer_accepted',array('chat' => & $chat));
+
+                    // Store meta message
+                    $msg = new erLhcoreClassModelmsg();
+                    $msg->name_support = $userData->name_support;
+
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
+
+                    $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
+                    $msg->chat_id = $chat->id;
+                    $msg->user_id = -1;
+                    $msg->time = time();
+                    $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+                    $msg->meta_msg = json_encode($msg->meta_msg_array);
+
+                    erLhcoreClassChat::getSession()->save($msg);
+
+                    if ($chat->last_msg_id < $msg->id) {
+                        $chat->last_msg_id = $msg->id;
+                    }
+
                 }
             }
 
@@ -81,18 +109,22 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	        $msg = new erLhcoreClassModelmsg();
                 $msg->name_support = $userData->name_support;
 
+                \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
 
                 $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has accepted the chat!');
     	        $msg->chat_id = $chat->id;
     	        $msg->user_id = -1;
     	        $msg->time = time();
-    	        	       
+                $msg->meta_msg_array = ['content' => ['accept_action' => ['puser_id' => $previousUserId, 'ol' => $Params['user_parameters_unordered']['ol'], 'user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+                $msg->meta_msg = json_encode($msg->meta_msg_array);
+
+                erLhcoreClassChat::getSession()->save($msg);
+
     	        if ($chat->last_msg_id < $msg->id) {
     	            $chat->last_msg_id = $msg->id;
     	        }
-    
-    	        erLhcoreClassChat::getSession()->save($msg);
+
     	    }
 
             if (is_array($Params['user_parameters_unordered']['arg']) && in_array('background',$Params['user_parameters_unordered']['arg']) && $chat->user_id > 0 && $chat->user_id != $currentUser->getUserID()) {
@@ -150,6 +182,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
     	    
     	    $tpl->set('chat',$chat);
             $tpl->set('canEditChat',true);
+            $tpl->set('see_sensitive_information',$see_sensitive_information);
 
     	    echo $tpl->fetch();
     	        	    
@@ -167,6 +200,7 @@ if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRea
 	} else {
 	    $tpl->set('canEditChat',erLhcoreClassChat::hasAccessToWrite($chat));
 	    $tpl->set('chat',$chat);
+        $tpl->set('see_sensitive_information',$see_sensitive_information);
 	    echo $tpl->fetch();
 	}
 

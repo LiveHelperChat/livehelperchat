@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelWidgetTheme {
 
     use erLhcoreClassDBTrait;
@@ -101,6 +101,7 @@ class erLhAbstractModelWidgetTheme {
 			'notification_configuration'=> $this->notification_configuration,
 
 			'hide_ts'                   => $this->hide_ts,
+			'hide_op_ts'                => $this->hide_op_ts,
 			'widget_response_width'     => $this->widget_response_width,
 			'modified'                  => $this->modified,
 			'alias'                     => $this->alias,
@@ -494,6 +495,8 @@ class erLhAbstractModelWidgetTheme {
             'formf_file',
             'formf_phone',
             'formf_question',
+            'fheight_text_class',
+            'fheight_text_col',
         ),$attributesDirect);
 
         $attributes = $this->bot_configuration_array;
@@ -613,6 +616,8 @@ class erLhAbstractModelWidgetTheme {
 	public $buble_operator_text_color = ''; //333333
 
     public $hide_ts = 0;
+    public $hide_op_ts = 0;
+
     public $widget_response_width = 0;
 
     // Theme modified time. We will use this attribute for E-Tag

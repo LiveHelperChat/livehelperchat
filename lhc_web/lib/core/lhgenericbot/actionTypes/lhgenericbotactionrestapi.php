@@ -81,10 +81,51 @@ class erLhcoreClassGenericBotActionRestapi
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_before_request', array(
                     'restapi' => & $restAPI,
                     'chat' => $chat,
-                    'params' => $params
+                    'params' => $params,
+                    'method' => & $method
                 ));
 
                 $response = self::makeRequest($restAPI->configuration_array['host'], $method, array('rest_api' => $restAPI, 'action' => $action, 'rest_api_method_params' => $action['content']['rest_api_method_params'], 'chat' => $chat, 'params' => $params));
+
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.rest_api_after_request', array(
+                    'restapi' => & $restAPI,
+                    'chat' => $chat,
+                    'params' => $params,
+                    'method' => & $method,
+                    'response' => & $response
+                ));
+
+                // Store remote message
+                if (
+                    isset($method['remote_message_id']) &&
+                    $method['remote_message_id'] != '' &&
+                    isset($response['content_raw'])
+                ) {
+                    $contentRawParsed = json_decode($response['content_raw'], true);
+                    $remoteMessageId = self::extractAttribute($contentRawParsed, $method['remote_message_id']);
+                    if ($remoteMessageId['found'] === true && isset($params['msg']) && is_object($params['msg'])) {
+                        $db = ezcDbInstance::get();
+                        try {
+                            $db->beginTransaction();
+
+                            $params['msg']->syncAndLock();
+
+                            $meta_msg_array = $params['msg']->meta_msg_array;
+                            $meta_msg_array['iwh_msg_id'] = $remoteMessageId['value'];
+                            $params['msg']->meta_msg_array = $meta_msg_array;
+                            $params['msg']->meta_msg = json_encode($meta_msg_array);
+                            $params['msg']->del_st = erLhcoreClassModelmsg::STATUS_PENDING;
+
+                            if ($params['msg']->id > 0) {
+                                $params['msg']->updateThis(['update' => ['meta_msg','del_st']]);
+                            }
+
+                            $db->commit();
+                        } catch (Exception $e) {
+                            $db->rollback();
+                        }
+                    }
+                }
 
                 // We have found exact matching response type
                 // Let's check has user checked any trigger to execute.
@@ -194,7 +235,11 @@ class erLhcoreClassGenericBotActionRestapi
                         $msg->user_id = -2; // Save as bot message
                     }
 
-                    $msg->time = time() + 1;
+                    $msg->time = time();
+
+                    if (erLhcoreClassGenericBotWorkflow::$setBotFlow === false) {
+                        $msg->time += 1;
+                    }
                     $msg->meta_msg = (isset($response['meta']) && !empty($response['meta'])) ? json_encode($response['meta']) : '';
                     $msg->msg = $response['content'];
 
@@ -248,7 +293,11 @@ class erLhcoreClassGenericBotActionRestapi
         $msg_text = '';
 
         if (isset($paramsCustomer['params']['msg'])) {
-            $msg_text = $paramsCustomer['params']['msg']->msg;
+            if (is_object($paramsCustomer['params']['msg'])) {
+                $msg_text = $paramsCustomer['params']['msg']->msg;
+            } else {
+                $msg_text = '';
+            }
         } elseif (isset($paramsCustomer['params']['msg_text'])) {
             $msg_text = $paramsCustomer['params']['msg_text'];
         }
@@ -348,6 +397,7 @@ class erLhcoreClassGenericBotActionRestapi
         $file_body = null;
         $file_url = null;
         $file_name = null;
+        $file_size = null;
 
         $file_api = false;
 
@@ -358,22 +408,87 @@ class erLhcoreClassGenericBotActionRestapi
                 $file_api = false;
 
                 if (isset($methodSettings['suburl_file']) && !empty($methodSettings['suburl_file'])) {
-                    if (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+
+                    $matchesExtension = [];
+                    preg_match_all('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', $methodSettings['body_raw_file'],$matchesExtension);
+                    $fileTypeByApi = [];
+                    if (isset($matchesExtension[1]) && !empty($matchesExtension[1])) {
+                        foreach ($matchesExtension[1] as $fileType) {
+                            $fileTypeByApi = array_merge($fileTypeByApi,explode('_',$fileType));
+                        }
+                    }
+
+                    if (in_array($mediaFile->extension,$fileTypeByApi)) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
+
+                        $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                        $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                        $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+
+                        foreach ($matchesExtension[1] as $indexExtension => $fileType) {
+                            $fileTypeByApi = explode('_',$fileType);
+                            if (in_array($mediaFile->extension,$fileTypeByApi)) {
+                                $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $fileBodyRawFile);
+                            } else {
+                                $fileBodyRawFile = str_replace($matchesExtension[0][$indexExtension],'', $fileBodyRawFile);
+                            }
+                        }
+
+                        $matchesExtension = [];
+                        preg_match_all('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', $methodSettings['suburl'],$matchesExtension);
+                        foreach ($matchesExtension[1] as $indexExtension => $fileType) {
+                            $fileTypeByApi = explode('_',$fileType);
+                            if (in_array($mediaFile->extension,$fileTypeByApi)) {
+                                $methodSettings['suburl'] = str_replace($matchesExtension[0][$indexExtension],$matchesExtension[2][$indexExtension], $methodSettings['suburl']);
+                            } else {
+                                $methodSettings['suburl'] = str_replace($matchesExtension[0][$indexExtension],'', $methodSettings['suburl']);
+                            }
+                        }
+
+                        $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                        $file_api = true;
+
+                    } elseif (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+                        $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{image_api}','{/image_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{image_api}','{/image_api}'],'', $methodSettings['suburl']);
+                            $methodSettings['body_raw_file'] = $fileBodyRawFile;
+                            $file_api = true;
+                        }
+                    } elseif (in_array($mediaFile->type,['video/mp4'])) {
+                        $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = trim(str_replace(['{video_api}','{/video_api}'],'', $fileBodyRawFile));
+                        if (!empty($fileBodyRawFile)) {
+                            $methodSettings['suburl'] = $methodSettings['suburl_file'];
+                            $methodSettings['suburl'] = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = str_replace(['{video_api}','{/video_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
                         }
                     } else {
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['body_raw_file']);
+                        $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
+                        $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = trim(str_replace(['{file_api}','{/file_api}'],'', $fileBodyRawFile));
                         if (!empty($fileBodyRawFile)) {
                             $methodSettings['suburl'] = $methodSettings['suburl_file'];
                             $methodSettings['suburl'] = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$methodSettings['suburl']);
+                            $methodSettings['suburl'] = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$methodSettings['suburl']);
                             $methodSettings['suburl'] = str_replace(['{file_api}','{/file_api}'],'', $methodSettings['suburl']);
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
@@ -385,13 +500,15 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if ($mediaFile->remote_file !== true) {
                     $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                    $file_size = $mediaFile->size;
                     $file_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$mediaFile->id}/{$mediaFile->security_hash}";
                 } else {
+                    $file_size = $file->size;
                     $file_body = '';
                     if (strpos($file->remote_url,'http://') !== false || strpos($file->remote_url,'https://') !== false) {
                         $file_url = $file->remote_url;
                     } else {
-                        $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;;
+                        $file_url = erLhcoreClassSystem::getHost() . $file->remote_url;
                     }
                 }
              }
@@ -412,17 +529,33 @@ class erLhcoreClassGenericBotActionRestapi
             foreach ($paramsCustomer['params']['msg']->meta_msg_array['content']['quick_replies'] as $quickReplyButton) {
                 if ($quickReplyButton['type'] == 'trigger' || $quickReplyButton['type'] == 'button') {
                     if (isset($matchCycles[1][0])) {
+
+                        if (isset($quickReplyButton['content']['override_rest_api_button']) && $quickReplyButton['content']['override_rest_api_button'] === true) {
+                            $buttonContent = $quickReplyButton['content']['rest_api_button'];
+                        } else {
+                            $buttonContent = preg_replace('/\{is_url\}(.*?)\{\/is_url\}/ms', '', $matchCycles[1][0]);
+                            $buttonContent = trim(str_replace(['{is_button}', '{/is_button}', '{{rest_api_button}}'], ['', '', (isset($quickReplyButton['content']['rest_api_button']) ? $quickReplyButton['content']['rest_api_button'] : '')], $buttonContent));
+                        }
+
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
                             json_encode(($quickReplyButton['type'] == 'button' ?  'bpayload__' : 'trigger__') . $quickReplyButton['content']['payload']. '__' . md5($quickReplyButton['content']['name']) .'__'.$paramsCustomer['params']['msg']->id),
                             json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                        ],$buttonContent);
                     }
                 } elseif ($quickReplyButton['type'] == 'url') {
                     if (isset($matchCycles[1][0])) {
+
+                        if (isset($quickReplyButton['content']['override_rest_api_button']) && $quickReplyButton['content']['override_rest_api_button'] === true) {
+                            $buttonContent = $quickReplyButton['content']['rest_api_button'];
+                        } else {
+                            $buttonContent = preg_replace('/\{is_button\}(.*?)\{\/is_button\}/ms','',$matchCycles[1][0]);
+                            $buttonContent = trim(str_replace(['{is_url}','{/is_url}','{{rest_api_button}}'],['','',(isset($quickReplyButton['content']['rest_api_button']) ? $quickReplyButton['content']['rest_api_button'] : '')], $buttonContent));
+                        }
+
                         $buttonsArray[] = str_replace(['{{button_payload}}','{{button_title}}'],[
                             json_encode($quickReplyButton['content']['payload']),
-                            json_encode($quickReplyButton['content']['name'])
-                        ],$matchCycles[1][0]);
+                            json_encode($quickReplyButton['content']['name'].'ma,e')
+                        ],$buttonContent);
                     }
                 }
             }
@@ -478,6 +611,17 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat']);
 
+        if (!isset($methodSettings['body_raw'])) {
+            $methodSettings['body_raw'] = '';
+        }
+
+        // Handle previous visitor messages
+        if (isset($dynamicReplaceVariables['{if_previous_visitor_messages}']) && $dynamicReplaceVariables['{if_previous_visitor_messages}'] === true) {
+            $methodSettings['body_raw'] = trim(str_replace(['{if_previous_visitor_messages}','{/if_previous_visitor_messages}'],'', $methodSettings['body_raw']));
+        } else {
+            $methodSettings['body_raw'] = preg_replace('/\{if_previous_visitor_messages\}(.*?)\{\/if_previous_visitor_messages\}/ms','',$methodSettings['body_raw']);
+        }
+
         if (isset($methodSettings['check_word']) && $methodSettings['check_word'] == true) {
 
             $locale = $paramsCustomer['chat']->chat_locale;
@@ -505,6 +649,10 @@ class erLhcoreClassGenericBotActionRestapi
             '{{msg_clean_lowercase}}' => mb_strtolower(trim($msg_text_cleaned)),
             '{{msg_url}}' => erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0)),
             '{{msg_url_lowercase}}' => erLhcoreClassBBCodePlain::make_clickable(mb_strtolower($msg_text), array('sender' => 0)),
+            '{{msg_html}}' => erLhcoreClassBBCode::make_clickable($msg_text, array('sender' => 0)),
+            '{{msg_html_nobr}}' => str_replace("<br />",'',erLhcoreClassBBCode::make_clickable($msg_text, array('sender' => 0))),
+            '{{msg_html_lowercase}}' => erLhcoreClassBBCode::make_clickable(mb_strtolower($msg_text), array('sender' => 0)),
+            '{{msg_html_lowercase_nobr}}' => str_replace("<br />",'',erLhcoreClassBBCode::make_clickable(mb_strtolower($msg_text), array('sender' => 0))),
             '{{chat_id}}' => $paramsCustomer['chat']->id,
             '{{lhc.nick}}' =>$paramsCustomer['chat']->nick,
             '{{lhc.email}}' => $paramsCustomer['chat']->email,
@@ -515,6 +663,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_body}}' => $file_body,
             '{{file_url}}' => $file_url,
             '{{file_name}}' => $file_name,
+            '{{file_size}}' => $file_size,
             '{{timestamp}}' => time()
         );
 
@@ -536,6 +685,10 @@ class erLhcoreClassGenericBotActionRestapi
             '{{msg_clean_lowercase}}' => json_encode(mb_strtolower(trim($msg_text_cleaned))),
             '{{msg_url}}' => json_encode(erLhcoreClassBBCodePlain::make_clickable($msg_text, array('sender' => 0))),
             '{{msg_url_lowercase}}' => json_encode(erLhcoreClassBBCodePlain::make_clickable(mb_strtolower($msg_text), array('sender' => 0))),
+            '{{msg_html}}' => json_encode(erLhcoreClassBBCode::make_clickable($msg_text, array('sender' => 0))),
+            '{{msg_html_lowercase}}' => json_encode(erLhcoreClassBBCode::make_clickable(mb_strtolower($msg_text), array('sender' => 0))),
+            '{{msg_html_nobr}}' => json_encode(str_replace("<br />","",erLhcoreClassBBCode::make_clickable($msg_text, array('sender' => 0)))),
+            '{{msg_html_lowercase_nobr}}' => json_encode(str_replace("<br />",'',erLhcoreClassBBCode::make_clickable(mb_strtolower($msg_text), array('sender' => 0)))),
             '{{chat_id}}' => json_encode($paramsCustomer['chat']->id),
             '{{lhc.nick}}' => json_encode($paramsCustomer['chat']->nick),
             '{{lhc.email}}' => json_encode($paramsCustomer['chat']->email),
@@ -546,6 +699,7 @@ class erLhcoreClassGenericBotActionRestapi
             '{{file_body}}' => json_encode($file_body),
             '{{file_url}}' => json_encode($file_url),
             '{{file_name}}' =>json_encode($file_name),
+            '{{file_size}}' =>json_encode($file_size),
             '{{timestamp}}' => time()
         );
 
@@ -719,7 +873,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             $rawReplaceArray = array();
             foreach ($replaceVariablesJSON as $keyVariable => $keyValue) {
-                $rawReplaceArray['raw_'.$keyVariable] = trim($keyValue,"\"");
+                $rawReplaceArray['raw_'.$keyVariable] = str_replace('\\\/','\/',trim($keyValue,"\""));
             }
 
             $bodyPOST = str_replace(array_keys($rawReplaceArray), array_values($rawReplaceArray), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
@@ -1103,10 +1257,35 @@ class erLhcoreClassGenericBotActionRestapi
 
             $matchesValues = [];
             preg_match_all('~\{\{lhc\.((?:[^\{\}\}]++|(?R))*)\}\}~', $key, $matchesValues);
-                
             if (!empty($matchesValues[0])) {
                 foreach ($matchesValues[0] as $indexElement => $elementValue) {
                     $userData['dynamic_variables'][$elementValue] = $userData['chat']->{$matchesValues[1][$indexElement]};
+                }
+            }
+
+            $matchesValues = [];
+            preg_match_all('~\{\{previous_visitor_messages_url__([0-9]+)\}\}~', $item, $matchesValues);
+            if (!empty($matchesValues[0])) {
+                $userData['dynamic_variables']['{if_previous_visitor_messages}'] = false;
+                foreach ($matchesValues[0] as $indexElement => $elementValue) {
+
+                    $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => $matchesValues[1][$indexElement], 'sort' => 'id DESC', 'filter' => array('user_id' => 0, 'chat_id' => $userData['chat']->id))));
+
+                    foreach ($messages as $indexMessage => $message) {
+                        $messages[$indexMessage]->msg = $messages[$indexMessage]->msg . ".";
+                    }
+
+                    // Fetch chat messages
+                    $tpl = new erLhcoreClassTemplate( 'lhchat/messagelist/plain.tpl.php');
+                    $tpl->set('chat', $userData['chat']);
+                    $tpl->set('messages', $messages);
+                    $tpl->set('remove_meta', true);
+
+                    $userData['dynamic_variables'][$elementValue] = trim($tpl->fetch());
+
+                    if (!empty($userData['dynamic_variables'][$elementValue])) {
+                        $userData['dynamic_variables']['{if_previous_visitor_messages}'] = true;
+                    }
                 }
             }
 
@@ -1130,6 +1309,29 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{msg_items}}'] = $messages;
             }
 
+            if (strpos($item,'{{subject_ids}}') !== false && !in_array('{{subject_ids}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_ids}}';
+                $userData['dynamic_variables']['{{subject_ids}}'] = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $userData['chat']->id]],'count','subject_id','subject_id',false, true, true);
+            }
+
+            if (strpos($item,'{{subject_list}}') !== false && !in_array('{{subject_list}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list}}';
+                $userData['dynamic_variables']['{{subject_list}}'] = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $userData['dynamic_variables']['{{subject_list}}'][] = $chatSubject->subject;
+                }
+            }
+
+            if (strpos($item,'{{subject_list_names}}') !== false && !in_array('{{subject_list_names}}',$userData['required_vars'])) {
+                $userData['required_vars'][] = '{{subject_list_names}}';
+                $userData['dynamic_variables']['{{subject_list_names}}'] = '';
+                $subjectItems = [];
+                foreach (erLhAbstractModelSubjectChat::getList(['filter' => ['chat_id' => $userData['chat']->id]]) as $chatSubject){
+                    $subjectItems[] = (string)$chatSubject->subject;
+                }
+                $userData['dynamic_variables']['{{subject_list_names}}'] = implode("\n",$subjectItems);
+            }
+
             if (strpos($item,'{{msg_all}}') !== false && !in_array('{{msg_all}}',$userData['required_vars'])) {
                 $userData['required_vars'][] = '{{msg_all}}';
 
@@ -1141,6 +1343,53 @@ class erLhcoreClassGenericBotActionRestapi
 
                 $userData['dynamic_variables']['{{msg_all}}'] = $tpl->fetch();
             }
+
+            if (
+
+                (strpos($item,'{{media_all}}') !== false && !in_array('{{media_all}}',$userData['required_vars'])) ||
+                (strpos($item,'{{media_all_links}}') !== false && !in_array('{{media_all_links}}',$userData['required_vars'])) ||
+                (strpos($item,'{{media_all_links_raw}}') !== false && !in_array('{{media_all_links_raw}}',$userData['required_vars']))
+            ) {
+                 $userData['required_vars'][] = '{{media_all}}';
+                 $userData['required_vars'][] = '{{media_all_links}}';
+                 $userData['required_vars'][] = '{{media_all_links_raw}}';
+                 $media = array();
+                 $mediaLinks = array();
+                 $mediaLinksRaw = array();
+                 foreach (erLhcoreClassModelmsg::getList(array('limit' => false,'sort' => 'id DESC', 'filter' => array('chat_id' => $userData['chat']->id))) as $chatMessage) {
+                     $chatMessageText = $chatMessage->msg;
+                     $matches = array();
+                     preg_match_all('/\[file="?(.*?)"?\]/', $chatMessageText, $matches);
+
+                     foreach ($matches[1] as $index => $body) {
+                         $parts = explode('_', $body);
+                         $fileID = $parts[0];
+                         $hash = $parts[1];
+                         try {
+                             $file = erLhcoreClassModelChatFile::fetch($fileID);
+                             if (is_object($file) && $hash == $file->security_hash) {
+                                 $url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('file/downloadfile') . "/{$file->id}/{$hash}";;
+                                 $media[] = array(
+                                     'id' => $file->id,
+                                     'size' => $file->size,
+                                     'upload_name' => $file->upload_name,
+                                     'type' => $file->type,
+                                     'extension' => $file->extension,
+                                     'hash' => $hash,
+                                     'url' => $url
+                                 );
+                                 $mediaLinks[] = $url . " [" . $file->upload_name ."]";
+                                 $mediaLinksRaw[] = $url;
+                             }
+                         } catch (Exception $e) {
+
+                         }
+                     }
+                 }
+                 $userData['dynamic_variables']['{{media_all}}'] = $media;
+                 $userData['dynamic_variables']['{{media_all_links}}'] = implode("\n",$mediaLinks);
+                 $userData['dynamic_variables']['{{media_all_links_raw}}'] = implode("\n",$mediaLinksRaw);
+             }
 
             // All messages without [<date>] [<nick>] and system messages
             if (strpos($item,'{{msg_all_content}}') !== false && !in_array('{{msg_all_content}}',$userData['required_vars'])) {
@@ -1231,6 +1480,11 @@ class erLhcoreClassGenericBotActionRestapi
                 $userData['dynamic_variables']['{{footprint}}'] = implode("\n",$itemsFootprint);
             }
 
+             if (strpos($item,'{{survey}}') !== false && !in_array('{{survey}}',$userData['required_vars'])) {
+                 $userData['required_vars'][] = '{{survey}}';
+                 $userData['dynamic_variables']['{{survey}}'] = erLhcoreClassChatMail::getSurveyContent($userData['chat']);
+             }
+
         }, $userData);
 
         return $userData['dynamic_variables'];
@@ -1274,7 +1528,10 @@ class erLhcoreClassGenericBotActionRestapi
                         break;
                     }
                 } else {
-                    if (isset($partData[$part]) ) {
+                    $partPlainData = explode('___',$part);
+                    if (isset($partPlainData[1]) && $partPlainData[1] === 'array_pop' && isset($partData[$partPlainData[0]]) && is_array($partData[$partPlainData[0]])) {
+                        $partData = array_pop($partData[$partPlainData[0]]);
+                    } elseif (isset($partData[$part]) ) {
                         $partData = $partData[$part];
                     } else {
                         $partFound = false;

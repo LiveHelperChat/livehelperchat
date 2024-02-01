@@ -90,6 +90,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'subject_contains' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'name' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
         );
 
@@ -118,6 +121,12 @@ class erLhcoreClassMailconvValidator {
             $item->from_name = $form->from_name;
         } else {
             $item->from_name = '';
+        }
+        
+        if ($form->hasValidData( 'name' )) {
+            $item->name = $form->name;
+        } else {
+            $item->name = '';
         }
 
         if ($form->hasValidData( 'priority' )) {
@@ -237,6 +246,9 @@ class erLhcoreClassMailconvValidator {
             'no_pswd_smtp' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'reopen_reset' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'sync_interval' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
@@ -252,14 +264,23 @@ class erLhcoreClassMailconvValidator {
             'workflow_import_present' => new ezcInputFormDefinitionElement (
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'workflow_use_in_reply' => new ezcInputFormDefinitionElement (
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'workflow_auto_close' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             ),
+            'workflow_reimport_frequency' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+            ),
             'workflow_older_than' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 48)
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1, 'max_range' => 96)
             ),
             'workflow_close_status' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0),FILTER_REQUIRE_ARRAY
+            ),
+            'mrules_id' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1),FILTER_REQUIRE_ARRAY
             ),
         );
 
@@ -326,6 +347,12 @@ class erLhcoreClassMailconvValidator {
             $item->no_pswd_smtp = 1;
         } else {
             $item->no_pswd_smtp = 0;
+        }
+
+        if ($form->hasValidData( 'reopen_reset' ) && $form->reopen_reset == true) {
+            $item->reopen_reset = 1;
+        } else {
+            $item->reopen_reset = 0;
         }
 
         if ($form->hasValidData( 'assign_parent_user' ) && $form->assign_parent_user == true) {
@@ -433,6 +460,12 @@ class erLhcoreClassMailconvValidator {
             unset($workflowParams['workflow_older_than']);
         }
 
+        if ( $form->hasValidData( 'workflow_reimport_frequency' )) {
+            $workflowParams['workflow_reimport_frequency'] = $form->workflow_reimport_frequency;
+        } elseif (isset($workflowParams['workflow_reimport_frequency'])) {
+            unset($workflowParams['workflow_reimport_frequency']);
+        }
+
         if ($form->hasValidData( 'workflow_close_status' )) {
             $workflowParams['close_status'] = $form->workflow_close_status;
         } else {
@@ -444,9 +477,21 @@ class erLhcoreClassMailconvValidator {
         } else {
             $workflowParams['workflow_import_present'] = 0;
         }
+        
+        if ($form->hasValidData( 'workflow_use_in_reply' )) {
+            $workflowParams['workflow_use_in_reply'] = 1;
+        } else {
+            $workflowParams['workflow_use_in_reply'] = 0;
+        }
 
         $item->workflow_options_array = $workflowParams;
         $item->workflow_options = json_encode($workflowParams);
+
+        if ($form->hasValidData( 'mrules_id' )) {
+            $item->mrules_id_update = $form->mrules_id;
+        } else {
+            $item->mrules_id_update = [];
+        }
 
         return $Errors;
     }
@@ -467,6 +512,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'dep_id' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'disabled' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             )
         );
 
@@ -496,6 +544,12 @@ class erLhcoreClassMailconvValidator {
             $item->dep_id = $form->dep_id;
         } else {
             $item->dep_id = 0;
+        }
+
+        if ($form->hasValidData( 'disabled' ) && $form->disabled == true) {
+            $item->disabled = 1;
+        } else {
+            $item->disabled = 0;
         }
 
         if (!$form->hasValidData( 'DepartmentID' )) {

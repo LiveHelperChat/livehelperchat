@@ -99,8 +99,8 @@ try {
             $holdMessageSet = false;
 
             if ($chat->auto_responder !== false) {
-                if ($chat->auto_responder->auto_responder !== false && $chat->auto_responder->auto_responder->wait_timeout_hold != '') {
-                    $msgText = $chat->auto_responder->auto_responder->wait_timeout_hold;
+                if ($chat->auto_responder->auto_responder !== false && $chat->auto_responder->auto_responder->wait_timeout_hold_translated != '') {
+                    $msgText = erLhcoreClassGenericBotWorkflow::translateMessage(trim($chat->auto_responder->auto_responder->wait_timeout_hold_translated), array('chat' => $chat));
 
                     $currentUser = erLhcoreClassUser::instance();
                     $userData = $currentUser->getUserData();
@@ -112,6 +112,7 @@ try {
                     $msg->time = time();
                     $msg->name_support = $userData->name_support;
 
+                    \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat));
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat));
 
                     $msg->saveThis();
@@ -151,6 +152,10 @@ try {
     $db->commit();
 
     echo json_encode(array('error' => false, 'hold' => $hold, 'msg' => $msgStatus));
+
+    if (isset($holdMessageSet) && $holdMessageSet === true) {
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array('msg' => & $msg, 'chat' => & $chat, 'ou' => null));
+    }
 
 } catch (Exception $e) {
     $db->rollback();

@@ -164,7 +164,7 @@ function lh(){
             $('#CSChatMessage-'+chat_id).unbind('keyup', function(){});
         }
 
-        this.removeSynchroChat(chat_id);
+        this.removeSynchroChat(chat_id, true);
         this.removeBackgroundChat(chat_id);
         this.hideNotification(chat_id);
         var inst = this;
@@ -515,9 +515,16 @@ function lh(){
         }
     };
 
+    this.logOpenTrace = [];
+
+    this.addOpenTrace = function(log) {
+        this.logOpenTrace.push(log);
+    }
+
     this.addTab = function(tabs, url, name, chat_id, focusTab, position) {
     	// If tab already exits return
     	if (tabs.find('#chat-tab-link-'+chat_id).length > 0) {
+            lhinst.logOpenTrace = [];
     		return ;
     	}
 
@@ -563,7 +570,14 @@ function lh(){
 
     	var inst = this;
 
-    	$.get(url, function(data) {
+        var logOpen = '';
+
+        if (lhinst.logOpenTrace.length > 0) {
+            logOpen = '/(ol)/' + lhinst.logOpenTrace.join('/');
+            lhinst.logOpenTrace = [];
+        }
+
+    	$.get(url + logOpen, function(data) {
 
     	    if (data == '') {
                 inst.removeDialogTab(chat_id,tabs,true);
@@ -706,24 +720,22 @@ function lh(){
 
         document.body.removeChild(textArea);
 
-        inst.tooltip({
+        var toolTip = new bootstrap.Tooltip(inst,{
             trigger: 'click',
             placement: 'top'
         });
 
         function setTooltip(message) {
-            inst.tooltip('hide')
-                .attr('data-original-title', message)
-                .tooltip('show');
+            toolTip.show();
         }
 
         function hideTooltip() {
             setTimeout(function() {
-                inst.tooltip('hide');
+                toolTip.dispose();
             }, 1000);
         }
 
-        setTooltip(inst.attr('data-success'));
+        setTooltip();
         hideTooltip();
 
     },
@@ -978,7 +990,7 @@ function lh(){
         }
     };
 
-    this.removeSynchroChat = function (chat_id)
+    this.removeSynchroChat = function (chat_id, passive)
     {
         var j = 0;
 
@@ -994,7 +1006,9 @@ function lh(){
 
         this.forgetChat(chat_id,'achat_id');
 
-        ee.emitEvent('removeSynchroChat', [chat_id]);
+        if (passive !== true) {
+            ee.emitEvent('removeSynchroChat', [chat_id]);
+        }
 
         if (LHCCallbacks.removeSynchroChat) {
         	LHCCallbacks.removeSynchroChat(chat_id);
@@ -1136,7 +1150,7 @@ function lh(){
     {
     	if ($('#chat-main-column-'+chat_id+' .collapse-right').text() == 'chevron_right'){
 	    	$('#chat-right-column-'+chat_id).hide();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-7').addClass('col-sm-12');
+	    	$('#chat-main-column-'+chat_id).removeClass('col-md-8').addClass('col-md-12');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_left');
 	    	try {
 		    	if (localStorage) {
@@ -1145,7 +1159,7 @@ function lh(){
 	    	} catch(e) {}
     	} else {
     		$('#chat-right-column-'+chat_id).show();
-	    	$('#chat-main-column-'+chat_id).removeClass('col-sm-12').addClass('col-sm-7');
+	    	$('#chat-main-column-'+chat_id).removeClass('col-md-12').addClass('col-md-8');
 	    	$('#chat-main-column-'+chat_id+' .collapse-right').text('chevron_right');
 	    	
 	    	try {
@@ -1196,11 +1210,16 @@ function lh(){
         $('#CSChatMessage-'+chat_id).length != 0 && (attribute = $('#CSChatMessage-'+chat_id).attr('related-actions'));
 
         if ($('#CSChatMessage-'+chat_id).length != 0 && $('#CSChatMessage-'+chat_id).attr('close-related') !== "false" && !ignoreRelated) {
+            var clsAction = $('#chat-close-action-'+chat_id);
+            clsAction.find('.close-text').text(clsAction.attr('data-loading')).parent().find('.material-icons').text('sync').addClass('lhc-spin');
             lhc.revealModal({
                 'url': WWW_DIR_JAVASCRIPT+'chat/relatedactions/'+chat_id,
                 'loadmethod' : 'post',
                 'datapost' : attribute,
                 'backdrop': true,
+                'hidecallback' : function() {
+                    clsAction.find('.close-text').text(clsAction.find('.close-text').attr('data-original')).parent().find('.material-icons').text('close').removeClass('lhc-spin');
+                },
                 'on_empty': function() {
                     that.closeActiveChatDialog(chat_id, tabs, hidetab, true); // If no related actions close it instantly
                 }
@@ -1215,13 +1234,15 @@ function lh(){
                 ee.emitEvent('angularLoadChatList');
             } else {
 	            alert(data.result);
+                ee.emitEvent('angularStartChatbyId',[chat_id]);
             }
 
             $('#myModal').modal('hide');
 
         }).fail(function(jqXHR, textStatus, errorThrown) {
             ee.emitEvent('angularSyncDisabled', [false]);
-            console.dir(jqXHR);
+            alert('There was an error processing your request: ' + '[' + jqXHR.status + '] [' + jqXHR.statusText + '] [' + jqXHR.responseText + '] ' + errorThrown);
+            ee.emitEvent('angularStartChatbyId',[chat_id]);
         });
 
         if ($('#CSChatMessage-'+chat_id).length != 0) {
@@ -1535,9 +1556,11 @@ function lh(){
                     window.focus();
                 } else {
                     if (typeof background !== 'undefined' && background === true) {
+                        inst.addOpenTrace('transfer_open_background');
                         inst.startChatBackground(data.chat_id, $('#tabs'), nt);
                     } else {
                         window.focus();
+                        inst.addOpenTrace('transfer_open');
                         inst.startChat(data.chat_id, $('#tabs'), nt);
                     }
     			}
@@ -2134,9 +2157,13 @@ function lh(){
 	        	                      if (item.um == 1) {
 	        	                    	  statusel.addClass('chat-unread');
 	        	                    	  $('#msg-send-status-'+item.chat_id).addClass('icon-user-offline');
-	  	                			  } else {
+                                          if (item.ssub == 3) {
+                                              $('#messagesBlock-'+item.chat_id).find('.msg-del-st-0,.msg-del-st-1').removeClass('msg-del-st-0 msg-del-st-1').addClass('msg-del-st-2').text('done_all');
+                                          }
+                                      } else {
 	  	                				  $('#msg-send-status-'+item.chat_id).addClass('icon-user-online');
 	  	                				  statusel.removeClass('chat-unread');
+                                          $('#messagesBlock-'+item.chat_id).find('.msg-del-st-0,.msg-del-st-1,.msg-del-st-2').remove();
 	  	                			  }
 
 	        	                      if (item.lp !== false) {
@@ -2355,6 +2382,7 @@ function lh(){
     	    	if (identifier == 'subject_chats' || identifier == 'active_chats' || identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
     	    		if ($('#tabs').length > 0) {
     	    			window.focus();
+                        inst.addOpenTrace('click_notification');
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
@@ -2412,6 +2440,7 @@ function lh(){
     			if (identifier == 'pending_chat' || identifier == 'unread_chat' || identifier == 'pending_transfered' || identifier == 'bot_chats') {
     	    		if ($('#tabs').length > 0) {
     	    			window.focus();
+                        inst.addOpenTrace('alert_open');
     	    			inst.startChat(chat_id, $('#tabs'), nt);
     	    		} else {
     	    			inst.startChatNewWindow(chat_id,'ChatRequest');
@@ -3020,18 +3049,41 @@ function lh(){
     };
 
     this.submitModalForm = function(form, idElement){
-    	var inst = this;
-    	$.post(form.attr('action'),form.serialize(), function(data) {
-            var idElementDetermined = idElement ? '#'+idElement : '#myModal';
-            if (!idElement) {
-                var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
+        var inst = this;
+
+        $('#modal-in-progress').removeClass('hide');
+        $('.modal-submit-disable').addClass('disabled').attr('disabled',"disabled");
+
+        $.ajax({
+            url: form.attr("action"),
+            type: form.attr("method"),
+            //dataType: "JSON",
+            data: new FormData(form[0]),
+            processData: false,
+            contentType: false,
+            success: function (data, status)
+            {
+                $('#modal-in-progress').addClass('hide');
+                $('.modal-submit-disable').removeClass('disabled').attr('disabled',"disabled");
+
+                var idElementDetermined = idElement ? '#'+idElement : '#myModal';
+                if (!idElement) {
+                    var styleOriginal = $('#myModal > .modal-dialog')[0].style.cssText;
+                }
+                $(idElementDetermined).html(data);
+                if (!idElement && $('#myModal > .modal-dialog').length > 0) {
+                    $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
+                } else {
+                    $(idElementDetermined).html('<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-body">'+data+'</div></div></div>');
+                }
+            },
+            error: function (xhr, desc, err)
+            {
+                alert('An error has accoured! ' + xhr.responseText);
             }
-            $(idElementDetermined).html(data);
-            if (!idElement) {
-                $('#myModal > .modal-dialog')[0].style.cssText = styleOriginal;
-            }
-	   	 });
-    	return false;
+        });
+
+        return false;
     };
 
     this.pendingMessagesToStore = [];
@@ -3233,7 +3285,11 @@ function lh(){
     };
 
     this.zoomImage = function(e) {
-        lhc.revealModal({'url':e.src + '?modal=true'})
+        if (!e.classList.contains('img-remote')) {
+            lhc.revealModal({'url':e.src + '?modal=true'})
+        } else {
+            lhc.revealModal({'url': WWW_DIR_JAVASCRIPT + 'file/downloadfile/0/0' + '?modal=external&src='+e.src})
+        }
     }
 }
 

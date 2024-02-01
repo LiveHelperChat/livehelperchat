@@ -83,8 +83,25 @@ class erLhcoreClassGenericBotActionText {
                 }
 
                 if ($validButton == true) {
-                    $quickReplies[] = $quickReply;
+                    if (!isset($quickReply['content']['bot_condition']) || $quickReply['content']['bot_condition'] == "") {
+                        $quickReplies[] = $quickReply;
+                    } else {
+                        $buttonRules = explode(",",$quickReply['content']['bot_condition']);
+                        $allRulesValid = true;
+                        foreach ($buttonRules as $buttonRule) {
+                            $conditionsToValidate = \LiveHelperChat\Models\Bot\Condition::getList(['filter' => ['identifier' => trim($buttonRule)]]);
+                            foreach ($conditionsToValidate as $conditionToValidate) {
+                                if (!$conditionToValidate->isValid(['chat' => $chat, 'replace_array' => (isset($params['replace_array']) ? $params['replace_array'] : [])])) {
+                                    $allRulesValid = false;
+                                }
+                            }
+                        }
+                        if ($allRulesValid === true) {
+                            $quickReplies[] = $quickReply;
+                        }
+                    }
                 }
+
             }
 
             if (!empty($quickReplies)){
@@ -189,7 +206,11 @@ class erLhcoreClassGenericBotActionText {
 
         $msg->user_id = isset($params['override_user_id']) && $params['override_user_id'] > 0 ? (int)$params['override_user_id'] : -2;
 
-        $msg->time = time() + 1;
+        $msg->time = time();
+
+        if (erLhcoreClassGenericBotWorkflow::$setBotFlow === false) {
+            $msg->time += 1;
+        }
 
         // Perhaps this message should be saved as a system message
         if (isset($action['content']['attr_options']['as_system']) && $action['content']['attr_options']['as_system'] == true)

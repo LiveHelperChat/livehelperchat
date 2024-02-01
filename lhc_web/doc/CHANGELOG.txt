@@ -1,3 +1,75 @@
+4.29v
+
+1. New chat attribute `First response time (agent)` attribute `frt`.
+2. New chat attribute `Max response time (agent)`attribute `mart`.
+3. New chat attribute `Average response time (agent)` attribute `aart`.
+4. All new attributes is represented in chat statistic/search/chat right column.
+5. Agents can have personal theme by having `'lhabstract','use'` and `'lhtheme','personaltheme'` permissions.
+6. To update present chats with new attributes values you can run `php cron.php -s site_admin -c cron/util/update_times -p <chat_id_to_update_from>`
+
+execute doc/update_db/update_300.sql for update
+
+4.28v
+
+1. Widget theme now allows to set message time visibility options for operator and visitor. [Above message or below messages]
+2. Now there is option to have a custom HTML below page widget `Custom html after widget content`
+3. Full height option support in the widget.
+4. Various other small changes...
+
+execute doc/update_db/update_299.sql for update
+
+4.27v
+
+1. Avoid flicker once chat is started for a new widget.
+2. Option to show clicked button name instantly in messages area. `Widget container -> Print button as a message as soon visitor clicks a button.`
+3. Incoming webhook `chat_external_id` field is now 100 chars instead of 50
+4. We will show visitor message as soon he clicks send.
+5. 8.2 php support, if you notice some errors let me know.
+6. Voice messages max length option from files configuration was ignored.
+7. Chrome 116v workaround for chrome bug.  Changes I did https://github.com/LiveHelperChat/livehelperchat/commit/b3649c5e936d4be08d1e004d8537ed47cd029aba chrome bug report. https://bugs.chromium.org/p/chromium/issues/detail?id=1473754 it should be fixed in 117v chrome release.
+8. Audit configuration window has a system information details
+9. Autoresponder cronjob cache issues fixes.
+10. Option to use visitor TZ or system TZ always for messages rendering if they have time based messages. Can be activated in widget themes.
+11. Geo detection test window.
+12. More variables for Rest API
+
+execute doc/update_db/update_298.sql for update
+
+4.26v
+
+1. Message delivery status indication.
+2. Old chats will show messages as undelivered. Or you can execute query from update file.
+3. This time it's recommended to run queries from `update_298.sql` to avoid database locks. Make sure you know what you are doing.
+
+execute doc/update_db/update_298.sql for update
+
+4.25v
+
+1. Participant concept in chat's statistic.
+2. Brand concept in chat handling workflows.
+
+execute doc/update_db/update_297.sql for update
+
+4.24v
+
+1. In rare cases, if processing incoming webhook took a long time and a second request was sent one after another two chats were created. Transaction locking were added.
+2. Option to log non-parsed messages and log all requests. Useful for debugging while debug output is disabled. E.g in production env.
+
+execute doc/update_db/update_296.sql for update
+
+4.23v
+
+1. Option to hide sensitive information from operators if they don't have permission to access 'lhchat','see_sensitive_information'
+
+execute doc/update_db/update_295.sql for update
+
+4.22v
+
+1. Department assignment now have new UI.
+2. Department assignment operator can have custom nick per department.
+
+execute doc/update_db/update_294.sql for update
+
 4.21v
 
 1. Chat list now can show custom columns also.

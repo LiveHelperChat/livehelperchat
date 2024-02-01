@@ -14,7 +14,7 @@
             <?php endif; ?>
         </i>
     <?php elseif ($msg['user_id'] > 0 && isset($theme) && $theme !== false && isset($theme->bot_configuration_array['bubble_style_profile']) && $theme->bot_configuration_array['bubble_style_profile'] == 1 &&
-        ($userMessage = erLhcoreClassModelUser::fetch($msg['user_id'],true)) && $userMessage instanceof erLhcoreClassModelUser && $userMessage->has_photo_avatar
+        ($userMessage = erLhcoreClassModelUser::fetch($msg['user_id'],true)) && $userMessage instanceof erLhcoreClassModelUser && (\LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('user' => & $userMessage, 'chat' => $chat)) || $userMessage->has_photo_avatar)
     ) : ?>
             <i title="<?php echo htmlspecialchars($msg['name_support'])?>" class="chat-operators mi-fs15 me-0">
                 <?php if ($userMessage->has_photo) : ?>

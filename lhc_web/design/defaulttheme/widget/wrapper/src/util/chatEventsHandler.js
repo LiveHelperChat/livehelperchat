@@ -45,7 +45,9 @@ class chatEventsHandler {
             'static_chat' : this.attributes['userSession'].getSessionAttributes(),
             'domain_lhc': this.attributes['domain_lhc'],
             'leave_message': this.attributes['leaveMessage'],
-            'scope_prefix': this.attributes['prefixLowercase']
+            'scope_prefix': this.attributes['prefixLowercase'],
+            'position_placement': this.attributes['position_placement'],
+            'position_placement_original': this.attributes['position_placement_original']
         };
 
         if (this.attributes['fresh'] == true) {

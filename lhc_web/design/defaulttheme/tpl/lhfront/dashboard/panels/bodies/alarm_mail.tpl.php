@@ -16,7 +16,7 @@
         </td>
         <td>
             <div class="abbr-list">
-                <span ng-if="chat.subject_list" class="badge badge-info fs12 mr-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
+                <span ng-if="chat.subject_list" class="badge bg-info fs12 me-1" ng-repeat="subjectitem in chat.subject_list track by $index">{{subjectitem}}</span>
             </div>
         </td>
         <td>

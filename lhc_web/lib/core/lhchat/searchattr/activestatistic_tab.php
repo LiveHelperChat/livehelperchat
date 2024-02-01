@@ -73,6 +73,78 @@ $fieldsSearch['wait_time_till'] = array (
     )
 );
 
+$fieldsSearch['frt_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'frt',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['frt_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'frt',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['mart_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'mart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['mart_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'mart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['aart_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'aart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['aart_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'aart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['timefrom'] = array (
     'type' => 'text',
     'trans' => 'Timefrom',

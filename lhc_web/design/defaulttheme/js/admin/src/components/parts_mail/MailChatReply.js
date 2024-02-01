@@ -20,6 +20,7 @@ const MailChatReply = props => {
     const [sendInProgress, setSendInProgress] = useState(false);
     const [underReplySignature, setUnderReplySignature] = useState(false);
     const [isOwner, setIsOwner] = useState(true);
+    const [isSelfReply, setIsSelfReply] = useState(true);
 
     const [attachedFiles, dispatch] = useReducer((attachedFiles, { type, value }) => {
         switch (type) {
@@ -139,6 +140,8 @@ const MailChatReply = props => {
                 setReplySignature(result.data.signature);
                 setRecipients(result.data.recipients);
                 setUnderReplySignature(result.data.signature_under);
+                setIsSelfReply(result.data.is_self_reply);
+
                 if (result.data.user_id > 0) {
                     props.verifyOwner(result.data.user_id);
                     setIsOwner(result.data.is_owner);
@@ -182,6 +185,10 @@ const MailChatReply = props => {
                 {t('msg.not_an_owner')}
             </div>}
 
+            {replyMode && isSelfReply && <div className="alert alert-warning" role="alert"><span className="material-icons">warning</span>
+                {t('msg.self_reply')}
+            </div>}
+
             {!replyMode && !forwardMode && !props.fetchingMessages && <div className="btn-group" role="group" aria-label="Mail actions">
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => {setForwardMode(false);setReplyMode(true);}}><i className="material-icons">reply</i>{t('msg.reply')}</button>
                 <button disabled={props.message.response_type == 1} type="button" className="btn btn-sm btn-outline-secondary" onClick={() => props.noReplyRequired()}><i className="material-icons">done</i>{t('msg.nrr')}</button>
@@ -196,7 +203,7 @@ const MailChatReply = props => {
 
                 <Editor
                     tinymceScriptSrc={props.moptions.tiny_mce_path}
-                    initialValue={"<p></p>" + replyIntro + "<blockquote>" + (props.moptions.skip_images == true ? props.message.body_front.replace(/\<img([^>]*)\ssrc=('|")([^>]*)\2\s([^>]*)\/\>/gi, props.moptions.image_skipped_text ) : props.message.body_front) + "</blockquote>" + (underReplySignature == false ? replySignature : "")}
+                    initialValue={"<p></p>" + replyIntro + (props.message.body_front ? ("<blockquote>" + (props.moptions.skip_images == true ? props.message.body_front.replace(/\<img([^>]*)\ssrc=('|")([^>]*)\2\s([^>]*)\/\>/gi, props.moptions.image_skipped_text ) : props.message.body_front) + "</blockquote>") : "") + (underReplySignature == false ? replySignature : "")}
                     onInit={() => {
                         tinyMCE.get("reply-to-mce-"+props.message.id).focus();
                     }}

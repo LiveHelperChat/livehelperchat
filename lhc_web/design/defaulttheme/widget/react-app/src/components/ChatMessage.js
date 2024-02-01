@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { helperFunctions } from "../lib/helperFunctions";
 import ChatModal from './ChatModal';
 const InlineSurvey = React.lazy(() => import('./InlineSurvey'));
+const InlineIframe = React.lazy(() => import('./InlineIframe'));
 
 
 class ChatMessage extends PureComponent {
@@ -25,8 +26,30 @@ class ChatMessage extends PureComponent {
         this.delayData = [];
     }
 
+    getDirectInnerText(element) {
+        var childNodes = element.childNodes;
+        var result = '';
+
+        for (var i = 0; i < childNodes.length; i++) {
+            if(childNodes[i].nodeType == 3) {
+                result += childNodes[i].data.trim();
+            }
+        }
+
+        return result;
+    }
+
     addLoader(attrs, element) {
-        if (!attrs["data-no-change"] && attrs.type == 'button') {
+
+        if (this.props.printButton == true && !attrs["data-no-msg"] && (attrs.type == 'button' || element.tagName === 'A')) {
+            if (element.tagName !== 'A') {
+                this.removeMetaMessage(attrs['data-id'], 0);
+            }
+
+            this.props.dispatch({type: "ADD_MSG_TO_STORE", data: this.getDirectInnerText(element)});
+        }
+
+        if (!attrs['data-keep'] && !attrs["data-no-change"] && attrs.type == 'button' && element) {
             element.setAttribute("disabled","disabled");
             element.innerHTML = "<i class=\"material-icons lhc-spin\">&#xf113;</i>" + element.innerHTML;
         }
@@ -140,7 +163,7 @@ class ChatMessage extends PureComponent {
         }*/
     }
 
-    removeMetaMessage(messageId) {
+    removeMetaMessage(messageId, timeout) {
         setTimeout(() => {
             var block = document.getElementById('msg-' + messageId);
             if (block) {
@@ -150,7 +173,7 @@ class ChatMessage extends PureComponent {
                     x[i].parentNode.removeChild(x[i]);
                 }
             }
-        },500);
+        },typeof timeout === 'undefined' ? 500 : timeout);
     }
 
     updateTriggerClicked(paramsType, attrs, target) {
@@ -159,6 +182,10 @@ class ChatMessage extends PureComponent {
                 this.removeMetaMessage(attrs['data-id']);
             }
 
+            if (data.data.message_id_first && data.data.message_id_first > 0) {
+                this.props.dispatch({type: "UPDATE_SCROLL_TO_MESSAGE", data: data.data.message_id_first});
+            }
+            
             if (data.data.t) {
                 helperFunctions.sendMessageParent('botTrigger', [{'trigger' : data.data.t}]);
             }
@@ -166,7 +193,7 @@ class ChatMessage extends PureComponent {
             if (data.data.update_message) {
                 this.props.updateMessage(attrs['data-id'], this);
             } else {
-                this.props.updateMessages();
+                this.props.updateMessages({"check_focus":true});
                 this.props.updateStatus();
             }
         });
@@ -255,8 +282,9 @@ class ChatMessage extends PureComponent {
         var messages = parse(this.props.msg['msg'], {
 
             replace: domNode => {
-                if (domNode.attribs) {
 
+                if (domNode.attribs) {
+                    
                     var cloneAttr = Object.assign({}, domNode.attribs);
 
                     if (domNode.attribs.class) {
@@ -266,11 +294,14 @@ class ChatMessage extends PureComponent {
                             domNode.attribs.className += ' current-reacting-to';
                         }
 
+                        domNode.attribs.className += ' fade-in-fast';
+
+                        if (domNode.attribs.className.indexOf('message-row') !== -1) {
+                            domNode.attribs.className += ' index-row-' + this.props.id;
+                        }
+
                         // Animate only if it's not first sync call
                         if (domNode.attribs.className.indexOf('message-row') !== -1 && this.props.id > 0) {
-
-                            domNode.attribs.className += ' fade-in-fast';
-
                             if (this.props.msg['msop'] > 0 && this.props.msg['msop'] != this.props.msg['lmsop'] && operatorChanged == false) {
                                 domNode.attribs.className += ' operator-changes';
                                 operatorChanged = true;
@@ -312,7 +343,7 @@ class ChatMessage extends PureComponent {
                                 domNode.attribs.style = this.getStyleObjectFromString(domNode.attribs.style);
                             }
 
-                            return <a {...domNode.attribs} onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
+                            return <a {...domNode.attribs} onKeyPress={(e) => { e.key === "Enter" ? this.abstractClick(cloneAttr, e) : '' }}  onClick={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</a>
                         }
                     } else if (domNode.name && domNode.name === 'select') {
 
@@ -325,10 +356,10 @@ class ChatMessage extends PureComponent {
                             return <select {...domNode.attribs} onChange={(e) => this.abstractClick(cloneAttr, e)} >{domToReact(domNode.children)}</select>
                         }
 
+                    } else if (domNode.name && domNode.name === 'inlineiframe') {
+                        return <Suspense fallback="..."><InlineIframe {...domNode.attribs} updateMessage={(id) => this.props.updateMessage(id, this) }/></Suspense>;
                     } else if (domNode.name && domNode.name === 'inlinesurvey') {
-
                         return <Suspense fallback="..."><InlineSurvey {...domNode.attribs} surveyOptions={domNode.children} /></Suspense>;
-
                     } else if (domNode.name && domNode.name === 'input') {
 
                         if (domNode.attribs.type && domNode.attribs.type == 'checkbox' && cloneAttr.onchange) {

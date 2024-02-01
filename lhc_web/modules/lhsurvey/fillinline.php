@@ -51,36 +51,19 @@ try {
 
 } catch (Exception $e) {
 
-    print_r($e);
-
     $db->rollback();
-
-   /* if ($e->getCode() !== 100) {
-        echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage(), 'system' => true));
-    } else {
-        echo erLhcoreClassChat::safe_json_encode(array('error' => true, 'r' => $e->getMessage()));
-    }
-
-    if ($e->getCode() !== 100) {
-        $statusString = '';
-
-        if (isset($chat)) {
-            $statusString = ' | '. $chat->status . '_' . $chat->satus_sub;
-        }
-
-        erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
-            ezcLog::SUCCESS_AUDIT,
-            array(
-                'source' => 'lhc',
-                'category' => 'store',
-                'line' => $e->getLine(),
-                'file' => 'addmsguser.php',
-                'object_id' => $payload['id']
-            )
-        );
-    }*/
-
-    exit;
+    
+    // Store log
+    erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString(),
+        ezcLog::SUCCESS_AUDIT,
+        array(
+            'source' => 'lhc',
+            'category' => 'store',
+            'line' => $e->getLine(),
+            'file' => 'fillinline.php',
+            'object_id' => $payload['chat_id']
+        )
+    );
 }
 
 exit;

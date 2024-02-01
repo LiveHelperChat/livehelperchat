@@ -6,6 +6,7 @@
     </div>
     <?php
         $subjects = erLhAbstractModelSubjectDepartment::getList(array(
+                'limit' => false,
                 'customfilter' => array('(dep_id = ' . (int)$chat->dep_id . ' OR dep_id = 0)'),
                 'filter'  => ['`lh_abstract_subject`.`internal`' => 0],
                 'sort' => '`lh_abstract_subject`.`name` ASC',

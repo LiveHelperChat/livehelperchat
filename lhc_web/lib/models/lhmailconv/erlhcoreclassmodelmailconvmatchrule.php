@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelMailconvMatchRule
 {
     use erLhcoreClassDBTrait;
@@ -18,6 +18,7 @@ class erLhcoreClassModelMailconvMatchRule
     {
         return array(
             'id' => $this->id,
+            'name' => $this->name,
             'dep_id' => $this->dep_id,
             'active' => $this->active,
             'conditions' => $this->conditions,
@@ -33,7 +34,7 @@ class erLhcoreClassModelMailconvMatchRule
 
     public function __toString()
     {
-        return $this->mail;
+        return $this->display_name;
     }
 
     public function __get($var)
@@ -41,6 +42,17 @@ class erLhcoreClassModelMailconvMatchRule
         switch ($var) {
             case 'mtime_front':
                 return '';
+
+            case 'display_name':
+                $mailboxIntroNames = '';
+                if (!empty($this->mailbox_id)) {
+                    $mailboxids = json_decode($this->mailbox_id, true);
+                    if (!empty($mailboxids)) {
+                        $mailboxIntroNames = implode(', ',erLhcoreClassModelMailconvMailbox::getList(['limit' => 5, 'filterin' => ['id' => $mailboxids]]));
+                    }
+                }
+                $this->display_name = '[' . $this->id . '] '. ($this->name != '' ? ' ' . $this->name . ' | ' : '') . ($this->dep_id > 0 ? $this->department . ' | ' : '') . $mailboxIntroNames;
+                return $this->display_name;
 
             case 'department':
                 $this->department = erLhcoreClassModelDepartament::fetch($this->dep_id);
@@ -103,6 +115,7 @@ class erLhcoreClassModelMailconvMatchRule
     public $from_mail = '';
     public $priority = 0;
     public $options = '';
+    public $name = '';
     public $priority_rule = 0;
 }
 

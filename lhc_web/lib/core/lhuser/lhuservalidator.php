@@ -5,7 +5,145 @@
  * */
 
 class erLhcoreClassUserValidator {
-	
+
+    public static function validateDepartmentAssignment(& $userDep) {
+        $definition = array(
+            'exc_indv_autoasign' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'ro' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int', ['min_range' => 0, 'max_range' => 1]
+            ),
+            'chat_max_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'chat_min_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'assign_priority' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+
+        $Errors = [];
+
+        if ( $form->hasValidData( 'exc_indv_autoasign' ) && $form->exc_indv_autoasign == true ) {
+            $userDep->exc_indv_autoasign = 1;
+        } else {
+            $userDep->exc_indv_autoasign = 0;
+        }
+
+        if ($form->hasValidData( 'ro' )) {
+            if ($userDep instanceof erLhcoreClassModelDepartamentGroupUser) {
+                $userDep->read_only = $form->ro;
+            } else {
+                $userDep->ro = $form->ro;
+            }
+        } else {
+            $Errors[] = 'Invalid Read Only value';
+        }
+
+        if ( $form->hasValidData( 'chat_max_priority' )) {
+            $userDep->chat_max_priority = $form->chat_max_priority;
+        } else {
+            $Errors[] = 'Invalid chat_max_priority';
+        }
+
+        if ( $form->hasValidData( 'chat_min_priority' )) {
+            $userDep->chat_min_priority = $form->chat_min_priority;
+        } else {
+            $Errors[] = 'Invalid chat_max_priority';
+        }
+
+        if ( $form->hasValidData( 'assign_priority' )) {
+            $userDep->assign_priority = $form->assign_priority;
+        } else {
+            $Errors[] = 'Invalid assign_priority';
+        }
+
+        return $Errors;
+    }
+
+    public static function validateAliasDepartment(& $userDepAlias, $params = array())
+    {
+        $definition = array(
+            'alias_nick' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'avataralias_dep' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'alias_photo_delete' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            )
+        );
+
+        $form = new ezcInputForm( INPUT_POST, $definition );
+        $Errors = [];
+
+        if ( $form->hasValidData( 'alias_nick' )) {
+            $userDepAlias->nick = $form->alias_nick;
+        }
+
+        if ( $form->hasValidData( 'avataralias_dep' )) {
+            $userDepAlias->avatar = $form->avataralias_dep;
+        }
+
+        if ( $form->hasValidData( 'alias_photo_delete' ) && $form->alias_photo_delete == true) {
+            $userDepAlias->removeFile();
+        }
+
+        // We want ID always
+        $userDepAlias->saveThis();
+
+        if ( isset($_FILES["alias_photo"]) && is_uploaded_file($_FILES["alias_photo"]["tmp_name"]) && $_FILES["alias_photo"]["error"] == 0 && erLhcoreClassImageConverter::isPhoto('alias_photo') ) {
+
+            $Errors = array();
+
+            $dir = 'var/userphoto/' . date('Y') . 'yna/' . date('m') . '/' . date('d') .'/' . $userDepAlias->id . '/';
+
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_path', array('dir' => & $dir, 'storage_id' => $userDepAlias->id));
+
+            $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_store', array('file_post_variable' => 'alias_photo', 'dir' => & $dir, 'storage_id' => $userDepAlias->id));
+
+            // There was no callbacks
+            if ($response === false) {
+                erLhcoreClassFileUpload::mkdirRecursive( $dir );
+                $file = qqFileUploader::upload($_FILES,'alias_photo',$dir);
+            } else {
+                $file = $response['data'];
+            }
+
+            if ( !empty($file["errors"]) ) {
+
+                foreach ($file["errors"] as $err) {
+                    $Errors[] = $err;
+                }
+
+            } else {
+                $userDepAlias->removeFile();
+                $userDepAlias->filename	= $file["data"]["filename"];
+                $userDepAlias->filepath	= $file["data"]["dir"];
+
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit.photo_resize_150', array('mime_type' => $file["data"]['mime_type'], 'user' => $userDepAlias));
+
+                if ($response === false) {
+                    if ($file["data"]['mime_type'] != 'image/svg+xml') {
+                        erLhcoreClassImageConverter::getInstance()->converter->transform( 'photow_150', $userDepAlias->file_path_server, $userDepAlias->file_path_server );
+                    }
+                    chmod($userDepAlias->file_path_server, 0644);
+                }
+            }
+        }
+
+        // Save always
+        $userDepAlias->saveThis();
+
+        return $Errors;
+    }
+
 	public static function validateUser(& $userData, $params = array()) {
 		
 		$definition = array (

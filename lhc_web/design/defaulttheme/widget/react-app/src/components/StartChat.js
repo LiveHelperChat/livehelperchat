@@ -27,7 +27,7 @@ class StartChat extends Component {
         this.apiLoaded = false;
         this.customHTMLPriority = false;
 
-        this.state = {showBBCode : null, Question:'', changeLanguage: false};
+        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false, textAreaHidden: false};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -82,7 +82,7 @@ class StartChat extends Component {
             this.props.setHideMessageField(false);
         }
 
-        var fields = this.state;
+        var fields = {...this.state};
         fields['jsvar'] = this.props.chatwidget.get('jsVars');
         fields['captcha_' + this.props.chatwidget.getIn(['captcha','hash'])] = this.props.chatwidget.getIn(['captcha','ts']);
         fields['tscaptcha'] = this.props.chatwidget.getIn(['captcha','ts']);
@@ -153,17 +153,34 @@ class StartChat extends Component {
             fields = {...fields, ...customFields};
         }
 
+        let host = "";
+        try {
+            host = window.parent.location.origin;
+        } catch (e) {
+
+        }
+
         let submitData = {
             'department': this.props.chatwidget.get('department'),
             'theme' : this.props.chatwidget.get('theme'),
             'mode' : this.props.chatwidget.get('mode'),
             'vid' : this.props.chatwidget.get('vid'),
-            'fields' : fields
+            'fields' : fields,
+            'host': host
         };
+
+        helperFunctions.setSessionStorage('_ttxt','');
 
         if (this.botPayload) {
             submitData['bpayload'] = this.botPayload;
             this.botPayload = null;
+            this.setState({hasBotData:true});
+            if (submitData['fields']['Question']) {
+                helperFunctions.setSessionStorage('_ttxt',submitData['fields']['Question']);
+                submitData['fields']['Question'] = '';
+            }
+        } else {
+            this.setState({hasBotData:false});
         }
 
         if (this.props.chatwidget.hasIn(['proactive','data','invitation_id']) === true) {
@@ -177,6 +194,11 @@ class StartChat extends Component {
     }
 
     handleContentChange(obj) {
+
+        if (this.props.chatwidget.get('processStatus') != 0) {
+            return;
+        }
+
         var currentState = this.state;
         currentState[obj.id] = obj.value;
         this.setState(currentState);
@@ -235,7 +257,11 @@ class StartChat extends Component {
         this.updateOnlineFields();
 
         if (this.props.botPayload !== null) {
-            this.setBotPayload(this.props.botPayload);
+            // This is required because prefill fields can be one of the required
+            // If we just submit form instantly it might require one of prefilled fields.
+            setTimeout(() => {
+                this.setBotPayload(this.props.botPayload);
+            },10);
         }
 
         // Just remove element if it exists
@@ -246,16 +272,6 @@ class StartChat extends Component {
     }
 
     componentWillUnmount() {
-        var messagesScroll = document.getElementById('messagesBlock');
-        if (messagesScroll !== null) {
-            this.props.setMessages(messagesScroll.innerHTML);
-        }
-
-        var profileBody = document.getElementById('lhc-profile-body');
-        if (profileBody !== null) {
-            this.props.setProfile(profileBody.innerHTML);
-        }
-
         var elm = document.getElementById('CSChatMessage');
         if (elm === null) {
             this.props.setHideMessageField(true);
@@ -302,6 +318,18 @@ class StartChat extends Component {
         this.updateOnlineFields();
         if (document.getElementById('id-container-fluid')) {
             helperFunctions.sendMessageParent('widgetHeight', [{'height' : document.getElementById('id-container-fluid').offsetHeight+40}]);
+        }
+
+        if (this.props.chatwidget.get('processStatus') === 1 && prevProps.chatwidget.get('processStatus') !== 1) {
+            var messagesScroll = document.getElementById('messagesBlock');
+            if (messagesScroll !== null) {
+                this.props.setMessages(messagesScroll.innerHTML);
+            }
+
+            var profileBody = document.getElementById('lhc-profile-body');
+            if (profileBody !== null) {
+                this.props.setProfile(profileBody.innerHTML);
+            }
         }
 
         let needFocus = false;
@@ -501,12 +529,13 @@ class StartChat extends Component {
                             <div className={bottom_messages} id="messages-scroll" ref={this.messagesAreaRef}>
                                 {(this.props.chatwidget.getIn(['proactive','has']) === true && !this.props.chatwidget.getIn(['chat_ui','custom_html_priority'])) && <ChatInvitationMessage mode="message" setBotPayload={this.setBotPayload} invitation={this.props.chatwidget.getIn(['proactive','data'])} />}
 
-                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
+                                {!this.props.chatwidget.getIn(['proactive','has']) && this.props.chatwidget.hasIn(['chat_ui','cmmsg_widget']) && <ChatBotIntroMessage setTextAreaHidden={(e) => {this.state.textAreaHidden === false && this.setState({textAreaHidden:true});}} printButton={this.props.chatwidget.getIn(['chat_ui','print_btn_msg'])} processStatus={this.props.chatwidget.get('processStatus')} setBotPayload={this.setBotPayload} content={this.props.chatwidget.getIn(['chat_ui','cmmsg_widget'])} />}
 
-                                {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response">
-                                    <div className="msg-date"></div>
+                                {this.props.chatwidget.get('processStatus') == 1 && this.state.Question != '' && <div data-op-id="0" className="message-row response msg-to-store">
+                                    {this.props.chatwidget.hasIn(['chat_ui','show_ts']) && !this.props.chatwidget.hasIn(['chat_ui','show_ts_below']) && <div className="msg-date">&nbsp;</div>}
                                     <span title="" className="usr-tit vis-tit"><i title={t('start_chat.visitor')} className="material-icons chat-operators mi-fs15 me-0">&#xf104;</i><span className="user-nick-title">{t('start_chat.visitor')}</span></span>
                                     <div className="msg-body">{this.state.Question}</div>
+                                    {this.props.chatwidget.hasIn(['chat_ui','show_ts']) && this.props.chatwidget.hasIn(['chat_ui','show_ts_below']) && <div className="msg-date">&nbsp;</div>}
                                 </div>}
 
                             </div>
@@ -514,7 +543,7 @@ class StartChat extends Component {
 
                         {(!this.props.chatwidget.getIn(['proactive','has']) || this.props.chatwidget.getIn(['chat_ui','custom_html_priority']) === 1) && this.props.chatwidget.hasIn(['chat_ui','custom_html_widget']) && <div className={"custom-html-container "+(this.state.Question != "" ? "visitor-started-type" : "")} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','custom_html_widget'])}}></div>}
 
-                        {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && <div className="d-flex flex-row border-top position-relative message-send-area">
+                        {(this.props.chatwidget.getIn(['onlineData','fields_visible']) == 1 || (this.props.chatwidget.getIn(['onlineData','fields_visible']) == 0 && !this.props.chatwidget.hasIn(['chat_ui','hstr_btn']))) && this.state.textAreaHidden === false && <div className="d-flex flex-row border-top position-relative message-send-area">
 
                             {(this.props.chatwidget.hasIn(['validationErrors','question'])) && <div id="id-operator-typing" className="bg-white ps-1">{this.props.chatwidget.getIn(['validationErrors','question'])}</div>}
 
@@ -522,15 +551,15 @@ class StartChat extends Component {
                                 {(!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])) && <ChatStartOptions bbEnabled={!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh'])} langEnabled={this.props.chatwidget.hasIn(['chat_ui','lng_btnh'])} changeLanguage={this.changeLanguage} toggleModal={this.toggleModal} />}
 
                                 <div className="mx-auto w-100">
-                                    <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
+                                    <textarea autoFocus={this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') === true} onFocus={this.moveCaretAtEnd} maxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])} aria-label="Type your message here..." id="CSChatMessage" value={this.props.chatwidget.get('processStatus') == 1 && this.state.hasBotData === false ? '' : this.state.Question} placeholder={this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here')} onKeyDown={this.enterKeyDown} onChange={(e) => this.handleContentChange({'id' : 'Question' ,'value' : e.target.value})} ref={this.textMessageRef} rows="1" className={classMessageInput} />
                                 </div>
-                                <div className="disable-select">
+                                <div className="disable-select" id="send-button-wrapper">
                                     <div className="user-chatwidget-buttons pt-2" id="ChatSendButtonContainer">
-                                        {this.props.chatwidget.get('processStatus') != 1 && <a onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                            <i className="material-icons text-muted settings">&#xf107;</i>
+                                        {this.props.chatwidget.get('processStatus') != 1 && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.handleSubmit() : '' }} onClick={this.handleSubmit} title={t('button.start_chat')}>
+                                            <i className={"send-icon material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}
 
-                                        {this.props.chatwidget.get('processStatus') == 1 && <i className="material-icons text-muted settings me-0">&#xf113;</i>}
+                                        {this.props.chatwidget.get('processStatus') == 1 && <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>}
 
                                     </div>
                                 </div>
@@ -550,7 +579,7 @@ class StartChat extends Component {
                     {
                             (this.props.chatwidget.getIn(['proactive','has']) === true && <ChatInvitationMessage mode='profile' invitation={this.props.chatwidget.getIn(['proactive','data'])} />)
                             ||
-                            (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '' && <div className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:this.props.chatwidget.getIn(['chat_ui','operator_profile'])}}></div>)
+                            ((this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) || (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) && this.props.chatwidget.getIn(['chat_ui','operator_profile']) != '')) && <div id="lhc-profile-body"><div id="chat-status-container" className={"p-2"+(this.props.chatwidget.hasIn(['chat_ui','np_border']) ? '' : ' border-bottom')} dangerouslySetInnerHTML={{__html:(this.props.chatwidget.hasIn(['chat_ui','pre_chat_html']) ? this.props.chatwidget.getIn(['chat_ui','pre_chat_html']) : '') + (this.props.chatwidget.hasIn(['chat_ui','operator_profile']) ? this.props.chatwidget.getIn(['chat_ui','operator_profile']) : '')}}></div></div>)
                     }
                     <div className="container-fluid">
 

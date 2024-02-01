@@ -38,6 +38,7 @@ $tpl->set('group_id',(int)$Params['user_parameters_unordered']['group_id']);
 $Result['content'] = $tpl->fetch();
 
 $Result['additional_footer_js'] = '<script type="text/javascript" src="'.erLhcoreClassDesign::designJS('js/angular.lhc.tritem.js').'"></script>';
+$Result['require_angular'] = true;
 
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/edit','System configuration')),

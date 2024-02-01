@@ -7,12 +7,12 @@ $( document ).ready(function() {
     var panelList = $( ".sortable-column-dashboard" );
 
     var savingSettings = false;
-    
+
     panelList.sortable({
         connectWith:".sortable-column-dashboard",
         opacity: 0.7,       
         handle: ".card-header",
-        items: '> div',
+        items: '> lhc-widget',
         update: function() {
         	if (savingSettings == false)
     		{

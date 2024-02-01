@@ -2,6 +2,17 @@
 
 $fieldsSearch = array();
 
+$fieldsSearch['ipp'] = array (
+    'type' => 'text',
+    'trans' => 'View',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 20, 'max_range' => 100)
+    )
+);
+
 $fieldsSearch['region'] = array (
     'type' => 'text',
     'trans' => 'Sort by',
@@ -303,6 +314,78 @@ $fieldsSearch['wait_time_till'] = array (
     )
 );
 
+$fieldsSearch['frt_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'frt',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['frt_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'frt',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['mart_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'mart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['mart_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'mart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['aart_from'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filtergt',
+    'filter_table_field' => 'aart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
+$fieldsSearch['aart_till'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterlte',
+    'filter_table_field' => 'aart',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int'
+    )
+);
+
 $fieldsSearch['chat_duration_from'] = array (
     'type' => 'text',
     'trans' => 'id',
@@ -582,12 +665,27 @@ $fieldsSearch['dropped_chat'] = array (
     )
 );
 
+$fieldsSearch['sortby'] = array (
+    'type' => 'text',
+    'trans' => 'Sort by',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'string')
+);
+
 $fieldSortAttr = array (
-'field'      => false,
-'default'    => false,
-'serialised' => true,
-'disabled'   => true,
-'options'    => array()
+    'field'      => 'sortby',
+    'default'    => 'id_desc',
+    'serialised' => true,
+    'options'    => array(
+        'id_desc' => array('sort_column' => '`lh_chat`.`id` DESC'),
+        'id_asc' => array('sort_column' => '`lh_chat`.`id` ASC'),
+        'lmt_dsc' => array('sort_column' => '`lh_chat`.`last_msg_id` DESC'),
+        'lmt_asc' => array('sort_column' => '`lh_chat`.`last_msg_id` ASC'),
+    )
 );
 
 return array(

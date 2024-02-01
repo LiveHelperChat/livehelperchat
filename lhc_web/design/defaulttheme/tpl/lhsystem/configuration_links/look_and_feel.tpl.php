@@ -1,7 +1,7 @@
 <?php if (
     ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) ||
     $currentUser->hasAccessTo('lhchatsettings','administrate') ||
-    $currentUser->hasAccessTo('lhsurvey','manage_survey')
+    $currentUser->hasAccessTo('lhsurvey','list_survey')
 ) : ?>
 <li>
     <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Visual settings for the visitor');?></b>
@@ -20,12 +20,15 @@
 <?php endif; ?>
 
 
-<?php if ($currentUser->hasAccessTo('lhabstract','use') && $currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
+<?php if ($currentUser->hasAccessTo('lhabstract','use') && ($currentUser->hasAccessTo('lhtheme','administratethemes') || $currentUser->hasAccessTo('lhtheme','personaltheme'))) : ?>
 <li>
     <b><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Visual settings for the admin');?></b>
     <ul>
+        <?php if ($currentUser->hasAccessTo('lhtheme','administratethemes')) : ?>
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/adminthemes')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Admin themes');?></a></li>
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/defaultadmintheme')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Default admin theme');?></a></li>
+        <?php endif; ?>
+
         <?php if ($currentUser->hasAccessTo('lhtheme','personaltheme')) : ?>
             <li><a href="<?php echo erLhcoreClassDesign::baseurl('theme/personaltheme')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Personal theme');?></a></li>
         <?php endif; ?>

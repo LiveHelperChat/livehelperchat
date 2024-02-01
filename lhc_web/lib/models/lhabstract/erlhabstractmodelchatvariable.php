@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelChatVariable
 {
     use erLhcoreClassDBTrait;
@@ -71,6 +71,12 @@ class erLhAbstractModelChatVariable
         $item = new stdClass();
         $item->id = 3;
         $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Encrypted');
+
+        $items[] = $item;
+
+        $item = new stdClass();
+        $item->id = 5;
+        $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation','Website cookie');
 
         $items[] = $item;
 

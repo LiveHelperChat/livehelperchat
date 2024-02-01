@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class CSCacheAPC {
 
     static private $m_objMem = NULL;
@@ -167,6 +167,7 @@ class CSCacheAPC {
     }
 }
 
+#[\AllowDynamicProperties]
 class erLhcoreClassSystem{
 
     protected $Params;

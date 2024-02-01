@@ -3,7 +3,7 @@ header('content-type: application/json; charset=utf-8');
 
 $db = ezcDbInstance::get();
 $db->beginTransaction();
-
+$chatId = 0;
 try {
     if ($Params['user_parameters_unordered']['mode'] == 'chat') {
         if ($Params['user_parameters_unordered']['scope'] == erLhcoreClassModelTransfer::SCOPE_MAIL) {
@@ -13,13 +13,15 @@ try {
             $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['transfer_id']);
             $transferLegacy = erLhcoreClassTransfer::getTransferByChat($chat->id, erLhcoreClassModelTransfer::SCOPE_CHAT);
         }
+
+        $chatId = $Params['user_parameters']['transfer_id'];
+
         if (is_array($transferLegacy)) {
             $chatTransfer = erLhcoreClassModelTransfer::fetchAndLock($transferLegacy['id']);
         } else {
             exit;
         }
-        
-    } else {    
+    } else {
 
     	$chatTransfer = erLhcoreClassTransfer::getSession()->load( 'erLhcoreClassModelTransfer', $Params['user_parameters']['transfer_id']);
 
@@ -28,10 +30,16 @@ try {
         } else {
             $chat = erLhcoreClassModelMailconvConversation::fetch($chatTransfer->chat_id);
         }
-
+        
     }
 } catch (Exception $e) {
 	exit;
+}
+
+// Perhaps transfer was already accepted
+if (!is_object($chatTransfer)) {
+    echo erLhcoreClassChat::safe_json_encode(array('error' => 'false', 'chat_id' => $chatId, 'scope' => $Params['user_parameters_unordered']['scope']));
+    exit;
 }
 
 // Set new chat owner
@@ -66,11 +74,13 @@ if  ($chatTransfer->dep_id > 0) {
         $msg->user_id = -1;
         $msg->name_support = $userData->name_support;
 
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
 
         $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
-
+        $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+        $msg->meta_msg = json_encode($msg->meta_msg_array);
     }
 
 }
@@ -93,10 +103,14 @@ if ($chatTransfer->transfer_to_user_id == $currentUser->getUserID()){
         $msg->user_id = -1;
         $msg->name_support = $userData->name_support;
 
+        \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_admin_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $userData->id));
 
         $chat->user_typing_txt = (string)$msg->name_support.' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has joined the chat!'),ENT_QUOTES);
         $msg->msg = (string)$msg->name_support.' '.erTranslationClassLhTranslation::getInstance()->getTranslation('chat/accepttrasnfer','has accepted a transferred chat!');
+        $msg->meta_msg_array = ['content' => ['accept_action' => ['user_id' => $userData->id, 'name_support' => $msg->name_support]]];
+        $msg->meta_msg = json_encode($msg->meta_msg_array);
+
     }
 
 	// Change department if user cannot read current department, so chat appears in right menu

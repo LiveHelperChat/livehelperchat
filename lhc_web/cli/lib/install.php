@@ -213,6 +213,9 @@ class Install
         	   	  `nc_cb_executed` tinyint(1) NOT NULL,
                   `iwh_id` int(11) NOT NULL DEFAULT '0',
                   `theme_id` int(11) unsigned NOT NULL DEFAULT '0',
+                  `frt` int(11) unsigned NOT NULL DEFAULT '0',
+                  `aart` int(11) unsigned NOT NULL DEFAULT '0',
+                  `mart` int(11) unsigned NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `status_user_id` (`status`,`user_id`),
 				  KEY `unanswered_chat` (`unanswered_chat`),
@@ -1720,6 +1723,22 @@ class Install
                       PRIMARY KEY (`id`)
                     ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_chat_participant` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `duration` int(11) unsigned NOT NULL,
+  `time` bigint(20) unsigned NOT NULL,
+  `dep_id` bigint(20) unsigned NOT NULL,
+  `frt` int(11) unsigned NOT NULL DEFAULT '0',
+  `aart` int(11) unsigned NOT NULL DEFAULT '0',
+  `mart` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `chat_id` (`chat_id`),
+  KEY `time` (`time`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE `lh_canned_msg_tag_link` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag_id` int(11) NOT NULL,  `canned_id` int(11) NOT NULL,  PRIMARY KEY (`id`), KEY `canned_id` (`canned_id`), KEY `tag_id` (`tag_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_canned_msg_tag` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `tag` varchar(40) NOT NULL, PRIMARY KEY (`id`), KEY `tag` (`tag`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_abstract_subject` (
@@ -1977,6 +1996,20 @@ class Install
             // Insert record to departament instantly
             $db->query("INSERT INTO `lh_userdep` (`user_id`,`dep_id`,`last_activity`,`hide_online`,`last_accepted`,`active_chats`,`type`,`dep_group_id`,`exclude_autoasign`) VALUES ({$UserData->id},0,0,0,0,0,0,0,0)");
 
+            $db->query("CREATE TABLE `lh_userdep_alias` (
+                                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                    `dep_id` bigint(20) unsigned NOT NULL,
+                                    `dep_group_id` bigint(20) unsigned NOT NULL,
+                                    `user_id` bigint(20) unsigned NOT NULL,
+                                    `nick` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `filepath` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `filename` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `avatar` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    KEY `dep_id_user_id` (`dep_id`,`user_id`),
+                                    KEY `dep_group_id_user_id` (`dep_group_id`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
             $db->query("CREATE TABLE `lh_group_work` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `group_id` int(11) NOT NULL, `group_work_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `group_id` (`group_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             // Transfer chat
@@ -2017,8 +2050,34 @@ class Install
             $db->query("CREATE TABLE `lh_abstract_rest_api_key_remote` ( `id` int(11) NOT NULL AUTO_INCREMENT, `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL, `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0', PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
             $db->query("CREATE TABLE `lh_abstract_chat_variable` ( `id` int(11) NOT NULL AUTO_INCREMENT, `var_name` varchar(255) NOT NULL, `old_js_id` varchar(50) NOT NULL, `var_identifier` varchar(255) NOT NULL, `inv` tinyint(1) NOT NULL, `change_message` varchar(250) NOT NULL, `type` tinyint(1) NOT NULL, `persistent` tinyint(1) NOT NULL, `js_variable` varchar(255) NOT NULL, `dep_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `event` varchar(50) NOT NULL, `bot_id_alt` int(11) NOT NULL DEFAULT '0', `trigger_id_alt` int(11) NOT NULL DEFAULT '0',`bot_id` int(11) NOT NULL, `trigger_id` int(11) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, `type` tinyint(1) NOT NULL DEFAULT 0, PRIMARY KEY (`id`), KEY `event_disabled` (`event`,`disabled`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-            $db->query("CREATE TABLE `lh_incoming_webhook` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL,`icon` varchar(50) NOT NULL, `icon_color` varchar(50) NOT NULL, `identifier` varchar(50) NOT NULL, `scope` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `disabled` tinyint(1) NOT NULL, `configuration` longtext NOT NULL, PRIMARY KEY (`id`), KEY `identifier` (`identifier`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-            $db->query("CREATE TABLE `lh_chat_incoming` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `utime` bigint(20) NOT NULL, `incoming_id` int(11) NOT NULL, `payload` longtext NOT NULL, `chat_external_id` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`),  KEY `incoming_ext_id` (`incoming_id`,`chat_external_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            $db->query("CREATE TABLE `lh_incoming_webhook` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disabled` tinyint(1) NOT NULL,
+  `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dep_id` int(11) NOT NULL,
+  `scope` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon_color` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `log_incoming` tinyint(1) unsigned NOT NULL,
+  `log_failed_parse` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifier` (`identifier`,`disabled`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+            $db->query("CREATE TABLE `lh_chat_incoming` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint(20) NOT NULL,
+  `incoming_id` int(11) NOT NULL,
+  `chat_external_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `utime` bigint(20) NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `incoming_ext_id_uniq` (`incoming_id`,`chat_external_id`),
+  KEY `chat_id` (`chat_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
             $db->query("CREATE TABLE `lh_abstract_chat_column` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `column_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2043,8 +2102,33 @@ class Install
   KEY `online_enabled` (`online_enabled`),
   KEY `chat_enabled` (`chat_enabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-            $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+            $db->query("CREATE TABLE `lh_brand` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                            `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                            PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+            $db->query("CREATE TABLE `lh_brand_member` (
+                    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                                   `dep_id` bigint(20) unsigned NOT NULL,
+                                   `brand_id` bigint(20) unsigned NOT NULL,
+                                   `role` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                   PRIMARY KEY (`id`),
+                                   KEY `dep_id` (`dep_id`),
+                                   KEY `brand_id_role` (`brand_id`,`role`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            
+            $db->query("CREATE TABLE `lh_bot_condition` (
+                                    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                    `configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    `identifier` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                    PRIMARY KEY (`id`),
+                                    KEY `identifier` (`identifier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $db->query("CREATE TABLE `lh_abstract_chat_priority` (`id` int(11) NOT NULL AUTO_INCREMENT,`value` text COLLATE utf8mb4_unicode_ci NOT NULL,`role_destination` varchar(50) NOT NULL,`present_role_is` varchar(50) NOT NULL, `dep_id` int(11) NOT NULL, `dest_dep_id` int(11) NOT NULL DEFAULT 0, `sort_priority` int(11) NOT NULL DEFAULT 0,`priority` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `dep_id` (`dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
             $db->query("CREATE TABLE `lh_canned_msg_dep` (
                                  `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                  `canned_id` int(11) NOT NULL,
@@ -2060,6 +2144,16 @@ class Install
     `subject_id` int(11) NOT NULL,
     PRIMARY KEY (`id`),
     KEY `canned_id` (`canned_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $db->query("CREATE TABLE `lh_abstract_msg_protection` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pattern` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` int(11) NOT NULL DEFAULT 1,
+  `remove` int(11) NOT NULL DEFAULT 0,
+  `v_warning` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `enabled` (`enabled`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             // Session
@@ -2090,6 +2184,7 @@ class Install
 				  `chat_id` int(11) NOT NULL DEFAULT '0',
 				  `user_id` int(11) NOT NULL DEFAULT '0',
 				  `name_support` varchar(100) NOT NULL,
+                  `del_st` tinyint(1) unsigned NOT NULL DEFAULT '0',
 				  PRIMARY KEY (`id`),
 				  KEY `chat_id_id` (`chat_id`, `id`),
 				  KEY `user_id` (`user_id`)

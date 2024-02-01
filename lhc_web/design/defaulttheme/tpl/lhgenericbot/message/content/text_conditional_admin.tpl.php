@@ -1,7 +1,7 @@
 <?php $msgBody = (isset($metaMessage['intro_op']) && !empty($metaMessage['intro_op'])) ? $metaMessage['intro_op'] : $metaMessage['intro_us']; $paramsMessageRender = array('sender' => (is_object($msg) ? $msg->user_id : $msg['user_id']));?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
-<?php $fullMessage = (isset($metaMessage['full_op']) && $metaMessage['full_op'] != '') ? $metaMessage['full_op'] : $metaMessage['full_us']; ?>
+<?php $fullMessage = (isset($metaMessage['full_op']) && $metaMessage['full_op'] != '') ? $metaMessage['full_op'] : (isset($metaMessage['full_us']) ? $metaMessage['full_us'] : ''); ?>
 
 <?php if (!empty($fullMessage)) : ?>
     <?php $msgBody = $fullMessage; $paramsMessageRender = array('sender' => (is_object($msg) ? $msg->user_id : $msg['user_id']));?>

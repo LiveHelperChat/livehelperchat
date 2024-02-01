@@ -54,9 +54,9 @@ $tpl->set('departament',$Departament);
 $tpl->set('departamentCustomWorkHours', json_encode(array(), JSON_HEX_APOS));
 $tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 
-
 $Result['content'] = $tpl->fetch();
-$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/angular.lhc.customdepartmentperiodgenerator.js').'"></script>';
+$Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhc.customdepartmentperiodgenerator.js').'"></script>';
+
 $Result['path'] = array(
 array('url' => erLhcoreClassDesign::baseurl('system/configuration'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/new','System configuration')),
 array('url' => erLhcoreClassDesign::baseurl('department/index'),'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Departments')),

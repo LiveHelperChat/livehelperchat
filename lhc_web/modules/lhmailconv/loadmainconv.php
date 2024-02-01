@@ -76,6 +76,8 @@ try {
                     if ($conv->department !== false) {
                         erLhcoreClassChat::updateDepartmentStats($conv->department);
                     }
+
+                    erLhcoreClassMailconvWorkflow::logInteraction($conv->plain_user_name . ' [' . $conv->user_id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has accepted a mail by opening it.'), $conv->plain_user_name, $conv->id);
                 }
             }
         }
@@ -100,15 +102,30 @@ try {
             erLhcoreClassMailconv::$conversationAttributesRemove
         );
 
-        if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
-            foreach ($messages as $indexMessage => $messageItem) {
+        $requestPayload = json_decode(file_get_contents('php://input'),true);
+
+
+        foreach ($messages as $indexMessage => $messageItem) {
+            if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
                 $messages[$indexMessage]->setSensitive(true);
+            }
+
+            if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
+                foreach ($requestPayload['keyword'] as $keyword) {
+                    $messages[$indexMessage]->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$messages[$indexMessage]->subject);
+                }
+            }
+        }
+
+        if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
+            foreach ($requestPayload['keyword'] as $keyword) {
+                $conv->subject = str_ireplace($keyword, '🔍' . $keyword . '🔍', $conv->subject);
             }
         }
 
         erLhcoreClassChat::prefillGetAttributes($messages,
-            erLhcoreClassMailconv::$messagesAttributes,
-            erLhcoreClassMailconv::$messagesAttributesRemove
+            erLhcoreClassMailconv::$messagesAttributesLoaded,
+            erLhcoreClassMailconv::$messagesAttributesRemoveLoaded
         );
 
         $fileData = erLhcoreClassModelChatConfig::fetch('file_configuration');
@@ -157,6 +174,7 @@ try {
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
                 'can_write' => ($canWrite && $mailbox->active == 1),
+                'can_close' => $canWrite,
                 'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],

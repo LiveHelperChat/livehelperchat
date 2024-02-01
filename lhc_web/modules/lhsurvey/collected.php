@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhsurvey/collected.tpl.php');
 
 $survey = erLhAbstractModelSurvey::fetch((int)$Params['user_parameters']['survey_id']);
 
+if ( $survey->checkPermission() === false ) {
+    erLhcoreClassModule::redirect();
+    exit;
+}
+
 if (isset($_GET['doSearch'])) {
     $filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'survey','module_file' => 'survey_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
     $filterParams['is_search'] = true;

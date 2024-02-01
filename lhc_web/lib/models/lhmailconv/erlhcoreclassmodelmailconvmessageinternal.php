@@ -5,7 +5,7 @@
  * If 0 web user
  *
  * */
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelMailconvMessageInternal
 {
     use erLhcoreClassDBTrait;
@@ -29,6 +29,13 @@ class erLhcoreClassModelMailconvMessageInternal
             'user_id' => $this->user_id,
             'name_support' => $this->name_support
         );
+    }
+
+    public function beforeSave($params = array())
+    {
+        if ($this->time == 0) {
+            $this->time = time();
+        }
     }
 
     public function __get($var)
@@ -61,7 +68,7 @@ class erLhcoreClassModelMailconvMessageInternal
     }
 
     public $id = null;
-    public $time = '';
+    public $time = 0;
     public $chat_id = null;
     public $user_id = null;
     public $name_support = '';

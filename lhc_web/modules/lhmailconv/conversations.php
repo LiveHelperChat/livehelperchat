@@ -50,6 +50,7 @@ if ( isset($_POST['doClose']) ) {
             if ($currentUser->hasAccessTo('lhmailconv','close_all_conversation') || erLhcoreClassChat::hasAccessToWrite($chatToClose) )
             {
                 erLhcoreClassMailconvWorkflow::closeConversation(['conv' => $chatToClose, 'user_id' => $currentUser->getUserID()]);
+                erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation from a list.'), $userData->name_support, $chatToClose->id);
             }
         }
     }
@@ -255,6 +256,9 @@ try {
     $pages->items_total = is_numeric($rowsNumber) ? $rowsNumber : erLhcoreClassModelMailconvConversation::getCount($filterParams['filter']);
     $pages->translationContext = 'chat/activechats';
     $pages->serverURL = erLhcoreClassDesign::baseurl('mailconv/conversations') . $append;
+    if ($filterParams['input']->ipp > 0) {
+        $pages->setItemsPerPage($filterParams['input']->ipp);
+    }
     $pages->paginate();
     $tpl->set('pages',$pages);
 

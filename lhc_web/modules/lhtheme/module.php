@@ -25,6 +25,11 @@ $ViewList['default'] = array(
     'functions' => array( 'administratethemes' )
 );
 
+$ViewList['editthemebydepgroup'] = array(
+    'params' => array('id'),
+    'functions' => array( 'administratethemes' )
+);
+
 $ViewList['defaultadmintheme'] = array(
     'params' => array(),
     'functions' => array( 'administratethemes' )

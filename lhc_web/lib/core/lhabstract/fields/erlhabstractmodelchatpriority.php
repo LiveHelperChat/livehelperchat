@@ -15,7 +15,7 @@ return array(
         'type' => 'combobox',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'To what department transfer chat'),
         'required' => false,
-        'frontend' => 'dest_dep',
+        'frontend' => 'dest_dep_role',
         'source' => 'erLhcoreClassModelDepartament::getList',
         'hide_optional' => false,
         'params_call' => array(),
@@ -26,6 +26,23 @@ return array(
         'frontend' => 'value_frontend',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Expected variable value'),
         'required' => false,
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'role_destination' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Destination department by brand role'),
+        'required' => false,
+        'hidden' => true,
+        'list_identifier' => 'brand-role-list',
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
+    'present_role_is' => array(
+        'type' => 'text',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Change department only if present department role is'),
+        'placeholder' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Condition is always checked independently of transfer method. Department or Department brand role.'),
+        'required' => false,
+        'hidden' => true,
+        'list_identifier' => 'brand-role-list',
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
     'priority' => array(

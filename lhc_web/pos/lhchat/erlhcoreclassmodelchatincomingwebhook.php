@@ -16,7 +16,7 @@ foreach (['name','identifier','scope','icon','icon_color','configuration'] as $p
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['disabled','dep_id'] as $posAttr) {
+foreach (['disabled','dep_id','log_incoming','log_failed_parse'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

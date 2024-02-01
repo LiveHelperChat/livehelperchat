@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelProactiveChatInvitation {
 
     use erLhcoreClassDBTrait;
@@ -520,6 +520,12 @@ class erLhAbstractModelProactiveChatInvitation {
 
 		$messagesToUserRaw = $session->find( $q );
 
+        $debugData = [];
+
+        if (isset($params['debug'])) {
+            $debugData['rows'] = $messagesToUserRaw;
+        }
+
         $messagesToUser = [];
 
         $onlineAttrSystem = $item->online_attr_system_array;
@@ -547,6 +553,9 @@ class erLhAbstractModelProactiveChatInvitation {
                 $onlineOperators = erLhcoreClassModelUserDep::getList($filter);
 
                 if (empty($onlineOperators)) {
+                    if (isset($params['debug'])) {
+                        $debugData['no_online_ops'][$messageToUser->id] = $messageToUser;
+                    }
                     continue;
                 } else {
                     foreach ($onlineOperators as $onlineOperator) {
@@ -562,6 +571,10 @@ class erLhAbstractModelProactiveChatInvitation {
                     $optionsInvitation['last_visit_prev'] > 0 &&
                     $item->last_visit_prev > time() - $optionsInvitation['last_visit_prev']
                 ) {
+                if (isset($params['debug'])) {
+                    $debugData['last_visit_prev_cond'][$messageToUser->id] = $item->last_visit_prev . ' >  '. time() . ' - ' . $optionsInvitation['last_visit_prev'];
+                    $debugData['last_visit_prev'][$messageToUser->id] = $messageToUser;
+                }
                 continue;
             }
 
@@ -572,6 +585,10 @@ class erLhAbstractModelProactiveChatInvitation {
                     $optionsInvitation['last_chat'] > 0 &&
                     $item->chat_time > time() - $optionsInvitation['last_chat']
                 ) {
+                if (isset($params['debug'])) {
+                    $debugData['last_chat_time_cond'][] = $item->chat_time .' > ' . time() . ' - ' . $optionsInvitation['last_chat'];
+                    $debugData['last_chat_time'][] = $messageToUser;
+                }
                 continue;
             }
 
@@ -685,6 +702,8 @@ class erLhAbstractModelProactiveChatInvitation {
 
             if ($conditionsValid === true) {
                 $messagesToUser[] = $messageToUser;
+            } else if (isset($params['debug'])) {
+                $debugData['conditions_not_valid'][$messageToUser->id] = $messageToUser;
             }
         }
 
@@ -692,13 +711,21 @@ class erLhAbstractModelProactiveChatInvitation {
 
 			$message = array_shift($messagesToUser);
 
+            if (isset($params['debug'])) {
+                $debugData['message_selected'] = $message;
+            }
+
 			if ($message->time_on_site <= $item->time_on_site)
             {
                 if ($message->event_invitation == 1 && (!isset($params['ignore_event']) || $params['ignore_event'] == 0)) {
 
                     // Event conditions does not satisfied
                     if (erLhcoreClassChatEvent::isConditionsSatisfied($item, $message) === false) {
-                        return;
+                        if (isset($params['debug'])) {
+                            $debugData['conditions_unsatisfied'] = true;
+                            return $debugData;
+                        }
+                        return ;
                     }
                 }
 
@@ -771,6 +798,16 @@ class erLhAbstractModelProactiveChatInvitation {
                     $item->online_attr_system_array = $onlineAttrSystem;
                 }
 
+                if ($item->dep_id > 0 && isset($messageContent->design_data_array['lock_department']) && $messageContent->design_data_array['lock_department'] == true) {
+                    $onlineAttrSystem['inv_ldp'] = $item->dep_id; // Remember department to set it later
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                } elseif (isset($onlineAttrSystem['inv_ldp'])) {
+                    unset($onlineAttrSystem['inv_ldp']);
+                    $item->online_attr_system = json_encode($onlineAttrSystem);
+                    $item->online_attr_system_array = $onlineAttrSystem;
+                }
+
                 if ($message->id != $messageContent->id) {
                     $onlineAttrSystem['lhc_inv_var_id'] = $messageContent->id;
                     $item->online_attr_system = json_encode($onlineAttrSystem);
@@ -779,6 +816,11 @@ class erLhAbstractModelProactiveChatInvitation {
                     unset($onlineAttrSystem['lhc_inv_var_id']);
                     $item->online_attr_system = json_encode($onlineAttrSystem);
                     $item->online_attr_system_array = $onlineAttrSystem;
+                }
+
+                if (isset($params['debug'])) {
+                    $debugData['message_approved'] = $item->online_attr_system_array;
+                    return $debugData;
                 }
 
                 $campaign = erLhAbstractModelProactiveChatCampaignConversion::findOne(array('filterin' => array('invitation_status' => array(
@@ -827,8 +869,16 @@ class erLhAbstractModelProactiveChatInvitation {
             } else {
 			    // We know there is invitation based on current criteria just time on site is still not matched.
                 $item->next_reschedule = $message->time_on_site - $item->time_on_site;
+                if (isset($params['debug'])) {
+                    $debugData['time_on_site_missmatch'][$message->id] = $item;
+                    $debugData['time_on_site_missmatch_cond'][$message->id] = $message->time_on_site .' <= ' . $item->time_on_site;
+                }
             }
-		}
+		} elseif (isset($params['debug'])) {
+            $debugData['no_messages'] = true;
+        }
+
+        return $debugData;
 	}
 
 	public function customForm(){

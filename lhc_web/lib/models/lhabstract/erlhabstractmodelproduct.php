@@ -6,7 +6,7 @@
  * @desc Main chat product object
  *
  */
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelProduct {
 
 	public function getState()

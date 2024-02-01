@@ -102,8 +102,9 @@ class NodeTriggerActionQuickReplyPayload extends Component {
                         <label>Select action</label>
                         <select className="form-control form-control-sm" value={this.props.currentPayload.get('payload')} onChange={this.onChange.bind(this)} >
                             <option value="">Select event</option>
-                            <option value="transferToOperator">Transfer to operator</option>
-                            <option value="transferToBot">Transfer to bot</option>
+                            <option value="transferToOperator">Transfer to operator [Depreciated, use executed trigger instead]</option>
+                            <option value="transferToBot">Transfer to bot [Depreciated, use executed trigger instead]</option>
+                            <option value="minimizeWidget">Minimize widget</option>
                             <option value="subscribeToNotifications">Subscribe to notifications</option>
                         </select>
                     </div>

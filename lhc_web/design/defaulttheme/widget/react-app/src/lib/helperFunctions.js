@@ -35,6 +35,13 @@ class _helperFunctions {
     sendMessageParent(key, data) {
         if (window.opener && window.opener.closed === false) {
             window.opener.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+            // Try to send postMessage to all possible parents
+            if (key === 'ready_popup' && window.opener.parent && window.opener.parent.closed === false && window.opener != window.opener.parent) {
+                window.opener.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+                if (window.opener.parent.parent && window.opener.parent.parent.closed === false && window.opener.parent.parent != window.opener.parent) {
+                    window.opener.parent.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'*');
+                }
+            }
         } else if (window.parent && window.parent.closed === false) {
             window.parent.postMessage(this.prefix + '::'+key+'::'+JSON.stringify(data || null),'/');
         }

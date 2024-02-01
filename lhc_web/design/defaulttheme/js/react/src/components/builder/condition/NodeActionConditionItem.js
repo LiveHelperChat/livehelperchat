@@ -35,7 +35,7 @@ class NodeActionConditionItem extends Component {
             <div className="row">
                 <div className="col-4">
                     <div className="form-group">
-                        <label>Attribute</label>
+                        <label>Attribute <a href="#" onClick={(e) => {lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/cannedreplacerules'}); return false;}} className="material-icons text-muted">help</a></label>
                         <input type="text" placeholder="yes, thanks" className="form-control form-control-sm" onChange={(e) => this.onAttrChange(e.target.value)} defaultValue={this.props.action.getIn(['content','attr'])} />
                     </div>
                 </div>

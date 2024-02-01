@@ -15,7 +15,18 @@
                 <i ng-class="{'text-muted' : (lhc.toggleWidgetData['onop_sort'] != 'ac_dsc' && lhc.toggleWidgetData['onop_sort'] != 'ac_asc')}" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Sort by active chats number')?>" class="material-icons">{{lhc.toggleWidgetData['onop_sort'] == 'ac_dsc' || lhc.toggleWidgetData['onop_sort'] != 'ac_asc' ? 'trending_up' : 'trending_down'}}</i>
             </a>
         </th>
-        <th width="30%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i></th>
+        <th width="30%"><i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Department');?>" class="material-icons">home</i>
+
+            <div class="float-end expand-actions">
+                <a ng-click="lhc.changeWidgetHeight('operatord',true)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','More rows')?>" class="material-icons">expand</i>
+                </a>
+                <a ng-click="lhc.changeWidgetHeight('operatord',false)" class="text-muted disable-select">
+                    <i title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','Less rows')?>" class="material-icons">compress</i>
+                </a>
+            </div>
+
+        </th>
     </tr>
     </thead>
     <tr ng-repeat="operator in online_op.list track by operator.id">

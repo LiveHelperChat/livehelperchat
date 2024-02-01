@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelChat {
 
    use erLhcoreClassDBTrait;
@@ -124,6 +124,10 @@ class erLhcoreClassModelChat {
                'cls_us'    	            => $this->cls_us,
                'iwh_id'    	            => $this->iwh_id,
                'theme_id'    	        => $this->theme_id,
+
+                'frt'                   => $this->frt,  // First time response delay
+                'aart'                  => $this->aart, // Average agent response time
+                'mart'                  => $this->mart  // Maximum agent response time
        );
    }
 
@@ -141,6 +145,7 @@ class erLhcoreClassModelChat {
            'lh_abstract_subject_chat',
            'lh_chat_voice_video',
            'lh_chat_incoming',
+           'lh_chat_participant',
            'lh_canned_msg_use'] as $table) {
            $q = ezcDbInstance::get()->createDeleteQuery();
            $q->deleteFrom($table)->where( $q->expr->eq( 'chat_id', $this->id ) );
@@ -237,6 +242,10 @@ class erLhcoreClassModelChat {
        	case 'wait_time_seconds':
        		   $this->wait_time_seconds = time() - max($this->time,$this->pnd_time);
        		   return $this->wait_time_seconds;
+
+       case 'last_msg':
+           $this->last_msg = erLhcoreClassModelmsg::fetch($this->last_msg_id);
+           return $this->last_msg;
 
        case 'last_msg_time':
             $this->last_msg_time = max($this->last_user_msg_time, $this->last_op_msg_time);
@@ -393,6 +402,18 @@ class erLhcoreClassModelChat {
        	case 'product_name':
        			$this->product_name = (string)$this->product;
        			return $this->product_name;
+
+       case 'subject_ids':
+           $this->subject_ids = erLhAbstractModelSubjectChat::getCount(['filter' => ['chat_id' => $this->id]],'count','subject_id','subject_id',false, true, true);
+           return $this->subject_ids;
+
+       case 'subject_ids_list':
+           $this->subject_ids_list = implode(',',$this->subject_ids);
+           return $this->subject_ids_list;
+
+       	case 'department_role':
+                $this->department_role = \LiveHelperChat\Models\Brand\BrandMember::findOne(['filter' => ['dep_id' => $this->dep_id]]);
+       			return $this->department_role;
        		break;
 
        	case 'department_name':
@@ -526,9 +547,17 @@ class erLhcoreClassModelChat {
        	        }
        			return $this->chat_variables_array;
 
-       	case 'user_status_front':
+       case 'chat_dynamic_array':
 
-       	    if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
+           $chat_dynamic_array = [];
+           erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.dynamic_array', array('chat' => $this, 'dynamic_array' => & $chat_dynamic_array));
+           $this->chat_dynamic_array = $chat_dynamic_array;
+
+           return $this->chat_dynamic_array;
+
+       case 'user_status_front':
+
+           if ($this->status == self::STATUS_CLOSED_CHAT && $this->cls_us != 0) {
                 $this->user_status_front = $this->cls_us - 1;
                 return $this->user_status_front;
             }
@@ -678,6 +707,7 @@ class erLhcoreClassModelChat {
    const STATUS_SUB_SUB_DEFAULT = 0;
    const STATUS_SUB_SUB_TRANSFERED = 1;
    const STATUS_SUB_SUB_CLOSED = 2; // Chat was previously closed, but became pending again.
+   const STATUS_SUB_SUB_MSG_DELIVERED = 3; // Chat was previously closed, but became pending again.
 
    const USER_STATUS_JOINED_CHAT = 0;
    const USER_STATUS_CLOSED_CHAT = 1;
@@ -823,6 +853,9 @@ class erLhcoreClassModelChat {
    public $cls_us = 0;
 
    public $iwh_id = 0;
+   public $frt = 0;
+   public $aart = 0;
+   public $mart = 0;
 
    public $updateIgnoreColumns = array();
 }

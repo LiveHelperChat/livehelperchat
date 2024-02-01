@@ -1,8 +1,9 @@
-<form action="" method="get" autocomplete="off">
+<form action="" method="get" autocomplete="off" id="form-statistic-action">
 
     <div class="row form-group">
 
-
+        <input type="hidden" name="doSearch" value="on" />
+        <input type="hidden" id="id-report-type" name="reportType" value="live" />
 
         <div class="col-md-3">
             <div class="form-group">
@@ -92,6 +93,39 @@
 
         <div class="col-md-2">
             <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                    'selected_id'    => $input->department_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'ajax'           => 'deps',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => 20],erLhcoreClassUserDep::conditionalDepartmentFilter()),
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+                )); ?>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_group_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department group'),
+                    'selected_id'    => $input->department_group_ids,
+                    'css_class'      => 'form-control',
+                    'display_name'   => 'name',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC'],erLhcoreClassUserDep::conditionalDepartmentGroupFilter()),
+                    'list_function'  => 'erLhcoreClassModelDepartamentGroup::getList'
+                )); ?>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-2">
+            <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Group by');?></label>
                 <select name="groupby" class="form-control form-control-sm">
                     <option value="0" <?php $input->groupby == 0 ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Month');?></option>
@@ -109,6 +143,7 @@
                 <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_returning" <?php if (in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Returning visitors')?></label></div>
                 <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_country" <?php if (in_array('visitors_country',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Countries')?></label></div>
                 <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_city" <?php if (in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Cities')?></label></div>
+                <div class="col-4"><label><input type="checkbox" name="chart_type[]" value="visitors_referrers" <?php if (in_array('visitors_referrers',is_array($input->chart_type) ? $input->chart_type : array())) : ?>checked="checked"<?php endif;?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 100 referrers')?></label></div>
 
                 <?php /* Don't have attribute for device type
 
@@ -149,6 +184,7 @@
             drawChartVisitorsNew();
             drawChartVisitorsAll();
             drawChartVisitorsReturning();
+            drawChartVisitorsReferrers();
         };
 
         // Define a plugin to provide data labels
@@ -470,6 +506,62 @@
             <?php endif; ?>
         };
 
+        function drawChartVisitorsReferrers() {
+            <?php if (!empty($visitors_statistic['visitors_referrers']) && in_array('visitors_referrers',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+            var barChartData = {
+                labels: [<?php $key = 0; foreach ($visitors_statistic['visitors_referrers'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),json_encode($data['referrer'] != '' ? erLhcoreClassDesign::shrt($data['referrer'],50,'...',1000,ENT_QUOTES) : '-');$key++; endforeach;?>],
+                datasets: [
+                    {
+                        label: '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Top 100 referrers for selected period');?>',
+                        backgroundColor: '#3366cc',
+                        borderColor: '#3366cc',
+                        borderWidth: 1,
+                        data: [<?php $key = 0; foreach ($visitors_statistic['visitors_referrers'] as $monthUnix => $data) : echo ($key > 0 ? ',' : ''),$data['total_records']; $key++; endforeach;?>]
+                    }
+                ]
+            };
+
+            var ctx = document.getElementById("visitors_referrers_all").getContext("2d");
+            var myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    layout: {
+                        padding: {
+                            top: 20
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                fontSize: 11,
+                                stepSize: 1,
+                                min: 0,
+                                autoSkip: false
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            });
+            <?php endif; ?>
+        }
+
+
         function drawChartVisitorsReturning() {
             <?php if (!empty($visitors_statistic['visitors_returning']) && in_array('visitors_returning',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
             var barChartData = {
@@ -527,6 +619,11 @@
 
         $( document ).ready(function() {
             redrawAllCharts();
+            $(".csv-export").click(function(event) {
+                event.preventDefault();
+                $('#id-report-type').val($(this).attr('data-scope'));
+                $('#form-statistic-action').submit();
+            });
         });
     </script>
 
@@ -534,6 +631,12 @@
     <hr>
     <h5><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chart_visitors_all.tpl.php'));?></h5>
     <canvas id="chart_visitors_all"></canvas>
+<?php endif;?>
+
+<?php if (in_array('visitors_referrers',is_array($input->chart_type) ? $input->chart_type : array())) : ?>
+    <hr>
+    <h5><a class="csv-export" data-scope="visitors_referrers" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/statistic','Download CSV')?>"><i class="material-icons me-0">file_download</i></a><?php include(erLhcoreClassDesign::designtpl('lhstatistic/tabs/titles/chart_visitors_referrers.tpl.php'));?></h5>
+    <canvas id="visitors_referrers_all"></canvas>
 <?php endif;?>
 
 <?php if (in_array('visitors_city',is_array($input->chart_type) ? $input->chart_type : array())) : ?>

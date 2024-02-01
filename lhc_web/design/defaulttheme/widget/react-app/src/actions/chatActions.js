@@ -138,6 +138,10 @@ export function voteAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/voteaction/" + obj.id + '/' + obj.hash + '/' + obj.type, null, defaultHeaders)
 }
 
+export function updateMessageData(obj, payload) {
+    return axios.post(window.lhcChat['base_url'] + "chat/updatemessagedata/" + obj.id + '/' + obj.hash + '/' + obj.msg_id, payload, defaultHeaders)
+}
+
 export function transferToHumanAction(obj) {
     return axios.post(window.lhcChat['base_url'] + "chat/transfertohuman/" + obj.id + '/' + obj.hash, null, defaultHeaders)
 }
@@ -215,7 +219,8 @@ export function storeSubscriber(payload) {
                         'chat_id': state.chatwidget.getIn(['chatData','id']),
                         'hash' : state.chatwidget.getIn(['chatData','hash']),
                         'lmgsid' : state.chatwidget.getIn(['chatLiveData','lmsgid']),
-                        'theme' : state.chatwidget.get('theme')
+                        'theme' : state.chatwidget.get('theme'),
+                        'active_widget' : true
                     }));
                 }
         })
@@ -295,7 +300,7 @@ export function getCaptcha(dispatch, form, obj) {
 export function submitOnlineForm(obj) {
     return function(dispatch) {
         dispatch({type: "ONLINE_SUBMITTING"});
-        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj, defaultHeaders)
+        axios.post(window.lhcChat['base_url'] + "widgetrestapi/submitonline", obj, {withCredentials: true, headers : {'Content-Type': 'application/x-www-form-urlencoded'}})
         .then((response) => {
 
             // If validation contains invalid captcha update it instantly
@@ -443,7 +448,7 @@ export function updateMessage(obj) {
             elm = document.getElementById('msg-'+response.data.id);
 
             // Update className
-            if (classNameRow !== null) {
+            if (elm && classNameRow !== null) {
                 elm.className = classNameRow;
             }
 
@@ -454,55 +459,6 @@ export function updateMessage(obj) {
                     elmScroll.scrollTop = elmScroll.scrollHeight + 1000;
                 }
             }
-
-
-/*
-            let elmUpdated = document.getElementById('msg-'+response.data.id);
-            let collection = elmUpdated.getElementsByTagName('script');
-            let collectionButton = elmUpdated.getElementsByTagName('button');
-            let collectionA = elmUpdated.getElementsByTagName('a');
-
-            for (let item of collection) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-                parseScript(item, this);
-            }
-
-            for (let item of collectionButton) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-                if (item.onclick) {
-                    item.onclick = () => parseScript(item, this);
-                }
-            }
-
-            for (let item of collectionA) {
-                var attribs = {};
-                if (item.hasAttributes()) {
-                    var attrs = item.attributes;
-                    for (var i = attrs.length - 1; i >= 0; i--) {
-                        attribs[attrs[i].name] = attrs[i].value;
-                    }
-                }
-                item.attribs = attribs;
-
-                if (item.onclick) {
-                    item.onclick = () => parseScript(item, this, obj, dispatch, getState);
-                }
-            }*/
-
         })
         .catch((err) => {
             console.log(err);
@@ -552,7 +508,15 @@ export function parseScript(domNode, inst, obj, dispatch, getState) {
             if (typeof attr['data-bot-args'] !== 'undefined') {
                 args = JSON.parse(attr['data-bot-args']);
             }
-            helperFunctions.emitEvent(attr['data-bot-emit'],[args]);
+            if (attr['data-bot-emit-parent']) {
+                if (attr['data-bot-emit'] == 'minWidget') {
+                    inst.props.dispatch(minimizeWidget());
+                } else {
+                    helperFunctions.sendMessageParent(attr['data-bot-emit'],[args]);
+                }
+            } else {
+                helperFunctions.emitEvent(attr['data-bot-emit'],[args]);
+            }
         } else if (attr['data-bot-event']) {
             inst.props[attr['data-bot-event']]();
         } else {
@@ -713,8 +677,12 @@ function checkErrorCounter() {
    }
 }
 
-export function addMessage(obj) {
+export function addMessage(obj, ignoreAdd) {
     return function(dispatch, getState) {
+
+        if (!ignoreAdd) {
+            dispatch({type: "ADD_MSG_TO_STORE", data: obj.msg});
+        }
 
         if (syncStatus.add_msg == true) {
             syncStatus.add_msg_pending.push(obj);
@@ -741,7 +709,7 @@ export function addMessage(obj) {
                     
                     syncStatus.add_msg = false;
                     
-                    fetchMessages({'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
+                    fetchMessages({'active_widget': true, 'theme' : obj.theme, 'chat_id' : obj.id, 'lmgsid' : getState().chatwidget.getIn(['chatLiveData','lmsgid']), 'hash' : obj.hash})(dispatch, getState);
 
                     if (response.data.t) {
                         helperFunctions.sendMessageParent('botTrigger',[{'trigger' : response.data.t}]);
@@ -770,7 +738,7 @@ export function addMessage(obj) {
                     syncStatus.add_msg = false;
                     // There is pending message to be added
                     if (syncStatus.add_msg_pending.length > 0) {
-                        addMessage(syncStatus.add_msg_pending.shift())(dispatch, getState);
+                        addMessage(syncStatus.add_msg_pending.shift(), true)(dispatch, getState);
                     }
                 }
             })
@@ -809,7 +777,7 @@ export function addMessage(obj) {
                         syncStatus.add_msg = false;
 
                         // Try to send message again
-                        addMessage(obj)(dispatch, getState);
+                        addMessage(obj, true)(dispatch, getState);
                     }
                 }
 

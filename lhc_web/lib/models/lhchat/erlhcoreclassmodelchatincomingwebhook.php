@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelChatIncomingWebhook {
 
     use erLhcoreClassDBTrait;
@@ -24,6 +24,8 @@ class erLhcoreClassModelChatIncomingWebhook {
             'configuration' => $this->configuration,
             'icon'          => $this->icon,
             'icon_color'    => $this->icon_color,
+            'log_incoming'    => $this->log_incoming,
+            'log_failed_parse'    => $this->log_failed_parse,
         );
     }
 
@@ -57,6 +59,19 @@ class erLhcoreClassModelChatIncomingWebhook {
                 $this->attributes = $attributes;
                 return $this->attributes;
 
+            case 'incoming_url':
+                $this->incoming_url = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('webhooks/incoming') . '/' . $this->identifier;
+                return $this->incoming_url;
+
+            case 'incoming_dynamic_array':
+                $chat_dynamic_array = [];
+                $incomingData = new \stdClass();
+                $incomingData->incoming = $this;
+                $incomingData->chat = $this->chat;
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.incoming_dynamic_array', array('incoming_chat' => $incomingData, 'dynamic_array' => & $chat_dynamic_array));
+                $this->incoming_dynamic_array = $chat_dynamic_array;
+                return $this->incoming_dynamic_array;
+                
             default:
                 break;
         }
@@ -70,6 +85,10 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $scope = '';
     public $identifier = '';
     public $icon = '';
+    public $chat = null;
+
+    public $log_incoming = 0;
+    public $log_failed_parse = 0;
     public $icon_color = '';
 }
 

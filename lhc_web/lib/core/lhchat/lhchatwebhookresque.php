@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassChatWebhookResque {
 
     public function processEvent($event, $params) {
@@ -50,6 +50,18 @@ class erLhcoreClassChatWebhookResque {
         $triggerId = $webhook->trigger_id;
 
         $params = unserialize(gzinflate(base64_decode($this->args['params'])));
+
+        // Webhook delay support
+        if (isset($params['msg']) && isset($params['msg']->meta_msg)) {
+            $paramsMetaMessage = json_decode($params['msg']->meta_msg, true);
+            if (isset($paramsMetaMessage['content']['attr_options']['wh_delay']) &&
+                is_numeric($paramsMetaMessage['content']['attr_options']['wh_delay']) &&
+                (int)$paramsMetaMessage['content']['attr_options']['wh_delay'] > 0 &&
+                (int)$paramsMetaMessage['content']['attr_options']['wh_delay'] <= 30
+            ) {
+                sleep((int)$paramsMetaMessage['content']['attr_options']['wh_delay']);
+            }
+        }
 
         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($triggerId);
 

@@ -29,6 +29,8 @@
             (!isset($metaMessageData['content']['text_conditional'])) &&
             (!isset($metaMessageData['content']['chat_operation'])) &&
             (!isset($metaMessageData['content']['extension'])) &&
+            (!isset($metaMessageData['content']['survey'])) &&
+            (!isset($metaMessageData['content']['warning'])) &&
             (!isset($metaMessageData['content']['html']['content'])) &&
             (!isset($metaMessageData['content']['button_message']))) {
             continue;
@@ -37,7 +39,9 @@
 if ($msg['user_id'] == -1) : ?>
 <div class="message-row system-response" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
     <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date text-white ps-2 fw-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
-
+        <?php if (isset($paramsMessageRenderExecution['extend_date']) && $paramsMessageRenderExecution['extend_date'] == true) : ?>
+            <div class="badge bg-light text-dark"><?php echo erLhcoreClassChat::formatSeconds(time() - $msg['time']);?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','ago at')?> <?php echo erLhcoreClassChat::formatDate($msg['time']);?></div>
+        <?php endif; ?>
         <?php if ($msg['msg'] != '') : ?>
             <div class="text-muted"><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?></div>
@@ -55,7 +59,7 @@ if ($msg['user_id'] == -1) : ?>
     <?php if ($msg['user_id'] != 0) : ?><span class="msg-date msg-date-op"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>
     <?php if ($msg['user_id'] == 0) : ?><span class="msg-date msg-date-vi"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span><br/><?php endif;?>
 
-        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true);?>
+        <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false));?>
         <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 
         <?php if (isset($metaMessageData)) : ?>
@@ -71,7 +75,7 @@ if ($msg['user_id'] == -1) : ?>
 <div class="message-row<?php echo $msg['user_id'] == 0 ? ' response' : ' message-admin'?>" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
 	<div class="msg-date"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></div>
 	<span class="usr-tit<?php echo $msg['user_id'] == 0 ? ' vis-tit' : ' op-tit'?>"><?php echo $msg['user_id'] == 0 ? htmlspecialchars($msg['name_support']) : htmlspecialchars($chat->nick) ?></span>
-    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
+    <?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true, 'see_sensitive_information' => (isset($see_sensitive_information) ? $see_sensitive_information : false)); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_body.tpl.php'));?>
 </div>
 <?php endforeach; ?>

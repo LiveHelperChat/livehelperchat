@@ -41,6 +41,24 @@ $ViewList['account'] = array(
     'functions' => array( 'selfedit' )
 );
 
+$ViewList['editdepartment'] = array(
+    'params' => array('user_id','dep_id'),
+    'uparams' => array('csfr','action','mode','editor'),
+    'functions' => array( 'selfedit' )
+);
+
+$ViewList['newdepartment'] = array(
+    'params' => array('user_id'),
+    'uparams' => array('csfr','mode','editor'),
+    'functions' => array( 'selfedit' )
+);
+
+$ViewList['userdepartments'] = array(
+    'params' => array('user_id'),
+    'uparams' => array('editor'),
+    'functions' => array( 'selfedit' )
+);
+
 $ViewList['avatarbuilder'] = array(
     'params' => array('id'),
     'uparams' => array(),

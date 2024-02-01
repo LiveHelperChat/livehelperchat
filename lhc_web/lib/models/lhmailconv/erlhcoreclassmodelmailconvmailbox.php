@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelMailconvMailbox
 {
 
@@ -50,6 +50,8 @@ class erLhcoreClassModelMailconvMailbox
             'dep_id' => $this->dep_id,
             'workflow_options' => $this->workflow_options,
             'auth_method' => $this->auth_method,
+            'reopen_reset' => $this->reopen_reset,
+            'last_process_time' => $this->last_process_time,
         );
     }
 
@@ -61,6 +63,19 @@ class erLhcoreClassModelMailconvMailbox
     public function __get($var)
     {
         switch ($var) {
+
+            case 'mrules':
+                if ($this->id > 0) {
+                    $mrules = erLhcoreClassModelMailconvMatchRule::getList(['limit' => false, 'customfilter' => ["`mailbox_id` != '' AND JSON_CONTAINS(`mailbox_id`,'" . (int)$this->id . "','$')"]]);
+                } else {
+                    $mrules = [];
+                }
+                return $mrules;
+            
+            case 'mrules_id':
+                $mrules_id = array_keys($this->mrules);
+                return $mrules_id;
+
             case 'mtime_front':
                 return date('Ymd') == date('Ymd', $this->mtime) ? date(erLhcoreClassModule::$dateHourFormat, $this->mtime) : date(erLhcoreClassModule::$dateDateHourFormat, $this->mtime);
 
@@ -108,6 +123,10 @@ class erLhcoreClassModelMailconvMailbox
                 $this->last_sync_time_ago = erLhcoreClassChat::formatSeconds(time() - $this->last_sync_time);
                 return $this->last_sync_time_ago;
 
+            case 'last_process_time_ago':
+                $this->last_process_time_ago = erLhcoreClassChat::formatSeconds(time() - $this->last_process_time);
+                return $this->last_process_time_ago;
+
             case 'sync_started_ago':
                 $this->sync_started_ago = $this->sync_started > 0 ? erLhcoreClassChat::formatSeconds(time() - $this->sync_started) : '-';
                 return $this->sync_started_ago;
@@ -124,6 +143,37 @@ class erLhcoreClassModelMailconvMailbox
 
             default:
                 break;
+        }
+    }
+
+    public function afterSave($params = array())
+    {
+        if (!is_array($this->mrules_id_update)) {
+            return;
+        }
+
+        // From which rules we should remove this mailbox
+        $rulesRemove = array_diff($this->mrules_id,$this->mrules_id_update);
+
+        // To which rules we should add this mailbox
+        $rulesAdd = array_diff($this->mrules_id_update,$this->mrules_id);
+
+        foreach ($rulesRemove as $ruleRemove) {
+            $removeRule = erLhcoreClassModelMailconvMatchRule::fetch($ruleRemove);
+            $mailBox = $removeRule->mailbox_ids;
+            unset($mailBox[array_search($this->id,$mailBox)]);
+            $removeRule->mailbox_ids = array_values($mailBox);
+            $removeRule->mailbox_id = json_encode($removeRule->mailbox_ids);
+            $removeRule->updateThis(['update' => ['mailbox_id']]);
+        }
+
+        foreach ($rulesAdd as $ruleAdd) {
+            $addRule = erLhcoreClassModelMailconvMatchRule::fetch($ruleAdd);
+            $mailBox = $addRule->mailbox_ids;
+            $mailBox[] = $this->id;
+            $addRule->mailbox_ids = array_values($mailBox);
+            $addRule->mailbox_id = json_encode($addRule->mailbox_ids);
+            $addRule->updateThis(['update' => ['mailbox_id']]);
         }
     }
 
@@ -167,6 +217,10 @@ class erLhcoreClassModelMailconvMailbox
     public $no_pswd_smtp = 0;
     public $user_id = 0;
     public $dep_id = 0;
+    public $reopen_reset = 0;
+    public $last_process_time = 0;
+    public $mrules_id_update = null;
+
     public $delete_mode = self::DELETE_ALL;
 
     const AUTH_NORMAL_PASSWORD = 0;

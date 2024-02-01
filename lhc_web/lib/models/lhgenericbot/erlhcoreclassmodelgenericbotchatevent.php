@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelGenericBotChatEvent {
 
     use erLhcoreClassDBTrait;

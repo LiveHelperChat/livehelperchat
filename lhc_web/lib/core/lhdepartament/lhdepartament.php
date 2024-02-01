@@ -65,7 +65,10 @@ class erLhcoreClassDepartament{
 	   			'delay_lm' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 5)
 	   			),
-	   			'OnlineHoursActive' => new ezcInputFormDefinitionElement(
+	   			'hide_survey_bot' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+                'OnlineHoursActive' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
 	   			'Disabled' => new ezcInputFormDefinitionElement(
@@ -81,6 +84,9 @@ class erLhcoreClassDepartament{
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
 	   			'off_op_exec' => new ezcInputFormDefinitionElement(
+	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+	   			),
+                'off_op_work_hours' => new ezcInputFormDefinitionElement(
 	   					ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 	   			),
                 'ru_on_transfer' => new ezcInputFormDefinitionElement(
@@ -427,7 +433,13 @@ class erLhcoreClassDepartament{
 		   	} else {
                 $botConfiguration['off_op_exec'] = 0;
 		   	}
-		   	
+
+		   	if ( $form->hasValidData( 'off_op_work_hours' ) && $form->off_op_work_hours == true) {
+		   		$botConfiguration['off_op_work_hours'] = 1;
+		   	} else {
+                $botConfiguration['off_op_work_hours'] = 0;
+		   	}
+
 		   	if ( $form->hasValidData( 'ru_on_transfer' ) && $form->ru_on_transfer == true )
 		   	{
 		   		$botConfiguration['ru_on_transfer'] = 1;
@@ -707,6 +719,12 @@ class erLhcoreClassDepartament{
            $botConfiguration['bot_only_offline'] = false;
        }
 
+       if ( $form->hasValidData( 'hide_survey_bot' ) ) {
+           $botConfiguration['hide_survey_bot'] = true;
+       } else {
+           $botConfiguration['hide_survey_bot'] = false;
+       }
+
        if ( $form->hasValidData( 'bot_foh' ) ) {
            $botConfiguration['bot_foh'] = true;
        } else {
@@ -842,8 +860,6 @@ class erLhcoreClassDepartament{
     */
    public static function validateDepartmentGroup(erLhcoreClassModelDepartamentGroup $departamentGroup)
    {
-       $availableCustomWorkHours = array();
-       
        $definition = array(
            'Name' => new ezcInputFormDefinitionElement(
                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -861,6 +877,43 @@ class erLhcoreClassDepartament{
        
        return $Errors;
    }
+
+   public static function validateDepartmentBrand(\LiveHelperChat\Models\Brand\Brand $brand, & $members = [])
+   {
+       $definition = array(
+           'Name' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+           ),
+           'department' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY
+           ),
+           'role' => new ezcInputFormDefinitionElement(
+               ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+           )
+       );
+
+       $form = new ezcInputForm( INPUT_POST, $definition );
+       $Errors = array();
+
+       if ( !$form->hasValidData( 'Name' ) || $form->Name == '' ) {
+           $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('departament/editgroup','Please enter a brand name');
+       } else {
+           $brand->name = $form->Name;
+       }
+
+       if ( $form->hasValidData( 'department' ) && !empty($form->department) ) {
+           foreach ($form->department as $departmentId) {
+               $members[] = [
+                   'dep_id' => $departmentId,
+                   'role' => $form->role[$departmentId]
+               ];
+           }
+       }
+
+       return $Errors;
+   }
+
+
    
    /**
     * Validates department group submit

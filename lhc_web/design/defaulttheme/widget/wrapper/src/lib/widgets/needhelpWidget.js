@@ -18,7 +18,7 @@ export class needhelpWidget{
             height: "135px",
             position: "fixed",
             display: "none",
-        }), null, "iframe");
+        }),  {"role":"presentation"}, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
     }

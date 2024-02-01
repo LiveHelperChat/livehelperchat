@@ -100,17 +100,17 @@ try {
         }
 
         $outputResponse['chat_ui']['header_buttons'] = array(
-            array(
+            array (
                 'pos' => 'left',
-                'btn' => 'min'
+                'btn' => 'min',
             ),
-            array(
+            array (
                 'pos' => 'right',
-                'btn' => 'close',
+                'btn' => 'close'
             ),
-            array(
+            array (
                 'pos' => 'right',
-                'btn' => 'popup'
+                'btn' => 'popup',
             )
         );
 
@@ -122,7 +122,7 @@ try {
 
                 $theme->translate();
 
-                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text') as $attrTranslate) {
+                foreach (array('placeholder_message','cnew_msgh','cnew_msg','cscroll_btn','cnew_msgm','min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $attrTranslate) {
                     if (isset($theme->bot_configuration_array[$attrTranslate]) && !empty($theme->bot_configuration_array[$attrTranslate])) {
                         $outputResponse['chat_ui'][$attrTranslate] = $theme->bot_configuration_array[$attrTranslate];
                     }
@@ -139,6 +139,10 @@ try {
                 if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
                     $outputResponse['chat_ui']['msg_expand'] = true;
                 }
+                
+                if (isset($theme->bot_configuration_array['print_btn_msg']) && $theme->bot_configuration_array['print_btn_msg'] == true) {
+                    $outputResponse['chat_ui']['print_btn_msg'] = true;
+                }
 
                 if (isset($theme->bot_configuration_array['font_size']) && $theme->bot_configuration_array['font_size'] == true) {
                     $outputResponse['chat_ui']['font_size'] = true;
@@ -149,6 +153,13 @@ try {
                     $outputResponse['chat_ui']['bbc_btnh'] = true;
                 } elseif (isset($outputResponse['chat_ui']['bbc_btnh'])) {
                     unset($outputResponse['chat_ui']['bbc_btnh']);
+                }
+
+                if ($theme->hide_ts > 0) {
+                    $outputResponse['chat_ui']['show_ts'] = true;
+                    if ($theme->hide_op_ts == 1) {
+                        $outputResponse['chat_ui']['show_ts_below'] = true;
+                    }
                 }
 
                 if ($theme->hide_popup == 1) {
@@ -201,6 +212,10 @@ try {
                 
                 if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
                     $outputResponse['chat_ui']['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
+                }
+
+                if (isset($theme->bot_configuration_array['custom_html_footer']) && $theme->bot_configuration_array['custom_html_footer'] != '') {
+                    $outputResponse['chat_ui']['custom_html_footer'] = $theme->bot_configuration_array['custom_html_footer'];
                 }
 
                 if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
@@ -256,6 +271,10 @@ try {
         if (!isset($outputResponse['chat_ui']['survey_id']) && isset($chat->department->bot_configuration_array['survey_id']) && $chat->department->bot_configuration_array['survey_id'] > 0) {
             $outputResponse['chat_ui']['survey_id'] = $chat->department->bot_configuration_array['survey_id'];
         };
+
+        if (isset($chat->department->bot_configuration_array['hide_survey_bot']) && $chat->department->bot_configuration_array['hide_survey_bot'] == true) {
+            $outputResponse['chat_ui']['hide_survey_bot'] = true;
+        }
 
         $soundData = erLhcoreClassModelChatConfig::fetch('sync_sound_settings')->data_value;
         $outputResponse['chat_ui']['sync_interval'] = (int)($soundData['chat_message_sinterval']*1000);

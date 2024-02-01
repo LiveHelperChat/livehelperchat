@@ -6,7 +6,7 @@
  * @desc Stores surveys themself
  *
  */
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelSurveyItem {
 
     use erLhcoreClassDBTrait;

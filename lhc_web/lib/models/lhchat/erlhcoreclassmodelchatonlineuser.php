@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelChatOnlineUser
 {
     use erLhcoreClassDBTrait;
@@ -390,13 +390,13 @@ class erLhcoreClassModelChatOnlineUser
         }
     }
 
-    public static function executeRequest($url, $headers = [])
+    public static function executeRequest($url, $headers = [], $paramsExecution = [])
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, isset($paramsExecution['timeout']) ? $paramsExecution['timeout'] : 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, isset($paramsExecution['connect_timeout']) ? $paramsExecution['connect_timeout'] : 5);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($ch, CURLOPT_USERAGENT, 'curl/7.29.0');
@@ -838,7 +838,9 @@ class erLhcoreClassModelChatOnlineUser
                 $item->tt_pages_count++;
                 $item->store_chat = true;
 
-                $onlineAttr = array();
+                if (!isset($onlineAttr)) {
+                    $onlineAttr = array();
+                }
 
                 if (isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr']))) {
                     $onlineAttr = $_GET['onattr'];
@@ -907,6 +909,11 @@ class erLhcoreClassModelChatOnlineUser
                     $onlineAttr['tag'] = array('h' => false, 'identifier' => 'tag', 'key' => 'Tags', 'value' => implode(',',array_unique(explode(',',$paramsHandle['tag']))));
                 }
 
+                if ($newVisitor === true) {
+                    $location = isset($_POST['l']) ? (string)$_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : '');
+                    $onlineAttr['init'] = 'NEW_VID: ' . $item->vid . (!empty($onlineAttr) ? ' | ' . json_encode($onlineAttr) : '') . ($location != '' ? ' | ' . $location : '');
+                }
+
                 if (!empty($onlineAttr)) {
                     $item->online_attr = json_encode($onlineAttr);
                 }
@@ -941,6 +948,7 @@ class erLhcoreClassModelChatOnlineUser
                 $location = isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : ($item->current_page == '' ? self::getReferer() : null));
                 if ($location !== null) {
                     $item->current_page = $location;
+
                 }
                 $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : '');
                 $item->last_visit = time();

@@ -16,7 +16,8 @@ try {
 					( array ) $msg 
 			) );
 			$tpl->set ( 'chat', $Chat );
-					
+            $tpl->set('see_sensitive_information', $currentUser->hasAccessTo('lhchat','see_sensitive_information'));
+
 			echo json_encode ( array (
 					'error' => 'f',
 					'msg' => trim ( $tpl->fetch () ) 

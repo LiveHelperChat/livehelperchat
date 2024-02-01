@@ -424,6 +424,13 @@ class erLhcoreClassModule{
 			}
 
             $Matches = array();
+			preg_match_all('/erLhcoreClassDesign::designJSStatic\(\'(.*?)\'\)/i',$contentFile,$Matches);
+			foreach ($Matches[1] as $key => $UrlAddress)
+			{			  
+			    $contentFile = str_replace($Matches[0][$key],'\''.erLhcoreClassDesign::designJSStatic(trim($UrlAddress,'\'')).'\'',$contentFile);
+			}
+
+            $Matches = array();
 			preg_match_all('/erLhcoreClassDesign::design\(\'(.*?)\'\)/i',$contentFile,$Matches);
 			foreach ($Matches[1] as $key => $UrlAddress)
 			{
@@ -480,7 +487,7 @@ class erLhcoreClassModule{
     	            foreach ($Matches[1] as $key => $UrlAddress)
     	            {
     	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
-    	                $valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+    	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
     	                $contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }
     		            
@@ -502,7 +509,7 @@ class erLhcoreClassModule{
     	                $valueHolder = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data;
     	            	$valueConfig = isset($valueHolder[$Matches[4][$key]]) ? $valueHolder[$Matches[4][$key]] : '';
     	            	$valueReplace = '';
-    	            	$valueReplace = '\''.str_replace("'","\'",$valueConfig).'\'';
+    	            	$valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
     	            	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
     	            }
 			    }
@@ -552,7 +559,7 @@ class erLhcoreClassModule{
             	$cacheModules = array();
             }
 
-            if (count($cacheModules) > 0) {
+            if (is_countable($cacheModules) and count($cacheModules) > 0) {
                 self::$cacheInstance->store('moduleFunctionsCache_'.$module.'_'.$siteAccess.'_version_'.self::$cacheVersionSite,$cacheModules);
                 return $cacheModules;
             }

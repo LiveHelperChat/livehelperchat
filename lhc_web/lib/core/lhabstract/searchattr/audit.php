@@ -14,6 +14,18 @@ $fieldsSearch['source'] = array (
     )
 );
 
+$fieldsSearch['message'] = array (
+    'type' => 'text',
+    'trans' => 'Nick',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'like',
+    'filter_table_field' => '`lh_audits`.`message`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    )
+);
+
 $fieldsSearch['category'] = array (
     'type' => 'text',
     'trans' => 'Nick',

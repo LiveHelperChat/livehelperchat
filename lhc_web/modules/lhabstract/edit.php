@@ -3,7 +3,14 @@
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('abstract.edit_'.strtolower($Params['user_parameters']['identifier']).'_general', array());
 
 $tpl = erLhcoreClassTemplate::getInstance('lhabstract/edit.tpl.php');
-$ObjectData = erLhcoreClassAbstract::getSession()->load( 'erLhAbstractModel'.$Params['user_parameters']['identifier'], (int)$Params['user_parameters']['object_id'] );
+
+$objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
+
+if (!class_exists($objectClass)) {
+    $objectClass = '\LiveHelperChat\Models\LHCAbstract\\'.$Params['user_parameters']['identifier'];
+}
+
+$ObjectData = erLhcoreClassAbstract::getSession()->load($objectClass, (int)$Params['user_parameters']['object_id'] );
 
 if (isset($_POST['CancelAction'])) {
     erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
@@ -13,6 +20,11 @@ if (isset($_POST['CancelAction'])) {
 $object_trans = $ObjectData->getModuleTranslations();
 
 if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
+	erLhcoreClassModule::redirect();
+	exit;
+}
+
+if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function'])) {
 	erLhcoreClassModule::redirect();
 	exit;
 }
@@ -92,6 +104,10 @@ if (method_exists($ObjectData,'dependJs')) {
 
 if (method_exists($ObjectData,'dependFooterJs')) {
 	$Result['additional_footer_js'] = $ObjectData->dependFooterJs();
+}
+
+if (!isset($ObjectData->disable_angular)){
+    $Result['require_angular'] = true;
 }
 
 if (isset($object_trans['path'])){

@@ -1,7 +1,7 @@
 <div class="row" ng-non-bindable>
     <?php if (!(isset($can_edit_groups) && $can_edit_groups === false)) : ?>
     <div class="col-9">
-        <div class="input-group mb-3">
+        <div class="input-group input-group-sm mb-3">
             <span class="input-group-text action-image" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'user/avatarbuilder/'+$('#<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>id_avatar_string').val() + '?prefix=<?php isset($avatarOptions['field_prefix']) ? print $avatarOptions['field_prefix'] : ''?>'})">
                 <span class="material-icons me-0 btn-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Avatar builder');?>">palette</span>
             </span>

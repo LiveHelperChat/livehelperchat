@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class erLhcoreClassModelChatWebhook {
 
     use erLhcoreClassDBTrait;

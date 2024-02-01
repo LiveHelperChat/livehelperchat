@@ -26,6 +26,8 @@ class NodeTriggerActionQuickReply extends Component {
 
         this.onButtonIconContentChange = this.onButtonIconContentChange.bind(this);
         this.onButtonCSSClassChange = this.onButtonCSSClassChange.bind(this);
+        
+        this.state = {advanced : false};
     }
 
     onButtonIconContentChange(e) {
@@ -81,7 +83,7 @@ class NodeTriggerActionQuickReply extends Component {
     render() {
 
         return (
-            <div className="row">
+            <div className="row border-top border-dark">
                 <div className="col-5">
                     <div className="form-group">
                         <label className="font-weight-bold">Name</label>
@@ -121,14 +123,49 @@ class NodeTriggerActionQuickReply extends Component {
                     </div>
                 </div>
 
-                {this.props.reply.get('type') == 'url' && <div className="col-12">
-                    <div className="form-group">
-                        <label>Button ID</label>
-                        <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                <div className="col-10">
+                    <a onClick={(e) => this.setState({"advanced": !this.state.advanced})}><span className="material-icons">code</span>{this.state.advanced ? 'Hide' : 'Show'} advanced options</a>
+                </div>
+
+                {this.props.reply.get('type') == 'url' && this.state.advanced && <div className="col-12">
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Button ID</label>
+                                <input type="text" placeholder="Button ID" onChange={this.onButtonIDChange} defaultValue={this.props.reply.getIn(['content','button_id'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>CSS Class element</label>
+                                <input type="text" placeholder="Button CSS class" onChange={this.onButtonCSSClassChange} defaultValue={this.props.reply.getIn(['content','button_class'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Icon name. Based on material icons.</label>
+                                <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <label><input type="checkbox" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'override_rest_api_button', value: e.target.checked}})} defaultChecked={this.props.reply.getIn(['content','override_rest_api_button'])} /> Override Rest API button content.</label>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Bot conditions to satisfy</label>
+                                <input className="form-control form-control-sm" placeholder="condition_1, condition_2" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'bot_condition', value: e.target.value}})} type="text" defaultValue={this.props.reply.getIn(['content','bot_condition'])}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="form-group">
+                                <label>Rest API button custom content.</label>
+                                <textarea onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'rest_api_button', value: e.target.value}})}  defaultValue={this.props.reply.getIn(['content','rest_api_button'])} className="form-control form-control-sm" ></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>}
 
-                {(this.props.reply.get('type') == 'trigger' || this.props.reply.get('type') == 'button') && <div className="col-10">
+                {(this.props.reply.get('type') == 'trigger' || this.props.reply.get('type') == 'button') && this.state.advanced && <div className="col-10">
                     <div className="row">
                         <div className="col-6">
                             <div className="form-group">
@@ -162,6 +199,21 @@ class NodeTriggerActionQuickReply extends Component {
                             <div className="form-group">
                                 <label>Icon name. Based on material icons.</label>
                                 <input type="text" placeholder="Icon name" onChange={this.onButtonIconContentChange} defaultValue={this.props.reply.getIn(['content','button_icon'])} className="form-control form-control-sm" />
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <label><input type="checkbox" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'override_rest_api_button', value: e.target.checked}})} defaultChecked={this.props.reply.getIn(['content','override_rest_api_button'])} /> Override Rest API button content.</label>
+                        </div>
+                        <div className="col-6">
+                            <div className="form-group">
+                                <label>Bot conditions to satisfy</label>
+                                <input className="form-control form-control-sm" placeholder="condition_1, condition_2" onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'bot_condition', value: e.target.value}})} type="text" defaultValue={this.props.reply.getIn(['content','bot_condition'])}/>
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <div className="form-group">
+                                <label>Rest API button custom content.</label>
+                                <textarea onChange={(e) => this.props.onPayloadAttrChange({id : this.props.id,  payload: {attr: 'rest_api_button', value: e.target.value}})}  defaultValue={this.props.reply.getIn(['content','rest_api_button'])} className="form-control form-control-sm" ></textarea>
                             </div>
                         </div>
                     </div>

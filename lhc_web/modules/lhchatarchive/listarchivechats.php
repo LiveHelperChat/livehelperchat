@@ -23,6 +23,8 @@ if (isset($filterParams['filter']['filter']['`lh_chat`.`id`'])) {
 // Set correct archive tables
 $archive->setTables();
 
+$filterParams['filter']['sort'] = '`id` DESC';
+
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chatarchive/listarchivechats').'/'.$archive->id.$append;
 $pages->items_total = erLhcoreClassModelChatArchive::getCount($filterParams['filter']);

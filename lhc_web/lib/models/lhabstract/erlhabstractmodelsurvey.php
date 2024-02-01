@@ -6,7 +6,7 @@
  * @desc Main chat survey object
  *
  */
-
+#[\AllowDynamicProperties]
 class erLhAbstractModelSurvey {
 
     use erLhcoreClassDBTrait;
@@ -125,6 +125,56 @@ class erLhAbstractModelSurvey {
 		return $this->name;
 	}
 
+    public function checkPermission() {
+
+        $currentUser = erLhcoreClassUser::instance();
+
+        if ($currentUser->hasAccessTo( 'lhdepartment', 'see_all')) {
+            return true;
+        }
+
+        /**
+         * Append user departments filter
+         * */
+        $departmentParams = array();
+        $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+        if ($userDepartments !== true) {
+            // Find all departments where this survey is assigned
+            // We allow to view information if all departments this survey is assigned operator has access to.
+            $depIDS = array_keys(erLhcoreClassModelDepartament::getList(['limit' => false, 'customfilter' => ["`lh_departament`.`bot_configuration` != '' AND JSON_CONTAINS(`lh_departament`.`bot_configuration`," . (int)$this->id . ",'$.survey_id')"]]));
+            if (empty($depIDS) || count(array_diff($depIDS, $userDepartments)) > 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static function getFilter() {
+        // Global filters
+        $filter = erLhcoreClassUserDep::conditionalDepartmentFilter(false,'id');
+
+        $surveyId = [];
+
+        if (!empty($filter)) {
+            $surveyId[] = -1;
+            // Collect all surveys assigned to departments operator can work with
+            foreach (erLhcoreClassModelDepartament::getList($filter) as $dep) {
+                if (isset($dep->bot_configuration_array['survey_id']) && $dep->bot_configuration_array['survey_id'] > 0) {
+                    $surveyId[] = (int)$dep->bot_configuration_array['survey_id'];
+                }
+            }
+        }
+
+        $filterSurvey = [];
+
+        if (!empty($surveyId)) {
+            $filterSurvey['filterin']['`lh_abstract_survey`.`id`'] = $surveyId;
+        }
+
+        return $filterSurvey;
+    }
+
    	public function getFields()
    	{
    	    return include('lib/core/lhabstract/fields/erlhabstractmodelsurvey.php');
@@ -132,7 +182,12 @@ class erLhAbstractModelSurvey {
 
 	public function getModuleTranslations()
 	{
-	    $metaData = array('permission_delete' => array('module' => 'lhsurvey','function' => 'manage_survey'),'permission' => array('module' => 'lhsurvey','function' => 'manage_survey'),'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Survey'));
+	    $metaData = array(
+            'permission_delete' => array('module' => 'lhsurvey','function' => 'delete_survey'),
+            'permission' => array('module' => 'lhsurvey', 'function' => 'list_survey'),
+            'permission_edit' => array('module' => 'lhsurvey', 'function' => 'manage_survey'),
+            'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/survey','Survey'));
+
 	    /**
 	     * Get's executed before permissions check. It can redirect to frontpage throw permission exception etc
 	     * */

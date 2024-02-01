@@ -179,6 +179,7 @@ return array_merge(array (
 		'erLhcoreClassModelChatArchive' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchive.php',
 		'erLhcoreClassModelChatArchiveMsg' 		=> 'lib/models/lhchat/erlhcoreclassmodelchatarchivemsg.php',
 		'erLhcoreClassModelChatArchiveAction' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiveaction.php',
+		'erLhcoreClassModelChatArchiveParticipant' 	=> 'lib/models/lhchat/erlhcoreclassmodelchatarchiveparticipant.php',
 		'erLhcoreClassChatArcive' 		        => 'lib/core/lhchat/lhchatarchive.php',
 
 		// Files upload
@@ -308,6 +309,7 @@ return array_merge(array (
         'erLhcoreClassGenericBotActionAlert_icon'   => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionalert_icon.php',
         'erLhcoreClassGenericBotActionMail'         => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionmail.php',
         'erLhcoreClassGenericBotActionSurvey'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactionsurvey.php',
+        'erLhcoreClassGenericBotActionIframe'       => 'lib/core/lhgenericbot/actionTypes/lhgenericbotactioniframe.php',
         'erLhcoreClassModelGenericBotCommand'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotcommand.php',
 
         'erLhcoreClassModelGenericBotRestAPI'       => 'lib/models/lhgenericbot/erlhcoreclassmodelgenericbotrestapi.php',

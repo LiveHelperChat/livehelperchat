@@ -725,7 +725,7 @@ if ($theme !== false) {
                 $chat_ui['img_icon_min'] = $theme->minimize_image_url;
             }
 
-            foreach (array('min_text','popup_text','end_chat_text') as $textIcon) {
+            foreach (array('min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col') as $textIcon) {
                 if (isset($theme->bot_configuration_array[$textIcon]) && $theme->bot_configuration_array[$textIcon] != '') {
                     $chat_ui[$textIcon] = $theme->bot_configuration_array[$textIcon];
                 }
@@ -742,6 +742,13 @@ if ($theme !== false) {
 
         if (!isset($chat_ui['custom_html_widget']) && isset($theme->bot_configuration_array['custom_html_widget']) && $theme->bot_configuration_array['custom_html_widget'] != '') {
             $chat_ui['custom_html_widget'] = $theme->bot_configuration_array['custom_html_widget'];
+        }
+    }
+
+    if ($theme->hide_ts > 0) {
+        $chat_ui['show_ts'] = true;
+        if ($theme->hide_op_ts == 1) {
+            $outputResponse['chat_ui']['show_ts_below'] = true;
         }
     }
 
@@ -766,9 +773,30 @@ if ($theme !== false) {
                     $chat->gbot_id = $bot->id;
                     $chat->additional_data_array = $onlineUser->online_attr_array;
                     $chat->chat_variables_array = $onlineUser->chat_variables_array;
+
+                    if (!(isset($theme->bot_configuration_array['use_system_tz']) && $theme->bot_configuration_array['use_system_tz'] == true) && $onlineUser->visitor_tz != '') {
+                        $chat->user_tz_identifier = $onlineUser->visitor_tz;
+                    }
+
+                    $locale = erLhcoreClassChatValidator::getVisitorLocale();
+
+                    if ($locale !== null) {
+                        $chat->chat_locale = $locale;
+                    }
+
+                    // We set custom chat locale only if visitor is not using default siteaccss and default langauge is not english.
+                    if (erConfigClassLhConfig::getInstance()->getSetting('site','default_site_access') != erLhcoreClassSystem::instance()->SiteAccess) {
+                        $siteAccessOptions = erConfigClassLhConfig::getInstance()->getSetting('site_access_options', erLhcoreClassSystem::instance()->SiteAccess);
+                        // Never override to en
+                        if (isset($siteAccessOptions['content_language'])) {
+                            $chat->chat_locale = $siteAccessOptions['content_language'];
+                        }
+                    }
+
                     if ($onlineUser->dep_id > 0) {
                         $chat->dep_id = $onlineUser->dep_id;
                     }
+
                     $tpl->set('chat',$chat);
                 }
             }
@@ -780,7 +808,7 @@ if ($theme !== false) {
         $tpl->set('no_br',true);
         $tpl->set('triggerMessageId',$theme->bot_configuration_array['trigger_id']);
 
-        $chat_ui['cmmsg_widget'] = $tpl->fetch();
+        $chat_ui['cmmsg_widget'] = str_replace('{msg_id}',$theme->bot_configuration_array['trigger_id'],$tpl->fetch());
 
     } elseif (isset($theme->bot_configuration_array['auto_bot_intro']) && $theme->bot_configuration_array['auto_bot_intro'] == true) {
 
@@ -881,6 +909,10 @@ if ($theme !== false) {
         $chat_ui['proactive_once_typed'] = 1;
     }
 
+    if (isset($theme->bot_configuration_array['print_btn_msg']) && $theme->bot_configuration_array['print_btn_msg'] == true) {
+        $chat_ui['print_btn_msg'] = true;
+    }
+
     if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
         $chat_ui['clinst'] = true;
     }
@@ -931,6 +963,10 @@ if ($theme !== false) {
         $chat_ui['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
     }
 
+    if (isset($theme->bot_configuration_array['custom_html_footer']) && $theme->bot_configuration_array['custom_html_footer'] != '') {
+        $chat_ui['custom_html_footer'] = $theme->bot_configuration_array['custom_html_footer'];
+    }
+
     if (isset($theme->bot_configuration_array['custom_html_header_body']) && $theme->bot_configuration_array['custom_html_header_body'] != '') {
         $chat_ui['custom_html_header_body'] = $theme->bot_configuration_array['custom_html_header_body'];
     }
@@ -961,6 +997,7 @@ foreach ([
             'custom_html_widget',
             'custom_html_header_body',
             'custom_html_header',
+            'custom_html_footer',
             'cmmsg_widget',
             'pre_chat_html',
             'operator_profile'
@@ -1079,7 +1116,16 @@ if ($outputResponse['disabled'] === true) {
 }
 
 $outputResponse['department'] = $departmentsOptions;
+
 $outputResponse['dep_forms'] = $department_id_form;
+
+if (isset($parametersDepartment['system']) && !empty($parametersDepartment['system'])) {
+    foreach ($parametersDepartment['system'] as $systemDepartmentIndex => $systemDepartmentId) {
+        if ($outputResponse['dep_forms'] == $systemDepartmentId) {
+            $outputResponse['dep_forms'] = $parametersDepartment['argument'][$systemDepartmentIndex];
+        }
+    }
+}
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('widgetrestapi.onlinesettings', array('ou_vid' => $Params['user_parameters_unordered']['vid'], 'output' => & $outputResponse));
 

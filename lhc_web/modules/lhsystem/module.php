@@ -90,6 +90,12 @@ $ViewList['singlesetting'] = array(
     'functions' => array( 'singlesetting' )
 );
 
+$ViewList['bbcode'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'messagecontentprotection' )
+);
+
 $FunctionList['use'] = array('explain' => 'Allow user to see configuration links');
 $FunctionList['expirecache'] = array('explain' => 'Allow user to clear cache');
 $FunctionList['generatejs'] = array('explain' => 'Allow user to access HTML generation');
@@ -107,5 +113,6 @@ $FunctionList['auditlog'] = array('explain' => 'Allow user to see audit log');
 $FunctionList['usersactions'] = array('explain' => 'Allow user to see operators real time chats statistic');
 $FunctionList['ga_configuration'] = array('explain' => 'Allow user to configure Events Tracking');
 $FunctionList['singlesetting'] = array('explain' => 'Allow user to change app settings');
+$FunctionList['messagecontentprotection'] = array('explain' => 'Allow user to configure message content protection');
 
 ?>

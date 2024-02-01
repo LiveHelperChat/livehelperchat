@@ -3,6 +3,10 @@
     <input type="text" maxlength="250" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($item->name)?>" />
 </div>
 
+<div class="form-group" ng-non-bindable>
+    <label><input type="checkbox" name="disabled" value="on" <?php $item->disabled == 1 ? print 'checked="checked"' : ''?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Disabled');?></label>
+</div>
+
 <?php if ($item->id > 0) : ?>
     <label>
         <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("chat/cannedmsg","Subject");?> <button type="button" class="btn btn-xs btn-outline-secondary pb-1 ps-1" onclick="return lhc.revealModal({'url':'/index.php/site_admin/mailconv/subject/<?php echo $item->id?>'})"><i class="material-icons me-0"></i></button>

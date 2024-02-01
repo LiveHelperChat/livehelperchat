@@ -4,7 +4,7 @@ namespace LiveHelperChat\mailConv\helpers;
 
 class MergeHelper
 {
-    public static function merge(\erLhcoreClassModelMailconvConversation $target, array $source)
+    public static function merge(\erLhcoreClassModelMailconvConversation $target, array $source, array $paramsExecution = array())
     {
         if (empty($source)) {
             throw new \Exception('Please choose at-least one source mail!');
@@ -15,8 +15,10 @@ class MergeHelper
         try {
 
             $db->beginTransaction();
+            $sourceIds = [];
 
             foreach ($source as $sourceMail) {
+                $sourceIds[] = $sourceMail->id;
                 foreach (\erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $sourceMail->id]]) as $mailMessage) {
                     // Update conversation
                     $mailMessage->conversation_id_old = $mailMessage->conversation_id;
@@ -39,13 +41,18 @@ class MergeHelper
             $target->total_messages = \erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id' => $target->id]]);
             $target->updateThis(['update' => ['total_messages']]);
 
+            // Merge action message
+            if (isset($paramsExecution['user_id'])) {
+                \erLhcoreClassMailconvWorkflow::logInteraction($paramsExecution['name_support'] . ' [' . $paramsExecution['user_id'] .'] ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has merge merged') . ' ' . implode(', ', $sourceIds) . ' ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','into') . ' ' . $target->id, $paramsExecution['name_support'], $target->id);
+            }
+
         } catch (\Exception $e) {
             $db->rollback();
             throw $e;
         }
     }
     
-    public static function unMerge($message) {
+    public static function unMerge($message, array $paramsExecution = array()) {
 
         $messages = \erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id_old' => $message->conversation_id_old]]);
 
@@ -177,6 +184,11 @@ class MergeHelper
             // Update total messages of old conversation
             $conversationOld->total_messages = \erLhcoreClassModelMailconvMessage::getCount(['filter' => ['conversation_id' => $conversationOld->id]]);
             $conversationOld->updateThis(['update' => ['total_messages']]);
+
+            if (isset($paramsExecution['user_id'])) {
+                \erLhcoreClassMailconvWorkflow::logInteraction($paramsExecution['name_support'] . ' [' . $paramsExecution['user_id'] .'] ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has un-merged') . ' ' . $conversationOld->id . ' ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','into') . ' ' . $newConversationId, $paramsExecution['name_support'], $newConversationId);
+                \erLhcoreClassMailconvWorkflow::logInteraction($paramsExecution['name_support'] . ' [' . $paramsExecution['user_id'] .'] ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has un-merged') . ' ' . $conversationOld->id . ' ' . \erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','into') . ' ' . $newConversationId, $paramsExecution['name_support'], $conversationOld->id);
+            }
 
         } catch (\Exception $e) {
             $db->rollback();
