@@ -40,7 +40,7 @@ if ($theme->need_help_border != '') {
 }
 
 if ($theme->need_help_close_bg != '') {
-    echo "#close-need-help-btn{color#" . $theme->need_help_close_bg .'!important}';
+    echo "#close-need-help-btn{color:#" . $theme->need_help_close_bg .'!important}';
 }
 
 if ($theme->need_help_close_hover_bg != '') {
