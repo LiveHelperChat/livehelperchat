@@ -312,6 +312,11 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional.');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_file_size" value="" />
         </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_mime_type" value="" />
+        </div>
         
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
@@ -439,6 +444,11 @@
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_file_size" value="" />
         </div>
 
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_mime_type" value="" />
+        </div>
+
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
@@ -508,6 +518,11 @@
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_file_size" value="" />
         </div>
 
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_mime_type" value="" />
+        </div>
+
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
@@ -575,6 +590,11 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional. ');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_file_size" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_mime_type" value="" />
         </div>
 
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
@@ -647,6 +667,11 @@
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_file_size" value="" />
         </div>
 
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_mime_type" value="" />
+        </div>
+
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
@@ -717,6 +742,11 @@
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_file_size" value="" />
         </div>
 
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_mime_type" value="" />
+        </div>
+
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
 
         <div class="form-group">
@@ -785,6 +815,11 @@
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional.');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_file_size" value="" />
+        </div>
+
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds mime type. Optional.');?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g type" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_mime_type" value="" />
         </div>
 
         <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Decode file options');?> </h5>
