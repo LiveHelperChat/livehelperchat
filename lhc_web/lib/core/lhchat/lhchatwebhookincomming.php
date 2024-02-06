@@ -1837,6 +1837,9 @@ class erLhcoreClassChatWebhookIncoming {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $fileUpload));
 
             return '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$chat->id).']';
+        } else {
+            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We could not download a file!');
+            return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We could not download a file!');
         }
     }
 
