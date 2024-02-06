@@ -833,6 +833,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 }
                             }
 
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')){
+                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_mime_type'], '.');
+                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                    $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
+                                }
+                            }
+
                             $file = self::parseFiles(
                                 self::extractAttribute(
                                     'msg_cond_' . $typeMessage . '_body',
@@ -1314,6 +1321,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 $headersItems = explode("\n",trim($headersParsed));
                                 foreach ($headersItems as $header) {
                                     $headers[] = $header;
+                                }
+                            }
+
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')){
+                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_mime_type'], '.');
+                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                    $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
                                 }
                             }
 
@@ -1817,7 +1831,9 @@ class erLhcoreClassChatWebhookIncoming {
             file_put_contents($path . $fileUpload->name, $mediaContent);
             chmod($path . $fileUpload->name, 0644);
 
-            if (!is_array($url) || !isset($url['mime'])) {
+            if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type'])) {
+                $mimeType = $overrideAttributes['mime_type'];
+            } elseif (!is_array($url) || !isset($url['mime'])) {
                 $mimeType = erLhcoreClassThemeValidator::get_mime($path . $fileUpload->name);
             } else {
                 $mimeType = $url['mime'];
@@ -1838,7 +1854,7 @@ class erLhcoreClassChatWebhookIncoming {
 
             return '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$chat->id).']';
         } else {
-            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We could not download a file!');
+            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem with your uploaded file!');
             return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We could not download a file!');
         }
     }
@@ -1896,6 +1912,7 @@ class erLhcoreClassChatWebhookIncoming {
             'rtf' => 'application/rtf',
             'xls' => 'application/vnd.ms-excel',
             'ppt' => 'application/vnd.ms-powerpoint',
+            'raw' => 'application/octet-stream',
 
             // open office
             'odt' => 'application/vnd.oasis.opendocument.text',
