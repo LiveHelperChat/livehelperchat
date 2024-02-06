@@ -1912,7 +1912,7 @@ class erLhcoreClassChatWebhookIncoming {
             'rtf' => 'application/rtf',
             'xls' => 'application/vnd.ms-excel',
             'ppt' => 'application/vnd.ms-powerpoint',
-            'raw' => 'application/octet-stream',
+            'bin' => 'application/octet-stream',
 
             // open office
             'odt' => 'application/vnd.oasis.opendocument.text',
