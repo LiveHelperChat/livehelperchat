@@ -507,7 +507,7 @@ class erLhcoreClassModelChat {
                }
            }
            if ($this->iwh_id > 0 && is_object($this->iwh) && $this->iwh->icon != '') {
-               $iconParams = ['i' => $this->iwh->icon];
+               $iconParams = ['i' => (strpos($this->iwh->icon,'.') !== false ? erLhcoreClassDesign::design('images/' . $this->iwh->icon) : $this->iwh->icon)];
                if ($this->iwh->icon_color != '') {
                    $iconParams['c'] = $this->iwh->icon_color ;
                }

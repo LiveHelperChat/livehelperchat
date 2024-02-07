@@ -26,7 +26,7 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group" ng-non-bindable>
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon or image path. E.g.');?> <span class="badge bg-secondary">flags/lt.png</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','images prefix is not needed.');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="E.g sms" name="icon" value="<?php echo htmlspecialchars($item->icon);?>" />
         </div>
     </div>
