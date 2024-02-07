@@ -396,7 +396,11 @@
                             {#if chat.aicons}
                                 {#each Object.entries(chat.aicons) as [icon_key,icon]}
                                     {#if $lhcList.excludeIcons.length == 0 || $lhcList.excludeIcons.indexOf(icon.i) === -1}
-                                        <i class="material-icons me-0" style:color={icon.c ? icon.c : '#6c757d'} title={icon.t ? icon.t : icon.i} >{icon.i || icon}</i>
+                                        {#if icon.i && icon.i.includes('/')}
+                                            <img src={icon.i} title={icon.t ? icon.t : icon.i} />
+                                        {:else}
+                                            <i class="material-icons me-0" style:color={icon.c ? icon.c : '#6c757d'} title={icon.t ? icon.t : icon.i} >{icon.i || icon}</i>
+                                        {/if}
                                     {/if}
                                 {/each}
                             {/if}

@@ -8,7 +8,11 @@
 
             <?php if ($customExternalRendered == false) : ?>
             <div class="col-6 pb-1">
-                <span class="material-icons" <?php if ($incomingWebhook->icon_color != '') : ?>style="color: <?php echo htmlspecialchars($incomingWebhook->icon_color)?>"<?php endif;?> ><?php if ($incomingWebhook->icon != '') : ?><?php echo htmlspecialchars($incomingWebhook->icon)?><?php else : ?>extension<?php endif; ?></span>
+                <?php if (strpos($incomingWebhook->icon,'/') !== false) : ?>
+                    <img class="me-1" src="<?php echo erLhcoreClassDesign::design('images/' . $incomingWebhook->icon);?>" />
+                <?php else : ?>
+                    <span class="material-icons" <?php if ($incomingWebhook->icon_color != '') : ?>style="color: <?php echo htmlspecialchars($incomingWebhook->icon_color)?>"<?php endif;?> ><?php if ($incomingWebhook->icon != '') : ?><?php echo htmlspecialchars($incomingWebhook->icon)?><?php else : ?>extension<?php endif; ?></span>
+                <?php endif; ?>
                 <?php echo htmlspecialchars($incomingWebhook->name)?>
                 <?php if (isset($chat_variables_array['iwh_field']) && !empty($chat_variables_array['iwh_field'])) : ?>
                 &nbsp;|&nbsp;<?php echo htmlspecialchars($chat_variables_array['iwh_field'])?>

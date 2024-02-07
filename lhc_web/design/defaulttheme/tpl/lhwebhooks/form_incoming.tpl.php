@@ -26,7 +26,7 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group" ng-non-bindable>
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Icon or image path. E.g.');?> <span class="badge bg-secondary">flags/lt.png</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','images prefix is not needed.');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="E.g sms" name="icon" value="<?php echo htmlspecialchars($item->icon);?>" />
         </div>
     </div>
@@ -309,7 +309,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional.');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_attachments_file_size" value="" />
         </div>
 
@@ -440,7 +440,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional. ');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_file_size" value="" />
         </div>
 
@@ -514,7 +514,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional. ');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_2_file_size" value="" />
         </div>
 
@@ -588,7 +588,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional. ');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_3_file_size" value="" />
         </div>
 
@@ -663,7 +663,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional. ');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_4_file_size" value="" />
         </div>
 
@@ -738,7 +738,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional.');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_5_file_size" value="" />
         </div>
 
@@ -813,7 +813,7 @@
         </div>
 
         <div class="form-group">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional.');?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Attribute which holds file size. File size check will apply if defined. Optional');?></label>
             <input type="text" class="form-control form-control-sm" placeholder="Please provide attribute. E.g file_size" ng-model="webhookincomingsctl.conditions.msg_cond_img_6_file_size" value="" />
         </div>
 
