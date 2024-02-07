@@ -36,6 +36,12 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         ),
         'generate_manually' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'allow_login_from_ip' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'bypass_ip_user_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -59,6 +65,18 @@ if ( isset($_POST['StorePasswordSettings']) ) {
         $data['disable_after'] = $form->disable_after;
     } else {
         $data['disable_after'] = 0;
+    }
+
+    if ( $form->hasValidData( 'allow_login_from_ip' ) ) {
+        $data['allow_login_from_ip'] = $form->allow_login_from_ip;
+    } else {
+        $data['allow_login_from_ip'] = '';
+    }
+
+    if ( $form->hasValidData( 'bypass_ip_user_id' ) ) {
+        $data['bypass_ip_user_id'] = $form->bypass_ip_user_id;
+    } else {
+        $data['bypass_ip_user_id'] = '';
     }
 
     if ( $form->hasValidData( 'generate_manually' ) && $form->generate_manually == true ) {

@@ -34,6 +34,25 @@
         <label><input type="checkbox" class="me-1" value="on" <?php (isset($password_data['generate_manually']) && $password_data['generate_manually'] == 1) ? print 'checked="checked"': print '' ?> name="generate_manually" /><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','We should generate password for password reminder');?></label>
     </div>
 
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Login restrictions');?></h5>
+
+    <ul>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('2fa/admin','Wildcard format')?>:     1.2.3.*</li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('2fa/admin','CIDR format')?>:         1.2.3/24  OR  1.2.3.4/255.255.255.0</li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('2fa/admin','Start-End IP format')?>: 1.2.3.0-1.2.3.255</li>
+        <li><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('2fa/admin','Your IP')?>: <span class="badge bg-secondary"><?php echo htmlspecialchars(erLhcoreClassIPDetect::getIP());?></span></li>
+    </ul>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Allow to login only from these IP');?></label>
+        <input placeholder="191.168.1.*" name="allow_login_from_ip" type="text" class="form-control form-control-sm" value="<?php echo isset($password_data['allow_login_from_ip']) ? htmlspecialchars($password_data['allow_login_from_ip']) : '';?>" />
+    </div>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation("users/autologin","To these users id's login IP restrictions does not apply");?></label>
+        <input placeholder="1,2" name="bypass_ip_user_id" type="text" class="form-control form-control-sm" value="<?php echo isset($password_data['bypass_ip_user_id']) ? htmlspecialchars($password_data['bypass_ip_user_id']) : '';?>" />
+    </div>
+
     <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Password format requirements');?></h5>
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Minimal password length');?></label>
