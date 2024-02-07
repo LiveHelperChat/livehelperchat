@@ -8,7 +8,7 @@
 
             <?php if ($customExternalRendered == false) : ?>
             <div class="col-6 pb-1">
-                <?php if (strpos($incomingWebhook->icon,'.') !== false) : ?>
+                <?php if (strpos($incomingWebhook->icon,'/') !== false) : ?>
                     <img class="me-1" src="<?php echo erLhcoreClassDesign::design('images/' . $incomingWebhook->icon);?>" />
                 <?php else : ?>
                     <span class="material-icons" <?php if ($incomingWebhook->icon_color != '') : ?>style="color: <?php echo htmlspecialchars($incomingWebhook->icon_color)?>"<?php endif;?> ><?php if ($incomingWebhook->icon != '') : ?><?php echo htmlspecialchars($incomingWebhook->icon)?><?php else : ?>extension<?php endif; ?></span>
