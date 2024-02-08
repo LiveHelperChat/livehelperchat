@@ -360,6 +360,65 @@ class erLhcoreClassTranslate
                         'chat' => & $chat
                     ));
                 }
+            } elseif ($translationData['translation_handler'] == 'deepl') {
+                $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_deepl_token', array(
+                    'translation_config' => & $translationConfig,
+                    'translation_data' => & $translationData
+                ));
+                if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+                    // Do nothing
+                } else {
+                    self::getDeepLAccessToken($translationConfig, $translationData);
+                }
+                
+                // Only last 10 messages are translated
+                $msgs = erLhcoreClassModelmsg::getList(array(
+                    'filter' => array(
+                        'chat_id' => $chat->id
+                    ),
+                    'limit' => 10,
+                    'sort' => 'id DESC'
+                ));
+                
+                foreach ($msgs as $msg) {
+                    
+                    if ($msg->user_id != - 1) {
+                        // Visitor message
+                        // Remove old Translation
+                        $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
+                        
+                        if ($msg->user_id == 0) {
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
+                        } else { // Operator message
+                            $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
+                        }
+                        
+                        // If translation was successfull store it
+                        if (! empty($msgTranslated)) {
+                            
+                            $msgTranslated = str_ireplace(array(
+                                '[/ ',
+                                'Url = http: //',
+                                '[IMG] ',
+                                ' [/img]',
+                                '[/ url]',
+                                '[/ i]',
+                                '[Img]'
+                            ), array(
+                                '[/',
+                                'url=http://',
+                                '[img]',
+                                '[/img]',
+                                '[/url]',
+                                '[/i]',
+                                '[img]'
+                            ), $msgTranslated);
+                            
+                            $msg->msg .= "[translation]{$msgTranslated}[/translation]";
+                            $msg->saveThis();
+                        }
+                    }
+                }
             }
         }
     }
@@ -678,7 +737,39 @@ class erLhcoreClassTranslate
                 $options['eo'] = 'Esperanto';
                 $options['jv'] = 'Javanese';
                 $options['ja'] = 'Japanese';
-            }
+                
+            } elseif ($translationData['translation_handler'] == 'deepl') {
+                $options['BG'] = 'Bulgarian';
+                $options['CS'] = 'Czech';
+                $options['DA'] = 'Danish';
+                $options['DE'] = 'German';
+                $options['EL'] = 'Greek';
+                $options['EN-GB'] = 'English (British)';
+                $options['EN-US'] = 'English (American)';
+                $options['ES'] = 'Spanish';
+                $options['ET'] = 'Estonian';
+                $options['FI'] = 'Finnish';
+                $options['FR'] = 'French';
+                $options['HU'] = 'Hungarian';
+                $options['ID'] = 'Indonesian';
+                $options['IT'] = 'Italian';
+                $options['JA'] = 'Japanese';
+                $options['KO'] = 'Korean';
+                $options['LT'] = 'Lithuanian';
+                $options['LV'] = 'Latvian';
+                $options['NB'] = 'Norwegian (Bokmål)';
+                $options['NL'] = 'Dutch';
+                $options['PL'] = 'Polish';
+                $options['PT-BR'] = 'Portuguese (Brazilian)';
+                $options['PT-PT'] = 'Portuguese (all other)';
+                $options['RO'] = 'Romanian';
+                $options['RU'] = 'Russian';
+                $options['SK'] = 'Slovak';
+                $options['SL'] = 'Slovenian';
+                $options['SV'] = 'Swedish';
+                $options['TR'] = 'Turkish';
+                $options['UK'] = 'Ukrainian';
+                $options['ZH'] = 'Chinese (simplified)';                            }
         }
         
         if ($returnOptions == true) {
@@ -745,6 +836,8 @@ class erLhcoreClassTranslate
                     'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
                     'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
                 ], $text);
+            } elseif($translationData['translation_handler'] == 'deepl') {
+                return erLhcoreClassTranslateDeepL::detectLanguage($translationData['deepl_api_key'], $text);
             }
         }
     }
@@ -853,6 +946,20 @@ class erLhcoreClassTranslate
                 }
 
                 $translatedItem =  erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
+
+            } elseif ($translationData['translation_handler'] == 'deepl') {
+
+                $supportedLanguages = self::getSupportedLanguages(true);
+
+                if ($translateFrom == false) {
+                    $translateFrom = self::detectLanguage($text);
+                } else {
+                    if (!key_exists($translateFrom, $supportedLanguages)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Operator language is not supported by Google translation service'). ' [' . $translateFrom . ']' );
+                    }
+                }
+
+                $translatedItem =  erLhcoreClassTranslateDeepL::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
             }
 
             if ($useCache) {
