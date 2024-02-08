@@ -16,7 +16,7 @@ return array (
                     'templatecache' => false,
                     'templatecompile' => false,
                     'modulecompile' => false,
-                    'force_virtual_host' => false,
+                    'force_virtual_host' => true,
                     'proxy_mode' => false,
                     'disable_rest_api_by_user' => false,
                     'one_login_per_account' => false,
@@ -34,7 +34,7 @@ return array (
                     ],
                     'extensions' =>
                         array (
-                            // 0 => 'customstatus',
+                            'lhcphpresque'
                         ),
                     'available_site_access' =>
                         array (
@@ -81,7 +81,7 @@ return array (
             'webhooks' =>
                 array(
                     'enabled' => false,
-                    'worker' => 'http',
+                    'worker' => 'resque',
                 ),
             'chat' => array(
                 'online_timeout' => 300,
