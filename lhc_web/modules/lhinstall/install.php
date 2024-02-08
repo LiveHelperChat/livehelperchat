@@ -2529,7 +2529,7 @@ try {
   `description` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `extension` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attachment_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_nopad_ci NOT NULL,
+  `attachment_id` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `file_path` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `file_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content_id` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
