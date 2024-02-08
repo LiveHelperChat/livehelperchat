@@ -34,7 +34,7 @@ return array (
                     ],
                     'extensions' =>
                         array (
-                            'lhcphpresque'
+                            // 0 => 'customstatus',
                         ),
                     'available_site_access' =>
                         array (
@@ -81,7 +81,7 @@ return array (
             'webhooks' =>
                 array(
                     'enabled' => false,
-                    'worker' => 'resque',
+                    'worker' => 'http',
                 ),
             'chat' => array(
                 'online_timeout' => 300,
