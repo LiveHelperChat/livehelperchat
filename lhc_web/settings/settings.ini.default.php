@@ -16,7 +16,7 @@ return array (
                     'templatecache' => false,
                     'templatecompile' => false,
                     'modulecompile' => false,
-                    'force_virtual_host' => true,
+                    'force_virtual_host' => false,
                     'proxy_mode' => false,
                     'disable_rest_api_by_user' => false,
                     'one_login_per_account' => false,
