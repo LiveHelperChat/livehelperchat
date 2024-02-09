@@ -233,6 +233,11 @@ if ($outputResponse['invitation_id'] > 0) {
     if ($chat instanceof erLhcoreClassModelChat && in_array($chat->status,array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,erLhcoreClassModelChat::STATUS_PENDING_CHAT))) {
         $outputResponse['chat_id'] = $onlineUser->chat_id;
         $outputResponse['chat_hash'] = $onlineUser->chat->hash;
+        $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'sort' => 'id ASC', 'filter' => ['user_id' => 0, 'chat_id' => $onlineUser->chat_id]],'count','id','id');
+        if ($message_id_first == 0) { // Sometimes action can be a button click without saving visitor message, in this scenario there is no visitor message
+            $message_id_first = (int)erLhcoreClassModelmsg::getCount(['limit' => 1, 'offset' => 1, 'sort' => 'id ASC', 'filter' => ['chat_id' => $onlineUser->chat_id]],'count','id','id');
+        }
+        $outputResponse['message_id_first'] = $message_id_first;
     }
 }
 
