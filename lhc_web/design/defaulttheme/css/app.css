@@ -2391,3 +2391,7 @@ html {
         transform: translateX(0);
     }
 }
+
+#full-online-visitors .panel-list{
+    max-height: inherit!important;
+}
