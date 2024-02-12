@@ -38,7 +38,7 @@
 
 if ($msg['user_id'] == -1) : ?>
 <div class="message-row system-response" id="msg-<?php echo $msg['id']?>" title="<?php echo erLhcoreClassChat::formatDate($msg['time']);?>">
-    <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date text-white ps-2 fw-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
+    <span class="usr-tit sys-tit"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmin','System assistant')?></i><span class="msg-date ps-2 fw-normal"><?php echo erLhcoreClassChat::formatDate($msg['time']);?></span></span>
 
         <?php if ($msg['msg'] != '') : ?>
             <div class="text-muted"><?php $msgBody = $msg['msg']; $paramsMessageRender = array('sender' => $msg['user_id'], 'html_as_text' => true); ?>
