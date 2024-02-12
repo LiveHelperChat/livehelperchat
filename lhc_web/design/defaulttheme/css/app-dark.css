@@ -22,11 +22,9 @@
     --lhc-sidebar-li-active-link-bg: #2a2d31;
     --lhc-sidebar-li-border-bottom: #495057;
     --lhc-sidebar-wrapper-br: #63676b;
-}
-
-.sys-tit {
-    background-color: #495057;
-    color: #d4d0d0;
+    --lhc-msg-body-sys-tit-bg:#495057;
+    --lhc-msg-body-sys-tit-text: #d4d0d0;
+    --lhc-msg-date-text: #bcbcbc;
 }
 
 .nav {
@@ -134,7 +132,6 @@ div.message-row-typing div.msg-body {
 .msg-date-vi{
     background: #40464e;
     border: 1px solid #323232;
-    color: #bcbcbc !important;
 }
 
 
