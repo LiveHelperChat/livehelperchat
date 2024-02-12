@@ -3,6 +3,7 @@
 class erLhcoreClassChatWebhookIncoming {
 
     public static $staticErrors = [];
+    public static $chatInstance = null;
     public static function processEvent($incomingWebhook, array $payload) {
 
         $conditions = $incomingWebhook->conditions_array;
@@ -784,6 +785,12 @@ class erLhcoreClassChatWebhookIncoming {
                         }
                     }
 
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.webhook_incoming_chat_continue', array(
+                        'webhook' => & $incomingWebhook,
+                        'data' => & $payloadAll,
+                        'chat' => & $chat
+                    ));
+
                     if ($typeMessage == 'img' || $typeMessage == 'img_2' || $typeMessage == 'img_3' || $typeMessage == 'img_4' || $typeMessage == 'img_5' || $typeMessage == 'img_6' || $typeMessage == 'attachments') {
                         if (isset($conditions['msg_cond_' . $typeMessage . '_url_decode']) && $conditions['msg_cond_' . $typeMessage . '_url_decode'] != '') {
                             $file = self::parseFilesDecode(array(
@@ -823,6 +830,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 $headersItems = explode("\n",trim($headersParsed));
                                 foreach ($headersItems as $header) {
                                     $headers[] = $header;
+                                }
+                            }
+
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')){
+                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_mime_type'], '.');
+                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                    $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
                                 }
                             }
 
@@ -1172,6 +1186,8 @@ class erLhcoreClassChatWebhookIncoming {
                     }
                 }
 
+                self::$chatInstance = $chat;
+
             } else {
 
                 try {
@@ -1305,6 +1321,13 @@ class erLhcoreClassChatWebhookIncoming {
                                 $headersItems = explode("\n",trim($headersParsed));
                                 foreach ($headersItems as $header) {
                                     $headers[] = $header;
+                                }
+                            }
+
+                            if ((isset($conditions['msg_cond_' . $typeMessage . '_mime_type']) ? $conditions['msg_cond_' . $typeMessage . '_mime_type'] : '')){
+                                $fileNameAttribute = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_mime_type'], '.');
+                                if ($fileNameAttribute['found'] == true && is_string($fileNameAttribute['value']) && $fileNameAttribute['value'] !='') {
+                                    $overrideAttributes['mime_type'] = $fileNameAttribute['value'];
                                 }
                             }
 
@@ -1614,9 +1637,9 @@ class erLhcoreClassChatWebhookIncoming {
                     'chat' => & $chat,
                     'msg' => $msg
                 ));
+
+                self::$chatInstance = $chat;
             }
-
-
 
         } catch (Exception $e) {
             $db->rollback();
@@ -1808,7 +1831,9 @@ class erLhcoreClassChatWebhookIncoming {
             file_put_contents($path . $fileUpload->name, $mediaContent);
             chmod($path . $fileUpload->name, 0644);
 
-            if (!is_array($url) || !isset($url['mime'])) {
+            if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type'])) {
+                $mimeType = $overrideAttributes['mime_type'];
+            } elseif (!is_array($url) || !isset($url['mime'])) {
                 $mimeType = erLhcoreClassThemeValidator::get_mime($path . $fileUpload->name);
             } else {
                 $mimeType = $url['mime'];
@@ -1828,6 +1853,9 @@ class erLhcoreClassChatWebhookIncoming {
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat_file' => $fileUpload));
 
             return '[file='.$fileUpload->id.'_'.md5($fileUpload->name.'_'.$chat->id).']';
+        } else {
+            self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem with your uploaded file!');
+            return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','We could not download a file!');
         }
     }
 
@@ -1884,6 +1912,7 @@ class erLhcoreClassChatWebhookIncoming {
             'rtf' => 'application/rtf',
             'xls' => 'application/vnd.ms-excel',
             'ppt' => 'application/vnd.ms-powerpoint',
+            'bin' => 'application/octet-stream',
 
             // open office
             'odt' => 'application/vnd.oasis.opendocument.text',

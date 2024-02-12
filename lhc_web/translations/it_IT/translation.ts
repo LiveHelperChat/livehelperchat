@@ -6,6 +6,38 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source/>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>How long we should wait before we inform operator about unanswered chat.</source>
       <translation>Quanto dovremmo aspettare prima di informare l&apos;operatore in merito alla chat non risposta.</translation>
     </message>
@@ -714,10 +746,6 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Download theme</source>
-      <translation>Scarica tema</translation>
-    </message>
-    <message>
       <source>Status widget style</source>
       <translation>Stato di Stile del widget </translation>
     </message>
@@ -835,6 +863,26 @@
     </message>
     <message>
       <source>Can be passed as argument</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department to test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Download theme</source>
+      <translation>Scarica tema</translation>
+    </message>
+    <message>
+      <source>Some changes might take effect after you save a widget theme!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Clear cookies and reload</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Reload</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -1897,6 +1945,10 @@ Messaggi in stile bolla</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Viewport settings</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Date format if message is on different day</source>
       <translation type="unfinished"/>
     </message>
@@ -1923,6 +1975,10 @@ Messaggi in stile bolla</translation>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
+    <message>
+      <source>Javascript variable value</source>
+      <translation>Valore variabile Javascript</translation>
+    </message>
     <message>
       <source>If department is online and visitor starts a chat and is waiting for some to accept chat. This will be initial message he will get.</source>
       <translation>Se il dipartimento è online e il visitatore avvia una chat e sta aspettando che alcuni accettino la chat, questo sarà il messaggio iniziale che riceverà.</translation>
@@ -2277,8 +2333,8 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Javascript variable value</source>
-      <translation>Valore variabile Javascript</translation>
+      <source>Javascript/Cookie variable value</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Variable identifier</source>
@@ -2581,6 +2637,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Encrypted</source>
       <translation>Crittografato</translation>
+    </message>
+    <message>
+      <source>Website cookie</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chat variables</source>
@@ -3272,16 +3332,20 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Search</source>
+      <translation>Cerca</translation>
+    </message>
+    <message>
+      <source>Debug chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Exclude personal responses</source>
       <translation>Escludere le risposte personali</translation>
     </message>
     <message>
       <source>User ID</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Search</source>
-      <translation>Cerca</translation>
     </message>
     <message>
       <source>Delete all items</source>
@@ -3380,8 +3444,16 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Department group</source>
+      <translation>Gruppo di reparti</translation>
+    </message>
+    <message>
       <source>Generate</source>
       <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Choose department group</source>
+      <translation>Selezionare gruppo di reparti</translation>
     </message>
     <message>
       <source>Include content</source>
@@ -3462,10 +3534,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Phone</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Department group</source>
-      <translation>Gruppo di reparti</translation>
     </message>
     <message>
       <source>Advanced search</source>
@@ -3664,6 +3732,26 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>20 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>40 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>60 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>80 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>100 items per page</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Print</source>
       <translation>Stampa</translation>
     </message>
@@ -3686,10 +3774,6 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Reset</source>
       <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Choose department group</source>
-      <translation>Selezionare gruppo di reparti</translation>
     </message>
     <message>
       <source>Choose status</source>
@@ -5832,6 +5916,30 @@ Icona colonna, testo icone materiale</translation>
       <translation>La richiesta non è stata elaborata come previsto, ma non c&apos;è da preoccuparsi, è colpa del sistema. Inviare nuovamente la richiesta. Se si riscontra lo stesso problema, è necessario contattarci tramite altri canali.</translation>
     </message>
     <message>
+      <source>File is to big! Maximum</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File is to big!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File upload is not for this chat!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>File upload is not enabled for the visitor!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>There was a problem with your uploaded file!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Media attribute could not be found or there was an error:</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Invalid file extension</source>
       <translation>Estensione file non valida</translation>
     </message>
@@ -5841,6 +5949,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>File too big!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Please complete previous process!</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6080,6 +6192,18 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Bottom left</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always enabled</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Enabled on mobile</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always off</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -6562,28 +6686,16 @@ Icona colonna, testo icone materiale</translation>
       <translation>Chiudi</translation>
     </message>
     <message>
+      <source>Allow operator to see your page content?</source>
+      <translation>Permetti all&apos;operatore di vedere il contenuto della pagina?</translation>
+    </message>
+    <message>
       <source>Open in a new window</source>
       <translation>Apri in una nuova finestra</translation>
     </message>
     <message>
       <source>Minimize/Restore</source>
       <translation>Minimizza/ripristina</translation>
-    </message>
-    <message>
-      <source>Our staff are always ready to help!</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Live help is online...</source>
-      <translation>Supporto live online...</translation>
-    </message>
-    <message>
-      <source>Need help?</source>
-      <translation>Serve Aiuto?</translation>
-    </message>
-    <message>
-      <source>Allow operator to see your page content?</source>
-      <translation>Permetti all&apos;operatore di vedere il contenuto della pagina?</translation>
     </message>
     <message>
       <source>New messages</source>
@@ -6594,8 +6706,20 @@ Icona colonna, testo icone materiale</translation>
       <translation>Supporto live</translation>
     </message>
     <message>
+      <source>Live help is online...</source>
+      <translation>Supporto live online...</translation>
+    </message>
+    <message>
       <source>Live help is offline...</source>
       <translation>Supporto live offline...</translation>
+    </message>
+    <message>
+      <source>Need help?</source>
+      <translation>Serve Aiuto?</translation>
+    </message>
+    <message>
+      <source>Our staff are always ready to help!</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Screen shared, click to finish</source>
@@ -7983,6 +8107,10 @@ Icona colonna, testo icone materiale</translation>
       <translation>Reindirizzare l&apos;utente ad un altro url</translation>
     </message>
     <message>
+      <source>Information</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Sending...</source>
       <translation type="unfinished"/>
     </message>
@@ -8040,6 +8168,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Hold added!</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No permission</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -8499,6 +8631,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Italic</source>
       <translation>Corsivo</translation>
+    </message>
+    <message>
+      <source>Strikethrough</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Please enter link to an image</source>
@@ -10686,6 +10822,14 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Chat was assigned to chat opener event it had other agent assigned at that moment</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Opened chat by</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide/Show HTML Code</source>
       <translation type="unfinished"/>
     </message>
@@ -11173,6 +11317,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Auto responder</source>
       <translation>Auto risponditore</translation>
+    </message>
+    <message>
+      <source>BBCode configuration</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Blocking</source>
@@ -12467,6 +12615,22 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>chat(s)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of chat answered during working hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>of chats answered outside business hours.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Top 3 hours are</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>All operators statistic will be downloaded</source>
       <translation>Tutte le statistiche degli operatori verranno scaricate</translation>
     </message>
@@ -12532,6 +12696,14 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Average wait time should be calculated for the last</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours starts at</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Work hours ends at</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -12641,6 +12813,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>New visitors</source>
       <translation>Nuovo visitatore</translation>
+    </message>
+    <message>
+      <source>Top 100 referrers for selected period</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>Chatbox chats</source>
@@ -12757,6 +12933,10 @@ Icona colonna, testo icone materiale</translation>
     <message>
       <source>Cities</source>
       <translation>Città</translation>
+    </message>
+    <message>
+      <source>Top 100 referrers</source>
+      <translation type="unfinished"/>
     </message>
     <message>
       <source>User agent</source>
@@ -13741,6 +13921,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>BBCode configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Default settings</source>
       <translation type="unfinished"/>
     </message>
@@ -14079,6 +14263,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Hide send e-mail button for operators in chat window</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Do not show survey if chat is ended in a bot status</source>
       <translation type="unfinished"/>
     </message>
   </context>
@@ -14710,6 +14898,14 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>possible chat attributes directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Delete</source>
       <translation type="unfinished"/>
     </message>
@@ -14842,6 +15038,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Convert to multipart/form-data if one of those API is used. Post the file using multipart/form-data in the usual way that files are uploaded via the browser.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>You can define additional parameters user can enter in bot trigger directly.</source>
       <translation type="unfinished"/>
     </message>
@@ -14969,19 +15169,7 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>genericbot/helpattributes</name>
     <message>
-      <source>Page where chat started</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Referer from where visitor come to site.</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
       <source>Chat ID to test against</source>
-      <translation type="unfinished"/>
-    </message>
-    <message>
-      <source>Pattern</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -14990,6 +15178,50 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Extract chat attributes</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Page where chat started</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Referer from where visitor come to site.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Operator nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor nick</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Visitor e-mail</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Phone</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>If you are using those vars in Rest API calls make sure you use double brackets E.g</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Chat ID to explore</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test your pattern</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Explore all possible chat attributes</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -17929,6 +18161,10 @@ Icona colonna, testo icone materiale</translation>
   <context>
     <name>chat/webhooks</name>
     <message>
+      <source>URL to put in third party Rest API service</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hooks events</source>
       <translation type="unfinished"/>
     </message>
@@ -18045,7 +18281,7 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>URL to put in third party Rest API service</source>
+      <source>URL to put in third party Rest API service. Append ?output=json for JSON format output.</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18114,6 +18350,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Images/Video 5</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Images/Video 6</source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -18217,6 +18457,10 @@ Icona colonna, testo icone materiale</translation>
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Attribute which holds file size. File size check will apply if defined. Optional.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Decode file options</source>
       <translation type="unfinished"/>
     </message>
@@ -18262,6 +18506,10 @@ Icona colonna, testo icone materiale</translation>
     </message>
     <message>
       <source>Download image instead of using external URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attribute which holds file size. File size check will apply if defined. Optional. </source>
       <translation type="unfinished"/>
     </message>
     <message>
@@ -19758,6 +20006,96 @@ Iscrizione ...
     </message>
     <message>
       <source>Value</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>lhaudit/debuginvitation</name>
+    <message>
+      <source>Simplified output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Valid invitations found</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>No valid messages were found from candidates</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped because of no online operators</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Skipped because of</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time seen on website ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>conditions</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Last time had chat n minutes ago</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attributes conditions not valid</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Message selected</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Attributes online visitor</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Time on site</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Online user output</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Raw output debug</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Proactive invitation to test against. Choose Any for auto select.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Tag to test against. E.g. error_deposit</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Test</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Any</source>
+      <translation type="unfinished"/>
+    </message>
+  </context>
+  <context>
+    <name>system/bbcodeconfiguration</name>
+    <message>
+      <source>BBCode configuration</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable for visitor messages</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Disable for operator messages</source>
       <translation type="unfinished"/>
     </message>
   </context>

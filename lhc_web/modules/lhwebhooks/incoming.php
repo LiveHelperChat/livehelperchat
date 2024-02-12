@@ -48,11 +48,21 @@ try {
         'data' => & $data
     ));
 
-    if (function_exists('fastcgi_finish_request')) {
-        fastcgi_finish_request();
+    if (!(isset($_GET['output']) && $_GET['output'] == 'json')){
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
     }
 
     erLhcoreClassChatWebhookIncoming::processEvent($incomingWebhook, $data);
+
+    if (isset($_GET['output']) && $_GET['output'] == 'json') {
+        header('Content-Type: application/json');
+        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            'error' => false,
+            'result' => ['chat_id' => erLhcoreClassChatWebhookIncoming::$chatInstance->id]
+        ));
+    }
 
 } catch (Exception $e) {
     if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true){
@@ -71,6 +81,16 @@ try {
             )
         );
     }
+
+    if (isset($_GET['output']) && $_GET['output'] == 'json') {
+        http_response_code(400);
+        header('Content-Type: application/json');
+        echo erLhcoreClassRestAPIHandler::outputResponse(array(
+            'error' => true,
+            'result' => $e->getMessage()
+        ));
+    }
+
 }
 
 exit;

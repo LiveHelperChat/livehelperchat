@@ -175,7 +175,9 @@ if ( isset($_POST['SendMessage']) ) {
 
                 $attributesSystem = $onlineAttrSystem;
                 foreach ($visitor->additional_data_array as $keyItem => $additionalItem) {
-                    $attributesSystem[$additionalItem['identifier']] = $additionalItem['value'];
+                    if (isset($additionalItem['identifier']) && isset($additionalItem['value'])) {
+                        $attributesSystem[$additionalItem['identifier']] = $additionalItem['value'];
+                    }
                 }
 
                 $chat->saveThis();

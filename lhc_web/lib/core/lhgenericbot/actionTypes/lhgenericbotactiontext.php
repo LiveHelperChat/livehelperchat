@@ -128,7 +128,7 @@ class erLhcoreClassGenericBotActionText {
             }
 
             if ($hasEvent && $softEvent === false) {
-                $action['content']['text'] = 'Please complete previous process!';
+                $action['content']['text'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please complete previous process!');
             } else {
                 $event = new erLhcoreClassModelGenericBotChatEvent();
                 $event->chat_id = $chat->id;
