@@ -51,7 +51,7 @@
 
             <style>
                 [data-bs-theme=bright] {
-                    {{bactract_bg_color_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_buble_visitor_background : ''}};
+                    ;{{bactract_bg_color_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_buble_visitor_background : ''}};
                     {{bactract_bg_color_buble_visitor_text_color ? '--lhc-msg-body-response-text: #'+bactract_bg_color_buble_visitor_text_color : ''}};
                     {{bactract_bg_color_buble_visitor_title_color ? '--lhc-msg-body-vis-tit-text: #'+bactract_bg_color_buble_visitor_title_color : ''}};
                     {{bactract_bg_color_buble_operator_title_color ? '--lhc-msg-body-op-tit-text: #'+bactract_bg_color_buble_operator_title_color : ''}};
@@ -69,7 +69,7 @@
                     {{bactract_bg_color_newm_color ? '--lhc-new-msg-border: #'+bactract_bg_color_newm_color : ''}};
                 }
                 [data-bs-theme=dark] {
-                    {{bactract_bg_color_dark_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_dark_buble_visitor_background : ''}};
+                    ;{{bactract_bg_color_dark_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_dark_buble_visitor_background : ''}};
                     {{bactract_bg_color_dark_buble_visitor_text_color ? '--lhc-msg-body-response-text: #'+bactract_bg_color_dark_buble_visitor_text_color : ''}};
                     {{bactract_bg_color_dark_buble_visitor_title_color ? '--lhc-msg-body-vis-tit-text: #'+bactract_bg_color_dark_buble_visitor_title_color : ''}};
                     {{bactract_bg_color_dark_buble_operator_title_color ? '--lhc-msg-body-op-tit-text: #'+bactract_bg_color_dark_buble_operator_title_color : ''}};
