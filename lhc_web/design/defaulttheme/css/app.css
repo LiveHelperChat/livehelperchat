@@ -366,7 +366,7 @@ div.message-admin div.msg-body .msg-del-st-3
 }
 
 div.system-response {
-	color:rgb(100, 100, 100);
+	color:var(--lhc-msg-body-sys-text);
 }
 
 div.system-response div.msg-body,
@@ -735,10 +735,10 @@ div.message-row.operator-changes .usr-tit{
 
 .message-row.system-response.operator-changes .usr-tit {
 	display: inline-block!important;
-  	background-color: #CCC;
+  	background-color: var(--lhc-msg-body-sys-tit-bg);
   	padding-left: 3px!important;
   	padding-right: 3px!important;
-  	color: #fff!important;
+  	color: var(--lhc-msg-body-sys-text) !important;
 }
 
 div.message-row-in {
