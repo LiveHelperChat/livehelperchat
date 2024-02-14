@@ -1,6 +1,6 @@
 <?php
 
-$tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/list.tpl.php');
+$tpl = erLhcoreClassTemplate::getInstance( 'lhmailarchive/list.tpl.php');
 
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('chatarchive/list');

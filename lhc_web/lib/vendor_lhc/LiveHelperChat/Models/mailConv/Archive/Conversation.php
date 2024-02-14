@@ -9,6 +9,13 @@ class Conversation extends \erLhcoreClassModelMailconvConversation
     
     public static $dbTable = null;
 
+    public static function fetchById($id, $determineArchive = true)
+    {
+        if ($determineArchive == true) {
+           
+        }
+    }
+
     public function beforeRemove()
     {
         parent::beforeRemove();

@@ -166,7 +166,7 @@ $ViewList['apinoreplyrequired'] = array(
 );
 
 $ViewList['loadmessagebody'] = array(
-    'params' => array('id'),
+    'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
 );
 

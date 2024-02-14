@@ -69,7 +69,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         setExpandBody(expandAction);
         if (expandAction == true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined') {
             setExpandingBody(true);
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id, {keyword: keyword}).then(result => {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id + "/" + message.conversation_id, {keyword: keyword}).then(result => {
                 loadMessageBody(result.data);
                 setExpandingBody(false);
             }).catch((error) => {

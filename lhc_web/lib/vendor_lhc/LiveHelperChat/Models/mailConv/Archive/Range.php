@@ -91,6 +91,12 @@ class Range
                 $msgArchive->saveThis();
             }
 
+            $lastChatID = $item->id;
+
+            if ($lastChatID > $this->last_id) {
+                $this->last_id = $lastChatID;
+            }
+
             /*
             $chatActions = erLhcoreClassModelChatAction::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
             foreach ($chatActions as $msg) {
@@ -131,11 +137,7 @@ class Range
                 $supportChat->removeThis();
             }
 
-            $lastChatID = $item->id;
 
-            if ($lastChatID > $this->last_id) {
-                $this->last_id = $lastChatID;
-            }
 
             $q = ezcDbInstance::get()->createDeleteQuery();
 

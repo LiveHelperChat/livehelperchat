@@ -15,7 +15,7 @@ $Chat = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']
 
 $errorTpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
 
-if ( erLhcoreClassChat::hasAccessToRead($Chat) )
+if ( is_object($Chat) && erLhcoreClassChat::hasAccessToRead($Chat) )
 {
     if (isset($_SERVER['HTTP_X_CSRFTOKEN']) && $currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']) && $form->hasInputField('data') && $form->hasValidData('data')) {
         $errors = array();
