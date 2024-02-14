@@ -66,6 +66,7 @@
                         <li>Few examples
                                 <ul>
                                     <li><strong>^.{5,}+$</strong> string with minimum 5 characters</li>
+                                    <li><strong>^[1-2]{1}$</strong> Only 1 or 2 is accepted</li>
                                     <li><strong>foo</strong> The string “foo”</li>
                                     <li><strong>^foo</strong> “foo” at the start of a string</li>
                                     <li><strong>foo$</strong> “foo” at the end of a string</li>
