@@ -1,5 +1,13 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/listarchivechats','Archived mails');?> (<?php echo htmlspecialchars($archive->range_from_front)?> - <?php echo htmlspecialchars($archive->range_to_front)?>)</h1>
 
+<div id="tabs" role="tabpanel">
+
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="nav-item"><a class="nav-link active" href="#chats" aria-controls="chats" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Mails');?></a></li>
+    </ul>
+
+    <div class="tab-content ps-2">
+        <div role="tabpanel" class="tab-pane active" id="chats">
 
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
@@ -109,3 +117,8 @@
 <?php } else { ?>
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/closedchats','Empty...');?></p>
 <?php } ?>
+
+        </div>
+    </div>
+
+</div>

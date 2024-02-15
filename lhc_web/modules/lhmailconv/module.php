@@ -63,7 +63,7 @@ $ViewList['editpersonalmailboxgroup'] = array(
 );
 
 $ViewList['inlinedownload'] = array(
-    'params' => array('id'),
+    'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
 );
 

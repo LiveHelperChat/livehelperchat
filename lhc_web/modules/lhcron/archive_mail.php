@@ -75,7 +75,7 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
         // Creates tables
         $lastArchive->createArchive();
 
-        for ($i = 1; $i < 50; $i++) {
+        for ($i = 1; $i < 2; $i++) {
             // Process
             $status = $lastArchive->process(array($data));
             echo "First archived mail id - [" . $status['fcid']. ']' . ' Last - [' . $status['lcid'] . '] Messages - ' . $status['messages_archived'] . ' Mails - ' . $status['mails_archived'] . "\n";

@@ -69,6 +69,7 @@ if (is_array($id)) {
 
     if (!empty($id)) {
         $chats = erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id DESC', 'filterin' => array('id' => $id)));
+        $idFound = [];
         foreach ($chats as $chat) {
             $item = array(
                 'id' => $chat->id,
@@ -80,6 +81,26 @@ if (is_array($id)) {
                 'dep' => (string)$chat->department
             );
             $response[] = $item;
+            $idFound[] = $chat->id;
+        }
+
+        // Handle archive type mails
+        foreach ($id as $idMail) {
+            if (!in_array($idMail, $idFound)) {
+                $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($idMail);
+                if (isset($mailData['mail'])) {
+                    $item = array(
+                        'id' => $mailData['mail']->id,
+                        'from_name' => $mailData['mail']->from_name,
+                        'from_address' => $mailData['mail']->from_address,
+                        'nick' => $mailData['mail']->subject,
+                        'cs' => $mailData['mail']->status,
+                        'co' => $mailData['mail']->user_id,
+                        'dep' => (string)$mailData['mail']->department
+                    );
+                    $response[] = $item;
+                }
+            }
         }
     }
 }

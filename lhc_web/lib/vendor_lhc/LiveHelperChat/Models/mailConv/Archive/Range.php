@@ -37,12 +37,9 @@ class Range
         $db = \ezcDbInstance::get();
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationTable . "`");
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationMsgTable . "`");
-        /*$db->query("DROP TABLE IF EXISTS `" . self::$archiveMsgTable . "`");
-        $db->query("DROP TABLE IF EXISTS `" . self::$archiveSupportTable . "`");
-        $db->query("DROP TABLE IF EXISTS `" . self::$archiveSupportMsgTable . "`");
-        $db->query("DROP TABLE IF EXISTS `" . self::$archiveSupportMemberTable . "`");
-        $db->query("DROP TABLE IF EXISTS `" . self::$archiveChatActionsTable . "`");
-        $db->query("DROP TABLE IF EXISTS `" . self::$archiveChatParticipantTable . "`");*/
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationFileTable . "`");
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationMsgSubjectTable . "`");
+        $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationMsgInternalTable . "`");
 
         \erLhcoreClassChat::getSession()->delete($this);
     }
@@ -59,13 +56,9 @@ class Range
 
         self::$archiveConversationTable = "lhc_mailconv_conversation_archive_{$this->id}";
         self::$archiveConversationMsgTable = "lhc_mailconv_msg_archive_{$this->id}";
-
-        /*self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-        self::$archiveSupportTable = "lh_group_chat_{$this->id}";
-        self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
-        self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
-        self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
-        self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";*/
+        self::$archiveConversationFileTable = "lhc_mailconv_file_archive_{$this->id}";
+        self::$archiveConversationMsgSubjectTable = "lhc_mailconv_msg_subject_archive_{$this->id}";
+        self::$archiveConversationMsgInternalTable = "lhc_mailconv_msg_internal_archive_{$this->id}";
 
         $pending_archive = count($list);
         $messagesArchived = 0;
@@ -97,86 +90,62 @@ class Range
                 $this->last_id = $lastChatID;
             }
 
-            /*
-            $chatActions = erLhcoreClassModelChatAction::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($chatActions as $msg) {
-                $msgArchive = new erLhcoreClassModelChatArchiveAction();
-                $msgArchive->setState(get_object_vars($msg));
-                $msgArchive->saveThis();
+            // Files
+            $files = \erLhcoreClassModelMailconvFile::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
+            foreach ($files as $file) {
+                $fileArchive = new File();
+                $fileArchive->setState(get_object_vars($file));
+                $fileArchive->saveThis();
             }
 
-            $chatParticipants = \LiveHelperChat\Models\LHCAbstract\ChatParticipant::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
-            foreach ($chatParticipants as $chatParticipant) {
-                $participantArchive = new erLhcoreClassModelChatArchiveParticipant();
-                $participantArchive->setState(get_object_vars($chatParticipant));
-                $participantArchive->saveThis();
+            // Messages Subjects
+            $msgSubjects = \erLhcoreClassModelMailconvMessageSubject::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
+            foreach ($msgSubjects as $msgSubject) {
+                $msgSubjectArchive = new MessageSubject();
+                $msgSubjectArchive->setState(get_object_vars($msgSubject));
+                $msgSubjectArchive->saveThis();
             }
 
-            $supportChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $item->id)));
-
-            if ($supportChat instanceof erLhcoreClassModelGroupChat) {
-                $supportChatArchive = new erLhcoreClassModelGroupChatArchive();
-                $supportChatArchive->setState(get_object_vars($supportChat));
-                $supportChatArchive->saveThis();
-
-                $members = erLhcoreClassModelGroupChatMember::getList(array('filter' => array('group_id' => $supportChat->id)));
-                foreach ($members as $member) {
-                    $memberArchive = new erLhcoreClassModelGroupChatMemberArchive();
-                    $memberArchive->setState(get_object_vars($member));
-                    $memberArchive->saveThis();
-                }
-
-                $messagesSupport = erLhcoreClassModelGroupMsg::getList(array('limit' => 1000, 'filter' => array('chat_id' => $supportChat->id)));
-                foreach ($messagesSupport as $msgSupport) {
-                    $msgSupportArchive = new erLhcoreClassModelGroupMsgArchive();
-                    $msgSupportArchive->setState(get_object_vars($msgSupport));
-                    $msgSupportArchive->saveThis();
-                }
-
-                // Delete group chat record
-                $supportChat->removeThis();
+            // Messages Internal
+            $msgInternals = \erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 1000, 'filter' => array('chat_id' => $item->id)));
+            foreach ($msgInternals as $msgInternal) {
+                $msgInternalArchive = new MessageInternal();
+                $msgInternalArchive->setState(get_object_vars($msgInternal));
+                $msgInternalArchive->saveThis();
             }
 
+            $q = \ezcDbInstance::get()->createDeleteQuery();
 
-
-            $q = ezcDbInstance::get()->createDeleteQuery();
-
-            // Participants
-            $q->deleteFrom( 'lh_chat_participant' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            // Files
+            $q->deleteFrom( 'lhc_mailconv_file' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Messages
-            $q->deleteFrom( 'lh_msg' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $q->deleteFrom( 'lhc_mailconv_msg' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
-            // Transfered chats
-            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            // Messages Subjects
+            $q->deleteFrom( 'lhc_mailconv_msg_subject' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
-            // Delete screen sharing
-            $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            // Messages Internal
+            $q->deleteFrom( 'lhc_mailconv_msg_internal' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
-            // Delete auto responder
-            $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );
+            $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ), $q->expr->eq( 'transfer_scope', 1 ) );
             $stmt = $q->prepare();
             $stmt->execute();
-
-            // Chat actions
-            $q->deleteFrom( 'lh_chat_action' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();*/
 
             // Dispatch event if chat is archived
             \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.archived',array('mail' => & $item, 'archive' => $this));
 
-            //\erLhcoreClassMailconv::getSession()->delete($item);
+            \erLhcoreClassMailconv::getSession()->delete($item);
 
-            //$item->afterRemove();
+            $item->afterRemove();
         }
 
         $this->updateFirstId();
@@ -198,13 +167,9 @@ class Range
     {
         Conversation::$dbTable = self::$archiveConversationTable = "lhc_mailconv_conversation_archive_{$this->id}";
         Message::$dbTable = self::$archiveConversationMsgTable = "lhc_mailconv_msg_archive_{$this->id}";
-
-        /*erLhcoreClassModelChatArchiveMsg::$dbTable = self::$archiveMsgTable = "lh_chat_archive_msg_{$this->id}";
-        erLhcoreClassModelGroupChatArchive::$dbTable = self::$archiveSupportTable = "lh_group_chat_{$this->id}";
-        erLhcoreClassModelGroupMsgArchive::$dbTable = self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
-        erLhcoreClassModelGroupChatMemberArchive::$dbTable = self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
-        erLhcoreClassModelChatArchiveAction::$dbTable = self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
-        erLhcoreClassModelChatArchiveParticipant::$dbTable = self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";*/
+        File::$dbTable = self::$archiveConversationFileTable = "lhc_mailconv_file_archive_{$this->id}";
+        MessageSubject::$dbTable = self::$archiveConversationMsgSubjectTable = "lhc_mailconv_msg_subject_archive_{$this->id}";
+        MessageInternal::$dbTable = self::$archiveConversationMsgInternalTable = "lhc_mailconv_msg_internal_archive_{$this->id}";
 
         \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.set_archive_tables', array('archive' => & $this));
     }
@@ -283,12 +248,10 @@ class Range
 
                     self::$archiveConversationTable = "lhc_mailconv_conversation_archive_{$this->id}";
                     self::$archiveConversationMsgTable = "lhc_mailconv_msg_archive_{$this->id}";
+                    self::$archiveConversationFileTable = "lhc_mailconv_file_archive_{$this->id}";
+                    self::$archiveConversationMsgSubjectTable = "lhc_mailconv_msg_subject_archive_{$this->id}";
+                    self::$archiveConversationMsgInternalTable = "lhc_mailconv_msg_internal_archive_{$this->id}";
 
-                    /*self::$archiveSupportTable = "lh_group_chat_{$this->id}";
-                    self::$archiveSupportMsgTable = "lh_group_msg_{$this->id}";
-                    self::$archiveSupportMemberTable = "lh_group_chat_member_{$this->id}";
-                    self::$archiveChatActionsTable = "lh_chat_action_{$this->id}";
-                    self::$archiveChatParticipantTable = "lh_chat_participant_{$this->id}";*/
                     $this->messages_in_archive = \erLhcoreClassChat::getCount(array(), self::$archiveConversationMsgTable);
                 }
 
@@ -338,6 +301,36 @@ class Range
             $command = str_replace("`lhc_mailconv_msg`", "`lhc_mailconv_msg_archive_{$this->id}`", $command);
             $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
             $db->query($command);
+
+            // Files table
+            $stmt = $db->prepare('SHOW CREATE TABLE `lhc_mailconv_file`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lhc_mailconv_file`", "`lhc_mailconv_file_archive_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
+            $db->query($command);
+
+            // Messages Subject
+            $stmt = $db->prepare('SHOW CREATE TABLE `lhc_mailconv_msg_subject`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lhc_mailconv_msg_subject`", "`lhc_mailconv_msg_subject_archive_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
+            $db->query($command);
+
+            // Messages Internal
+            $stmt = $db->prepare('SHOW CREATE TABLE `lhc_mailconv_msg_internal`;');
+            $stmt->execute();
+            $rows = $stmt->fetch();
+            $command = $rows[1];
+            $command = preg_replace('/AUTO_INCREMENT\=[0-9]+/i', 'AUTO_INCREMENT=1', $command);
+            $command = str_replace("`lhc_mailconv_msg_internal`", "`lhc_mailconv_msg_internal_archive_{$this->id}`", $command);
+            $command = str_replace("ROW_FORMAT=COMPACT", "", $command);
+            $db->query($command);
         }
 
         \erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.create_archive', array('archive' => & $this));
@@ -355,6 +348,9 @@ class Range
 
     public static $archiveConversationTable;
     public static $archiveConversationMsgTable;
+    public static $archiveConversationFileTable;
+    public static $archiveConversationMsgSubjectTable;
+    public static $archiveConversationMsgInternalTable;
 
 }
 

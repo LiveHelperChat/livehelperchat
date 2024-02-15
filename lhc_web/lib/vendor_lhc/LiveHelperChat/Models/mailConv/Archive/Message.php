@@ -23,6 +23,8 @@ class Message extends \erLhcoreClassModelMailconvMessage
     {
         parent::afterRemove();
     }
+    
+    public $is_archive = true;
 
 }
 

@@ -1,12 +1,12 @@
 <?php
 namespace LiveHelperChat\Models\mailConv\Archive;
 #[\AllowDynamicProperties]
-class Conversation extends \erLhcoreClassModelMailconvConversation
+class MessageInternal extends \erLhcoreClassModelMailconvMessageInternal
 {
     use \erLhcoreClassDBTrait;
 
     public static $dbSessionHandler = 'erLhcoreClassAbstract::getSession';
-    
+
     public static $dbTable = null;
 
     public function beforeRemove()
