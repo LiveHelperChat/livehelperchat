@@ -8,7 +8,7 @@
 
         <small>
             <?php
-                $messages = array_reverse(erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
+                $messages = $chat->is_archive === false ? array_reverse(erLhcoreClassModelMailconvMessageInternal::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))) :  array_reverse(LiveHelperChat\Models\mailConv\Archive\MessageInternal::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id))));
                 $paramsMessageRenderExecution = ['extend_date' => true];
             ?>
             <?php if (!empty($messages)) : ?>

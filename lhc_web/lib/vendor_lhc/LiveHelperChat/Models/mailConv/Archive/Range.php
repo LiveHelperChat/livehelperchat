@@ -47,9 +47,9 @@ class Range
     public function process()
     {
         if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 100, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
+            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 5, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
         } elseif ($this->older_than > 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 100, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
+            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 5, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
         } else {
             throw new \Exception('Could not determine archive logic!');
         }
@@ -90,12 +90,14 @@ class Range
                 $this->last_id = $lastChatID;
             }
 
-            // Files
-            $files = \erLhcoreClassModelMailconvFile::getList(array('limit' => 1000, 'filter' => array('conversation_id' => $item->id)));
-            foreach ($files as $file) {
-                $fileArchive = new File();
-                $fileArchive->setState(get_object_vars($file));
-                $fileArchive->saveThis();
+            if (!empty($messages)) {
+                // Files
+                $files = \erLhcoreClassModelMailconvFile::getList(array('limit' => 1000, 'filterin' => array('message_id' => array_keys($messages))));
+                foreach ($files as $file) {
+                    $fileArchive = new File();
+                    $fileArchive->setState(get_object_vars($file));
+                    $fileArchive->saveThis();
+                }
             }
 
             // Messages Subjects
@@ -114,28 +116,36 @@ class Range
                 $msgInternalArchive->saveThis();
             }
 
-            $q = \ezcDbInstance::get()->createDeleteQuery();
+            $db = \ezcDbInstance::get();
 
             // Files
-            $q->deleteFrom( 'lhc_mailconv_file' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
+            foreach ($messages as $message) {
+                $q = $db->createDeleteQuery();
+                $q->deleteFrom( 'lhc_mailconv_file' )->where( $q->expr->eq( 'message_id', $message->id ) );
+                $stmt = $q->prepare();
+                $stmt->execute();
+            }
 
             // Messages
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lhc_mailconv_msg' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Messages Subjects
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lhc_mailconv_msg_subject' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
             // Messages Internal
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lhc_mailconv_msg_internal' )->where( $q->expr->eq( 'chat_id', $item->id ) );
             $stmt = $q->prepare();
             $stmt->execute();
 
+            // Transfer table
+            $q = $db->createDeleteQuery();
             $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'chat_id', $item->id ), $q->expr->eq( 'transfer_scope', 1 ) );
             $stmt = $q->prepare();
             $stmt->execute();

@@ -194,7 +194,7 @@ const MailChat = props => {
     }
 
     const noReplyRequired = (message) => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apinoreplyrequired/" + message.id).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apinoreplyrequired/" + message.id + "/" + message.conversation_id).then(result => {
             dispatch({
                 type: 'update_message',
                 message: result.data.message,
@@ -214,13 +214,13 @@ const MailChat = props => {
     }
 
     const addLabel = (message) => {
-        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id,hidecallback : () => {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id + "/" + message.conversation_id,hidecallback : () => {
             updateLabels(message);
         }});
     }
 
     const updateLabels = (message) => {
-        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id + "/" + message.conversation_id).then(result => {
             dispatch({
                 type: 'update_subjects',
                 message_id: message.id,

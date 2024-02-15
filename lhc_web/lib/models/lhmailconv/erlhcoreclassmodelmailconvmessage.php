@@ -165,7 +165,7 @@ class erLhcoreClassModelMailconvMessage
 
                     foreach ($this->files as $file) {
                         if ($file->content_id != '') {
-                            $body = str_replace('cid:' . $file->content_id,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id . '/' . $file->conversation_id, $body);
+                            $body = str_replace('cid:' . $file->content_id,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id . '/' . $this->conversation_id, $body);
                         }
                     }
 
