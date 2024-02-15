@@ -1757,7 +1757,6 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'pendingu' : userList,
                 'oopu' : userList,
                 'pendingd_ugroups' : userGroups,
-                'operatord_ugroups' : userGroups,
                 'pendingd_dpgroups' : userDepartmentsGroups,
                 'pendingd_products' : userProductNames,
 
@@ -1773,7 +1772,10 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
                 'unreadd_products' : userProductNames,
 
                 'mcd_products' : userProductNames,
-                'mcd_dpgroups' : userDepartmentsGroups
+                'mcd_dpgroups' : userDepartmentsGroups,
+
+                'operatord_dpgroups' : userDepartmentsGroups,
+                'operatord_ugroups' : userGroups
             };
 
             angular.forEach(verifyCombinations, function(list, index) {
