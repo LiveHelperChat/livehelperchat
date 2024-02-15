@@ -9,6 +9,7 @@
     <div class="tab-content ps-2">
         <div role="tabpanel" class="tab-pane active" id="chats">
 
+<?php $is_archive_mode = true; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/search_panel.tpl.php')); ?>
 
 <?php if ($pages->items_total > 0) { ?>

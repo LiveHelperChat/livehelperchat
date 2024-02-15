@@ -93,7 +93,7 @@ $ViewList['apiunmerge'] = array(
 );
 
 $ViewList['apimaildownload'] = array(
-    'params' => array('id'),
+    'params' => array('id','id_conv'),
     'functions' => array( 'can_download' )
 );
 
@@ -136,7 +136,7 @@ $ViewList['getreplydata'] = array(
 );
 
 $ViewList['mailprint'] = array(
-    'params' => array('id'),
+    'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
 );
 

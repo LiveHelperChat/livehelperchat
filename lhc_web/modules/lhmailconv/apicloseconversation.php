@@ -13,9 +13,16 @@ try {
 
     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($Params['user_parameters']['id']);
 
+    if (!($conv instanceof \erLhcoreClassModelMailconvConversation)) {
+        $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id']);
+        if (isset($mailData['mail'])) {
+            $conv = $mailData['mail'];
+        }
+    }
+
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) )
     {
-        erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+        $conv->is_archive === false && erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
 
         $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
 
@@ -33,7 +40,9 @@ try {
 
         $userData = $currentUser->getUserData();
 
-        erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
+        if ($conv->is_archive === false) {
+            erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
+        }
 
         echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)]);
 

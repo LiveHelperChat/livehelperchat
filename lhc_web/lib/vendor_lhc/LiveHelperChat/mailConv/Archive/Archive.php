@@ -14,6 +14,11 @@ class Archive
      * @throws ezcDbHandlerNotFoundException
      */
     public static function fetchMailById($chatId) {
+
+        if (!is_numeric($chatId)){
+            return null;
+        }
+
         $chatsId[$chatId] = array();
         self::setArchiveAttribute($chatsId);
 
