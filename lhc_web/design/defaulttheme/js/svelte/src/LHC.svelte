@@ -779,6 +779,8 @@
                 'mcd_dpgroups' : userDepartmentsGroups,
 
                 'mmd_dpgroups' : userDepartmentsGroups,
+
+                'operatord_dpgroups' : userDepartmentsGroups
             };
 
             for (const [index, list] of Object.entries(verifyCombinations)) {
