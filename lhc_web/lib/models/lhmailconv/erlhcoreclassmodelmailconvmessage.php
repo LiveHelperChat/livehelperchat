@@ -114,6 +114,7 @@ class erLhcoreClassModelMailconvMessage
 
     public function beforeRemove()
     {
+
         // Files
         $files = $this->is_archive === false ? erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\File::getList(['filter' => ['message_id' => $this->id]]);
 

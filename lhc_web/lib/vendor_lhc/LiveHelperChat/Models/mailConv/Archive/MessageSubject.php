@@ -14,11 +14,6 @@ class MessageSubject extends \erLhcoreClassModelMailconvMessageSubject
         parent::beforeRemove();
     }
 
-    public function removeThis()
-    {
-        parent::removeThis();
-    }
-
     public function afterRemove()
     {
         parent::afterRemove();
