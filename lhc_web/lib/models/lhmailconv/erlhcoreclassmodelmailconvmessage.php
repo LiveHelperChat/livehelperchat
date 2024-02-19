@@ -114,10 +114,18 @@ class erLhcoreClassModelMailconvMessage
 
     public function beforeRemove()
     {
-        $files = $this->is_archive === false ? erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\File::getList(['filter' => ['message_id' => $this->id]]);;
+        // Files
+        $files = $this->is_archive === false ? erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\File::getList(['filter' => ['message_id' => $this->id]]);
 
         foreach ($files as $file) {
             $file->removeThis();
+        }
+
+        // Message subjects
+        $messageSubjects = $this->is_archive === false ? erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\MessageSubject::getList(['filter' => ['message_id' => $this->id]]);
+
+        foreach ($messageSubjects as $messageSubject) {
+            $messageSubject->removeThis();
         }
 
         erLhcoreClassMailconvParser::purgeMessage($this);

@@ -118,6 +118,12 @@ class erLhcoreClassModelMailconvConversation
         foreach ($messages as $message) {
             $message->removeThis();
         }
+
+        $messagesInternal = $this->is_archive === false ? erLhcoreClassModelMailconvMessageInternal::getList(['filter' => ['chat_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\MessageInternal::getList(['filter' => ['chat_id' => $this->id]]);
+        
+        foreach ($messagesInternal as $messageInternal) {
+            $messageInternal->removeThis();
+        }
     }
 
     public function __get($var)
