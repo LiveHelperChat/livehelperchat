@@ -16,7 +16,7 @@ $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input
 
 // Chat id has to be replaced to table one
 if (isset($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'])) {
-    $filterParams['filter']['filter']['`lhc_mailconv_conversation_archive_' . $Params['user_parameters']['id'] . '`.`id`'] = $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'];
+    $filterParams['filter']['filter'][ '`'. \LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '`.`id`'] = $filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`'];
     unset($filterParams['filter']['filter']['`lhc_mailconv_conversation`.`id`']);
 }
 

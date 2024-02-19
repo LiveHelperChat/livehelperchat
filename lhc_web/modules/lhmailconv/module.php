@@ -141,7 +141,7 @@ $ViewList['mailprint'] = array(
 );
 
 $ViewList['downloadrfc822'] = array(
-    'params' => array('id'),
+    'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
 );
 
