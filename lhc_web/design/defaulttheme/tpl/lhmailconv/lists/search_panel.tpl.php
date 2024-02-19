@@ -338,7 +338,7 @@
 
                 <?php endif; ?>
                 
-                <a class="btn btn-outline-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
+                <a class="btn btn-outline-secondary btn-sm" href="<?php if (!isset($is_archive_mode)) : ?><?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?><?php else : ?>sss<?php endif; ?>"><span class="material-icons">refresh</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
 
             </div>
         </div>
