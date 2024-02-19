@@ -41,15 +41,15 @@ class Range
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationMsgSubjectTable . "`");
         $db->query("DROP TABLE IF EXISTS `" . self::$archiveConversationMsgInternalTable . "`");
 
-        \erLhcoreClassChat::getSession()->delete($this);
+        \erLhcoreClassAbstract::getSession()->delete($this);
     }
 
     public function process()
     {
         if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 5, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
+            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
         } elseif ($this->older_than > 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 5, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
+            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
         } else {
             throw new \Exception('Could not determine archive logic!');
         }

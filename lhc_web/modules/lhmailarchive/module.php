@@ -41,6 +41,26 @@ $ViewList['listarchivemails'] = array(
     )
 );
 
+$ViewList['edit'] = array(
+    'params' => array('id'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['process'] = array(
+    'params' => array('id'),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['startarchive'] = array(
+    'params' => array(),
+    'functions' => array( 'configuration' )
+);
+
+$ViewList['archivechats'] = array(
+    'params' => array(),
+    'functions' => array( 'configuration' )
+);
+
 $FunctionList['archive'] = array('explain' => 'Allow user to use archive functionality');
 $FunctionList['configuration'] = array('explain' => 'Allow user to configure archive');
 
