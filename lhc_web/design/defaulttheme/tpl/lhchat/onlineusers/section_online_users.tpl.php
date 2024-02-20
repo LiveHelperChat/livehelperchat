@@ -20,7 +20,7 @@
 
 	</div>
 	<div class="col-2 pe-0">
-		<input class="form-control form-control-sm" <?php if (isset($_GET['search'])) :?>ng-init='query=<?php echo json_encode(strip_tags($_GET['search']),JSON_HEX_APOS);?>'<?php endif?> ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
+		<input class="form-control form-control-sm" <?php if (isset($_GET['search'])) :?>ng-init='query=<?php echo json_encode(str_replace(array('}}','{{'),'',strip_tags($_GET['search'])),JSON_HEX_APOS);?>'<?php endif?> ng-model="query" type="text" value="" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Type to search')?>">
 	</div>
 	<div class="col-1 pe-0">
 		<select class="form-control form-control-sm" ng-model="groupByField" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Group list by');?>">
