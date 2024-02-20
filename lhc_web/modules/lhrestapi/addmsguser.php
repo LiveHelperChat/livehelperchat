@@ -12,7 +12,7 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 $r = '';
 $error = false;
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('[[msgitm]]', '',$form->msg)) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('[[msgitm]]', '',$form->msg)) != '' && mb_strlen($form->msg) <= (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
     try {
         $db = ezcDbInstance::get();

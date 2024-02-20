@@ -51,48 +51,40 @@
 
             <style>
                 [data-bs-theme=bright] {
-                    --lhc-msg-body-response: #{{bactract_bg_color_buble_visitor_background}};
-                    --lhc-msg-body-response-text: #{{bactract_bg_color_buble_visitor_text_color}};
-                    --lhc-msg-body-vis-tit-text: #{{bactract_bg_color_buble_visitor_title_color}};
-
-                    --lhc-msg-body-op-tit-text: #{{bactract_bg_color_buble_operator_title_color}};
-                    --lhc-msg-body-op-text: #{{bactract_bg_color_buble_operator_text_color}};
-                    --lhc-msg-body-op-bg: #{{bactract_bg_color_buble_operator_background}};
-
-                    --lhc-msg-body-op-tit-other-text: #{{bactract_bg_color_buble_operator_other_title_color}};
-                    --lhc-msg-body-op-bg-other: #{{bactract_bg_color_buble_operator_other_background}};
-                    --lhc-msg-body-op-text-other: #{{bactract_bg_color_buble_operator_other_text_color}};
-
-                    --lhc-msg-body-sys-tit-bg: #{{bactract_bg_color_buble_sys_background}};
-                    --lhc-msg-body-sys-date-text: #{{bactract_bg_color_buble_sys_title_color}};
-                    --lhc-msg-body-sys-tit-text: #{{bactract_bg_color_buble_sys_title_color}};
-                    --lhc-msg-body-sys-text: #{{bactract_bg_color_buble_sys_text_color}};
-
-                    --lhc-msg-date-text:#{{bactract_bg_color_time_color}};
-                    --lhc-msg-body-bg: #{{bactract_bg_color_chat_bg}};
-                    --lhc-new-msg-border: #{{bactract_bg_color_newm_color}};
+                    ;{{bactract_bg_color_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_buble_visitor_background : ''}};
+                    {{bactract_bg_color_buble_visitor_text_color ? '--lhc-msg-body-response-text: #'+bactract_bg_color_buble_visitor_text_color : ''}};
+                    {{bactract_bg_color_buble_visitor_title_color ? '--lhc-msg-body-vis-tit-text: #'+bactract_bg_color_buble_visitor_title_color : ''}};
+                    {{bactract_bg_color_buble_operator_title_color ? '--lhc-msg-body-op-tit-text: #'+bactract_bg_color_buble_operator_title_color : ''}};
+                    {{bactract_bg_color_buble_operator_text_color ? '--lhc-msg-body-op-text: #'+bactract_bg_color_buble_operator_text_color : ''}};
+                    {{bactract_bg_color_buble_operator_background ? '--lhc-msg-body-op-bg: #'+bactract_bg_color_buble_operator_background : ''}};
+                    {{bactract_bg_color_buble_operator_other_title_color ? '--lhc-msg-body-op-tit-other-text: #'+bactract_bg_color_buble_operator_other_title_color : ''}};
+                    {{bactract_bg_color_buble_operator_other_background ? '--lhc-msg-body-op-bg-other: #'+bactract_bg_color_buble_operator_other_background : ''}};
+                    {{bactract_bg_color_buble_operator_other_text_color ? '--lhc-msg-body-op-text-other: #'+bactract_bg_color_buble_operator_other_text_color : ''}};
+                    {{bactract_bg_color_buble_sys_background ? '--lhc-msg-body-sys-tit-bg: #'+bactract_bg_color_buble_sys_background : ''}};
+                    {{bactract_bg_color_buble_sys_title_color ? '--lhc-msg-body-sys-date-text: #'+bactract_bg_color_buble_sys_title_color : ''}};
+                    {{bactract_bg_color_buble_sys_title_color ? '--lhc-msg-body-sys-tit-text: #'+bactract_bg_color_buble_sys_title_color : ''}};
+                    {{bactract_bg_color_buble_sys_text_color ? '--lhc-msg-body-sys-text: #'+bactract_bg_color_buble_sys_text_color : ''}};
+                    {{bactract_bg_color_time_color ? '--lhc-msg-date-text: #'+bactract_bg_color_time_color : ''}};
+                    {{bactract_bg_color_chat_bg ? '--lhc-msg-body-bg: #'+bactract_bg_color_chat_bg : ''}};
+                    {{bactract_bg_color_newm_color ? '--lhc-new-msg-border: #'+bactract_bg_color_newm_color : ''}};
                 }
                 [data-bs-theme=dark] {
-                    --lhc-msg-body-response: #{{bactract_bg_color_dark_buble_visitor_background}};
-                    --lhc-msg-body-response-text: #{{bactract_bg_color_dark_buble_visitor_text_colo}};
-                    --lhc-msg-body-vis-tit-text: #{{bactract_bg_color_dark_buble_visitor_title_color}};
-
-                    --lhc-msg-body-op-tit-text: #{{bactract_bg_color_dark_buble_operator_title_color}};
-                    --lhc-msg-body-op-text: #{{bactract_bg_color_dark_buble_operator_text_color}};
-                    --lhc-msg-body-op-bg:#{{bactract_bg_color_dark_buble_operator_background}};
-
-                    --lhc-msg-body-op-tit-other-text: #{{bactract_bg_color_dark_buble_operator_other_title_color}};
-                    --lhc-msg-body-op-bg-other: #{{bactract_bg_color_dark_buble_operator_other_background}};
-                    --lhc-msg-body-op-text-other: #{{bactract_bg_color_dark_buble_operator_other_text_color}};
-
-                    --lhc-msg-body-sys-tit-bg:#{{bactract_bg_color_dark_buble_sys_background}};
-                    --lhc-msg-body-sys-date-text:#{{bactract_bg_color_dark_buble_sys_title_color}};
-                    --lhc-msg-body-sys-tit-text: #{{bactract_bg_color_dark_buble_sys_title_color}};
-                    --lhc-msg-body-sys-text: #{{bactract_bg_color_dark_buble_sys_text_color}};
-
-                    --lhc-msg-date-text:#{{bactract_bg_color_dark_time_color}};
-                    --lhc-msg-body-bg: #{{bactract_bg_color_dark_chat_bg}};
-                    --lhc-new-msg-border: #{{bactract_bg_color_dark_newm_color}};
+                    ;{{bactract_bg_color_dark_buble_visitor_background ? '--lhc-msg-body-response: #'+bactract_bg_color_dark_buble_visitor_background : ''}};
+                    {{bactract_bg_color_dark_buble_visitor_text_color ? '--lhc-msg-body-response-text: #'+bactract_bg_color_dark_buble_visitor_text_color : ''}};
+                    {{bactract_bg_color_dark_buble_visitor_title_color ? '--lhc-msg-body-vis-tit-text: #'+bactract_bg_color_dark_buble_visitor_title_color : ''}};
+                    {{bactract_bg_color_dark_buble_operator_title_color ? '--lhc-msg-body-op-tit-text: #'+bactract_bg_color_dark_buble_operator_title_color : ''}};
+                    {{bactract_bg_color_dark_buble_operator_text_color ? '--lhc-msg-body-op-text: #'+bactract_bg_color_dark_buble_operator_text_color : ''}};
+                    {{bactract_bg_color_dark_buble_operator_background ? '--lhc-msg-body-op-bg: #'+bactract_bg_color_dark_buble_operator_background : ''}};
+                    {{bactract_bg_color_dark_buble_operator_other_title_color ? '--lhc-msg-body-op-tit-other-text: #'+bactract_bg_color_dark_buble_operator_other_title_color : ''}};
+                    {{bactract_bg_color_dark_buble_operator_other_background ? '--lhc-msg-body-op-bg-other: #'+bactract_bg_color_dark_buble_operator_other_background : ''}};
+                    {{bactract_bg_color_dark_buble_operator_other_text_color ? '--lhc-msg-body-op-text-other: #'+bactract_bg_color_dark_buble_operator_other_text_color : ''}};
+                    {{bactract_bg_color_dark_buble_sys_background ? '--lhc-msg-body-sys-tit-bg: #'+bactract_bg_color_dark_buble_sys_background : ''}};
+                    {{bactract_bg_color_dark_buble_sys_title_color ? '--lhc-msg-body-sys-date-text: #'+bactract_bg_color_dark_buble_sys_title_color : ''}};
+                    {{bactract_bg_color_dark_buble_sys_title_color ? '--lhc-msg-body-sys-tit-text: #'+bactract_bg_color_dark_buble_sys_title_color : ''}};
+                    {{bactract_bg_color_dark_buble_sys_text_color ? '--lhc-msg-body-sys-text: #'+bactract_bg_color_dark_buble_sys_text_color : ''}};
+                    {{bactract_bg_color_dark_time_color ? '--lhc-msg-date-text: #'+bactract_bg_color_dark_time_color : ''}};
+                    {{bactract_bg_color_dark_chat_bg ? '--lhc-msg-body-bg: #'+bactract_bg_color_dark_chat_bg : ''}};
+                    {{bactract_bg_color_dark_newm_color ? '--lhc-new-msg-border: #'+bactract_bg_color_dark_newm_color : ''}};
                 }
             </style>
             
