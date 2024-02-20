@@ -137,7 +137,7 @@ if (isset($_GET['doSearch'])) {
     $dynamic_url_append .= '/(search)/'.rawurlencode($searchString);
 }
 
-$tpl->set('keyword',$keywordSearch);
+$tpl->set('keyword', str_replace(array('}}','{{'),'',$keywordSearch));
 
 $q->where($whereConditions);
 

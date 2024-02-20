@@ -13,7 +13,7 @@ $definition = array(
 
 $form = new ezcInputForm( INPUT_POST, $definition );
 
-if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) < (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
+if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && mb_strlen($form->msg) <= (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value)
 {
 	$db = ezcDbInstance::get();
 	$db->beginTransaction();	

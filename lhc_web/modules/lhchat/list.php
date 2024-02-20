@@ -221,6 +221,8 @@ try {
     $pages->serverURL = erLhcoreClassDesign::baseurl('chat/list').$append;
     if ($filterParams['input']->ipp > 0) {
         $pages->setItemsPerPage($filterParams['input']->ipp);
+    } else {
+        $pages->setItemsPerPage(60);
     }
     $pages->paginate();
     $tpl->set('pages',$pages);

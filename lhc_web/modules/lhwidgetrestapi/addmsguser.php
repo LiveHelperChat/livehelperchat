@@ -35,7 +35,7 @@ try {
 }
 
 
-if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) < $minLengthMessage)
+if (isset($payload['msg']) && trim($payload['msg']) != '' && trim(str_replace('[[msgitm]]', '',$payload['msg'])) != '' && mb_strlen($payload['msg']) <= $minLengthMessage)
 {
     try {
         $db = ezcDbInstance::get();

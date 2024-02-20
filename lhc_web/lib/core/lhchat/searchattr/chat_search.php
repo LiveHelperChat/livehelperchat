@@ -9,7 +9,7 @@ $fieldsSearch['ipp'] = array (
     'valid_if_filled' => false,
     'filter_type' => 'none',
     'validation_definition' => new ezcInputFormDefinitionElement(
-        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 20, 'max_range' => 100)
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 20, 'max_range' => 200)
     )
 );
 

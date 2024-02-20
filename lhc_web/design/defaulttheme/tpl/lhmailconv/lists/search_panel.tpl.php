@@ -301,6 +301,8 @@
                     <option value="60" <?php if ($pages->items_per_page == 60) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','60 items per page');?></option>
                     <option value="80" <?php if ($pages->items_per_page == 80) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','80 items per page');?></option>
                     <option value="100" <?php if ($pages->items_per_page == 100) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','100 items per page');?></option>
+                    <option value="150" <?php if ($pages->items_per_page == 150) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','150 items per page');?></option>
+                    <option value="200" <?php if ($pages->items_per_page == 200) : ?>selected="selected"<?php endif; ?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','200 items per page');?></option>
                 </select>
 
                 <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
