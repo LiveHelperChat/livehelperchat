@@ -1075,8 +1075,7 @@ if ($messageFieldVisible === false && $visibleCount == 1) {
     $visibleCount = 2;
 }
 
-$chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
-
+$chat_ui['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
 
 if (isset($start_data_fields['pre_conditions']) && !empty($start_data_fields['pre_conditions'])) {
     $preConditions = json_decode($start_data_fields['pre_conditions'], true);

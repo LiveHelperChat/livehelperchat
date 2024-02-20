@@ -317,7 +317,7 @@ try {
 
         $outputResponse['chat_ui']['open_timeout'] = (int)erLhcoreClassModelChatConfig::fetch('open_closed_chat_timeout')->current_value;
 
-        $outputResponse['chat_ui']['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value - 1;
+        $outputResponse['chat_ui']['max_length'] = (int)erLhcoreClassModelChatConfig::fetch('max_message_length')->current_value;
 
         $fileData = (array)erLhcoreClassModelChatConfig::fetch('file_configuration')->data;
 
