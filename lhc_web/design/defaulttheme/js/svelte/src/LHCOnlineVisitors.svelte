@@ -477,6 +477,10 @@
         }
     });
 
+    ee.addListener('svelteOnlineGetFilter',function (filter) {
+        filter.url = getSyncFilter();
+    });
+
 </script>
 
 {#if lhcLogic.hide_action_buttons}
