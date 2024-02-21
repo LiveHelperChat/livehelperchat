@@ -2,6 +2,7 @@
 .datepicker .next {font-style:normal;}
 .datepicker .prev:after {content:"«";}
 .datepicker  .next:after {content:"»";}
+.datepicker tr.range-button th:hover{background-color: #d3d4d5;}
 
 /*!
  * Datepicker for Foundation - less stylesheet, just version customized to foundation
