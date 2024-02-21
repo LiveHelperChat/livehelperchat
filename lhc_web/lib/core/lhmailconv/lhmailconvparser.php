@@ -489,6 +489,8 @@ class erLhcoreClassMailconvParser {
                                 $conversations->from_name = mb_substr((string)$toData['name'],0,250);
                                 break;
                             }
+                        } else {
+                            $message->is_external = 1;
                         }
 
                         $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
@@ -543,7 +545,7 @@ class erLhcoreClassMailconvParser {
                         $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
-                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
+                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time','is_external']]);
 
                         // Save initial message
                         if (!empty($logImport)) {
@@ -1119,6 +1121,8 @@ class erLhcoreClassMailconvParser {
             $message->lr_time = time();
             $message->accept_time = time();
             $message->cls_time = time();
+        } else {
+            $message->is_external = 1;
         }
 
         try {

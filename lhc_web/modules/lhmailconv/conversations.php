@@ -184,18 +184,30 @@ if (isset($Params['user_parameters_unordered']['export']) && $Params['user_param
 
 if (is_numeric($filterParams['input_form']->has_attachment)) {
     if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
+        $filterParams['filter']['filterin']['lhc_mailconv_conversation.has_attachment'] = [
             erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
             erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
             erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
         ];
     } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
+        $filterParams['filter']['filterin']['lhc_mailconv_conversation.has_attachment'] = [
             erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
             erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
         ];
     } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
+        $filterParams['filter']['filterin']['lhc_mailconv_conversation.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY) {
+        $filterParams['filter']['filter']['lhc_mailconv_conversation.has_attachment'] = erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY;
+    } else if ($filterParams['input_form']->has_attachment == 5) { // No attachment (inline)
+        $filterParams['filter']['filternotin']['lhc_mailconv_conversation.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == 4) { // No attachment (as file)
+        $filterParams['filter']['filternotin']['lhc_mailconv_conversation.has_attachment'] =  [
             erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
             erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
         ];
@@ -206,6 +218,11 @@ if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['i
     erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
     $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
     $filterParams['filter']['filterin']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
+
+if (is_numeric($filterParams['input_form']->is_external)) {
+    $filterParams['filter']['innerjoin']['lhc_mailconv_msg'] = array('`lhc_mailconv_msg`.`conversation_id`','`lhc_mailconv_conversation` . `id`');
+    $filterParams['filter']['filterin']['`lhc_mailconv_msg`.`is_external`'] = $filterParams['input_form']->is_external;
 }
 
 $db = ezcDbInstance::get();
@@ -294,6 +311,9 @@ try {
     }
 
 } catch (Exception $e) {
+
+    echo $e->getMessage();
+
     $tpl->set('takes_to_long',true);
     $pages = new lhPaginator();
     $pages->items_total = 0;

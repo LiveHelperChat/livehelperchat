@@ -73,6 +73,7 @@ class erLhcoreClassModelMailconvMessage
             'lang' => $this->lang,
             'message_hash' => $this->message_hash,
             'opened_at' => $this->opened_at,
+            'is_external' => $this->is_external,
         );
     }
 
@@ -341,6 +342,7 @@ class erLhcoreClassModelMailconvMessage
     public $id = NULL;
     public $status = self::STATUS_PENDING;
     public $mailbox_id = 0;
+    public $is_external = 0;
     public $conversation_id = 0;
     public $conversation_id_old = 0;
     public $message_id = '';

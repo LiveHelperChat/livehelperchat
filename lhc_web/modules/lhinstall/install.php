@@ -2639,6 +2639,7 @@ try {
   `response_time` bigint(20) unsigned NOT NULL,
   `cls_time` bigint(20) unsigned NOT NULL,
   `priority` int(11) NOT NULL DEFAULT '0',
+  `is_external` int(11) NOT NULL DEFAULT '0',
   `wait_time` bigint(20) unsigned NOT NULL,
   `accept_time` bigint(20) unsigned NOT NULL,
   `interaction_time` bigint(20) NOT NULL,
