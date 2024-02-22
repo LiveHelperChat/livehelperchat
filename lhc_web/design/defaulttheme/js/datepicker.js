@@ -553,6 +553,10 @@
                 .text(dates[this.language].last7days)
                 .toggle(this.todayBtn !== false);
 
+            this.picker.find('tfoot th.range-last15days')
+                .text(dates[this.language].last15days)
+                .toggle(this.todayBtn !== false);
+
             this.picker.find('tfoot th.range-last30days')
                 .text(dates[this.language].last30days)
                 .toggle(this.todayBtn !== false);
@@ -858,6 +862,15 @@
                            case 'range-last7days':
                                 var date = new Date(), dateYesterday = new Date();
                                 date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() - (24*7), date.getMinutes(), date.getSeconds());
+                                dateYesterday = UTCDate(dateYesterday.getFullYear(), dateYesterday.getMonth(), dateYesterday.getDate(), dateYesterday.getHours() - 24, dateYesterday.getMinutes(), dateYesterday.getSeconds());
+                                this.viewMode = this.startViewMode;
+                                this.showMode(0);
+                                this._setDate(date);
+                                this._setDateDependant(date, dateYesterday);
+                                break;
+                          case 'range-last15days':
+                                var date = new Date(), dateYesterday = new Date();
+                                date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours() - (24*15), date.getMinutes(), date.getSeconds());
                                 dateYesterday = UTCDate(dateYesterday.getFullYear(), dateYesterday.getMonth(), dateYesterday.getDate(), dateYesterday.getHours() - 24, dateYesterday.getMinutes(), dateYesterday.getSeconds());
                                 this.viewMode = this.startViewMode;
                                 this.showMode(0);
@@ -1367,6 +1380,7 @@
             previousmonth: "Previous month",
             last2days: "Last 2 days",
             last7days: "Last 7 days",
+            last15days: "Last 15 days",
             last30days: "Last 30 days",
             titleFormat: "MM yyyy"
         }
@@ -1597,10 +1611,10 @@
         contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
         footTemplate: '<tfoot>' +
             '<tr class="range-button"><th colspan="3" class="today"></th><th colspan="4" class="range-yesterday"></th></tr>' +
+            '<tr class="range-button"><th colspan="3" class="range-last2days"></th><th colspan="4" class="range-last7days"></th></tr>' +
+            '<tr class="range-button"><th colspan="3" class="range-last15days"></th><th colspan="4" class="range-last30days"></th></tr>' +
             '<tr class="range-button"><th colspan="3" class="range-thisweek"></th><th colspan="4" class="range-previousweek"></th></tr>' +
             '<tr class="range-button"><th colspan="3" class="range-thismonth"></th><th colspan="4" class="range-previousmonth"></th></tr>' +
-            '<tr class="range-button"><th colspan="3" class="range-last2days"></th><th colspan="4" class="range-last7days"></th></tr>' +
-            '<tr class="range-button"><th colspan="7" class="range-last30days"></th></tr>' +
             '</tfoot>'
     };
 
