@@ -90,9 +90,10 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             <b>{message.from_name}</b>
             <small>&nbsp;&lt;{message.from_address}&gt;&nbsp;</small>
             {message.opened_at && <span className="material-icons text-success" title={message.opened_at_front}>visibility</span>}
-            <small className={!message.status || message.status == 1 ? 'chat-pending' : (message.cls_time ? 'chat-closed' : 'chat-active')}>
+            <span className={"material-icons " + (message.is_external ? 'chat-pending' : 'chat-active')} title={message.is_external ? t('msg.external_email') : t('msg.internal_email')} >{message.is_external ? 'location_away' : 'location_home'}</span>
+                <small className={!message.status || message.status == 1 ? 'chat-pending' : (message.cls_time ? 'chat-closed' : 'chat-active')}>
                 <i className="material-icons">mail_outline</i>
-                {!message.status || message.status == 1 ? 'Pending response' : 'Responded'}
+                {!message.status || message.status == 1 ?  t('msg.pnd_rsp') : t('msg.rsp')}
             </small>
             {message.conversation_id_old && <small className="text-muted" title={t('msg.merged_message')} ><span className="material-icons me-0">merge_type</span>{message.conversation_id_old}</small>}
         </div>

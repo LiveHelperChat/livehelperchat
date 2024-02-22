@@ -296,6 +296,44 @@ if ($tab == 'active') {
         }
     }
 
+    if (is_numeric($filterParams['input_form']->has_attachment)) {
+        if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
+            $filterParams['filter']['filterin']['lhc_mailconv_msg.has_attachment'] = [
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+            ];
+        } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) {
+            $filterParams['filter']['filterin']['lhc_mailconv_msg.has_attachment'] = [
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+            ];
+        } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) {
+            $filterParams['filter']['filterin']['lhc_mailconv_msg.has_attachment'] = [
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+            ];
+        } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY) {
+            $filterParams['filter']['filter']['lhc_mailconv_msg.has_attachment'] = erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY;
+        } else if ($filterParams['input_form']->has_attachment == 5) { // No attachment (inline)
+            $filterParams['filter']['filternotin']['lhc_mailconv_msg.has_attachment'] = [
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+            ];
+        } else if ($filterParams['input_form']->has_attachment == 4) { // No attachment (as file)
+            $filterParams['filter']['filternotin']['lhc_mailconv_msg.has_attachment'] =  [
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+                erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+            ];
+        }
+    }
+
+    if (is_array($filterParams['input_form']->subject_ids) && !empty($filterParams['input_form']->subject_ids)) {
+        erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_ids);
+        $filterParams['filter']['innerjoin']['lhc_mailconv_msg_subject'] = array('`lhc_mailconv_msg_subject`.`message_id`','`lhc_mailconv_msg` . `id`');
+        $filterParams['filter']['filterin']['`lhc_mailconv_msg_subject`.`subject_id`'] = $filterParams['input_form']->subject_ids;
+    }
+
     $tpl->set('groupby',$filterParams['input_form']->groupby == 1 ? 'Y.m.d' : ($filterParams['input_form']->groupby == 2 ? 'Y-m-d' : 'Y.m'));
     $tpl->set('input',$filterParams['input_form']);
 

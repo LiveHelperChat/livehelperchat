@@ -98,8 +98,13 @@ class erLhcoreClassMailconvStatistic {
         }
         
         if (isset($filter['filterin']['lh_chat.user_id'])) {
-            $filter['filterin'][$table.'.`dep_id`'] = $filter['filterin']['lh_chat.user_id'];
+            $filter['filterin'][$table.'.`user_id`'] = $filter['filterin']['lh_chat.user_id'];
             unset($filter['filterin']['lh_chat.user_id']);
+        }
+
+        if (isset($filter['filterin']['lh_chat.conv_user_id'])) {
+            $filter['filterin'][$table.'.`conv_user_id`'] = $filter['filterin']['lh_chat.conv_user_id'];
+            unset($filter['filterin']['lh_chat.conv_user_id']);
         }
 
     }
@@ -122,7 +127,7 @@ class erLhcoreClassMailconvStatistic {
             array_merge(array('sort' => 'total_records DESC', 'limit' => 50, 'group' => 'user_id'),$filter),
             '',
             false,
-            'user_id, count(id) as total_records',
+            'user_id, count(`lhc_mailconv_msg`.`id`) as total_records',
             false,
             true
         );
@@ -148,7 +153,7 @@ class erLhcoreClassMailconvStatistic {
             array_merge(array('sort' => 'total_records DESC', 'limit' => 20, 'group' => 'dep_id'),$filter),
             '',
             false,
-            'dep_id, count(id) as total_records',
+            'dep_id, count(`lhc_mailconv_msg`.`id`) as total_records',
             false,
             true
         );
@@ -392,7 +397,7 @@ class erLhcoreClassMailconvStatistic {
                     $attr = $filterParams['group_field'];
                 }
 
-                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter, $filter, array('sort' => 'nick_count DESC', 'select_columns' => 'count(id) as nick_count', 'group' => $groupField, 'limit' => (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10), 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
+                $justDemo = array_values(erLhcoreClassModelMailconvMessage::getList(array_merge_recursive($departmentFilter, $filter, array('sort' => 'nick_count DESC', 'select_columns' => 'count(`lhc_mailconv_msg`.`id`) as nick_count', 'group' => $groupField, 'limit' => (isset($filterParams['group_limit']) && is_numeric($filterParams['group_limit']) ? (int)$filterParams['group_limit'] : 10), 'customfilter' =>  array('FROM_UNIXTIME(udate,\'%Y%m\') = '. date('Ym',$dateUnix))))));
 
                 $returnArray = array();
 

@@ -128,6 +128,14 @@ try {
             if ($chatAccepted || $operatorChanged) {
                 erLhcoreClassMailconvWorkflow::changePersonalMailbox($conv,$conv->user_id);
 
+                // We update directly as it's the only place
+                // Mails get's re-indexed after conversation update
+                $db = ezcDbInstance::get();
+                $stmt = $db->prepare('UPDATE `lhc_mailconv_msg` SET `conv_user_id` = :conv_user_id WHERE `conversation_id` = :conversation_id');
+                $stmt->bindValue(':conversation_id',$conv->id,PDO::PARAM_INT);
+                $stmt->bindValue(':conv_user_id',$conv->user_id,PDO::PARAM_INT);
+                $stmt->execute();
+
                 erLhcoreClassChat::updateActiveChats($conv->user_id);
 
                 if ($conv->department !== false) {

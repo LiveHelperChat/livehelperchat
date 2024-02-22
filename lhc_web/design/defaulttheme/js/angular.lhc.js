@@ -1937,11 +1937,9 @@ lhcAppControllers.controller('LiveHelperChatCtrl',['$scope','$http','$location',
 
                 'mcd_products' : userProductNames,
                 'mcd_dpgroups' : userDepartmentsGroups,
-
                 'mmd_dpgroups' : userDepartmentsGroups,
                 'operatord_dpgroups' : userDepartmentsGroups,
                 'operatord_ugroups' : userGroups
-
             };
 
             angular.forEach(verifyCombinations, function(list, index) {
