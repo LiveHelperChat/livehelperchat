@@ -311,9 +311,6 @@ try {
     }
 
 } catch (Exception $e) {
-
-    echo $e->getMessage();
-
     $tpl->set('takes_to_long',true);
     $pages = new lhPaginator();
     $pages->items_total = 0;
