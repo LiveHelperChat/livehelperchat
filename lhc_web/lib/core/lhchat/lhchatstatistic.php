@@ -1646,7 +1646,23 @@ class erLhcoreClassChatStatistic {
                 }
             }
         }
-        
+
+        if ((empty($includeOnly) || in_array('conv_group_ids',$includeOnly)) && isset($filterParams['input']->conv_group_ids) && is_array($filterParams['input']->conv_group_ids) && !empty($filterParams['input']->conv_group_ids)) {
+            erLhcoreClassChat::validateFilterIn($filterParams['input']->conv_group_ids);
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id IN (' . implode(',',$filterParams['input']->conv_group_ids) .')');
+            $stmt->execute();
+            $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+            if (!empty($userIds)) {
+                if (isset($filterParams['filter']['filterin'][$table . '.conv_' . $column])) {
+                    $filterParams['filter']['filterin'][$table . '.conv_' . $column] = array_merge($filterParams['filter']['filterin'][$table . '.conv_' . $column],$userIds);
+                } else {
+                    $filterParams['filter']['filterin'][$table . '.conv_' . $column] = $userIds;
+                }
+            }
+        }
+
         if ((empty($includeOnly) || in_array('department_group_id',$includeOnly)) && isset($filterParams['input']->department_group_id) &&  is_numeric($filterParams['input']->department_group_id) && $filterParams['input']->department_group_id > 0 ) {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id = :group_id');

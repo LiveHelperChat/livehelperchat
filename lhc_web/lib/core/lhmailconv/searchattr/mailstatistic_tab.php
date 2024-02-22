@@ -29,6 +29,30 @@ $fieldsSearch['report'] = array (
     )
 );
 
+$fieldsSearch['is_external'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => 'is_external',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 1)
+    )
+);
+
+$fieldsSearch['subject_ids'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'id',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['group_limit'] = array (
     'type' => 'text',
     'trans' => 'Group Field',
@@ -163,6 +187,30 @@ $fieldsSearch['user_ids'] = array (
     )
 );
 
+$fieldsSearch['conv_user_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filterin',
+    'filter_table_field' => 'conv_user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['has_attachment'] = array (
+    'type' => 'text',
+    'trans' => 'Department',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'none',
+    'filter_table_field' => 'conv_user_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 0, 'max_range' => 5)
+    )
+);
+
 $fieldsSearch['response_type'] = array (
     'type' => 'text',
     'trans' => 'Department',
@@ -182,6 +230,18 @@ $fieldsSearch['group_ids'] = array (
     'valid_if_filled' => false,
     'filter_type' => false,
     'filter_table_field' => 'dep_id',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
+    )
+);
+
+$fieldsSearch['conv_group_ids'] = array (
+    'type' => 'text',
+    'trans' => 'Group',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => false,
+    'filter_table_field' => 'conv_user_id',
     'validation_definition' => new ezcInputFormDefinitionElement(
         ezcInputFormDefinitionElement::OPTIONAL, 'int', array( 'min_range' => 1), FILTER_REQUIRE_ARRAY
     )
