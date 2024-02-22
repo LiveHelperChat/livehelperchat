@@ -670,6 +670,8 @@ class erLhcoreClassMailconvParser {
                                 $conversations->from_name = mb_substr((string)$toData['name'],0,250);
                                 break;
                             }
+                        } else {
+                            $message->is_external = 1;
                         }
 
                         $conversations->body = erLhcoreClassMailconvEncoding::toUTF8($message->alt_body != '' ? $message->alt_body : strip_tags($message->body));
@@ -721,10 +723,11 @@ class erLhcoreClassMailconvParser {
 
                         $conversations->saveThis();
 
+                        $message->conv_user_id = $conversations->user_id;
                         $message->priority = $priorityConversation;
                         $message->conversation_id = $conversations->id;
                         $message->dep_id = $conversations->dep_id;
-                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time']]);
+                        $message->updateThis(['update' =>  ['dep_id','conversation_id','response_type','status','lr_time','accept_time','cls_time','is_external','conv_user_id']]);
 
                         // Save initial message
                         if (!empty($logImport)) {
@@ -843,8 +846,9 @@ class erLhcoreClassMailconvParser {
                         }
 
                         // Set folder from where message was taken;
+                        $message->conv_user_id = $conversation->user_id;
                         $message->mb_folder = $mailboxFolder['path'];
-                        $message->updateThis(['update' => ['mb_folder']]);
+                        $message->updateThis(['update' => ['mb_folder','conv_user_id']]);
 
                         $messages[] = $message;
 
@@ -956,6 +960,14 @@ class erLhcoreClassMailconvParser {
                 $matchingPriorityRuleSelected = self::getMatchingRuleByMessage($message, $filteredPriorityMatchingRules);
                 if ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && $matchingPriorityRuleSelected->priority > $priorityConversation) {
                     $priorityConversation = $matchingPriorityRuleSelected->priority;
+                }
+
+                if (
+                    (isset($matchingRuleSelected->options_array['skip_message']) && $matchingRuleSelected->options_array['skip_message'] == true) ||
+                    ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && isset($matchingPriorityRuleSelected->options_array['skip_message']) && $matchingPriorityRuleSelected->options_array['skip_message'] == true)
+                ) {
+                    $statsImport[] = 'Skipping e-mail because of matching rule - ' . $message->message_id . ' - ' . $message->uid;
+                    continue;
                 }
 
                 $conversations = new erLhcoreClassModelMailconvConversation();
@@ -1418,6 +1430,7 @@ class erLhcoreClassMailconvParser {
         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->id > 0) {
             $message->conversation_id = $conversation->id;
             $message->dep_id = $conversation->dep_id;
+            $message->conv_user_id = $conversation->user_id;
         }
 
         if ($message->from_address == $mailbox->mail) {
@@ -1427,6 +1440,8 @@ class erLhcoreClassMailconvParser {
             $message->lr_time = time();
             $message->accept_time = time();
             $message->cls_time = time();
+        } else {
+            $message->is_external = 1;
         }
 
         try {

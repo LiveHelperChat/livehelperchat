@@ -62,6 +62,7 @@ class erLhcoreClassModelMailconvMessage
             'conv_duration' => $this->conv_duration,
 
             'user_id' => $this->user_id,
+            'conv_user_id' => $this->conv_user_id,
             'response_type' => $this->response_type,
             'dep_id' => $this->dep_id,
             'mb_folder' => $this->mb_folder,
@@ -73,6 +74,7 @@ class erLhcoreClassModelMailconvMessage
             'lang' => $this->lang,
             'message_hash' => $this->message_hash,
             'opened_at' => $this->opened_at,
+            'is_external' => $this->is_external,
         );
     }
 
@@ -341,6 +343,7 @@ class erLhcoreClassModelMailconvMessage
     public $id = NULL;
     public $status = self::STATUS_PENDING;
     public $mailbox_id = 0;
+    public $is_external = 0;
     public $conversation_id = 0;
     public $conversation_id_old = 0;
     public $message_id = '';
@@ -394,6 +397,7 @@ class erLhcoreClassModelMailconvMessage
 
     public $lr_time = 0;          // Last response time by operator. When was the last message send based on this message
     public $user_id = 0; // User who has accepted
+    public $conv_user_id = 0; // Conversation owner
     public $dep_id = 0; // User who has accepted
 
     const RESPONSE_UNRESPONDED = 0;    // Normal response by sending mail back.
