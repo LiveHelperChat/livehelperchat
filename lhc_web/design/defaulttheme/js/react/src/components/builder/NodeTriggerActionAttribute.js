@@ -146,7 +146,7 @@ class NodeTriggerActionAttribute extends Component {
                     </div>
 
                     <div className="col-12">
-                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['soft_event'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','soft_event'])} /> Soft event. If this event is found while cliking another button - we will automatically terminate it.</label>
+                        <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['soft_event'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','soft_event'])} /> Soft event. If another event is found while clicking another button or triggered by another "event", we will automatically terminate it.</label>
                     </div>
 
                 </div>
