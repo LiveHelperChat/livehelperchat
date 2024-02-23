@@ -21,7 +21,7 @@
                     <table cellpadding="0" cellspacing="0" class="table table-sm list-links" width="100%">
                         <thead>
                         <tr>
-                            <th><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
+                            <th><input class="mb-0" type="checkbox" id="check-all-items" /></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
                             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/additional_chat_column.tpl.php'));?>
@@ -37,7 +37,7 @@
                         </thead>
                         <?php foreach ($items as $item) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/start_row.tpl.php')); ?>
-                            <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
+                            <td><input class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                             <td ng-non-bindable>
 
                                 <?php if ($item->opened_at > 0) : ?>
@@ -112,6 +112,15 @@
                             </tr>
                         <?php endforeach; ?>
                     </table>
+                    <script>
+                        $('#check-all-items').change(function(){
+                            if ($(this).is(':checked')){
+                                $('input[name="ConversationID[]"]').attr('checked','checked');
+                            } else {
+                                $('input[name="ConversationID[]"]').removeAttr('checked');
+                            }
+                        });
+                    </script>
 
                     <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
