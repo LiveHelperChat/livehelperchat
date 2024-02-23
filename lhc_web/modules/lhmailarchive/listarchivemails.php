@@ -25,6 +25,49 @@ $archive->setTables();
 
 $filterParams['filter']['sort'] = '`' . \LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '`.`id` DESC';
 
+if (is_numeric($filterParams['input_form']->has_attachment)) {
+    if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
+        $filterParams['filter']['filterin'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) {
+        $filterParams['filter']['filterin'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) {
+        $filterParams['filter']['filterin'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY) {
+        $filterParams['filter']['filter'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] = erLhcoreClassModelMailconvConversation::ATTACHMENT_EMPTY;
+    } else if ($filterParams['input_form']->has_attachment == 5) { // No attachment (inline)
+        $filterParams['filter']['filternotin'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] = [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    } else if ($filterParams['input_form']->has_attachment == 4) { // No attachment (as file)
+        $filterParams['filter']['filternotin'][\LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '.has_attachment'] =  [
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
+            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
+        ];
+    }
+}
+
+if (is_numeric($filterParams['input_form']->is_external)) {
+    $filterParams['filter']['innerjoin'][\LiveHelperChat\Models\mailConv\Archive\Message::$dbTable] = array('`'.\LiveHelperChat\Models\mailConv\Archive\Message::$dbTable.'`.`conversation_id`','`'. \LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '` . `id`');
+    $filterParams['filter']['filterin']['`'.\LiveHelperChat\Models\mailConv\Archive\Message::$dbTable.'`.`is_external`'] = $filterParams['input_form']->is_external;
+}
+
+if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
+    erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
+    $filterParams['filter']['innerjoin'][ \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable ] = array('`'. \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable . '`.`conversation_id`','`'. \LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '` . `id`');
+    $filterParams['filter']['filterin']['`'. \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable . '`.`subject_id`'] = $filterParams['input_form']->subject_id;
+}
+
 if (in_array($Params['user_parameters_unordered']['export'], array(1))) {
     if (ezcInputForm::hasPostData()) {
         session_write_close();
@@ -38,37 +81,13 @@ if (in_array($Params['user_parameters_unordered']['export'], array(1))) {
     }
 }
 
-if (is_numeric($filterParams['input_form']->has_attachment)) {
-    if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
-        ];
-    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_INLINE,
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
-        ];
-    } else if ($filterParams['input_form']->has_attachment == erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE) {
-        $filterParams['filter']['filterin']['has_attachment'] = [
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_FILE,
-            erLhcoreClassModelMailconvConversation::ATTACHMENT_MIX
-        ];
-    }
-}
-
-if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
-    erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
-    $filterParams['filter']['innerjoin'][ \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable ] = array('`'. \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable . '`.`conversation_id`','`'. \LiveHelperChat\Models\mailConv\Archive\Conversation::$dbTable . '` . `id`');
-    $filterParams['filter']['filterin']['`'. \LiveHelperChat\Models\mailConv\Archive\MessageSubject::$dbTable . '`.`subject_id`'] = $filterParams['input_form']->subject_id;
-}
-
 $pages = new lhPaginator();
 $pages->serverURL = erLhcoreClassDesign::baseurl('mailarchive/listarchivemails').'/'.$archive->id.$append;
 $pages->items_total = \LiveHelperChat\Models\mailConv\Archive\Conversation::getCount($filterParams['filter']);
 if ($filterParams['input']->ipp > 0) {
     $pages->setItemsPerPage($filterParams['input']->ipp);
+} else {
+    $pages->setItemsPerPage(60);
 }
 $pages->paginate();
 
