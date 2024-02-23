@@ -74,6 +74,7 @@ class erLhcoreClassModelMailconvMessageInternal
     public $name_support = '';
     public $msg = '';
     public $meta_msg = '';
+    public $is_archive = false;
 }
 
 ?>

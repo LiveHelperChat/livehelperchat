@@ -4,7 +4,14 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/previewmail.tpl.php');
 
 $mail = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['id']);
 
-if ( erLhcoreClassChat::hasAccessToRead($mail) )
+if (!($mail instanceof \erLhcoreClassModelMailconvConversation)) {
+    $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id']);
+    if (isset($mailData['mail'])) {
+        $mail = $mailData['mail'];
+    }
+}
+
+if (is_object($mail) && erLhcoreClassChat::hasAccessToRead($mail) )
 {
     $keyword = isset($_GET['keyword']) ? (string)$_GET['keyword'] : '';
     $keyword = str_replace(":",': ',$keyword);

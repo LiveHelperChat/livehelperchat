@@ -51,6 +51,7 @@ class erLhcoreClassModelMailconvMessageSubject
     public $subject_id = 0;
     public $message_id = 0;
     public $conversation_id = 0;
+    public $is_archive = false;
 }
 
 ?>

@@ -408,16 +408,29 @@ try {
 
                     $db->query("CREATE TABLE `lh_chat_event_track` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
-                    $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_archive_range` (
-        	   `id` int(11) NOT NULL AUTO_INCREMENT,
-        	   `range_from` int(11) NOT NULL,
-        	   `range_to` int(11) NOT NULL,
-        	   `year_month` int(11) NOT NULL,
-        	   `older_than` int(11) NOT NULL,
-        	   `last_id` int(11) NOT NULL,
-        	   `first_id` int(11) NOT NULL,
-        	   PRIMARY KEY (`id`)
-        	   ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+                    $db->query("CREATE TABLE `lh_chat_archive_range` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `range_from` bigint(20) unsigned NOT NULL,
+  `range_to` bigint(20) unsigned NOT NULL,
+  `older_than` int(11) NOT NULL,
+  `last_id` bigint(20) NOT NULL,
+  `first_id` bigint(20) NOT NULL,
+  `year_month` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+                    $db->query("CREATE TABLE `lh_mail_archive_range` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `range_from` bigint(20) unsigned NOT NULL,
+  `range_to` bigint(20) unsigned NOT NULL,
+  `older_than` int(11) NOT NULL,
+  `last_id` bigint(20) NOT NULL,
+  `first_id` bigint(20) NOT NULL,
+  `year_month` int(11) NOT NULL, 
+  `type` tinyint(1) unsigned NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 
                     $db->query("CREATE TABLE `lh_notification_subscriber` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) NOT NULL, `online_user_id` bigint(20) NOT NULL, `dep_id` int(11) NOT NULL, `theme_id` int(11) NOT NULL, `ctime` int(11) NOT NULL, `utime` int(11) NOT NULL, `status` int(11) NOT NULL, `params` text NOT NULL, `device_type` tinyint(1) NOT NULL,`subscriber_hash` varchar(50) NOT NULL, `uagent` varchar(250) NOT NULL, `ip` varchar(250) NOT NULL, `last_error` text NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`), KEY `dep_id` (`dep_id`), KEY `online_user_id` (`online_user_id`), KEY `subscriber_hash` (`subscriber_hash`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

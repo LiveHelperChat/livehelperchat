@@ -54,7 +54,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
     const unMerge = message => {
         if (confirm(t('status.are_you_sure'))) {
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apiunmerge/" + message.id).then(result => {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apiunmerge/" + message.id + "/" + message.conversation_id).then(result => {
                 updateMessages();
             }).catch((error) => processRestAPIError(error));
         }
@@ -69,7 +69,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         setExpandBody(expandAction);
         if (expandAction == true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined') {
             setExpandingBody(true);
-            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id, {keyword: keyword}).then(result => {
+            axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/loadmessagebody/" + message.id + "/" + message.conversation_id, {keyword: keyword}).then(result => {
                 loadMessageBody(result.data);
                 setExpandingBody(false);
             }).catch((error) => {
@@ -115,8 +115,8 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setForwardMode(false);setReplyMode(true)}}><i className="material-icons text-muted" >reply</i>{t('msg.reply')}</a>}
                     {moptions.can_write && moptions.can_forward && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();setReplyMode(false);setForwardMode(true)}}><i className="material-icons text-muted">forward</i>{t('msg.forward')}</a>}
                     {message.conversation_id_old && <a className="dropdown-item" href="#" onClick={(e) => {e.stopPropagation();unMerge(message);}} ><i className="material-icons">alt_route</i>{t('msg.unmerge')}</a>}
-                    <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
-                    {moptions.can_download && <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>}
+                    <a className="dropdown-item" target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/mailprint/" + message.id + "/" + message.conversation_id} ><i className="material-icons text-muted">print</i>{t('mail.print')}</a>
+                    {moptions.can_download && <a className="dropdown-item" href={WWW_DIR_JAVASCRIPT  + "mailconv/apimaildownload/" + message.id + "/" + message.conversation_id} ><i className="material-icons text-muted">cloud_download</i>{t('msg.download')}</a>}
                     {moptions.mail_links && moptions.mail_links.map((link, index) => <a className="dropdown-item" target="_blank" href={link.link.replace('{msg_id}',message.id)}>{link.icon && <i className="material-icons text-muted">{link.icon}</i>}{link.title}</a>)}
                     {moptions.can_write && <a className="dropdown-item" href="#" onClick={() => noReplyRequired(message)}><i className="material-icons text-muted">done</i>{t('msg.no_reply')}</a>}
                     {message.alt_body && <a className="dropdown-item" href="#" onClick={(e) => setPlainBody(!plainBody)}><i className="material-icons text-muted">visibility</i>{t('msg.plain_html')}</a>}
@@ -177,7 +177,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
         </div>}
 
         {expandBody && message.undelivered && <div className="col-12 alert alert-warning mt-2">
-            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id}>Download sent message.</a>
+            This message was undelivered. <a href={WWW_DIR_JAVASCRIPT  + "mailconv/downloadrfc822/" + message.id + "/" + message.conversation_id}>Download sent message.</a>
 
             <div className="text-danger border-bottom my-2 py-2 fs13">
                 <ul className="m-0 ps-3">

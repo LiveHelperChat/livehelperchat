@@ -11,9 +11,21 @@ try {
     $db = ezcDbInstance::get();
     $db->beginTransaction();
 
-    $message = erLhcoreClassModelMailconvMessage::fetchAndLock($Params['user_parameters']['id']);
+    $conv = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['id_conv']);
 
-    $conv = $message->conversation;
+    $is_archive = false;
+
+    if (!($conv instanceof \erLhcoreClassModelMailconvConversation)) {
+        $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id_conv']);
+        if (isset($mailData['mail'])) {
+            $conv = $mailData['mail'];
+            $is_archive = true;
+            $message = \LiveHelperChat\Models\mailConv\Archive\Message::fetchAndLock($Params['user_parameters']['id']);
+        }
+    } else {
+        $message = erLhcoreClassModelMailconvMessage::fetchAndLock($Params['user_parameters']['id']);
+        $conv = $message->conversation;
+    }
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {

@@ -194,7 +194,7 @@ const MailChat = props => {
     }
 
     const noReplyRequired = (message) => {
-        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apinoreplyrequired/" + message.id).then(result => {
+        axios.post(WWW_DIR_JAVASCRIPT  + "mailconv/apinoreplyrequired/" + message.id + "/" + message.conversation_id).then(result => {
             dispatch({
                 type: 'update_message',
                 message: result.data.message,
@@ -214,13 +214,13 @@ const MailChat = props => {
     }
 
     const addLabel = (message) => {
-        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id,hidecallback : () => {
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT + "mailconv/apilabelmessage/" + message.id + "/" + message.conversation_id,hidecallback : () => {
             updateLabels(message);
         }});
     }
 
     const updateLabels = (message) => {
-        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id).then(result => {
+        axios.get(WWW_DIR_JAVASCRIPT  + "mailconv/apigetlabels/" + message.id + "/" + message.conversation_id).then(result => {
             dispatch({
                 type: 'update_subjects',
                 message_id: message.id,
@@ -546,7 +546,7 @@ const MailChat = props => {
                                                     {state.conv.status == 1 && <i className="material-icons chat-active me-0">mail_outline</i>}
                                                     {state.conv.status == 2 && <i className="material-icons chat-closed me-0">mail_outline</i>}
                                                 </span>
-                                                <select className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
+                                                <select disabled={state.moptions.is_archive} className="form-control form-control-sm" value={state.conv.status} onChange={(e) => changeStatus(e)} defaultValue={state.conv.status}>
                                                     <option value="">{t('status.pending')}</option>
                                                     <option value="1">{t('status.active')}</option>
                                                     {state.conv.status == 2 && <option value="2">{t('status.closed')}</option>}

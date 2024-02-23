@@ -76,6 +76,7 @@ class erLhcoreClassModelMailconvFile
     public $content_id = '';
     public $disposition = '';
     public $conversation_id = 0;
+    public $is_archive = false;
 }
 
 ?>

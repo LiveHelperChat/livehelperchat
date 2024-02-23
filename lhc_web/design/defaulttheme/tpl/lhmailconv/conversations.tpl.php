@@ -21,7 +21,7 @@
                     <table cellpadding="0" cellspacing="0" class="table table-sm list-links" width="100%">
                         <thead>
                         <tr>
-                            <th><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
+                            <th><input class="mb-0" type="checkbox" id="check-all-items" /></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Subject');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Sender');?></th>
                             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/additional_chat_column.tpl.php'));?>
@@ -37,7 +37,7 @@
                         </thead>
                         <?php foreach ($items as $item) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhmailconv/lists/start_row.tpl.php')); ?>
-                            <td><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
+                            <td><input class="mb-0" type="checkbox" name="ConversationID[]" value="<?php echo $item->id?>" /></td>
                             <td ng-non-bindable>
 
                                 <?php if ($item->opened_at > 0) : ?>
@@ -112,6 +112,15 @@
                             </tr>
                         <?php endforeach; ?>
                     </table>
+                    <script>
+                        $('#check-all-items').change(function(){
+                            if ($(this).is(':checked')){
+                                $('input[name="ConversationID[]"]').attr('checked','checked');
+                            } else {
+                                $('input[name="ConversationID[]"]').removeAttr('checked');
+                            }
+                        });
+                    </script>
 
                     <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
 
@@ -119,7 +128,7 @@
                         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
                     <?php endif;?>
 
-                    <div class="btn-group" role="group" aria-label="...">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
 
                         <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
                             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','quick_actions')) : ?>
@@ -136,6 +145,23 @@
 
                         <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
                             <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
+                        <?php endif; ?>
+
+                        <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
+                            <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete and archive selected', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5'+getCheckedElements()+'?<?php echo $appendPrintExportURL?>'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete and archive selected');?></button>
+                            <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete all archive', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5?<?php echo $appendPrintExportURL?>'})" ><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete and archive all')?> (<?php echo $pages->items_total?>)</button>
+                            <script>
+                                function getCheckedElements(){
+                                    var choices = [];
+                                    var els = document.getElementsByName('ConversationID[]');
+                                    for (var i=0;i<els.length;i++){
+                                        if ( els[i].checked ) {
+                                            choices.push(els[i].value);
+                                        }
+                                    }
+                                    return choices.length > 0 ? '/(ids)/'+choices.join('/') : '';
+                                }
+                            </script>
                         <?php endif; ?>
 
                         <?php endif; ?>

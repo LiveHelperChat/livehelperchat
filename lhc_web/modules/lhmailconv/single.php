@@ -4,6 +4,13 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/view.tpl.php');
 
 $item =  erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['id']);
 
+if (!($item instanceof \erLhcoreClassModelMailconvConversation)) {
+    $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id']);
+    if (isset($mailData['mail'])) {
+        $item = $mailData['mail'];
+    }
+}
+
 $tpl->setArray(array(
     'item' => $item,
 ));

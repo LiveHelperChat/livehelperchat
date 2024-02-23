@@ -116,10 +116,19 @@ class erLhcoreClassModelMailconvMessage
 
     public function beforeRemove()
     {
-        $files = erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]);
+
+        // Files
+        $files = $this->is_archive === false ? erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\File::getList(['filter' => ['message_id' => $this->id]]);
 
         foreach ($files as $file) {
             $file->removeThis();
+        }
+
+        // Message subjects
+        $messageSubjects = $this->is_archive === false ? erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\MessageSubject::getList(['filter' => ['message_id' => $this->id]]);
+
+        foreach ($messageSubjects as $messageSubject) {
+            $messageSubject->removeThis();
         }
 
         erLhcoreClassMailconvParser::purgeMessage($this);
@@ -154,7 +163,7 @@ class erLhcoreClassModelMailconvMessage
                 return $this->department;
 
             case 'conversation':
-                return $this->conversation = erLhcoreClassModelMailconvConversation::fetch($this->conversation_id);
+                return $this->conversation = $this->is_archive === false ? erLhcoreClassModelMailconvConversation::fetch($this->conversation_id) : \LiveHelperChat\Models\mailConv\Archive\Conversation::fetch($this->conversation_id);
                 
             case 'conv_duration_front':
                 $this->conv_duration_front = $this->conv_duration > 0 ? erLhcoreClassChat::formatSeconds($this->conv_duration) : 0;
@@ -167,7 +176,7 @@ class erLhcoreClassModelMailconvMessage
 
                     foreach ($this->files as $file) {
                         if ($file->content_id != '') {
-                            $body = str_replace('cid:' . $file->content_id,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id, $body);
+                            $body = str_replace('cid:' . $file->content_id,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('mailconv/inlinedownload') .'/' . $file->id . '/' . $this->conversation_id, $body);
                         }
                     }
 
@@ -220,7 +229,7 @@ class erLhcoreClassModelMailconvMessage
                 return $this->interaction_time_duration;
 
             case 'files':
-                $this->files = erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]);
+                $this->files = $this->is_archive === false ? erLhcoreClassModelMailconvFile::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\File::getList(['filter' => ['message_id' => $this->id]]);
                 return $this->files;
 
             case 'attachments':
@@ -232,7 +241,7 @@ class erLhcoreClassModelMailconvMessage
                                 'id' => $file->id,
                                 'name' => $file->name,
                                 'description' => $file->description,
-                                'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id,
+                                'download_url' => erLhcoreClassDesign::baseurl('mailconv/inlinedownload') . '/' . $file->id . '/' . $this->conversation_id,
                             ];
                         }
                     }
@@ -240,7 +249,7 @@ class erLhcoreClassModelMailconvMessage
                 return $this->attachments;
 
             case 'subjects':
-                $messageSubjects = erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['message_id' => $this->id]]);
+                $messageSubjects = $this->is_archive === false ? erLhcoreClassModelMailconvMessageSubject::getList(['filter' => ['message_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\MessageSubject::getList(['filter' => ['message_id' => $this->id]]);
                 $ids = [];
                 $this->subjects = [];
                 foreach ($messageSubjects as $messageSubject) {
@@ -415,6 +424,7 @@ class erLhcoreClassModelMailconvMessage
     public $lang  = '';
     public $message_hash  = '';
     public $opened_at  = 0;
+    public $is_archive = false;
 }
 
 ?>

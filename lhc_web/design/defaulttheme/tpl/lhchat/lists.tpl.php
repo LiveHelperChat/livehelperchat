@@ -22,7 +22,7 @@
                     <table class="table list-links<?php echo $appendTableClass?>" width="100%" ng-non-bindable>
                         <thead>
                             <tr>
-                            	<th width="1%"><input class="mb-0" type="checkbox" ng-model="check_all_items" /></th>
+                            	<th width="1%"><input class="mb-0" type="checkbox" id="check-all-items" /></th>
                                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Information');?></th>
                                 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists_chats_parts/additional_chat_column.tpl.php'));?>
                                 <th width="1%"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/pendingchats','Operator');?></th>
@@ -34,7 +34,7 @@
                         </thead>
                         <?php foreach ($items as $chat) : ?>
                             <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/start_row.tpl.php')); ?>
-                        	<td><?php if ($chat->can_edit_chat == true) : ?><input ng-checked="check_all_items" class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
+                        	<td><?php if ($chat->can_edit_chat == true) : ?><input class="mb-0" type="checkbox" name="ChatID[]" value="<?php echo $chat->id?>" /><?php endif;?></td>
                             <td>
 
                               <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/icons_additional.tpl.php')); ?>
@@ -113,7 +113,7 @@
                         <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
                     <?php endif;?>
 
-                    <div class="btn-group" role="group" aria-label="...">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
                         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
                         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deleteglobalchat') || erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat')) : ?>
                         <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
@@ -138,7 +138,14 @@
 <script>
 $( document ).ready(function() {
 	lhinst.attachTabNavigator();
-	$('#tabs a:first').tab('show')
+	$('#tabs a:first').tab('show');
+    $('#check-all-items').change(function(){
+        if ($(this).is(':checked')){
+            $('input[name="ChatID[]"]').attr('checked','checked');
+        } else {
+            $('input[name="ChatID[]"]').removeAttr('checked');
+        }
+    });
 });
 </script>
 

@@ -5,6 +5,14 @@ session_write_close();
 try {
     $file = erLhcoreClassModelMailconvFile::fetch((int)$Params['user_parameters']['id']);
 
+    // Handle if file is archived
+    if (!($file instanceof \erLhcoreClassModelMailconvFile)) {
+        $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id_conv']);
+        if (isset($mailData['mail'])) {
+            $file = \LiveHelperChat\Models\mailConv\Archive\File::fetch((int)$Params['user_parameters']['id']);
+        }
+    }
+
     if ($file->disposition != 'INLINE') {
         header('Content-Disposition: attachment; filename="'.$file->name.'"');
     }
@@ -15,7 +23,11 @@ try {
         echo file_get_contents($file->file_path_server);
     } else {
 
-        $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
+        if ($file->is_archive === false){
+            $mail = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
+        } else {
+            $mail = \LiveHelperChat\Models\mailConv\Archive\Message::fetch($file->message_id);
+        }
 
         $mailbox = $mail->mailbox;
 

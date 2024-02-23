@@ -12,6 +12,15 @@ try {
     $db->beginTransaction();
 
     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($Params['user_parameters']['id']);
+    $is_archive = false;
+
+    if (!($conv instanceof \erLhcoreClassModelMailconvConversation)) {
+        $mailData = \LiveHelperChat\mailConv\Archive\Archive::fetchMailById($Params['user_parameters']['id']);
+        if (isset($mailData['mail'])) {
+            $conv = $mailData['mail'];
+            $is_archive = true;
+        }
+    }
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
     {
@@ -20,7 +29,11 @@ try {
         $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
         $mcOptionsData = (array)$mcOptions->data;
 
-        $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
+        if ($is_archive === false) {
+            $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
+        } else {
+            $messages = \LiveHelperChat\Models\mailConv\Archive\Message::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
+        }
 
         $userData = $currentUser->getUserData();
 
@@ -28,7 +41,7 @@ try {
         $chatAccepted = false;
         $canWrite = erLhcoreClassChat::hasAccessToWrite($conv);
 
-        if ($Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && $canWrite) {
+        if ($is_archive === false && $Params['user_parameters_unordered']['mode'] == 'normal' && $userData->invisible_mode == 0 && $canWrite) {
 
             if ($conv->status == erLhcoreClassModelMailconvConversation::STATUS_PENDING && $conv->user_id != $userData->id && !$currentUser->hasAccessTo('lhchat','open_all')) {
                 throw new Exception('You do not have permission to open all pending mails.');
@@ -174,11 +187,12 @@ try {
             'customer_remarks' => $remarks,
             'messages' => array_values($messages),
             'moptions' => [
+                'is_archive' => $is_archive,
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
-                'can_write' => ($canWrite && $mailbox->active == 1),
-                'can_close' => $canWrite,
+                'can_write' => ($is_archive === false && $canWrite && $mailbox->active == 1),
+                'can_close' => ($is_archive === false && $canWrite),
                 'can_forward' => $currentUser->hasAccessTo('lhmailconv', 'send_as_forward'),
                 'can_change_mailbox' => $currentUser->hasAccessTo('lhmailconv', 'change_mailbox'),
                 'fop_op' => $data['ft_op'],

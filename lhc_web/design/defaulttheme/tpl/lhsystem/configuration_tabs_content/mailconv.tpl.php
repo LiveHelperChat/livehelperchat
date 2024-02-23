@@ -31,6 +31,11 @@
                 <?php endif; ?>
 
                 <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/conversations')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Conversations');?></a></li>
+
+                <?php if ($currentUser->hasAccessTo('lhmailarchive','archive')) : ?>
+                    <li><a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mail archive')?>" href="<?php echo erLhcoreClassDesign::baseurl('mailarchive/archive')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('mailconv/module','Mail archive');?></a></li>
+                <?php endif; ?>
+
             </ul>
         </div>
         <div class="col-6">

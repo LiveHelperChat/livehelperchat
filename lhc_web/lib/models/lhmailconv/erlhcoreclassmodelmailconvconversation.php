@@ -113,10 +113,16 @@ class erLhcoreClassModelMailconvConversation
 
     public function beforeRemove()
     {
-        $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $this->id]]);
+        $messages = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\Message::getList(['filter' => ['conversation_id' => $this->id]]);
 
         foreach ($messages as $message) {
             $message->removeThis();
+        }
+
+        $messagesInternal = $this->is_archive === false ? erLhcoreClassModelMailconvMessageInternal::getList(['filter' => ['chat_id' => $this->id]]) : \LiveHelperChat\Models\mailConv\Archive\MessageInternal::getList(['filter' => ['chat_id' => $this->id]]);
+
+        foreach ($messagesInternal as $messageInternal) {
+            $messageInternal->removeThis();
         }
     }
 
@@ -218,9 +224,9 @@ class erLhcoreClassModelMailconvConversation
             case 'customer_email':
                 $this->customer_email = '';
                 if ($this->mailbox instanceof erLhcoreClassModelMailconvMailbox&& $this->from_address == $this->mailbox->mail) {
-                    $message = erLhcoreClassModelMailconvMessage::fetch($this->message_id);
+                    $message = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::fetch($this->message_id) : \LiveHelperChat\Models\mailConv\Archive\Message::fetch($this->message_id);
                     if (!($message instanceof erLhcoreClassModelMailconvMessage)) {
-                        $message = erLhcoreClassModelMailconvMessage::fetch($this->last_message_id);
+                        $message = $this->is_archive === false ? erLhcoreClassModelMailconvMessage::fetch($this->last_message_id) : \LiveHelperChat\Models\mailConv\Archive\Message::fetch($this->last_message_id);
                     }
                     if ($message instanceof erLhcoreClassModelMailconvMessage) {
                         foreach ($message->to_data_array as $toData) {
@@ -313,6 +319,7 @@ class erLhcoreClassModelMailconvConversation
     public $lang = '';
     public $opened_at = 0;
     public $phone = '';
+    public $is_archive = false;
 }
 
 ?>
