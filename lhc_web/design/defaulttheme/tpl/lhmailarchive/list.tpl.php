@@ -4,6 +4,7 @@
 <thead>
 	<tr>
 	    <th width="1%">ID</th>
+	    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Name');?></th>
 	    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','From date');?></th>
 	    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Till date');?></th>
 	    <th width="2%">&nbsp;</th>
@@ -16,6 +17,14 @@
 <?php foreach ($items as $item) : ?>
     <tr>
         <td><?php echo $item->id?></td>
+        <td>
+            <?php if ($item->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_DEFAULT) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Archive');?>">archive</span>
+            <?php else : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','Backup');?>">backup</span>
+            <?php endif; ?>
+            <?php echo htmlspecialchars($item->name)?>
+        </td>
         <td><?php echo htmlspecialchars($item->range_from_front)?> <?php if ($item->first_id > 0) : ?>[<?php echo $item->first_id?>]<?php endif;?></td>
         <td><?php echo htmlspecialchars($item->range_to_front)?> <?php if ($item->last_id > 0) : ?>[<?php echo $item->last_id?>]<?php endif;?></td>
         <td nowrap="nowrap"><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('mailarchive/listarchivemails')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/list','List mails');?></a></td>

@@ -23,7 +23,9 @@ class Range
             'year_month' => $this->year_month,
             'older_than' => $this->older_than,
             'last_id' => $this->last_id,
-            'first_id' => $this->first_id
+            'first_id' => $this->first_id,
+            'type' => $this->type,
+            'name' => $this->name
         );
     }
 
@@ -44,14 +46,18 @@ class Range
         \erLhcoreClassAbstract::getSession()->delete($this);
     }
 
-    public function process()
+    public function process($mailsToArchive = [])
     {
-        if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
-        } elseif ($this->older_than > 0) {
-            $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
+        if ($this->type == self::ARCHIVE_TYPE_DEFAULT) {
+            if ($this->range_to > 0 && $this->range_from > 0 && $this->older_than == 0) {
+                $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => $this->range_to), 'filtergt' => array('ctime' => $this->range_from)));
+            } elseif ($this->older_than > 0) {
+                $list = \erLhcoreClassModelMailconvConversation::getList(array('sort' => 'id ASC', 'limit' => 50, 'filterlt' => array('ctime' => time() - ($this->older_than * 24 *3600))));
+            } else {
+                throw new \Exception('Could not determine archive logic!');
+            }
         } else {
-            throw new \Exception('Could not determine archive logic!');
+            $list = $mailsToArchive;
         }
 
         self::$archiveConversationTable = "lhc_mailconv_conversation_archive_{$this->id}";
@@ -275,14 +281,16 @@ class Range
 
     public function createArchive()
     {
+        if ($this->type == self::ARCHIVE_TYPE_DEFAULT)
+        {
+            $items = Range::getList(array('filter' => array('type' => self::ARCHIVE_TYPE_DEFAULT, 'range_from' => $this->range_from, 'range_to' => $this->range_to)));
 
-        $items = Range::getList(array('filter' => array('range_from' => $this->range_from, 'range_to' => $this->range_to)));
-
-        if (empty($items)) {
-            $this->saveThis();
-        } else {
-            $item = array_shift($items);
-            $this->id = $item->id;
+            if (empty($items)) {
+                $this->saveThis();
+            } else {
+                $item = array_shift($items);
+                $this->id = $item->id;
+            }
         }
 
         $db = \ezcDbInstance::get();
@@ -348,6 +356,9 @@ class Range
         return $this->id;
     }
 
+    const ARCHIVE_TYPE_DEFAULT = 0;
+    const ARCHIVE_TYPE_BACKUP = 1;
+
     public $id = null;
     public $range_from = 0;
     public $range_to = 0;
@@ -355,6 +366,8 @@ class Range
     public $older_than = 0;
     public $last_id = 0;
     public $first_id = 0;
+    public $type = self::ARCHIVE_TYPE_DEFAULT;
+    public $name = '';
 
     public static $archiveConversationTable;
     public static $archiveConversationMsgTable;

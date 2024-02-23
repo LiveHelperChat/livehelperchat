@@ -17,6 +17,12 @@ if (isset($_POST['Save_archive']))
         ),
         'RangeTo' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'name' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'type' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 1)
         )
     );
 
@@ -47,6 +53,14 @@ if (isset($_POST['Save_archive']))
         }
     }
 
+    if ( $form->hasValidData( 'name' ) ) {
+        $archive->name = $form->name;
+    }
+
+    if ( $form->hasValidData( 'type' )) {
+        $archive->type = $form->type;
+    }
+
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         erLhcoreClassModule::redirect('mailarchive/archive');
         exit;
@@ -54,7 +68,13 @@ if (isset($_POST['Save_archive']))
 
     if (count($Errors) == 0)
     {
+        if ($archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_BACKUP) {
+            $archive->saveThis();
+            $archive->createArchive();
+        }
+
         $tpl->set('step_2',true);
+
     }  else {
         $tpl->set('errors',$Errors);
     }

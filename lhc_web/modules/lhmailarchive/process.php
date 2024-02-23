@@ -3,7 +3,7 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhmailarchive/process.tpl.php');
 
 $archive = \LiveHelperChat\Models\mailConv\Archive\Range::fetch($Params['user_parameters']['id']);
-
+// Show different ui for backup type archive
 $tpl->set('archive', $archive);
 
 $Result['content'] = $tpl->fetch();

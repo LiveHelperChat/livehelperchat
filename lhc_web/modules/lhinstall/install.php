@@ -426,7 +426,9 @@ try {
   `older_than` int(11) NOT NULL,
   `last_id` bigint(20) NOT NULL,
   `first_id` bigint(20) NOT NULL,
-  `year_month` int(11) NOT NULL,
+  `year_month` int(11) NOT NULL, 
+  `type` tinyint(1) unsigned NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
 

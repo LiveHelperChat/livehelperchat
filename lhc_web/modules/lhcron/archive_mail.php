@@ -13,7 +13,7 @@ $data = (array)$arOptions->data;
 
 if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
 
-    $lastArchive = \LiveHelperChat\Models\mailConv\Archive\Range::findOne(array('sort' => 'id DESC'));
+    $lastArchive = \LiveHelperChat\Models\mailConv\Archive\Range::findOne(array('sort' => 'id DESC', 'filter' => ['type' => 0]));
 
     if ($data['archive_strategy'] == 1) {
         if (!($lastArchive instanceof \LiveHelperChat\Models\mailConv\Archive\Range)) {
@@ -48,7 +48,7 @@ if (isset($data['automatic_archiving']) && $data['automatic_archiving'] == 1) {
 
     } elseif ($data['archive_strategy'] == 2) {
 
-        $lastArchive = \LiveHelperChat\Models\mailConv\Archive\Range::findOne(array('sort' => 'id DESC'));
+        $lastArchive = \LiveHelperChat\Models\mailConv\Archive\Range::findOne(array('sort' => 'id DESC', 'filter' => ['type' => 0]));
         if (!($lastArchive instanceof \LiveHelperChat\Models\mailConv\Archive\Range)) {
             $lastArchive = new \LiveHelperChat\Models\mailConv\Archive\Range();
             $lastArchive->year_month = date('Ym');
