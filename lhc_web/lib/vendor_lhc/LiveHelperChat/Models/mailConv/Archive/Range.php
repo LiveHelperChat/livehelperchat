@@ -46,6 +46,11 @@ class Range
         \erLhcoreClassAbstract::getSession()->delete($this);
     }
 
+    public function inArchive($itemId)
+    {
+        return \erLhcoreClassChat::getCount(['filter' => ['id' => $itemId]], "lhc_mailconv_conversation_archive_{$this->id}") > 0;
+    }
+
     public function process($mailsToArchive = [])
     {
         if ($this->type == self::ARCHIVE_TYPE_DEFAULT) {
@@ -124,19 +129,25 @@ class Range
 
             $db = \ezcDbInstance::get();
 
+            // Messages
+            $q = $db->createDeleteQuery();
+            $q->deleteFrom( 'lhc_mailconv_msg' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
+            $stmt = $q->prepare();
+            $stmt->execute();
+
             // Files
             foreach ($messages as $message) {
                 $q = $db->createDeleteQuery();
                 $q->deleteFrom( 'lhc_mailconv_file' )->where( $q->expr->eq( 'message_id', $message->id ) );
                 $stmt = $q->prepare();
                 $stmt->execute();
-            }
 
-            // Messages
-            $q = $db->createDeleteQuery();
-            $q->deleteFrom( 'lhc_mailconv_msg' )->where( $q->expr->eq( 'conversation_id', $item->id ) );
-            $stmt = $q->prepare();
-            $stmt->execute();
+                // If it's backup archive dispatch event for messages being removed
+                // This way elasticSEarch will remove relevant record also
+                if ($this->type == self::ARCHIVE_TYPE_BACKUP) {
+                    $message->afterRemove();
+                }
+            }
 
             // Messages Subjects
             $q = $db->createDeleteQuery();
@@ -162,6 +173,7 @@ class Range
             \erLhcoreClassMailconv::getSession()->delete($item);
 
             $item->afterRemove();
+
         }
 
         $this->updateFirstId();

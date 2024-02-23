@@ -27,7 +27,7 @@ class Archive
 
             if ($archive instanceof ArchiveModels\Range) {
                 $archive->setTables();
-                $chat = ArchiveModels\Conversation::fetch($chatId,true,true);
+                $chat = ArchiveModels\Conversation::fetch($chatId, true, true);
                 return array('archive' => $archive, 'mail' => $chat);
             }
         }
@@ -65,14 +65,27 @@ class Archive
 
         $archivesRanges = array();
 
+        $backupArchives = \LiveHelperChat\Models\mailConv\Archive\Range::getList(['limit' => false, 'filter' => ['type' => 1]]);
+
         foreach ($archivedChats as $archiveChatId) {
 
-            if (empty($archivesRanges) || ($archiveId = self::isInRange($archiveChatId, $archivesRanges)) === null) {
-                $stmt = $db->prepare('SELECT id,first_id,last_id FROM lh_mail_archive_range WHERE :chat_id_1 <= last_id && :chat_id_2 >= first_id LIMIT 1');
+            $archiveId = null;
+
+            foreach ($backupArchives as $backupArchive) {
+                if ($backupArchive->inArchive($archiveChatId)) {
+                    $archiveId = $backupArchive->id;
+                    break;
+                }
+            }
+
+            if ($archiveId == null && (empty($archivesRanges) || ($archiveId = self::isInRange($archiveChatId, $archivesRanges)) === null)) {
+                $stmt = $db->prepare('SELECT `id`,`first_id`,`last_id` FROM `lh_mail_archive_range` WHERE :chat_id_1 <= `last_id` && :chat_id_2 >= `first_id` AND `type` = 0 LIMIT 1');
                 $stmt->bindValue(':chat_id_1', $archiveChatId);
                 $stmt->bindValue(':chat_id_2', $archiveChatId);
                 $stmt->execute();
                 $dataArchive = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+
 
                 if (is_array($dataArchive)) {
                     $archivesRanges[] = $dataArchive;
