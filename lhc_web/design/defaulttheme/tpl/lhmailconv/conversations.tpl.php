@@ -113,12 +113,25 @@
                         <?php endforeach; ?>
                     </table>
                     <script>
-                        $('#check-all-items').change(function(){
-                            if ($(this).is(':checked')){
-                                $('input[name="ConversationID[]"]').attr('checked','checked');
-                            } else {
-                                $('input[name="ConversationID[]"]').removeAttr('checked');
+                        $(function() {
+                            function updateDeleteArchiveUI(){
+                                let lengthChecked = $('input[name="ConversationID[]"]:checked').length;
+                                if (lengthChecked == 0){
+                                    $('#delete-archive-btn').prop('disabled',true);
+                                } else {
+                                    $('#delete-archive-btn').prop('disabled',false);
+                                }
+                                $('#delete-archive').text(lengthChecked);
                             }
+                            $('#check-all-items').change(function(){
+                                if ($(this).is(':checked')){
+                                    $('input[name="ConversationID[]"]').attr('checked','checked');
+                                } else {
+                                    $('input[name="ConversationID[]"]').removeAttr('checked');
+                                }
+                                updateDeleteArchiveUI();
+                            });
+                            $('input[name="ConversationID[]"]').change(updateDeleteArchiveUI);
                         });
                     </script>
 
@@ -148,7 +161,7 @@
                         <?php endif; ?>
 
                         <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
-                            <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete and archive selected', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5'+getCheckedElements()+'?<?php echo $appendPrintExportURL?>'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete and archive selected');?></button>
+                            <button type="button" class="btn btn-danger" id="delete-archive-btn" disabled onclick="return lhc.revealModal({'title' : 'Delete and archive selected', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5'+getCheckedElements()+'?<?php echo $appendPrintExportURL?>'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete and archive selected');?> (<span id="delete-archive">0</span>)</button>
                             <button type="button" class="btn btn-danger" onclick="return lhc.revealModal({'title' : 'Delete all archive', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/5?<?php echo $appendPrintExportURL?>'})" ><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete and archive all')?> (<?php echo $pages->items_total?>)</button>
                             <script>
                                 function getCheckedElements(){
