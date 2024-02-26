@@ -116,7 +116,8 @@
                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
                         <input type="submit" name="doClose" class="btn btn-warning" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Close selected');?>" />
                         <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','deleteglobalchat') || erLhcoreClassUser::instance()->hasAccessTo('lhchat','deletechat')) : ?>
-                        <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?>" />
+
+                        <button type="submit" name="doDelete" disabled id="delete-selected-btn" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
 
                         <?php if ($pages->items_total > 0) : ?>
                             <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/3'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
@@ -145,7 +146,18 @@ $( document ).ready(function() {
         } else {
             $('input[name="ChatID[]"]').removeAttr('checked');
         }
+        updateDeleteArchiveUI();
     });
+    function updateDeleteArchiveUI(){
+        let lengthChecked = $('input[name="ChatID[]"]:checked').length;
+        if (lengthChecked == 0){
+            $('#delete-selected-btn').prop('disabled',true);
+        } else {
+            $('#delete-selected-btn').prop('disabled',false);
+        }
+        $('#delete-selected').text(lengthChecked);
+    };
+    $('input[name="ChatID[]"]').change(updateDeleteArchiveUI);
 });
 </script>
 

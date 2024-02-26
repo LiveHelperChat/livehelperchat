@@ -117,11 +117,13 @@
                             function updateDeleteArchiveUI(){
                                 let lengthChecked = $('input[name="ConversationID[]"]:checked').length;
                                 if (lengthChecked == 0){
-                                    $('#delete-archive-btn').prop('disabled',true);
+                                    $('#delete-archive-btn,#delete-selected-btn').prop('disabled',true);
                                 } else {
-                                    $('#delete-archive-btn').prop('disabled',false);
+                                    $('#delete-archive-btn,#delete-selected-btn').prop('disabled',false);
                                 }
+
                                 $('#delete-archive').text(lengthChecked);
+                                $('#delete-selected').text(lengthChecked);
                             }
                             $('#check-all-items').change(function(){
                                 if ($(this).is(':checked')){
@@ -154,7 +156,7 @@
                         <?php endif; ?>
 
                         <?php if ($can_delete === true) : ?>
-                            <input type="submit" name="doDelete" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Delete selected');?>" />
+                            <button type="submit" name="doDelete" disabled id="delete-selected-btn" class="btn btn-danger" onclick="return confirm(confLH.transLation.delete_confirm)" value=""><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete selected');?> (<span id="delete-selected">0</span>)</button>
 
                         <?php if ($pages->items_total > 0) : $appendPrintExportURL = '';?>
                             <button type="button" onclick="return lhc.revealModal({'title' : 'Delete all', 'height':350, backdrop:true, 'url':'<?php echo $pages->serverURL?>/(export)/4?<?php echo $appendPrintExportURL?>'})" class="btn btn-danger btn-sm"><span class="material-icons">delete_sweep</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Delete all items')?> (<?php echo $pages->items_total?>)</button>
