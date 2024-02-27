@@ -42,18 +42,6 @@ if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
 	$form = new ezcInputForm( INPUT_POST, $definition );
 	$Errors = array();
 
-	if ( !$form->hasValidData( 'RangeFrom' ) || $form->RangeFrom == '' )
-	{
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid from date range!');
-	} else {
-		$range = explode('-', $form->RangeFrom);
-		if (checkdate($range[1], $range[2], $range[0])){
-			$archive->range_from = mktime(0,0,0,$range[1],$range[2],$range[0]);
-		} else {
-			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid from date range!');
-		}
-	}
-
     if ( $form->hasValidData( 'name' ) ) {
         $archive->name = $form->name;
     }
@@ -62,17 +50,33 @@ if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
         $archive->type = $form->type;
     }
 
-	if ( !$form->hasValidData( 'RangeTo' ) || $form->RangeTo == '' )
-	{
-		$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid to date range!');
-	} else {
-		$range = explode('-', $form->RangeTo);
-		if (checkdate($range[1], $range[2], $range[0])){
-			$archive->range_to = mktime(0,0,0,$range[1],$range[2],$range[0]);
-		} else {
-			$Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid to date range!');
-		}
-	}
+    if ($archive->type == \LiveHelperChat\Models\mailConv\Archive\Range::ARCHIVE_TYPE_DEFAULT) {
+
+        if ( !$form->hasValidData( 'RangeFrom' ) || $form->RangeFrom == '' )
+        {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid from date range!');
+        } else {
+            $range = explode('-', $form->RangeFrom);
+            if (checkdate($range[1], $range[2], $range[0])){
+                $archive->range_from = mktime(0,0,0,$range[1],$range[2],$range[0]);
+            } else {
+                $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid from date range!');
+            }
+        }
+
+        if ( !$form->hasValidData( 'RangeTo' ) || $form->RangeTo == '' )
+        {
+            $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid to date range!');
+        } else {
+            $range = explode('-', $form->RangeTo);
+            if (checkdate($range[1], $range[2], $range[0])){
+                $archive->range_to = mktime(0,0,0,$range[1],$range[2],$range[0]);
+            } else {
+                $Errors[] =  erTranslationClassLhTranslation::getInstance()->getTranslation('chatarchive/newarchive','Please enter a valid to date range!');
+            }
+        }
+    }
+
 
 	if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
 		erLhcoreClassModule::redirect('mailarchive/archive');
@@ -87,7 +91,7 @@ if (isset($_POST['Save_archive']) || isset($_POST['Save_and_continue_archive']))
 			erLhcoreClassModule::redirect('mailarchive/process','/'.$archive->id);
 			exit;
 		}
-        
+
 		$tpl->set('updated',true);
 
 	}  else {
